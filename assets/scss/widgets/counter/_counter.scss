@@ -1,0 +1,37 @@
+.pp-counter {
+    display: inline-block;
+    &-icon-wrap,
+    &-icon,
+    &-icon-divider,
+    &-num-divider {
+        display: inline-block;
+    }
+    &-icon {
+        line-height: 1;
+    }
+    &-layout-3,
+    &-layout-4 {
+        &-number-wrap,
+        .pp-icon-title-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &-layout-5,
+    &-layout-6 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &-layout-6 {
+        .pp-counter-icon-wrap {
+            order: 2;
+        }
+    }
+    .pp-icon-title-wrap {
+        .pp-counter-title {
+            display: inline-block;
+        }
+    }
+}

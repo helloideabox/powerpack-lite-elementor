@@ -1,0 +1,14 @@
+div[class^='pa-'],
+div[class*=' pa-'] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.clearfix:after {
+    clear: both;
+    content: "";
+    font-size: 0;
+    height: 0;
+    display: block;
+    visibility: hidden;
+}

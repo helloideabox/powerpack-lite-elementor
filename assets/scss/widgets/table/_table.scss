@@ -1,0 +1,40 @@
+.pp-table {
+    border: none;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    vertical-align: inherit;
+    width: 100%;
+    &-left {
+        .pp-table {
+            margin-left: 0;
+            margin-right: auto;
+        }
+    }
+    &-center {
+        .pp-table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    &-right {
+        .pp-table {
+            margin-left: auto;
+            margin-right: 0;
+        }
+    }
+    &-cell-icon-before {
+        margin-right: 10px;
+    }
+    &-cell-icon-after {
+        order: 2;
+        margin-left: 10px;
+    }
+    &-container {
+        overflow-x: auto;
+    }
+    .pp-table-cell-content {
+        display: flex;
+    }
+}

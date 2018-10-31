@@ -1,0 +1,268 @@
+.pp-card-slider {
+    width: 100%;
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 25px;
+    border-radius: 25px;
+    height: 400px;
+    transition: all .3s;
+    &-item {
+        display: flex;
+        align-items: center;
+        &.swiper-slide-active {
+            .pp-card-slider-image {
+                img {
+                    opacity: 1;
+                    transition-delay: .3s;
+                }
+            }
+            .pp-card-slider-content-wrap {
+                > * {
+                    opacity: 1;
+                    transform: none;
+                    @for $i from 0 to 15 {
+                        &:nth-child(#{$i + 1}) {
+                            transition-delay: $i * 0.1 + 0.3s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .pp-card-slider-item {
+        overflow: visible;
+    }
+    &-image {
+        width: 300px;
+        flex-shrink: 0;
+        height: 300px;
+        border-radius: 20px;
+        margin-left: -80px;
+        margin-right: 40px;
+        overflow: hidden;
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            opacity: 0.8;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0;
+            border-radius: 20px;
+            transition: all .3s;
+        }
+        &-right {
+            .pp-card-slider-image {
+                order: 1;
+                margin: 0 -80px 0 40px;
+            }
+            .pp-card-slider-content-wrap {
+                padding-left: 25px;
+                padding-right: 0;
+            }
+            &.pp-card-slider-dots-aside .swiper-pagination {
+                left: 20px;
+                right: auto;
+            }
+        }
+    }
+
+    &-content-wrap {
+        padding-right: 25px;
+    
+        @media screen and (max-width: 576px) {
+            padding: 0
+        }
+        > * {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all .4s;
+        }
+    }
+    &-meta {
+        color: #7b7992;
+        font-weight: 500;
+        margin-bottom: 15px;
+        > span:not(:last-child):after {
+            content: '-';
+            margin: 0 4px;
+        }
+    }
+    &-meta-icon {
+        margin-right: 4px;
+    }
+    &-date {
+        display: block;
+    }
+  
+    &-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #0d0925;
+        margin-bottom: 15px;
+        a {
+            color: inherit;
+        }
+    }
+  
+    &-content {
+        color: #4e4a67;
+        margin-bottom: 30px;
+        line-height: 1.5em;
+    }
+  
+    &-button {
+        display: inline-flex;
+        padding: 15px 35px;
+        border-radius: 50px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        justify-content: center;
+        text-align: center;
+        letter-spacing: 1px;
+        @media screen and (max-width: 576px) {
+            width: 100%;
+        }
+    }
+    .swiper-container-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+    }
+    .swiper-pagination {
+        position: absolute;
+        z-index: 21;
+        width: 11px;
+        text-align: center;
+    }
+    &-dots-aside {
+        .swiper-pagination {
+            right: 20px;
+            left: auto;
+            top: 50%;
+            bottom: auto;
+            transform: translateY(-50%);
+        }
+        .swiper-pagination-bullets .swiper-pagination-bullet {
+            margin: 8px 0;
+        }
+    }
+    &-dots-bottom {
+        .swiper-pagination {
+            bottom: 15px;
+            transform: translateX(-50%);
+            left: 50%;
+            top: auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-pagination-bullets .swiper-pagination-bullet {
+            margin: 0 5px;
+        }
+    }
+    .swiper-pagination-bullet {
+        width: 11px;
+        height: 11px;
+        display: block;
+        border-radius: 10px;
+        background: #062744;
+        opacity: 0.2;
+        transition: all .3s;
+        &-active {
+            opacity: 1;
+            background: #545454;
+            height: 30px;
+        }
+    }
+}
+.pp-card-slider .pp-card-slider-image a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.pp-card-slider-box-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    display: block;
+    z-index: 11;
+}
+@mixin card-slider--tablet {
+    .pp-card-slider {
+        max-width: 680px;
+        height: 400px;
+    }
+}
+@mixin card-slider--mobile {
+    .pp-card-slider {
+        height: auto;
+        margin: 180px auto 0;
+    }
+    .pp-card-slider {
+        &-item {
+            flex-direction: column;
+        }
+        &-image {
+            margin: -180px 0 40px;
+            width: 100%;
+            &-right {
+                .pp-card-slider-image {
+                    margin: -180px 0 40px;
+                    order: 0;
+                }
+            }
+        }
+        &-image {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+        &-image-right .pp-card-slider .swiper-pagination,
+        .swiper-pagination {
+            bottom: 15px;
+            transform: translateX(-50%);
+            left: 50%;
+            top: auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-pagination-bullets .swiper-pagination-bullet {
+            margin: 0 5px;
+        }
+        .swiper-pagination-bullet {
+            &-active {
+                height: 11px;
+                width: 11px;
+            }
+        }
+    }
+    .pp-card-slider-content-wrap,
+    .pp-card-slider-image-right .pp-card-slider-content-wrap {
+        text-align: center;
+        padding: 0;
+    }
+}

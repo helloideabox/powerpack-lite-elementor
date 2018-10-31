@@ -1,0 +1,212 @@
+.pp-one-page-nav-container {
+    position: fixed;
+    margin-right: 20px;
+    right: 0;
+    z-index: 999;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    .nav-align-top &,
+    .nav-align-bottom & {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+    }
+    .nav-align-top & {
+        top: 0;
+        margin-top: 20px;
+    }
+    .nav-align-bottom & {
+        bottom: 0;
+        margin-bottom: 20px;
+        top: auto;
+    }
+    .nav-align-left & {
+        left: 0;
+        margin-left: 20px;
+        right: auto;
+    }
+    .pp-one-page-nav {
+        font-size: 0;
+        line-height: 0;
+    }
+    .pp-one-page-nav,
+    .pp-one-page-nav-item {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+.nav-align-top,
+.nav-align-bottom {
+    .pp-one-page-nav-item {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+        &:last-child {
+            margin-right: 0 !important;
+        }
+    }
+}
+.pp-one-page-nav-item {
+    margin-bottom: 10px;
+    position: relative;
+    line-height: 1;
+    text-align: center;
+    &:last-child {
+        margin-bottom: 0 !important;
+    }
+    &:hover {
+        .pp-nav-dot-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    a:focus {
+        outline: none;
+    }
+    .pp-nav-dot {
+        display: block;
+    }
+}
+.pp-nav-dot-tooltip {
+    color: #000;
+    font-size: 14px;
+    line-height: 1.3;
+    opacity: 0;
+    position: absolute;
+    width: 200px;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    &.pp-tooltip-arrow:after {
+        width: 0; 
+        height: 0; 
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid;
+        position: absolute;
+        right: -5px;
+        content: '';
+        top: 50%;
+        transform: translateY(-50%);
+        content: '';
+    }
+}
+.nav-align-top,
+.nav-align-bottom {
+    .pp-nav-dot-tooltip {
+        text-align: center;
+        left: -95px;
+        &.pp-tooltip-arrow:after {
+            border-bottom: 5px solid;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            left: 50%;
+            content: '';
+            top: -10px;
+            transform: translate3d(-50%, 0, 0);
+            right: auto;
+        }
+    }
+}
+.nav-align-top {
+    .pp-nav-dot-tooltip {
+        top: 30px;
+        transform: translateY(15px) translateX(0);
+        -webkit-transform: translateY(15px) translateX(0);
+    }
+    .pp-one-page-nav-item:hover {
+        .pp-nav-dot-tooltip {
+            transform: translateY(0) translateX(0);
+            -webkit-transform: translateY(0) translateX(0);
+        }   
+    }
+}
+.nav-align-bottom {
+    .pp-nav-dot-tooltip {
+        bottom: 30px;
+        transform: translateY(-15px) translateX(0);
+        -webkit-transform: translateY(-15px) translateX(0);
+        &.pp-tooltip-arrow:after {
+            border-top: 5px solid;
+            border-bottom: 5px solid transparent;
+            bottom: -10px;
+            top: auto;
+        }
+    }
+    .pp-one-page-nav-item:hover {
+        .pp-nav-dot-tooltip {
+            transform: translateY(0) translateX(0);
+            -webkit-transform: translateY(0) translateX(0);
+        }   
+    }
+}
+.nav-align-right {
+    .pp-nav-dot-tooltip {
+        right: 40px;
+        text-align: right;
+        top: 50%;
+        transform: translateY(-50%) translateX(-15px);
+        -webkit-transform: translateY(-50%) translateX(-15px);
+    }
+    .pp-one-page-nav-item:hover {
+        .pp-nav-dot-tooltip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+            -webkit-transform: translateY(-50%) translateX(0);
+        }   
+    }
+}
+.nav-align-left {
+    .pp-nav-dot-tooltip {
+        left: 40px;
+        top: 50%;
+        text-align: left;
+        transform: translateY(-50%) translateX(15px);
+        -webkit-transform: translateY(-50%) translateX(15px);
+        &.pp-tooltip-arrow:after {
+            border-right: 5px solid;
+            border-left: 5px solid transparent;
+            left: -10px;
+            right: auto;
+        }
+    }
+    .pp-one-page-nav-item:hover {
+        .pp-nav-dot-tooltip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+            -webkit-transform: translateY(-50%) translateX(0);
+        }
+    }
+}
+.pp-nav-dot-tooltip-content {
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.pp-nav-dot {
+    color: #000;
+    display: block;
+    font-size: 10px;
+    line-height: 1;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    transition: color 0.3s ease, border 0.3s ease;
+}
+.pp-nav-dot-wrap {
+    display: block;
+    transition: all 0.3s ease, border 0.3s ease;
+}
+.admin-bar {
+    .nav-align-top {
+        .pp-one-page-nav-container {
+            top: 32px;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@media (min-width: 768px) {
+    @include menu--sm();
+}
+@media only screen and (min-width: 1025px) {
+    @include menu--md();
+    @include grid--desktop();
+}
+@media (max-width: 1024px) {
+    @include menu--tablet();
+    @include image-slider--tablet();
+    @include info-box--tablet();
+    @include info-list--tablet();
+    @include showcase--tablet();
+    @include card-slider--tablet();
+    @include buttons--tablet();
+}
+@media only screen and (max-width: 1024px) and (min-width: 766px) {
+    @include grid--tablet();
+}
+@media only screen and (max-width: 767px) {
+    @include image-slider--mobile();
+    @include tiled-posts--mobile();
+    @include recipe--mobile();
+    @include info-box--mobile();
+    @include countdown--mobile();
+    @include info-list--mobile();
+    @include grid--mobile();
+    @include showcase--mobile();
+    @include card-slider--mobile();
+    @include buttons--mobile();
+}

@@ -1,0 +1,5275 @@
+# Translation of PowerPack Elements in Portuguese (Brazil)
+# This file is distributed under the same license as the PowerPack Elements package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-06-10 02:44:09+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: GlotPress/2.3.1\n"
+"Language: pt_BR\n"
+"Project-Id-Version: PowerPack Elements\n"
+
+#: includes/widgets/pp-team-member.php:201
+msgid "Select Icon"
+msgstr "Selecione o ícone"
+
+#: includes/widgets/pp-team-member.php:205
+msgid "Social Link"
+msgstr "Link social"
+
+#: includes/widgets/pp-team-member.php:273
+msgid "Social Links Position"
+msgstr "Posição dos links sociais"
+
+#: includes/widgets/pp-tiled-posts.php:101
+msgid "Content Position"
+msgstr "Posição de Conteúdo"
+
+#: includes/widgets/pp-tiled-posts.php:125
+msgid "Post Title"
+msgstr "Título do post"
+
+#: includes/widgets/pp-tiled-posts.php:137
+msgid "Post Excerpt"
+msgstr "Resumo de post"
+
+#: includes/widgets/pp-tiled-posts.php:149
+msgid "Excerpt Length"
+msgstr "Comprimento de resumo"
+
+#: includes/widgets/pp-tiled-posts.php:164
+#: includes/widgets/pp-tiled-posts.php:181
+msgid "Read More"
+msgstr "Leia mais"
+
+#: includes/widgets/pp-tiled-posts.php:179
+msgid "Read More Text"
+msgstr "Leia mais texto"
+
+#: includes/widgets/pp-tiled-posts.php:205
+msgid "Query"
+msgstr "Consulta"
+
+#: includes/widgets/pp-tiled-posts.php:212
+msgid "Post Type"
+msgstr "Tipo de post"
+
+#: includes/widgets/pp-tiled-posts.php:223
+msgid "Categories"
+msgstr "Categorias"
+
+#: includes/widgets/pp-tiled-posts.php:237
+msgid "Authors"
+msgstr "Autores"
+
+#: includes/widgets/pp-tiled-posts.php:248
+msgid "Tags"
+msgstr "Tag"
+
+#: includes/widgets/pp-tiled-posts.php:259
+msgid "Exclude Posts"
+msgstr "Excluir post"
+
+#: includes/widgets/pp-tiled-posts.php:270
+msgid "Order"
+msgstr "Ordem"
+
+#: includes/widgets/pp-tiled-posts.php:273
+msgid "Descending"
+msgstr "Descendente"
+
+#: includes/widgets/pp-tiled-posts.php:274
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: includes/widgets/pp-tiled-posts.php:283
+msgid "Order By"
+msgstr "Ordenar por"
+
+#: includes/widgets/pp-tiled-posts.php:287
+msgid "Last Modified Date"
+msgstr "Data da última modificação"
+
+#: includes/widgets/pp-tiled-posts.php:288
+msgid "Rand"
+msgstr "Rand"
+
+#: includes/widgets/pp-tiled-posts.php:289
+msgid "Comment Count"
+msgstr "Contagem de comentário"
+
+#: includes/widgets/pp-tiled-posts.php:291
+msgid "Post ID"
+msgstr "ID de post"
+
+#: includes/widgets/pp-tiled-posts.php:292
+#: includes/widgets/pp-tiled-posts.php:349
+msgid "Post Author"
+msgstr "Post Autor"
+
+#: includes/widgets/pp-tiled-posts.php:301
+msgid "Offset"
+msgstr "Compensar"
+
+#: includes/widgets/pp-tiled-posts.php:315
+#: includes/widgets/pp-tiled-posts.php:322
+#: includes/widgets/pp-tiled-posts.php:621
+msgid "Post Meta"
+msgstr "Meta de Post"
+
+#: includes/widgets/pp-tiled-posts.php:334
+msgid "Post Meta Divider"
+msgstr "Divisor meta do post"
+
+#: includes/widgets/pp-tiled-posts.php:364
+#: includes/widgets/pp-tiled-posts.php:504
+msgid "Post Category"
+msgstr "Categoria de post"
+
+#: includes/widgets/pp-tiled-posts.php:379
+msgid "Post Date"
+msgstr "Data de post"
+
+#: includes/widgets/pp-tiled-posts.php:412
+msgid "Post Content Background"
+msgstr "Fundo de conteúdo do post"
+
+#: includes/widgets/pp-tiled-posts.php:515
+msgid "Category Style"
+msgstr "Estilo de categoria"
+
+#: includes/widgets/pp-tiled-posts.php:786
+msgid "Posted on"
+msgstr "Postado em"
+
+#: includes/widgets/pp-tiled-posts.php:796
+msgid "Read Story"
+msgstr "Leia a história"
+
+#: powerpack-elements.php:58
+msgid "PowerPack requires Elementor plugin to be active. Please activate Elementor to continue."
+msgstr "O PowerPack requer que o plugin elementor esteja ativo. ative o elementor para continuar."
+
+#: powerpack-elements.php:59
+msgid "Activate Elementor"
+msgstr "Ativar elementor"
+
+#: powerpack-elements.php:67
+msgid "PowerPack requires %1$s\"Elementor\"%2$s plugin to be installed and activated. Please install Elementor to continue."
+msgstr "PowerPack requer %1$s\"o plugin elementor\"%2$s para ser instalado e ativado.  instale o elementor para continuar."
+
+#: powerpack-elements.php:68
+msgid "Install Elementor"
+msgstr "Instalar elementor"
+
+#: powerpack-elements.php:88
+msgid "PowerPack requires Elementor version at least "
+msgstr "PowerPack requer a versão elementor pelo menos"
+
+#: powerpack-elements.php:101
+msgid "PowerPack requires PHP version "
+msgstr "PowerPack requer a versão do PHP"
+
+#: includes/widgets/pp-google-maps.php:232
+msgid "Map Zoom"
+msgstr "Zoom de Mapa "
+
+#: includes/widgets/pp-instafeed.php:241
+msgid "Likes"
+msgstr "Gostos"
+
+#: includes/widgets/pp-team-member-carousel.php:259
+#: includes/widgets/pp-team-member.php:253
+msgid "Position HTML Tag"
+msgstr "Posicionar tag html"
+
+#: classes/class-pp-admin-settings.php:126
+msgid "Settings updated!"
+msgstr "Configurações atualizadas!"
+
+#: includes/widgets/pp-google-maps.php:249
+msgid "Map Type"
+msgstr "Tipo de mapa"
+
+#: includes/widgets/pp-instafeed.php:253
+msgid "Comments"
+msgstr "Comentários"
+
+#: includes/widgets/pp-team-member-carousel.php:279
+msgid "Social Icons Position"
+msgstr "Posição social dos ícones"
+
+#: classes/class-pp-admin-settings.php:370
+msgid "Modules settings updated!"
+msgstr "Configurações de módulos atualizadas!"
+
+#: includes/widgets/pp-google-maps.php:253
+msgid "Road Map"
+msgstr "Mapa da estrada"
+
+#: includes/widgets/pp-instafeed.php:265
+msgid "Content Visibility"
+msgstr "Visibilidade de conteúdo"
+
+#: includes/widgets/pp-team-member-carousel.php:283
+#: includes/widgets/pp-team-member.php:277
+msgid "Before Description"
+msgstr "Antes da descrição"
+
+#: includes/admin-settings-license.php:1
+msgid "Enter your <a href=\"%s\" target=\"_blank\">license key</a> to enable remote updates and support."
+msgstr "Insira o sua <a href=\"%s\" target=\"_blank\">chave de licença</a> para habilitar atualizações remotas e suporte."
+
+#: includes/widgets/pp-google-maps.php:254
+msgid "Satellite"
+msgstr "Satélite"
+
+#: includes/widgets/pp-instafeed.php:269
+msgid "Always"
+msgstr "Sempre"
+
+#: includes/widgets/pp-team-member-carousel.php:284
+#: includes/widgets/pp-team-member.php:278
+msgid "After Description"
+msgstr "Depois da descrição"
+
+#: includes/admin-settings-license.php:6
+msgid "License Key"
+msgstr "Chave de licença"
+
+#: includes/widgets/pp-google-maps.php:255
+msgid "Hybrid"
+msgstr "Híbrido"
+
+#: includes/widgets/pp-instafeed.php:270
+msgid "On Hover"
+msgstr "Sobre o hover(passar o mouse)"
+
+#: includes/widgets/pp-team-member-carousel.php:295
+#: includes/widgets/pp-team-member.php:291
+msgid "Overlay Content"
+msgstr "Conteúdo de sobreposição"
+
+#: includes/admin-settings-license.php:15
+msgid "License Status"
+msgstr "Status da licença"
+
+#: includes/widgets/pp-google-maps.php:256
+msgid "Terrain"
+msgstr "Terreno"
+
+#: includes/widgets/pp-instafeed.php:278
+msgid "Open Image in Popup"
+msgstr "Abrir imagem no pop-up"
+
+#: includes/widgets/pp-team-member-carousel.php:300
+#: includes/widgets/pp-team-member-carousel.php:1377
+#: includes/widgets/pp-team-member.php:296
+msgid "Social Icons"
+msgstr "Ícones sociais"
+
+#: includes/admin-settings-license.php:19
+msgid "active"
+msgstr "Ativo"
+
+#: includes/widgets/pp-google-maps.php:266
+msgid "Controls"
+msgstr "Controles"
+
+#: includes/widgets/pp-instafeed.php:290
+msgid "Show Link to Instagram Profile?"
+msgstr "Mostrar link para o perfil do Instagram?"
+
+#: includes/widgets/pp-team-member-carousel.php:301
+#: includes/widgets/pp-team-member.php:297
+msgid "Content + Social Icons"
+msgstr "Conteúdo + ícones sociais"
+
+#: includes/admin-settings-license.php:21
+msgid "Deactivate License"
+msgstr "Desativar licença"
+
+#: includes/widgets/pp-google-maps.php:273
+msgid "Street View Controls"
+msgstr "Controles da visualização de rua"
+
+#: includes/widgets/pp-instafeed.php:302
+msgid "Link Title"
+msgstr "Título do Link"
+
+#: includes/widgets/pp-team-member-carousel.php:309
+#: includes/widgets/pp-team-member.php:306
+msgid "Divider after Name"
+msgstr "Divisor depois do nome"
+
+#: includes/admin-settings-license.php:27
+msgid "Activate License"
+msgstr "Ativar licença"
+
+#: includes/widgets/pp-google-maps.php:285
+msgid "Map Type Control"
+msgstr "Controle do tipo de mapa"
+
+#: includes/widgets/pp-instafeed.php:304
+msgid "Follow Us @ Instagram"
+msgstr "Siga-nos @ Instagram"
+
+#: includes/widgets/pp-team-member-carousel.php:322
+#: includes/widgets/pp-team-member.php:319
+msgid "Divider after Position"
+msgstr "Divisor depois da posição"
+
+#: includes/admin-settings-license.php:28
+msgid "Please click the Activate License button to activate your license."
+msgstr "Clique no botão para ativar sua licença."
+
+#: includes/widgets/pp-google-maps.php:297
+msgid "Zoom Control"
+msgstr "Controle de zoom"
+
+#: includes/widgets/pp-instafeed.php:314
+msgid "Instagram Profile URL"
+msgstr "URL do perfil do Instagram"
+
+#: includes/widgets/pp-team-member-carousel.php:334
+#: includes/widgets/pp-team-member.php:334
+msgid "Divider after Description"
+msgstr "Divisor depois da descrição"
+
+#: includes/admin-settings-license.php:35
+msgid "Google Map API Key"
+msgstr "Chave da API do Google Maps"
+
+#: includes/widgets/pp-google-maps.php:309
+msgid "Fullscreen Control"
+msgstr "Controle da tela inteira"
+
+#: includes/widgets/pp-instafeed.php:329
+msgid "Title Icon"
+msgstr "Ícone do título"
+
+#: includes/widgets/pp-team-member-carousel.php:351
+msgid "Slider Settings"
+msgstr "Configurações do Slider"
+
+#: includes/admin-settings-modules.php:11
+msgid "Enable/Disable Widgets"
+msgstr "Ativar/desativar widgets"
+
+#: includes/widgets/pp-google-maps.php:321
+msgid "Scroll Wheel Zoom"
+msgstr "Zoom da rolagem da roda"
+
+#: includes/widgets/pp-instafeed.php:344
+msgid "Before Title"
+msgstr "Antes do título"
+
+#: includes/widgets/pp-team-member-carousel.php:877
+#: includes/widgets/pp-team-member-carousel.php:1080
+#: includes/widgets/pp-team-member-carousel.php:1283
+#: includes/widgets/pp-team-member.php:708
+#: includes/widgets/pp-team-member.php:911
+#: includes/widgets/pp-team-member.php:1136
+msgid "Divider Width"
+msgstr "Largura do Divisor"
+
+#: includes/admin-settings-wl.php:7
+msgid "Plugin Name"
+msgstr "Nome do plugin"
+
+#: includes/widgets/pp-google-maps.php:335
+msgid "Map Style"
+msgstr "Estilo do mapa"
+
+#: includes/widgets/pp-instafeed.php:345
+msgid "After Title"
+msgstr "Depois do título"
+
+#: includes/widgets/pp-team-member-carousel.php:907
+#: includes/widgets/pp-team-member-carousel.php:1110
+#: includes/widgets/pp-team-member-carousel.php:1313
+#: includes/widgets/pp-team-member.php:738
+#: includes/widgets/pp-team-member.php:941
+#: includes/widgets/pp-team-member.php:1168
+msgid "Divider Height"
+msgstr "Altura do Divisor"
+
+#: includes/admin-settings-wl.php:15
+msgid "Plugin Description"
+msgstr "Descrição do Plugin"
+
+#: includes/widgets/pp-google-maps.php:342
+msgid "Map Theme"
+msgstr "Tema do Mapa"
+
+#: includes/widgets/pp-instafeed.php:460
+msgid "Enter carousel speed"
+msgstr "Insira a velocidade do carrossel"
+
+#: includes/widgets/pp-team-member-carousel.php:1385
+#: includes/widgets/pp-team-member.php:1244
+msgid "Icons Gap"
+msgstr "Espaço de ícones"
+
+#: includes/admin-settings-wl.php:23
+msgid "Developer / Agency Name"
+msgstr "Desenvolvedor / nome da agência"
+
+#: includes/widgets/pp-google-maps.php:346
+#: includes/widgets/pp-modal-popup.php:99
+msgid "Standard"
+msgstr "Padrão"
+
+#: includes/widgets/pp-instafeed.php:525 includes/widgets/pp-instafeed.php:583
+msgid "Grayscale Image"
+msgstr "Grayscale imagem"
+
+#: includes/widgets/pp-team-member-carousel.php:1445
+#: includes/widgets/pp-team-member-carousel.php:1515
+msgid "Icons Color"
+msgstr "Cor dos ícones"
+
+#: includes/admin-settings-wl.php:31
+msgid "Website URL"
+msgstr "URL do site"
+
+#: includes/widgets/pp-google-maps.php:347
+msgid "Silver"
+msgstr "Prata"
+
+#: includes/widgets/pp-instafeed.php:555 includes/widgets/pp-instafeed.php:613
+msgid "Overlay Opacity"
+msgstr "Opacidade de sobreposição"
+
+#: includes/widgets/pp-team-member.php:105
+msgid "Show Description"
+msgstr "Mostre a descrição"
+
+#: includes/admin-settings-wl.php:39
+msgid "Admin Label"
+msgstr "Rótulo de administração"
+
+#: includes/widgets/pp-google-maps.php:348
+msgid "Retro"
+msgstr "Retro"
+
+#: includes/widgets/pp-instafeed.php:636
+msgid "Likes and Comments Color"
+msgstr "Gostos e cor de comentários"
+
+#: includes/widgets/pp-team-member.php:161
+msgid "Show Social Links"
+msgstr "Mostrar links sociais"
+
+#: includes/admin-settings-wl.php:47
+msgid "Support Link"
+msgstr "Link de suporte"
+
+#: includes/widgets/pp-google-maps.php:349
+msgid "Dark"
+msgstr "Escuro"
+
+#: includes/widgets/pp-instafeed.php:654
+msgid "Feed Title"
+msgstr "Título de Feed"
+
+#: includes/widgets/pp-team-member.php:198
+msgid "Social Icon"
+msgstr "Ícone social"
+
+#: includes/admin-settings-wl.php:55
+msgid "Hide Support Message"
+msgstr "Ocultar mensagem de suporte"
+
+#: includes/widgets/pp-google-maps.php:350
+msgid "Night"
+msgstr "Noite"
+
+#: includes/widgets/pp-link-effects.php:88
+#: includes/widgets/pp-link-effects.php:97
+#: includes/widgets/pp-modal-popup.php:360
+msgid "Click Here"
+msgstr "Clique aqui"
+
+#: includes/admin-settings-wl.php:65
+msgid "Hide White Label Settings"
+msgstr "Ocultar as configurações do White Label"
+
+#: includes/widgets/pp-google-maps.php:351
+msgid "Aubergine"
+msgstr "Beringela"
+
+#: includes/widgets/pp-link-effects.php:95
+msgid "Secondary Text"
+msgstr "Texto Secundário"
+
+#: includes/admin-settings-wl.php:75
+msgid "Hide Plugin"
+msgstr "Esconder plugin"
+
+#: includes/widgets/pp-google-maps.php:360
+#: includes/widgets/pp-logo-grid.php:119
+msgid "Custom Style"
+msgstr "Estilo personalizado"
+
+#: includes/widgets/pp-link-effects.php:122
+msgid "Bottom Border Slides In"
+msgstr "Borda inferior do Slides In"
+
+#: includes/admin-settings-wl.php:86
+msgid "You can hide this form to prevent your client from seeing these settings."
+msgstr "Você pode ocultar este formulário para impedir que seu cliente veja essas configurações."
+
+#: includes/widgets/pp-google-maps.php:361
+msgid "to get JSON style code to style your map"
+msgstr "obter código de estilo JSON para estilizar seu mapa"
+
+#: includes/widgets/pp-link-effects.php:123
+msgid "Bottom Border Slides Out"
+msgstr "Borda inferior do Slides Out"
+
+#: includes/admin-settings-wl.php:87
+msgid "To re-enable the form, you will need to first deactivate the plugin and activate it again."
+msgstr "Para reativar o formulário, você precisará primeiro desabilitar o plugin e ativá-lo novamente."
+
+#: includes/widgets/pp-google-maps.php:382
+msgid "Map"
+msgstr "Mapa"
+
+#: includes/widgets/pp-link-effects.php:124
+msgid "Brackets"
+msgstr "Colchetes"
+
+#: includes/admin-settings-wl.php:96
+msgid "Done! To re-enable the form, you will need to first deactivate the plugin and activate it again."
+msgstr "Feito! para reativar o formulário, você precisará primeiro desabilitar o plugin e ativá-lo novamente."
+
+#: includes/widgets/pp-google-maps.php:505
+msgid "Bottom Spacing"
+msgstr "Espaçamento inferior"
+
+#: includes/widgets/pp-link-effects.php:125
+msgid "3D Rolling Cube"
+msgstr "3D Rolling Cube"
+
+#: includes/admin-settings.php:16
+msgid "%s Settings"
+msgstr "%s Configurações"
+
+#: includes/widgets/pp-gravity-forms.php:187
+msgid "Use Ajax"
+msgstr "Usar o Ajax"
+
+#: includes/widgets/pp-link-effects.php:126
+msgid "Same Word Slide In"
+msgstr "Mesma palavra Slide In"
+
+#: includes/admin-settings.php:28
+msgid "General"
+msgstr "Geral"
+
+#: includes/widgets/pp-gravity-forms.php:189
+msgid "Use ajax to submit the form"
+msgstr "Usar ajax para enviar o formulário"
+
+#: includes/widgets/pp-link-effects.php:127
+msgid "Right Angle Slides Down over Title"
+msgstr "Ângulo direito sobre o título de Slides Down"
+
+#: includes/admin-settings.php:30
+msgid "White Label"
+msgstr "White Label"
+
+#: includes/widgets/pp-gravity-forms.php:753
+msgid "Section Field"
+msgstr "Seção campo"
+
+#: includes/widgets/pp-link-effects.php:128
+msgid "Second Border Slides Up"
+msgstr "Segunda borda Slides Up"
+
+#: includes/admin-settings.php:32
+msgid "Elements"
+msgstr "Elementos"
+
+#: includes/widgets/pp-gravity-forms.php:784
+#: includes/widgets/pp-info-box-carousel.php:985
+#: includes/widgets/pp-info-box.php:972 includes/widgets/pp-price-menu.php:394
+#: includes/widgets/pp-promo-box.php:829 includes/widgets/pp-promo-box.php:1058
+#: includes/widgets/pp-recipe.php:463 includes/widgets/pp-recipe.php:850
+msgid "Border Type"
+msgstr "Tipos de borda"
+
+#: includes/widgets/pp-link-effects.php:129
+msgid "Border Slight Translate"
+msgstr "Transladar borda leve"
+
+#: includes/admin-settings.php:58
+msgid "Support"
+msgstr "Apoio, suporte"
+
+#: includes/widgets/pp-gravity-forms.php:804
+#: includes/widgets/pp-info-box-carousel.php:1037
+#: includes/widgets/pp-info-box.php:1024 includes/widgets/pp-price-menu.php:416
+#: includes/widgets/pp-recipe.php:485
+msgid "Border Height"
+msgstr "Altura da borda"
+
+#: includes/widgets/pp-link-effects.php:130
+msgid "Second Text and Borders"
+msgstr "Segundo texto e bordas"
+
+#: includes/admin-settings.php:63
+msgid "For submitting any support queries, feedback, bug reports or feature requests, please visit"
+msgstr "Para enviar quaisquer consultas de suporte, comentários, relatórios de bugs ou solicitações de recursos, visite"
+
+#: includes/widgets/pp-gravity-forms.php:863
+#: includes/widgets/pp-price-menu.php:75 includes/widgets/pp-price-menu.php:503
+#: includes/widgets/pp-pricing-table.php:198
+msgid "Price"
+msgstr "Preço"
+
+#: includes/widgets/pp-link-effects.php:131
+msgid "Push Out"
+msgstr "Empurre para fora"
+
+#: includes/admin-settings.php:63
+msgid "this link"
+msgstr "Esse link"
+
+#: includes/widgets/pp-gravity-forms.php:871
+msgid "Price Label Color"
+msgstr "Cor do rótulo de preço"
+
+#: includes/widgets/pp-link-effects.php:132
+msgid "Text Fill"
+msgstr "Preenchimento de texto"
+
+#: includes/helper-functions.php:40 includes/helper-functions.php:68
+#: includes/helper-functions.php:96 includes/helper-functions.php:124
+#: includes/helper-functions.php:157
+msgid "Select a Contact form"
+msgstr "Selecione um Contact form"
+
+#: includes/widgets/pp-gravity-forms.php:883
+msgid "Price Color"
+msgstr "Cor de preço"
+
+#: includes/widgets/pp-link-effects.php:133
+msgid "Circle"
+msgstr "Círculo"
+
+#: includes/helper-functions.php:279 includes/widgets/pp-link-effects.php:32
+#: includes/widgets/pp-link-effects.php:79
+#: includes/widgets/pp-link-effects.php:191
+msgid "Link Effects"
+msgstr "Efeitos de link"
+
+#: includes/widgets/pp-gravity-forms.php:1416
+#: includes/widgets/pp-ninja-forms.php:1331
+msgid "Error Description Color"
+msgstr "Cor da descrição de erro"
+
+#: includes/widgets/pp-link-effects.php:134
+msgid "Three Circles"
+msgstr "Três círculos"
+
+#: includes/helper-functions.php:280
+#: includes/widgets/pp-info-box-carousel.php:215
+#: includes/widgets/pp-info-box-carousel.php:1217
+#: includes/widgets/pp-info-box.php:331 includes/widgets/pp-info-box.php:1204
+#: includes/widgets/pp-info-list.php:192 includes/widgets/pp-info-list.php:703
+#: includes/widgets/pp-modal-popup.php:345
+#: includes/widgets/pp-modal-popup.php:1254
+#: includes/widgets/pp-pricing-table.php:1331
+#: includes/widgets/pp-promo-box.php:215 includes/widgets/pp-promo-box.php:1246
+msgid "Button"
+msgstr "Botão"
+
+#: includes/widgets/pp-gravity-forms.php:1431
+msgid "Error Border Color"
+msgstr "Cor da borda de erro"
+
+#: includes/widgets/pp-link-effects.php:135
+msgid "Border Switch"
+msgstr "Mudança de borda"
+
+#: includes/helper-functions.php:281 includes/widgets/pp-divider.php:32
+#: includes/widgets/pp-divider.php:78 includes/widgets/pp-divider.php:226
+#: includes/widgets/pp-icon-list.php:251
+#: includes/widgets/pp-image-comparison.php:411
+#: includes/widgets/pp-pricing-table.php:1273
+#: includes/widgets/pp-pricing-table.php:1283
+#: includes/widgets/pp-team-member-carousel.php:825
+#: includes/widgets/pp-team-member-carousel.php:1028
+#: includes/widgets/pp-team-member-carousel.php:1231
+#: includes/widgets/pp-team-member.php:656
+#: includes/widgets/pp-team-member.php:859
+#: includes/widgets/pp-team-member.php:1078
+msgid "Divider"
+msgstr "Divisor"
+
+#: includes/widgets/pp-gravity-forms.php:1447
+msgid "Error Field Background Color"
+msgstr "Cor de fundo do campo de erro"
+
+#: includes/widgets/pp-link-effects.php:136
+msgid "Scale Down"
+msgstr "Scale Down"
+
+#: includes/helper-functions.php:282
+msgid "Testimonial"
+msgstr "Testemunho"
+
+#: includes/widgets/pp-gravity-forms.php:1462
+msgid "Error Field Label Color"
+msgstr "Cor do rótulo do campo de erro"
+
+#: includes/widgets/pp-link-effects.php:137
+msgid "Fall Down"
+msgstr "Cair"
+
+#: includes/helper-functions.php:283
+msgid "Testimonial Slider"
+msgstr ""
+"Testemunho Slider\n"
+"  "
+
+#: includes/widgets/pp-gravity-forms.php:1477
+#: includes/widgets/pp-ninja-forms.php:1346
+#: includes/widgets/pp-wpforms.php:1190
+msgid "Error Field Input Border Color"
+msgstr "Cor da borda de entrada do campo de erro"
+
+#: includes/widgets/pp-link-effects.php:138
+msgid "Move Up and Push Border"
+msgstr "Mover para cima e empurrar borda"
+
+#: includes/helper-functions.php:284 includes/widgets/pp-recipe.php:32
+msgid "Recipe"
+msgstr "Receita"
+
+#: includes/widgets/pp-gravity-forms.php:1492
+#: includes/widgets/pp-wpforms.php:1205
+msgid "Error Field Input Border Width"
+msgstr "Largura da borda de entrada do campo de erro"
+
+#: includes/widgets/pp-link-effects.php:139
+msgid "Cross"
+msgstr "Atravessar "
+
+#: includes/helper-functions.php:285
+msgid "Quote"
+msgstr "Citar"
+
+#: includes/widgets/pp-gravity-forms.php:1516
+msgid "Thank You Message"
+msgstr "Mensagem de obrigado "
+
+#: includes/widgets/pp-link-effects.php:140
+msgid "3D Side"
+msgstr "3D Side"
+
+#: includes/helper-functions.php:286
+#: includes/widgets/pp-info-box-carousel.php:541
+#: includes/widgets/pp-info-box.php:32 includes/widgets/pp-info-box.php:405
+msgid "Info Box"
+msgstr "Caixa de informação"
+
+#: includes/widgets/pp-hotspots.php:113 includes/widgets/pp-price-menu.php:689
+#: includes/widgets/pp-team-member.php:141
+#: includes/widgets/pp-tiled-posts.php:192
+msgid "Image Size"
+msgstr "Tamanho da imagem"
+
+#: includes/widgets/pp-link-effects.php:141
+msgid "Unfold"
+msgstr "Desdobrar"
+
+#: includes/helper-functions.php:287
+#: includes/widgets/pp-info-box-carousel.php:32
+msgid "Info Box Carousel"
+msgstr "Carrossel de caixa de informações"
+
+#: includes/widgets/pp-hotspots.php:126
+msgid "Hotspots"
+msgstr "Hotspots"
+
+#: includes/widgets/pp-link-effects.php:142
+msgid "Borders Slight Yranslate"
+msgstr "Transladar borda leve"
+
+#: includes/helper-functions.php:288 includes/widgets/pp-info-list.php:32
+msgid "Info List"
+msgstr "Lista de informações"
+
+#: includes/widgets/pp-hotspots.php:134
+#: includes/widgets/pp-info-box-carousel.php:103
+#: includes/widgets/pp-info-box.php:222 includes/widgets/pp-info-list.php:592
+#: includes/widgets/pp-logo-grid.php:79 includes/widgets/pp-modal-popup.php:183
+#: includes/widgets/pp-modal-popup.php:219
+#: includes/widgets/pp-modal-popup.php:259
+#: includes/widgets/pp-modal-popup.php:789
+#: includes/widgets/pp-price-menu.php:301 includes/widgets/pp-promo-box.php:384
+#: includes/widgets/pp-recipe.php:701 includes/widgets/pp-recipe.php:812
+#: includes/widgets/pp-recipe.php:947 includes/widgets/pp-recipe.php:1020
+#: includes/widgets/pp-team-member-carousel.php:534
+#: includes/widgets/pp-team-member.php:397
+#: includes/widgets/pp-tiled-posts.php:403
+msgid "Content"
+msgstr "Conteúdo"
+
+#: includes/widgets/pp-link-effects.php:244
+#: includes/widgets/pp-link-effects.php:293
+msgid "Link Color"
+msgstr "Cor do link"
+
+#: includes/helper-functions.php:289
+msgid "Flip Box"
+msgstr "Virar caixa"
+
+#: includes/widgets/pp-hotspots.php:145
+msgid "Blank"
+msgstr "Em branco"
+
+#: includes/widgets/pp-logo-carousel.php:133
+#: includes/widgets/pp-logo-grid.php:84
+msgid "Upload Logo Image"
+msgstr "Carregar imagem da logo"
+
+#: includes/helper-functions.php:290 includes/widgets/pp-tiled-posts.php:32
+msgid "Tiled Posts"
+msgstr "Post em azulejo"
+
+#: includes/widgets/pp-hotspots.php:182
+msgid "Left Position"
+msgstr "Posição esquerda"
+
+#: includes/widgets/pp-logo-carousel.php:154
+#: includes/widgets/pp-logo-grid.php:207
+msgid "Logo Image"
+msgstr "Imagem da logo"
+
+#: includes/helper-functions.php:291
+msgid "Posts Grid"
+msgstr "Grade de Post"
+
+#: includes/widgets/pp-hotspots.php:200
+msgid "Top Position"
+msgstr "Posição superior"
+
+#: includes/widgets/pp-logo-carousel.php:363
+#: includes/widgets/pp-logo-grid.php:277
+msgid "Logos"
+msgstr "Logos"
+
+#: includes/helper-functions.php:292 includes/widgets/pp-pricing-table.php:32
+msgid "Pricing Table"
+msgstr "Tabela de preços"
+
+#: includes/widgets/pp-hotspots.php:217 includes/widgets/pp-hotspots.php:222
+#: includes/widgets/pp-hotspots.php:662
+msgid "Tooltip"
+msgstr "Tooltip"
+
+#: includes/widgets/pp-logo-carousel.php:372
+msgid "Button Background"
+msgstr "Fundo do botão"
+
+#: includes/helper-functions.php:293 includes/widgets/pp-price-menu.php:13
+#: includes/widgets/pp-price-menu.php:33
+msgid "Price Menu"
+msgstr "Menu de preço"
+
+#: includes/widgets/pp-hotspots.php:234
+msgid "Tooltip Position"
+msgstr "Posição do tooltip"
+
+#: includes/widgets/pp-logo-carousel.php:425
+#: includes/widgets/pp-logo-carousel.php:464
+#: includes/widgets/pp-logo-grid.php:339 includes/widgets/pp-logo-grid.php:427
+msgid "Grayscale"
+msgstr "Grayscale"
+
+#: includes/helper-functions.php:294
+msgid "Progress Bar"
+msgstr "Barra de progresso"
+
+#: includes/widgets/pp-hotspots.php:238
+msgid "Global"
+msgstr "Global"
+
+#: includes/widgets/pp-logo-carousel.php:437
+#: includes/widgets/pp-logo-carousel.php:476
+#: includes/widgets/pp-logo-grid.php:351 includes/widgets/pp-logo-grid.php:439
+#: includes/widgets/pp-team-member-carousel.php:656
+#: includes/widgets/pp-team-member.php:515
+msgid "Opacity"
+msgstr "Opacidade"
+
+#: includes/helper-functions.php:295
+msgid "Businsess Hours"
+msgstr "Horário comercial"
+
+#: includes/widgets/pp-hotspots.php:243 includes/widgets/pp-hotspots.php:350
+msgid "Top Left"
+msgstr "Esquerdo superior"
+
+#: includes/widgets/pp-logo-grid.php:121
+msgid "Add custom styles which will affect only this item"
+msgstr "Adicione estilos personalizados que afetarão apenas este item"
+
+#: includes/helper-functions.php:296 includes/widgets/pp-team-member.php:32
+#: includes/widgets/pp-team-member.php:80
+msgid "Team Member"
+msgstr "Membro da equipe"
+
+#: includes/widgets/pp-hotspots.php:244 includes/widgets/pp-hotspots.php:351
+msgid "Top Right"
+msgstr "Superior direito"
+
+#: includes/widgets/pp-logo-grid.php:187
+msgid "Add Logos"
+msgstr "Adicionar logos"
+
+#: includes/helper-functions.php:297
+#: includes/widgets/pp-team-member-carousel.php:32
+msgid "Team Member Carousel"
+msgstr "Carrossel de membros da equipe"
+
+#: includes/widgets/pp-hotspots.php:245 includes/widgets/pp-hotspots.php:352
+msgid "Bottom Left"
+msgstr "Inferior esquerdo"
+
+#: includes/widgets/pp-logo-grid.php:234 includes/widgets/pp-table.php:1356
+msgid "Columns"
+msgstr "Colunas"
+
+#: includes/helper-functions.php:298 includes/widgets/pp-counter.php:32
+#: includes/widgets/pp-counter.php:95 includes/widgets/pp-counter.php:299
+msgid "Counter"
+msgstr "Contador"
+
+#: includes/widgets/pp-hotspots.php:246 includes/widgets/pp-hotspots.php:353
+msgid "Bottom Right"
+msgstr "Inferior direito"
+
+#: includes/widgets/pp-logo-grid.php:255
+msgid "Logos Gap"
+msgstr "Espaço da logo"
+
+#: includes/helper-functions.php:299 includes/widgets/pp-hotspots.php:32
+msgid "Image Hotspots"
+msgstr "Imagem Hotspots"
+
+#: includes/widgets/pp-hotspots.php:257 includes/widgets/pp-hotspots.php:259
+msgid "Tooltip Content"
+msgstr "Conteúdo da Tooltip"
+
+#: includes/widgets/pp-modal-popup.php:32
+#: includes/widgets/pp-modal-popup.php:89
+#: includes/widgets/pp-modal-popup.php:721
+msgid "Popup Box"
+msgstr "Caixa de popup"
+
+#: includes/helper-functions.php:300 includes/widgets/pp-icon-list.php:32
+msgid "Icon List"
+msgstr "Lista de ícone"
+
+#: includes/widgets/pp-hotspots.php:277
+msgid "Hotspot #1"
+msgstr "Hotspot #1"
+
+#: includes/widgets/pp-modal-popup.php:100
+msgid "Fullscreen"
+msgstr "Tela inteira"
+
+#: includes/helper-functions.php:301 includes/widgets/pp-dual-heading.php:32
+#: includes/widgets/pp-dual-heading.php:78
+msgid "Dual Heading"
+msgstr "Título duplo"
+
+#: includes/widgets/pp-hotspots.php:291
+msgid "Glow Effect"
+msgstr "Efeito brilho"
+
+#: includes/widgets/pp-modal-popup.php:135
+msgid "Auto Height"
+msgstr "Altura automática"
+
+#: includes/helper-functions.php:302 includes/widgets/pp-promo-box.php:32
+#: includes/widgets/pp-promo-box.php:78 includes/widgets/pp-promo-box.php:277
+msgid "Promo Box"
+msgstr "Caixa promocional"
+
+#: includes/widgets/pp-hotspots.php:308
+msgid "Tooltip Settings"
+msgstr "Configurações do Tooltip"
+
+#: includes/widgets/pp-modal-popup.php:190
+msgid "Enable Title"
+msgstr "Ativar título"
+
+#: includes/helper-functions.php:303 includes/widgets/pp-logo-carousel.php:32
+#: includes/widgets/pp-logo-carousel.php:94
+msgid "Logo Carousel"
+msgstr "Carrossel de logo"
+
+#: includes/widgets/pp-hotspots.php:315
+msgid "Show Arrow"
+msgstr "Mostrar seta"
+
+#: includes/widgets/pp-modal-popup.php:204
+msgid "Modal Title"
+msgstr "Título modal"
+
+#: includes/helper-functions.php:304 includes/widgets/pp-logo-grid.php:32
+#: includes/widgets/pp-logo-grid.php:71
+msgid "Logo Grid"
+msgstr "Grade da logo"
+
+#: includes/widgets/pp-hotspots.php:332
+msgid "Tiny"
+msgstr "Minúsculo"
+
+#: includes/widgets/pp-modal-popup.php:218
+msgid "Link (Video/Map/Page)"
+msgstr "Link (vídeo/mapa/página)"
+
+#: includes/helper-functions.php:305
+msgid "Modal Popup"
+msgstr "Modal Popup"
+
+#: includes/widgets/pp-hotspots.php:333
+#: includes/widgets/pp-info-box-carousel.php:1230
+#: includes/widgets/pp-info-box.php:1221 includes/widgets/pp-info-list.php:716
+#: includes/widgets/pp-modal-popup.php:1303
+#: includes/widgets/pp-pricing-table.php:1348
+#: includes/widgets/pp-promo-box.php:1262
+msgid "Small"
+msgstr "Pequeno"
+
+#: includes/widgets/pp-modal-popup.php:220
+msgid "Saved Templates"
+msgstr "Modelos salvos"
+
+#: includes/helper-functions.php:306 includes/widgets/pp-table.php:13
+#: includes/widgets/pp-table.php:379 includes/widgets/pp-table.php:556
+msgid "Table"
+msgstr "Mesa"
+
+#: includes/widgets/pp-hotspots.php:334
+#: includes/widgets/pp-info-box-carousel.php:1232
+#: includes/widgets/pp-info-box.php:1223 includes/widgets/pp-info-list.php:718
+#: includes/widgets/pp-modal-popup.php:1305
+#: includes/widgets/pp-pricing-table.php:1350
+#: includes/widgets/pp-promo-box.php:1264
+msgid "Large"
+msgstr "Largo"
+
+#: includes/widgets/pp-modal-popup.php:221
+#: includes/widgets/pp-modal-popup.php:282
+msgid "Custom HTML"
+msgstr "HTML personalizado"
+
+#: includes/helper-functions.php:307
+#: includes/widgets/pp-image-comparison.php:32
+msgid "Image Comparison"
+msgstr "Comparação de imagens"
+
+#: includes/widgets/pp-hotspots.php:342
+msgid "Global Position"
+msgstr "Posição global"
+
+#: includes/widgets/pp-modal-popup.php:230
+#: includes/widgets/pp-modal-popup.php:415
+msgid "Choose Image"
+msgstr "Escolher imagem"
+
+#: includes/helper-functions.php:308 includes/widgets/pp-instafeed.php:32
+msgid "Instagram Feed"
+msgstr "Instagram feed"
+
+#: includes/widgets/pp-hotspots.php:361
+msgid "Animation In"
+msgstr "Animação em"
+
+#: includes/widgets/pp-modal-popup.php:244
+#: includes/widgets/pp-team-member.php:208
+msgid "Enter URL"
+msgstr "Insira o url"
+
+#: includes/helper-functions.php:309 includes/widgets/pp-google-maps.php:32
+msgid "Google Maps"
+msgstr "Google mapas"
+
+#: includes/widgets/pp-hotspots.php:365 includes/widgets/pp-hotspots.php:442
+msgid "Bounce"
+msgstr "Bounce"
+
+#: includes/widgets/pp-modal-popup.php:270
+msgid "Choose Template"
+msgstr "Escolher modelo"
+
+#: includes/helper-functions.php:314 includes/widgets/pp-contact-form-7.php:32
+msgid "Contact Form 7"
+msgstr "Formulário de contato 7"
+
+#: includes/widgets/pp-hotspots.php:366 includes/widgets/pp-hotspots.php:443
+msgid "Flash"
+msgstr "Flash"
+
+#: includes/widgets/pp-modal-popup.php:307
+#: includes/widgets/pp-modal-popup.php:315
+msgid "Trigger"
+msgstr "Gatilho(trigger)"
+
+#: includes/helper-functions.php:319 includes/widgets/pp-gravity-forms.php:32
+#: includes/widgets/pp-gravity-forms.php:79
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
+#: includes/widgets/pp-hotspots.php:367 includes/widgets/pp-hotspots.php:444
+msgid "Pulse"
+msgstr "Pulso"
+
+#: includes/widgets/pp-modal-popup.php:319
+msgid "On Click"
+msgstr "No clique"
+
+#: includes/helper-functions.php:324 includes/widgets/pp-ninja-forms.php:13
+#: includes/widgets/pp-ninja-forms.php:37
+msgid "Ninja Forms"
+msgstr "Ninja Forms"
+
+#: includes/widgets/pp-hotspots.php:368 includes/widgets/pp-hotspots.php:445
+msgid "rubberBand"
+msgstr "rubberBand"
+
+#: includes/widgets/pp-modal-popup.php:320
+msgid "Page Load"
+msgstr "Carregamento de página"
+
+#: includes/helper-functions.php:329 includes/widgets/pp-caldera-forms.php:13
+#: includes/widgets/pp-caldera-forms.php:37
+msgid "Caldera Forms"
+msgstr "Caldera Forms"
+
+#: includes/widgets/pp-hotspots.php:369 includes/widgets/pp-hotspots.php:446
+msgid "Shake"
+msgstr "Mexe"
+
+#: includes/widgets/pp-modal-popup.php:321
+msgid "Exit Intent"
+msgstr "Intenção de saída"
+
+#: includes/helper-functions.php:334 includes/widgets/pp-wpforms.php:13
+#: includes/widgets/pp-wpforms.php:33
+msgid "WPForms"
+msgstr "WPForms"
+
+#: includes/widgets/pp-hotspots.php:370 includes/widgets/pp-hotspots.php:447
+msgid "Swing"
+msgstr "Balanço"
+
+#: includes/widgets/pp-modal-popup.php:322
+msgid "Other"
+msgstr "Outro"
+
+#: includes/updater/class-pp-plugin-updater.php:189
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr "Existe uma nova versão do %1$s disponível. %2$sVer detalhes%3$s da versão%4$s."
+
+#: includes/widgets/pp-hotspots.php:371 includes/widgets/pp-hotspots.php:448
+msgid "Tada"
+msgstr "Tada"
+
+#: includes/widgets/pp-modal-popup.php:330
+msgid "On Click Settings"
+msgstr "Configurações de clique"
+
+#: includes/updater/class-pp-plugin-updater.php:197
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
+msgstr "Existe uma nova versão do %1$s disponível. %2$s ver detalhes %3$s da versão %4$s ou %5$s atualizar agora%6$s."
+
+#: includes/widgets/pp-hotspots.php:372 includes/widgets/pp-hotspots.php:449
+msgid "Wobble"
+msgstr "Wobble"
+
+#: includes/widgets/pp-modal-popup.php:430
+msgid "Page Load Settings"
+msgstr "Configurações de carregamento de página"
+
+#: includes/updater/class-pp-plugin-updater.php:340
+msgid "You do not have permission to install plugin updates"
+msgstr "Você não tem permissão para instalar atualizações de plugins"
+
+#: includes/widgets/pp-hotspots.php:373 includes/widgets/pp-hotspots.php:450
+msgid "bounceIn"
+msgstr "bounceIn"
+
+#: includes/widgets/pp-modal-popup.php:441
+msgid "Delay"
+msgstr "Atraso"
+
+#: includes/updater/class-pp-plugin-updater.php:340
+msgid "Error"
+msgstr "Erro"
+
+#: includes/widgets/pp-hotspots.php:374 includes/widgets/pp-hotspots.php:451
+msgid "bounceInDown"
+msgstr "bounceInDown"
+
+#: includes/widgets/pp-modal-popup.php:442
+msgid "seconds"
+msgstr "Segundos"
+
+#: includes/updater/update-config.php:81 includes/updater/update-config.php:128
+#: includes/updater/update-config.php:189
+msgid "An error occurred, please try again."
+msgstr "Ocorreu um erro. tente novamente."
+
+#: includes/widgets/pp-hotspots.php:375 includes/widgets/pp-hotspots.php:452
+msgid "bounceInLeft"
+msgstr "bounceInLeft"
+
+#: includes/widgets/pp-modal-popup.php:454
+#: includes/widgets/pp-modal-popup.php:479
+msgid "Display After"
+msgstr "Exibir depois"
+
+#: includes/updater/update-config.php:95
+msgid "Your license key expired on %s."
+msgstr "Sua chave de licença expirou %s."
+
+#: includes/widgets/pp-hotspots.php:376 includes/widgets/pp-hotspots.php:453
+msgid "bounceInRight"
+msgstr "bounceInRight"
+
+#: includes/widgets/pp-modal-popup.php:455
+#: includes/widgets/pp-modal-popup.php:480
+msgid "day(s)"
+msgstr "dia(s)"
+
+#: includes/updater/update-config.php:102
+msgid "Your license key has been disabled."
+msgstr "Sua chave de licença foi desativada."
+
+#: includes/widgets/pp-hotspots.php:377 includes/widgets/pp-hotspots.php:454
+msgid "bounceInUp"
+msgstr "bounceInUp"
+
+#: includes/widgets/pp-modal-popup.php:456
+#: includes/widgets/pp-modal-popup.php:481
+msgid "If a user closes the modal box, it will be displayed only after the defined day(s)"
+msgstr "Se um usuário fechar a caixa modal, ela será exibida somente após o dia(s) definido"
+
+#: includes/updater/update-config.php:107
+msgid "Invalid license."
+msgstr "Licença inválida."
+
+#: includes/widgets/pp-hotspots.php:378 includes/widgets/pp-hotspots.php:455
+msgid "bounceOut"
+msgstr "bounceOut"
+
+#: includes/widgets/pp-modal-popup.php:468
+msgid "Exit Intent Settings"
+msgstr "Configurações de intenção de saída "
+
+#: includes/updater/update-config.php:113
+msgid "Your license is not active for this URL."
+msgstr "Sua licença não está ativa para esta url."
+
+#: includes/widgets/pp-hotspots.php:379 includes/widgets/pp-hotspots.php:456
+msgid "bounceOutDown"
+msgstr "bounceOutDown"
+
+#: includes/widgets/pp-modal-popup.php:493
+msgid "Other Settings"
+msgstr "Outros configurações "
+
+#: includes/updater/update-config.php:118
+msgid "This appears to be an invalid license key for %s."
+msgstr "Esta parece ser uma chave de licença inválida para %s."
+
+#: includes/widgets/pp-hotspots.php:380 includes/widgets/pp-hotspots.php:457
+msgid "bounceOutLeft"
+msgstr "bounceOutLeft"
+
+#: includes/widgets/pp-modal-popup.php:504
+msgid "Element Identifier"
+msgstr "Identificador de elemento"
+
+#: includes/updater/update-config.php:123
+msgid "Your license key has reached its activation limit."
+msgstr "Sua chave de licença atingiu o limite de ativação."
+
+#: includes/widgets/pp-hotspots.php:381 includes/widgets/pp-hotspots.php:458
+msgid "bounceOutRight"
+msgstr "bounceOutRight"
+
+#: includes/widgets/pp-modal-popup.php:505
+msgid "CSS Class or ID"
+msgstr "Classe CSS ou ID"
+
+#: includes/widgets/pp-business-hours.php:32
+#: includes/widgets/pp-business-hours.php:78
+#: includes/widgets/pp-business-hours.php:640
+msgid "Business Hours"
+msgstr "Horário comercial"
+
+#: includes/widgets/pp-hotspots.php:382 includes/widgets/pp-hotspots.php:459
+msgid "bounceOutUp"
+msgstr "bounceOutUp"
+
+#: includes/widgets/pp-modal-popup.php:517
+msgid "Exit Settings"
+msgstr "Configurações de saída"
+
+#: includes/widgets/pp-business-hours.php:101
+#: includes/widgets/pp-business-hours.php:657
+msgid "Day"
+msgstr "Dia"
+
+#: includes/widgets/pp-hotspots.php:383 includes/widgets/pp-hotspots.php:460
+msgid "fadeIn"
+msgstr "fadeIn"
+
+#: includes/widgets/pp-modal-popup.php:525
+msgid "Show Close Button"
+msgstr "Mostrar botão de fechar"
+
+#: includes/widgets/pp-business-hours.php:105
+msgid "Monday"
+msgstr "Segunda"
+
+#: includes/widgets/pp-hotspots.php:384 includes/widgets/pp-hotspots.php:461
+msgid "fadeInDown"
+msgstr "fadeInDown"
+
+#: includes/widgets/pp-modal-popup.php:537
+msgid "Esc to Exit"
+msgstr "Esc para sair"
+
+#: includes/widgets/pp-business-hours.php:106
+msgid "Tuesday"
+msgstr "Terça"
+
+#: includes/widgets/pp-hotspots.php:385 includes/widgets/pp-hotspots.php:462
+msgid "fadeInDownBig"
+msgstr "fadeInDownBig"
+
+#: includes/widgets/pp-modal-popup.php:538
+msgid "Close the modal box by pressing the Esc key"
+msgstr "Fechar a caixa modal pressionando a tecla Esc"
+
+#: includes/widgets/pp-business-hours.php:107
+msgid "Wednesday"
+msgstr "Quarta"
+
+#: includes/widgets/pp-hotspots.php:386 includes/widgets/pp-hotspots.php:463
+msgid "fadeInLeft"
+msgstr "fadeInLeft"
+
+#: includes/widgets/pp-modal-popup.php:550
+msgid "Click to Exit"
+msgstr "Clique para sair"
+
+#: includes/widgets/pp-business-hours.php:108
+msgid "Thursday"
+msgstr "Quinta"
+
+#: includes/widgets/pp-hotspots.php:387 includes/widgets/pp-hotspots.php:464
+msgid "fadeInLeftBig"
+msgstr "fadeInLeftBig"
+
+#: includes/widgets/pp-modal-popup.php:551
+msgid "Close the modal box by clicking anywhere outside the modal window"
+msgstr "Fechar a caixa modal clicando em qualquer lugar fora da janela modal"
+
+#: includes/widgets/pp-business-hours.php:109
+msgid "Friday"
+msgstr "Sexta"
+
+#: includes/widgets/pp-hotspots.php:388 includes/widgets/pp-hotspots.php:465
+msgid "fadeInRight"
+msgstr "fadeInRight"
+
+#: includes/widgets/pp-modal-popup.php:580
+msgid "Zoom In"
+msgstr "Zoom In"
+
+#: includes/widgets/pp-business-hours.php:110
+msgid "Saturday"
+msgstr "Sábado"
+
+#: includes/widgets/pp-hotspots.php:389 includes/widgets/pp-hotspots.php:466
+msgid "fadeInRightBig"
+msgstr "fadeInRightBig"
+
+#: includes/widgets/pp-modal-popup.php:581
+msgid "Zoom Out"
+msgstr "Zoom Out"
+
+#: includes/widgets/pp-business-hours.php:111
+msgid "Sunday"
+msgstr "Domingo"
+
+#: includes/widgets/pp-hotspots.php:390 includes/widgets/pp-hotspots.php:467
+msgid "fadeInUp"
+msgstr "fadeInUp"
+
+#: includes/widgets/pp-modal-popup.php:582
+msgid "3D Unfold"
+msgstr "3D Unfold"
+
+#: includes/widgets/pp-business-hours.php:116
+msgid "Closed?"
+msgstr "Fechado?"
+
+#: includes/widgets/pp-hotspots.php:391 includes/widgets/pp-hotspots.php:468
+msgid "fadeInUpBig"
+msgstr "fadeInUpBig"
+
+#: includes/widgets/pp-modal-popup.php:583
+msgid "Newspaper"
+msgstr "Jornal"
+
+#: includes/widgets/pp-business-hours.php:119
+#: includes/widgets/pp-business-hours.php:268
+#: includes/widgets/pp-business-hours.php:307
+#: includes/widgets/pp-business-hours.php:394
+#: includes/widgets/pp-caldera-forms.php:58
+#: includes/widgets/pp-caldera-forms.php:750
+#: includes/widgets/pp-contact-form-7.php:632
+#: includes/widgets/pp-contact-form-7.php:684
+#: includes/widgets/pp-gravity-forms.php:100
+#: includes/widgets/pp-gravity-forms.php:191
+#: includes/widgets/pp-gravity-forms.php:943
+#: includes/widgets/pp-hotspots.php:295 includes/widgets/pp-hotspots.php:319
+#: includes/widgets/pp-info-box-carousel.php:444
+#: includes/widgets/pp-info-box-carousel.php:477
+#: includes/widgets/pp-info-box-carousel.php:511
+#: includes/widgets/pp-info-box-carousel.php:523
+#: includes/widgets/pp-info-list.php:256 includes/widgets/pp-instafeed.php:282
+#: includes/widgets/pp-instafeed.php:294 includes/widgets/pp-instafeed.php:376
+#: includes/widgets/pp-instafeed.php:391 includes/widgets/pp-instafeed.php:446
+#: includes/widgets/pp-instafeed.php:475 includes/widgets/pp-instafeed.php:529
+#: includes/widgets/pp-instafeed.php:587
+#: includes/widgets/pp-logo-carousel.php:268
+#: includes/widgets/pp-logo-carousel.php:300
+#: includes/widgets/pp-logo-carousel.php:334
+#: includes/widgets/pp-logo-carousel.php:346
+#: includes/widgets/pp-logo-carousel.php:429
+#: includes/widgets/pp-logo-carousel.php:468
+#: includes/widgets/pp-logo-grid.php:343 includes/widgets/pp-logo-grid.php:431
+#: includes/widgets/pp-modal-popup.php:139
+#: includes/widgets/pp-modal-popup.php:194
+#: includes/widgets/pp-modal-popup.php:529
+#: includes/widgets/pp-modal-popup.php:542
+#: includes/widgets/pp-modal-popup.php:555
+#: includes/widgets/pp-ninja-forms.php:58
+#: includes/widgets/pp-ninja-forms.php:770
+#: includes/widgets/pp-price-menu.php:181
+#: includes/widgets/pp-price-menu.php:196
+#: includes/widgets/pp-pricing-table.php:284
+#: includes/widgets/pp-pricing-table.php:1162
+#: includes/widgets/pp-recipe.php:120 includes/widgets/pp-recipe.php:144
+#: includes/widgets/pp-recipe.php:156
+#: includes/widgets/pp-team-member-carousel.php:219
+#: includes/widgets/pp-team-member-carousel.php:400
+#: includes/widgets/pp-team-member-carousel.php:432
+#: includes/widgets/pp-team-member-carousel.php:466
+#: includes/widgets/pp-team-member-carousel.php:478
+#: includes/widgets/pp-team-member.php:109
+#: includes/widgets/pp-team-member.php:165
+#: includes/widgets/pp-tiled-posts.php:129
+#: includes/widgets/pp-tiled-posts.php:141
+#: includes/widgets/pp-tiled-posts.php:168
+#: includes/widgets/pp-tiled-posts.php:326
+#: includes/widgets/pp-tiled-posts.php:353
+#: includes/widgets/pp-tiled-posts.php:368
+#: includes/widgets/pp-tiled-posts.php:383 includes/widgets/pp-wpforms.php:54
+#: includes/widgets/pp-wpforms.php:737
+msgid "No"
+msgstr "Não"
+
+#: includes/widgets/pp-hotspots.php:392 includes/widgets/pp-hotspots.php:469
+msgid "fadeOut"
+msgstr "fadeOut"
+
+#: includes/widgets/pp-modal-popup.php:584
+msgid "Move From Top"
+msgstr "Mover para o topo"
+
+#: includes/widgets/pp-business-hours.php:120
+#: includes/widgets/pp-business-hours.php:267
+#: includes/widgets/pp-business-hours.php:306
+#: includes/widgets/pp-business-hours.php:393
+#: includes/widgets/pp-caldera-forms.php:57
+#: includes/widgets/pp-caldera-forms.php:749
+#: includes/widgets/pp-contact-form-7.php:631
+#: includes/widgets/pp-contact-form-7.php:683
+#: includes/widgets/pp-gravity-forms.php:99
+#: includes/widgets/pp-gravity-forms.php:190
+#: includes/widgets/pp-gravity-forms.php:942
+#: includes/widgets/pp-hotspots.php:294 includes/widgets/pp-hotspots.php:318
+#: includes/widgets/pp-info-box-carousel.php:443
+#: includes/widgets/pp-info-box-carousel.php:476
+#: includes/widgets/pp-info-box-carousel.php:510
+#: includes/widgets/pp-info-box-carousel.php:522
+#: includes/widgets/pp-info-list.php:255 includes/widgets/pp-instafeed.php:281
+#: includes/widgets/pp-instafeed.php:293 includes/widgets/pp-instafeed.php:375
+#: includes/widgets/pp-instafeed.php:390 includes/widgets/pp-instafeed.php:445
+#: includes/widgets/pp-instafeed.php:474 includes/widgets/pp-instafeed.php:528
+#: includes/widgets/pp-instafeed.php:586
+#: includes/widgets/pp-logo-carousel.php:267
+#: includes/widgets/pp-logo-carousel.php:299
+#: includes/widgets/pp-logo-carousel.php:333
+#: includes/widgets/pp-logo-carousel.php:345
+#: includes/widgets/pp-logo-carousel.php:428
+#: includes/widgets/pp-logo-carousel.php:467
+#: includes/widgets/pp-logo-grid.php:342 includes/widgets/pp-logo-grid.php:430
+#: includes/widgets/pp-modal-popup.php:138
+#: includes/widgets/pp-modal-popup.php:193
+#: includes/widgets/pp-modal-popup.php:528
+#: includes/widgets/pp-modal-popup.php:541
+#: includes/widgets/pp-modal-popup.php:554
+#: includes/widgets/pp-ninja-forms.php:57
+#: includes/widgets/pp-ninja-forms.php:769
+#: includes/widgets/pp-price-menu.php:180
+#: includes/widgets/pp-price-menu.php:195
+#: includes/widgets/pp-pricing-table.php:283
+#: includes/widgets/pp-pricing-table.php:1161
+#: includes/widgets/pp-recipe.php:119 includes/widgets/pp-recipe.php:143
+#: includes/widgets/pp-recipe.php:155
+#: includes/widgets/pp-team-member-carousel.php:218
+#: includes/widgets/pp-team-member-carousel.php:399
+#: includes/widgets/pp-team-member-carousel.php:431
+#: includes/widgets/pp-team-member-carousel.php:465
+#: includes/widgets/pp-team-member-carousel.php:477
+#: includes/widgets/pp-team-member.php:108
+#: includes/widgets/pp-team-member.php:164
+#: includes/widgets/pp-tiled-posts.php:128
+#: includes/widgets/pp-tiled-posts.php:140
+#: includes/widgets/pp-tiled-posts.php:167
+#: includes/widgets/pp-tiled-posts.php:325
+#: includes/widgets/pp-tiled-posts.php:352
+#: includes/widgets/pp-tiled-posts.php:367
+#: includes/widgets/pp-tiled-posts.php:382 includes/widgets/pp-wpforms.php:53
+#: includes/widgets/pp-wpforms.php:736
+msgid "Yes"
+msgstr "Sim"
+
+#: includes/widgets/pp-hotspots.php:393 includes/widgets/pp-hotspots.php:470
+msgid "fadeOutDown"
+msgstr "fadeOutDown"
+
+#: includes/widgets/pp-modal-popup.php:585
+msgid "Move Left"
+msgstr "Mover para esquerda"
+
+#: includes/widgets/pp-business-hours.php:125
+msgid "Opening Hours"
+msgstr "Horário de funcionamento"
+
+#: includes/widgets/pp-hotspots.php:394 includes/widgets/pp-hotspots.php:471
+msgid "fadeOutDownBig"
+msgstr "fadeOutDownBig"
+
+#: includes/widgets/pp-modal-popup.php:586
+msgid "Move Right"
+msgstr "Mover para direita"
+
+#: includes/widgets/pp-business-hours.php:186
+msgid "Closing Hours"
+msgstr "Horário de Encerramento"
+
+#: includes/widgets/pp-hotspots.php:395 includes/widgets/pp-hotspots.php:472
+msgid "fadeOutLeft"
+msgstr "fadeOutLeft"
+
+#: includes/widgets/pp-modal-popup.php:990
+msgid "Close Button"
+msgstr "Botão fechar"
+
+#: includes/widgets/pp-business-hours.php:247
+msgid "Closed Text"
+msgstr "Fechado texto"
+
+#: includes/widgets/pp-hotspots.php:396 includes/widgets/pp-hotspots.php:473
+msgid "fadeOutLeftBig"
+msgstr "fadeOutLeftBig"
+
+#: includes/widgets/pp-modal-popup.php:1032
+msgid "Bold"
+msgstr "Negrito"
+
+#: includes/widgets/pp-business-hours.php:250
+#: includes/widgets/pp-business-hours.php:251
+#: includes/widgets/pp-business-hours.php:809
+#: includes/widgets/pp-business-hours.php:876
+msgid "Closed"
+msgstr "Fechado"
+
+#: includes/widgets/pp-hotspots.php:397 includes/widgets/pp-hotspots.php:474
+msgid "fadeOutRight"
+msgstr "fadeOutRight"
+
+#: includes/widgets/pp-modal-popup.php:1191
+msgid "Box - Top Right"
+msgstr "Caixa - direito superior "
+
+#: includes/widgets/pp-business-hours.php:264
+msgid "Highlight"
+msgstr "Realçar"
+
+#: includes/widgets/pp-hotspots.php:398 includes/widgets/pp-hotspots.php:475
+msgid "fadeOutRightBig"
+msgstr "fadeOutRightBig"
+
+#: includes/widgets/pp-modal-popup.php:1192
+msgid "Box - Top Left"
+msgstr "Caixa - esquerdo superior"
+
+#: includes/widgets/pp-business-hours.php:273
+#: includes/widgets/pp-business-hours.php:354
+#: includes/widgets/pp-business-hours.php:375
+#: includes/widgets/pp-business-hours.php:415
+#: includes/widgets/pp-business-hours.php:457
+#: includes/widgets/pp-business-hours.php:532
+#: includes/widgets/pp-caldera-forms.php:405
+#: includes/widgets/pp-caldera-forms.php:613
+#: includes/widgets/pp-caldera-forms.php:1021
+#: includes/widgets/pp-caldera-forms.php:1127
+#: includes/widgets/pp-caldera-forms.php:1181
+#: includes/widgets/pp-contact-form-7.php:338
+#: includes/widgets/pp-contact-form-7.php:513
+#: includes/widgets/pp-contact-form-7.php:957
+#: includes/widgets/pp-contact-form-7.php:1063
+#: includes/widgets/pp-contact-form-7.php:1188
+#: includes/widgets/pp-contact-form-7.php:1249
+#: includes/widgets/pp-counter.php:950
+#: includes/widgets/pp-gravity-forms.php:450
+#: includes/widgets/pp-gravity-forms.php:658
+#: includes/widgets/pp-gravity-forms.php:1217
+#: includes/widgets/pp-gravity-forms.php:1304
+#: includes/widgets/pp-hotspots.php:601 includes/widgets/pp-hotspots.php:670
+#: includes/widgets/pp-icon-list.php:384 includes/widgets/pp-icon-list.php:497
+#: includes/widgets/pp-image-comparison.php:576
+#: includes/widgets/pp-image-comparison.php:632
+#: includes/widgets/pp-info-box-carousel.php:621
+#: includes/widgets/pp-info-box-carousel.php:733
+#: includes/widgets/pp-info-box-carousel.php:1250
+#: includes/widgets/pp-info-box-carousel.php:1369
+#: includes/widgets/pp-info-box-carousel.php:1532
+#: includes/widgets/pp-info-box-carousel.php:1588
+#: includes/widgets/pp-info-box.php:648 includes/widgets/pp-info-box.php:765
+#: includes/widgets/pp-info-box.php:1249 includes/widgets/pp-info-box.php:1402
+#: includes/widgets/pp-info-list.php:428 includes/widgets/pp-info-list.php:547
+#: includes/widgets/pp-info-list.php:736 includes/widgets/pp-info-list.php:849
+#: includes/widgets/pp-instafeed.php:733 includes/widgets/pp-instafeed.php:798
+#: includes/widgets/pp-instafeed.php:964 includes/widgets/pp-instafeed.php:1020
+#: includes/widgets/pp-link-effects.php:256
+#: includes/widgets/pp-link-effects.php:305
+#: includes/widgets/pp-logo-carousel.php:658
+#: includes/widgets/pp-logo-carousel.php:714
+#: includes/widgets/pp-logo-grid.php:132
+#: includes/widgets/pp-modal-popup.php:644
+#: includes/widgets/pp-modal-popup.php:1333
+#: includes/widgets/pp-modal-popup.php:1496
+#: includes/widgets/pp-ninja-forms.php:420
+#: includes/widgets/pp-ninja-forms.php:630
+#: includes/widgets/pp-ninja-forms.php:1043
+#: includes/widgets/pp-ninja-forms.php:1130
+#: includes/widgets/pp-price-menu.php:221
+#: includes/widgets/pp-price-menu.php:538
+#: includes/widgets/pp-price-menu.php:697
+#: includes/widgets/pp-pricing-table.php:313
+#: includes/widgets/pp-pricing-table.php:428
+#: includes/widgets/pp-pricing-table.php:528
+#: includes/widgets/pp-pricing-table.php:748
+#: includes/widgets/pp-pricing-table.php:1036
+#: includes/widgets/pp-pricing-table.php:1197
+#: includes/widgets/pp-pricing-table.php:1239
+#: includes/widgets/pp-pricing-table.php:1307
+#: includes/widgets/pp-pricing-table.php:1374
+#: includes/widgets/pp-pricing-table.php:1484
+#: includes/widgets/pp-pricing-table.php:1569
+#: includes/widgets/pp-promo-box.php:594 includes/widgets/pp-promo-box.php:684
+#: includes/widgets/pp-promo-box.php:1285
+#: includes/widgets/pp-promo-box.php:1370 includes/widgets/pp-table.php:731
+#: includes/widgets/pp-table.php:775 includes/widgets/pp-table.php:836
+#: includes/widgets/pp-table.php:893 includes/widgets/pp-table.php:950
+#: includes/widgets/pp-table.php:1103 includes/widgets/pp-table.php:1147
+#: includes/widgets/pp-table.php:1281 includes/widgets/pp-table.php:1325
+#: includes/widgets/pp-table.php:1378 includes/widgets/pp-table.php:1451
+#: includes/widgets/pp-table.php:1483 includes/widgets/pp-table.php:1515
+#: includes/widgets/pp-table.php:1556 includes/widgets/pp-table.php:1588
+#: includes/widgets/pp-table.php:1620
+#: includes/widgets/pp-team-member-carousel.php:542
+#: includes/widgets/pp-team-member-carousel.php:1457
+#: includes/widgets/pp-team-member-carousel.php:1527
+#: includes/widgets/pp-team-member-carousel.php:1662
+#: includes/widgets/pp-team-member-carousel.php:1718
+#: includes/widgets/pp-team-member.php:1315
+#: includes/widgets/pp-team-member.php:1385
+#: includes/widgets/pp-tiled-posts.php:531 includes/widgets/pp-wpforms.php:402
+#: includes/widgets/pp-wpforms.php:1011 includes/widgets/pp-wpforms.php:1118
+msgid "Background Color"
+msgstr "Cor de fundo"
+
+#: includes/widgets/pp-hotspots.php:399 includes/widgets/pp-hotspots.php:476
+msgid "fadeOutUp"
+msgstr "fadeOutUp"
+
+#: includes/widgets/pp-modal-popup.php:1193
+msgid "Window - Top Right"
+msgstr "Janela - direito superior "
+
+#: includes/widgets/pp-business-hours.php:285
+#: includes/widgets/pp-business-hours.php:430
+#: includes/widgets/pp-business-hours.php:472
+#: includes/widgets/pp-business-hours.php:556
+#: includes/widgets/pp-caldera-forms.php:211
+#: includes/widgets/pp-caldera-forms.php:272
+#: includes/widgets/pp-caldera-forms.php:336
+#: includes/widgets/pp-caldera-forms.php:417
+#: includes/widgets/pp-caldera-forms.php:663
+#: includes/widgets/pp-caldera-forms.php:719
+#: includes/widgets/pp-caldera-forms.php:1033
+#: includes/widgets/pp-caldera-forms.php:1139
+#: includes/widgets/pp-caldera-forms.php:1192
+#: includes/widgets/pp-contact-form-7.php:262
+#: includes/widgets/pp-contact-form-7.php:293
+#: includes/widgets/pp-contact-form-7.php:350
+#: includes/widgets/pp-contact-form-7.php:566
+#: includes/widgets/pp-contact-form-7.php:640
+#: includes/widgets/pp-contact-form-7.php:969
+#: includes/widgets/pp-contact-form-7.php:1075
+#: includes/widgets/pp-contact-form-7.php:1139
+#: includes/widgets/pp-contact-form-7.php:1203
+#: includes/widgets/pp-contact-form-7.php:1264
+#: includes/widgets/pp-counter.php:935 includes/widgets/pp-dual-heading.php:200
+#: includes/widgets/pp-dual-heading.php:299
+#: includes/widgets/pp-gravity-forms.php:305
+#: includes/widgets/pp-gravity-forms.php:336
+#: includes/widgets/pp-gravity-forms.php:375
+#: includes/widgets/pp-gravity-forms.php:462
+#: includes/widgets/pp-gravity-forms.php:708
+#: includes/widgets/pp-gravity-forms.php:761
+#: includes/widgets/pp-gravity-forms.php:912
+#: includes/widgets/pp-gravity-forms.php:1229
+#: includes/widgets/pp-gravity-forms.php:1316
+#: includes/widgets/pp-gravity-forms.php:1389
+#: includes/widgets/pp-gravity-forms.php:1524
+#: includes/widgets/pp-hotspots.php:679
+#: includes/widgets/pp-image-comparison.php:564
+#: includes/widgets/pp-image-comparison.php:620
+#: includes/widgets/pp-info-box-carousel.php:1262
+#: includes/widgets/pp-info-box-carousel.php:1381
+#: includes/widgets/pp-info-box.php:1265 includes/widgets/pp-info-box.php:1418
+#: includes/widgets/pp-info-list.php:748 includes/widgets/pp-info-list.php:861
+#: includes/widgets/pp-instafeed.php:718 includes/widgets/pp-instafeed.php:783
+#: includes/widgets/pp-modal-popup.php:833
+#: includes/widgets/pp-modal-popup.php:1350
+#: includes/widgets/pp-modal-popup.php:1513
+#: includes/widgets/pp-ninja-forms.php:238
+#: includes/widgets/pp-ninja-forms.php:287
+#: includes/widgets/pp-ninja-forms.php:345
+#: includes/widgets/pp-ninja-forms.php:432
+#: includes/widgets/pp-ninja-forms.php:680
+#: includes/widgets/pp-ninja-forms.php:736
+#: includes/widgets/pp-ninja-forms.php:1055
+#: includes/widgets/pp-ninja-forms.php:1142
+#: includes/widgets/pp-ninja-forms.php:1204
+#: includes/widgets/pp-ninja-forms.php:1304
+#: includes/widgets/pp-price-menu.php:523
+#: includes/widgets/pp-pricing-table.php:304
+#: includes/widgets/pp-pricing-table.php:903
+#: includes/widgets/pp-pricing-table.php:958
+#: includes/widgets/pp-pricing-table.php:1048
+#: includes/widgets/pp-pricing-table.php:1212
+#: includes/widgets/pp-pricing-table.php:1254
+#: includes/widgets/pp-pricing-table.php:1389
+#: includes/widgets/pp-pricing-table.php:1499
+#: includes/widgets/pp-pricing-table.php:1554
+#: includes/widgets/pp-promo-box.php:1297
+#: includes/widgets/pp-promo-box.php:1382 includes/widgets/pp-recipe.php:431
+#: includes/widgets/pp-recipe.php:552 includes/widgets/pp-recipe.php:613
+#: includes/widgets/pp-recipe.php:679 includes/widgets/pp-recipe.php:709
+#: includes/widgets/pp-table.php:719 includes/widgets/pp-table.php:763
+#: includes/widgets/pp-table.php:851 includes/widgets/pp-table.php:908
+#: includes/widgets/pp-table.php:965 includes/widgets/pp-table.php:1091
+#: includes/widgets/pp-table.php:1135 includes/widgets/pp-table.php:1269
+#: includes/widgets/pp-table.php:1313 includes/widgets/pp-table.php:1439
+#: includes/widgets/pp-table.php:1471 includes/widgets/pp-table.php:1503
+#: includes/widgets/pp-table.php:1544 includes/widgets/pp-table.php:1576
+#: includes/widgets/pp-table.php:1608
+#: includes/widgets/pp-team-member-carousel.php:786
+#: includes/widgets/pp-team-member-carousel.php:989
+#: includes/widgets/pp-team-member-carousel.php:1192
+#: includes/widgets/pp-team-member.php:617
+#: includes/widgets/pp-team-member.php:820
+#: includes/widgets/pp-team-member.php:1031
+#: includes/widgets/pp-tiled-posts.php:449
+#: includes/widgets/pp-tiled-posts.php:550
+#: includes/widgets/pp-tiled-posts.php:629 includes/widgets/pp-wpforms.php:228
+#: includes/widgets/pp-wpforms.php:277 includes/widgets/pp-wpforms.php:332
+#: includes/widgets/pp-wpforms.php:414 includes/widgets/pp-wpforms.php:650
+#: includes/widgets/pp-wpforms.php:706 includes/widgets/pp-wpforms.php:1023
+#: includes/widgets/pp-wpforms.php:1130 includes/widgets/pp-wpforms.php:1175
+msgid "Text Color"
+msgstr "Cor do texto"
+
+#: includes/widgets/pp-hotspots.php:400 includes/widgets/pp-hotspots.php:477
+msgid "fadeOutUpBig"
+msgstr "fadeOutUpBig"
+
+#: includes/widgets/pp-modal-popup.php:1194
+msgid "Window - Top Left"
+msgstr "Janela - esquerdo superior"
+
+#: includes/widgets/pp-business-hours.php:303
+msgid "24 Hours Format?"
+msgstr "formato 24 horas?"
+
+#: includes/widgets/pp-hotspots.php:401 includes/widgets/pp-hotspots.php:478
+msgid "flip"
+msgstr "Virar"
+
+#: includes/widgets/pp-ninja-forms.php:1230
+msgid "Required Fields Notice"
+msgstr "Campos obrigatórios"
+
+#: includes/widgets/pp-business-hours.php:315
+msgid "Days Format"
+msgstr "Formato dos Dias"
+
+#: includes/widgets/pp-hotspots.php:402 includes/widgets/pp-hotspots.php:479
+msgid "flipInX"
+msgstr "flipInX"
+
+#: includes/widgets/pp-price-menu.php:44
+msgid "Menu Item #1"
+msgstr "Item de menu #1"
+
+#: includes/widgets/pp-business-hours.php:319
+msgid "Long"
+msgstr "Longo"
+
+#: includes/widgets/pp-hotspots.php:403 includes/widgets/pp-hotspots.php:480
+msgid "flipInY"
+msgstr "flipInY"
+
+#: includes/widgets/pp-price-menu.php:48
+msgid "Menu Item #2"
+msgstr "\tItem de menu #2"
+
+#: includes/widgets/pp-business-hours.php:320
+msgid "Short"
+msgstr "Curto"
+
+#: includes/widgets/pp-hotspots.php:404 includes/widgets/pp-hotspots.php:481
+msgid "flipOutX"
+msgstr "flipOutX"
+
+#: includes/widgets/pp-price-menu.php:52
+msgid "Menu Item #3"
+msgstr "Item de menu #3"
+
+#: includes/widgets/pp-business-hours.php:337
+msgid "Rows Style"
+msgstr "Estilo de linhas"
+
+#: includes/widgets/pp-hotspots.php:405 includes/widgets/pp-hotspots.php:482
+msgid "flipOutY"
+msgstr "flipOutY"
+
+#: includes/widgets/pp-price-menu.php:81
+#: includes/widgets/pp-pricing-table.php:207
+msgid "Discount"
+msgstr "Desconto"
+
+#: includes/widgets/pp-business-hours.php:347
+#: includes/widgets/pp-business-hours.php:650
+#: includes/widgets/pp-caldera-forms.php:398
+#: includes/widgets/pp-caldera-forms.php:786
+#: includes/widgets/pp-caldera-forms.php:1014
+#: includes/widgets/pp-contact-form-7.php:331
+#: includes/widgets/pp-contact-form-7.php:720
+#: includes/widgets/pp-contact-form-7.php:950
+#: includes/widgets/pp-gravity-forms.php:443
+#: includes/widgets/pp-gravity-forms.php:979
+#: includes/widgets/pp-gravity-forms.php:1210
+#: includes/widgets/pp-icon-list.php:361
+#: includes/widgets/pp-image-comparison.php:239
+#: includes/widgets/pp-image-comparison.php:298
+#: includes/widgets/pp-info-box-carousel.php:614
+#: includes/widgets/pp-info-box-carousel.php:1243
+#: includes/widgets/pp-info-box-carousel.php:1525
+#: includes/widgets/pp-info-box-carousel.php:1711
+#: includes/widgets/pp-info-box.php:445 includes/widgets/pp-info-box.php:641
+#: includes/widgets/pp-info-box.php:1238 includes/widgets/pp-info-list.php:405
+#: includes/widgets/pp-info-list.php:729 includes/widgets/pp-instafeed.php:518
+#: includes/widgets/pp-instafeed.php:708 includes/widgets/pp-instafeed.php:957
+#: includes/widgets/pp-instafeed.php:1143
+#: includes/widgets/pp-link-effects.php:237
+#: includes/widgets/pp-logo-carousel.php:418
+#: includes/widgets/pp-logo-carousel.php:651
+#: includes/widgets/pp-logo-carousel.php:836
+#: includes/widgets/pp-logo-grid.php:287
+#: includes/widgets/pp-modal-popup.php:1031
+#: includes/widgets/pp-modal-popup.php:1048
+#: includes/widgets/pp-modal-popup.php:1321
+#: includes/widgets/pp-ninja-forms.php:413
+#: includes/widgets/pp-ninja-forms.php:806
+#: includes/widgets/pp-ninja-forms.php:1036
+#: includes/widgets/pp-pricing-table.php:1364
+#: includes/widgets/pp-promo-box.php:587 includes/widgets/pp-promo-box.php:1278
+#: includes/widgets/pp-table.php:712 includes/widgets/pp-table.php:1084
+#: includes/widgets/pp-table.php:1262
+#: includes/widgets/pp-team-member-carousel.php:1438
+#: includes/widgets/pp-team-member-carousel.php:1655
+#: includes/widgets/pp-team-member-carousel.php:1840
+#: includes/widgets/pp-team-member.php:1296 includes/widgets/pp-wpforms.php:395
+#: includes/widgets/pp-wpforms.php:773 includes/widgets/pp-wpforms.php:1004
+msgid "Normal"
+msgstr "Normal"
+
+#: includes/widgets/pp-hotspots.php:406 includes/widgets/pp-hotspots.php:483
+msgid "lightSpeedIn"
+msgstr "lightSpeedIn"
+
+#: includes/widgets/pp-price-menu.php:90 includes/widgets/pp-price-menu.php:578
+#: includes/widgets/pp-pricing-table.php:219
+#: includes/widgets/pp-pricing-table.php:946
+msgid "Original Price"
+msgstr "Preço original"
+
+#: includes/widgets/pp-business-hours.php:368
+#: includes/widgets/pp-business-hours.php:721
+#: includes/widgets/pp-caldera-forms.php:1120
+#: includes/widgets/pp-contact-form-7.php:1056
+#: includes/widgets/pp-gravity-forms.php:1297
+#: includes/widgets/pp-icon-list.php:474
+#: includes/widgets/pp-image-comparison.php:260
+#: includes/widgets/pp-image-comparison.php:361
+#: includes/widgets/pp-info-box-carousel.php:726
+#: includes/widgets/pp-info-box-carousel.php:1362
+#: includes/widgets/pp-info-box-carousel.php:1581
+#: includes/widgets/pp-info-box-carousel.php:1786
+#: includes/widgets/pp-info-box.php:495 includes/widgets/pp-info-box.php:758
+#: includes/widgets/pp-info-box.php:1391 includes/widgets/pp-info-list.php:524
+#: includes/widgets/pp-info-list.php:842 includes/widgets/pp-instafeed.php:576
+#: includes/widgets/pp-instafeed.php:773 includes/widgets/pp-instafeed.php:1013
+#: includes/widgets/pp-instafeed.php:1218
+#: includes/widgets/pp-link-effects.php:286
+#: includes/widgets/pp-logo-carousel.php:457
+#: includes/widgets/pp-logo-carousel.php:707
+#: includes/widgets/pp-logo-carousel.php:911
+#: includes/widgets/pp-logo-grid.php:380
+#: includes/widgets/pp-modal-popup.php:1117
+#: includes/widgets/pp-modal-popup.php:1484
+#: includes/widgets/pp-ninja-forms.php:1123
+#: includes/widgets/pp-pricing-table.php:1474
+#: includes/widgets/pp-promo-box.php:677 includes/widgets/pp-promo-box.php:1363
+#: includes/widgets/pp-table.php:756 includes/widgets/pp-table.php:1128
+#: includes/widgets/pp-table.php:1306
+#: includes/widgets/pp-team-member-carousel.php:1508
+#: includes/widgets/pp-team-member-carousel.php:1711
+#: includes/widgets/pp-team-member-carousel.php:1915
+#: includes/widgets/pp-team-member.php:1366
+#: includes/widgets/pp-wpforms.php:1111
+msgid "Hover"
+msgstr "Hover(passar o mouse)"
+
+#: includes/widgets/pp-hotspots.php:407 includes/widgets/pp-hotspots.php:484
+msgid "lightSpeedOut"
+msgstr "lightSpeedOut"
+
+#: includes/widgets/pp-price-menu.php:99
+msgid "Show Image"
+msgstr "Mostrar imagem"
+
+#: includes/widgets/pp-business-hours.php:390
+#: includes/widgets/pp-pricing-table.php:1158 includes/widgets/pp-table.php:823
+msgid "Striped Rows"
+msgstr "Linhas listradas"
+
+#: includes/widgets/pp-hotspots.php:408 includes/widgets/pp-hotspots.php:485
+msgid "rotateIn"
+msgstr "rotateIn"
+
+#: includes/widgets/pp-price-menu.php:128
+msgid "Menu Style"
+msgstr "Estilo do menu"
+
+#: includes/widgets/pp-business-hours.php:405
+msgid "Even Row"
+msgstr "Mesma linha"
+
+#: includes/widgets/pp-hotspots.php:409 includes/widgets/pp-hotspots.php:486
+msgid "rotateInDownLeft"
+msgstr "rotateInDownLeft"
+
+#: includes/widgets/pp-price-menu.php:132
+msgid "PowerPack Style"
+msgstr "Estilo do PowerPack"
+
+#: includes/widgets/pp-business-hours.php:447
+msgid "Odd Row"
+msgstr "Linha ímpar"
+
+#: includes/widgets/pp-hotspots.php:410 includes/widgets/pp-hotspots.php:487
+msgid "rotateInDownRight"
+msgstr "rotateInDownRight"
+
+#: includes/widgets/pp-price-menu.php:133
+#: includes/widgets/pp-tiled-posts.php:518
+msgid "Style 1"
+msgstr "Estilo 1"
+
+#: includes/widgets/pp-business-hours.php:491
+#: includes/widgets/pp-caldera-forms.php:554
+#: includes/widgets/pp-caldera-forms.php:1068
+#: includes/widgets/pp-contact-form-7.php:386
+#: includes/widgets/pp-contact-form-7.php:1003
+#: includes/widgets/pp-counter.php:476 includes/widgets/pp-counter.php:998
+#: includes/widgets/pp-dual-heading.php:256
+#: includes/widgets/pp-dual-heading.php:384
+#: includes/widgets/pp-google-maps.php:474
+#: includes/widgets/pp-gravity-forms.php:493
+#: includes/widgets/pp-gravity-forms.php:1264
+#: includes/widgets/pp-hotspots.php:636 includes/widgets/pp-icon-list.php:206
+#: includes/widgets/pp-icon-list.php:460
+#: includes/widgets/pp-image-comparison.php:682
+#: includes/widgets/pp-info-box-carousel.php:687
+#: includes/widgets/pp-info-box-carousel.php:1172
+#: includes/widgets/pp-info-box-carousel.php:1307
+#: includes/widgets/pp-info-box-carousel.php:1628
+#: includes/widgets/pp-info-box.php:547 includes/widgets/pp-info-box.php:726
+#: includes/widgets/pp-info-box.php:1326 includes/widgets/pp-info-list.php:793
+#: includes/widgets/pp-instafeed.php:840 includes/widgets/pp-instafeed.php:1060
+#: includes/widgets/pp-logo-carousel.php:404
+#: includes/widgets/pp-logo-carousel.php:754
+#: includes/widgets/pp-logo-carousel.php:890
+#: includes/widgets/pp-logo-grid.php:327
+#: includes/widgets/pp-modal-popup.php:688
+#: includes/widgets/pp-modal-popup.php:762
+#: includes/widgets/pp-modal-popup.php:1227
+#: includes/widgets/pp-modal-popup.php:1415
+#: includes/widgets/pp-ninja-forms.php:570
+#: includes/widgets/pp-ninja-forms.php:1090
+#: includes/widgets/pp-price-menu.php:252
+#: includes/widgets/pp-price-menu.php:312
+#: includes/widgets/pp-price-menu.php:745
+#: includes/widgets/pp-pricing-table.php:458
+#: includes/widgets/pp-pricing-table.php:574
+#: includes/widgets/pp-pricing-table.php:819
+#: includes/widgets/pp-pricing-table.php:1060
+#: includes/widgets/pp-pricing-table.php:1170
+#: includes/widgets/pp-pricing-table.php:1319
+#: includes/widgets/pp-pricing-table.php:1431
+#: includes/widgets/pp-pricing-table.php:1606
+#: includes/widgets/pp-promo-box.php:338 includes/widgets/pp-promo-box.php:506
+#: includes/widgets/pp-promo-box.php:622 includes/widgets/pp-promo-box.php:1341
+#: includes/widgets/pp-recipe.php:658 includes/widgets/pp-table.php:791
+#: includes/widgets/pp-table.php:1163 includes/widgets/pp-table.php:1341
+#: includes/widgets/pp-team-member-carousel.php:578
+#: includes/widgets/pp-team-member-carousel.php:1493
+#: includes/widgets/pp-team-member-carousel.php:1758
+#: includes/widgets/pp-team-member.php:427
+#: includes/widgets/pp-team-member.php:1351
+#: includes/widgets/pp-tiled-posts.php:421
+#: includes/widgets/pp-tiled-posts.php:600 includes/widgets/pp-wpforms.php:551
+#: includes/widgets/pp-wpforms.php:1058
+msgid "Padding"
+msgstr "Espaçamento"
+
+#: includes/widgets/pp-hotspots.php:411 includes/widgets/pp-hotspots.php:488
+msgid "rotateInUpLeft"
+msgstr "rotateInUpLeft"
+
+#: includes/widgets/pp-price-menu.php:134
+#: includes/widgets/pp-tiled-posts.php:519
+msgid "Style 2"
+msgstr "Estilo 2"
+
+#: includes/widgets/pp-business-hours.php:504
+#: includes/widgets/pp-info-box-carousel.php:883
+#: includes/widgets/pp-info-box-carousel.php:941
+#: includes/widgets/pp-info-box-carousel.php:1106
+#: includes/widgets/pp-info-box-carousel.php:1184
+#: includes/widgets/pp-info-box.php:858 includes/widgets/pp-info-box.php:925
+#: includes/widgets/pp-info-box.php:1093 includes/widgets/pp-info-box.php:1168
+#: includes/widgets/pp-price-menu.php:362
+#: includes/widgets/pp-price-menu.php:482
+#: includes/widgets/pp-price-menu.php:656
+#: includes/widgets/pp-pricing-table.php:1072
+#: includes/widgets/pp-team-member-carousel.php:736
+#: includes/widgets/pp-team-member-carousel.php:798
+#: includes/widgets/pp-team-member-carousel.php:936
+#: includes/widgets/pp-team-member-carousel.php:1001
+#: includes/widgets/pp-team-member-carousel.php:1139
+#: includes/widgets/pp-team-member-carousel.php:1204
+#: includes/widgets/pp-team-member-carousel.php:1342
+#: includes/widgets/pp-team-member.php:629
+#: includes/widgets/pp-team-member.php:767
+#: includes/widgets/pp-team-member.php:832
+#: includes/widgets/pp-team-member.php:970
+#: includes/widgets/pp-team-member.php:1047
+#: includes/widgets/pp-team-member.php:1199
+#: includes/widgets/pp-tiled-posts.php:477
+#: includes/widgets/pp-tiled-posts.php:578
+msgid "Margin Bottom"
+msgstr "Margem inferior"
+
+#: includes/widgets/pp-hotspots.php:412 includes/widgets/pp-hotspots.php:489
+msgid "rotateInUpRight"
+msgstr "rotateInUpRight"
+
+#: includes/widgets/pp-price-menu.php:135
+msgid "Style 3"
+msgstr "Estilo 3"
+
+#: includes/widgets/pp-business-hours.php:523
+msgid "Closed Row"
+msgstr "Linha fechada"
+
+#: includes/widgets/pp-hotspots.php:413 includes/widgets/pp-hotspots.php:490
+msgid "rotateOut"
+msgstr "rotateOut"
+
+#: includes/widgets/pp-price-menu.php:136
+msgid "Style 4"
+msgstr "Estilo 4"
+
+#: includes/widgets/pp-business-hours.php:544
+#: includes/widgets/pp-business-hours.php:728
+msgid "Day Color"
+msgstr "Cor do dia"
+
+#: includes/widgets/pp-hotspots.php:414 includes/widgets/pp-hotspots.php:491
+msgid "rotateOutDownLeft"
+msgstr "rotateOutDownLeft"
+
+#: includes/widgets/pp-price-menu.php:177
+#: includes/widgets/pp-price-menu.php:816
+msgid "Title-Price Connector"
+msgstr "Conector preço-título"
+
+#: includes/widgets/pp-business-hours.php:568
+msgid "Rows Divider"
+msgstr "Divisor de linhas"
+
+#: includes/widgets/pp-hotspots.php:415 includes/widgets/pp-hotspots.php:492
+msgid "rotateOutDownRight"
+msgstr "rotateOutDownRight"
+
+#: includes/widgets/pp-price-menu.php:213
+msgid "Menu Items"
+msgstr "Itens do menu"
+
+#: includes/widgets/pp-business-hours.php:577
+#: includes/widgets/pp-team-member-carousel.php:856
+#: includes/widgets/pp-team-member-carousel.php:1059
+#: includes/widgets/pp-team-member-carousel.php:1262
+#: includes/widgets/pp-team-member.php:687
+#: includes/widgets/pp-team-member.php:890
+#: includes/widgets/pp-team-member.php:1113
+msgid "Divider Style"
+msgstr "Estilo do divisor"
+
+#: includes/widgets/pp-hotspots.php:416 includes/widgets/pp-hotspots.php:493
+msgid "rotateOutUpLeft"
+msgstr "rotateOutUpLeft"
+
+#: includes/widgets/pp-price-menu.php:511
+msgid "Price Badge"
+msgstr "Emblema de Preço"
+
+#: includes/widgets/pp-business-hours.php:581
+#: includes/widgets/pp-counter.php:107
+#: includes/widgets/pp-gravity-forms.php:788
+#: includes/widgets/pp-icon-list.php:112
+#: includes/widgets/pp-info-box-carousel.php:144
+#: includes/widgets/pp-info-box-carousel.php:213
+#: includes/widgets/pp-info-box-carousel.php:989
+#: includes/widgets/pp-info-box.php:91 includes/widgets/pp-info-box.php:328
+#: includes/widgets/pp-info-box.php:976 includes/widgets/pp-info-list.php:134
+#: includes/widgets/pp-info-list.php:189 includes/widgets/pp-instafeed.php:172
+#: includes/widgets/pp-price-menu.php:398
+#: includes/widgets/pp-pricing-table.php:91
+#: includes/widgets/pp-pricing-table.php:171 includes/widgets/pp-recipe.php:467
+#: includes/widgets/pp-recipe.php:854 includes/widgets/pp-table.php:73
+#: includes/widgets/pp-table.php:234 includes/widgets/pp-table.php:428
+#: includes/widgets/pp-team-member-carousel.php:299
+#: includes/widgets/pp-team-member.php:295
+msgid "None"
+msgstr "Nenhum"
+
+#: includes/widgets/pp-hotspots.php:417 includes/widgets/pp-hotspots.php:494
+msgid "rotateOutUpRight"
+msgstr "rotateOutUpRight"
+
+#: includes/widgets/pp-price-menu.php:587
+msgid "Strikethrough"
+msgstr "Riscado"
+
+#: includes/widgets/pp-business-hours.php:582
+#: includes/widgets/pp-counter.php:535 includes/widgets/pp-counter.php:722
+#: includes/widgets/pp-divider.php:274
+#: includes/widgets/pp-gravity-forms.php:789
+#: includes/widgets/pp-icon-list.php:265
+#: includes/widgets/pp-info-box-carousel.php:990
+#: includes/widgets/pp-info-box.php:977 includes/widgets/pp-info-list.php:327
+#: includes/widgets/pp-price-menu.php:399
+#: includes/widgets/pp-price-menu.php:867 includes/widgets/pp-promo-box.php:833
+#: includes/widgets/pp-promo-box.php:1062 includes/widgets/pp-recipe.php:468
+#: includes/widgets/pp-recipe.php:855
+#: includes/widgets/pp-team-member-carousel.php:860
+#: includes/widgets/pp-team-member-carousel.php:1063
+#: includes/widgets/pp-team-member-carousel.php:1266
+#: includes/widgets/pp-team-member.php:691
+#: includes/widgets/pp-team-member.php:894
+#: includes/widgets/pp-team-member.php:1117
+msgid "Solid"
+msgstr "Sólido"
+
+#: includes/widgets/pp-hotspots.php:418 includes/widgets/pp-hotspots.php:495
+msgid "Hinge"
+msgstr "Dobradiça"
+
+#: includes/widgets/pp-price-menu.php:602
+msgid "Original Price Color"
+msgstr "Cor original do preço"
+
+#: includes/widgets/pp-business-hours.php:583
+#: includes/widgets/pp-counter.php:538 includes/widgets/pp-counter.php:725
+#: includes/widgets/pp-divider.php:275
+#: includes/widgets/pp-gravity-forms.php:792
+#: includes/widgets/pp-icon-list.php:268
+#: includes/widgets/pp-info-box-carousel.php:993
+#: includes/widgets/pp-info-box.php:980 includes/widgets/pp-info-list.php:330
+#: includes/widgets/pp-price-menu.php:402
+#: includes/widgets/pp-price-menu.php:868 includes/widgets/pp-promo-box.php:836
+#: includes/widgets/pp-promo-box.php:1065 includes/widgets/pp-recipe.php:471
+#: includes/widgets/pp-recipe.php:857
+#: includes/widgets/pp-team-member-carousel.php:862
+#: includes/widgets/pp-team-member-carousel.php:1065
+#: includes/widgets/pp-team-member-carousel.php:1268
+#: includes/widgets/pp-team-member.php:693
+#: includes/widgets/pp-team-member.php:896
+#: includes/widgets/pp-team-member.php:1119
+msgid "Dashed"
+msgstr "Tracejadas"
+
+#: includes/widgets/pp-hotspots.php:419 includes/widgets/pp-hotspots.php:496
+msgid "rollIn"
+msgstr "rollIn"
+
+#: includes/widgets/pp-price-menu.php:615
+msgid "Original Price Typography"
+msgstr "Tipografia original de preços"
+
+#: includes/widgets/pp-business-hours.php:584
+#: includes/widgets/pp-counter.php:537 includes/widgets/pp-counter.php:724
+#: includes/widgets/pp-divider.php:276
+#: includes/widgets/pp-gravity-forms.php:791
+#: includes/widgets/pp-icon-list.php:267
+#: includes/widgets/pp-info-box-carousel.php:992
+#: includes/widgets/pp-info-box.php:979 includes/widgets/pp-info-list.php:329
+#: includes/widgets/pp-price-menu.php:401
+#: includes/widgets/pp-price-menu.php:869 includes/widgets/pp-promo-box.php:835
+#: includes/widgets/pp-promo-box.php:1064 includes/widgets/pp-recipe.php:470
+#: includes/widgets/pp-recipe.php:856
+#: includes/widgets/pp-team-member-carousel.php:861
+#: includes/widgets/pp-team-member-carousel.php:1064
+#: includes/widgets/pp-team-member-carousel.php:1267
+#: includes/widgets/pp-team-member.php:692
+#: includes/widgets/pp-team-member.php:895
+#: includes/widgets/pp-team-member.php:1118
+msgid "Dotted"
+msgstr "Pontilhado"
+
+#: includes/widgets/pp-hotspots.php:420 includes/widgets/pp-hotspots.php:497
+msgid "rollOut"
+msgstr "rollOut"
+
+#: includes/widgets/pp-price-menu.php:780
+#: includes/widgets/pp-pricing-table.php:848
+msgid "Vertical Position"
+msgstr "Posição vertical"
+
+#: includes/widgets/pp-business-hours.php:585
+#: includes/widgets/pp-icon-list.php:269
+msgid "Groove"
+msgstr "Groove"
+
+#: includes/widgets/pp-hotspots.php:421 includes/widgets/pp-hotspots.php:498
+msgid "zoomIn"
+msgstr "zoomIn"
+
+#: includes/widgets/pp-pricing-table.php:79
+#: includes/widgets/pp-pricing-table.php:420 includes/widgets/pp-table.php:36
+#: includes/widgets/pp-table.php:629 includes/widgets/pp-table.php:1463
+#: includes/widgets/pp-table.php:1568
+msgid "Header"
+msgstr "Cabeçalho"
+
+#: includes/widgets/pp-business-hours.php:586
+#: includes/widgets/pp-icon-list.php:270
+msgid "Ridge"
+msgstr "Ridge"
+
+#: includes/widgets/pp-hotspots.php:422 includes/widgets/pp-hotspots.php:499
+msgid "zoomInDown"
+msgstr "zoomInDown"
+
+#: includes/widgets/pp-pricing-table.php:138
+msgid "Enter table title"
+msgstr "Digite o título da tabela"
+
+#: includes/widgets/pp-business-hours.php:597
+#: includes/widgets/pp-divider.php:416 includes/widgets/pp-divider.php:443
+#: includes/widgets/pp-divider.php:470
+#: includes/widgets/pp-team-member-carousel.php:837
+#: includes/widgets/pp-team-member-carousel.php:1040
+#: includes/widgets/pp-team-member-carousel.php:1243
+#: includes/widgets/pp-team-member.php:668
+#: includes/widgets/pp-team-member.php:871
+#: includes/widgets/pp-team-member.php:1092
+msgid "Divider Color"
+msgstr "Cor do divisor"
+
+#: includes/widgets/pp-hotspots.php:423 includes/widgets/pp-hotspots.php:500
+msgid "zoomInLeft"
+msgstr "zoomInLeft"
+
+#: includes/widgets/pp-pricing-table.php:148
+msgid "Enter table subtitle"
+msgstr "Digite o subtítulo da tabela"
+
+#: includes/widgets/pp-business-hours.php:612
+#: includes/widgets/pp-price-menu.php:901
+msgid "Divider Weight"
+msgstr "Peso do divisor"
+
+#: includes/widgets/pp-hotspots.php:424 includes/widgets/pp-hotspots.php:501
+msgid "zoomInRight"
+msgstr "zoomInRight"
+
+#: includes/widgets/pp-pricing-table.php:161
+#: includes/widgets/pp-pricing-table.php:717
+msgid "Pricing"
+msgstr "Preços"
+
+#: includes/widgets/pp-business-hours.php:666
+#: includes/widgets/pp-business-hours.php:697
+#: includes/widgets/pp-caldera-forms.php:796
+#: includes/widgets/pp-caldera-forms.php:912
+#: includes/widgets/pp-caldera-forms.php:1248
+#: includes/widgets/pp-contact-form-7.php:730
+#: includes/widgets/pp-contact-form-7.php:846
+#: includes/widgets/pp-counter.php:366 includes/widgets/pp-counter.php:610
+#: includes/widgets/pp-counter.php:794 includes/widgets/pp-counter.php:852
+#: includes/widgets/pp-counter.php:895 includes/widgets/pp-divider.php:529
+#: includes/widgets/pp-divider.php:627 includes/widgets/pp-google-maps.php:494
+#: includes/widgets/pp-google-maps.php:541
+#: includes/widgets/pp-gravity-forms.php:989
+#: includes/widgets/pp-gravity-forms.php:1105
+#: includes/widgets/pp-hotspots.php:589 includes/widgets/pp-icon-list.php:308
+#: includes/widgets/pp-icon-list.php:368 includes/widgets/pp-icon-list.php:481
+#: includes/widgets/pp-icon-list.php:550
+#: includes/widgets/pp-image-comparison.php:419
+#: includes/widgets/pp-info-box-carousel.php:861
+#: includes/widgets/pp-info-box-carousel.php:919
+#: includes/widgets/pp-info-box-carousel.php:1150
+#: includes/widgets/pp-info-box-carousel.php:1544
+#: includes/widgets/pp-info-box-carousel.php:1600
+#: includes/widgets/pp-info-box-carousel.php:1718
+#: includes/widgets/pp-info-box-carousel.php:1793
+#: includes/widgets/pp-info-box.php:836 includes/widgets/pp-info-box.php:897
+#: includes/widgets/pp-info-box.php:1140 includes/widgets/pp-info-list.php:309
+#: includes/widgets/pp-info-list.php:412 includes/widgets/pp-info-list.php:531
+#: includes/widgets/pp-info-list.php:636 includes/widgets/pp-info-list.php:671
+#: includes/widgets/pp-instafeed.php:976 includes/widgets/pp-instafeed.php:1032
+#: includes/widgets/pp-instafeed.php:1150
+#: includes/widgets/pp-instafeed.php:1225
+#: includes/widgets/pp-logo-carousel.php:511
+#: includes/widgets/pp-logo-carousel.php:670
+#: includes/widgets/pp-logo-carousel.php:726
+#: includes/widgets/pp-logo-carousel.php:843
+#: includes/widgets/pp-logo-carousel.php:918
+#: includes/widgets/pp-logo-grid.php:480
+#: includes/widgets/pp-modal-popup.php:659
+#: includes/widgets/pp-modal-popup.php:918
+#: includes/widgets/pp-ninja-forms.php:816
+#: includes/widgets/pp-ninja-forms.php:932
+#: includes/widgets/pp-ninja-forms.php:1238
+#: includes/widgets/pp-price-menu.php:340
+#: includes/widgets/pp-price-menu.php:553
+#: includes/widgets/pp-price-menu.php:634
+#: includes/widgets/pp-price-menu.php:885
+#: includes/widgets/pp-pricing-table.php:543
+#: includes/widgets/pp-pricing-table.php:627
+#: includes/widgets/pp-pricing-table.php:661
+#: includes/widgets/pp-pricing-table.php:736
+#: includes/widgets/pp-promo-box.php:367 includes/widgets/pp-promo-box.php:737
+#: includes/widgets/pp-promo-box.php:966 includes/widgets/pp-promo-box.php:1192
+#: includes/widgets/pp-recipe.php:739 includes/widgets/pp-recipe.php:790
+#: includes/widgets/pp-recipe.php:820 includes/widgets/pp-recipe.php:925
+#: includes/widgets/pp-recipe.php:955 includes/widgets/pp-recipe.php:998
+#: includes/widgets/pp-recipe.php:1028
+#: includes/widgets/pp-team-member-carousel.php:1674
+#: includes/widgets/pp-team-member-carousel.php:1730
+#: includes/widgets/pp-team-member-carousel.php:1847
+#: includes/widgets/pp-team-member-carousel.php:1922
+#: includes/widgets/pp-team-member.php:1303
+#: includes/widgets/pp-team-member.php:1373 includes/widgets/pp-wpforms.php:783
+#: includes/widgets/pp-wpforms.php:899
+msgid "Color"
+msgstr "Cor"
+
+#: includes/widgets/pp-hotspots.php:425 includes/widgets/pp-hotspots.php:502
+msgid "zoomInUp"
+msgstr "zoomInUp"
+
+#: includes/widgets/pp-pricing-table.php:168
+#: includes/widgets/pp-pricing-table.php:839
+msgid "Currency Symbol"
+msgstr "Símbolo de moeda"
+
+#: includes/widgets/pp-business-hours.php:679
+#: includes/widgets/pp-business-hours.php:710
+#: includes/widgets/pp-caldera-forms.php:227
+#: includes/widgets/pp-caldera-forms.php:288
+#: includes/widgets/pp-caldera-forms.php:348
+#: includes/widgets/pp-caldera-forms.php:586
+#: includes/widgets/pp-caldera-forms.php:675
+#: includes/widgets/pp-caldera-forms.php:1100
+#: includes/widgets/pp-caldera-forms.php:1215
+#: includes/widgets/pp-contact-form-7.php:275
+#: includes/widgets/pp-contact-form-7.php:306
+#: includes/widgets/pp-contact-form-7.php:485
+#: includes/widgets/pp-contact-form-7.php:603
+#: includes/widgets/pp-contact-form-7.php:655
+#: includes/widgets/pp-contact-form-7.php:1035
+#: includes/widgets/pp-contact-form-7.php:1280
+#: includes/widgets/pp-counter.php:680 includes/widgets/pp-counter.php:868
+#: includes/widgets/pp-counter.php:911 includes/widgets/pp-counter.php:966
+#: includes/widgets/pp-divider.php:545 includes/widgets/pp-dual-heading.php:223
+#: includes/widgets/pp-dual-heading.php:322
+#: includes/widgets/pp-gravity-forms.php:318
+#: includes/widgets/pp-gravity-forms.php:349
+#: includes/widgets/pp-gravity-forms.php:390
+#: includes/widgets/pp-gravity-forms.php:630
+#: includes/widgets/pp-gravity-forms.php:720
+#: includes/widgets/pp-gravity-forms.php:774
+#: includes/widgets/pp-gravity-forms.php:1345
+#: includes/widgets/pp-hotspots.php:704 includes/widgets/pp-icon-list.php:567
+#: includes/widgets/pp-image-comparison.php:672
+#: includes/widgets/pp-info-box-carousel.php:838
+#: includes/widgets/pp-info-box-carousel.php:874
+#: includes/widgets/pp-info-box-carousel.php:932
+#: includes/widgets/pp-info-box-carousel.php:1163
+#: includes/widgets/pp-info-box-carousel.php:1298
+#: includes/widgets/pp-info-box.php:627 includes/widgets/pp-info-box.php:849
+#: includes/widgets/pp-info-box.php:913 includes/widgets/pp-info-box.php:1156
+#: includes/widgets/pp-info-box.php:1313 includes/widgets/pp-info-list.php:653
+#: includes/widgets/pp-info-list.php:688 includes/widgets/pp-info-list.php:784
+#: includes/widgets/pp-instafeed.php:694
+#: includes/widgets/pp-link-effects.php:200
+#: includes/widgets/pp-logo-carousel.php:542
+#: includes/widgets/pp-logo-grid.php:511
+#: includes/widgets/pp-modal-popup.php:704
+#: includes/widgets/pp-modal-popup.php:849
+#: includes/widgets/pp-modal-popup.php:1401
+#: includes/widgets/pp-ninja-forms.php:251
+#: includes/widgets/pp-ninja-forms.php:300
+#: includes/widgets/pp-ninja-forms.php:360
+#: includes/widgets/pp-ninja-forms.php:603
+#: includes/widgets/pp-ninja-forms.php:692
+#: includes/widgets/pp-ninja-forms.php:1171
+#: includes/widgets/pp-ninja-forms.php:1216
+#: includes/widgets/pp-ninja-forms.php:1270
+#: includes/widgets/pp-price-menu.php:353
+#: includes/widgets/pp-price-menu.php:569
+#: includes/widgets/pp-price-menu.php:647
+#: includes/widgets/pp-pricing-table.php:640
+#: includes/widgets/pp-pricing-table.php:677
+#: includes/widgets/pp-pricing-table.php:726
+#: includes/widgets/pp-pricing-table.php:916
+#: includes/widgets/pp-pricing-table.php:1092
+#: includes/widgets/pp-pricing-table.php:1419
+#: includes/widgets/pp-pricing-table.php:1622
+#: includes/widgets/pp-promo-box.php:750 includes/widgets/pp-promo-box.php:979
+#: includes/widgets/pp-promo-box.php:1205
+#: includes/widgets/pp-promo-box.php:1333 includes/widgets/pp-recipe.php:444
+#: includes/widgets/pp-recipe.php:565 includes/widgets/pp-recipe.php:626
+#: includes/widgets/pp-recipe.php:692 includes/widgets/pp-recipe.php:722
+#: includes/widgets/pp-recipe.php:803 includes/widgets/pp-recipe.php:833
+#: includes/widgets/pp-recipe.php:938 includes/widgets/pp-recipe.php:968
+#: includes/widgets/pp-recipe.php:1011 includes/widgets/pp-recipe.php:1041
+#: includes/widgets/pp-table.php:701 includes/widgets/pp-table.php:1073
+#: includes/widgets/pp-table.php:1251
+#: includes/widgets/pp-team-member-carousel.php:777
+#: includes/widgets/pp-team-member-carousel.php:980
+#: includes/widgets/pp-team-member-carousel.php:1183
+#: includes/widgets/pp-team-member.php:609
+#: includes/widgets/pp-team-member.php:811
+#: includes/widgets/pp-team-member.php:1018
+#: includes/widgets/pp-tiled-posts.php:465
+#: includes/widgets/pp-tiled-posts.php:566
+#: includes/widgets/pp-tiled-posts.php:642 includes/widgets/pp-wpforms.php:241
+#: includes/widgets/pp-wpforms.php:290 includes/widgets/pp-wpforms.php:344
+#: includes/widgets/pp-wpforms.php:584 includes/widgets/pp-wpforms.php:662
+#: includes/widgets/pp-wpforms.php:1090
+msgid "Typography"
+msgstr "Tipografia"
+
+#: includes/widgets/pp-hotspots.php:426 includes/widgets/pp-hotspots.php:503
+msgid "zoomOut"
+msgstr "zoomOut"
+
+#: includes/widgets/pp-pricing-table.php:172
+msgid "Dollar"
+msgstr "Dólar"
+
+#: includes/widgets/pp-business-hours.php:688
+msgid "Hours"
+msgstr "Horas"
+
+#: includes/widgets/pp-hotspots.php:427 includes/widgets/pp-hotspots.php:504
+msgid "zoomOutDown"
+msgstr "zoomOutDown"
+
+#: includes/widgets/pp-pricing-table.php:173
+msgid "Euro"
+msgstr "Euro"
+
+#: includes/widgets/pp-business-hours.php:740
+msgid "Hours Color"
+msgstr "Cor de horas"
+
+#: includes/widgets/pp-hotspots.php:428 includes/widgets/pp-hotspots.php:505
+msgid "zoomOutLeft"
+msgstr "zoomOutLeft"
+
+#: includes/widgets/pp-pricing-table.php:174
+msgid "Baht"
+msgstr "Baht"
+
+#: includes/widgets/pp-caldera-forms.php:44
+#: includes/widgets/pp-contact-form-7.php:79
+#: includes/widgets/pp-contact-form-7.php:86
+#: includes/widgets/pp-gravity-forms.php:86
+#: includes/widgets/pp-ninja-forms.php:44 includes/widgets/pp-wpforms.php:40
+msgid "Contact Form"
+msgstr "Formulário de Contato"
+
+#: includes/widgets/pp-hotspots.php:429 includes/widgets/pp-hotspots.php:506
+msgid "zoomOutRight"
+msgstr "zoomOutRight"
+
+#: includes/widgets/pp-pricing-table.php:175
+msgid "Franc"
+msgstr "franco"
+
+#: includes/widgets/pp-caldera-forms.php:55
+#: includes/widgets/pp-gravity-forms.php:97
+#: includes/widgets/pp-ninja-forms.php:55 includes/widgets/pp-wpforms.php:51
+msgid "Custom Title & Description"
+msgstr "Título e descrição personalizado"
+
+#: includes/widgets/pp-hotspots.php:430 includes/widgets/pp-hotspots.php:507
+msgid "zoomOutUp"
+msgstr "zoomOutUp"
+
+#: includes/widgets/pp-pricing-table.php:176
+msgid "Guilder"
+msgstr "Florim"
+
+#: includes/widgets/pp-caldera-forms.php:66
+#: includes/widgets/pp-caldera-forms.php:199
+#: includes/widgets/pp-contact-form-7.php:108
+#: includes/widgets/pp-contact-form-7.php:253
+#: includes/widgets/pp-counter.php:177 includes/widgets/pp-counter.php:924
+#: includes/widgets/pp-google-maps.php:486
+#: includes/widgets/pp-gravity-forms.php:108
+#: includes/widgets/pp-gravity-forms.php:138
+#: includes/widgets/pp-gravity-forms.php:296
+#: includes/widgets/pp-info-box-carousel.php:108
+#: includes/widgets/pp-info-box-carousel.php:110
+#: includes/widgets/pp-info-box-carousel.php:214
+#: includes/widgets/pp-info-box-carousel.php:853
+#: includes/widgets/pp-info-box.php:229 includes/widgets/pp-info-box.php:231
+#: includes/widgets/pp-info-box.php:330 includes/widgets/pp-info-box.php:828
+#: includes/widgets/pp-info-list.php:115 includes/widgets/pp-info-list.php:176
+#: includes/widgets/pp-info-list.php:191 includes/widgets/pp-info-list.php:627
+#: includes/widgets/pp-logo-carousel.php:141
+#: includes/widgets/pp-logo-carousel.php:503
+#: includes/widgets/pp-logo-grid.php:95 includes/widgets/pp-logo-grid.php:472
+#: includes/widgets/pp-modal-popup.php:202
+#: includes/widgets/pp-modal-popup.php:604
+#: includes/widgets/pp-ninja-forms.php:66
+#: includes/widgets/pp-ninja-forms.php:82
+#: includes/widgets/pp-ninja-forms.php:229
+#: includes/widgets/pp-price-menu.php:59 includes/widgets/pp-price-menu.php:62
+#: includes/widgets/pp-price-menu.php:63 includes/widgets/pp-price-menu.php:332
+#: includes/widgets/pp-pricing-table.php:135
+#: includes/widgets/pp-pricing-table.php:137
+#: includes/widgets/pp-pricing-table.php:618 includes/widgets/pp-recipe.php:423
+#: includes/widgets/pp-recipe.php:670 includes/widgets/pp-recipe.php:782
+#: includes/widgets/pp-recipe.php:917 includes/widgets/pp-recipe.php:990
+#: includes/widgets/pp-tiled-posts.php:290
+#: includes/widgets/pp-tiled-posts.php:438 includes/widgets/pp-wpforms.php:62
+#: includes/widgets/pp-wpforms.php:92 includes/widgets/pp-wpforms.php:219
+msgid "Title"
+msgstr "Título"
+
+#: includes/widgets/pp-hotspots.php:438
+msgid "Animation Out"
+msgstr "Animação para fora"
+
+#: includes/widgets/pp-pricing-table.php:177
+msgid "Krona"
+msgstr "Coroa"
+
+#: includes/widgets/pp-caldera-forms.php:79
+#: includes/widgets/pp-caldera-forms.php:260
+#: includes/widgets/pp-contact-form-7.php:132
+#: includes/widgets/pp-contact-form-7.php:284
+#: includes/widgets/pp-google-maps.php:533
+#: includes/widgets/pp-gravity-forms.php:123
+#: includes/widgets/pp-gravity-forms.php:151
+#: includes/widgets/pp-gravity-forms.php:327
+#: includes/widgets/pp-info-box-carousel.php:126
+#: includes/widgets/pp-info-box-carousel.php:1142
+#: includes/widgets/pp-info-box.php:247 includes/widgets/pp-info-box.php:1129
+#: includes/widgets/pp-info-list.php:122 includes/widgets/pp-info-list.php:662
+#: includes/widgets/pp-ninja-forms.php:95
+#: includes/widgets/pp-ninja-forms.php:278
+#: includes/widgets/pp-price-menu.php:67 includes/widgets/pp-price-menu.php:70
+#: includes/widgets/pp-price-menu.php:71 includes/widgets/pp-price-menu.php:626
+#: includes/widgets/pp-promo-box.php:205 includes/widgets/pp-promo-box.php:1184
+#: includes/widgets/pp-recipe.php:95 includes/widgets/pp-recipe.php:544
+#: includes/widgets/pp-team-member-carousel.php:141
+#: includes/widgets/pp-team-member-carousel.php:1174
+#: includes/widgets/pp-team-member.php:117
+#: includes/widgets/pp-team-member.php:1005 includes/widgets/pp-wpforms.php:77
+#: includes/widgets/pp-wpforms.php:105 includes/widgets/pp-wpforms.php:268
+msgid "Description"
+msgstr "Descrição"
+
+#: includes/widgets/pp-hotspots.php:561
+msgid "Hotspot"
+msgstr "Hotspot"
+
+#: includes/widgets/pp-pricing-table.php:178
+msgid "Lira"
+msgstr "Lira"
+
+#: includes/widgets/pp-caldera-forms.php:91
+#: includes/widgets/pp-caldera-forms.php:328
+#: includes/widgets/pp-contact-form-7.php:144
+#: includes/widgets/pp-contact-form-7.php:555
+#: includes/widgets/pp-gravity-forms.php:163
+#: includes/widgets/pp-gravity-forms.php:364
+#: includes/widgets/pp-ninja-forms.php:107
+#: includes/widgets/pp-ninja-forms.php:334 includes/widgets/pp-wpforms.php:117
+#: includes/widgets/pp-wpforms.php:324
+msgid "Labels"
+msgstr "Rótulos"
+
+#: includes/widgets/pp-icon-list.php:78 includes/widgets/pp-icon-list.php:172
+#: includes/widgets/pp-info-list.php:269 includes/widgets/pp-recipe.php:842
+msgid "List"
+msgstr "Lista"
+
+#: includes/widgets/pp-pricing-table.php:179
+msgid "Peseta"
+msgstr "Peseta"
+
+#: includes/widgets/pp-caldera-forms.php:94
+#: includes/widgets/pp-caldera-forms.php:107
+#: includes/widgets/pp-caldera-forms.php:133
+#: includes/widgets/pp-contact-form-7.php:147
+#: includes/widgets/pp-contact-form-7.php:173
+#: includes/widgets/pp-contact-form-7.php:193
+#: includes/widgets/pp-gravity-forms.php:111
+#: includes/widgets/pp-gravity-forms.php:126
+#: includes/widgets/pp-gravity-forms.php:166
+#: includes/widgets/pp-gravity-forms.php:178
+#: includes/widgets/pp-gravity-forms.php:216
+#: includes/widgets/pp-gravity-forms.php:236
+#: includes/widgets/pp-hotspots.php:225
+#: includes/widgets/pp-image-comparison.php:212
+#: includes/widgets/pp-info-box-carousel.php:489
+#: includes/widgets/pp-instafeed.php:244 includes/widgets/pp-instafeed.php:256
+#: includes/widgets/pp-instafeed.php:490
+#: includes/widgets/pp-logo-carousel.php:312
+#: includes/widgets/pp-modal-popup.php:878
+#: includes/widgets/pp-ninja-forms.php:69
+#: includes/widgets/pp-ninja-forms.php:110
+#: includes/widgets/pp-ninja-forms.php:123
+#: includes/widgets/pp-ninja-forms.php:149
+#: includes/widgets/pp-ninja-forms.php:169 includes/widgets/pp-promo-box.php:88
+#: includes/widgets/pp-team-member-carousel.php:312
+#: includes/widgets/pp-team-member-carousel.php:325
+#: includes/widgets/pp-team-member-carousel.php:337
+#: includes/widgets/pp-team-member-carousel.php:444
+#: includes/widgets/pp-team-member.php:309
+#: includes/widgets/pp-team-member.php:322
+#: includes/widgets/pp-team-member.php:337 includes/widgets/pp-wpforms.php:65
+#: includes/widgets/pp-wpforms.php:80 includes/widgets/pp-wpforms.php:120
+#: includes/widgets/pp-wpforms.php:133 includes/widgets/pp-wpforms.php:159
+msgid "Show"
+msgstr "Sombra"
+
+#: includes/widgets/pp-icon-list.php:89 includes/widgets/pp-icon-list.php:103
+#: includes/widgets/pp-info-list.php:104 includes/widgets/pp-info-list.php:118
+msgid "List Item #1"
+msgstr "Lista de item #1"
+
+#: includes/widgets/pp-pricing-table.php:180
+msgid "Peso"
+msgstr "Peso"
+
+#: includes/widgets/pp-caldera-forms.php:95
+#: includes/widgets/pp-caldera-forms.php:108
+#: includes/widgets/pp-caldera-forms.php:134
+#: includes/widgets/pp-contact-form-7.php:148
+#: includes/widgets/pp-contact-form-7.php:174
+#: includes/widgets/pp-contact-form-7.php:194
+#: includes/widgets/pp-gravity-forms.php:112
+#: includes/widgets/pp-gravity-forms.php:127
+#: includes/widgets/pp-gravity-forms.php:167
+#: includes/widgets/pp-gravity-forms.php:179
+#: includes/widgets/pp-gravity-forms.php:217
+#: includes/widgets/pp-gravity-forms.php:237
+#: includes/widgets/pp-hotspots.php:226
+#: includes/widgets/pp-image-comparison.php:213
+#: includes/widgets/pp-info-box-carousel.php:490
+#: includes/widgets/pp-instafeed.php:245 includes/widgets/pp-instafeed.php:257
+#: includes/widgets/pp-instafeed.php:491
+#: includes/widgets/pp-logo-carousel.php:313
+#: includes/widgets/pp-modal-popup.php:879
+#: includes/widgets/pp-ninja-forms.php:70
+#: includes/widgets/pp-ninja-forms.php:111
+#: includes/widgets/pp-ninja-forms.php:124
+#: includes/widgets/pp-ninja-forms.php:150
+#: includes/widgets/pp-ninja-forms.php:170 includes/widgets/pp-promo-box.php:89
+#: includes/widgets/pp-team-member-carousel.php:313
+#: includes/widgets/pp-team-member-carousel.php:326
+#: includes/widgets/pp-team-member-carousel.php:338
+#: includes/widgets/pp-team-member-carousel.php:445
+#: includes/widgets/pp-team-member.php:310
+#: includes/widgets/pp-team-member.php:323
+#: includes/widgets/pp-team-member.php:338 includes/widgets/pp-wpforms.php:66
+#: includes/widgets/pp-wpforms.php:81 includes/widgets/pp-wpforms.php:121
+#: includes/widgets/pp-wpforms.php:134 includes/widgets/pp-wpforms.php:160
+msgid "Hide"
+msgstr "Ocultar"
+
+#: includes/widgets/pp-icon-list.php:90 includes/widgets/pp-icon-list.php:94
+#: includes/widgets/pp-info-list.php:105 includes/widgets/pp-info-list.php:109
+msgid "fa fa-check"
+msgstr "fa fa-check"
+
+#: includes/widgets/pp-pricing-table.php:181
+msgid "Pound Sterling"
+msgstr "Libra esterlina"
+
+#: includes/widgets/pp-caldera-forms.php:104
+#: includes/widgets/pp-caldera-forms.php:708
+#: includes/widgets/pp-contact-form-7.php:620
+#: includes/widgets/pp-gravity-forms.php:175
+#: includes/widgets/pp-gravity-forms.php:901
+#: includes/widgets/pp-ninja-forms.php:120
+#: includes/widgets/pp-ninja-forms.php:725 includes/widgets/pp-wpforms.php:130
+#: includes/widgets/pp-wpforms.php:695
+msgid "Placeholder"
+msgstr "Campos reservado"
+
+#: includes/widgets/pp-icon-list.php:93 includes/widgets/pp-info-list.php:108
+msgid "List Item #2"
+msgstr "Lista de item #2"
+
+#: includes/widgets/pp-pricing-table.php:182
+msgid "Real"
+msgstr "Real"
+
+#: includes/widgets/pp-caldera-forms.php:122
+#: includes/widgets/pp-caldera-forms.php:1229
+#: includes/widgets/pp-contact-form-7.php:162
+#: includes/widgets/pp-contact-form-7.php:1108
+#: includes/widgets/pp-gravity-forms.php:205
+#: includes/widgets/pp-gravity-forms.php:1370
+#: includes/widgets/pp-ninja-forms.php:138
+#: includes/widgets/pp-ninja-forms.php:1285 includes/widgets/pp-wpforms.php:148
+#: includes/widgets/pp-wpforms.php:1164
+msgid "Errors"
+msgstr "Erros"
+
+#: includes/widgets/pp-icon-list.php:157 includes/widgets/pp-info-list.php:233
+msgid "http://your-link.com"
+msgstr "http://your-link.com"
+
+#: includes/widgets/pp-pricing-table.php:183
+msgid "Ruble"
+msgstr "Ruble"
+
+#: includes/widgets/pp-caldera-forms.php:129
+#: includes/widgets/pp-caldera-forms.php:1237
+#: includes/widgets/pp-contact-form-7.php:169
+#: includes/widgets/pp-contact-form-7.php:1116
+#: includes/widgets/pp-gravity-forms.php:212
+#: includes/widgets/pp-gravity-forms.php:1378
+#: includes/widgets/pp-ninja-forms.php:145
+#: includes/widgets/pp-ninja-forms.php:1293 includes/widgets/pp-wpforms.php:155
+msgid "Error Messages"
+msgstr "Mensagens de erro"
+
+#: includes/widgets/pp-icon-list.php:190
+msgid "List Items Gap"
+msgstr "Espaço da lista de itens"
+
+#: includes/widgets/pp-pricing-table.php:184
+msgid "Rupee"
+msgstr "Rupia"
+
+#: includes/widgets/pp-caldera-forms.php:159
+#: includes/widgets/pp-contact-form-7.php:219
+#: includes/widgets/pp-gravity-forms.php:262
+#: includes/widgets/pp-ninja-forms.php:195 includes/widgets/pp-wpforms.php:185
+msgid "Title & Description"
+msgstr "Descrição do título"
+
+#: includes/widgets/pp-icon-list.php:285
+#: includes/widgets/pp-modal-popup.php:1027
+msgid "Weight"
+msgstr "Peso"
+
+#: includes/widgets/pp-pricing-table.php:185
+msgid "Rupee (Indian)"
+msgstr "Rupia (indiana)"
+
+#: includes/widgets/pp-caldera-forms.php:170
+#: includes/widgets/pp-caldera-forms.php:370
+#: includes/widgets/pp-caldera-forms.php:945
+#: includes/widgets/pp-contact-form-7.php:227
+#: includes/widgets/pp-contact-form-7.php:878
+#: includes/widgets/pp-counter.php:307 includes/widgets/pp-divider.php:191
+#: includes/widgets/pp-dual-heading.php:156
+#: includes/widgets/pp-google-maps.php:390
+#: includes/widgets/pp-gravity-forms.php:270
+#: includes/widgets/pp-gravity-forms.php:415
+#: includes/widgets/pp-gravity-forms.php:1138
+#: includes/widgets/pp-icon-list.php:218
+#: includes/widgets/pp-info-box-carousel.php:549
+#: includes/widgets/pp-info-box-carousel.php:1077
+#: includes/widgets/pp-info-box.php:413 includes/widgets/pp-info-box.php:1064
+#: includes/widgets/pp-info-list.php:600
+#: includes/widgets/pp-link-effects.php:151
+#: includes/widgets/pp-modal-popup.php:615
+#: includes/widgets/pp-modal-popup.php:800
+#: includes/widgets/pp-modal-popup.php:1267
+#: includes/widgets/pp-ninja-forms.php:203
+#: includes/widgets/pp-ninja-forms.php:385
+#: includes/widgets/pp-ninja-forms.php:965
+#: includes/widgets/pp-price-menu.php:144
+#: includes/widgets/pp-pricing-table.php:378
+#: includes/widgets/pp-pricing-table.php:385
+#: includes/widgets/pp-pricing-table.php:1009
+#: includes/widgets/pp-promo-box.php:392 includes/widgets/pp-table.php:590
+#: includes/widgets/pp-team-member-carousel.php:503
+#: includes/widgets/pp-team-member-carousel.php:615
+#: includes/widgets/pp-team-member.php:366
+#: includes/widgets/pp-team-member.php:474 includes/widgets/pp-wpforms.php:193
+#: includes/widgets/pp-wpforms.php:367 includes/widgets/pp-wpforms.php:932
+msgid "Alignment"
+msgstr "Alinhamento"
+
+#: includes/widgets/pp-icon-list.php:525
+#: includes/widgets/pp-info-box-carousel.php:1405
+#: includes/widgets/pp-info-box.php:1450 includes/widgets/pp-info-list.php:575
+#: includes/widgets/pp-info-list.php:885
+#: includes/widgets/pp-modal-popup.php:569
+#: includes/widgets/pp-modal-popup.php:576
+#: includes/widgets/pp-modal-popup.php:1547
+#: includes/widgets/pp-pricing-table.php:1528
+#: includes/widgets/pp-promo-box.php:1406
+msgid "Animation"
+msgstr "Animação"
+
+#: includes/widgets/pp-pricing-table.php:186
+msgid "Shekel"
+msgstr "Shekel"
+
+#: includes/widgets/pp-caldera-forms.php:174
+#: includes/widgets/pp-caldera-forms.php:374
+#: includes/widgets/pp-caldera-forms.php:949
+#: includes/widgets/pp-contact-form-7.php:231
+#: includes/widgets/pp-contact-form-7.php:883
+#: includes/widgets/pp-counter.php:311 includes/widgets/pp-divider.php:196
+#: includes/widgets/pp-divider.php:509 includes/widgets/pp-divider.php:607
+#: includes/widgets/pp-divider.php:737 includes/widgets/pp-dual-heading.php:161
+#: includes/widgets/pp-google-maps.php:394
+#: includes/widgets/pp-gravity-forms.php:274
+#: includes/widgets/pp-gravity-forms.php:419
+#: includes/widgets/pp-gravity-forms.php:1142
+#: includes/widgets/pp-hotspots.php:241 includes/widgets/pp-hotspots.php:348
+#: includes/widgets/pp-icon-list.php:222 includes/widgets/pp-icon-list.php:345
+#: includes/widgets/pp-image-comparison.php:504
+#: includes/widgets/pp-info-box-carousel.php:553
+#: includes/widgets/pp-info-box-carousel.php:1081
+#: includes/widgets/pp-info-box.php:417 includes/widgets/pp-info-box.php:1068
+#: includes/widgets/pp-info-list.php:385 includes/widgets/pp-info-list.php:604
+#: includes/widgets/pp-link-effects.php:155
+#: includes/widgets/pp-modal-popup.php:619
+#: includes/widgets/pp-modal-popup.php:804
+#: includes/widgets/pp-modal-popup.php:1272
+#: includes/widgets/pp-ninja-forms.php:207
+#: includes/widgets/pp-ninja-forms.php:389
+#: includes/widgets/pp-ninja-forms.php:969
+#: includes/widgets/pp-price-menu.php:148
+#: includes/widgets/pp-pricing-table.php:390
+#: includes/widgets/pp-pricing-table.php:1014
+#: includes/widgets/pp-promo-box.php:397 includes/widgets/pp-table.php:596
+#: includes/widgets/pp-table.php:642 includes/widgets/pp-table.php:1014
+#: includes/widgets/pp-table.php:1192
+#: includes/widgets/pp-team-member-carousel.php:507
+#: includes/widgets/pp-team-member-carousel.php:619
+#: includes/widgets/pp-team-member.php:370
+#: includes/widgets/pp-team-member.php:478 includes/widgets/pp-wpforms.php:197
+#: includes/widgets/pp-wpforms.php:371 includes/widgets/pp-wpforms.php:936
+msgid "Left"
+msgstr "Esquerdo"
+
+#: includes/widgets/pp-image-comparison.php:95
+msgid "Before Image"
+msgstr "Antes da imagem"
+
+#: includes/widgets/pp-pricing-table.php:187
+msgid "Yen/Yuan"
+msgstr "Iene/Renminbi"
+
+#: includes/widgets/pp-caldera-forms.php:178
+#: includes/widgets/pp-caldera-forms.php:378
+#: includes/widgets/pp-caldera-forms.php:953
+#: includes/widgets/pp-contact-form-7.php:235
+#: includes/widgets/pp-contact-form-7.php:887
+#: includes/widgets/pp-counter.php:315 includes/widgets/pp-divider.php:200
+#: includes/widgets/pp-divider.php:245 includes/widgets/pp-divider.php:513
+#: includes/widgets/pp-divider.php:611 includes/widgets/pp-divider.php:741
+#: includes/widgets/pp-dual-heading.php:165
+#: includes/widgets/pp-google-maps.php:398
+#: includes/widgets/pp-gravity-forms.php:278
+#: includes/widgets/pp-gravity-forms.php:423
+#: includes/widgets/pp-gravity-forms.php:1146
+#: includes/widgets/pp-icon-list.php:226
+#: includes/widgets/pp-image-comparison.php:508
+#: includes/widgets/pp-info-box-carousel.php:557
+#: includes/widgets/pp-info-box-carousel.php:1085
+#: includes/widgets/pp-info-box.php:421 includes/widgets/pp-info-box.php:1072
+#: includes/widgets/pp-info-list.php:608
+#: includes/widgets/pp-link-effects.php:159
+#: includes/widgets/pp-modal-popup.php:623
+#: includes/widgets/pp-modal-popup.php:808
+#: includes/widgets/pp-modal-popup.php:1276
+#: includes/widgets/pp-ninja-forms.php:211
+#: includes/widgets/pp-ninja-forms.php:393
+#: includes/widgets/pp-ninja-forms.php:973
+#: includes/widgets/pp-price-menu.php:152
+#: includes/widgets/pp-price-menu.php:837
+#: includes/widgets/pp-pricing-table.php:394
+#: includes/widgets/pp-pricing-table.php:1018
+#: includes/widgets/pp-promo-box.php:401 includes/widgets/pp-promo-box.php:429
+#: includes/widgets/pp-table.php:600 includes/widgets/pp-table.php:646
+#: includes/widgets/pp-table.php:1018 includes/widgets/pp-table.php:1196
+#: includes/widgets/pp-team-member-carousel.php:511
+#: includes/widgets/pp-team-member-carousel.php:623
+#: includes/widgets/pp-team-member.php:374
+#: includes/widgets/pp-team-member.php:482 includes/widgets/pp-wpforms.php:201
+#: includes/widgets/pp-wpforms.php:375 includes/widgets/pp-wpforms.php:940
+msgid "Center"
+msgstr "Centro"
+
+#: includes/widgets/pp-image-comparison.php:102
+#: includes/widgets/pp-image-comparison.php:134
+#: includes/widgets/pp-image-comparison.php:463
+msgid "Label"
+msgstr "Rótulo"
+
+#: includes/widgets/pp-pricing-table.php:188
+msgid "Won"
+msgstr "Won"
+
+#: includes/widgets/pp-caldera-forms.php:182
+#: includes/widgets/pp-caldera-forms.php:382
+#: includes/widgets/pp-caldera-forms.php:957
+#: includes/widgets/pp-contact-form-7.php:239
+#: includes/widgets/pp-contact-form-7.php:891
+#: includes/widgets/pp-counter.php:319 includes/widgets/pp-divider.php:204
+#: includes/widgets/pp-divider.php:517 includes/widgets/pp-divider.php:615
+#: includes/widgets/pp-divider.php:745 includes/widgets/pp-dual-heading.php:169
+#: includes/widgets/pp-google-maps.php:402
+#: includes/widgets/pp-gravity-forms.php:282
+#: includes/widgets/pp-gravity-forms.php:427
+#: includes/widgets/pp-gravity-forms.php:1150
+#: includes/widgets/pp-hotspots.php:242 includes/widgets/pp-hotspots.php:349
+#: includes/widgets/pp-icon-list.php:230 includes/widgets/pp-icon-list.php:349
+#: includes/widgets/pp-image-comparison.php:512
+#: includes/widgets/pp-info-box-carousel.php:561
+#: includes/widgets/pp-info-box-carousel.php:1089
+#: includes/widgets/pp-info-box.php:425 includes/widgets/pp-info-box.php:1076
+#: includes/widgets/pp-info-list.php:393 includes/widgets/pp-info-list.php:612
+#: includes/widgets/pp-link-effects.php:163
+#: includes/widgets/pp-modal-popup.php:627
+#: includes/widgets/pp-modal-popup.php:812
+#: includes/widgets/pp-modal-popup.php:1280
+#: includes/widgets/pp-ninja-forms.php:215
+#: includes/widgets/pp-ninja-forms.php:397
+#: includes/widgets/pp-ninja-forms.php:977
+#: includes/widgets/pp-price-menu.php:156
+#: includes/widgets/pp-pricing-table.php:398
+#: includes/widgets/pp-pricing-table.php:1022
+#: includes/widgets/pp-promo-box.php:405 includes/widgets/pp-table.php:604
+#: includes/widgets/pp-table.php:650 includes/widgets/pp-table.php:1022
+#: includes/widgets/pp-table.php:1200
+#: includes/widgets/pp-team-member-carousel.php:515
+#: includes/widgets/pp-team-member-carousel.php:627
+#: includes/widgets/pp-team-member.php:378
+#: includes/widgets/pp-team-member.php:486 includes/widgets/pp-wpforms.php:205
+#: includes/widgets/pp-wpforms.php:379 includes/widgets/pp-wpforms.php:944
+msgid "Right"
+msgstr "Direito"
+
+#: includes/widgets/pp-image-comparison.php:127
+msgid "After Image"
+msgstr "Depois da imagem"
+
+#: includes/widgets/pp-pricing-table.php:231
+#: includes/widgets/pp-pricing-table.php:880
+msgid "Duration"
+msgstr "Duração"
+
+#: includes/widgets/pp-caldera-forms.php:238
+#: includes/widgets/pp-caldera-forms.php:300
+#: includes/widgets/pp-contact-form-7.php:1308
+#: includes/widgets/pp-counter.php:497 includes/widgets/pp-counter.php:688
+#: includes/widgets/pp-counter.php:977
+#: includes/widgets/pp-gravity-forms.php:844
+#: includes/widgets/pp-info-box-carousel.php:706
+#: includes/widgets/pp-info-box-carousel.php:1339
+#: includes/widgets/pp-info-box-carousel.php:1765
+#: includes/widgets/pp-info-box.php:738 includes/widgets/pp-info-box.php:1367
+#: includes/widgets/pp-info-list.php:822 includes/widgets/pp-instafeed.php:1197
+#: includes/widgets/pp-modal-popup.php:1206
+#: includes/widgets/pp-modal-popup.php:1459
+#: includes/widgets/pp-ninja-forms.php:259
+#: includes/widgets/pp-ninja-forms.php:309
+#: includes/widgets/pp-price-menu.php:733
+#: includes/widgets/pp-pricing-table.php:559
+#: includes/widgets/pp-pricing-table.php:807
+#: includes/widgets/pp-promo-box.php:657
+#: includes/widgets/pp-team-member-carousel.php:377
+#: includes/widgets/pp-team-member-carousel.php:1894
+#: includes/widgets/pp-team-member.php:415 includes/widgets/pp-wpforms.php:249
+#: includes/widgets/pp-wpforms.php:299
+msgid "Margin"
+msgstr "Margem"
+
+#: includes/widgets/pp-image-comparison.php:166
+msgid "Visible Ratio"
+msgstr "Ratio Visível"
+
+#: includes/widgets/pp-pricing-table.php:233
+msgid "per month"
+msgstr "Por mês"
+
+#: includes/widgets/pp-caldera-forms.php:362
+#: includes/widgets/pp-contact-form-7.php:321
+#: includes/widgets/pp-gravity-forms.php:407
+#: includes/widgets/pp-ninja-forms.php:377 includes/widgets/pp-wpforms.php:359
+msgid "Input & Textarea"
+msgstr "Entrada e área de texto"
+
+#: includes/widgets/pp-image-comparison.php:182
+msgid "Orientation"
+msgstr "Orientação"
+
+#: includes/widgets/pp-pricing-table.php:246
+#: includes/widgets/pp-pricing-table.php:1001
+msgid "Features"
+msgstr "Recursos"
+
+#: includes/widgets/pp-caldera-forms.php:430
+#: includes/widgets/pp-caldera-forms.php:626
+#: includes/widgets/pp-caldera-forms.php:1046
+#: includes/widgets/pp-caldera-forms.php:1204
+#: includes/widgets/pp-contact-form-7.php:461
+#: includes/widgets/pp-contact-form-7.php:526
+#: includes/widgets/pp-contact-form-7.php:982
+#: includes/widgets/pp-contact-form-7.php:1219
+#: includes/widgets/pp-contact-form-7.php:1294
+#: includes/widgets/pp-counter.php:448 includes/widgets/pp-dual-heading.php:234
+#: includes/widgets/pp-dual-heading.php:333
+#: includes/widgets/pp-gravity-forms.php:606
+#: includes/widgets/pp-gravity-forms.php:671
+#: includes/widgets/pp-gravity-forms.php:1242
+#: includes/widgets/pp-hotspots.php:614 includes/widgets/pp-icon-list.php:438
+#: includes/widgets/pp-image-comparison.php:328
+#: includes/widgets/pp-image-comparison.php:589
+#: includes/widgets/pp-image-comparison.php:645
+#: includes/widgets/pp-info-box-carousel.php:646
+#: includes/widgets/pp-info-box-carousel.php:1275
+#: includes/widgets/pp-info-box-carousel.php:1557
+#: includes/widgets/pp-info-box-carousel.php:1743
+#: includes/widgets/pp-info-box.php:463 includes/widgets/pp-info-box.php:513
+#: includes/widgets/pp-info-box.php:676 includes/widgets/pp-info-box.php:1282
+#: includes/widgets/pp-info-list.php:500 includes/widgets/pp-info-list.php:761
+#: includes/widgets/pp-instafeed.php:749 includes/widgets/pp-instafeed.php:814
+#: includes/widgets/pp-instafeed.php:989 includes/widgets/pp-instafeed.php:1175
+#: includes/widgets/pp-logo-carousel.php:382
+#: includes/widgets/pp-logo-carousel.php:683
+#: includes/widgets/pp-logo-carousel.php:868
+#: includes/widgets/pp-logo-grid.php:305 includes/widgets/pp-logo-grid.php:398
+#: includes/widgets/pp-modal-popup.php:675
+#: includes/widgets/pp-modal-popup.php:740
+#: includes/widgets/pp-modal-popup.php:1087
+#: includes/widgets/pp-modal-popup.php:1156
+#: includes/widgets/pp-modal-popup.php:1368
+#: includes/widgets/pp-ninja-forms.php:445
+#: includes/widgets/pp-ninja-forms.php:643
+#: includes/widgets/pp-ninja-forms.php:1068
+#: includes/widgets/pp-price-menu.php:265
+#: includes/widgets/pp-price-menu.php:758
+#: includes/widgets/pp-pricing-table.php:445
+#: includes/widgets/pp-pricing-table.php:590
+#: includes/widgets/pp-pricing-table.php:761
+#: includes/widgets/pp-pricing-table.php:1405
+#: includes/widgets/pp-pricing-table.php:1515
+#: includes/widgets/pp-promo-box.php:316 includes/widgets/pp-promo-box.php:458
+#: includes/widgets/pp-promo-box.php:635 includes/widgets/pp-promo-box.php:805
+#: includes/widgets/pp-promo-box.php:1034
+#: includes/widgets/pp-promo-box.php:1310 includes/widgets/pp-table.php:744
+#: includes/widgets/pp-table.php:867 includes/widgets/pp-table.php:924
+#: includes/widgets/pp-table.php:981 includes/widgets/pp-table.php:1116
+#: includes/widgets/pp-table.php:1294
+#: includes/widgets/pp-team-member-carousel.php:555
+#: includes/widgets/pp-team-member-carousel.php:714
+#: includes/widgets/pp-team-member-carousel.php:1470
+#: includes/widgets/pp-team-member-carousel.php:1687
+#: includes/widgets/pp-team-member-carousel.php:1872
+#: includes/widgets/pp-team-member.php:440
+#: includes/widgets/pp-team-member.php:573
+#: includes/widgets/pp-team-member.php:1328 includes/widgets/pp-wpforms.php:427
+#: includes/widgets/pp-wpforms.php:613 includes/widgets/pp-wpforms.php:1036
+msgid "Border"
+msgstr "Borda"
+
+#: includes/widgets/pp-image-comparison.php:195
+msgid "Move Slider"
+msgstr "Mover Slider"
+
+#: includes/widgets/pp-pricing-table.php:257
+msgid "Feature #1"
+msgstr "Recurso #1"
+
+#: includes/widgets/pp-caldera-forms.php:441
+#: includes/widgets/pp-caldera-forms.php:859
+#: includes/widgets/pp-caldera-forms.php:885
+#: includes/widgets/pp-caldera-forms.php:1056
+#: includes/widgets/pp-contact-form-7.php:472
+#: includes/widgets/pp-contact-form-7.php:793
+#: includes/widgets/pp-contact-form-7.php:819
+#: includes/widgets/pp-contact-form-7.php:991
+#: includes/widgets/pp-counter.php:461 includes/widgets/pp-divider.php:787
+#: includes/widgets/pp-dual-heading.php:244
+#: includes/widgets/pp-dual-heading.php:343
+#: includes/widgets/pp-gravity-forms.php:617
+#: includes/widgets/pp-gravity-forms.php:1052
+#: includes/widgets/pp-gravity-forms.php:1078
+#: includes/widgets/pp-gravity-forms.php:1252
+#: includes/widgets/pp-hotspots.php:624 includes/widgets/pp-icon-list.php:448
+#: includes/widgets/pp-image-comparison.php:339
+#: includes/widgets/pp-image-comparison.php:599
+#: includes/widgets/pp-image-comparison.php:655
+#: includes/widgets/pp-info-box-carousel.php:656
+#: includes/widgets/pp-info-box-carousel.php:1285
+#: includes/widgets/pp-info-box-carousel.php:1567
+#: includes/widgets/pp-info-box-carousel.php:1753
+#: includes/widgets/pp-info-box.php:473 includes/widgets/pp-info-box.php:523
+#: includes/widgets/pp-info-box.php:689 includes/widgets/pp-info-box.php:1296
+#: includes/widgets/pp-info-list.php:510 includes/widgets/pp-info-list.php:771
+#: includes/widgets/pp-instafeed.php:759 includes/widgets/pp-instafeed.php:824
+#: includes/widgets/pp-instafeed.php:999 includes/widgets/pp-instafeed.php:1185
+#: includes/widgets/pp-logo-carousel.php:392
+#: includes/widgets/pp-logo-carousel.php:693
+#: includes/widgets/pp-logo-carousel.php:878
+#: includes/widgets/pp-logo-grid.php:315
+#: includes/widgets/pp-modal-popup.php:750
+#: includes/widgets/pp-modal-popup.php:1100
+#: includes/widgets/pp-modal-popup.php:1169
+#: includes/widgets/pp-modal-popup.php:1383
+#: includes/widgets/pp-ninja-forms.php:456
+#: includes/widgets/pp-ninja-forms.php:879
+#: includes/widgets/pp-ninja-forms.php:905
+#: includes/widgets/pp-ninja-forms.php:1078
+#: includes/widgets/pp-price-menu.php:275
+#: includes/widgets/pp-price-menu.php:768
+#: includes/widgets/pp-pricing-table.php:603
+#: includes/widgets/pp-pricing-table.php:771
+#: includes/widgets/pp-pricing-table.php:1446
+#: includes/widgets/pp-promo-box.php:326 includes/widgets/pp-promo-box.php:469
+#: includes/widgets/pp-promo-box.php:645 includes/widgets/pp-promo-box.php:1320
+#: includes/widgets/pp-recipe.php:398 includes/widgets/pp-table.php:615
+#: includes/widgets/pp-team-member-carousel.php:566
+#: includes/widgets/pp-team-member-carousel.php:724
+#: includes/widgets/pp-team-member-carousel.php:1481
+#: includes/widgets/pp-team-member-carousel.php:1697
+#: includes/widgets/pp-team-member-carousel.php:1882
+#: includes/widgets/pp-team-member.php:583
+#: includes/widgets/pp-team-member.php:1339 includes/widgets/pp-wpforms.php:438
+#: includes/widgets/pp-wpforms.php:846 includes/widgets/pp-wpforms.php:872
+#: includes/widgets/pp-wpforms.php:1046
+msgid "Border Radius"
+msgstr "Raio da borda"
+
+#: includes/widgets/pp-image-comparison.php:199
+msgid "Drag"
+msgstr "Arrastar"
+
+#: includes/widgets/pp-pricing-table.php:261
+msgid "Feature #2"
+msgstr "Recurso #2"
+
+#: includes/widgets/pp-caldera-forms.php:453
+#: includes/widgets/pp-contact-form-7.php:398
+#: includes/widgets/pp-gravity-forms.php:505
+#: includes/widgets/pp-ninja-forms.php:468 includes/widgets/pp-wpforms.php:450
+msgid "Text Indent"
+msgstr "Recuo de texto"
+
+#: includes/widgets/pp-image-comparison.php:200
+msgid "Mouse Move"
+msgstr "Mover mouse"
+
+#: includes/widgets/pp-pricing-table.php:265
+msgid "Feature #3"
+msgstr "Recurso #3"
+
+#: includes/widgets/pp-caldera-forms.php:478
+#: includes/widgets/pp-contact-form-7.php:422
+#: includes/widgets/pp-gravity-forms.php:529
+#: includes/widgets/pp-ninja-forms.php:493 includes/widgets/pp-wpforms.php:475
+msgid "Input Width"
+msgstr "Largura de entrada"
+
+#: includes/widgets/pp-image-comparison.php:201
+msgid "Mouse Click"
+msgstr "Clique do mouse"
+
+#: includes/widgets/pp-pricing-table.php:275
+#: includes/widgets/pp-pricing-table.php:276
+msgid "Feature"
+msgstr "Recurso"
+
+#: includes/widgets/pp-caldera-forms.php:497
+#: includes/widgets/pp-gravity-forms.php:548
+#: includes/widgets/pp-ninja-forms.php:513 includes/widgets/pp-wpforms.php:494
+msgid "Input Height"
+msgstr "Altura de entrada"
+
+#: includes/widgets/pp-image-comparison.php:209
+#: includes/widgets/pp-image-comparison.php:226
+#: includes/widgets/pp-instafeed.php:537 includes/widgets/pp-instafeed.php:546
+#: includes/widgets/pp-instafeed.php:595 includes/widgets/pp-instafeed.php:604
+#: includes/widgets/pp-modal-popup.php:867
+#: includes/widgets/pp-modal-popup.php:875
+#: includes/widgets/pp-promo-box.php:255 includes/widgets/pp-promo-box.php:355
+#: includes/widgets/pp-team-member-carousel.php:604
+#: includes/widgets/pp-team-member.php:463
+msgid "Overlay"
+msgstr "Sobreposição"
+
+#: includes/widgets/pp-pricing-table.php:280
+msgid "Exclude"
+msgstr "Excluir"
+
+#: includes/widgets/pp-caldera-forms.php:516
+#: includes/widgets/pp-contact-form-7.php:441
+#: includes/widgets/pp-gravity-forms.php:567
+#: includes/widgets/pp-ninja-forms.php:532 includes/widgets/pp-wpforms.php:513
+msgid "Textarea Width"
+msgstr "Largura da área de texto"
+
+#: includes/widgets/pp-image-comparison.php:288
+msgid "Handle"
+msgstr "Lidar"
+
+#: includes/widgets/pp-pricing-table.php:334
+#: includes/widgets/pp-pricing-table.php:1299 includes/widgets/pp-table.php:388
+#: includes/widgets/pp-table.php:1178 includes/widgets/pp-table.php:1495
+#: includes/widgets/pp-table.php:1600
+msgid "Footer"
+msgstr "Rodapé"
+
+#: includes/widgets/pp-caldera-forms.php:535
+#: includes/widgets/pp-gravity-forms.php:586
+#: includes/widgets/pp-ninja-forms.php:551 includes/widgets/pp-wpforms.php:532
+msgid "Textarea Height"
+msgstr "Altura da área de texto"
+
+#: includes/widgets/pp-image-comparison.php:305
+#: includes/widgets/pp-image-comparison.php:368
+#: includes/widgets/pp-info-box-carousel.php:633
+#: includes/widgets/pp-info-box-carousel.php:745
+#: includes/widgets/pp-info-box.php:660 includes/widgets/pp-info-box.php:795
+#: includes/widgets/pp-modal-popup.php:1058
+#: includes/widgets/pp-modal-popup.php:1127
+#: includes/widgets/pp-pricing-table.php:295
+#: includes/widgets/pp-promo-box.php:606 includes/widgets/pp-promo-box.php:696
+msgid "Icon Color"
+msgstr "Cor do ícone"
+
+#: includes/widgets/pp-pricing-table.php:362
+#: includes/widgets/pp-pricing-table.php:365
+#: includes/widgets/pp-pricing-table.php:1542
+msgid "Additional Info"
+msgstr "Informação adicional"
+
+#: includes/widgets/pp-caldera-forms.php:566
+#: includes/widgets/pp-caldera-forms.php:683
+#: includes/widgets/pp-contact-form-7.php:363
+#: includes/widgets/pp-contact-form-7.php:580
+#: includes/widgets/pp-contact-form-7.php:1154
+#: includes/widgets/pp-counter.php:626 includes/widgets/pp-counter.php:809
+#: includes/widgets/pp-divider.php:565 includes/widgets/pp-divider.php:695
+#: includes/widgets/pp-divider.php:802 includes/widgets/pp-dual-heading.php:355
+#: includes/widgets/pp-gravity-forms.php:474
+#: includes/widgets/pp-gravity-forms.php:728
+#: includes/widgets/pp-icon-list.php:417
+#: includes/widgets/pp-info-box-carousel.php:1690
+#: includes/widgets/pp-info-list.php:478 includes/widgets/pp-instafeed.php:1122
+#: includes/widgets/pp-logo-carousel.php:815
+#: includes/widgets/pp-ninja-forms.php:583
+#: includes/widgets/pp-ninja-forms.php:700
+#: includes/widgets/pp-ninja-forms.php:1250
+#: includes/widgets/pp-pricing-table.php:689
+#: includes/widgets/pp-pricing-table.php:924
+#: includes/widgets/pp-pricing-table.php:1111
+#: includes/widgets/pp-pricing-table.php:1139
+#: includes/widgets/pp-promo-box.php:758 includes/widgets/pp-promo-box.php:923
+#: includes/widgets/pp-promo-box.php:987 includes/widgets/pp-promo-box.php:1152
+#: includes/widgets/pp-promo-box.php:1213 includes/widgets/pp-recipe.php:525
+#: includes/widgets/pp-team-member-carousel.php:1819
+#: includes/widgets/pp-wpforms.php:564 includes/widgets/pp-wpforms.php:670
+msgid "Spacing"
+msgstr "Espaçamento"
+
+#: includes/widgets/pp-image-comparison.php:481
+#: includes/widgets/pp-info-box.php:189 includes/widgets/pp-instafeed.php:675
+#: includes/widgets/pp-price-menu.php:789
+#: includes/widgets/pp-pricing-table.php:857 includes/widgets/pp-table.php:678
+#: includes/widgets/pp-table.php:1050 includes/widgets/pp-table.php:1228
+#: includes/widgets/pp-tiled-posts.php:110
+msgid "Middle"
+msgstr "Meio"
+
+#: includes/widgets/pp-pricing-table.php:364
+msgid "Enter additional info here"
+msgstr "Insira informações adicionais aqui"
+
+#: includes/widgets/pp-caldera-forms.php:606
+#: includes/widgets/pp-contact-form-7.php:506
+#: includes/widgets/pp-gravity-forms.php:651
+#: includes/widgets/pp-ninja-forms.php:623 includes/widgets/pp-wpforms.php:605
+msgid "Focus"
+msgstr "Foco"
+
+#: includes/widgets/pp-image-comparison.php:527
+msgid "Align"
+msgstr "Alinhar"
+
+#: includes/widgets/pp-pricing-table.php:889
+msgid "Duration Position"
+msgstr "Posição de duração"
+
+#: includes/widgets/pp-caldera-forms.php:655
+#: includes/widgets/pp-gravity-forms.php:700
+#: includes/widgets/pp-ninja-forms.php:672 includes/widgets/pp-wpforms.php:642
+msgid "Field Description"
+msgstr "Descrição do Campo"
+
+#: includes/widgets/pp-info-box-carousel.php:95
+msgid "Info Boxes"
+msgstr "Caixas de Informação"
+
+#: includes/widgets/pp-pricing-table.php:893
+msgid "Same Line"
+msgstr "Mesma linha"
+
+#: includes/widgets/pp-caldera-forms.php:739
+#: includes/widgets/pp-contact-form-7.php:673
+#: includes/widgets/pp-gravity-forms.php:932
+#: includes/widgets/pp-ninja-forms.php:759 includes/widgets/pp-wpforms.php:726
+msgid "Radio & Checkbox"
+msgstr "Rádio e caixa de seleção"
+
+#: includes/widgets/pp-info-box-carousel.php:117
+#: includes/widgets/pp-info-box-carousel.php:119
+#: includes/widgets/pp-info-box.php:238 includes/widgets/pp-info-box.php:240
+#: includes/widgets/pp-pricing-table.php:145
+#: includes/widgets/pp-pricing-table.php:147
+msgid "Subtitle"
+msgstr "Legenda"
+
+#: includes/widgets/pp-pricing-table.php:894
+msgid "Next Line"
+msgstr "Próxima linha"
+
+#: includes/widgets/pp-caldera-forms.php:747
+#: includes/widgets/pp-contact-form-7.php:681
+#: includes/widgets/pp-gravity-forms.php:940
+#: includes/widgets/pp-ninja-forms.php:767 includes/widgets/pp-wpforms.php:734
+msgid "Custom Styles"
+msgstr "Estilos personalizado"
+
+#: includes/widgets/pp-info-box-carousel.php:128
+#: includes/widgets/pp-info-box.php:249
+msgid "Enter info box description"
+msgstr "Insira a descrição da caixa de informação"
+
+#: includes/widgets/pp-pricing-table.php:973
+msgid "Font Size"
+msgstr "Tamanho da fonte"
+
+#: includes/widgets/pp-caldera-forms.php:758
+#: includes/widgets/pp-contact-form-7.php:692
+#: includes/widgets/pp-counter.php:381 includes/widgets/pp-divider.php:642
+#: includes/widgets/pp-google-maps.php:199
+#: includes/widgets/pp-gravity-forms.php:951
+#: includes/widgets/pp-hotspots.php:327 includes/widgets/pp-hotspots.php:569
+#: includes/widgets/pp-icon-list.php:396
+#: includes/widgets/pp-info-box-carousel.php:1225
+#: includes/widgets/pp-info-box-carousel.php:1671
+#: includes/widgets/pp-info-box.php:1216 includes/widgets/pp-info-list.php:440
+#: includes/widgets/pp-info-list.php:711 includes/widgets/pp-instafeed.php:1103
+#: includes/widgets/pp-logo-carousel.php:796
+#: includes/widgets/pp-modal-popup.php:934
+#: includes/widgets/pp-modal-popup.php:1001
+#: includes/widgets/pp-modal-popup.php:1298
+#: includes/widgets/pp-ninja-forms.php:778
+#: includes/widgets/pp-pricing-table.php:482
+#: includes/widgets/pp-pricing-table.php:1343
+#: includes/widgets/pp-promo-box.php:1257 includes/widgets/pp-recipe.php:751
+#: includes/widgets/pp-team-member-carousel.php:1800
+#: includes/widgets/pp-wpforms.php:745
+msgid "Size"
+msgstr "Tamanho"
+
+#: includes/widgets/pp-info-box-carousel.php:209
+#: includes/widgets/pp-info-box.php:324 includes/widgets/pp-info-list.php:186
+msgid "Link Type"
+msgstr "Tipo de link"
+
+#: includes/widgets/pp-pricing-table.php:1130 includes/widgets/pp-table.php:815
+msgid "Rows"
+msgstr "Linhas"
+
+#: includes/widgets/pp-caldera-forms.php:811
+#: includes/widgets/pp-contact-form-7.php:745
+#: includes/widgets/pp-gravity-forms.php:1004
+#: includes/widgets/pp-info-box-carousel.php:1007
+#: includes/widgets/pp-info-box.php:994 includes/widgets/pp-logo-grid.php:162
+#: includes/widgets/pp-ninja-forms.php:831
+#: includes/widgets/pp-price-menu.php:441 includes/widgets/pp-recipe.php:380
+#: includes/widgets/pp-wpforms.php:798
+msgid "Border Width"
+msgstr "Largura da borda"
+
+#: includes/widgets/pp-info-box-carousel.php:238
+#: includes/widgets/pp-info-box.php:354 includes/widgets/pp-info-list.php:198
+#: includes/widgets/pp-modal-popup.php:358
+#: includes/widgets/pp-pricing-table.php:341
+#: includes/widgets/pp-promo-box.php:228
+msgid "Button Text"
+msgstr "Texto do botão"
+
+#: includes/widgets/pp-pricing-table.php:1187 includes/widgets/pp-table.php:883
+#: includes/widgets/pp-table.php:1424
+msgid "Even"
+msgstr "Nunca"
+
+#: includes/widgets/pp-caldera-forms.php:833
+#: includes/widgets/pp-caldera-forms.php:1151
+#: includes/widgets/pp-contact-form-7.php:767
+#: includes/widgets/pp-contact-form-7.php:1087
+#: includes/widgets/pp-gravity-forms.php:829
+#: includes/widgets/pp-gravity-forms.php:1026
+#: includes/widgets/pp-gravity-forms.php:1328
+#: includes/widgets/pp-icon-list.php:509
+#: includes/widgets/pp-image-comparison.php:390
+#: includes/widgets/pp-info-box-carousel.php:757
+#: includes/widgets/pp-info-box-carousel.php:1062
+#: includes/widgets/pp-info-box-carousel.php:1393
+#: includes/widgets/pp-info-box-carousel.php:1612
+#: includes/widgets/pp-info-box-carousel.php:1805
+#: includes/widgets/pp-info-box.php:780 includes/widgets/pp-info-box.php:1049
+#: includes/widgets/pp-info-box.php:1434 includes/widgets/pp-info-list.php:559
+#: includes/widgets/pp-info-list.php:873 includes/widgets/pp-instafeed.php:1044
+#: includes/widgets/pp-instafeed.php:1237
+#: includes/widgets/pp-link-effects.php:268
+#: includes/widgets/pp-link-effects.php:317
+#: includes/widgets/pp-logo-carousel.php:738
+#: includes/widgets/pp-logo-carousel.php:930
+#: includes/widgets/pp-logo-grid.php:147
+#: includes/widgets/pp-modal-popup.php:1530
+#: includes/widgets/pp-ninja-forms.php:853
+#: includes/widgets/pp-ninja-forms.php:1154
+#: includes/widgets/pp-price-menu.php:467 includes/widgets/pp-promo-box.php:907
+#: includes/widgets/pp-promo-box.php:1136
+#: includes/widgets/pp-promo-box.php:1394 includes/widgets/pp-recipe.php:367
+#: includes/widgets/pp-recipe.php:510 includes/widgets/pp-recipe.php:868
+#: includes/widgets/pp-team-member-carousel.php:1539
+#: includes/widgets/pp-team-member-carousel.php:1742
+#: includes/widgets/pp-team-member-carousel.php:1934
+#: includes/widgets/pp-team-member.php:1397 includes/widgets/pp-wpforms.php:820
+#: includes/widgets/pp-wpforms.php:1142
+msgid "Border Color"
+msgstr "Cor da borda"
+
+#: includes/widgets/pp-info-box-carousel.php:240
+#: includes/widgets/pp-info-box.php:356 includes/widgets/pp-info-list.php:200
+#: includes/widgets/pp-pricing-table.php:343
+#: includes/widgets/pp-promo-box.php:230
+msgid "Get Started"
+msgstr "Iniciar"
+
+#: includes/widgets/pp-pricing-table.php:1229 includes/widgets/pp-table.php:940
+#: includes/widgets/pp-table.php:1529
+msgid "Odd"
+msgstr "Ímpar"
+
+#: includes/widgets/pp-caldera-forms.php:848
+#: includes/widgets/pp-contact-form-7.php:782
+#: includes/widgets/pp-gravity-forms.php:1041
+#: includes/widgets/pp-ninja-forms.php:868 includes/widgets/pp-wpforms.php:835
+msgid "Checkbox"
+msgstr "Caixa de seleção"
+
+#: includes/widgets/pp-info-box-carousel.php:250
+#: includes/widgets/pp-info-box-carousel.php:1327
+#: includes/widgets/pp-info-box.php:366 includes/widgets/pp-info-box.php:1354
+#: includes/widgets/pp-info-list.php:207 includes/widgets/pp-info-list.php:813
+#: includes/widgets/pp-modal-popup.php:371
+#: includes/widgets/pp-modal-popup.php:1445
+msgid "Button Icon"
+msgstr "Ícone de botão"
+
+#: includes/widgets/pp-promo-box.php:143
+msgid "Above Title"
+msgstr "Acima título"
+
+#: includes/widgets/pp-caldera-forms.php:874
+#: includes/widgets/pp-contact-form-7.php:808
+#: includes/widgets/pp-gravity-forms.php:1067
+#: includes/widgets/pp-ninja-forms.php:894 includes/widgets/pp-wpforms.php:861
+msgid "Radio Buttons"
+msgstr "Botões do rádio"
+
+#: includes/widgets/pp-info-box-carousel.php:262
+#: includes/widgets/pp-info-box.php:180 includes/widgets/pp-info-box.php:378
+#: includes/widgets/pp-info-list.php:216 includes/widgets/pp-instafeed.php:341
+#: includes/widgets/pp-modal-popup.php:384
+#: includes/widgets/pp-promo-box.php:139 includes/widgets/pp-table.php:119
+#: includes/widgets/pp-table.php:285 includes/widgets/pp-table.php:479
+msgid "Icon Position"
+msgstr "Posição do ícone"
+
+#: includes/widgets/pp-promo-box.php:144
+msgid "Below Title"
+msgstr "Abaixo do título"
+
+#: includes/widgets/pp-caldera-forms.php:902
+#: includes/widgets/pp-contact-form-7.php:836
+#: includes/widgets/pp-gravity-forms.php:1095
+#: includes/widgets/pp-ninja-forms.php:922 includes/widgets/pp-wpforms.php:889
+msgid "Checked"
+msgstr "Verificado"
+
+#: includes/widgets/pp-info-box-carousel.php:287
+msgid "Info Box 1"
+msgstr "Caixa de informações 1"
+
+#: includes/widgets/pp-promo-box.php:155 includes/widgets/pp-promo-box.php:157
+#: includes/widgets/pp-promo-box.php:729
+msgid "Heading"
+msgstr "Título"
+
+#: includes/widgets/pp-caldera-forms.php:937
+#: includes/widgets/pp-contact-form-7.php:870
+#: includes/widgets/pp-gravity-forms.php:1130
+#: includes/widgets/pp-ninja-forms.php:957 includes/widgets/pp-wpforms.php:924
+msgid "Submit Button"
+msgstr "Botão de envio"
+
+#: includes/widgets/pp-info-box-carousel.php:290
+msgid "Info Box 2"
+msgstr "Caixa de informações 2"
+
+#: includes/widgets/pp-promo-box.php:165 includes/widgets/pp-promo-box.php:790
+msgid "Heading Divider"
+msgstr "Divisor de Cabeçalho"
+
+#: includes/widgets/pp-caldera-forms.php:972
+#: includes/widgets/pp-caldera-forms.php:986
+#: includes/widgets/pp-contact-form-7.php:908
+#: includes/widgets/pp-contact-form-7.php:922
+#: includes/widgets/pp-counter.php:579 includes/widgets/pp-counter.php:764
+#: includes/widgets/pp-divider.php:352 includes/widgets/pp-divider.php:384
+#: includes/widgets/pp-divider.php:757 includes/widgets/pp-google-maps.php:416
+#: includes/widgets/pp-gravity-forms.php:1168
+#: includes/widgets/pp-gravity-forms.php:1182
+#: includes/widgets/pp-hotspots.php:532 includes/widgets/pp-hotspots.php:688
+#: includes/widgets/pp-image-comparison.php:431
+#: includes/widgets/pp-info-box-carousel.php:809
+#: includes/widgets/pp-info-box.php:599 includes/widgets/pp-info-list.php:347
+#: includes/widgets/pp-link-effects.php:209
+#: includes/widgets/pp-modal-popup.php:109
+#: includes/widgets/pp-modal-popup.php:961
+#: includes/widgets/pp-ninja-forms.php:994
+#: includes/widgets/pp-ninja-forms.php:1008
+#: includes/widgets/pp-price-menu.php:709
+#: includes/widgets/pp-pricing-table.php:505
+#: includes/widgets/pp-pricing-table.php:783
+#: includes/widgets/pp-promo-box.php:481 includes/widgets/pp-promo-box.php:557
+#: includes/widgets/pp-promo-box.php:851 includes/widgets/pp-promo-box.php:1080
+#: includes/widgets/pp-recipe.php:582 includes/widgets/pp-table.php:564
+#: includes/widgets/pp-table.php:1387 includes/widgets/pp-wpforms.php:962
+#: includes/widgets/pp-wpforms.php:976
+msgid "Width"
+msgstr "Largura"
+
+#: includes/widgets/pp-info-box-carousel.php:293
+msgid "Info Box 3"
+msgstr "Caixa de informações 3"
+
+#: includes/widgets/pp-promo-box.php:180 includes/widgets/pp-promo-box.php:958
+msgid "Sub Heading"
+msgstr "Sub cabeçalho"
+
+#: includes/widgets/pp-caldera-forms.php:976
+#: includes/widgets/pp-contact-form-7.php:912
+#: includes/widgets/pp-gravity-forms.php:1172
+#: includes/widgets/pp-ninja-forms.php:998 includes/widgets/pp-wpforms.php:966
+msgid "Full Width"
+msgstr "Largura completa"
+
+#: includes/widgets/pp-info-box-carousel.php:304
+#: includes/widgets/pp-info-box-carousel.php:974
+#: includes/widgets/pp-info-box.php:256 includes/widgets/pp-info-box.php:961
+#: includes/widgets/pp-price-menu.php:192
+#: includes/widgets/pp-price-menu.php:383 includes/widgets/pp-recipe.php:116
+#: includes/widgets/pp-recipe.php:452
+msgid "Title Separator"
+msgstr "Separador de títulos"
+
+#: includes/widgets/pp-promo-box.php:182
+msgid "Sub heading"
+msgstr "Sub cabeçalho"
+
+#: includes/widgets/pp-caldera-forms.php:977
+#: includes/widgets/pp-contact-form-7.php:913
+#: includes/widgets/pp-google-maps.php:180
+#: includes/widgets/pp-google-maps.php:352
+#: includes/widgets/pp-gravity-forms.php:1173
+#: includes/widgets/pp-ninja-forms.php:999
+#: includes/widgets/pp-pricing-table.php:189
+#: includes/widgets/pp-wpforms.php:967
+msgid "Custom"
+msgstr "Personalizado"
+
+#: includes/widgets/pp-info-box-carousel.php:336
+#: includes/widgets/pp-info-box.php:288
+msgid "Subtitle HTML Tag"
+msgstr "Tag HTML da legenda"
+
+#: includes/widgets/pp-promo-box.php:190 includes/widgets/pp-promo-box.php:1019
+msgid "Sub Heading Divider"
+msgstr "Divisor de subtítulos"
+
+#: includes/widgets/pp-caldera-forms.php:1080
+#: includes/widgets/pp-contact-form-7.php:1015
+#: includes/widgets/pp-gravity-forms.php:1276
+#: includes/widgets/pp-logo-carousel.php:523
+#: includes/widgets/pp-logo-grid.php:492
+#: includes/widgets/pp-ninja-forms.php:1102
+#: includes/widgets/pp-pricing-table.php:1584
+#: includes/widgets/pp-wpforms.php:1070
+msgid "Margin Top"
+msgstr "Margem superior"
+
+#: includes/widgets/pp-info-box-carousel.php:362
+#: includes/widgets/pp-instafeed.php:362
+#: includes/widgets/pp-logo-carousel.php:186
+msgid "Carousel Settings"
+msgstr "Configurações do carrossel"
+
+#: includes/widgets/pp-promo-box.php:207
+msgid "Enter promo box description"
+msgstr "Insira a descrição da caixa promocional"
+
+#: includes/widgets/pp-caldera-forms.php:1173
+#: includes/widgets/pp-ninja-forms.php:1196
+msgid "Success Message"
+msgstr "Mensagem de sucesso"
+
+#: includes/widgets/pp-info-box-carousel.php:369
+#: includes/widgets/pp-link-effects.php:119
+#: includes/widgets/pp-logo-carousel.php:193
+msgid "Effect"
+msgstr "Efeito"
+
+#: includes/widgets/pp-promo-box.php:881 includes/widgets/pp-promo-box.php:1110
+#: includes/widgets/pp-recipe.php:883
+msgid "Border Weight"
+msgstr "Peso da borda"
+
+#: includes/widgets/pp-caldera-forms.php:1263
+msgid "Error Fields"
+msgstr "Campos de erro"
+
+#: includes/widgets/pp-info-box-carousel.php:370
+#: includes/widgets/pp-logo-carousel.php:194
+msgid "Sets transition effect"
+msgstr "Define o efeito de transição"
+
+#: includes/widgets/pp-recipe.php:78 includes/widgets/pp-recipe.php:415
+msgid "Recipe Info"
+msgstr "Informação da receita"
+
+#: includes/widgets/pp-caldera-forms.php:1272
+msgid "Label Color"
+msgstr "Cor do rotulo"
+
+#: includes/widgets/pp-info-box-carousel.php:374
+#: includes/widgets/pp-logo-carousel.php:198
+#: includes/widgets/pp-logo-grid.php:408
+msgid "Slide"
+msgstr "Slide"
+
+#: includes/widgets/pp-recipe.php:85
+#: includes/widgets/pp-team-member-carousel.php:129
+#: includes/widgets/pp-team-member-carousel.php:768
+#: includes/widgets/pp-team-member.php:87
+#: includes/widgets/pp-team-member.php:600
+msgid "Name"
+msgstr "Nome"
+
+#: includes/widgets/pp-caldera-forms.php:1285
+msgid "Input Border"
+msgstr "Borda de entrada"
+
+#: includes/widgets/pp-info-box-carousel.php:375
+#: includes/widgets/pp-logo-carousel.php:199
+msgid "Fade"
+msgstr "Fade"
+
+#: includes/widgets/pp-recipe.php:87
+msgid "Fudgy Chocolate Brownies"
+msgstr "Brouny de chocolate"
+
+#: includes/widgets/pp-contact-form-7.php:97
+msgid "Form Title"
+msgstr "Título do formulário"
+
+#: includes/widgets/pp-info-box-carousel.php:376
+#: includes/widgets/pp-logo-carousel.php:200
+msgid "Cube"
+msgstr "Cubo"
+
+#: includes/widgets/pp-recipe.php:88
+msgid "Enter recipe name"
+msgstr "Digite o nome da receita"
+
+#: includes/widgets/pp-contact-form-7.php:99
+#: includes/widgets/pp-contact-form-7.php:123
+#: includes/widgets/pp-counter.php:240 includes/widgets/pp-counter.php:252
+#: includes/widgets/pp-google-maps.php:124
+#: includes/widgets/pp-google-maps.php:276
+#: includes/widgets/pp-google-maps.php:288
+#: includes/widgets/pp-google-maps.php:300
+#: includes/widgets/pp-google-maps.php:312
+#: includes/widgets/pp-google-maps.php:324
+#: includes/widgets/pp-icon-list.php:254
+#: includes/widgets/pp-info-box-carousel.php:307
+#: includes/widgets/pp-info-box.php:259 includes/widgets/pp-logo-grid.php:123
+#: includes/widgets/pp-price-menu.php:84 includes/widgets/pp-price-menu.php:102
+#: includes/widgets/pp-price-menu.php:590
+#: includes/widgets/pp-pricing-table.php:210
+#: includes/widgets/pp-promo-box.php:168 includes/widgets/pp-promo-box.php:193
+#: includes/widgets/pp-promo-box.php:218 includes/widgets/pp-promo-box.php:258
+#: includes/widgets/pp-table.php:47 includes/widgets/pp-table.php:826
+msgid "On"
+msgstr "Ligado"
+
+#: includes/widgets/pp-info-box-carousel.php:377
+#: includes/widgets/pp-logo-carousel.php:201
+msgid "Coverflow"
+msgstr "Coverflow"
+
+#: includes/widgets/pp-recipe.php:97
+msgid "These heavenly brownies are pure chocolate overload, featuring a fudgy center, slightly crusty top and layers of decadence. It doesn't get better than this."
+msgstr "Estes brownies celestes são uma sobrecarga de chocolate pura, apresentando um centro fudgy,ligeiramente crocante e camadas de decadência. Não fica melhor que isso."
+
+#: includes/widgets/pp-contact-form-7.php:100
+#: includes/widgets/pp-contact-form-7.php:124
+#: includes/widgets/pp-counter.php:241 includes/widgets/pp-counter.php:253
+#: includes/widgets/pp-google-maps.php:125
+#: includes/widgets/pp-google-maps.php:277
+#: includes/widgets/pp-google-maps.php:289
+#: includes/widgets/pp-google-maps.php:301
+#: includes/widgets/pp-google-maps.php:313
+#: includes/widgets/pp-google-maps.php:325
+#: includes/widgets/pp-icon-list.php:253
+#: includes/widgets/pp-info-box-carousel.php:308
+#: includes/widgets/pp-info-box.php:260 includes/widgets/pp-logo-grid.php:124
+#: includes/widgets/pp-price-menu.php:85 includes/widgets/pp-price-menu.php:103
+#: includes/widgets/pp-price-menu.php:591
+#: includes/widgets/pp-pricing-table.php:211
+#: includes/widgets/pp-promo-box.php:169 includes/widgets/pp-promo-box.php:194
+#: includes/widgets/pp-promo-box.php:219 includes/widgets/pp-promo-box.php:259
+#: includes/widgets/pp-table.php:48 includes/widgets/pp-table.php:827
+msgid "Off"
+msgstr "Desligado"
+
+#: includes/widgets/pp-info-box-carousel.php:378
+#: includes/widgets/pp-logo-carousel.php:202
+msgid "Flip"
+msgstr "Virar"
+
+#: includes/widgets/pp-recipe.php:98
+msgid "Recipe description"
+msgstr "Descrição da receita"
+
+#: includes/widgets/pp-contact-form-7.php:121
+msgid "Form Description"
+msgstr "Descrição do formulário"
+
+#: includes/widgets/pp-info-box-carousel.php:386
+#: includes/widgets/pp-instafeed.php:402
+#: includes/widgets/pp-logo-carousel.php:210
+#: includes/widgets/pp-team-member-carousel.php:358
+msgid "Visible Items"
+msgstr "Itens visíveis"
+
+#: includes/widgets/pp-recipe.php:133 includes/widgets/pp-recipe.php:605
+msgid "Recipe Meta"
+msgstr "Receita meta"
+
+#: includes/widgets/pp-contact-form-7.php:189
+#: includes/widgets/pp-contact-form-7.php:1237
+#: includes/widgets/pp-gravity-forms.php:232
+#: includes/widgets/pp-gravity-forms.php:1404
+#: includes/widgets/pp-ninja-forms.php:165
+#: includes/widgets/pp-ninja-forms.php:1319
+msgid "Validation Errors"
+msgstr "Erros de validação"
+
+#: includes/widgets/pp-info-box-carousel.php:387
+msgid "Number of slides visible at the same time on slider's container)."
+msgstr "Número de slides visíveis ao mesmo tempo no contêiner do slider's)."
+
+#: includes/widgets/pp-recipe.php:140
+msgid "Author"
+msgstr "Autor"
+
+#: includes/widgets/pp-contact-form-7.php:628
+msgid "Show Placeholder"
+msgstr "Mostrar espaço reservado"
+
+#: includes/widgets/pp-info-box-carousel.php:404
+#: includes/widgets/pp-instafeed.php:422
+#: includes/widgets/pp-logo-carousel.php:229
+msgid "Items Gap"
+msgstr "Espaço de item"
+
+#: includes/widgets/pp-recipe.php:152 includes/widgets/pp-tiled-posts.php:286
+msgid "Date"
+msgstr "Data"
+
+#: includes/widgets/pp-contact-form-7.php:1129
+msgid "Alert"
+msgstr "Alerta"
+
+#: includes/widgets/pp-info-box-carousel.php:405
+msgid "Distance between slides (in px)"
+msgstr "Distância entre os slides (em px)"
+
+#: includes/widgets/pp-recipe.php:169 includes/widgets/pp-recipe.php:640
+msgid "Recipe Details"
+msgstr "Detalhes da receita"
+
+#: includes/widgets/pp-contact-form-7.php:1178
+msgid "Fields"
+msgstr "Campos"
+
+#: includes/widgets/pp-info-box-carousel.php:422
+#: includes/widgets/pp-logo-carousel.php:246
+msgid "Slider Speed"
+msgstr "Velocidade do slider"
+
+#: includes/widgets/pp-recipe.php:176 includes/widgets/pp-recipe.php:1127
+#: includes/widgets/pp-recipe.php:1326
+msgid "Prep Time"
+msgstr "Tempo de preparação"
+
+#: includes/widgets/pp-counter.php:102 includes/widgets/pp-icon-list.php:107
+#: includes/widgets/pp-info-list.php:129
+#: includes/widgets/pp-pricing-table.php:86
+#: includes/widgets/pp-promo-box.php:98 includes/widgets/pp-table.php:68
+#: includes/widgets/pp-table.php:229 includes/widgets/pp-table.php:423
+msgid "Icon Type"
+msgstr "Tipo de ícone"
+
+#: includes/widgets/pp-info-box-carousel.php:423
+#: includes/widgets/pp-logo-carousel.php:247
+msgid "Duration of transition between slides (in ms)"
+msgstr "Duração da transição entre slides (em ms)"
+
+#: includes/widgets/pp-recipe.php:178
+msgid "15"
+msgstr "15"
+
+#: includes/widgets/pp-counter.php:111 includes/widgets/pp-counter.php:126
+#: includes/widgets/pp-counter.php:342 includes/widgets/pp-divider.php:98
+#: includes/widgets/pp-divider.php:141 includes/widgets/pp-divider.php:592
+#: includes/widgets/pp-hotspots.php:143 includes/widgets/pp-hotspots.php:153
+#: includes/widgets/pp-icon-list.php:116 includes/widgets/pp-icon-list.php:132
+#: includes/widgets/pp-icon-list.php:332
+#: includes/widgets/pp-info-box-carousel.php:134
+#: includes/widgets/pp-info-box-carousel.php:148
+#: includes/widgets/pp-info-box-carousel.php:167
+#: includes/widgets/pp-info-box.php:79 includes/widgets/pp-info-box.php:95
+#: includes/widgets/pp-info-box.php:114 includes/widgets/pp-info-list.php:138
+#: includes/widgets/pp-info-list.php:154 includes/widgets/pp-info-list.php:372
+#: includes/widgets/pp-modal-popup.php:346
+#: includes/widgets/pp-modal-popup.php:402
+#: includes/widgets/pp-modal-popup.php:906
+#: includes/widgets/pp-pricing-table.php:95
+#: includes/widgets/pp-pricing-table.php:110
+#: includes/widgets/pp-pricing-table.php:289
+#: includes/widgets/pp-pricing-table.php:470
+#: includes/widgets/pp-pricing-table.php:1102
+#: includes/widgets/pp-promo-box.php:85 includes/widgets/pp-promo-box.php:102
+#: includes/widgets/pp-promo-box.php:114 includes/widgets/pp-promo-box.php:523
+#: includes/widgets/pp-recipe.php:268 includes/widgets/pp-table.php:77
+#: includes/widgets/pp-table.php:92 includes/widgets/pp-table.php:238
+#: includes/widgets/pp-table.php:256 includes/widgets/pp-table.php:432
+#: includes/widgets/pp-table.php:450
+msgid "Icon"
+msgstr "Ícone "
+
+#: includes/widgets/pp-info-box-carousel.php:440
+#: includes/widgets/pp-instafeed.php:442
+#: includes/widgets/pp-logo-carousel.php:264
+#: includes/widgets/pp-team-member-carousel.php:396
+msgid "Autoplay"
+msgstr "Reprodução automática"
+
+#: includes/widgets/pp-recipe.php:179 includes/widgets/pp-recipe.php:189
+#: includes/widgets/pp-recipe.php:199
+msgid "In minutes"
+msgstr "Em minutos"
+
+#: includes/widgets/pp-counter.php:115 includes/widgets/pp-counter.php:137
+#: includes/widgets/pp-divider.php:102 includes/widgets/pp-divider.php:177
+#: includes/widgets/pp-divider.php:722 includes/widgets/pp-hotspots.php:94
+#: includes/widgets/pp-hotspots.php:101 includes/widgets/pp-hotspots.php:524
+#: includes/widgets/pp-icon-list.php:120 includes/widgets/pp-icon-list.php:142
+#: includes/widgets/pp-image-comparison.php:111
+#: includes/widgets/pp-image-comparison.php:143
+#: includes/widgets/pp-info-box-carousel.php:152
+#: includes/widgets/pp-info-box-carousel.php:191
+#: includes/widgets/pp-info-box.php:99 includes/widgets/pp-info-box.php:138
+#: includes/widgets/pp-info-list.php:142 includes/widgets/pp-info-list.php:164
+#: includes/widgets/pp-instafeed.php:508
+#: includes/widgets/pp-modal-popup.php:217
+#: includes/widgets/pp-modal-popup.php:347
+#: includes/widgets/pp-price-menu.php:108
+#: includes/widgets/pp-price-menu.php:680
+#: includes/widgets/pp-pricing-table.php:99
+#: includes/widgets/pp-pricing-table.php:121
+#: includes/widgets/pp-promo-box.php:103 includes/widgets/pp-promo-box.php:127
+#: includes/widgets/pp-promo-box.php:806 includes/widgets/pp-promo-box.php:817
+#: includes/widgets/pp-promo-box.php:1035
+#: includes/widgets/pp-promo-box.php:1046 includes/widgets/pp-recipe.php:105
+#: includes/widgets/pp-recipe.php:574 includes/widgets/pp-table.php:81
+#: includes/widgets/pp-table.php:104 includes/widgets/pp-table.php:242
+#: includes/widgets/pp-table.php:269 includes/widgets/pp-table.php:436
+#: includes/widgets/pp-table.php:463
+#: includes/widgets/pp-team-member-carousel.php:147
+#: includes/widgets/pp-team-member-carousel.php:682
+#: includes/widgets/pp-team-member.php:129
+#: includes/widgets/pp-team-member.php:541
+msgid "Image"
+msgstr "Imagem"
+
+#: includes/widgets/pp-info-box-carousel.php:452
+#: includes/widgets/pp-instafeed.php:457
+#: includes/widgets/pp-logo-carousel.php:276
+#: includes/widgets/pp-team-member-carousel.php:408
+msgid "Autoplay Speed"
+msgstr "Velocidade de reprodução automática"
+
+#: includes/widgets/pp-recipe.php:186 includes/widgets/pp-recipe.php:1144
+#: includes/widgets/pp-recipe.php:1341
+msgid "Cook Time"
+msgstr "Hora de cozinhar"
+
+#: includes/widgets/pp-counter.php:151 includes/widgets/pp-counter.php:659
+#: includes/widgets/pp-icon-list.php:124
+msgid "Number"
+msgstr "Número"
+
+#: includes/widgets/pp-info-box-carousel.php:472
+#: includes/widgets/pp-instafeed.php:471
+#: includes/widgets/pp-logo-carousel.php:296
+#: includes/widgets/pp-team-member-carousel.php:428
+msgid "Infinite Loop"
+msgstr "Loop infinito"
+
+#: includes/widgets/pp-recipe.php:188
+msgid "30"
+msgstr "30"
+
+#: includes/widgets/pp-counter.php:153
+msgid "250"
+msgstr "250"
+
+#: includes/widgets/pp-info-box-carousel.php:473
+msgid "Enables continuous loop mode"
+msgstr "Permite o modo de loop contínuo"
+
+#: includes/widgets/pp-recipe.php:196 includes/widgets/pp-recipe.php:1161
+#: includes/widgets/pp-recipe.php:1356
+msgid "Total Time"
+msgstr "Tempo total"
+
+#: includes/widgets/pp-counter.php:161
+msgid "Number Prefix"
+msgstr "Prefixo do número"
+
+#: includes/widgets/pp-info-box-carousel.php:485
+#: includes/widgets/pp-instafeed.php:486
+#: includes/widgets/pp-logo-carousel.php:308
+#: includes/widgets/pp-team-member-carousel.php:440
+msgid "Grab Cursor"
+msgstr "Espaço do cursor"
+
+#: includes/widgets/pp-recipe.php:198
+msgid "45"
+msgstr "45"
+
+#: includes/widgets/pp-counter.php:169
+msgid "Number Suffix"
+msgstr "Sufixo numérico"
+
+#: includes/widgets/pp-info-box-carousel.php:486
+#: includes/widgets/pp-instafeed.php:487
+#: includes/widgets/pp-logo-carousel.php:309
+#: includes/widgets/pp-team-member-carousel.php:441
+msgid "Shows grab cursor when you hover over the slider"
+msgstr "Mostra o cursor de captura quando você passa o mouse_hover) sobre o slider"
+
+#: includes/widgets/pp-recipe.php:206
+msgid "Servings"
+msgstr "Porções"
+
+#: includes/widgets/pp-counter.php:179
+msgid "Counter Title"
+msgstr "Título do contador"
+
+#: includes/widgets/pp-info-box-carousel.php:498
+#: includes/widgets/pp-logo-carousel.php:321
+#: includes/widgets/pp-team-member-carousel.php:453
+msgid "Navigation"
+msgstr "Navegação"
+
+#: includes/widgets/pp-recipe.php:208
+msgid "2"
+msgstr "2"
+
+#: includes/widgets/pp-counter.php:187
+#: includes/widgets/pp-info-box-carousel.php:316
+#: includes/widgets/pp-info-box.php:268
+#: includes/widgets/pp-logo-carousel.php:161
+#: includes/widgets/pp-logo-grid.php:214
+msgid "Title HTML Tag"
+msgstr "Tag HTML de título"
+
+#: includes/widgets/pp-info-box-carousel.php:507
+#: includes/widgets/pp-info-box-carousel.php:1430
+#: includes/widgets/pp-instafeed.php:372 includes/widgets/pp-instafeed.php:861
+#: includes/widgets/pp-logo-carousel.php:330
+#: includes/widgets/pp-logo-carousel.php:556
+#: includes/widgets/pp-team-member-carousel.php:462
+#: includes/widgets/pp-team-member-carousel.php:1560
+msgid "Arrows"
+msgstr "Setas"
+
+#: includes/widgets/pp-recipe.php:209
+msgid "Number of people"
+msgstr "Número de pessoas"
+
+#: includes/widgets/pp-counter.php:191 includes/widgets/pp-divider.php:158
+#: includes/widgets/pp-dual-heading.php:122
+#: includes/widgets/pp-info-box-carousel.php:320
+#: includes/widgets/pp-info-box-carousel.php:340
+#: includes/widgets/pp-info-box.php:272 includes/widgets/pp-info-box.php:292
+#: includes/widgets/pp-logo-carousel.php:165
+#: includes/widgets/pp-logo-grid.php:218
+#: includes/widgets/pp-team-member-carousel.php:243
+#: includes/widgets/pp-team-member-carousel.php:263
+#: includes/widgets/pp-team-member.php:237
+#: includes/widgets/pp-team-member.php:257
+msgid "H1"
+msgstr "H1"
+
+#: includes/widgets/pp-info-box-carousel.php:519
+#: includes/widgets/pp-info-box-carousel.php:1647
+#: includes/widgets/pp-instafeed.php:387 includes/widgets/pp-instafeed.php:1078
+#: includes/widgets/pp-logo-carousel.php:342
+#: includes/widgets/pp-logo-carousel.php:772
+#: includes/widgets/pp-team-member-carousel.php:474
+#: includes/widgets/pp-team-member-carousel.php:1776
+msgid "Dots"
+msgstr "Pontos"
+
+#: includes/widgets/pp-recipe.php:216 includes/widgets/pp-recipe.php:1196
+#: includes/widgets/pp-recipe.php:1387
+msgid "Calories"
+msgstr "Calorias"
+
+#: includes/widgets/pp-counter.php:192 includes/widgets/pp-divider.php:159
+#: includes/widgets/pp-dual-heading.php:123
+#: includes/widgets/pp-info-box-carousel.php:321
+#: includes/widgets/pp-info-box-carousel.php:341
+#: includes/widgets/pp-info-box.php:273 includes/widgets/pp-info-box.php:293
+#: includes/widgets/pp-logo-carousel.php:166
+#: includes/widgets/pp-logo-grid.php:219
+#: includes/widgets/pp-team-member-carousel.php:244
+#: includes/widgets/pp-team-member-carousel.php:264
+#: includes/widgets/pp-team-member.php:238
+#: includes/widgets/pp-team-member.php:258
+msgid "H2"
+msgstr "H2"
+
+#: includes/widgets/pp-info-box-carousel.php:585
+#: includes/widgets/pp-info-box.php:566
+msgid "Icon Style"
+msgstr "Estilo de ícone"
+
+#: includes/widgets/pp-recipe.php:218
+msgid "200"
+msgstr "200"
+
+#: includes/widgets/pp-counter.php:193 includes/widgets/pp-divider.php:160
+#: includes/widgets/pp-dual-heading.php:124
+#: includes/widgets/pp-info-box-carousel.php:322
+#: includes/widgets/pp-info-box-carousel.php:342
+#: includes/widgets/pp-info-box.php:274 includes/widgets/pp-info-box.php:294
+#: includes/widgets/pp-logo-carousel.php:167
+#: includes/widgets/pp-logo-grid.php:220
+#: includes/widgets/pp-team-member-carousel.php:245
+#: includes/widgets/pp-team-member-carousel.php:265
+#: includes/widgets/pp-team-member.php:239
+#: includes/widgets/pp-team-member.php:259
+msgid "H3"
+msgstr "H3"
+
+#: includes/widgets/pp-info-box-carousel.php:593
+#: includes/widgets/pp-info-box.php:577 includes/widgets/pp-promo-box.php:534
+#: includes/widgets/pp-team-member-carousel.php:1409
+#: includes/widgets/pp-team-member.php:1267
+msgid "Icon Size"
+msgstr "Tamanho do ícone"
+
+#: includes/widgets/pp-recipe.php:219
+msgid "In kcal"
+msgstr "Em kcal"
+
+#: includes/widgets/pp-counter.php:194 includes/widgets/pp-divider.php:161
+#: includes/widgets/pp-dual-heading.php:125
+#: includes/widgets/pp-info-box-carousel.php:323
+#: includes/widgets/pp-info-box-carousel.php:343
+#: includes/widgets/pp-info-box.php:275 includes/widgets/pp-info-box.php:295
+#: includes/widgets/pp-logo-carousel.php:168
+#: includes/widgets/pp-logo-grid.php:221
+#: includes/widgets/pp-team-member-carousel.php:246
+#: includes/widgets/pp-team-member-carousel.php:266
+#: includes/widgets/pp-team-member.php:240
+#: includes/widgets/pp-team-member.php:260
+msgid "H4"
+msgstr "H4"
+
+#: includes/widgets/pp-info-box-carousel.php:788
+#: includes/widgets/pp-info-box.php:810 includes/widgets/pp-promo-box.php:712
+msgid "Icon Animation"
+msgstr "Animação de ícone"
+
+#: includes/widgets/pp-recipe.php:231 includes/widgets/pp-recipe.php:774
+msgid "Ingredients"
+msgstr "Ingredientes"
+
+#: includes/widgets/pp-counter.php:195 includes/widgets/pp-divider.php:162
+#: includes/widgets/pp-dual-heading.php:126
+#: includes/widgets/pp-info-box-carousel.php:324
+#: includes/widgets/pp-info-box-carousel.php:344
+#: includes/widgets/pp-info-box.php:276 includes/widgets/pp-info-box.php:296
+#: includes/widgets/pp-logo-carousel.php:169
+#: includes/widgets/pp-logo-grid.php:222
+#: includes/widgets/pp-team-member-carousel.php:247
+#: includes/widgets/pp-team-member-carousel.php:267
+#: includes/widgets/pp-team-member.php:241
+#: includes/widgets/pp-team-member.php:261
+msgid "H5"
+msgstr "H5"
+
+#: includes/widgets/pp-info-box-carousel.php:800
+msgid "Icon Image"
+msgstr "Imagem do ícone"
+
+#: includes/widgets/pp-recipe.php:242 includes/widgets/pp-recipe.php:258
+msgid "Ingredient #1"
+msgstr "Ingrediente #1"
+
+#: includes/widgets/pp-counter.php:196 includes/widgets/pp-divider.php:163
+#: includes/widgets/pp-dual-heading.php:127
+#: includes/widgets/pp-info-box-carousel.php:325
+#: includes/widgets/pp-info-box-carousel.php:345
+#: includes/widgets/pp-info-box.php:277 includes/widgets/pp-info-box.php:297
+#: includes/widgets/pp-logo-carousel.php:170
+#: includes/widgets/pp-logo-grid.php:223
+#: includes/widgets/pp-team-member-carousel.php:248
+#: includes/widgets/pp-team-member-carousel.php:268
+#: includes/widgets/pp-team-member.php:242
+#: includes/widgets/pp-team-member.php:262
+msgid "H6"
+msgstr "H6"
+
+#: includes/widgets/pp-info-box-carousel.php:828
+#: includes/widgets/pp-info-box.php:126
+msgid "Icon Text"
+msgstr "Texto do ícone"
+
+#: includes/widgets/pp-recipe.php:245
+msgid "Ingredient #2"
+msgstr "Ingrediente #2"
+
+#: includes/widgets/pp-counter.php:197 includes/widgets/pp-divider.php:164
+#: includes/widgets/pp-dual-heading.php:128
+#: includes/widgets/pp-info-box-carousel.php:326
+#: includes/widgets/pp-info-box-carousel.php:346
+#: includes/widgets/pp-info-box.php:278 includes/widgets/pp-info-box.php:298
+#: includes/widgets/pp-logo-carousel.php:171
+#: includes/widgets/pp-logo-grid.php:224
+#: includes/widgets/pp-team-member-carousel.php:249
+#: includes/widgets/pp-team-member-carousel.php:269
+#: includes/widgets/pp-team-member.php:243
+#: includes/widgets/pp-team-member.php:263
+msgid "div"
+msgstr "div"
+
+#: includes/widgets/pp-info-box-carousel.php:910
+#: includes/widgets/pp-info-box.php:885
+#: includes/widgets/pp-pricing-table.php:649
+msgid "Sub Title"
+msgstr "Sub título"
+
+#: includes/widgets/pp-recipe.php:248
+msgid "Ingredient #3"
+msgstr "Ingrediente #3"
+
+#: includes/widgets/pp-counter.php:198 includes/widgets/pp-divider.php:165
+#: includes/widgets/pp-dual-heading.php:129
+#: includes/widgets/pp-info-box-carousel.php:327
+#: includes/widgets/pp-info-box-carousel.php:347
+#: includes/widgets/pp-info-box.php:279 includes/widgets/pp-info-box.php:299
+#: includes/widgets/pp-logo-carousel.php:172
+#: includes/widgets/pp-logo-grid.php:225
+#: includes/widgets/pp-team-member-carousel.php:250
+#: includes/widgets/pp-team-member-carousel.php:270
+#: includes/widgets/pp-team-member.php:244
+#: includes/widgets/pp-team-member.php:264
+msgid "span"
+msgstr "span"
+
+#: includes/widgets/pp-info-box-carousel.php:1229
+#: includes/widgets/pp-info-box.php:1220 includes/widgets/pp-info-list.php:715
+#: includes/widgets/pp-modal-popup.php:1302
+#: includes/widgets/pp-pricing-table.php:1347
+#: includes/widgets/pp-promo-box.php:1261
+msgid "Extra Small"
+msgstr "Muito pequeno"
+
+#: includes/widgets/pp-recipe.php:257
+msgid "Ingredient"
+msgstr "Ingrediente"
+
+#: includes/widgets/pp-counter.php:199 includes/widgets/pp-divider.php:166
+#: includes/widgets/pp-dual-heading.php:130
+#: includes/widgets/pp-info-box-carousel.php:328
+#: includes/widgets/pp-info-box-carousel.php:348
+#: includes/widgets/pp-info-box.php:280 includes/widgets/pp-info-box.php:300
+#: includes/widgets/pp-logo-carousel.php:173
+#: includes/widgets/pp-logo-grid.php:226
+#: includes/widgets/pp-team-member-carousel.php:251
+#: includes/widgets/pp-team-member-carousel.php:271
+#: includes/widgets/pp-team-member.php:245
+#: includes/widgets/pp-team-member.php:265
+msgid "p"
+msgstr "p"
+
+#: includes/widgets/pp-info-box-carousel.php:1231
+#: includes/widgets/pp-info-box.php:1222 includes/widgets/pp-info-list.php:717
+#: includes/widgets/pp-modal-popup.php:1304
+#: includes/widgets/pp-pricing-table.php:1349
+#: includes/widgets/pp-promo-box.php:1263
+msgid "Medium"
+msgstr "Médio"
+
+#: includes/widgets/pp-recipe.php:282 includes/widgets/pp-recipe.php:909
+msgid "Instructions"
+msgstr "Instruções"
+
+#: includes/widgets/pp-counter.php:207 includes/widgets/pp-info-box.php:152
+#: includes/widgets/pp-instafeed.php:200 includes/widgets/pp-modal-popup.php:96
+#: includes/widgets/pp-tiled-posts.php:85
+msgid "Layout"
+msgstr "Layout"
+
+#: includes/widgets/pp-info-box-carousel.php:1233
+#: includes/widgets/pp-info-box.php:1224 includes/widgets/pp-info-list.php:719
+#: includes/widgets/pp-modal-popup.php:1306
+#: includes/widgets/pp-pricing-table.php:1351
+#: includes/widgets/pp-promo-box.php:1265
+msgid "Extra Large"
+msgstr "Extra grande"
+
+#: includes/widgets/pp-recipe.php:293
+msgid "Step #1"
+msgstr "Passo #1"
+
+#: includes/widgets/pp-counter.php:211 includes/widgets/pp-tiled-posts.php:88
+msgid "Layout 1"
+msgstr "Layout 1"
+
+#: includes/widgets/pp-info-box-carousel.php:1441
+#: includes/widgets/pp-instafeed.php:873
+#: includes/widgets/pp-logo-carousel.php:567
+#: includes/widgets/pp-team-member-carousel.php:1571
+msgid "Choose Arrow"
+msgstr "Escolha a seta"
+
+#: includes/widgets/pp-recipe.php:296
+msgid "Step #2"
+msgstr "Passo #2"
+
+#: includes/widgets/pp-counter.php:212 includes/widgets/pp-tiled-posts.php:89
+msgid "Layout 2"
+msgstr "Layout 2"
+
+#: includes/widgets/pp-info-box-carousel.php:1446
+#: includes/widgets/pp-instafeed.php:878
+#: includes/widgets/pp-logo-carousel.php:572
+#: includes/widgets/pp-team-member-carousel.php:1576
+msgid "Angle"
+msgstr "Ângulo"
+
+#: includes/widgets/pp-recipe.php:299
+msgid "Step #3"
+msgstr "Passo #3"
+
+#: includes/widgets/pp-counter.php:213 includes/widgets/pp-tiled-posts.php:90
+msgid "Layout 3"
+msgstr "Layout 3"
+
+#: includes/widgets/pp-info-box-carousel.php:1447
+#: includes/widgets/pp-instafeed.php:879
+#: includes/widgets/pp-logo-carousel.php:573
+#: includes/widgets/pp-team-member-carousel.php:1577
+msgid "Double Angle"
+msgstr "Ângulo duplo"
+
+#: includes/widgets/pp-recipe.php:308 includes/widgets/pp-recipe.php:309
+msgid "Instruction"
+msgstr "Instrução"
+
+#: includes/widgets/pp-counter.php:214 includes/widgets/pp-tiled-posts.php:91
+msgid "Layout 4"
+msgstr "Layout 4"
+
+#: includes/widgets/pp-info-box-carousel.php:1448
+#: includes/widgets/pp-instafeed.php:880
+#: includes/widgets/pp-logo-carousel.php:574
+#: includes/widgets/pp-team-member-carousel.php:1578
+msgid "Chevron"
+msgstr "Chevron"
+
+#: includes/widgets/pp-recipe.php:324 includes/widgets/pp-recipe.php:331
+#: includes/widgets/pp-recipe.php:982
+msgid "Notes"
+msgstr "Notas"
+
+#: includes/widgets/pp-counter.php:215 includes/widgets/pp-tiled-posts.php:92
+msgid "Layout 5"
+msgstr "Layout 5"
+
+#: includes/widgets/pp-info-box-carousel.php:1449
+#: includes/widgets/pp-instafeed.php:881
+#: includes/widgets/pp-logo-carousel.php:575
+#: includes/widgets/pp-team-member-carousel.php:1579
+msgid "Chevron Circle"
+msgstr "Círculo chevron"
+
+#: includes/widgets/pp-recipe.php:349
+#: includes/widgets/pp-team-member-carousel.php:495
+#: includes/widgets/pp-team-member.php:358
+msgid "Box Style"
+msgstr "Estilo da caixa"
+
+#: includes/widgets/pp-counter.php:216
+msgid "Layout 6"
+msgstr "Layout 6"
+
+#: includes/widgets/pp-info-box-carousel.php:1450
+#: includes/widgets/pp-instafeed.php:882
+#: includes/widgets/pp-logo-carousel.php:576
+#: includes/widgets/pp-team-member-carousel.php:1580
+msgid "Arrow"
+msgstr "Seta"
+
+#: includes/widgets/pp-recipe.php:731
+msgid "Icons"
+msgstr "Ícones"
+
+#: includes/widgets/pp-counter.php:230
+msgid "Dividers"
+msgstr "Divisores"
+
+#: includes/widgets/pp-info-box-carousel.php:1451
+#: includes/widgets/pp-instafeed.php:883
+#: includes/widgets/pp-logo-carousel.php:577
+#: includes/widgets/pp-team-member-carousel.php:1581
+msgid "Long Arrow"
+msgstr "Seta longa"
+
+#: includes/widgets/pp-recipe.php:1131 includes/widgets/pp-recipe.php:1148
+#: includes/widgets/pp-recipe.php:1165
+msgid "%s Minutes"
+msgstr "%s Minutos"
+
+#: includes/widgets/pp-counter.php:237 includes/widgets/pp-counter.php:518
+msgid "Icon Divider"
+msgstr "Divisor de ícones"
+
+#: includes/widgets/pp-info-box-carousel.php:1452
+#: includes/widgets/pp-instafeed.php:884
+#: includes/widgets/pp-logo-carousel.php:578
+#: includes/widgets/pp-team-member-carousel.php:1582
+msgid "Caret"
+msgstr "Caret"
+
+#: includes/widgets/pp-recipe.php:1178 includes/widgets/pp-recipe.php:1371
+msgid "Serves"
+msgstr "Serve"
+
+#: includes/widgets/pp-counter.php:249 includes/widgets/pp-counter.php:706
+msgid "Number Divider"
+msgstr "Divisor de números"
+
+#: includes/widgets/pp-info-box-carousel.php:1453
+#: includes/widgets/pp-instafeed.php:885
+#: includes/widgets/pp-logo-carousel.php:579
+#: includes/widgets/pp-team-member-carousel.php:1583
+msgid "Caret Square"
+msgstr "Quadrado Caret"
+
+#: includes/widgets/pp-recipe.php:1182
+msgid "%s People"
+msgstr "%s Pessoas"
+
+#: includes/widgets/pp-counter.php:266 includes/widgets/pp-google-maps.php:225
+#: includes/widgets/pp-image-comparison.php:159
+#: includes/widgets/pp-modal-popup.php:300
+#: includes/widgets/pp-team-member.php:226
+#: includes/widgets/pp-tiled-posts.php:78
+msgid "Settings"
+msgstr "Configurações"
+
+#: includes/widgets/pp-info-box-carousel.php:1454
+#: includes/widgets/pp-instafeed.php:886
+#: includes/widgets/pp-logo-carousel.php:580
+#: includes/widgets/pp-team-member-carousel.php:1584
+msgid "Arrow Circle"
+msgstr "Seta em  círculo "
+
+#: includes/widgets/pp-recipe.php:1200
+msgid "%s kcal"
+msgstr "%s kcal"
+
+#: includes/widgets/pp-counter.php:273
+msgid "Counting Speed"
+msgstr "Velocidade de contagem"
+
+#: includes/widgets/pp-info-box-carousel.php:1455
+#: includes/widgets/pp-instafeed.php:887
+#: includes/widgets/pp-logo-carousel.php:581
+#: includes/widgets/pp-team-member-carousel.php:1585
+msgid "Arrow Circle O"
+msgstr "Seta em círculo O"
+
+#: includes/widgets/pp-recipe.php:1329 includes/widgets/pp-recipe.php:1344
+#: includes/widgets/pp-recipe.php:1359
+msgid "Minutes"
+msgstr "Minutos"
+
+#: includes/widgets/pp-counter.php:323
+#: includes/widgets/pp-info-box-carousel.php:565
+#: includes/widgets/pp-info-box.php:429 includes/widgets/pp-info-list.php:616
+#: includes/widgets/pp-link-effects.php:167
+#: includes/widgets/pp-modal-popup.php:816
+#: includes/widgets/pp-price-menu.php:160
+msgid "Justified"
+msgstr "Justificado"
+
+#: includes/widgets/pp-info-box-carousel.php:1456
+#: includes/widgets/pp-instafeed.php:888
+#: includes/widgets/pp-logo-carousel.php:582
+#: includes/widgets/pp-team-member-carousel.php:1586
+msgid "Toggle"
+msgstr "Alternância"
+
+#: includes/widgets/pp-recipe.php:1374
+msgid "People"
+msgstr "Pessoas"
+
+#: includes/widgets/pp-counter.php:354 includes/widgets/pp-dual-heading.php:213
+#: includes/widgets/pp-dual-heading.php:312
+#: includes/widgets/pp-icon-list.php:181 includes/widgets/pp-info-box.php:453
+#: includes/widgets/pp-info-box.php:503 includes/widgets/pp-logo-grid.php:295
+#: includes/widgets/pp-logo-grid.php:388
+#: includes/widgets/pp-modal-popup.php:730
+#: includes/widgets/pp-modal-popup.php:888
+#: includes/widgets/pp-modal-popup.php:1074
+#: includes/widgets/pp-modal-popup.php:1143
+#: includes/widgets/pp-promo-box.php:286 includes/widgets/pp-promo-box.php:447
+#: includes/widgets/pp-recipe.php:358 includes/widgets/pp-recipe.php:649
+#: includes/widgets/pp-team-member.php:406
+msgid "Background"
+msgstr "Fundo"
+
+#: includes/widgets/pp-info-box-carousel.php:1457
+#: includes/widgets/pp-instafeed.php:889
+#: includes/widgets/pp-logo-carousel.php:583
+#: includes/widgets/pp-team-member-carousel.php:1587
+msgid "Hand"
+msgstr "Mão"
+
+#: includes/widgets/pp-recipe.php:1390
+msgid "kcal"
+msgstr "kcal"
+
+#: includes/widgets/pp-counter.php:403
+#: includes/widgets/pp-team-member-carousel.php:690
+#: includes/widgets/pp-team-member.php:549
+msgid "Image Width"
+msgstr "Largura da imagem"
+
+#: includes/widgets/pp-info-box-carousel.php:1465
+#: includes/widgets/pp-instafeed.php:897
+#: includes/widgets/pp-logo-carousel.php:591
+#: includes/widgets/pp-team-member-carousel.php:1595
+msgid "Arrows Size"
+msgstr "Tamanho da seta"
+
+#: includes/widgets/pp-table.php:43
+msgid "Sortable"
+msgstr "Ordenável"
+
+#: includes/widgets/pp-counter.php:425
+msgid "Rotation"
+msgstr "Rotação"
+
+#: includes/widgets/pp-info-box-carousel.php:1485
+#: includes/widgets/pp-instafeed.php:917
+#: includes/widgets/pp-logo-carousel.php:611
+#: includes/widgets/pp-team-member-carousel.php:1615
+msgid "Align Left Arrow"
+msgstr "Alinhar à esquerda"
+
+#: includes/widgets/pp-table.php:44
+msgid "Enabled sorting the table data by clicking on the table headers"
+msgstr "Classificação ativada, os dados da tabela clicando nos cabeçalhos da tabela"
+
+#: includes/widgets/pp-counter.php:531 includes/widgets/pp-counter.php:718
+#: includes/widgets/pp-promo-box.php:801 includes/widgets/pp-promo-box.php:1030
+msgid "Divider Type"
+msgstr "Tipo de divisor"
+
+#: includes/widgets/pp-info-box-carousel.php:1504
+#: includes/widgets/pp-instafeed.php:936
+#: includes/widgets/pp-logo-carousel.php:630
+#: includes/widgets/pp-team-member-carousel.php:1634
+msgid "Align Right Arrow"
+msgstr "Alinhar a seta para a direita"
+
+#: includes/widgets/pp-table.php:60 includes/widgets/pp-table.php:61
+msgid "Table Header"
+msgstr "Cabeçalho da tabela"
+
+#: includes/widgets/pp-counter.php:536 includes/widgets/pp-counter.php:723
+#: includes/widgets/pp-divider.php:277
+#: includes/widgets/pp-gravity-forms.php:790
+#: includes/widgets/pp-icon-list.php:266
+#: includes/widgets/pp-info-box-carousel.php:991
+#: includes/widgets/pp-info-box.php:978 includes/widgets/pp-info-list.php:328
+#: includes/widgets/pp-price-menu.php:400
+#: includes/widgets/pp-price-menu.php:870 includes/widgets/pp-promo-box.php:834
+#: includes/widgets/pp-promo-box.php:1063 includes/widgets/pp-recipe.php:469
+#: includes/widgets/pp-team-member-carousel.php:863
+#: includes/widgets/pp-team-member-carousel.php:1066
+#: includes/widgets/pp-team-member-carousel.php:1269
+#: includes/widgets/pp-team-member.php:694
+#: includes/widgets/pp-team-member.php:897
+#: includes/widgets/pp-team-member.php:1120
+msgid "Double"
+msgstr "Duplo"
+
+#: includes/widgets/pp-info-box-carousel.php:1661
+#: includes/widgets/pp-instafeed.php:1093
+#: includes/widgets/pp-logo-carousel.php:786
+#: includes/widgets/pp-team-member-carousel.php:1790
+msgid "Inside"
+msgstr "Lado de dentro"
+
+#: includes/widgets/pp-table.php:135 includes/widgets/pp-table.php:302
+#: includes/widgets/pp-table.php:497
+msgid "Column Span"
+msgstr "Período coluna"
+
+#: includes/widgets/pp-counter.php:553 includes/widgets/pp-counter.php:739
+#: includes/widgets/pp-divider.php:288 includes/widgets/pp-divider.php:320
+#: includes/widgets/pp-google-maps.php:438
+#: includes/widgets/pp-modal-popup.php:150
+#: includes/widgets/pp-promo-box.php:295
+msgid "Height"
+msgstr "Altura"
+
+#: includes/widgets/pp-info-box-carousel.php:1662
+#: includes/widgets/pp-instafeed.php:1094
+#: includes/widgets/pp-logo-carousel.php:787
+#: includes/widgets/pp-team-member-carousel.php:1791
+msgid "Outside"
+msgstr "Lado de fora"
+
+#: includes/widgets/pp-table.php:144 includes/widgets/pp-table.php:314
+#: includes/widgets/pp-table.php:509
+msgid "Row Span"
+msgstr "Período da linha"
+
+#: includes/widgets/pp-counter.php:667
+msgid "Number Color"
+msgstr "Cor do número"
+
+#: includes/widgets/pp-info-box-carousel.php:1730
+#: includes/widgets/pp-instafeed.php:1162
+#: includes/widgets/pp-logo-carousel.php:855
+#: includes/widgets/pp-team-member-carousel.php:1859
+msgid "Active Color"
+msgstr "Cor ativa"
+
+#: includes/widgets/pp-table.php:153 includes/widgets/pp-table.php:326
+#: includes/widgets/pp-table.php:521
+msgid "CSS ID"
+msgstr "CSS ID"
+
+#: includes/widgets/pp-counter.php:841
+msgid "Prefix"
+msgstr "Prefixo"
+
+#: includes/widgets/pp-info-box.php:157
+msgid "Icon on Left"
+msgstr "Ícone à esquerda"
+
+#: includes/widgets/pp-table.php:162 includes/widgets/pp-table.php:335
+#: includes/widgets/pp-table.php:530
+msgid "CSS Classes"
+msgstr "Classes CSS"
+
+#: includes/widgets/pp-counter.php:884
+msgid "Suffix"
+msgstr "Sufixo"
+
+#: includes/widgets/pp-info-box.php:161
+msgid "Icon on Top"
+msgstr "Ícone no topo"
+
+#: includes/widgets/pp-table.php:175
+msgid "Header Column #1"
+msgstr "Coluna de cabeçalho #1"
+
+#: includes/widgets/pp-divider.php:85 includes/widgets/pp-hotspots.php:139
+#: includes/widgets/pp-info-box-carousel.php:139
+#: includes/widgets/pp-info-box.php:86 includes/widgets/pp-modal-popup.php:214
+#: includes/widgets/pp-modal-popup.php:341
+msgid "Type"
+msgstr "Tipo"
+
+#: includes/widgets/pp-info-box.php:165
+msgid "Icon on Right"
+msgstr "Ícone à direita"
+
+#: includes/widgets/pp-table.php:178
+msgid "Header Column #2"
+msgstr "Coluna do cabeçalho #2"
+
+#: includes/widgets/pp-divider.php:90
+msgid "Plain"
+msgstr "Padrão"
+
+#: includes/widgets/pp-info-box.php:329 includes/widgets/pp-info-list.php:190
+msgid "Box"
+msgstr "Caixa"
+
+#: includes/widgets/pp-table.php:181
+msgid "Header Column #3"
+msgstr "Coluna do cabeçalho #3"
+
+#: includes/widgets/pp-divider.php:94 includes/widgets/pp-divider.php:129
+#: includes/widgets/pp-divider.php:494 includes/widgets/pp-hotspots.php:144
+#: includes/widgets/pp-hotspots.php:165 includes/widgets/pp-icon-list.php:100
+#: includes/widgets/pp-icon-list.php:542
+#: includes/widgets/pp-info-box-carousel.php:156
+#: includes/widgets/pp-info-box-carousel.php:179
+#: includes/widgets/pp-info-box.php:103 includes/widgets/pp-info-list.php:146
+#: includes/widgets/pp-link-effects.php:86
+#: includes/widgets/pp-pricing-table.php:272 includes/widgets/pp-recipe.php:254
+#: includes/widgets/pp-recipe.php:305 includes/widgets/pp-table.php:58
+#: includes/widgets/pp-table.php:216 includes/widgets/pp-table.php:410
+msgid "Text"
+msgstr "Texto"
+
+#: includes/widgets/pp-info-list.php:93
+msgid "List Items"
+msgstr "lista de itens"
+
+#: includes/widgets/pp-table.php:194 includes/widgets/pp-table.php:1431
+#: includes/widgets/pp-table.php:1536
+msgid "Body"
+msgstr "Corpo"
+
+#: includes/widgets/pp-divider.php:113
+msgid "Direction"
+msgstr "Direção"
+
+#: includes/widgets/pp-info-list.php:125
+msgid "List Item Description"
+msgstr "Descrição do item da lista"
+
+#: includes/widgets/pp-table.php:203 includes/widgets/pp-table.php:397
+msgid "Element"
+msgstr "Elemento"
+
+#: includes/widgets/pp-divider.php:117
+#: includes/widgets/pp-image-comparison.php:187
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: includes/widgets/pp-info-list.php:179
+msgid "1"
+msgstr "1"
+
+#: includes/widgets/pp-table.php:207 includes/widgets/pp-table.php:401
+msgid "Row"
+msgstr "Linha"
+
+#: includes/widgets/pp-divider.php:118
+#: includes/widgets/pp-image-comparison.php:186
+msgid "Vertical"
+msgstr "Vertical"
+
+#: includes/widgets/pp-info-list.php:252 includes/widgets/pp-info-list.php:298
+msgid "Connector"
+msgstr "Conector"
+
+#: includes/widgets/pp-table.php:208 includes/widgets/pp-table.php:402
+msgid "Cell"
+msgstr "Célula"
+
+#: includes/widgets/pp-divider.php:131
+msgid "Divider Text"
+msgstr "Texto divisor"
+
+#: includes/widgets/pp-info-list.php:277 includes/widgets/pp-price-menu.php:233
+msgid "Items Spacing"
+msgstr "Espaçamento de Itens"
+
+#: includes/widgets/pp-table.php:352 includes/widgets/pp-table.php:367
+msgid "Column #1"
+msgstr "Coluna #1"
+
+#: includes/widgets/pp-divider.php:154 includes/widgets/pp-dual-heading.php:117
+msgid "HTML Tag"
+msgstr "Tag HTML"
+
+#: includes/widgets/pp-info-list.php:461
+msgid "Box Size"
+msgstr "Tamanho da caixa"
+
+#: includes/widgets/pp-table.php:356 includes/widgets/pp-table.php:371
+msgid "Column #2"
+msgstr "Coluna #2"
+
+#: includes/widgets/pp-divider.php:235 includes/widgets/pp-price-menu.php:828
+#: includes/widgets/pp-promo-box.php:419
+msgid "Vertical Alignment"
+msgstr "Alinhamento vertical"
+
+#: includes/widgets/pp-instafeed.php:95
+msgid "Instagram Account"
+msgstr "Conta do instagram"
+
+#: includes/widgets/pp-table.php:360 includes/widgets/pp-table.php:375
+msgid "Column #3"
+msgstr "Coluna #3"
+
+#: includes/widgets/pp-divider.php:241 includes/widgets/pp-hotspots.php:239
+#: includes/widgets/pp-hotspots.php:346
+#: includes/widgets/pp-image-comparison.php:477
+#: includes/widgets/pp-info-box.php:185 includes/widgets/pp-info-list.php:389
+#: includes/widgets/pp-instafeed.php:671 includes/widgets/pp-price-menu.php:785
+#: includes/widgets/pp-price-menu.php:833
+#: includes/widgets/pp-pricing-table.php:853
+#: includes/widgets/pp-promo-box.php:425 includes/widgets/pp-table.php:674
+#: includes/widgets/pp-table.php:1046 includes/widgets/pp-table.php:1224
+#: includes/widgets/pp-tiled-posts.php:106
+msgid "Top"
+msgstr "Superior"
+
+#: includes/widgets/pp-instafeed.php:102
+msgid "User ID"
+msgstr "ID do usuário"
+
+#: includes/widgets/pp-table.php:637 includes/widgets/pp-table.php:1009
+#: includes/widgets/pp-table.php:1186
+msgid "Horizontal Align"
+msgstr "Alinhamento horizontal"
+
+#: includes/widgets/pp-divider.php:249 includes/widgets/pp-hotspots.php:240
+#: includes/widgets/pp-hotspots.php:347
+#: includes/widgets/pp-image-comparison.php:485
+#: includes/widgets/pp-info-box.php:193 includes/widgets/pp-instafeed.php:679
+#: includes/widgets/pp-price-menu.php:793
+#: includes/widgets/pp-price-menu.php:841
+#: includes/widgets/pp-pricing-table.php:861
+#: includes/widgets/pp-promo-box.php:433 includes/widgets/pp-table.php:682
+#: includes/widgets/pp-table.php:1054 includes/widgets/pp-table.php:1232
+#: includes/widgets/pp-tiled-posts.php:114
+msgid "Bottom"
+msgstr "Inferior"
+
+#: includes/widgets/pp-instafeed.php:110
+msgid "Access Token"
+msgstr "Token de acesso"
+
+#: includes/widgets/pp-table.php:669 includes/widgets/pp-table.php:1041
+#: includes/widgets/pp-table.php:1219
+msgid "Vertical Align"
+msgstr "Alinhamento vertical"
+
+#: includes/widgets/pp-divider.php:270 includes/widgets/pp-icon-list.php:262
+#: includes/widgets/pp-info-list.php:324 includes/widgets/pp-logo-grid.php:114
+#: includes/widgets/pp-price-menu.php:863
+msgid "Style"
+msgstr "Estilo"
+
+#: includes/widgets/pp-instafeed.php:118
+msgid "Client ID"
+msgstr "ID do cliente"
+
+#: includes/widgets/pp-table.php:1001
+msgid "Cells"
+msgstr "Células"
+
+#: includes/widgets/pp-divider.php:433
+#: includes/widgets/pp-image-comparison.php:104
+#: includes/widgets/pp-image-comparison.php:557
+#: includes/widgets/pp-info-box-carousel.php:266
+#: includes/widgets/pp-info-box.php:383 includes/widgets/pp-info-list.php:221
+#: includes/widgets/pp-modal-popup.php:389 includes/widgets/pp-table.php:123
+#: includes/widgets/pp-table.php:289 includes/widgets/pp-table.php:483
+msgid "Before"
+msgstr "Antes"
+
+#: includes/widgets/pp-instafeed.php:131
+msgid "Feed Settings"
+msgstr "Configurações de feed"
+
+#: includes/widgets/pp-table.php:1366
+msgid "Span"
+msgstr "Span"
+
+#: includes/widgets/pp-divider.php:460
+#: includes/widgets/pp-image-comparison.php:136
+#: includes/widgets/pp-image-comparison.php:613
+#: includes/widgets/pp-info-box-carousel.php:267
+#: includes/widgets/pp-info-box.php:382 includes/widgets/pp-info-list.php:220
+#: includes/widgets/pp-modal-popup.php:388 includes/widgets/pp-table.php:124
+#: includes/widgets/pp-table.php:290 includes/widgets/pp-table.php:484
+msgid "After"
+msgstr "Depois"
+
+#: includes/widgets/pp-instafeed.php:138
+msgid "Images Count"
+msgstr "Contagem de imagens"
+
+#: includes/widgets/pp-table.php:1406
+msgid "Column Styles"
+msgstr "Estilos de coluna"
+
+#: includes/widgets/pp-divider.php:505 includes/widgets/pp-divider.php:603
+#: includes/widgets/pp-divider.php:733 includes/widgets/pp-hotspots.php:177
+#: includes/widgets/pp-icon-list.php:340
+#: includes/widgets/pp-image-comparison.php:471
+#: includes/widgets/pp-image-comparison.php:499
+#: includes/widgets/pp-info-box-carousel.php:1658
+#: includes/widgets/pp-info-list.php:380 includes/widgets/pp-instafeed.php:665
+#: includes/widgets/pp-instafeed.php:1090
+#: includes/widgets/pp-logo-carousel.php:783
+#: includes/widgets/pp-modal-popup.php:1187
+#: includes/widgets/pp-team-member-carousel.php:135
+#: includes/widgets/pp-team-member-carousel.php:971
+#: includes/widgets/pp-team-member-carousel.php:1787
+#: includes/widgets/pp-team-member.php:96
+#: includes/widgets/pp-team-member.php:802
+msgid "Position"
+msgstr "Posição"
+
+#: includes/widgets/pp-instafeed.php:155
+msgid "Image Resolution"
+msgstr "Resolução de imagem"
+
+#: includes/widgets/pp-team-member-carousel.php:94
+msgid "Team Members"
+msgstr "Membros do time"
+
+#: includes/widgets/pp-divider.php:666
+#: includes/widgets/pp-info-box-carousel.php:668
+#: includes/widgets/pp-info-box-carousel.php:769
+#: includes/widgets/pp-info-box.php:704
+msgid "Icon Rotation"
+msgstr "Rotação"
+
+#: includes/widgets/pp-instafeed.php:158
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: includes/widgets/pp-team-member-carousel.php:131
+#: includes/widgets/pp-team-member.php:89
+msgid "John Doe"
+msgstr "John Doe"
+
+#: includes/widgets/pp-dual-heading.php:85
+#: includes/widgets/pp-dual-heading.php:192
+msgid "First Part"
+msgstr "Primeira parte"
+
+#: includes/widgets/pp-instafeed.php:159
+msgid "Low Resolution"
+msgstr "Baixa resolução"
+
+#: includes/widgets/pp-team-member-carousel.php:137
+#: includes/widgets/pp-team-member.php:98
+msgid "WordPress Developer"
+msgstr "Desenvolvedor WordPress"
+
+#: includes/widgets/pp-dual-heading.php:89
+msgid "Our"
+msgstr "Nosso"
+
+#: includes/widgets/pp-instafeed.php:160
+msgid "Standard Resolution"
+msgstr "Resolução padrão"
+
+#: includes/widgets/pp-team-member-carousel.php:143
+#: includes/widgets/pp-team-member.php:119
+msgid "Enter member description here which describes the position of member in company"
+msgstr "Digite a descrição do membro aqui que descreve a posição do membro na empresa"
+
+#: includes/widgets/pp-dual-heading.php:96
+#: includes/widgets/pp-dual-heading.php:291
+msgid "Second Part"
+msgstr "Segunda parte"
+
+#: includes/widgets/pp-instafeed.php:169
+msgid "Sort By"
+msgstr "Ordenar por"
+
+#: includes/widgets/pp-team-member-carousel.php:155
+#: includes/widgets/pp-team-member.php:154
+#: includes/widgets/pp-team-member.php:173
+#: includes/widgets/pp-team-member.php:1236
+msgid "Social Links"
+msgstr "Links sociais"
+
+#: includes/widgets/pp-dual-heading.php:100
+msgid "Services"
+msgstr "Serviços"
+
+#: includes/widgets/pp-instafeed.php:173
+msgid "Most Recent"
+msgstr "Mais recente"
+
+#: includes/widgets/pp-team-member-carousel.php:161
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/widgets/pp-dual-heading.php:107
+#: includes/widgets/pp-icon-list.php:154
+#: includes/widgets/pp-info-box-carousel.php:204
+#: includes/widgets/pp-info-box-carousel.php:223
+#: includes/widgets/pp-info-box.php:317 includes/widgets/pp-info-box.php:339
+#: includes/widgets/pp-info-list.php:230
+#: includes/widgets/pp-link-effects.php:107
+#: includes/widgets/pp-logo-carousel.php:146
+#: includes/widgets/pp-logo-grid.php:103 includes/widgets/pp-price-menu.php:116
+#: includes/widgets/pp-pricing-table.php:350
+#: includes/widgets/pp-promo-box.php:240
+msgid "Link"
+msgstr "Link"
+
+#: includes/widgets/pp-instafeed.php:174
+msgid "Least Recent"
+msgstr "Menos recente"
+
+#: includes/widgets/pp-team-member-carousel.php:163
+msgid "Enter Facebook page or profile URL of team member"
+msgstr "Insira a página do facebook ou o url do perfil do membro da equipe"
+
+#: includes/widgets/pp-dual-heading.php:138
+msgid "Second Part Display"
+msgstr "Exibição da segunda parte"
+
+#: includes/widgets/pp-instafeed.php:175
+msgid "Most Liked"
+msgstr "O mais querido"
+
+#: includes/widgets/pp-team-member-carousel.php:167
+msgid "Twitter"
+msgstr "Twitter"
+
+#: includes/widgets/pp-dual-heading.php:143
+msgid "Inline"
+msgstr "Na linha"
+
+#: includes/widgets/pp-instafeed.php:176
+msgid "Least Liked"
+msgstr "Menos querido"
+
+#: includes/widgets/pp-team-member-carousel.php:169
+msgid "Enter Twitter profile URL of team member"
+msgstr "Insira o url do perfil do twitter do membro da equipe"
+
+#: includes/widgets/pp-dual-heading.php:144
+msgid "Block"
+msgstr "Bloco"
+
+#: includes/widgets/pp-instafeed.php:177
+msgid "Most Commented"
+msgstr "mais comentado"
+
+#: includes/widgets/pp-team-member-carousel.php:173
+msgid "Google+"
+msgstr "Google+"
+
+#: includes/widgets/pp-google-maps.php:87
+msgid "Addresses"
+msgstr "Endereços"
+
+#: includes/widgets/pp-instafeed.php:178
+msgid "Least Commented"
+msgstr "Menos comentado"
+
+#: includes/widgets/pp-team-member-carousel.php:175
+msgid "Enter Google+ profile URL of team member"
+msgstr "Insira o url do perfil do google+ do membro da equipe"
+
+#: includes/widgets/pp-google-maps.php:100
+msgid "IdeaBox Creations"
+msgstr "Criações de Caixa de ideia "
+
+#: includes/widgets/pp-instafeed.php:179
+msgid "Random"
+msgstr "Aleatória"
+
+#: includes/widgets/pp-team-member-carousel.php:179
+msgid "Linkedin"
+msgstr "Linkedin"
+
+#: includes/widgets/pp-google-maps.php:101
+msgid "Add description to your map pins"
+msgstr "Adicionar descrição aos pinos do mapa"
+
+#: includes/widgets/pp-instafeed.php:193
+msgid "General Settings"
+msgstr "Configurações gerais"
+
+#: includes/widgets/pp-team-member-carousel.php:181
+msgid "Enter Linkedin profile URL of team member"
+msgstr "Insira o url do perfil do linkedin do membro da equipe"
+
+#: includes/widgets/pp-google-maps.php:107
+msgid "Latitude"
+msgstr "Latitude"
+
+#: includes/widgets/pp-instafeed.php:204
+msgid "Grid"
+msgstr "Grade"
+
+#: includes/widgets/pp-team-member-carousel.php:185
+msgid "Instagram"
+msgstr "Instagram"
+
+#: includes/widgets/pp-google-maps.php:108
+#: includes/widgets/pp-google-maps.php:115
+#: includes/widgets/pp-google-maps.php:361
+msgid "Click here"
+msgstr "Clique aqui"
+
+#: includes/widgets/pp-instafeed.php:205
+msgid "Carousel"
+msgstr "Carrossel"
+
+#: includes/widgets/pp-team-member-carousel.php:187
+msgid "Enter Instagram profile URL of team member"
+msgstr "Digite o url do perfil do instagram do membro da equipe"
+
+#: includes/widgets/pp-google-maps.php:108
+#: includes/widgets/pp-google-maps.php:115
+msgid "to find Latitude and Longitude of your location"
+msgstr "para encontrar latitude e longitude da sua localização"
+
+#: includes/widgets/pp-instafeed.php:213
+msgid "Grid Columns"
+msgstr "Colunas da grade"
+
+#: includes/widgets/pp-team-member-carousel.php:191
+msgid "YouTube"
+msgstr "YouTube"
+
+#: includes/widgets/pp-google-maps.php:114
+msgid "Longitude"
+msgstr "Longitude"
+
+#: includes/widgets/pp-instafeed.php:220
+msgid "1 Column"
+msgstr "1 coluna"
+
+#: includes/widgets/pp-team-member-carousel.php:193
+msgid "Enter YouTube profile URL of team member"
+msgstr "Insira o url do perfil do youtube do membro da equipe"
+
+#: includes/widgets/pp-google-maps.php:121
+#: includes/widgets/pp-google-maps.php:466
+msgid "Info Window"
+msgstr "Janela de informações"
+
+#: includes/widgets/pp-instafeed.php:221
+msgid "2 Columns"
+msgstr "2 colunas"
+
+#: includes/widgets/pp-team-member-carousel.php:197
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: includes/widgets/pp-google-maps.php:130
+msgid "Open Info Window on Load"
+msgstr "Abrir janela de informações no carregamento"
+
+#: includes/widgets/pp-instafeed.php:222
+msgid "3 Columns"
+msgstr "3 colunas"
+
+#: includes/widgets/pp-team-member-carousel.php:199
+msgid "Enter Pinterest profile URL of team member"
+msgstr "Digite a url  do perfil Pinterest do membro da equipa"
+
+#: includes/widgets/pp-google-maps.php:145
+msgid "Address Title"
+msgstr "Título do endereço"
+
+#: includes/widgets/pp-instafeed.php:223
+msgid "4 Columns"
+msgstr "4 colunas"
+
+#: includes/widgets/pp-team-member-carousel.php:203
+msgid "Dribbble"
+msgstr "Dribbble"
+
+#: includes/widgets/pp-google-maps.php:160
+msgid "Address Description"
+msgstr "Descrição de endereço"
+
+#: includes/widgets/pp-instafeed.php:224
+msgid "5 Columns"
+msgstr "5 colunas"
+
+#: includes/widgets/pp-team-member-carousel.php:205
+msgid "Enter Dribbble profile URL of team member"
+msgstr "Insira o url do perfil do Dribbble do membro da equipe"
+
+#: includes/widgets/pp-google-maps.php:175
+msgid "Marker Icon"
+msgstr "Ícone de marcador"
+
+#: includes/widgets/pp-instafeed.php:225
+msgid "6 Columns"
+msgstr "6 colunas"
+
+#: includes/widgets/pp-team-member-carousel.php:215
+msgid "Show Social Icons"
+msgstr "Mostrar ícones sociais"
+
+#: includes/widgets/pp-google-maps.php:179 includes/widgets/pp-hotspots.php:331
+msgid "Default"
+msgstr "Padrão"
+
+#: includes/widgets/pp-instafeed.php:226
+msgid "7 Columns"
+msgstr "7 colunas"
+
+#: includes/widgets/pp-team-member-carousel.php:232
+msgid "Team Member Settings"
+msgstr "Configurações do membro da equipe"
+
+#: includes/widgets/pp-google-maps.php:185
+msgid "Custom Marker Icon"
+msgstr "Ícone de marcador personalizado"
+
+#: includes/widgets/pp-instafeed.php:227
+msgid "8 Columns"
+msgstr "8 colunas"
+
+#: includes/widgets/pp-team-member-carousel.php:239
+#: includes/widgets/pp-team-member.php:233
+msgid "Name HTML Tag"
+msgstr "Nome da tag HTML"

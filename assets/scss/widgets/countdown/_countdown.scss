@@ -1,0 +1,167 @@
+.pp-countdown-wrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+	text-align: center;
+	.pp-countdown-item {
+		display: inline-block;
+		margin-bottom: 15px;
+		position: relative;
+		.pp-countdown-label,
+		.pp-countdown-digit {
+			padding: 0;
+			margin: 0;
+		}
+	}
+	.pp-countdown-digit-wrapper,
+	.pp-countdown-label-wrapper {
+		text-align: center;
+		position: relative;
+	}
+	// Countdown item Separator
+	&.pp-countdown-separator-line,
+	&.pp-countdown-separator-colon {
+		.pp-countdown-item {
+			position: relative;
+			padding: 0;
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+	&.pp-countdown-separator-colon {
+		.pp-countdown-item {
+			.pp-countdown-digit-wrapper {
+				&:after {
+					content: ':';
+					display: inline-block;
+					font-size: 30px;
+					position: absolute;
+					right: -5px;
+					top: 45%;
+					z-index: 10;
+					-webkit-transform: translateY(-50%);
+					-moz-transform: translateY(-50%);
+					transform: translateY(-50%);
+				}
+			}
+			&:last-child {
+				.pp-countdown-digit-wrapper {
+					&:after {
+						content: none;
+					}
+				}
+			}
+		}
+	}
+	&.pp-countdown-separator-line {
+		.pp-countdown-item {
+			&:after {
+				content: '';
+				display: inline-block;
+				position: absolute;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				z-index: 10;
+				border-right: 1px solid #ccc;
+			}
+			&:last-child {
+				&:after {
+					content: none;
+				}
+			}
+		}
+	}
+	/* Circle layout */
+	&.pp-countdown-style-circle {
+		.pp-countdown-item {
+			.pp-countdown-digit-wrapper {
+				border-radius: 50%;
+				background: #333;
+				color: #fff;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+			.pp-countdown-digit {
+				color: #fff;
+			}
+		}
+		&.pp-countdown-label-pos-out_left,
+		&.pp-countdown-label-pos-out_right {
+			.pp-countdown-item {
+				display: inline-flex;
+				align-items: center;
+				direction: ltr;
+			}
+		}
+		&.pp-countdown-label-pos-out_right {
+			.pp-countdown-item {
+				direction: rtl;
+			}
+		}
+	}
+	/* Square layout */
+	&.pp-countdown-style-square {
+		.pp-countdown-item {
+			.pp-countdown-digit-wrapper {
+				background: #333;
+				color: #fff;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				box-pack: center;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				box-align: center;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+				box-orient: vertical;
+				-webkit-box-orient: vertical;
+				box-direction: normal;
+				-webkit-box-direction: normal;
+				-ms-flex-direction: column;
+				flex-direction: column;
+			}
+			.pp-countdown-digit {
+				color: #fff;
+			}
+		}
+		&.pp-countdown-label-pos-out_left,
+		&.pp-countdown-label-pos-out_right {
+			.pp-countdown-item {
+				display: inline-flex;
+				align-items: center;
+				direction: ltr;
+			}
+		}
+		&.pp-countdown-label-pos-out_right {
+			.pp-countdown-item {
+				direction: rtl;
+			}
+		}
+	}
+}
+
+/* Countdown Media Queries */
+@mixin countdown--mobile {
+	.pp-countdown-wrapper {
+		&.pp-countdown-separator-hide-mobile {
+			.pp-countdown-item {
+				&:after {
+					display: none;
+				}
+				.pp-countdown-digit-wrapper {
+						&::after {
+							display: none;
+						}
+					}
+			}
+		}
+	}
+}

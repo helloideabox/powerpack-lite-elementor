@@ -1,0 +1,114 @@
+.pp-recipe-container {
+    border: 1px solid #eee;
+}
+.pp-recipe-container .pp-recipe-section ul,
+.pp-recipe-container .pp-recipe-detail-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.pp-recipe-container ol {
+    list-style: decimal;
+    margin: 0 0 0 15px;
+    padding: 0;
+}
+.pp-recipe-container h2,
+.pp-recipe-container h3,
+.pp-recipe-detail-title {
+    color: #000;
+}
+.pp-recipe-container h2 {
+    font-size: 26px;
+    margin: 0 0 20px;
+}
+.pp-recipe-container h3 {
+    font-size: 20px;
+    margin: 0 0 20px;
+}
+.pp-recipe-header {
+    padding: 30px;
+    overflow: hidden;
+}
+.pp-recipe-header-content {
+    overflow: hidden;
+}
+.pp-recipe-header-image {
+    float: right;
+    margin-left: 30px;
+    width: 180px
+}
+.pp-recipe-meta {
+    margin-bottom: 20px;
+}
+.pp-recipe-meta-item {
+    position: relative;
+}
+.pp-recipe-meta-item:after {
+    content: '\2022';
+    margin: 0 6px;
+}
+.pp-recipe-meta-item:last-child:after {
+    content: '';
+    margin: 0;
+}
+.pp-recipe-section {
+    border-top: 1px solid #eee;
+    padding: 30px;
+}
+.pp-recipe-details {
+    border-top: 1px solid #eee;
+    overflow: hidden;
+    padding: 20px 30px;
+    text-align: center;
+    width: 100%;
+}
+.pp-recipe-container .pp-recipe-details li {
+    display: inline-block;
+    margin: 0;
+    min-width: 125px;
+    padding: 10px 20px;
+    text-align: left;
+}
+.pp-recipe-container .pp-recipe-ingredients li {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    margin: 0;
+    padding: 12px 0;
+    position: relative;
+}
+.pp-recipe-detail-icon {
+    margin-right: 8px;
+}
+.pp-recipe-detail-content {
+    display: inline-block;
+}
+.pp-recipe-detail-icon,
+.pp-recipe-detail-content,
+.pp-recipe-detail-title,
+.pp-recipe-detail-value {
+    vertical-align: middle;
+}
+.pp-recipe-detail-content {
+    .pp-recipe-detail-title,
+    .pp-recipe-detail-value {
+        display: block;
+    }
+}
+.pp-recipe-detail-title {
+    margin-bottom: 3px;
+}
+.pp-recipe-ingredients li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+@mixin recipe--mobile {
+    .pp-recipe-header-image {
+        float: none;
+        margin-bottom: 30px;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+    .pp-recipe-details {
+        text-align: left;
+    }
+}
