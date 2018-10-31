@@ -503,7 +503,7 @@ function pp_get_modules()
     }
 
     /*foreach ( $modules as $key => $label ) {
-        if ( ! file_exists( POWERPACK_ELEMENTS_PATH . 'includes/widgets/'.$key.'.php' ) ) {
+        if ( ! file_exists( POWERPACK_ELEMENTS_LITE_PATH . 'includes/widgets/'.$key.'.php' ) ) {
             unset( $modules[$key] );
         }
     }*/

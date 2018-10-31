@@ -36,17 +36,17 @@ $settings     = self::get_settings();
 
         // General settings.
         if ( ! isset($_GET['tab']) || 'general' == $current_tab ) {
-            include POWERPACK_ELEMENTS_PATH . 'includes/admin/admin-settings-license.php';
+            include POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-license.php';
         }
 
         // White Label settings.
         if ( 'white-label' == $current_tab ) {
-            include POWERPACK_ELEMENTS_PATH . 'includes/admin/admin-settings-wl.php';
+            include POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-wl.php';
         }
 
         // Modules settings.
         if ( 'modules' == $current_tab ) {
-            include POWERPACK_ELEMENTS_PATH . 'includes/admin/admin-settings-modules.php';
+            include POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-modules.php';
         }
         ?>
 

@@ -14,19 +14,19 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'POWERPACK_ELEMENTS_VER', '1.3.8' );
-define( 'POWERPACK_ELEMENTS_PATH', plugin_dir_path( __FILE__ ) );
-define( 'POWERPACK_ELEMENTS_BASE', plugin_basename( __FILE__ ) );
-define( 'POWERPACK_ELEMENTS_URL', plugins_url( '/', __FILE__ ) );
-define( 'POWERPACK_ELEMENTS_ELEMENTOR_VERSION_REQUIRED', '1.7' );
-define( 'POWERPACK_ELEMENTS_PHP_VERSION_REQUIRED', '5.4' );
+define( 'POWERPACK_ELEMENTS_LITE_VER', '1.3.8' );
+define( 'POWERPACK_ELEMENTS_LITE_PATH', plugin_dir_path( __FILE__ ) );
+define( 'POWERPACK_ELEMENTS_LITE_BASE', plugin_basename( __FILE__ ) );
+define( 'POWERPACK_ELEMENTS_LITE_URL', plugins_url( '/', __FILE__ ) );
+define( 'POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED', '1.7' );
+define( 'POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED', '5.4' );
 
-require_once POWERPACK_ELEMENTS_PATH . 'includes/helper-functions.php';
-require_once POWERPACK_ELEMENTS_PATH . 'plugin.php';
-require_once POWERPACK_ELEMENTS_PATH . 'classes/class-pp-admin-settings.php';
-require_once POWERPACK_ELEMENTS_PATH . 'classes/class-pp-ajax-handler.php';
-require_once POWERPACK_ELEMENTS_PATH . 'classes/class-pp-wpml.php';
-require_once POWERPACK_ELEMENTS_PATH . 'includes/updater/update-config.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/helper-functions.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-admin-settings.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-ajax-handler.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/updater/update-config.php';
 
 /**
  * Check if Elementor is installed
@@ -88,7 +88,7 @@ function pa_fail_load_out_of_date() {
 		return;
 	}
     
-	$message = __( 'PowerPack requires Elementor version at least ' . POWERPACK_ELEMENTS_ELEMENTOR_VERSION_REQUIRED . '. Please update Elementor to continue.', 'power-pack' );
+	$message = __( 'PowerPack requires Elementor version at least ' . POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED . '. Please update Elementor to continue.', 'power-pack' );
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 }
@@ -101,7 +101,7 @@ function pa_fail_load_out_of_date() {
  *
  */
 function pa_fail_php() {
-	$message = __( 'PowerPack requires PHP version ' . POWERPACK_ELEMENTS_PHP_VERSION_REQUIRED .'+ to work properly. The plugins is deactivated for now.', 'power-pack' );
+	$message = __( 'PowerPack requires PHP version ' . POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED .'+ to work properly. The plugins is deactivated for now.', 'power-pack' );
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 
@@ -158,14 +158,14 @@ function pp_init() {
 	}
 
 	// Check for required Elementor version
-	if ( ! version_compare( ELEMENTOR_VERSION, POWERPACK_ELEMENTS_ELEMENTOR_VERSION_REQUIRED, '>=' ) ) {
+	if ( ! version_compare( ELEMENTOR_VERSION, POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED, '>=' ) ) {
 		add_action( 'admin_notices', 'pa_fail_load_out_of_date' );
 		add_action( 'admin_init', 'pa_deactivate' );
 		return;
 	}
     
     // Check for required PHP version
-	if ( ! version_compare( PHP_VERSION, POWERPACK_ELEMENTS_PHP_VERSION_REQUIRED, '>=' ) ) {
+	if ( ! version_compare( PHP_VERSION, POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED, '>=' ) ) {
 		add_action( 'admin_notices', 'pa_fail_php' );
 		add_action( 'admin_init', 'pa_deactivate' );
 		return;

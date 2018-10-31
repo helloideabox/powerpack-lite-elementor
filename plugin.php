@@ -29,7 +29,7 @@ class Powerpackplugin {
 	 * @return string
 	 */
 	public function get_version() {
-		return POWERPACK_ELEMENTS_VER;
+		return POWERPACK_ELEMENTS_LITE_VER;
 	}
 
 	/**
@@ -69,7 +69,7 @@ class Powerpackplugin {
 	}
 
 	private function _includes() {
-		require POWERPACK_ELEMENTS_PATH . 'includes/modules-manager.php';
+		require POWERPACK_ELEMENTS_LITE_PATH . 'includes/modules-manager.php';
 	}
 
 	public function autoload( $class ) {
@@ -84,7 +84,7 @@ class Powerpackplugin {
 				$class
 			)
 		);
-		$filename = POWERPACK_ELEMENTS_PATH . $filename . '.php';
+		$filename = POWERPACK_ELEMENTS_LITE_PATH . $filename . '.php';
 
 		if ( is_readable( $filename ) ) {
 			include( $filename );
@@ -121,37 +121,37 @@ class Powerpackplugin {
 	public function enqueue_frontend_styles() {
 		wp_enqueue_style(
 			'powerpack-frontend',
-			POWERPACK_ELEMENTS_URL . 'assets/css/frontend.css',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/css/frontend.css',
 			[],
-			POWERPACK_ELEMENTS_VER
+			POWERPACK_ELEMENTS_LITE_VER
 		);
         
 		wp_enqueue_style(
 			'tablesaw',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/tablesaw/tablesaw.css',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tablesaw/tablesaw.css',
 			[],
-			POWERPACK_ELEMENTS_VER
+			POWERPACK_ELEMENTS_LITE_VER
 		);
         
 		wp_enqueue_style(
 			'tipso',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/tipso/tipso.css',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tipso/tipso.css',
 			[],
-			POWERPACK_ELEMENTS_VER
+			POWERPACK_ELEMENTS_LITE_VER
 		);
         
 		wp_enqueue_style(
 			'odometer',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/odometer/odometer-theme-default.css',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/odometer/odometer-theme-default.css',
 			[],
-			POWERPACK_ELEMENTS_VER
+			POWERPACK_ELEMENTS_LITE_VER
 		);
         
 		wp_enqueue_style(
 			'twentytwenty',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/twentytwenty/twentytwenty.css',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/twentytwenty.css',
 			[],
-			POWERPACK_ELEMENTS_VER
+			POWERPACK_ELEMENTS_LITE_VER
 		);
         
         if ( class_exists( 'GFCommon' ) ) {
@@ -180,7 +180,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'instafeed',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/instafeed/instafeed' . $suffix . '.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/instafeed/instafeed' . $suffix . '.js',
 			[
 				'jquery',
 			],
@@ -190,7 +190,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'tipso',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/tipso/tipso.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tipso/tipso.js',
 			[
 				'jquery',
 			],
@@ -200,7 +200,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'twentytwenty',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/twentytwenty/jquery.twentytwenty.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/jquery.twentytwenty.js',
 			[
 				'jquery',
 			],
@@ -210,7 +210,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'jquery-event-move',
-			POWERPACK_ELEMENTS_URL . 'assets/js/jquery.event.move.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/jquery.event.move.js',
 			[
 				'jquery',
 			],
@@ -220,7 +220,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'magnific-popup',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/magnific-popup/jquery.magnific-popup.min.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/magnific-popup/jquery.magnific-popup.min.js',
 			[
 				'jquery',
 			],
@@ -230,7 +230,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'jquery-cookie',
-			POWERPACK_ELEMENTS_URL . 'assets/js/jquery.cookie.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/jquery.cookie.js',
 			[
 				'jquery',
 			],
@@ -240,7 +240,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'waypoints',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/waypoints/waypoints.min.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/waypoints/waypoints.min.js',
 			[
 				'jquery',
 			],
@@ -250,7 +250,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'odometer',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/odometer/odometer.min.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/odometer/odometer.min.js',
 			[
 				'jquery',
 			],
@@ -260,7 +260,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'jquery-powerpack-dot-nav',
-			POWERPACK_ELEMENTS_URL . 'assets/js/one-page-nav.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/one-page-nav.js',
 			[
 				'jquery',
 			],
@@ -276,17 +276,17 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'pp-google-maps',
-			POWERPACK_ELEMENTS_URL . 'assets/js/pp-google-maps.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/pp-google-maps.js',
 			[
 				'jquery',
 			],
-			POWERPACK_ELEMENTS_VER,
+			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
 
 		wp_register_script(
 			'pp-jquery-plugin',
-			POWERPACK_ELEMENTS_URL . 'assets/js/jquery.plugin.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/jquery.plugin.js',
 			[
 				'jquery',
 			],
@@ -296,7 +296,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'jquery-countdown',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/countdown/jquery.countdown.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/countdown/jquery.countdown.js',
 			[
 				'jquery',
 			],
@@ -306,7 +306,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'pp-frontend-countdown',
-			POWERPACK_ELEMENTS_URL . 'assets/js/frontend-countdown.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/frontend-countdown.js',
 			[
 				'jquery',
 			],
@@ -316,7 +316,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'jquery-smartmenu',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/smartmenu/jquery-smartmenu.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/smartmenu/jquery-smartmenu.js',
 			[
 				'jquery',
 			],
@@ -326,37 +326,37 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'pp-advanced-menu',
-			POWERPACK_ELEMENTS_URL . 'assets/js/frontend-advanced-menu.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/frontend-advanced-menu.js',
 			[
 				'jquery',
 			],
-			POWERPACK_ELEMENTS_VER,
+			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
 
 		wp_register_script(
 			'pp-timeline',
-			POWERPACK_ELEMENTS_URL . 'assets/js/frontend-timeline.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/frontend-timeline.js',
 			[
 				'jquery',
 			],
-			POWERPACK_ELEMENTS_VER,
+			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
 
 		wp_register_script(
 			'scotch-panels',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/scotchPanels.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/scotchPanels.js',
 			[
 				'jquery',
 			],
-			POWERPACK_ELEMENTS_VER,
+			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
 
 		wp_register_script(
 			'tablesaw',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/tablesaw/tablesaw.jquery.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tablesaw/tablesaw.jquery.js',
 			[
 				'jquery',
 			],
@@ -366,7 +366,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'tablesaw-init',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/tablesaw/tablesaw-init.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tablesaw/tablesaw-init.js',
 			[
 				'jquery',
 			],
@@ -376,7 +376,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'isotope',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/isotope/isotope.pkgd' . $suffix . '.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/isotope/isotope.pkgd' . $suffix . '.js',
 			[
 				'jquery',
 			],
@@ -386,7 +386,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'tilt',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/tilt/tilt.jquery' . $suffix . '.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tilt/tilt.jquery' . $suffix . '.js',
 			[
 				'jquery',
 			],
@@ -396,7 +396,7 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'jquery-resize',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/jquery-resize/jquery.resize' . $suffix . '.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/jquery-resize/jquery.resize' . $suffix . '.js',
 			[
 				'jquery',
 			],
@@ -406,31 +406,31 @@ class Powerpackplugin {
 
 		wp_register_script(
 			'pp-offcanvas-content',
-			POWERPACK_ELEMENTS_URL . 'assets/js/frontend-offcanvas-content.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/frontend-offcanvas-content.js',
 			[
 				'jquery',
 			],
-			POWERPACK_ELEMENTS_VER,
+			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
 
 		wp_register_script(
 			'pp-tooltip',
-			POWERPACK_ELEMENTS_URL . 'assets/js/tooltip.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/tooltip.js',
 			[
 				'jquery',
 			],
-			POWERPACK_ELEMENTS_VER,
+			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
 
 		wp_register_script(
 			'powerpack-frontend',
-			POWERPACK_ELEMENTS_URL . 'assets/js/frontend.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/frontend.js',
 			[
 				'jquery',
 			],
-			POWERPACK_ELEMENTS_VER,
+			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
 	}
@@ -445,16 +445,16 @@ class Powerpackplugin {
 	public function enqueue_editor_styles() {
 		wp_enqueue_style(
 			'powerpack-editor',
-			POWERPACK_ELEMENTS_URL . 'assets/css/editor.css',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/css/editor.css',
 			[],
-			POWERPACK_ELEMENTS_VER
+			POWERPACK_ELEMENTS_LITE_VER
 		);
         
 		wp_enqueue_style(
 			'powerpack-icons',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/ppicons/css/powerpack-icons.css',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/ppicons/css/powerpack-icons.css',
 			[],
-			POWERPACK_ELEMENTS_VER
+			POWERPACK_ELEMENTS_LITE_VER
 		);
 	}
 
@@ -468,17 +468,17 @@ class Powerpackplugin {
 	public function enqueue_editor_scripts() {
 		wp_enqueue_script(
 			'powerpack-editor',
-			POWERPACK_ELEMENTS_URL . 'assets/js/editor.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/editor.js',
 			[
 				'jquery',
 			],
-			POWERPACK_ELEMENTS_VER,
+			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
         
 		wp_enqueue_script(
 			'magnific-popup',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/magnific-popup/jquery.magnific-popup.min.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/magnific-popup/jquery.magnific-popup.min.js',
 			[
 				'jquery',
 			],

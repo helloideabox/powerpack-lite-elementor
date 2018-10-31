@@ -22,8 +22,8 @@ function pp_plugin_updater() {
 	$license_key = trim( get_site_option( 'pp_license_key' ) );
 
 	// setup the updater
-	$updater = new PP_SL_Plugin_Updater( POWERPACK_SL_URL, POWERPACK_ELEMENTS_PATH . '/powerpack-elements.php', array(
-			'version' 	=> POWERPACK_ELEMENTS_VER, 			// current version number
+	$updater = new PP_SL_Plugin_Updater( POWERPACK_SL_URL, POWERPACK_ELEMENTS_LITE_PATH . '/powerpack-elements.php', array(
+			'version' 	=> POWERPACK_ELEMENTS_LITE_VER, 			// current version number
 			'license' 	=> $license_key, 			// license key (used get_site_option above to retrieve from DB)
 			'item_name' => POWERPACK_ITEM_NAME,	// name of this plugin
 			'author' 	=> 'IdeaBox Creations',  	// author of this plugin

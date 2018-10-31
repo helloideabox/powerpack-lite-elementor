@@ -89,7 +89,7 @@ class Modules_Manager {
 	}
 
 	private function require_files() {
-		require( POWERPACK_ELEMENTS_PATH . 'base/module-base.php' );
+		require( POWERPACK_ELEMENTS_LITE_PATH . 'base/module-base.php' );
 	}
 
 	public function __construct() {

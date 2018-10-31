@@ -61,7 +61,7 @@ final class PP_Admin_Settings {
 	static public function styles_scripts()
 	{
 		// Styles
-		//wp_enqueue_style( 'pp-admin-settings', POWERPACK_ELEMENTS_URL . 'assets/css/admin-settings.css', array(), POWERPACK_ELEMENTS_VER );
+		//wp_enqueue_style( 'pp-admin-settings', POWERPACK_ELEMENTS_LITE_URL . 'assets/css/admin-settings.css', array(), POWERPACK_ELEMENTS_LITE_VER );
 	}
 
 	/**
@@ -167,8 +167,8 @@ final class PP_Admin_Settings {
 
     static public function render()
     {
-		include POWERPACK_ELEMENTS_PATH . 'includes/admin/admin-settings.php';
-		//include POWERPACK_ELEMENTS_PATH . 'includes/modules-manager.php';
+		include POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings.php';
+		//include POWERPACK_ELEMENTS_LITE_PATH . 'includes/modules-manager.php';
     }
 
 	/**
@@ -259,16 +259,16 @@ final class PP_Admin_Settings {
 	{
 		$settings = self::get_settings();
 
-    	$all_plugins[POWERPACK_ELEMENTS_BASE]['Name']           = ! empty( $settings['plugin_name'] )     ? $settings['plugin_name']      : $all_plugins[POWERPACK_ELEMENTS_BASE]['Name'];
-    	$all_plugins[POWERPACK_ELEMENTS_BASE]['PluginURI']      = ! empty( $settings['plugin_uri'] )      ? $settings['plugin_uri']       : $all_plugins[POWERPACK_ELEMENTS_BASE]['PluginURI'];
-    	$all_plugins[POWERPACK_ELEMENTS_BASE]['Description']    = ! empty( $settings['plugin_desc'] )     ? $settings['plugin_desc']      : $all_plugins[POWERPACK_ELEMENTS_BASE]['Description'];
-    	$all_plugins[POWERPACK_ELEMENTS_BASE]['Author']         = ! empty( $settings['plugin_author'] )   ? $settings['plugin_author']    : $all_plugins[POWERPACK_ELEMENTS_BASE]['Author'];
-    	$all_plugins[POWERPACK_ELEMENTS_BASE]['AuthorURI']      = ! empty( $settings['plugin_uri'] )      ? $settings['plugin_uri']       : $all_plugins[POWERPACK_ELEMENTS_BASE]['AuthorURI'];
-    	$all_plugins[POWERPACK_ELEMENTS_BASE]['Title']          = ! empty( $settings['plugin_name'] )     ? $settings['plugin_name']      : $all_plugins[POWERPACK_ELEMENTS_BASE]['Title'];
-    	$all_plugins[POWERPACK_ELEMENTS_BASE]['AuthorName']     = ! empty( $settings['plugin_author'] )   ? $settings['plugin_author']    : $all_plugins[POWERPACK_ELEMENTS_BASE]['AuthorName'];
+    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Name']           = ! empty( $settings['plugin_name'] )     ? $settings['plugin_name']      : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Name'];
+    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['PluginURI']      = ! empty( $settings['plugin_uri'] )      ? $settings['plugin_uri']       : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['PluginURI'];
+    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Description']    = ! empty( $settings['plugin_desc'] )     ? $settings['plugin_desc']      : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Description'];
+    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Author']         = ! empty( $settings['plugin_author'] )   ? $settings['plugin_author']    : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Author'];
+    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['AuthorURI']      = ! empty( $settings['plugin_uri'] )      ? $settings['plugin_uri']       : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['AuthorURI'];
+    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Title']          = ! empty( $settings['plugin_name'] )     ? $settings['plugin_name']      : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Title'];
+    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['AuthorName']     = ! empty( $settings['plugin_author'] )   ? $settings['plugin_author']    : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['AuthorName'];
 
     	if ( $settings['hide_plugin'] == 'on' ) {
-    		unset( $all_plugins[POWERPACK_ELEMENTS_BASE] );
+    		unset( $all_plugins[POWERPACK_ELEMENTS_LITE_BASE] );
     	}
 
     	return $all_plugins;
