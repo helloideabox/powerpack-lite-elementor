@@ -1,7 +1,7 @@
 <?php
-namespace PowerpackElements\Modules\ContactFormSeven\Widgets;
+namespace PowerpackElementsLite\Modules\ContactFormSeven\Widgets;
 
-use PowerpackElements\Base\Powerpack_Widget;
+use PowerpackElementsLite\Base\Powerpack_Widget;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -95,7 +95,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Contact Form', 'power-pack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => true,
-				'options'               => pp_get_contact_form_7_forms(),
+				'options'               => pp_lite_get_contact_form_7_forms(),
                 'default'               => '0',
 			]
 		);

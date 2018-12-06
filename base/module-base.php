@@ -1,7 +1,7 @@
 <?php
-namespace PowerpackElements\Base;
+namespace PowerpackElementsLite\Base;
 
-use PowerpackElements\Classes\PP_Admin_Settings;
+use PowerpackElementsLite\Classes\PP_Admin_Settings;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -90,7 +90,7 @@ abstract class Module_Base {
 	}
     
     static function is_widget_active( $widget = '' ) {
-        $enabled_modules = pp_get_enabled_modules();
+        $enabled_modules = pp_lite_get_enabled_modules();
         
         if ( in_array( $widget, $enabled_modules ) ) {
             return true;

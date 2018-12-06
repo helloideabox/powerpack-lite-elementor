@@ -17,7 +17,7 @@ $settings     = self::get_settings();
         ?>
     </h2>
 
-    <?php \PowerpackElements\Classes\PP_Admin_Settings::render_update_message(); ?>
+    <?php \PowerpackElementsLite\Classes\PP_Admin_Settings::render_update_message(); ?>
 
     <form method="post" id="pp-settings-form" action="<?php echo self::get_form_action( '&tab=' . $current_tab ); ?>">
 

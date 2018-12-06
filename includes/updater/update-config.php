@@ -1,41 +1,41 @@
 <?php
 
-use PowerpackElements\Classes\PP_Admin_Settings;
+use PowerpackElementsLite\Classes\PP_Admin_Settings;
 
 // this is the URL our updater / license checker pings. This should be the URL of the site with EDD installed
-define( 'POWERPACK_SL_URL', 'https://powerpackelements.com' ); // you should use your own CONSTANT name, and be sure to replace it throughout this file
+define( 'POWERPACK_LITE_SL_URL', 'https://powerpackelements.com' ); // you should use your own CONSTANT name, and be sure to replace it throughout this file
 
 // the name of your product. This should match the download name in EDD exactly
-define( 'POWERPACK_ITEM_NAME', 'PowerPack Elements' ); // you should use your own CONSTANT name, and be sure to replace it throughout this file
+define( 'POWERPACK_LITE_ITEM_NAME', 'PowerPack Elements' ); // you should use your own CONSTANT name, and be sure to replace it throughout this file
 
 // the name of the settings page for the license input to be displayed
-define( 'POWERPACK_LICENSE_PAGE', 'powerpack-settings' );
+define( 'POWERPACK_LITE_LICENSE_PAGE', 'powerpack-settings' );
 
 if( !class_exists( 'PP_SL_Plugin_Updater' ) ) {
 	// load our custom updater
 	include( dirname( __FILE__ ) . '/class-pp-plugin-updater.php' );
 }
 
-function pp_plugin_updater() {
+function pp_lite_plugin_updater() {
 
 	// retrieve our license key from the DB
 	$license_key = trim( get_site_option( 'pp_license_key' ) );
 
 	// setup the updater
-	$updater = new PP_SL_Plugin_Updater( POWERPACK_SL_URL, POWERPACK_ELEMENTS_LITE_PATH . '/powerpack-elements.php', array(
+	$updater = new PP_SL_Plugin_Updater( POWERPACK_LITE_SL_URL, POWERPACK_ELEMENTS_LITE_PATH . '/powerpack-elements.php', array(
 			'version' 	=> POWERPACK_ELEMENTS_LITE_VER, 			// current version number
 			'license' 	=> $license_key, 			// license key (used get_site_option above to retrieve from DB)
-			'item_name' => POWERPACK_ITEM_NAME,	// name of this plugin
+			'item_name' => POWERPACK_LITE_ITEM_NAME,	// name of this plugin
 			'author' 	=> 'IdeaBox Creations',  	// author of this plugin
 			'beta'		=> false
 		)
 	);
 
 }
-add_action( 'admin_init', 'pp_plugin_updater', 0 );
+add_action( 'admin_init', 'pp_lite_plugin_updater', 0 );
 
 
-function pp_sanitize_license( $new ) {
+function pp_lite_sanitize_license( $new ) {
 	$old = get_site_option( 'pp_license_key' );
 	if( $old && $old != $new ) {
 		delete_option( 'pp_license_status' ); // new license has been entered, so must reactivate
@@ -50,7 +50,7 @@ function pp_sanitize_license( $new ) {
 * a license key
 *************************************/
 
-function pp_activate_license() {
+function pp_lite_activate_license() {
 
 	// listen for our activate button to be clicked
 	if( isset( $_POST['pp_license_activate'] ) ) {
@@ -67,12 +67,12 @@ function pp_activate_license() {
 		$api_params = array(
 			'edd_action' => 'activate_license',
 			'license'    => $license,
-			'item_name'  => urlencode( POWERPACK_ITEM_NAME ), // the name of our product in EDD
+			'item_name'  => urlencode( POWERPACK_LITE_ITEM_NAME ), // the name of our product in EDD
 			'url'        => network_home_url()
 		);
 
 		// Call the custom API.
-		$response = wp_remote_post( POWERPACK_SL_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+		$response = wp_remote_post( POWERPACK_LITE_SL_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
 
 		// make sure the response came back okay
 		if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
@@ -117,7 +117,7 @@ function pp_activate_license() {
 
 					case 'item_name_mismatch' :
 
-						$message = sprintf( __( 'This appears to be an invalid license key for %s.', 'power-pack' ), POWERPACK_ITEM_NAME );
+						$message = sprintf( __( 'This appears to be an invalid license key for %s.', 'power-pack' ), POWERPACK_LITE_ITEM_NAME );
 						break;
 
 					case 'no_activations_left':
@@ -151,7 +151,7 @@ function pp_activate_license() {
 		exit();
 	}
 }
-add_action('admin_init', 'pp_activate_license');
+add_action('admin_init', 'pp_lite_activate_license');
 
 
 /***********************************************
@@ -159,7 +159,7 @@ add_action('admin_init', 'pp_activate_license');
 * This will decrease the site count
 ***********************************************/
 
-function pp_deactivate_license() {
+function pp_lite_deactivate_license() {
 
 	// listen for our activate button to be clicked
 	if( isset( $_POST['pp_license_deactivate'] ) ) {
@@ -175,12 +175,12 @@ function pp_deactivate_license() {
 		$api_params = array(
 			'edd_action' => 'deactivate_license',
 			'license'    => $license,
-			'item_name'  => urlencode( POWERPACK_ITEM_NAME ), // the name of our product in EDD
+			'item_name'  => urlencode( POWERPACK_LITE_ITEM_NAME ), // the name of our product in EDD
 			'url'        => home_url()
 		);
 
 		// Call the custom API.
-		$response = wp_remote_post( POWERPACK_SL_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+		$response = wp_remote_post( POWERPACK_LITE_SL_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
 
 		// make sure the response came back okay
 		if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
@@ -211,7 +211,7 @@ function pp_deactivate_license() {
 
 	}
 }
-add_action('admin_init', 'pp_deactivate_license');
+add_action('admin_init', 'pp_lite_deactivate_license');
 
 
 /************************************
@@ -222,7 +222,7 @@ add_action('admin_init', 'pp_deactivate_license');
 * want to do something custom
 *************************************/
 
-function pp_check_license() {
+function pp_lite_check_license() {
 
 	global $wp_version;
 
@@ -231,12 +231,12 @@ function pp_check_license() {
 	$api_params = array(
 		'edd_action' => 'check_license',
 		'license' => $license,
-		'item_name' => urlencode( POWERPACK_ITEM_NAME ),
+		'item_name' => urlencode( POWERPACK_LITE_ITEM_NAME ),
 		'url'       => home_url()
 	);
 
 	// Call the custom API.
-	$response = wp_remote_post( POWERPACK_SL_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+	$response = wp_remote_post( POWERPACK_LITE_SL_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
 
 	if ( is_wp_error( $response ) )
 		return false;
@@ -257,7 +257,7 @@ function pp_check_license() {
 /**
  * This is a means of catching errors from the activation method above and displaying it to the customer
  */
-function pp_admin_notices() {
+function pp_lite_admin_notices() {
 	if ( isset( $_GET['sl_activation'] ) && ! empty( $_GET['message'] ) ) {
 
 		switch( $_GET['sl_activation'] ) {
@@ -278,4 +278,4 @@ function pp_admin_notices() {
 		}
 	}
 }
-add_action( 'admin_notices', 'pp_admin_notices' );
+add_action( 'admin_notices', 'pp_lite_admin_notices' );

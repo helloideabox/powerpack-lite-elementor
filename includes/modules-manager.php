@@ -1,7 +1,7 @@
 <?php
-namespace PowerpackElements;
+namespace PowerpackElementsLite;
 
-use PowerpackElements\Base\Module_Base;
+use PowerpackElementsLite\Base\Module_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -13,18 +13,12 @@ class Modules_Manager {
 
 	public function register_modules() {
 		$modules = [
-			'advanced-menu',
-			'advanced-tabs',
 			'business-hours',
-			'buttons',
 			'caldera-forms',
 			'contact-form-seven',
-			'countdown',
 			'counter',
 			'divider',
 			'headings',
-			'gallery',
-			'google-maps',
 			'gravity-forms',
 			'headings',
 			'hotspots',
@@ -36,26 +30,14 @@ class Modules_Manager {
 			'instafeed',
 			'link-effects',
 			'logos',
-			'modal-popup',
 			'ninja-forms',
-			'offcanvas-content',
-			'onepage-nav',
-			'posts',
 			'pricing',
 			'promo-box',
-			'recipe',
-			'showcase',
 			'team-member',
-			'toggle',
-			'table',
 			'wpforms',
 		];
         
         ksort($modules);
-        
-        //$modules = pp_get_enabled_modules();
-
-        //$modules = pp_get_modules();
 
 		foreach ( $modules as $module_name ) {
 			$class_name = str_replace( '-', ' ', $module_name );

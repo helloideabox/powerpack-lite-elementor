@@ -1,7 +1,7 @@
 <?php
-namespace PowerpackElements\Modules\NinjaForms;
+namespace PowerpackElementsLite\Modules\NinjaForms;
 
-use PowerpackElements\Base\Module_Base;
+use PowerpackElementsLite\Base\Module_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 

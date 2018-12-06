@@ -1,7 +1,7 @@
 <?php
 // Get all elementor page templates
-if ( !function_exists('pp_get_page_templates') ) {
-    function pp_get_page_templates( $type = '' ) {
+if ( !function_exists('pp_lite_get_page_templates') ) {
+    function pp_lite_get_page_templates( $type = '' ) {
         $args = [
             'post_type'         => 'elementor_library',
             'posts_per_page'    => -1,
@@ -31,8 +31,8 @@ if ( !function_exists('pp_get_page_templates') ) {
 }
 
 // Get all forms of Contact Form 7 plugin
-if ( !function_exists('pp_get_contact_form_7_forms') ) {
-    function pp_get_contact_form_7_forms() {
+if ( !function_exists('pp_lite_get_contact_form_7_forms') ) {
+    function pp_lite_get_contact_form_7_forms() {
         if ( function_exists( 'wpcf7' ) ) {
             $options = array();
 
@@ -64,8 +64,8 @@ if ( !function_exists('pp_get_contact_form_7_forms') ) {
 }
 
 // Get all forms of Gravity Forms plugin
-if ( !function_exists('pp_get_gravity_forms') ) {
-    function pp_get_gravity_forms() {
+if ( !function_exists('pp_lite_get_gravity_forms') ) {
+    function pp_lite_get_gravity_forms() {
         if ( class_exists( 'GFCommon' ) ) {
             $options = array();
 
@@ -92,8 +92,8 @@ if ( !function_exists('pp_get_gravity_forms') ) {
 }
 
 // Get all forms of Ninja Forms plugin
-if ( !function_exists('pp_get_ninja_forms') ) {
-    function pp_get_ninja_forms() {
+if ( !function_exists('pp_lite_get_ninja_forms') ) {
+    function pp_lite_get_ninja_forms() {
         if ( class_exists( 'Ninja_Forms' ) ) {
             $options = array();
 
@@ -120,8 +120,8 @@ if ( !function_exists('pp_get_ninja_forms') ) {
 }
 
 // Get all forms of Caldera plugin
-if ( !function_exists('pp_get_caldera_forms') ) {
-    function pp_get_caldera_forms() {
+if ( !function_exists('pp_lite_get_caldera_forms') ) {
+    function pp_lite_get_caldera_forms() {
         if ( class_exists( 'Caldera_Forms' ) ) {
             $options = array();
 
@@ -148,8 +148,8 @@ if ( !function_exists('pp_get_caldera_forms') ) {
 }
 
 // Get all forms of WPForms plugin
-if ( !function_exists('pp_get_wpforms_forms') ) {
-    function pp_get_wpforms_forms() {
+if ( !function_exists('pp_lite_get_wpforms_forms') ) {
+    function pp_lite_get_wpforms_forms() {
         if ( class_exists( 'WPForms' ) ) {
             $options = array();
 
@@ -285,87 +285,6 @@ if ( !function_exists('pp_custom_excerpt') ) {
 }
 add_filter( 'get_the_excerpt', 'do_shortcode' );
 
-// Get Counter Years
-function pp_get_normal_years() {
-		$options = array( '0' => __('Year', 'power-pack') );
-
-		for ( $i = date('Y'); $i < date('Y') + 6 ; $i++ ) {
-			$options[$i] = $i;
-		}
-
-        return $options;
-}
-
-// Get Counter Month
-function pp_get_normal_month() {
-		$months = array(
-			'1'		=> __('Jan', 'power-pack'),
-			'2'		=> __('Feb', 'power-pack'),
-			'3'		=> __('Mar', 'power-pack'),
-			'4'		=> __('Apr', 'power-pack'),
-			'5'		=> __('May', 'power-pack'),
-			'6'		=> __('Jun', 'power-pack'),
-			'7'		=> __('Jul', 'power-pack'),
-			'8'		=> __('Aug', 'power-pack'),
-			'9'		=> __('Sep', 'power-pack'),
-			'10'	=> __('Oct', 'power-pack'),
-			'11'	=> __('Nov', 'power-pack'),
-			'12'	=> __('Dec', 'power-pack'),
-		);
-
-		$options = array( '0' => __('Month', 'power-pack'), );
-
-		for ( $i = 1; $i <= 12; $i++ ) {
-			$options[$i] = $months[$i];
-		}
-
-        return $options;
-}
-
-// Get Counter Date
-function pp_get_normal_date() {
-	$options = array( '0' => __('Date', 'power-pack') );
-	
-	for ( $i=1; $i <= 31; $i++ ) {
-		$options[$i] = $i;
-	}
-
-	return $options;
-}
-
-// Get Counter Hours
-function pp_get_normal_hour() {
-	$options = array( '0' => __('Hour', 'power-pack') );
-
-	for ( $i = 0; $i < 24; $i++ ) {
-		$options[$i] = $i;
-	}
-
-	return $options;
-}
-
-// Get Counter Minutes
-function pp_get_normal_minutes() {
-	$options = array( '0' => __('Minute', 'power-pack') );
-
-	for ( $i = 0; $i < 60; $i++ ) {
-		$options[$i] = $i;
-	}
-
-	return $options;
-}
-
-// Get Counter Seconds
-function pp_get_normal_seconds() {
-	$options = array( '0' => __('Seconds', 'power-pack') );
-
-	for ( $i = 0; $i < 60; $i++ ) {
-		$options[$i] = $i;
-	}
-
-	return $options;
-}
-
 if ( ! function_exists( 'is_plugin_active' ) ) {
 	include_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
@@ -435,17 +354,14 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
     }
 }
 
-function pp_get_modules()
-{
+function pp_lite_get_modules() {
     $modules = array(
         'pp-link-effects'           => __('Link Effects', 'powerpack'),
         'pp-divider'                => __('Divider', 'powerpack'),
-        'pp-recipe'                 => __('Recipe', 'powerpack'),
         'pp-info-box'               => __('Info Box', 'powerpack'),
         'pp-info-box-carousel'      => __('Info Box Carousel', 'powerpack'),
         'pp-info-list'              => __('Info List', 'powerpack'),
 		'pp-info-table'             => __('Info Table', 'powerpack'),
-        'pp-tiled-posts'            => __('Tiled Posts', 'powerpack'),
         'pp-pricing-table'          => __('Pricing Table', 'powerpack'),
         'pp-price-menu'             => __('Price Menu', 'powerpack'),
         'pp-business-hours'         => __('Businsess Hours', 'powerpack'),
@@ -458,23 +374,8 @@ function pp_get_modules()
         'pp-promo-box'              => __('Promo Box', 'powerpack'),
         'pp-logo-carousel'          => __('Logo Carousel', 'powerpack'),
         'pp-logo-grid'              => __('Logo Grid', 'powerpack'),
-        'pp-modal-popup'            => __('Modal Popup', 'powerpack'),
-        'pp-onepage-nav'            => __('One Page Navigation', 'powerpack'),
-        'pp-table'                  => __('Table', 'powerpack'),
-        'pp-toggle'                 => __('Toggle', 'powerpack'),
         'pp-image-comparison'       => __('Image Comparison', 'powerpack'),
         'pp-instafeed'              => __('Instagram Feed', 'powerpack'),
-        'pp-google-maps'            => __('Google Maps', 'powerpack'),
-        'pp-countdown'            	=> __('Countdown', 'powerpack'),
-        'pp-buttons'            	=> __('Buttons', 'powerpack'),
-        'pp-advanced-tabs'          => __('Advanced Tabs', 'powerpack'),
-        'pp-advanced-menu'          => __('Advanced Menu', 'powerpack'),
-        'pp-image-gallery'          => __('Image Gallery', 'powerpack'),
-        'pp-image-slider'           => __('Image Slider', 'powerpack'),
-        'pp-offcanvas-content'      => __('Offcanvas Content', 'powerpack'),
-        'pp-showcase'               => __('Showcase', 'powerpack'),
-        'pp-timeline'               => __('Timeline', 'powerpack'),
-        'pp-card-slider'            => __('Card Slider', 'powerpack'),
     );
 
     // Contact Form 7
@@ -502,23 +403,17 @@ function pp_get_modules()
         $modules['pp-wpforms'] = __('WPForms', 'power-pack');
     }
 
-    /*foreach ( $modules as $key => $label ) {
-        if ( ! file_exists( POWERPACK_ELEMENTS_LITE_PATH . 'includes/widgets/'.$key.'.php' ) ) {
-            unset( $modules[$key] );
-        }
-    }*/
-
     ksort($modules);
 
     return $modules;
 }
 
-function pp_get_enabled_modules()
+function pp_lite_get_enabled_modules()
 {
-    $enabled_modules = \PowerpackElements\Classes\PP_Admin_Settings::get_option( 'pp_elementor_modules', true );
+    $enabled_modules = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'pp_elementor_modules', true );
 
     if ( ! is_array( $enabled_modules ) ) {
-        return array_keys(pp_get_modules());
+        return array_keys(  pp_lite_get_modules());
     } else {
         return $enabled_modules;
     }
@@ -526,7 +421,7 @@ function pp_get_enabled_modules()
 
 // Get templates
 
-function pp_get_saved_templates( $templates = array() ) {
+function pp_lite_get_saved_templates( $templates = array() ) {
 
 	if ( empty( $templates ) ) {
 		return array();

@@ -1,5 +1,5 @@
 <?php
-namespace PowerpackElements\Classes;
+namespace PowerpackElementsLite\Classes;
 
 use Elementor\Plugin;
 

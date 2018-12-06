@@ -1,7 +1,7 @@
 <?php
-namespace PowerpackElements\Modules\CalderaForms\Widgets;
+namespace PowerpackElementsLite\Modules\CalderaForms\Widgets;
 
-use PowerpackElements\Base\Powerpack_Widget;
+use PowerpackElementsLite\Base\Powerpack_Widget;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -96,7 +96,7 @@ class Caldera_Forms extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Contact Form', 'power-pack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => true,
-				'options'               => pp_get_caldera_forms(),
+				'options'               => pp_lite_get_caldera_forms(),
                 'default'               => '0',
 			]
 		);

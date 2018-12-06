@@ -1,5 +1,5 @@
 <?php
-namespace PowerpackElements;
+namespace PowerpackElementsLite;
 
 use Elementor\Utils;
 
@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {	exit; } // Exit if accessed directly
 /**
  * Main class plugin
  */
-class Powerpackplugin {
+class PowerpackLitePlugin {
 
 	/**
 	 * @var Plugin
@@ -127,13 +127,6 @@ class Powerpackplugin {
 		);
         
 		wp_enqueue_style(
-			'tablesaw',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tablesaw/tablesaw.css',
-			[],
-			POWERPACK_ELEMENTS_LITE_VER
-		);
-        
-		wp_enqueue_style(
 			'tipso',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tipso/tipso.css',
 			[],
@@ -155,7 +148,7 @@ class Powerpackplugin {
 		);
         
         if ( class_exists( 'GFCommon' ) ) {
-            foreach( pp_get_gravity_forms() as $form_id => $form_name ){
+            foreach( pp_lite_get_gravity_forms() as $form_id => $form_name ){
                 if ( $form_id != '0' ) {
                     gravity_form_enqueue_scripts( $form_id );
                 }
@@ -175,7 +168,7 @@ class Powerpackplugin {
 	 * @access public
 	 */
 	public function enqueue_frontend_scripts() {
-        $settings = \PowerpackElements\Classes\PP_Admin_Settings::get_settings();
+        $settings = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_settings();
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_register_script(
@@ -229,16 +222,6 @@ class Powerpackplugin {
 		);
 
 		wp_register_script(
-			'jquery-cookie',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/jquery.cookie.js',
-			[
-				'jquery',
-			],
-			'1.4.1',
-			true
-		);
-
-		wp_register_script(
 			'waypoints',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/waypoints/waypoints.min.js',
 			[
@@ -259,118 +242,12 @@ class Powerpackplugin {
 		);
 
 		wp_register_script(
-			'jquery-powerpack-dot-nav',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/one-page-nav.js',
-			[
-				'jquery',
-			],
-			'1.0.0',
-			true
-		);
-        
-        if ( isset( $settings['google_map_api'] ) && ! empty( $settings['google_map_api'] ) ) {
-            wp_register_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $settings['google_map_api'], '', rand() );
-        } else {
-            wp_register_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js', '', rand() );
-        }
-
-		wp_register_script(
-			'pp-google-maps',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/pp-google-maps.js',
-			[
-				'jquery',
-			],
-			POWERPACK_ELEMENTS_LITE_VER,
-			true
-		);
-
-		wp_register_script(
 			'pp-jquery-plugin',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/jquery.plugin.js',
 			[
 				'jquery',
 			],
 			'1.0.0',
-			true
-		);
-
-		wp_register_script(
-			'jquery-countdown',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/countdown/jquery.countdown.js',
-			[
-				'jquery',
-			],
-			'2.0.2',
-			true
-		);
-
-		wp_register_script(
-			'pp-frontend-countdown',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/frontend-countdown.js',
-			[
-				'jquery',
-			],
-			'1.0.0',
-			true
-		);
-
-		wp_register_script(
-			'jquery-smartmenu',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/smartmenu/jquery-smartmenu.js',
-			[
-				'jquery',
-			],
-			'1.0.1',
-			true
-		);
-
-		wp_register_script(
-			'pp-advanced-menu',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/frontend-advanced-menu.js',
-			[
-				'jquery',
-			],
-			POWERPACK_ELEMENTS_LITE_VER,
-			true
-		);
-
-		wp_register_script(
-			'pp-timeline',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/frontend-timeline.js',
-			[
-				'jquery',
-			],
-			POWERPACK_ELEMENTS_LITE_VER,
-			true
-		);
-
-		wp_register_script(
-			'scotch-panels',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/scotchPanels.js',
-			[
-				'jquery',
-			],
-			POWERPACK_ELEMENTS_LITE_VER,
-			true
-		);
-
-		wp_register_script(
-			'tablesaw',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tablesaw/tablesaw.jquery.js',
-			[
-				'jquery',
-			],
-			'3.0.3',
-			true
-		);
-
-		wp_register_script(
-			'tablesaw-init',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tablesaw/tablesaw-init.js',
-			[
-				'jquery',
-			],
-			'3.0.3',
 			true
 		);
 
@@ -401,16 +278,6 @@ class Powerpackplugin {
 				'jquery',
 			],
 			'0.5.3',
-			true
-		);
-
-		wp_register_script(
-			'pp-offcanvas-content',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/frontend-offcanvas-content.js',
-			[
-				'jquery',
-			],
-			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
 
@@ -531,5 +398,5 @@ class Powerpackplugin {
 
 if ( ! defined( 'POWERPACK_ELEMENTS_TESTS' ) ) {
 	// In tests we run the instance manually.
-	Powerpackplugin::instance();
+	PowerpackLitePlugin::instance();
 }

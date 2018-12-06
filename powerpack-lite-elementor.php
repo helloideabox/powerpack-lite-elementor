@@ -49,7 +49,7 @@ if ( ! function_exists( '_is_elementor_installed' ) ) {
  * @since 1.0
  *
  */
-function pa_fail_load() {
+function pp_lite_fail_load() {
     $plugin = 'elementor/elementor.php';
 
 	if ( _is_elementor_installed() ) {
@@ -83,7 +83,7 @@ function pa_fail_load() {
  * @since 1.0
  *
  */
-function pa_fail_load_out_of_date() {
+function pp_lite_fail_load_out_of_date() {
     if ( ! current_user_can( 'update_plugins' ) ) {
 		return;
 	}
@@ -100,7 +100,7 @@ function pa_fail_load_out_of_date() {
  * @since 1.0
  *
  */
-function pa_fail_php() {
+function pp_lite_fail_php() {
 	$message = __( 'PowerPack requires PHP version ' . POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED .'+ to work properly. The plugins is deactivated for now.', 'power-pack' );
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
@@ -114,7 +114,7 @@ function pa_fail_php() {
  *
  * @since 1.0
  */
-function pa_deactivate() {
+function pp_lite_deactivate() {
 	deactivate_plugins( plugin_basename( __FILE__ ) );
 }
 
@@ -124,7 +124,7 @@ function pa_deactivate() {
  * @since 1.0
  *
  */
-function pp_load_plugin_textdomain() {
+function pp_lite_load_plugin_textdomain() {
 	load_plugin_textdomain( 'power-pack', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 
@@ -134,46 +134,46 @@ function pp_load_plugin_textdomain() {
  * @since 1.0
  *
  */
-function pp_category() {
+function pp_lite_category() {
 	\Elementor\Plugin::instance()->elements_manager->add_category(
         'power-pack',
         array(
-            'title' => \PowerpackElements\Classes\PP_Admin_Settings::get_admin_label(),
+            'title' => \PowerpackElementsLite\Classes\PP_Admin_Settings::get_admin_label(),
             'icon'  => 'font',
         ),
 	    1 );
 }
 
-add_action( 'plugins_loaded', 'pp_init' );
+add_action( 'plugins_loaded', 'pp_lite_init' );
 
-function pp_init() {
+function pp_lite_init() {
     if ( class_exists( 'Caldera_Forms' ) ) {
         add_filter( 'caldera_forms_force_enqueue_styles_early', '__return_true' );
     }
 
     // Notice if the Elementor is not active
 	if ( ! did_action( 'elementor/loaded' ) ) {
-		add_action( 'admin_notices', 'pa_fail_load' );
+		add_action( 'admin_notices', 'pp_lite_fail_load' );
 		return;
 	}
 
 	// Check for required Elementor version
 	if ( ! version_compare( ELEMENTOR_VERSION, POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED, '>=' ) ) {
-		add_action( 'admin_notices', 'pa_fail_load_out_of_date' );
-		add_action( 'admin_init', 'pa_deactivate' );
+		add_action( 'admin_notices', 'pp_lite_fail_load_out_of_date' );
+		add_action( 'admin_init', 'pp_lite_deactivate' );
 		return;
 	}
     
     // Check for required PHP version
 	if ( ! version_compare( PHP_VERSION, POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED, '>=' ) ) {
-		add_action( 'admin_notices', 'pa_fail_php' );
-		add_action( 'admin_init', 'pa_deactivate' );
+		add_action( 'admin_notices', 'pp_lite_fail_php' );
+		add_action( 'admin_init', 'pp_lite_deactivate' );
 		return;
 	}
     
-    add_action( 'init', 'pp_load_plugin_textdomain' );
+    add_action( 'init', 'pp_lite_load_plugin_textdomain' );
 
-	add_action( 'elementor/init', 'pp_category' );
+	add_action( 'elementor/init', 'pp_lite_category' );
 }
 
 /**
@@ -182,7 +182,7 @@ function pp_init() {
  * @since 1.0.1
  * @return void
  */
-function pp_plugin_activation()
+function pp_lite_plugin_activation()
 {
 	$settings = get_site_option( 'pp_elementor_settings' );
 	
@@ -193,4 +193,4 @@ function pp_plugin_activation()
 
 	update_site_option( 'pp_elementor_settings', $settings );
 }
-register_activation_hook( __FILE__, 'pp_plugin_activation' );
+register_activation_hook( __FILE__, 'pp_lite_plugin_activation' );

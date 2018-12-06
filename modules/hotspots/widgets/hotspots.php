@@ -1,7 +1,7 @@
 <?php
-namespace PowerpackElements\Modules\Hotspots\Widgets;
+namespace PowerpackElementsLite\Modules\Hotspots\Widgets;
 
-use PowerpackElements\Base\Powerpack_Widget;
+use PowerpackElementsLite\Base\Powerpack_Widget;
 
 // Elementor Classes
 use Elementor\Controls_Manager;

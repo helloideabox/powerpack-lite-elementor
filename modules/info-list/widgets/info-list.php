@@ -1,7 +1,7 @@
 <?php
-namespace PowerpackElements\Modules\InfoList\Widgets;
+namespace PowerpackElementsLite\Modules\InfoList\Widgets;
 
-use PowerpackElements\Base\Powerpack_Widget;
+use PowerpackElementsLite\Base\Powerpack_Widget;
 
 // Elementor Classes
 use Elementor\Controls_Manager;

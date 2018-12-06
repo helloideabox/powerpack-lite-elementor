@@ -1,7 +1,7 @@
 <?php
-namespace PowerpackElements\Modules\InfoTable;
+namespace PowerpackElementsLite\Modules\InfoTable;
 
-use PowerpackElements\Base\Module_Base;
+use PowerpackElementsLite\Base\Module_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 

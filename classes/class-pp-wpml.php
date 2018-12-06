@@ -1,5 +1,5 @@
 <?php
-namespace PowerpackElements\Classes;
+namespace PowerpackElementsLite\Classes;
 
 class PP_Elements_WPML {
     public function __construct()
@@ -41,91 +41,6 @@ class PP_Elements_WPML {
 					'field'       => 'form_description_text',
 					'type'        => __( 'Contact Form 7 - Description', 'power-pack' ),
 					'editor_type' => 'AREA'
-				],
-			],
-		];
-		$widgets[ 'pp-countdown' ]            = [
-			'conditions' => [ $this->type => 'pp-countdown' ],
-			'fields'     => [
-				[
-					'field'       => 'fixed_expire_message',
-					'type'        => __( 'Countdown - Fixed Expiry Message', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'fixed_redirect_link',
-					'type'        => __( 'Countdown - Fixed Redirect Link', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'evergreen_expire_message',
-					'type'        => __( 'Countdown - Evergreen Expire Message', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'evergreen_redirect_link',
-					'type'        => __( 'Countdown - Evergreen Redirect Link', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_years_plural',
-					'type'        => __( 'Countdown - Years in Plural', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_years_singular',
-					'type'        => __( 'Countdown - Years in Singular', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_months_plural',
-					'type'        => __( 'Countdown - Months in Plural', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_months_singular',
-					'type'        => __( 'Countdown - Months in Singular', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_days_plural',
-					'type'        => __( 'Countdown - Days in Plural', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_days_singular',
-					'type'        => __( 'Countdown - Days in Singular', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_hours_plural',
-					'type'        => __( 'Countdown - Hours in Plural', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_hours_singular',
-					'type'        => __( 'Countdown - Hours in Singular', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_minutes_plural',
-					'type'        => __( 'Countdown - Minutes in Plural', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_minutes_singular',
-					'type'        => __( 'Countdown - Minutes in Singular', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_seconds_plural',
-					'type'        => __( 'Countdown - Seconds in Plural', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'label_seconds_singular',
-					'type'        => __( 'Countdown - Seconds in Singular', 'power-pack' ),
-					'editor_type' => 'LINE'
 				],
 			],
 		];
@@ -173,11 +88,6 @@ class PP_Elements_WPML {
 					'editor_type' => 'AREA'
 				],
 			],
-		];
-		$widgets[ 'pp-google-maps' ]          = [
-			'conditions' => [ $this->type => 'pp-google-maps' ],
-			'fields'     => [],
-			'integration-class' => 'WPML_PP_Google_Maps'
 		];
 		$widgets[ 'pp-gravity-forms' ]        = [
 			'conditions' => [ $this->type => 'pp-gravity-forms' ],
@@ -352,41 +262,6 @@ class PP_Elements_WPML {
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Logo_Grid'
 		];
-		$widgets[ 'pp-modal-popup' ]          = [
-			'conditions' => [ $this->type => 'pp-modal-popup' ],
-			'fields'     => [
-				[
-					'field'       => 'title',
-					'type'        => __( 'Popup Box - Title', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'popup_link',
-					'type'        => __( 'Popup Box - URL', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'content',
-					'type'        => __( 'Popup Box - Content', 'power-pack' ),
-					'editor_type' => 'VISUAL'
-				],
-				[
-					'field'       => 'custom_html',
-					'type'        => __( 'Popup Box - Custom HTML', 'power-pack' ),
-					'editor_type' => 'AREA'
-				],
-				[
-					'field'       => 'button_text',
-					'type'        => __( 'Popup Box - Button Text', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'element_identifier',
-					'type'        => __( 'Popup Box - CSS Class or ID', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-			],
-		];
 		$widgets[ 'pp-ninja-forms' ]          = [
 			'conditions' => [ $this->type => 'pp-ninja-forms' ],
 			'fields'     => [
@@ -401,11 +276,6 @@ class PP_Elements_WPML {
 					'editor_type' => 'AREA'
 				],
 			],
-		];		
-		$widgets[ 'pp-one-page-nav' ]         = [
-			'conditions' => [ $this->type => 'pp-one-page-nav' ],
-			'fields'     => [],
-			'integration-class' => 'WPML_PP_One_Page_Nav'
 		];
 		$widgets[ 'pp-price-menu' ]           = [
 			'conditions' => [ $this->type => 'pp-price-menu' ],
@@ -514,51 +384,6 @@ class PP_Elements_WPML {
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Team_Member_Carousel'
 		];
-		$widgets[ 'pp-tiled-posts' ]          = [
-			'conditions' => [ $this->type => 'pp-tiled-posts' ],
-			'fields'     => [
-				[
-					'field'       => 'read_more_text',
-					'type'        => __( 'Tiled Posts - Read More Text', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'offset',
-					'type'        => __( 'Tiled Posts - Offset', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'post_meta_divider',
-					'type'        => __( 'Tiled Posts - Post Meta Divider', 'power-pack' ),
-					'editor_type' => 'AREA'
-				],
-			],
-		];
-		$widgets[ 'pp-toggle' ]               = [
-			'conditions' => [ $this->type => 'pp-toggle' ],
-			'fields'     => [
-				[
-					'field'       => 'primary_label',
-					'type'        => __( 'Toggle - Primary Label', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'primary_content',
-					'type'        => __( 'Toggle - Primary Content', 'power-pack' ),
-					'editor_type' => 'VISUAL'
-				],
-				[
-					'field'       => 'secondary_label',
-					'type'        => __( 'Toggle - Secondary Label', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'secondary_content',
-					'type'        => __( 'Toggle - Secondary Content', 'power-pack' ),
-					'editor_type' => 'VISUAL'
-				],
-			],
-		];
 		$widgets[ 'pp-wpforms' ]              = [
 			'conditions' => [ $this->type => 'pp-wpforms' ],
 			'fields'     => [
@@ -574,80 +399,6 @@ class PP_Elements_WPML {
 				],
 			],
 		];
-		$widgets[ 'pp-recipe' ]               = [
-			'conditions' => [ $this->type => 'pp-recipe' ],
-			'fields'     => [
-				[
-					'field'       => 'recipe_name',
-					'type'        => __( 'Recipe - Name', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'recipe_description',
-					'type'        => __( 'Recipe - Description', 'power-pack' ),
-					'editor_type' => 'AREA'
-				],
-				[
-					'field'       => 'prep_time',
-					'type'        => __( 'Recipe - Prep Time', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'cook_time',
-					'type'        => __( 'Recipe - Cook Time', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'total_time',
-					'type'        => __( 'Recipe - Total Time', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'servings',
-					'type'        => __( 'Recipe - Servings', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'calories',
-					'type'        => __( 'Recipe - Calories', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'item_notes',
-					'type'        => __( 'Recipe - Item Notes', 'power-pack' ),
-					'editor_type' => 'VISUAL'
-				],
-			],
-			'integration-class' => 'WPML_PP_Recipe'
-		];
-		$widgets[ 'pp-offcanvas-content' ]     = [
-			'conditions' => [ $this->type => 'pp-offcanvas-content' ],
-			'fields'     => [
-				[
-					'field'       => 'button_text',
-					'type'        => __( 'Offcanvas Content - Toggle Button Text', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-				
-			],
-			'integration-class' => 'WPML_PP_Offcanvas_Content'
-		];
-		$widgets[ 'pp-showcase' ]               = [
-			'conditions' => [ $this->type => 'pp-showcase' ],
-			'fields'     => [],
-			'integration-class' => 'WPML_PP_Showcase'
-		];
-		$widgets[ 'pp-timeline' ]               = [
-			'conditions' => [ $this->type => 'pp-timeline' ],
-			'fields'     => [
-				[
-					'field'       => 'button_text',
-					'type'        => __( 'Timeline - Button Text', 'power-pack' ),
-					'editor_type' => 'LINE'
-				],
-			],
-			'integration-class' => 'WPML_PP_Timeline'
-		];
 
 		$this->init_classes();
 		
@@ -656,22 +407,16 @@ class PP_Elements_WPML {
 	
 	private function init_classes() {
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-business-hours.php';
-		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-google-maps.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-image-hotspots.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-icon-list.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-info-box-carousel.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-info-list.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-logo-carousel.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-logo-grid.php';
-		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-one-page-nav.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-price-menu.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-pricing-table.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-team-member.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-team-member-carousel.php';
-		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-recipe.php';
-		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-offcanvas-content.php';
-		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-showcase.php';
-		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-timeline.php';
 	}
 }
 

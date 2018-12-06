@@ -5,7 +5,7 @@
  * @package UAEL
  */
 
-namespace PowerpackElements\Base;
+namespace PowerpackElementsLite\Base;
 
 use Elementor\Widget_Base;
 

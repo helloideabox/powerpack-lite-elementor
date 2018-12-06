@@ -1,5 +1,5 @@
 <?php
-namespace PowerpackElements\Classes;
+namespace PowerpackElementsLite\Classes;
 
 /**
  * Handles logic for the admin settings page.
