@@ -39,7 +39,7 @@ $settings     = self::get_settings();
     <?php if ( 'on' != $settings['hide_support'] ) { ?>
     <hr />
 
-    <h2><?php esc_html_e('Support', 'powerpack'); ?></h2>
+    <h2><?php esc_html_e('Support', 'power-pack'); ?></h2>
     <p>
         <?php
             $support_link = $settings['support_link'];
