@@ -175,22 +175,3 @@ function pp_lite_init() {
 
 	add_action( 'elementor/init', 'pp_lite_category' );
 }
-
-/**
- * Enable white labeling setting form after re-activating the plugin
- *
- * @since 1.0.1
- * @return void
- */
-function pp_lite_plugin_activation()
-{
-	$settings = get_site_option( 'pp_elementor_settings' );
-	
-	if ( is_array( $settings ) ) {
-		$settings['hide_wl_settings'] = 'off';
-		$settings['hide_plugin'] = 'off';
-	}
-
-	update_site_option( 'pp_elementor_settings', $settings );
-}
-register_activation_hook( __FILE__, 'pp_lite_plugin_activation' );
