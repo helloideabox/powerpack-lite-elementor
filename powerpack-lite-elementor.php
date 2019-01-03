@@ -4,8 +4,8 @@
  * Plugin URI: https://powerpackelements.com
  * Description: Custom addons for elementor page builder.
  * Version: 1.0.0
- * Author: Team IdeaBox - PowerPack Elements
- * Author URI: http://powerpackelements.com
+ * Author: IdeaBox Creations
+ * Author URI: https://ideaboxcreations.com
  * License: GNU General Public License v2.0
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: power-pack
@@ -26,7 +26,6 @@ require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-admin-settings.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-ajax-handler.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
-require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/updater/update-config.php';
 
 /**
  * Check if Elementor is installed
