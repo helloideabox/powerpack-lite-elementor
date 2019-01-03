@@ -1,8 +1,6 @@
 <?php
 
-$license 	  = self::get_option( 'pp_license_key' );
-$status 	  = self::get_option( 'pp_license_status' );
-$current_tab  = isset( $_REQUEST['tab'] ) ? $_REQUEST['tab'] : 'general';
+$current_tab  = isset( $_REQUEST['tab'] ) ? $_REQUEST['tab'] : 'modules';
 $settings     = self::get_settings();
 
 ?>
@@ -11,9 +9,7 @@ $settings     = self::get_settings();
 
     <h2>
         <?php
-            $admin_label = self::get_option( 'pp_admin_label' );
-            $admin_label = trim( $admin_label ) !== '' ? trim( $admin_label ) : 'PowerPack';
-            echo sprintf( esc_html__( '%s Settings', 'power-pack' ), $admin_label );
+            echo sprintf( esc_html__( '%s Settings', 'power-pack' ), 'PowerPack' );
         ?>
     </h2>
 
@@ -24,26 +20,10 @@ $settings     = self::get_settings();
         <div class="icon32 icon32-powerpack-settings" id="icon-pp"><br /></div>
 
         <h2 class="nav-tab-wrapper pp-nav-tab-wrapper">
-
-                <a href="<?php echo self::get_form_action( '&tab=general' ); ?>" class="nav-tab<?php echo ( $current_tab == 'general' ? ' nav-tab-active' : '' ); ?>"><?php esc_html_e( 'General', 'power-pack' ); ?></a>
-                <?php if ( 'off' == $settings['hide_wl_settings'] ) { ?>
-                    <a href="<?php echo self::get_form_action( '&tab=white-label' ); ?>" class="nav-tab<?php echo ( $current_tab == 'white-label' ? ' nav-tab-active' : '' ); ?>"><?php esc_html_e( 'White Label', 'power-pack' ); ?></a>
-                <?php } ?>
-                <a href="<?php echo self::get_form_action( '&tab=modules' ); ?>" class="nav-tab<?php echo ( $current_tab == 'modules' ? ' nav-tab-active' : '' ); ?>"><?php esc_html_e( 'Elements', 'power-pack' ); ?></a>
+            <a href="<?php echo self::get_form_action( '&tab=modules' ); ?>" class="nav-tab<?php echo ( $current_tab == 'modules' ? ' nav-tab-active' : '' ); ?>"><?php esc_html_e( 'Elements', 'power-pack' ); ?></a>
         </h2>
 
         <?php
-
-        // General settings.
-        if ( ! isset($_GET['tab']) || 'general' == $current_tab ) {
-            include POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-license.php';
-        }
-
-        // White Label settings.
-        if ( 'white-label' == $current_tab ) {
-            include POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-wl.php';
-        }
-
         // Modules settings.
         if ( 'modules' == $current_tab ) {
             include POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-modules.php';

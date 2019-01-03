@@ -43,7 +43,6 @@ final class PP_Admin_Settings {
 		}
 
         add_action( 'admin_menu',           __CLASS__ . '::menu', 601 );
-        add_filter( 'all_plugins',          __CLASS__ . '::update_branding' );
 
 		if ( isset( $_REQUEST['page'] ) && 'powerpack-settings' == $_REQUEST['page'] ) {
             //add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
@@ -168,7 +167,6 @@ final class PP_Admin_Settings {
     static public function render()
     {
 		include POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings.php';
-		//include POWERPACK_ELEMENTS_LITE_PATH . 'includes/modules-manager.php';
     }
 
 	/**
@@ -248,31 +246,6 @@ final class PP_Admin_Settings {
     		delete_option( $key );
     	}
 	}
-	
-	/**
-	 * Set the branding data to plugin.
-	 *
-	 * @since 1.0.0
-	 * @return array
-	 */
-	static public function update_branding( $all_plugins )
-	{
-		$settings = self::get_settings();
-
-    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Name']           = ! empty( $settings['plugin_name'] )     ? $settings['plugin_name']      : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Name'];
-    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['PluginURI']      = ! empty( $settings['plugin_uri'] )      ? $settings['plugin_uri']       : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['PluginURI'];
-    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Description']    = ! empty( $settings['plugin_desc'] )     ? $settings['plugin_desc']      : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Description'];
-    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Author']         = ! empty( $settings['plugin_author'] )   ? $settings['plugin_author']    : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Author'];
-    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['AuthorURI']      = ! empty( $settings['plugin_uri'] )      ? $settings['plugin_uri']       : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['AuthorURI'];
-    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Title']          = ! empty( $settings['plugin_name'] )     ? $settings['plugin_name']      : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['Title'];
-    	$all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['AuthorName']     = ! empty( $settings['plugin_author'] )   ? $settings['plugin_author']    : $all_plugins[POWERPACK_ELEMENTS_LITE_BASE]['AuthorName'];
-
-    	if ( $settings['hide_plugin'] == 'on' ) {
-    		unset( $all_plugins[POWERPACK_ELEMENTS_LITE_BASE] );
-    	}
-
-    	return $all_plugins;
-	}
 
     static public function save()
     {
@@ -281,78 +254,7 @@ final class PP_Admin_Settings {
 			return;
 		}
 
-		self::save_license();
-		self::save_google_map_api();
-        self::save_white_label();
 		self::save_modules();
-    }
-
-	/**
-	 * Saves the license.
-	 *
-	 * @since 1.0.0
-	 * @access private
-	 * @return void
-	 */
-    static private function save_license()
-    {
-        if ( isset( $_POST['pp_license_key'] ) ) {
-
-        	$old = get_site_option( 'pp_license_key' );
-            $new = $_POST['pp_license_key'];
-
-        	if( $old && $old != $new ) {
-        		delete_site_option( 'pp_license_status' ); // new license has been entered, so must reactivate
-        	}
-
-            update_site_option( 'pp_license_key', $new );
-        }
-	}
-	
-	/**
-	 * Saves Google Map API key.
-	 *
-	 * @since 1.0.0
-	 * @access private
-	 * @return void
-	 */
-    static private function save_google_map_api()
-    {
-        if ( isset( $_POST['pp_google_map_api'] ) ) {
-
-			$settings = self::get_settings();
-			$settings['google_map_api'] = $_POST['pp_google_map_api'];
-
-            update_site_option( 'pp_elementor_settings', $settings );
-        }
-    }
-
-	/**
-	 * Saves the white label settings.
-	 *
-	 * @since 1.0.0
-	 * @access private
-	 * @return void
-	 */
-    static private function save_white_label()
-    {
-        if ( ! isset( $_POST['pp-wl-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-wl-settings-nonce'], 'pp-wl-settings' ) ) {
-            return;
-        }
-
-		$settings = self::get_settings();
-
-		$settings['plugin_name'] 		= isset( $_POST['pp_plugin_name'] ) ? sanitize_text_field( $_POST['pp_plugin_name'] ) : '';
-		$settings['plugin_desc'] 		= isset( $_POST['pp_plugin_desc'] ) ? esc_textarea( $_POST['pp_plugin_desc'] ) : '';
-		$settings['plugin_author'] 		= isset( $_POST['pp_plugin_author'] ) ? sanitize_text_field( $_POST['pp_plugin_author'] ) : '';
-		$settings['plugin_uri'] 		= isset( $_POST['pp_plugin_uri'] ) ? esc_url( $_POST['pp_plugin_uri'] ) : '';
-        $settings['admin_label']       	= isset( $_POST['pp_admin_label'] ) ? sanitize_text_field( $_POST['pp_admin_label'] ) : 'PowerPack';
-        $settings['support_link']       = isset( $_POST['pp_support_link'] ) ? esc_url_raw( $_POST['pp_support_link'] ) : 'httsp://powerpackelements.com/contact/';
-        $settings['hide_support']       = isset( $_POST['pp_hide_support_msg'] ) ? 'on' : 'off';
-        $settings['hide_wl_settings']	= isset( $_POST['pp_hide_wl_settings'] ) ? 'on' : 'off';
-        $settings['hide_plugin']        = isset( $_POST['pp_hide_plugin'] ) ? 'on' : 'off';
-
-		update_site_option( 'pp_elementor_settings', $settings );
     }
 
 	static public function save_modules()
