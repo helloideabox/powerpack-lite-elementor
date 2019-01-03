@@ -103,11 +103,7 @@ final class PP_Admin_Settings {
 	 */
 	static public function get_admin_label()
 	{
-		$settings = self::get_settings();
-
-	    $admin_label = $settings['admin_label'];
-
-	    return trim( $admin_label ) == '' ? 'PowerPack' : trim( $admin_label );
+	    return 'PowerPack';
 	}
 
 	/**

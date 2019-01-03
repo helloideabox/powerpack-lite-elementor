@@ -367,7 +367,7 @@ class PowerpackLitePlugin {
 		\Elementor\Plugin::instance()->elements_manager->add_category(
 			'power-pack', // This is the name of your addon's category and will be used to group your widgets/elements in the Edit sidebar pane!
 			[
-				'title' => __( 'Powerpack Elements', 'power-pack' ), // The title of your modules category - keep it simple and short!
+				'title' => __( 'PowerPack Elements', 'power-pack' ), // The title of your modules category - keep it simple and short!
 				'icon' => 'font',
 			],
 			1

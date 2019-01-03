@@ -138,7 +138,7 @@ function pp_lite_category() {
 	\Elementor\Plugin::instance()->elements_manager->add_category(
         'power-pack',
         array(
-            'title' => \PowerpackElementsLite\Classes\PP_Admin_Settings::get_admin_label(),
+            'title' => 'PowerPack',
             'icon'  => 'font',
         ),
 	    1 );
