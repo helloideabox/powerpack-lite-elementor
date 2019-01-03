@@ -23,10 +23,6 @@ $settings     = self::get_settings();
             <a href="<?php echo self::get_form_action( '&tab=modules' ); ?>" class="nav-tab<?php echo ( $current_tab == 'modules' ? ' nav-tab-active' : '' ); ?>"><?php esc_html_e( 'Elements', 'power-pack' ); ?></a>
         </h2>
 
-		<div class="notice notice-info">
-			<p><?php echo sprintf(__('Get more widgets and features <a%s>Upgrade Now</a>'), ' href="https://powerpackelements.com/" class="button" target="_blank"' ); ?></p>
-		</div>
-
         <?php
         // Modules settings.
         if ( 'modules' == $current_tab ) {
