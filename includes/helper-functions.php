@@ -376,6 +376,7 @@ function pp_lite_get_modules() {
         'pp-logo-grid'              => __('Logo Grid', 'power-pack'),
         'pp-image-comparison'       => __('Image Comparison', 'power-pack'),
         'pp-instafeed'              => __('Instagram Feed', 'power-pack'),
+        'pp-contact-form-7'         => __('Contact Form 7', 'power-pack'),
     );
 
     // Contact Form 7

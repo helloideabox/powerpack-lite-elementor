@@ -1,9 +1,4 @@
 <?php
-/**
- * UAEL Common Widget.
- *
- * @package UAEL
- */
 
 namespace PowerpackElementsLite\Base;
 

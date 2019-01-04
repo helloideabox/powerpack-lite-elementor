@@ -14,12 +14,10 @@ class Modules_Manager {
 	public function register_modules() {
 		$modules = [
 			'business-hours',
-			'caldera-forms',
 			'contact-form-seven',
 			'counter',
 			'divider',
 			'headings',
-			'gravity-forms',
 			'headings',
 			'hotspots',
 			'icon-list',
@@ -30,11 +28,9 @@ class Modules_Manager {
 			'instafeed',
 			'link-effects',
 			'logos',
-			'ninja-forms',
 			'pricing',
 			'promo-box',
 			'team-member',
-			'wpforms',
 		];
         
         ksort($modules);
