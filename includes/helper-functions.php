@@ -377,6 +377,10 @@ function pp_lite_get_modules() {
         'pp-image-comparison'       => __('Image Comparison', 'power-pack'),
         'pp-instafeed'              => __('Instagram Feed', 'power-pack'),
         'pp-contact-form-7'         => __('Contact Form 7', 'power-pack'),
+        'pp-caldera-forms'         	=> __('Caldera Forms', 'power-pack'),
+        'pp-gravity-forms'         	=> __('Gravity Forms', 'power-pack'),
+        'pp-ninja-forms'         	=> __('Ninja Forms', 'power-pack'),
+        'pp-wpforms'         		=> __('WPForms', 'power-pack'),
     );
 
     // Contact Form 7

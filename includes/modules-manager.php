@@ -15,9 +15,12 @@ class Modules_Manager {
 		$modules = [
 			'business-hours',
 			'contact-form-seven',
+			'caldera-forms',
+			'gravity-forms',
+			'ninja-forms',
+			'wpforms',
 			'counter',
 			'divider',
-			'headings',
 			'headings',
 			'hotspots',
 			'icon-list',

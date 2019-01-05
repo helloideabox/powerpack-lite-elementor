@@ -47,8 +47,12 @@ Take complete control of PowerPack Elementor widgets. Activate the widgets you w
 *	[Team Member](https://powerpackelements.com/demo/team-member/) - Show off your team of experts with this widget
 *	[Team Member Carousel](https://powerpackelements.com/demo/team-member-carousel/) - Create beautiful carousel of team members
 *	[Contact Form 7](https://powerpackelements.com/demo/contact-form/) - Style your Contact Form 7 through Elementor with numerous customization options
+*	[Gravity Forms Styler](https://powerpackelements.com/demo/contact-form/) - Style your Gravity Forms through Elementor with numerous customization options
+*	[Caldera Forms Styler](https://powerpackelements.com/demo/contact-form/) - Style your Caldera Forms through Elementor with numerous customization options
+*	[Ninja Forms Styler](https://powerpackelements.com/demo/contact-form/) - Style your Ninja Forms through Elementor with numerous customization options
+*	[WPForms Styler](https://powerpackelements.com/demo/contact-form/) - Style your WPForms through Elementor with numerous customization options
 
-= More 20+ Widgets in Pro Version =
+= More 15+ Widgets in Pro Version =
 
 *	All above mentioned widgets and following...
 *	[Countdown Timer](https://powerpackelements.com/demo/countdown/) - Create urgency on your site or set up a “Coming Soon” page
@@ -68,10 +72,6 @@ Take complete control of PowerPack Elementor widgets. Activate the widgets you w
 *	[Google Maps](https://powerpackelements.com/demo/google-map/) - Show Google map on your website with various styling options
 *	[Advanced Tabs](https://powerpackelements.com/demo/advanced-tab/) - Display custom content or saved templates in tabs with more styling controls
 *	[Timeline](https://powerpackelements.com/demo/timeline/) - You can create a timeline of Posts, Custom Post Types or static text content with horizontal or vertical layout
-*	[Gravity Forms Styler](https://powerpackelements.com/demo/contact-form/) - Style your Gravity Forms through Elementor with numerous customization options
-*	[Caldera Forms Styler](https://powerpackelements.com/demo/contact-form/) - Style your Caldera Forms through Elementor with numerous customization options
-*	[Ninja Forms Styler](https://powerpackelements.com/demo/contact-form/) - Style your Ninja Forms through Elementor with numerous customization options
-*	[WPForms Styler](https://powerpackelements.com/demo/contact-form/) - Style your WPForms through Elementor with numerous customization options
 
 
 = Other Features in PowerPack Pro =
