@@ -32,16 +32,14 @@ $settings     = self::get_settings();
 
     </form>
 
-    <?php if ( 'on' != $settings['hide_support'] ) { ?>
     <hr />
 
-    <h2><?php esc_html_e('Support', 'power-pack'); ?></h2>
+	<h2><?php esc_html_e('Support', 'power-pack'); ?></h2>
     <p>
         <?php
             $support_link = $settings['support_link'];
             $support_link = !empty( $support_link ) ? $support_link : 'https://powerpackelements.com/contact/';
             esc_html_e('For submitting any support queries, feedback, bug reports or feature requests, please visit', 'power-pack'); ?> <a href="<?php echo $support_link; ?>" target="_blank"><?php esc_html_e('this link', 'power-pack'); ?></a>
     </p>
-    <?php } ?>
 
 </div>

@@ -1007,7 +1007,7 @@ class Business_Hours extends Powerpack_Widget {
                             </span>
                         <?php } else {
                             if ( $item['closed_text'] ) {
-                                echo $item['closed_text'];
+                                echo esc_attr( $item['closed_text'] );
                             } else {
                                 esc_attr_e( 'Closed', 'power-pack' );
                             }
@@ -1051,7 +1051,7 @@ class Business_Hours extends Powerpack_Widget {
                             }
                             else {
                                 if ( $item['closed_text'] ) {
-                                    echo $item['closed_text'];
+                                    echo esc_attr( $item['closed_text'] );
                                 } else {
                                     esc_attr_e( 'Closed', 'power-pack' );
                                 }
