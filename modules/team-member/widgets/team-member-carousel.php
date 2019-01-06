@@ -2296,11 +2296,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
                                                 $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
                                             }
                                             
-                                            printf( '<a %1$s><img src="%2$s"></a>', $this->get_render_attribute_string( $link_key ), $item['team_member_image']['url'] );
+                                            printf( '<a %1$s><img src="%2$s"></a>', $this->get_render_attribute_string( $link_key ), esc_url( $item['team_member_image']['url'] ) );
                                             
                                         } else {
                                             
-                                            echo '<img src="' . $item['team_member_image']['url'] . '">';
+                                            echo '<img src="' . esc_url( $item['team_member_image']['url'] ) . '">';
                                             
                                         }
                                     }

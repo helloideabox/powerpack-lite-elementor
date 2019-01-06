@@ -454,7 +454,7 @@ class Dual_Heading extends Powerpack_Widget {
         $this->add_render_attribute( 'second_text', 'class', 'pp-second-text' );
         
         if ( ! empty( $settings['link']['url'] ) ) {
-            $this->add_render_attribute( 'dual-heading-link', 'href', $settings['link']['url'] );
+            $this->add_render_attribute( 'dual-heading-link', 'href', esc_url( $settings['link']['url'] ) );
 
             if ( $settings['link']['is_external'] ) {
                 $this->add_render_attribute( 'dual-heading-link', 'target', '_blank' );

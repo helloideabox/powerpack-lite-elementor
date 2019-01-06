@@ -30,9 +30,9 @@ class PP_Ajax_Handler {
 			define( 'DOING_AJAX', true );
 		}
 
-		$settings 	= $_POST['settings'];
+		$settings 	= array_map( 'sanitize_text_field', wp_unslash( $_POST['settings'] ) );
 		$gallery_id = $settings['widget_id'];
-		$post_id 	= $settings['post_id'];
+		$post_id 	= absint( $settings['post_id'] );
 
 		$meta = Plugin::$instance->db->get_plain_editor( $post_id );
 

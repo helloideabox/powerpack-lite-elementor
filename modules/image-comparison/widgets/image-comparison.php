@@ -735,7 +735,7 @@ class Image_Comparison extends Powerpack_Widget {
 			<?php
                 if ( ! empty( $settings['before_image']['url'] ) ) :
         
-                    $this->add_render_attribute( 'before-image', 'src', $settings['before_image']['url'] );
+                    $this->add_render_attribute( 'before-image', 'src', esc_url( $settings['before_image']['url'] ) );
                     $this->add_render_attribute( 'before-image', 'alt', Control_Media::get_image_alt( $settings['before_image'] ) );
                     $this->add_render_attribute( 'before-image', 'title', Control_Media::get_image_title( $settings['before_image'] ) );
         
@@ -745,7 +745,7 @@ class Image_Comparison extends Powerpack_Widget {
 
                 if ( ! empty( $settings['after_image']['url'] ) ) :
         
-                    $this->add_render_attribute( 'after-image', 'src', $settings['after_image']['url'] );
+                    $this->add_render_attribute( 'after-image', 'src', esc_url( $settings['after_image']['url'] ) );
                     $this->add_render_attribute( 'after-image', 'alt', Control_Media::get_image_alt( $settings['after_image'] ) );
                     $this->add_render_attribute( 'after-image', 'title', Control_Media::get_image_title( $settings['after_image'] ) );
         

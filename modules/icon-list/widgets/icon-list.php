@@ -650,7 +650,7 @@ class Icon_List extends Powerpack_Widget {
                                 if ( ! empty( $item['link']['url'] ) ) {
                                     $link_key = 'link_' . $i;
 
-                                    $this->add_render_attribute( $link_key, 'href', $item['link']['url'] );
+                                    $this->add_render_attribute( $link_key, 'href', esc_url( $item['link']['url'] ) );
 
                                     if ( $item['link']['is_external'] ) {
                                         $this->add_render_attribute( $link_key, 'target', '_blank' );

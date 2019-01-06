@@ -1503,7 +1503,7 @@ class Info_Table extends Powerpack_Widget {
 				if ( 'box' == $settings['link_type'] ) {
 
 					$pp_if_html_tag_a = 'a';
-					$this->add_render_attribute( 'info-table-container-a', 'href', $settings['link']['url'] );
+					$this->add_render_attribute( 'info-table-container-a', 'href', esc_url( $settings['link']['url'] ) );
 					if ( $settings['link']['is_external'] ) {
 						$this->add_render_attribute( 'info-table-container-a', 'target', '_blank' );
 					}
@@ -1513,7 +1513,7 @@ class Info_Table extends Powerpack_Widget {
 				} elseif ( 'title' == $settings['link_type'] ) {
 
 					$pp_title_html_tag = 'a';
-					$this->add_render_attribute( 'title-container', 'href', $settings['link']['url'] );
+					$this->add_render_attribute( 'title-container', 'href', esc_url( $settings['link']['url'] ) );
 
 					if ( $settings['link']['is_external'] ) {
 						$this->add_render_attribute( 'title-container', 'target', '_blank' );
@@ -1525,7 +1525,7 @@ class Info_Table extends Powerpack_Widget {
 
 					$pp_button_html_tag = 'a';
 
-					$this->add_render_attribute( 'info-table-button', 'href', $settings['link']['url'] );
+					$this->add_render_attribute( 'info-table-button', 'href', esc_url( $settings['link']['url'] ) );
 
 					if ( $settings['link']['is_external'] ) {
 						$this->add_render_attribute( 'info-table-button', 'target', '_blank' );

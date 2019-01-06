@@ -1025,7 +1025,7 @@ class Price_Menu extends Powerpack_Widget {
                                         <h4 class="pp-restaurant-menu-title">
                                             <?php
                                                 if ( ! empty( $item['link']['url'] ) ) {
-                                                    $this->add_render_attribute( 'price-menu-link' . $i, 'href', $item['link']['url'] );
+                                                    $this->add_render_attribute( 'price-menu-link' . $i, 'href', esc_url( $item['link']['url'] ) );
 
                                                     if ( ! empty( $item['link']['is_external'] ) ) {
                                                         $this->add_render_attribute( 'price-menu-link' . $i, 'target', '_blank' );

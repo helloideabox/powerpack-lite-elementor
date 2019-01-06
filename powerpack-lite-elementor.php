@@ -2,7 +2,7 @@
 /**
  * Plugin Name: PowerPack Lite for Elementor
  * Plugin URI: https://powerpackelements.com
- * Description: Custom addons for elementor page builder.
+ * Description: Custom addons for Elementor page builder.
  * Version: 1.0.0
  * Author: IdeaBox Creations
  * Author URI: https://ideaboxcreations.com
@@ -31,14 +31,11 @@ require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
  * Check if Elementor is installed
  *
  * @since 1.0
- *
  */
-if ( ! function_exists( '_is_elementor_installed' ) ) {
-	function _is_elementor_installed() {
-		$file_path = 'elementor/elementor.php';
-		$installed_plugins = get_plugins();
-		return isset( $installed_plugins[ $file_path ] );
-	}
+function pp_lite_is_elementor_installed() {
+	$file_path = 'elementor/elementor.php';
+	$installed_plugins = get_plugins();
+	return isset( $installed_plugins[ $file_path ] );
 }
 
 /**
@@ -46,12 +43,11 @@ if ( ! function_exists( '_is_elementor_installed' ) ) {
  * is not installed or activated or both
  *
  * @since 1.0
- *
  */
 function pp_lite_fail_load() {
     $plugin = 'elementor/elementor.php';
 
-	if ( _is_elementor_installed() ) {
+	if ( pp_lite_is_elementor_installed() ) {
 		if ( ! current_user_can( 'activate_plugins' ) ) {
 			return;
 		}

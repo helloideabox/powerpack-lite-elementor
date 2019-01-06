@@ -1553,7 +1553,7 @@ class Team_Member extends Powerpack_Widget {
                         $this->add_render_attribute( 'social-link', 'class', 'pp-tm-social-link' );
                         $social_link_key = 'social-link' . $i;
                         if ( ! empty( $item['social_link']['url'] ) ) {
-                            $this->add_render_attribute( $social_link_key, 'href', $item['social_link']['url'] );
+                            $this->add_render_attribute( $social_link_key, 'href', esc_url( $item['social_link']['url'] ) );
 
                             if ( $item['social_link']['is_external'] ) {
                                 $this->add_render_attribute( $social_link_key, 'target', '_blank' );

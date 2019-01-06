@@ -2009,11 +2009,11 @@ class Pricing_Table extends Powerpack_Widget {
         
         $this->add_inline_editing_attributes( 'table_button_text', 'none' );
         if ( ! empty( $settings['link']['url'] ) ) {
-            $this->add_render_attribute( 'table_button_text', 'class', $settings['link']['url'] );
+            $this->add_render_attribute( 'table_button_text', 'class', esc_url( $settings['link']['url'] ) );
         }
         
         if ( ! empty( $settings['link']['url'] ) ) {
-            $this->add_render_attribute( 'table_button_text', 'href', $settings['link']['url'] );
+            $this->add_render_attribute( 'table_button_text', 'href', esc_url( $settings['link']['url'] ) );
 
             if ( ! empty( $settings['link']['is_external'] ) ) {
                 $this->add_render_attribute( 'table_button_text', 'target', '_blank' );

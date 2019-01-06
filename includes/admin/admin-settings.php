@@ -9,7 +9,7 @@ $settings     = self::get_settings();
 
     <h2>
         <?php
-            echo esc_html__( 'PowerPack Settings', 'power-pack' );
+            esc_html_e( 'PowerPack Settings', 'power-pack' );
         ?>
     </h2>
 

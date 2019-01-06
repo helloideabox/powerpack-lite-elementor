@@ -116,7 +116,7 @@ final class PP_Admin_Settings {
 	{
 		if ( ! empty( self::$errors ) ) {
 			foreach ( self::$errors as $message ) {
-				echo '<div class="error"><p>' . $message . '</p></div>';
+				echo '<div class="error"><p>' . esc_html__( $message ) . '</p></div>';
 			}
 		}
 		else if ( ! empty( $_POST ) && ! isset( $_POST['email'] ) ) {
@@ -260,7 +260,8 @@ final class PP_Admin_Settings {
         }
 
 		if ( isset( $_POST['pp_enabled_modules'] ) ) {
-			update_site_option( 'pp_elementor_modules', $_POST['pp_enabled_modules'] );
+			$enabled_modules = array_map( 'sanitize_text_field', wp_unslash( $_POST['pp_enabled_modules'] ) );
+			update_site_option( 'pp_elementor_modules', $enabled_modules );
 		}
 	}
 
@@ -268,7 +269,7 @@ final class PP_Admin_Settings {
 	{
 		if ( isset( $_GET['reset_modules'] ) ) {
 			delete_site_option( 'pp_elementor_modules' );
-			self::$errors[] = __('Modules settings updated!', 'power-pack');
+			self::$errors[] = esc_html__('Modules settings updated!', 'power-pack');
 		}
 	}
 }

@@ -1195,7 +1195,7 @@ class Logo_Carousel extends Powerpack_Widget {
 
                                                 if ( ! empty( $item['link']['url'] ) ) {
 
-                                                    $this->add_render_attribute( 'logo-link' . $i, 'href', $item['link']['url'] );
+                                                    $this->add_render_attribute( 'logo-link' . $i, 'href', esc_url( $item['link']['url'] ) );
 
                                                     if ( $item['link']['is_external'] ) {
                                                         $this->add_render_attribute( 'logo-link' . $i, 'target', '_blank' );

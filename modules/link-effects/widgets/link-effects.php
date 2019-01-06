@@ -370,7 +370,7 @@ class Link_Effects extends Powerpack_Widget {
         $pa_link_secondary_text = ! empty( $settings['secondary_text'] ) ? $settings['secondary_text'] : '';
 
         if ( ! empty( $settings['link']['url'] ) ) {
-            $this->add_render_attribute( 'pa-link', 'href', $settings['link']['url'] );
+            $this->add_render_attribute( 'pa-link', 'href', esc_url( $settings['link']['url'] ) );
 
             if ( ! empty( $settings['link']['is_external'] ) ) {
                 $this->add_render_attribute( 'pa-link', 'target', '_blank' );

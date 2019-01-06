@@ -1487,7 +1487,7 @@ class Promo_Box extends Powerpack_Widget {
         
         if ( ! empty( $settings['link']['url'] ) ) {
 
-            $this->add_render_attribute( 'button_text', 'href', $settings['link']['url'] );
+            $this->add_render_attribute( 'button_text', 'href', esc_url( $settings['link']['url'] ) );
 
             if ( $settings['link']['is_external'] ) {
                 $this->add_render_attribute( 'button_text', 'target', '_blank' );

@@ -108,10 +108,10 @@ $enabled_modules = pp_lite_get_enabled_modules();
 			<h3 class="banner-title-1"><?php _e('Get access to more premium widgets and features.', 'power-pack'); ?></h3>
 			<h3 class="banner-title-2"><?php _e('Upgrade to <strong>PowerPack Pro</strong> and get <strong>15%</strong> OFF', 'power-pack'); ?></h3>
 			<ul>
-				<li><span class="dashicons dashicons-yes"></span><?php _e('More Widgets', 'power-pack'); ?></li>
-				<li><span class="dashicons dashicons-yes"></span><?php _e('White Label Branding', 'power-pack'); ?></li>
-				<li><span class="dashicons dashicons-yes"></span><?php _e('Expert Support', 'power-pack'); ?></li>
-				<li><span class="dashicons dashicons-yes"></span><?php _e('Lifetime package available', 'power-pack'); ?></li>
+				<li><span class="dashicons dashicons-yes"></span><?php esc_html_e('More Widgets', 'power-pack'); ?></li>
+				<li><span class="dashicons dashicons-yes"></span><?php esc_html_e('White Label Branding', 'power-pack'); ?></li>
+				<li><span class="dashicons dashicons-yes"></span><?php esc_html_e('Expert Support', 'power-pack'); ?></li>
+				<li><span class="dashicons dashicons-yes"></span><?php esc_html_e('Lifetime package available', 'power-pack'); ?></li>
 			</ul>
 			<div class="banner-action"><a href="https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-settings&utm_campaign=pp-pro-upgrade" class="pp-button" target="_blank" title="<?php _e('Upgrade to PowerPack Pro'); ?>"><?php _e('Upgrade Now', 'power-pack'); ?></a></div>
 		</div>
