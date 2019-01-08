@@ -95,7 +95,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Contact Form', 'power-pack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => true,
-				'options'               => pp_lite_get_contact_form_7_forms(),
+				'options'               => pp_elements_lite_get_contact_form_7_forms(),
                 'default'               => '0',
 			]
 		);

@@ -61,8 +61,8 @@ class Ninja_Forms extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Contact Form', 'power-pack' ),
 				'type'                  => Controls_Manager::SELECT,
-				'label_block'       => true,
-				'options'           => pp_lite_get_ninja_forms(),
+				'label_block'       	=> true,
+				'options'           	=> pp_elements_lite_get_ninja_forms(),
                 'default'               => '0',
 			]
 		);

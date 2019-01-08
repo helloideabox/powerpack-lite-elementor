@@ -1,7 +1,7 @@
 <?php
 
-$modules = pp_lite_get_modules();
-$enabled_modules = pp_lite_get_enabled_modules();
+$modules = pp_elements_lite_get_modules();
+$enabled_modules = pp_elements_lite_get_enabled_modules();
 
 ?>
 <style>

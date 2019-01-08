@@ -1,6 +1,6 @@
 <?php
 // Get all elementor page templates
-function pp_lite_get_page_templates( $type = '' ) {
+function pp_elements_lite_get_page_templates( $type = '' ) {
 	$args = [
 		'post_type'         => 'elementor_library',
 		'posts_per_page'    => -1,
@@ -29,7 +29,7 @@ function pp_lite_get_page_templates( $type = '' ) {
 }
 
 // Get all forms of Contact Form 7 plugin
-function pp_lite_get_contact_form_7_forms() {
+function pp_elements_lite_get_contact_form_7_forms() {
 	if ( function_exists( 'wpcf7' ) ) {
 		$options = array();
 
@@ -60,7 +60,7 @@ function pp_lite_get_contact_form_7_forms() {
 }
 
 // Get all forms of Gravity Forms plugin
-function pp_lite_get_gravity_forms() {
+function pp_elements_lite_get_gravity_forms() {
 	if ( class_exists( 'GFCommon' ) ) {
 		$options = array();
 
@@ -86,7 +86,7 @@ function pp_lite_get_gravity_forms() {
 }
 
 // Get all forms of Ninja Forms plugin
-function pp_lite_get_ninja_forms() {
+function pp_elements_lite_get_ninja_forms() {
 	if ( class_exists( 'Ninja_Forms' ) ) {
 		$options = array();
 
@@ -112,7 +112,7 @@ function pp_lite_get_ninja_forms() {
 }
 
 // Get all forms of Caldera plugin
-function pp_lite_get_caldera_forms() {
+function pp_elements_lite_get_caldera_forms() {
 	if ( class_exists( 'Caldera_Forms' ) ) {
 		$options = array();
 
@@ -138,7 +138,7 @@ function pp_lite_get_caldera_forms() {
 }
 
 // Get all forms of WPForms plugin
-function pp_lite_get_wpforms_forms() {
+function pp_elements_lite_get_wpforms_forms() {
 	if ( class_exists( 'WPForms' ) ) {
 		$options = array();
 
@@ -324,7 +324,7 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 	}
 }
 
-function pp_lite_get_modules() {
+function pp_elements_lite_get_modules() {
     $modules = array(
         'pp-link-effects'           => esc_html__('Link Effects', 'power-pack'),
         'pp-divider'                => esc_html__('Divider', 'power-pack'),
@@ -383,18 +383,18 @@ function pp_lite_get_modules() {
     return $modules;
 }
 
-function pp_lite_get_enabled_modules() {
+function pp_elements_lite_get_enabled_modules() {
     $enabled_modules = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'pp_elementor_modules', true );
 
     if ( ! is_array( $enabled_modules ) ) {
-        return array_keys(  pp_lite_get_modules());
+        return array_keys( pp_elements_lite_get_modules() );
     } else {
         return $enabled_modules;
     }
 }
 
 // Get templates
-function pp_lite_get_saved_templates( $templates = array() ) {
+function pp_elements_lite_get_saved_templates( $templates = array() ) {
 	if ( empty( $templates ) ) {
 		return array();
 	}

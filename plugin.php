@@ -148,7 +148,7 @@ class PowerpackLitePlugin {
 		);
         
         if ( class_exists( 'GFCommon' ) ) {
-            foreach( pp_lite_get_gravity_forms() as $form_id => $form_name ){
+            foreach( pp_elements_lite_get_gravity_forms() as $form_id => $form_name ){
                 if ( $form_id != '0' ) {
                     gravity_form_enqueue_scripts( $form_id );
                 }
