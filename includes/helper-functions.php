@@ -169,7 +169,7 @@ function pp_elements_lite_get_wpforms_forms() {
 }
 
 // Get categories
-function pp_get_post_categories() {
+function pp_elements_lite_get_post_categories() {
 
 	$options = array();
 	
@@ -188,7 +188,7 @@ function pp_get_post_categories() {
 }
 
 // Get Post Types
-function pp_get_post_types() {
+function pp_elements_lite_get_post_types() {
 
 	$pp_post_types = get_post_types( array(
 		'public'            => true,
@@ -199,7 +199,7 @@ function pp_get_post_types() {
 }
 
 // Get all Authors
-function pp_get_auhtors() {
+function pp_elements_lite_get_auhtors() {
 
 	$options = array();
 
@@ -213,7 +213,7 @@ function pp_get_auhtors() {
 }
 
 // Get all Authors
-function pp_get_tags() {
+function pp_elements_lite_get_tags() {
 
 	$options = array();
 
@@ -227,7 +227,7 @@ function pp_get_tags() {
 }
 
 // Get all Posts
-function pp_get_posts() {
+function pp_elements_lite_get_posts() {
 
 	$post_list = get_posts( array(
 		'post_type'         => 'post',
@@ -248,7 +248,7 @@ function pp_get_posts() {
 }
 
 // Custom Excerpt
-function pp_custom_excerpt( $limit = '' ) {
+function pp_elements_lite_custom_excerpt( $limit = '' ) {
 	$excerpt = explode(' ', get_the_excerpt(), $limit);
 	if ( count( $excerpt ) >= $limit ) {
 		array_pop( $excerpt );
@@ -268,7 +268,7 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
 if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
     // Get all Products
-    function pp_get_products() {
+    function pp_elements_lite_get_products() {
 
 		$post_list = get_posts( array(
 			'post_type'         => 'product',
@@ -289,7 +289,7 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 	}
     
     // Woocommerce - Get product categories
-    function pp_get_product_categories() {
+    function pp_elements_lite_get_product_categories() {
 
 		$options = array();
 
@@ -308,7 +308,7 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 	}
 
     // WooCommerce - Get product tags
-    function pp_product_get_tags() {
+    function pp_elements_lite_product_get_tags() {
 
 		$options = array();
 
