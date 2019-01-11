@@ -83,6 +83,8 @@ Take complete control of PowerPack Elementor widgets. Activate the widgets you w
 *	Unlimited uses on clients and personal websites
 *	Lifetime package available
 
+[Get PowerPack Now](https://powerpackelements.com/?utm_source=wprepo&utm_medium=readme&utm_campaign=proup)
+
 = Friendly, Expert Support on Time! =
 We take pride in building great products and provide on-time, friendly support to all the users.
 
