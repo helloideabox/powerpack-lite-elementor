@@ -2337,15 +2337,19 @@ div[class*=' pa-'] {
   height: 300px;
   width: 100%; }
 
-.pp-flipbox-icon-image {
+.pp-flipbox-icon-image,
+.pp-flipbox-icon-image-back {
   display: inline-block;
   margin: 0 auto 0px auto;
   line-height: 1; }
-
-.pp-flipbox-icon-image i {
-  font-size: 40px;
-  line-height: 40px;
-  width: 40px; }
+  .pp-flipbox-icon-image img,
+  .pp-flipbox-icon-image-back img {
+    width: 30%; }
+  .pp-flipbox-icon-image i,
+  .pp-flipbox-icon-image-back i {
+    font-size: 40px;
+    line-height: 40px;
+    width: 40px; }
 
 .pp-flipbox-overlay {
   padding: 35px;

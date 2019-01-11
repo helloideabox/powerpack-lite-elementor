@@ -4,16 +4,19 @@
     width: 100%;
 }
 
-.pp-flipbox-icon-image {
+.pp-flipbox-icon-image,
+.pp-flipbox-icon-image-back {
     display: inline-block;
     margin: 0 auto 0px auto;
     line-height: 1;
-}
-
-.pp-flipbox-icon-image i {
-    font-size: 40px;
-    line-height: 40px;
-    width: 40px;
+    img {
+        width: 30%;
+    }
+    i {
+        font-size: 40px;
+        line-height: 40px;
+        width: 40px;
+    }
 }
 
 .pp-flipbox-overlay {

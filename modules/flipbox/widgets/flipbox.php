@@ -382,7 +382,7 @@ class Flipbox extends Powerpack_Widget {
 		  	[
                 'label'                 => esc_html__( 'Flip Effect', 'power-pack' ),
 		     	'type'                  => Controls_Manager::SELECT,
-		     	'default'               => 'left',
+		     	'default'               => 'flip',
 		     	'label_block'           => false,
 		     	'options'               => [
 		     		'flip'     => esc_html__( 'Flip', 'power-pack' ),
@@ -400,7 +400,7 @@ class Flipbox extends Powerpack_Widget {
 		  	[
                 'label'                 => esc_html__( 'Flip Direction', 'power-pack' ),
 		     	'type'                  => Controls_Manager::SELECT,
-		     	'default'               => 'direction-left',
+		     	'default'               => 'left',
 		     	'label_block'           => false,
 		     	'options'               => [
 		     		'left'     => esc_html__( 'Left', 'power-pack' ),
@@ -504,8 +504,8 @@ class Flipbox extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_control(
-			'image_spacing',
+		$this->add_responsive_control(
+			'image_spacing_front',
 			[
 				'label'                 => __( 'Spacing', 'power-pack' ),
 				'type'                  => Controls_Manager::SLIDER,
@@ -533,7 +533,7 @@ class Flipbox extends Powerpack_Widget {
                     'size' => ''
                 ],
                 'selectors'             => [
-                    '{{WRAPPER}} .pp-flipbox-front .pp-flipbox-icon-image > img' => 'width: {{SIZE}}%;'
+                    '{{WRAPPER}} .pp-flipbox-icon-image > img' => 'width: {{SIZE}}%;'
                 ],
                 'condition'             => [
                     'icon_type'	=> 'image'
@@ -560,7 +560,7 @@ class Flipbox extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-flipbox-front .pp-flipbox-icon-image .fa' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-flipbox-icon-image .fa' => 'color: {{VALUE}};',
 				],
                 'condition'             => [
                     'icon_type'	=> 'icon'
@@ -569,7 +569,7 @@ class Flipbox extends Powerpack_Widget {
 		);
 
 		$this->add_control(
-			'icon_size',
+			'icon_size_front',
 			[
 				'label'                 => __( 'Icon Size', 'power-pack' ),
 				'type'                  => Controls_Manager::SLIDER,
@@ -580,7 +580,7 @@ class Flipbox extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-flipbox-front .pp-flipbox-icon-image .fa' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-flipbox-icon-image .fa' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
                 'condition'             => [
                     'icon_type'	=> 'icon'
@@ -588,7 +588,7 @@ class Flipbox extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_spacing_front',
 			[
 				'label'                 => __( 'Spacing', 'power-pack' ),
@@ -695,7 +695,7 @@ class Flipbox extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-	 		        '{{WRAPPER}} .pp-flipbox-reat-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+	 		        '{{WRAPPER}} .pp-flipbox-back .pp-flipbox-overlay' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 	 			],
 			]
 		);
@@ -735,6 +735,122 @@ class Flipbox extends Powerpack_Widget {
                 'selector'              => '{{WRAPPER}} .pp-flipbox-back',
                 'separator'             => 'before'
             ]
+		);
+        
+		$this->add_control(
+			'image_style_heading_back',
+			[
+				'label'                 => esc_html__( 'Image', 'power-pack' ),
+				'type'                  => Controls_Manager::HEADING,
+                'separator'             => 'before',
+                'condition'             => [
+                    'icon_type_back'	=> 'image'
+                ]
+			]
+		);
+
+		$this->add_responsive_control(
+			'image_spacing_back',
+			[
+				'label'                 => __( 'Spacing', 'power-pack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-icon-image-back' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+                'condition'             => [
+                    'icon_type_back'	=> 'image'
+                ]
+			]
+		);
+
+        $this->add_responsive_control(
+            'image_size_back',
+            [
+                'label'                 => esc_html__( 'Size (%)', 'power-pack' ),
+                'type'                  => Controls_Manager::SLIDER,
+                'default'               => [
+                    'size' => ''
+                ],
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-flipbox-icon-image-back > img' => 'width: {{SIZE}}%;'
+                ],
+                'condition'             => [
+                    'icon_type_back'	=> 'image'
+                ]
+            ]
+        );
+        
+		$this->add_control(
+			'icon_style_heading_back',
+			[
+				'label'                 => esc_html__( 'Icon', 'power-pack' ),
+				'type'                  => Controls_Manager::HEADING,
+                'separator'             => 'before',
+                'condition'             => [
+                    'icon_type_back'	=> 'icon'
+                ]
+			]
+		);
+
+		$this->add_control(
+			'icon_color_back',
+			[
+				'label'                 => esc_html__( 'Color', 'power-pack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-icon-image-back .fa' => 'color: {{VALUE}};',
+				],
+                'condition'             => [
+                    'icon_type_back'	=> 'icon'
+                ]
+			]
+		);
+
+		$this->add_control(
+			'icon_size_back',
+			[
+				'label'                 => __( 'Icon Size', 'power-pack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min' => 6,
+						'max' => 300,
+					],
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-icon-image-back .fa' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+                'condition'             => [
+                    'icon_type_back'	=> 'icon'
+                ]
+			]
+		);
+
+		$this->add_responsive_control(
+			'icon_spacing_back',
+			[
+				'label'                 => __( 'Spacing', 'power-pack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-icon-image-back' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+                'condition'             => [
+                    'icon_type_back'	=> 'icon'
+                ]
+			]
 		);
 
 		$this->add_control(
@@ -824,6 +940,26 @@ class Flipbox extends Powerpack_Widget {
 					'md' => __( 'Medium', 'powerpack' ),
 					'lg' => __( 'Large', 'powerpack' ),
 					'xl' => __( 'Extra Large', 'powerpack' ),
+				],
+				'condition'             => [
+					'link_type'    => 'button',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_spacing',
+			[
+				'label'                 => __( 'Spacing', 'power-pack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-button' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 				'condition'             => [
 					'link_type'    => 'button',
@@ -1065,37 +1201,9 @@ class Flipbox extends Powerpack_Widget {
 	protected function render() {
 
    		$settings = $this->get_settings();
-      	$flipbox_image = $this->get_settings( 'icon_image' );
-	  	$flipbox_image_url = Group_Control_Image_Size::get_attachment_image_src( $flipbox_image['id'], 'thumbnail', $settings );
-	  	( empty( $flipbox_image_url ) ) ? $flipbox_image_url = $flipbox_image['url'] : $flipbox_image_url = $flipbox_image_url;
 
 	  	$flipbox_if_html_tag = 'div';
 	  	$this->add_render_attribute('flipbox-card', 'class', 'pp-flipbox-flip-card');
-
-
-		$flipbox_image_back = $this->get_settings( 'icon_image_back' );
-	  	$flipbox_back_image_url = Group_Control_Image_Size::get_attachment_image_src( $flipbox_image_back['id'], 'thumbnail_back', $settings );
-	  	$flipbox_back_image_url = empty($flipbox_back_image_url) ? $flipbox_back_image_url['url'] : $flipbox_back_image_url;
-
-	  	if( $settings['icon_type_back'] != 'none' ) {
-	  		if( 'image' == $settings['icon_type_back'] ) {
-	  			$this->add_render_attribute(
-	  				'icon-image-back',
-	  				[
-	  					'src'	=> $flipbox_back_image_url,
-	  					'alt'	=> 'flipbox-image'
-	  				]
-	  			);
-	  		}elseif( 'icon' == $settings['icon_type_back'] ) {
-	  			$this->add_render_attribute(
-	  				'icon-back',
-	  				[
-	  					'class'	=> $settings['icon_back'],
-	  					'aria-hidden' => 'true'
-	  				]
-	  			);
-	  		}
-	  	}
 
 	  	$this->add_render_attribute(
 	  		'flipbox-container',
@@ -1137,13 +1245,20 @@ class Flipbox extends Powerpack_Widget {
                         <?php if( 'icon' === $settings['icon_type'] ) { ?>
                             <i class="<?php echo esc_attr( $settings['icon'] ); ?>"></i>
                         <?php } elseif ( 'image' === $settings['icon_type'] ) { ?>
-                            <img src="<?php echo esc_url( $flipbox_image_url ); ?>" alt="">
+                            <?php
+                                $flipbox_image = $settings['icon_image'];
+                                $flipbox_image_url = Group_Control_Image_Size::get_attachment_image_src( $flipbox_image['id'], 'thumbnail', $settings );
+                                $flipbox_image_url = ( empty( $flipbox_image_url ) ) ? $flipbox_image['url'] : $flipbox_image_url;                                                 
+                            ?>
+                            <?php if ( $flipbox_image_url ) { ?>
+                                <img src="<?php echo esc_url( $flipbox_image_url ); ?>" alt="">
+                            <?php } ?>
                         <?php } ?>
                     </div>
 
-                    <h2 class="pp-flipbox-heading">
+                    <h3 class="pp-flipbox-heading">
                         <?php echo esc_html__( $settings['title_front'], 'power-pack' ); ?>
-                    </h2>
+                    </h3>
 
                     <div class="pp-flipbox-content">
                        <?php echo __( $settings['description_front'], 'power-pack' ); ?>
@@ -1157,9 +1272,33 @@ class Flipbox extends Powerpack_Widget {
 	protected function render_back() {
    		$settings = $this->get_settings();
         
-	  	$pp_title_html_tag = 'h2';
+	  	$pp_title_html_tag = 'h3';
         
 	  	$this->add_render_attribute('title-container', 'class', 'pp-flipbox-heading');
+        
+		$flipbox_image_back = $settings['icon_image_back'];
+	  	$flipbox_back_image_url = Group_Control_Image_Size::get_attachment_image_src( $flipbox_image_back['id'], 'thumbnail_back', $settings );
+	  	$flipbox_back_image_url = ( empty( $flipbox_back_image_url ) ) ? $flipbox_image_back['url'] : $flipbox_back_image_url;
+
+	  	if ( $settings['icon_type_back'] != 'none' ) {
+	  		if ( 'image' == $settings['icon_type_back'] ) {
+	  			$this->add_render_attribute(
+	  				'icon-image-back',
+	  				[
+	  					'src'	=> $flipbox_back_image_url,
+	  					'alt'	=> 'flipbox-image'
+	  				]
+	  			);
+	  		} elseif ( 'icon' == $settings['icon_type_back'] ) {
+	  			$this->add_render_attribute(
+	  				'icon-back',
+	  				[
+	  					'class'	=> $settings['icon_back'],
+	  					'aria-hidden' => 'true'
+	  				]
+	  			);
+	  		}
+	  	}
 
 	  	if ( $settings['link_type'] != 'none' ) {
 	  		if ( ! empty( $settings['link']['url'] ) ) {
@@ -1205,7 +1344,7 @@ class Flipbox extends Powerpack_Widget {
             <div class="pp-flipbox-overlay">
                 <div class="pp-flipbox-inner">
                     <?php if( 'none' != $settings['icon_type_back'] ) { ?>
-                        <div class="flipbox-back-image-icon">
+                        <div class="pp-flipbox-icon-image-back">
                             <?php if ( 'image' == $settings['icon_type_back'] ) { ?>
                                 <img <?php echo $this->get_render_attribute_string('icon-image-back'); ?>>
                             <?php } elseif ( 'icon' == $settings['icon_type_back'] ) { ?>
