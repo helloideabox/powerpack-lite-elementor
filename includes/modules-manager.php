@@ -13,6 +13,7 @@ class Modules_Manager {
 
 	public function register_modules() {
 		$modules = [
+			'advanced-accordion',
 			'business-hours',
 			'contact-form-seven',
 			'caldera-forms',
@@ -25,6 +26,7 @@ class Modules_Manager {
 			'headings',
 			'hotspots',
 			'icon-list',
+			'image-accordion',
 			'image-comparison',
 			'info-box',
 			'info-list',

@@ -67,7 +67,7 @@ class Flipbox extends Powerpack_Widget {
 	 * @return string Widget icon.
 	 */
     public function get_icon() {
-        return 'ppicon-counter power-pack-admin-icon';
+        return 'eicon-flip-box power-pack-admin-icon';
     }
 
     /**
