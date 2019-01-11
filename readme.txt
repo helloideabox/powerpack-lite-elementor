@@ -11,7 +11,7 @@ A collection of custom and creative widgets for Elementor page builder like Imag
 
 == Description ==
 
-Extend Elementor with 40+ Creative Elementor Widgets using [PowerPack for Elementor](https://powerpackelements.com/). Get 20+ Free Elementor widgets with PowerPack. These Elementor widgets are designed with focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever!
+Extend Elementor with 40+ Creative Elementor Widgets using [PowerPack for Elementor](https://powerpackelements.com/). Get 25+ Free Elementor widgets with PowerPack. These Elementor widgets are designed with focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever!
 
 PowerPack for Elementor is built by [IdeaBox Creations](https://ideaboxcreations.com/).
 
@@ -24,7 +24,7 @@ All the Elementor Widgets included with PowerPack come with well-thought design 
 = Use Only What you Want! =
 Take complete control of PowerPack Elementor widgets. Activate the widgets you would like to use. Helps you manage the Elementor UI in a better way and keep your workspace tidy :)
 
-= 20+ Free Stunning Elementor Widgets =
+= 25+ Free Stunning Elementor Widgets =
 
 *	[Businsess Hours](https://powerpackelements.com/demo/business-hours/) - Display your business opening hours
 *	[Counter](https://powerpackelements.com/demo/counter/) - Show important facts on your website using Counter widgets
@@ -51,6 +51,9 @@ Take complete control of PowerPack Elementor widgets. Activate the widgets you w
 *	[Caldera Forms Styler](https://powerpackelements.com/demo/contact-form/) - Style your Caldera Forms through Elementor with numerous customization options
 *	[Ninja Forms Styler](https://powerpackelements.com/demo/contact-form/) - Style your Ninja Forms through Elementor with numerous customization options
 *	[WPForms Styler](https://powerpackelements.com/demo/contact-form/) - Style your WPForms through Elementor with numerous customization options
+*	Advanced Accordion - Gives the flexibility to toggle between displaying and hiding a large amount of content
+*	Image Accordion - Gives the flexibility to toggle between image panels
+*	Flip Box - Add dual side content on information boxes with flip animations
 
 = More 15+ Widgets in Pro Version =
 
