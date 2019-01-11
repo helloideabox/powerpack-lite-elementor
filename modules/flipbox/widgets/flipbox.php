@@ -43,7 +43,7 @@ class Flipbox extends Powerpack_Widget {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Flipbox', 'power-pack' );
+        return __( 'Flip Box', 'power-pack' );
     }
 
     /**
