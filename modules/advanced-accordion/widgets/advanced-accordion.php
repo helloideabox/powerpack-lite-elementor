@@ -859,7 +859,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 	 */
 	public function get_page_template_options( $type = '' ) {
 
-		$page_templates = pp_get_page_templates( $type );
+		$page_templates = pp_elements_lite_get_page_templates( $type );
 
 		$options[-1]   = __( 'Select', 'power-pack' );
 
