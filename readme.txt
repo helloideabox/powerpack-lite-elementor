@@ -11,7 +11,7 @@ A collection of custom and creative widgets for Elementor page builder like Imag
 
 == Description ==
 
-Extend Elementor with 40+ Creative Elementor Widgets using [PowerPack for Elementor](https://powerpackelements.com/). Get 25+ Free Elementor widgets with PowerPack. These Elementor widgets are designed with focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever!
+Extend Elementor with 45+ Creative Elementor Widgets using [PowerPack for Elementor](https://powerpackelements.com/). Get 25+ Free Elementor widgets with PowerPack. These Elementor widgets are designed with focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever!
 
 PowerPack for Elementor is built by [IdeaBox Creations](https://ideaboxcreations.com/).
 
@@ -51,9 +51,10 @@ Take complete control of PowerPack Elementor widgets. Activate the widgets you w
 *	[Caldera Forms Styler](https://powerpackelements.com/demo/contact-form/) - Style your Caldera Forms through Elementor with numerous customization options
 *	[Ninja Forms Styler](https://powerpackelements.com/demo/contact-form/) - Style your Ninja Forms through Elementor with numerous customization options
 *	[WPForms Styler](https://powerpackelements.com/demo/contact-form/) - Style your WPForms through Elementor with numerous customization options
-*	Advanced Accordion - Gives the flexibility to toggle between displaying and hiding a large amount of content
-*	Image Accordion - Gives the flexibility to toggle between image panels
-*	Flip Box - Add dual side content on information boxes with flip animations
+*	[Advanced Accordion](https://powerpackelements.com/demo/advanced-accordion/) - Gives the flexibility to toggle between displaying and hiding a large amount of content
+*	[Image Accordion](https://powerpackelements.com/demo/image-accordion/) - Gives the flexibility to toggle between image panels
+*	[Flip Box](https://powerpackelements.com/demo/flip-box/) - Add dual side content on information boxes with flip animations
+*	[Content Ticker](https://powerpackelements.com/demo/content-ticker/) - Display updates, popular content or messages
 
 = More 15+ Widgets in Pro Version =
 
@@ -75,6 +76,9 @@ Take complete control of PowerPack Elementor widgets. Activate the widgets you w
 *	[Google Maps](https://powerpackelements.com/demo/google-map/) - Show Google map on your website with various styling options
 *	[Advanced Tabs](https://powerpackelements.com/demo/advanced-tab/) - Display custom content or saved templates in tabs with more styling controls
 *	[Timeline](https://powerpackelements.com/demo/timeline/) - You can create a timeline of Posts, Custom Post Types or static text content with horizontal or vertical layout
+*	[Magazine Slider](https://powerpackelements.com/demo/magazine-slider/) - Create magazine layout slider of posts
+*	[Video](https://powerpackelements.com/demo/video/) - A widget to embed videos on your website
+*	[Video Gallery](https://powerpackelements.com/demo/video-gallery/) - Create video gallery with filter options
 
 
 = Other Features in PowerPack Pro =
@@ -121,6 +125,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 
 == Changelog ==
+
+== 1.1.0 - February 8, 2019
+*	New: Added Content Ticker widget
 
 == 1.0.0 - January 4, 2019 ==
 *	Initial release
