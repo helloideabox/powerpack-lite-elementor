@@ -349,11 +349,7 @@ function pp_elements_lite_get_modules() {
         'pp-logo-grid'              => esc_html__('Logo Grid', 'power-pack'),
         'pp-image-comparison'       => esc_html__('Image Comparison', 'power-pack'),
         'pp-instafeed'              => esc_html__('Instagram Feed', 'power-pack'),
-        'pp-contact-form-7'         => esc_html__('Contact Form 7', 'power-pack'),
-        'pp-caldera-forms'         	=> esc_html__('Caldera Forms', 'power-pack'),
-        'pp-gravity-forms'         	=> esc_html__('Gravity Forms', 'power-pack'),
-        'pp-ninja-forms'         	=> esc_html__('Ninja Forms', 'power-pack'),
-        'pp-wpforms'         		=> esc_html__('WPForms', 'power-pack'),
+        'pp-content-ticker'         => esc_html__('Content Ticker', 'power-pack'),
     );
 
     // Contact Form 7

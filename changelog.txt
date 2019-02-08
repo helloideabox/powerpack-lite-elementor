@@ -1,3 +1,7 @@
+== 1.1.0 ==
+* Added: Content ticker widget
+* Updated flip box widget with new options
+
 == 1.0.0 ==
 Release date: January 4, 2018
 * Initial Release
