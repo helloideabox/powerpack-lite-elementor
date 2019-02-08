@@ -17,6 +17,7 @@ class Modules_Manager {
 			'business-hours',
 			'contact-form-seven',
 			'caldera-forms',
+			'content-ticker',
 			'flipbox',
 			'gravity-forms',
 			'ninja-forms',
