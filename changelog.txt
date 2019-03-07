@@ -1,5 +1,5 @@
 == 1.1.1 ==
-Release date: March 5, 2019
+Release date: March 7, 2019
 Added: Image size option to info list widget
 Added: Icon vertical align and horizontal align options in info list widget
 
