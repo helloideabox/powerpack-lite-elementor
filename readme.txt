@@ -127,7 +127,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 == Changelog ==
 
 == 1.1.1 - March 7, 2019
-*	Enhancement: Info Box - Added image size option
+*	Enhancement: Info List - Added image size option
 *	Enhancement: Info List - Icon vertical align and horizontal align options
 
 == 1.1.0 - February 8, 2019
