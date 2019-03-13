@@ -1,3 +1,7 @@
+== 1.1.2 ==
+Release date: March 13, 2019
+Fix: Info List - PHP error
+
 == 1.1.1 ==
 Release date: March 7, 2019
 Added: Image size option to info list widget
