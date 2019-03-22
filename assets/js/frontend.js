@@ -403,6 +403,65 @@
             });
     };
     
+    var ImageScrollHandler = function($scope, $) {
+        var scrollElement    = $scope.find(".pp-image-scroll-container"),
+            scrollOverlay    = scrollElement.find(".pp-image-scroll-overlay"),
+            scrollVertical   = scrollElement.find(".pp-image-scroll-vertical"),
+			elementSettings  = getElementSettings( $scope ),
+            imageScroll      = scrollElement.find('.pp-image-scroll-image img'),
+            direction        = elementSettings.direction_type,
+            reverse			 = elementSettings.reverse,
+            trigger			 = elementSettings.trigger_type,
+            transformOffset  = null;
+        
+        function startTransform() {
+            imageScroll.css("transform", (direction == "vertical" ? "translateY" : "translateX") + "( -" +  transformOffset + "px)");
+        }
+        
+        function endTransform() {
+            imageScroll.css("transform", (direction == 'vertical' ? "translateY" : "translateX") + "(0px)");
+        }
+        
+        function setTransform() {
+            if( direction == "vertical" ) {
+                transformOffset = imageScroll.height() - scrollElement.height();
+            } else {
+                transformOffset = imageScroll.width() - scrollElement.width();
+            }
+        }
+        
+        if( trigger == "scroll" ) {
+            scrollElement.addClass("pp-container-scroll");
+            if ( direction == "vertical" ) {
+                scrollVertical.addClass("pp-image-scroll-ver");
+            } else {
+                scrollElement.imagesLoaded(function() {
+                  scrollOverlay.css( { "width": imageScroll.width(), "height": imageScroll.height() } );
+                });
+            }
+        } else {
+            if ( reverse === 'yes' ) {
+                scrollElement.imagesLoaded(function() {
+                    scrollElement.addClass("pp-container-scroll-instant");
+                    setTransform();
+                    startTransform();
+                });
+            }
+            if ( direction == "vertical" ) {
+                scrollVertical.removeClass("pp-image-scroll-ver");
+            }
+            scrollElement.mouseenter(function() {
+                scrollElement.removeClass("pp-container-scroll-instant");
+                setTransform();
+                reverse === 'yes' ? endTransform() : startTransform();
+            });
+
+            scrollElement.mouseleave(function() {
+                reverse === 'yes' ? startTransform() : endTransform();
+            });
+        }
+    };
+    
     $(window).on('elementor/frontend/init', function () {
         if ( elementorFrontend.isEditMode() ) {
 			isEditMode = true;
@@ -415,6 +474,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-info-box-carousel.default', InfoBoxCarouselHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-instafeed.default', InstaFeedPopupHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-team-member-carousel.default', TeamMemberCarouselHandler);
+        elementorFrontend.hooks.addAction('frontend/element_ready/pp-scroll-image.default', ImageScrollHandler);
     });
     
 }(jQuery));

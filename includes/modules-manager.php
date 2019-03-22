@@ -37,6 +37,7 @@ class Modules_Manager {
 			'logos',
 			'pricing',
 			'promo-box',
+			'scroll-image',
 			'team-member',
 		];
         
