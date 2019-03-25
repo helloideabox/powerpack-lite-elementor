@@ -779,12 +779,12 @@ class Advanced_Accordion extends Powerpack_Widget {
                     $tab_title_setting_key = $this->get_repeater_setting_key('tab_title', 'tabs', $index);
                     $tab_content_setting_key = $this->get_repeater_setting_key('accordion_content', 'tabs', $index);	
 
-                    $tab_title_class 	= 'pp-accordion-tab-title';
-                    $tab_content_class 	= 'pp-accordion-tab-content';
+                    $tab_title_class 	= ['pp-accordion-tab-title'];
+                    $tab_content_class 	= ['pp-accordion-tab-content'];
 
                     if ( $tab['accordion_tab_default_active'] == 'yes' ) {
-                        $tab_title_class[] 		= 'active-default';
-                        $tab_content_class[] 	= 'active-default';
+                        $tab_title_class[] 		= 'pp-accordion-tab-active-default';
+                        $tab_content_class[] 	= 'pp-accordion-tab-active-default';
                     }
 
                     $this->add_render_attribute( $tab_title_setting_key, [

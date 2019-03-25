@@ -462,6 +462,52 @@
         }
     };
     
+    var AdvancedAccordionHandler = function ($scope, $) {
+    	var $advanced_accordion         = $scope.find(".pp-advanced-accordion").eq(0),
+            elementSettings             = getElementSettings( $scope ),
+        	$accordion_title            = $scope.find(".pp-accordion-tab-title"),
+        	$accordion_type             = elementSettings.accordion_type,
+        	$accordion_speed            = elementSettings.toggle_speed;
+			
+        // Open default actived tab
+        $accordion_title.each(function(){
+            if ( $(this).hasClass('pp-accordion-tab-active-default') ) {
+                $(this).addClass('pp-accordion-tab-show pp-accordion-tab-active');
+                $(this).next().slideDown($accordion_speed)
+            }
+        })
+
+        // Remove multiple click event for nested accordion
+        $accordion_title.unbind("click");
+
+        $accordion_title.click(function(e) {
+            e.preventDefault();
+
+            var $this = $(this);
+
+            if ( $accordion_type === 'accordion' ) {
+                if ( $this.hasClass("pp-accordion-tab-show") ) {
+                    $this.removeClass("pp-accordion-tab-show pp-accordion-tab-active");
+                    $this.next().slideUp($accordion_speed);
+                } else {
+                    $this.parent().parent().find(".pp-accordion-tab-title").removeClass("pp-accordion-tab-show pp-accordion-tab-active");
+                    $this.parent().parent().find(".pp-accordion-tab-content").slideUp($accordion_speed);
+                    $this.toggleClass("pp-accordion-tab-show pp-accordion-tab-active");
+                    $this.next().slideToggle($accordion_speed);
+                }
+            } else {
+                // For acccordion type 'toggle'
+                if ( $this.hasClass("pp-accordion-tab-show") ) {
+                    $this.removeClass("pp-accordion-tab-show pp-accordion-tab-active");
+                    $this.next().slideUp($accordion_speed);
+                } else {
+                    $this.addClass("pp-accordion-tab-show pp-accordion-tab-active");
+                    $this.next().slideDown($accordion_speed);
+                }
+            }
+        });
+    };
+    
     $(window).on('elementor/frontend/init', function () {
         if ( elementorFrontend.isEditMode() ) {
 			isEditMode = true;
@@ -475,6 +521,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-instafeed.default', InstaFeedPopupHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-team-member-carousel.default', TeamMemberCarouselHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-scroll-image.default', ImageScrollHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-advanced-accordion.default', AdvancedAccordionHandler);
     });
     
 }(jQuery));
