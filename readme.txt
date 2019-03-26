@@ -1,6 +1,6 @@
 === PowerPack Lite for Elementor ===
 Contributors: ideaboxcreations
-Tags: elementor, powerpack, elementor widgets, elementor addon, addons, elements
+Tags: elementor, powerpack, elementor widgets, elementor addon, addons, elements, powerpack elementor addon
 Requires at least: 4.7
 Tested up to: 5.1.1
 Stable tag: trunk
@@ -125,6 +125,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 
 == Changelog ==
+
+== 1.2.0 - March 26, 2019 ==
+* 	New: Scroll Image widget
+* 	Fix: PHP error in Advanced Accordion widget
 
 == 1.1.2 - March 13, 2018
 *	Fix: Info List - PHP error

@@ -1,16 +1,16 @@
 == 1.2.0 ==
-Release date: March 22, 2019
-Added: Scroll Image widget
-Fixed: PHP error in Advanced Accordion widget
+Release date: March 26, 2019
+* Added: Scroll Image widget
+* Fixed: PHP error in Advanced Accordion widget
 
 == 1.1.2 ==
 Release date: March 13, 2019
-Fix: Info List - PHP error
+* Fix: Info List - PHP error
 
 == 1.1.1 ==
 Release date: March 7, 2019
-Added: Image size option to info list widget
-Added: Icon vertical align and horizontal align options in info list widget
+* Added: Image size option to info list widget
+* Added: Icon vertical align and horizontal align options in info list widget
 
 == 1.1.0 ==
 Release date: February 8, 2019
