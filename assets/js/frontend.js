@@ -403,6 +403,111 @@
             });
     };
     
+    var ImageScrollHandler = function($scope, $) {
+        var scrollElement    = $scope.find(".pp-image-scroll-container"),
+            scrollOverlay    = scrollElement.find(".pp-image-scroll-overlay"),
+            scrollVertical   = scrollElement.find(".pp-image-scroll-vertical"),
+			elementSettings  = getElementSettings( $scope ),
+            imageScroll      = scrollElement.find('.pp-image-scroll-image img'),
+            direction        = elementSettings.direction_type,
+            reverse			 = elementSettings.reverse,
+            trigger			 = elementSettings.trigger_type,
+            transformOffset  = null;
+        
+        function startTransform() {
+            imageScroll.css("transform", (direction == "vertical" ? "translateY" : "translateX") + "( -" +  transformOffset + "px)");
+        }
+        
+        function endTransform() {
+            imageScroll.css("transform", (direction == 'vertical' ? "translateY" : "translateX") + "(0px)");
+        }
+        
+        function setTransform() {
+            if( direction == "vertical" ) {
+                transformOffset = imageScroll.height() - scrollElement.height();
+            } else {
+                transformOffset = imageScroll.width() - scrollElement.width();
+            }
+        }
+        
+        if( trigger == "scroll" ) {
+            scrollElement.addClass("pp-container-scroll");
+            if ( direction == "vertical" ) {
+                scrollVertical.addClass("pp-image-scroll-ver");
+            } else {
+                scrollElement.imagesLoaded(function() {
+                  scrollOverlay.css( { "width": imageScroll.width(), "height": imageScroll.height() } );
+                });
+            }
+        } else {
+            if ( reverse === 'yes' ) {
+                scrollElement.imagesLoaded(function() {
+                    scrollElement.addClass("pp-container-scroll-instant");
+                    setTransform();
+                    startTransform();
+                });
+            }
+            if ( direction == "vertical" ) {
+                scrollVertical.removeClass("pp-image-scroll-ver");
+            }
+            scrollElement.mouseenter(function() {
+                scrollElement.removeClass("pp-container-scroll-instant");
+                setTransform();
+                reverse === 'yes' ? endTransform() : startTransform();
+            });
+
+            scrollElement.mouseleave(function() {
+                reverse === 'yes' ? startTransform() : endTransform();
+            });
+        }
+    };
+    
+    var AdvancedAccordionHandler = function ($scope, $) {
+    	var $advanced_accordion         = $scope.find(".pp-advanced-accordion").eq(0),
+            elementSettings             = getElementSettings( $scope ),
+        	$accordion_title            = $scope.find(".pp-accordion-tab-title"),
+        	$accordion_type             = elementSettings.accordion_type,
+        	$accordion_speed            = elementSettings.toggle_speed;
+			
+        // Open default actived tab
+        $accordion_title.each(function(){
+            if ( $(this).hasClass('pp-accordion-tab-active-default') ) {
+                $(this).addClass('pp-accordion-tab-show pp-accordion-tab-active');
+                $(this).next().slideDown($accordion_speed)
+            }
+        })
+
+        // Remove multiple click event for nested accordion
+        $accordion_title.unbind("click");
+
+        $accordion_title.click(function(e) {
+            e.preventDefault();
+
+            var $this = $(this);
+
+            if ( $accordion_type === 'accordion' ) {
+                if ( $this.hasClass("pp-accordion-tab-show") ) {
+                    $this.removeClass("pp-accordion-tab-show pp-accordion-tab-active");
+                    $this.next().slideUp($accordion_speed);
+                } else {
+                    $this.parent().parent().find(".pp-accordion-tab-title").removeClass("pp-accordion-tab-show pp-accordion-tab-active");
+                    $this.parent().parent().find(".pp-accordion-tab-content").slideUp($accordion_speed);
+                    $this.toggleClass("pp-accordion-tab-show pp-accordion-tab-active");
+                    $this.next().slideToggle($accordion_speed);
+                }
+            } else {
+                // For acccordion type 'toggle'
+                if ( $this.hasClass("pp-accordion-tab-show") ) {
+                    $this.removeClass("pp-accordion-tab-show pp-accordion-tab-active");
+                    $this.next().slideUp($accordion_speed);
+                } else {
+                    $this.addClass("pp-accordion-tab-show pp-accordion-tab-active");
+                    $this.next().slideDown($accordion_speed);
+                }
+            }
+        });
+    };
+    
     $(window).on('elementor/frontend/init', function () {
         if ( elementorFrontend.isEditMode() ) {
 			isEditMode = true;
@@ -415,6 +520,8 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-info-box-carousel.default', InfoBoxCarouselHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-instafeed.default', InstaFeedPopupHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-team-member-carousel.default', TeamMemberCarouselHandler);
+        elementorFrontend.hooks.addAction('frontend/element_ready/pp-scroll-image.default', ImageScrollHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-advanced-accordion.default', AdvancedAccordionHandler);
     });
     
 }(jQuery));

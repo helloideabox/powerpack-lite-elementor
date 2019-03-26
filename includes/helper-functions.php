@@ -350,6 +350,7 @@ function pp_elements_lite_get_modules() {
         'pp-image-comparison'       => esc_html__('Image Comparison', 'power-pack'),
         'pp-instafeed'              => esc_html__('Instagram Feed', 'power-pack'),
         'pp-content-ticker'         => esc_html__('Content Ticker', 'power-pack'),
+        'pp-scroll-image'           => __('Scroll Image', 'powerpack'),
     );
 
     // Contact Form 7
