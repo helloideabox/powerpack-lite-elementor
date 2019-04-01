@@ -2815,6 +2815,73 @@ div[class*=' pa-'] {
     -webkit-transform: translateX(5px);
     -ms-transform: translateX(5px);
     transform: translateX(5px); } }
+.pp-buttons-group {
+  display: flex;
+  flex-flow: wrap;
+  align-items: flex-start; }
+  .pp-buttons-group a, .pp-buttons-group a:hover {
+    text-decoration: none;
+    transition: all 0.5s ease-in-out; }
+  .pp-buttons-group .pp-button {
+    display: flex; }
+    .pp-buttons-group .pp-button .pp-button-content-wrapper .pp-button-content-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .pp-buttons-group .pp-button .pp-button-content-wrapper .pp-button-content-inner.pp-icon-before {
+        flex-direction: row; }
+      .pp-buttons-group .pp-button .pp-button-content-wrapper .pp-button-content-inner.pp-icon-after {
+        flex-direction: row-reverse; }
+      .pp-buttons-group .pp-button .pp-button-content-wrapper .pp-button-content-inner.pp-icon-top {
+        flex-direction: column; }
+      .pp-buttons-group .pp-button .pp-button-content-wrapper .pp-button-content-inner.pp-icon-bottom {
+        flex-direction: column-reverse; }
+
+.pp-button-content-wrapper {
+  display: flex;
+  flex-grow: 1; }
+
+.pp-buttons-valign-top .pp-buttons-group {
+  align-items: flex-start; }
+.pp-buttons-valign-middle .pp-buttons-group {
+  align-items: center; }
+.pp-buttons-valign-bottom .pp-buttons-group {
+  align-items: flex-end; }
+.pp-buttons-valign-stretch .pp-buttons-group {
+  align-items: stretch; }
+  .pp-buttons-valign-stretch .pp-buttons-group .pp-button-content-wrapper {
+    align-items: center; }
+
+.pp-buttons-halign-left .pp-buttons-group {
+  justify-content: flex-start; }
+
+.pp-buttons-halign-center .pp-buttons-group {
+  justify-content: center; }
+
+.pp-buttons-halign-right .pp-buttons-group {
+  justify-content: flex-end; }
+
+.pp-buttons-halign-stretch .pp-buttons-group {
+  justify-content: stretch; }
+.pp-buttons-halign-stretch .pp-button {
+  flex-grow: 1; }
+
+.pp-buttons-stack-desktop .pp-buttons-group {
+  flex-direction: column; }
+.pp-buttons-stack-desktop.pp-buttons-halign-left .pp-buttons-group {
+  align-items: flex-start; }
+.pp-buttons-stack-desktop.pp-buttons-halign-center .pp-buttons-group {
+  align-items: center; }
+.pp-buttons-stack-desktop.pp-buttons-halign-right .pp-buttons-group {
+  align-items: flex-end; }
+.pp-buttons-stack-desktop.pp-buttons-halign-stretch .pp-buttons-group {
+  align-items: stretch; }
+.pp-buttons-stack-desktop.pp-buttons-halign-stretch .pp-button {
+  flex-grow: 1; }
+.pp-buttons-stack-desktop .pp-button {
+  margin-left: 0 !important;
+  margin-right: 0 !important; }
+
 @media only screen and (min-width: 1025px) {
   /* For Desktop: */
   .elementor-element.elementor-grid-1 {

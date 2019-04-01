@@ -507,6 +507,25 @@
             }
         });
     };
+
+	var PPButtonHandler = function ( $scope, $) {
+		var id = $scope.data('id');
+		var ttipPosition = $scope.find('.pp-button[data-tooltip]').data('tooltip-position');
+
+		// tablet
+		if ( window.innerWidth <= 1024 && window.innerWidth >= 768 ) {
+			ttipPosition = $scope.find('.pp-button[data-tooltip]').data('tooltip-position-tablet');
+		}
+		// mobile
+		if ( window.innerWidth < 768 ) {
+			ttipPosition = $scope.find('.pp-button[data-tooltip]').data('tooltip-position-mobile');
+		}
+		$scope.find('.pp-button[data-tooltip]')._tooltip( {
+			template: '<div class="pp-tooltip pp-tooltip-'+id+'"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div><div class="pp-tooltip-callout"></div></div></div>',
+			position: ttipPosition,
+			animDuration: 400
+		} );
+	};
     
     $(window).on('elementor/frontend/init', function () {
         if ( elementorFrontend.isEditMode() ) {
@@ -522,6 +541,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-team-member-carousel.default', TeamMemberCarouselHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-scroll-image.default', ImageScrollHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-advanced-accordion.default', AdvancedAccordionHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-buttons.default', PPButtonHandler);
     });
     
 }(jQuery));

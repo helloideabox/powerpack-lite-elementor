@@ -351,6 +351,7 @@ function pp_elements_lite_get_modules() {
         'pp-instafeed'              => esc_html__('Instagram Feed', 'power-pack'),
         'pp-content-ticker'         => esc_html__('Content Ticker', 'power-pack'),
         'pp-scroll-image'           => __('Scroll Image', 'powerpack'),
+        'pp-buttons'				=> __('Buttons', 'powerpack'),
     );
 
     // Contact Form 7

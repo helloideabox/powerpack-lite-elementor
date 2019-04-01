@@ -15,6 +15,7 @@ class Modules_Manager {
 		$modules = [
 			'advanced-accordion',
 			'business-hours',
+			'buttons',
 			'contact-form-seven',
 			'caldera-forms',
 			'content-ticker',
