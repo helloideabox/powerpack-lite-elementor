@@ -136,13 +136,13 @@ class Buttons extends Powerpack_Widget {
 					'label_block' => false,
 					'default'     => 'icon',
 					'options'     => [
-						'' => [
+						'none' => [
 							'title' => esc_html__( 'None', 'powerpack' ),
 							'icon'  => 'fa fa-ban',
 						],
 						'icon' => [
 							'title' => esc_html__( 'Icon', 'powerpack' ),
-							'icon'  => 'fa fa-gear',
+							'icon'  => 'fa fa-star',
 						],
 						'image' => [
 							'title' => esc_html__( 'Image', 'powerpack' ),
