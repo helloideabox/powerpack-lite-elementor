@@ -55,6 +55,8 @@ Take complete control of PowerPack Elementor widgets. Activate the widgets you w
 *	[Image Accordion](https://powerpackelements.com/demo/image-accordion/) - Gives the flexibility to toggle between image panels
 *	[Flip Box](https://powerpackelements.com/demo/flip-box/) - Add dual side content on information boxes with flip animations
 *	[Content Ticker](https://powerpackelements.com/demo/content-ticker/) - Display updates, popular content or messages
+*	[Buttons](https://powerpackelements.com/button-widget/) - Create call-to-action button or multiple buttons with this widget
+*	Scroll Image
 
 = More 15+ Widgets in Pro Version =
 
@@ -125,6 +127,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 
 == Changelog ==
+
+== 1.2.1 - April 2, 2019 ==
+* 	New: Buttons widget
 
 == 1.2.0 - March 26, 2019 ==
 * 	New: Scroll Image widget

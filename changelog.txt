@@ -1,3 +1,7 @@
+== 1.2.1 ==
+Release date: April 2, 2019
+* Added: Buttons widget
+
 == 1.2.0 ==
 Release date: March 26, 2019
 * Added: Scroll Image widget
