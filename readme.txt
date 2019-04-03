@@ -56,7 +56,7 @@ Take complete control of PowerPack Elementor widgets. Activate the widgets you w
 *	[Flip Box](https://powerpackelements.com/demo/flip-box/) - Add dual side content on information boxes with flip animations
 *	[Content Ticker](https://powerpackelements.com/demo/content-ticker/) - Display updates, popular content or messages
 *	[Buttons](https://powerpackelements.com/button-widget/) - Create call-to-action button or multiple buttons with this widget
-*	Scroll Image
+*	[Scroll Image](https://powerpackelements.com/demo/image-scroll/) - Vertical and Horizontal scroll effect on image
 
 = More 15+ Widgets in Pro Version =
 
