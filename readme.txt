@@ -1,4 +1,4 @@
-=== PowerPack Lite for Elementor ===
+=== Elementor Addons -  PowerPack Lite for Elementor ===
 Contributors: ideaboxcreations
 Tags: elementor, powerpack, elementor widgets, elementor addon, addons, elements, powerpack elementor addon
 Requires at least: 4.7
