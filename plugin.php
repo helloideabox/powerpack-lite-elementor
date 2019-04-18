@@ -127,13 +127,6 @@ class PowerpackLitePlugin {
 		);
         
 		wp_enqueue_style(
-			'tipso',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tipso/tipso.css',
-			[],
-			POWERPACK_ELEMENTS_LITE_VER
-		);
-        
-		wp_enqueue_style(
 			'odometer',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/odometer/odometer-theme-default.css',
 			[],
@@ -178,16 +171,6 @@ class PowerpackLitePlugin {
 				'jquery',
 			],
 			'1.4.1',
-			true
-		);
-
-		wp_register_script(
-			'tipso',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tipso/tipso.js',
-			[
-				'jquery',
-			],
-			'1.0.8',
 			true
 		);
 
@@ -248,36 +231,6 @@ class PowerpackLitePlugin {
 				'jquery',
 			],
 			'1.0.0',
-			true
-		);
-
-		wp_register_script(
-			'isotope',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/isotope/isotope.pkgd' . $suffix . '.js',
-			[
-				'jquery',
-			],
-			'0.5.3',
-			true
-		);
-
-		wp_register_script(
-			'tilt',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tilt/tilt.jquery' . $suffix . '.js',
-			[
-				'jquery',
-			],
-			'1.1.19',
-			true
-		);
-
-		wp_register_script(
-			'jquery-resize',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/jquery-resize/jquery.resize' . $suffix . '.js',
-			[
-				'jquery',
-			],
-			'0.5.3',
 			true
 		);
 

@@ -1,3 +1,7 @@
+== 1.2.2 ==
+Release date: April 18, 2019
+* Removed unnecessary JS and CSS files
+
 == 1.2.1 ==
 Release date: April 2, 2019
 * Added: Buttons widget
