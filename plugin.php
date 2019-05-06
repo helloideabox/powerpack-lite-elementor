@@ -235,6 +235,16 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
+			'twitter-widgets',
+			POWERPACK_ELEMENTS_URL . 'assets/js/twitter-widgets.js',
+			[
+				'jquery',
+			],
+			'1.0.0',
+			true
+		);
+
+		wp_register_script(
 			'pp-tooltip',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/tooltip.js',
 			[

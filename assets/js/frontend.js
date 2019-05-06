@@ -526,6 +526,14 @@
 			animDuration: 400
 		} );
 	};
+
+	var TwitterTimelineHandler = function ($scope, $) {
+		$(document).ready(function () {
+			if ('undefined' !== twttr) {
+				twttr.widgets.load();
+			}
+		});
+	};
     
     $(window).on('elementor/frontend/init', function () {
         if ( elementorFrontend.isEditMode() ) {
@@ -542,6 +550,8 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-scroll-image.default', ImageScrollHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-advanced-accordion.default', AdvancedAccordionHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-buttons.default', PPButtonHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-twitter-timeline.default', TwitterTimelineHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-twitter-tweet.default', TwitterTimelineHandler);
     });
     
 }(jQuery));

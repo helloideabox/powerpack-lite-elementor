@@ -40,6 +40,7 @@ class Modules_Manager {
 			'promo-box',
 			'scroll-image',
 			'team-member',
+			'twitter',
 		];
         
         ksort($modules);

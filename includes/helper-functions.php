@@ -350,8 +350,12 @@ function pp_elements_lite_get_modules() {
         'pp-image-comparison'       => esc_html__('Image Comparison', 'power-pack'),
         'pp-instafeed'              => esc_html__('Instagram Feed', 'power-pack'),
         'pp-content-ticker'         => esc_html__('Content Ticker', 'power-pack'),
-        'pp-scroll-image'           => __('Scroll Image', 'powerpack'),
-        'pp-buttons'				=> __('Buttons', 'powerpack'),
+        'pp-scroll-image'           => esc_html__('Scroll Image', 'powerpack'),
+        'pp-buttons'				=> esc_html__('Buttons', 'powerpack'),
+        'pp-twitter-buttons'        => esc_html__('Twitter Buttons', 'powerpack'),
+        'pp-twitter-grid'           => esc_html__('Twitter Grid', 'powerpack'),
+        'pp-twitter-timeline'       => esc_html__('Twitter Timeline', 'powerpack'),
+        'pp-twitter-tweet'          => esc_html__('Twitter Tweet', 'powerpack'),
     );
 
     // Contact Form 7
