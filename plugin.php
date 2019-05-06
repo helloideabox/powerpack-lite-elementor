@@ -236,7 +236,7 @@ class PowerpackLitePlugin {
 
 		wp_register_script(
 			'twitter-widgets',
-			POWERPACK_ELEMENTS_URL . 'assets/js/twitter-widgets.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/twitter-widgets.js',
 			[
 				'jquery',
 			],
