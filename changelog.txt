@@ -1,6 +1,6 @@
 == 1.2.2 ==
-Release date: April 18, 2019
-* Removed unnecessary JS and CSS files
+Release date: May 23, 2019
+* Added: Twitter widgets
 
 == 1.2.1 ==
 Release date: April 2, 2019

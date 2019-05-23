@@ -2,7 +2,7 @@
 Contributors: ideaboxcreations
 Tags: elementor, powerpack, elementor widgets, elementor addon, addons, elements, powerpack elementor addon
 Requires at least: 4.7
-Tested up to: 5.1.1
+Tested up to: 5.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,7 @@ Take complete control of PowerPack Elementor widgets. Activate the widgets you w
 *	[Content Ticker](https://powerpackelements.com/demo/content-ticker/) - Display updates, popular content or messages
 *	[Buttons](https://powerpackelements.com/button-widget/) - Create call-to-action button or multiple buttons with this widget
 *	[Scroll Image](https://powerpackelements.com/demo/image-scroll/) - Vertical and Horizontal scroll effect on image
+*	[Twitter](https://powerpackelements.com/demo/twitter-widget/) - Embed Twitter tweet and follow buttons, embedded grid and timeline
 
 = More 15+ Widgets in Pro Version =
 
@@ -127,6 +128,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 
 == Changelog ==
+
+== 1.2.2 - May 23, 2019 ==
+* 	New: Twitter widgets
 
 == 1.2.1 - April 2, 2019 ==
 * 	New: Buttons widget
