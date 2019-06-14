@@ -183,7 +183,25 @@ div[class*=' pa-'] {
     justify-content: center; }
   .pp-counter-layout-6 .pp-counter-icon-wrap {
     order: 2; }
+  .pp-counter-layout-7, .pp-counter-layout-8 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; }
+    .pp-counter-layout-7 .pp-icon-title-wrap, .pp-counter-layout-8 .pp-icon-title-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start; }
+    .pp-counter-layout-7 .pp-counter-title-wrap, .pp-counter-layout-8 .pp-counter-title-wrap {
+      text-align: left; }
+  .pp-counter-layout-8 {
+    flex-direction: row-reverse; }
+    .pp-counter-layout-8 .pp-icon-title-wrap {
+      align-items: flex-end; }
+    .pp-counter-layout-8 .pp-counter-title-wrap {
+      text-align: right; }
   .pp-counter .pp-icon-title-wrap .pp-counter-title {
+    display: inline-block; }
+  .pp-counter .pp-icon-number-wrap .pp-counter-number-wrap {
     display: inline-block; }
 
 .pp-business-hours .pp-business-day,
@@ -4574,5 +4592,3 @@ img.mfp-img {
     transform: translate3d(0, -100%, 0); } }
 .slideOutUp {
   animation-name: slideOutUp; }
-
-/*# sourceMappingURL=frontend.css.map */

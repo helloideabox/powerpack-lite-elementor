@@ -226,20 +226,18 @@ class Counter extends Powerpack_Widget {
             ]
         );
         
+        $layouts = array();
+		for ($x = 1; $x <= 10; $x++) {
+			$layouts['layout-' . $x] = __( 'Layout', 'powerpack' ) . ' ' . $x;
+		}
+        
         $this->add_control(
             'counter_layout',
             [
-                'label'                => __( 'Layout', 'power-pack' ),
+                'label'                => __( 'Layout', 'powerpack' ),
                 'type'                 => Controls_Manager::SELECT,
                 'default'              => 'layout-1',
-                'options'              => [
-                    'layout-1'     => __( 'Layout 1', 'power-pack' ),
-                    'layout-2'     => __( 'Layout 2', 'power-pack' ),
-                    'layout-3'     => __( 'Layout 3', 'power-pack' ),
-                    'layout-4'     => __( 'Layout 4', 'power-pack' ),
-                    'layout-5'     => __( 'Layout 5', 'power-pack' ),
-                    'layout-6'     => __( 'Layout 6', 'power-pack' ),
-                ],
+                'options'              => $layouts,
                 'separator'             => 'before',
             ]
         );
@@ -1085,21 +1083,10 @@ class Counter extends Powerpack_Widget {
                     ?>
                 
                     <div class="pp-counter-number-title-wrap">
-                        <div class="pp-counter-number-wrap">
-                            <?php
-                                if ( $settings['number_prefix'] != '' ) {
-                                    printf( '<span class="pp-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
-                                }
-                            ?>
-                            <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
-                                0
-                            </div>
-                            <?php
-                                if ( $settings['number_suffix'] != '' ) {
-                                    printf( '<span class="pp-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
-                                }
-                            ?>
-                        </div>
+                        <?php
+                            // Counter Number
+                            $this->render_counter_number();
+                        ?>
 
                         <?php if ( $settings['num_divider'] == 'yes' ) { ?>
                             <div class="pp-counter-num-divider-wrap">
@@ -1108,11 +1095,8 @@ class Counter extends Powerpack_Widget {
                         <?php } ?>
 
                         <?php
-                            if ( !empty( $settings['counter_title'] ) ) {
-                                printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'counter_title' ) );
-                                    echo $settings['counter_title'];
-                                printf( '</%1$s>', $settings['title_html_tag'] );
-                            }
+                            // Counter Title
+                            $this->render_counter_title();
                         ?>
                     </div>
                 <?php } elseif ( $settings['counter_layout'] == 'layout-2' ) { ?>
@@ -1120,50 +1104,24 @@ class Counter extends Powerpack_Widget {
                         // Counter Icon
                         $this->render_icon();
 
-                        if ( !empty( $settings['counter_title'] ) ) {
-                            printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'counter_title' ) );
-                                echo $settings['counter_title'];
-                            printf( '</%1$s>', $settings['title_html_tag'] );
+                        // Counter Title
+                        $this->render_counter_title();
+            
+                        // Counter Number
+                        $this->render_counter_number();
+            
+            
+                        if ( $settings['num_divider'] == 'yes' ) { ?>
+                            <div class="pp-counter-num-divider-wrap">
+                                <span class="pp-counter-num-divider"></span>
+                            </div>
+                            <?php
                         }
-                    ?>
-                
-                    <div class="pp-counter-number-wrap">
-                        <?php
-                            if ( $settings['number_prefix'] != '' ) {
-                                printf( '<span class="pp-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
-                            }
+                    } elseif ( $settings['counter_layout'] == 'layout-3' ) {
+            
+                        // Counter Number
+                        $this->render_counter_number();
                         ?>
-                        <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
-                            0
-                        </div>
-                        <?php
-                            if ( $settings['number_suffix'] != '' ) {
-                                printf( '<span class="pp-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
-                            }
-                        ?>
-                    </div>
-
-                    <?php if ( $settings['num_divider'] == 'yes' ) { ?>
-                        <div class="pp-counter-num-divider-wrap">
-                            <span class="pp-counter-num-divider"></span>
-                        </div>
-                    <?php } ?>
-                <?php } elseif ( $settings['counter_layout'] == 'layout-3' ) { ?>
-                    <div class="pp-counter-number-wrap">
-                        <?php
-                            if ( $settings['number_prefix'] != '' ) {
-                                printf( '<span class="pp-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
-                            }
-                        ?>
-                        <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
-                            0
-                        </div>
-                        <?php
-                            if ( $settings['number_suffix'] != '' ) {
-                                printf( '<span class="pp-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
-                            }
-                        ?>
-                    </div>
 
                     <?php if ( $settings['num_divider'] == 'yes' ) { ?>
                         <div class="pp-counter-num-divider-wrap">
@@ -1175,12 +1133,9 @@ class Counter extends Powerpack_Widget {
                         <?php
                             // Counter Icon
                             $this->render_icon();
-
-                            if ( !empty( $settings['counter_title'] ) ) {
-                                printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'counter_title' ) );
-                                    echo $settings['counter_title'];
-                                printf( '</%1$s>', $settings['title_html_tag'] );
-                            }
+            
+                            // Counter Title
+                            $this->render_counter_title();
                         ?>
                     </div>
                 <?php } elseif ( $settings['counter_layout'] == 'layout-4' ) { ?>
@@ -1188,36 +1143,67 @@ class Counter extends Powerpack_Widget {
                         <?php
                             // Counter Icon
                             $this->render_icon();
-
-                            if ( !empty( $settings['counter_title'] ) ) {
-                                printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'counter_title' ) );
-                                    echo $settings['counter_title'];
-                                printf( '</%1$s>', $settings['title_html_tag'] );
-                            }
+            
+                            // Counter Title
+                            $this->render_counter_title();
                         ?>
                     </div>
                 
-                    <div class="pp-counter-number-wrap">
-                        <?php
-                            if ( $settings['number_prefix'] != '' ) {
-                                printf( '<span class="pp-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
-                            }
-                        ?>
-                        <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
-                            0
-                        </div>
-                        <?php
-                            if ( $settings['number_suffix'] != '' ) {
-                                printf( '<span class="pp-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
-                            }
-                        ?>
-                    </div>
+                    <?php
+                        // Counter Number
+                        $this->render_counter_number();
+                    ?>
 
                     <?php if ( $settings['num_divider'] == 'yes' ) { ?>
                         <div class="pp-counter-num-divider-wrap">
                             <span class="pp-counter-num-divider"></span>
                         </div>
-                    <?php } ?>
+                    <?php }
+                    } elseif ( $settings['counter_layout'] == 'layout-7' || $settings['counter_layout'] == 'layout-8' ) {
+
+                        // Counter Number
+                        $this->render_counter_number();
+                        ?>
+                
+                        <div class="pp-icon-title-wrap">
+                            <?php
+                                // Counter Icon
+                                $this->render_icon();
+
+                                // Counter Title
+                                $this->render_counter_title();
+                            ?>
+                        </div>
+                <?php } elseif ( $settings['counter_layout'] == 'layout-9' ) {
+                        ?>
+                        <div class="pp-icon-number-wrap">
+                            <?php
+                                // Counter Icon
+                                $this->render_icon();
+
+								// Counter Number
+								$this->render_counter_number();
+							?>
+						</div>
+						<?php
+							// Counter Title
+							$this->render_counter_title();
+						?>
+                <?php } elseif ( $settings['counter_layout'] == 'layout-10' ) {
+                        ?>
+                        <div class="pp-icon-number-wrap">
+                            <?php
+								// Counter Number
+								$this->render_counter_number();
+
+                                // Counter Icon
+                                $this->render_icon();
+							?>
+						</div>
+						<?php
+							// Counter Title
+							$this->render_counter_title();
+						?>
                 <?php } ?>
             </div>
         </div><!-- .pp-counter-container -->
@@ -1457,6 +1443,49 @@ class Counter extends Powerpack_Widget {
                             <span class="pp-counter-num-divider"></span>
                         </div>
                     <# } #>
+                <# } else if ( settings.counter_layout == 'layout-7' || settings.counter_layout == 'layout-8' ) { #>
+                    <?php
+                        // Counter Number
+                        $this->_number_template();
+                    ?>
+                    
+                    <div class="pp-icon-title-wrap">
+                        <?php
+                            // Counter Icon
+                            $this->_icon_template();
+
+                            // Title Number
+                            $this->_title_template();
+                        ?>
+                    </div>
+                <# } else if ( settings.counter_layout == 'layout-9' ) { #>
+					<div class="pp-icon-number-wrap">
+						<?php
+							// Counter Icon
+							$this->_icon_template();
+
+							// Counter Number
+							$this->_number_template();
+						?>
+					</div>
+					<?php
+						// Counter Title
+						$this->_title_template();
+					?>
+                <# } else if ( settings.counter_layout == 'layout-10' ) { #>
+					<div class="pp-icon-number-wrap">
+						<?php
+							// Counter Number
+							$this->_number_template();
+
+							// Counter Icon
+							$this->_icon_template();
+						?>
+					</div>
+					<?php
+						// Counter Title
+						$this->_title_template();
+					?>
                 <# } #>
             </div>
         </div><!-- .pp-counter-container -->

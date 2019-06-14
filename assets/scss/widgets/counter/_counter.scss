@@ -29,9 +29,37 @@
             order: 2;
         }
     }
+    &-layout-7,
+    &-layout-8 {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        .pp-icon-title-wrap {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .pp-counter-title-wrap {
+            text-align: left;
+        }
+    }
+    &-layout-8 {
+        flex-direction: row-reverse;
+        .pp-icon-title-wrap {
+            align-items: flex-end;
+        }
+        .pp-counter-title-wrap {
+            text-align: right;
+        }
+    }
     .pp-icon-title-wrap {
         .pp-counter-title {
             display: inline-block;
         }
     }
+	.pp-icon-number-wrap {
+		.pp-counter-number-wrap {
+			display: inline-block;
+		}
+	}
 }
