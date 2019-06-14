@@ -225,6 +225,41 @@ class Counter extends Powerpack_Widget {
                 ],
             ]
         );
+
+        $this->add_control(
+            'counter_subtitle',
+            [
+                'label'                 => __( 'Subtitle', 'powerpack' ),
+                'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active'   => true,
+				],
+                'default'               => '',
+            ]
+        );
+        
+        $this->add_control(
+            'subtitle_html_tag',
+            [
+                'label'                => __( 'Subtitle HTML Tag', 'powerpack' ),
+                'type'                 => Controls_Manager::SELECT,
+                'default'              => 'div',
+                'options'              => [
+                    'h1'     => __( 'H1', 'powerpack' ),
+                    'h2'     => __( 'H2', 'powerpack' ),
+                    'h3'     => __( 'H3', 'powerpack' ),
+                    'h4'     => __( 'H4', 'powerpack' ),
+                    'h5'     => __( 'H5', 'powerpack' ),
+                    'h6'     => __( 'H6', 'powerpack' ),
+                    'div'    => __( 'div', 'powerpack' ),
+                    'span'   => __( 'span', 'powerpack' ),
+                    'p'      => __( 'p', 'powerpack' ),
+                ],
+                'condition'             => [
+                    'counter_subtitle!' => '',
+                ],
+            ]
+        );
         
         $layouts = array();
 		for ($x = 1; $x <= 10; $x++) {
@@ -1246,6 +1281,68 @@ class Counter extends Powerpack_Widget {
                 </div>
                 <?php
             }
+        }
+    }
+    
+    /**
+	 * Render counter number output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+    private function render_counter_number() {
+        $settings = $this->get_settings_for_display();
+        ?>
+        <div class="pp-counter-number-wrap">
+            <?php
+                if ( $settings['number_prefix'] != '' ) {
+                    printf( '<span class="pp-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
+                }
+            ?>
+            <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
+                0
+            </div>
+            <?php
+                if ( $settings['number_suffix'] != '' ) {
+                    printf( '<span class="pp-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
+                }
+            ?>
+        </div>
+        <?php
+    }
+    
+    /**
+	 * Render counter title output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+    private function render_counter_title() {
+        $settings = $this->get_settings_for_display();
+        
+        if ( $settings['counter_title'] || $settings['counter_subtitle'] ) {
+            $this->add_inline_editing_attributes( 'counter_title', 'none' );
+            $this->add_render_attribute( 'counter_title', 'class', 'pp-counter-title' );
+            $this->add_inline_editing_attributes( 'counter_subtitle', 'none' );
+            $this->add_render_attribute( 'counter_subtitle', 'class', 'pp-counter-subtitle' );
+            ?>
+            <div class="pp-counter-title-wrap">
+                <?php
+                if ( $settings['counter_title'] ) {
+                    printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'counter_title' ) );
+                    echo $settings['counter_title'];
+                    printf( '</%1$s>', $settings['title_html_tag'] );
+                }
+                if ( $settings['counter_subtitle'] ) {
+                    printf( '<%1$s %2$s>', $settings['subtitle_html_tag'], $this->get_render_attribute_string( 'counter_subtitle' ) );
+                    echo $settings['counter_subtitle'];
+                    printf( '</%1$s>', $settings['subtitle_html_tag'] );
+                }
+                ?>
+            </div>
+            <?php
         }
     }
 
