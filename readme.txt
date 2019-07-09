@@ -129,6 +129,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+== 1.2.4 - July 9, 2019 ==
+* 	Enhancement: Counter - Added starting number option
+
+== 1.2.3 - June 14, 2019 ==
+* 	Enhancement: Counter - Added 4 new layouts
+
 == 1.2.2 - May 23, 2019 ==
 * 	New: Twitter widgets
 
