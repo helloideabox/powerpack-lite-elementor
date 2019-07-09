@@ -87,6 +87,21 @@ class Image_Comparison extends Powerpack_Widget {
     }
 
     /**
+	 * Retrieve the list of styles the image comparison widget depended on.
+	 *
+	 * Used to set style dependencies required to run the widget.
+	 *
+	 * @access public
+	 *
+	 * @return array Widget scripts dependencies.
+	 */
+    public function get_style_depends() {
+        return [
+            'twentytwenty'
+        ];
+    }
+
+    /**
 	 * Register image comparison widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.

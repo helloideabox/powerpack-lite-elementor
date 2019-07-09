@@ -126,14 +126,14 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_VER
 		);
         
-		wp_enqueue_style(
+		wp_register_style(
 			'odometer',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/odometer/odometer-theme-default.css',
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
         
-		wp_enqueue_style(
+		wp_register_style(
 			'twentytwenty',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/twentytwenty.css',
 			[],
