@@ -319,8 +319,11 @@ class PowerpackLitePlugin {
 
 	public function enqueue_panel_scripts() {}
 
-	public function enqueue_panel_styles() {
+	public function enqueue_editor_preview_styles() {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		
+		wp_enqueue_style( 'odometer' );
+		wp_enqueue_style( 'twentytwenty' );
 	}
 
 	public function elementor_init() {
@@ -342,6 +345,8 @@ class PowerpackLitePlugin {
 
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
         add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );
+
+        add_action( 'elementor/preview/enqueue_styles', [ $this, 'enqueue_editor_preview_styles' ] );
 
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'enqueue_frontend_scripts' ] );
 		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_frontend_styles' ] );
