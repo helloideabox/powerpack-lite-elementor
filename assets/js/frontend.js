@@ -90,11 +90,11 @@
         $(counter_elem).waypoint(function () {
             $($target).each(function () {
                 var from                = $(this).data("from"),
-					to                   = $(this).data("to"),
+					to                  = $(this).data("to"),
                     speed               = $(this).data("speed"),
                     od                  = new Odometer({
                         el:             this,
-                        value:          1890,
+                        value:          from,
                         duration:       speed
                     });
                 od.render();
@@ -103,10 +103,10 @@
                 });
             });
         },
-            {
-                offset:             "80%",
-                triggerOnce:        true
-            });
+		{
+			offset:             "80%",
+			triggerOnce:        true
+		});
     };
     
     var LogoCarouselHandler = function ($scope, $) {

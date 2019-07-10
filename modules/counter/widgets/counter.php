@@ -1236,30 +1236,25 @@ class Counter extends Powerpack_Widget {
     protected function render() {
         $settings = $this->get_settings_for_display();
         
+        $starting_number =  ( $settings['starting_number'] ) ? $settings['starting_number'] : 0;
+        $ending_number =  ( $settings['ending_number'] ) ? $settings['ending_number'] : 250;
+        $counter_speed =  ( $settings['counter_speed']['size'] ) ? $settings['counter_speed']['size'] : 1500;
+        
         $this->add_render_attribute([
-			'counter' => [
-				'class' => [
+			'counter'			=> [
+				'class'			=> [
 					'pp-counter pp-counter-'.esc_attr( $this->get_id() ),
 					'pp-counter-' . $settings['counter_layout']
 				],
-				'data-target' => '.pp-counter-number-'.esc_attr( $this->get_id() )
+				'data-target'	=> '.pp-counter-number-'.esc_attr( $this->get_id() )
 			],
-			'counter-number' => [
-				'class' => 'pp-counter-number pp-counter-number-'.esc_attr( $this->get_id() )
+			'counter-number'	=> [
+				'class'			=> 'pp-counter-number pp-counter-number-'.esc_attr( $this->get_id() ),
+				'data-from'		=> $starting_number,
+				'data-to'		=> $ending_number,
+				'data-speed'	=> $counter_speed,
 			]
 		]);
-        
-        if ( $settings['starting_number'] != '' ) {
-            $this->add_render_attribute( 'counter-number', 'data-from', $settings['starting_number'] );
-        }
-        
-        if ( $settings['ending_number'] != '' ) {
-            $this->add_render_attribute( 'counter-number', 'data-to', $settings['ending_number'] );
-        }
-        
-        if ( $settings['counter_speed']['size'] != '' ) {
-            $this->add_render_attribute( 'counter-number', 'data-speed', $settings['counter_speed']['size'] );
-        }
         ?>
         <div class="pp-counter-container">
             <div <?php echo $this->get_render_attribute_string( 'counter' ); ?>>
@@ -1453,7 +1448,10 @@ class Counter extends Powerpack_Widget {
                 }
             ?>
             <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
-                <?php echo $settings['starting_number']; ?>
+                <?php
+					$starting_number =  ( $settings['starting_number'] ) ? $settings['starting_number'] : 0;
+					echo $starting_number;
+				?>
             </div>
             <?php
                 if ( $settings['number_suffix'] != '' ) {
@@ -1566,7 +1564,7 @@ class Counter extends Powerpack_Widget {
                     print( prefix_html );
                 }
             #>
-            <div class="pp-counter-number" data-to="{{ settings.ending_number }}" data-speed="{{ settings.counter_speed.size }}">
+            <div class="pp-counter-number" data-from="{{ settings.starting_number }}" data-to="{{ settings.ending_number }}" data-speed="{{ settings.counter_speed.size }}">
                 {{{ settings.starting_number }}}
             </div>
             <#
