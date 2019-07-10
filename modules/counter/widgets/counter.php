@@ -1249,6 +1249,10 @@ class Counter extends Powerpack_Widget {
 			]
 		]);
         
+        if ( $settings['starting_number'] != '' ) {
+            $this->add_render_attribute( 'counter-number', 'data-from', $settings['starting_number'] );
+        }
+        
         if ( $settings['ending_number'] != '' ) {
             $this->add_render_attribute( 'counter-number', 'data-to', $settings['ending_number'] );
         }

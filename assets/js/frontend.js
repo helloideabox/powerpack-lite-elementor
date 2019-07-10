@@ -89,16 +89,17 @@
         
         $(counter_elem).waypoint(function () {
             $($target).each(function () {
-                var v                   = $(this).data("to"),
+                var from                = $(this).data("from"),
+					to                   = $(this).data("to"),
                     speed               = $(this).data("speed"),
                     od                  = new Odometer({
                         el:             this,
-                        value:          0,
+                        value:          1890,
                         duration:       speed
                     });
                 od.render();
                 setInterval(function () {
-                    od.update(v);
+                    od.update(to);
                 });
             });
         },
