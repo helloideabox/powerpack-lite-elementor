@@ -1,3 +1,7 @@
+== 1.2.5 ==
+Release date: July 10, 2019
+* Fixed: Starting Number option was not working in editor in Counter widget
+
 == 1.2.4 ==
 Release date: July 9, 2019
 * Added: Starting Number option to Counter widget

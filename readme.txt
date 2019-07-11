@@ -129,6 +129,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+== 1.2.5 - July 10, 2019 ==
+* 	Fixed: Starting Number option was not working in editor in Counter widget
+
 == 1.2.4 - July 9, 2019 ==
 * 	Enhancement: Counter - Added starting number option
 
