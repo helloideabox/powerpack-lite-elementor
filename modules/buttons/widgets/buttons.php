@@ -6,6 +6,7 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Utils;
+use Elementor\Icons_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
@@ -119,11 +120,11 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'text',
 				[
-					'label'       => __( 'Text', 'powerpack' ),
-					'type'        => Controls_Manager::TEXT,
-					'default'     => __( 'Button #1', 'powerpack' ),
-					'placeholder' => __( 'Button #1', 'powerpack' ),
-					'dynamic'     => [
+					'label'				=> __( 'Text', 'powerpack' ),
+					'type'				=> Controls_Manager::TEXT,
+					'default'			=> __( 'Button #1', 'powerpack' ),
+					'placeholder'		=> __( 'Button #1', 'powerpack' ),
+					'dynamic'			=> [
 						'active' => true,
 					],
 				]
@@ -131,11 +132,12 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'pp_icon_type',
 				[
-					'label'       => __( 'Icon Type', 'powerpack' ),
-					'type'        => Controls_Manager::CHOOSE,
-					'label_block' => false,
-					'default'     => 'icon',
-					'options'     => [
+					'label'				=> __( 'Icon Type', 'powerpack' ),
+					'type'				=> Controls_Manager::CHOOSE,
+					'label_block'		=> false,
+					'toggle'			=> false,
+					'default'			=> 'icon',
+					'options'			=> [
 						'none' => [
 							'title' => esc_html__( 'None', 'powerpack' ),
 							'icon'  => 'fa fa-ban',
@@ -156,12 +158,16 @@ class Buttons extends Powerpack_Widget {
 				]
 			);
 			$repeater->add_control(
-				'button_icon',
+				'selected_icon',
 				[
-					'label'             => __( 'Icon', 'powerpack' ),
-					'label_block'       => false,
-					'type'              => Controls_Manager::ICON,
-					'default'           => 'fa fa-check',
+					'label'				=> __( 'Icon', 'powerpack' ),
+					'type'				=> Controls_Manager::ICONS,
+					'label_block'		=> true,
+					'default'			=> [
+						'value' => 'fas fa-check',
+						'library' => 'fa-solid',
+					],
+					'fa4compatibility'	=> 'button_icon',
 					'condition'         => [
 						'pp_icon_type' => 'icon',
 					],
@@ -362,6 +368,7 @@ class Buttons extends Powerpack_Widget {
 					'default'               => '',
 					'selectors'             => [
 						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button .pp-buttons-icon-wrapper span' => 'color: {{VALUE}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button .pp-buttons-icon-wrapper .pp-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -428,6 +435,7 @@ class Buttons extends Powerpack_Widget {
 					'default'               => '',
 					'selectors'             => [
 						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover .pp-buttons-icon-wrapper span' => 'color: {{VALUE}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover .pp-buttons-icon-wrapper .pp-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -877,6 +885,7 @@ class Buttons extends Powerpack_Widget {
 					'default'               => '',
 					'selectors'             => [
 						'{{WRAPPER}} .pp-buttons-icon-wrapper span' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-buttons-icon-wrapper .pp-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -898,6 +907,7 @@ class Buttons extends Powerpack_Widget {
 					'default'               => '',
 					'selectors'             => [
 						'{{WRAPPER}} .pp-button:hover .pp-buttons-icon-wrapper .pp-button-icon' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-button:hover .pp-buttons-icon-wrapper .pp-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -1038,6 +1048,12 @@ class Buttons extends Powerpack_Widget {
      */
     protected function render() {
         $settings = $this->get_settings_for_display();
+		
+		$fallback_defaults = [
+			'fa fa-check',
+			'fa fa-times',
+			'fa fa-dot-circle-o',
+		];
 
         // Button Animation
         $button_animation = '';
@@ -1144,11 +1160,32 @@ class Buttons extends Powerpack_Widget {
                                 $icon_key = 'icon_' . $i;
                                 $icon_wrap = 'pp-buttons-icon-wrapper';
                                 $this->add_render_attribute( $icon_key, 'class', $icon_wrap );
+								$migration_allowed = Icons_Manager::is_migration_allowed();
                                 ?>
                                 <span <?php echo $this->get_render_attribute_string( $icon_key ); ?>>
                                     <?php
                                     if ( $item['pp_icon_type'] == 'icon' ) {
-                                        printf( '<span class="pp-button-icon %1$s"></span>', esc_attr( $item['button_icon'] ) );
+										// add old default
+										if ( ! isset( $item['icon'] ) && ! $migration_allowed ) {
+											$item['icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-check';
+										}
+
+										$migrated = isset( $item['__fa4_migrated']['selected_icon'] );
+										$is_new = ! isset( $item['icon'] ) && $migration_allowed;
+										
+										if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) ) { ?>
+											<span class="pp-button-icon pp-icon">
+												<?php
+													if ( $is_new || $migrated ) {
+														Icons_Manager::render_icon( $item['selected_icon'], [ 'class' => 'pp-button-icon', 'aria-hidden' => 'true' ] );
+													} else { ?>
+														<i class="pp-button-icon <?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
+														<?php
+													}
+												?>
+											</span>
+											<?php
+										}
                                     } elseif ( $item['pp_icon_type'] == 'image' ) {
                                         printf( '<span class="pp-button-icon-image"><img src="%1$s"></span>', esc_url( $item['icon_img']['url'] ) );
                                     } elseif ( $item['pp_icon_type'] == 'text' ) {
@@ -1211,12 +1248,14 @@ class Buttons extends Powerpack_Widget {
         ?>
         <div class="pp-buttons-group">
             <# var i = 1; #>
-            <# _.each( settings.buttons, function( item ) { #>
+            <# _.each( settings.buttons, function( item, index ) { #>
                 <#
-                var button_key = 'button_' + i;
-                var content_inner_key = 'content-inner_' + i;
-                var buttonSize = '';
-                var iconPosition = '';
+                var button_key = 'button_' + i,
+				    content_inner_key = 'content-inner_' + i,
+				    buttonSize = '',
+				    iconPosition = '',
+				    iconsHTML = {},
+					migrated = {};
 
                 if ( item.single_button_size != 'default' ) {
                     buttonSize = item.single_button_size;
@@ -1311,7 +1350,19 @@ class Buttons extends Powerpack_Widget {
                                 #>
                                 <span {{{ view.getRenderAttributeString( icon_key ) }}}>
                                     <# if ( item.pp_icon_type == 'icon' ) { #>
-                                        <span class="pp-button-icon {{{ item.button_icon }}}"></span>
+										<# if ( item.button_icon || item.selected_icon.value ) { #>
+											<span class="pp-button-icon pp-icon">
+											<#
+												iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
+												migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
+												if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.button_icon || migrated[ index ] ) ) { #>
+													{{{ iconsHTML[ index ].value }}}
+												<# } else { #>
+													<i class="{{ item.button_icon }}" aria-hidden="true"></i>
+												<# }
+											#>
+											</span>
+										<# } #>
                                     <# } else if ( item.pp_icon_type == 'image' ) { #>
                                         <span class="pp-button-icon-image">
                                             <img src="{{{ item.icon_img.url }}}">

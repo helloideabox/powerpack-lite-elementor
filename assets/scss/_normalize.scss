@@ -12,3 +12,23 @@ div[class*=' pa-'] {
     display: block;
     visibility: hidden;
 }
+.pp-icon {
+	display: inline-block;
+	line-height: 1;
+	text-align: center;
+	-webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+.pp-icon i,
+.pp-icon svg {
+    width: 1em;
+    height: 1em;
+    position: relative;
+    display: block;
+}
+.pp-no-trans {
+	-webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+}
