@@ -24,6 +24,7 @@ define( 'POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED', '5.4' );
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/helper-functions.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-admin-settings.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-posts-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
 
 /**

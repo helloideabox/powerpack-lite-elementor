@@ -2,10 +2,13 @@
 namespace PowerpackElementsLite\Modules\ContentTicker\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Posts_Helper;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
+use Elementor\Control_Media;
 use Elementor\Utils;
+use Elementor\Icons_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Background;
@@ -177,13 +180,36 @@ class Content_Ticker extends Powerpack_Widget {
 		);
         
         $this->add_control(
-            'meta_heading',
+            'title_html_tag',
+            [
+                'label'                 => __( 'Title HTML Tag', 'powerpack' ),
+                'type'                  => Controls_Manager::SELECT,
+                'default'               => 'h3',
+                'options'               => [
+                    'h1'     => __( 'H1', 'powerpack' ),
+                    'h2'     => __( 'H2', 'powerpack' ),
+                    'h3'     => __( 'H3', 'powerpack' ),
+                    'h4'     => __( 'H4', 'powerpack' ),
+                    'h5'     => __( 'H5', 'powerpack' ),
+                    'h6'     => __( 'H6', 'powerpack' ),
+                    'div'    => __( 'div', 'powerpack' ),
+                    'span'   => __( 'span', 'powerpack' ),
+                    'p'      => __( 'p', 'powerpack' ),
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        /**
+         * Content Tab: Post Meta
+         */
+        $this->start_controls_section(
+            'section_post_meta',
             [
                 'label'                 => __( 'Post Meta', 'powerpack' ),
-                'type'                  => Controls_Manager::HEADING,
-                'separator'             => 'before',
                 'condition'             => [
-                    'source'	=> 'posts'
+                    'source'    => 'posts'
                 ]
             ]
         );
@@ -218,20 +244,24 @@ class Content_Ticker extends Powerpack_Widget {
                 ]
             ]
         );
-
-        $this->add_control(
-            'author_icon',
-            [
-                'label'                 => __( 'Author Icon', 'powerpack' ),
-                'type'                  => Controls_Manager::ICON,
-                'default'               => 'fa fa-user',
+		
+		$this->add_control(
+			'select_author_icon',
+			[
+				'label'					=> __( 'Author Icon', 'powerpack' ),
+				'type'					=> Controls_Manager::ICONS,
+				'fa4compatibility'		=> 'author_icon',
+				'default'				=> [
+					'value'		=> 'fas fa-user',
+					'library'	=> 'fa-solid',
+				],
                 'condition'             => [
                     'source'        => 'posts',
                     'post_author'   => 'yes',
                     'post_meta'     => 'yes'
                 ]
-            ]
-        );
+			]
+		);
         
         $this->add_control(
             'post_category',
@@ -247,20 +277,24 @@ class Content_Ticker extends Powerpack_Widget {
                 ]
             ]
         );
-
-        $this->add_control(
-            'category_icon',
-            [
-                'label'                 => __( 'Category Icon', 'powerpack' ),
-                'type'                  => Controls_Manager::ICON,
-                'default'               => 'fa fa-folder-open',
+		
+		$this->add_control(
+			'select_category_icon',
+			[
+				'label'					=> __( 'Category Icon', 'powerpack' ),
+				'type'					=> Controls_Manager::ICONS,
+				'fa4compatibility'		=> 'category_icon',
+				'default'				=> [
+					'value'		=> 'fas fa-folder-open',
+					'library'	=> 'fa-solid',
+				],
                 'condition'             => [
                     'source'        => 'posts',
                     'post_category' => 'yes',
                     'post_meta'     => 'yes'
                 ]
-            ]
-        );
+			]
+		);
 
         $this->end_controls_section();
 
@@ -416,84 +450,239 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
             'post_type',
             [
-                'label'                 => __( 'Post Type', 'powerpack' ),
-                'type'                  => Controls_Manager::SELECT,
-                'options'               => pp_elements_lite_get_post_types(),
-                'default'               => 'post',
+                'label'					=> __( 'Post Type', 'powerpack' ),
+                'type'					=> Controls_Manager::SELECT,
+                'options'				=> PP_Posts_Helper::get_post_types(),
+                'default'				=> 'post',
                 'condition'             => [
                     'source'    => 'posts'
                 ]
-
             ]
         );
+		
+		$post_types = PP_Posts_Helper::get_post_types();
+		
+		foreach ( $post_types as $post_type_slug => $post_type_label ) {
 
-        $this->add_control(
-            'categories',
-            [
-                'label'                 => __( 'Categories', 'powerpack' ),
-                'type'                  => Controls_Manager::SELECT2,
-				'label_block'           => true,
-				'multiple'              => true,
-				'options'               => pp_elements_lite_get_post_categories(),
+			$taxonomy = PP_Posts_Helper::get_post_taxonomies( $post_type_slug );
+			
+			if ( ! empty( $taxonomy ) ) {
+
+				foreach ( $taxonomy as $index => $tax ) {
+					
+					$terms = get_terms( $index );
+
+					$tax_terms = array();
+
+					if ( ! empty( $terms ) ) {
+
+						foreach ( $terms as $term_index => $term_obj ) {
+
+							$tax_terms[ $term_obj->term_id ] = $term_obj->name;
+						}
+						
+						if ( $index == 'post_tag' ) {
+							$tax_control_key = 'tags';
+						} else if ( $index == 'category' ) {
+							$tax_control_key = 'categories';
+						} else {
+							$tax_control_key = $index . '_' . $post_type_slug;
+						}
+						
+						// Taxonomy filter type
+						$this->add_control(
+							$index . '_' . $post_type_slug . '_filter_type',
+							[
+								/* translators: %s Label */
+								'label'       => sprintf( __( '%s Filter Type', 'powerpack' ), $tax->label ),
+								'type'        => Controls_Manager::SELECT,
+								'default'     => 'IN',
+								'label_block' => true,
+								'options'     => [
+									/* translators: %s label */
+									'IN'     => sprintf( __( 'Include %s', 'powerpack' ), $tax->label ),
+									/* translators: %s label */
+									'NOT IN' => sprintf( __( 'Exclude %s', 'powerpack' ), $tax->label ),
+								],
+                				'separator'         => 'before',
+								'condition'   => [
+                    				'source'    => 'posts',
+									'post_type' => $post_type_slug,
+								],
+							]
+						);
+
+						// Add control for all taxonomies.
+						$this->add_control(
+							$tax_control_key,
+							[
+								'label'       => $tax->label,
+								'type'        => Controls_Manager::SELECT2,
+								'multiple'    => true,
+								'default'     => '',
+								'label_block' => true,
+								'options'     => $tax_terms,
+								'condition'   => [
+                    				'source'    => 'posts',
+									'post_type' => $post_type_slug,
+								],
+							]
+						);
+						
+					}
+				}
+			}
+		}
+		
+		$this->add_control(
+			'author_filter_type',
+			[
+				'label'       => __( 'Authors Filter Type', 'powerpack' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'author__in',
+				'label_block' => true,
+                'separator'         => 'before',
+				'options'     => [
+					'author__in'     => __( 'Include Authors', 'powerpack' ),
+					'author__not_in' => __( 'Exclude Authors', 'powerpack' ),
+				],
                 'condition'             => [
-                    'source'    => 'posts',
-                    'post_type' => 'post'
+                    'source'    => 'posts'
                 ]
-            ]
-        );
+			]
+		);
 
         $this->add_control(
             'authors',
             [
-                'label'                 => __( 'Authors', 'powerpack' ),
-                'type'                  => Controls_Manager::SELECT2,
-				'label_block'           => true,
-				'multiple'              => true,
-				'options'               => pp_elements_lite_get_auhtors(),
+                'label'					=> __( 'Authors', 'powerpack' ),
+                'type'					=> Controls_Manager::SELECT2,
+				'label_block'			=> true,
+				'multiple'				=> true,
+				'options'				=> PP_Posts_Helper::get_users(),
                 'condition'             => [
                     'source'    => 'posts'
                 ]
             ]
         );
+		
+		$post_types = PP_Posts_Helper::get_post_types();
+		
+		foreach ( $post_types as $post_type_slug => $post_type_label ) {
+		
+			$posts_all = PP_Posts_Helper::get_all_posts_by_type( $post_type_slug );
+						
+			if ( $post_type_slug == 'post' ) {
+				$posts_control_key = 'exclude_posts';
+			} else {
+				$posts_control_key = $post_type_slug . '_filter';
+			}
+		
+			$this->add_control(
+				$post_type_slug . '_filter_type',
+				[
+					'label'				=> sprintf( __( '%s Filter Type', 'powerpack' ), $post_type_label ),
+					'type'				=> Controls_Manager::SELECT,
+					'default'			=> 'post__not_in',
+					'label_block'		=> true,
+					'separator'         => 'before',
+					'options'			=> [
+						'post__in'     => sprintf( __( 'Include %s', 'powerpack' ), $post_type_label ),
+						'post__not_in' => sprintf( __( 'Exclude %s', 'powerpack' ), $post_type_label ),
+					],
+					'condition'   => [
+                    	'source'    => 'posts',
+						'post_type' => $post_type_slug,
+					],
+				]
+			);
+			
+			$this->add_control(
+				$posts_control_key,
+				[
+					/* translators: %s Label */
+					'label'       => $post_type_label,
+					'type'        => Controls_Manager::SELECT2,
+					'default'     => '',
+					'multiple'     => true,
+					'label_block' => true,
+					'options'     => $posts_all,
+					'condition'   => [
+                    	'source'    => 'posts',
+						'post_type' => $post_type_slug,
+					],
+				]
+			);
+		}
 
-        $this->add_control(
-            'tags',
+		$this->add_control(
+            'select_date',
             [
-                'label'                 => __( 'Tags', 'powerpack' ),
-                'type'                  => Controls_Manager::SELECT2,
-				'label_block'           => true,
-				'multiple'              => true,
-				'options'               => pp_elements_lite_get_tags(),
+				'label'				=> __( 'Date', 'powerpack' ),
+				'type'				=> Controls_Manager::SELECT,
+				'options'			=> [
+					'anytime'	=> __( 'All', 'powerpack' ),
+					'today'		=> __( 'Past Day', 'powerpack' ),
+					'week'		=> __( 'Past Week', 'powerpack' ),
+					'month'		=> __( 'Past Month', 'powerpack' ),
+					'quarter'	=> __( 'Past Quarter', 'powerpack' ),
+					'year'		=> __( 'Past Year', 'powerpack' ),
+					'exact'		=> __( 'Custom', 'powerpack' ),
+				],
+				'default'			=> 'anytime',
+				'label_block'		=> false,
+				'multiple'			=> false,
+				'separator'			=> 'before',
                 'condition'             => [
                     'source'    => 'posts'
                 ]
-            ]
+			]
         );
 
-        $this->add_control(
-            'exclude_posts',
+		$this->add_control(
+            'date_before',
             [
-                'label'                 => __( 'Exclude Posts', 'powerpack' ),
-                'type'                  => Controls_Manager::SELECT2,
-				'label_block'           => true,
-				'multiple'              => true,
-				'options'               => pp_elements_lite_get_posts(),
-                'condition'             => [
-                    'source'    => 'posts'
-                ]
-            ]
+				'label'				=> __( 'Before', 'powerpack' ),
+				'description'		=> __( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'powerpack' ),
+				'type'				=> Controls_Manager::DATE_TIME,
+				'label_block'		=> false,
+				'multiple'			=> false,
+				'placeholder'		=> __( 'Choose', 'powerpack' ),
+				'condition'			=> [
+                    'source'    => 'posts',
+					'select_date' => 'exact',
+				],
+			]
+        );
+
+
+		$this->add_control(
+            'date_after',
+            [
+				'label'				=> __( 'After', 'powerpack' ),
+				'description'		=> __( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'powerpack' ),
+				'type'				=> Controls_Manager::DATE_TIME,
+				'label_block'		=> false,
+				'multiple'			=> false,
+				'placeholder'		=> __( 'Choose', 'powerpack' ),
+				'condition'			=> [
+                    'source'    => 'posts',
+					'select_date' => 'exact',
+				],
+			]
         );
 
         $this->add_control(
             'order',
             [
-                'label'                 => __( 'Order', 'powerpack' ),
-                'type'                  => Controls_Manager::SELECT,
-                'options'               => [
-                   'DESC'       => __( 'Descending', 'powerpack' ),
-                   'ASC'        => __( 'Ascending', 'powerpack' ),
+                'label'             => __( 'Order', 'powerpack' ),
+                'type'              => Controls_Manager::SELECT,
+                'options'           => [
+                   'DESC'           => __( 'Descending', 'powerpack' ),
+                   'ASC'       => __( 'Ascending', 'powerpack' ),
                 ],
-                'default'               => 'DESC',
+                'default'           => 'DESC',
+                'separator'         => 'before',
                 'condition'             => [
                     'source'    => 'posts'
                 ]
@@ -503,30 +692,64 @@ class Content_Ticker extends Powerpack_Widget {
         $this->add_control(
             'orderby',
             [
-                'label'                 => __( 'Order By', 'powerpack' ),
-                'type'                  => Controls_Manager::SELECT,
-                'options'               => [
+                'label'             => __( 'Order By', 'powerpack' ),
+                'type'              => Controls_Manager::SELECT,
+                'options'           => [
                    'date'           => __( 'Date', 'powerpack' ),
                    'modified'       => __( 'Last Modified Date', 'powerpack' ),
-                   'rand'           => __( 'Rand', 'powerpack' ),
+                   'rand'           => __( 'Random', 'powerpack' ),
                    'comment_count'  => __( 'Comment Count', 'powerpack' ),
                    'title'          => __( 'Title', 'powerpack' ),
                    'ID'             => __( 'Post ID', 'powerpack' ),
                    'author'         => __( 'Post Author', 'powerpack' ),
                 ],
-                'default'               => 'date',
+                'default'           => 'date',
                 'condition'             => [
                     'source'    => 'posts'
                 ]
+            ]
+        );
+        
+        $this->add_control(
+            'sticky_posts',
+            [
+                'label'             => __( 'Sticky Posts', 'powerpack' ),
+                'type'              => Controls_Manager::SWITCHER,
+                'default'           => '',
+                'label_on'          => __( 'Yes', 'powerpack' ),
+                'label_off'         => __( 'No', 'powerpack' ),
+                'return_value'      => 'yes',
+                'separator'         => 'before',
+                'condition'             => [
+                    'source'    => 'posts'
+                ]
+            ]
+        );
+        
+        $this->add_control(
+            'all_sticky_posts',
+            [
+                'label'             => __( 'Show Only Sticky Posts', 'powerpack' ),
+                'type'              => Controls_Manager::SWITCHER,
+                'default'           => '',
+                'label_on'          => __( 'Yes', 'powerpack' ),
+                'label_off'         => __( 'No', 'powerpack' ),
+                'return_value'      => 'yes',
+				'condition'			=> [
+                    'source'    => 'posts',
+					'sticky_posts' => 'yes',
+				],
             ]
         );
 
         $this->add_control(
             'offset',
             [
-                'label'                 => __( 'Offset', 'powerpack' ),
-                'type'                  => Controls_Manager::TEXT,
-                'default'               => '',
+                'label'             => __( 'Offset', 'powerpack' ),
+                'description'		=> __( 'Use this setting to skip this number of initial posts', 'powerpack' ),
+                'type'              => Controls_Manager::NUMBER,
+                'default'           => '',
+                'separator'         => 'before',
                 'condition'             => [
                     'source'    => 'posts'
                 ]
@@ -568,18 +791,22 @@ class Content_Ticker extends Powerpack_Widget {
                 ]
             ]
         );
-
-        $this->add_control(
-            'heading_icon',
-            [
-                'label'                 => __( 'Heading Icon', 'powerpack' ),
-                'type'                  => Controls_Manager::ICON,
-                'default'               => 'fa fa-bolt',
+		
+		$this->add_control(
+			'selected_icon',
+			[
+				'label'					=> __( 'Icon', 'powerpack' ),
+				'type'					=> Controls_Manager::ICONS,
+				'fa4compatibility'		=> 'heading_icon',
+				'default'				=> [
+					'value'		=> 'fas fa-bolt',
+					'library'	=> 'fa-solid',
+				],
                 'condition'             => [
                     'show_heading'      => 'yes',
-                ]
-            ]
-        );
+                ],
+			]
+		);
 
         $this->add_control(
             'heading_icon_position',
@@ -779,9 +1006,10 @@ class Content_Ticker extends Powerpack_Widget {
             [
                 'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
+                'default'               => '#ffffff',
                 'selectors'             => [
                     '{{WRAPPER}} .pp-content-ticker-heading' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-content-ticker-heading .pp-icon svg' => 'fill: {{VALUE}}',
                 ],
                 'condition'             => [
                     'show_heading'  => 'yes'
@@ -968,6 +1196,7 @@ class Content_Ticker extends Powerpack_Widget {
                 'default'               => '',
                 'selectors'             => [
                     '{{WRAPPER}} .pp-content-ticker-meta' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-content-ticker-meta .pp-icon svg' => 'fill: {{VALUE}}',
                 ],
 				'condition'             => [
 					'source'       => 'posts',
@@ -1417,23 +1646,49 @@ class Content_Ticker extends Powerpack_Widget {
         $this->slider_settings();
         
         $this->add_render_attribute( 'content-ticker-wrap', 'class', 'pp-content-ticker-wrap' );
+		
+		if ( ! isset( $settings['heading_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
+			// add old default
+			$settings['heading_icon'] = 'fa fa-bolt';
+		}
+
+		$has_icon = ! empty( $settings['heading_icon'] );
+		
+		if ( $has_icon ) {
+			$this->add_render_attribute( 'i', 'class', $settings['heading_icon'] );
+			$this->add_render_attribute( 'i', 'aria-hidden', 'true' );
+		}
+		
+		if ( ! $has_icon && ! empty( $settings['selected_icon']['value'] ) ) {
+			$has_icon = true;
+		}
+		$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
+		$is_new = ! isset( $settings['heading_icon'] ) && Icons_Manager::is_migration_allowed();
         ?>
 
         <div <?php echo $this->get_render_attribute_string( 'content-ticker-container' ); ?>>
             <?php if ( $settings['show_heading'] == 'yes' && $settings['heading'] ) { ?>
                 <div class="pp-content-ticker-heading">
-                    <?php if ( $settings['heading_icon'] ) { ?>
+                    <?php if ( $has_icon ) { ?>
                         <?php 
                             $this->add_render_attribute( 'heading-icon', 'class', [
                                 'pp-content-ticker-heading-icon',
-                                $settings['heading_icon']
+								'pp-icon'
                             ] );
         
                             if ( $settings['heading_icon_position'] == 'right' ) {
                                 $this->add_render_attribute( 'heading-icon', 'class', 'pp-content-ticker-heading-icon-' . $settings['heading_icon_position'] );
                             }                                 
                         ?>
-                        <span <?php echo $this->get_render_attribute_string( 'heading-icon' ); ?>></span>
+                        <span <?php echo $this->get_render_attribute_string( 'heading-icon' ); ?>>
+							<?php
+							if ( $is_new || $migrated ) {
+								Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
+							} elseif ( ! empty( $settings['heading_icon'] ) ) {
+								?><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i><?php
+							}
+							?>
+						</span>
                     <?php } ?>
                     <span class="pp-content-ticker-heading-text">
                         <?php echo $settings['heading']; ?>
@@ -1531,17 +1786,17 @@ class Content_Ticker extends Powerpack_Widget {
                             ?>
                         </div>
                     <?php } ?>
-                    <?php if ( $item['ticker_title'] != '' ) { ?>
-                        <h2 <?php echo $this->get_render_attribute_string( $title_key ); ?>>
-                            <?php
+                    <?php
+						if ( $item['ticker_title'] != '' ) {
+							printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( $title_key ) );
                                 if ( ( $settings['link_type'] == 'title' || $settings['link_type'] == 'both' ) && $item['link']['url'] ) {
                                     printf( '<a href="%1$s">%2$s</a>', $item['link']['url'], $item['ticker_title'] );
                                 } else {
                                     echo $item['ticker_title'];
                                 }
-                            ?>
-                        </h2>
-                    <?php } ?>
+							printf( '</%s>', $settings['title_html_tag'] );
+						}
+					?>
                 </div>
             </div>
             <?php
@@ -1560,6 +1815,44 @@ class Content_Ticker extends Powerpack_Widget {
         $settings = $this->get_settings();
 
         $i = 1;
+		
+		// Author Icon
+		if ( ! isset( $settings['author_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
+			// add old default
+			$settings['author_icon'] = 'fa fa-user';
+		}
+
+		$has_author_icon = ! empty( $settings['author_icon'] );
+		
+		if ( $has_author_icon ) {
+			$this->add_render_attribute( 'i', 'class', $settings['author_icon'] );
+			$this->add_render_attribute( 'i', 'aria-hidden', 'true' );
+		}
+		
+		if ( ! $has_author_icon && ! empty( $settings['select_author_icon']['value'] ) ) {
+			$has_author_icon = true;
+		}
+		$migrated_author_icon = isset( $settings['__fa4_migrated']['select_author_icon'] );
+		$is_new_author_icon = ! isset( $settings['author_icon'] ) && Icons_Manager::is_migration_allowed();
+		
+		// Category Icon
+		if ( ! isset( $settings['category_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
+			// add old default
+			$settings['category_icon'] = 'fa fa-folder-open';
+		}
+
+		$has_category_icon = ! empty( $settings['category_icon'] );
+		
+		if ( $has_category_icon ) {
+			$this->add_render_attribute( 'i', 'class', $settings['category_icon'] );
+			$this->add_render_attribute( 'i', 'aria-hidden', 'true' );
+		}
+		
+		if ( ! $has_category_icon && ! empty( $settings['select_category_icon']['value'] ) ) {
+			$has_category_icon = true;
+		}
+		$migrated_category_icon = isset( $settings['__fa4_migrated']['select_category_icon'] );
+		$is_new_category_icon = ! isset( $settings['category_icon'] ) && Icons_Manager::is_migration_allowed();
 
         // Query Arguments
         $args = $this->get_posts_query_arguments();
@@ -1572,8 +1865,10 @@ class Content_Ticker extends Powerpack_Widget {
             if ( has_post_thumbnail() ) {
                 $image_id = get_post_thumbnail_id( get_the_ID() );
                 $pp_thumb_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image_size', $settings );
+                $image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true);
             } else {
                 $pp_thumb_url = '';
+                $image_alt = '';
             }
         
             $this->add_render_attribute( $item_key, 'class', [
@@ -1588,29 +1883,38 @@ class Content_Ticker extends Powerpack_Widget {
                         <div class="pp-content-ticker-image">
                             <?php
                                 if ( $settings['link_type'] == 'image' || $settings['link_type'] == 'both' ) {
-                                    printf( '<a href="%1$s">%2$s</a>', get_permalink(), '<img src="' . esc_url( $pp_thumb_url ) . '">' );
+                                    printf( '<a href="%1$s">%2$s</a>', get_permalink(), '<img src="' . esc_url( $pp_thumb_url ) . '" alt="' . $image_alt . '">' );
                                 } else {
-                                    echo '<img src="' . esc_url( $pp_thumb_url ) . '">';
+                                    echo '<img src="' . esc_url( $pp_thumb_url ) . '" alt="' . $image_alt . '">';
                                 }
                             ?>
                         </div>
                     <?php } ?>
                     <div class="pp-content-ticker-item-title-wrap">
-                        <h2 class="pp-content-ticker-item-title">
-                            <?php
+						<?php
+							printf( '<%s class="pp-content-ticker-item-title">', $settings['title_html_tag'] );
                                 if ( $settings['link_type'] == 'title' || $settings['link_type'] == 'both' ) {
                                     printf( '<a href="%1$s">%2$s</a>', get_permalink(), get_the_title() );
                                 } else {
                                     the_title();
                                 }
-                            ?>
-                        </h2>
+							printf( '</%s>', $settings['title_html_tag'] );
+						?>
+							
                         <?php if ( $settings['post_meta'] == 'yes' ) { ?>
                             <div class="pp-content-ticker-meta">
                                 <?php if ( $settings['post_author'] == 'yes' ) { ?>
                                     <span class="pp-content-author">
-                                        <?php if ( $settings['author_icon'] ) { ?>
-                                            <span class="pp-content-ticker-meta-icon <?php echo $settings['author_icon']; ?>"></span>
+                                        <?php if ( $has_author_icon ) { ?>
+                                            <span class="pp-content-ticker-meta-icon pp-icon">
+												<?php
+												if ( $is_new_author_icon || $migrated_author_icon ) {
+													Icons_Manager::render_icon( $settings['select_author_icon'], [ 'aria-hidden' => 'true' ] );
+												} elseif ( ! empty( $settings['author_icon'] ) ) {
+													?><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i><?php
+												}
+												?>
+											</span>
                                         <?php } ?>
                                         <span class="pp-content-ticker-meta-text">
                                             <?php echo get_the_author(); ?>
@@ -1619,8 +1923,16 @@ class Content_Ticker extends Powerpack_Widget {
                                 <?php } ?>  
                                 <?php if ( $settings['post_category'] == 'yes' ) { ?>
                                     <span class="pp-post-category">
-                                        <?php if ( $settings['category_icon'] ) { ?>
-                                            <span class="pp-content-ticker-meta-icon <?php echo $settings['category_icon']; ?>"></span>
+                                        <?php if ( $has_category_icon ) { ?>
+                                            <span class="pp-content-ticker-meta-icon pp-icon">
+												<?php
+												if ( $is_new_author_icon || $migrated_author_icon ) {
+													Icons_Manager::render_icon( $settings['select_category_icon'], [ 'aria-hidden' => 'true' ] );
+												} elseif ( ! empty( $settings['category_icon'] ) ) {
+													?><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i><?php
+												}
+												?>
+											</span>
                                         <?php } ?>
                                         <span class="pp-content-ticker-meta-text">
                                             <?php
@@ -1648,39 +1960,123 @@ class Content_Ticker extends Powerpack_Widget {
 	 */
     protected function get_posts_query_arguments() {
         $settings = $this->get_settings();
-        $pp_posts_count = absint( $settings['posts_count'] );
-
-        // Post Authors
-        $pp_tiled_post_author = '';
-        $pp_tiled_post_authors = $settings['authors'];
-        if ( !empty( $pp_tiled_post_authors) ) {
-            $pp_tiled_post_author = implode( ",", $pp_tiled_post_authors );
-        }
-
-        // Post Categories
-        $pp_tiled_post_cat = '';
-        $pp_tiled_post_cats = $settings['categories'];
-        if ( !empty( $pp_tiled_post_cats) ) {
-            $pp_tiled_post_cat = implode( ",", $pp_tiled_post_cats );
-        }
-
-        // Query Arguments
-        $args = array(
-            'post_status'           => array( 'publish' ),
-            'post_type'             => $settings['post_type'],
-            'post__in'              => '',
-            'cat'                   => $pp_tiled_post_cat,
-            'author'                => $pp_tiled_post_author,
-            'tag__in'               => $settings['tags'],
-            'orderby'               => $settings['orderby'],
-            'order'                 => $settings['order'],
-            'post__not_in'          => $settings['exclude_posts'],
-            'offset'                => $settings['offset'],
-            'ignore_sticky_posts'   => 1,
-            'showposts'             => $pp_posts_count
-        );
+        $posts_count = absint( $settings['posts_count'] );
         
-        return $args;
+		// Post Authors
+		$pp_tiled_post_author = '';
+		$pp_tiled_post_authors = $settings['authors'];
+		if ( !empty( $pp_tiled_post_authors) ) {
+			$pp_tiled_post_author = implode( ",", $pp_tiled_post_authors );
+		}
+
+		// Post Categories
+		$pp_tiled_post_cat = '';
+		$pp_tiled_post_cats = $settings['categories'];
+		if ( !empty( $pp_tiled_post_cats) ) {
+			$pp_tiled_post_cat = implode( ",", $pp_tiled_post_cats );
+		}
+
+		// Query Arguments
+		$args = array(
+			'post_status'           => array( 'publish' ),
+			'post_type'             => $settings['post_type'],
+			'orderby'               => $settings['orderby'],
+			'order'                 => $settings['order'],
+			'offset'                => $settings['offset'],
+			'ignore_sticky_posts'   => ( 'yes' == $settings[ 'sticky_posts' ] ) ? 0 : 1,
+			'showposts'             => $posts_count
+		);
+		
+		// Author Filter
+		if ( !empty( $settings['authors'] ) ) {
+			$args[ $settings['author_filter_type'] ] = $settings['authors'];
+		}
+		
+		// Posts Filter
+		$post_type = $settings['post_type'];
+						
+		if ( $post_type == 'post' ) {
+			$posts_control_key = 'exclude_posts';
+		} else {
+			$posts_control_key = $post_type . '_filter';
+		}
+
+		if ( !empty( $settings[$posts_control_key] ) ) {
+			$args[ $settings[$post_type . '_filter_type'] ] = $settings[$posts_control_key];
+		}
+		
+		// Taxonomy Filter
+		$taxonomy = PP_Posts_Helper::get_post_taxonomies( $post_type );
+
+		if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
+
+			foreach ( $taxonomy as $index => $tax ) {
+				
+				if ( $index == 'post_tag' ) {
+					$tax_control_key = 'tags';
+				} else if ( $index == 'category' ) {
+					$tax_control_key = 'categories';
+				} else {
+					$tax_control_key = $index . '_' . $post_type;
+				}
+
+				if ( ! empty( $settings[ $tax_control_key ] ) ) {
+
+					$operator = $settings[ $index . '_' . $post_type . '_filter_type' ];
+
+					$args['tax_query'][] = [
+						'taxonomy' => $index,
+						'field'    => 'term_id',
+						'terms'    => $settings[ $tax_control_key ],
+						'operator' => $operator,
+					];
+				}
+			}
+		}
+		
+		if ( $settings['select_date'] != 'anytime' ) {
+			$select_date = $settings['select_date'];
+			if ( ! empty( $select_date ) ) {
+				$date_query = [];
+				if ( $select_date == 'today' ) {
+						$date_query['after'] = '-1 day';
+				}
+				elseif ( $select_date == 'week' ) {
+						$date_query['after'] = '-1 week';
+				}
+				elseif ( $select_date == 'month' ) {
+						$date_query['after'] = '-1 month';
+				}
+				elseif ( $select_date == 'quarter' ) {
+						$date_query['after'] = '-3 month';
+				}
+				elseif ( $select_date == 'year' ) {
+						$date_query['after'] = '-1 year';
+				}
+				elseif ( $select_date == 'exact' ) {
+					$after_date = $settings['date_after'];
+					if ( ! empty( $after_date ) ) {
+						$date_query['after'] = $after_date;
+					}
+					$before_date = $settings['date_before'];
+					if ( ! empty( $before_date ) ) {
+						$date_query['before'] = $before_date;
+					}
+					$date_query['inclusive'] = true;
+				}
+
+				$args['date_query'] = $date_query;
+			}
+		}
+		
+		// Sticky Posts Filter
+		if ( $settings['sticky_posts'] == 'yes' && $settings['all_sticky_posts'] == 'yes' ) {
+			$post__in = get_option( 'sticky_posts' );
+			
+			$args['post__in'] = $post__in;
+		}
+		
+		return $args;
     }
 
     /**
