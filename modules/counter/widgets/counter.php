@@ -6,6 +6,7 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Utils;
+use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
@@ -147,7 +148,7 @@ class Counter extends Powerpack_Widget {
 					],
 					'icon'        => [
 						'title'   => esc_html__( 'Icon', 'powerpack' ),
-						'icon'    => 'fa fa-info-circle',
+						'icon'    => 'fa fa-star',
 					],
 					'image'       => [
 						'title'   => esc_html__( 'Image', 'powerpack' ),
@@ -157,18 +158,22 @@ class Counter extends Powerpack_Widget {
 				'default'               => 'none',
 			]
 		);
-        
-        $this->add_control(
-            'counter_icon',
-            [
-                'label'                 => __( 'Icon', 'powerpack' ),
-                'default'               => 'fa fa-star',
-                'type'                  => Controls_Manager::ICON,
+		
+		$this->add_control(
+			'icon',
+			[
+				'label'					=> __( 'Icon', 'powerpack' ),
+				'type'					=> Controls_Manager::ICONS,
+				'fa4compatibility'		=> 'counter_icon',
+				'default'				=> [
+					'value'		=> 'fas fa-star',
+					'library'	=> 'fa-solid',
+				],
                 'condition'             => [
-                    'pp_icon_type'  => 'icon',
+                    'pp_icon_type'	=> 'icon',
                 ],
-            ]
-        );
+			]
+		);
         
         $this->add_control(
             'icon_image',
@@ -485,6 +490,7 @@ class Counter extends Powerpack_Widget {
                 'default'               => '',
                 'selectors'             => [
                     '{{WRAPPER}} .pp-counter-icon' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-counter-icon svg' => 'fill: {{VALUE}};',
                 ],
                 'condition'             => [
                     'pp_icon_type'  => 'icon',
@@ -1236,17 +1242,17 @@ class Counter extends Powerpack_Widget {
     protected function render() {
         $settings = $this->get_settings_for_display();
         
-        $starting_number =  ( $settings['starting_number'] ) ? $settings['starting_number'] : 0;
+		$starting_number =  ( $settings['starting_number'] ) ? $settings['starting_number'] : 0;
         $ending_number =  ( $settings['ending_number'] ) ? $settings['ending_number'] : 250;
         $counter_speed =  ( $settings['counter_speed']['size'] ) ? $settings['counter_speed']['size'] : 1500;
-        
+		
         $this->add_render_attribute([
-			'counter'			=> [
-				'class'			=> [
+			'counter' => [
+				'class' => [
 					'pp-counter pp-counter-'.esc_attr( $this->get_id() ),
 					'pp-counter-' . $settings['counter_layout']
 				],
-				'data-target'	=> '.pp-counter-number-'.esc_attr( $this->get_id() )
+				'data-target' => '.pp-counter-number-'.esc_attr( $this->get_id() )
 			],
 			'counter-number'	=> [
 				'class'			=> 'pp-counter-number pp-counter-number-'.esc_attr( $this->get_id() ),
@@ -1401,15 +1407,40 @@ class Counter extends Powerpack_Widget {
 	 */
     private function render_icon() {
         $settings = $this->get_settings_for_display();
+		
+		if ( ! isset( $settings['counter_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
+			// add old default
+			$settings['counter_icon'] = 'fa fa-star';
+		}
+
+		$has_icon = ! empty( $settings['counter_icon'] );
+		
+		if ( $has_icon ) {
+			$this->add_render_attribute( 'i', 'class', $settings['counter_icon'] );
+			$this->add_render_attribute( 'i', 'aria-hidden', 'true' );
+		}
+
+		$icon_attributes = $this->get_render_attribute_string( 'counter_icon' );
+		
+		if ( ! $has_icon && ! empty( $settings['icon']['value'] ) ) {
+			$has_icon = true;
+		}
+		$migrated = isset( $settings['__fa4_migrated']['icon'] );
+		$is_new = ! isset( $settings['counter_icon'] ) && Icons_Manager::is_migration_allowed();
         
-        if ( $settings['pp_icon_type'] == 'icon' ) {
-            if ( !empty( $settings['counter_icon'] ) ) { ?>
-                <span class="pp-counter-icon-wrap">
-                    <span class="pp-counter-icon">
-                        <span class="<?php echo $settings['counter_icon'] ?>" aria-hidden="true"></span>
-                    </span>
-                </span>
-            <?php }
+        if ( $settings['pp_icon_type'] == 'icon' ) { ?>
+			<span class="pp-counter-icon-wrap">
+				<span class="pp-counter-icon pp-icon">
+					<?php
+					if ( $is_new || $migrated ) {
+						Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] );
+					} elseif ( ! empty( $settings['counter_icon'] ) ) {
+						?><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i><?php
+					}
+					?>
+				</span>
+			</span>
+            <?php
         } elseif ( $settings['pp_icon_type'] == 'image' ) {
             $image = $settings['icon_image'];
             if ( $image['url'] ) { ?>
@@ -1497,117 +1528,6 @@ class Counter extends Powerpack_Widget {
     }
 
     /**
-	 * Render counter icon output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @access protected
-	 */
-    protected function _icon_template() {
-        ?>
-        <# if ( settings.pp_icon_type == 'icon' ) { #>
-            <# if ( settings.counter_icon != '' ) { #>
-                <span class="pp-counter-icon-wrap">
-                    <span class="pp-counter-icon">
-                        <span class="{{ settings.counter_icon }}" aria-hidden="true"></span>
-                    </span>
-                </span>
-            <# } #>
-        <# } else if ( settings.pp_icon_type == 'image' ) { #>
-            <# if ( settings.icon_image.url != '' ) { #>
-                <span class="pp-counter-icon-wrap">
-                    <span class="pp-counter-icon pp-counter-icon-img">
-                        <#
-                        var image = {
-                            id: settings.icon_image.id,
-                            url: settings.icon_image.url,
-                            size: settings.image_size,
-                            dimension: settings.image_custom_dimension,
-                            model: view.getEditModel()
-                        };
-                        var image_url = elementor.imagesManager.getImageUrl( image );
-                        #>
-                        <img src="{{{ image_url }}}" />
-                    </span>
-                </span>
-            <# } #>
-        <# } #>
-
-        <# if ( settings.icon_divider == 'yes' ) { #>
-            <# if ( settings.counter_layout == 'layout-1' || settings.counter_layout == 'layout-2' ) { #>
-                <div class="pp-counter-icon-divider-wrap">
-                    <span class="pp-counter-icon-divider"></span>
-                </div>
-            <# } #>
-        <# } #>
-        <?php
-    }
-
-    /**
-	 * Render counter number output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @access protected
-	 */
-    protected function _number_template() {
-        ?>
-        <div class="pp-counter-number-wrap">
-            <#
-                if ( settings.number_prefix != '' ) {
-                    var prefix = settings.number_prefix;
-
-                    view.addRenderAttribute( 'prefix', 'class', 'pp-counter-number-prefix' );
-
-                    var prefix_html = '<span' + ' ' + view.getRenderAttributeString( 'prefix' ) + '>' + prefix + '</span>';
-
-                    print( prefix_html );
-                }
-            #>
-            <div class="pp-counter-number" data-from="{{ settings.starting_number }}" data-to="{{ settings.ending_number }}" data-speed="{{ settings.counter_speed.size }}">
-                {{{ settings.starting_number }}}
-            </div>
-            <#
-                if ( settings.number_suffix != '' ) {
-                    var suffix = settings.number_suffix;
-
-                    view.addRenderAttribute( 'suffix', 'class', 'pp-counter-number-suffix' );
-
-                    var suffix_html = '<span' + ' ' + view.getRenderAttributeString( 'suffix' ) + '>' + suffix + '</span>';
-
-                    print( suffix_html );
-                }
-            #>
-        </div>
-        <?php
-    }
-
-    /**
-	 * Render counter title output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @access protected
-	 */
-    protected function _title_template() {
-        ?>
-        <#
-            if ( settings.counter_title != '' ) {
-                var title = settings.counter_title;
-
-                view.addRenderAttribute( 'counter_title', 'class', 'pp-counter-title' );
-
-                view.addInlineEditingAttributes( 'counter_title' );
-
-                var title_html = '<' + settings.title_html_tag  + ' ' + view.getRenderAttributeString( 'counter_title' ) + '>' + title + '</' + settings.title_html_tag + '>';
-
-                print( title_html );
-            }
-        #>
-        <?php
-    }
-
-    /**
 	 * Render counter widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
@@ -1616,19 +1536,108 @@ class Counter extends Powerpack_Widget {
 	 */
     protected function _content_template() {
         ?>
+		<#
+		   function icon_template() {
+			   var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' ),
+					migrated = elementor.helpers.isIconMigrated( settings, 'icon' );
+		   
+			   if ( settings.pp_icon_type == 'icon' ) {
+		   			if ( settings.counter_icon || settings.icon ) { #>
+						<span class="pp-counter-icon-wrap">
+							<span class="pp-counter-icon pp-icon">
+								<# if ( iconHTML && iconHTML.rendered && ( ! settings.counter_icon || migrated ) ) { #>
+								{{{ iconHTML.value }}}
+								<# } else { #>
+									<i class="{{ settings.counter_icon }}" aria-hidden="true"></i>
+								<# } #>
+							</span>
+						</span>
+						<#
+					}
+				} else if ( settings.pp_icon_type == 'image' ) {
+					if ( settings.icon_image.url != '' ) { #>
+						<span class="pp-counter-icon-wrap">
+							<span class="pp-counter-icon pp-counter-icon-img">
+								<#
+								var image = {
+									id: settings.icon_image.id,
+									url: settings.icon_image.url,
+									size: settings.image_size,
+									dimension: settings.image_custom_dimension,
+									model: view.getEditModel()
+								};
+								var image_url = elementor.imagesManager.getImageUrl( image );
+								#>
+								<img src="{{{ image_url }}}" />
+							</span>
+						</span>
+						<#
+					}
+				}
+						   
+				if ( settings.icon_divider == 'yes' ) {
+					if ( settings.counter_layout == 'layout-1' || settings.counter_layout == 'layout-2' ) { #>
+						<div class="pp-counter-icon-divider-wrap">
+							<span class="pp-counter-icon-divider"></span>
+						</div>
+						<#
+					}
+				}
+			}
+						   
+			function number_template() { #>
+				<div class="pp-counter-number-wrap">
+					<#
+						if ( settings.number_prefix != '' ) {
+							var prefix = settings.number_prefix;
+
+							view.addRenderAttribute( 'prefix', 'class', 'pp-counter-number-prefix' );
+
+							var prefix_html = '<span' + ' ' + view.getRenderAttributeString( 'prefix' ) + '>' + prefix + '</span>';
+
+							print( prefix_html );
+						}
+					#>
+					<div class="pp-counter-number" data-from="{{ settings.starting_number }}" data-to="{{ settings.ending_number }}" data-speed="{{ settings.counter_speed.size }}">
+						{{{ settings.starting_number }}}
+					</div>
+					<#
+						if ( settings.number_suffix != '' ) {
+							var suffix = settings.number_suffix;
+
+							view.addRenderAttribute( 'suffix', 'class', 'pp-counter-number-suffix' );
+
+							var suffix_html = '<span' + ' ' + view.getRenderAttributeString( 'suffix' ) + '>' + suffix + '</span>';
+
+							print( suffix_html );
+						}
+					#>
+				</div>
+				<#
+			}
+
+			function title_template() {
+				if ( settings.counter_title != '' ) {
+					var title = settings.counter_title;
+
+					view.addRenderAttribute( 'counter_title', 'class', 'pp-counter-title' );
+
+					view.addInlineEditingAttributes( 'counter_title' );
+
+					var title_html = '<' + settings.title_html_tag  + ' ' + view.getRenderAttributeString( 'counter_title' ) + '>' + title + '</' + settings.title_html_tag + '>';
+
+					print( title_html );
+				}
+			}
+		#>
+
         <div class="pp-counter-container">
             <div class="pp-counter pp-counter-{{ settings.counter_layout }}" data-target=".pp-counter-number">
                 <# if ( settings.counter_layout == 'layout-1' || settings.counter_layout == 'layout-5' || settings.counter_layout == 'layout-6' ) { #>
-                    <?php
-                        // Counter Icon
-                        $this->_icon_template();
-                    ?>
+                    <# icon_template(); #>
                 
                     <div class="pp-counter-number-title-wrap">
-                        <?php
-                            // Counter Number
-                            $this->_number_template();
-                        ?>
+						<# number_template(); #>
 
                         <# if ( settings.num_divider == 'yes' ) { #>
                             <div class="pp-counter-num-divider-wrap">
@@ -1636,22 +1645,12 @@ class Counter extends Powerpack_Widget {
                             </div>
                         <# } #>
 
-                        <?php
-                            // Title Number
-                            $this->_title_template();
-                        ?>
+						<# title_template(); #>
                     </div>
                 <# } else if ( settings.counter_layout == 'layout-2' ) { #>
-                    <?php
-                        // Counter Icon
-                        $this->_icon_template();
-        
-                        // Title Number
-                        $this->_title_template();
-        
-                        // Counter Number
-                        $this->_number_template();
-                    ?>
+					<# icon_template(); #>
+					<# title_template(); #>
+					<# number_template(); #>
 
                     <# if ( settings.num_divider == 'yes' ) { #>
                         <div class="pp-counter-num-divider-wrap">
@@ -1659,10 +1658,7 @@ class Counter extends Powerpack_Widget {
                         </div>
                     <# } #>
                 <# } else if ( settings.counter_layout == 'layout-3' ) { #>
-                    <?php
-                        // Counter Number
-                        $this->_number_template();
-                    ?>
+					<# number_template(); #>
 
                     <# if ( settings.num_divider == 'yes' ) { #>
                         <div class="pp-counter-num-divider-wrap">
@@ -1671,29 +1667,16 @@ class Counter extends Powerpack_Widget {
                     <# } #>
                 
                     <div class="pp-icon-title-wrap">
-                        <?php
-                            // Counter Icon
-                            $this->_icon_template();
-        
-                            // Title Number
-                            $this->_title_template();
-                        ?>
+						<# icon_template(); #>
+						<# title_template(); #>
                     </div>
                 <# } else if ( settings.counter_layout == 'layout-4' ) { #>
                     <div class="pp-icon-title-wrap">
-                        <?php
-                            // Counter Icon
-                            $this->_icon_template();
-
-                            // Title Number
-                            $this->_title_template();
-                        ?>
+						<# icon_template(); #>
+						<# title_template(); #>
                     </div>
-                
-                    <?php
-                        // Counter Number
-                        $this->_number_template();
-                    ?>
+
+					<# number_template(); #>
 
                     <# if ( settings.num_divider == 'yes' ) { #>
                         <div class="pp-counter-num-divider-wrap">
@@ -1701,51 +1684,31 @@ class Counter extends Powerpack_Widget {
                         </div>
                     <# } #>
                 <# } else if ( settings.counter_layout == 'layout-7' || settings.counter_layout == 'layout-8' ) { #>
-                    <?php
-                        // Counter Number
-                        $this->_number_template();
-                    ?>
+					<# number_template(); #>
                     
                     <div class="pp-icon-title-wrap">
-                        <?php
-                            // Counter Icon
-                            $this->_icon_template();
-
-                            // Title Number
-                            $this->_title_template();
-                        ?>
+						<# icon_template(); #>
+						<# title_template(); #>
                     </div>
                 <# } else if ( settings.counter_layout == 'layout-9' ) { #>
 					<div class="pp-icon-number-wrap">
-						<?php
-							// Counter Icon
-							$this->_icon_template();
-
-							// Counter Number
-							$this->_number_template();
-						?>
+						<# icon_template(); #>
+						<# number_template(); #>
 					</div>
-					<?php
-						// Counter Title
-						$this->_title_template();
-					?>
+
+					<# title_template(); #>
                 <# } else if ( settings.counter_layout == 'layout-10' ) { #>
 					<div class="pp-icon-number-wrap">
-						<?php
-							// Counter Number
-							$this->_number_template();
-
-							// Counter Icon
-							$this->_icon_template();
-						?>
+						<#
+						   number_template();
+						   icon_template();
+						#>
 					</div>
-					<?php
-						// Counter Title
-						$this->_title_template();
-					?>
+
+					<# title_template(); #>
                 <# } #>
             </div>
-        </div><!-- .pp-counter-container -->
+        </div>
         <?php
     }
 }
