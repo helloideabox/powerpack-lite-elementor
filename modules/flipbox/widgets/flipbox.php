@@ -6,6 +6,7 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Utils;
+use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
@@ -145,18 +146,22 @@ class Flipbox extends Powerpack_Widget {
                 ]
             ]
         );
-
-        $this->add_control(
-            'icon',
-            [
-                'label'                 => esc_html__( 'Icon', 'powerpack' ),
-                'type'                  => Controls_Manager::ICON,
-                'default'               => 'fa fa-star',
+		
+		$this->add_control(
+			'select_icon',
+			[
+				'label'					=> __( 'Icon', 'powerpack' ),
+				'type'					=> Controls_Manager::ICONS,
+				'fa4compatibility'		=> 'icon',
+				'default'				=> [
+					'value'		=> 'fas fa-star',
+					'library'	=> 'fa-solid',
+				],
                 'condition'             => [
-                    'icon_type' => 'icon'
-                ]
-            ]
-        );
+                    'icon_type'     => 'icon',
+                ],
+			]
+		);
 
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
@@ -239,18 +244,22 @@ class Flipbox extends Powerpack_Widget {
                 ]
             ]
         );
-
-        $this->add_control(
-            'icon_back',
-            [
-                'label'                 => esc_html__( 'Icon', 'powerpack' ),
-                'type'                  => Controls_Manager::ICON,
-                'default'               => 'fa fa-snowflake-o',
+		
+		$this->add_control(
+			'select_icon_back',
+			[
+				'label'					=> __( 'Icon', 'powerpack' ),
+				'type'					=> Controls_Manager::ICONS,
+				'fa4compatibility'		=> 'icon_back',
+				'default'				=> [
+					'value'		=> 'far fa-snowflake',
+					'library'	=> 'fa-regular',
+				],
                 'condition'             => [
-                    'icon_type_back'	=> 'icon'
-                ]
-            ]
-        );
+                    'icon_type_back'     => 'icon',
+                ],
+			]
+		);
 
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
@@ -336,18 +345,18 @@ class Flipbox extends Powerpack_Widget {
                 ],
             ]
         );
-
-        $this->add_control(
-            'button_icon',
-            [
-                'label'                 => __( 'Button Icon', 'powerpack' ),
-                'type'                  => Controls_Manager::ICON,
-                'default'               => '',
+		
+		$this->add_control(
+			'select_button_icon',
+			[
+				'label'					=> __( 'Button Icon', 'powerpack' ),
+				'type'					=> Controls_Manager::ICONS,
+				'fa4compatibility'		=> 'button_icon',
                 'condition'             => [
                     'link_type'   => 'button',
                 ],
-            ]
-        );
+			]
+		);
         
         $this->add_control(
             'button_icon_position',
@@ -361,7 +370,7 @@ class Flipbox extends Powerpack_Widget {
                 ],
                 'condition'             => [
                     'link_type'     => 'button',
-                    'button_icon!'  => '',
+                    'select_button_icon[value]!'  => '',
                 ],
             ]
         );
@@ -652,9 +661,10 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
+				'default'               => '#ffffff',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-flipbox-icon-image .fa' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-flipbox-icon-image i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-flipbox-icon-image svg' => 'fill: {{VALUE}};',
 				],
                 'condition'             => [
                     'icon_type'	=> 'icon'
@@ -667,6 +677,10 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Icon Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
+					'size' => 40,
+					'unit' => 'px',
+				],
 				'range'                 => [
 					'px' => [
 						'min' => 6,
@@ -674,7 +688,7 @@ class Flipbox extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-flipbox-icon-image .fa' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-flipbox-icon-image, {{WRAPPER}} .pp-flipbox-icon-image i' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
                 'condition'             => [
                     'icon_type'	=> 'icon'
@@ -948,9 +962,10 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
+				'default'               => '#ffffff',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-flipbox-icon-image-back .fa' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-flipbox-icon-image-back i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-flipbox-icon-image-back svg' => 'fill: {{VALUE}};',
 				],
                 'condition'             => [
                     'icon_type_back'	=> 'icon'
@@ -963,6 +978,10 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Icon Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
+					'size' => 40,
+					'unit' => 'px',
+				],
 				'range'                 => [
 					'px' => [
 						'min' => 6,
@@ -970,7 +989,7 @@ class Flipbox extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-flipbox-icon-image-back .fa' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-flipbox-icon-image-back, {{WRAPPER}} .pp-flipbox-icon-image-back i' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
                 'condition'             => [
                     'icon_type_back'	=> 'icon'
@@ -1097,6 +1116,9 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+                'default'               => [
+                    'size' => 15
+                ],
 				'range'                 => [
 					'px' => [
 						'min' => 0,
@@ -1147,6 +1169,7 @@ class Flipbox extends Powerpack_Widget {
                 'default'               => '',
                 'selectors'             => [
                     '{{WRAPPER}} .pp-flipbox-button' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-flipbox-button .pp-button-icon svg' => 'fill: {{VALUE}}',
                 ],
 				'condition'             => [
 					'link_type'    => 'button',
@@ -1230,7 +1253,7 @@ class Flipbox extends Powerpack_Widget {
                 'separator'             => 'before',
                 'condition'             => [
 					'link_type'    => 'button',
-                    'button_icon!' => '',
+                    'select_button_icon[value]!' => '',
                 ],
             ]
         );
@@ -1249,7 +1272,7 @@ class Flipbox extends Powerpack_Widget {
 				],
                 'condition'             => [
 					'link_type'    => 'button',
-                    'button_icon!' => '',
+                    'select_button_icon[value]!' => '',
                 ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box .pp-button-icon' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
@@ -1382,13 +1405,43 @@ class Flipbox extends Powerpack_Widget {
 
 	protected function render_front() {
    		$settings = $this->get_settings();
+			
+		$this->add_render_attribute( 'icon-front', 'class', 'pp-flipbox-icon-image' );
+		
+		if( 'icon' === $settings['icon_type'] ) {
+			$this->add_render_attribute( 'icon-front', 'class', 'pp-icon' );
+		}
+		
+		if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
+			// add old default
+			$settings['icon'] = 'fa fa-star';
+		}
+
+		$has_icon = ! empty( $settings['icon'] );
+		
+		if ( $has_icon ) {
+			$this->add_render_attribute( 'front-i', 'class', $settings['icon'] );
+			$this->add_render_attribute( 'front-i', 'aria-hidden', 'true' );
+		}
+		
+		if ( ! $has_icon && ! empty( $settings['select_icon']['value'] ) ) {
+			$has_icon = true;
+		}
+		$migrated = isset( $settings['__fa4_migrated']['select_icon'] );
+		$is_new = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
         ?>
         <div class="pp-flipbox-front">
             <div class="pp-flipbox-overlay">
                 <div class="pp-flipbox-inner">
-                    <div class="pp-flipbox-icon-image">
-                        <?php if( 'icon' === $settings['icon_type'] ) { ?>
-                            <i class="<?php echo esc_attr( $settings['icon'] ); ?>"></i>
+                    <div <?php echo $this->get_render_attribute_string('icon-front'); ?>>
+                        <?php if( 'icon' === $settings['icon_type'] && $has_icon ) { ?>
+							<?php
+							if ( $is_new || $migrated ) {
+								Icons_Manager::render_icon( $settings['select_icon'], [ 'aria-hidden' => 'true' ] );
+							} elseif ( ! empty( $settings['icon'] ) ) {
+								?><i <?php echo $this->get_render_attribute_string( 'front-i' ); ?>></i><?php
+							}
+							?>
                         <?php } elseif ( 'image' === $settings['icon_type'] ) { ?>
                             <?php
                                 $flipbox_image = $settings['icon_image'];
@@ -1426,6 +1479,27 @@ class Flipbox extends Powerpack_Widget {
 	  	$flipbox_back_image_url = ( empty( $flipbox_back_image_url ) ) ? $flipbox_image_back['url'] : $flipbox_back_image_url;
 
 	  	if ( $settings['icon_type_back'] != 'none' ) {
+			
+			$this->add_render_attribute( 'icon-back', 'class', 'pp-flipbox-icon-image-back' );
+		
+			if ( ! isset( $settings['icon_back'] ) && ! Icons_Manager::is_migration_allowed() ) {
+				// add old default
+				$settings['icon'] = 'fa fa-snowflake-o';
+			}
+
+			$has_icon_back = ! empty( $settings['icon_back'] );
+
+			if ( $has_icon_back ) {
+				$this->add_render_attribute( 'back-i', 'class', $settings['icon_back'] );
+				$this->add_render_attribute( 'back-i', 'aria-hidden', 'true' );
+			}
+
+			if ( ! $has_icon_back && ! empty( $settings['select_icon_back']['value'] ) ) {
+				$has_icon_back = true;
+			}
+			$migrated_icon_back = isset( $settings['__fa4_migrated']['select_icon_back'] );
+			$is_new_icon_back = ! isset( $settings['icon_back'] ) && Icons_Manager::is_migration_allowed();
+			
 	  		if ( 'image' == $settings['icon_type_back'] ) {
 	  			$this->add_render_attribute(
 	  				'icon-image-back',
@@ -1435,13 +1509,7 @@ class Flipbox extends Powerpack_Widget {
 	  				]
 	  			);
 	  		} elseif ( 'icon' == $settings['icon_type_back'] ) {
-	  			$this->add_render_attribute(
-	  				'icon-back',
-	  				[
-	  					'class'	=> $settings['icon_back'],
-	  					'aria-hidden' => 'true'
-	  				]
-	  			);
+				$this->add_render_attribute( 'icon-back', 'class', 'pp-icon' );
 	  		}
 	  	}
 
@@ -1509,11 +1577,17 @@ class Flipbox extends Powerpack_Widget {
             <div class="pp-flipbox-overlay">
                 <div class="pp-flipbox-inner">
                     <?php if( 'none' != $settings['icon_type_back'] ) { ?>
-                        <div class="pp-flipbox-icon-image-back">
+                        <div <?php echo $this->get_render_attribute_string('icon-back'); ?>>
                             <?php if ( 'image' == $settings['icon_type_back'] ) { ?>
                                 <img <?php echo $this->get_render_attribute_string('icon-image-back'); ?>>
-                            <?php } elseif ( 'icon' == $settings['icon_type_back'] ) { ?>
-                                <i <?php echo $this->get_render_attribute_string('icon-back'); ?>></i>
+                            <?php } elseif ( 'icon' == $settings['icon_type_back'] && $has_icon_back ) { ?>
+								<?php
+								if ( $is_new_icon_back || $migrated_icon_back ) {
+									Icons_Manager::render_icon( $settings['select_icon_back'], [ 'aria-hidden' => 'true' ] );
+								} elseif ( ! empty( $settings['icon_back'] ) ) {
+									?><i <?php echo $this->get_render_attribute_string( 'back-i' ); ?>></i><?php
+								}
+								?>
                             <?php } ?>
                         </div>
                     <?php } ?>
@@ -1530,12 +1604,12 @@ class Flipbox extends Powerpack_Widget {
 
                     <?php if( $settings['link_type'] == 'button' && ! empty($settings['flipbox_button_text']) ) : ?>
                         <a <?php echo $this->get_render_attribute_string('button'); ?>>
-                            <?php if( ! empty($settings['button_icon']) && 'before' == $settings['button_icon_position'] ) : ?>
-                                <i class="<?php echo $settings['button_icon']; ?>"></i>
+                            <?php if ( 'before' == $settings['button_icon_position'] ) : ?>
+                                <?php $this->render_button_icon() ?>
                             <?php endif; ?>
                             <?php echo esc_attr($settings['flipbox_button_text']); ?>
-                            <?php if( ! empty($settings['button_icon']) && 'after' == $settings['button_icon_position'] ) : ?>
-                                <i class="<?php echo $settings['button_icon']; ?>"></i>
+                            <?php if ( 'after' == $settings['button_icon_position'] ) : ?>
+                                <?php $this->render_button_icon() ?>
                             <?php endif; ?>
                         </a>
                     <?php endif; ?>
@@ -1543,6 +1617,50 @@ class Flipbox extends Powerpack_Widget {
             </div>
         </div>
         <?php
+	}
+
+	protected function render_button_icon() {
+   		$settings = $this->get_settings();
+		
+		if ( ! isset( $settings['button_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
+			// add old default
+			$settings['icon'] = '';
+		}
+
+		$has_button_icon = ! empty( $settings['button_icon'] );
+
+		if ( $has_button_icon ) {
+			$this->add_render_attribute( 'back-i', 'class', $settings['button_icon'] );
+			$this->add_render_attribute( 'back-i', 'aria-hidden', 'true' );
+		}
+
+		if ( ! $has_button_icon && ! empty( $settings['select_button_icon']['value'] ) ) {
+			$has_button_icon = true;
+		}
+		$migrated_button_icon = isset( $settings['__fa4_migrated']['select_button_icon'] );
+		$is_new_button_icon = ! isset( $settings['button_icon'] ) && Icons_Manager::is_migration_allowed();
+
+		if ( 'image' == $settings['icon_type_back'] ) {
+			$this->add_render_attribute(
+				'icon-image-back',
+				[
+					'src'	=> $flipbox_back_image_url,
+					'alt'	=> 'flipbox-image'
+				]
+			);
+		} elseif ( 'icon' == $settings['icon_type_back'] ) {
+			$this->add_render_attribute( 'icon-back', 'class', 'pp-icon' );
+		}
+		
+		if ( $has_button_icon ) {
+			echo '<span class="pp-button-icon">';
+			if ( $is_new_button_icon || $migrated_button_icon ) {
+				Icons_Manager::render_icon( $settings['select_button_icon'], [ 'aria-hidden' => 'true' ] );
+			} elseif ( ! empty( $settings['button_icon'] ) ) {
+				?><i <?php echo $this->get_render_attribute_string( 'back-i' ); ?>></i><?php
+			}
+			echo '</span>';
+		}
 	}
 
 	protected function content_template() { }
