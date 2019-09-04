@@ -129,6 +129,14 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+== 1.2.6 - September 40, 2019 ==
+* 	New: Fancy Heading widget
+* 	Enhancement: Updated icon controls in all widgets
+* 	Added: Image size option in Info Box Carousel, Info Table and Price Table widgets
+* 	Added: Info box background, border and padding options in Info Box Carousel widget
+* 	Added: Column gap and rows gap options in Instagram Feed widget
+* 	Added: Button position option in Price Table widget
+
 == 1.2.5 - July 10, 2019 ==
 * 	Fixed: Starting Number option was not working in editor in Counter widget
 
