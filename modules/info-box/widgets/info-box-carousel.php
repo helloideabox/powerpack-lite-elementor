@@ -289,17 +289,18 @@ class Info_Box_Carousel extends Powerpack_Widget {
             ]
         );
 
-        $repeater->add_control(
-            'button_icon',
-            [
-                'label'                 => __( 'Button Icon', 'powerpack' ),
-                'type'                  => Controls_Manager::ICON,
-                'default'               => '',
-                'condition'             => [
-                    'link_type'   => 'button',
-                ],
-            ]
-        );
+		$repeater->add_control(
+			'select_button_icon',
+			[
+				'label'					=> __( 'Button Icon', 'powerpack' ),
+				'type'					=> Controls_Manager::ICONS,
+				'label_block'			=> true,
+				'fa4compatibility'		=> 'button_icon',
+				'condition'             => [
+					'link_type'   => 'button',
+				],
+			]
+		);
         
         $repeater->add_control(
             'button_icon_position',
@@ -313,7 +314,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 ],
                 'condition'             => [
                     'link_type'     => 'button',
-                    'button_icon!'  => '',
                 ],
             ]
         );
@@ -1377,18 +1377,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
         );
 
         $this->add_control(
-            'button_bg_color_normal',
-            [
-                'label'                 => __( 'Background Color', 'powerpack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .pp-info-box-button' => 'background-color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_control(
             'button_text_color_normal',
             [
                 'label'                 => __( 'Text Color', 'powerpack' ),
@@ -1396,6 +1384,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 'default'               => '',
                 'selectors'             => [
                     '{{WRAPPER}} .pp-info-box-button' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-info-box-button .pp-icon' => 'fill: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_bg_color_normal',
+            [
+                'label'                 => __( 'Background Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-info-box-button' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -1496,18 +1497,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
         );
 
         $this->add_control(
-            'button_bg_color_hover',
-            [
-                'label'                 => __( 'Background Color', 'powerpack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .pp-info-box-button:hover' => 'background-color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_control(
             'button_text_color_hover',
             [
                 'label'                 => __( 'Text Color', 'powerpack' ),
@@ -1515,6 +1504,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 'default'               => '',
                 'selectors'             => [
                     '{{WRAPPER}} .pp-info-box-button:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-info-box-button:hover .pp-icon' => 'fill: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_bg_color_hover',
+            [
+                'label'                 => __( 'Background Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-info-box-button:hover' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -2249,17 +2251,21 @@ class Info_Box_Carousel extends Powerpack_Widget {
 									<div class="pp-info-box-footer">
 										<<?php echo $pp_button_html_tag. ' ' . $this->get_render_attribute_string( 'info-box-button' . $i ) . $this->get_render_attribute_string( 'link' . $i ); ?>>
 											<div <?php echo $this->get_render_attribute_string( 'info-box-button' ); ?>>
-												<?php if ( ! empty( $item['button_icon'] ) && $item['button_icon_position'] == 'before' ) { ?>
-													<span class="pp-button-icon <?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></span>
-												<?php } ?>
+												<?php
+													if ( $item['button_icon_position'] == 'before' ) { 
+														$this->render_infobox_button_icon($item);
+													}
+												?>
 												<?php if ( ! empty( $item['button_text'] ) ) { ?>
 													<span class="pp-button-text">
 														<?php echo esc_attr( $item['button_text'] ); ?>
 													</span>
 												<?php } ?>
-												<?php if ( ! empty( $item['button_icon'] ) && $item['button_icon_position'] == 'after' ) { ?>
-													<span class="pp-button-icon <?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></span>
-												<?php } ?>
+												<?php
+													if ( $item['button_icon_position'] == 'after' ) { 
+														$this->render_infobox_button_icon($item);
+													}
+												?>
 											</div>
 										</<?php echo $pp_button_html_tag; ?>>
 									</div>
@@ -2333,6 +2339,40 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				<?php } elseif ( $item['icon_type'] == 'text' ) {
 					echo $item['icon_text'];
 				} ?>
+			</span>
+			<?php
+		}
+    }
+
+    /**
+	 * Render info-box carousel icon output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+    protected function render_infobox_button_icon( $item ) {
+        $settings = $this->get_settings_for_display();
+		
+		$migration_allowed = Icons_Manager::is_migration_allowed();
+		
+		// add old default
+		if ( ! isset( $item['button_icon'] ) && ! $migration_allowed ) {
+			$item['button_icon'] = '';
+		}
+
+		$migrated = isset( $item['__fa4_migrated']['select_button_icon'] );
+		$is_new = ! isset( $item['button_icon'] ) && $migration_allowed;
+		
+		if ( ! empty( $item['button_icon'] ) || ( ! empty( $item['select_button_icon']['value'] ) && $is_new ) ) {
+			?>
+			<span class="pp-button-icon pp-icon">
+				<?php
+				if ( $is_new || $migrated ) {
+					Icons_Manager::render_icon( $item['select_button_icon'], [ 'aria-hidden' => 'true' ] );
+				} else { ?>
+						<i class="<?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></i>
+				<?php } ?>
 			</span>
 			<?php
 		}
@@ -2415,6 +2455,25 @@ class Info_Box_Carousel extends Powerpack_Widget {
                     </div>
                     <#
                 }
+           }
+					   
+           function button_icon_template( item, index ) {
+				var buttonIconHTML = {},
+					buttonMigrated = {};
+
+				if ( item.button_icon || item.select_button_icon.value ) { #>
+					<span class="pp-button-icon pp-icon">
+						<#
+						buttonIconHTML[ index ] = elementor.helpers.renderIcon( view, item.select_button_icon, { 'aria-hidden': true }, 'i', 'object' );
+						buttonMigrated[ index ] = elementor.helpers.isIconMigrated( item, 'select_button_icon' );
+						if ( buttonIconHTML[ index ] && buttonIconHTML[ index ].rendered && ( ! item.button_icon || buttonMigrated[ index ] ) ) { #>
+							{{{ buttonIconHTML[ index ].value }}}
+						<# } else { #>
+							<i class="{{ item.button_icon }}" aria-hidden="true"></i>
+						<# } #>
+					</span>
+					<#
+				}
            }
 
            function get_slider_settings( settings ) {
@@ -2630,15 +2689,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
 										<{{{ $pp_button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' + i ) }}} {{{ view.getRenderAttributeString( 'link' + i ) }}}>
 											<div {{{ view.getRenderAttributeString( 'info-box-button' ) }}}>
 												<# if ( item.button_icon && item.button_icon_position == 'before' ) { #>
-													<span class="pp-button-icon {{{ item.button_icon }}}" aria-hidden="true"></span>
+													<# button_icon_template( item, index ); #>
 												<# } #>
 												<# if ( item.button_text ) { #>
 													<span class="pp-button-text">
 														{{ item.button_text }}
 													</span>
 												<# } #>
-												<# if ( item.button_icon && item.button_icon_position == 'after' ) { #>
-													<span class="pp-button-icon {{{ item.button_icon }}}" aria-hidden="true"></span>
+												<# if ( item.button_icon_position == 'after' ) { #>
+													<# button_icon_template( item, index ); #>
 												<# } #>
 											</div>
 										</{{{ $pp_button_html_tag }}}>
