@@ -2884,6 +2884,13 @@ div[class*=' pa-'] {
   margin-left: 0 !important;
   margin-right: 0 !important; }
 
+.pp-heading-fill-gradient .pp-heading-text {
+  display: block;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
 @media only screen and (min-width: 1025px) {
   /* For Desktop: */
   .elementor-element.elementor-grid-1 {

@@ -24,6 +24,87 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.ppicon-review-box:before {
+  content: "\e95a";
+}
+.ppicon-cta-button:before {
+  content: "\e957";
+}
+.ppicon-device:before {
+  content: "\e958";
+}
+.ppicon-heading:before {
+  content: "\e959";
+}
+.ppicon-mini-cart:before {
+  content: "\e955";
+}
+.ppicon-offcanvas-cart:before {
+  content: "\e956";
+}
+.ppicon-tabbed-carousel:before {
+  content: "\e933";
+}
+.ppicon-woo-products:before {
+  content: "\e935";
+}
+.ppicon-woo-checkout:before {
+  content: "\e944";
+}
+.ppicon-woo-categories:before {
+  content: "\e94d";
+}
+.ppicon-woo-cart:before {
+  content: "\e94e";
+}
+.ppicon-woo-add-to-cart:before {
+  content: "\e94f";
+}
+.ppicon-tabbed-gallery:before {
+  content: "\e950";
+}
+.ppicon-posts-grid:before {
+  content: "\e952";
+}
+.ppicon-scroll-image:before {
+  content: "\e943";
+}
+.ppicon-woo-products:before {
+  content: "\e935";
+}
+.ppicon-woo-checkout:before {
+  content: "\e944";
+}
+.ppicon-woo-categories:before {
+  content: "\e94d";
+}
+.ppicon-woo-cart:before {
+  content: "\e94e";
+}
+.ppicon-woo-add-to-cart:before {
+  content: "\e94f";
+}
+.ppicon-tabbed-gallery:before {
+  content: "\e950";
+}
+.ppicon-tabbed-carousel:before {
+  content: "\e951";
+}
+.ppicon-posts-grid:before {
+  content: "\e952";
+}
+.ppicon-twitter-tweet:before {
+  content: "\e934";
+}
+.ppicon-twitter-timeline:before {
+  content: "\e951";
+}
+.ppicon-twitter-grid:before {
+  content: "\e953";
+}
+.ppicon-twitter-buttons:before {
+  content: "\e954";
+}
 .ppicon-cart:before {
   content: "\e931";
 }
@@ -50,6 +131,18 @@
 }
 .ppicon-breadcrumbs:before {
   content: "\e930";
+}
+.ppicon-testimonial-carousel:before {
+  content: "\e942";
+}
+.ppicon-album:before {
+  content: "\e93f";
+}
+.ppicon-dynamic-gallery:before {
+  content: "\e940";
+}
+.ppicon-gallery-carousel:before {
+  content: "\e941";
 }
 .ppicon-card-slider:before {
   content: "\e92e";
@@ -104,9 +197,6 @@
 }
 .ppicon-offcanvas-content:before {
   content: "\e949";
-}
-.ppicon-poroduct-categories:before {
-  content: "\e94a";
 }
 .ppicon-products-grid:before {
   content: "\e94b";
