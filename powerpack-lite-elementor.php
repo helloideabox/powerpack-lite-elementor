@@ -170,3 +170,14 @@ function pp_elements_lite_init() {
 
 	add_action( 'elementor/init', 'pp_elements_lite_category' );
 }
+
+/**
+ * Add settings page link to plugin page
+ *
+ * @since 1.4.4
+ */
+function pp_elements_lite_add_plugin_page_settings_link( $links ) {
+	$links[] = '<a href="' . admin_url( 'admin.php?page=powerpack-settings' ) . '">' . __('Settings') . '</a>';
+	return $links;
+}
+add_filter('plugin_action_links_' . POWERPACK_ELEMENTS_LITE_BASE, 'pp_elements_lite_add_plugin_page_settings_link');
