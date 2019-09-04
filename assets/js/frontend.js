@@ -197,127 +197,81 @@
             pp_popup                    = settings.popup,
             like_span                   = (settings.likes === '1') ? '<span class="likes"><i class="fa fa-heart"></i> {{likes}}</span>' : '',
             comments_span               = (settings.comments === '1') ? '<span class="comments"><i class="fa fa-comment"></i> {{comments}}</span>' : '',
-            $more_button                = instafeed_elem.find('.pp-load-more-button'),
+            $more_button                = instafeed_elem.find('.pp-load-more-button');
         
-            feed = new Instafeed({
-                get:                    'user',
-                userId:                 settings.user_id,
-                sortBy:                 settings.sort_by,
-                accessToken:            settings.access_token,
-                limit:                  settings.images_count,
-                target:                 pp_widget_id,
-                resolution:             settings.resolution,
-                orientation:            'portrait',
-                template:               function () {
-                    if (pp_popup === '1') {
-                        if (settings.layout === 'carousel') {
-                            return '<div class="pp-feed-item swiper-slide"><a href="{{image}}"><div class="pp-overlay-container">' + like_span + comments_span + '</div><img src="{{image}}" /></a></div>';
-                        } else {
-                            return '<div class="pp-feed-item"><a href="{{image}}"><div class="pp-overlay-container">' + like_span + comments_span + '</div><img src="{{image}}" /></a></div>';
-                        }
-                    } else {
-                        if (settings.layout === 'carousel') {
-                            return '<div class="pp-feed-item swiper-slide">' +
-                                '<a href="{{link}}">' +
-                                    '<div class="pp-overlay-container">' + like_span + comments_span + '</div>' +
-                                    '<img src="{{image}}" />' +
-                                '</a>' +
-                                '</div>';
-                        } else {
-                            return '<div class="pp-feed-item">' +
-                                '<a href="{{link}}">' +
-                                    '<div class="pp-overlay-container">' + like_span + comments_span + '</div>' +
-                                    '<img src="{{image}}" />' +
-                                '</a>' +
-                                '</div>';
-                        }
-                    }
-                }(),
-                after: function () {
-                    if (settings.layout === 'carousel') {
-                        var $carousel                   = $scope.find('.swiper-container').eq(0),
-                            $items                      = ($carousel.data("items") !== undefined) ? $carousel.data("items") : 3,
-                            $items_tablet               = ($carousel.data("items-tablet") !== undefined) ? $carousel.data("items-tablet") : 3,
-                            $items_mobile               = ($carousel.data("items-mobile") !== undefined) ? $carousel.data("items-mobile") : 3,
-                            $margin                     = ($carousel.data("margin") !== undefined) ? $carousel.data("margin") : 10,
-                            $margin_tablet              = ($carousel.data("margin-tablet") !== undefined) ? $carousel.data("margin-tablet") : 10,
-                            $margin_mobile              = ($carousel.data("margin-mobile") !== undefined) ? $carousel.data("margin-mobile") : 10,
-                            $effect                     = ($carousel.data("effect") !== undefined) ? $carousel.data("effect") : 'slide',
-                            $speed                      = ($carousel.data("speed") !== undefined) ? $carousel.data("speed") : 400,
-                            $autoplay                   = ($carousel.data("autoplay") !== undefined) ? $carousel.data("autoplay") : 999999,
-                            $loop                       = ($carousel.data("loop") !== undefined) ? $carousel.data("loop") : 0,
-                            $grab_cursor                = ($carousel.data("grab-cursor") !== undefined) ? $carousel.data("grab-cursor") : 0,
-                            $arrows                     = ($carousel.data("arrows") !== undefined) ? $carousel.data("arrows") : false,
-                            $pagination                 = ($carousel.data("pagination") !== undefined) ? $carousel.data("pagination") : '.swiper-pagination',
-                            $pagination_type            = ($carousel.data("pagination-type") !== undefined) ? $carousel.data("pagination-type") : 'bullets',
+		if ( settings.user_id && settings.access_token ) {
+			var feed = new Instafeed({
+				get:                    'user',
+				userId:                 settings.user_id,
+				sortBy:                 settings.sort_by,
+				accessToken:            settings.access_token,
+				limit:                  settings.images_count,
+				target:                 pp_widget_id,
+				resolution:             settings.resolution,
+				orientation:            'portrait',
+				template:               function () {
+					if (pp_popup === '1') {
+						if (settings.layout === 'carousel') {
+							return '<div class="pp-feed-item swiper-slide"><a href="{{image}}"><div class="pp-overlay-container">' + like_span + comments_span + '</div><img src="{{image}}" /></a></div>';
+						} else {
+							return '<div class="pp-feed-item"><div class="pp-feed-item-inner"><a href="{{image}}"><div class="pp-overlay-container">' + like_span + comments_span + '</div><img src="{{image}}" /></a></div></div>';
+						}
+					} else {
+						if (settings.layout === 'carousel') {
+							return '<div class="pp-feed-item swiper-slide">' +
+								'<a href="{{link}}">' +
+									'<div class="pp-overlay-container">' + like_span + comments_span + '</div>' +
+									'<img src="{{image}}" />' +
+								'</a>' +
+								'</div>';
+						} else {
+							return '<div class="pp-feed-item"><div class="pp-feed-item-inner">' +
+								'<a href="{{link}}">' +
+									'<div class="pp-overlay-container">' + like_span + comments_span + '</div>' +
+									'<img src="{{image}}" />' +
+								'</a>' +
+								'</div></div>';
+						}
+					}
+				}(),
+				after: function () {
+					if (settings.layout === 'carousel') {
+						var $carousel       = $scope.find('.swiper-container').eq(0),
+							$slider_options = JSON.parse( $carousel.attr('data-slider-settings') ),
+							mySwiper        = new Swiper($carousel, $slider_options);
+					}
+					if (!this.hasNext()) {
+						$more_button.attr('disabled', 'disabled');
+					}
+				},
+				success: function() {
+					$more_button.removeClass( 'pp-button-loading' );
+					$more_button.find( '.pp-load-more-button-text' ).html( 'Load More' );
+				}
+			});
+        
+			$more_button.on('click', function() {
+				feed.next();
+				$more_button.addClass( 'pp-button-loading' );
+				$more_button.find( '.pp-load-more-button-text' ).html( 'Loading...' );
+			});
 
-                            mySwiper = new Swiper($carousel, {
-                                direction:              'horizontal',
-                                speed:                  $speed,
-                                effect:                 $effect,
-                                slidesPerView:          $items,
-                                spaceBetween:           $margin,
-                                grabCursor:             $grab_cursor,
-                                pagination:             '.swiper-pagination',
-                                paginationClickable:    true,
-                                loop:                   $loop,
-                                autoplay: {
-                                    delay: $autoplay,
-                                },
-                                pagination: {
-                                    el: $pagination,
-                                    type: $pagination_type,
-                                    clickable: true,
-                                },
-                                navigation: {
-                                    nextEl: '.swiper-button-next',
-                                    prevEl: '.swiper-button-prev',
-                                },
-                                breakpoints: {
-                                    // when window width is <= 480px
-                                    480: {
-                                        slidesPerView:  $items_mobile,
-                                        spaceBetween:   $margin_mobile
-                                    },
-                                    // when window width is <= 640px
-                                    768: {
-                                        slidesPerView:  $items_tablet,
-                                        spaceBetween:   $margin_tablet
-                                    }
-                                }
-                            });
-                    }
-                    if (!this.hasNext()) {
-                        $more_button.attr('disabled', 'disabled');
-                    }
-                },
-                success: function() {
-                    $more_button.removeClass( 'pp-button-loading' );
-                    $more_button.find( '.pp-load-more-button-text' ).html( 'Load More' );
-                }
-            });
-        
-        $more_button.on('click', function() {
-            feed.next();
-            $more_button.addClass( 'pp-button-loading' );
-            $more_button.find( '.pp-load-more-button-text' ).html( 'Loading...' );
-        });
-        
-        feed.run();
-        
-        if (pp_popup === '1') {
-            $(pp_widget_id).each(function () {
-                $(this).magnificPopup({
-                    delegate: 'div a', // child items selector, by clicking on it popup will open
-                    gallery: {
-                        enabled: true,
-                        navigateByImgClick: true,
-                        preload: [0, 1]
-                    },
-                    type: 'image'
-                });
-            });
-        }
+			feed.run();
+
+			if (pp_popup === '1') {
+				$(pp_widget_id).each(function () {
+					$(this).magnificPopup({
+						delegate: 'div a', // child items selector, by clicking on it popup will open
+						gallery: {
+							enabled: true,
+							navigateByImgClick: true,
+							preload: [0, 1]
+						},
+						type: 'image'
+					});
+				});
+			}
+		}
     };
     
     var TeamMemberCarouselHandler = function ($scope, $) {
