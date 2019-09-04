@@ -5,11 +5,14 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
+use Elementor\Control_Media;
 use Elementor\Utils;
 use Elementor\Repeater;
+use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 
@@ -41,7 +44,7 @@ class Icon_List extends Powerpack_Widget {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Icon List', 'power-pack' );
+        return __( 'Icon List', 'powerpack' );
     }
 
     /**
@@ -87,23 +90,23 @@ class Icon_List extends Powerpack_Widget {
         $this->start_controls_section(
             'section_list',
             [
-                'label'                 => __( 'List', 'power-pack' ),
+                'label'                 => __( 'List', 'powerpack' ),
             ]
         );
 
 		$this->add_control(
 			'view',
 			[
-				'label'                 => __( 'Layout', 'power-pack' ),
+				'label'                 => __( 'Layout', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'traditional',
 				'options'               => [
 					'traditional'  => [
-						'title'    => __( 'Default', 'power-pack' ),
+						'title'    => __( 'Default', 'powerpack' ),
 						'icon'     => 'eicon-editor-list-ul',
 					],
 					'inline'       => [
-						'title'    => __( 'Inline', 'power-pack' ),
+						'title'    => __( 'Inline', 'powerpack' ),
 						'icon'     => 'eicon-ellipsis-h',
 					],
 				],
@@ -120,65 +123,72 @@ class Icon_List extends Powerpack_Widget {
 				'type'                  => Controls_Manager::REPEATER,
 				'default'               => [
 					[
-						'text'      => __( 'List Item #1', 'power-pack' ),
-                        'list_icon' => __('fa fa-check','power-pack')
+						'text'      => __( 'List Item #1', 'powerpack' ),
+                        'icon'		=> __('fa fa-check','powerpack')
 					],
                     [
-						'text'      => __( 'List Item #2', 'power-pack' ),
-                        'list_icon' => __('fa fa-check','power-pack')
+						'text'      => __( 'List Item #2', 'powerpack' ),
+                        'icon'		=> __('fa fa-check','powerpack')
 					],
 				],
 				'fields'                => [
 					[
 						'name'        => 'text',
-						'label'       => __( 'Text', 'power-pack' ),
+						'label'       => __( 'Text', 'powerpack' ),
 						'label_block' => true,
 						'type'        => Controls_Manager::TEXT,
                         'dynamic'     => [
                             'active'  => true,
                         ],
-                        'default'     => __('List Item #1','power-pack')
+                        'default'     => __('List Item #1','powerpack')
 					],
                     [
 						'name'        => 'pp_icon_type',
-						'label'       => esc_html__( 'Icon Type', 'power-pack' ),
+						'label'       => esc_html__( 'Icon Type', 'powerpack' ),
                         'type'        => Controls_Manager::CHOOSE,
                         'label_block' => false,
                         'options'     => [
                             'none' => [
-                                'title' => esc_html__( 'None', 'power-pack' ),
+                                'title' => esc_html__( 'None', 'powerpack' ),
                                 'icon'  => 'fa fa-ban',
                             ],
                             'icon' => [
-                                'title' => esc_html__( 'Icon', 'power-pack' ),
-                                'icon'  => 'fa fa-gear',
+                                'title' => esc_html__( 'Icon', 'powerpack' ),
+                                'icon'  => 'fa fa-star',
                             ],
                             'image' => [
-                                'title' => esc_html__( 'Image', 'power-pack' ),
+                                'title' => esc_html__( 'Image', 'powerpack' ),
                                 'icon'  => 'fa fa-picture-o',
                             ],
                             'number' => [
-                                'title' => esc_html__( 'Number', 'power-pack' ),
+                                'title' => esc_html__( 'Number', 'powerpack' ),
                                 'icon'  => 'fa fa-hashtag',
                             ],
                         ],
                         'default'       => 'icon',
 					],
-                    [
-						'name'        => 'list_icon',
-						'label'       => __( 'Icon', 'power-pack' ),
-						'label_block' => true,
-						'type'        => Controls_Manager::ICON,
-				        'default'     => 'fa fa-check',
-				        'condition'     => [
-                            'pp_icon_type' => 'icon',
-                        ],
+					[
+						'name'        => 'icon',
+						'label'					=> __( 'Icon', 'powerpack' ),
+						'type'					=> Controls_Manager::ICONS,
+						'label_block'			=> true,
+						'default'				=> [
+							'value'		=> 'fas fa-check',
+							'library'	=> 'fa-solid',
+						],
+						'fa4compatibility'		=> 'list_icon',
+						'condition'             => [
+							'pp_icon_type'     => 'icon',
+						],
 					],
                     [
 						'name'        => 'list_image',
-						'label'       => __( 'Image', 'power-pack' ),
+						'label'       => __( 'Image', 'powerpack' ),
 						'label_block' => true,
 						'type'        => Controls_Manager::MEDIA,
+                        'dynamic'     => [
+                            'active'  => true,
+                        ],
 				        'default'     => [
                             'url' => Utils::get_placeholder_image_src(),
                          ],
@@ -187,14 +197,37 @@ class Icon_List extends Powerpack_Widget {
                         ],
 					],
 					[
+						'name'              => 'icon_text',
+						'label'             => __( 'Number/Text', 'powerpack' ),
+						'label_block'       => false,
+						'type'              => Controls_Manager::TEXT,
+                        'default'           => '',
+				        'condition'         => [
+                            'pp_icon_type' => 'number',
+                        ],
+					],
+					[
 						'name'        => 'link',
-						'label'       => __( 'Link', 'power-pack' ),
+						'label'       => __( 'Link', 'powerpack' ),
 						'type'        => Controls_Manager::URL,
 						'label_block' => true,
-						'placeholder' => __( 'http://your-link.com', 'power-pack' ),
+                        'dynamic'     => [
+                            'active'  => true,
+                        ],
+						'placeholder' => __( 'http://your-link.com', 'powerpack' ),
 					],
 				],
-				'title_field'       => '<i class="{{ list_icon }}" aria-hidden="true"></i> {{{ text }}}',
+				'title_field'       => '<i class="{{ icon }}" aria-hidden="true"></i> {{{ text }}}',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'                  => 'image', // Usage: '{name}_size' and '{name}_custom_dimension', in this case 'thumbnail_size' and 'thumbnail_custom_dimension'.,
+                'label'                 => __( 'Image Size', 'power-pack' ),
+                'default'               => 'full',
+				'separator'             => 'before',
 			]
 		);
 
@@ -206,7 +239,7 @@ class Icon_List extends Powerpack_Widget {
         $this->start_controls_section(
             'section_list_style',
             [
-                'label'                 => __( 'List', 'power-pack' ),
+                'label'                 => __( 'List', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -215,16 +248,16 @@ class Icon_List extends Powerpack_Widget {
             Group_Control_Background::get_type(),
             [
                 'name'                  => 'items_background',
-                'label'                 => __( 'Background', 'power-pack' ),
+                'label'                 => __( 'Background', 'powerpack' ),
                 'types'                 => [ 'classic','gradient' ],
                 'selector'              => '{{WRAPPER}} .pp-list-items li',
             ]
         );
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'items_spacing',
 			[
-				'label'                 => __( 'List Items Gap', 'power-pack' ),
+				'label'                 => __( 'List Items Gap', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -242,7 +275,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'list_items_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -254,19 +287,19 @@ class Icon_List extends Powerpack_Widget {
         $this->add_responsive_control(
 			'list_items_alignment',
 			[
-				'label'                 => __( 'Alignment', 'power-pack' ),
+				'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-h-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
@@ -284,10 +317,10 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'divider',
 			[
-				'label'                 => __( 'Divider', 'power-pack' ),
+				'label'                 => __( 'Divider', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
-				'label_off'             => __( 'Off', 'power-pack' ),
-				'label_on'              => __( 'On', 'power-pack' ),
+				'label_off'             => __( 'Off', 'powerpack' ),
+				'label_on'              => __( 'On', 'powerpack' ),
 				'separator'             => 'before',
 			]
 		);
@@ -295,15 +328,15 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'divider_style',
 			[
-				'label'                 => __( 'Style', 'power-pack' ),
+				'label'                 => __( 'Style', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'solid'    => __( 'Solid', 'power-pack' ),
-					'double'   => __( 'Double', 'power-pack' ),
-					'dotted'   => __( 'Dotted', 'power-pack' ),
-					'dashed'   => __( 'Dashed', 'power-pack' ),
-					'groove'   => __( 'Groove', 'power-pack' ),
-					'ridge'    => __( 'Ridge', 'power-pack' ),
+					'solid'    => __( 'Solid', 'powerpack' ),
+					'double'   => __( 'Double', 'powerpack' ),
+					'dotted'   => __( 'Dotted', 'powerpack' ),
+					'dashed'   => __( 'Dashed', 'powerpack' ),
+					'groove'   => __( 'Groove', 'powerpack' ),
+					'ridge'    => __( 'Ridge', 'powerpack' ),
 				],
 				'default'               => 'solid',
 				'condition'             => [
@@ -319,7 +352,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'divider_weight',
 			[
-				'label'                 => __( 'Weight', 'power-pack' ),
+				'label'                 => __( 'Weight', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size' => 1,
@@ -343,7 +376,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'divider_color',
 			[
-				'label'                 => __( 'Color', 'power-pack' ),
+				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#ddd',
 				'scheme'                => [
@@ -368,7 +401,7 @@ class Icon_List extends Powerpack_Widget {
         $this->start_controls_section(
             'section_icon_style',
             [
-                'label'                 => __( 'Icon', 'power-pack' ),
+                'label'                 => __( 'Icon', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -376,21 +409,54 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_position',
 			[
-                'label'                 => __( 'Position', 'power-pack' ),
+                'label'                 => __( 'Position', 'powerpack' ),
                 'type'                  => Controls_Manager::CHOOSE,
                 'label_block'           => false,
                 'toggle'                => false,
                 'default'               => 'left',
                 'options'               => [
                     'left'      => [
-                        'title' => __( 'Left', 'power-pack' ),
+                        'title' => __( 'Left', 'powerpack' ),
                         'icon'  => 'eicon-h-align-left',
                     ],
                     'right'     => [
-                        'title' => __( 'Right', 'power-pack' ),
+                        'title' => __( 'Right', 'powerpack' ),
                         'icon'  => 'eicon-h-align-right',
                     ],
                 ],
+				'prefix_class'          => 'pp-icon-',
+			]
+		);
+		
+        $this->add_control(
+			'icon_vertical_align',
+			[
+				'label'                 => __( 'Vertical Alignment', 'power-pack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+                'label_block'           => false,
+				'default'               => 'middle',
+				'options'               => [
+					'top'          => [
+						'title'    => __( 'Top', 'power-pack' ),
+						'icon'     => 'eicon-v-align-top',
+					],
+					'middle'       => [
+						'title'    => __( 'Center', 'power-pack' ),
+						'icon'     => 'eicon-v-align-middle',
+					],
+					'bottom'       => [
+						'title'    => __( 'Bottom', 'power-pack' ),
+						'icon'     => 'eicon-v-align-bottom',
+					],
+				],
+				'selectors_dictionary'  => [
+					'top'          => 'flex-start',
+					'middle'       => 'center',
+					'bottom'       => 'flex-end',
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-list-container .pp-list-items li'   => 'align-items: {{VALUE}};',
+				],
 			]
 		);
 
@@ -399,18 +465,19 @@ class Icon_List extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_icon_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
 		$this->add_control(
 			'icon_color',
 			[
-				'label'                 => __( 'Color', 'power-pack' ),
+				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-list-items .pp-icon-list-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-list-items .pp-icon-list-icon svg' => 'fill: {{VALUE}};',
 				],
 				'scheme'                => [
 					'type'     => Scheme_Color::get_type(),
@@ -422,7 +489,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_bg_color',
 			[
-				'label'                 => __( 'Background Color', 'power-pack' ),
+				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -431,10 +498,10 @@ class Icon_List extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label'                 => __( 'Size', 'power-pack' ),
+				'label'                 => __( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size' => 14,
@@ -452,10 +519,10 @@ class Icon_List extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_spacing',
 			[
-				'label'                 => __( 'Spacing', 'power-pack' ),
+				'label'                 => __( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size' => 8,
@@ -466,8 +533,8 @@ class Icon_List extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-list-items .icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .pp-list-items .icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.pp-icon-left .pp-list-items .pp-icon-wrapper' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.pp-icon-right .pp-list-items .pp-icon-wrapper' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -476,7 +543,7 @@ class Icon_List extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'icon_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-list-items .pp-icon-wrapper',
@@ -486,7 +553,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -498,7 +565,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -512,18 +579,19 @@ class Icon_List extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_icon_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
             ]
         );
 
 		$this->add_control(
 			'icon_color_hover',
 			[
-				'label'                 => __( 'Color', 'power-pack' ),
+				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-list-items .pp-icon-wrapper:hover .pp-icon-list-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-list-items .pp-icon-wrapper:hover .pp-icon-list-icon svg' => 'fill: {{VALUE}};',
 				],
 				'scheme'                => [
 					'type'     => Scheme_Color::get_type(),
@@ -535,7 +603,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_bg_color_hover',
 			[
-				'label'                 => __( 'Background Color', 'power-pack' ),
+				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -547,7 +615,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_color_hover',
 			[
-				'label'                 => __( 'Border Color', 'power-pack' ),
+				'label'                 => __( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -563,7 +631,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_hover_animation',
 			[
-				'label'                 => __( 'Animation', 'power-pack' ),
+				'label'                 => __( 'Animation', 'powerpack' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -580,7 +648,7 @@ class Icon_List extends Powerpack_Widget {
         $this->start_controls_section(
             'section_text_style',
             [
-                'label'                 => __( 'Text', 'power-pack' ),
+                'label'                 => __( 'Text', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -588,7 +656,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'text_color',
 			[
-				'label'                 => __( 'Color', 'power-pack' ),
+				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -605,7 +673,7 @@ class Icon_List extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'text_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-icon-list-text',
             ]
@@ -625,11 +693,17 @@ class Icon_List extends Powerpack_Widget {
     protected function render() {
         $settings = $this->get_settings_for_display();
         
-        $this->add_render_attribute( 'icon-list', 'class', 'pp-list-items' );
-        
-        $this->add_render_attribute( 'icon', 'class', 'pp-icon-list-icon' );
-        
-        $this->add_render_attribute( 'icon-wrap', 'class', 'pp-icon-wrapper' );
+        $this->add_render_attribute( [
+			'icon-list'	=> [
+				'class' => 'pp-list-items'
+			],
+			'icon'		=> [
+				'class' => 'pp-icon-list-icon'
+			],
+			'icon-wrap' => [
+				'class' => 'pp-icon-wrapper'
+			]
+		] );
         
         if ( 'inline' === $settings['view'] ) {
 			$this->add_render_attribute( 'icon-list', 'class', 'pp-inline-items' );
@@ -650,7 +724,7 @@ class Icon_List extends Powerpack_Widget {
                                 if ( ! empty( $item['link']['url'] ) ) {
                                     $link_key = 'link_' . $i;
 
-                                    $this->add_render_attribute( $link_key, 'href', esc_url( $item['link']['url'] ) );
+                                    $this->add_render_attribute( $link_key, 'href', $item['link']['url'] );
 
                                     if ( $item['link']['is_external'] ) {
                                         $this->add_render_attribute( $link_key, 'target', '_blank' );
@@ -662,35 +736,8 @@ class Icon_List extends Powerpack_Widget {
 
                                     echo '<a ' . $this->get_render_attribute_string( $link_key ) . '>';
                                 }
-                                if ( $item['pp_icon_type'] != 'none' ) {
-                                    $icon_key = 'icon_' . $i;
-                                    $this->add_render_attribute( $icon_key, 'class', 'pp-icon-wrapper' );
-                                    if ( $settings['icon_position'] == 'right' ) {
-                                        $this->add_render_attribute( $icon_key, 'class', 'icon-right' );
-                                    }
-                                    else {
-                                        $this->add_render_attribute( $icon_key, 'class', 'icon-left' );
-                                    }
-                                    
-                                    if ( $settings['icon_hover_animation'] != '' ) {
-                                        $icon_animation = 'elementor-animation-' . $settings['icon_hover_animation'];
-                                    } else {
-                                        $icon_animation = '';
-                                    }
-                                    ?>
-                                    <span <?php echo $this->get_render_attribute_string( $icon_key ); ?>>
-                                        <?php
-                                            if ( $item['pp_icon_type'] == 'icon' ) {
-                                                printf( '<span class="pp-icon-list-icon %1$s %2$s"></span>', esc_attr( $item['list_icon'] ), $icon_animation );
-                                            } elseif ( $item['pp_icon_type'] == 'image' ) {
-                                                printf( '<span class="pp-icon-list-image %2$s"><img src="%1$s"></span>', esc_url( $item['list_image']['url'] ), $icon_animation );
-                                            } elseif ( $item['pp_icon_type'] == 'number' ) {
-                                                printf( '<span class="pp-icon-list-icon %2$s">%1$s</span>', $i, $icon_animation );
-                                            }
-                                        ?>
-                                    </span>
-                                    <?php
-                                }
+                                
+								$this->render_iconlist_icon( $item, $i );
 
                                 printf( '<span %1$s>%2$s</span>', $this->get_render_attribute_string( $text_key ), $item['text'] );
 
@@ -704,6 +751,78 @@ class Icon_List extends Powerpack_Widget {
             </ul>
         </div>
         <?php
+    }
+
+    /**
+	 * Render info-box carousel icon output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+    protected function render_iconlist_icon( $item, $i ) {
+        $settings = $this->get_settings_for_display();
+
+		$fallback_defaults = [
+			'fa fa-check',
+			'fa fa-times',
+			'fa fa-dot-circle-o',
+		];
+		
+		$migration_allowed = Icons_Manager::is_migration_allowed();
+		
+		// add old default
+		if ( ! isset( $item['list_icon'] ) && ! $migration_allowed ) {
+			$item['list_icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-check';
+		}
+
+		$migrated = isset( $item['__fa4_migrated']['icon'] );
+		$is_new = ! isset( $item['list_icon'] ) && $migration_allowed;
+		
+		if ( $item['pp_icon_type'] != 'none' ) {
+			if ( ! empty( $item['list_icon'] ) || ( ! empty( $item['icon']['value'] ) && $is_new ) ) {
+				$icon_key = 'icon_' . $i;
+				$this->add_render_attribute( $icon_key, 'class', 'pp-icon-wrapper' );
+
+				if ( $settings['icon_hover_animation'] != '' ) {
+					$icon_animation = 'elementor-animation-' . $settings['icon_hover_animation'];
+				} else {
+					$icon_animation = '';
+				}
+				?>
+				<span <?php echo $this->get_render_attribute_string( $icon_key ); ?>>
+					<?php
+						if ( $item['pp_icon_type'] == 'icon' ) {
+							echo '<span class="pp-icon-list-icon pp-icon ' . $icon_animation . '">';
+							if ( $is_new || $migrated ) {
+								Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+							} else { ?>
+									<i class="<?php echo esc_attr( $item['list_icon'] ); ?>" aria-hidden="true"></i>
+							<?php }
+							echo '</span>';
+						} elseif ( $item['pp_icon_type'] == 'image' ) {
+							$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['list_image']['id'], 'image', $settings );
+
+							if ( $image_url ) {
+								$image_html = '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( Control_Media::get_image_alt( $item['list_image'] ) ) . '">';
+							} else {
+								$image_html = '<img src="' . esc_url( $item['list_image']['url'] ) . '">';
+							}
+
+							printf( '<span class="pp-icon-list-image %2$s">%1$s</span>', $image_html, $icon_animation );
+						} elseif ( $item['pp_icon_type'] == 'number' ) {
+							if ( $item['icon_text'] ) {
+								$number = $item['item_text'];
+							} else {
+								$number = $i;
+							}
+							printf( '<span class="pp-icon-list-icon %2$s">%1$s</span>', $number, $icon_animation );
+						}
+					?>
+				</span>
+				<?php
+			}
+		}
     }
 
     /**
@@ -722,10 +841,13 @@ class Icon_List extends Powerpack_Widget {
                 } else {
                     var list_class = '';
                 }
+			   
+				var iconsHTML = {},
+					migrated = {};
             #>
             <ul class="pp-list-items {{ list_class }}">
                 <# var i = 1; #>
-                <# _.each( settings.list_items, function( item ) { #>
+                <# _.each( settings.list_items, function( item, index ) { #>
                     <# if ( item.text != '' ) { #>
                         <li>
                             <# if ( item.link && item.link.url ) { #>
@@ -734,21 +856,50 @@ class Icon_List extends Powerpack_Widget {
                             <# if ( item.pp_icon_type != 'none' ) { #>
                                 <#
                                     if ( settings.icon_position == 'right' ) {
-                                        var icon_class = 'icon-right';
+                                        var icon_class = 'pp-icon-right';
                                     } else {
-                                        var icon_class = 'icon-left';
+                                        var icon_class = 'pp-icon-left';
                                     }
                                 #>
                                 <span class="pp-icon-wrapper {{ icon_class }}">
                                     <# if ( item.pp_icon_type == 'icon' ) { #>
-                                        <span class="pp-icon-list-icon elementor-animation-{{ settings.icon_hover_animation }} {{ item.list_icon }}" aria-hidden="true"></span>
+										<# if ( item.list_icon || item.icon.value ) { #>
+                                        	<span class="pp-icon-list-icon pp-icon elementor-animation-{{ settings.icon_hover_animation }}" aria-hidden="true">
+											<#
+												iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.icon, { 'aria-hidden': true }, 'i', 'object' );
+												migrated[ index ] = elementor.helpers.isIconMigrated( item, 'icon' );
+												if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.list_icon || migrated[ index ] ) ) { #>
+													{{{ iconsHTML[ index ].value }}}
+												<# } else { #>
+													<i class="{{ item.list_icon }}" aria-hidden="true"></i>
+												<# }
+											#>
+											</span>
+										<# } #>
                                     <# } else if ( item.pp_icon_type == 'image' ) { #>
                                         <span class="pp-icon-list-image elementor-animation-{{ settings.icon_hover_animation }}">
-                                            <img src="{{ item.list_image.url }}">
+                                            <#
+                                            var image = {
+                                                id: item.list_image.id,
+                                                url: item.list_image.url,
+                                                size: settings.image_size,
+                                                dimension: settings.image_custom_dimension,
+                                                model: view.getEditModel()
+                                            };
+                                            var image_url = elementor.imagesManager.getImageUrl( image );
+                                            #>
+                                            <img src="{{{ image_url }}}" />
                                         </span>
                                     <# } else if ( item.pp_icon_type == 'number' ) { #>
+										<#
+										   if ( item.icon_text ) {
+										   		var number = item.icon_text;
+										   } else {
+										   		var number = i;
+										   }
+										#>
                                         <span class="pp-icon-list-icon elementor-animation-{{ settings.icon_hover_animation }}">
-                                            {{ i }}
+                                            {{ number }}
                                         </span>
                                     <# } #>
                                 </span>
@@ -777,5 +928,3 @@ class Icon_List extends Powerpack_Widget {
         <?php
     }
 }
-
-//Plugin::instance()->widgets_manager->register_widget_type( new PP_List_Widget() );
