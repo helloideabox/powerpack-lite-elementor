@@ -6,11 +6,13 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Utils;
+use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Scheme_Typography;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
@@ -42,7 +44,7 @@ class Promo_Box extends Powerpack_Widget {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Promo Box', 'power-pack' );
+        return __( 'Promo Box', 'powerpack' );
     }
 
     /**
@@ -83,106 +85,35 @@ class Promo_Box extends Powerpack_Widget {
         /*-----------------------------------------------------------------------------------*/
         
         /**
-         * Content Tab: Promo Box
+         * Content Tab: Content
          */
         $this->start_controls_section(
             'section_promo_box',
             [
-                'label'                 => __( 'Promo Box', 'power-pack' ),
-            ]
-        );
-
-        $this->add_control(
-            'icon_switch',
-            [
-                'label'                 => __( 'Icon', 'power-pack' ),
-                'type'                  => Controls_Manager::SWITCHER,
-                'default'               => '',
-                'label_on'              => __( 'Show', 'power-pack' ),
-                'label_off'             => __( 'Hide', 'power-pack' ),
-                'return_value'          => 'yes',
-                'separator'             => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'icon_type',
-            [
-                'label'                 => __( 'Icon Type', 'power-pack' ),
-                'type'                  => Controls_Manager::SELECT,
-                'default'               => 'icon',
-                'options'               => [
-                    'icon'      => __( 'Icon', 'power-pack' ),
-                    'image'     => __( 'Image', 'power-pack' ),
-                ],
-                'condition'             => [
-                    'icon_switch'   => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'icon',
-            [
-                'label'                 => __( 'Icon', 'power-pack' ),
-                'type'                  => Controls_Manager::ICON,
-                'default'               => 'fa fa-diamond',
-                'condition'             => [
-                    'icon_switch'   => 'yes',
-                    'icon_type'     => 'icon',
-                ],
-            ]
-        );
-
-		$this->add_control(
-			'icon_image',
-			[
-				'label'                 => __( 'Image', 'power-pack' ),
-				'type'                  => Controls_Manager::MEDIA,
-                'condition'             => [
-                    'icon_switch'   => 'yes',
-                    'icon_type'     => 'image',
-                ],
-			]
-		);
-
-        $this->add_control(
-            'icon_position',
-            [
-                'label'                 => __( 'Icon Position', 'power-pack' ),
-                'type'                  => Controls_Manager::SELECT,
-                'default'               => 'above-title',
-                'options'               => [
-                    'above-title'      => __( 'Above Title', 'power-pack' ),
-                    'below-title'      => __( 'Below Title', 'power-pack' ),
-                ],
-                'condition'             => [
-                    'icon_switch'   => 'yes',
-                ],
+                'label'                 => __( 'Content', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'heading',
             [
-                'label'                 => __( 'Heading', 'power-pack' ),
+                'label'                 => __( 'Heading', 'powerpack' ),
                 'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-                'default'               => __( 'Heading', 'power-pack' ),
-                'separator'             => 'before',
+                'default'               => __( 'Heading', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'divider_heading_switch',
             [
-                'label'                 => __( 'Heading Divider', 'power-pack' ),
+                'label'                 => __( 'Heading Divider', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => '',
-                'label_on'              => __( 'On', 'power-pack' ),
-                'label_off'             => __( 'Off', 'power-pack' ),
+                'label_on'              => __( 'On', 'powerpack' ),
+                'label_off'             => __( 'Off', 'powerpack' ),
                 'return_value'          => 'yes',
                 'condition'             => [
                     'heading!' => '',
@@ -193,23 +124,23 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'sub_heading',
             [
-                'label'                 => __( 'Sub Heading', 'power-pack' ),
+                'label'                 => __( 'Sub Heading', 'powerpack' ),
                 'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-                'default'               => __( 'Sub heading', 'power-pack' ),
+                'default'               => __( 'Sub heading', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'divider_subheading_switch',
             [
-                'label'                 => __( 'Sub Heading Divider', 'power-pack' ),
+                'label'                 => __( 'Sub Heading Divider', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => '',
-                'label_on'              => __( 'On', 'power-pack' ),
-                'label_off'             => __( 'Off', 'power-pack' ),
+                'label_on'              => __( 'On', 'powerpack' ),
+                'label_off'             => __( 'Off', 'powerpack' ),
                 'return_value'          => 'yes',
                 'condition'             => [
                     'sub_heading!' => '',
@@ -220,37 +151,149 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'content',
             [
-                'label'                 => __( 'Description', 'power-pack' ),
+                'label'                 => __( 'Description', 'powerpack' ),
                 'type'                  => Controls_Manager::TEXTAREA,
 				'dynamic'               => [
 					'active'   => true,
 				],
-                'default'               => __( 'Enter promo box description', 'power-pack' ),
+                'default'               => __( 'Enter promo box description', 'powerpack' ),
+            ]
+        );
+        
+        $this->end_controls_section();
+        
+        /**
+         * Content Tab: Icon
+         */
+        $this->start_controls_section(
+            'section_promo_box_icon',
+            [
+                'label'                 => __( 'Icon', 'powerpack' ),
+            ]
+        );
+
+        $this->add_control(
+            'icon_switch',
+            [
+                'label'                 => __( 'Show Icon', 'powerpack' ),
+                'type'                  => Controls_Manager::SWITCHER,
+                'default'               => '',
+                'label_on'              => __( 'Yes', 'powerpack' ),
+                'label_off'             => __( 'No', 'powerpack' ),
+                'return_value'          => 'yes',
+            ]
+        );
+
+        $this->add_control(
+            'icon_type',
+            [
+                'label'                 => __( 'Icon Type', 'powerpack' ),
+                'type'                  => Controls_Manager::SELECT,
+                'default'               => 'icon',
+                'options'               => [
+                    'icon'      => __( 'Icon', 'powerpack' ),
+                    'image'     => __( 'Image', 'powerpack' ),
+                ],
+                'condition'             => [
+                    'icon_switch'   => 'yes',
+                ],
+            ]
+        );
+		
+		$this->add_control(
+			'selected_icon',
+			[
+				'label'					=> __( 'Choose', 'powerpack' ) . ' ' . __( 'Icon', 'powerpack' ),
+				'type'					=> Controls_Manager::ICONS,
+				'fa4compatibility'		=> 'icon',
+				'default'				=> [
+					'value'		=> 'fas fa-gem',
+					'library'	=> 'fa-solid',
+				],
+                'condition'             => [
+                    'icon_switch'   => 'yes',
+                    'icon_type'     => 'icon',
+                ],
+			]
+		);
+
+		$this->add_control(
+			'icon_image',
+			[
+				'label'                 => __( 'Image', 'powerpack' ),
+				'type'                  => Controls_Manager::MEDIA,
+				'default'   => [
+					'url' => Utils::get_placeholder_image_src(),
+				],
+                'condition'             => [
+                    'icon_switch'   => 'yes',
+                    'icon_type'     => 'image',
+                ],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'                  => 'image', // Usage: '{name}_size' and '{name}_custom_dimension', in this case 'image_size' and 'image_custom_dimension'.
+				'default'               => 'full',
+				'separator'             => 'none',
+                'condition'             => [
+                    'icon_switch'   => 'yes',
+                    'icon_type'     => 'image',
+                ],
+			]
+		);
+
+        $this->add_control(
+            'icon_position',
+            [
+                'label'                 => __( 'Icon Position', 'powerpack' ),
+                'type'                  => Controls_Manager::SELECT,
+                'default'               => 'above-title',
+                'options'               => [
+                    'above-title'      => __( 'Above Title', 'powerpack' ),
+                    'below-title'      => __( 'Below Title', 'powerpack' ),
+                ],
+                'condition'             => [
+                    'icon_switch'   => 'yes',
+                ],
+            ]
+        );
+        
+        $this->end_controls_section();
+        
+        /**
+         * Content Tab: Button
+         */
+        $this->start_controls_section(
+            'section_promo_box_button',
+            [
+                'label'                 => __( 'Button', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'button_switch',
             [
-                'label'                 => __( 'Button', 'power-pack' ),
+                'label'                 => __( 'Button', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => '',
-                'label_on'              => __( 'On', 'power-pack' ),
-                'label_off'             => __( 'Off', 'power-pack' ),
+                'label_on'              => __( 'On', 'powerpack' ),
+                'label_off'             => __( 'Off', 'powerpack' ),
                 'return_value'          => 'yes',
-                'separator'             => 'before',
             ]
         );
 
         $this->add_control(
             'button_text',
             [
-                'label'                 => __( 'Button Text', 'power-pack' ),
+                'label'                 => __( 'Button Text', 'powerpack' ),
                 'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-                'default'               => __( 'Get Started', 'power-pack' ),
+                'default'               => __( 'Get Started', 'powerpack' ),
                 'condition'             => [
                     'button_switch' => 'yes',
                 ],
@@ -260,7 +303,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'link',
             [
-                'label'                 => __( 'Link', 'power-pack' ),
+                'label'                 => __( 'Link', 'powerpack' ),
                 'type'                  => Controls_Manager::URL,
                 'label_block'           => false,
 				'dynamic'               => [
@@ -273,19 +316,6 @@ class Promo_Box extends Powerpack_Widget {
                 'condition'             => [
                     'button_switch' => 'yes',
                 ],
-            ]
-        );
-
-        $this->add_control(
-            'overlay_switch',
-            [
-                'label'                 => __( 'Overlay', 'power-pack' ),
-                'type'                  => Controls_Manager::SWITCHER,
-                'default'               => '',
-                'label_on'              => __( 'On', 'power-pack' ),
-                'label_off'             => __( 'Off', 'power-pack' ),
-                'return_value'          => 'yes',
-                'separator'             => 'before',
             ]
         );
         
@@ -301,7 +331,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_section(
             'section_promo_box_style',
             [
-                'label'                 => __( 'Promo Box', 'power-pack' ),
+                'label'                 => __( 'Promo Box', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -310,7 +340,7 @@ class Promo_Box extends Powerpack_Widget {
             Group_Control_Background::get_type(),
             [
                 'name'                  => 'box_bg',
-                'label'                 => __( 'Background', 'power-pack' ),
+                'label'                 => __( 'Background', 'powerpack' ),
                 'types'                 => [ 'classic','gradient' ],
                 'selector'              => '{{WRAPPER}} .pp-promo-box-bg',
             ]
@@ -319,7 +349,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'box_height',
             [
-                'label'                 => __( 'Height', 'power-pack' ),
+                'label'                 => __( 'Height', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -340,7 +370,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'promo_box_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-promo-box-wrap',
@@ -350,7 +380,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'promo_box_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -362,7 +392,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'box_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -379,11 +409,21 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_section(
             'section_promo_overlay_style',
             [
-                'label'                 => __( 'Overlay', 'power-pack' ),
+                'label'                 => __( 'Overlay', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
-                'condition'             => [
-                    'overlay_switch'    => 'yes',
-                ],
+            ]
+        );
+
+        $this->add_control(
+            'overlay_switch',
+            [
+                'label'                 => __( 'Overlay', 'powerpack' ),
+                'type'                  => Controls_Manager::SWITCHER,
+                'default'               => '',
+                'label_on'              => __( 'On', 'powerpack' ),
+                'label_off'             => __( 'Off', 'powerpack' ),
+                'return_value'          => 'yes',
+                'separator'             => 'before',
             ]
         );
         
@@ -391,7 +431,7 @@ class Promo_Box extends Powerpack_Widget {
             Group_Control_Background::get_type(),
             [
                 'name'                  => 'overlay_color',
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'types'                 => [ 'classic', 'gradient' ],
                 'selector'              => '{{WRAPPER}} .pp-promo-box-overlay',
                 'condition'             => [
@@ -408,7 +448,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_section(
             'section_promo_content_style',
             [
-                'label'                 => __( 'Content', 'power-pack' ),
+                'label'                 => __( 'Content', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -416,20 +456,20 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
 			'align',
 			[
-				'label'                 => __( 'Alignment', 'power-pack' ),
+				'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
                 'label_block'           => false,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -443,21 +483,21 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
 			'vertical_align',
 			[
-				'label'                 => __( 'Vertical Alignment', 'power-pack' ),
+				'label'                 => __( 'Vertical Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
                 'label_block'           => false,
 				'default'               => 'middle',
 				'options'               => [
 					'top'          => [
-						'title'    => __( 'Top', 'power-pack' ),
+						'title'    => __( 'Top', 'powerpack' ),
 						'icon'     => 'eicon-v-align-top',
 					],
 					'middle'       => [
-						'title'    => __( 'Center', 'power-pack' ),
+						'title'    => __( 'Center', 'powerpack' ),
 						'icon'     => 'eicon-v-align-middle',
 					],
 					'bottom'       => [
-						'title'    => __( 'Bottom', 'power-pack' ),
+						'title'    => __( 'Bottom', 'powerpack' ),
 						'icon'     => 'eicon-v-align-bottom',
 					],
 				],
@@ -471,7 +511,7 @@ class Promo_Box extends Powerpack_Widget {
             Group_Control_Background::get_type(),
             [
                 'name'                  => 'content_bg',
-                'label'                 => __( 'Background', 'power-pack' ),
+                'label'                 => __( 'Background', 'powerpack' ),
                 'types'                 => [ 'classic', 'gradient' ],
                 'selector'              => '{{WRAPPER}} .pp-promo-box-inner',
                 'separator'             => 'before'
@@ -482,7 +522,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'content_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-promo-box-inner',
@@ -493,7 +533,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'content_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -505,7 +545,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'content_width',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -530,7 +570,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -547,7 +587,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_section(
             'section_promo_box_icon_style',
             [
-                'label'                 => __( 'Icon', 'power-pack' ),
+                'label'                 => __( 'Icon', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'icon_switch'   => 'yes',
@@ -558,12 +598,16 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'icon_size',
             [
-                'label'                 => __( 'Icon Size', 'power-pack' ),
+                'label'                 => __( 'Icon Size', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
+                'default'               => [
+                    'unit' => 'px',
+                    'size' => 30,
+                ],
                 'range'                 => [
                     'px' => [
                         'min'   => 5,
-                        'max'   => 100,
+                        'max'   => 200,
                         'step'  => 1,
                     ],
                 ],
@@ -581,7 +625,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'icon_img_width',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -611,14 +655,31 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_icon_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
+            ]
+        );
+
+        $this->add_control(
+            'icon_color_normal',
+            [
+                'label'                 => __( 'Icon Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-promo-box-icon' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-promo-box-icon svg' => 'fill: {{VALUE}}',
+                ],
+                'condition'             => [
+                    'icon_switch' => 'yes',
+                    'icon_type' => 'icon',
+                ],
             ]
         );
         
         $this->add_control(
             'icon_bg_color_normal',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -627,26 +688,10 @@ class Promo_Box extends Powerpack_Widget {
             ]
         );
 
-        $this->add_control(
-            'icon_color_normal',
-            [
-                'label'                 => __( 'Icon Color', 'power-pack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .pp-promo-box-icon' => 'color: {{VALUE}}',
-                ],
-                'condition'             => [
-                    'icon_switch' => 'yes',
-                    'icon_type' => 'icon',
-                ],
-            ]
-        );
-
 		$this->add_responsive_control(
 			'icon_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -659,7 +704,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'icon_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-promo-box-icon',
@@ -669,7 +714,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -681,7 +726,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_margin',
 			[
-				'label'                 => __( 'Margin', 'power-pack' ),
+				'label'                 => __( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'placeholder'           => [
@@ -701,14 +746,31 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_icon_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
+            ]
+        );
+
+        $this->add_control(
+            'icon_color_hover',
+            [
+                'label'                 => __( 'Icon Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-promo-box-icon:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-promo-box-icon:hover svg' => 'fill: {{VALUE}}',
+                ],
+                'condition'             => [
+                    'icon_switch' => 'yes',
+                    'icon_type' => 'icon',
+                ],
             ]
         );
         
         $this->add_control(
             'icon_bg_color_hover',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -717,26 +779,10 @@ class Promo_Box extends Powerpack_Widget {
             ]
         );
 
-        $this->add_control(
-            'icon_color_hover',
-            [
-                'label'                 => __( 'Icon Color', 'power-pack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .pp-promo-box-icon:hover' => 'color: {{VALUE}}',
-                ],
-                'condition'             => [
-                    'icon_switch' => 'yes',
-                    'icon_type' => 'icon',
-                ],
-            ]
-        );
-
 		$this->add_control(
 			'hover_animation_icon',
 			[
-				'label'                 => __( 'Icon Animation', 'power-pack' ),
+				'label'                 => __( 'Icon Animation', 'powerpack' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -753,7 +799,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_section(
             'section_promo_box_heading_style',
             [
-                'label'                 => __( 'Heading', 'power-pack' ),
+                'label'                 => __( 'Heading', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -761,7 +807,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'title_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -774,7 +820,7 @@ class Promo_Box extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'title_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-promo-box-title',
             ]
         );
@@ -782,7 +828,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'title_margin',
             [
-                'label'                 => __( 'Spacing', 'power-pack' ),
+                'label'                 => __( 'Spacing', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 20,
@@ -814,7 +860,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_section(
             'section_heading_divider_style',
             [
-                'label'                 => __( 'Heading Divider', 'power-pack' ),
+                'label'                 => __( 'Heading Divider', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'divider_heading_switch' => 'yes',
@@ -825,12 +871,12 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'divider_heading_type',
             [
-                'label'                 => __( 'Divider Type', 'power-pack' ),
+                'label'                 => __( 'Divider Type', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'border',
                 'options'               => [
-                    'border'    => __( 'Border', 'power-pack' ),
-                    'image'     => __( 'Image', 'power-pack' ),
+                    'border'    => __( 'Border', 'powerpack' ),
+                    'image'     => __( 'Image', 'powerpack' ),
                 ],
                 'condition'             => [
                     'divider_heading_switch' => 'yes',
@@ -841,7 +887,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_title_image',
 			[
-				'label'                 => __( 'Image', 'power-pack' ),
+				'label'                 => __( 'Image', 'powerpack' ),
 				'type'                  => Controls_Manager::MEDIA,
                 'condition'             => [
                     'divider_heading_switch' => 'yes',
@@ -853,14 +899,14 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'divider_heading_border_type',
             [
-                'label'                 => __( 'Border Type', 'power-pack' ),
+                'label'                 => __( 'Border Type', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'solid',
                 'options'               => [
-                    'solid'     => __( 'Solid', 'power-pack' ),
-                    'double'    => __( 'Double', 'power-pack' ),
-                    'dotted'    => __( 'Dotted', 'power-pack' ),
-                    'dashed'    => __( 'Dashed', 'power-pack' ),
+                    'solid'     => __( 'Solid', 'powerpack' ),
+                    'double'    => __( 'Double', 'powerpack' ),
+                    'dotted'    => __( 'Dotted', 'powerpack' ),
+                    'dashed'    => __( 'Dashed', 'powerpack' ),
                 ],
                 'selectors'             => [
                     '{{WRAPPER}} .pp-promo-box-heading-divider' => 'border-bottom-style: {{VALUE}}',
@@ -875,7 +921,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_title_width',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 30,
@@ -905,7 +951,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_heading_border_weight',
             [
-                'label'                 => __( 'Border Weight', 'power-pack' ),
+                'label'                 => __( 'Border Weight', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 4,
@@ -931,7 +977,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'divider_heading_border_color',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#000000',
                 'selectors'             => [
@@ -947,7 +993,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_title_margin',
             [
-                'label'                 => __( 'Spacing', 'power-pack' ),
+                'label'                 => __( 'Spacing', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 20,
@@ -982,7 +1028,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_section(
             'section_subheading_style',
             [
-                'label'                 => __( 'Sub Heading', 'power-pack' ),
+                'label'                 => __( 'Sub Heading', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -990,7 +1036,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'subtitle_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1003,7 +1049,7 @@ class Promo_Box extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'subtitle_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-promo-box-subtitle',
             ]
         );
@@ -1011,7 +1057,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'subtitle_margin',
             [
-                'label'                 => __( 'Spacing', 'power-pack' ),
+                'label'                 => __( 'Spacing', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 20,
@@ -1043,7 +1089,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_section(
             'section_subheading_divider_style',
             [
-                'label'                 => __( 'Sub Heading Divider', 'power-pack' ),
+                'label'                 => __( 'Sub Heading Divider', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'divider_subheading_switch' => 'yes',
@@ -1054,12 +1100,12 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'divider_subheading_type',
             [
-                'label'                 => __( 'Divider Type', 'power-pack' ),
+                'label'                 => __( 'Divider Type', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'border',
                 'options'               => [
-                    'border'    => __( 'Border', 'power-pack' ),
-                    'image'     => __( 'Image', 'power-pack' ),
+                    'border'    => __( 'Border', 'powerpack' ),
+                    'image'     => __( 'Image', 'powerpack' ),
                 ],
                 'condition'             => [
                     'divider_subheading_switch' => 'yes',
@@ -1070,7 +1116,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_subheading_image',
 			[
-				'label'                 => __( 'Image', 'power-pack' ),
+				'label'                 => __( 'Image', 'powerpack' ),
 				'type'                  => Controls_Manager::MEDIA,
                 'condition'             => [
                     'divider_subheading_switch' => 'yes',
@@ -1082,14 +1128,14 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'divider_subheading_border_type',
             [
-                'label'                 => __( 'Border Type', 'power-pack' ),
+                'label'                 => __( 'Border Type', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'solid',
                 'options'               => [
-                    'solid'     => __( 'Solid', 'power-pack' ),
-                    'double'    => __( 'Double', 'power-pack' ),
-                    'dotted'    => __( 'Dotted', 'power-pack' ),
-                    'dashed'    => __( 'Dashed', 'power-pack' ),
+                    'solid'     => __( 'Solid', 'powerpack' ),
+                    'double'    => __( 'Double', 'powerpack' ),
+                    'dotted'    => __( 'Dotted', 'powerpack' ),
+                    'dashed'    => __( 'Dashed', 'powerpack' ),
                 ],
                 'selectors'             => [
                     '{{WRAPPER}} .pp-promo-box-subheading-divider' => 'border-bottom-style: {{VALUE}}',
@@ -1104,7 +1150,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_subheading_width',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 30,
@@ -1134,7 +1180,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_subheading_border_weight',
             [
-                'label'                 => __( 'Border Weight', 'power-pack' ),
+                'label'                 => __( 'Border Weight', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 4,
@@ -1160,7 +1206,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'divider_subheading_border_color',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#000000',
                 'selectors'             => [
@@ -1176,7 +1222,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_subheading_margin',
             [
-                'label'                 => __( 'Spacing', 'power-pack' ),
+                'label'                 => __( 'Spacing', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 20,
@@ -1208,7 +1254,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_section(
             'section_promo_description_style',
             [
-                'label'                 => __( 'Description', 'power-pack' ),
+                'label'                 => __( 'Description', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1216,7 +1262,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'content_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1229,7 +1275,7 @@ class Promo_Box extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'content_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-promo-box-content',
             ]
         );
@@ -1237,7 +1283,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_responsive_control(
             'content_margin',
             [
-                'label'                 => __( 'Spacing', 'power-pack' ),
+                'label'                 => __( 'Spacing', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 0,
@@ -1270,7 +1316,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_section(
             'section_promo_box_button_style',
             [
-                'label'                 => __( 'Button', 'power-pack' ),
+                'label'                 => __( 'Button', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'button_switch'   => 'yes',
@@ -1281,15 +1327,15 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'button_size',
 			[
-				'label'                 => __( 'Size', 'power-pack' ),
+				'label'                 => __( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'md',
 				'options'               => [
-					'xs' => __( 'Extra Small', 'power-pack' ),
-					'sm' => __( 'Small', 'power-pack' ),
-					'md' => __( 'Medium', 'power-pack' ),
-					'lg' => __( 'Large', 'power-pack' ),
-					'xl' => __( 'Extra Large', 'power-pack' ),
+					'xs' => __( 'Extra Small', 'powerpack' ),
+					'sm' => __( 'Small', 'powerpack' ),
+					'md' => __( 'Medium', 'powerpack' ),
+					'lg' => __( 'Large', 'powerpack' ),
+					'xl' => __( 'Extra Large', 'powerpack' ),
 				],
 				'condition'             => [
 					'button_text!' => '',
@@ -1302,14 +1348,14 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_button_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'button_bg_color_normal',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1321,7 +1367,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'button_text_color_normal',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1334,7 +1380,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border_normal',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-promo-box-button',
@@ -1344,7 +1390,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -1357,7 +1403,7 @@ class Promo_Box extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'button_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-promo-box-button',
             ]
         );
@@ -1365,7 +1411,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -1387,14 +1433,14 @@ class Promo_Box extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_button_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'button_bg_color_hover',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1406,7 +1452,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'button_text_color_hover',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1418,7 +1464,7 @@ class Promo_Box extends Powerpack_Widget {
         $this->add_control(
             'button_border_color_hover',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1430,7 +1476,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label'                 => __( 'Animation', 'power-pack' ),
+				'label'                 => __( 'Animation', 'powerpack' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -1456,12 +1502,70 @@ class Promo_Box extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
+    protected function render_promobox_icon() {
+        $settings = $this->get_settings_for_display();
+        
+        $this->add_render_attribute( 'icon', 'class', ['pp-promo-box-icon', 'pp-icon'] );
+
+		if ( $settings['hover_animation_icon'] ) {
+			$this->add_render_attribute( 'icon', 'class', 'elementor-animation-' . $settings['hover_animation_icon'] );
+		}
+		
+		if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
+			// add old default
+			$settings['icon'] = 'fa fa-star';
+		}
+
+		$has_icon = ! empty( $settings['icon'] );
+		
+		if ( $has_icon ) {
+			$this->add_render_attribute( 'i', 'class', $settings['icon'] );
+			$this->add_render_attribute( 'i', 'aria-hidden', 'true' );
+		}
+
+		$icon_attributes = $this->get_render_attribute_string( 'icon' );
+		
+		if ( ! $has_icon && ! empty( $settings['selected_icon']['value'] ) ) {
+			$has_icon = true;
+		}
+		$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
+		$is_new = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
+		?>
+		 <div class="pp-promo-box-icon-wrap">
+			<span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
+				<?php if ( $settings['icon_type'] == 'icon' ) { ?>
+					<span class="pp-promo-box-icon-inner">
+					<?php
+					if ( $is_new || $migrated ) {
+						Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
+					} elseif ( ! empty( $settings['icon'] ) ) {
+						?><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i><?php
+					}
+					?>
+			 		</span>
+				<?php } elseif ( $settings['icon_type'] == 'image' ) { ?>
+					<?php if ( ! empty( $settings['icon_image']['url'] ) ) { ?>
+					<span class="pp-promo-box-icon-inner">
+						<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'icon_image' ); ?>
+					</span>
+					<?php } ?>
+				<?php } ?>
+			</span>
+		</div>
+		<?php
+    }
+
+    /**
+	 * Render promo box widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
     protected function render() {
         $settings = $this->get_settings_for_display();
         
         $this->add_render_attribute( 'promo-box', 'class', 'pp-promo-box' );
-        
-        $this->add_render_attribute( 'icon', 'class', 'pp-promo-box-icon' );
         
         $this->add_inline_editing_attributes( 'heading', 'none' );
         $this->add_render_attribute( 'heading', 'class', 'pp-promo-box-title' );
@@ -1471,10 +1575,6 @@ class Promo_Box extends Powerpack_Widget {
         
         $this->add_inline_editing_attributes( 'content', 'none' );
         $this->add_render_attribute( 'content', 'class', 'pp-promo-box-content' );
-
-		if ( $settings['hover_animation_icon'] ) {
-			$this->add_render_attribute( 'icon', 'class', 'elementor-animation-' . $settings['hover_animation_icon'] );
-		}
         
         $this->add_inline_editing_attributes( 'button_text', 'none' );
         
@@ -1487,7 +1587,7 @@ class Promo_Box extends Powerpack_Widget {
         
         if ( ! empty( $settings['link']['url'] ) ) {
 
-            $this->add_render_attribute( 'button_text', 'href', esc_url( $settings['link']['url'] ) );
+            $this->add_render_attribute( 'button_text', 'href', $settings['link']['url'] );
 
             if ( $settings['link']['is_external'] ) {
                 $this->add_render_attribute( 'button_text', 'target', '_blank' );
@@ -1510,21 +1610,13 @@ class Promo_Box extends Powerpack_Widget {
             <div class="pp-promo-box-wrap">
                 <div class="pp-promo-box-inner">
                     <div class="pp-promo-box-inner-content">
-                        <?php if ( $settings['icon_switch'] == 'yes' ) { ?>
-                            <?php if ( $settings['icon_position'] == 'above-title' ) { ?>
-                                <div class="pp-promo-box-icon-wrap">
-                                    <span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
-                                        <?php if ( $settings['icon_type'] == 'icon' ) { ?>
-                                            <span class="pp-promo-box-icon-inner <?php echo esc_attr( $settings['icon'] ); ?>" aria-hidden="true"></span>
-                                        <?php } elseif ( $settings['icon_type'] == 'image' ) { ?>
-                                            <span class="pp-promo-box-icon-inner">
-                                                <img src="<?php echo esc_url( $settings['icon_image']['url'] ); ?>">
-                                            </span>
-                                        <?php } ?>
-                                    </span>
-                                </div>
-                            <?php } ?>
-                        <?php } ?>
+                        <?php
+							if ( $settings['icon_switch'] == 'yes' ) {
+								if ( $settings['icon_position'] == 'above-title' ) {
+									$this->render_promobox_icon();
+								}
+							}
+						?>
                         
                         <?php if ( ! empty( $settings['heading'] ) ) { ?>
                             <h4 <?php echo $this->get_render_attribute_string( 'heading' ); ?>>
@@ -1542,21 +1634,13 @@ class Promo_Box extends Powerpack_Widget {
                             </div>
                         <?php } ?>
 
-                        <?php if ( $settings['icon_switch'] == 'yes' ) { ?>
-                            <?php if ( $settings['icon_position'] == 'below-title' ) { ?>
-                                <div class="pp-promo-box-icon-wrap">
-                                    <span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
-                                        <?php if ( $settings['icon_type'] == 'icon' ) { ?>
-                                            <span class="pp-promo-box-icon-inner <?php echo esc_attr( $settings['icon'] ); ?>" aria-hidden="true"></span>
-                                        <?php } elseif ( $settings['icon_type'] == 'image' ) { ?>
-                                            <span class="pp-promo-box-icon-inner">
-                                                <img src="<?php echo esc_url( $settings['icon_image']['url'] ); ?>">
-                                            </span>
-                                        <?php } ?>
-                                    </span>
-                                </div>
-                            <?php } ?>
-                        <?php } ?>
+                        <?php
+							if ( $settings['icon_switch'] == 'yes' ) {
+								if ( $settings['icon_position'] == 'below-title' ) {
+									$this->render_promobox_icon();
+								}
+							}
+						?>
                         
                         <?php if ( ! empty( $settings['sub_heading'] ) ) { ?>
                             <h5 <?php echo $this->get_render_attribute_string( 'sub_heading' ); ?>>
@@ -1604,6 +1688,43 @@ class Promo_Box extends Powerpack_Widget {
 	 */
     protected function _content_template() {
         ?>
+        <#
+           function icon_template() {
+		   		var iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
+					migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' );
+				#>
+				<div class="pp-promo-box-icon-wrap">
+					<span class="pp-promo-box-icon pp-icon elementor-animation-{{ settings.hover_animation_icon }}">
+						<# if ( settings.icon_type == 'icon' ) { #>
+							<span class="pp-promo-box-icon-inner">
+								<# if ( settings.icon || settings.selected_icon ) { #>
+								<# if ( iconHTML && iconHTML.rendered && ( ! settings.icon || migrated ) ) { #>
+								{{{ iconHTML.value }}}
+								<# } else { #>
+									<i class="{{ settings.icon }}" aria-hidden="true"></i>
+								<# } #>
+								<# } #>
+							</span>
+						<# } else if ( settings.icon_type == 'image' ) { #>
+							<span class="pp-promo-box-icon-inner">
+								<#
+								var image = {
+									id: settings.icon_image.id,
+									url: settings.icon_image.url,
+									size: settings.image_size,
+									dimension: settings.image_custom_dimension,
+									model: view.getEditModel()
+								};
+								var image_url = elementor.imagesManager.getImageUrl( image );
+								#>
+								<img src="{{{ image_url }}}" />
+							</span>
+						<# } #>
+					</span>
+				</div>
+				<#
+           }
+		#>
         <div class="pp-promo-box">
             <div class="pp-promo-box-bg"></div>
             <# if ( settings.overlay_switch == 'yes' ) { #>
@@ -1614,35 +1735,23 @@ class Promo_Box extends Powerpack_Widget {
                     <div class="pp-promo-box-inner-content">
                         <# if ( settings.icon_switch == 'yes' ) { #>
                             <# if ( settings.icon_position == 'above-title' ) { #>
-                                <div class="pp-promo-box-icon-wrap">
-                                    <span class="pp-promo-box-icon elementor-animation-{{ settings.hover_animation_icon }}">
-                                        <# if ( settings.icon_type == 'icon' ) { #>
-                                            <span class="pp-promo-box-icon-inner {{ settings.icon }}" aria-hidden="true"></span>
-                                        <# } else if ( settings.icon_type == 'image' ) { #>
-                                            <span class="pp-promo-box-icon-inner">
-                                                <img src="{{ settings.icon_image.url }}">
-                                            </span>
-                                        <# } #>
-                                    </span>
-                                </div>
+                                <# icon_template(); #>
                             <# } #>
-                        <# } #>
-                            
-                        <#
-                            if ( settings.heading != '' ) {
-                                var heading = settings.heading;
+                        <# }
+						   
+						if ( settings.heading != '' ) {
+							var heading = settings.heading;
 
-                                view.addRenderAttribute( 'heading', 'class', 'pp-promo-box-title' );
+							view.addRenderAttribute( 'heading', 'class', 'pp-promo-box-title' );
 
-                                view.addInlineEditingAttributes( 'heading' );
+							view.addInlineEditingAttributes( 'heading' );
 
-                                var heading_html = '<h4' + ' ' + view.getRenderAttributeString( 'heading' ) + '>' + heading + '</h4>';
+							var heading_html = '<h4' + ' ' + view.getRenderAttributeString( 'heading' ) + '>' + heading + '</h4>';
 
-                                print( heading_html );
-                            }
-                        #>
-
-                        <# if ( settings.divider_heading_switch == 'yes' ) { #>
+							print( heading_html );
+                        }
+						   
+						if ( settings.divider_heading_switch == 'yes' ) { #>
                             <div class="pp-promo-box-heading-divider-wrap">
                                 <div class="pp-promo-box-heading-divider">
                                     <# if ( settings.divider_heading_type == 'image' ) { #>
@@ -1652,39 +1761,27 @@ class Promo_Box extends Powerpack_Widget {
                                     <# } #>
                                 </div>
                             </div>
-                        <# } #>
+                        <# }
+						   
+						if ( settings.icon_switch == 'yes' ) {
+							if ( settings.icon_position == 'below-title' ) {
+								icon_template();
+							}
+						}
+						   
+						if ( settings.sub_heading != '' ) {
+							var sub_heading = settings.sub_heading;
 
-                        <# if ( settings.icon_switch == 'yes' ) { #>
-                            <# if ( settings.icon_position == 'below-title' ) { #>
-                                <div class="pp-promo-box-icon-wrap">
-                                    <span class="pp-promo-box-icon elementor-animation-{{ settings.hover_animation_icon }}">
-                                        <# if ( settings.icon_type == 'icon' ) { #>
-                                            <span class="pp-promo-box-icon-inner {{ settings.icon }}" aria-hidden="true"></span>
-                                        <# } else if ( settings.icon_type == 'image' ) { #>
-                                            <span class="pp-promo-box-icon-inner">
-                                                <img src="{{ settings.icon_image.url }}">
-                                            </span>
-                                        <# } #>
-                                    </span>
-                                </div>
-                            <# } #>
-                        <# } #>
-                            
-                        <#
-                            if ( settings.sub_heading != '' ) {
-                                var sub_heading = settings.sub_heading;
+							view.addRenderAttribute( 'sub_heading', 'class', 'pp-promo-box-subtitle' );
 
-                                view.addRenderAttribute( 'sub_heading', 'class', 'pp-promo-box-subtitle' );
+							view.addInlineEditingAttributes( 'sub_heading' );
 
-                                view.addInlineEditingAttributes( 'sub_heading' );
+							var sub_heading_html = '<h5' + ' ' + view.getRenderAttributeString( 'sub_heading' ) + '>' + sub_heading + '</h5>';
 
-                                var sub_heading_html = '<h5' + ' ' + view.getRenderAttributeString( 'sub_heading' ) + '>' + sub_heading + '</h5>';
-
-                                print( sub_heading_html );
-                            }
-                        #>
-
-                        <# if ( settings.divider_subheading_switch == 'yes' ) { #>
+							print( sub_heading_html );
+						}
+						   
+						if ( settings.divider_subheading_switch == 'yes' ) { #>
                             <div class="pp-promo-box-subheading-divider-wrap">
                                 <div class="pp-promo-box-subheading-divider">
                                     <# if ( settings.divider_subheading_type == 'image' ) { #>
@@ -1694,23 +1791,21 @@ class Promo_Box extends Powerpack_Widget {
                                     <# } #>
                                 </div>
                             </div>
-                        <# } #>
-                            
-                        <#
-                            if ( settings.content != '' ) {
-                                var content = settings.content;
+                        <# }
+						   
+						if ( settings.content != '' ) {
+							var content = settings.content;
 
-                                view.addRenderAttribute( 'content', 'class', 'pp-promo-box-content' );
+							view.addRenderAttribute( 'content', 'class', 'pp-promo-box-content' );
 
-                                view.addInlineEditingAttributes( 'content' );
+							view.addInlineEditingAttributes( 'content' );
 
-                                var content_html = '<div' + ' ' + view.getRenderAttributeString( 'content' ) + '>' + content + '</div>';
+							var content_html = '<div' + ' ' + view.getRenderAttributeString( 'content' ) + '>' + content + '</div>';
 
-                                print( content_html );
-                            }
-                        #>
-                        
-                        <# if ( settings.button_switch == 'yes' ) { #>
+							print( content_html );
+						}
+						   
+						if ( settings.button_switch == 'yes' ) { #>
                             <# if ( settings.button_text != '' ) { #>
                                 <div class="pp-promo-box-footer">
                                     <#
