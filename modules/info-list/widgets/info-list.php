@@ -5,12 +5,14 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
+use Elementor\Control_Media;
 use Elementor\Utils;
-use Elementor\Group_Control_Image_Size;
+use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -116,11 +118,11 @@ class Info_List extends Powerpack_Widget {
 				'default'               => [
 					[
 						'text'      => __( 'List Item #1', 'powerpack' ),
-                        'list_icon' => __('fa fa-check','powerpack')
+                        'icon' => __('fa fa-check','powerpack')
 					],
                     [
 						'text'      => __( 'List Item #2', 'powerpack' ),
-                        'list_icon' => __('fa fa-check','powerpack')
+                        'icon' => __('fa fa-check','powerpack')
 					],
 				],
 				'fields'                => [
@@ -169,15 +171,19 @@ class Info_List extends Powerpack_Widget {
                         ],
                         'default'       => 'icon',
 					],
-                    [
-						'name'              => 'list_icon',
-						'label'             => __( 'Icon', 'powerpack' ),
-						'label_block'       => false,
-						'type'              => Controls_Manager::ICON,
-				        'default'           => 'fa fa-check',
-				        'condition'         => [
-                            'pp_icon_type' => 'icon',
-                        ],
+					[
+						'name'				=> 'icon',
+						'label'				=> __( 'Icon', 'powerpack' ),
+						'type'				=> Controls_Manager::ICONS,
+						'label_block'		=> true,
+						'default'			=> [
+							'value'		=> 'fas fa-check',
+							'library'	=> 'fa-solid',
+						],
+						'fa4compatibility'	=> 'list_icon',
+						'condition'         => [
+							'pp_icon_type'  => 'icon',
+						],
 					],
                     [
 						'name'              => 'list_image',
@@ -225,15 +231,16 @@ class Info_List extends Powerpack_Widget {
                             'link_type' => 'button',
                         ],
                     ],
-                    [
-                        'name'              => 'button_icon',
-                        'label'             => __( 'Button Icon', 'powerpack' ),
-                        'type'              => Controls_Manager::ICON,
-                        'default'           => '',
-                        'condition'         => [
-                            'link_type' => 'button',
-                        ],
-                    ],
+					[
+						'name'				=> 'selected_icon',
+						'label'				=> __( 'Button Icon', 'powerpack' ),
+						'type'				=> Controls_Manager::ICONS,
+						'label_block'		=> true,
+						'fa4compatibility'	=> 'button_icon',
+						'condition'         => [
+							'link_type' => 'button',
+						],
+					],
                     [
                         'name'              => 'button_icon_position',
                         'label'             => __( 'Icon Position', 'powerpack' ),
@@ -245,7 +252,6 @@ class Info_List extends Powerpack_Widget {
                         ],
                         'condition'         => [
                             'link_type'     => 'button',
-                            'button_icon!'  => '',
                         ],
                     ],
 					[
@@ -582,6 +588,7 @@ class Info_List extends Powerpack_Widget {
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-list-items .pp-info-list-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-list-items .pp-info-list-icon svg' => 'fill: {{VALUE}};',
 				],
 				'scheme'                => [
 					'type'     => Scheme_Color::get_type(),
@@ -723,6 +730,7 @@ class Info_List extends Powerpack_Widget {
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-list-items .pp-infolist-icon-wrapper:hover .pp-info-list-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-list-items .pp-infolist-icon-wrapper:hover .pp-info-list-icon svg' => 'fill: {{VALUE}};',
 				],
 				'scheme'                => [
 					'type'     => Scheme_Color::get_type(),
@@ -943,6 +951,7 @@ class Info_List extends Powerpack_Widget {
                 'default'               => '',
                 'selectors'             => [
                     '{{WRAPPER}} .pp-info-list-button' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-info-list-button svg' => 'fill: {{VALUE}}',
                 ],
             ]
         );
@@ -1119,7 +1128,7 @@ class Info_List extends Powerpack_Widget {
                 'class' => 'pp-info-list-item'
             ],
             'icon' => [
-                'class' => 'pp-info-list-icon'
+                'class' => ['pp-info-list-icon', 'pp-icon'],
             ],
             'info-list-button' => [
                 'class' => [
@@ -1174,40 +1183,14 @@ class Info_List extends Powerpack_Widget {
                                         $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
                                     }
                                 }
-                                if ( $item['pp_icon_type'] != 'none' ) {
-                                    $icon_key = 'icon_' . $i;
-                                    $this->add_render_attribute( $icon_key, 'class', 'pp-infolist-icon-wrapper' );
-                                    
-                                    if ( $settings['icon_hover_animation'] != '' ) {
-                                        $icon_animation = 'elementor-animation-' . $settings['icon_hover_animation'];
-                                    } else {
-                                        $icon_animation = '';
-                                    }
-                                    ?>
-                                    <div <?php echo $this->get_render_attribute_string( $icon_key ); ?>>
-                                        <?php
-                                            if ( $item['pp_icon_type'] == 'icon' ) {
-                                                printf( '<span class="pp-info-list-icon %1$s %2$s"></span>', esc_attr( $item['list_icon'] ), $icon_animation );
-                                            } elseif ( $item['pp_icon_type'] == 'image' ) {
-                                                $image_url = Group_Control_Image_Size::get_attachment_image_src( $item['list_image']['id'], 'thumbnail', $settings );
-
-                                                if ( $image_url ) {
-                                                    printf( '<span class="pp-info-list-image %2$s"><img src="%1$s" alt="%3$s"></span>', esc_url( $image_url ), $icon_animation, esc_attr( Control_Media::get_image_alt( $item['list_image'] ) ) );
-                                                } else {
-                                                    echo '<img src="' . esc_url( $item['list_image']['url'] ) . '">';
-                                                }
-                                            } elseif ( $item['pp_icon_type'] == 'text' ) {
-                                                printf( '<span class="pp-info-list-icon pp-info-list-number %2$s">%1$s</span>', esc_attr( $item['icon_text'] ), $icon_animation );
-                                            }
-                                        ?>
-                                    </div>
-                                    <?php
-                                }
+																		
+								$this->render_infolist_icon( $item, $i );
                             ?>
                             <div class="pp-infolist-content-wrapper">
                                 <?php if ( ! empty( $item['link']['url'] ) && $item['link_type'] == 'box' ) { ?>
                                     <a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
                                 <?php } ?>
+								<?php if ( $item['text'] ) { ?>
                                 <div <?php echo $this->get_render_attribute_string( $text_key ); ?>>
                                     <?php if ( ! empty( $item['link']['url'] ) && $item['link_type'] == 'title' ) { ?>
                                         <a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
@@ -1217,16 +1200,18 @@ class Info_List extends Powerpack_Widget {
                                         </a>
                                     <?php } ?>
                                 </div>
+								<?php } ?>
                                 <?php
-                                    printf( '<div %1$s>%2$s</div>', $this->get_render_attribute_string( $description_key ), $item['description'] );
+									if ( $item['description'] ) {
+                                    	printf( '<div %1$s>%2$s</div>', $this->get_render_attribute_string( $description_key ), $item['description'] );
+									}
                                 ?>
                                 <?php if ( ! empty( $item['link']['url'] ) && $item['link_type'] == 'button' ) { ?>
                                     <div <?php echo $this->get_render_attribute_string( $button_key ); ?>>
                                         <a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
                                             <div <?php echo $this->get_render_attribute_string( 'info-list-button' ); ?>>
-                                                <?php if ( ! empty( $item['button_icon'] ) ) { ?>
-                                                    <span class="pp-button-icon <?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></span>
-                                                <?php } ?>
+                                                <?php $this->render_infolist_button_icon($item); ?>
+
                                                 <?php if ( ! empty( $item['button_text'] ) ) { ?>
                                                     <span <?php echo $this->get_render_attribute_string( 'button_text' ); ?>>
                                                         <?php echo esc_attr( $item['button_text'] ); ?>
@@ -1252,6 +1237,102 @@ class Info_List extends Powerpack_Widget {
     }
 
     /**
+	 * Render info-box carousel icon output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+    protected function render_infolist_button_icon( $item ) {
+        $settings = $this->get_settings_for_display();
+		
+		$migration_allowed = Icons_Manager::is_migration_allowed();
+		
+		// add old default
+		if ( ! isset( $item['button_icon'] ) && ! $migration_allowed ) {
+			$item['button_icon'] = '';
+		}
+
+		$migrated = isset( $item['__fa4_migrated']['icon'] );
+		$is_new = ! isset( $item['button_icon'] ) && $migration_allowed;
+
+		if ( ! empty( $item['button_icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) ) {
+			echo '<span class="pp-button-icon pp-icon">';
+			if ( $is_new || $migrated ) {
+				Icons_Manager::render_icon( $item['selected_icon'], [ 'aria-hidden' => 'true' ] );
+			} else { ?>
+					<i class="<?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></i>
+			<?php }
+			echo '</span>';
+		}
+    }
+
+    /**
+	 * Render info-box carousel icon output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+    protected function render_infolist_icon( $item, $i ) {
+        $settings = $this->get_settings_for_display();
+
+		$fallback_defaults = [
+			'fa fa-check',
+			'fa fa-times',
+			'fa fa-dot-circle-o',
+		];
+		
+		$migration_allowed = Icons_Manager::is_migration_allowed();
+		
+		// add old default
+		if ( ! isset( $item['list_icon'] ) && ! $migration_allowed ) {
+			$item['list_icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-check';
+		}
+
+		$migrated = isset( $item['__fa4_migrated']['icon'] );
+		$is_new = ! isset( $item['list_icon'] ) && $migration_allowed;
+																
+		if ( $item['pp_icon_type'] != 'none' ) {
+			$icon_key = 'icon_' . $i;
+			$this->add_render_attribute( $icon_key, 'class', 'pp-infolist-icon-wrapper' );
+
+			if ( $settings['icon_hover_animation'] != '' ) {
+				$icon_animation = 'elementor-animation-' . $settings['icon_hover_animation'];
+			} else {
+				$icon_animation = '';
+			}
+			?>
+			<div <?php echo $this->get_render_attribute_string( $icon_key ); ?>>
+				<?php
+					if ( $item['pp_icon_type'] == 'icon' ) {
+						if ( ! empty( $item['list_icon'] ) || ( ! empty( $item['icon']['value'] ) && $is_new ) ) {
+						echo '<span class="pp-icon-list-icon pp-icon ' . $icon_animation . '">';
+						if ( $is_new || $migrated ) {
+							Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+						} else { ?>
+								<i class="<?php echo esc_attr( $item['list_icon'] ); ?>" aria-hidden="true"></i>
+						<?php }
+						echo '</span>';
+						}
+					} elseif ( $item['pp_icon_type'] == 'image' ) {
+						$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['list_image']['id'], 'thumbnail', $settings );
+
+						if ( $image_url ) {
+							printf( '<span class="pp-info-list-image %2$s"><img src="%1$s" alt="%3$s"></span>', esc_url( $image_url ), $icon_animation, esc_attr( Control_Media::get_image_alt( $item['list_image'] ) ) );
+						} else {
+							echo '<img src="' . esc_url( $item['list_image']['url'] ) . '">';
+						}
+					} elseif ( $item['pp_icon_type'] == 'text' ) {
+						printf( '<span class="pp-info-list-icon pp-info-list-number %2$s">%1$s</span>', esc_attr( $item['icon_text'] ), $icon_animation );
+					}
+				?>
+			</div>
+			<?php
+		}
+    }
+
+    /**
 	 * Render info list widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
@@ -1274,11 +1355,16 @@ class Info_List extends Powerpack_Widget {
 			   view.addRenderAttribute( 'info-list', 'class', 'pp-info-list-corners-hide' );
 			}
         }
+			   
+		var iconsHTML = {},
+			migrated = {},
+		   	buttonIconHTML = {},
+			buttonMigrated = {};
         #>
         <div {{{ view.getRenderAttributeString( 'info-list' ) }}}>
             <ul class="pp-list-items">
                 <# var i = 1; #>
-                <# _.each( settings.list_items, function( item ) { #>
+                <# _.each( settings.list_items, function( item, index ) { #>
                     <#
                         var text_key = 'list_items.' + (i - 1) + '.text';
                         var description_key = 'list_items.' + (i - 1) + '.description';
@@ -1294,7 +1380,19 @@ class Info_List extends Powerpack_Widget {
 								<# if ( item.pp_icon_type != 'none' ) { #>
 									<div class="pp-infolist-icon-wrapper">
 										<# if ( item.pp_icon_type == 'icon' ) { #>
-											<span class="pp-info-list-icon elementor-animation-{{ settings.icon_hover_animation }} {{ item.list_icon }}" aria-hidden="true"></span>
+											<# if ( item.list_icon || item.icon.value ) { #>
+												<span class="pp-info-list-icon pp-icon elementor-animation-{{ settings.icon_hover_animation }}" aria-hidden="true">
+												<#
+													iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.icon, { 'aria-hidden': true }, 'i', 'object' );
+													migrated[ index ] = elementor.helpers.isIconMigrated( item, 'icon' );
+													if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.list_icon || migrated[ index ] ) ) { #>
+														{{{ iconsHTML[ index ].value }}}
+													<# } else { #>
+														<i class="{{ item.list_icon }}" aria-hidden="true"></i>
+													<# }
+												#>
+												</span>
+											<# } #>
 										<# } else if ( item.pp_icon_type == 'image' ) { #>
 											<span class="pp-info-list-image elementor-animation-{{ settings.icon_hover_animation }}">
 												<#
@@ -1320,6 +1418,7 @@ class Info_List extends Powerpack_Widget {
 									<# if ( item.link.url != '' && item.link_type == 'box' ) { #>
 										<a href="{{ item.link.url }}">
 									<# } #>
+										<# if ( item.text ) { #>
 										<div class="pp-info-list-title">
 											<# if ( item.link.url != '' && item.link_type == 'title' ) { #>
 												<a href="{{ item.link.url }}">
@@ -1331,16 +1430,30 @@ class Info_List extends Powerpack_Widget {
 												</a>
 											<# } #>
 										</div>
+										<# } #>
+										<# if ( item.description ) { #>
 										<div {{{ view.getRenderAttributeString( description_key ) }}}>
 											{{{ item.description }}}
 										</div>
+										<# } #>
 										<# if ( item.link.url != '' && item.link_type == 'button' ) { #>
 											<div class="pp-info-list-button-wrapper pp-info-list-button-icon-{{ item.button_icon_position }}">
 												<a href="{{ item.link.url }}">
 													<div class="pp-info-list-button elementor-button elementor-size-{{ settings.button_size }} elementor-animation-{{ settings.button_animation }}">
-														<# if ( item.button_icon != '' ) { #>
-															<span class="pp-button-icon {{{ item.button_icon }}}" aria-hidden="true"></span>
+														<# if ( item.button_icon || item.selected_icon.value ) { #>
+															<span class="pp-button-icon pp-icon">
+															<#
+																iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
+																migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
+																if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.button_icon || migrated[ index ] ) ) { #>
+																	{{{ iconsHTML[ index ].value }}}
+																<# } else { #>
+																	<i class="{{ item.button_icon }}" aria-hidden="true"></i>
+																<# }
+															#>
+															</span>
 														<# } #>
+															
 														<# if ( item.button_text != '' ) { #>
 															<span class="pp-button-text">
 																{{{ item.button_text }}}
