@@ -167,58 +167,27 @@
     };
     
     var InfoBoxCarouselHandler = function ($scope, $) {
-        var $carousel                   = $scope.find('.pp-info-box-carousel').eq(0),
-            $items                      = ($carousel.data("items") !== undefined) ? $carousel.data("items") : 3,
-            $items_tablet               = ($carousel.data("items-tablet") !== undefined) ? $carousel.data("items-tablet") : 3,
-            $items_mobile               = ($carousel.data("items-mobile") !== undefined) ? $carousel.data("items-mobile") : 3,
-            $margin                     = ($carousel.data("margin") !== undefined) ? $carousel.data("margin") : 10,
-            $margin_tablet              = ($carousel.data("margin-tablet") !== undefined) ? $carousel.data("margin-tablet") : 10,
-            $margin_mobile              = ($carousel.data("margin-mobile") !== undefined) ? $carousel.data("margin-mobile") : 10,
-            $effect                     = ($carousel.data("effect") !== undefined) ? $carousel.data("effect") : 'slide',
-            $speed                      = ($carousel.data("speed") !== undefined) ? $carousel.data("speed") : 400,
-            $autoplay                   = ($carousel.data("autoplay") !== undefined) ? $carousel.data("autoplay") : 999999,
-            $loop                       = ($carousel.data("loop") !== undefined) ? $carousel.data("loop") : 0,
-            $grab_cursor                = ($carousel.data("grab-cursor") !== undefined) ? $carousel.data("grab-cursor") : 0,
-            $dots                       = ($carousel.data("dots") !== undefined) ? $carousel.data("dots") : false,
-            $pagination                 = ($carousel.data("pagination") !== undefined) ? $carousel.data("pagination") : '.swiper-pagination',
-            $pagination_type            = ($carousel.data("pagination-type") !== undefined) ? $carousel.data("pagination-type") : 'bullets',
-            $arrow_next                 = ($carousel.data("arrow-next") !== undefined) ? $carousel.data("arrow-next") : '.swiper-button-next',
-            $arrow_prev                 = ($carousel.data("arrow-prev") !== undefined) ? $carousel.data("arrow-prev") : '.swiper-button-prev',
-            $arrows                     = ($carousel.data("arrows") !== undefined) ? $carousel.data("arrows") : false,
-            
-            mySwiper = new Swiper($carousel, {
-                direction:              'horizontal',
-                speed:                  $speed,
-                effect:                 $effect,
-                slidesPerView:          $items,
-                spaceBetween:           $margin,
-                grabCursor:             $grab_cursor,
-                loop:                   $loop,
-                autoplay: {
-                    delay: $autoplay,
-                },
-                pagination: {
-                    el: $pagination,
-                    type: $pagination_type,
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: $arrow_next,
-                    prevEl: $arrow_prev,
-                },
-                breakpoints: {
-                    // when window width is <= 480px
-                    480: {
-                        slidesPerView:  $items_mobile,
-                        spaceBetween:   $margin_mobile
-                    },
-                    // when window width is <= 640px
-                    768: {
-                        slidesPerView:  $items_tablet,
-                        spaceBetween:   $margin_tablet
-                    }
-                }
-            });
+        var carousel_wrap               = $scope.find('.pp-info-box-carousel-wrap').eq(0),
+            carousel                    = carousel_wrap.find('.pp-info-box-carousel'),
+            slider_options              = JSON.parse( carousel_wrap.attr('data-slider-settings') );
+
+		var mySwiper = new Swiper(carousel, slider_options);
+		
+		$(document).on('pp_advanced_tab_changed', function(e, content) {
+			if ( content.find('.pp-info-box-carousel-wrap').length > 0 ) {
+				setTimeout(function() {
+					mySwiper.update();
+				}, 400);
+			}
+		});
+
+		if ( $(carousel_wrap).closest('.elementor-tabs').length > 0 ) {
+			$(carousel_wrap).closest('.elementor-tabs').find('.elementor-tab-title').on('click', function() {
+				setTimeout(function() {
+					mySwiper.update();
+				}, 400);
+			});
+		}
     };
     
     var InstaFeedPopupHandler = function ($scope, $) {

@@ -5,12 +5,15 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
+use Elementor\Control_Media;
 use Elementor\Utils;
 use Elementor\Repeater;
+use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -43,7 +46,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Info Box Carousel', 'power-pack' );
+        return __( 'Info Box Carousel', 'powerpack' );
     }
 
     /**
@@ -106,7 +109,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_section(
             'section_info_boxes',
             [
-                'label'                     => __( 'Info Boxes', 'power-pack' ),
+                'label'                     => __( 'Info Boxes', 'powerpack' ),
             ]
         );
         
@@ -114,69 +117,69 @@ class Info_Box_Carousel extends Powerpack_Widget {
         
         $repeater->start_controls_tabs( 'items_repeater' );
 
-        $repeater->start_controls_tab( 'tab_content', [ 'label' => __( 'Content', 'power-pack' ) ] );
+        $repeater->start_controls_tab( 'tab_content', [ 'label' => __( 'Content', 'powerpack' ) ] );
 
             $repeater->add_control(
                 'title',
                 [
-                    'label'                 => __( 'Title', 'power-pack' ),
+                    'label'                 => __( 'Title', 'powerpack' ),
                     'type'                  => Controls_Manager::TEXT,
                     'dynamic'               => [
                         'active'   => true,
                     ],
-                    'default'               => __( 'Title', 'power-pack' ),
+                    'default'               => __( 'Title', 'powerpack' ),
                 ]
             );
 
             $repeater->add_control(
                 'subtitle',
                 [
-                    'label'                 => __( 'Subtitle', 'power-pack' ),
+                    'label'                 => __( 'Subtitle', 'powerpack' ),
                     'type'                  => Controls_Manager::TEXT,
                     'dynamic'               => [
                         'active'   => true,
                     ],
-                    'default'               => __( 'Subtitle', 'power-pack' ),
+                    'default'               => __( 'Subtitle', 'powerpack' ),
                 ]
             );
 
             $repeater->add_control(
                 'description',
                 [
-                    'label'                 => __( 'Description', 'power-pack' ),
+                    'label'                 => __( 'Description', 'powerpack' ),
                     'type'                  => Controls_Manager::TEXTAREA,
                     'dynamic'               => [
                         'active'   => true,
                     ],
-                    'default'               => __( 'Enter info box description', 'power-pack' ),
+                    'default'               => __( 'Enter info box description', 'powerpack' ),
                 ]
             );
         
         $repeater->end_controls_tab();
         
-        $repeater->start_controls_tab( 'tab_icon', [ 'label' => __( 'Icon', 'power-pack' ) ] );
+        $repeater->start_controls_tab( 'tab_icon', [ 'label' => __( 'Icon', 'powerpack' ) ] );
         
             $repeater->add_control(
                 'icon_type',
                 [
-                    'label'                 => esc_html__( 'Type', 'power-pack' ),
+                    'label'                 => esc_html__( 'Type', 'powerpack' ),
                     'type'                  => Controls_Manager::CHOOSE,
                     'label_block'           => false,
                     'options'               => [
                         'none' => [
-                            'title' => esc_html__( 'None', 'power-pack' ),
+                            'title' => esc_html__( 'None', 'powerpack' ),
                             'icon' => 'fa fa-ban',
                         ],
                         'icon' => [
-                            'title' => esc_html__( 'Icon', 'power-pack' ),
+                            'title' => esc_html__( 'Icon', 'powerpack' ),
                             'icon' => 'fa fa-gear',
                         ],
                         'image' => [
-                            'title' => esc_html__( 'Image', 'power-pack' ),
+                            'title' => esc_html__( 'Image', 'powerpack' ),
                             'icon' => 'fa fa-picture-o',
                         ],
                         'text' => [
-                            'title' => esc_html__( 'Text', 'power-pack' ),
+                            'title' => esc_html__( 'Text', 'powerpack' ),
                             'icon' => 'fa fa-font',
                         ],
                     ],
@@ -184,22 +187,27 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 ]
             );
 
-            $repeater->add_control(
-                'icon',
-                [
-                    'label'                 => __( 'Icon', 'power-pack' ),
-                    'type'                  => Controls_Manager::ICON,
-                    'default'               => 'fa fa-diamond',
+			$repeater->add_control(
+				'selected_icon',
+				[
+					'label'					=> __( 'Icon', 'powerpack' ),
+					'type'					=> Controls_Manager::ICONS,
+					'label_block'			=> true,
+					'default'				=> [
+						'value'		=> 'fas fa-check',
+						'library'	=> 'fa-solid',
+					],
+					'fa4compatibility'		=> 'icon',
                     'condition'             => [
                         'icon_type'     => 'icon',
                     ],
-                ]
-            );
+				]
+			);
 
             $repeater->add_control(
                 'icon_text',
                 [
-                    'label'                 => __( 'Text', 'power-pack' ),
+                    'label'                 => __( 'Text', 'powerpack' ),
                     'type'                  => Controls_Manager::TEXT,
                     'dynamic'               => [
                         'active'   => true,
@@ -214,7 +222,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
             $repeater->add_control(
                 'image',
                 [
-                    'label'                 => __( 'Image', 'power-pack' ),
+                    'label'                 => __( 'Image', 'powerpack' ),
                     'type'                  => Controls_Manager::MEDIA,
                     'dynamic'               => [
                         'active'   => true,
@@ -230,20 +238,20 @@ class Info_Box_Carousel extends Powerpack_Widget {
         
         $repeater->end_controls_tab();
         
-        $repeater->start_controls_tab( 'tab_link', [ 'label' => __( 'Link', 'power-pack' ) ] );
+        $repeater->start_controls_tab( 'tab_link', [ 'label' => __( 'Link', 'powerpack' ) ] );
         
         $repeater->add_control(
             'link_type',
             [
-                'label'                 => __( 'Link Type', 'power-pack' ),
+                'label'                 => __( 'Link Type', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'none',
                 'options'               => [
-                    'none'      => __( 'None', 'power-pack' ),
-                    'box'       => __( 'Box', 'power-pack' ),
-                    'icon'      => __( 'Image/Icon', 'power-pack' ),
-                    'title'     => __( 'Title', 'power-pack' ),
-                    'button'    => __( 'Button', 'power-pack' ),
+                    'none'      => __( 'None', 'powerpack' ),
+                    'box'       => __( 'Box', 'powerpack' ),
+                    'icon'      => __( 'Image/Icon', 'powerpack' ),
+                    'title'     => __( 'Title', 'powerpack' ),
+                    'button'    => __( 'Button', 'powerpack' ),
                 ],
             ]
         );
@@ -251,7 +259,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $repeater->add_control(
             'link',
             [
-                'label'                 => __( 'Link', 'power-pack' ),
+                'label'                 => __( 'Link', 'powerpack' ),
                 'type'                  => Controls_Manager::URL,
                 'dynamic'               => [
                     'active'   => true,
@@ -269,12 +277,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $repeater->add_control(
             'button_text',
             [
-                'label'                 => __( 'Button Text', 'power-pack' ),
+                'label'                 => __( 'Button Text', 'powerpack' ),
                 'type'                  => Controls_Manager::TEXT,
                 'dynamic'               => [
                     'active'   => true,
                 ],
-                'default'               => __( 'Get Started', 'power-pack' ),
+                'default'               => __( 'Get Started', 'powerpack' ),
                 'condition'             => [
                     'link_type'   => 'button',
                 ],
@@ -284,7 +292,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $repeater->add_control(
             'button_icon',
             [
-                'label'                 => __( 'Button Icon', 'power-pack' ),
+                'label'                 => __( 'Button Icon', 'powerpack' ),
                 'type'                  => Controls_Manager::ICON,
                 'default'               => '',
                 'condition'             => [
@@ -296,12 +304,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $repeater->add_control(
             'button_icon_position',
             [
-                'label'                 => __( 'Icon Position', 'power-pack' ),
+                'label'                 => __( 'Icon Position', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'after',
                 'options'               => [
-                    'before'    => __( 'Before', 'power-pack' ),
-                    'after'     => __( 'After', 'power-pack' ),
+                    'before'    => __( 'Before', 'powerpack' ),
+                    'after'     => __( 'After', 'powerpack' ),
                 ],
                 'condition'             => [
                     'link_type'     => 'button',
@@ -321,28 +329,38 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 'type' 		=> Controls_Manager::REPEATER,
                 'default' 	=> [
                     [
-                        'title' => __( 'Info Box 1', 'power-pack' ),
+                        'title' => __( 'Info Box 1', 'powerpack' ),
                     ],
                     [
-                        'title' => __( 'Info Box 2', 'power-pack' ),
+                        'title' => __( 'Info Box 2', 'powerpack' ),
                     ],
                     [
-                        'title' => __( 'Info Box 3', 'power-pack' ),
+                        'title' => __( 'Info Box 3', 'powerpack' ),
                     ],
                 ],
                 'fields' 		=> array_values( $repeater->get_controls() ),
                 'title_field' 	=> '{{{ title }}}'
             ]
         );
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'                  => 'thumbnail', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.,
+                'label'                 => __( 'Image Size', 'powerpack' ),
+                'default'               => 'full',
+				'separator'             => 'before',
+			]
+		);
         
         $this->add_control(
             'divider_title_switch',
             [
-                'label'                 => __( 'Title Separator', 'power-pack' ),
+                'label'                 => __( 'Title Separator', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => '',
-                'label_on'              => __( 'On', 'power-pack' ),
-                'label_off'             => __( 'Off', 'power-pack' ),
+                'label_on'              => __( 'On', 'powerpack' ),
+                'label_off'             => __( 'Off', 'powerpack' ),
                 'return_value'          => 'yes',
             ]
         );
@@ -350,19 +368,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'title_html_tag',
             [
-                'label'                 => __( 'Title HTML Tag', 'power-pack' ),
+                'label'                 => __( 'Title HTML Tag', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'h4',
                 'options'               => [
-                    'h1'     => __( 'H1', 'power-pack' ),
-                    'h2'     => __( 'H2', 'power-pack' ),
-                    'h3'     => __( 'H3', 'power-pack' ),
-                    'h4'     => __( 'H4', 'power-pack' ),
-                    'h5'     => __( 'H5', 'power-pack' ),
-                    'h6'     => __( 'H6', 'power-pack' ),
-                    'div'    => __( 'div', 'power-pack' ),
-                    'span'   => __( 'span', 'power-pack' ),
-                    'p'      => __( 'p', 'power-pack' ),
+                    'h1'     => __( 'H1', 'powerpack' ),
+                    'h2'     => __( 'H2', 'powerpack' ),
+                    'h3'     => __( 'H3', 'powerpack' ),
+                    'h4'     => __( 'H4', 'powerpack' ),
+                    'h5'     => __( 'H5', 'powerpack' ),
+                    'h6'     => __( 'H6', 'powerpack' ),
+                    'div'    => __( 'div', 'powerpack' ),
+                    'span'   => __( 'span', 'powerpack' ),
+                    'p'      => __( 'p', 'powerpack' ),
                 ],
             ]
         );
@@ -370,19 +388,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'sub_title_html_tag',
             [
-                'label'                 => __( 'Subtitle HTML Tag', 'power-pack' ),
+                'label'                 => __( 'Subtitle HTML Tag', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'h5',
                 'options'               => [
-                    'h1'     => __( 'H1', 'power-pack' ),
-                    'h2'     => __( 'H2', 'power-pack' ),
-                    'h3'     => __( 'H3', 'power-pack' ),
-                    'h4'     => __( 'H4', 'power-pack' ),
-                    'h5'     => __( 'H5', 'power-pack' ),
-                    'h6'     => __( 'H6', 'power-pack' ),
-                    'div'    => __( 'div', 'power-pack' ),
-                    'span'   => __( 'span', 'power-pack' ),
-                    'p'      => __( 'p', 'power-pack' ),
+                    'h1'     => __( 'H1', 'powerpack' ),
+                    'h2'     => __( 'H2', 'powerpack' ),
+                    'h3'     => __( 'H3', 'powerpack' ),
+                    'h4'     => __( 'H4', 'powerpack' ),
+                    'h5'     => __( 'H5', 'powerpack' ),
+                    'h6'     => __( 'H6', 'powerpack' ),
+                    'div'    => __( 'div', 'powerpack' ),
+                    'span'   => __( 'span', 'powerpack' ),
+                    'p'      => __( 'p', 'powerpack' ),
                 ],
             ]
         );
@@ -396,23 +414,23 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_section(
             'section_carousel_settings',
             [
-                'label'                 => __( 'Carousel Settings', 'power-pack' ),
+                'label'                 => __( 'Carousel Settings', 'powerpack' ),
             ]
         );
         
         $this->add_control(
             'carousel_effect',
             [
-                'label'                 => __( 'Effect', 'power-pack' ),
-                'description'           => __( 'Sets transition effect', 'power-pack' ),
+                'label'                 => __( 'Effect', 'powerpack' ),
+                'description'           => __( 'Sets transition effect', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'slide',
                 'options'               => [
-                    'slide'     => __( 'Slide', 'power-pack' ),
-                    'fade'      => __( 'Fade', 'power-pack' ),
-                    'cube'      => __( 'Cube', 'power-pack' ),
-                    'coverflow' => __( 'Coverflow', 'power-pack' ),
-                    'flip'      => __( 'Flip', 'power-pack' ),
+                    'slide'     => __( 'Slide', 'powerpack' ),
+                    'fade'      => __( 'Fade', 'powerpack' ),
+                    'cube'      => __( 'Cube', 'powerpack' ),
+                    'coverflow' => __( 'Coverflow', 'powerpack' ),
+                    'flip'      => __( 'Flip', 'powerpack' ),
                 ],
             ]
         );
@@ -420,8 +438,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'items',
             [
-                'label'                 => __( 'Visible Items', 'power-pack' ),
-                'description'           => __( 'Number of slides visible at the same time on slider\'s container).', 'power-pack' ),
+                'label'                 => __( 'Visible Items', 'powerpack' ),
+                'description'           => __( 'Number of slides visible at the same time on slider\'s container).', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [ 'size' => 3 ],
                 'range'                 => [
@@ -442,8 +460,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'margin',
             [
-                'label'                 => __( 'Items Gap', 'power-pack' ),
-                'description'           => __( 'Distance between slides (in px)', 'power-pack' ),
+                'label'                 => __( 'Items Gap', 'powerpack' ),
+                'description'           => __( 'Distance between slides (in px)', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [ 'size' => 10 ],
                 'range'                 => [
@@ -463,8 +481,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'slider_speed',
             [
-                'label'                 => __( 'Slider Speed', 'power-pack' ),
-                'description'           => __( 'Duration of transition between slides (in ms)', 'power-pack' ),
+                'label'                 => __( 'Slider Speed', 'powerpack' ),
+                'description'           => __( 'Duration of transition between slides (in ms)', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [ 'size' => 600 ],
                 'range'                 => [
@@ -482,11 +500,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'autoplay',
             [
-                'label'                 => __( 'Autoplay', 'power-pack' ),
+                'label'                 => __( 'Autoplay', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'yes',
-                'label_on'          => __( 'Yes', 'power-pack' ),
-                'label_off'         => __( 'No', 'power-pack' ),
+                'label_on'          => __( 'Yes', 'powerpack' ),
+                'label_off'         => __( 'No', 'powerpack' ),
                 'return_value'      => 'yes',
                 'separator'             => 'before',
             ]
@@ -495,7 +513,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'autoplay_speed',
             [
-                'label'                 => __( 'Autoplay Speed', 'power-pack' ),
+                'label'                 => __( 'Autoplay Speed', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [ 'size' => 2400 ],
                 'range'                 => [
@@ -515,12 +533,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'infinite_loop',
             [
-                'label'                 => __( 'Infinite Loop', 'power-pack' ),
-                'description'           => __( 'Enables continuous loop mode', 'power-pack' ),
+                'label'                 => __( 'Infinite Loop', 'powerpack' ),
+                'description'           => __( 'Enables continuous loop mode', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'yes',
-                'label_on'          => __( 'Yes', 'power-pack' ),
-                'label_off'         => __( 'No', 'power-pack' ),
+                'label_on'          => __( 'Yes', 'powerpack' ),
+                'label_off'         => __( 'No', 'powerpack' ),
                 'return_value'      => 'yes',
             ]
         );
@@ -528,12 +546,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'grab_cursor',
             [
-                'label'                 => __( 'Grab Cursor', 'power-pack' ),
-                'description'           => __( 'Shows grab cursor when you hover over the slider', 'power-pack' ),
+                'label'                 => __( 'Grab Cursor', 'powerpack' ),
+                'description'           => __( 'Shows grab cursor when you hover over the slider', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => '',
-                'label_on'              => __( 'Show', 'power-pack' ),
-                'label_off'             => __( 'Hide', 'power-pack' ),
+                'label_on'              => __( 'Show', 'powerpack' ),
+                'label_off'             => __( 'Hide', 'powerpack' ),
                 'return_value'          => 'yes',
                 'separator'             => 'before',
             ]
@@ -542,7 +560,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'navigation_heading',
             [
-                'label'                 => __( 'Navigation', 'power-pack' ),
+                'label'                 => __( 'Navigation', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
             ]
@@ -551,11 +569,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'arrows',
             [
-                'label'                 => __( 'Arrows', 'power-pack' ),
+                'label'                 => __( 'Arrows', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'yes',
-                'label_on'          => __( 'Yes', 'power-pack' ),
-                'label_off'         => __( 'No', 'power-pack' ),
+                'label_on'          => __( 'Yes', 'powerpack' ),
+                'label_off'         => __( 'No', 'powerpack' ),
                 'return_value'      => 'yes',
             ]
         );
@@ -563,11 +581,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'dots',
             [
-                'label'                 => __( 'Pagination', 'power-pack' ),
+                'label'                 => __( 'Pagination', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'yes',
-                'label_on'          => __( 'Yes', 'power-pack' ),
-                'label_off'         => __( 'No', 'power-pack' ),
+                'label_on'          => __( 'Yes', 'powerpack' ),
+                'label_off'         => __( 'No', 'powerpack' ),
                 'return_value'      => 'yes',
             ]
         );
@@ -575,12 +593,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'pagination_type',
             [
-                'label'                 => __( 'Pagination Type', 'power-pack' ),
+                'label'                 => __( 'Pagination Type', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'bullets',
                 'options'               => [
-                    'bullets'       => __( 'Dots', 'power-pack' ),
-                    'fraction'      => __( 'Fraction', 'power-pack' ),
+                    'bullets'       => __( 'Dots', 'powerpack' ),
+                    'fraction'      => __( 'Fraction', 'powerpack' ),
                 ],
                 'condition'             => [
                     'dots'          => 'yes',
@@ -591,12 +609,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'direction',
             [
-                'label'                 => __( 'Direction', 'power-pack' ),
+                'label'                 => __( 'Direction', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'left',
                 'options'               => [
-                    'left'       => __( 'Left', 'power-pack' ),
-                    'right'      => __( 'Right', 'power-pack' ),
+                    'left'       => __( 'Left', 'powerpack' ),
+                    'right'      => __( 'Right', 'powerpack' ),
                 ],
 				'separator'             => 'before',
             ]
@@ -609,13 +627,13 @@ class Info_Box_Carousel extends Powerpack_Widget {
         /*-----------------------------------------------------------------------------------*/
 
         /**
-         * Style Tab: Info Box
+         * Style Tab: Info Boxes
          * -------------------------------------------------
          */
         $this->start_controls_section(
             'section_info_box_style',
             [
-                'label'                 => __( 'Info Box', 'power-pack' ),
+                'label'                 => __( 'Info Boxes', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -623,29 +641,64 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
 			'align',
 			[
-				'label'                 => __( 'Alignment', 'power-pack' ),
+				'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 					'justify'   => [
-						'title' => __( 'Justified', 'power-pack' ),
+						'title' => __( 'Justified', 'powerpack' ),
 						'icon'  => 'fa fa-align-justify',
 					],
 				],
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box .swiper-slide'   => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+        
+        $this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'              => 'info_box_background',
+				'types'             => [ 'classic', 'gradient' ],
+                'separator'             => 'before',
+				'selector'          => '{{WRAPPER}} .pp-info-box-content-wrap',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'                  => 'info_box_border',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+                'separator'             => 'before',
+				'selector'              => '{{WRAPPER}} .pp-info-box-content-wrap',
+			]
+		);
+
+		$this->add_responsive_control(
+			'info_box_padding',
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+                'separator'             => 'before',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-info-box-content-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -659,7 +712,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_section(
             'section_info_box_icon_style',
             [
-                'label'                 => __( 'Icon Style', 'power-pack' ),
+                'label'                 => __( 'Icon Style', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -667,7 +720,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'icon_size',
             [
-                'label'                 => __( 'Icon Size', 'power-pack' ),
+                'label'                 => __( 'Icon Size', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -688,14 +741,27 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_icon_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
+            ]
+        );
+
+        $this->add_control(
+            'icon_color_normal',
+            [
+                'label'                 => __( 'Icon Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-info-box-icon' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-info-box-icon svg' => 'fill: {{VALUE}}',
+                ],
             ]
         );
         
         $this->add_control(
             'icon_bg_color_normal',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -704,23 +770,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
             ]
         );
 
-        $this->add_control(
-            'icon_color_normal',
-            [
-                'label'                 => __( 'Icon Color', 'power-pack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .pp-info-box-icon' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'icon_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-info-box-icon',
@@ -730,7 +784,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -742,7 +796,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'icon_rotation',
             [
-                'label'                 => __( 'Icon Rotation', 'power-pack' ),
+                'label'                 => __( 'Icon Rotation', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -761,7 +815,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'icon_padding',
             [
-                'label'                 => __( 'Padding', 'power-pack' ),
+                'label'                 => __( 'Padding', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -780,7 +834,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_margin',
 			[
-				'label'                 => __( 'Margin', 'power-pack' ),
+				'label'                 => __( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'placeholder'           => [
@@ -800,14 +854,27 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_icon_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
+            ]
+        );
+
+        $this->add_control(
+            'icon_color_hover',
+            [
+                'label'                 => __( 'Icon Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-info-box-icon:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-info-box-icon:hover svg' => 'fill: {{VALUE}}',
+                ],
             ]
         );
         
         $this->add_control(
             'icon_bg_color_hover',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -817,21 +884,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
         );
 
         $this->add_control(
-            'icon_color_hover',
-            [
-                'label'                 => __( 'Icon Color', 'power-pack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .pp-info-box-icon:hover' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_control(
             'icon_border_color_hover',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -843,7 +898,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'icon_rotation_hover',
             [
-                'label'                 => __( 'Icon Rotation', 'power-pack' ),
+                'label'                 => __( 'Icon Rotation', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -862,7 +917,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'icon_animation',
 			[
-				'label'                 => __( 'Icon Animation', 'power-pack' ),
+				'label'                 => __( 'Icon Animation', 'powerpack' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -874,7 +929,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'icon_image_heading',
             [
-                'label'                 => __( 'Icon Image', 'power-pack' ),
+                'label'                 => __( 'Icon Image', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
             ]
@@ -883,7 +938,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'icon_img_width',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     '%' => [
@@ -902,7 +957,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'icon_text_heading',
             [
-                'label'                 => __( 'Icon Text', 'power-pack' ),
+                'label'                 => __( 'Icon Text', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
             ]
@@ -912,7 +967,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'icon_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-info-box-icon',
             ]
@@ -927,7 +982,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_section(
             'section_info_box_title_style',
             [
-                'label'                 => __( 'Title', 'power-pack' ),
+                'label'                 => __( 'Title', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -935,7 +990,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'title_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -948,7 +1003,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'title_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-info-box-title',
             ]
@@ -957,7 +1012,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'title_margin',
             [
-                'label'                 => __( 'Margin Bottom', 'power-pack' ),
+                'label'                 => __( 'Margin Bottom', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 20,
@@ -984,7 +1039,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'subtitle_heading',
             [
-                'label'                 => __( 'Sub Title', 'power-pack' ),
+                'label'                 => __( 'Sub Title', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
             ]
@@ -993,7 +1048,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'subtitle_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1006,7 +1061,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'subtitle_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-info-box-subtitle',
             ]
@@ -1015,7 +1070,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'subtitle_margin',
             [
-                'label'                 => __( 'Margin Bottom', 'power-pack' ),
+                'label'                 => __( 'Margin Bottom', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 20,
@@ -1048,7 +1103,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_section(
             'section_title_divider_style',
             [
-                'label'                 => __( 'Title Separator', 'power-pack' ),
+                'label'                 => __( 'Title Separator', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'divider_title_switch' => 'yes',
@@ -1059,15 +1114,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'divider_title_border_type',
             [
-                'label'                 => __( 'Border Type', 'power-pack' ),
+                'label'                 => __( 'Border Type', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'solid',
                 'options'               => [
-                    'none'      => __( 'None', 'power-pack' ),
-                    'solid'     => __( 'Solid', 'power-pack' ),
-                    'double'    => __( 'Double', 'power-pack' ),
-                    'dotted'    => __( 'Dotted', 'power-pack' ),
-                    'dashed'    => __( 'Dashed', 'power-pack' ),
+                    'none'      => __( 'None', 'powerpack' ),
+                    'solid'     => __( 'Solid', 'powerpack' ),
+                    'double'    => __( 'Double', 'powerpack' ),
+                    'dotted'    => __( 'Dotted', 'powerpack' ),
+                    'dashed'    => __( 'Dashed', 'powerpack' ),
                 ],
                 'selectors'             => [
                     '{{WRAPPER}} .pp-info-box-divider' => 'border-bottom-style: {{VALUE}}',
@@ -1081,7 +1136,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_title_width',
             [
-                'label'                 => __( 'Border Width', 'power-pack' ),
+                'label'                 => __( 'Border Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 30,
@@ -1111,7 +1166,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_title_border_height',
             [
-                'label'                 => __( 'Border Height', 'power-pack' ),
+                'label'                 => __( 'Border Height', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 2,
@@ -1136,7 +1191,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'divider_title_border_color',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1151,19 +1206,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
 			'divider_title_align',
 			[
-				'label'                 => __( 'Alignment', 'power-pack' ),
+				'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -1180,7 +1235,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_title_margin',
             [
-                'label'                 => __( 'Margin Bottom', 'power-pack' ),
+                'label'                 => __( 'Margin Bottom', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 20,
@@ -1216,7 +1271,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_section(
             'section_info_description_style',
             [
-                'label'                 => __( 'Description', 'power-pack' ),
+                'label'                 => __( 'Description', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1224,7 +1279,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'description_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1237,7 +1292,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'description_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-info-box-description',
             ]
@@ -1246,7 +1301,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'description_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -1258,7 +1313,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'description_margin',
             [
-                'label'                 => __( 'Margin Bottom', 'power-pack' ),
+                'label'                 => __( 'Margin Bottom', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 20,
@@ -1291,7 +1346,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_section(
             'section_info_box_button_style',
             [
-                'label'                 => __( 'Button', 'power-pack' ),
+                'label'                 => __( 'Button', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1299,15 +1354,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'button_size',
 			[
-				'label'                 => __( 'Size', 'power-pack' ),
+				'label'                 => __( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'md',
 				'options'               => [
-					'xs' => __( 'Extra Small', 'power-pack' ),
-					'sm' => __( 'Small', 'power-pack' ),
-					'md' => __( 'Medium', 'power-pack' ),
-					'lg' => __( 'Large', 'power-pack' ),
-					'xl' => __( 'Extra Large', 'power-pack' ),
+					'xs' => __( 'Extra Small', 'powerpack' ),
+					'sm' => __( 'Small', 'powerpack' ),
+					'md' => __( 'Medium', 'powerpack' ),
+					'lg' => __( 'Large', 'powerpack' ),
+					'xl' => __( 'Extra Large', 'powerpack' ),
 				],
 			]
 		);
@@ -1317,14 +1372,14 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_button_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'button_bg_color_normal',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1336,7 +1391,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'button_text_color_normal',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1349,7 +1404,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border_normal',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-info-box-button',
@@ -1359,7 +1414,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -1372,7 +1427,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'button_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-info-box-button',
             ]
@@ -1381,7 +1436,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -1401,7 +1456,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'info_box_button_icon_heading',
             [
-                'label'                 => __( 'Button Icon', 'power-pack' ),
+                'label'                 => __( 'Button Icon', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
                 'condition'             => [
@@ -1413,7 +1468,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_icon_margin',
 			[
-				'label'                 => __( 'Margin', 'power-pack' ),
+				'label'                 => __( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'placeholder'           => [
@@ -1436,14 +1491,14 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_button_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'button_bg_color_hover',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1455,7 +1510,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'button_text_color_hover',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1467,7 +1522,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'button_border_color_hover',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1479,7 +1534,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label'                 => __( 'Animation', 'power-pack' ),
+				'label'                 => __( 'Animation', 'powerpack' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -1504,7 +1559,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_section(
             'section_arrows_style',
             [
-                'label'                 => __( 'Arrows', 'power-pack' ),
+                'label'                 => __( 'Arrows', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'arrows'        => 'yes',
@@ -1515,23 +1570,23 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'arrow',
             [
-                'label'                 => __( 'Choose Arrow', 'power-pack' ),
+                'label'                 => __( 'Choose Arrow', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'label_block'           => true,
                 'default'               => 'fa fa-angle-right',
                 'options'               => [
-                    'fa fa-angle-right'             => __( 'Angle', 'power-pack' ),
-                    'fa fa-angle-double-right'      => __( 'Double Angle', 'power-pack' ),
-                    'fa fa-chevron-right'           => __( 'Chevron', 'power-pack' ),
-                    'fa fa-chevron-circle-right'    => __( 'Chevron Circle', 'power-pack' ),
-                    'fa fa-arrow-right'             => __( 'Arrow', 'power-pack' ),
-                    'fa fa-long-arrow-right'        => __( 'Long Arrow', 'power-pack' ),
-                    'fa fa-caret-right'             => __( 'Caret', 'power-pack' ),
-                    'fa fa-caret-square-o-right'    => __( 'Caret Square', 'power-pack' ),
-                    'fa fa-arrow-circle-right'      => __( 'Arrow Circle', 'power-pack' ),
-                    'fa fa-arrow-circle-o-right'    => __( 'Arrow Circle O', 'power-pack' ),
-                    'fa fa-toggle-right'            => __( 'Toggle', 'power-pack' ),
-                    'fa fa-hand-o-right'            => __( 'Hand', 'power-pack' ),
+                    'fa fa-angle-right'             => __( 'Angle', 'powerpack' ),
+                    'fa fa-angle-double-right'      => __( 'Double Angle', 'powerpack' ),
+                    'fa fa-chevron-right'           => __( 'Chevron', 'powerpack' ),
+                    'fa fa-chevron-circle-right'    => __( 'Chevron Circle', 'powerpack' ),
+                    'fa fa-arrow-right'             => __( 'Arrow', 'powerpack' ),
+                    'fa fa-long-arrow-right'        => __( 'Long Arrow', 'powerpack' ),
+                    'fa fa-caret-right'             => __( 'Caret', 'powerpack' ),
+                    'fa fa-caret-square-o-right'    => __( 'Caret Square', 'powerpack' ),
+                    'fa fa-arrow-circle-right'      => __( 'Arrow Circle', 'powerpack' ),
+                    'fa fa-arrow-circle-o-right'    => __( 'Arrow Circle O', 'powerpack' ),
+                    'fa fa-toggle-right'            => __( 'Toggle', 'powerpack' ),
+                    'fa fa-hand-o-right'            => __( 'Hand', 'powerpack' ),
                 ],
             ]
         );
@@ -1539,7 +1594,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'arrows_size',
             [
-                'label'                 => __( 'Arrows Size', 'power-pack' ),
+                'label'                 => __( 'Arrows Size', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [ 'size' => '22' ],
                 'range'                 => [
@@ -1559,7 +1614,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'left_arrow_position',
             [
-                'label'                 => __( 'Align Left Arrow', 'power-pack' ),
+                'label'                 => __( 'Align Left Arrow', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -1578,7 +1633,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'right_arrow_position',
             [
-                'label'                 => __( 'Align Right Arrow', 'power-pack' ),
+                'label'                 => __( 'Align Right Arrow', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -1599,14 +1654,14 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_arrows_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'arrows_bg_color_normal',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1618,7 +1673,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'arrows_color_normal',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1631,7 +1686,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'arrows_border_normal',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev'
@@ -1641,7 +1696,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_border_radius_normal',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -1655,14 +1710,14 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_arrows_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'arrows_bg_color_hover',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1674,7 +1729,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'arrows_color_hover',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1686,7 +1741,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'arrows_border_color_hover',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1702,7 +1757,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -1721,7 +1776,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_section(
             'section_dots_style',
             [
-                'label'                 => __( 'Pagination: Dots', 'power-pack' ),
+                'label'                 => __( 'Pagination: Dots', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'dots'              => 'yes',
@@ -1733,11 +1788,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'dots_position',
             [
-                'label'                 => __( 'Position', 'power-pack' ),
+                'label'                 => __( 'Position', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'options'               => [
-                   'inside'     => __( 'Inside', 'power-pack' ),
-                   'outside'    => __( 'Outside', 'power-pack' ),
+                   'inside'     => __( 'Inside', 'powerpack' ),
+                   'outside'    => __( 'Outside', 'powerpack' ),
                 ],
                 'default'               => 'outside',
                 'condition'             => [
@@ -1750,7 +1805,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'dots_size',
             [
-                'label'                 => __( 'Size', 'power-pack' ),
+                'label'                 => __( 'Size', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -1773,7 +1828,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_responsive_control(
             'dots_spacing',
             [
-                'label'                 => __( 'Spacing', 'power-pack' ),
+                'label'                 => __( 'Spacing', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -1798,7 +1853,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_dots_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
                 'condition'             => [
                     'dots'              => 'yes',
                     'pagination_type'   => 'bullets',
@@ -1809,7 +1864,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'dots_color_normal',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1825,7 +1880,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'active_dot_color_normal',
             [
-                'label'                 => __( 'Active Color', 'power-pack' ),
+                'label'                 => __( 'Active Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1842,7 +1897,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'dots_border_normal',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet',
@@ -1856,7 +1911,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_border_radius_normal',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -1872,7 +1927,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_margin',
 			[
-				'label'                 => __( 'Margin', 'power-pack' ),
+				'label'                 => __( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
                 'allowed_dimensions'    => 'vertical',
@@ -1897,7 +1952,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_dots_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
                 'condition'             => [
                     'dots'              => 'yes',
                     'pagination_type'   => 'bullets',
@@ -1908,7 +1963,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'dots_color_hover',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1924,7 +1979,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'dots_border_color_hover',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1950,7 +2005,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->start_controls_section(
             'section_fraction_style',
             [
-                'label'                 => __( 'Pagination: Fraction', 'power-pack' ),
+                'label'                 => __( 'Pagination: Fraction', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'dots'              => 'yes',
@@ -1962,7 +2017,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         $this->add_control(
             'fraction_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1979,7 +2034,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'fraction_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .swiper-pagination-fraction',
                 'condition'             => [
@@ -1990,6 +2045,69 @@ class Info_Box_Carousel extends Powerpack_Widget {
         );
         
         $this->end_controls_section();
+    }
+
+	/**
+	 * Slider Settings.
+	 *
+	 * @access public
+	 */
+	public function slider_settings() {
+        $settings = $this->get_settings();
+        
+        $slider_options = [
+			'direction'              => 'horizontal',
+			'speed'                  => ( $settings['slider_speed']['size'] !== '' ) ? $settings['slider_speed']['size'] : 400,
+			'effect'                 => ( $settings['carousel_effect'] ) ? $settings['carousel_effect'] : 'slide',
+			'slidesPerView'          => ( $settings['items']['size'] !== '' ) ? absint( $settings['items']['size'] ) : 3,
+			'spaceBetween'           => ( $settings['margin']['size'] !== '' ) ? $settings['margin']['size'] : 10,
+			'grabCursor'             => ( $settings['grab_cursor'] === 'yes' ),
+			'autoHeight'             => true,
+			'loop'                   => ( $settings['infinite_loop'] === 'yes' ),
+		];
+        
+        if ( $settings['autoplay'] == 'yes' && ! empty( $settings['autoplay_speed']['size'] ) ) {
+            $autoplay_speed = $settings['autoplay_speed']['size'];
+        } else {
+            $autoplay_speed = 999999;
+        }
+        
+        $slider_options['autoplay'] = [
+            'delay'                  => $autoplay_speed
+        ];
+        
+        if ( $settings['dots'] == 'yes' ) {
+            $slider_options['pagination'] = [
+                'el'                 => '.swiper-pagination-'.esc_attr( $this->get_id() ),
+                'type'               => $settings['pagination_type'],
+                'clickable'          => true,
+            ];
+        }
+        
+        if ( $settings['arrows'] == 'yes' ) {
+            $slider_options['navigation'] = [
+                'nextEl'             => '.swiper-button-next-'.esc_attr( $this->get_id() ),
+                'prevEl'             => '.swiper-button-prev-'.esc_attr( $this->get_id() ),
+            ];
+        }
+        
+        $slider_options['breakpoints'] = [
+            '768'   => [
+                'slidesPerView'      => ( $settings['items_tablet']['size'] !== '' ) ? absint( $settings['items_tablet']['size'] ) : 2,
+                'spaceBetween'       => ( $settings['margin_tablet']['size'] !== '' ) ? $settings['margin_tablet']['size'] : 10,
+            ],
+            '480'   => [
+                'slidesPerView'      => ( $settings['items_mobile']['size'] !== '' ) ? absint( $settings['items_mobile']['size'] ) : 1,
+                'spaceBetween'       => ( $settings['margin_mobile']['size'] !== '' ) ? $settings['margin_mobile']['size'] : 10,
+            ],
+        ];
+        
+        $this->add_render_attribute(
+			'info-box-carousel-wrap',
+			[
+				'data-slider-settings' => wp_json_encode( $slider_options ),
+			]
+		);
     }
 
     /**
@@ -2010,16 +2128,21 @@ class Info_Box_Carousel extends Powerpack_Widget {
             $this->add_render_attribute( 'info-box-carousel-wrap', 'class', 'swiper-container-wrap-dots-outside' );
         }
         
-        if ( $settings['direction'] == 'right' ) {
+        $this->slider_settings();
+        
+        if ( is_rtl() ) {
             $this->add_render_attribute( 'info-box-carousel', 'dir', 'rtl' );
         }
         
-        $this->add_render_attribute( 'info-box-carousel', 'class', 'swiper-container pp-info-box pp-info-box-carousel' );
-        
-        $this->add_render_attribute( 'info-box-carousel', 'class', 'swiper-container-'.esc_attr($this->get_id()) );
-        $this->add_render_attribute( 'info-box-carousel', 'data-pagination', '.swiper-pagination-'.esc_attr( $this->get_id() ) );
-        $this->add_render_attribute( 'info-box-carousel', 'data-arrow-next', '.swiper-button-next-'.esc_attr( $this->get_id() ) );
-        $this->add_render_attribute( 'info-box-carousel', 'data-arrow-prev', '.swiper-button-prev-'.esc_attr( $this->get_id() ) );
+        $this->add_render_attribute(
+            'info-box-carousel',
+            [
+                'class'             => [ 'swiper-container', 'pp-info-box', 'pp-info-box-carousel', 'swiper-container-'.esc_attr( $this->get_id() ) ],
+                'data-pagination'   => '.swiper-pagination-'.esc_attr( $this->get_id() ),
+                'data-arrow-next'   => '.swiper-button-next-'.esc_attr( $this->get_id() ),
+                'data-arrow-prev'   => '.swiper-button-prev-'.esc_attr( $this->get_id() ),
+            ]
+        );
         
         $this->add_render_attribute( 'info-box-container', 'class', 'pp-info-box-container' );
             
@@ -2040,54 +2163,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			$this->add_render_attribute( 'info-box-button', 'class', 'elementor-animation-' . $settings['button_hover_animation'] );
 		}
         
-        $this->add_render_attribute( 'icon', 'class', 'pp-info-box-icon' );
+        $this->add_render_attribute( 'icon', 'class', ['pp-info-box-icon', 'pp-icon'] );
 
 		if ( $settings['icon_animation'] ) {
 			$this->add_render_attribute( 'icon', 'class', 'elementor-animation-' . $settings['icon_animation'] );
 		}
-        
-        if ( ! empty( $settings['items']['size'] ) ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-items', $settings['items']['size'] );
-        }
-        if ( ! empty( $settings['items_tablet']['size'] ) ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-items-tablet', $settings['items_tablet']['size'] );
-        }
-        if ( ! empty( $settings['items_mobile']['size'] ) ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-items-mobile', $settings['items_mobile']['size'] );
-        }
-        if ( ! empty( $settings['margin']['size'] ) ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-margin', $settings['margin']['size'] );
-        }
-        if ( ! empty( $settings['margin_tablet']['size'] ) ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-margin-tablet', $settings['margin_tablet']['size'] );
-        }
-        if ( ! empty( $settings['margin_mobile']['size'] ) ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-margin-mobile', $settings['margin_mobile']['size'] );
-        }
-        if ( $settings['carousel_effect'] ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-effect', $settings['carousel_effect'] );
-        }
-        if ( ! empty( $settings['slider_speed']['size'] ) ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-speed', $settings['slider_speed']['size'] );
-        }
-        if ( $settings['autoplay'] == 'yes' && ! empty( $settings['autoplay_speed']['size'] ) ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-autoplay', $settings['autoplay_speed']['size'] );
-        } else {
-            $this->add_render_attribute( 'info-box-carousel', 'data-autoplay', '999999' );
-        }
-        if ( $settings['infinite_loop'] == 'yes' ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-loop', '1' );
-        }
-        if ( $settings['grab_cursor'] == 'yes' ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-grab-cursor', '1' );
-        }
-        if ( $settings['arrows'] == 'yes' ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-arrows', '1' );
-        }
-        if ( $settings['dots'] == 'yes' ) {
-            $this->add_render_attribute( 'info-box-carousel', 'data-dots', '1' );
-            $this->add_render_attribute( 'info-box-carousel', 'data-pagination-type', $settings['pagination_type'] );
-        }
         ?>
         <div <?php echo $this->get_render_attribute_string( 'info-box-carousel-wrap' ); ?>>
             <div <?php echo $this->get_render_attribute_string( 'info-box-carousel' ); ?>>
@@ -2100,7 +2180,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
                     if ( $item['link_type'] != 'none' ) {
                         if ( ! empty( $item['link']['url'] ) ) {
                             
-                            $this->add_render_attribute( 'link' . $i, 'href', esc_url( $item['link']['url'] ) );
+                            $this->add_render_attribute( 'link' . $i, 'href', $item['link']['url'] );
 
                             if ( $item['link']['is_external'] ) {
                                 $this->add_render_attribute( 'link' . $i, 'target', '_blank' );
@@ -2120,81 +2200,75 @@ class Info_Box_Carousel extends Powerpack_Widget {
                     }
                     ?>
                     <div class="swiper-slide">
-                        <?php if ( $item['link_type'] == 'box' ) { ?>
-                            <a <?php echo $this->get_render_attribute_string( 'link' . $i ); ?>>
-                        <?php } ?>
-                        <?php if ( $item['icon_type'] != 'none' ) { ?>
-                            <div class="pp-info-box-icon-wrap">
-                                <?php if ( $item['link_type'] == 'icon' ) { ?>
-                                    <a <?php echo $this->get_render_attribute_string( 'link' . $i ); ?>>
-                                <?php } ?>
-                                <span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
-                                    <?php if ( $item['icon_type'] == 'icon' ) { ?>
-                                        <span class="<?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></span>
-                                    <?php } elseif ( $item['icon_type'] == 'image' ) { ?>
-                                        <img src="<?php echo esc_url( $item['image']['url'] ); ?>">
-                                    <?php } elseif ( $item['icon_type'] == 'text' ) {
-                                        echo $item['icon_text'];
-                                    } ?>
-                                </span>
-                                <?php if ( $item['link_type'] == 'icon' ) { ?>
-                                    </a>
-                                <?php } ?>
-                            </div>
-                        <?php } ?>
-                        <div class="pp-info-box-content">
-                            <div class="pp-info-box-title-wrap">
-                                <?php
-                                    if ( ! empty( $item['title'] ) ) {
-                                        printf( '<%1$s %2$s %3$s>', $pp_title_html_tag, $this->get_render_attribute_string( 'title-container' . $i ), $this->get_render_attribute_string( 'link' . $i ) );
-                                        printf( '<%1$s class="pp-info-box-title">', $settings['title_html_tag'] );
-                                        echo $item['title'];
-                                        printf( '</%1$s>', $settings['title_html_tag'] );
-                                        printf( '</%1$s>', $pp_title_html_tag );
-                                    }
+						<div class="pp-info-box-content-wrap">
+							<?php if ( $item['link_type'] == 'box' ) { ?>
+								<a <?php echo $this->get_render_attribute_string( 'link' . $i ); ?>>
+							<?php } ?>
+							<?php if ( $item['icon_type'] != 'none' ) { ?>
+								<div class="pp-info-box-icon-wrap">
+									<?php if ( $item['link_type'] == 'icon' ) { ?>
+										<a <?php echo $this->get_render_attribute_string( 'link' . $i ); ?>>
+									<?php } ?>
+									<?php $this->render_infobox_icon( $item ); ?>
+									<?php if ( $item['link_type'] == 'icon' ) { ?>
+										</a>
+									<?php } ?>
+								</div>
+							<?php } ?>
+							<div class="pp-info-box-content">
+								<div class="pp-info-box-title-wrap">
+									<?php
+										if ( ! empty( $item['title'] ) ) {
+											printf( '<%1$s %2$s %3$s>', $pp_title_html_tag, $this->get_render_attribute_string( 'title-container' . $i ), $this->get_render_attribute_string( 'link' . $i ) );
+											printf( '<%1$s class="pp-info-box-title">', $settings['title_html_tag'] );
+											echo $item['title'];
+											printf( '</%1$s>', $settings['title_html_tag'] );
+											printf( '</%1$s>', $pp_title_html_tag );
+										}
 
-                                    if ( ! empty( $item['subtitle'] ) ) {
-                                        printf( '<%1$s class="pp-info-box-subtitle">', $settings['sub_title_html_tag'] );
-                                        echo $item['subtitle'];
-                                        printf( '</%1$s>', $settings['sub_title_html_tag'] );
-                                    }
-                                ?>
-                            </div>
+										if ( ! empty( $item['subtitle'] ) ) {
+											printf( '<%1$s class="pp-info-box-subtitle">', $settings['sub_title_html_tag'] );
+											echo $item['subtitle'];
+											printf( '</%1$s>', $settings['sub_title_html_tag'] );
+										}
+									?>
+								</div>
 
-                            <?php if ( $settings['divider_title_switch'] == 'yes' ) { ?>
-                                <div class="pp-info-box-divider-wrap">
-                                    <div class="pp-info-box-divider"></div>
-                                </div>
-                            <?php } ?>
+								<?php if ( $settings['divider_title_switch'] == 'yes' ) { ?>
+									<div class="pp-info-box-divider-wrap">
+										<div class="pp-info-box-divider"></div>
+									</div>
+								<?php } ?>
 
-                            <?php if ( ! empty( $item['description'] ) ) { ?>
-                                <div class="pp-info-box-description">
-                                    <?php echo $this->parse_text_editor( nl2br( $item['description'] ) ); ?>
-                                </div>
-                            <?php } ?>
-                            <?php if ( $item['link_type'] == 'button' ) { ?>
-                                <div class="pp-info-box-footer">
-                                    <<?php echo $pp_button_html_tag. ' ' . $this->get_render_attribute_string( 'info-box-button' . $i ) . $this->get_render_attribute_string( 'link' . $i ); ?>>
-                                        <div <?php echo $this->get_render_attribute_string( 'info-box-button' ); ?>>
-                                            <?php if ( ! empty( $item['button_icon'] ) && $item['button_icon_position'] == 'before' ) { ?>
-                                                <span class="pp-button-icon <?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></span>
-                                            <?php } ?>
-                                            <?php if ( ! empty( $item['button_text'] ) ) { ?>
-                                                <span class="pp-button-text">
-                                                    <?php echo esc_attr( $item['button_text'] ); ?>
-                                                </span>
-                                            <?php } ?>
-                                            <?php if ( ! empty( $item['button_icon'] ) && $item['button_icon_position'] == 'after' ) { ?>
-                                                <span class="pp-button-icon <?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></span>
-                                            <?php } ?>
-                                        </div>
-                                    </<?php echo $pp_button_html_tag; ?>>
-                                </div>
-                            <?php } ?>
-                            <?php if ( $item['link_type'] == 'box' ) { ?>
-                                </a>
-                            <?php } ?>
-                        </div><!-- .pp-info-box-content -->
+								<?php if ( ! empty( $item['description'] ) ) { ?>
+									<div class="pp-info-box-description">
+										<?php echo $this->parse_text_editor( nl2br( $item['description'] ) ); ?>
+									</div>
+								<?php } ?>
+								<?php if ( $item['link_type'] == 'button' ) { ?>
+									<div class="pp-info-box-footer">
+										<<?php echo $pp_button_html_tag. ' ' . $this->get_render_attribute_string( 'info-box-button' . $i ) . $this->get_render_attribute_string( 'link' . $i ); ?>>
+											<div <?php echo $this->get_render_attribute_string( 'info-box-button' ); ?>>
+												<?php if ( ! empty( $item['button_icon'] ) && $item['button_icon_position'] == 'before' ) { ?>
+													<span class="pp-button-icon <?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></span>
+												<?php } ?>
+												<?php if ( ! empty( $item['button_text'] ) ) { ?>
+													<span class="pp-button-text">
+														<?php echo esc_attr( $item['button_text'] ); ?>
+													</span>
+												<?php } ?>
+												<?php if ( ! empty( $item['button_icon'] ) && $item['button_icon_position'] == 'after' ) { ?>
+													<span class="pp-button-icon <?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></span>
+												<?php } ?>
+											</div>
+										</<?php echo $pp_button_html_tag; ?>>
+									</div>
+								<?php } ?>
+								<?php if ( $item['link_type'] == 'box' ) { ?>
+									</a>
+								<?php } ?>
+							</div><!-- .pp-info-box-content -->
+						</div>
                     </div>
                 <?php $i++; endforeach; ?>
                 </div>
@@ -2206,6 +2280,62 @@ class Info_Box_Carousel extends Powerpack_Widget {
             ?>
         </div>
         <?php
+    }
+
+    /**
+	 * Render info-box carousel icon output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+    protected function render_infobox_icon( $item ) {
+        $settings = $this->get_settings_for_display();
+
+		$fallback_defaults = [
+			'fa fa-check',
+			'fa fa-times',
+			'fa fa-dot-circle-o',
+		];
+		
+		$migration_allowed = Icons_Manager::is_migration_allowed();
+		
+		// add old default
+		if ( ! isset( $item['icon'] ) && ! $migration_allowed ) {
+			$item['icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-check';
+		}
+
+		$migrated = isset( $item['__fa4_migrated']['selected_icon'] );
+		$is_new = ! isset( $item['icon'] ) && $migration_allowed;
+		
+		if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) ) {
+			?>
+			<span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
+				<?php if ( $item['icon_type'] == 'icon' ) { ?>
+					<?php
+					if ( $is_new || $migrated ) {
+						Icons_Manager::render_icon( $item['selected_icon'], [ 'aria-hidden' => 'true' ] );
+					} else { ?>
+							<i class="<?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
+					<?php } ?>
+				<?php } elseif ( $item['icon_type'] == 'image' ) { ?>
+					<?php
+						if ( ! empty( $item['image']['url'] ) ) {
+							$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['image']['id'], 'thumbnail', $settings );
+
+							if ( $image_url ) {
+								echo '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( Control_Media::get_image_alt( $item['image'] ) ) . '">';
+							} else {
+								echo '<img src="' . esc_url( $item['image']['url'] ) . '">';
+							}
+						}
+					?>
+				<?php } elseif ( $item['icon_type'] == 'text' ) {
+					echo $item['icon_text'];
+				} ?>
+			</span>
+			<?php
+		}
     }
 
     /**
@@ -2255,6 +2385,278 @@ class Info_Box_Carousel extends Powerpack_Widget {
         <?php }
     }
 
-    protected function _content_template() {}
+    protected function _content_template() {
+        ?>
+        <#
+           function dots_template() {
+                if ( settings.dots == 'yes' ) {
+                    #>
+                    <div class="swiper-pagination"></div>
+                    <#
+                }
+           }
+
+           function arrows_template() {
+                if ( settings.arrows == 'yes' ) {
+                    if ( settings.arrow != '' ) {
+                        var pp_next_arrow = settings.arrow;
+                        var pp_prev_arrow = pp_next_arrow.replace('right', "left");
+                    }
+                    else {
+                        var pp_next_arrow = 'fa fa-angle-right';
+                        var pp_prev_arrow = 'fa fa-angle-left';
+                    }
+                    #>
+                    <div class="swiper-button-next">
+                        <i class="{{ pp_next_arrow }}"></i>
+                    </div>
+                    <div class="swiper-button-prev">
+                        <i class="{{ pp_prev_arrow }}"></i>
+                    </div>
+                    <#
+                }
+           }
+
+           function get_slider_settings( settings ) {
+
+                var $items          = ( settings.items.size !== '' || settings.items.size !== undefined ) ? settings.items.size : 3,
+                    $items_tablet   = ( settings.items_tablet.size !== '' || settings.items_tablet.size !== undefined ) ? settings.items_tablet.size : 2,
+                    $items_mobile   = ( settings.items_mobile.size !== '' || settings.items_mobile.size !== undefined ) ? settings.items_mobile.size : 1,
+                    $speed          = ( settings.slider_speed.size !== '' || settings.slider_speed.size !== undefined ) ? settings.slider_speed.size : 400,
+                    $margin         = ( settings.margin.size !== '' || settings.margin.size !== undefined ) ? settings.margin.size : 10,
+                    $margin_tablet  = ( settings.margin_tablet.size !== '' || settings.margin_tablet.size !== undefined ) ? settings.margin_tablet.size : 10,
+                    $margin_mobile  = ( settings.margin_mobile.size !== '' || settings.margin_mobile.size !== undefined ) ? settings.margin_mobile.size : 10,
+                    $autoplay       = ( settings.autoplay == 'yes' && settings.autoplay_speed.size != '' ) ? settings.autoplay_speed.size : 999999;
+
+                return {
+                    direction:              "horizontal",
+                    speed:                  $speed,
+                    effect:                 settings.carousel_effect,
+                    slidesPerView:          $items,
+                    spaceBetween:           $margin,
+                    grabCursor:             ( settings.grab_cursor === 'yes' ) ? true : false,
+                    autoHeight:             true,
+                    loop:                   ( settings.infinite_loop === 'yes' ),
+                    autoplay: {
+                        delay: $autoplay,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        type: settings.pagination_type,
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView:  $items_tablet,
+                            spaceBetween:   $margin_tablet
+                        },
+                        480: {
+                            slidesPerView:  $items_mobile,
+                            spaceBetween:   $margin_mobile
+                        }
+                    }
+                };
+           };
+
+           view.addRenderAttribute(
+                'info-box-carousel-wrap',
+                {
+                    'class': [ 'swiper-container-wrap', 'pp-info-box-carousel-wrap', 'swiper-container-wrap-dots-' + settings.dots_position ],
+                }
+           );
+
+           var slider_options = get_slider_settings( settings );
+
+           view.addRenderAttribute( 'info-box-carousel-wrap', 'data-slider-settings', JSON.stringify( slider_options ) );
+                       
+           #>
+			<?php if ( is_rtl() ) { ?>
+				<# view.addRenderAttribute( 'info-box-carousel', 'dir', 'rtl' ); #>
+			<?php } ?>
+           <#
+           view.addRenderAttribute(
+                'info-box-carousel',
+                {
+                    'class': [ 'swiper-container', 'pp-info-box', 'pp-info-box-carousel' ],
+                    'data-pagination': 'swiper-pagination',
+                    'data-arrow-next': 'swiper-button-next',
+                    'data-arrow-prev': 'swiper-button-prev',
+                }
+           );
+
+           view.addRenderAttribute( 'info-box-container', 'class', 'pp-info-box-container' );
+                       
+           view.addRenderAttribute( 'title-container', 'class', 'pp-info-box-title-container' );
+        
+           var $pp_if_html_tag = 'div',
+                $pp_title_html_tag = 'div',
+                $pp_button_html_tag = 'div';
+
+           view.addRenderAttribute( 'info-box-button', 'class', [
+                    'pp-info-box-button',
+				    'elementor-button',
+				    'elementor-size-' + settings.button_size,
+                ],
+           );
+
+           if ( settings.button_hover_animation ) {
+                view.addRenderAttribute( 'info-box-button', 'class', 'elementor-animation-' + settings.button_hover_animation );
+           }
+
+           view.addRenderAttribute( 'icon', 'class', ['pp-info-box-icon', 'pp-icon'] );
+
+           if ( settings.icon_animation ) {
+                view.addRenderAttribute( 'icon', 'class', 'elementor-animation-' + settings.icon_animation );
+           }
+			  
+			var iconsHTML = {},
+				migrated = {};
+        #>
+        <div {{{ view.getRenderAttributeString( 'info-box-carousel-wrap' ) }}}>
+            <div {{{ view.getRenderAttributeString( 'info-box-carousel' ) }}}>
+                <div class="swiper-wrapper">
+                <#
+                   var i = 1;
+
+                   _.each( settings.pp_info_boxes, function( item, index ) {
+
+                        if ( item.link_type != 'none' ) {
+                            if ( item.link.url ) {
+                   
+                                view.addRenderAttribute( 'link' + i, 'href', item.link.url );
+
+                                if ( item.link.is_external ) {
+                                    view.addRenderAttribute( 'link' + i, 'target', '_blank' );
+                                }
+
+                                if ( item.link.nofollow ) {
+                                    view.addRenderAttribute( 'link' + i, 'rel', 'nofollow' );
+                                }
+                            
+                                if ( item.link_type == 'title' ) {
+                                    $pp_title_html_tag = 'a';
+                                }
+                                else if ( item.link_type == 'button' ) {
+                                    $pp_button_html_tag = 'a';
+                                }
+                            }
+                        }
+                    #>
+                    <div class="swiper-slide">
+						<div class="pp-info-box-content-wrap">
+							<# if ( item.link_type == 'box' ) { #>
+								<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+							<# } #>
+							<# if ( item.icon_type != 'none' ) { #>
+								<div class="pp-info-box-icon-wrap">
+									<# if ( item.link_type == 'icon' ) { #>
+										<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+									<# } #>
+									<span {{{ view.getRenderAttributeString( 'icon' ) }}}>
+										<# if ( item.icon_type == 'icon' ) { #>
+											<# if ( item.icon || item.selected_icon.value ) { #>
+												<#
+													iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
+													migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
+													if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.icon || migrated[ index ] ) ) { #>
+														{{{ iconsHTML[ index ].value }}}
+													<# } else { #>
+														<i class="{{ item.icon }}" aria-hidden="true"></i>
+													<# }
+												#>
+											<# } #>
+										<# } else if ( item.icon_type == 'image' ) { #>
+											<#
+											var image = {
+												id: item.image.id,
+												url: item.image.url,
+												size: settings.thumbnail_size,
+												dimension: settings.thumbnail_custom_dimension,
+												model: view.getEditModel()
+											};
+											var image_url = elementor.imagesManager.getImageUrl( image );
+											#>
+											<img src="{{{ image_url }}}" />
+										<# } else if ( item.icon_type == 'text' ) {
+											{{{ item.icon_text }}}
+										} #>
+									</span>
+									<# if ( item.link_type == 'icon' ) { #>
+										</a>
+									<# } #>
+								</div>
+							<# } #>
+							<div class="pp-info-box-content">
+								<div class="pp-info-box-title-wrap">
+									<#
+										if ( item.title ) {
+											#>
+											<{{{ $pp_title_html_tag }}} {{{ view.getRenderAttributeString( 'title-container' + i ) }}} {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+
+											<{{{ settings.title_html_tag }}} class="pp-info-box-title">
+											{{ item.title }}
+											</{{{ settings.title_html_tag }}}>
+											</{{{ $pp_title_html_tag }}}>
+											<#
+										}
+
+										if ( item.subtitle ) {
+											#>
+											<{{{ settings.sub_title_html_tag }}} class="pp-info-box-subtitle">
+											{{ item.subtitle }}
+											</{{{ settings.sub_title_html_tag }}}>
+											<#
+										}
+									#>
+								</div>
+
+								<# if ( settings.divider_title_switch == 'yes' ) { #>
+									<div class="pp-info-box-divider-wrap">
+										<div class="pp-info-box-divider"></div>
+									</div>
+								<# } #>
+
+								<# if ( item.description ) { #>
+									<div class="pp-info-box-description">
+										{{ item.description }}
+									</div>
+								<# } #>
+								<# if ( item.link_type == 'button' ) { #>
+									<div class="pp-info-box-footer">
+										<{{{ $pp_button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' + i ) }}} {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+											<div {{{ view.getRenderAttributeString( 'info-box-button' ) }}}>
+												<# if ( item.button_icon && item.button_icon_position == 'before' ) { #>
+													<span class="pp-button-icon {{{ item.button_icon }}}" aria-hidden="true"></span>
+												<# } #>
+												<# if ( item.button_text ) { #>
+													<span class="pp-button-text">
+														{{ item.button_text }}
+													</span>
+												<# } #>
+												<# if ( item.button_icon && item.button_icon_position == 'after' ) { #>
+													<span class="pp-button-icon {{{ item.button_icon }}}" aria-hidden="true"></span>
+												<# } #>
+											</div>
+										</{{{ $pp_button_html_tag }}}>
+									</div>
+								<# } #>
+								<# if ( item.link_type == 'box' ) { #>
+									</a>
+								<# } #>
+							</div><!-- .pp-info-box-content -->
+						</div>
+                    </div>
+                <# i++ } ); #>
+                </div>
+            </div>
+            <# dots_template(); #>
+            <# arrows_template(); #>
+        </div>
+        <?php
+        }
 
 }
