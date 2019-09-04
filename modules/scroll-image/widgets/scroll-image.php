@@ -7,6 +7,7 @@ use PowerpackElementsLite\Modules\ScrollImage\Module;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Utils;
+use Elementor\Icons_Manager;
 use Elementor\Repeater;
 use Elementor\Control_Media;
 use Elementor\Group_Control_Image_Size;
@@ -72,7 +73,7 @@ class Scroll_Image extends Powerpack_Widget {
 	 * @return string Widget icon.
 	 */
     public function get_icon() {
-        return 'eicon-import-export power-pack-admin-icon';
+        return 'ppicon-scroll-image power-pack-admin-icon';
     }
     
     /**
@@ -168,15 +169,15 @@ class Scroll_Image extends Powerpack_Widget {
 				'separator'				=> 'before',
             ]
         );
-
-        $this->add_control(
-            'icon',
-            [
-                'label'                 => __( 'Cover Icon', 'powerpack' ),
-                'type'                  => Controls_Manager::ICON,
-                'default'               => '',
-            ]
-        );
+		
+		$this->add_control(
+			'selected_icon',
+			[
+				'label'					=> __( 'Cover', 'powerpack' ) . ' ' . __( 'Icon', 'powerpack' ),
+				'type'					=> Controls_Manager::ICONS,
+				'fa4compatibility'		=> 'icon',
+			]
+		);
 
         $this->add_control('icon_size',
             [
@@ -196,7 +197,7 @@ class Scroll_Image extends Powerpack_Widget {
                     '{{WRAPPER}} .pp-image-scroll-icon' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
 				'condition'				=> [
-                    'icon!'		=> ''
+                    'selected_icon[value]!'	=> ''
                 ]
             ]
         );
@@ -221,6 +222,7 @@ class Scroll_Image extends Powerpack_Widget {
                     'scroll'  => __('Mouse Scroll', 'powerpack'),
                 ],
 				'default'				=> 'hover',
+				'frontend_available'	=> true,
             ]
         );
 
@@ -284,10 +286,11 @@ class Scroll_Image extends Powerpack_Widget {
 				'label'					=> __('Icon Color', 'powerpack'),
 				'type'					=> Controls_Manager::COLOR,
 				'selectors'				=> [
-                    '{{WRAPPER}} .pp-image-scroll-icon'  => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .pp-image-scroll-icon'		=> 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-image-scroll-icon svg'	=> 'fill: {{VALUE}};'
                 ],
 				'condition'				=> [
-                    'icon!'		=> ''
+                    'selected_icon[value]!'		=> ''
                 ]
             ]
         );
@@ -431,13 +434,31 @@ class Scroll_Image extends Powerpack_Widget {
             }
         }
        
-        if ( $settings['icon'] ) {
-			$this->add_render_attribute( 'icon', 'class', [
-				'pp-image-scroll-icon',
-				'pp-mouse-scroll-' . $settings['direction_type'],
-				$settings['icon'],
-			] );
-        }
+		$this->add_render_attribute( 'icon', 'class', [
+			'pp-image-scroll-icon',
+			'pp-icon',
+			'pp-mouse-scroll-' . $settings['direction_type'],
+		] );
+
+		if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
+			// add old default
+			$settings['icon'] = 'fa fa-star';
+		}
+
+		$has_icon = ! empty( $settings['icon'] );
+
+		if ( $has_icon ) {
+			$this->add_render_attribute( 'i', 'class', $settings['icon'] );
+			$this->add_render_attribute( 'i', 'aria-hidden', 'true' );
+		}
+
+		$icon_attributes = $this->get_render_attribute_string( 'icon' );
+
+		if ( ! $has_icon && ! empty( $settings['selected_icon']['value'] ) ) {
+			$has_icon = true;
+		}
+		$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
+		$is_new = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 
         $this->add_render_attribute( [
 			'container' => [
@@ -450,9 +471,17 @@ class Scroll_Image extends Powerpack_Widget {
         ?>
 		<div class="pp-image-scroll-wrap">
 			<div <?php echo $this->get_render_attribute_string('container'); ?>>
-				<?php if ( $settings['icon'] ) { ?>
+				<?php if ( ! empty( $settings['icon'] ) || ( ! empty( $settings['selected_icon']['value'] ) && $is_new ) ) { ?>
 					<div class="pp-image-scroll-content">
-						<span <?php echo $this->get_render_attribute_string('icon'); ?>></span>
+						<span <?php echo $this->get_render_attribute_string('icon'); ?>>
+							<?php
+							if ( $is_new || $migrated ) {
+								Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
+							} elseif ( ! empty( $settings['icon'] ) ) {
+								?><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i><?php
+							}
+							?>
+						</span>
 					</div>
 				<?php } ?>
 				<div <?php echo $this->get_render_attribute_string('direction_type'); ?>>
@@ -478,14 +507,16 @@ class Scroll_Image extends Powerpack_Widget {
         <#
             var direction = settings.direction_type,
                 reverse = settings.reverse,
-                url;
+                url,
+		   		iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
+				migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' );
             
-            if ( settings.icon ) {
+            if ( settings.icon || settings.selected_icon.value ) {
             
                 view.addRenderAttribute( 'icon', 'class', [
 		   			'pp-image-scroll-icon',
+		   			'pp-icon',
 					'pp-mouse-scroll-' + settings.direction_type,
-		   			settings.icon
 		   		] );
             
             }
@@ -503,9 +534,15 @@ class Scroll_Image extends Powerpack_Widget {
         
         <div class="pp-image-scroll-wrap">
             <div {{{ view.getRenderAttributeString('container') }}}>
-                <# if ( settings.icon ) { #>
+                <# if ( settings.icon || settings.selected_icon ) { #>
                     <div class="pp-image-scroll-content">   
-                        <span {{{ view.getRenderAttributeString('icon') }}}></span>
+                        <span {{{ view.getRenderAttributeString('icon') }}}>
+							<# if ( iconHTML && iconHTML.rendered && ( ! settings.icon || migrated ) ) { #>
+							{{{ iconHTML.value }}}
+							<# } else { #>
+								<i class="{{ settings.icon }}" aria-hidden="true"></i>
+							<# } #>
+						</span>
                     </div>
                 <# } #>
                 <div {{{ view.getRenderAttributeString('direction_type') }}}>
