@@ -129,7 +129,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
-== 1.2.6 - September 40, 2019 ==
+== 1.2.6 - September 4, 2019 ==
 * 	New: Fancy Heading widget
 * 	Enhancement: Updated icon controls in all widgets
 * 	Added: Image size option in Info Box Carousel, Info Table and Price Table widgets
