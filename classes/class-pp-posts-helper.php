@@ -203,5 +203,30 @@ class PP_Posts_Helper {
 		
         return $excerpt;
     }
+
+	/**
+	 * Get all available taxonomies
+	 *
+	 * @since 1.4.7
+	 */
+	public static function get_taxonomies_options() {
+
+		$options = [];
+
+		$taxonomies = get_taxonomies( array(
+			'show_in_nav_menus' => true
+		), 'objects' );
+
+		if ( empty( $taxonomies ) ) {
+			$options[ '' ] = __( 'No taxonomies found', 'powerpack' );
+			return $options;
+		}
+
+		foreach ( $taxonomies as $taxonomy ) {
+			$options[ $taxonomy->name ] = $taxonomy->label;
+		}
+
+		return $options;
+	}
 	
 }

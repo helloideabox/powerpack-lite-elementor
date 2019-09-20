@@ -18,6 +18,11 @@ class PowerpackLitePlugin {
 	/**
 	 * @var Manager
 	 */
+	private $_extensions_manager;
+
+	/**
+	 * @var Manager
+	 */
 	private $_modules_manager;
 
 	/**
@@ -69,6 +74,7 @@ class PowerpackLitePlugin {
 	}
 
 	private function _includes() {
+		require POWERPACK_ELEMENTS_LITE_PATH . 'includes/extensions-manager.php';
 		require POWERPACK_ELEMENTS_LITE_PATH . 'includes/modules-manager.php';
 	}
 
@@ -327,6 +333,7 @@ class PowerpackLitePlugin {
 	}
 
 	public function elementor_init() {
+		$this->_extensions_manager = new Extensions_Manager();
 		$this->_modules_manager = new Modules_Manager();
 
 		// Add element category in panel
