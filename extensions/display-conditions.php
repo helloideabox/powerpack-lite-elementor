@@ -214,6 +214,21 @@ class Extension_Display_Conditions extends Extension_Base {
 							'search_results'	=> __( 'Search', 'powerpack' ),
 						],
 					],
+					[
+						'label'					=> __( 'Date & Time (Pro)', 'powerpack' ),
+						'options'				=> [
+							'date'				=> __( 'Current Date', 'powerpack' ),
+							'time'				=> __( 'Time of Day', 'powerpack' ),
+						],
+					],
+					[
+						'label'					=> __( 'Misc (Pro)', 'powerpack' ),
+						'options'				=> [
+							'os' 				=> __( 'Operating System', 'powerpack' ),
+							'browser' 			=> __( 'Browser', 'powerpack' ),
+							'search_bot' 		=> __( 'Search Bots', 'powerpack' ),
+						],
+					],
 				],
 			]
 		);
@@ -256,6 +271,84 @@ class Extension_Display_Conditions extends Extension_Base {
 				'options' 		=> $wp_roles->get_names(),
 				'condition' 	=> [
 					'pp_condition_key' => 'role',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'pp_condition_date_value',
+			[
+				'label'				=> __( 'In interval', 'powerpack' ),
+				'type'				=> \Elementor\Controls_Manager::DATE_TIME,
+				'picker_options'	=> [
+					'enableTime'	=> false,
+					'mode' 			=> 'range',
+				],
+				'label_block'		=> true,
+				'default'			=> $default_interval,
+				'condition'			=> [
+					'pp_condition_key' => 'date',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'pp_condition_time_value',
+			[
+				'label'				=> __( 'Before', 'powerpack' ),
+				'type'				=> \Elementor\Controls_Manager::DATE_TIME,
+				'picker_options'	=> [
+					'dateFormat' 	=> "H:i",
+					'enableTime' 	=> true,
+					'noCalendar' 	=> true,
+				],
+				'label_block'		=> true,
+				'default' 			=> '',
+				'condition' 		=> [
+					'pp_condition_key' => 'time',
+				],
+			]
+		);
+
+		$os_options = $this->get_os_options();
+
+		$repeater->add_control(
+			'pp_condition_os_value',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> array_keys( $os_options )[0],
+				'label_block' 	=> true,
+				'options' 		=> $os_options,
+				'condition' 	=> [
+					'pp_condition_key' => 'os',
+				],
+			]
+		);
+
+		$browser_options = $this->get_browser_options();
+
+		$repeater->add_control(
+			'pp_condition_browser_value',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> array_keys( $browser_options )[0],
+				'label_block' 	=> true,
+				'options' 		=> $browser_options,
+				'condition' 	=> [
+					'pp_condition_key' => 'browser',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'pp_condition_search_bot_value',
+			[
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> 'all_search_bots',
+				'label_block' 	=> true,
+				'options' 		=> ['all_search_bots' => 'All'],
+				'condition' 	=> [
+					'pp_condition_key' => 'search_bot',
 				],
 			]
 		);
@@ -431,6 +524,44 @@ class Extension_Display_Conditions extends Extension_Base {
 			]
 		);
 
+	}
+
+	/**
+	 * Get OS options for control
+	 *
+	 * @since 1.4.7
+	 *
+	 * @access protected
+	 */
+	protected function get_os_options() {
+		return [
+			'iphone' 		=> 'iPhone',
+			'android' 		=> 'Android',
+			'windows' 		=> 'Windows',
+			'open_bsd'		=> 'OpenBSD',
+			'sun_os'    	=> 'SunOS',
+			'linux'     	=> 'Linux',
+			'mac_os'    	=> 'Mac OS',
+		];
+	}
+
+	/**
+	 * Get browser options for control
+	 *
+	 * @since 1.4.7
+	 *
+	 * @access protected
+	 */
+	protected function get_browser_options() {
+		return [
+			'ie'			=> 'Internet Explorer',
+			'firefox'		=> 'Mozilla Firefox',
+			'chrome'		=> 'Google Chrome',
+			'opera_mini'	=> 'Opera Mini',
+			'opera'			=> 'Opera',
+			'safari'		=> 'Safari',
+			'edge'			=> 'Microsoft Edge',
+		];
 	}
 
 	/**
