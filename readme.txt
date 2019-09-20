@@ -129,6 +129,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+== 1.2.7 - September 20, 2019 ==
+* 	New: Added Display Conditions extension
+
 == 1.2.6 - September 4, 2019 ==
 * 	New: Fancy Heading widget
 * 	Enhancement: Updated icon controls in all widgets
