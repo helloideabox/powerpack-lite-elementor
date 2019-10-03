@@ -149,6 +149,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.8 - October 3, 2019 =
+* 	Added: Orientation option in Image Accordion widget
+* 	Added: Image size option in Image Accordion widget
+* 	Added: Default active tab option in Image Accordion widget
+
 = 1.2.7 - September 20, 2019 =
 * 	New: Added Display Conditions extension
 

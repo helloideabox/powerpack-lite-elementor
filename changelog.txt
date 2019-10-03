@@ -1,3 +1,9 @@
+== 1.2.8 ==
+Release date: October 3, 2019
+* Added: Orientation option in Image Accordion widget
+* Added: Image size option in Image Accordion widget
+* Added: Default active tab option in Image Accordion widget
+
 == 1.2.7 ==
 Release date: September 20, 2019
 * New: Added Display Conditions extension
