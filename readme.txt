@@ -149,10 +149,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
-== 1.2.7 - September 20, 2019 ==
+= 1.2.7 - September 20, 2019 =
 * 	New: Added Display Conditions extension
 
-== 1.2.6 - September 4, 2019 ==
+= 1.2.6 - September 4, 2019 =
 * 	New: Fancy Heading widget
 * 	Enhancement: Updated icon controls in all widgets
 * 	Added: Image size option in Info Box Carousel, Info Table and Price Table widgets
@@ -160,34 +160,34 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	Added: Column gap and rows gap options in Instagram Feed widget
 * 	Added: Button position option in Price Table widget
 
-== 1.2.5 - July 10, 2019 ==
+= 1.2.5 - July 10, 2019 =
 * 	Fixed: Starting Number option was not working in editor in Counter widget
 
-== 1.2.4 - July 9, 2019 ==
+= 1.2.4 - July 9, 2019 =
 * 	Enhancement: Counter - Added starting number option
 
-== 1.2.3 - June 14, 2019 ==
+= 1.2.3 - June 14, 2019 =
 * 	Enhancement: Counter - Added 4 new layouts
 
-== 1.2.2 - May 23, 2019 ==
+= 1.2.2 - May 23, 2019 =
 * 	New: Twitter widgets
 
-== 1.2.1 - April 2, 2019 ==
+= 1.2.1 - April 2, 2019 =
 * 	New: Buttons widget
 
-== 1.2.0 - March 26, 2019 ==
+= 1.2.0 - March 26, 2019 =
 * 	New: Scroll Image widget
 * 	Fix: PHP error in Advanced Accordion widget
 
-== 1.1.2 - March 13, 2018
+= 1.1.2 - March 13, 2018 =
 *	Fix: Info List - PHP error
 
-== 1.1.1 - March 7, 2019
+= 1.1.1 - March 7, 2019 =
 *	Enhancement: Info List - Added image size option
 *	Enhancement: Info List - Added icon vertical alignment and horizontal alignment options
 
-== 1.1.0 - February 8, 2019
+= 1.1.0 - February 8, 2019 =
 *	New: Added Content Ticker widget
 
-== 1.0.0 - January 4, 2019 ==
+= 1.0.0 - January 4, 2019 =
 *	Initial release
