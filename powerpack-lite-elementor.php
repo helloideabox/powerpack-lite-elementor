@@ -183,11 +183,9 @@ function pp_elements_lite_add_plugin_page_settings_link( $links ) {
 add_filter('plugin_action_links_' . POWERPACK_ELEMENTS_LITE_BASE, 'pp_elements_lite_add_plugin_page_settings_link');
 
  
-function pp_add_description_links( $plugin_meta, $file ) {
+function pp_add_description_links( $plugin_meta, $plugin_file ) {
 
-	$plugin_file = plugin_basename( __FILE__ );
-
-	if ( strpos( $file, 'powerpack-lite-elementor.php' ) !== false ) {
+	if ( POWERPACK_ELEMENTS_LITE_BASE === $plugin_file ) {
 		$row_meta = [
 			'docs' => '<a href="https://powerpackelements.com/docs/" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'power-pack' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'power-pack' ) . '</a>',
 			'ideo' => '<a href="https://powerpackelements.com/" aria-label="' . esc_attr( __( 'Go Pro', 'powerp-pack' ) ) . '" target="_blank" style="color:#6021da;font-weight:bold;">' . __( 'Go Pro', 'power-pack' ) . '</a>',
