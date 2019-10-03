@@ -204,6 +204,32 @@ class Dual_Heading extends Powerpack_Widget {
 
         $this->end_controls_section();
 
+        /**
+		 * Content Tab: Docs Links
+		 *
+		 * @since 1.4.8
+		 * @access protected
+		 */
+		$this->start_controls_section(
+			'section_help_docs',
+			[
+				'label' => __( 'Help Docs', 'powerpack' ),
+			]
+		);
+		
+		$this->add_control(
+			'help_doc_1',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				/* translators: %1$s doc link */
+				'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/dual-heading/dual-heading-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
+				'content_classes' => 'pp-editor-doc-links',
+			]
+		);
+
+		$this->end_controls_section();
+
+
         /*-----------------------------------------------------------------------------------*/
         /*	STYLE TAB
         /*-----------------------------------------------------------------------------------*/
