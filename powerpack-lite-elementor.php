@@ -188,7 +188,7 @@ function pp_add_description_links( $plugin_meta, $plugin_file ) {
 	if ( POWERPACK_ELEMENTS_LITE_BASE === $plugin_file ) {
 		$row_meta = [
 			'docs' => '<a href="https://powerpackelements.com/docs/" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'power-pack' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'power-pack' ) . '</a>',
-			'ideo' => '<a href="https://powerpackelements.com/" aria-label="' . esc_attr( __( 'Go Pro', 'powerp-pack' ) ) . '" target="_blank" style="color:#6021da;font-weight:bold;">' . __( 'Go Pro', 'power-pack' ) . '</a>',
+			'ideo' => '<a href="https://powerpackelements.com/" aria-label="' . esc_attr( __( 'Go Pro', 'powerp-pack' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'power-pack' ) . '</a>',
 		];
 
 		$plugin_meta = array_merge( $plugin_meta, $row_meta );
