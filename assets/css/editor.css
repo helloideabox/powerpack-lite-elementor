@@ -64,3 +64,20 @@
 .elementor-control-layout.elementor-control-type-choose.elementor-control-separator-none .elementor-control-input-wrapper .elementor-choices input:checked+.elementor-choices-label {
     background: #a4afb7;
 }
+
+.pp-editor-doc-links {
+    	font-size: 12px;
+    }
+    .pp-editor-doc-links a {
+    	color: #6d7882;
+    	display: inline-block;
+    	line-height: 1.2;
+    	padding-left: 10px;
+    	position: relative;
+    }
+    .pp-editor-doc-links a:before {
+    	content: '»';
+    	position: absolute;
+    	left: 0;
+    	top: 0;
+    }
