@@ -74,19 +74,20 @@ $enabled_modules = pp_elements_lite_get_enabled_modules();
     background: #4242ce;
 }
 </style>
-<div class="pp-modules-wrap">
-	<table class="form-table">
-		<tr valign="top">
-			<th scope="row" valign="top">
+	<div class="pp-modules-wrap">
+		<div class="form-table">
+			<div class="pp-modules-title" valign="top">
 				<?php esc_html_e('Enable/Disable Widgets', 'power-pack'); ?>
-			</th>
-			<td>
+			</div>
+			
+			<div class="pp-modules-list">
 				<?php
 				foreach ( $modules as $module_name => $module_title ) :
 					$module_enabled = in_array( $module_name, $enabled_modules ) || isset( $enabled_modules[$module_name] );
 				?>
-				<p>
-					<label for="<?php echo $module_name; ?>">
+				<div class="pp-module">
+				<p class="pp-module-name"><?php echo $module_title; ?></p>
+					<label class="pp-admin-field-toggle"for="<?php echo $module_name; ?>">
 						<input
 							id="<?php echo $module_name; ?>"
 							name="pp_enabled_modules[]"
@@ -94,13 +95,12 @@ $enabled_modules = pp_elements_lite_get_enabled_modules();
 							value="<?php echo $module_name; ?>"
 							<?php echo $module_enabled ? ' checked="checked"' : '' ?>
 						/>
-							<?php echo $module_title; ?>
+						<span class="pp-admin-field-toggle-slider"></span>							
 					</label>
-				</p>
+				</div>
 				<?php endforeach; ?>
-			</td>
-		</tr>
-	</table>
+			</div>
+		</div>
 
 	<div class="pro-upgrade-banner">
 		<div class="banner-inner">
