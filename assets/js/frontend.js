@@ -459,6 +459,53 @@
 		});
 	};
     
+    var ImageAccordionHandler = function ($scope, $) {
+		var $image_accordion            = $scope.find('.pp-image-accordion').eq(0),
+            elementSettings             = getElementSettings( $scope ),
+            $action                     = elementSettings.accordion_action,
+		    $id                         = $image_accordion.attr( 'id' ),
+		    $item                       = $('#'+ $id +' .pp-image-accordion-item');
+		   
+		if ( 'on-hover' === $action ) {
+            $item.hover(
+                function ImageAccordionHover() {
+                    $item.css('flex', '1');
+                    $item.removeClass('pp-image-accordion-active');
+                    $(this).addClass('pp-image-accordion-active');
+                    $item.find('.pp-image-accordion-content-wrap').removeClass('pp-image-accordion-content-active');
+                    $(this).find('.pp-image-accordion-content-wrap').addClass('pp-image-accordion-content-active');
+                    $(this).css('flex', '3');
+                },
+                function() {
+                    $item.css('flex', '1');
+                    $item.find('.pp-image-accordion-content-wrap').removeClass('pp-image-accordion-content-active');
+                    $item.removeClass('pp-image-accordion-active');
+                }
+            );
+        }
+		else if ( 'on-click' === $action ) {
+            $item.click( function(e) {
+                e.stopPropagation(); // when you click the button, it stops the page from seeing it as clicking the body too
+                $item.css('flex', '1');
+				$item.removeClass('pp-image-accordion-active');
+                $(this).addClass('pp-image-accordion-active');
+				$item.find('.pp-image-accordion-content-wrap').removeClass('pp-image-accordion-content-active');
+				$(this).find('.pp-image-accordion-content-wrap').addClass('pp-image-accordion-content-active');
+                $(this).css('flex', '3');
+            });
+
+            $('#'+ $id).click( function(e) {
+                e.stopPropagation(); // when you click within the content area, it stops the page from seeing it as clicking the body too
+            });
+
+            $('body').click( function() {
+                $item.css('flex', '1');
+				$item.find('.pp-image-accordion-content-wrap').removeClass('pp-image-accordion-content-active');
+				$item.removeClass('pp-image-accordion-active');
+            });
+		}
+    };
+    
     $(window).on('elementor/frontend/init', function () {
         if ( elementorFrontend.isEditMode() ) {
 			isEditMode = true;
@@ -476,6 +523,7 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-buttons.default', PPButtonHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-twitter-timeline.default', TwitterTimelineHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-twitter-tweet.default', TwitterTimelineHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-image-accordion.default', ImageAccordionHandler);
     });
     
 }(jQuery));

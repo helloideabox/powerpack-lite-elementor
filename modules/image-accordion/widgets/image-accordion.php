@@ -5,8 +5,11 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
+use Elementor\Control_Media;
 use Elementor\Utils;
+use Elementor\Icons_Manager;
 use Elementor\Repeater;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
@@ -41,7 +44,7 @@ class Image_Accordion extends Powerpack_Widget {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Image Accordion', 'power-pack' );
+        return __( 'Image Accordion', 'powerpack' );
     }
 
     /**
@@ -103,7 +106,7 @@ class Image_Accordion extends Powerpack_Widget {
         $this->start_controls_section(
             'section_items',
             [
-                'label'                 => esc_html__( 'Items', 'power-pack' )
+                'label'                 => esc_html__( 'Items', 'powerpack' )
             ]
         );
         
@@ -111,15 +114,15 @@ class Image_Accordion extends Powerpack_Widget {
         
         $repeater->start_controls_tabs( 'image_accordion_tabs' );
 
-        $repeater->start_controls_tab( 'tab_content', [ 'label' => __( 'Content', 'power-pack' ) ] );
+        $repeater->start_controls_tab( 'tab_content', [ 'label' => __( 'Content', 'powerpack' ) ] );
         
         $repeater->add_control(
 			'title',
 			[
-                'label'                 => esc_html__( 'Title', 'power-pack' ),
+                'label'                 => esc_html__( 'Title', 'powerpack' ),
                 'type'                  => Controls_Manager::TEXT,
                 'label_block'           => true,
-                'default'               => esc_html__( 'Accordion Title', 'power-pack' ),
+                'default'               => esc_html__( 'Accordion Title', 'powerpack' ),
                 'dynamic'               => [
                     'active'   => true,
                 ],
@@ -129,38 +132,24 @@ class Image_Accordion extends Powerpack_Widget {
         $repeater->add_control(
 			'description',
 			[
-                'label'                 => esc_html__( 'Description', 'power-pack' ),
+                'label'                 => esc_html__( 'Description', 'powerpack' ),
                 'type'                  => Controls_Manager::WYSIWYG,
                 'label_block'           => true,
-                'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'power-pack' ),
+                'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
                 'dynamic'               => [
                     'active'   => true,
                 ],
 			]
 		);
         
-        $repeater->add_control(
-			'link',
-			[
-                'label'                 => esc_html__( 'Title Link', 'power-pack' ),
-                'type'                  => Controls_Manager::URL,
-                'label_block'           => true,
-                'default'               => [
-                    'url'           => '#',
-                    'is_external'   => '',
-                ],
-                'show_external'         => true,
-			]
-		);
-        
         $repeater->end_controls_tab();
         
-        $repeater->start_controls_tab( 'tab_image', [ 'label' => __( 'Image', 'power-pack' ) ] );
+        $repeater->start_controls_tab( 'tab_image', [ 'label' => __( 'Image', 'powerpack' ) ] );
         
         $repeater->add_control(
 			'image',
 			[
-                'label'                 => esc_html__( 'Choose Image', 'power-pack' ),
+                'label'                 => esc_html__( 'Choose Image', 'powerpack' ),
                 'type'                  => Controls_Manager::MEDIA,
                 'label_block'           => true,
                 'dynamic'               => [
@@ -174,6 +163,83 @@ class Image_Accordion extends Powerpack_Widget {
         
         $repeater->end_controls_tab();
         
+        $repeater->start_controls_tab( 'tab_link', [ 'label' => __( 'Link', 'powerpack' ) ] );
+        
+        $repeater->add_control(
+            'show_button',
+            [
+                'label'                 => __( 'Show Button', 'power-pack' ),
+                'type'                  => Controls_Manager::SWITCHER,
+                'default'               => '',
+                'label_on'              => __( 'Yes', 'power-pack' ),
+                'label_off'             => __( 'No', 'power-pack' ),
+                'return_value'          => 'yes',
+            ]
+        );
+        
+        $repeater->add_control(
+			'link',
+			[
+                'label'                 => esc_html__( 'Link', 'powerpack' ),
+                'type'                  => Controls_Manager::URL,
+                'label_block'           => true,
+                'default'               => [
+                    'url'           => '#',
+                    'is_external'   => '',
+                ],
+                'show_external'         => true,
+                'condition'             => [
+                    'show_button'   => 'yes',
+                ],
+			]
+		);
+
+        $repeater->add_control(
+            'button_text',
+            [
+                'label'                 => __( 'Button Text', 'powerpack' ),
+                'type'                  => Controls_Manager::TEXT,
+                'dynamic'               => [
+                    'active'   => true,
+                ],
+                'default'               => __( 'Get Started', 'powerpack' ),
+                'condition'             => [
+                    'show_button'   => 'yes',
+                ],
+            ]
+        );
+
+		$repeater->add_control(
+			'select_button_icon',
+			[
+				'label'					=> __( 'Button Icon', 'powerpack' ),
+				'type'					=> Controls_Manager::ICONS,
+				'fa4compatibility'		=> 'button_icon',
+                'condition'             => [
+                    'show_button'   => 'yes',
+                ],
+			]
+		);
+        
+        $repeater->add_control(
+            'button_icon_position',
+            [
+                'label'                 => __( 'Icon Position', 'powerpack' ),
+                'type'                  => Controls_Manager::SELECT,
+                'default'               => 'after',
+                'options'               => [
+                    'before'    => __( 'Before', 'powerpack' ),
+                    'after'     => __( 'After', 'powerpack' ),
+                ],
+                'condition'             => [
+                    'show_button'   => 'yes',
+                    'select_button_icon[value]!'  => '',
+                ],
+            ]
+        );
+        
+        $repeater->end_controls_tab();
+        
         $repeater->end_controls_tabs();
 
         $this->add_control(
@@ -183,29 +249,29 @@ class Image_Accordion extends Powerpack_Widget {
                 'seperator'             => 'before',
                 'default'               => [
                     [
-                        'title'         => esc_html__( 'Accordion #1', 'power-pack' ),
-                        'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'power-pack' ),
+                        'title'         => esc_html__( 'Accordion #1', 'powerpack' ),
+                        'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
                         'image'         => [
                             'url' => Utils::get_placeholder_image_src(),
                         ]
                     ],
                     [
-                        'title'         => esc_html__( 'Accordion #2', 'power-pack' ),
-                        'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'power-pack' ),
+                        'title'         => esc_html__( 'Accordion #2', 'powerpack' ),
+                        'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
                         'image'         => [
                             'url' => Utils::get_placeholder_image_src(),
                         ]
                     ],
                     [
-                        'title'         => esc_html__( 'Accordion #3', 'power-pack' ),
-                        'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'power-pack' ),
+                        'title'         => esc_html__( 'Accordion #3', 'powerpack' ),
+                        'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
                         'image'         => [
                             'url' => Utils::get_placeholder_image_src(),
                         ]
                     ],
                     [
-                        'title'         => esc_html__( 'Accordion #4', 'power-pack' ),
-                        'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'power-pack' ),
+                        'title'         => esc_html__( 'Accordion #4', 'powerpack' ),
+                        'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
                         'image'         => [
                             'url' => Utils::get_placeholder_image_src(),
                         ]
@@ -215,20 +281,34 @@ class Image_Accordion extends Powerpack_Widget {
                 'title_field' => '{{title}}',
             ]
         );
+        
+        $this->add_control(
+			'active_tab',
+			[
+				'label'                 => __( 'Default Active Item', 'powerpack' ),
+				'description'                 => __( 'Add item number to make that item active by default. For example: Add 1 to make first item active by default.', 'powerpack' ),
+				'type'                  => \Elementor\Controls_Manager::NUMBER,
+				'min'                   => 1,
+				'max'                   => 100,
+				'step'                  => 1,
+				'default'               => '',
+				'separator'             => 'before',
+			]
+		);
 
         $this->end_controls_section();
         
         $this->start_controls_section(
             'section_image_accordion_settings',
             [
-                'label'                 => esc_html__( 'Settings', 'power-pack' )
+                'label'                 => esc_html__( 'Settings', 'powerpack' )
             ]
         );
         
         $this->add_responsive_control(
             'accordion_height',
             [
-                'label'                 => esc_html__( 'Height', 'power-pack' ),
+                'label'                 => esc_html__( 'Height', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -247,45 +327,128 @@ class Image_Accordion extends Powerpack_Widget {
                 ],
             ]
         );
+        
+        $this->add_group_control(
+            Group_Control_Image_Size::get_type(),
+            [
+                'name'                  => 'image',
+                'label'                 => __( 'Image Size', 'power-pack' ),
+                'default'               => 'full',
+				'separator'             => 'before',
+            ]
+        );
 
         $this->add_control(
             'accordion_action',
             [
-                'label'                 => esc_html__( 'Accordion Action', 'power-pack' ),
+                'label'                 => esc_html__( 'Accordion Action', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'on-hover',
                 'label_block'           => false,
                 'options'               => [
-                    'on-hover'  => esc_html__( 'On Hover', 'power-pack' ),
-                    'on-click'  => esc_html__( 'On Click', 'power-pack' ),
+                    'on-hover'  => esc_html__( 'On Hover', 'powerpack' ),
+                    'on-click'  => esc_html__( 'On Click', 'powerpack' ),
                 ],
                 'frontend_available'    => true,
+            ]
+        );
+
+        $this->add_control(
+            'orientation',
+            [
+                'label'                 => esc_html__( 'Orientation', 'powerpack' ),
+                'type'                  => Controls_Manager::SELECT,
+                'default'               => 'vertical',
+                'label_block'           => false,
+                'options'               => [
+                    'vertical'      => esc_html__( 'Vertical', 'powerpack' ),
+                    'horizontal'    => esc_html__( 'Horizontal', 'powerpack' ),
+                ],
+                'frontend_available'    => true,
+                'prefix_class'          => 'pp-image-accordion-orientation-',
+            ]
+        );
+
+        $this->add_control(
+            'stack_on',
+            [
+                'label'                 => esc_html__( 'Stack On', 'powerpack' ),
+                'type'                  => Controls_Manager::SELECT,
+                'default'               => 'tablet',
+                'label_block'           => false,
+                'options'               => [
+                    'tablet'    => esc_html__( 'Tablet', 'powerpack' ),
+                    'mobile'    => esc_html__( 'Mobile', 'powerpack' ),
+                    'none'      => esc_html__( 'None', 'powerpack' ),
+                ],
+                'frontend_available'    => true,
+                'prefix_class'          => 'pp-image-accordion-stack-on-',
+                'condition'             => [
+                    'orientation'   => 'vertical',
+                ],
             ]
         );
         
         $this->end_controls_section();
 
-      /**
-       * -------------------------------------------
-       * Tab Style (Image accordion)
-       * -------------------------------------------
-       */
+        /*-----------------------------------------------------------------------------------*/
+        /*	Style Tab
+        /*-----------------------------------------------------------------------------------*/
+
+        /**
+         * Style Tab: Items
+         */
         $this->start_controls_section(
-            'section_image_accordion_style',
+            'section_items_style',
             [
-                'label'                 => esc_html__( 'Image Accordion', 'power-pack' ),
+                'label'                 => esc_html__( 'Items', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE
+            ]
+        );
+        
+        $this->add_responsive_control(
+            'items_spacing',
+            [
+                'label'                 => esc_html__( 'Items Spacing', 'powerpack' ),
+                'type'                  => Controls_Manager::SLIDER,
+                'range'                 => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 50,
+                        'step'  => 1,
+                    ],
+                ],
+                'size_units'            => [ 'px' ],
+				'default'               => [
+					'size' => '',
+					'unit' => 'px',
+				],
+                'selectors'             => [
+                    '(desktop){{WRAPPER}}.pp-image-accordion-orientation-vertical .pp-image-accordion-item:not(:last-child)' => 'margin-right: {{SIZE}}px',
+                    '(desktop){{WRAPPER}}.pp-image-accordion-orientation-horizontal .pp-image-accordion-item:not(:last-child)' => 'margin-bottom: {{SIZE}}px',
+                    '(tablet){{WRAPPER}}.pp-image-accordion-orientation-vertical.pp-image-accordion-stack-on-tablet .pp-image-accordion-item:not(:last-child)' => 'margin-bottom: {{SIZE}}px;',
+                    '(mobile){{WRAPPER}}.pp-image-accordion-orientation-vertical.pp-image-accordion-stack-on-mobile .pp-image-accordion-item:not(:last-child)' => 'margin-bottom: {{SIZE}}px;',
+                ],
+            ]
+        );
+
+        $this->start_controls_tabs( 'tabs_items_style' );
+
+        $this->start_controls_tab(
+            'tab_items_normal',
+            [
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
         $this->add_control(
-            'accordion_bg_color',
+            'accordion_img_overlay_color',
             [
-                'label'                 => esc_html__( 'Background Color', 'power-pack' ),
+                'label'                 => esc_html__( 'Overlay Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
+                'default'               => 'rgba(0,0,0,0.3)',
                 'selectors'             => [
-                    '{{WRAPPER}} .pp-image-accordion' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-image-accordion-item .pp-image-accordion-overlay' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -293,44 +456,62 @@ class Image_Accordion extends Powerpack_Widget {
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name'                  => 'accordion_border',
-                'label'                 => esc_html__( 'Border', 'power-pack' ),
-                'selector'              => '{{WRAPPER}} .pp-image-accordion',
+                'name'                  => 'items_border',
+                'label'                 => esc_html__( 'Border', 'powerpack' ),
+                'selector'              => '{{WRAPPER}} .pp-image-accordion-item',
             ]
         );
 
 		$this->add_control(
-			'accordion_border_radius',
+			'items_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-image-accordion' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-image-accordion-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
-        $this->add_responsive_control(
-            'accordion_container_margin',
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
             [
-                'label'                 => esc_html__( 'Margin', 'power-pack' ),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => [ 'px', 'em', '%' ],
+                'name'                  => 'items_box_shadow',
+                'selector'              => '{{WRAPPER}} .pp-image-accordion-item',
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'tab_items_hover',
+            [
+                'label'                 => __( 'Hover', 'powerpack' ),
+            ]
+        );
+
+        $this->add_control(
+            'accordion_img_hover_color',
+            [
+                'label'                 => esc_html__( 'Overlay Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => 'rgba(0,0,0,0.5)',
                 'selectors'             => [
-                    '{{WRAPPER}} .pp-image-accordion' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pp-image-accordion-item:hover .pp-image-accordion-overlay' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-image-accordion-item.pp-image-accordion-active .pp-image-accordion-overlay' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
 
-        $this->add_responsive_control(
-            'accordion_container_padding',
+        $this->add_control(
+            'items_border_color_hover',
             [
-                'label'                 => esc_html__( 'Padding', 'power-pack' ),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => [ 'px', 'em', '%' ],
+                'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .pp-image-accordion' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pp-image-accordion-item:hover, {{WRAPPER}} .pp-image-accordion-item.pp-image-accordion-active' => 'border-color: {{VALUE}};',
                 ],
             ]
         );
@@ -338,62 +519,201 @@ class Image_Accordion extends Powerpack_Widget {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name'                  => 'accordion_box_shadow',
-                'selector'              => '{{WRAPPER}} .pp-image-accordion',
+                'name'                  => 'items_box_shadow_hover',
+                'selector'              => '{{WRAPPER}} .pp-image-accordion-item:hover, {{WRAPPER}} .pp-image-accordion-item.pp-image-accordion-active',
+            ]
+        );
+
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+
+        /**
+         * Style Tab: Content
+         */
+        $this->start_controls_section(
+            'section_content_style',
+            [
+                'label'                 => esc_html__( 'Content', 'powerpack' ),
+                'tab'                   => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_control(
+            'content_bg_color',
+            [
+                'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-image-accordion .pp-image-accordion-content' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'                  => 'content_border',
+                'label'                 => esc_html__( 'Border', 'powerpack' ),
+                'selector'              => '{{WRAPPER}} .pp-image-accordion .pp-image-accordion-content',
+                'separator'             => 'before',
+            ]
+        );
+
+		$this->add_control(
+			'content_border_radius',
+			[
+				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-image-accordion .pp-image-accordion-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->add_responsive_control(
+            'content_vertical_align',
+            [
+                'label'                 => __( 'Vertical Align', 'powerpack' ),
+                'type'                  => Controls_Manager::CHOOSE,
+                'default'               => 'middle',
+                'options'               => [
+                    'top'    	=> [
+                        'title' => __( 'Top', 'powerpack' ),
+                        'icon' 	=> 'eicon-v-align-top',
+                    ],
+                    'middle' 	=> [
+                        'title' => __( 'Middle', 'powerpack' ),
+                        'icon' 	=> 'eicon-v-align-middle',
+                    ],
+                    'bottom' 	=> [
+                        'title' => __( 'Bottom', 'powerpack' ),
+                        'icon' 	=> 'eicon-v-align-bottom',
+                    ],
+                ],
+				'selectors_dictionary'  => [
+					'top'       => 'flex-start',
+					'middle'    => 'center',
+					'bottom'    => 'flex-end',
+				],
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-image-accordion .pp-image-accordion-overlay' => '-webkit-align-items: {{VALUE}}; -ms-flex-align: {{VALUE}}; align-items: {{VALUE}};',
+                ],
+                'separator'             => 'before',
             ]
         );
         
-        $this->add_control(
-            'overlay_heading',
+        $this->add_responsive_control(
+			'content_horizontal_align',
+			[
+				'label'                 => __( 'Horizontal Align', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'label_block'           => true,
+				'options'               => [
+					'left'      => [
+						'title' => __( 'Left', 'powerpack' ),
+						'icon'  => 'eicon-h-align-left',
+					],
+					'center'           => [
+						'title' => __( 'Center', 'powerpack' ),
+						'icon'  => 'eicon-h-align-center',
+					],
+					'right'            => [
+						'title' => __( 'Right', 'powerpack' ),
+						'icon'  => 'eicon-h-align-right',
+					],
+				],
+				'default'               => 'center',
+                'selectors_dictionary'  => [
+					'left'     => 'flex-start',
+					'center'   => 'center',
+					'right'    => 'flex-end',
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-image-accordion .pp-image-accordion-overlay' => '-webkit-justify-content: {{VALUE}}; justify-content: {{VALUE}};',
+                    '{{WRAPPER}} .pp-image-accordion .pp-image-accordion-content-wrap' => '-webkit-align-items: {{VALUE}}; -ms-flex-align: {{VALUE}}; align-items: {{VALUE}};',
+				],
+			]
+		);
+        
+        $this->add_responsive_control(
+            'text_align',
             [
-                'label'                 => __( 'Overlay', 'power-pack' ),
+                'label'                 => __( 'Text Align', 'powerpack' ),
+                'type'                  => Controls_Manager::CHOOSE,
+                'default'               =>' center',
+                'options'               => [
+                    'left'      => [
+                        'title' => __( 'Left', 'powerpack' ),
+                        'icon'  => 'fa fa-align-left',
+                    ],
+                    'center' 	=> [
+                        'title' => __( 'Center', 'powerpack' ),
+                        'icon' 	=> 'fa fa-align-center',
+                    ],
+                    'right' 	=> [
+                        'title' => __( 'Right', 'powerpack' ),
+                        'icon'	=> 'fa fa-align-right',
+                    ],
+                ],
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-image-accordion .pp-image-accordion-content' => 'text-align: {{VALUE}};',
+                ],
+            ]
+        );
+        
+        $this->add_responsive_control(
+            'content_width',
+            [
+                'label'                 => esc_html__( 'Width', 'powerpack' ),
+                'type'                  => Controls_Manager::SLIDER,
+                'range'                 => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 400,
+                        'step'  => 1,
+                    ],
+                ],
+                'size_units'            => [ 'px', '%' ],
+				'default'               => [
+					'size' => '',
+					'unit' => 'px',
+				],
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-image-accordion .pp-image-accordion-content' => 'width: {{SIZE}}{{UNIT}}',
+                ],
+                'separator'             => 'before',
+            ]
+        );
+
+		$this->add_responsive_control(
+			'content_padding',
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-image-accordion .pp-image-accordion-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+        
+        $this->add_control(
+            'title_style_heading',
+            [
+                'label'                 => __( 'Title', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
             ]
         );
 
         $this->add_control(
-            'accordion_img_overlay_color',
-            [
-                'label'                 => esc_html__( 'Overlay Color', 'power-pack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => 'rgba(0, 0, 0, .3)',
-                'selectors'             => [
-                    '{{WRAPPER}} .pp-image-accordion a:after' => 'background-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'accordion_img_hover_color',
-            [
-                'label'                 => esc_html__( 'Overlay Hover Color', 'power-pack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => 'rgba(0, 0, 0, .5)',
-                'selectors'             => [
-                    '{{WRAPPER}} .pp-image-accordion a:hover::after' => 'background-color: {{VALUE}};',
-                    '{{WRAPPER}} .pp-image-accordion a.pp-image-accordion-overlay-active:after' => 'background-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        /**
-         * Style Tab: Title
-         */
-        $this->start_controls_section(
-            'section_title_style',
-            [
-                'label'                 => esc_html__( 'Title', 'power-pack' ),
-                'tab'                   => Controls_Manager::TAB_STYLE
-            ]
-        );
-
-        $this->add_control(
             'title_color',
             [
-                'label'                 => esc_html__( 'Color', 'power-pack' ),
+                'label'                 => esc_html__( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#fff',
                 'selectors'             => [
@@ -409,24 +729,43 @@ class Image_Accordion extends Powerpack_Widget {
                 'selector'              => '{{WRAPPER}} .pp-image-accordion .pp-image-accordion-title',
             ]
         );
-
-        $this->end_controls_section();
-
-        /**
-         * Style Tab: Description
-         */
-        $this->start_controls_section(
-            'section_description_style',
+        
+        $this->add_responsive_control(
+            'title_spacing',
             [
-                'label'                 => esc_html__( 'Description', 'power-pack' ),
-                'tab'                   => Controls_Manager::TAB_STYLE
+                'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+                'type'                  => Controls_Manager::SLIDER,
+                'range'                 => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 50,
+                        'step'  => 1,
+                    ],
+                ],
+                'size_units'            => [ 'px' ],
+				'default'               => [
+					'size' => '',
+					'unit' => 'px',
+				],
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-image-accordion .pp-image-accordion-title' => 'margin-bottom: {{SIZE}}px',
+                ],
+            ]
+        );
+        
+        $this->add_control(
+            'description_style_heading',
+            [
+                'label'                 => __( 'Description', 'powerpack' ),
+                'type'                  => Controls_Manager::HEADING,
+                'separator'             => 'before',
             ]
         );
 
         $this->add_control(
             'description_color',
             [
-                'label'                 => esc_html__( 'Color', 'power-pack' ),
+                'label'                 => esc_html__( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#fff',
                 'selectors'             => [
@@ -443,10 +782,273 @@ class Image_Accordion extends Powerpack_Widget {
             ]
         );
 
-      $this->end_controls_section();
+        $this->end_controls_section();
 
-  }
+        /**
+         * Style Tab: Button
+         * -------------------------------------------------
+         */
+        $this->start_controls_section(
+            'section_button_style',
+            [
+                'label'                 => __( 'Button', 'powerpack' ),
+                'tab'                   => Controls_Manager::TAB_STYLE,
+            ]
+        );
 
+		$this->add_control(
+			'button_size',
+			[
+				'label'                 => __( 'Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'md',
+				'options'               => [
+					'xs' => __( 'Extra Small', 'powerpack' ),
+					'sm' => __( 'Small', 'powerpack' ),
+					'md' => __( 'Medium', 'powerpack' ),
+					'lg' => __( 'Large', 'powerpack' ),
+					'xl' => __( 'Extra Large', 'powerpack' ),
+				],
+			]
+		);
+        
+        $this->add_responsive_control(
+            'button_spacing',
+            [
+                'label'                 => esc_html__( 'Button Spacing', 'powerpack' ),
+                'type'                  => Controls_Manager::SLIDER,
+                'range'                 => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 50,
+                        'step'  => 1,
+                    ],
+                ],
+                'size_units'            => [ 'px' ],
+				'default'               => [
+					'size' => 15,
+					'unit' => 'px',
+				],
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-image-accordion-button' => 'margin-top: {{SIZE}}px',
+                ],
+            ]
+        );
+
+        $this->start_controls_tabs( 'tabs_button_style' );
+
+        $this->start_controls_tab(
+            'tab_button_normal',
+            [
+                'label'                 => __( 'Normal', 'powerpack' ),
+            ]
+        );
+
+        $this->add_control(
+            'button_bg_color_normal',
+            [
+                'label'                 => __( 'Background Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-image-accordion-button' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_text_color_normal',
+            [
+                'label'                 => __( 'Text Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-image-accordion-button' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-image-accordion-button .pp-icon svg' => 'fill: {{VALUE}}',
+                ],
+            ]
+        );
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'                  => 'button_border_normal',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+				'selector'              => '{{WRAPPER}} .pp-image-accordion-button',
+			]
+		);
+
+		$this->add_control(
+			'button_border_radius',
+			[
+				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-image-accordion-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+        
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'                  => 'button_typography',
+                'label'                 => __( 'Typography', 'powerpack' ),
+                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+                'selector'              => '{{WRAPPER}} .pp-image-accordion-button',
+            ]
+        );
+
+		$this->add_responsive_control(
+			'button_padding',
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-image-accordion-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'                  => 'button_box_shadow',
+				'selector'              => '{{WRAPPER}} .pp-image-accordion-button',
+			]
+		);
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'tab_button_hover',
+            [
+                'label'                 => __( 'Hover', 'powerpack' ),
+            ]
+        );
+
+        $this->add_control(
+            'button_bg_color_hover',
+            [
+                'label'                 => __( 'Background Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-image-accordion-button:hover' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_text_color_hover',
+            [
+                'label'                 => __( 'Text Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-image-accordion-button:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-image-accordion-button:hover .pp-icon svg' => 'fill: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_border_color_hover',
+            [
+                'label'                 => __( 'Border Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-image-accordion-button:hover' => 'border-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+		$this->add_control(
+			'button_hover_animation',
+			[
+				'label'                 => __( 'Animation', 'powerpack' ),
+				'type'                  => Controls_Manager::HOVER_ANIMATION,
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'                  => 'button_box_shadow_hover',
+				'selector'              => '{{WRAPPER}} .pp-image-accordion-button:hover',
+			]
+		);
+
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
+        
+        $this->add_control(
+            'button_icon_heading',
+            [
+                'label'                 => __( 'Icon', 'powerpack' ),
+                'type'                  => Controls_Manager::HEADING,
+                'separator'             => 'before',
+            ]
+        );
+        
+        $this->add_responsive_control(
+            'button_icon_spacing',
+            [
+                'label'                 => esc_html__( 'Icon Spacing', 'powerpack' ),
+                'type'                  => Controls_Manager::SLIDER,
+                'range'                 => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 50,
+                        'step'  => 1,
+                    ],
+                ],
+                'size_units'            => [ 'px' ],
+				'default'               => [
+					'size' => 2,
+					'unit' => 'px',
+				],
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-button-icon-before .pp-button-icon' => 'margin-right: {{SIZE}}px',
+                    '{{WRAPPER}} .pp-button-icon-after .pp-button-icon' => 'margin-left: {{SIZE}}px',
+                ],
+            ]
+        );
+        
+        $this->end_controls_section();
+
+    }
+
+    protected function render_button_icon( $item ) {
+        $settings = $this->get_settings_for_display();
+
+		$migration_allowed = Icons_Manager::is_migration_allowed();
+		
+		// add old default
+		if ( ! isset( $item['button_icon'] ) && ! $migration_allowed ) {
+			$item['hotspot_icon'] = '';
+		}
+
+		$migrated = isset( $item['__fa4_migrated']['select_button_icon'] );
+		$is_new = ! isset( $item['button_icon'] ) && $migration_allowed;
+		
+		if ( ! empty( $item['button_icon'] ) || ( ! empty( $item['select_button_icon']['value'] ) && $is_new ) ) {
+			?>
+			<span class="pp-button-icon pp-icon pp-no-trans">
+				<?php if ( $is_new || $migrated ) {
+					Icons_Manager::render_icon( $item['select_button_icon'], [ 'aria-hidden' => 'true' ] );
+				} else { ?>
+						<i class="<?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></i>
+				<?php } ?>
+			</span>
+			<?php
+		}
+    }
 
     protected function render( ) {
 
@@ -462,37 +1064,103 @@ class Image_Accordion extends Powerpack_Widget {
             <div <?php echo $this->get_render_attribute_string( 'image-accordion' ); ?>>
                 <?php foreach( $settings['accordion_items'] as $index => $item ) { ?>
                     <?php
-                        $link_key = $this->get_repeater_setting_key( 'link', 'accordion_items', $index );
+                        $item_key = $this->get_repeater_setting_key( 'item', 'accordion_items', $index );
 
-                        $this->add_render_attribute( $link_key, [
-                            'class' => 'elementor-repeater-item-' . esc_attr( $item['_id'] ),
-                            'style' => 'background-image: url(' . esc_url( $item['image']['url'] ) . ');',
+                        $this->add_render_attribute( $item_key, [
+                            'class' => ['pp-image-accordion-item','elementor-repeater-item-' . esc_attr( $item['_id'] )]
                         ] );
                 
-                        if ( ! empty( $item['link']['url'] ) ) {
-                            $this->add_render_attribute( $link_key, 'href', esc_url( $item['link']['url'] ) );
+                        if ( $item['image']['url'] ) {
+
+                            $image_url = Group_Control_Image_Size::get_attachment_image_src( $item['image']['id'], 'image', $settings );
+
+                            if ( ! $image_url ) {
+                                $image_url = $item['image']['url'];
+                            }
+
+                            $this->add_render_attribute( $item_key, [
+                                'style' => 'background-image: url('.$image_url.');'
+                            ] );
+                        }
+                
+                        $content_key = $this->get_repeater_setting_key( 'content', 'accordion_items', $index );
+
+                        $this->add_render_attribute( $content_key, 'class', 'pp-image-accordion-content-wrap' );
+                
+                        if ( $item['show_button'] == 'yes' && !empty( $item['link']['url'] ) ) {
+                            $button_key = $this->get_repeater_setting_key( 'button', 'accordion_items', $index );
+        
+                            $this->add_render_attribute( $button_key, 'class', [
+                                    'pp-image-accordion-button',
+                                    'pp-button-icon-' . $item['button_icon_position'],
+                                    'elementor-button',
+                                    'elementor-size-' . $settings['button_size'],
+                                ]
+                            );
+
+                            if ( $settings['button_hover_animation'] ) {
+                                $this->add_render_attribute( $button_key, 'class', 'elementor-animation-' . $settings['button_hover_animation'] );
+                            }
+
+                            $this->add_render_attribute( $button_key, 'href', esc_url( $item['link']['url'] ) );
 
                             if ( $item['link']['is_external'] ) {
-                                $this->add_render_attribute( $link_key, 'target', '_blank' );
+                                $this->add_render_attribute( $button_key, 'target', '_blank' );
                             }
 
                             if ( $item['link']['nofollow'] ) {
-                                $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
+                                $this->add_render_attribute( $button_key, 'rel', 'nofollow' );
+                            }
+                        }
+                
+                        if ( $settings['active_tab'] ) {
+                            $tab_count = $settings['active_tab'] - 1;
+                            if ( $index === $tab_count ) {
+                                $this->add_render_attribute( $item_key, [
+                                    'class' => 'pp-image-accordion-active',
+                                    'style' => 'flex: 3 1 0;',
+                                ] );
+                                $this->add_render_attribute( $content_key, [
+                                    'class' => 'pp-image-accordion-content-active',
+                                ] );
                             }
                         }
                     ?>
-                    <a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
+                    <div <?php echo $this->get_render_attribute_string( $item_key ); ?>>
                         <div class="pp-image-accordion-overlay">
-                            <div class="pp-image-accordion-content">
-                                <h2 class="pp-image-accordion-title">
-                                    <?php echo $item['title']; ?>
-                                </h2>
-                                <div class="pp-image-accordion-description">
-                                    <?php echo $item['description']; ?>
+                            <div <?php echo $this->get_render_attribute_string( $content_key ); ?>>
+                                <div class="pp-image-accordion-content">
+                                    <h2 class="pp-image-accordion-title">
+                                        <?php echo $item['title']; ?>
+                                    </h2>
+                                    <div class="pp-image-accordion-description">
+                                        <?php echo $item['description']; ?>
+                                    </div>
                                 </div>
+                                <?php if ( $item['show_button'] == 'yes' && $item['link']['url'] != '' ) { ?>
+                                <div class="pp-image-accordion-button-wrap">
+                                    <a <?php echo $this->get_render_attribute_string( $button_key ); ?>>
+                                        <?php
+											if ( $item['button_icon_position'] == 'before' ) {
+												$this->render_button_icon($item);
+											}
+										?>
+                                        <?php if ( ! empty( $item['button_text'] ) ) { ?>
+                                            <span class="pp-button-text">
+                                                <?php echo esc_attr( $item['button_text'] ); ?>
+                                            </span>
+                                        <?php } ?>
+                                        <?php
+											if ( $item['button_icon_position'] == 'after' ) {
+												$this->render_button_icon($item);
+											}
+										?>
+                                    </a>
+                                </div>
+                                <?php } ?>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 <?php } ?>
             </div>
         <?php }
