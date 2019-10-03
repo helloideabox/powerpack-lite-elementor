@@ -181,3 +181,22 @@ function pp_elements_lite_add_plugin_page_settings_link( $links ) {
 	return $links;
 }
 add_filter('plugin_action_links_' . POWERPACK_ELEMENTS_LITE_BASE, 'pp_elements_lite_add_plugin_page_settings_link');
+
+ 
+function pp_add_description_links( $plugin_meta ) {
+
+	$plugin_file = plugin_basename( __FILE__ );
+
+	if ( POWERPACK_ELEMENTS_LITE_BASE === $plugin_file ) {
+		$row_meta = [
+			'docs' => '<a href="https://go.elementor.com/docs-admin-plugins/" aria-label="' . esc_attr( __( 'View Elementor Documentation', 'elementor' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'elementor' ) . '</a>',
+			'ideo' => '<a href="https://go.elementor.com/yt-admin-plugins/" aria-label="' . esc_attr( __( 'View Elementor Video Tutorials', 'elementor' ) ) . '" target="_blank">' . __( 'Video Tutorials', 'elementor' ) . '</a>',
+		];
+
+		$plugin_meta = array_merge( $plugin_meta, $row_meta );
+	}
+
+	return $plugin_meta;
+}
+
+add_filter( 'plugin_row_meta', 'pp_add_description_links', 10, 4 );
