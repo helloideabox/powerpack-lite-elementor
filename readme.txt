@@ -23,6 +23,7 @@ All the Elementor Widgets included with PowerPack Elementor addons come with wel
 
 ### Advanced Display Conditions Functionality
 Use Elementor for advanced cases like timed-content, content for logged in users, special content based on user's browser, display content based on page, post, archive rules, and much more. The most UNIQUE solution for Elementor widgets and sections. [Click here for details.](https://powerpackelements.com/display-conditions/)
+
 https://www.youtube.com/watch?v=blCGxZujnJg
 
 ### 30+ FREE Elementor Widgets
