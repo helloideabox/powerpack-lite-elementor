@@ -189,8 +189,8 @@ function pp_add_description_links( $plugin_meta ) {
 
 	if ( POWERPACK_ELEMENTS_LITE_BASE === $plugin_file ) {
 		$row_meta = [
-			'docs' => '<a href="https://go.elementor.com/docs-admin-plugins/" aria-label="' . esc_attr( __( 'View Elementor Documentation', 'elementor' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'elementor' ) . '</a>',
-			'ideo' => '<a href="https://go.elementor.com/yt-admin-plugins/" aria-label="' . esc_attr( __( 'View Elementor Video Tutorials', 'elementor' ) ) . '" target="_blank">' . __( 'Video Tutorials', 'elementor' ) . '</a>',
+			'docs' => '<a href="https://powerpackelements.com/docs/" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'power-pack' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'power-pack' ) . '</a>',
+			'ideo' => '<a href="https://powerpackelements.com/" aria-label="' . esc_attr( __( 'Go Pro', 'powerp-pack' ) ) . '" target="_blank" style="color:#6021da;font-weight:bold;">' . __( 'Go Pro', 'power-pack' ) . '</a>',
 		];
 
 		$plugin_meta = array_merge( $plugin_meta, $row_meta );
