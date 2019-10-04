@@ -1,0 +1,178 @@
+.pp-admin-heading {
+    font-size: 24px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+.pp-header-wrap {
+    background-color: #fff;
+    padding: 20px 20px 0 20px;
+}
+
+.pp-nav-tab-wrapper {
+    border: none !important;
+}
+
+.pp-nav-tab-wrapper .nav-tab {
+    background-color: #fff;
+    border: none;
+    border-bottom: 2px solid #5353dc !important;
+    padding: 10px 20px;
+    margin: 0px 20px;
+}
+
+.form-table {
+    float: left;
+    max-width: 100%;
+    display: flex;
+}
+
+.pp-modules-title {
+    margin: 10px;
+}
+
+.pp-module-grid {
+    width: 80%;
+}
+
+.pp-modules-list {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
+    border-top: 2px solid #5353dc;
+    margin-right: 20px;
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;  
+}
+
+.pp-module {
+    width: 200px;
+    background-color: #f8f8f8;
+    padding: 18px;
+    margin-bottom:10px;
+    border-radius: 5px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pp-module-name {
+    display: inline;
+}
+
+/* Toggle */
+.pp-admin-field-toggle {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+}
+.pp-admin-field-toggle .pp-admin-field-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 34px;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.pp-admin-field-toggle .pp-admin-field-toggle-slider:before {
+    border-radius: 50%;
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 2px;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.pp-admin-field-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.pp-admin-field-toggle input:checked + .pp-admin-field-toggle-slider:before {
+    background-color: #5353dc;
+    -webkit-transform: translateX(21px);
+    -ms-transform: translateX(21px);
+    transform: translateX(21px);
+}
+.pp-admin-field-toggle input:checked + .pp-admin-field-toggle-slider {
+    background-color: #fff;
+    box-shadow: inset 0px 0px 3px 0px #bbb;
+    border-color: #5353dc;
+    border-color: transparent;
+}
+
+/* Pro Upgrade Banner */
+
+.pp-modules-wrap:before,
+.pp-modules-wrap:after {
+	content: "";
+	display: table;
+}
+.pp-modules-wrap:after {
+	clear: both;
+}
+
+.pro-upgrade-banner {
+	width: 20%;
+	float: right;
+    background: #fff;
+    margin-top: 37.6px;
+	box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
+	padding: 20px;
+	border-top: 2px solid #5353dc;
+}
+.pro-upgrade-banner,
+.pro-upgrade-banner * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.pro-upgrade-banner .banner-image {
+	text-align: center;
+}
+.pro-upgrade-banner img {
+	max-width: 100%;
+	width: 120px;
+}
+.pro-upgrade-banner h3 {
+	font-weight: 400;
+    line-height: 1.4;
+	margin-bottom: 0;
+}
+.pro-upgrade-banner .banner-title-1 {
+	font-size: 22px;
+    font-weight: 300;
+	display: none;
+}
+.pro-upgrade-banner li {
+	font-size: 15px;
+}
+.pro-upgrade-banner li span {
+	margin-right: 5px;
+}
+.pro-upgrade-banner .banner-action {
+	text-align: center;
+}
+.pro-upgrade-banner a.pp-button {
+	display: inline-block;
+	text-align: center;
+	margin-top: 10px;
+	text-decoration: none;
+    background: #5353dc;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+.pro-upgrade-banner a.pp-button:hover {
+    background: #4242ce;
+}

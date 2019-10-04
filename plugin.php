@@ -131,6 +131,15 @@ class PowerpackLitePlugin {
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
+
+		if(is_admin()) {
+			wp_register_style(
+				'odometer',
+				POWERPACK_ELEMENTS_LITE_URL . 'assets/css/admin.css',
+				[],
+				POWERPACK_ELEMENTS_LITE_VER
+			);
+		}
         
 		wp_register_style(
 			'odometer',
@@ -332,6 +341,20 @@ class PowerpackLitePlugin {
 		wp_enqueue_style( 'twentytwenty' );
 	}
 
+	public function enqueue_admin_styles( $hook ) {
+		// Load only on ?page=mypluginname
+        if ($hook != 'toplevel_page_powerpack-settings' ) {
+			return;
+		}
+
+        wp_enqueue_style(
+			'admin',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/css/admin.css',
+			[],
+			POWERPACK_ELEMENTS_LITE_VER
+		);
+	}
+
 	public function elementor_init() {
 		$this->_extensions_manager = new Extensions_Manager();
 		$this->_modules_manager = new Modules_Manager();
@@ -357,6 +380,7 @@ class PowerpackLitePlugin {
 
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'enqueue_frontend_scripts' ] );
 		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_frontend_styles' ] );
+		add_action( 'admin_enqueue_scripts', [$this, 'enqueue_admin_styles'] );
 	}
 
 	/**
