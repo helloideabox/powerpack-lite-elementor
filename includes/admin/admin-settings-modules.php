@@ -15,7 +15,7 @@ $settings= self::get_settings();
 					foreach ( $modules as $module_name => $module ) :
 						$module_enabled = in_array( $module_name, $enabled_modules ) || isset( $enabled_modules[$module_name] );
 					?>
-					<div class="pp-module <?php echo $module['title']; ?>">
+					<div class="pp-module <?php echo $module_name; ?>">
 						<div class="pp-module-name-icon-wrapper">
 							<div class="pp-module-icon <?php 
 									if( isset($module['icon']) ) {

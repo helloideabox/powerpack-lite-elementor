@@ -428,7 +428,8 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 			],
 			'pp-hotspots'               => [
 				'title'	=>	esc_html__('Image Hotspots', 'power-pack'),
-				'demo'	=>	'https://powerpackelements.com/demo/image-hotspot/'
+				'demo'	=>	'https://powerpackelements.com/demo/image-hotspot/',
+				'icon'	=>	'ppicon-image-hotspot'
 			],
 			'pp-icon-list'              => [
 				'title'	=>	esc_html__('Icon List', 'power-pack'),
