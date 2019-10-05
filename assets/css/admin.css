@@ -7,8 +7,18 @@
 .pp-header-wrap {
     background-color: #fff;
     padding: 20px 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
 }
 
+.pp-header-wrap .pp-header-banner img {
+    height: 34px;
+}
+
+.pp-header-wrap .pp-header-banner {
+    float: right;
+}
 .pp-nav-tab-wrapper {
     border: none !important;
 }
@@ -28,39 +38,64 @@
 }
 
 .pp-modules-title {
-    margin: 10px;
+    margin: 0px 10px 20px 10px;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
 }
 
 .pp-module-grid {
     width: 80%;
-}
-
-.pp-modules-list {
     background-color: #fff;
     padding: 20px;
     box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
     border-top: 2px solid #5353dc;
     margin-right: 20px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pp-modules-list {
     display: flex;
     justify-content:space-evenly;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;
 }
 
 .pp-module {
-    width: 200px;
+    flex-basis: 280px;
     background-color: #f8f8f8;
-    padding: 18px;
-    margin-bottom:10px;
+    padding: 16px;
+    margin-bottom:20px;
+    margin-right: 15px;
     border-radius: 5px;
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
+    transition: 0.3s cubic-bezier(0.44, 0.33, 0.67, 0.86);
+}
+
+.pp-module:hover {
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.1);
 }
 
 .pp-module-name {
     display: inline;
+    font-weight: 500;
+    font-size: 16px;
 }
 
+.pp-module-icon {
+    font-size:24px;
+    margin-right: 10px;
+    top: 5px;
+    position: relative;
+}
+
+.pp-module:hover .pp-module-icon {
+   color: #4242ce;
+}
 /* Toggle */
 .pp-admin-field-toggle {
     position: relative;
@@ -78,8 +113,8 @@
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 34px;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .4s cubic-bezier(0.39, 0.05, 0.97, 0.61);
+    transition: .4s cubic-bezier(0.39, 0.05, 0.97, 0.61);
 }
 .pp-admin-field-toggle .pp-admin-field-toggle-slider:before {
     border-radius: 50%;
@@ -90,8 +125,8 @@
     left: 3px;
     bottom: 2px;
     background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .4s cubic-bezier(0.09, 0.49, 0.97, 0.61);
+    transition: .4s cubic-bezier(0.09, 0.49, 0.97, 0.61);
 }
 .pp-admin-field-toggle input {
     opacity: 0;
@@ -122,14 +157,9 @@
 	clear: both;
 }
 
-.pro-upgrade-banner {
+.side-banner {
 	width: 20%;
 	float: right;
-    background: #fff;
-    margin-top: 37.6px;
-	box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
-	padding: 20px;
-	border-top: 2px solid #5353dc;
 }
 .pro-upgrade-banner,
 .pro-upgrade-banner * {
@@ -137,8 +167,18 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+.banner-inner {
+    background: #fff;
+    margin-top: 40px;
+	box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
+	padding: 20px;
+	border-top: 2px solid #5353dc;
+}
 .pro-upgrade-banner .banner-image {
-	text-align: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .pro-upgrade-banner img {
 	max-width: 100%;
@@ -170,9 +210,43 @@
 	text-decoration: none;
     background: #5353dc;
     color: #fff;
-    padding: 10px 20px;
+    padding: 10px 30px;
     border-radius: 50px;
 }
 .pro-upgrade-banner a.pp-button:hover {
     background: #4242ce;
+}
+
+/* Support */
+
+.banner-image .pp-support-title {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+/* Submit Button */
+
+input.button.pp-submit-button {
+    display: inline-block;
+	text-align: center;
+	margin-top: 10px;
+	text-decoration: none;
+    background: #5353dc;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 50px;
+    height: auto;
+    border: none;
+    box-shadow: none;
+}
+
+input.button:hover.pp-submit-button,
+input.button:focus.pp-submit-button {
+    background: #4242ce;
+    color: #fff;
+}
+
+.pp-modules-wrap p.submit {
+    text-align: center;
 }

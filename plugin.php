@@ -353,6 +353,13 @@ class PowerpackLitePlugin {
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
+
+		wp_enqueue_style(
+			'powerpack-icons',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/ppicons/css/powerpack-icons.css',
+			[],
+			POWERPACK_ELEMENTS_LITE_VER
+		);
 	}
 
 	public function elementor_init() {

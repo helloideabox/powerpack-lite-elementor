@@ -6,20 +6,19 @@ $settings     = self::get_settings();
 ?>
 
 <div class="wrap">
+    <h2 class="h2-for-admin-notices"></h2>
     <div class="pp-header-wrap">
-        <h2 class="pp-admin-heading">
-            <?php
-                esc_html_e( 'PowerPack Settings', 'power-pack' );
-            ?>
-        </h2>
-        <h2 class="nav-tab-wrapper pp-nav-tab-wrapper">
+            <div class="pp-header-banner banner-image"><img src="<?php echo POWERPACK_ELEMENTS_LITE_URL . 'assets/images/pp-elements-brandmark.svg'; ?>" /></div>
+            <div class="nav-tab-wrapper pp-nav-tab-wrapper">
                 <a href="<?php echo self::get_form_action( '&tab=modules' ); ?>" class="nav-tab<?php echo ( $current_tab == 'modules' ? ' nav-tab-active' : '' ); ?>"><?php esc_html_e( 'Elements', 'power-pack' ); ?></a>
-            </h2>
+                <a href="https://powerpackelements.com/" class="pp-button nav-tab<?php echo ( $current_tab == 'get-pro' ? ' nav-tab-active' : '' ); ?>"><?php esc_html_e( 'Get Pro', 'power-pack' ); ?></a>
+            </div>
     </div> 
 
         <?php \PowerpackElementsLite\Classes\PP_Admin_Settings::render_update_message(); ?>
 
         <form method="post" id="pp-settings-form" action="<?php echo self::get_form_action( '&tab=' . $current_tab ); ?>">
+        
 
             <div class="icon32 icon32-powerpack-settings" id="icon-pp"><br /></div>
 
@@ -31,15 +30,4 @@ $settings     = self::get_settings();
             ?>
 
         </form>
-
-    <hr />
-
-	<h2><?php esc_html_e('Support', 'power-pack'); ?></h2>
-    <p>
-        <?php
-            $support_link = $settings['support_link'];
-            $support_link = !empty( $support_link ) ? $support_link : 'https://powerpackelements.com/contact/';
-            esc_html_e('For submitting any support queries, feedback, bug reports or feature requests, please visit', 'power-pack'); ?> <a href="<?php echo $support_link; ?>" target="_blank"><?php esc_html_e('this link', 'power-pack'); ?></a>
-    </p>
-
 </div>
