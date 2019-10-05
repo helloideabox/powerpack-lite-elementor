@@ -120,10 +120,10 @@
     border-radius: 50%;
     position: absolute;
     content: "";
-    height: 18px;
-    width: 18px;
+    height: 16px;
+    width: 16px;
     left: 3px;
-    bottom: 2px;
+    bottom: 3px;
     background-color: #ccc;
     -webkit-transition: .4s cubic-bezier(0.09, 0.49, 0.97, 0.61);
     transition: .4s cubic-bezier(0.09, 0.49, 0.97, 0.61);
@@ -135,9 +135,9 @@
 }
 .pp-admin-field-toggle input:checked + .pp-admin-field-toggle-slider:before {
     background-color: #5353dc;
-    -webkit-transform: translateX(21px);
-    -ms-transform: translateX(21px);
-    transform: translateX(21px);
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(22px);
 }
 .pp-admin-field-toggle input:checked + .pp-admin-field-toggle-slider {
     background-color: #fff;
