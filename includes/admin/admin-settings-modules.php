@@ -1,8 +1,7 @@
 <?php
-
 $modules = pp_elements_lite_get_modules();
 $enabled_modules = pp_elements_lite_get_enabled_modules();
-$settings = self::get_settings();
+$settings= self::get_settings();
 ?>
 
 <div class="pp-modules-wrap">
@@ -13,20 +12,28 @@ $settings = self::get_settings();
 					</div>
 				<div class="pp-modules-list">
 					<?php
-					foreach ( $modules as $module_name => $module_title ) :
+					foreach ( $modules as $module_name => $module ) :
 						$module_enabled = in_array( $module_name, $enabled_modules ) || isset( $enabled_modules[$module_name] );
 					?>
-					<div class="pp-module <?php echo $module_name; ?>">
+					<div class="pp-module <?php echo $module['title']; ?>">
 						<div class="pp-module-name-icon-wrapper">
-							<div class="pp-module-icon <?php echo preg_replace('/([pp]+)/','ppicon', $module_name); ?>"></div>
-							<p class="pp-module-name"><?php echo $module_title; ?></p>
+							<div class="pp-module-icon <?php 
+									if( isset($module['icon']) ) {
+										echo $module['icon'] ;
+									}
+									else{
+										echo preg_replace('/(pp)/','ppicon', $module_name);
+									}							 
+								?>">
+							</div>
+							<p class="pp-module-name"><?php echo $module['title']; ?></p>
 						</div>
-						<label class="pp-admin-field-toggle"for="<?php echo $module_name; ?>">
+						<label class="pp-admin-field-toggle"for="<?php echo $module['title']; ?>">
 							<input
-								id="<?php echo $module_name; ?>"
+								id="<?php echo $module['title']; ?>"
 								name="pp_enabled_modules[]"
 								type="checkbox"
-								value="<?php echo $module_name; ?>"
+								value="<?php echo $module['title']; ?>"
 								<?php echo $module_enabled ? ' checked="checked"' : '' ?>
 							/>
 							<span class="pp-admin-field-toggle-slider"></span>							

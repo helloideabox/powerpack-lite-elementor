@@ -324,7 +324,7 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 	}
 }
 
-function pp_elements_lite_get_modules() {
+/* function pp_elements_lite_get_modules() {
     $modules = array(
         'pp-advanced-accordion'     => esc_html__('Advanced Accordion', 'powerpack'),
         'pp-link-effects'           => esc_html__('Link Effects', 'power-pack'),
@@ -357,31 +357,173 @@ function pp_elements_lite_get_modules() {
         'pp-twitter-timeline'       => esc_html__('Twitter Timeline', 'powerpack'),
         'pp-twitter-tweet'          => esc_html__('Twitter Tweet', 'powerpack'),
         'pp-fancy-heading'			=> __('Fancy Heading', 'powerpack'),
-    );
+	); */
+	
+	function pp_elements_lite_get_modules() {
+		$modules = [
+			'pp-advanced-accordion'     => [
+				'title'	=>	esc_html__('Advanced Accordion', 'powerpack'),
+				'demo'	=>	'https://powerpackelements.com/demo/advanced-accordion/',
+				'icon'	=>	'ppicon-advanced-accordion'
+			],
+			'pp-link-effects'           => [
+				'title'	=>	esc_html__('Link Effects', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/link-effects/',
+				'icon'	=>	'ppicon-link-effects'
+			],
+			'pp-divider'                => [
+				'title'	=>	esc_html__('Divider', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/divider/',
+				'icon'	=>	'ppicon-divider'
+			],
+			'pp-flipbox'                => [
+				'title'	=>	esc_html__('Flipbox', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/flip-box/',
+				'icon'	=>	'ppicon-flip-box'
+			],
+			'pp-image-accordion'        => [
+				'title'	=>	esc_html__('Image Accordion', 'powerpack'),
+				'demo'	=>	'https://powerpackelements.com/demo/image-accordion/'
+			],
+			'pp-info-box'               => [
+				'title'	=>	esc_html__('Info Box', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/info-box/'
+			],
+			'pp-info-box-carousel'      => [
+				'title'	=>	esc_html__('Info Box Carousel', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/info-box-carousel/'
+			],
+			'pp-info-list'              => [
+				'title'	=>	esc_html__('Info List', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/info-list/'
+			],
+			'pp-info-table'             => [
+				'title'	=>	esc_html__('Info Table', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/info-table/'
+			],
+			'pp-pricing-table'          => [
+				'title'	=>	esc_html__('Pricing Table', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/pricing-table/'
+			],
+			'pp-price-menu'             => [
+				'title'	=>	esc_html__('Price Menu', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/pricing-menu/',
+				'icon'	=>	'ppicon-pricing-menu'
+			],
+			'pp-business-hours'         => [
+				'title'	=>	esc_html__('Businsess Hours', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/business-hours/'
+			],
+			'pp-team-member'            => [
+				'title'	=>	esc_html__('Team Member', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/team-member/'
+			],
+			'pp-team-member-carousel'   => [
+				'title'	=>	esc_html__('Team Member Carousel', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/team-member-carousel/'
+			],
+			'pp-counter'                => [
+				'title'	=>	esc_html__('Counter', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/counter/'
+			],
+			'pp-hotspots'               => [
+				'title'	=>	esc_html__('Image Hotspots', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/image-hotspot/'
+			],
+			'pp-icon-list'              => [
+				'title'	=>	esc_html__('Icon List', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/icon-list/'
+			],
+			'pp-dual-heading'           => [
+				'title'	=>	esc_html__('Dual Heading', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/dual-heading/'
+			],
+			'pp-promo-box'              => [
+				'title'	=>	esc_html__('Promo Box', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/promo-box/'
+			],
+			'pp-logo-carousel'          => [
+				'title'	=>	esc_html__('Logo Carousel', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/logo-carousel/'
+			],
+			'pp-logo-grid'              => [
+				'title'	=>	esc_html__('Logo Grid', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/logo-grid/'
+			],
+			'pp-image-comparison'       => [
+				'title'	=>	esc_html__('Image Comparison', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/image-comparison/'
+			],
+			'pp-instafeed'              => [
+				'title'	=>	esc_html__('Instagram Feed', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/instagram-feed/',
+				'icon'	=>	'ppicon-instagram-feed'
+			],
+			'pp-content-ticker'         => [
+				'title'	=>	esc_html__('Content Ticker', 'power-pack'),
+				'demo'	=>	'https://powerpackelements.com/demo/content-ticker/'
+			],
+			'pp-scroll-image'           => [
+				'title'	=>	esc_html__('Scroll Image', 'powerpack'),
+				'demo'	=>	'https://powerpackelements.com/demo/scroll-image/'
+			],
+			'pp-buttons'				=> [
+				'title'	=>	esc_html__('Buttons', 'powerpack'),
+				'demo'	=>	'https://powerpackelements.com/button-widget/',
+				'icon'	=>	'ppicon-multi-buttons'
+			],
+			'pp-twitter-buttons'        => [
+				'title'	=>	esc_html__('Twitter Buttons', 'powerpack'),
+				'demo'	=>	'https://powerpackelements.com/demo/twitter-widget/'
+			],
+			'pp-twitter-grid'           => [
+				'title'	=>	esc_html__('Twitter Grid', 'powerpack'),
+				'demo'	=>	'https://powerpackelements.com/demo/twitter-widget/'
+			],
+			'pp-twitter-timeline'       => [
+				'title'	=>	esc_html__('Twitter Timeline', 'powerpack'),
+				'demo'	=>	'https://powerpackelements.com/demo/twitter-widget/'
+			],
+			'pp-twitter-tweet'          => [
+				'title'	=>	esc_html__('Twitter Tweet', 'powerpack'),
+				'demo'	=>	'https://powerpackelements.com/demo/twitter-widget/'
+			],
+			'pp-fancy-heading'			=> [
+				'title'	=>	esc_html__('Fancy Heading', 'powerpack'),
+				'demo'	=>	'https://powerpackelements.com/demo/fancy-heading/',
+				'icon'	=>	'ppicon-heading'
+			]
+		];
 
     // Contact Form 7
     if ( function_exists( 'wpcf7' ) ) {
-        $modules['pp-contact-form-7'] = esc_html__('Contact Form 7', 'power-pack');
+        $modules['pp-contact-form-7']['title'] = esc_html__('Contact Form 7', 'power-pack');
+		$modules['pp-contact-form-7']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
     }
     
     // Gravity Forms
     if ( class_exists( 'GFCommon' ) ) {
-        $modules['pp-gravity-forms'] = esc_html__('Gravity Forms', 'power-pack');
+		$modules['pp-gravity-forms']['title']	=	esc_html__('Gravity Forms', 'power-pack');
+		$modules['pp-gravity-forms']['demo']	=	'https://powerpackelements.com/demo/contact-form/';
+		$modules['pp-gravity-forms']['icon']	=	'ppicon-contact-form';
     }
     
     // Ninja Forms
     if ( class_exists( 'Ninja_Forms' ) ) {
-        $modules['pp-ninja-forms'] = esc_html__('Ninja Forms', 'power-pack');
+        $modules['pp-ninja-forms']['title'] = esc_html__('Ninja Forms', 'power-pack');
+		$modules['pp-ninja-forms']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
     }
     
     // Caldera Forms
     if ( class_exists( 'Caldera_Forms' ) ) {
-        $modules['pp-caldera-forms'] = esc_html__('Caldera Forms', 'power-pack');
+        $modules['pp-caldera-forms']['title'] = esc_html__('Caldera Forms', 'power-pack');
+		$modules['pp-caldera-forms']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
     }
     
     // WPForms
     if ( function_exists( 'wpforms' ) ) {
-        $modules['pp-wpforms'] = esc_html__('WPForms', 'power-pack');
+        $modules['pp-wpforms']['title'] = esc_html__('WPForms', 'power-pack');
+		$modules['pp-wpforms']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
     }
 
     ksort($modules);
