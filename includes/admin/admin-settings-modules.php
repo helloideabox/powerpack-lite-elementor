@@ -26,7 +26,11 @@ $settings= self::get_settings();
 									}							 
 								?>">
 							</div>
-							<p class="pp-module-name"><?php echo $module['title']; ?></p>
+							<p class="pp-module-name">
+								<a href="<?php echo $module['demo'];?>" target="_blank" title="Click to view demo" style="text-decoration:none;color:#444">
+									<?php echo $module['title']; ?>
+								</a>
+							</p>
 						</div>
 						<label class="pp-admin-field-toggle"for="<?php echo $module['title']; ?>">
 							<input

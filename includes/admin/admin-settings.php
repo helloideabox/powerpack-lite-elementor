@@ -11,7 +11,7 @@ $settings     = self::get_settings();
             <div class="pp-header-banner banner-image"><img src="<?php echo POWERPACK_ELEMENTS_LITE_URL . 'assets/images/pp-elements-brandmark.svg'; ?>" /></div>
             <div class="nav-tab-wrapper pp-nav-tab-wrapper">
                 <a href="<?php echo self::get_form_action( '&tab=modules' ); ?>" class="nav-tab<?php echo ( $current_tab == 'modules' ? ' nav-tab-active' : '' ); ?>"><?php esc_html_e( 'Elements', 'power-pack' ); ?></a>
-                <a href="https://powerpackelements.com/" class="pp-button nav-tab<?php echo ( $current_tab == 'get-pro' ? ' nav-tab-active' : '' ); ?>"><?php esc_html_e( 'Get Pro', 'power-pack' ); ?></a>
+                <a href="https://powerpackelements.com/" class="pp-button nav-tab<?php echo ( $current_tab == 'get-pro' ? ' nav-tab-active' : '' ); ?>" target="_blank"><?php esc_html_e( 'Get Pro', 'power-pack' ); ?></a>
             </div>
     </div> 
 

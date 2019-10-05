@@ -37,6 +37,30 @@
     display: flex;
 }
 
+@media only screen and ( max-width: 1180px ) {
+    .form-table {
+        flex-direction: column;
+        width: 100% !important;
+    }
+
+    .pp-module-grid {
+        width: 95% !important;
+    }
+    
+    .side-banner {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        text-align: center;
+    }
+}
+
+@media only screen and ( max-width: 1180px ) {
+    .pp-module {
+        flex-basis: 240px !important;
+    }
+}
+
 .pp-modules-title {
     margin: 0px 10px 20px 10px;
     font-weight: 500;
@@ -45,7 +69,7 @@
 }
 
 .pp-module-grid {
-    width: 80%;
+    width: 90vw;
     background-color: #fff;
     padding: 20px;
     box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
@@ -64,7 +88,7 @@
 }
 
 .pp-module {
-    flex-basis: 280px;
+    flex-basis: 250px;
     background-color: #f8f8f8;
     padding: 16px;
     margin-bottom:20px;
@@ -83,11 +107,11 @@
 .pp-module-name {
     display: inline;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .pp-module-icon {
-    font-size:24px;
+    font-size:20px;
     margin-right: 10px;
     top: 5px;
     position: relative;
@@ -158,8 +182,7 @@
 }
 
 .side-banner {
-	width: 20%;
-	float: right;
+    float: right;
 }
 .pro-upgrade-banner,
 .pro-upgrade-banner * {
