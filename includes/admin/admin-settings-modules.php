@@ -32,12 +32,12 @@ $settings= self::get_settings();
 								</a>
 							</p>
 						</div>
-						<label class="pp-admin-field-toggle"for="<?php echo $module['title']; ?>">
+						<label class="pp-admin-field-toggle"for="<?php echo $module_name; ?>">
 							<input
-								id="<?php echo $module['title']; ?>"
+								id="<?php echo $module_name; ?>"
 								name="pp_enabled_modules[]"
 								type="checkbox"
-								value="<?php echo $module['title']; ?>"
+								value="<?php echo $module_name; ?>"
 								<?php echo $module_enabled ? ' checked="checked"' : '' ?>
 							/>
 							<span class="pp-admin-field-toggle-slider"></span>							
