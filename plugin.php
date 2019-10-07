@@ -360,6 +360,27 @@ class PowerpackLitePlugin {
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
+
+		wp_enqueue_script(
+			'filterbox',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/filterbox/filterbox.js',
+			[
+				'jquery',
+			],
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_enqueue_script(
+			'admin',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/admin.js',
+			[
+				'jquery',
+				'filterbox',
+			],
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
 	}
 
 	public function elementor_init() {

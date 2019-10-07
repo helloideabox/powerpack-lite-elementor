@@ -36,7 +36,7 @@ var myFilterBox = addFilterBox({
         noresults: {
             tag: 'div',
             addTo: {
-                selector: 'div.pp-modules-list',
+                selector: 'div.pp-module-filter',
                 position: 'after'
             },
             attrs: {

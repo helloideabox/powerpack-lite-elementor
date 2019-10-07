@@ -10,6 +10,7 @@ $settings= self::get_settings();
 					<div class="pp-modules-title" valign="top">
 						<?php esc_html_e('Enable/Disable Widgets', 'power-pack'); ?>
 					</div>
+					<div class="pp-module-filter"></div>
 				<div class="pp-modules-list">
 					<?php
 					foreach ( $modules as $module_name => $module ) :
