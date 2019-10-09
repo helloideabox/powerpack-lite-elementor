@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * Adds display conditions to elements
  *
- * @since 1.4.7
+ * @since 1.2.7
  */
 class Extension_Display_Conditions extends Extension_Base {
 
@@ -31,7 +31,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	 *
 	 * Defines if the current extension is common for all element types or not
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 * @access protected
 	 *
 	 * @var bool
@@ -43,7 +43,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	 *
 	 * Holds all the conditions for display on the frontend
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 * @access protected
 	 *
 	 * @var bool
@@ -53,7 +53,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * A list of scripts that the widgets is depended in
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 **/
 	public function get_script_depends() {
 		return [];
@@ -75,7 +75,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	 * prior to user actually saving a value in the admin page
 	 *
 	 * @access public
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 * @return bool
 	 */
 	public static function is_default_disabled() {
@@ -85,7 +85,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Add common sections
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 */
@@ -117,7 +117,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Add Controls
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access private
 	 */
@@ -529,7 +529,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Get OS options for control
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 */
@@ -548,7 +548,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Get browser options for control
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 */
@@ -567,7 +567,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Add Actions
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 */
@@ -659,7 +659,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	 *
 	 * Sets the conditions property to all conditions comparison values
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 * @access protected
 	 * @static
 	 *
@@ -689,7 +689,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	 * Checks for all or any conditions and returns true or false
 	 * depending on wether the content can be shown or not
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 * @access protected
 	 * @static
 	 *
@@ -717,7 +717,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	 *
 	 * Checks two values against an operator
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 * @access protected
 	 * @static
 	 *
@@ -741,7 +741,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Check user login status
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -755,7 +755,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Check user role
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -771,7 +771,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Check dat interval
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -817,7 +817,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	 * Checks wether current time is in given interval
 	 * in order to display element
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -874,7 +874,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Check current post
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -898,7 +898,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Check static page
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -921,7 +921,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Check current post type
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -945,7 +945,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Check current taxonomy archive
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -970,7 +970,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Checks a given taxonomy against the current page template
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -993,7 +993,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Check current post type archive
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -1017,7 +1017,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Check current date archive
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -1041,7 +1041,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Checks a given date type against the current page template
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -1062,7 +1062,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Check current author archive
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *
@@ -1086,7 +1086,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * Check current search query
 	 *
-	 * @since 1.4.7
+	 * @since 1.2.7
 	 *
 	 * @access protected
 	 *

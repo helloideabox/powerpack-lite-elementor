@@ -1,8 +1,12 @@
 <?php
 
-$modules = pp_elements_lite_get_modules();
-$enabled_modules = pp_elements_lite_get_enabled_modules();
+/*$modules = pp_elements_lite_get_modules();
+$enabled_modules = pp_elements_lite_get_enabled_modules();*/
 
+$modules            = pp_elements_lite_get_modules();
+$extensions         = pp_elements_lite_get_extensions();
+$enabled_modules    = pp_elements_lite_get_enabled_modules();
+$enabled_extensions = pp_elements_lite_get_enabled_extensions();
 ?>
 <style>
 .pp-modules-wrap:before,
@@ -76,6 +80,36 @@ $enabled_modules = pp_elements_lite_get_enabled_modules();
 </style>
 <div class="pp-modules-wrap">
 	<table class="form-table">
+	<tr valign="top">
+		<th scope="row" valign="top">
+			<?php esc_html_e('Enable/Disable Extensions', 'powerpack'); ?>
+		</th>
+		<td>
+			<?php
+			foreach ( $extensions as $extension_name => $extension_title ) :
+				if ( ! is_array( $enabled_extensions ) && 'disabled' !== $enabled_extensions ) {
+					$extension_enabled = true;
+				} elseif ( ! is_array( $enabled_extensions ) && 'disabled' === $enabled_extensions ) {
+					$extension_enabled = false;
+				} else {
+					$extension_enabled = in_array( $extension_name, $enabled_extensions ) || isset( $enabled_extensions[ $extension_name ] );
+				}
+				?>
+			<p>
+				<label for="<?php echo $extension_name; ?>">
+					<input
+						id="<?php echo $extension_name; ?>"
+						name="pp_enabled_extensions[]"
+						type="checkbox"
+						value="<?php echo $extension_name; ?>"
+						<?php echo $extension_enabled ? ' checked="checked"' : '' ?>
+					/>
+						<?php echo $extension_title; ?>
+				</label>
+			</p>
+			<?php endforeach; ?>
+		</td>
+	</tr>
 		<tr valign="top">
 			<th scope="row" valign="top">
 				<?php esc_html_e('Enable/Disable Widgets', 'power-pack'); ?>
@@ -83,7 +117,13 @@ $enabled_modules = pp_elements_lite_get_enabled_modules();
 			<td>
 				<?php
 				foreach ( $modules as $module_name => $module_title ) :
-					$module_enabled = in_array( $module_name, $enabled_modules ) || isset( $enabled_modules[$module_name] );
+					if ( ! is_array( $enabled_modules ) && 'disabled' !== $enabled_modules ) {
+						$module_enabled = true;
+					} elseif ( ! is_array( $enabled_modules ) && 'disabled' === $enabled_modules ) {
+						$module_enabled = false;
+					} else {
+						$module_enabled = in_array( $module_name, $enabled_modules ) || isset( $enabled_modules[ $module_name ] );
+					}
 				?>
 				<p>
 					<label for="<?php echo $module_name; ?>">

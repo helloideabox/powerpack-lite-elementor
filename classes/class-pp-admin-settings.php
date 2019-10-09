@@ -120,7 +120,7 @@ final class PP_Admin_Settings {
 			}
 		}
 		else if ( ! empty( $_POST ) && ! isset( $_POST['email'] ) ) {
-			echo '<div class="updated"><p>' . esc_html__( 'Settings updated!', 'power-pack' ) . '</p></div>';
+			echo '<div class="updated"><p>' . esc_html__( 'Settings updated!', 'powerpack' ) . '</p></div>';
 		}
 	}
 
@@ -260,8 +260,15 @@ final class PP_Admin_Settings {
         }
 
 		if ( isset( $_POST['pp_enabled_modules'] ) ) {
-			$enabled_modules = array_map( 'sanitize_text_field', wp_unslash( $_POST['pp_enabled_modules'] ) );
-			update_site_option( 'pp_elementor_modules', $enabled_modules );
+			update_site_option( 'pp_elementor_modules', $_POST['pp_enabled_modules'] );
+		} else {
+			update_site_option( 'pp_elementor_modules', 'disabled' );
+		}
+
+		if ( isset( $_POST['pp_enabled_extensions'] ) ) {
+			update_site_option( 'pp_elementor_extensions', $_POST['pp_enabled_extensions'] );
+		} else {
+			update_site_option( 'pp_elementor_extensions', 'disabled' );
 		}
 	}
 
@@ -269,7 +276,12 @@ final class PP_Admin_Settings {
 	{
 		if ( isset( $_GET['reset_modules'] ) ) {
 			delete_site_option( 'pp_elementor_modules' );
-			self::$errors[] = esc_html__('Modules settings updated!', 'power-pack');
+			self::$errors[] = esc_html__('Modules settings updated!', 'powerpack');
+		}
+		
+		if ( isset( $_GET['reset_extensions'] ) ) {
+			delete_site_option( 'pp_elementor_extensions' );
+			self::$errors[] = esc_html__('Extension settings updated!', 'powerpack');
 		}
 	}
 }

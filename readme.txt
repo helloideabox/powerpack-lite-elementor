@@ -150,6 +150,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.7.2 - October 9, 2019 =
+* 	Added: Option to enable/disable extensions
+
 = 1.2.7.1 - October 3, 2019 =
 * 	Added: Orientation option in Image Accordion widget
 * 	Added: Image size option in Image Accordion widget

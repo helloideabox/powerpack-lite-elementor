@@ -389,6 +389,15 @@ function pp_elements_lite_get_modules() {
     return $modules;
 }
 
+function pp_elements_lite_get_extensions()
+{
+    $extensions = array(
+        'pp-display-conditions'           => __('Display Conditions', 'powerpack'),
+	);
+
+    return $extensions;
+}
+
 function pp_elements_lite_get_enabled_modules() {
     $enabled_modules = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'pp_elementor_modules', true );
 
@@ -397,6 +406,19 @@ function pp_elements_lite_get_enabled_modules() {
     } else {
         return $enabled_modules;
     }
+}
+
+function pp_elements_lite_get_enabled_extensions()
+{
+    $enabled_extensions = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'pp_elementor_extensions', true );
+	
+	if ( ! is_array( $enabled_extensions ) ) {
+        return array();
+    } else {
+        return $enabled_extensions;
+    }
+
+	//return $enabled_extensions;
 }
 
 // Get templates

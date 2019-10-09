@@ -16,7 +16,7 @@ class Extensions_Manager {
 	/**
 	 * Loops though available extensions and registers them
 	 *
-	 * @since 0.1.0
+	 * @since 1.2.7
 	 *
 	 * @access public
 	 * @return void
@@ -41,41 +41,44 @@ class Extensions_Manager {
 
 			if ( ! $this->is_available( $extension_name ) )
 				unset( $this->available_extensions[ $index ] );
-
-			// Skip extension if it's disabled in admin settings or is dependant on non-exisiting Elementor Pro plugin
-			/*if ( $this->is_disabled( $extension_name ) ) {
+			
+			// Skip extension if it's disabled in admin settings
+			if ( $this->is_extension_disabled( $extension_name ) ) {
 				continue;
-			}*/
+			}
 
 			$this->register_extension( $extension_id, new $class_name() );
 		}
 
 		do_action( 'powerpack_elements/extensions/extensions_registered', $this );
 	}
-
+    
 	/**
-	 * Check if extension is disabled through admin settings
+	 * Check if extension is enabled through admin settings
 	 *
-	 * @since 1.8.0
+	 * @since 1.2.7.2
 	 *
 	 * @access public
 	 * @return bool
 	 */
-	public function is_disabled( $extension_name ) {
-		if ( ! $extension_name )
-			return false;
-
-		$option_name 	= 'enable_' . $extension_name;
-		$section 		= 'powerpack_elements_extensions';
-		$option 		= \PowerpackElementsLite\Powerpackplugin::instance()->settings->get_option( $option_name, $section, false );
-
-		return ( 'off' === $option ) || ( ! $option && $this->is_default_disabled( $extension_name ) );
-	}
+    public function is_extension_disabled( $extension = '' ) {
+        $enabled_extensions = pp_elements_lite_get_enabled_extensions();
+		
+		$extension = str_replace( '_', '-', $extension );
+		
+		$extension_name = 'pp-' . $extension;
+		
+        if ( !in_array( $extension_name, $enabled_extensions ) ) {
+            return true;
+        }
+        
+        return false;
+    }
 
 	/**
 	 * Check if extension is disabled by default
 	 *
-	 * @since 2.0.0
+	 * @since 1.2.7
 	 *
 	 * @access public
 	 * @return bool
@@ -96,7 +99,7 @@ class Extensions_Manager {
 	/**
 	 * Check if extension is available at all
 	 *
-	 * @since 1.8.0
+	 * @since 1.2.7
 	 *
 	 * @access public
 	 * @return bool
@@ -115,7 +118,7 @@ class Extensions_Manager {
 	}
 
 	/**
-	 * @since 0.1.0
+	 * @since 1.2.7
 	 *
 	 * @param $extension_id
 	 * @param Extension_Base $extension_instance
@@ -125,7 +128,7 @@ class Extensions_Manager {
 	}
 
 	/**
-	 * @since 0.1.0
+	 * @since 1.2.7
 	 *
 	 * @param $extension_id
 	 * @return bool
@@ -141,7 +144,7 @@ class Extensions_Manager {
 	}
 
 	/**
-	 * @since 0.1.0
+	 * @since 1.2.7
 	 *
 	 * @return Extension_Base[]
 	 */
@@ -154,7 +157,7 @@ class Extensions_Manager {
 	}
 
 	/**
-	 * @since 0.1.0
+	 * @since 1.2.7
 	 *
 	 * @param $extension_id
 	 * @return bool|\PowerpackElementsLite\Extension_Base
