@@ -1,6 +1,6 @@
 === Elementor Addons -  PowerPack Addons for Elementor ===
-Contributors: ideaboxcreations
-Tags: elementor, addons, elementor addon, elementor widgets, elements, powerpack elementor addon
+Contributors: ideaboxcreations, simrandeep, puneetsahalot, ibachal, jainnidhi, prash17, nirbhay18
+Tags: elementor, addons, elementor addon, elementor widgets, elements, powerpack elementor addon, essential addons
 Requires at least: 4.7
 Tested up to: 5.2
 Stable tag: trunk
