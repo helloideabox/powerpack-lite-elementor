@@ -189,29 +189,26 @@ a.pp-button {
                         }
                     }
 
-                    .pp-module-filter-types {
+                    .pp-module-filter-category {
 
                         margin-top: 20px;
                         margin-left: 20px;
 
-                        .pp-module-filter-label
-                        {
-                            margin-right: 10px;
-                            text-align: center;
-                            letter-spacing: 1px;
+                        & .button-group {
+                            font-size: inherit !important;
+                        
+                            .pp-filter-button
+                            {
+                                margin-right: 10px;
+                                text-align: center;
+                                letter-spacing: 1px;
 
-                            span {
-                                text-transform: uppercase;
-                            }
-
-                            &:hover span,
-                            &.checked span {
-                                border-bottom: 2px solid $background-hover-color;
-                                color: $background-hover-color;
-                            }
-
-                            input {
-                                display: none;
+                                &:hover ,
+                                &.is-checked {
+                                    border-bottom: 2px solid $background-hover-color;
+                                    color: $background-hover-color;
+                                    cursor: pointer;
+                                }
                             }
                         }
                     }

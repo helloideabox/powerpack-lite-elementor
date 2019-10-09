@@ -178,24 +178,22 @@ a.pp-button:hover {
   position: absolute;
   right: 0;
 }
-.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types {
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category {
   margin-top: 20px;
   margin-left: 20px;
 }
-.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types .pp-module-filter-label {
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category .button-group {
+  font-size: inherit !important;
+}
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category .button-group .pp-filter-button {
   margin-right: 10px;
   text-align: center;
   letter-spacing: 1px;
 }
-.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types .pp-module-filter-label span {
-  text-transform: uppercase;
-}
-.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types .pp-module-filter-label:hover span, .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types .pp-module-filter-label.checked span {
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category .button-group .pp-filter-button:hover, .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category .button-group .pp-filter-button.is-checked {
   border-bottom: 2px solid #4242ce;
   color: #4242ce;
-}
-.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types .pp-module-filter-label input {
-  display: none;
+  cursor: pointer;
 }
 .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list {
   display: -webkit-box;

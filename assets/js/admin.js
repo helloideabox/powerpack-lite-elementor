@@ -1,77 +1,70 @@
-var options = {
-    valueNames: [
-         { data: ['name'] },
-         { data: ['category'] } 
-    ],
-    listClass: 'pp-modules-list',
-    searchClass: 'pp-modules-search'
-};
+// external js: isotope.pkgd.js
 
-var widgetList = new List('pp-list', options);
+// store filter for each group
+var buttonFilters = {};
+var buttonFilter;
+// quick search regex
+var qsRegex;
 
-function updateList() {
-    var category  =   $("input[name=category]:checked").val();
-    //console.log(category);
+// init Isotope
+var $grid = $('.pp-modules-list').isotope({
+  itemSelector: '.pp-module',
+  filter: function() {
+    var $this = $(this);
+    var searchResult = qsRegex ? $this.text().match( qsRegex ) : true;
+    var buttonResult = buttonFilter ? $this.is( buttonFilter ) : true;
+    return searchResult && buttonResult;
+  },
+});
 
-    widgetList.filter(function (item) {
-		var categoryFilter = false;
-		
-		if( category == "all" )
-		{ 
-            categoryFilter = true;
-            //console.log(categoryFilter);
-		} else {
-            //console.log(item.values());
-            categoryFilter = item.values().category == category;	
-            //console.log(categoryFilter);
-        }
+$('#filters').on( 'click', '.pp-filter-button', function() {
+  var $this = $(this);
+  // get group key
+  var $buttonGroup = $this.parents('.button-group');
+  var filterGroup = $buttonGroup.attr('data-filter-group');
+  // set filter for group
+  buttonFilters[ filterGroup ] = $this.attr('data-filter');
+  // combine filters
+  buttonFilter = concatValues( buttonFilters );
+  // Isotope arrange
+  $grid.isotope();
+});
 
-        return categoryFilter;
-    });
+// use value of search field to filter
+var $quicksearch = $('#quicksearch').keyup( debounce( function() {
+  qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+  $grid.isotope();
+}) );
 
-    widgetList.update();
-    //console.log('Filtered: ' + category);
+// change is-checked class on buttons
+$('.button-group').each( function( i, buttonGroup ) {
+  var $buttonGroup = $( buttonGroup );
+  $buttonGroup.on( 'click', 'span', function() {
+    $buttonGroup.find('.is-checked').removeClass('is-checked');
+    $( this ).addClass('is-checked');
+  });
+});
+  
+// flatten object by concatting values
+function concatValues( obj ) {
+  var value = '';
+  for ( var prop in obj ) {
+    value += obj[ prop ];
+  }
+  return value;
 }
 
-$(  function() {
-
-    //updateList();
-    
-    $('.no-result').hide();
-
-    if( $("input[name=category]:checked") )
-        {   
-           $("input[name=category]:checked").parent().addClass("checked");
-        }
-
-    $("input[name=category]").change(updateList);
-
-    widgetList.on('updated', function (list) {
-
-        $("input[name=category]").parent().removeClass("checked");
-
-        if($("input[name=category]:checked")) {
-
-            $("input[name=category]:checked").parent().addClass("checked");
-
-         }         
-
-        if ( list.matchingItems.length > 0 ) {
-            //console.log(list);
-            $('.no-result').hide();
-        } else {
-            $('.no-result').show()
-        }
-
-        widgetList.list.childNodes.forEach(function(element){
-
-                var elem = $('#' + element.id);
-                //elem.addClass('animated fadeIn slideInUp');
-                elem.css('opacity', "0");
-                setTimeout(function(){
-                    elem.animate({top:})
-                }, 50);
-
-            });
-      });
-  });
+// debounce so filtering doesn't happen every millisecond
+function debounce( fn, threshold ) {
+  var timeout;
+  threshold = threshold || 100;
+  return function debounced() {
+    clearTimeout( timeout );
+    var args = arguments;
+    var _this = this;
+    function delayed() {
+      fn.apply( _this, args );
+    }
+    timeout = setTimeout( delayed, threshold );
+  };
+}

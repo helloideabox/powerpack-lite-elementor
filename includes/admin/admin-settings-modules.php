@@ -11,29 +11,34 @@ $settings= self::get_settings();
 					<div class="pp-module-grid-header">
 					<div class="pp-module-grid-title-filter-wrapper">			
 						<div class="pp-modules-title" valign="top"><?php esc_html_e('Manage PowerPack Elementor Widgets', 'power-pack'); ?></div>
-						<div class="pp-module-filter"><input type="text" class="pp-modules-search" /></div>
+						<!--div class="pp-module-filter"><input type="text" class="pp-modules-search" /></div-->
+						<div class="pp-module-filter"><input type="text" id="quicksearch" /></div>
 					</div>
-						<div class="pp-module-filter-types">
-							<label class="pp-module-filter-label">
-								<input class="filter" type="radio" value="all" name="category" id="category-all" checked />
-								<span>All</span>
-							</label>
-							<label class="pp-module-filter-label">
-							<input class="filter" type="radio" value="free" name="category" id="category-free" />
-							<span>Free</span>
-							</label>
-							<label class="pp-module-filter-label">
-								<input class="filter" type="radio" value="pro" name="category" id="category-pro" />
-								<span>Pro</span>
-							</label>
+
+					<div class="pp-module-filter-category" id="filters">
+
+						<div class="button-group" data-filter-group="package">
+							<span class="pp-filter-button show-all is-checked" data-filter="*">Show All</span>
+							<span class="pp-filter-button pro" data-filter=".pro">Pro</span>
+							<span class="pp-filter-button free" data-filter=".free">Free</span>
 						</div>
+						
+						<div class="button-group" data-filter-group="category">
+							<span class="pp-filter-button show-all is-checked" data-filter="*">Show All</span>
+							<span class="pp-filter-button creative" data-filter=".creative">Creative</span>
+							<span class="pp-filter-button content" data-filter=".content">Content</span>
+							<span class="pp-filter-button styler" data-filter=".styler">Styler</span>
+							<span class="pp-filter-button woo" data-filter=".pp-woo">WooCommerce</span>
+						</div>
+					</div>				
+
 					</div>
 				<div class="pp-modules-list">
 					<?php
 					foreach ( $modules as $module_name => $module ) :
 						$module_enabled = in_array( $module_name, $enabled_modules ) || isset( $enabled_modules[$module_name] );
 					?>
-					<div class="pp-module <?php echo $module_name; ?>" id="<?php echo $module_name; ?>" data-name="<?php echo $module_name; ?>" data-category="<?php echo $module['category']; ?>">
+					<div class="pp-module <?php echo $module_name.' '.$module['package'].' '; if (isset($module['category'])){ echo $module['category'];}?>" data-name="<?php echo $module_name; ?>" data-package="<?php echo $module['package']; ?>">
 						<div class="pp-module-name-icon-wrapper">
 							<div class="pp-module-icon <?php 
 									if( isset($module['icon']) ) {
@@ -52,7 +57,7 @@ $settings= self::get_settings();
 						</div>
 						<label class="pp-admin-field-toggle"for="<?php echo $module_name; ?>">
 							<?php
-								if( "free"	===	$module['category'] )
+								if( "free"	===	$module['package'] )
 								{
 							?>
 								<input

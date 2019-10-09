@@ -361,39 +361,20 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_VER
 		);
 
-		
-
-		wp_enqueue_style(
-			'animate',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/css/animate.css',
-			[],
-			POWERPACK_ELEMENTS_LITE_VER
-		);
-		
-		wp_enqueue_script(
-			'listjs',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/listjs/list.min.js',
-			[
-				'jquery',
-			],
-			POWERPACK_ELEMENTS_LITE_VER,
-			true
-		);
-
 		wp_enqueue_script(
 			'admin',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/admin.js',
 			[
 				'jquery',
-				'listjs'
+				'isotope'
 			],
 			POWERPACK_ELEMENTS_LITE_VER,
 			true	
 		);
 
-		wp_register_script(
+		wp_enqueue_script(
 			'isotope',
-			POWERPACK_ELEMENTS_URL . 'assets/lib/isotope/isotope.pkgd.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/isotope/isotope.pkgd.js',
 			[
 				'jquery',
 			],

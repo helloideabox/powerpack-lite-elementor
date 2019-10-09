@@ -330,165 +330,196 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 				'title'	=>	esc_html__('Advanced Accordion', 'powerpack'),
 				'demo'	=>	'advanced-accordion',
 				'icon'	=>	'ppicon-advanced-accordion',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	'creative'
 			],
 			'pp-link-effects'           => [
 				'title'	=>	esc_html__('Link Effects', 'power-pack'),
 				'demo'	=>	'link-effects',
 				'icon'	=>	'ppicon-link-effects',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	'creative'
 			],
 			'pp-divider'                => [
 				'title'	=>	esc_html__('Divider', 'power-pack'),
 				'demo'	=>	'divider',
 				'icon'	=>	'ppicon-divider',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	'creative'
 			],
 			'pp-flipbox'                => [
 				'title'	=>	esc_html__('Flipbox', 'power-pack'),
 				'demo'	=>	'flip-box',
 				'icon'	=>	'ppicon-flip-box',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	'creative'
 			],
 			'pp-image-accordion'        => [
 				'title'	=>	esc_html__('Image Accordion', 'powerpack'),
 				'demo'	=>	'image-accordion',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	'creative'
 			],
 			'pp-info-box'               => [
 				'title'	=>	esc_html__('Info Box', 'power-pack'),
 				'demo'	=>	'info-box',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-info-box-carousel'      => [
 				'title'	=>	esc_html__('Info Box Carousel', 'power-pack'),
 				'demo'	=>	'info-box-carousel',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-info-list'              => [
 				'title'	=>	esc_html__('Info List', 'power-pack'),
 				'demo'	=>	'info-list',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-info-table'             => [
 				'title'	=>	esc_html__('Info Table', 'power-pack'),
 				'demo'	=>	'info-table',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-pricing-table'          => [
 				'title'	=>	esc_html__('Pricing Table', 'power-pack'),
 				'demo'	=>	'pricing-table',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-price-menu'             => [
 				'title'	=>	esc_html__('Price Menu', 'power-pack'),
 				'demo'	=>	'pricing-menu',
 				'icon'	=>	'ppicon-pricing-menu',
-				'category'	=>	'free'
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-business-hours'         => [
 				'title'	=>	esc_html__('Businsess Hours', 'power-pack'),
 				'demo'	=>	'business-hours',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-team-member'            => [
 				'title'	=>	esc_html__('Team Member', 'power-pack'),
 				'demo'	=>	'team-member',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-team-member-carousel'   => [
 				'title'	=>	esc_html__('Team Member Carousel', 'power-pack'),
 				'demo'	=>	'team-member-carousel',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-counter'                => [
 				'title'	=>	esc_html__('Counter', 'power-pack'),
 				'demo'	=>	'counter',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-hotspots'               => [
 				'title'	=>	esc_html__('Image Hotspots', 'power-pack'),
 				'demo'	=>	'image-hotspot',
 				'icon'	=>	'ppicon-image-hotspot',
-				'category'	=>	'free'
-			],
+				'package'	=>	'free',
+
+'category'	=>	''			],
 			'pp-icon-list'              => [
 				'title'	=>	esc_html__('Icon List', 'power-pack'),
 				'demo'	=>	'icon-list',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-dual-heading'           => [
 				'title'	=>	esc_html__('Dual Heading', 'power-pack'),
 				'demo'	=>	'dual-heading',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-promo-box'              => [
 				'title'	=>	esc_html__('Promo Box', 'power-pack'),
 				'demo'	=>	'promo-box',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-logo-carousel'          => [
 				'title'	=>	esc_html__('Logo Carousel', 'power-pack'),
 				'demo'	=>	'logo-carousel',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-logo-grid'              => [
 				'title'	=>	esc_html__('Logo Grid', 'power-pack'),
 				'demo'	=>	'logo-grid',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-image-comparison'       => [
 				'title'	=>	esc_html__('Image Comparison', 'power-pack'),
 				'demo'	=>	'image-comparison',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-instafeed'              => [
 				'title'	=>	esc_html__('Instagram Feed', 'power-pack'),
 				'demo'	=>	'instagram-feed',
 				'icon'	=>	'ppicon-instagram-feed',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-content-ticker'         => [
 				'title'	=>	esc_html__('Content Ticker', 'power-pack'),
 				'demo'	=>	'content-ticker',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-scroll-image'           => [
 				'title'	=>	esc_html__('Scroll Image', 'powerpack'),
 				'demo'	=>	'scroll-image',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-buttons'				=> [
 				'title'	=>	esc_html__('Buttons', 'powerpack'),
 				'demo'	=>	'button-widget',
 				'icon'	=>	'ppicon-multi-buttons',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-twitter-buttons'        => [
 				'title'	=>	esc_html__('Twitter Buttons', 'powerpack'),
 				'demo'	=>	'twitter-widget',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-twitter-grid'           => [
 				'title'	=>	esc_html__('Twitter Grid', 'powerpack'),
 				'demo'	=>	'twitter-widget',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-twitter-timeline'       => [
 				'title'	=>	esc_html__('Twitter Timeline', 'powerpack'),
 				'demo'	=>	'twitter-widget',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-twitter-tweet'          => [
 				'title'	=>	esc_html__('Twitter Tweet', 'powerpack'),
 				'demo'	=>	'twitter-widget/',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			],
 			'pp-fancy-heading'			=> [
 				'title'	=>	esc_html__('Fancy Heading', 'powerpack'),
 				'demo'	=>	'fancy-heading',
 				'icon'	=>	'ppicon-heading',
-				'category'	=>	'free',
+				'package'	=>	'free',
+				'category'	=>	''
 			]
 		];
 
@@ -496,7 +527,7 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
     if ( function_exists( 'wpcf7' ) ) {
         $modules['pp-contact-form-7']['title'] = esc_html__('Contact Form 7', 'power-pack');
 		$modules['pp-contact-form-7']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
-		$modules['pp-contact-form-7']['category'] = 'free';
+		$modules['pp-contact-form-7']['package'] = 'free';
     }
     
     // Gravity Forms
@@ -504,28 +535,28 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 		$modules['pp-gravity-forms']['title']	=	esc_html__('Gravity Forms', 'power-pack');
 		$modules['pp-gravity-forms']['demo']	=	'https://powerpackelements.com/demo/contact-form/';
 		$modules['pp-gravity-forms']['icon']	=	'ppicon-contact-form';
-		$modules['pp-gravity-forms']['category'] = 'free';
+		$modules['pp-gravity-forms']['package'] = 'free';
     }
     
     // Ninja Forms
     if ( class_exists( 'Ninja_Forms' ) ) {
         $modules['pp-ninja-forms']['title'] = esc_html__('Ninja Forms', 'power-pack');
 		$modules['pp-ninja-forms']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
-		$modules['pp-ninja-forms']['category'] = 'free';
+		$modules['pp-ninja-forms']['package'] = 'free';
     }
     
     // Caldera Forms
     if ( class_exists( 'Caldera_Forms' ) ) {
         $modules['pp-caldera-forms']['title'] = esc_html__('Caldera Forms', 'power-pack');
 		$modules['pp-caldera-forms']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
-		$modules['pp-caldera-forms']['category'] = 'free';
+		$modules['pp-caldera-forms']['package'] = 'free';
     }
     
     // WPForms
     if ( function_exists( 'wpforms' ) ) {
         $modules['pp-wpforms']['title'] = esc_html__('WPForms', 'power-pack');
 		$modules['pp-wpforms']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
-		$modules['pp-wpforms']['category'] = 'free';
+		$modules['pp-wpforms']['package'] = 'free';
     }
 
     ksort($modules);
@@ -540,137 +571,137 @@ function pp_elements_pro_get_modules() {
 			'pp-recipe'                 =>	[
 				'title'		=>	 __('Recipe', 'powerpack'),
 				'demo'		=>	'recipe',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-tiled-posts'            =>	[
 				'title'		=>	 __('Tiled Posts', 'powerpack'),
 				'demo'		=>	'tiled-post',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-posts'					=>	[
 				'title'		=>	__('Posts', 'powerpack'),
 				'demo'		=>	'posts',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-modal-popup'            =>	[
 				'title'		=>	__('Modal Popup', 'powerpack'),
 				'demo'		=>	'popup-box',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-onepage-nav'            =>	[
 				'title'		=>	__('One Page Navigation', 'powerpack'),
 				'demo'		=>	'one-page-navigation',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-table'                  =>	[
 				'title'		=>	__('Table', 'powerpack'),
 				'demo'		=>	'table',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-toggle'                 =>	[
 				'title'		=>	__('Toggle', 'powerpack'),
 				'demo'		=>	'content-toggle',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-google-maps'            =>	[
 				'title'		=>	__('Google Maps', 'powerpack'),
 				'demo'		=>	'google-map',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-review-box'             =>	[
 				'title'		=>	__('Review Box', 'powerpack'),
 				'demo'		=>	'review-box',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-countdown'            	=>	[
 				'title'		=>	__('Countdown', 'powerpack'),
 				'demo'		=>	'countdown',
-				'category'	=> 'pro'
+				'package'	=> 'pro'
 			],
 			'pp-advanced-tabs'          =>	[
 				'title'		=>	__('Advanced Tabs', 'powerpack'),
 				'demo'		=>	'advanced-tab',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-image-gallery'          =>	[
 				'title'		=>	__('Image Gallery', 'powerpack'),
 				'demo'		=>	'image-gallery',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-image-slider'           =>	[
 				'title'		=>	__('Image Slider', 'powerpack'),
 				'demo'		=>	'image-slider',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-advanced-menu'          =>	[
 				'title'		=>	__('Advanced Menu', 'powerpack'),
 				'demo'		=>	'advanced-menu',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-offcanvas-content'      =>	[
 				'title'		=>	__('Offcanvas Content', 'powerpack'),
 				'demo'		=>	'offcanvas-content',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-timeline'               =>	[
 				'title'		=>	__('Timeline', 'powerpack'),
 				'demo'		=>	'timeline',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-showcase'               =>	[
 				'title'		=>	__('Showcase', 'powerpack'),
 				'demo'		=>	'showcase-widget',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-card-slider'            =>	[
 				'title'		=>	__('Card Slider', 'powerpack'),
 				'demo'		=>	'card-slider',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-breadcrumbs'            =>	[
 				'title'		=>	__('Breadcrumbs', 'powerpack'),
 				'demo'		=>	'breadcrumbs',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-magazine-slider'        =>	[
 				'title'		=>	__('Magazine Slider', 'powerpack'),
 				'demo'		=>	'magazine-slider',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-video'                  =>	[
 				'title'		=>	__('Video', 'powerpack'),
 				'demo'		=>	'video',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-video-gallery'          =>	[
 				'title'		=>	__('Video Gallery', 'powerpack'),
 				'demo'		=>	'video-gallery',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-testimonials'           =>	[
 				'title'		=>	__('Testimonials', 'powerpack'),
 				'demo'		=>	'testimonials',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-album'                  =>	[
 				'title'		=>	__('Album', 'powerpack'),
 				'demo'		=>	'album',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-tabbed-gallery'			=>	[
 				'title'		=>	__('Tabbed Gallery', 'powerpack'),
 				'demo'		=>	'tabbed-gallery',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-devices'				=>	[
 				'title'		=>	__('Devices', 'powerpack'),
 				'demo'		=>	'devices',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			],
 			'pp-faq'					=>	[
 				'title'		=>	__('FAQ', 'powerpack'),
 				'demo'		=>	'faq',
-				'category'	=>	'pro'
+				'package'	=>	'pro'
 			]
 	];
 
