@@ -1,280 +1,343 @@
-.pp-admin-heading {
-    font-size: 24px;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
-}
-.pp-header-wrap {
-    background-color: #fff;
-    padding: 20px 20px 0 20px;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.pp-header-wrap .pp-header-banner img {
-    height: 34px;
+.wrap .pp-header-wrap, .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-module {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.pp-header-wrap .pp-header-banner {
-    float: right;
-}
-.pp-nav-tab-wrapper {
-    border: none !important;
+#wpcontent {
+  padding-left: 0 !important;
 }
 
-.pp-nav-tab-wrapper .nav-tab {
-    background-color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin: 0px 20px;
+/* Class PP Button - Set margin and padding values for individual buttons separately */
+a.pp-button {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background: #5353dc;
+  color: #fff !important;
+}
+a.pp-button:hover {
+  background: #4242ce;
 }
 
-.pp-nav-tab-wrapper .nav-tab.nav-tab-active,
-.pp-nav-tab-wrapper .nav-tab:hover {
-    
-    border-bottom: 2px solid #5353dc !important;
+.wrap {
+  margin: 0 !important;
 }
-
-.form-table {
-    float: left;
-    max-width: 100%;
-    display: flex;
+.wrap .pp-header-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  /* Logo Wrapper */
+  /* Page Title */
+  /* Navigation Menu */
 }
-
-@media only screen and ( max-width: 1180px ) {
-    .form-table {
-        flex-direction: column;
-        width: 100% !important;
-    }
-
-    .pp-module-grid {
-        width: 95% !important;
-    }
-    
-    .side-banner {
-        display: flex;
-        flex-direction: column;
-        width: 100% !important;
-        text-align: center;
-    }
+.wrap .pp-header-wrap .pp-header-banner {
+  float: right;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-
-@media only screen and ( max-width: 1180px ) {
-    .pp-module {
-        flex-basis: 240px !important;
-    }
+.wrap .pp-header-wrap .pp-header-banner img {
+  height: 28px;
+  margin-left: 20px;
 }
-
-.pp-modules-title {
-    margin: 0px 10px 20px 10px;
-    font-weight: 500;
-    font-size: 16px;
-    text-align: center;
+.wrap .pp-header-wrap .pp-header-banner .pp-header-title {
+  display: inline;
+  margin-left: 5px;
 }
-
-.pp-module-grid {
-    width: 90vw;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
-    border-top: 2px solid #5353dc;
-    margin-right: 20px;
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.wrap .pp-header-wrap .pp-admin-heading {
+  font-size: 24px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
 }
-
-.pp-modules-list {
-    display: flex;
-    justify-content:space-evenly;
-    flex-wrap: wrap;
+.wrap .pp-header-wrap .pp-nav-tab-wrapper {
+  border: none !important;
 }
-
-.pp-module {
-    flex-basis: 250px;
-    background-color: #f8f8f8;
-    padding: 16px;
-    margin-bottom:20px;
-    margin-right: 15px;
-    border-radius: 5px;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.3s cubic-bezier(0.44, 0.33, 0.67, 0.86);
+.wrap .pp-header-wrap .pp-nav-tab-wrapper .nav-tab {
+  background-color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0px 20px;
 }
-
-.pp-module:hover {
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.20);
+.wrap .pp-header-wrap .pp-nav-tab-wrapper .nav-tab.nav-tab-active, .wrap .pp-header-wrap .pp-nav-tab-wrapper .nav-tab:hover {
+  border-bottom: 2px solid #5353dc;
 }
-
-.pp-module-name {
-    display: inline;
-    font-weight: 500;
-    font-size: 14px;
+.wrap .pp-header-wrap .pp-nav-tab-wrapper .nav-tab.get-pro {
+  color: #5353dc;
 }
-
-.pp-module-icon {
-    font-size:20px;
-    margin-right: 10px;
-    top: 5px;
-    position: relative;
+.wrap .pp-header-wrap .pp-nav-tab-wrapper .nav-tab:hover.get-pro {
+  color: #4040c8;
 }
-
-.pp-module:hover .pp-module-icon {
-   color: #4242ce;
+.wrap .h2-for-admin-notices {
+  margin-bottom: 100px;
 }
-/* Toggle */
-.pp-admin-field-toggle {
-    position: relative;
-    display: inline-block;
-    width: 48px;
-    height: 24px;
+.wrap .notice {
+  margin-right: 20px !important;
+  margin-left: 20px !important;
 }
-.pp-admin-field-toggle .pp-admin-field-toggle-slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 34px;
-    -webkit-transition: .4s cubic-bezier(0.39, 0.05, 0.97, 0.61);
-    transition: .4s cubic-bezier(0.39, 0.05, 0.97, 0.61);
+.wrap .pp-modules-wrap {
+  /* Page Body Container */
 }
-.pp-admin-field-toggle .pp-admin-field-toggle-slider:before {
-    border-radius: 50%;
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 3px;
-    bottom: 3px;
-    background-color: #ccc;
-    -webkit-transition: .4s cubic-bezier(0.09, 0.49, 0.97, 0.61);
-    transition: .4s cubic-bezier(0.09, 0.49, 0.97, 0.61);
+.wrap .pp-modules-wrap:after, .wrap .pp-modules-wrap:before {
+  content: "";
+  display: table;
 }
-.pp-admin-field-toggle input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+.wrap .pp-modules-wrap:after {
+  clear: both;
 }
-.pp-admin-field-toggle input:checked + .pp-admin-field-toggle-slider:before {
-    background-color: #5353dc;
-    -webkit-transform: translateX(22px);
-    -ms-transform: translateX(22px);
-    transform: translateX(22px);
+.wrap .pp-modules-wrap input.button.pp-submit-button {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+  background: #5353dc;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 50px;
+  height: auto;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
-.pp-admin-field-toggle input:checked + .pp-admin-field-toggle-slider {
-    background-color: #fff;
-    box-shadow: inset 0px 0px 3px 0px #bbb;
-    border-color: #5353dc;
-    border-color: transparent;
+.wrap .pp-modules-wrap input.button.pp-submit-button:hover.pp-submit-button, .wrap .pp-modules-wrap input.button.pp-submit-button:focus.pp-submit-button {
+  background: #4242ce;
+  color: #fff;
 }
-
-/* Pro Upgrade Banner */
-
-.pp-modules-wrap:before,
-.pp-modules-wrap:after {
-	content: "";
-	display: table;
+.wrap .pp-modules-wrap p.submit {
+  text-align: center;
 }
-.pp-modules-wrap:after {
-	clear: both;
+.wrap .pp-modules-wrap .form-table {
+  max-width: 100%;
+  padding: 0px 20px 0px 20px;
+  float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-
-.side-banner {
-    float: right;
+@media only screen and (max-width: 992px) {
+  .wrap .pp-modules-wrap .form-table {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100% !important;
+  }
 }
-.pro-upgrade-banner,
-.pro-upgrade-banner * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+.wrap .pp-modules-wrap .form-table .pp-module-grid {
+  width: 90vw;
+  background-color: #fff;
+  padding: 20px;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
+  border-top: 2px solid #5353dc;
+  margin-right: 20px;
+  /* Module Grid Header Wrap containing Title, Search Box and Filters */
 }
-.banner-inner {
-    background: #fff;
-    margin-top: 40px;
-	box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
-	padding: 20px;
-	border-top: 2px solid #5353dc;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header {
+  display: block;
+  position: relative;
+  margin-bottom: 50px;
+  margin-top: 20px;
 }
-.pro-upgrade-banner .banner-image {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-grid-title-filter-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.pro-upgrade-banner img {
-	max-width: 100%;
-	width: 120px;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-grid-title-filter-wrapper .pp-modules-title {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: left;
+  display: inline;
 }
-.pro-upgrade-banner h3 {
-	font-weight: 400;
-    line-height: 1.4;
-	margin-bottom: 0;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-grid-title-filter-wrapper .pp-module-filter {
+  display: inline;
+  position: absolute;
+  right: 0;
 }
-.pro-upgrade-banner .banner-title-1 {
-	font-size: 22px;
-    font-weight: 300;
-	display: none;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types {
+  margin-top: 20px;
+  margin-left: 20px;
 }
-.pro-upgrade-banner li {
-	font-size: 15px;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types .pp-module-filter-label {
+  margin-right: 10px;
+  text-align: center;
+  letter-spacing: 1px;
 }
-.pro-upgrade-banner li span {
-	margin-right: 5px;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types .pp-module-filter-label span {
+  text-transform: uppercase;
 }
-.pro-upgrade-banner .banner-action {
-	text-align: center;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types .pp-module-filter-label:hover span, .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types .pp-module-filter-label.checked span {
+  border-bottom: 2px solid #4242ce;
+  color: #4242ce;
 }
-.pro-upgrade-banner a.pp-button {
-	display: inline-block;
-	text-align: center;
-	margin-top: 10px;
-	text-decoration: none;
-    background: #5353dc;
-    color: #fff;
-    padding: 10px 30px;
-    border-radius: 50px;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-types .pp-module-filter-label input {
+  display: none;
 }
-.pro-upgrade-banner a.pp-button:hover {
-    background: #4242ce;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /* Toggle */
 }
-
-/* Support */
-
-.banner-image .pp-support-title {
-    display: inline-block;
-    margin-left: 10px;
-    font-size: 18px;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-module {
+  -ms-flex-preferred-size: 240px;
+      flex-basis: 240px;
+  background-color: #f8f8f8;
+  padding: 16px;
+  margin-bottom: 20px;
+  margin-right: 15px;
+  border-radius: 5px;
+  -webkit-transition: 0.3s cubic-bezier(0.44, 0.33, 0.67, 0.86);
+  transition: 0.3s cubic-bezier(0.44, 0.33, 0.67, 0.86);
 }
-
-/* Submit Button */
-
-input.button.pp-submit-button {
-    display: inline-block;
-	text-align: center;
-	margin-top: 10px;
-	text-decoration: none;
-    background: #5353dc;
-    color: #fff;
-    padding: 10px 30px;
-    border-radius: 50px;
-    height: auto;
-    border: none;
-    box-shadow: none;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-module:hover {
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
 }
-
-input.button:hover.pp-submit-button,
-input.button:focus.pp-submit-button {
-    background: #4242ce;
-    color: #fff;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-module .pp-module-name-icon-wrapper .pp-module-name {
+  display: inline;
+  font-weight: 500;
+  font-size: 14px;
 }
-
-.pp-modules-wrap p.submit {
-    text-align: center;
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-module .pp-module-name-icon-wrapper .pp-module-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  top: 5px;
+  position: relative;
+}
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-module:hover .pp-module-icon {
+  color: #4242ce;
+}
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-admin-field-toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-admin-field-toggle .pp-admin-field-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 34px;
+  -webkit-transition: 0.4s cubic-bezier(0.39, 0.05, 0.97, 0.61);
+  transition: 0.4s cubic-bezier(0.39, 0.05, 0.97, 0.61);
+}
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-admin-field-toggle .pp-admin-field-toggle-slider:before {
+  border-radius: 50%;
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ccc;
+  -webkit-transition: 0.4s cubic-bezier(0.09, 0.49, 0.97, 0.61);
+  transition: 0.4s cubic-bezier(0.09, 0.49, 0.97, 0.61);
+}
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-admin-field-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-admin-field-toggle input:checked + .pp-admin-field-toggle-slider:before {
+  background-color: #5353dc;
+  -webkit-transform: translateX(22px);
+  transform: translateX(22px);
+}
+.wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-admin-field-toggle input:checked + .pp-admin-field-toggle-slider {
+  background-color: #fff;
+  -webkit-box-shadow: inset 0px 0px 3px 0px #bbb;
+          box-shadow: inset 0px 0px 3px 0px #bbb;
+  border-color: #5353dc;
+  border-color: transparent;
+}
+.wrap .pp-modules-wrap .form-table .side-banner {
+  float: right;
+}
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner {
+  background: #fff;
+  margin-bottom: 40px;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-top: 2px solid #5353dc;
+}
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner .banner-image {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner .banner-image .pp-support-title {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 18px;
+}
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner img {
+  max-width: 100%;
+  width: 120px;
+}
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner h3 {
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner .banner-title-1 {
+  font-size: 22px;
+  font-weight: 300;
+  display: none;
+}
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner li {
+  font-size: 15px;
+}
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner li span {
+  margin-right: 5px;
+}
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner .banner-action {
+  text-align: center;
+}
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner a.pp-button {
+  margin-top: 10px;
+  padding: 10px 30px;
+  border-radius: 50px;
 }

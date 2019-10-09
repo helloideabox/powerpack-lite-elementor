@@ -361,9 +361,18 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_VER
 		);
 
+		
+
+		wp_enqueue_style(
+			'animate',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/css/animate.css',
+			[],
+			POWERPACK_ELEMENTS_LITE_VER
+		);
+		
 		wp_enqueue_script(
-			'filterbox',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/filterbox/filterbox.js',
+			'listjs',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/listjs/list.min.js',
 			[
 				'jquery',
 			],
@@ -376,9 +385,19 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/admin.js',
 			[
 				'jquery',
-				'filterbox',
+				'listjs'
 			],
 			POWERPACK_ELEMENTS_LITE_VER,
+			true	
+		);
+
+		wp_register_script(
+			'isotope',
+			POWERPACK_ELEMENTS_URL . 'assets/lib/isotope/isotope.pkgd.js',
+			[
+				'jquery',
+			],
+			'0.5.3',
 			true
 		);
 	}

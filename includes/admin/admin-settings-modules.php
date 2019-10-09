@@ -1,22 +1,39 @@
 <?php
-$modules = pp_elements_lite_get_modules();
+$modules = array_merge( pp_elements_lite_get_modules(), pp_elements_pro_get_modules() );
+ksort($modules);
 $enabled_modules = pp_elements_lite_get_enabled_modules();
 $settings= self::get_settings();
 ?>
 
 <div class="pp-modules-wrap">
 		<div class="form-table">
-			<div class="pp-module-grid">				
-					<div class="pp-modules-title" valign="top">
-						<?php esc_html_e('Enable/Disable Widgets', 'power-pack'); ?>
+			<div class="pp-module-grid" id="pp-list">	
+					<div class="pp-module-grid-header">
+					<div class="pp-module-grid-title-filter-wrapper">			
+						<div class="pp-modules-title" valign="top"><?php esc_html_e('Manage PowerPack Elementor Widgets', 'power-pack'); ?></div>
+						<div class="pp-module-filter"><input type="text" class="pp-modules-search" /></div>
 					</div>
-					<div class="pp-module-filter"></div>
+						<div class="pp-module-filter-types">
+							<label class="pp-module-filter-label">
+								<input class="filter" type="radio" value="all" name="category" id="category-all" checked />
+								<span>All</span>
+							</label>
+							<label class="pp-module-filter-label">
+							<input class="filter" type="radio" value="free" name="category" id="category-free" />
+							<span>Free</span>
+							</label>
+							<label class="pp-module-filter-label">
+								<input class="filter" type="radio" value="pro" name="category" id="category-pro" />
+								<span>Pro</span>
+							</label>
+						</div>
+					</div>
 				<div class="pp-modules-list">
 					<?php
 					foreach ( $modules as $module_name => $module ) :
 						$module_enabled = in_array( $module_name, $enabled_modules ) || isset( $enabled_modules[$module_name] );
 					?>
-					<div class="pp-module <?php echo $module_name; ?>">
+					<div class="pp-module <?php echo $module_name; ?>" id="<?php echo $module_name; ?>" data-name="<?php echo $module_name; ?>" data-category="<?php echo $module['category']; ?>">
 						<div class="pp-module-name-icon-wrapper">
 							<div class="pp-module-icon <?php 
 									if( isset($module['icon']) ) {
@@ -28,23 +45,42 @@ $settings= self::get_settings();
 								?>">
 							</div>
 							<p class="pp-module-name">
-								<a href="<?php echo $module['demo'];?>" target="_blank" title="Click to view demo" style="text-decoration:none;color:#444">
+								<a href="<?php echo 'https://powerpackelements.com/demo/' . $module['demo'];?>" target="_blank" title="Click to view demo" style="text-decoration:none;color:#444">
 									<?php echo $module['title']; ?>
 								</a>
 							</p>
 						</div>
 						<label class="pp-admin-field-toggle"for="<?php echo $module_name; ?>">
-							<input
-								id="<?php echo $module_name; ?>"
-								name="pp_enabled_modules[]"
-								type="checkbox"
-								value="<?php echo $module_name; ?>"
-								<?php echo $module_enabled ? ' checked="checked"' : '' ?>
-							/>
+							<?php
+								if( "free"	===	$module['category'] )
+								{
+							?>
+								<input
+									id="<?php echo $module_name; ?>"
+									name="pp_enabled_modules[]"
+									type="checkbox"
+									value="<?php echo $module_name; ?>"
+									<?php echo $module_enabled ? ' checked="checked"' : '' ?>
+								/>
+								<?php
+								}
+								else { ?>
+
+									<input
+									id="<?php echo $module_name; ?>"
+									name=""
+									type="checkbox"
+									value="<?php echo $module_name; ?>"
+									disabled
+								/>
+								<?php
+								}
+								?>
 							<span class="pp-admin-field-toggle-slider"></span>							
 						</label>
 					</div>
 					<?php endforeach; ?>
+					<div class="no-result">No Results</div>
 				</div>
 				<?php wp_nonce_field('pp-modules-settings', 'pp-modules-settings-nonce'); ?>
 				<?php submit_button( __('Save Settings'), 'pp-submit-button'); ?>
