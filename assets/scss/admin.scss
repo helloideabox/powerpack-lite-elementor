@@ -2,6 +2,7 @@ $background-color: #5353dc ;
 $background-hover-color: #4242ce ;
 $primary-color: #fff;
 $light-box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
+$dark-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.4);
 $break-medium: 992px;
 $toggle-transition: 0.3s cubic-bezier(0.44, 0.33, 0.67, 0.86);
 
@@ -9,11 +10,23 @@ $toggle-transition: 0.3s cubic-bezier(0.44, 0.33, 0.67, 0.86);
     box-sizing: border-box;
 }
 
-%flex-base {
+%flex-base-horizontal {
     
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+%flex-base-vertical {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gutter-sizer {
+    width: 2%;
 }
 
 #wpcontent {
@@ -27,6 +40,7 @@ a.pp-button {
 	text-decoration: none;
     background: $background-color;
     color: $primary-color !important;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
         background: $background-hover-color;
@@ -38,7 +52,7 @@ a.pp-button {
     margin: 0 !important;
 
     .pp-header-wrap {
-        @extend %flex-base;
+        @extend %flex-base-horizontal;
         position: absolute;
         top: 0;
         left: 0;
@@ -156,7 +170,7 @@ a.pp-button {
             }
 
             .pp-module-grid {
-                width: 90vw;
+                width: 165vw;
                 background-color: #fff;
                 padding: 20px;
                 box-shadow: $light-box-shadow;
@@ -174,6 +188,8 @@ a.pp-button {
 
                         display: flex;
                         align-items: center;
+                        padding-left: 20px;
+                        padding-right: 20px;
 
                         .pp-modules-title {
                             font-weight: 500;
@@ -185,17 +201,51 @@ a.pp-button {
                         .pp-module-filter {
                             display: inline;
                             position: absolute;
-                            right:0;
+                            right:10px;
+
+                            input#quicksearch {
+                                border: none;
+                                box-shadow: none;
+                                padding-top: 5px;
+                                padding-bottom: 5px;
+                                padding-right: 20px;
+                                text-align: center;
+                                width: 0px;
+                                transition-property: width, background, border,color;
+                                transition: .9s ease-in-out;
+                                background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUxMiA1MTIiIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik01MDMuODY2LDQ3Ny45NzRMMzYwLjk1OCwzMzUuMDUyYzI4LjcyNS0zNC41NDQsNDYuMDE3LTc4LjkxMiw0Ni4wMTctMTI3LjMzNiAgYzAtMTEwLjA4NC04OS4yMjctMTk5LjMxMi0xOTkuMzEyLTE5OS4zMTJDOTcuNTk5LDguNDAzLDguMzUxLDk3LjYzMSw4LjM1MSwyMDcuNzE1YzAsMTEwLjA2NCw4OS4yNDgsMTk5LjMxMiwxOTkuMzEyLDE5OS4zMTIgIGM0OC40MzUsMCw5Mi43OTItMTcuMjkyLDEyNy4zMzYtNDYuMDE3bDE0Mi45MDgsMTQyLjkyMkw1MDMuODY2LDQ3Ny45NzR6IE0yOS4zMzEsMjA3LjcxNWMwLTk4LjMzNCw3OS45ODctMTc4LjMzMiwxNzguMzMyLTE3OC4zMzIgIGM5OC4zMjUsMCwxNzguMzMyLDc5Ljk5OCwxNzguMzMyLDE3OC4zMzJzLTgwLjAwNywxNzguMzMyLTE3OC4zMzIsMTc4LjMzMkMxMDkuMzE4LDM4Ni4wNDcsMjkuMzMxLDMwNi4wNSwyOS4zMzEsMjA3LjcxNXoiIGZpbGw9IiMzNzQwNEQiLz48L3N2Zz4=) no-repeat left 9px center transparent;
+                                background-size:16px;
+                                outline: none;
+
+                                &::placeholder {                                    
+                                color: #aaa;
+                                line-height: 1;
+                                }
+
+                                &:focus,
+                                &:hover {
+                                    margin: 0 !important;
+                                    width: 200px;
+                                    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojNDI0MkNFO30NCjwvc3R5bGU+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTAzLjksNDc4TDM2MSwzMzUuMWMyOC43LTM0LjUsNDYtNzguOSw0Ni0xMjcuM0M0MDcsOTcuNiwzMTcuNyw4LjQsMjA3LjcsOC40Qzk3LjYsOC40LDguNCw5Ny42LDguNCwyMDcuNw0KCUM4LjQsMzE3LjgsOTcuNiw0MDcsMjA3LjcsNDA3YzQ4LjQsMCw5Mi44LTE3LjMsMTI3LjMtNDZsMTQyLjksMTQyLjlMNTAzLjksNDc4eiBNMjkuMywyMDcuN2MwLTk4LjMsODAtMTc4LjMsMTc4LjMtMTc4LjMNCgljOTguMywwLDE3OC4zLDgwLDE3OC4zLDE3OC4zUzMwNiwzODYsMjA3LjcsMzg2QzEwOS4zLDM4NiwyOS4zLDMwNiwyOS4zLDIwNy43eiIvPg0KPC9zdmc+DQo=) no-repeat left 9px center transparent;
+                                    background-size:16px;
+                                    border:none;
+                                    border-bottom: 1px solid $background-color;
+                                    cursor: pointer;
+                                }
+                            }
                         }
                     }
 
                     .pp-module-filter-category {
 
-                        margin-top: 20px;
+                        margin-top: 50px;
                         margin-left: 20px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
 
                         & .button-group {
-                            font-size: inherit !important;
+                            font-size: 12px !important;
                         
                             .pp-filter-button
                             {
@@ -215,19 +265,15 @@ a.pp-button {
                 }
 
                 .pp-modules-list {
-                    display: flex;
-                    justify-content:flex-start;
-                    flex-wrap: wrap;
+                    display: block;
 
                     .pp-module {
-                        flex-basis: 240px;
+                        width: calc((100% - 4%) / 3);
                         background-color: #f8f8f8;
                         padding: 16px;
                         margin-bottom:20px;
-                        margin-right: 15px;
                         border-radius: 5px;
-                        @extend %flex-base;
-                        transition: 0.3s cubic-bezier(0.44, 0.33, 0.67, 0.86);
+                        @extend %flex-base-horizontal;
                         
                         &:hover {
                             box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.20);
@@ -272,8 +318,8 @@ a.pp-button {
                             background-color: #fff;
                             border: 1px solid #ccc;
                             border-radius: 34px;
-                            -webkit-transition: .4s cubic-bezier(0.39, 0.05, 0.97, 0.61);
-                            transition: .4s cubic-bezier(0.39, 0.05, 0.97, 0.61);
+                            -webkit-transition: .3s cubic-bezier(0.39, 0.05, 0.97, 0.61);
+                            transition: .3s cubic-bezier(0.39, 0.05, 0.97, 0.61);
 
                             &:before {
                                 border-radius: 50%;
@@ -284,8 +330,8 @@ a.pp-button {
                                 left: 3px;
                                 bottom: 3px;
                                 background-color: #ccc;
-                                -webkit-transition: .4s cubic-bezier(0.09, 0.49, 0.97, 0.61);
-                                transition: .4s cubic-bezier(0.09, 0.49, 0.97, 0.61);
+                                -webkit-transition: .3s cubic-bezier(0.09, 0.49, 0.97, 0.61);
+                                transition: .3s cubic-bezier(0.09, 0.49, 0.97, 0.61);
                             }
                         }
                              input {
@@ -314,51 +360,108 @@ a.pp-button {
                     float: right;
 
                     .banner-inner.pro-upgrade-banner {
+                        @extend %flex-base-vertical;
                         background: #fff;
                         margin-bottom: 40px;
                         box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.1);
                         padding: 20px;
                         border-top: 2px solid #5353dc;
+
+                        &.pp-upgrade-pro {
+                            height: 440px;
+                            
+                            .pp-support-title {
+
+                                font-size: 18px !important;  
+                            }
+
+                            .banner-content {
+                                text-align: left;
+                            }
+                        }
+
+                        &.pp-support,
+                        &.pp-documentation {
+                            height: 300px; 
+                        }
                     
-                        .banner-image {
-                            text-align: center;
+                        .banner-image {                            
                             display: flex;
-                            justify-content: center;
                             align-items: center;
 
                             .pp-support-title {
+
                                 display: inline-block;
-                                margin-left: 10px;
-                                font-size: 18px;
+                                font-size: 24px;
+                            }
+
+                                
+                            img {
+                                max-width: 100%;
+                                width: 120px;
+                                margin-right: 10px;
                             }
                         }
-                        img {
-                            max-width: 100%;
-                            width: 120px;
-                        }
-                        h3 {
-                            font-weight: 400;
-                            line-height: 1.4;
-                            margin-bottom: 0;
-                        }
-                        .banner-title-1 {
-                            font-size: 22px;
-                            font-weight: 300;
-                            display: none;
-                        }
-                        li {
-                            font-size: 15px;
-                        }
-                        li span {
-                            margin-right: 5px;
-                        }
+                        .banner-content {
+                            
+                            text-align: center;
+                            margin-top: -20px;
+
+                               & .banner-title-1 {     
+                                   
+                                                                                         
+                                text-align: center;
+                                line-height: 1.6;                               
+
+                                    .pp-highlight {
+                                        color: $background-color;
+                                        font-size: 24px;
+                                    }
+
+                                }
+                                li {
+                                    font-size: 15px;
+                                }
+                                li span {
+                                    margin-right: 5px;
+                                }
+                            }
+                            
+
                         .banner-action {
                             text-align: center;
-                        }
-                        a.pp-button {
-                            margin-top: 10px;
-                            padding: 10px 30px;
-                            border-radius: 50px;
+                        
+                            a.pp-button {
+                                padding: 10px 30px;
+                                border-radius: 50px;
+                               
+                                &:hover {
+                                    box-shadow: $dark-box-shadow;
+                                }
+                            }
+                            a.pp-underline {
+                                margin-top: 40px;
+                                font-weight: bold;
+                                text-decoration: none;
+                                color: #444;
+
+                                &::after {
+                                    
+                                    content: " ";
+                                    background: $background-hover-color;
+                                    height: 2px;
+                                    display: block;
+                                    margin-top: 1px;
+                                    width: 0;
+                                    transition: width 0.4s ease-in-out;
+                                }
+                                &:hover{
+                                    color: $background-hover-color;  
+                                    &::after{
+                                        width: 100%;
+                                    }                                  
+                                }
+                            }
                         }
                     }
                 }

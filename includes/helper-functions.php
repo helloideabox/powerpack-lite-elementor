@@ -325,7 +325,7 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 }
 	
 	function pp_elements_lite_get_modules() {
-		$modules = [
+		$modules =  [
 			'pp-advanced-accordion'     => [
 				'title'	=>	esc_html__('Advanced Accordion', 'powerpack'),
 				'demo'	=>	'advanced-accordion',
@@ -364,162 +364,162 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 				'title'	=>	esc_html__('Info Box', 'power-pack'),
 				'demo'	=>	'info-box',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-info-box-carousel'      => [
 				'title'	=>	esc_html__('Info Box Carousel', 'power-pack'),
 				'demo'	=>	'info-box-carousel',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-info-list'              => [
 				'title'	=>	esc_html__('Info List', 'power-pack'),
 				'demo'	=>	'info-list',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-info-table'             => [
 				'title'	=>	esc_html__('Info Table', 'power-pack'),
 				'demo'	=>	'info-table',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-pricing-table'          => [
 				'title'	=>	esc_html__('Pricing Table', 'power-pack'),
 				'demo'	=>	'pricing-table',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'content'
 			],
 			'pp-price-menu'             => [
 				'title'	=>	esc_html__('Price Menu', 'power-pack'),
 				'demo'	=>	'pricing-menu',
 				'icon'	=>	'ppicon-pricing-menu',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'content'
 			],
 			'pp-business-hours'         => [
 				'title'	=>	esc_html__('Businsess Hours', 'power-pack'),
 				'demo'	=>	'business-hours',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'content'
 			],
 			'pp-team-member'            => [
 				'title'	=>	esc_html__('Team Member', 'power-pack'),
 				'demo'	=>	'team-member',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-team-member-carousel'   => [
 				'title'	=>	esc_html__('Team Member Carousel', 'power-pack'),
 				'demo'	=>	'team-member-carousel',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-counter'                => [
 				'title'	=>	esc_html__('Counter', 'power-pack'),
 				'demo'	=>	'counter',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-hotspots'               => [
 				'title'	=>	esc_html__('Image Hotspots', 'power-pack'),
 				'demo'	=>	'image-hotspot',
 				'icon'	=>	'ppicon-image-hotspot',
 				'package'	=>	'free',
-
-'category'	=>	''			],
+				'category'	=>	'creative'		
+			],
 			'pp-icon-list'              => [
 				'title'	=>	esc_html__('Icon List', 'power-pack'),
 				'demo'	=>	'icon-list',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-dual-heading'           => [
 				'title'	=>	esc_html__('Dual Heading', 'power-pack'),
 				'demo'	=>	'dual-heading',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-promo-box'              => [
 				'title'	=>	esc_html__('Promo Box', 'power-pack'),
 				'demo'	=>	'promo-box',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-logo-carousel'          => [
 				'title'	=>	esc_html__('Logo Carousel', 'power-pack'),
 				'demo'	=>	'logo-carousel',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-logo-grid'              => [
 				'title'	=>	esc_html__('Logo Grid', 'power-pack'),
 				'demo'	=>	'logo-grid',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-image-comparison'       => [
 				'title'	=>	esc_html__('Image Comparison', 'power-pack'),
 				'demo'	=>	'image-comparison',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-instafeed'              => [
 				'title'	=>	esc_html__('Instagram Feed', 'power-pack'),
 				'demo'	=>	'instagram-feed',
 				'icon'	=>	'ppicon-instagram-feed',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-content-ticker'         => [
 				'title'	=>	esc_html__('Content Ticker', 'power-pack'),
 				'demo'	=>	'content-ticker',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'content'
 			],
 			'pp-scroll-image'           => [
 				'title'	=>	esc_html__('Scroll Image', 'powerpack'),
 				'demo'	=>	'scroll-image',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-buttons'				=> [
 				'title'	=>	esc_html__('Buttons', 'powerpack'),
 				'demo'	=>	'button-widget',
 				'icon'	=>	'ppicon-multi-buttons',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-twitter-buttons'        => [
 				'title'	=>	esc_html__('Twitter Buttons', 'powerpack'),
 				'demo'	=>	'twitter-widget',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-twitter-grid'           => [
 				'title'	=>	esc_html__('Twitter Grid', 'powerpack'),
 				'demo'	=>	'twitter-widget',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-twitter-timeline'       => [
 				'title'	=>	esc_html__('Twitter Timeline', 'powerpack'),
 				'demo'	=>	'twitter-widget',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-twitter-tweet'          => [
 				'title'	=>	esc_html__('Twitter Tweet', 'powerpack'),
 				'demo'	=>	'twitter-widget/',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			],
 			'pp-fancy-heading'			=> [
 				'title'	=>	esc_html__('Fancy Heading', 'powerpack'),
 				'demo'	=>	'fancy-heading',
 				'icon'	=>	'ppicon-heading',
 				'package'	=>	'free',
-				'category'	=>	''
+				'category'	=>	'creative'
 			]
 		];
 
@@ -528,6 +528,7 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
         $modules['pp-contact-form-7']['title'] = esc_html__('Contact Form 7', 'power-pack');
 		$modules['pp-contact-form-7']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
 		$modules['pp-contact-form-7']['package'] = 'free';
+		$modules['pp-contact-form-7']['category'] = 'styler';
     }
     
     // Gravity Forms
@@ -536,6 +537,7 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 		$modules['pp-gravity-forms']['demo']	=	'https://powerpackelements.com/demo/contact-form/';
 		$modules['pp-gravity-forms']['icon']	=	'ppicon-contact-form';
 		$modules['pp-gravity-forms']['package'] = 'free';
+		$modules['pp-gravity-forms']['category'] = 'styler';
     }
     
     // Ninja Forms
@@ -543,6 +545,7 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
         $modules['pp-ninja-forms']['title'] = esc_html__('Ninja Forms', 'power-pack');
 		$modules['pp-ninja-forms']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
 		$modules['pp-ninja-forms']['package'] = 'free';
+		$modules['pp-ninja-forms']['category'] = 'styler';
     }
     
     // Caldera Forms
@@ -550,6 +553,7 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
         $modules['pp-caldera-forms']['title'] = esc_html__('Caldera Forms', 'power-pack');
 		$modules['pp-caldera-forms']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
 		$modules['pp-caldera-forms']['package'] = 'free';
+		$modules['pp-caldera-forms']['category'] = 'styler';
     }
     
     // WPForms
@@ -557,9 +561,8 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
         $modules['pp-wpforms']['title'] = esc_html__('WPForms', 'power-pack');
 		$modules['pp-wpforms']['demo'] = 'https://powerpackelements.com/demo/contact-form/';
 		$modules['pp-wpforms']['package'] = 'free';
+		$modules['pp-wpforms']['category'] = 'styler';
     }
-
-    ksort($modules);
 
     return $modules;
 }
@@ -571,138 +574,219 @@ function pp_elements_pro_get_modules() {
 			'pp-recipe'                 =>	[
 				'title'		=>	 __('Recipe', 'powerpack'),
 				'demo'		=>	'recipe',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'content'
 			],
 			'pp-tiled-posts'            =>	[
 				'title'		=>	 __('Tiled Posts', 'powerpack'),
 				'demo'		=>	'tiled-post',
-				'package'	=>	'pro'
+				'icon'		=>	'ppicon-tiled-post',
+				'package'	=>	'pro',
+				'category'	=>	'content'
 			],
 			'pp-posts'					=>	[
 				'title'		=>	__('Posts', 'powerpack'),
 				'demo'		=>	'posts',
-				'package'	=>	'pro'
+				'icon'		=>	'ppicon-posts-grid',
+				'package'	=>	'pro',
+				'category'	=>	'content'
 			],
 			'pp-modal-popup'            =>	[
 				'title'		=>	__('Modal Popup', 'powerpack'),
 				'demo'		=>	'popup-box',
-				'package'	=>	'pro'
+				'icon'		=>	'ppicon-popup-box',
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-onepage-nav'            =>	[
 				'title'		=>	__('One Page Navigation', 'powerpack'),
 				'demo'		=>	'one-page-navigation',
-				'package'	=>	'pro'
+				'icon'		=>	'ppicon-page-navigation',
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-table'                  =>	[
 				'title'		=>	__('Table', 'powerpack'),
 				'demo'		=>	'table',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'content'
 			],
 			'pp-toggle'                 =>	[
 				'title'		=>	__('Toggle', 'powerpack'),
 				'demo'		=>	'content-toggle',
-				'package'	=>	'pro'
+				'icon'		=>	'ppicon-content-toggle',
+				'package'	=>	'pro',
+				'category'	=>	'content'
 			],
 			'pp-google-maps'            =>	[
 				'title'		=>	__('Google Maps', 'powerpack'),
 				'demo'		=>	'google-map',
-				'package'	=>	'pro'
+				'icon'		=>	'ppicon-map',
+				'package'	=>	'pro',
+				'category'	=>	'content'
 			],
 			'pp-review-box'             =>	[
 				'title'		=>	__('Review Box', 'powerpack'),
 				'demo'		=>	'review-box',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-countdown'            	=>	[
 				'title'		=>	__('Countdown', 'powerpack'),
 				'demo'		=>	'countdown',
-				'package'	=> 'pro'
+				'package'	=> 'pro',
+				'category'	=>	'creative'
 			],
 			'pp-advanced-tabs'          =>	[
 				'title'		=>	__('Advanced Tabs', 'powerpack'),
 				'demo'		=>	'advanced-tab',
-				'package'	=>	'pro'
+				'icon'		=>	'ppicon-tabs',
+				'package'	=>	'pro',
+				'category'	=>	'content'
 			],
 			'pp-image-gallery'          =>	[
 				'title'		=>	__('Image Gallery', 'powerpack'),
 				'demo'		=>	'image-gallery',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-image-slider'           =>	[
 				'title'		=>	__('Image Slider', 'powerpack'),
 				'demo'		=>	'image-slider',
-				'package'	=>	'pro'
+				'icon'		=>	'ppicon-gallery-slider',
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-advanced-menu'          =>	[
 				'title'		=>	__('Advanced Menu', 'powerpack'),
 				'demo'		=>	'advanced-menu',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'content'
 			],
 			'pp-offcanvas-content'      =>	[
 				'title'		=>	__('Offcanvas Content', 'powerpack'),
 				'demo'		=>	'offcanvas-content',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-timeline'               =>	[
 				'title'		=>	__('Timeline', 'powerpack'),
 				'demo'		=>	'timeline',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'content'
 			],
 			'pp-showcase'               =>	[
 				'title'		=>	__('Showcase', 'powerpack'),
 				'demo'		=>	'showcase-widget',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-card-slider'            =>	[
 				'title'		=>	__('Card Slider', 'powerpack'),
 				'demo'		=>	'card-slider',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-breadcrumbs'            =>	[
 				'title'		=>	__('Breadcrumbs', 'powerpack'),
 				'demo'		=>	'breadcrumbs',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-magazine-slider'        =>	[
 				'title'		=>	__('Magazine Slider', 'powerpack'),
 				'demo'		=>	'magazine-slider',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'content'
 			],
 			'pp-video'                  =>	[
 				'title'		=>	__('Video', 'powerpack'),
 				'demo'		=>	'video',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-video-gallery'          =>	[
 				'title'		=>	__('Video Gallery', 'powerpack'),
 				'demo'		=>	'video-gallery',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-testimonials'           =>	[
 				'title'		=>	__('Testimonials', 'powerpack'),
 				'demo'		=>	'testimonials',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'content'
 			],
 			'pp-album'                  =>	[
 				'title'		=>	__('Album', 'powerpack'),
 				'demo'		=>	'album',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-tabbed-gallery'			=>	[
 				'title'		=>	__('Tabbed Gallery', 'powerpack'),
 				'demo'		=>	'tabbed-gallery',
-				'package'	=>	'pro'
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-devices'				=>	[
 				'title'		=>	__('Devices', 'powerpack'),
 				'demo'		=>	'devices',
-				'package'	=>	'pro'
+				'icon'		=>	'ppicon-device',
+				'package'	=>	'pro',
+				'category'	=>	'creative'
 			],
 			'pp-faq'					=>	[
 				'title'		=>	__('FAQ', 'powerpack'),
 				'demo'		=>	'faq',
-				'package'	=>	'pro'
-			]
+				'icon'		=>	'ppicon-advanced-accordion',
+				'package'	=>	'pro',
+				'category'	=>	'creative'
+			],
+			'pp-woo-add-to-cart'					=>	[
+				'title'		=>	__('Woo - Add To Cart', 'powerpack'),
+				'demo'		=>	'woo-add-to-cart',
+				'package'	=>	'pro',
+				'category'	=>	'pp-woo'
+			],
+			'pp-woo-categories'					=>	[
+				'title'		=>	__('Woo - Categories', 'powerpack'),
+				'demo'		=>	'woo-category',
+				'package'	=>	'pro',
+				'category'	=>	'pp-woo'
+			],			
+			'pp-woo-cart'					=>	[
+				'title'		=>	__('Woo - Cart', 'powerpack'),
+				'demo'		=>	'woo-cart',
+				'package'	=>	'pro',
+				'category'	=>	'pp-woo'
+			],			
+			'pp-woo-offcanvas-cart'					=>	[
+				'title'		=>	__('Woo - Offcanvas Cart', 'powerpack'),
+				'demo'		=>	'woo-off-canvas-cart',
+				'icon'		=>	'ppicon-offcanvas-cart',
+				'package'	=>	'pro',
+				'category'	=>	'pp-woo'
+			],			
+			'pp-woo-checkout'					=>	[
+				'title'		=>	__('Woo - Checkout', 'powerpack'),
+				'demo'		=>	'woo-checkout',
+				'package'	=>	'pro',
+				'category'	=>	'pp-woo'
+			],						
+			'pp-woo-mini-cart'					=>	[
+				'title'		=>	__('Woo - Mini Cart', 'powerpack'),
+				'demo'		=>	'woo-mini-cart',
+				'icon'		=>	'ppicon-mini-cart',
+				'package'	=>	'pro',
+				'category'	=>	'pp-woo'
+			],						
+			'pp-woo-products'					=>	[
+				'title'		=>	__('Woo - Products', 'powerpack'),
+				'demo'		=>	'woo-product-grid',
+				'package'	=>	'pro',
+				'category'	=>	'pp-woo'
+			],			
 	];
 
 	return $pro_modules;

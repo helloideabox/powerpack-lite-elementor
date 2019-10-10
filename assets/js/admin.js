@@ -9,6 +9,11 @@ var qsRegex;
 // init Isotope
 var $grid = $('.pp-modules-list').isotope({
   itemSelector: '.pp-module',
+  percentPosition: true,
+  layoutMode: 'masonry',
+  masonry: {
+    gutter: '.gutter-sizer'
+  },
   filter: function() {
     var $this = $(this);
     var searchResult = qsRegex ? $this.text().match( qsRegex ) : true;
