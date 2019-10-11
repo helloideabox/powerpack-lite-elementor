@@ -17,18 +17,18 @@ $settings= self::get_settings();
 
 					<div class="pp-module-filter-category" id="filters">
 
-						<div class="button-group" data-filter-group="package">
-							<span class="pp-filter-button show-all is-checked" data-filter="*">Show All</span>
+						<div class="button-group" data-filter-group="package">						
+							<span class="pp-filter-button free is-checked" data-filter=".free">Free</span>
 							<span class="pp-filter-button pro" data-filter=".pro">Pro</span>
-							<span class="pp-filter-button free" data-filter=".free">Free</span>
 						</div>
 						
 						<div class="button-group" data-filter-group="category">
-							<span class="pp-filter-button show-all is-checked" data-filter="*">Show All</span>
+							<span class="pp-filter-button show-all is-checked" data-filter="*">All</span>
 							<span class="pp-filter-button creative" data-filter=".creative">Creative</span>
 							<span class="pp-filter-button content" data-filter=".content">Content</span>
-							<span class="pp-filter-button styler" data-filter=".styler">Styler</span>
-							<span class="pp-filter-button woo" data-filter=".pp-woo">WooCommerce</span>
+							<span class="pp-filter-button styler" data-filter=".seo">SEO</span>
+							<span class="pp-filter-button woo" data-filter=".pp-woo">WooCommerce</span>							
+							<span class="pp-filter-button woo" data-filter=".extensions">Extensions</span>
 						</div>
 					</div>				
 

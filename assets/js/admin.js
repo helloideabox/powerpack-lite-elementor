@@ -2,7 +2,7 @@
 
 // store filter for each group
 var buttonFilters = {};
-var buttonFilter;
+var buttonFilter='.free';
 // quick search regex
 var qsRegex;
 
