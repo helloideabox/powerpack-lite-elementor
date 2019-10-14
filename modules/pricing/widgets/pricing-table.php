@@ -2158,6 +2158,10 @@ class Pricing_Table extends Powerpack_Widget {
             if ( ! empty( $settings['link']['is_external'] ) ) {
                 $this->add_render_attribute( 'table_button_text', 'target', '_blank' );
             }
+
+			if ( ! empty( $settings['link']['nofollow'] ) ) {
+				$this->add_render_attribute( 'table_button_text', 'rel', 'nofollow' );
+			}
         }
         
         $this->add_render_attribute( 'pricing-table-duration', 'class', 'pp-pricing-table-price-duration' );
