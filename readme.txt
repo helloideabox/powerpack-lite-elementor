@@ -150,6 +150,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.7.3 - October 14, 2019 =
+* 	Fixed: rel=nofollow was not working for button link
+
 = 1.2.7.2 - October 9, 2019 =
 * 	Added: Option to enable/disable extensions
 
