@@ -1262,6 +1262,76 @@ class WPforms extends Powerpack_Widget {
         );
         
         $this->end_controls_section();
+
+        /**
+         * Style Tab: Confirmation Message
+         * -------------------------------------------------
+         */
+        $this->start_controls_section(
+            'section_confirmation_style',
+            [
+                'label'                 => __( 'Confirmation Message', 'powerpack' ),
+                'tab'                   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'                  => 'confirmation_typography',
+                'label'                 => __( 'Typography', 'powerpack' ),
+                'selector'              => '{{WRAPPER}} .pp-wpforms .wpforms-confirmation-container-full',
+            ]
+        );
+
+        $this->add_control(
+            'confirmation_text_color',
+            [
+                'label'             => __( 'Text Color', 'powerpack' ),
+                'type'              => Controls_Manager::COLOR,
+                'default'           => '',
+                'selectors'         => [
+                    '{{WRAPPER}} .pp-wpforms .wpforms-confirmation-container-full' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'confirmation_bg_color',
+            [
+                'label'             => __( 'Background Color', 'powerpack' ),
+                'type'              => Controls_Manager::COLOR,
+                'default'           => '',
+                'selectors'         => [
+                    '{{WRAPPER}} .pp-wpforms .wpforms-confirmation-container-full' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'              => 'confirmation_border',
+				'label'             => __( 'Border', 'powerpack' ),
+				'placeholder'       => '1px',
+				'default'           => '1px',
+				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-confirmation-container-full',
+			]
+		);
+
+		$this->add_control(
+			'confirmation_border_radius',
+			[
+				'label'             => __( 'Border Radius', 'powerpack' ),
+				'type'              => Controls_Manager::DIMENSIONS,
+				'size_units'        => [ 'px', 'em', '%' ],
+				'selectors'         => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-confirmation-container-full' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+        
+        $this->end_controls_section();
     }
 
     protected function render() {
