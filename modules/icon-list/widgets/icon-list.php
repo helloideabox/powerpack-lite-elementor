@@ -812,7 +812,7 @@ class Icon_List extends Powerpack_Widget {
 							printf( '<span class="pp-icon-list-image %2$s">%1$s</span>', $image_html, $icon_animation );
 						} elseif ( $item['pp_icon_type'] == 'number' ) {
 							if ( $item['icon_text'] ) {
-								$number = $item['item_text'];
+								$number = $item['icon_text'];
 							} else {
 								$number = $i;
 							}
