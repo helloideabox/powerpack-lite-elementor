@@ -382,7 +382,7 @@ a.pp-button {
 
                         &.pp-support,
                         &.pp-documentation {
-                            height: 300px; 
+                            height: 250px; 
                         }
                     
                         .banner-image {                            
@@ -405,7 +405,6 @@ a.pp-button {
                         .banner-content {
                             
                             text-align: center;
-                            margin-top: -20px;
 
                                & .banner-title-1 {     
                                    
@@ -443,7 +442,7 @@ a.pp-button {
                                 margin-top: 40px;
                                 font-weight: bold;
                                 text-decoration: none;
-                                color: #444;
+                                color: $background-color;
 
                                 &::after {
                                     

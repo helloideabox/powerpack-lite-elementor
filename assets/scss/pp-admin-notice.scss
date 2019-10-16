@@ -1,0 +1,73 @@
+.pp-notice {
+
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;  
+    align-items: center;
+
+    .pp-admin-review-logo-wrapper {
+
+        a {
+
+            img.logo {
+				float: none;
+				margin-left: 10px;
+				width: 55px;
+				padding: 0.25em;
+				border: none;
+				vertical-align: center;
+			}
+        }
+    }
+
+    .pp-admin-review-msg-wrapper {
+
+        padding: 10px 10px 10px 25px;
+
+        .pp-admin-message {
+
+            position: relative;
+            line-height: 1.8;
+            display: inline;
+            font-size: 14px;
+        }
+
+        .pp-admin-review-options-list {
+
+            position: relative;
+            padding-top: 5px;
+            margin: 0;
+
+            li {
+				display:inline-block;
+                margin-right: 10px;
+                margin-bottom: 0;
+                text-decoration: none;
+
+                a {
+
+                    text-decoration: none;
+
+                    &::before {
+                        font-family: dashicons;
+                        vertical-align: middle;
+                    }
+
+                    &.pp-maybe::before {
+                        
+                        content: "\f321";
+                    }
+
+                    &.pp-already::before {
+                        content: "\f328";
+                    }
+
+                    &.pp-support::before {
+                        content: "\f468";
+                    }
+                }
+		    }
+        }
+    }
+}

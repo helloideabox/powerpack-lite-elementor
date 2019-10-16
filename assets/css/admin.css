@@ -369,7 +369,7 @@ a.pp-button:hover {
   text-align: left;
 }
 .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner.pp-support, .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner.pp-documentation {
-  height: 300px;
+  height: 250px;
 }
 .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner .banner-image {
   display: -webkit-box;
@@ -390,7 +390,6 @@ a.pp-button:hover {
 }
 .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner .banner-content {
   text-align: center;
-  margin-top: -20px;
 }
 .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner .banner-content .banner-title-1 {
   text-align: center;
@@ -421,7 +420,7 @@ a.pp-button:hover {
   margin-top: 40px;
   font-weight: bold;
   text-decoration: none;
-  color: #444;
+  color: #5353dc;
 }
 .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner .banner-action a.pp-underline::after {
   content: " ";
