@@ -175,6 +175,11 @@ a.pp-button:hover {
   margin-right: 20px;
   /* Module Grid Header Wrap containing Title, Search Box and Filters */
 }
+@media screen and (max-width: 768px) {
+  .wrap .pp-modules-wrap .form-table .pp-module-grid {
+    width: 100%;
+  }
+}
 .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header {
   display: block;
   position: relative;
@@ -191,6 +196,14 @@ a.pp-button:hover {
   padding-left: 20px;
   padding-right: 20px;
 }
+@media screen and (max-width: 768px) {
+  .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-grid-title-filter-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-grid-title-filter-wrapper .pp-modules-title {
   font-weight: 500;
   font-size: 16px;
@@ -201,6 +214,12 @@ a.pp-button:hover {
   display: inline;
   position: absolute;
   right: 10px;
+}
+@media screen and (max-width: 768px) {
+  .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-grid-title-filter-wrapper .pp-module-filter {
+    position: relative;
+    display: block;
+  }
 }
 .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-grid-title-filter-wrapper .pp-module-filter input#quicksearch {
   border: none;
@@ -258,13 +277,36 @@ a.pp-button:hover {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+@media screen and (max-width: 768px) {
+  .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
 .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category .button-group {
   font-size: 12px !important;
+  display: inline;
+}
+@media screen and (max-width: 768px) {
+  .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category .button-group {
+    text-align: center;
+  }
 }
 .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category .button-group .pp-filter-button {
   margin-right: 10px;
   text-align: center;
   letter-spacing: 1px;
+  display: inline;
+}
+@media screen and (max-width: 768px) {
+  .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category .button-group .pp-filter-button {
+    display: list-item;
+  }
 }
 .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category .button-group .pp-filter-button:hover, .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-module-grid-header .pp-module-filter-category .button-group .pp-filter-button.is-checked {
   border-bottom: 2px solid #4242ce;
@@ -281,6 +323,30 @@ a.pp-button:hover {
   padding: 16px;
   margin-bottom: 20px;
   border-radius: 5px;
+}
+@media screen and (max-width: 768px) {
+  .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-module {
+    width: calc((100% - 2%) / 2);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-module .pp-module-name-icon-wrapper {
+    text-align: center;
+  }
+  .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-module .pp-module-name-icon-wrapper .pp-module-name {
+    display: block !important;
+  }
 }
 .wrap .pp-modules-wrap .form-table .pp-module-grid .pp-modules-list .pp-module:hover {
   -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
@@ -360,16 +426,20 @@ a.pp-button:hover {
   border-top: 2px solid #5353dc;
 }
 .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner.pp-upgrade-pro {
-  height: 440px;
+  height: auto;
 }
 .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner.pp-upgrade-pro .pp-support-title {
-  font-size: 18px !important;
+  font-size: 22px !important;
+  margin: 0;
 }
 .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner.pp-upgrade-pro .banner-content {
   text-align: left;
 }
-.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner.pp-support, .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner.pp-documentation {
-  height: 250px;
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner.pp-documentation {
+  height: auto;
+}
+.wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner.pp-support {
+  height: auto;
 }
 .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner .banner-image {
   display: -webkit-box;
@@ -382,6 +452,7 @@ a.pp-button:hover {
 .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner .banner-image .pp-support-title {
   display: inline-block;
   font-size: 24px;
+  margin-bottom: 0;
 }
 .wrap .pp-modules-wrap .form-table .side-banner .banner-inner.pro-upgrade-banner .banner-image img {
   max-width: 100%;

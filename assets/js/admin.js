@@ -44,9 +44,14 @@ var $quicksearch = $('#quicksearch').keyup( debounce( function() {
 // change is-checked class on buttons
 $('.button-group').each( function( i, buttonGroup ) {
   var $buttonGroup = $( buttonGroup );
-  $buttonGroup.on( 'click', 'span', function() {
+  $buttonGroup.on( 'click', 'li', function() {
     $buttonGroup.find('.is-checked').removeClass('is-checked');
     $( this ).addClass('is-checked');
+
+    if ((typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1))
+      {
+         
+      }
   });
 });
   

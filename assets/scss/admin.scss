@@ -175,7 +175,11 @@ a.pp-button {
                 padding: 20px;
                 box-shadow: $light-box-shadow;
                 border-top: 2px solid #5353dc;
-                margin-right: 20px;      
+                margin-right: 20px;
+                
+                @media screen and (max-width: 768px) {
+                    width: 100%;
+                }
 
                 /* Module Grid Header Wrap containing Title, Search Box and Filters */
                 .pp-module-grid-header {
@@ -191,6 +195,10 @@ a.pp-button {
                         padding-left: 20px;
                         padding-right: 20px;
 
+                        @media screen and (max-width: 768px) {
+                            flex-direction: column;
+                        }
+
                         .pp-modules-title {
                             font-weight: 500;
                             font-size: 16px;
@@ -202,6 +210,11 @@ a.pp-button {
                             display: inline;
                             position: absolute;
                             right:10px;
+
+                            @media screen and (max-width: 768px) {
+                                position: relative;
+                                display: block;
+                            }
 
                             input#quicksearch {
                                 border: none;
@@ -244,14 +257,29 @@ a.pp-button {
                         flex-direction: row;
                         justify-content: space-between;
 
+                        @media screen and (max-width: 768px) {
+                            flex-direction: column;
+                            justify-content: center;
+                        } 
+
                         & .button-group {
                             font-size: 12px !important;
+                            display: inline;
+
+                            @media screen and (max-width: 768px) {
+                                text-align: center;                               
+                            }
                         
                             .pp-filter-button
                             {
                                 margin-right: 10px;
                                 text-align: center;
                                 letter-spacing: 1px;
+                                display: inline;
+
+                                @media screen and (max-width: 768px) {
+                                    display: list-item;
+                                }
 
                                 &:hover ,
                                 &.is-checked {
@@ -274,6 +302,23 @@ a.pp-button {
                         margin-bottom:20px;
                         border-radius: 5px;
                         @extend %flex-base-horizontal;
+
+                        @media screen and (max-width: 768px) {
+                            width: calc((100% - 2%) / 2);
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+
+                            .pp-module-name-icon-wrapper {
+                                
+                                text-align: center;
+
+                                .pp-module-name {
+                                    display: block !important;
+                                }
+                            }
+                        }
                         
                         &:hover {
                             box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.20);
@@ -368,11 +413,12 @@ a.pp-button {
                         border-top: 2px solid #5353dc;
 
                         &.pp-upgrade-pro {
-                            height: 440px;
+                            height: auto;
                             
                             .pp-support-title {
 
-                                font-size: 18px !important;  
+                                font-size: 22px !important;
+                                margin: 0;
                             }
 
                             .banner-content {
@@ -380,9 +426,12 @@ a.pp-button {
                             }
                         }
 
-                        &.pp-support,
                         &.pp-documentation {
-                            height: 250px; 
+                            height: auto; 
+                        }
+
+                        &.pp-support    {
+                            height: auto;
                         }
                     
                         .banner-image {                            
@@ -393,6 +442,7 @@ a.pp-button {
 
                                 display: inline-block;
                                 font-size: 24px;
+                                margin-bottom: 0;
                             }
 
                                 

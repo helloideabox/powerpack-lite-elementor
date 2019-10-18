@@ -20,7 +20,7 @@ class PP_Modules_Reviews {
 	 *
 	 * @var string
 	 */
-	public static $api_url = '';
+	public static $api_url = 'http://ibxtest.kinsta.cloud/wp-json/pp/v1/review_action';
 
 	/**
 	 *
@@ -89,6 +89,12 @@ class PP_Modules_Reviews {
 				case 'already_did':
 					self::already_did( true );
 					break;
+				case 'yes_for_details':
+					self::track_details( true );
+					break;
+				case 'pp_support':
+					self::pp_support( true );
+					break;
 			}
 
 			wp_send_json_success();
@@ -112,6 +118,7 @@ class PP_Modules_Reviews {
 
 			foreach ( $triggers as $g => $group ) {
 				foreach ( $group['triggers'] as $t => $trigger ) {
+
 					if ( ! in_array( false, $trigger['conditions'] ) && ( empty( $dismissed_triggers[ $g ] ) || $dismissed_triggers[ $g ] < $trigger['pri'] ) ) {
 						$selected = $g;
 						break;
@@ -123,6 +130,7 @@ class PP_Modules_Reviews {
 				}
 			}
 		}
+
 		return $selected;
 	}
 
@@ -139,7 +147,8 @@ class PP_Modules_Reviews {
 			foreach ( self::triggers() as $g => $group ) {
 				foreach ( $group['triggers'] as $t => $trigger ) {
 					if ( ! in_array( false, $trigger['conditions'] ) && ( empty( $dismissed_triggers[ $g ] ) || $dismissed_triggers[ $g ] < $trigger['pri'] ) ) {
-						$selected = $t;
+
+						$selected = $t;;
 						break;
 					}
 				}
@@ -214,24 +223,37 @@ class PP_Modules_Reviews {
 	}
 
 	/**
-	 *  Triggers and Messages
+	 * 	Returns true if the user has opted to share the anonymous details from the site.
 	 */
 
-	 public static function get_trigger ($trigger_id) {
+	public static function track_details( $set = false ) {
+		$user_id = get_current_user_id();
 
-		if(	"feedback" === $trigger_id	) {
-		
-			$message	=	[
-					"message"	=>	"Loving PowerPack? We'll love to hear more about it from you. Please share your feelings with us by clicking the links below.",
-					"link-1"	=>	["Feedback", "https://#"],
-					"link-2"	=>	["Support",	"https://#"],
-			];
-		} else {
-			$message = "PowerPackkko!";	
-		} 
+		if ( $set ) {
+			update_user_meta( $user_id, '_pp_reviews_get_details', true );
 
-		return $message;
-	 }
+			return true;
+		}
+
+		return (bool) get_user_meta( $user_id, '_pp_reviews_get_details', true );
+	}
+
+	/**
+	 * 	Returns true if the user has opted to share the anonymous details from the site.
+	 */
+
+	public static function pp_support( $set = false ) {
+		$user_id = get_current_user_id();
+
+		if ( $set ) {
+			update_user_meta( $user_id, '_pp_reviews_get_support', true );
+			
+
+			return true;
+		}
+
+		return (bool) get_user_meta( $user_id, '_pp_reviews_get_support', true );
+	}
 
 	/**
 	 * Gets a list of triggers.
@@ -246,39 +268,37 @@ class PP_Modules_Reviews {
 
 		if ( ! isset( $triggers ) ) {
 
-			$review_message		=	__( "Hey, we hope that you're loving PowerPack. It'll be really awesome if you can give us 5-star rating on WordPress.org", "powerpack" );
-			$feeback_message 	=	__(	"Loving PowerPack? It'll be really motivating if you can leave us a feedback!", "powerpack"	);
-			$upgrade_messsage	=	__(	"Upgrade now to PowerPack Pro to get 15% OFF and a lot more premium features like 60+ Premium Widgets, Display Extensions", "powerpack"	);
+			$time_message = __( "Hey, we hope that you're loving PowerPack. It'll be really awesome if you can give us 5-star rating on WordPress.org", 'powerpack' );
 
 			$triggers = apply_filters( 'pp_reviews_triggers', array(
 				'time_installed' => array(
 					'triggers' => array(
-						'five_minutes'     => array(
-							'message'    => $review_message,
+						'review'     => array(
+							'message'    => sprintf( __( 'Thank you for choosing <strong>PowerPack</strong> for Elementor. Here are some quick links to get you started!', 'powerpack' ) ),
 							'conditions' => array(
 								strtotime( self::installed_on() . ' +5 minutes' ) < time(),
 							),
 							'link'       => 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response',
 							'pri'        => 10,
 						),						
-						'one_week'    => array(
-							'message'    => $feeback_message,
+						'upsale'    => array(
+							'message'    => sprintf( __( 'PowerPack Pro consist of more than 60+ premium widgets and Row Extensions such as Background Effects and Display Conditions. And not to mention our stellar support.', 'powerpack' ) ),
 							'conditions' => array(
-								strtotime( self::installed_on() . ' +1 week' ) < time(),
+								strtotime( self::installed_on() . ' +7 minutes' ) < time(),
 							),
 							'link'       => 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response',
 							'pri'        => 20,
 						),
-						'one_month'    => array(
-							'message'    => $upgrade_messsage,
+						'feedback'    => array(
+							'message'    => sprintf( $time_message, __( '1 month', 'powerpack' ) ),
 							'conditions' => array(
 								strtotime( self::installed_on() . ' +1 month' ) < time(),
 							),
 							'link'       => 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response',
 							'pri'        => 30,
 						),
-						'three_months' => array(
-							'message'    => $upgrade_messsage,
+						'tracking_details' => array(
+							'message'    => sprintf( $time_message, __( '3 months', 'powerpack' ) ),
 							'conditions' => array(
 								strtotime( self::installed_on() . ' +3 months' ) < time(),
 							),
@@ -289,29 +309,7 @@ class PP_Modules_Reviews {
 					),
 					'pri'      => 10,
 				),
-				'open_count'     => array(
-					'triggers' => array(),
-					'pri'      => 50,
-				),
-			) );
-
-			$open_message = __( "Hey, we hope that you're loving PowerPack. It'll be really awesome if you can give us 5-star rating on WordPress.org", 'powerpack' );
-
-			$priority = 10;
-			foreach ( array( 5,10,50, 100, 500, 1000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000 ) as $num ) {
-				$triggers['open_count']['triggers'][ $num . '_opens' ] = array(
-					'message'    => sprintf( $open_message, number_format( $num ) ),
-					'conditions' => array(
-						get_option( 'pp_total_open_count', 0 ) > $num,
-					),
-					'link'       => 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response',
-					'pri'        => $priority,
-				);
-
-				$priority += 10;
-			}
-
-
+			));
 
 			// Sort Groups
 			uasort( $triggers, array( __CLASS__, 'rsort_by_priority' ) );
@@ -346,6 +344,7 @@ class PP_Modules_Reviews {
 		$pri    = self::get_current_trigger( 'pri' );
 		$tigger = self::get_current_trigger();
 
+
 		// Used to anonymously distinguish unique site+user combinations in terms of effectiveness of each trigger.
 		$uuid = wp_hash( home_url() . '-' . get_current_user_id() );
 
@@ -374,17 +373,27 @@ class PP_Modules_Reviews {
 						}
 					});
 
-					<?php if ( ! empty( self::$api_url ) ) : ?>
+					<?php  if ( ! empty( self::$api_url ) ) : ?>
 					$.ajax({
 						method: "POST",
 						dataType: "json",
+						crossDomain: true,
 						url: '<?php echo self::$api_url; ?>',
 						data: {
 							trigger_group: trigger.group,
 							trigger_code: trigger.code,
 							reason: reason,
 							uuid: '<?php echo $uuid; ?>'
-						}
+						},
+						success: function(msg) {
+							alert("Data Saved" + msg);
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+								 alert("some error");
+								console.log(XMLHttpRequest.statusText);
+								console.log(textStatus);
+								console.log(errorThrown);  
+							},
 					});
 					<?php endif; ?>
 				}
@@ -429,27 +438,85 @@ class PP_Modules_Reviews {
 				</p>
 				<div>
 					<ul class="pp-admin-review-options-list">
+					<?php
 						
-						<li>
-							<a class="pp-dismiss pp-deserve" target="_blank" href="https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response" data-reason="am_now">
-								<strong><?php _e( 'Sure!', 'powerpack' ); ?></strong>
-							</a>
-						</li>
-						<li>
-							<a href="#" class="pp-dismiss pp-maybe" data-reason="maybe_later">
-								<?php _e( 'Maybe Later', 'powerpack' ); ?>
-							</a>
-						</li>
-						<li>
-							<a href="#" class="pp-dismiss pp-already" data-reason="already_did">
-								<?php _e( 'I already did', 'powerpack' ); ?>
-							</a>
-						</li>
-						<li>
-							<a href="https://powerpackelements.com/contact/" class="pp-support">
-								<?php _e( 'Need Help?', 'powerpack' ); ?>
-							</a>
-						</li>						
+						switch($code) {
+							
+							case "upsale":
+								?>
+							<li>
+								<a class="pp-dismiss pp-deserve" target="_blank" href="https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response" data-reason="am_now">
+									<strong><?php _e( 'Get Pro!', 'powerpack' ); ?></strong>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="pp-dismiss pp-maybe" data-reason="maybe_later">
+									<?php _e( 'Maybe Later', 'powerpack' ); ?>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="pp-dismiss pp-already" data-reason="already_did">
+									<?php _e( 'I already did', 'powerpack' ); ?>
+								</a>
+							</li>
+								<?php break;
+							case "review":
+							?>
+							<li>
+								<a class="pp-dismiss pp-deserve" target="_blank" href="https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response" data-reason="am_now">
+									<strong><?php _e( 'Sure!', 'powerpack' ); ?></strong>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="pp-dismiss pp-maybe" data-reason="maybe_later">
+									<?php _e( 'Maybe Later', 'powerpack' ); ?>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="pp-dismiss pp-already" data-reason="already_did">
+									<?php _e( 'I already did', 'powerpack' ); ?>
+								</a>
+							</li>
+							<li>
+								<a href="https://powerpackelements.com/contact/" class="pp-dismiss pp-support" data-reason="pp_support">
+									<?php _e( 'Need Help?', 'powerpack' ); ?>
+								</a>
+							</li>
+							<?php break;
+							case "feedback":
+							?>
+							<li>
+								<a href="#" class="pp-dismiss pp-maybe" data-reason="maybe_later">
+									<?php _e( 'Share Feedback', 'powerpack' ); ?>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="pp-dismiss pp-maybe" data-reason="maybe_later">
+									<?php _e( 'Maybe Later', 'powerpack' ); ?>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="pp-dismiss pp-already" data-reason="already_did">
+									<?php _e( 'I already did', 'powerpack' ); ?>
+								</a>
+							</li>
+							<?php break;
+							case "tracking_details":
+							?>
+							<li>
+								<a href="#" class="pp-dismiss pp-details" data-reason="yes_for_details">
+									<?php _e( 'Yes', 'powerpack' ); ?>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="pp-dismiss pp-details" data-reason="yes_for_details">
+									<?php _e( 'No', 'powerpack' ); ?>
+								</a>
+							</li>
+							<?php
+							break;
+						}
+					?>									
 					</ul>
 				</div>
 			</div>
@@ -466,7 +533,7 @@ class PP_Modules_Reviews {
 	public static function hide_notices() {
 		$conditions = array(
 			self::already_did(),
-			self::last_dismissed() && strtotime( self::last_dismissed() . ' +2 weeks' ) > time(),
+			self::last_dismissed() && strtotime( self::last_dismissed() . ' +1 min' ) > time(),
 			empty( self::get_trigger_code() ),
 		);
 

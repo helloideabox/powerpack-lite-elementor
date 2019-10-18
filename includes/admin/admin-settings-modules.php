@@ -17,19 +17,19 @@ $settings= self::get_settings();
 
 					<div class="pp-module-filter-category" id="filters">
 
-						<div class="button-group" data-filter-group="package">						
-							<span class="pp-filter-button free is-checked" data-filter=".free">Free</span>
-							<span class="pp-filter-button pro" data-filter=".pro">Pro</span>
-						</div>
+						<ul class="button-group pp-package" data-filter-group="package">						
+							<li class="pp-filter-button free is-checked" data-filter=".free">Free</li>
+							<li class="pp-filter-button pro" data-filter=".pro">Pro</li>
+						</ul>
 						
-						<div class="button-group" data-filter-group="category">
-							<span class="pp-filter-button show-all is-checked" data-filter="*">All</span>
-							<span class="pp-filter-button creative" data-filter=".creative">Creative</span>
-							<span class="pp-filter-button content" data-filter=".content">Content</span>
-							<span class="pp-filter-button styler" data-filter=".seo">SEO</span>
-							<span class="pp-filter-button woo" data-filter=".pp-woo">WooCommerce</span>							
-							<span class="pp-filter-button woo" data-filter=".extensions">Extensions</span>
-						</div>
+						<ul class="button-group pp-category" data-filter-group="category">
+							<li class="pp-filter-button show-all is-checked" data-filter="*">All</li>
+							<li class="pp-filter-button creative" data-filter=".creative">Creative</li>
+							<li class="pp-filter-button content" data-filter=".content">Content</li>
+							<li class="pp-filter-button styler" data-filter=".seo">SEO</li>
+							<li class="pp-filter-button woo" data-filter=".pp-woo">WooCommerce</li>							
+							<li class="pp-filter-button woo" data-filter=".extensions">Extensions</li>
+						</ul>
 					</div>				
 
 					</div>
