@@ -145,10 +145,10 @@ class PP_Modules_Reviews {
 			$dismissed_triggers = self::dismissed_triggers();
 
 			foreach ( self::triggers() as $g => $group ) {
-				foreach ( $group['triggers'] as $t => $trigger ) {
-					if ( ! in_array( false, $trigger['conditions'] ) && ( empty( $dismissed_triggers[ $g ] ) || $dismissed_triggers[ $g ] < $trigger['pri'] ) ) {
-
-						$selected = $t;;
+				foreach ( $group['triggers'] as $t => $trigger ) {					
+					if ( !in_array( false, $trigger['conditions'] ) && ( empty( $dismissed_triggers[ $g ] ) || $dismissed_triggers[ $g ] < $trigger['pri'] ) ) {
+						
+						$selected = $t;
 						break;
 					}
 				}
@@ -247,7 +247,6 @@ class PP_Modules_Reviews {
 
 		if ( $set ) {
 			update_user_meta( $user_id, '_pp_reviews_get_support', true );
-			
 
 			return true;
 		}
@@ -279,28 +278,28 @@ class PP_Modules_Reviews {
 								strtotime( self::installed_on() . ' +5 minutes' ) < time(),
 							),
 							'link'       => 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response',
-							'pri'        => 10,
+							'pri'        => 50,
 						),						
 						'upsale'    => array(
 							'message'    => sprintf( __( 'PowerPack Pro consist of more than 60+ premium widgets and Row Extensions such as Background Effects and Display Conditions. And not to mention our stellar support.', 'powerpack' ) ),
 							'conditions' => array(
-								strtotime( self::installed_on() . ' +7 minutes' ) < time(),
-							),
-							'link'       => 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response',
-							'pri'        => 20,
-						),
-						'feedback'    => array(
-							'message'    => sprintf( $time_message, __( '1 month', 'powerpack' ) ),
-							'conditions' => array(
-								strtotime( self::installed_on() . ' +1 month' ) < time(),
+								strtotime( self::installed_on() . ' +3 months' ) < time(),
 							),
 							'link'       => 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response',
 							'pri'        => 30,
 						),
-						'tracking_details' => array(
-							'message'    => sprintf( $time_message, __( '3 months', 'powerpack' ) ),
+						'feedback'    => array(
+							'message'    => sprintf( __( "Your opinion always keeps us motivated and help us make PowerPack better everyday. It'll be really great if you can leave us a feedback.", 'powerpack' ) ),
 							'conditions' => array(
-								strtotime( self::installed_on() . ' +3 months' ) < time(),
+								strtotime( self::installed_on() . ' +2 weeks' ) < time(),
+							),
+							'link'       => 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response',
+							'pri'        => 20,
+						),
+						'tracking_details' => array(
+							'message'    => sprintf( __( "Help us make PowerPack Great by collecting anonymous usage data.", 'powerpack' ) ),
+							'conditions' => array(
+								strtotime( self::installed_on() . ' +1 month' ) < time(),
 							),
 							'link'       => 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?rate=5#rate-response',
 							'pri'        => 40,
@@ -327,6 +326,7 @@ class PP_Modules_Reviews {
 
 			return ! isset( $code ) ? $triggers[ $group ] : isset( $triggers[ $group ]['triggers'][ $code ] ) ? $triggers[ $group ]['triggers'][ $code ] : false;
 		}
+		//echo "<pre>";print_r($triggers); echo "</pre>"; die();
 
 		return $triggers;
 	}
