@@ -290,6 +290,26 @@ class Info_List extends Powerpack_Widget {
 				'separator'             => 'before',
 			]
 		);
+        
+        $this->add_control(
+            'title_html_tag',
+            [
+                'label'                 => __( 'Title HTML Tag', 'powerpack' ),
+                'type'                  => Controls_Manager::SELECT,
+                'default'               => 'div',
+                'options'               => [
+                    'h1'     => __( 'H1', 'powerpack' ),
+                    'h2'     => __( 'H2', 'powerpack' ),
+                    'h3'     => __( 'H3', 'powerpack' ),
+                    'h4'     => __( 'H4', 'powerpack' ),
+                    'h5'     => __( 'H5', 'powerpack' ),
+                    'h6'     => __( 'H6', 'powerpack' ),
+                    'div'    => __( 'div', 'powerpack' ),
+                    'span'   => __( 'span', 'powerpack' ),
+                    'p'      => __( 'p', 'powerpack' ),
+                ],
+            ]
+        );
 
 		$this->add_control(
 			'connector',
@@ -1221,7 +1241,7 @@ class Info_List extends Powerpack_Widget {
                                     <a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
                                 <?php } ?>
 								<?php if ( $item['text'] ) { ?>
-                                <div <?php echo $this->get_render_attribute_string( $text_key ); ?>>
+                                <?php printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( $text_key ) ); ?>
                                     <?php if ( ! empty( $item['link']['url'] ) && $item['link_type'] == 'title' ) { ?>
                                         <a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
                                     <?php } ?>
@@ -1229,7 +1249,7 @@ class Info_List extends Powerpack_Widget {
                                     <?php if ( ! empty( $item['link']['url'] ) && $item['link_type'] == 'title' ) { ?>
                                         </a>
                                     <?php } ?>
-                                </div>
+                                </<?php echo $settings['title_html_tag']; ?>>
 								<?php } ?>
                                 <?php
 									if ( $item['description'] ) {
@@ -1449,7 +1469,7 @@ class Info_List extends Powerpack_Widget {
 										<a href="{{ item.link.url }}">
 									<# } #>
 										<# if ( item.text ) { #>
-										<div class="pp-info-list-title">
+										<{{settings.title_html_tag}} class="pp-info-list-title">
 											<# if ( item.link.url != '' && item.link_type == 'title' ) { #>
 												<a href="{{ item.link.url }}">
 											<# } #>
@@ -1459,7 +1479,7 @@ class Info_List extends Powerpack_Widget {
 											<# if ( item.link.url != '' && item.link_type == 'title' ) { #>
 												</a>
 											<# } #>
-										</div>
+										</{{settings.title_html_tag}}>
 										<# } #>
 										<# if ( item.description ) { #>
 										<div {{{ view.getRenderAttributeString( description_key ) }}}>
