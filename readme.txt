@@ -150,6 +150,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.7.4 - November 1, 2019 =
+* 	Added: Added Title HTML tag option in Info List widget
+
 = 1.2.7.3 - October 14, 2019 =
 * 	Fixed: rel=nofollow was not working for button link
 
