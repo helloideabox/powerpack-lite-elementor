@@ -168,6 +168,55 @@ function pp_elements_lite_get_wpforms_forms() {
 	return $options;
 }
 
+// Get all forms of Formidable Forms plugin
+if ( ! function_exists( 'pp_elements_lite_get_formidable_forms' ) ) {
+	function pp_elements_lite_get_formidable_forms() {
+		if ( class_exists('FrmForm') ) {
+			$options = array();
+
+            $forms = FrmForm::get_published_forms( array(), 999, 'exclude' );
+            if ( count( $forms ) ) {
+				$i = 0;
+                foreach ( $forms as $form ) {
+					if ( 0 === $i ) {
+						$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
+					}
+                	$options[$form->id] = $form->name;
+					$i++;
+				}
+            }
+        } else {
+			$options = array();
+		}
+
+		return $options;
+	}
+}
+
+// Get all forms of Fluent Forms plugin
+if ( ! function_exists( 'pp_elements_lite_get_fluent_forms' ) ) {
+	function pp_elements_lite_get_fluent_forms() {
+		$options = array();
+
+		if ( function_exists( 'wpFluentForm' ) ) {
+			
+			global $wpdb;
+            
+            $result = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}fluentform_forms" );
+            if ( $result ) {
+                $options[0] = esc_html__('Select a Contact Form', 'powerpack');
+                foreach( $result as $form ) {
+                    $options[$form->id] = $form->title;
+                }
+            } else {
+                $options[0] = esc_html__('No forms found!', 'powerpack');
+            }
+		}
+
+		return $options;
+	}
+}
+
 // Get categories
 function pp_elements_lite_get_post_categories() {
 
@@ -382,6 +431,16 @@ function pp_elements_lite_get_modules() {
     // WPForms
     if ( function_exists( 'wpforms' ) ) {
         $modules['pp-wpforms'] = esc_html__('WPForms', 'power-pack');
+    }
+    
+    // Formidable Forms
+    if ( class_exists( 'FrmForm' ) ) {
+        $modules['pp-formidable-forms'] = __('Formidable Forms', 'powerpack');
+	}
+	
+	// Fluent Forms
+    if ( function_exists( 'wpFluentForm' ) ) {
+        $modules['pp-fluent-forms'] = __('Fluent Forms', 'powerpack');
     }
 
     ksort($modules);
