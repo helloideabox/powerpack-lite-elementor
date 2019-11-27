@@ -1,3 +1,8 @@
+== 1.2.8 ==
+Release date: November 27, 2019
+* New: Formidable Forms widget
+* New: Fluent Forms widget
+
 == 1.2.7.4 ==
 Release date: November 1, 2019
 * Added: Added Title HTML tag option in Info List widget

@@ -150,6 +150,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.8 - November 27, 2019 =
+* 	New: Formidable Forms widget
+* 	New: Fluent Forms widget
+
 = 1.2.7.4 - November 1, 2019 =
 * 	Added: Added Title HTML tag option in Info List widget
 
