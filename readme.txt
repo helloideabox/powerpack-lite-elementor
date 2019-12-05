@@ -150,6 +150,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.8.1 - December 5, 2019 =
+* 	Added: Title HTML tag option in Image Accordion widget
+
 = 1.2.8 - November 27, 2019 =
 * 	New: Formidable Forms widget
 * 	New: Fluent Forms widget
