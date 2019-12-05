@@ -328,6 +328,27 @@ class Image_Accordion extends Powerpack_Widget {
             ]
         );
         
+        $this->add_control(
+            'title_html_tag',
+            [
+                'label'                => __( 'Title HTML Tag', 'powerpack' ),
+                'type'                 => Controls_Manager::SELECT,
+                'default'              => 'h2',
+				'separator'             => 'before',
+                'options'              => [
+                    'h1'     => __( 'H1', 'powerpack' ),
+                    'h2'     => __( 'H2', 'powerpack' ),
+                    'h3'     => __( 'H3', 'powerpack' ),
+                    'h4'     => __( 'H4', 'powerpack' ),
+                    'h5'     => __( 'H5', 'powerpack' ),
+                    'h6'     => __( 'H6', 'powerpack' ),
+                    'div'    => __( 'div', 'powerpack' ),
+                    'span'   => __( 'span', 'powerpack' ),
+                    'p'      => __( 'p', 'powerpack' ),
+                ],
+            ]
+        );
+        
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
@@ -1130,9 +1151,11 @@ class Image_Accordion extends Powerpack_Widget {
                         <div class="pp-image-accordion-overlay">
                             <div <?php echo $this->get_render_attribute_string( $content_key ); ?>>
                                 <div class="pp-image-accordion-content">
-                                    <h2 class="pp-image-accordion-title">
-                                        <?php echo $item['title']; ?>
-                                    </h2>
+                                    <?php
+										printf( '<%1$s class="pp-image-accordion-title">', $settings['title_html_tag'] );
+											echo $item['title'];
+										printf( '</%1$s>', $settings['title_html_tag'] );
+									?>
                                     <div class="pp-image-accordion-description">
                                         <?php echo $item['description']; ?>
                                     </div>
