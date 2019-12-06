@@ -274,7 +274,7 @@ class PP_Modules_Reviews {
 				'time_installed' => array(
 					'triggers' => array(
 						'review'     => array(
-							'message'    => sprintf( __( 'Upgrade to PowerPack Pro with 60+ Widgets for a <strong>%2$s</strong> during our Biggest Sale of the Year.', 'powerpack' ), '#', 'HUGE 40% Discount' ),
+							'message'    => sprintf( __( 'Are you enjoying <strong>PowerPack Lite for Elementor</strong>? Would you consider a <a href="%1$s" target="_blank">kind review to help continue development of this plugin?</a>', 'powerpack' ), 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/' ),
 							'conditions' => array(
 								strtotime( self::installed_on() . ' +5 minutes' ) < time(),
 							),
@@ -437,15 +437,6 @@ class PP_Modules_Reviews {
 				<p class="pp-admin-message">
 					<?php echo $tigger['message']; ?>
 				</p>
-				<div style="display: inline-block; vertical-align: middle;">
-					<ul class="pp-admin-review-options-list">
-						<li>
-							<a class="button button-primary consent" target="_blank" href="https://powerpackelements.com/pricing/?utm_source=powerpack-lite&utm_campaign=bfs&discount=savebig" data-reason="am_now">
-								<strong><?php _e( 'Get Pro!', 'powerpack' ); ?></strong>
-							</a>
-						</li>
-					</ul>
-				</div>
 			</div>
 		</div>
 
