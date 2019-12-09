@@ -1,6 +1,7 @@
 == 1.2.8.2 ==
-Release date: December 6, 2019
+Release date: December 9, 2019
 * Updated admin notice
+* Updated Instagram Feed widget
 
 == 1.2.8.1 ==
 Release date: December 5, 2019
