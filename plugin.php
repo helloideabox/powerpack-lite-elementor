@@ -181,6 +181,16 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
+			'pp-instagram',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/pp-instagram.js',
+			[
+				'jquery',
+			],
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
 			'twentytwenty',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/jquery.twentytwenty.js',
 			[

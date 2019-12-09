@@ -191,86 +191,123 @@
     };
     
     var InstaFeedPopupHandler = function ($scope, $) {
-        var instafeed_elem              = $scope.find('.pp-instagram-feed').eq(0),
+        var widget_id					= $scope.data('id'),
+			instafeed_elem              = $scope.find('.pp-instagram-feed').eq(0),
+			elementSettings				= getElementSettings( $scope ),
             settings                    = instafeed_elem.data('settings'),
-            pp_widget_id                = settings.target,
+            taregt_id					= settings.target,
             pp_popup                    = settings.popup,
-            like_span                   = (settings.likes === '1') ? '<span class="likes"><i class="fa fa-heart"></i> {{likes}}</span>' : '',
-            comments_span               = (settings.comments === '1') ? '<span class="comments"><i class="fa fa-comment"></i> {{comments}}</span>' : '',
+            layout                    	= elementSettings.feed_layout,
+            likes                    	= elementSettings.insta_likes,
+            comments                    = elementSettings.insta_comments,
+            icons_style                 = (elementSettings.icons_style === 'outline') ? '-o' : '',
+            like_span                   = (likes === 'yes') ? '<span class="likes"><i class="pp-if-icon fa fa-heart' + icons_style + '"></i> {{likes}}</span>' : '',
+            comments_span               = (comments === 'yes') ? '<span class="comments"><i class="pp-if-icon fa fa-comment' + icons_style + '"></i> {{comments}}</span>' : '',
             $more_button                = instafeed_elem.find('.pp-load-more-button');
-        
-		if ( settings.user_id && settings.access_token ) {
-			var feed = new Instafeed({
-				get:                    'user',
-				userId:                 settings.user_id,
-				sortBy:                 settings.sort_by,
-				accessToken:            settings.access_token,
-				limit:                  settings.images_count,
-				target:                 pp_widget_id,
-				resolution:             settings.resolution,
-				orientation:            'portrait',
-				template:               function () {
-					if (pp_popup === '1') {
-						if (settings.layout === 'carousel') {
-							return '<div class="pp-feed-item swiper-slide"><a href="{{image}}"><div class="pp-overlay-container">' + like_span + comments_span + '</div><img src="{{image}}" /></a></div>';
+		
+		var $slider_options;
+		
+		if (layout === 'carousel') {
+			var $carousel       = $scope.find('.swiper-container').eq(0),
+				$slider_options = JSON.parse( $carousel.attr('data-slider-settings') );
+		}
+		
+		if ( elementSettings.use_api === 'yes' ) {
+			if ( settings.user_id && settings.access_token ) {
+				var feed = new Instafeed({
+					get:                    'user',
+					userId:                 settings.user_id,
+					sortBy:                 settings.sort_by,
+					accessToken:            settings.access_token,
+					limit:                  settings.images_count,
+					target:                 taregt_id,
+					resolution:             settings.resolution,
+					orientation:            'portrait',
+					template:               function () {
+						if (pp_popup === '1') {
+							if (layout === 'carousel') {
+								return '<div class="pp-feed-item swiper-slide"><div class="pp-feed-item-inner"><a href="{{image}}"><div class="pp-if-img"><div class="pp-overlay-container">' + like_span + comments_span + '</div><img src="{{image}}" /></div></a></div></div>';
+							} else {
+								return '<div class="pp-feed-item"><div class="pp-feed-item-inner"><a href="{{image}}"><div class="pp-if-img"><div class="pp-overlay-container">' + like_span + comments_span + '</div><img src="{{image}}" /></div></a></div></div>';
+							}
 						} else {
-							return '<div class="pp-feed-item"><div class="pp-feed-item-inner"><a href="{{image}}"><div class="pp-overlay-container">' + like_span + comments_span + '</div><img src="{{image}}" /></a></div></div>';
+							if (layout === 'carousel') {
+								return '<div class="pp-feed-item swiper-slide"><div class="pp-feed-item-inner">' +
+									'<a href="{{link}}">' +
+										'<div class="pp-if-img">' +
+										'<div class="pp-overlay-container">' + like_span + comments_span + '</div>' +
+										'<img src="{{image}}" />' +
+										'</div>' +
+									'</a>' +
+									'</div></div>';
+							} else {
+								return '<div class="pp-feed-item"><div class="pp-feed-item-inner">' +
+									'<a href="{{link}}">' +
+										'<div class="pp-if-img">' +
+										'<div class="pp-overlay-container">' + like_span + comments_span + '</div>' +
+										'<img src="{{image}}" />' +
+										'</div>' +
+									'</a>' +
+									'</div></div>';
+							}
 						}
-					} else {
-						if (settings.layout === 'carousel') {
-							return '<div class="pp-feed-item swiper-slide">' +
-								'<a href="{{link}}">' +
-									'<div class="pp-overlay-container">' + like_span + comments_span + '</div>' +
-									'<img src="{{image}}" />' +
-								'</a>' +
-								'</div>';
-						} else {
-							return '<div class="pp-feed-item"><div class="pp-feed-item-inner">' +
-								'<a href="{{link}}">' +
-									'<div class="pp-overlay-container">' + like_span + comments_span + '</div>' +
-									'<img src="{{image}}" />' +
-								'</a>' +
-								'</div></div>';
+					}(),
+					after: function () {
+						if (layout === 'carousel') {
+							var mySwiper        = new Swiper($carousel, $slider_options);
 						}
+						if (layout === 'masonry') {
+							var grid = $('#pp-instafeed-' + widget_id).imagesLoaded( function() {
+								grid.masonry({
+									itemSelector: '.pp-feed-item',
+									percentPosition: true
+								});
+							});
+						}
+						if (!this.hasNext()) {
+							$more_button.attr('disabled', 'disabled');
+						}
+					},
+					success: function() {
+						$more_button.removeClass( 'pp-button-loading' );
+						$more_button.find( '.pp-load-more-button-text' ).html( 'Load More' );
 					}
-				}(),
-				after: function () {
-					if (settings.layout === 'carousel') {
-						var $carousel       = $scope.find('.swiper-container').eq(0),
-							$slider_options = JSON.parse( $carousel.attr('data-slider-settings') ),
-							mySwiper        = new Swiper($carousel, $slider_options);
-					}
-					if (!this.hasNext()) {
-						$more_button.attr('disabled', 'disabled');
-					}
-				},
-				success: function() {
-					$more_button.removeClass( 'pp-button-loading' );
-					$more_button.find( '.pp-load-more-button-text' ).html( 'Load More' );
-				}
-			});
-        
-			$more_button.on('click', function() {
-				feed.next();
-				$more_button.addClass( 'pp-button-loading' );
-				$more_button.find( '.pp-load-more-button-text' ).html( 'Loading...' );
-			});
-
-			feed.run();
-
-			if (pp_popup === '1') {
-				$(pp_widget_id).each(function () {
-					$(this).magnificPopup({
-						delegate: 'div a', // child items selector, by clicking on it popup will open
-						gallery: {
-							enabled: true,
-							navigateByImgClick: true,
-							preload: [0, 1]
-						},
-						type: 'image'
-					});
 				});
+				
+				
+
+				$more_button.on('click', function() {
+					feed.next();
+					$more_button.addClass( 'pp-button-loading' );
+					$more_button.find( '.pp-load-more-button-text' ).html( 'Loading...' );
+				});
+
+				feed.run();
+
+				if (pp_popup === '1') {
+					$(taregt_id).each(function () {
+						$(this).magnificPopup({
+							delegate: 'div a', // child items selector, by clicking on it popup will open
+							gallery: {
+								enabled: true,
+								navigateByImgClick: true,
+								preload: [0, 1]
+							},
+							type: 'image'
+						});
+					});
+				}
 			}
+		} else {
+			var pp_feed = new PPInstagramFeed({
+					id: widget_id,
+					username: elementSettings.username,
+					layout: layout,
+					limit: settings.images_count,
+					likes_count: (likes === 'yes'),
+					comments_count: (comments === 'yes'),
+					carousel: $slider_options,
+				});
 		}
     };
     
