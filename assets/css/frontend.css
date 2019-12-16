@@ -1580,140 +1580,119 @@ div[class*=' pa-'] {
     justify-content: flex-start; }
   .pp-hotspot-img-align-mobile-right .pp-image-hotspots {
     justify-content: flex-end; } }
-    .pp-instagram-feed {
-      position: relative; }
-      .pp-instagram-feed .pp-feed-item {
-        float: left;
-        position: relative; }
-        .pp-instagram-feed .pp-feed-item img {
-          -webkit-filter: none;
-          filter: none; }
-        .pp-instagram-feed .pp-feed-item:hover img {
-          -webkit-filter: none;
-          filter: none; }
-      .pp-instagram-feed-gallery .pp-feed-item {
-        width: 20%; }
-      .pp-instagram-feed-title-wrap {
-        background: #fff;
-        position: absolute;
-        z-index: 2;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%); }
-      .pp-insta-title-top .pp-instagram-feed-title-wrap {
-        top: 0;
-        position: absolute;
-        left: 50%;
-        -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        transform: translate(-50%); }
-      .pp-insta-title-bottom .pp-instagram-feed-title-wrap {
-        bottom: 0;
-        top: auto;
-        position: absolute;
-        left: 50%;
-        -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        transform: translate(-50%); }
-      .pp-instagram-feed-title {
-        display: block;
-        padding: 6px 30px;
-        text-align: center; }
-      .pp-instagram-feed .pp-feed-item {
-        position: relative; }
-      .pp-instagram-feed .pp-feed-item-inner {
-        display: block;
-        position: relative; }
-      .pp-instagram-feed-gray .pp-feed-item img {
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-        -webkit-transition: filter 0.25s linear 0s;
-        transition: filter 0.25s linear 0s; }
-      .pp-instagram-feed-hover-gray .pp-feed-item:hover img {
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-        -webkit-transition: filter 0.25s linear 0s;
-        transition: filter 0.25s linear 0s; }
-      .pp-instagram-feed .pp-overlay-container {
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        z-index: 1;
-        -webkit-transition: all 0.25s linear 0s;
-        transition: all 0.25s linear 0s; }
-        .pp-instagram-feed .pp-overlay-container span {
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-align: center;
-          align-items: center;
-          margin: 0 5px; }
-      .pp-instagram-feed-hover .pp-overlay-container {
-        opacity: 0;
-        -webkit-transition: all 0.25s linear 0s;
-        transition: all 0.25s linear 0s; }
-      .pp-instagram-feed-hover .pp-feed-item:hover .pp-overlay-container {
-        opacity: 1; }
-      .pp-instagram-feed .swiper-container .swiper-slide img {
-        width: 100%; }
-    
-    .pp-instafeed {
-      overflow: hidden;
-      position: relative; }
-    
-    .pp-if-icon {
-      margin-right: 5px; }
-    
-    .pp-if-square-images .pp-feed-item-inner {
-      position: relative;
-      padding-bottom: 100%;
-      width: 100%; }
-    .pp-if-square-images .pp-if-img {
-      overflow: hidden;
+.pp-instagram-feed {
+  position: relative; }
+  .pp-instagram-feed .pp-feed-item {
+    float: left;
+    position: relative; }
+    .pp-instagram-feed .pp-feed-item img {
+      -webkit-filter: none;
+      filter: none; }
+    .pp-instagram-feed .pp-feed-item:hover img {
+      -webkit-filter: none;
+      filter: none; }
+  .pp-instagram-feed-gallery .pp-feed-item {
+    width: 20%; }
+  .pp-instagram-feed-title-wrap {
+    background: #fff;
+    position: absolute;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+  .pp-insta-title-top .pp-instagram-feed-title-wrap {
+    top: 0;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%); }
+  .pp-insta-title-bottom .pp-instagram-feed-title-wrap {
+    bottom: 0;
+    top: auto;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%); }
+  .pp-instagram-feed-title {
+    display: block;
+    padding: 6px 30px;
+    text-align: center; }
+  .pp-instagram-feed .pp-feed-item {
+    display: block;
+    position: relative; }
+    .pp-instagram-feed .pp-feed-item:before {
       position: absolute;
-      width: 100%;
       height: 100%;
-      left: 0;
-      top: 0; }
-    .pp-if-square-images img {
       width: 100%;
-      height: 100%;
-      object-fit: cover; }
-    
-    .pp-load-more-button {
-      cursor: pointer; }
-      .pp-load-more-button[disabled='disabled'] {
-        display: none; }
-    
-    .pp-button-loading .pp-button-loader {
-      display: inline-block;
-      width: 22px;
-      height: 22px;
-      vertical-align: middle;
-      margin-right: 8px; }
-      .pp-button-loading .pp-button-loader:after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 3px solid #fff;
-        border-color: #fff transparent #fff transparent;
-        animation: pp-dual-ring 1.2s linear infinite; }
-    @keyframes pp-dual-ring {
-      0% {
-        transform: rotate(0deg); }
-      100% {
-        transform: rotate(360deg); } }
+      z-index: 1;
+      content: "";
+      -webkit-transition: all 0.25s linear 0s;
+      transition: all 0.25s linear 0s; }
+  .pp-instagram-feed-gray .pp-feed-item img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: filter 0.25s linear 0s;
+    transition: filter 0.25s linear 0s; }
+  .pp-instagram-feed-hover-gray .pp-feed-item:hover img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: filter 0.25s linear 0s;
+    transition: filter 0.25s linear 0s; }
+  .pp-instagram-feed .pp-overlay-container {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1; }
+    .pp-instagram-feed .pp-overlay-container span {
+      margin: 0 5px; }
+  .pp-instagram-feed-hover .pp-overlay-container {
+    opacity: 0;
+    -webkit-transition: all 0.25s linear 0s;
+    transition: all 0.25s linear 0s; }
+  .pp-instagram-feed-hover .pp-feed-item:hover .pp-overlay-container {
+    opacity: 1; }
+  .pp-instagram-feed .swiper-container .swiper-slide img {
+    width: 100%; }
 
+.pp-instafeed {
+  overflow: hidden; }
+
+.pp-load-more-button {
+  cursor: pointer; }
+  .pp-load-more-button:disabled {
+    display: none; }
+
+.pp-button-loading .pp-button-loader {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  margin-right: 8px; }
+  .pp-button-loading .pp-button-loader:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: pp-dual-ring 1.2s linear infinite; }
+@keyframes pp-dual-ring {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 .twentytwenty-horizontal .twentytwenty-handle:before, .twentytwenty-horizontal .twentytwenty-handle:after, .twentytwenty-vertical .twentytwenty-handle:before, .twentytwenty-vertical .twentytwenty-handle:after {
   content: " ";
   display: block;
@@ -4667,3 +4646,9 @@ img.mfp-img {
     transform: translate3d(0, -100%, 0); } }
 .slideOutUp {
   animation-name: slideOutUp; }
+
+/*--------------------------------------------------------------
+## Extensions
+--------------------------------------------------------------*/
+*:not(.elementor-editor-active) .pp-visibility-hidden {
+  display: none; }
