@@ -246,6 +246,21 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
         $this->add_control(
+            'currency_symbol_custom',
+            [
+                'label'                 => __( 'Custom Symbol', 'powerpack' ),
+                'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active'   => true,
+				],
+                'default'               => '',
+				'condition'             => [
+					'currency_symbol'	=> 'custom',
+				],
+            ]
+        );
+
+        $this->add_control(
             'table_price',
             [
                 'label'                 => __( 'Price', 'powerpack' ),
@@ -254,6 +269,19 @@ class Pricing_Table extends Powerpack_Widget {
 					'active'   => true,
 				],
                 'default'               => '49',
+            ]
+        );
+        
+        $this->add_control(
+            'currency_format',
+            [
+                'label'					=> __( 'Currency Format', 'powerpack' ),
+                'type'					=> Controls_Manager::SELECT,
+                'default'				=> '',
+                'options'				=> [
+                    'raised'	=> __( 'Raised', 'powerpack' ),
+                    ''	=> __( 'Normal', 'powerpack' ),
+                ],
             ]
         );
         
@@ -408,11 +436,11 @@ class Pricing_Table extends Powerpack_Widget {
         $this->add_control(
             'show_ribbon',
             [
-                'label'                 => __( 'Ribbon', 'powerpack' ),
+                'label'                 => __( 'Show Ribbon', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => '',
-                'label_on'              => __( 'On', 'powerpack' ),
-                'label_off'             => __( 'Off', 'powerpack' ),
+                'label_on'              => __( 'Yes', 'powerpack' ),
+                'label_off'             => __( 'No', 'powerpack' ),
                 'return_value'          => 'yes',
             ]
         );
@@ -575,6 +603,7 @@ class Pricing_Table extends Powerpack_Widget {
              'options'              => [
                 'above'    => __( 'Above Features', 'powerpack' ),
                 'below'    => __( 'Below Features', 'powerpack' ),
+                'none'    => __( 'None', 'powerpack' ),
              ],
           ]
         );
@@ -606,19 +635,6 @@ class Pricing_Table extends Powerpack_Widget {
                 ],
             ]
         );
-        
-        $this->end_controls_section();
-
-        /**
-         * Content Tab: Footer
-         * -------------------------------------------------
-         */
-        $this->start_controls_section(
-            'section_footer',
-            [
-                'label'                 => __( 'Footer', 'powerpack' ),
-            ]
-        );
 
         $this->add_control(
             'table_additional_info',
@@ -632,17 +648,57 @@ class Pricing_Table extends Powerpack_Widget {
                 'title'                 => __( 'Additional Info', 'powerpack' ),
             ]
         );
-
+        
         $this->end_controls_section();
 
+		/**
+		 * Content Tab: Docs Links
+		 *
+		 * @since 1.4.8
+		 * @access protected
+		 */
+		$this->start_controls_section(
+			'section_help_docs',
+			[
+				'label' => __( 'Help Docs', 'powerpack' ),
+			]
+		);
+		
+		$this->add_control(
+			'help_doc_1',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				/* translators: %1$s doc link */
+				'raw'             => sprintf( __( '%1$s Watch Video Overview %2$s', 'powerpack' ), '<a href="https://www.youtube.com/watch?v=cO-WFCHtwiM&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj" target="_blank" rel="noopener">', '</a>' ),
+				'content_classes' => 'pp-editor-doc-links',
+			]
+		);
+		
+		$this->add_control(
+			'help_doc_2',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				/* translators: %1$s doc link */
+				'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/pricing-table/pricing-table-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
+				'content_classes' => 'pp-editor-doc-links',
+			]
+		);
+
+		$this->end_controls_section();
+
+        /*-----------------------------------------------------------------------------------*/
+        /*	STYLE TAB
+        /*-----------------------------------------------------------------------------------*/
+
         /**
-         * Content Tab: Alignment
+         * Content Tab: Table
          * -------------------------------------------------
          */
         $this->start_controls_section(
-            'section_alignment',
+            'section_table_style',
             [
-                'label'                 => __( 'Alignment', 'powerpack' ),
+                'label'                 => __( 'Table', 'powerpack' ),
+                'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
         
@@ -672,36 +728,6 @@ class Pricing_Table extends Powerpack_Widget {
 		);
         
         $this->end_controls_section();
-
-		/**
-		 * Content Tab: Docs Links
-		 *
-		 * @since 1.4.8
-		 * @access protected
-		 */
-		$this->start_controls_section(
-			'section_help_docs',
-			[
-				'label' => __( 'Help Docs', 'powerpack' ),
-			]
-		);
-		
-		$this->add_control(
-			'help_doc_1',
-			[
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/pricing-table/pricing-table-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			]
-		);
-
-		$this->end_controls_section();
-
-
-        /*-----------------------------------------------------------------------------------*/
-        /*	STYLE TAB
-        /*-----------------------------------------------------------------------------------*/
 
         /**
          * Style Tab: Header
@@ -1141,8 +1167,51 @@ class Pricing_Table extends Powerpack_Widget {
                 'label'                 => __( 'Currency Symbol', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
+				'condition' => [
+					'currency_symbol!' => '',
+				],
             ]
         );
+
+		$this->add_control(
+			'currency_size',
+			[
+				'label'					=> __( 'Size', 'powerpack' ),
+				'type'					=> Controls_Manager::SLIDER,
+				'range'					=> [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors'				=> [
+					'{{WRAPPER}} .pp-pricing-table-price-prefix' => 'font-size: calc({{SIZE}}em/100)',
+				],
+				'condition'				=> [
+					'currency_symbol!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'currency_position',
+			[
+				'label'					=> __( 'Position', 'powerpack' ),
+				'type'					=> Controls_Manager::CHOOSE,
+				'label_block'			=> false,
+				'default'				=> 'before',
+				'options'				=> [
+					'before' => [
+						'title' => __( 'Before', 'powerpack' ),
+						'icon' => 'eicon-h-align-left',
+					],
+					'after' => [
+						'title' => __( 'After', 'powerpack' ),
+						'icon' => 'eicon-h-align-right',
+					],
+				],
+			]
+		);
 
 		$this->add_control(
 			'currency_vertical_position',
@@ -2134,7 +2203,6 @@ class Pricing_Table extends Powerpack_Widget {
         $this->add_inline_editing_attributes( 'table_subtitle', 'none' );
         $this->add_render_attribute( 'table_subtitle', 'class', 'pp-pricing-table-subtitle' );
         
-        $this->add_inline_editing_attributes( 'table_price', 'none' );
         $this->add_render_attribute( 'table_price', 'class', 'pp-pricing-table-price-value' );
         
         $this->add_inline_editing_attributes( 'table_duration', 'none' );
@@ -2148,9 +2216,13 @@ class Pricing_Table extends Powerpack_Widget {
         $this->add_render_attribute( 'feature-list-item', 'class', '' );
         
         $this->add_inline_editing_attributes( 'table_button_text', 'none' );
-        if ( ! empty( $settings['link']['url'] ) ) {
-            $this->add_render_attribute( 'table_button_text', 'class', $settings['link']['url'] );
-        }
+        
+        $this->add_render_attribute( 'table_button_text', 'class', [
+				'pp-pricing-table-button',
+				'elementor-button',
+				'elementor-size-' . $settings['table_button_size'],
+			]
+		);
         
         if ( ! empty( $settings['link']['url'] ) ) {
             $this->add_render_attribute( 'table_button_text', 'href', $settings['link']['url'] );
@@ -2169,15 +2241,20 @@ class Pricing_Table extends Powerpack_Widget {
             $this->add_render_attribute( 'pricing-table-duration', 'class', 'next-line' );
         }
         
-        $this->add_render_attribute( 'table_button_text', 'class', [
-				'pp-pricing-table-button',
-				'elementor-button',
-				'elementor-size-' . $settings['table_button_size'],
-			]
-		);
-        
         if ( $settings['button_hover_animation'] ) {
 			$this->add_render_attribute( 'table_button_text', 'class', 'elementor-animation-' . $settings['button_hover_animation'] );
+		}
+		
+		if ( $settings['currency_format'] == 'raised' ) {
+			$price = explode( '.', $settings['table_price'] );
+			$intvalue = $price[0];
+			$fraction = '';
+			if ( 2 === count( $price ) ) {
+				$fraction = $price[1];
+			}
+		} else {
+			$intvalue = $settings['table_price'];
+			$fraction = '';
 		}
         ?>
         <div class="pp-pricing-table-container">
@@ -2225,18 +2302,34 @@ class Pricing_Table extends Powerpack_Widget {
 						<?php if ( $settings['discount'] == 'yes' && $settings['table_original_price'] ) { ?>
 							<span class="pp-pricing-table-price-original">
 								<?php
-									echo $symbol . esc_attr( $settings['table_original_price'] );
+									if ( ! empty( $symbol ) && $settings['currency_position'] === 'after' ) {
+										echo $settings['table_original_price'] . $symbol;
+									} else {
+										echo $symbol . $settings['table_original_price'];
+									}
 								?>
 							</span>
 						<?php } ?>
-						<?php if ( ! empty( $symbol ) ) { ?>
+						<?php if ( ! empty( $symbol ) && ( $settings['currency_position'] === 'before' || $settings['currency_position'] === '' ) ) { ?>
 							<span class="pp-pricing-table-price-prefix">
 								<?php echo $symbol; ?>
 							</span>
 						<?php } ?>
 						<span <?php echo $this->get_render_attribute_string( 'table_price' ); ?>>
-							<?php echo $settings['table_price']; ?>
+							<span class="pp-pricing-table-integer-part">
+								<?php echo $intvalue; ?>
+							</span>
+							<?php if ( $fraction ) { ?>
+								<span class="pp-pricing-table-after-part">
+									<?php echo $fraction; ?>
+								</span>
+							<?php } ?>
 						</span>
+						<?php if ( ! empty( $symbol ) && $settings['currency_position'] === 'after' ) { ?>
+							<span class="pp-pricing-table-price-prefix">
+								<?php echo $symbol; ?>
+							</span>
+						<?php } ?>
 						<?php if ( ! empty( $settings['table_duration'] ) ) { ?>
 							<span <?php echo $this->get_render_attribute_string( 'table_duration' ); ?>>
 								<?php echo $settings['table_duration']; ?>
@@ -2248,7 +2341,7 @@ class Pricing_Table extends Powerpack_Widget {
                 	<div class="pp-pricing-table-button-wrap">
 						<?php if ( ! empty( $settings['table_button_text'] ) ) { ?>
 							<a <?php echo $this->get_render_attribute_string( 'table_button_text' ); ?>>
-								<?php echo esc_attr( $settings['table_button_text'] ); ?>
+								<?php echo $settings['table_button_text']; ?>
 							</a>
 						<?php } ?>
 					</div>
@@ -2291,7 +2384,7 @@ class Pricing_Table extends Powerpack_Widget {
 									if ( $is_new || $migrated ) {
 										Icons_Manager::render_icon( $item['select_feature_icon'], [ 'aria-hidden' => 'true' ] );
 									} else { ?>
-											<i class="<?php echo esc_attr( $item['feature_icon'] ); ?>" aria-hidden="true"></i>
+											<i class="<?php echo $item['feature_icon']; ?>" aria-hidden="true"></i>
 									<?php }
                                     echo '</span>';
                                 endif;
@@ -2308,7 +2401,7 @@ class Pricing_Table extends Powerpack_Widget {
                     <?php if ( $settings['table_button_position'] == 'below' ) { ?>
 						<?php if ( ! empty( $settings['table_button_text'] ) ) { ?>
 							<a <?php echo $this->get_render_attribute_string( 'table_button_text' ); ?>>
-								<?php echo esc_attr( $settings['table_button_text'] ); ?>
+								<?php echo $settings['table_button_text']; ?>
 							</a>
 						<?php } ?>
                     <?php } ?>
@@ -2385,6 +2478,16 @@ class Pricing_Table extends Powerpack_Widget {
 					symbol = settings.currency_symbol_custom;
 				}
 			}
+		   
+		   if ( settings.currency_format == 'raised' ) {
+		   		var table_price = settings.table_price.toString(),
+					price = table_price.split( '.' ),
+					intvalue = price[0],
+					fraction = price[1];
+		   } else {
+		   		var intvalue = settings.table_price,
+					fraction = '';
+		   }
         #>
         <div class="pp-pricing-table-container">
             <div class="pp-pricing-table">
@@ -2437,15 +2540,29 @@ class Pricing_Table extends Powerpack_Widget {
 					<div class="pp-pricing-table-price">
 						<# if ( settings.discount === 'yes' && settings.table_original_price > 0 ) { #>
 							<span class="pp-pricing-table-price-original">
-								{{{ symbol }}}{{{ settings.table_original_price }}}
+								<# if ( ! _.isEmpty( symbol ) && 'after' == settings.currency_position ) { #>
+									{{{ settings.table_original_price + symbol }}}
+								<# } else { #>
+									{{{ symbol + settings.table_original_price }}}
+								<# } #>
 							</span>
 						<# } #>
-						<# if (  ! _.isEmpty( symbol ) ) { #>
+						<# if ( ! _.isEmpty( symbol ) && ( 'before' == settings.currency_position || _.isEmpty( settings.currency_position ) ) ) { #>
 							<span class="pp-pricing-table-price-prefix">{{{ symbol }}}</span>
 						<# } #>
-						<span class="pp-pricing-table-price-value elementor-inline-editing" data-elementor-setting-key="table_price" data-elementor-inline-editing-toolbar="none">
-							{{{ settings.table_price }}}
+						<span class="pp-pricing-table-price-value">
+							<span class="pp-pricing-table-integer-part">
+								{{{ intvalue }}}
+							</span>
+							<# if ( fraction ) { #>
+								<span class="pp-pricing-table-after-part">
+									{{{ fraction }}}
+								</span>
+							<# } #>
 						</span>
+						<# if ( ! _.isEmpty( symbol ) && 'after' == settings.currency_position ) { #>
+							<span class="pp-pricing-table-price-prefix">{{{ symbol }}}</span>
+						<# } #>
 						<# if ( settings.table_duration ) { #>
 							<span class="pp-pricing-table-price-duration elementor-inline-editing" data-elementor-setting-key="table_duration" data-elementor-inline-editing-toolbar="none">
 								{{{ settings.table_duration }}}

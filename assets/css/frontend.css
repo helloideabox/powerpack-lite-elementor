@@ -1254,6 +1254,12 @@ div[class*=' pa-'] {
     margin-left: auto;
     margin-right: auto;
     padding: 30px; }
+  .pp-pricing-table-price-value {
+    display: flex; }
+  .pp-pricing-table-after-part {
+    font-size: .4em;
+    line-height: 1;
+    align-self: flex-start; }
   .pp-pricing-table .pp-pricing-table-features {
     list-style: none;
     margin: 0;
