@@ -150,6 +150,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.8.3 - January 8, 2020 =
+* 	Added Currency Format option
+* 	Fixed: Custom currency symbol option was not working
+* 	Moved Additional Info option into Button section
+* 	Moved Alignment option to Style tab
+
 = 1.2.8.2 - December 9, 2019 =
 * 	Updated admin notice
 * 	Updated Instagram Feed widget
