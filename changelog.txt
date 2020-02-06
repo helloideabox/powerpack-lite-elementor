@@ -1,3 +1,9 @@
+== 1.2.8.4 ==
+Release date: February 6, 2020
+* Fixed: Lightbox option was not working in Instagram Feed widget
+* Added: Image Link option in Instagram Feed widget
+* Enhancement: Alignment, Vertical Position and Icon Size controls are now responsive in Flip Box widget
+
 == 1.2.8.3 ==
 Release date: January 8, 2020
 * Added Currency Format option

@@ -150,6 +150,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.8.4 - February 6, 2020 =
+* 	Fixed: Lightbox option was not working in Instagram Feed widget
+* 	Added: Image Link option in Instagram Feed widget
+* 	Enhancement: Alignment, Vertical Position and Icon Size controls are now responsive in Flip Box widget
+
 = 1.2.8.3 - January 8, 2020 =
 * 	Added Currency Format option
 * 	Fixed: Custom currency symbol option was not working
