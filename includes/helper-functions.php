@@ -405,7 +405,8 @@ function pp_elements_lite_get_modules() {
         'pp-twitter-grid'           => esc_html__('Twitter Grid', 'powerpack'),
         'pp-twitter-timeline'       => esc_html__('Twitter Timeline', 'powerpack'),
         'pp-twitter-tweet'          => esc_html__('Twitter Tweet', 'powerpack'),
-        'pp-fancy-heading'			=> __('Fancy Heading', 'powerpack'),
+        'pp-fancy-heading'			=> esc_html__('Fancy Heading', 'powerpack'),
+        'pp-posts'					=> esc_html__('Posts', 'powerpack'),
     );
 
     // Contact Form 7
