@@ -478,23 +478,23 @@ class Flipbox extends Powerpack_Widget {
 		 * @access protected
 		 */
 		$this->start_controls_section(
-				'section_help_docs',
-				[
-					'label' => __( 'Help Docs', 'powerpack' ),
-				]
-			);
-			
-			$this->add_control(
-				'help_doc_1',
-				[
-					'type'            => Controls_Manager::RAW_HTML,
-					/* translators: %1$s doc link */
-					'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/flip-box/flip-box-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
-					'content_classes' => 'pp-editor-doc-links',
-				]
-			);
-	
-			$this->end_controls_section();
+			'section_help_docs',
+			[
+				'label' => __( 'Help Docs', 'powerpack' ),
+			]
+		);
+		
+		$this->add_control(
+			'help_doc_1',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				/* translators: %1$s doc link */
+				'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/flip-box/flip-box-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
+				'content_classes' => 'pp-editor-doc-links',
+			]
+		);
+
+		$this->end_controls_section();
 
         /*-----------------------------------------------------------------------------------*/
         /*	STYLE TAB
@@ -523,10 +523,10 @@ class Flipbox extends Powerpack_Widget {
 			]
 		);
         
-		$this->add_control(
+		$this->add_responsive_control(
 			'content_alignment_front',
 			[
-				'label'                 => esc_html__( 'Text Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
@@ -550,7 +550,7 @@ class Flipbox extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'vertical_position_front',
 			[
 				'label'                 => __( 'Vertical Position', 'powerpack' ),
@@ -697,7 +697,7 @@ class Flipbox extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_size_front',
 			[
 				'label'                 => __( 'Icon Size', 'powerpack' ),
@@ -824,7 +824,7 @@ class Flipbox extends Powerpack_Widget {
 			]
 		);
         
-		$this->add_control(
+		$this->add_responsive_control(
 			'content_alignment_back',
 			[
 				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
@@ -851,7 +851,7 @@ class Flipbox extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'vertical_position_back',
 			[
 				'label'                 => __( 'Vertical Position', 'powerpack' ),
@@ -998,7 +998,7 @@ class Flipbox extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_size_back',
 			[
 				'label'                 => __( 'Icon Size', 'powerpack' ),
