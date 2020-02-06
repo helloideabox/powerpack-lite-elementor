@@ -396,6 +396,21 @@ class Instafeed extends Powerpack_Widget {
         );
         
         $this->add_control(
+            'insta_image_link',
+            [
+                'label'                 => __( 'Image Link', 'powerpack' ),
+                'type'                  => Controls_Manager::SWITCHER,
+                'default'               => '',
+                'label_on'              => __( 'Yes', 'powerpack' ),
+                'label_off'             => __( 'No', 'powerpack' ),
+                'return_value'          => 'yes',
+				'condition'             => [
+					'insta_image_popup!' => 'yes',
+				],
+            ]
+        );
+        
+        $this->add_control(
             'insta_profile_link',
             [
                 'label'                 => __( 'Show Link to Instagram Profile?', 'powerpack' ),
@@ -1614,7 +1629,7 @@ class Instafeed extends Powerpack_Widget {
         $this->add_control(
             'arrow',
             [
-                'label'                 => __( 'Choose Arrow', 'your-plugin' ),
+                'label'                 => __( 'Choose Arrow', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'label_block'           => false,
                 'default'               => 'fa fa-angle-right',
@@ -2636,6 +2651,7 @@ class Instafeed extends Powerpack_Widget {
             'target'            => 'pp-instafeed-'. esc_attr( $this->get_id() ),
             'resolution'        => ! empty( $settings['resolution'] ) ? $settings['resolution'] : '',
             'popup'             => ( $settings['insta_image_popup'] == 'yes' ) ? '1' : '0',
+            'img_link'          => ( $settings['insta_image_popup'] != 'yes' && $settings['insta_image_link'] == 'yes' ) ? '1' : '0',
         ];
         ?>
         <div <?php echo $this->get_render_attribute_string( 'insta-feed-wrap' ); ?> data-settings='<?php echo wp_json_encode( $pp_widget_options ); ?>'>
