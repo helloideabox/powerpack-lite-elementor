@@ -150,6 +150,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.8.5 - February 18, 2020 =
+* 	Fixed: Content ticker was not working
+
 = 1.2.8.4 - February 6, 2020 =
 * 	Fixed: Lightbox option was not working in Instagram Feed widget
 * 	Added: Image Link option in Instagram Feed widget
