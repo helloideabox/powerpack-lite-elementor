@@ -3,18 +3,18 @@
  * Plugin Name: PowerPack Lite for Elementor
  * Plugin URI: https://powerpackelements.com
  * Description: Custom addons for Elementor page builder.
- * Version: 1.2.8.4
+ * Version: 1.2.8.5
  * Author: IdeaBox Creations
  * Author URI: https://ideaboxcreations.com
  * License: GNU General Public License v2.0
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: power-pack
+ * Text Domain: powerpack
  * Domain Path: /languages
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'POWERPACK_ELEMENTS_LITE_VER', '1.2.8.4' );
+define( 'POWERPACK_ELEMENTS_LITE_VER', '1.2.8.5' );
 define( 'POWERPACK_ELEMENTS_LITE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_BASE', plugin_basename( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_URL', plugins_url( '/', __FILE__ ) );
@@ -53,8 +53,8 @@ function pp_elements_lite_fail_load() {
 		}
 
 		$activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
-        $message = __( 'PowerPack requires Elementor plugin to be active. Please activate Elementor to continue.', 'power-pack' );
-		$button_text = __( 'Activate Elementor', 'power-pack' );
+        $message = __( 'PowerPack requires Elementor plugin to be active. Please activate Elementor to continue.', 'powerpack' );
+		$button_text = __( 'Activate Elementor', 'powerpack' );
 
 	} else {
 		if ( ! current_user_can( 'install_plugins' ) ) {
@@ -62,8 +62,8 @@ function pp_elements_lite_fail_load() {
 		}
 
 		$activation_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
-        $message = sprintf( __( 'PowerPack requires %1$s"Elementor"%2$s plugin to be installed and activated. Please install Elementor to continue.', 'power-pack' ), '<strong>', '</strong>' );
-		$button_text = __( 'Install Elementor', 'power-pack' );
+        $message = sprintf( __( 'PowerPack requires %1$s"Elementor"%2$s plugin to be installed and activated. Please install Elementor to continue.', 'powerpack' ), '<strong>', '</strong>' );
+		$button_text = __( 'Install Elementor', 'powerpack' );
 	}
 
 	$button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
@@ -83,7 +83,7 @@ function pp_elements_lite_fail_load_out_of_date() {
 		return;
 	}
     
-	$message = __( 'PowerPack requires Elementor version at least ' . POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED . '. Please update Elementor to continue.', 'power-pack' );
+	$message = __( 'PowerPack requires Elementor version at least ' . POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED . '. Please update Elementor to continue.', 'powerpack' );
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 }
@@ -96,7 +96,7 @@ function pp_elements_lite_fail_load_out_of_date() {
  *
  */
 function pp_elements_lite_fail_php() {
-	$message = __( 'PowerPack requires PHP version ' . POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED .'+ to work properly. The plugins is deactivated for now.', 'power-pack' );
+	$message = __( 'PowerPack requires PHP version ' . POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED .'+ to work properly. The plugins is deactivated for now.', 'powerpack' );
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 
@@ -120,7 +120,7 @@ function pp_elements_lite_deactivate() {
  *
  */
 function pp_elements_lite_load_plugin_textdomain() {
-	load_plugin_textdomain( 'power-pack', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	load_plugin_textdomain( 'powerpack', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 
 /**
@@ -187,8 +187,8 @@ function pp_add_description_links( $plugin_meta, $plugin_file ) {
 
 	if ( POWERPACK_ELEMENTS_LITE_BASE === $plugin_file ) {
 		$row_meta = [
-			'docs' => '<a href="https://powerpackelements.com/docs/?utm_source=doclink&utm_medium=widget&utm_campaign=lite" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'power-pack' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'power-pack' ) . '</a>',
-			'ideo' => '<a href="https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite" aria-label="' . esc_attr( __( 'Go Pro', 'powerp-pack' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'power-pack' ) . '</a>',
+			'docs' => '<a href="https://powerpackelements.com/docs/?utm_source=doclink&utm_medium=widget&utm_campaign=lite" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'powerpack' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'powerpack' ) . '</a>',
+			'ideo' => '<a href="https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite" aria-label="' . esc_attr( __( 'Go Pro', 'powerp-pack' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'powerpack' ) . '</a>',
 		];
 
 		$plugin_meta = array_merge( $plugin_meta, $row_meta );

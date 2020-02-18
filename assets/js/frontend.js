@@ -423,6 +423,13 @@
         });
     };
 
+    var ContentTickerHandler = function ($scope, $) {
+        var $carousel                   = $scope.find('.pp-content-ticker').eq(0),
+            $slider_options             = JSON.parse( $carousel.attr('data-slider-settings') );
+
+        var mySwiper = new Swiper($carousel, $slider_options);
+    };
+
 	var PPButtonHandler = function ( $scope, $) {
 		var id = $scope.data('id');
 		var ttipPosition = $scope.find('.pp-button[data-tooltip]').data('tooltip-position');
@@ -511,6 +518,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-team-member-carousel.default', TeamMemberCarouselHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-scroll-image.default', ImageScrollHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-advanced-accordion.default', AdvancedAccordionHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-content-ticker.default', ContentTickerHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-buttons.default', PPButtonHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-twitter-timeline.default', TwitterTimelineHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-twitter-tweet.default', TwitterTimelineHandler);
