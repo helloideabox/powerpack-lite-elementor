@@ -2519,13 +2519,18 @@ class Instafeed extends Powerpack_Widget {
                 'prevEl'             => '.swiper-button-prev-'.esc_attr( $this->get_id() ),
             ];
         }
+		
+		$elementor_bp_tablet	= get_option( 'elementor_viewport_lg' );
+		$elementor_bp_mobile	= get_option( 'elementor_viewport_md' );
+		$bp_tablet				= !empty($elementor_bp_tablet) ? $elementor_bp_tablet : 1025;
+		$bp_mobile				= !empty($elementor_bp_mobile) ? $elementor_bp_mobile : 768;
         
         $slider_options['breakpoints'] = [
-            '768'   => [
+            $bp_tablet   => [
                 'slidesPerView'      => ( $settings['items_tablet']['size'] !== '' ) ? absint( $settings['items_tablet']['size'] ) : 2,
                 'spaceBetween'       => ( $settings['margin_tablet']['size'] !== '' ) ? $settings['margin_tablet']['size'] : 10,
             ],
-            '480'   => [
+            $bp_mobile   => [
                 'slidesPerView'      => ( $settings['items_mobile']['size'] !== '' ) ? absint( $settings['items_mobile']['size'] ) : 1,
                 'spaceBetween'       => ( $settings['margin_mobile']['size'] !== '' ) ? $settings['margin_mobile']['size'] : 10,
             ],
