@@ -150,6 +150,17 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.8.6 - February 21, 2020 =
+* 	Added: Equal height boxes option in Info Box carousel widget
+* 	Removed Google+ icon option from Team Member carousel widget
+* 	Added: Image size option in Logo Grid widget
+* 	Added: Image width option in Logo Grid widget
+* 	Added: HTML tag option for heading and sub heading in Promo Box widget
+* 	Added: Icon number typography option in Info List widget
+* 	Added: Hotspot link option in Image Hotspots widget
+* 	Updated link options to support custom attribute option of Elementor 2.9.0
+* 	Fixed: Swiper slider for Elementor 2.9.0
+
 = 1.2.8.5 - February 18, 2020 =
 * 	Fixed: Content ticker was not working
 
