@@ -238,7 +238,7 @@ class Buttons extends Powerpack_Widget {
 					'dynamic'           => [
 						'active'  => true,
 					],
-					'label_block'       => false,
+					'label_block'       => true,
 					'placeholder'       => __( 'http://your-link.com', 'powerpack' ),
 				]
 			);
@@ -1074,15 +1074,7 @@ class Buttons extends Powerpack_Widget {
 
                 // Link
                 if ( ! empty( $item['link']['url'] ) ) {
-                    $this->add_render_attribute( $button_key, 'href', $item['link']['url'] );
-
-                    if ( $item['link']['is_external'] ) {
-                        $this->add_render_attribute( $button_key, 'target', '_blank' );
-                    }
-
-                    if ( $item['link']['nofollow'] ) {
-                        $this->add_render_attribute( $button_key, 'rel', 'nofollow' );
-                    }
+					$this->add_link_attributes( $button_key, $item['link'] );
                 }
 
                 // Icon Position
@@ -1151,7 +1143,6 @@ class Buttons extends Powerpack_Widget {
                     ]
                 );
                 ?>
-
                 <a <?php echo $this->get_render_attribute_string( $button_key ); ?>>
                     <div class="pp-button-content-wrapper">
                         <span <?php echo $this->get_render_attribute_string( $content_inner_key ); ?>>

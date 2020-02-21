@@ -338,8 +338,8 @@ class Info_List extends Powerpack_Widget {
 			]
 		);
 
-		$this->end_controls_section();
-		
+        $this->end_controls_section();
+
 		/**
 		 * Content Tab: Docs Links
 		 *
@@ -368,7 +368,6 @@ class Info_List extends Powerpack_Widget {
 		/*-----------------------------------------------------------------------------------*/
         /*	STYLE TAB
         /*-----------------------------------------------------------------------------------*/
-
 
         /**
          * Style Tab: List
@@ -828,6 +827,25 @@ class Info_List extends Powerpack_Widget {
         $this->end_controls_tab();
         
         $this->end_controls_tabs();
+        
+        $this->add_control(
+            'icon_number_heading',
+            [
+                'label'                 => __( 'Icon Type: Number', 'powerpack' ),
+                'type'                  => Controls_Manager::HEADING,
+                'separator'             => 'before',
+            ]
+        );
+        
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'                  => 'icon_number_typography',
+                'label'                 => __( 'Typography', 'powerpack' ),
+                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+                'selector'              => '{{WRAPPER}} .pp-list-items .pp-info-list-number',
+            ]
+        );
 
         $this->end_controls_section();
 
@@ -1222,16 +1240,8 @@ class Info_List extends Powerpack_Widget {
 
                                 if ( ! empty( $item['link']['url'] ) ) {
                                     $link_key = 'link_' . $i;
-
-                                    $this->add_render_attribute( $link_key, 'href', $item['link']['url'] );
-
-                                    if ( $item['link']['is_external'] ) {
-                                        $this->add_render_attribute( $link_key, 'target', '_blank' );
-                                    }
-
-                                    if ( $item['link']['nofollow'] ) {
-                                        $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
-                                    }
+									
+									$this->add_link_attributes( $link_key, $item['link'] );
                                 }
 																		
 								$this->render_infolist_icon( $item, $i );
@@ -1241,7 +1251,7 @@ class Info_List extends Powerpack_Widget {
                                     <a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
                                 <?php } ?>
 								<?php if ( $item['text'] ) { ?>
-                                <?php printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( $text_key ) ); ?>
+								<?php printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( $text_key ) ); ?>
                                     <?php if ( ! empty( $item['link']['url'] ) && $item['link_type'] == 'title' ) { ?>
                                         <a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
                                     <?php } ?>
@@ -1357,7 +1367,7 @@ class Info_List extends Powerpack_Widget {
 				<?php
 					if ( $item['pp_icon_type'] == 'icon' ) {
 						if ( ! empty( $item['list_icon'] ) || ( ! empty( $item['icon']['value'] ) && $is_new ) ) {
-						echo '<span class="pp-icon-list-icon pp-icon ' . $icon_animation . '">';
+						echo '<span class="pp-info-list-icon pp-icon ' . $icon_animation . '">';
 						if ( $is_new || $migrated ) {
 							Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
 						} else { ?>

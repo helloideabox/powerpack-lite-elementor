@@ -2641,11 +2641,7 @@ class Instafeed extends Powerpack_Widget {
         }
         
         if ( ! empty( $settings['insta_profile_url']['url'] ) ) {
-            $this->add_render_attribute( 'instagram-profile-link', 'href', $settings['insta_profile_url']['url'] );
-
-            if ( ! empty( $settings['insta_profile_url']['is_external'] ) ) {
-                $this->add_render_attribute( 'instagram-profile-link', 'target', '_blank' );
-            }
+			$this->add_link_attributes( 'instagram-profile-link', $settings['insta_profile_url'] );
         }
         
         $pp_widget_options = [

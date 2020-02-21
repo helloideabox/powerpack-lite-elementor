@@ -1682,15 +1682,7 @@ class Team_Member extends Powerpack_Widget {
                         $this->add_render_attribute( 'social-link', 'class', 'pp-tm-social-link' );
                         $social_link_key = 'social-link' . $i;
                         if ( ! empty( $item['social_link']['url'] ) ) {
-                            $this->add_render_attribute( $social_link_key, 'href', $item['social_link']['url'] );
-
-                            if ( $item['social_link']['is_external'] ) {
-                                $this->add_render_attribute( $social_link_key, 'target', '_blank' );
-                            }
-
-                            if ( $item['social_link']['nofollow'] ) {
-                                $this->add_render_attribute( $social_link_key, 'rel', 'nofollow' );
-                            }
+							$this->add_link_attributes( $social_link_key, $item['social_link'] );
                         }
                     ?>
                     <li>
@@ -1724,15 +1716,7 @@ class Team_Member extends Powerpack_Widget {
         
         if ( $settings['link_type'] != 'none' ) {
             if ( ! empty( $settings['link']['url'] ) ) {
-                $this->add_render_attribute( $link_key, 'href', esc_url( $settings['link']['url'] ) );
-
-                if ( $settings['link']['is_external'] ) {
-                    $this->add_render_attribute( $link_key, 'target', '_blank' );
-                }
-
-                if ( $settings['link']['nofollow'] ) {
-                    $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
-                }
+				$this->add_link_attributes( $link_key, $settings['link'] );
             }
         }
         ?>
@@ -1797,16 +1781,16 @@ class Team_Member extends Powerpack_Widget {
                         <?php
                     }
 
-                    if ( $settings['overlay_content'] != 'all_content' ) {
-                        if ( $settings['overlay_content'] != 'social_icons' ) { ?>
-                            <div class="pp-tm-image"> 
-                                <?php
-                                    // Image
-                                    $this->render_image();
-                                ?>
-                            </div>
-                            <?php
-                        }
+                    if ( $settings['overlay_content'] == 'none' || $settings['overlay_content'] == '' ) {
+						if ( ! empty( $settings['image']['url'] ) ) { ?>
+							<div class="pp-tm-image"> 
+								<?php
+									// Image
+									$this->render_image();
+								?>
+							</div>
+							<?php
+						}
                     ?>
                     <div class="pp-tm-content pp-tm-content-normal">
                         <?php
@@ -1877,25 +1861,25 @@ class Team_Member extends Powerpack_Widget {
 					view.addInlineEditingAttributes( 'team_member_name' );
 
 					var name_html = '<' + settings.name_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + settings.name_html_tag + '>';
-				}
 		   
-		   		if ( settings.link_type == 'title' && settings.link.url != '' ) { #>
-					<#
-					var target = settings.link.is_external ? ' target="_blank"' : '';
-					var nofollow = settings.link.nofollow ? ' rel="nofollow"' : '';
-					#>
-					<a href="{{ settings.link.url }}"{{ target }}{{ nofollow }}>
-						<# print( name_html ); #>
-					</a>
-				<# } else {
-				   print( name_html );
-				}
+					if ( settings.link_type == 'title' && settings.link.url != '' ) {
+						var target = settings.link.is_external ? ' target="_blank"' : '';
+						var nofollow = settings.link.nofollow ? ' rel="nofollow"' : '';
+
+						var name = '<a href="' + settings.link.url + '" ' + target + '>' + name + '</a>';
+					}
 				   
-				if ( settings.member_title_divider == 'yes' ) { #>
-					<div class="pp-tm-title-divider-wrap">
-						<div class="pp-tm-divider pp-tm-title-divider"></div>
-					</div>
-				<# }
+					var name_html = '<' + settings.name_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + settings.name_html_tag + '>';
+
+					print( name_html );
+
+					if ( settings.member_title_divider == 'yes' ) { #>
+						<div class="pp-tm-title-divider-wrap">
+							<div class="pp-tm-divider pp-tm-title-divider"></div>
+						</div>
+						<#
+					}
+				}
 			}
 	
 		  	function member_position() {
@@ -2022,9 +2006,11 @@ class Team_Member extends Powerpack_Widget {
 
                 <# if ( settings.overlay_content != 'all_content' ) { #>
                     <# if ( settings.overlay_content != 'social_icons' ) { #>
-                        <div class="pp-tm-image"> 
-                            <# member_image(); #>
-                        </div>
+						<# if ( settings.image.url != '' ) { #>
+							<div class="pp-tm-image"> 
+								<# member_image(); #>
+							</div>
+						<# } #>
                     <# } #>
                     <div class="pp-tm-content pp-tm-content-normal">
 						<#

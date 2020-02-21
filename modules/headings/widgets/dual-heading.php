@@ -41,7 +41,7 @@ class Dual_Heading extends Powerpack_Widget {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Dual Heading', 'power-pack' );
+        return __( 'Dual Heading', 'powerpack' );
     }
 
     /**
@@ -87,42 +87,42 @@ class Dual_Heading extends Powerpack_Widget {
         $this->start_controls_section(
             'section_dual_heading',
             [
-                'label'                 => __( 'Dual Heading', 'power-pack' ),
+                'label'                 => __( 'Dual Heading', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'first_text',
             [
-                'label'                 => __( 'First Part', 'power-pack' ),
+                'label'                 => __( 'First Part', 'powerpack' ),
                 'type'                  => Controls_Manager::TEXTAREA,
 				'dynamic'               => [
 					'active'   => true,
 				],
                 'label_block'           => true,
                 'rows'                  => 3,
-                'default'               => __( 'Our', 'power-pack' ),
+                'default'               => __( 'Our', 'powerpack' ),
             ]
         );
         
         $this->add_control(
             'second_text',
             [
-                'label'                 => __( 'Second Part', 'power-pack' ),
+                'label'                 => __( 'Second Part', 'powerpack' ),
                 'type'                  => Controls_Manager::TEXTAREA,
 				'dynamic'               => [
 					'active'   => true,
 				],
                 'label_block'           => true,
                 'rows'                  => 3,
-                'default'               => __( 'Services', 'power-pack' ),
+                'default'               => __( 'Services', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'link',
             [
-                'label'                 => __( 'Link', 'power-pack' ),
+                'label'                 => __( 'Link', 'powerpack' ),
                 'type'                  => Controls_Manager::URL,
 				'dynamic'               => [
 					'active'        => true,
@@ -139,20 +139,20 @@ class Dual_Heading extends Powerpack_Widget {
         $this->add_control(
             'heading_html_tag',
             [
-                'label'                 => __( 'HTML Tag', 'power-pack' ),
+                'label'                 => __( 'HTML Tag', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'label_block'           => false,
                 'default'               => 'h2',
                 'options'               => [
-                    'h1'     => __( 'H1', 'power-pack' ),
-                    'h2'     => __( 'H2', 'power-pack' ),
-                    'h3'     => __( 'H3', 'power-pack' ),
-                    'h4'     => __( 'H4', 'power-pack' ),
-                    'h5'     => __( 'H5', 'power-pack' ),
-                    'h6'     => __( 'H6', 'power-pack' ),
-                    'div'    => __( 'div', 'power-pack' ),
-                    'span'   => __( 'span', 'power-pack' ),
-                    'p'      => __( 'p', 'power-pack' ),
+                    'h1'     => __( 'H1', 'powerpack' ),
+                    'h2'     => __( 'H2', 'powerpack' ),
+                    'h3'     => __( 'H3', 'powerpack' ),
+                    'h4'     => __( 'H4', 'powerpack' ),
+                    'h5'     => __( 'H5', 'powerpack' ),
+                    'h6'     => __( 'H6', 'powerpack' ),
+                    'div'    => __( 'div', 'powerpack' ),
+                    'span'   => __( 'span', 'powerpack' ),
+                    'p'      => __( 'p', 'powerpack' ),
                 ],
             ]
         );
@@ -160,13 +160,13 @@ class Dual_Heading extends Powerpack_Widget {
         $this->add_control(
             'second_part_display',
             [
-                'label'                 => __( 'Second Part Display', 'power-pack' ),
+                'label'                 => __( 'Second Part Display', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'label_block'           => false,
                 'default'               => 'inline-block',
                 'options'               => [
-                    'inline-block'  => __( 'Inline', 'power-pack' ),
-                    'block'         => __( 'Block', 'power-pack' ),
+                    'inline-block'  => __( 'Inline', 'powerpack' ),
+                    'block'         => __( 'Block', 'powerpack' ),
                 ],
                 'prefix_class'          => 'pp-dual-heading-',
 				'selectors'             => [
@@ -178,20 +178,20 @@ class Dual_Heading extends Powerpack_Widget {
         $this->add_responsive_control(
 			'align',
 			[
-				'label'                 => __( 'Alignment', 'power-pack' ),
+				'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
                 'label_block'           => true,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -204,7 +204,7 @@ class Dual_Heading extends Powerpack_Widget {
 
         $this->end_controls_section();
 
-        /**
+		/**
 		 * Content Tab: Docs Links
 		 *
 		 * @since 1.4.8
@@ -229,7 +229,6 @@ class Dual_Heading extends Powerpack_Widget {
 
 		$this->end_controls_section();
 
-
         /*-----------------------------------------------------------------------------------*/
         /*	STYLE TAB
         /*-----------------------------------------------------------------------------------*/
@@ -240,7 +239,7 @@ class Dual_Heading extends Powerpack_Widget {
         $this->start_controls_section(
             'first_section_style',
             [
-                'label'                 => __( 'First Part', 'power-pack' ),
+                'label'                 => __( 'First Part', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -248,7 +247,7 @@ class Dual_Heading extends Powerpack_Widget {
         $this->add_control(
             'first_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -261,7 +260,7 @@ class Dual_Heading extends Powerpack_Widget {
             Group_Control_Background::get_type(),
             [
                 'name'                  => 'first_part_bg',
-                'label'                 => __( 'Background', 'power-pack' ),
+                'label'                 => __( 'Background', 'powerpack' ),
                 'types'                 => [ 'none','classic','gradient' ],
                 'selector'              => '{{WRAPPER}} .pp-first-text',
             ]
@@ -271,7 +270,7 @@ class Dual_Heading extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'first_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-first-text',
 				'separator'             => 'before',
@@ -282,7 +281,7 @@ class Dual_Heading extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'first_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-first-text',
 				'separator'             => 'before',
@@ -292,7 +291,7 @@ class Dual_Heading extends Powerpack_Widget {
 		$this->add_control(
 			'first_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -304,7 +303,7 @@ class Dual_Heading extends Powerpack_Widget {
 		$this->add_control(
 			'first_text_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -339,7 +338,7 @@ class Dual_Heading extends Powerpack_Widget {
         $this->start_controls_section(
             'second_section_style',
             [
-                'label'                 => __( 'Second Part', 'power-pack' ),
+                'label'                 => __( 'Second Part', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -347,7 +346,7 @@ class Dual_Heading extends Powerpack_Widget {
         $this->add_control(
             'second_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -360,7 +359,7 @@ class Dual_Heading extends Powerpack_Widget {
             Group_Control_Background::get_type(),
             [
                 'name'                  => 'second_part_bg',
-                'label'                 => __( 'Background', 'power-pack' ),
+                'label'                 => __( 'Background', 'powerpack' ),
                 'types'                 => [ 'none','classic','gradient' ],
                 'selector'              => '{{WRAPPER}} .pp-second-text',
             ]
@@ -370,7 +369,7 @@ class Dual_Heading extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'second_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-second-text',
 				'separator'             => 'before',
@@ -381,7 +380,7 @@ class Dual_Heading extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'second_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-second-text',
 				'separator'             => 'before',
@@ -391,7 +390,7 @@ class Dual_Heading extends Powerpack_Widget {
 		$this->add_control(
 			'second_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -403,7 +402,7 @@ class Dual_Heading extends Powerpack_Widget {
         $this->add_responsive_control(
 			'second_text_margin',
 			[
-				'label'                 => __( 'Spacing', 'power-pack' ),
+				'label'                 => __( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ '%', 'px' ],
                 'default'               => [
@@ -432,7 +431,7 @@ class Dual_Heading extends Powerpack_Widget {
 		$this->add_control(
 			'second_text_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -480,15 +479,7 @@ class Dual_Heading extends Powerpack_Widget {
         $this->add_render_attribute( 'second_text', 'class', 'pp-second-text' );
         
         if ( ! empty( $settings['link']['url'] ) ) {
-            $this->add_render_attribute( 'dual-heading-link', 'href', esc_url( $settings['link']['url'] ) );
-
-            if ( $settings['link']['is_external'] ) {
-                $this->add_render_attribute( 'dual-heading-link', 'target', '_blank' );
-            }
-
-            if ( $settings['link']['nofollow'] ) {
-                $this->add_render_attribute( 'dual-heading-link', 'rel', 'nofollow' );
-            }
+			$this->add_link_attributes( 'dual-heading-link', $settings['link'] );
         }
         
         if ( $settings['first_text'] || $settings['second_text'] ) {

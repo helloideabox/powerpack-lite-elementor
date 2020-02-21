@@ -1541,39 +1541,19 @@ class Flipbox extends Powerpack_Widget {
 	  	if ( $settings['link_type'] != 'none' ) {
 	  		if ( ! empty( $settings['link']['url'] ) ) {
 	  			if ( $settings['link_type'] == 'title' ) {
+
 	  				$pp_title_html_tag = 'a';
 
-	  				$this->add_render_attribute(
-	  					'title-container',
-		  				[
-		  					'class'	=> 'pp-flipbox-linked-title',
-		  					'href' => $settings['link']['url']
-		  				]
-		  			);
-
-	  				if ( $settings['link']['is_external'] ) {
-	  					$this->add_render_attribute('title-container', 'target', '_blank');
-	  				}
-
-	  				if ( $settings['link']['nofollow'] ) {
-	  					$this->add_render_attribute('title-container', 'rel', 'nofollow');
-	  				}
+	  				$this->add_render_attribute( 'title-container', 'class', 'pp-flipbox-linked-title' );
+					
+					$this->add_link_attributes( 'title-container', $settings['link'] );
+					
 	  			} elseif ( $settings['link_type'] == 'button' ) {
-	  				$this->add_render_attribute(
-	  					'button',
-	  					[
-	  						'class'	=> [ 'elementor-button', 'pp-flipbox-button', 'elementor-size-' . $settings['button_size'], ],
-	  						'href'	=> $settings['link']['url']
-	  					]
-	  				);
 
-	  				if ( $settings['link']['is_external'] ) {
-	  					$this->add_render_attribute('button', 'target', '_blank' );
-	  				}
-
-	  				if ( $settings['link']['nofollow'] ) {
-	  					$this->add_render_attribute('button', 'rel', 'nofollow' );
-	  				}
+	  				$this->add_render_attribute( 'button', 'class', [ 'elementor-button', 'pp-flipbox-button', 'elementor-size-' . $settings['button_size'], ] );
+					
+					$this->add_link_attributes( 'button', $settings['link'] );
+					
 	  			}
 	  		}
 	  	}
@@ -1581,21 +1561,9 @@ class Flipbox extends Powerpack_Widget {
         <div class="pp-flipbox-back">
             <?php
                 if ( $settings['link_type'] == 'box' && $settings['link']['url'] != '' ) {
-                $this->add_render_attribute(
-                    'box-link',
-                    [
-                        'class'	=> 'pp-flipbox-box-link',
-                        'href' => $settings['link']['url']
-                    ]
-                );
-
-                if ( $settings['link']['is_external'] ) {
-                    $this->add_render_attribute('box-link', 'target', '_blank');
-                }
-
-                if ( $settings['link']['nofollow'] ) {
-                    $this->add_render_attribute('box-link', 'rel', 'nofollow');
-                }
+                $this->add_render_attribute( 'box-link', 'class', 'pp-flipbox-box-link' );
+					
+				$this->add_link_attributes( 'box-link', $settings['link'] );
                 ?>
                 <a <?php echo $this->get_render_attribute_string('box-link'); ?>></a>
             <?php } ?>

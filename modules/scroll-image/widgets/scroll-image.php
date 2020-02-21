@@ -153,16 +153,21 @@ class Scroll_Image extends Powerpack_Widget {
             ]
         );
 
-        $this->add_control('link',
+        $this->add_control(
+			'link',
             [
 				'label'					=> __('URL', 'powerpack'),
 				'type'					=> Controls_Manager::URL,
+				'dynamic'				=> [
+					'active' => true,
+				],
 				'placeholder'			=> 'https://powerpackelements.com/',
 				'label_block'			=> true
             ]
         );
         
-        $this->add_control('icon_heading',
+        $this->add_control(
+			'icon_heading',
             [
 				'label'					=> __('Icon', 'powerpack'),
 				'type'					=> Controls_Manager::HEADING,
@@ -266,6 +271,31 @@ class Scroll_Image extends Powerpack_Widget {
         );
 
         $this->end_controls_section();
+
+		/**
+		 * Content Tab: Help Docs
+		 *
+		 * @since 1.4.8
+		 * @access protected
+		 */
+		$this->start_controls_section(
+			'section_help_docs',
+			[
+				'label' => __( 'Help Docs', 'powerpack' ),
+			]
+		);
+		
+		$this->add_control(
+			'help_doc_1',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				/* translators: %1$s doc link */
+				'raw'             => sprintf( __( '%1$s Watch Video Overview %2$s', 'powerpack' ), '<a href="https://www.youtube.com/watch?v=eduATa8FPpU&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj" target="_blank" rel="noopener">', '</a>' ),
+				'content_classes' => 'pp-editor-doc-links',
+			]
+		);
+
+		$this->end_controls_section();
 
 		/*-----------------------------------------------------------------------------------*/
         /*	STYLE TAB
@@ -420,18 +450,8 @@ class Scroll_Image extends Powerpack_Widget {
        
         if ( $settings['link']['url'] != '' ) {
             $this->add_render_attribute( 'link', 'class', 'pp-image-scroll-link' );
-
-            if( ! empty( $settings['link']['is_external'] ) ) {
-                $this->add_render_attribute( 'link', 'target', "_blank" );
-            }
-
-            if( ! empty( $settings['link']['nofollow'] ) ) {
-                $this->add_render_attribute( 'link', 'rel',  "nofollow" );
-            }
-
-            if( ! empty( $settings['link']['url'] ) ) {
-                $this->add_render_attribute( 'link', 'href',  $link_url );
-            }
+			
+			$this->add_link_attributes( 'link', $settings['link'] );
         }
        
 		$this->add_render_attribute( 'icon', 'class', [

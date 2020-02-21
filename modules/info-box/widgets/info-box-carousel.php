@@ -405,6 +405,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
             ]
         );
         
+        $this->add_control(
+            'equal_height_boxes',
+            [
+                'label'                 => __( 'Equal Height Boxes', 'powerpack' ),
+                'type'                  => Controls_Manager::SWITCHER,
+                'default'               => '',
+                'label_on'              => __( 'On', 'powerpack' ),
+                'label_off'             => __( 'Off', 'powerpack' ),
+                'return_value'          => 'yes',
+                'frontend_available'    => true,
+            ]
+        );
+        
         $this->end_controls_section();
 
         /**
@@ -442,6 +455,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 'description'           => __( 'Number of slides visible at the same time on slider\'s container).', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [ 'size' => 3 ],
+                'tablet_default'        => [ 'size' => 2 ],
+                'mobile_default'        => [ 'size' => 1 ],
                 'range'                 => [
                     'px' => [
                         'min'   => 1,
@@ -464,6 +479,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 'description'           => __( 'Distance between slides (in px)', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [ 'size' => 10 ],
+                'tablet_default'        => [ 'size' => 10 ],
+                'mobile_default'        => [ 'size' => 10 ],
                 'range'                 => [
                     'px' => [
                         'min'   => 0,
@@ -613,6 +630,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'left',
                 'options'               => [
+                    'auto'       => __( 'Auto', 'powerpack' ),
                     'left'       => __( 'Left', 'powerpack' ),
                     'right'      => __( 'Right', 'powerpack' ),
                 ],
@@ -622,7 +640,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
         $this->end_controls_section();
 
-        /**
+		/**
 		 * Content Tab: Docs Links
 		 *
 		 * @since 1.4.8
@@ -2162,7 +2180,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
         
         $this->slider_settings();
         
-        if ( is_rtl() ) {
+        if ( $settings['direction'] == 'right' || is_rtl() ) {
             $this->add_render_attribute( 'info-box-carousel', 'dir', 'rtl' );
         }
         
@@ -2211,16 +2229,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
                     if ( $item['link_type'] != 'none' ) {
                         if ( ! empty( $item['link']['url'] ) ) {
-                            
-                            $this->add_render_attribute( 'link' . $i, 'href', $item['link']['url'] );
-
-                            if ( $item['link']['is_external'] ) {
-                                $this->add_render_attribute( 'link' . $i, 'target', '_blank' );
-                            }
-
-                            if ( $item['link']['nofollow'] ) {
-                                $this->add_render_attribute( 'link' . $i, 'rel', 'nofollow' );
-                            }
+							
+							$this->add_link_attributes( 'link' . $i, $item['link'] );
                             
                             if ( $item['link_type'] == 'title' ) {
                                 $pp_title_html_tag = 'a';
@@ -2456,6 +2466,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
     }
 
     protected function _content_template() {
+		$elementor_bp_tablet	= get_option( 'elementor_viewport_lg' );
+		$elementor_bp_mobile	= get_option( 'elementor_viewport_md' );
+		$bp_tablet				= !empty($elementor_bp_tablet) ? $elementor_bp_tablet : 1025;
+		$bp_mobile				= !empty($elementor_bp_mobile) ? $elementor_bp_mobile : 768;
         ?>
         <#
            function dots_template() {
@@ -2539,11 +2553,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
                         prevEl: '.swiper-button-prev',
                     },
                     breakpoints: {
-                        768: {
+                        <?php echo $bp_tablet; ?>: {
                             slidesPerView:  $items_tablet,
                             spaceBetween:   $margin_tablet
                         },
-                        480: {
+                        <?php echo $bp_mobile; ?>: {
                             slidesPerView:  $items_mobile,
                             spaceBetween:   $margin_mobile
                         }
@@ -2561,12 +2575,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
            var slider_options = get_slider_settings( settings );
 
            view.addRenderAttribute( 'info-box-carousel-wrap', 'data-slider-settings', JSON.stringify( slider_options ) );
-                       
-           #>
-			<?php if ( is_rtl() ) { ?>
-				<# view.addRenderAttribute( 'info-box-carousel', 'dir', 'rtl' ); #>
-			<?php } ?>
-           <#
+                  
+		   if ( settings.direction == 'auto' ) {
+			   #>
+			   <?php if ( is_rtl() ) { ?>
+					<# view.addRenderAttribute( 'info-box-carousel', 'dir', 'rtl' ); #>
+			   <?php } ?>
+			   <#
+		   } else {
+			   if ( settings.direction == 'right' ) {
+					view.addRenderAttribute( 'info-box-carousel', 'dir', 'rtl' );
+			   }
+		   }
+			  
            view.addRenderAttribute(
                 'info-box-carousel',
                 {

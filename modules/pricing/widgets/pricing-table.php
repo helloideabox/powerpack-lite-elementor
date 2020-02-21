@@ -624,7 +624,7 @@ class Pricing_Table extends Powerpack_Widget {
             'link',
             [
                 'label'                 => __( 'Link', 'powerpack' ),
-				'label_block'           => false,
+				'label_block'           => true,
                 'type'                  => Controls_Manager::URL,
 				'dynamic'               => [
 					'active'   => true,
@@ -2225,15 +2225,7 @@ class Pricing_Table extends Powerpack_Widget {
 		);
         
         if ( ! empty( $settings['link']['url'] ) ) {
-            $this->add_render_attribute( 'table_button_text', 'href', $settings['link']['url'] );
-
-            if ( ! empty( $settings['link']['is_external'] ) ) {
-                $this->add_render_attribute( 'table_button_text', 'target', '_blank' );
-            }
-
-			if ( ! empty( $settings['link']['nofollow'] ) ) {
-				$this->add_render_attribute( 'table_button_text', 'rel', 'nofollow' );
-			}
+			$this->add_link_attributes( 'table_button_text', $settings['link'] );
         }
         
         $this->add_render_attribute( 'pricing-table-duration', 'class', 'pp-pricing-table-price-duration' );

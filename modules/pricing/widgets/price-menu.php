@@ -5,6 +5,7 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
+use Elementor\Control_Media;
 use Elementor\Utils;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
@@ -30,7 +31,7 @@ class Price_Menu extends Powerpack_Widget {
     }
 
     public function get_title() {
-        return __( 'Price Menu', 'power-pack' );
+        return __( 'Price Menu', 'powerpack' );
     }
 
     public function get_categories() {
@@ -50,7 +51,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->start_controls_section(
             'section_price_menu',
             [
-                'label'                 => __( 'Price Menu', 'power-pack' ),
+                'label'                 => __( 'Price Menu', 'powerpack' ),
             ]
         );
 
@@ -61,44 +62,44 @@ class Price_Menu extends Powerpack_Widget {
 				'type'                  => Controls_Manager::REPEATER,
 				'default'               => [
 					[
-						'menu_title' => __( 'Menu Item #1', 'power-pack' ),
+						'menu_title' => __( 'Menu Item #1', 'powerpack' ),
 						'menu_price' => '$49',
 					],
 					[
-						'menu_title' => __( 'Menu Item #2', 'power-pack' ),
+						'menu_title' => __( 'Menu Item #2', 'powerpack' ),
 						'menu_price' => '$49',
 					],
 					[
-						'menu_title' => __( 'Menu Item #3', 'power-pack' ),
+						'menu_title' => __( 'Menu Item #3', 'powerpack' ),
 						'menu_price' => '$49',
 					],
 				],
 				'fields'                => [
 					[
 						'name'          => 'menu_title',
-						'label'         => __( 'Title', 'power-pack' ),
+						'label'         => __( 'Title', 'powerpack' ),
 						'type'          => Controls_Manager::TEXT,
                         'dynamic'       => [
                             'active'    => true,
                         ],
 						'label_block'   => true,
-						'placeholder'   => __( 'Title', 'power-pack' ),
-						'default'       => __( 'Title', 'power-pack' ),
+						'placeholder'   => __( 'Title', 'powerpack' ),
+						'default'       => __( 'Title', 'powerpack' ),
 					],
 					[
 						'name'          => 'menu_description',
-						'label'         => __( 'Description', 'power-pack' ),
+						'label'         => __( 'Description', 'powerpack' ),
 						'type'          => Controls_Manager::TEXTAREA,
                         'dynamic'       => [
                             'active'    => true,
                         ],
 						'label_block'   => true,
-						'placeholder'   => __( 'Description', 'power-pack' ),
-						'default'       => __( 'Description', 'power-pack' ),
+						'placeholder'   => __( 'Description', 'powerpack' ),
+						'default'       => __( 'Description', 'powerpack' ),
 					],
                     [
 						'name'          => 'menu_price',
-                        'label'         => __( 'Price', 'power-pack' ),
+                        'label'         => __( 'Price', 'powerpack' ),
                         'type'          => Controls_Manager::TEXT,
                         'dynamic'       => [
                             'active'    => true,
@@ -107,16 +108,16 @@ class Price_Menu extends Powerpack_Widget {
                     ],
                     [
 						'name'          => 'discount',
-                        'label'         => __( 'Discount', 'power-pack' ),
+                        'label'         => __( 'Discount', 'powerpack' ),
                         'type'          => Controls_Manager::SWITCHER,
                         'default'       => 'no',
-                        'label_on'      => __( 'On', 'power-pack' ),
-                        'label_off'     => __( 'Off', 'power-pack' ),
+                        'label_on'      => __( 'On', 'powerpack' ),
+                        'label_off'     => __( 'Off', 'powerpack' ),
                         'return_value'  => 'yes',
                     ],
                     [
 						'name'          => 'original_price',
-                        'label'         => __( 'Original Price', 'power-pack' ),
+                        'label'         => __( 'Original Price', 'powerpack' ),
                         'type'          => Controls_Manager::TEXT,
                         'dynamic'       => [
                             'active'    => true,
@@ -134,16 +135,16 @@ class Price_Menu extends Powerpack_Widget {
                     ],
                     [
 						'name'          => 'image_switch',
-                        'label'         => __( 'Show Image', 'power-pack' ),
+                        'label'         => __( 'Show Image', 'powerpack' ),
                         'type'          => Controls_Manager::SWITCHER,
                         'default'       => '',
-                        'label_on'      => __( 'On', 'power-pack' ),
-                        'label_off'     => __( 'Off', 'power-pack' ),
+                        'label_on'      => __( 'On', 'powerpack' ),
+                        'label_off'     => __( 'Off', 'powerpack' ),
                         'return_value'  => 'yes',
                     ],
                     [
 						'name'          => 'image',
-                        'label'         => __( 'Image', 'power-pack' ),
+                        'label'         => __( 'Image', 'powerpack' ),
                         'type'          => Controls_Manager::MEDIA,
                         'default'       => [
                             'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -163,7 +164,7 @@ class Price_Menu extends Powerpack_Widget {
                     ],
                     [
 						'name'          => 'link',
-                        'label'         => __( 'Link', 'power-pack' ),
+                        'label'         => __( 'Link', 'powerpack' ),
                         'type'          => Controls_Manager::URL,
                         'dynamic'       => [
                             'active'    => true,
@@ -174,19 +175,29 @@ class Price_Menu extends Powerpack_Widget {
 				'title_field'       => '{{{ menu_title }}}',
 			]
 		);
+		
+        $this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'                  => 'image_size',
+				'label'                 => __( 'Image Size', 'powerpack' ),
+				'default'               => 'thumbnail',
+				'separator'             => 'before',
+			]
+		);
         
         $this->add_control(
           'menu_style',
           [
-             'label'                => __( 'Menu Style', 'power-pack' ),
+             'label'                => __( 'Menu Style', 'powerpack' ),
              'type'                 => Controls_Manager::SELECT,
              'default'              => 'style-1',
              'options'              => [
-                'style-powerpack'   => __( 'PowerPack Style', 'power-pack' ),
-                'style-1'           => __( 'Style 1', 'power-pack' ),
-                'style-2'           => __( 'Style 2', 'power-pack' ),
-                'style-3'           => __( 'Style 3', 'power-pack' ),
-                'style-4'           => __( 'Style 4', 'power-pack' ),
+                'style-powerpack'   => __( 'PowerPack Style', 'powerpack' ),
+                'style-1'           => __( 'Style 1', 'powerpack' ),
+                'style-2'           => __( 'Style 2', 'powerpack' ),
+                'style-3'           => __( 'Style 3', 'powerpack' ),
+                'style-4'           => __( 'Style 4', 'powerpack' ),
              ],
           ]
         );
@@ -194,23 +205,23 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_responsive_control(
 			'menu_align',
 			[
-				'label'                 => __( 'Alignment', 'power-pack' ),
+				'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 					'justify'   => [
-						'title' => __( 'Justified', 'power-pack' ),
+						'title' => __( 'Justified', 'powerpack' ),
 						'icon'  => 'fa fa-align-justify',
 					],
 				],
@@ -227,11 +238,11 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'title_price_connector',
             [
-                'label'                 => __( 'Title-Price Connector', 'power-pack' ),
+                'label'                 => __( 'Title-Price Connector', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'no',
-                'label_on'              => __( 'Yes', 'power-pack' ),
-                'label_off'             => __( 'No', 'power-pack' ),
+                'label_on'              => __( 'Yes', 'powerpack' ),
+                'label_off'             => __( 'No', 'powerpack' ),
                 'return_value'          => 'yes',
                 'condition'             => [
                     'menu_style' => 'style-1',
@@ -242,11 +253,11 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'title_separator',
             [
-                'label'                 => __( 'Title Separator', 'power-pack' ),
+                'label'                 => __( 'Title Separator', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'no',
-                'label_on'              => __( 'Yes', 'power-pack' ),
-                'label_off'             => __( 'No', 'power-pack' ),
+                'label_on'              => __( 'Yes', 'powerpack' ),
+                'label_off'             => __( 'No', 'powerpack' ),
                 'return_value'          => 'yes',
             ]
         );
@@ -278,7 +289,6 @@ class Price_Menu extends Powerpack_Widget {
 
 		$this->end_controls_section();
 
-
         /*-----------------------------------------------------------------------------------*/
         /*	Style Tab
         /*-----------------------------------------------------------------------------------*/
@@ -289,7 +299,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->start_controls_section(
             'section_items_style',
             [
-                'label'                 => __( 'Menu Items', 'power-pack' ),
+                'label'                 => __( 'Menu Items', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -297,7 +307,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'items_bg_color',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -309,7 +319,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_responsive_control(
             'items_spacing',
             [
-                'label'                 => __( 'Items Spacing', 'power-pack' ),
+                'label'                 => __( 'Items Spacing', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     '%' => [
@@ -328,7 +338,7 @@ class Price_Menu extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'items_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -341,7 +351,7 @@ class Price_Menu extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'items_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-restaurant-menu .pp-restaurant-menu-item',
@@ -351,7 +361,7 @@ class Price_Menu extends Powerpack_Widget {
 		$this->add_control(
 			'items_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -377,7 +387,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->start_controls_section(
             'section_content_style',
             [
-                'label'                 => __( 'Content', 'power-pack' ),
+                'label'                 => __( 'Content', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'menu_style' => 'style-powerpack',
@@ -388,7 +398,7 @@ class Price_Menu extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -408,7 +418,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->start_controls_section(
             'section_title_style',
             [
-                'label'                 => __( 'Title', 'power-pack' ),
+                'label'                 => __( 'Title', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -416,7 +426,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'title_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -429,7 +439,7 @@ class Price_Menu extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'title_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-restaurant-menu .pp-restaurant-menu-title',
             ]
@@ -438,7 +448,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_responsive_control(
             'title_margin',
             [
-                'label'                 => __( 'Margin Bottom', 'power-pack' ),
+                'label'                 => __( 'Margin Bottom', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     '%' => [
@@ -459,7 +469,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->start_controls_section(
             'section_title_separator_style',
             [
-                'label'                 => __( 'Title Separator', 'power-pack' ),
+                'label'                 => __( 'Title Separator', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'title_separator' => 'yes',
@@ -470,15 +480,15 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'divider_title_border_type',
             [
-                'label'                 => __( 'Border Type', 'power-pack' ),
+                'label'                 => __( 'Border Type', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'dotted',
                 'options'               => [
-                    'none'      => __( 'None', 'power-pack' ),
-                    'solid'     => __( 'Solid', 'power-pack' ),
-                    'double'    => __( 'Double', 'power-pack' ),
-                    'dotted'    => __( 'Dotted', 'power-pack' ),
-                    'dashed'    => __( 'Dashed', 'power-pack' ),
+                    'none'      => __( 'None', 'powerpack' ),
+                    'solid'     => __( 'Solid', 'powerpack' ),
+                    'double'    => __( 'Double', 'powerpack' ),
+                    'dotted'    => __( 'Dotted', 'powerpack' ),
+                    'dashed'    => __( 'Dashed', 'powerpack' ),
                 ],
                 'selectors'             => [
                     '{{WRAPPER}} .pp-restaurant-menu .pp-price-menu-divider' => 'border-bottom-style: {{VALUE}}',
@@ -492,7 +502,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_title_border_weight',
             [
-                'label'                 => __( 'Border Height', 'power-pack' ),
+                'label'                 => __( 'Border Height', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'      => 1,
@@ -517,7 +527,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_title_border_width',
             [
-                'label'                 => __( 'Border Width', 'power-pack' ),
+                'label'                 => __( 'Border Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'      => 100,
@@ -543,7 +553,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'divider_title_border_color',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -558,7 +568,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_responsive_control(
             'divider_title_spacing',
             [
-                'label'                 => __( 'Margin Bottom', 'power-pack' ),
+                'label'                 => __( 'Margin Bottom', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     '%' => [
@@ -579,7 +589,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->start_controls_section(
             'section_price_style',
             [
-                'label'                 => __( 'Price', 'power-pack' ),
+                'label'                 => __( 'Price', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -587,7 +597,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'price_badge_heading',
             [
-                'label'                 => __( 'Price Badge', 'power-pack' ),
+                'label'                 => __( 'Price Badge', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
                 'condition'             => [
@@ -599,7 +609,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'badge_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -614,7 +624,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'badge_bg_color',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -629,7 +639,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'price_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -645,7 +655,7 @@ class Price_Menu extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'price_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-restaurant-menu .pp-restaurant-menu-price-discount',
             ]
@@ -654,7 +664,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'original_price_heading',
             [
-                'label'                 => __( 'Original Price', 'power-pack' ),
+                'label'                 => __( 'Original Price', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
             ]
@@ -663,11 +673,11 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'original_price_strike',
             [
-                'label'                 => __( 'Strikethrough', 'power-pack' ),
+                'label'                 => __( 'Strikethrough', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'yes',
-                'label_on'              => __( 'On', 'power-pack' ),
-                'label_off'             => __( 'Off', 'power-pack' ),
+                'label_on'              => __( 'On', 'powerpack' ),
+                'label_off'             => __( 'Off', 'powerpack' ),
                 'return_value'          => 'yes',
                 'selectors'             => [
                     '{{WRAPPER}} .pp-restaurant-menu .pp-restaurant-menu-price-original' => 'text-decoration: line-through;',
@@ -678,7 +688,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'original_price_color',
             [
-                'label'                 => __( 'Original Price Color', 'power-pack' ),
+                'label'                 => __( 'Original Price Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#a3a3a3',
                 'selectors'             => [
@@ -691,7 +701,7 @@ class Price_Menu extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'original_price_typography',
-                'label'                 => __( 'Original Price Typography', 'power-pack' ),
+                'label'                 => __( 'Original Price Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-restaurant-menu .pp-restaurant-menu-price-original',
             ]
@@ -702,7 +712,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->start_controls_section(
             'section_description_style',
             [
-                'label'                 => __( 'Description', 'power-pack' ),
+                'label'                 => __( 'Description', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -710,7 +720,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'description_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -723,7 +733,7 @@ class Price_Menu extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'description_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-restaurant-menu-description',
             ]
@@ -732,7 +742,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_responsive_control(
             'description_spacing',
             [
-                'label'                 => __( 'Margin Bottom', 'power-pack' ),
+                'label'                 => __( 'Margin Bottom', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     '%' => [
@@ -756,24 +766,15 @@ class Price_Menu extends Powerpack_Widget {
         $this->start_controls_section(
             'section_image_style',
             [
-                'label'                 => __( 'Image', 'power-pack' ),
+                'label'                 => __( 'Image', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
-		
-        $this->add_group_control(
-			Group_Control_Image_Size::get_type(),
-			[
-				'name'                  => 'image_size',
-				'label'                 => __( 'Image Size', 'power-pack' ),
-				'default'               => 'thumbnail',
-			]
-		);
 
         $this->add_control(
             'image_bg_color',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -785,7 +786,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_responsive_control(
             'image_width',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -809,7 +810,7 @@ class Price_Menu extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_margin',
 			[
-				'label'                 => __( 'Margin', 'power-pack' ),
+				'label'                 => __( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -821,7 +822,7 @@ class Price_Menu extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -834,7 +835,7 @@ class Price_Menu extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'image_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-restaurant-menu-image img',
@@ -844,7 +845,7 @@ class Price_Menu extends Powerpack_Widget {
 		$this->add_control(
 			'image_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -856,20 +857,20 @@ class Price_Menu extends Powerpack_Widget {
 		$this->add_control(
 			'image_vertical_position',
 			[
-				'label'                 => __( 'Vertical Position', 'power-pack' ),
+				'label'                 => __( 'Vertical Position', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
 					'top'       => [
-						'title' => __( 'Top', 'power-pack' ),
+						'title' => __( 'Top', 'powerpack' ),
 						'icon'  => 'eicon-v-align-top',
 					],
 					'middle'    => [
-						'title' => __( 'Middle', 'power-pack' ),
+						'title' => __( 'Middle', 'powerpack' ),
 						'icon'  => 'eicon-v-align-middle',
 					],
 					'bottom'    => [
-						'title' => __( 'Bottom', 'power-pack' ),
+						'title' => __( 'Bottom', 'powerpack' ),
 						'icon'  => 'eicon-v-align-bottom',
 					],
 				],
@@ -892,7 +893,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->start_controls_section(
             'section_table_title_connector_style',
             [
-                'label'                 => __( 'Title-Price Connector', 'power-pack' ),
+                'label'                 => __( 'Title-Price Connector', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'title_price_connector' => 'yes',
@@ -904,20 +905,20 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
 			'title_connector_vertical_align',
 			[
-				'label'                 => __( 'Vertical Alignment', 'power-pack' ),
+				'label'                 => __( 'Vertical Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'middle',
 				'options'               => [
 					'top'          => [
-						'title'    => __( 'Top', 'power-pack' ),
+						'title'    => __( 'Top', 'powerpack' ),
 						'icon'     => 'eicon-v-align-top',
 					],
 					'middle'       => [
-						'title'    => __( 'Center', 'power-pack' ),
+						'title'    => __( 'Center', 'powerpack' ),
 						'icon'     => 'eicon-v-align-middle',
 					],
 					'bottom'       => [
-						'title'    => __( 'Bottom', 'power-pack' ),
+						'title'    => __( 'Bottom', 'powerpack' ),
 						'icon'     => 'eicon-v-align-bottom',
 					],
 				],
@@ -939,14 +940,14 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'items_divider_style',
             [
-                'label'                 => __( 'Style', 'power-pack' ),
+                'label'                 => __( 'Style', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'dashed',
                 'options'              => [
-                    'solid'     => __( 'Solid', 'power-pack' ),
-                    'dashed'    => __( 'Dashed', 'power-pack' ),
-                    'dotted'    => __( 'Dotted', 'power-pack' ),
-                    'double'    => __( 'Double', 'power-pack' ),
+                    'solid'     => __( 'Solid', 'powerpack' ),
+                    'dashed'    => __( 'Dashed', 'powerpack' ),
+                    'dotted'    => __( 'Dotted', 'powerpack' ),
+                    'double'    => __( 'Double', 'powerpack' ),
                 ],
                 'selectors'             => [
                     '{{WRAPPER}} .pp-restaurant-menu-style-1 .pp-price-title-connector' => 'border-bottom-style: {{VALUE}}',
@@ -961,7 +962,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_control(
             'items_divider_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#000',
                 'selectors'             => [
@@ -977,7 +978,7 @@ class Price_Menu extends Powerpack_Widget {
         $this->add_responsive_control(
             'items_divider_weight',
             [
-                'label'                 => __( 'Divider Weight', 'power-pack' ),
+                'label'                 => __( 'Divider Weight', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [ 'size' => '1'],
                 'range'                 => [
@@ -1039,8 +1040,13 @@ class Price_Menu extends Powerpack_Widget {
                                         if ( ! empty( $item['image']['url'] ) ) :
                                             $image = $item['image'];
                                             $image_url = Group_Control_Image_Size::get_attachment_image_src( $image['id'], 'image_size', $settings );
+
+                                            if ( $image_url ) {
+                                                echo '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( Control_Media::get_image_alt( $item['image'] ) ) . '">';
+                                            } else {
+                                                echo '<img src="' . esc_url( $item['image']['url'] ) . '">';
+                                            }
                                         ?>
-                                        <img src="<?php echo esc_url( $image_url ); ?>" alt="">	
                                      <?php endif; ?>
                                 </div>
                             <?php } ?>
@@ -1051,11 +1057,7 @@ class Price_Menu extends Powerpack_Widget {
                                         <h4 class="pp-restaurant-menu-title">
                                             <?php
                                                 if ( ! empty( $item['link']['url'] ) ) {
-                                                    $this->add_render_attribute( 'price-menu-link' . $i, 'href', esc_url( $item['link']['url'] ) );
-
-                                                    if ( ! empty( $item['link']['is_external'] ) ) {
-                                                        $this->add_render_attribute( 'price-menu-link' . $i, 'target', '_blank' );
-                                                    }
+													$this->add_link_attributes( 'price-menu-link' . $i, $item['link'] );
                                                     ?>
                                                     <a <?php echo $this->get_render_attribute_string( 'price-menu-link' . $i ); ?>>
                                                         <span <?php echo $this->get_render_attribute_string( $title_key ); ?>>
@@ -1192,7 +1194,17 @@ class Price_Menu extends Powerpack_Widget {
                             <# if ( item.image_switch == 'yes' ) { #>
                                 <div class="pp-restaurant-menu-image">
                                     <# if ( item.image.url != '' ) { #>
-                                        <img src="{{ item.image.url }}">
+                                        <#
+                                        var image = {
+                                            id: item.image.id,
+                                            url: item.image.url,
+                                            size: settings.image_size_size,
+                                            dimension: settings.image_size_custom_dimension,
+                                            model: view.getEditModel()
+                                        };
+                                        var image_url = elementor.imagesManager.getImageUrl( image );
+                                        #>
+                                        <img src="{{{ image_url }}}" />
                                     <# } #>
                                 </div>
                             <# } #>

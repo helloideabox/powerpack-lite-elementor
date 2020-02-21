@@ -1764,12 +1764,17 @@ class Content_Ticker extends Powerpack_Widget {
             
             $item_key       = $this->get_repeater_setting_key( 'item', 'items', $index );
             $title_key      = $this->get_repeater_setting_key( 'ticker_title', 'items', $index );
+			$link_key       = $this->get_repeater_setting_key( 'link', 'items', $index );
             
             $this->add_render_attribute( $item_key, 'class', [
                 'pp-content-ticker-item',
                 'swiper-slide',
                 'elementor-repeater-item-' . esc_attr( $item['_id'] )
             ] );
+			
+			if ( $settings['link_type'] != '' ) {
+				$this->add_link_attributes( $link_key, $item['link'] );
+			}
             
             $this->add_render_attribute( $title_key, 'class', 'pp-content-ticker-item-title' );
             ?>
@@ -1779,7 +1784,7 @@ class Content_Ticker extends Powerpack_Widget {
                         <div class="pp-content-ticker-image">
                             <?php
                                 if ( ( $settings['link_type'] == 'image' || $settings['link_type'] == 'both' ) && $item['link']['url'] ) {
-                                    printf( '<a href="%1$s">%2$s</a>', $item['link']['url'], Group_Control_Image_Size::get_attachment_image_html( $item ) );
+                                    printf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( $link_key ), Group_Control_Image_Size::get_attachment_image_html( $item ) );
                                 } else {
                                     echo Group_Control_Image_Size::get_attachment_image_html( $item );
                                 }
@@ -1790,7 +1795,7 @@ class Content_Ticker extends Powerpack_Widget {
 						if ( $item['ticker_title'] != '' ) {
 							printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( $title_key ) );
                                 if ( ( $settings['link_type'] == 'title' || $settings['link_type'] == 'both' ) && $item['link']['url'] ) {
-                                    printf( '<a href="%1$s">%2$s</a>', $item['link']['url'], $item['ticker_title'] );
+                                    printf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( $link_key ), $item['ticker_title'] );
                                 } else {
                                     echo $item['ticker_title'];
                                 }

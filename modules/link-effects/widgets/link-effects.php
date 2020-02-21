@@ -41,7 +41,7 @@ class Link_Effects extends Powerpack_Widget {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Link Effects', 'power-pack' );
+        return __( 'Link Effects', 'powerpack' );
     }
 
     /**
@@ -88,31 +88,32 @@ class Link_Effects extends Powerpack_Widget {
         $this->start_controls_section(
             'section_link_effects',
             [
-                'label'                 => __( 'Link Effects', 'power-pack' ),
+                'label'                 => __( 'Link Effects', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'text',
             [
-                'label'                 => __( 'Text', 'power-pack' ),
+                'label'                 => __( 'Text', 'powerpack' ),
                 'type'                  => Controls_Manager::TEXT,
+                'label_block'			=> true,
 				'dynamic'               => [
 					'active'   => true,
 				],
-                'default'               => __( 'Click Here', 'power-pack' ),
+                'default'               => __( 'Click Here', 'powerpack' ),
             ]
         );
         
         $this->add_control(
             'secondary_text',
             [
-                'label'                 => __( 'Secondary Text', 'power-pack' ),
+                'label'                 => __( 'Secondary Text', 'powerpack' ),
                 'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-                'default'               => __( 'Click Here', 'power-pack' ),
+                'default'               => __( 'Click Here', 'powerpack' ),
                 'condition'             => [
                     'effect'    => 'effect-9',
                 ],
@@ -122,7 +123,7 @@ class Link_Effects extends Powerpack_Widget {
         $this->add_control(
             'link',
             [
-                'label'                 => __( 'Link', 'power-pack' ),
+                'label'                 => __( 'Link', 'powerpack' ),
                 'type'                  => Controls_Manager::URL,
 				'dynamic'               => [
 					'active'   => true,
@@ -137,30 +138,30 @@ class Link_Effects extends Powerpack_Widget {
         $this->add_control(
             'effect',
             [
-                'label'                 => __( 'Effect', 'power-pack' ),
+                'label'                 => __( 'Effect', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'options'               => [
-                   'effect-1'  => __( 'Bottom Border Slides In', 'power-pack' ),
-                   'effect-2'  => __( 'Bottom Border Slides Out', 'power-pack' ),
-                   'effect-3'  => __( 'Brackets', 'power-pack' ),
-                   'effect-4'  => __( '3D Rolling Cube', 'power-pack' ),
-                   'effect-5'  => __( 'Same Word Slide In', 'power-pack' ),
-                   'effect-6'  => __( 'Right Angle Slides Down over Title', 'power-pack' ),
-                   'effect-7'  => __( 'Second Border Slides Up', 'power-pack' ),
-                   'effect-8'  => __( 'Border Slight Translate', 'power-pack' ),
-                   'effect-9'  => __( 'Second Text and Borders', 'power-pack' ),
-                   'effect-10' => __( 'Push Out', 'power-pack' ),
-                   'effect-11' => __( 'Text Fill', 'power-pack' ),
-                   'effect-12' => __( 'Circle', 'power-pack' ),
-                   'effect-13' => __( 'Three Circles', 'power-pack' ),
-                   'effect-14' => __( 'Border Switch', 'power-pack' ),
-                   'effect-15' => __( 'Scale Down', 'power-pack' ),
-                   'effect-16' => __( 'Fall Down', 'power-pack' ),
-                   'effect-17' => __( 'Move Up and Push Border', 'power-pack' ),
-                   'effect-18' => __( 'Cross', 'power-pack' ),
-                   'effect-19' => __( '3D Side', 'power-pack' ),
-                   'effect-20' => __( 'Unfold', 'power-pack' ),
-                   'effect-21' => __( 'Borders Slight Yranslate', 'power-pack' ),
+                   'effect-1'  => __( 'Bottom Border Slides In', 'powerpack' ),
+                   'effect-2'  => __( 'Bottom Border Slides Out', 'powerpack' ),
+                   'effect-3'  => __( 'Brackets', 'powerpack' ),
+                   'effect-4'  => __( '3D Rolling Cube', 'powerpack' ),
+                   'effect-5'  => __( 'Same Word Slide In', 'powerpack' ),
+                   'effect-6'  => __( 'Right Angle Slides Down over Title', 'powerpack' ),
+                   'effect-7'  => __( 'Second Border Slides Up', 'powerpack' ),
+                   'effect-8'  => __( 'Border Slight Translate', 'powerpack' ),
+                   'effect-9'  => __( 'Second Text and Borders', 'powerpack' ),
+                   'effect-10' => __( 'Push Out', 'powerpack' ),
+                   'effect-11' => __( 'Text Fill', 'powerpack' ),
+                   'effect-12' => __( 'Circle', 'powerpack' ),
+                   'effect-13' => __( 'Three Circles', 'powerpack' ),
+                   'effect-14' => __( 'Border Switch', 'powerpack' ),
+                   'effect-15' => __( 'Scale Down', 'powerpack' ),
+                   'effect-16' => __( 'Fall Down', 'powerpack' ),
+                   'effect-17' => __( 'Move Up and Push Border', 'powerpack' ),
+                   'effect-18' => __( 'Cross', 'powerpack' ),
+                   'effect-19' => __( '3D Side', 'powerpack' ),
+                   'effect-20' => __( 'Unfold', 'powerpack' ),
+                   'effect-21' => __( 'Borders Slight Yranslate', 'powerpack' ),
                 ],
                 'default'               => 'effect-1',
             ]
@@ -169,23 +170,23 @@ class Link_Effects extends Powerpack_Widget {
         $this->add_responsive_control(
 			'align',
 			[
-				'label'                 => __( 'Alignment', 'power-pack' ),
+				'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 					'justify'   => [
-						'title' => __( 'Justified', 'power-pack' ),
+						'title' => __( 'Justified', 'powerpack' ),
 						'icon'  => 'fa fa-align-justify',
 					],
 				],
@@ -209,7 +210,7 @@ class Link_Effects extends Powerpack_Widget {
         $this->start_controls_section(
             'section_style',
             [
-                'label'                 => __( 'Link Effects', 'power-pack' ),
+                'label'                 => __( 'Link Effects', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -218,16 +219,16 @@ class Link_Effects extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
-                'selector'              => '{{WRAPPER}} a.pa-link',
+                'selector'              => '{{WRAPPER}} a.pp-link',
             ]
         );
         
         $this->add_responsive_control(
             'divider_title_width',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 200,
@@ -241,8 +242,8 @@ class Link_Effects extends Powerpack_Widget {
                 ],
                 'size_units'            => [ 'px', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .pa-link-effect-19' => 'width: {{SIZE}}{{UNIT}}',
-                    '{{WRAPPER}} .pa-link-effect-19 span' => 'transform-origin: 50% 50% calc(-{{SIZE}}{{UNIT}}/2)',
+                    '{{WRAPPER}} .pp-link-effect-19' => 'width: {{SIZE}}{{UNIT}}',
+                    '{{WRAPPER}} .pp-link-effect-19 span' => 'transform-origin: 50% 50% calc(-{{SIZE}}{{UNIT}}/2)',
                 ],
                 'condition'             => [
                     'effect' => 'effect-19',
@@ -255,18 +256,18 @@ class Link_Effects extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_link_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'link_color_normal',
             [
-                'label'                 => __( 'Link Color', 'power-pack' ),
+                'label'                 => __( 'Link Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} a.pa-link, {{WRAPPER}} .pa-link-effect-10 span, {{WRAPPER}} .pa-link-effect-15:before, {{WRAPPER}} .pa-link-effect-16, {{WRAPPER}} .pa-link-effect-17:before' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} a.pp-link, {{WRAPPER}} .pp-link-effect-10 span, {{WRAPPER}} .pp-link-effect-15:before, {{WRAPPER}} .pp-link-effect-16, {{WRAPPER}} .pp-link-effect-17:before' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -274,11 +275,11 @@ class Link_Effects extends Powerpack_Widget {
         $this->add_control(
             'background_color_normal',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .pa-link-effect-4 span, {{WRAPPER}} .pa-link-effect-10 span, {{WRAPPER}} .pa-link-effect-19 span, {{WRAPPER}} .pa-link-effect-20 span' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-link-effect-4 span, {{WRAPPER}} .pp-link-effect-10 span, {{WRAPPER}} .pp-link-effect-19 span, {{WRAPPER}} .pp-link-effect-20 span' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -286,15 +287,15 @@ class Link_Effects extends Powerpack_Widget {
         $this->add_control(
             'link_border_color',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .pa-link-effect-8:before' => 'border-color: {{VALUE}};',
-                    '{{WRAPPER}} .pa-link-effect-11' => 'border-top-color: {{VALUE}};',
-                    '{{WRAPPER}} .pa-link-effect-1:after, {{WRAPPER}} .pa-link-effect-2:after, {{WRAPPER}} .pa-link-effect-6:before, {{WRAPPER}} .pa-link-effect-6:after, {{WRAPPER}} .pa-link-effect-7:before, {{WRAPPER}} .pa-link-effect-7:after, {{WRAPPER}} .pa-link-effect-14:before, {{WRAPPER}} .pa-link-effect-14:after, {{WRAPPER}} .pa-link-effect-18:before, {{WRAPPER}} .pa-link-effect-18:after' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .pa-link-effect-3:before, {{WRAPPER}} .pa-link-effect-3:after' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .pa-link-effect-20 span' => 'box-shadow: inset 0 3px {{VALUE}};',
+                    '{{WRAPPER}} .pp-link-effect-8:before' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-link-effect-11' => 'border-top-color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-link-effect-1:after, {{WRAPPER}} .pp-link-effect-2:after, {{WRAPPER}} .pp-link-effect-6:before, {{WRAPPER}} .pp-link-effect-6:after, {{WRAPPER}} .pp-link-effect-7:before, {{WRAPPER}} .pp-link-effect-7:after, {{WRAPPER}} .pp-link-effect-14:before, {{WRAPPER}} .pp-link-effect-14:after, {{WRAPPER}} .pp-link-effect-18:before, {{WRAPPER}} .pp-link-effect-18:after' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .pp-link-effect-3:before, {{WRAPPER}} .pp-link-effect-3:after' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-link-effect-20 span' => 'box-shadow: inset 0 3px {{VALUE}};',
                 ],
             ]
         );
@@ -304,18 +305,18 @@ class Link_Effects extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_link_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'link_color_hover',
             [
-                'label'                 => __( 'Link Color', 'power-pack' ),
+                'label'                 => __( 'Link Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} a.pa-link:hover, {{WRAPPER}} .pa-link-effect-10:before, {{WRAPPER}} .pa-link-effect-11:before, {{WRAPPER}} .pa-link-effect-15, {{WRAPPER}} .pa-link-effect-16:before, {{WRAPPER}} .pa-link-effect-20 span:before' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} a.pp-link:hover, {{WRAPPER}} .pp-link-effect-10:before, {{WRAPPER}} .pp-link-effect-11:before, {{WRAPPER}} .pp-link-effect-15, {{WRAPPER}} .pp-link-effect-16:before, {{WRAPPER}} .pp-link-effect-20 span:before' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -323,11 +324,11 @@ class Link_Effects extends Powerpack_Widget {
         $this->add_control(
             'background_color_hover',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .pa-link-effect-4 span:before, {{WRAPPER}} .pa-link-effect-10:before, {{WRAPPER}} .pa-link-effect-19 span:before, {{WRAPPER}} .pa-link-effect-20 span:before' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-link-effect-4 span:before, {{WRAPPER}} .pp-link-effect-10:before, {{WRAPPER}} .pp-link-effect-19 span:before, {{WRAPPER}} .pp-link-effect-20 span:before' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -335,15 +336,15 @@ class Link_Effects extends Powerpack_Widget {
         $this->add_control(
             'link_border_color_hover',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .pa-link-effect-8:after' => 'border-color: {{VALUE}};',
-                    '{{WRAPPER}} .pa-link-effect-11:before' => 'border-bottom-color: {{VALUE}};',
-                    '{{WRAPPER}} .pa-link-effect-9:before, {{WRAPPER}} .pa-link-effect-9:after, {{WRAPPER}} .pa-link-effect-14:hover:before, {{WRAPPER}} .pa-link-effect-14:focus:before, {{WRAPPER}} .pa-link-effect-14:hover:after, {{WRAPPER}} .pa-link-effect-14:focus:after, {{WRAPPER}} .pa-link-effect-17:after, {{WRAPPER}} .pa-link-effect-18:hover:before, {{WRAPPER}} .pa-link-effect-18:focus:before, {{WRAPPER}} .pa-link-effect-18:hover:after, {{WRAPPER}} .pa-link-effect-18:focus:after, {{WRAPPER}} .pa-link-effect-21:before, {{WRAPPER}} .pa-link-effect-21:after' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .pa-link-effect-17' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .pa-link-effect-13:hover:before, {{WRAPPER}} .pa-link-effect-13:focus:before' => 'color: {{VALUE}}; text-shadow: 10px 0 {{VALUE}}, -10px 0 {{VALUE}}',
+                    '{{WRAPPER}} .pp-link-effect-8:after' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-link-effect-11:before' => 'border-bottom-color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-link-effect-9:before, {{WRAPPER}} .pp-link-effect-9:after, {{WRAPPER}} .pp-link-effect-14:hover:before, {{WRAPPER}} .pp-link-effect-14:focus:before, {{WRAPPER}} .pp-link-effect-14:hover:after, {{WRAPPER}} .pp-link-effect-14:focus:after, {{WRAPPER}} .pp-link-effect-17:after, {{WRAPPER}} .pp-link-effect-18:hover:before, {{WRAPPER}} .pp-link-effect-18:focus:before, {{WRAPPER}} .pp-link-effect-18:hover:after, {{WRAPPER}} .pp-link-effect-18:focus:after, {{WRAPPER}} .pp-link-effect-21:before, {{WRAPPER}} .pp-link-effect-21:after' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .pp-link-effect-17' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pp-link-effect-13:hover:before, {{WRAPPER}} .pp-link-effect-13:focus:before' => 'color: {{VALUE}}; text-shadow: 10px 0 {{VALUE}}, -10px 0 {{VALUE}}',
                 ],
             ]
         );
@@ -370,30 +371,26 @@ class Link_Effects extends Powerpack_Widget {
         $pa_link_secondary_text = ! empty( $settings['secondary_text'] ) ? $settings['secondary_text'] : '';
 
         if ( ! empty( $settings['link']['url'] ) ) {
-            $this->add_render_attribute( 'pa-link', 'href', esc_url( $settings['link']['url'] ) );
-
-            if ( ! empty( $settings['link']['is_external'] ) ) {
-                $this->add_render_attribute( 'pa-link', 'target', '_blank' );
-            }
+			$this->add_link_attributes( 'link', $settings['link'] );
         }
 
-        $this->add_render_attribute( 'pa-link', 'class', 'pa-link' );
+        $this->add_render_attribute( 'link', 'class', 'pp-link' );
 
         if ( $settings['effect'] ) {
-            $this->add_render_attribute( 'pa-link', 'class', 'pa-link-' . $settings['effect'] );
+            $this->add_render_attribute( 'link', 'class', 'pp-link-' . $settings['effect'] );
         }
         
         if ( $settings['effect'] == 'effect-4' || $settings['effect'] == 'effect-5' || $settings['effect'] == 'effect-19' || $settings['effect'] == 'effect-20' ) {
-            $this->add_render_attribute( 'pa-link-text', 'data-hover', $pa_link_text );
+            $this->add_render_attribute( 'pp-link-text', 'data-hover', $pa_link_text );
         }
         
         if ( $settings['effect'] == 'effect-10' || $settings['effect'] == 'effect-11' || $settings['effect'] == 'effect-15' || $settings['effect'] == 'effect-16' || $settings['effect'] == 'effect-17' || $settings['effect'] == 'effect-18' ) {
-            $this->add_render_attribute( 'pa-link-text-2', 'data-hover', $pa_link_text );
+            $this->add_render_attribute( 'pp-link-text-2', 'data-hover', $pa_link_text );
         }
         ?>
 
-        <a <?php echo $this->get_render_attribute_string( 'pa-link' ); ?><?php echo $this->get_render_attribute_string( 'pa-link-text-2' ); ?>>
-            <span <?php echo $this->get_render_attribute_string( 'pa-link-text' ); ?>>
+        <a <?php echo $this->get_render_attribute_string( 'link' ); ?><?php echo $this->get_render_attribute_string( 'pp-link-text-2' ); ?>>
+            <span <?php echo $this->get_render_attribute_string( 'pp-link-text' ); ?>>
                 <?php echo $pa_link_text; ?>
             </span>
             <?php if( $settings['effect'] == 'effect-9' ) { ?>

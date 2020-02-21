@@ -240,9 +240,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
             );
         
             $repeater->add_control(
-                'google_plus_url',
+                'instagram_url',
                 [
-                    'label'       => __( 'Google+', 'powerpack' ),
+                    'label'       => __( 'Instagram', 'powerpack' ),
                     'type'        => Controls_Manager::TEXT,
                     'dynamic'     => [
                         'active'        => true,
@@ -250,7 +250,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
                             TagsModule::POST_META_CATEGORY,
                         ],
                     ],
-                    'description' => __( 'Enter Google+ profile URL of team member', 'powerpack' ),
+                    'description' => __( 'Enter Instagram profile URL of team member', 'powerpack' ),
                 ]
             );
         
@@ -266,21 +266,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
                         ],
                     ],
                     'description' => __( 'Enter Linkedin profile URL of team member', 'powerpack' ),
-                ]
-            );
-        
-            $repeater->add_control(
-                'instagram_url',
-                [
-                    'label'       => __( 'Instagram', 'powerpack' ),
-                    'type'        => Controls_Manager::TEXT,
-                    'dynamic'     => [
-                        'active'        => true,
-                        'categories'    => [
-                            TagsModule::POST_META_CATEGORY,
-                        ],
-                    ],
-                    'description' => __( 'Enter Instagram profile URL of team member', 'powerpack' ),
                 ]
             );
         
@@ -370,21 +355,21 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'team_member_position'    => 'WordPress Developer',
 						'facebook_url'            => '#',
 						'twitter_url'             => '#',
-						'google_plus_url'         => '#',
+						'instagram_url'			  => '#',
 					],
 					[
 						'team_member_name'        => 'Team Member #2',
 						'team_member_position'    => 'Web Designer',
 						'facebook_url'            => '#',
 						'twitter_url'             => '#',
-						'google_plus_url'         => '#',
+						'instagram_url'           => '#',
 					],
 					[
 						'team_member_name'        => 'Team Member #3',
 						'team_member_position'    => 'Testing Engineer',
 						'facebook_url'            => '#',
 						'twitter_url'             => '#',
-						'google_plus_url'         => '#',
+						'instagram_url'           => '#',
 					],
 				],
                 'fields'                => array_values( $repeater->get_controls() ),
@@ -538,12 +523,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
         $this->end_controls_section();
 
         /**
-         * Content Tab: Slider Settings
+         * Content Tab: Carousel Settings
          */
         $this->start_controls_section(
             'section_slider_settings',
             [
-                'label'                 => __( 'Slider Settings', 'powerpack' ),
+                'label'                 => __( 'Carousel Settings', 'powerpack' ),
             ]
         );
         
@@ -2369,16 +2354,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
                                         if ( $item['link_type'] == 'image' && $item['link']['url'] != '' ) {
                                             
                                             $link_key = $this->get_repeater_setting_key( 'link', 'team_member_image', $index );
-                                            
-                                            $this->add_render_attribute( $link_key, 'href', esc_url( $item['link']['url'] ) );
-
-                                            if ( $item['link']['is_external'] ) {
-                                                $this->add_render_attribute( $link_key, 'target', '_blank' );
-                                            }
-
-                                            if ( $item['link']['nofollow'] ) {
-                                                $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
-                                            }
+											
+											$this->add_link_attributes( $link_key, $item['link'] );
                                             
                                             echo '<a ' . $this->get_render_attribute_string( $link_key ) . '>' . $image_html . '</a>';
                                             
@@ -2486,15 +2463,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
         
         if ( $item['link_type'] == 'title' && $item['link']['url'] != '' ) {
             if ( ! empty( $item['link']['url'] ) ) {
-                $this->add_render_attribute( $link_key, 'href', esc_url( $item['link']['url'] ) );
-
-                if ( $item['link']['is_external'] ) {
-                    $this->add_render_attribute( $link_key, 'target', '_blank' );
-                }
-
-                if ( $item['link']['nofollow'] ) {
-                    $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
-                }
+				$this->add_link_attributes( $link_key, $item['link'] );
             }
 
             printf( '<%1$s class="pp-tm-name"><a %3$s>%4$s</a></%1$s>', $settings['name_html_tag'], $this->get_render_attribute_string( $member_key ), $this->get_render_attribute_string( $link_key ), $item['team_member_name'] );
@@ -2545,9 +2514,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
         
         ( $item['facebook_url'] ) ? $pp_social_links['facebook'] = $item['facebook_url'] : '';
         ( $item['twitter_url'] ) ? $pp_social_links['twitter'] = $item['twitter_url'] : '';
-        ( $item['google_plus_url'] ) ? $pp_social_links['google-plus'] = $item['google_plus_url'] : '';
-        ( $item['linkedin_url'] ) ? $pp_social_links['linkedin'] = $item['linkedin_url'] : '';
         ( $item['instagram_url'] ) ? $pp_social_links['instagram'] = $item['instagram_url'] : '';
+        ( $item['linkedin_url'] ) ? $pp_social_links['linkedin'] = $item['linkedin_url'] : '';
         ( $item['youtube_url'] ) ? $pp_social_links['youtube'] = $item['youtube_url'] : '';
         ( $item['pinterest_url'] ) ? $pp_social_links['pinterest'] = $item['pinterest_url'] : '';
         ( $item['dribbble_url'] ) ? $pp_social_links['dribbble'] = $item['dribbble_url'] : '';
@@ -2560,11 +2528,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
                     foreach( $pp_social_links as $icon_id => $icon_url ) {
                         if ( $icon_url ) {
                             if ( $icon_id == 'envelope-o' ) {
-                                printf( '<li><a href="mailto:%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-'. esc_attr( $icon_id ).'"></span></span></a></li>', sanitize_email( $icon_url )  );
+                                printf( '<li><a href="mailto:%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-'. esc_attr( $icon_id ).'"></span></span></a></li>', sanitize_email( $icon_url )  );
                             } else if ( $icon_id == 'phone' ) {
-                                printf( '<li><a href="tel:%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-'. esc_attr( $icon_id ).'"></span></span></a></li>', $icon_url  );
+                                printf( '<li><a href="tel:%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-'. esc_attr( $icon_id ).'"></span></span></a></li>', $icon_url  );
                             } else {
-                                printf( '<li><a href="%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-'. esc_attr( $icon_id ).'"></span></span></a></li>', esc_url( $icon_url )  );
+                                printf( '<li><a href="%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-'. esc_attr( $icon_id ).'"></span></span></a></li>', esc_url( $icon_url )  );
                             }
                         }
                     }
@@ -2622,6 +2590,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
     }
 
     protected function _content_template() {
+		$elementor_bp_tablet	= get_option( 'elementor_viewport_lg' );
+		$elementor_bp_mobile	= get_option( 'elementor_viewport_md' );
+		$bp_tablet				= !empty($elementor_bp_tablet) ? $elementor_bp_tablet : 1025;
+		$bp_mobile				= !empty($elementor_bp_mobile) ? $elementor_bp_mobile : 768;
         ?>
         <#
            var i               = 1;
@@ -2629,7 +2601,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
            function member_social_links_template( item ) {
                 var facebook_url       = item.facebook_url,
                     twitter_url        = item.twitter_url,
-                    google_plus_url    = item.google_plus_url,
                     linkedin_url       = item.linkedin_url,
                     instagram_url      = item.instagram_url,
                     youtube_url        = item.youtube_url,
@@ -2643,70 +2614,63 @@ class Team_Member_Carousel extends Powerpack_Widget {
                         <# if ( facebook_url ) { #>
                             <li>
                                 <a href="{{ facebook_url }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-facebook"></span></span>
+                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-facebook"></span></span>
                                 </a>
                             </li>
                         <# } #>
                         <# if ( twitter_url ) { #>
                             <li>
                                 <a href="{{ twitter_url }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-twitter"></span></span>
-                                </a>
-                            </li>
-                        <# } #>
-                        <# if ( google_plus_url ) { #>
-                            <li>
-                                <a href="{{ google_plus_url }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-google-plus"></span></span>
-                                </a>
-                            </li>
-                        <# } #>
-                        <# if ( linkedin_url ) { #>
-                            <li>
-                                <a href="{{ linkedin_url }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-linkedin"></span></span>
+                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-twitter"></span></span>
                                 </a>
                             </li>
                         <# } #>
                         <# if ( instagram_url ) { #>
                             <li>
                                 <a href="{{ instagram_url }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-instagram"></span></span>
+                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-instagram"></span></span>
+                                </a>
+                            </li>
+                        <# } #>
+                        <# if ( linkedin_url ) { #>
+                            <li>
+                                <a href="{{ linkedin_url }}">
+                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-linkedin"></span></span>
                                 </a>
                             </li>
                         <# } #>
                         <# if ( youtube_url ) { #>
                             <li>
                                 <a href="{{ youtube_url }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-youtube"></span></span>
+                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-youtube"></span></span>
                                 </a>
                             </li>
                         <# } #>
                         <# if ( pinterest_url ) { #>
                             <li>
                                 <a href="{{ pinterest_url }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-pinterest"></span></span>
+                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-pinterest"></span></span>
                                 </a>
                             </li>
                         <# } #>
                         <# if ( dribbble_url ) { #>
                             <li>
                                 <a href="{{ dribbble_url }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-dribbble"></span></span>
+                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-dribbble"></span></span>
                                 </a>
                             </li>
                         <# } #>
                         <# if ( email ) { #>
                             <li>
                                 <a href="mailto:{{ email }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-envelope-o"></span></span>
+                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-envelope-o"></span></span>
                                 </a>
                             </li>
                         <# } #>
                         <# if ( phone ) { #>
                             <li>
                                 <a href="tel:{{ phone }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fa fa-phone"></span></span>
+                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-phone"></span></span>
                                 </a>
                             </li>
                         <# } #>
@@ -2721,20 +2685,17 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
                     view.addRenderAttribute( 'team_member_name', 'class', 'pp-tm-name' );
 
-                    var name_html = '<' + settings.name_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + settings.name_html_tag + '>';
-
                     if ( item.link_type == 'title' && item.link.url != '' ) {
 
                         var target = item.link.is_external ? ' target="_blank"' : '';
                         var nofollow = item.link.nofollow ? ' rel="nofollow"' : '';
-                        #>
-                        <a href="{{ item.link.url }}"{{ target }}{{ nofollow }}>
-                            <# print( name_html ); #>
-                        </a>
-                        <# 
-                    } else {
-                        print( name_html );
+				   
+				   		var name = '<a href="' + item.link.url + '" ' + target + '>' + name + '</a>';
                     }
+				   
+				   	var name_html = '<' + settings.name_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + settings.name_html_tag + '>';
+				   
+				   	print(name_html);
                 }
                            
                 if ( settings.member_title_divider == 'yes' ) {
@@ -2845,11 +2806,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
                         prevEl: '.swiper-button-prev',
                     },
                     breakpoints: {
-                        768: {
+                        <?php echo $bp_tablet; ?>: {
                             slidesPerView:  $items_tablet,
                             spaceBetween:   $margin_tablet
                         },
-                        480: {
+                        <?php echo $bp_mobile; ?>: {
                             slidesPerView:  $items_mobile,
                             spaceBetween:   $margin_mobile
                         }

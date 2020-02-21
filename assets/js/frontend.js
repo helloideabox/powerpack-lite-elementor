@@ -118,11 +118,28 @@
     };
     
     var InfoBoxCarouselHandler = function ($scope, $) {
-        var carousel_wrap               = $scope.find('.pp-info-box-carousel-wrap').eq(0),
+        var elementSettings				= getElementSettings( $scope ),
+        	carousel_wrap               = $scope.find('.pp-info-box-carousel-wrap').eq(0),
             carousel                    = carousel_wrap.find('.pp-info-box-carousel'),
-            slider_options              = JSON.parse( carousel_wrap.attr('data-slider-settings') );
+            slider_options              = JSON.parse( carousel_wrap.attr('data-slider-settings') ),
+            equal_height				= elementSettings.equal_height_boxes;
 
 		var mySwiper = new Swiper(carousel, slider_options);
+		
+		if ( equal_height === 'yes' ) {
+			function setEqualHeight(){
+				var maxHeight = 0;
+				$scope.find('.swiper-slide').each( function( currentSlide ) {
+					if($(this).height() > maxHeight){
+						maxHeight = $(this).height();
+					}
+				});
+				$scope.find('.pp-info-box-content-wrap').css('min-height',maxHeight);
+			}
+
+			$(setEqualHeight);
+			$(window).resize(setEqualHeight);
+		}
 		
 		$(document).on('pp_advanced_tab_changed', function(e, content) {
 			if ( content.find('.pp-info-box-carousel-wrap').length > 0 ) {

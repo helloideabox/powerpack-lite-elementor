@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Fancy_Heading extends Powerpack_Widget {
     
     /**
-	 * Retrieve dual heading widget name.
+	 * Retrieve fancy heading widget name.
 	 *
 	 * @access public
 	 *
@@ -35,7 +35,7 @@ class Fancy_Heading extends Powerpack_Widget {
     }
 
     /**
-	 * Retrieve dual heading widget title.
+	 * Retrieve fancy heading widget title.
 	 *
 	 * @access public
 	 *
@@ -46,7 +46,7 @@ class Fancy_Heading extends Powerpack_Widget {
     }
 
     /**
-	 * Retrieve the list of categories the dual heading widget belongs to.
+	 * Retrieve the list of categories the fancy heading widget belongs to.
 	 *
 	 * Used to determine where to display the widget in the editor.
 	 *
@@ -59,7 +59,7 @@ class Fancy_Heading extends Powerpack_Widget {
     }
 
     /**
-	 * Retrieve dual heading widget icon.
+	 * Retrieve fancy heading widget icon.
 	 *
 	 * @access public
 	 *
@@ -70,7 +70,7 @@ class Fancy_Heading extends Powerpack_Widget {
     }
 
     /**
-	 * Register dual heading widget controls.
+	 * Register fancy heading widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
@@ -177,6 +177,31 @@ class Fancy_Heading extends Powerpack_Widget {
 
         $this->end_controls_section();
 
+		/**
+		 * Content Tab: Help Docs
+		 *
+		 * @since 1.4.8
+		 * @access protected
+		 */
+		$this->start_controls_section(
+			'section_help_docs',
+			[
+				'label' => __( 'Help Docs', 'powerpack' ),
+			]
+		);
+		
+		$this->add_control(
+			'help_doc_1',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				/* translators: %1$s doc link */
+				'raw'             => sprintf( __( '%1$s Watch Video Overview %2$s', 'powerpack' ), '<a href="https://www.youtube.com/watch?v=PxWWUTeW4dc&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj" target="_blank" rel="noopener">', '</a>' ),
+				'content_classes' => 'pp-editor-doc-links',
+			]
+		);
+
+		$this->end_controls_section();
+
         /*-----------------------------------------------------------------------------------*/
         /*	STYLE TAB
         /*-----------------------------------------------------------------------------------*/
@@ -261,7 +286,7 @@ class Fancy_Heading extends Powerpack_Widget {
     }
 
     /**
-	 * Render dual heading widget output on the frontend.
+	 * Render fancy heading widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
@@ -270,25 +295,17 @@ class Fancy_Heading extends Powerpack_Widget {
     protected function render() {
         $settings = $this->get_settings_for_display();
 
-        $this->add_render_attribute( 'dual-heading', 'class', 'pp-dual-heading' );
+        $this->add_render_attribute( 'fancy-heading', 'class', 'pp-fancy-heading' );
         $this->add_inline_editing_attributes( 'heading_text', 'basic' );
         $this->add_render_attribute( 'heading_text', 'class', 'pp-heading-text' );
         
         if ( ! empty( $settings['link']['url'] ) ) {
-            $this->add_render_attribute( 'dual-heading-link', 'href', $settings['link']['url'] );
-
-            if ( $settings['link']['is_external'] ) {
-                $this->add_render_attribute( 'dual-heading-link', 'target', '_blank' );
-            }
-
-            if ( $settings['link']['nofollow'] ) {
-                $this->add_render_attribute( 'dual-heading-link', 'rel', 'nofollow' );
-            }
+            $this->add_link_attributes( 'fancy-heading-link', $settings['link'] );
         }
         
         if ( $settings['heading_text'] ) {
-            printf( '<%1$s %2$s>', $settings['heading_html_tag'], $this->get_render_attribute_string( 'dual-heading' ) );
-                if ( ! empty( $settings['link']['url'] ) ) { printf( '<a %1$s>', $this->get_render_attribute_string( 'dual-heading-link' ) ); }
+            printf( '<%1$s %2$s>', $settings['heading_html_tag'], $this->get_render_attribute_string( 'fancy-heading' ) );
+                if ( ! empty( $settings['link']['url'] ) ) { printf( '<a %1$s>', $this->get_render_attribute_string( 'fancy-heading-link' ) ); }
             
 				printf( '<span %1$s>%2$s</span>', $this->get_render_attribute_string( 'heading_text' ), $this->parse_text_editor( $settings['heading_text'] ) );
             
@@ -298,7 +315,7 @@ class Fancy_Heading extends Powerpack_Widget {
     }
 
     /**
-	 * Render dual heading widget output in the editor.
+	 * Render fancy heading widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
@@ -306,7 +323,7 @@ class Fancy_Heading extends Powerpack_Widget {
 	 */
     protected function _content_template() {
         ?>
-        <{{{settings.heading_html_tag}}} class="pp-dual-heading">
+        <{{{settings.heading_html_tag}}} class="pp-fancy-heading">
             <# if ( settings.link.url ) { #><a href="{{settings.link.url}}"><# } #>
                 <#
                 if ( settings.heading_text != '' ) {

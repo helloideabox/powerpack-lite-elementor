@@ -105,6 +105,26 @@ class Promo_Box extends Powerpack_Widget {
                 'default'               => __( 'Heading', 'powerpack' ),
             ]
         );
+        
+        $this->add_control(
+            'heading_html_tag',
+            [
+                'label'                => __( 'Heading HTML Tag', 'powerpack' ),
+                'type'                 => Controls_Manager::SELECT,
+                'default'              => 'h4',
+                'options'              => [
+                    'h1'     => __( 'H1', 'powerpack' ),
+                    'h2'     => __( 'H2', 'powerpack' ),
+                    'h3'     => __( 'H3', 'powerpack' ),
+                    'h4'     => __( 'H4', 'powerpack' ),
+                    'h5'     => __( 'H5', 'powerpack' ),
+                    'h6'     => __( 'H6', 'powerpack' ),
+                    'div'    => __( 'div', 'powerpack' ),
+                    'span'   => __( 'span', 'powerpack' ),
+                    'p'      => __( 'p', 'powerpack' ),
+                ],
+            ]
+        );
 
         $this->add_control(
             'divider_heading_switch',
@@ -130,6 +150,26 @@ class Promo_Box extends Powerpack_Widget {
 					'active'   => true,
 				],
                 'default'               => __( 'Sub heading', 'powerpack' ),
+            ]
+        );
+        
+        $this->add_control(
+            'sub_heading_html_tag',
+            [
+                'label'                => __( 'Sub Heading HTML Tag', 'powerpack' ),
+                'type'                 => Controls_Manager::SELECT,
+                'default'              => 'h5',
+                'options'              => [
+                    'h1'     => __( 'H1', 'powerpack' ),
+                    'h2'     => __( 'H2', 'powerpack' ),
+                    'h3'     => __( 'H3', 'powerpack' ),
+                    'h4'     => __( 'H4', 'powerpack' ),
+                    'h5'     => __( 'H5', 'powerpack' ),
+                    'h6'     => __( 'H6', 'powerpack' ),
+                    'div'    => __( 'div', 'powerpack' ),
+                    'span'   => __( 'span', 'powerpack' ),
+                    'p'      => __( 'p', 'powerpack' ),
+                ],
             ]
         );
 
@@ -305,7 +345,7 @@ class Promo_Box extends Powerpack_Widget {
             [
                 'label'                 => __( 'Link', 'powerpack' ),
                 'type'                  => Controls_Manager::URL,
-                'label_block'           => false,
+                'label_block'           => true,
 				'dynamic'               => [
 					'active'   => true,
 				],
@@ -345,7 +385,6 @@ class Promo_Box extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
-
 
         /*-----------------------------------------------------------------------------------*/
         /*	STYLE TAB
@@ -1612,16 +1651,9 @@ class Promo_Box extends Powerpack_Widget {
 		);
         
         if ( ! empty( $settings['link']['url'] ) ) {
-
-            $this->add_render_attribute( 'button_text', 'href', $settings['link']['url'] );
-
-            if ( $settings['link']['is_external'] ) {
-                $this->add_render_attribute( 'button_text', 'target', '_blank' );
-            }
-
-            if ( $settings['link']['nofollow'] ) {
-                $this->add_render_attribute( 'button_text', 'rel', 'nofollow' );
-            }
+			
+			$this->add_link_attributes( 'button_text', $settings['link'] );
+			
         }
 
 		if ( $settings['button_hover_animation'] ) {
@@ -1645,9 +1677,9 @@ class Promo_Box extends Powerpack_Widget {
 						?>
                         
                         <?php if ( ! empty( $settings['heading'] ) ) { ?>
-                            <h4 <?php echo $this->get_render_attribute_string( 'heading' ); ?>>
+                            <<?php echo $settings['heading_html_tag']; ?> <?php echo $this->get_render_attribute_string( 'heading' ); ?>>
                                 <?php echo $this->parse_text_editor( $settings['heading'] ); ?>
-                            </h4>
+                            </<?php echo $settings['heading_html_tag']; ?>>
                         <?php } ?>
 
                         <?php if ( $settings['divider_heading_switch'] == 'yes' ) { ?>
@@ -1669,9 +1701,9 @@ class Promo_Box extends Powerpack_Widget {
 						?>
                         
                         <?php if ( ! empty( $settings['sub_heading'] ) ) { ?>
-                            <h5 <?php echo $this->get_render_attribute_string( 'sub_heading' ); ?>>
+                            <<?php echo $settings['sub_heading_html_tag']; ?> <?php echo $this->get_render_attribute_string( 'sub_heading' ); ?>>
                                 <?php echo $settings['sub_heading']; ?>
-                            </h5>
+                            </<?php echo $settings['sub_heading_html_tag']; ?>>
                         <?php } ?>
 
                         <?php if ( $settings['divider_subheading_switch'] == 'yes' ) { ?>
@@ -1772,7 +1804,7 @@ class Promo_Box extends Powerpack_Widget {
 
 							view.addInlineEditingAttributes( 'heading' );
 
-							var heading_html = '<h4' + ' ' + view.getRenderAttributeString( 'heading' ) + '>' + heading + '</h4>';
+						   var heading_html = '<' + settings.heading_html_tag + ' ' + view.getRenderAttributeString( 'heading' ) + '>' + heading + '</' + settings.heading_html_tag + '>';
 
 							print( heading_html );
                         }
@@ -1802,12 +1834,12 @@ class Promo_Box extends Powerpack_Widget {
 
 							view.addInlineEditingAttributes( 'sub_heading' );
 
-							var sub_heading_html = '<h5' + ' ' + view.getRenderAttributeString( 'sub_heading' ) + '>' + sub_heading + '</h5>';
+							var sub_heading_html = '<' + settings.sub_heading_html_tag + ' ' + view.getRenderAttributeString( 'sub_heading' ) + '>' + sub_heading + '</' + settings.sub_heading_html_tag + '>';
 
 							print( sub_heading_html );
-						}
-						   
-						if ( settings.divider_subheading_switch == 'yes' ) { #>
+						} #>
+
+                        <# if ( settings.divider_subheading_switch == 'yes' ) { #>
                             <div class="pp-promo-box-subheading-divider-wrap">
                                 <div class="pp-promo-box-subheading-divider">
                                     <# if ( settings.divider_subheading_type == 'image' ) { #>
