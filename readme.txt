@@ -150,7 +150,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
-= 1.2.8.6 - February 21, 2020 =
+= 1.2.8.6 - March 10, 2020 =
 * 	Added: Equal height boxes option in Info Box carousel widget
 * 	Removed Google+ icon option from Team Member carousel widget
 * 	Added: Image size option in Logo Grid widget
