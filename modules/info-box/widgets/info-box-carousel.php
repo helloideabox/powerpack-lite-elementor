@@ -2136,12 +2136,17 @@ class Info_Box_Carousel extends Powerpack_Widget {
             ];
         }
 		
-		$elementor_bp_tablet	= get_option( 'elementor_viewport_lg' );
-		$elementor_bp_mobile	= get_option( 'elementor_viewport_md' );
-		$bp_tablet				= !empty($elementor_bp_tablet) ? $elementor_bp_tablet : 1025;
-		$bp_mobile				= !empty($elementor_bp_mobile) ? $elementor_bp_mobile : 768;
+		$elementor_bp_lg		= get_option( 'elementor_viewport_lg' );
+		$elementor_bp_md		= get_option( 'elementor_viewport_md' );
+		$bp_desktop				= !empty($elementor_bp_lg) ? $elementor_bp_lg : 1025;
+		$bp_tablet				= !empty($elementor_bp_md) ? $elementor_bp_md : 768;
+		$bp_mobile				= 320;
         
         $slider_options['breakpoints'] = [
+            $bp_desktop   => [
+                'slidesPerView'      => ( $settings['items']['size'] !== '' ) ? absint( $settings['items']['size'] ) : 2,
+                'spaceBetween'       => ( $settings['margin']['size'] !== '' ) ? $settings['margin']['size'] : 10,
+            ],
             $bp_tablet   => [
                 'slidesPerView'      => ( $settings['items_tablet']['size'] !== '' ) ? absint( $settings['items_tablet']['size'] ) : 2,
                 'spaceBetween'       => ( $settings['margin_tablet']['size'] !== '' ) ? $settings['margin_tablet']['size'] : 10,
@@ -2468,8 +2473,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
     protected function _content_template() {
 		$elementor_bp_tablet	= get_option( 'elementor_viewport_lg' );
 		$elementor_bp_mobile	= get_option( 'elementor_viewport_md' );
-		$bp_tablet				= !empty($elementor_bp_tablet) ? $elementor_bp_tablet : 1025;
-		$bp_mobile				= !empty($elementor_bp_mobile) ? $elementor_bp_mobile : 768;
+		$elementor_bp_lg		= get_option( 'elementor_viewport_lg' );
+		$elementor_bp_md		= get_option( 'elementor_viewport_md' );
+		$bp_desktop				= !empty($elementor_bp_lg) ? $elementor_bp_lg : 1025;
+		$bp_tablet				= !empty($elementor_bp_md) ? $elementor_bp_md : 768;
+		$bp_mobile				= 320;
         ?>
         <#
            function dots_template() {
@@ -2553,6 +2561,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
                         prevEl: '.swiper-button-prev',
                     },
                     breakpoints: {
+                        <?php echo $bp_desktop; ?>: {
+                            slidesPerView:  $items,
+                            spaceBetween:   $margin
+                        },
                         <?php echo $bp_tablet; ?>: {
                             slidesPerView:  $items_tablet,
                             spaceBetween:   $margin_tablet

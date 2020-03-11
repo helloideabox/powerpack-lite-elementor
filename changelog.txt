@@ -1,3 +1,7 @@
+== 1.2.8.7 ==
+Release date: March 11, 2020
+* Fixed: Swiper slider after updating to Elementor 2.9.5
+
 == 1.2.8.6 ==
 Release date: March 10, 2020
 * Added: Equal height boxes option in Info Box carousel widget

@@ -1175,12 +1175,17 @@ class Logo_Carousel extends Powerpack_Widget {
             ];
         }
 		
-		$elementor_bp_tablet	= get_option( 'elementor_viewport_lg' );
-		$elementor_bp_mobile	= get_option( 'elementor_viewport_md' );
-		$bp_tablet				= !empty($elementor_bp_tablet) ? $elementor_bp_tablet : 1025;
-		$bp_mobile				= !empty($elementor_bp_mobile) ? $elementor_bp_mobile : 768;
+		$elementor_bp_lg		= get_option( 'elementor_viewport_lg' );
+		$elementor_bp_md		= get_option( 'elementor_viewport_md' );
+		$bp_desktop				= !empty($elementor_bp_lg) ? $elementor_bp_lg : 1025;
+		$bp_tablet				= !empty($elementor_bp_md) ? $elementor_bp_md : 768;
+		$bp_mobile				= 320;
         
         $slider_options['breakpoints'] = [
+            $bp_desktop   => [
+                'slidesPerView'      => ( $settings['items']['size'] !== '' ) ? absint( $settings['items']['size'] ) : 2,
+                'spaceBetween'       => ( $settings['margin']['size'] !== '' ) ? $settings['margin']['size'] : 10,
+            ],
             $bp_tablet   => [
                 'slidesPerView'      => ( $settings['items_tablet']['size'] !== '' ) ? absint( $settings['items_tablet']['size'] ) : 2,
                 'spaceBetween'       => ( $settings['margin_tablet']['size'] !== '' ) ? $settings['margin_tablet']['size'] : 10,
@@ -1337,18 +1342,14 @@ class Logo_Carousel extends Powerpack_Widget {
 
         if ( $settings['arrows'] == 'yes' ) { ?>
             <?php
-                $slider_options['arrows'] = true;
-				if ( $settings['arrow'] ) {
-					$pa_next_arrow = $settings['arrow'];
-					$pa_prev_arrow = str_replace("right","left",$settings['arrow']);
-				}
-				else {
-					$pa_next_arrow = 'fa fa-angle-right';
-					$pa_prev_arrow = 'fa fa-angle-left';
-				}
-
-				$slider_options['prevArrow'] = '<div class="pp-slider-arrow pp-arrow pp-arrow-prev"><i class="' . $pa_prev_arrow . '"></i></div>';
-				$slider_options['nextArrow'] = '<div class="pp-slider-arrow pp-arrow pp-arrow-next"><i class="' . $pa_next_arrow . '"></i></div>';
+                if ( $settings['arrow'] ) {
+                    $pa_next_arrow = $settings['arrow'];
+                    $pa_prev_arrow = str_replace("right","left",$settings['arrow']);
+                }
+                else {
+                    $pa_next_arrow = 'fa fa-angle-right';
+                    $pa_prev_arrow = 'fa fa-angle-left';
+                }
             ?>
             <!-- Add Arrows -->
             <div class="swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
@@ -1370,8 +1371,11 @@ class Logo_Carousel extends Powerpack_Widget {
     protected function _content_template() {
 		$elementor_bp_tablet	= get_option( 'elementor_viewport_lg' );
 		$elementor_bp_mobile	= get_option( 'elementor_viewport_md' );
-		$bp_tablet				= !empty($elementor_bp_tablet) ? $elementor_bp_tablet : 1025;
-		$bp_mobile				= !empty($elementor_bp_mobile) ? $elementor_bp_mobile : 768;
+		$elementor_bp_lg		= get_option( 'elementor_viewport_lg' );
+		$elementor_bp_md		= get_option( 'elementor_viewport_md' );
+		$bp_desktop				= !empty($elementor_bp_lg) ? $elementor_bp_lg : 1025;
+		$bp_tablet				= !empty($elementor_bp_md) ? $elementor_bp_md : 768;
+		$bp_mobile				= 320;
         ?>
         <#
            var i = 1;
@@ -1438,6 +1442,10 @@ class Logo_Carousel extends Powerpack_Widget {
                         prevEl: '.swiper-button-prev',
                     },
                     breakpoints: {
+                        <?php echo $bp_desktop; ?>: {
+                            slidesPerView:  $items,
+                            spaceBetween:   $margin
+                        },
                         <?php echo $bp_tablet; ?>: {
                             slidesPerView:  $items_tablet,
                             spaceBetween:   $margin_tablet

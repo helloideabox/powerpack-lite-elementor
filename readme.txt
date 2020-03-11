@@ -150,6 +150,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.8.7 - March 11, 2020 =
+* 	Fixed: Swiper slider after updating to Elementor 2.9.5
+
 = 1.2.8.6 - March 10, 2020 =
 * 	Added: Equal height boxes option in Info Box carousel widget
 * 	Removed Google+ icon option from Team Member carousel widget
