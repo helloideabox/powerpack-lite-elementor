@@ -342,6 +342,35 @@ class PowerpackLitePlugin {
 		wp_enqueue_style( 'twentytwenty' );
 	}
 
+	/**
+	 * Register Group Controls
+	 *
+	 * @since 1.2.9
+	 */
+	public function include_group_controls() {
+		// Include Control Groups
+		require POWERPACK_ELEMENTS_LITE_PATH . 'includes/controls/groups/transition.php';
+
+		// Add Control Groups
+		\Elementor\Plugin::instance()->controls_manager->add_group_control( 'pp-transition', new Group_Control_Transition() );
+	}
+
+	/**
+	 * Register Controls
+	 *
+	 * @since 1.2.9
+	 *
+	 * @access private
+	 */
+	public function register_controls() {
+
+		// Include Controls
+		require POWERPACK_ELEMENTS_LITE_PATH . 'includes/controls/query.php';
+
+		// Register Controls
+		\Elementor\Plugin::instance()->controls_manager->register_control( 'pp-query', new Control_Query() );
+	}
+
 	public function elementor_init() {
 		$this->_extensions_manager = new Extensions_Manager();
 		$this->_modules_manager = new Modules_Manager();
@@ -359,6 +388,9 @@ class PowerpackLitePlugin {
 
 	protected function add_actions() {
 		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
+
+		add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
+		add_action( 'elementor/controls/controls_registered', [ $this, 'include_group_controls' ] );
 
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
         add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );

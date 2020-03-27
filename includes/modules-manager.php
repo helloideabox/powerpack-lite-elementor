@@ -43,6 +43,7 @@ class Modules_Manager {
 			'scroll-image',
 			'team-member',
 			'twitter',
+			'query-control',
 		];
         
         ksort($modules);
