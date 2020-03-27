@@ -513,7 +513,7 @@ class Content_Ticker extends Powerpack_Widget {
 						);
 
 						// Add control for all taxonomies.
-						$this->add_control(
+						/*$this->add_control(
 							$tax_control_key,
 							[
 								'label'       => $tax->label,
@@ -524,6 +524,25 @@ class Content_Ticker extends Powerpack_Widget {
 								'options'     => $tax_terms,
 								'condition'   => [
                     				'source'    => 'posts',
+									'post_type' => $post_type_slug,
+								],
+							]
+						);*/
+
+						$this->add_control(
+							$tax_control_key,
+							[
+								'label'			=> $tax->label,
+								'type'			=> 'pp-query',
+								'post_type' 	=> $post_type_slug,
+								'options' 		=> [],
+								'label_block' 	=> true,
+								'multiple' 		=> true,
+								'query_type' 	=> 'terms',
+								'object_type' 	=> $index,
+								'include_type' 	=> true,
+								'condition'   => [
+									'source'    => 'posts',
 									'post_type' => $post_type_slug,
 								],
 							]
@@ -552,7 +571,7 @@ class Content_Ticker extends Powerpack_Widget {
 			]
 		);
 
-        $this->add_control(
+        /*$this->add_control(
             'authors',
             [
                 'label'					=> __( 'Authors', 'powerpack' ),
@@ -563,6 +582,20 @@ class Content_Ticker extends Powerpack_Widget {
                 'condition'             => [
                     'source'    => 'posts'
                 ]
+            ]
+        );*/
+		
+		$this->add_control(
+            'authors',
+            [
+                'label'					=> __( 'Authors', 'powerpack' ),
+                'type'					=> 'pp-query',
+				'label_block'			=> true,
+				'multiple'				=> true,
+				'query_type'			=> 'authors',
+				'condition'				=> [
+					'source'    => 'posts',
+				],
             ]
         );
 		
@@ -597,18 +630,36 @@ class Content_Ticker extends Powerpack_Widget {
 				]
 			);
 			
+//			$this->add_control(
+//				$posts_control_key,
+//				[
+//					/* translators: %s Label */
+//					'label'       => $post_type_label,
+//					'type'        => Controls_Manager::SELECT2,
+//					'default'     => '',
+//					'multiple'     => true,
+//					'label_block' => true,
+//					'options'     => $posts_all,
+//					'condition'   => [
+//                    	'source'    => 'posts',
+//						'post_type' => $post_type_slug,
+//					],
+//				]
+//			);
+
 			$this->add_control(
 				$posts_control_key,
 				[
 					/* translators: %s Label */
-					'label'       => $post_type_label,
-					'type'        => Controls_Manager::SELECT2,
-					'default'     => '',
-					'multiple'     => true,
-					'label_block' => true,
-					'options'     => $posts_all,
-					'condition'   => [
-                    	'source'    => 'posts',
+					'label'				=> $post_type_label,
+					'type'				=> 'pp-query',
+					'default'			=> '',
+					'multiple'			=> true,
+					'label_block'		=> true,
+					'query_type'		=> 'posts',
+					'object_type'		=> $post_type_slug,
+					'condition'			=> [
+						'source'    => 'posts',
 						'post_type' => $post_type_slug,
 					],
 				]

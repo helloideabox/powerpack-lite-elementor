@@ -392,7 +392,7 @@ class PowerpackLitePlugin {
 		add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
 		add_action( 'elementor/controls/controls_registered', [ $this, 'include_group_controls' ] );
 
-		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
+		add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
         add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );
 
         add_action( 'elementor/preview/enqueue_styles', [ $this, 'enqueue_editor_preview_styles' ] );
