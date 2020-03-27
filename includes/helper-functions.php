@@ -494,3 +494,15 @@ function pp_elements_lite_get_saved_templates( $templates = array() ) {
 
 	return $options;
 }
+
+/**
+ * Elementor
+ * 
+ * Retrieves the elementor plugin instance
+ *
+ * @since  1.2.9
+ * @return \Elementor\Plugin|$instace
+ */
+function pp_lite_get_elementor() {
+	return \Elementor\Plugin::$instance;
+}

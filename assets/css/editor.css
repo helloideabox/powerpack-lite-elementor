@@ -64,6 +64,9 @@
 .elementor-control-layout.elementor-control-type-choose.elementor-control-separator-none .elementor-control-input-wrapper .elementor-choices input:checked+.elementor-choices-label {
     background: #a4afb7;
 }
+.elementor-control-type-pp-query .elementor-control-input-wrapper {
+    width: 135px;
+}
 
 .pp-editor-doc-links {
     	font-size: 12px;

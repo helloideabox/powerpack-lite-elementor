@@ -47,6 +47,10 @@ class Module extends Module_Base {
 		$this->add_component( 'authors', new Types\Authors() );
 		$this->add_component( 'users', new Types\Users() );
 		$this->add_component( 'templates', new Types\Templates() );
+		$this->add_component( 'templates-all', new Types\Templates_All() );
+		$this->add_component( 'templates-page', new Types\Templates_Page() );
+		$this->add_component( 'templates-section', new Types\Templates_Section() );
+		$this->add_component( 'templates-widget', new Types\Templates_Widget() );
 
 		$this->add_actions();
 	}

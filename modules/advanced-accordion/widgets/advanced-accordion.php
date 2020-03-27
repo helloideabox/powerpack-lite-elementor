@@ -206,7 +206,7 @@ class Advanced_Accordion extends Powerpack_Widget {
             ]
         );
 
-        $repeater->add_control(
+        /*$repeater->add_control(
             'saved_widget',
             [
                 'label'                 => __( 'Choose Widget', 'powerpack' ),
@@ -264,7 +264,67 @@ class Advanced_Accordion extends Powerpack_Widget {
                     ],
                 ],
             ]
-        );
+        );*/
+
+		$repeater->add_control(
+			'saved_widget',
+			[
+				'label'                 => __( 'Choose Widget', 'powerpack' ),
+				'type'					=> 'pp-query',
+				'label_block'			=> false,
+				'multiple'				=> false,
+				'query_type'			=> 'templates-widget',
+                'conditions'        => [
+                    'terms' => [
+                        [
+                            'name'      => 'content_type',
+                            'operator'  => '==',
+                            'value'     => 'widget',
+                        ],
+                    ],
+                ]
+			]
+		);
+
+		$repeater->add_control(
+			'saved_section',
+			[
+				'label'                 => __( 'Choose Section', 'powerpack' ),
+				'type'					=> 'pp-query',
+				'label_block'			=> false,
+				'multiple'				=> false,
+				'query_type'			=> 'templates-section',
+                'conditions'        => [
+                    'terms' => [
+                        [
+                            'name'      => 'content_type',
+                            'operator'  => '==',
+                            'value'     => 'section',
+                        ],
+                    ],
+                ]
+			]
+		);
+
+		$repeater->add_control(
+			'templates',
+			[
+				'label'                 => __( 'Choose Template', 'powerpack' ),
+				'type'					=> 'pp-query',
+				'label_block'			=> false,
+				'multiple'				=> false,
+				'query_type'			=> 'templates-page',
+                'conditions'        => [
+                    'terms' => [
+                        [
+                            'name'      => 'content_type',
+                            'operator'  => '==',
+                            'value'     => 'template',
+                        ],
+                    ],
+                ]
+			]
+		);
 
         $repeater->add_control(
             'accordion_tab_default_active',

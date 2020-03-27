@@ -10,11 +10,11 @@ use Elementor\TemplateLibrary\Source_Local;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * \Modules\QueryControl\Types\Templates
+ * \Modules\QueryControl\Types\Templates_Widget
  *
  * @since  1.2.9
  */
-class Templates extends Type_Base {
+class Templates_Widget extends Type_Base {
 
 	/**
 	 * Get Name
@@ -25,7 +25,7 @@ class Templates extends Type_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return 'templates';
+		return 'templates-widget';
 	}
 
 	/**
@@ -45,13 +45,11 @@ class Templates extends Type_Base {
 			's' 				=> $data['q'],
 			'post_type' 		=> Source_Local::CPT,
 			'posts_per_page' 	=> -1,
-			'orderby' 			=> 'meta_value',
-			'order' 			=> 'ASC',
-			'meta_query' => [
+			'tax_query'			=> [
 				[
-					'key' 		=> Document::TYPE_META_KEY,
-					'value' 	=> array_keys( $document_types ),
-					'compare' 	=> 'IN',
+					'taxonomy' 	=> Source_Local::TAXONOMY_TYPE_SLUG,
+					'field' 	=> 'slug',
+					'terms' 	=> 'widget',
 				],
 			],
 		];
@@ -65,7 +63,7 @@ class Templates extends Type_Base {
 
 			$results[] = [
 				'id' 	=> $post->ID,
-				'text' 	=> $post->post_title . ' (' . $document->get_post_type_title() . ')',
+				'text' 	=> $post->post_title . ' (' . ucfirst($document->get_name()) . ')',
 			];
 		}
 

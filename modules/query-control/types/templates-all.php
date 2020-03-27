@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since  1.2.9
  */
-class Templates extends Type_Base {
+class Templates_All extends Type_Base {
 
 	/**
 	 * Get Name
@@ -25,7 +25,7 @@ class Templates extends Type_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return 'templates';
+		return 'templates-all';
 	}
 
 	/**
@@ -45,15 +45,7 @@ class Templates extends Type_Base {
 			's' 				=> $data['q'],
 			'post_type' 		=> Source_Local::CPT,
 			'posts_per_page' 	=> -1,
-			'orderby' 			=> 'meta_value',
 			'order' 			=> 'ASC',
-			'meta_query' => [
-				[
-					'key' 		=> Document::TYPE_META_KEY,
-					'value' 	=> array_keys( $document_types ),
-					'compare' 	=> 'IN',
-				],
-			],
 		];
 
 		$query = new \WP_Query( $query_params );
@@ -65,7 +57,7 @@ class Templates extends Type_Base {
 
 			$results[] = [
 				'id' 	=> $post->ID,
-				'text' 	=> $post->post_title . ' (' . $document->get_post_type_title() . ')',
+				'text' 	=> $post->post_title . ' (' . ucfirst($document->get_name()) . ')',
 			];
 		}
 
