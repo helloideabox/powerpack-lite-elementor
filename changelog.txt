@@ -1,3 +1,7 @@
+== 1.2.9 ==
+Release date: March 29, 2020
+* Enhancement: Updated query controls in Content Ticker and Advanced Accordion widgets
+
 == 1.2.8.7 ==
 Release date: March 11, 2020
 * Fixed: Swiper slider after updating to Elementor 2.9.5

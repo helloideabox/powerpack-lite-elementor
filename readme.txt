@@ -150,6 +150,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.9 - March 29, 2020 =
+* 	Enhancement: Updated query controls in Content Ticker and Advanced Accordion widgets
+
 = 1.2.8.7 - March 11, 2020 =
 * 	Fixed: Swiper slider after updating to Elementor 2.9.5
 
