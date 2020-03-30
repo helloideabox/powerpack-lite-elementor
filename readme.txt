@@ -150,6 +150,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.9.1 - March 29, 2020 =
+* 	Fixed: PHP error in query control
+
 = 1.2.9 - March 29, 2020 =
 * 	Enhancement: Updated query controls in Content Ticker and Advanced Accordion widgets
 
