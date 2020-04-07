@@ -31,6 +31,8 @@ class UsageTracking {
 	 */
 	private $data;
 
+	private $site_url = 'https://powerpackelements.com/';
+
 	/**
 	 * Get things going
 	 *
@@ -129,7 +131,7 @@ class UsageTracking {
 	public function send_checkin( $override = false, $ignore_last_checkin = false ) {
 		$home_url = trailingslashit( home_url() );
 		// Allows us to stop our own site from checking in, and a filter for our additional sites
-		if ( 'https://powerpackelements.com/' === $home_url || apply_filters( 'pp_disable_tracking_checkin', false ) ) {
+		if ( $this->site_url === $home_url || apply_filters( 'pp_disable_tracking_checkin', false ) ) {
 			return false;
 		}
 
@@ -146,7 +148,7 @@ class UsageTracking {
 		$this->setup_data();
 
 		$request = wp_remote_post(
-			'https://powerpackelements.com/?edd_action=checkin', array(
+			$this->site_url . '?edd_action=checkin', array(
 			'method' => 'POST',
 			'timeout' => 20,
 			'redirection' => 5,
@@ -274,7 +276,7 @@ class UsageTracking {
 			$optout_url = add_query_arg( 'ppe_action', 'pp_opt_out_of_tracking' );
 
 			$source = substr( md5( get_bloginfo( 'name' ) ), 0, 10 );
-			$store_url = 'https://powerpackelements.com/pricing/?utm_source=' . $source . '&utm_medium=admin&utm_term=notice&utm_campaign=PPEUsageTracking';
+			$store_url = $this->site_url . 'pricing/?utm_source=' . $source . '&utm_medium=admin&utm_term=notice&utm_campaign=PPEUsageTracking';
 			$what_we_collect = esc_html__( 'Click here to check what we collect.', 'powerpack' );
 
 			echo '<div class="notice notice-info updated"><p>';
