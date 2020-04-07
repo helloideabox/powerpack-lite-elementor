@@ -78,8 +78,34 @@ $enabled_extensions = pp_elements_lite_get_enabled_extensions();
     background: #4242ce;
 }
 </style>
+<div class="pp-general-wrap">
+	<table class="form-table" style="max-width: 100%;">
+		<tr valign="top">
+			<th scope="row" valign="top">
+				<label for="pp_allowed_tracking">
+				<?php esc_html_e('Allow usage tracking?', 'powerpack'); ?>
+				</label>
+			</th>
+			<td>
+				<p>
+					<label for="pp_allowed_tracking">
+						<input
+							id="pp_allowed_tracking"
+							name="pp_allowed_tracking"
+							type="checkbox"
+							value="on"
+							<?php echo self::get_option( 'pp_allowed_tracking', true ) ? ' checked="checked"' : '' ?>
+						/>
+					</label>
+				</p>
+				<p class="description"><?php _e( 'Allow PowerPack to anonymously track how this plugin is used and help us make the plugin better. Opt-in to tracking and our newsletter. No sensitive data is tracked.', 'powerpack' ); ?></p>
+			</td>
+		</tr>
+	</table>
+</div>
 <div class="pp-modules-wrap">
 	<table class="form-table">
+	
 	<tr valign="top">
 		<th scope="row" valign="top">
 			<?php esc_html_e('Enable/Disable Extensions', 'powerpack'); ?>
