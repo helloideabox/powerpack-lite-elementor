@@ -39,7 +39,7 @@ class Caldera_Forms extends Powerpack_Widget {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Caldera Forms', 'power-pack' );
+        return __( 'Caldera Forms', 'powerpack' );
     }
 
     /**
@@ -86,14 +86,14 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_info_box',
             [
-                'label'                 => __( 'Caldera Forms', 'power-pack' ),
+                'label'                 => __( 'Caldera Forms', 'powerpack' ),
             ]
         );
 		
 		$this->add_control(
 			'contact_form_list',
 			[
-				'label'                 => esc_html__( 'Contact Form', 'power-pack' ),
+				'label'                 => esc_html__( 'Contact Form', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => true,
 				'options'               => pp_elements_lite_get_caldera_forms(),
@@ -104,10 +104,10 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'custom_title_description',
             [
-                'label'                 => __( 'Custom Title & Description', 'power-pack' ),
+                'label'                 => __( 'Custom Title & Description', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
-                'label_on'              => __( 'Yes', 'power-pack' ),
-                'label_off'             => __( 'No', 'power-pack' ),
+                'label_on'              => __( 'Yes', 'powerpack' ),
+                'label_off'             => __( 'No', 'powerpack' ),
                 'return_value'          => 'yes',
             ]
         );
@@ -115,7 +115,7 @@ class Caldera_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_title_custom',
 			[
-				'label'                 => esc_html__( 'Title', 'power-pack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXT,
 				'label_block'           => true,
                 'default'               => '',
@@ -128,7 +128,7 @@ class Caldera_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_description_custom',
 			[
-				'label'                 => esc_html__( 'Description', 'power-pack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXTAREA,
                 'default'               => '',
                 'condition'             => [
@@ -140,11 +140,11 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'labels_switch',
             [
-                'label'                 => __( 'Labels', 'power-pack' ),
+                'label'                 => __( 'Labels', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'yes',
-                'label_on'              => __( 'Show', 'power-pack' ),
-                'label_off'             => __( 'Hide', 'power-pack' ),
+                'label_on'              => __( 'Show', 'powerpack' ),
+                'label_off'             => __( 'Hide', 'powerpack' ),
                 'return_value'          => 'yes',
                 'prefix_class'          => 'pp-caldera-form-labels-',
             ]
@@ -153,11 +153,11 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'placeholder_switch',
             [
-                'label'                 => __( 'Placeholder', 'power-pack' ),
+                'label'                 => __( 'Placeholder', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'yes',
-                'label_on'              => __( 'Show', 'power-pack' ),
-                'label_off'             => __( 'Hide', 'power-pack' ),
+                'label_on'              => __( 'Show', 'powerpack' ),
+                'label_off'             => __( 'Hide', 'powerpack' ),
                 'return_value'          => 'yes',
             ]
         );
@@ -171,19 +171,19 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_errors',
             [
-                'label'                 => __( 'Errors', 'power-pack' ),
+                'label'                 => __( 'Errors', 'powerpack' ),
             ]
         );
         
         $this->add_control(
             'error_messages',
             [
-                'label'                 => __( 'Error Messages', 'power-pack' ),
+                'label'                 => __( 'Error Messages', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'show',
                 'options'               => [
-                    'show'          => __( 'Show', 'power-pack' ),
-                    'hide'          => __( 'Hide', 'power-pack' ),
+                    'show'          => __( 'Show', 'powerpack' ),
+                    'hide'          => __( 'Hide', 'powerpack' ),
                 ],
                 'selectors_dictionary'  => [
 					'show'          => 'block',
@@ -208,7 +208,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_form_title_style',
             [
-                'label'                 => __( 'Title & Description', 'power-pack' ),
+                'label'                 => __( 'Title & Description', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'custom_title_description'   => 'yes',
@@ -219,19 +219,19 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'heading_alignment',
             [
-                'label'                 => __( 'Alignment', 'power-pack' ),
+                'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -248,7 +248,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'title_heading',
             [
-                'label'                 => __( 'Title', 'power-pack' ),
+                'label'                 => __( 'Title', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
                 'condition'             => [
@@ -260,7 +260,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'form_title_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -276,7 +276,7 @@ class Caldera_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'form_title_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-contact-form-title',
                 'condition'             => [
                     'custom_title_description'   => 'yes',
@@ -287,7 +287,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
 			'form_title_margin',
 			[
-				'label'                 => __( 'Margin', 'power-pack' ),
+				'label'                 => __( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
                 'allowed_dimensions'    => 'vertical',
@@ -309,7 +309,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'description_heading',
             [
-                'label'                 => __( 'Description', 'power-pack' ),
+                'label'                 => __( 'Description', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
                 'condition'             => [
@@ -321,7 +321,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'form_description_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -337,7 +337,7 @@ class Caldera_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'form_description_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-contact-form-description',
                 'condition'             => [
@@ -349,7 +349,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
 			'form_description_margin',
 			[
-				'label'                 => __( 'Margin', 'power-pack' ),
+				'label'                 => __( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
                 'allowed_dimensions'    => 'vertical',
@@ -377,7 +377,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_label_style',
             [
-                'label'                 => __( 'Labels', 'power-pack' ),
+                'label'                 => __( 'Labels', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -385,7 +385,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'text_color_label',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .pp-caldera-form .form-group label' => 'color: {{VALUE}}',
@@ -397,7 +397,7 @@ class Caldera_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'typography_label',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-caldera-form .form-group label',
             ]
         );
@@ -411,7 +411,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_fields_style',
             [
-                'label'                 => __( 'Input & Textarea', 'power-pack' ),
+                'label'                 => __( 'Input & Textarea', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -419,19 +419,19 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'input_alignment',
             [
-                'label'                 => __( 'Alignment', 'power-pack' ),
+                'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -447,14 +447,14 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_fields_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'field_bg_color',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -466,7 +466,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'field_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -479,7 +479,7 @@ class Caldera_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'field_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-caldera-form input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-caldera-form .form-group textarea, {{WRAPPER}} .pp-caldera-form .form-group select',
@@ -490,7 +490,7 @@ class Caldera_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'field_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -502,7 +502,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'field_text_indent',
             [
-                'label'                 => __( 'Text Indent', 'power-pack' ),
+                'label'                 => __( 'Text Indent', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -527,7 +527,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'input_width',
             [
-                'label'                 => __( 'Input Width', 'power-pack' ),
+                'label'                 => __( 'Input Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -546,7 +546,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'input_height',
             [
-                'label'                 => __( 'Input Height', 'power-pack' ),
+                'label'                 => __( 'Input Height', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -565,7 +565,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'textarea_width',
             [
-                'label'                 => __( 'Textarea Width', 'power-pack' ),
+                'label'                 => __( 'Textarea Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -584,7 +584,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'textarea_height',
             [
-                'label'                 => __( 'Textarea Height', 'power-pack' ),
+                'label'                 => __( 'Textarea Height', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -603,7 +603,7 @@ class Caldera_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -615,7 +615,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'field_spacing',
             [
-                'label'                 => __( 'Spacing', 'power-pack' ),
+                'label'                 => __( 'Spacing', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -635,7 +635,7 @@ class Caldera_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'field_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-caldera-form input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-caldera-form .form-group textarea, {{WRAPPER}} .pp-caldera-form .form-group select',
 				'separator'             => 'before',
             ]
@@ -655,14 +655,14 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_fields_focus',
             [
-                'label'                 => __( 'Focus', 'power-pack' ),
+                'label'                 => __( 'Focus', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'field_bg_color_focus',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -675,7 +675,7 @@ class Caldera_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'focus_input_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-caldera-form input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus, {{WRAPPER}} .pp-caldera-form .form-group textarea:focus',
@@ -704,7 +704,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_field_description_style',
             [
-                'label'                 => __( 'Field Description', 'power-pack' ),
+                'label'                 => __( 'Field Description', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -712,7 +712,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'field_description_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .pp-caldera-form .help-block' => 'color: {{VALUE}}',
@@ -724,7 +724,7 @@ class Caldera_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'field_description_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-caldera-form .help-block',
             ]
         );
@@ -732,7 +732,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'field_description_spacing',
             [
-                'label'                 => __( 'Spacing', 'power-pack' ),
+                'label'                 => __( 'Spacing', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -757,7 +757,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_placeholder_style',
             [
-                'label'                 => __( 'Placeholder', 'power-pack' ),
+                'label'                 => __( 'Placeholder', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'placeholder_switch'   => 'yes',
@@ -768,7 +768,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'text_color_placeholder',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .pp-caldera-form .form-group input::-webkit-input-placeholder, {{WRAPPER}} .pp-caldera-form .form-group textarea::-webkit-input-placeholder' => 'color: {{VALUE}}',
@@ -788,7 +788,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_radio_checkbox_style',
             [
-                'label'                 => __( 'Radio & Checkbox', 'power-pack' ),
+                'label'                 => __( 'Radio & Checkbox', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -796,10 +796,10 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'custom_radio_checkbox',
             [
-                'label'                 => __( 'Custom Styles', 'power-pack' ),
+                'label'                 => __( 'Custom Styles', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
-                'label_on'              => __( 'Yes', 'power-pack' ),
-                'label_off'             => __( 'No', 'power-pack' ),
+                'label_on'              => __( 'Yes', 'powerpack' ),
+                'label_off'             => __( 'No', 'powerpack' ),
                 'return_value'          => 'yes',
             ]
         );
@@ -807,7 +807,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'radio_checkbox_size',
             [
-                'label'                 => __( 'Size', 'power-pack' ),
+                'label'                 => __( 'Size', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'      => '15',
@@ -835,7 +835,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'radio_checkbox_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
                 'condition'             => [
                     'custom_radio_checkbox' => 'yes',
                 ],
@@ -845,7 +845,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'radio_checkbox_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -860,7 +860,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'checkbox_border_width',
             [
-                'label'                 => __( 'Border Width', 'power-pack' ),
+                'label'                 => __( 'Border Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -882,7 +882,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'checkbox_border_color',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -897,7 +897,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'checkbox_heading',
             [
-                'label'                 => __( 'Checkbox', 'power-pack' ),
+                'label'                 => __( 'Checkbox', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
@@ -908,7 +908,7 @@ class Caldera_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'checkbox_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -923,7 +923,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'radio_heading',
             [
-                'label'                 => __( 'Radio Buttons', 'power-pack' ),
+                'label'                 => __( 'Radio Buttons', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
@@ -934,7 +934,7 @@ class Caldera_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -951,7 +951,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'radio_checkbox_checked',
             [
-                'label'                 => __( 'Checked', 'power-pack' ),
+                'label'                 => __( 'Checked', 'powerpack' ),
                 'condition'             => [
                     'custom_radio_checkbox' => 'yes',
                 ],
@@ -961,7 +961,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'radio_checkbox_color_checked',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -986,7 +986,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_submit_button_style',
             [
-                'label'                 => __( 'Submit Button', 'power-pack' ),
+                'label'                 => __( 'Submit Button', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -994,19 +994,19 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
 			'button_align',
 			[
-				'label'                 => __( 'Alignment', 'power-pack' ),
+				'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'        => [
-						'title'   => __( 'Left', 'power-pack' ),
+						'title'   => __( 'Left', 'powerpack' ),
 						'icon'    => 'eicon-h-align-left',
 					],
 					'center'      => [
-						'title'   => __( 'Center', 'power-pack' ),
+						'title'   => __( 'Center', 'powerpack' ),
 						'icon'    => 'eicon-h-align-center',
 					],
 					'right'       => [
-						'title'   => __( 'Right', 'power-pack' ),
+						'title'   => __( 'Right', 'powerpack' ),
 						'icon'    => 'eicon-h-align-right',
 					],
 				],
@@ -1021,12 +1021,12 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'button_width_type',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'custom',
                 'options'               => [
-                    'full-width'    => __( 'Full Width', 'power-pack' ),
-                    'custom'        => __( 'Custom', 'power-pack' ),
+                    'full-width'    => __( 'Full Width', 'powerpack' ),
+                    'custom'        => __( 'Custom', 'powerpack' ),
                 ],
                 'prefix_class'          => 'pp-caldera-form-button-',
             ]
@@ -1035,7 +1035,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'button_width',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'      => '135',
@@ -1063,14 +1063,14 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_button_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'button_bg_color_normal',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1082,7 +1082,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'button_text_color_normal',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1095,7 +1095,7 @@ class Caldera_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border_normal',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-caldera-form .form-group input[type="submit"], {{WRAPPER}} .pp-caldera-form .form-group input[type="button"]',
@@ -1105,7 +1105,7 @@ class Caldera_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -1117,7 +1117,7 @@ class Caldera_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -1129,7 +1129,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'button_margin',
             [
-                'label'                 => __( 'Margin Top', 'power-pack' ),
+                'label'                 => __( 'Margin Top', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -1149,7 +1149,7 @@ class Caldera_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'button_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-caldera-form .form-group input[type="submit"], {{WRAPPER}} .pp-caldera-form .form-group input[type="button"]',
 				'separator'             => 'before',
             ]
@@ -1169,14 +1169,14 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_button_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'button_bg_color_hover',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1188,7 +1188,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'button_text_color_hover',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1200,7 +1200,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'button_border_color_hover',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1222,7 +1222,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_success_message_style',
             [
-                'label'                 => __( 'Success Message', 'power-pack' ),
+                'label'                 => __( 'Success Message', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1230,7 +1230,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'success_message_bg_color',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .pp-caldera-form .caldera-grid .alert-success' => 'background-color: {{VALUE}}',
@@ -1241,7 +1241,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'success_message_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .pp-caldera-form .caldera-grid .alert-success' => 'color: {{VALUE}}',
@@ -1253,7 +1253,7 @@ class Caldera_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'success_message_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-caldera-form .caldera-grid .alert-success',
@@ -1264,7 +1264,7 @@ class Caldera_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'success_message_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-caldera-form .caldera-grid .alert-success',
             ]
         );
@@ -1278,7 +1278,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_error_style',
             [
-                'label'                 => __( 'Errors', 'power-pack' ),
+                'label'                 => __( 'Errors', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1286,7 +1286,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'error_messages_heading',
             [
-                'label'                 => __( 'Error Messages', 'power-pack' ),
+                'label'                 => __( 'Error Messages', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
 				'condition'             => [
 					'error_messages' => 'show',
@@ -1297,7 +1297,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'error_message_text_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1312,7 +1312,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'error_fields_heading',
             [
-                'label'                 => __( 'Error Fields', 'power-pack' ),
+                'label'                 => __( 'Error Fields', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
             ]
@@ -1321,7 +1321,7 @@ class Caldera_Forms extends Powerpack_Widget {
         $this->add_control(
             'error_fields_label_color',
             [
-                'label'                 => __( 'Label Color', 'power-pack' ),
+                'label'                 => __( 'Label Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1334,7 +1334,7 @@ class Caldera_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'error_field_border',
-				'label'                 => __( 'Input Border', 'power-pack' ),
+				'label'                 => __( 'Input Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-caldera-form .has-error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-caldera-form .has-error textarea',

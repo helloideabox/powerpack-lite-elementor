@@ -38,7 +38,7 @@ class Business_Hours extends Powerpack_Widget {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Business Hours', 'power-pack' );
+        return __( 'Business Hours', 'powerpack' );
     }
 
     /**
@@ -84,19 +84,19 @@ class Business_Hours extends Powerpack_Widget {
         $this->start_controls_section(
             'section_price_menu',
             [
-                'label'             => __( 'Business Hours', 'power-pack' ),
+                'label'             => __( 'Business Hours', 'powerpack' ),
             ]
         );
         
         $this->add_control(
             'business_timings',
             [
-                'label'                => __( 'Business Timings', 'power-pack' ),
+                'label'                => __( 'Business Timings', 'powerpack' ),
                 'type'                 => Controls_Manager::SELECT,
                 'default'              => 'predefined',
                 'options'              => [
-                    'predefined'    => __( 'Predefined', 'power-pack' ),
-                    'custom'        => __( 'Custom', 'power-pack' ),
+                    'predefined'    => __( 'Predefined', 'powerpack' ),
+                    'custom'        => __( 'Custom', 'powerpack' ),
                 ],
             ]
         );
@@ -191,31 +191,31 @@ class Business_Hours extends Powerpack_Widget {
 				'fields'            => [
                     [
                         'name'              => 'day',
-                        'label'             => __( 'Day', 'power-pack' ),
+                        'label'             => __( 'Day', 'powerpack' ),
                         'type'              => Controls_Manager::SELECT,
                         'default'           => 'Monday',
                         'options'           => [
-                            'Monday'    => __( 'Monday', 'power-pack' ),
-                            'Tuesday'   => __( 'Tuesday', 'power-pack' ),
-                            'Wednesday' => __( 'Wednesday', 'power-pack' ),
-                            'Thursday'  => __( 'Thursday', 'power-pack' ),
-                            'Friday'    => __( 'Friday', 'power-pack' ),
-                            'Saturday'  => __( 'Saturday', 'power-pack' ),
-                            'Sunday'    => __( 'Sunday', 'power-pack' ),
+                            'Monday'    => __( 'Monday', 'powerpack' ),
+                            'Tuesday'   => __( 'Tuesday', 'powerpack' ),
+                            'Wednesday' => __( 'Wednesday', 'powerpack' ),
+                            'Thursday'  => __( 'Thursday', 'powerpack' ),
+                            'Friday'    => __( 'Friday', 'powerpack' ),
+                            'Saturday'  => __( 'Saturday', 'powerpack' ),
+                            'Sunday'    => __( 'Sunday', 'powerpack' ),
                         ],
                     ],
                     [
                         'name'              => 'closed',
-                        'label'             => __( 'Closed?', 'power-pack' ),
+                        'label'             => __( 'Closed?', 'powerpack' ),
                         'type'              => Controls_Manager::SWITCHER,
                         'default'           => 'no',
-                        'label_on'          => __( 'No', 'power-pack' ),
-                        'label_off'         => __( 'Yes', 'power-pack' ),
+                        'label_on'          => __( 'No', 'powerpack' ),
+                        'label_off'         => __( 'Yes', 'powerpack' ),
                         'return_value'      => 'no',
                     ],
                     [
                         'name'              => 'opening_hours',
-                        'label'             => __( 'Opening Hours', 'power-pack' ),
+                        'label'             => __( 'Opening Hours', 'powerpack' ),
                         'type'              => Controls_Manager::SELECT,
                         'default'           => '09:00',
                         'options'           => $pp_hours,
@@ -225,7 +225,7 @@ class Business_Hours extends Powerpack_Widget {
                     ],
                     [
                         'name'              => 'closing_hours',
-                        'label'             => __( 'Closing Hours', 'power-pack' ),
+                        'label'             => __( 'Closing Hours', 'powerpack' ),
                         'type'              => Controls_Manager::SELECT,
                         'default'           => '17:00',
                         'options'           => $pp_hours,
@@ -235,11 +235,11 @@ class Business_Hours extends Powerpack_Widget {
                     ],
                     [
                         'name'              => 'closed_text',
-                        'label'             => __( 'Closed Text', 'power-pack' ),
+                        'label'             => __( 'Closed Text', 'powerpack' ),
                         'type'              => Controls_Manager::TEXT,
                         'label_block'       => true,
-                        'placeholder'       => __( 'Closed', 'power-pack' ),
-                        'default'           => __( 'Closed', 'power-pack' ),
+                        'placeholder'       => __( 'Closed', 'powerpack' ),
+                        'default'           => __( 'Closed', 'powerpack' ),
                         'conditions'        => [
                             'terms' => [
                                 [
@@ -252,16 +252,16 @@ class Business_Hours extends Powerpack_Widget {
                     ],
                     [
                         'name'              => 'highlight',
-                        'label'             => __( 'Highlight', 'power-pack' ),
+                        'label'             => __( 'Highlight', 'powerpack' ),
                         'type'              => Controls_Manager::SWITCHER,
                         'default'           => 'no',
-                        'label_on'          => __( 'Yes', 'power-pack' ),
-                        'label_off'         => __( 'No', 'power-pack' ),
+                        'label_on'          => __( 'Yes', 'powerpack' ),
+                        'label_off'         => __( 'No', 'powerpack' ),
                         'return_value'      => 'yes',
                     ],
                     [
                         'name'              => 'highlight_bg',
-                        'label'             => __( 'Background Color', 'power-pack' ),
+                        'label'             => __( 'Background Color', 'powerpack' ),
                         'type'              => Controls_Manager::COLOR,
                         'default'           => '',
                         'selectors'         => [
@@ -273,7 +273,7 @@ class Business_Hours extends Powerpack_Widget {
                     ],
                     [
                         'name'              => 'highlight_color',
-                        'label'             => __( 'Text Color', 'power-pack' ),
+                        'label'             => __( 'Text Color', 'powerpack' ),
                         'type'              => Controls_Manager::COLOR,
                         'default'           => '',
                         'selectors'         => [
@@ -328,22 +328,22 @@ class Business_Hours extends Powerpack_Widget {
 				'fields'            => [
                     [
                         'name'              => 'day',
-                        'label'             => __( 'Day', 'power-pack' ),
+                        'label'             => __( 'Day', 'powerpack' ),
                         'type'              => Controls_Manager::TEXT,
                         'default'           => 'Monday',
                     ],
                     [
                         'name'              => 'closed',
-                        'label'             => __( 'Closed?', 'power-pack' ),
+                        'label'             => __( 'Closed?', 'powerpack' ),
                         'type'              => Controls_Manager::SWITCHER,
                         'default'           => 'no',
-                        'label_on'          => __( 'No', 'power-pack' ),
-                        'label_off'         => __( 'Yes', 'power-pack' ),
+                        'label_on'          => __( 'No', 'powerpack' ),
+                        'label_off'         => __( 'Yes', 'powerpack' ),
                         'return_value'      => 'no',
                     ],
                     [
                         'name'              => 'time',
-                        'label'             => __( 'Time', 'power-pack' ),
+                        'label'             => __( 'Time', 'powerpack' ),
                         'type'              => Controls_Manager::TEXT,
                         'default'           => '09:00 AM - 05:00 PM',
                         'condition'         => [
@@ -352,11 +352,11 @@ class Business_Hours extends Powerpack_Widget {
                     ],
                     [
                         'name'              => 'closed_text',
-                        'label'             => __( 'Closed Text', 'power-pack' ),
+                        'label'             => __( 'Closed Text', 'powerpack' ),
                         'type'              => Controls_Manager::TEXT,
                         'label_block'       => true,
-                        'placeholder'       => __( 'Closed', 'power-pack' ),
-                        'default'           => __( 'Closed', 'power-pack' ),
+                        'placeholder'       => __( 'Closed', 'powerpack' ),
+                        'default'           => __( 'Closed', 'powerpack' ),
                         'conditions'        => [
                             'terms' => [
                                 [
@@ -369,16 +369,16 @@ class Business_Hours extends Powerpack_Widget {
                     ],
                     [
                         'name'              => 'highlight',
-                        'label'             => __( 'Highlight', 'power-pack' ),
+                        'label'             => __( 'Highlight', 'powerpack' ),
                         'type'              => Controls_Manager::SWITCHER,
                         'default'           => 'no',
-                        'label_on'          => __( 'Yes', 'power-pack' ),
-                        'label_off'         => __( 'No', 'power-pack' ),
+                        'label_on'          => __( 'Yes', 'powerpack' ),
+                        'label_off'         => __( 'No', 'powerpack' ),
                         'return_value'      => 'yes',
                     ],
                     [
                         'name'              => 'highlight_bg',
-                        'label'             => __( 'Background Color', 'power-pack' ),
+                        'label'             => __( 'Background Color', 'powerpack' ),
                         'type'              => Controls_Manager::COLOR,
                         'default'           => '',
                         'selectors'         => [
@@ -390,7 +390,7 @@ class Business_Hours extends Powerpack_Widget {
                     ],
                     [
                         'name'              => 'highlight_color',
-                        'label'             => __( 'Text Color', 'power-pack' ),
+                        'label'             => __( 'Text Color', 'powerpack' ),
                         'type'              => Controls_Manager::COLOR,
                         'default'           => '',
                         'selectors'         => [
@@ -411,11 +411,11 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
           'hours_format',
             [
-                'label'             => __( '24 Hours Format?', 'power-pack' ),
+                'label'             => __( '24 Hours Format?', 'powerpack' ),
                 'type'              => Controls_Manager::SWITCHER,
                 'default'           => 'no',
-                'label_on'          => __( 'Yes', 'power-pack' ),
-                'label_off'         => __( 'No', 'power-pack' ),
+                'label_on'          => __( 'Yes', 'powerpack' ),
+                'label_off'         => __( 'No', 'powerpack' ),
                 'return_value'      => 'yes',
                 'condition'         => [
                     'business_timings' => 'predefined',
@@ -426,12 +426,12 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'days_format',
             [
-                'label'                => __( 'Days Format', 'power-pack' ),
+                'label'                => __( 'Days Format', 'powerpack' ),
                 'type'                 => Controls_Manager::SELECT,
                 'default'              => 'long',
                 'options'              => [
-                    'long'      => __( 'Long', 'power-pack' ),
-                    'short'     => __( 'Short', 'power-pack' ),
+                    'long'      => __( 'Long', 'powerpack' ),
+                    'short'     => __( 'Short', 'powerpack' ),
                 ],
                 'condition'         => [
                     'business_timings' => 'predefined',
@@ -476,7 +476,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->start_controls_section(
             'section_rows_style',
             [
-                'label'             => __( 'Rows Style', 'power-pack' ),
+                'label'             => __( 'Rows Style', 'powerpack' ),
                 'tab'               => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -486,14 +486,14 @@ class Business_Hours extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_row_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'row_bg_color_normal',
             [
-                'label'             => __( 'Background Color', 'power-pack' ),
+                'label'             => __( 'Background Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -507,14 +507,14 @@ class Business_Hours extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_row_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'row_bg_color_hover',
             [
-                'label'             => __( 'Background Color', 'power-pack' ),
+                'label'             => __( 'Background Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -529,11 +529,11 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
           'stripes',
             [
-                'label'             => __( 'Striped Rows', 'power-pack' ),
+                'label'             => __( 'Striped Rows', 'powerpack' ),
                 'type'              => Controls_Manager::SWITCHER,
                 'default'           => 'no',
-                'label_on'          => __( 'Yes', 'power-pack' ),
-                'label_off'         => __( 'No', 'power-pack' ),
+                'label_on'          => __( 'Yes', 'powerpack' ),
+                'label_off'         => __( 'No', 'powerpack' ),
                 'return_value'      => 'yes',
                 'separator'         => 'before',
             ]
@@ -544,7 +544,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_even',
             [
-                'label'                 => __( 'Even Row', 'power-pack' ),
+                'label'                 => __( 'Even Row', 'powerpack' ),
                 'condition'             => [
                     'stripes' => 'yes',
                 ],
@@ -554,7 +554,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'row_even_bg_color',
             [
-                'label'             => __( 'Background Color', 'power-pack' ),
+                'label'             => __( 'Background Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '#f5f5f5',
                 'selectors'         => [
@@ -569,7 +569,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'row_even_text_color',
             [
-                'label'             => __( 'Text Color', 'power-pack' ),
+                'label'             => __( 'Text Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -586,7 +586,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_odd',
             [
-                'label'                 => __( 'Odd Row', 'power-pack' ),
+                'label'                 => __( 'Odd Row', 'powerpack' ),
                 'condition'             => [
                     'stripes' => 'yes',
                 ],
@@ -596,7 +596,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'row_odd_bg_color',
             [
-                'label'             => __( 'Background Color', 'power-pack' ),
+                'label'             => __( 'Background Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '#ffffff',
                 'selectors'         => [
@@ -611,7 +611,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'row_odd_text_color',
             [
-                'label'             => __( 'Text Color', 'power-pack' ),
+                'label'             => __( 'Text Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -630,7 +630,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'rows_padding',
 			[
-				'label'             => __( 'Padding', 'power-pack' ),
+				'label'             => __( 'Padding', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => [ 'px', '%' ],
 				'default'           => [
@@ -651,7 +651,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_responsive_control(
             'rows_margin',
             [
-                'label'             => __( 'Margin Bottom', 'power-pack' ),
+                'label'             => __( 'Margin Bottom', 'powerpack' ),
                 'type'              => Controls_Manager::SLIDER,
                 'range'             => [
                     'px' => [
@@ -670,7 +670,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'closed_row_heading',
             [
-                'label'             => __( 'Closed Row', 'power-pack' ),
+                'label'             => __( 'Closed Row', 'powerpack' ),
                 'type'              => Controls_Manager::HEADING,
                 'separator'         => 'before',
             ]
@@ -679,7 +679,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'closed_row_bg_color',
             [
-                'label'             => __( 'Background Color', 'power-pack' ),
+                'label'             => __( 'Background Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -691,7 +691,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'closed_row_day_color',
             [
-                'label'             => __( 'Day Color', 'power-pack' ),
+                'label'             => __( 'Day Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -703,7 +703,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'closed_row_tex_color',
             [
-                'label'             => __( 'Text Color', 'power-pack' ),
+                'label'             => __( 'Text Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -715,7 +715,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'divider_heading',
             [
-                'label'             => __( 'Rows Divider', 'power-pack' ),
+                'label'             => __( 'Rows Divider', 'powerpack' ),
                 'type'              => Controls_Manager::HEADING,
                 'separator'         => 'before',
             ]
@@ -724,16 +724,16 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'rows_divider_style',
             [
-                'label'                => __( 'Divider Style', 'power-pack' ),
+                'label'                => __( 'Divider Style', 'powerpack' ),
                 'type'                 => Controls_Manager::SELECT,
                 'default'              => 'none',
                 'options'              => [
-                    'none'      => __( 'None', 'power-pack' ),
-                    'solid'     => __( 'Solid', 'power-pack' ),
-                    'dashed'    => __( 'Dashed', 'power-pack' ),
-                    'dotted'    => __( 'Dotted', 'power-pack' ),
-                    'groove'    => __( 'Groove', 'power-pack' ),
-                    'ridge'     => __( 'Ridge', 'power-pack' ),
+                    'none'      => __( 'None', 'powerpack' ),
+                    'solid'     => __( 'Solid', 'powerpack' ),
+                    'dashed'    => __( 'Dashed', 'powerpack' ),
+                    'dotted'    => __( 'Dotted', 'powerpack' ),
+                    'groove'    => __( 'Groove', 'powerpack' ),
+                    'ridge'     => __( 'Ridge', 'powerpack' ),
                 ],
                 'selectors'         => [
                     '{{WRAPPER}} .pp-business-hours .pp-business-hours-row:not(:last-child)' => 'border-bottom-style: {{VALUE}}',
@@ -744,7 +744,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'rows_divider_color',
             [
-                'label'             => __( 'Divider Color', 'power-pack' ),
+                'label'             => __( 'Divider Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -759,7 +759,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_responsive_control(
             'rows_divider_weight',
             [
-                'label'             => __( 'Divider Weight', 'power-pack' ),
+                'label'             => __( 'Divider Weight', 'powerpack' ),
                 'type'              => Controls_Manager::SLIDER,
                 'default'           => [ 'size' => 1 ],
                 'range'             => [
@@ -787,7 +787,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->start_controls_section(
             'section_pricing_table_style',
             [
-                'label'             => __( 'Business Hours', 'power-pack' ),
+                'label'             => __( 'Business Hours', 'powerpack' ),
                 'tab'               => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -797,14 +797,14 @@ class Business_Hours extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_hours_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
         
         $this->add_control(
             'title_heading',
             [
-                'label'             => __( 'Day', 'power-pack' ),
+                'label'             => __( 'Day', 'powerpack' ),
                 'type'              => Controls_Manager::HEADING,
                 'separator'         => 'before',
             ]
@@ -813,19 +813,19 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_responsive_control(
             'day_alignment',
             [
-                'label'                 => __( 'Alignment', 'power-pack' ),
+                'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -839,7 +839,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'day_color',
             [
-                'label'             => __( 'Color', 'power-pack' ),
+                'label'             => __( 'Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -852,7 +852,7 @@ class Business_Hours extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'              => 'title_typography',
-                'label'             => __( 'Typography', 'power-pack' ),
+                'label'             => __( 'Typography', 'powerpack' ),
                 'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'          => '{{WRAPPER}} .pp-business-hours .pp-business-day',
             ]
@@ -861,7 +861,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'hours_heading',
             [
-                'label'             => __( 'Hours', 'power-pack' ),
+                'label'             => __( 'Hours', 'powerpack' ),
                 'type'              => Controls_Manager::HEADING,
                 'separator'         => 'before',
             ]
@@ -870,19 +870,19 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_responsive_control(
             'hours_alignment',
             [
-                'label'                 => __( 'Alignment', 'power-pack' ),
+                'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -896,7 +896,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'hours_color',
             [
-                'label'             => __( 'Color', 'power-pack' ),
+                'label'             => __( 'Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -909,7 +909,7 @@ class Business_Hours extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'              => 'hours_typography',
-                'label'             => __( 'Typography', 'power-pack' ),
+                'label'             => __( 'Typography', 'powerpack' ),
                 'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'          => '{{WRAPPER}} .pp-business-hours .pp-business-timing',
             ]
@@ -920,14 +920,14 @@ class Business_Hours extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_hours_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'day_color_hover',
             [
-                'label'             => __( 'Day Color', 'power-pack' ),
+                'label'             => __( 'Day Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -939,7 +939,7 @@ class Business_Hours extends Powerpack_Widget {
         $this->add_control(
             'hours_color_hover',
             [
-                'label'             => __( 'Hours Color', 'power-pack' ),
+                'label'             => __( 'Hours Color', 'powerpack' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -1034,7 +1034,7 @@ class Business_Hours extends Powerpack_Widget {
                             if ( $item['closed_text'] ) {
                                 echo esc_attr( $item['closed_text'] );
                             } else {
-                                esc_attr_e( 'Closed', 'power-pack' );
+                                esc_attr_e( 'Closed', 'powerpack' );
                             }
                         } ?>
                     </span>
@@ -1078,7 +1078,7 @@ class Business_Hours extends Powerpack_Widget {
                                 if ( $item['closed_text'] ) {
                                     echo esc_attr( $item['closed_text'] );
                                 } else {
-                                    esc_attr_e( 'Closed', 'power-pack' );
+                                    esc_attr_e( 'Closed', 'powerpack' );
                                 }
                             }
                         ?>
@@ -1181,7 +1181,7 @@ class Business_Hours extends Powerpack_Widget {
                         <# if ( item.closed_text != '' ) { #>
                             {{ item.closed_text }}
                         <# } else { #>
-                            <?php esc_attr_e( 'Closed', 'power-pack' ); ?>
+                            <?php esc_attr_e( 'Closed', 'powerpack' ); ?>
                         <# } #>
                     <# } #>
                 </span>
@@ -1216,7 +1216,7 @@ class Business_Hours extends Powerpack_Widget {
                         <# if ( item.closed_text != '' ) { #>
                             {{ item.closed_text }}
                         <# } else { #>
-                            <?php esc_attr_e( 'Closed', 'power-pack' ); ?>
+                            <?php esc_attr_e( 'Closed', 'powerpack' ); ?>
                         <# } #>
                     <# } #>
                 </span>
