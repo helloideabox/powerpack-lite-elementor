@@ -208,6 +208,18 @@ class Logo_Carousel extends Powerpack_Widget {
                 ],
             ]
         );
+        
+        $this->add_control(
+            'randomize',
+            [
+                'label'                 => __( 'Randomize Logos', 'powerpack' ),
+                'type'                  => Controls_Manager::SWITCHER,
+                'default'               => '',
+                'label_on'              => __( 'Yes', 'powerpack' ),
+                'label_off'             => __( 'No', 'powerpack' ),
+                'return_value'          => 'yes',
+            ]
+        );
 
         $this->end_controls_section();
 
@@ -334,6 +346,22 @@ class Logo_Carousel extends Powerpack_Widget {
                 ],
             ]
         );
+
+		$this->add_control(
+			'pause_on_interaction',
+			[
+				'label'					=> __( 'Pause on Interaction', 'powerpack' ),
+				'description'			=> __( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => '',
+                'label_on'          	=> __( 'Yes', 'powerpack' ),
+                'label_off'         	=> __( 'No', 'powerpack' ),
+                'return_value'      	=> 'yes',
+                'condition'             => [
+                    'autoplay'      => 'yes',
+                ],
+			]
+		);
         
         $this->add_control(
             'infinite_loop',
@@ -1157,7 +1185,8 @@ class Logo_Carousel extends Powerpack_Widget {
         }
         
         $slider_options['autoplay'] = [
-            'delay'                  => $autoplay_speed
+            'delay'                  => $autoplay_speed,
+            'disableOnInteraction'   => ( $settings['pause_on_interaction'] === 'yes' )
         ];
         
         if ( $settings['dots'] == 'yes' ) {
@@ -1251,7 +1280,13 @@ class Logo_Carousel extends Powerpack_Widget {
                 <div class="swiper-wrapper">
                 <?php
                     $i = 1;
-                    foreach ( $settings['carousel_slides'] as $index => $item ) :
+					$logos = $settings['carousel_slides'];
+		
+					if ( $settings['randomize'] == 'yes' ) {
+						shuffle($logos);
+					}
+		
+                    foreach ( $logos as $index => $item ) :
                         if ( $item['logo_carousel_slide'] ) : ?>
                             <div class="swiper-slide">
                                 <div class="pp-lc-logo-wrap">
@@ -1431,6 +1466,7 @@ class Logo_Carousel extends Powerpack_Widget {
                     loop:                   ( settings.infinite_loop === 'yes' ),
                     autoplay: {
                         delay: $autoplay,
+                        disableOnInteraction: ( settings.pause_on_interaction === 'yes' ),
                     },
                     pagination: {
                         el: '.swiper-pagination',

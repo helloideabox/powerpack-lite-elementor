@@ -1079,7 +1079,7 @@ class Hotspots extends Powerpack_Widget {
                         <span class="pp-hot-spot-inner {{ $hotspot_animation }}">
                             <# if ( item.hotspot_type == 'icon' ) { #>
                                 <span class="pp-hotspot-icon-wrap">
-                                    <span class="pp-hotspot-icon tooltip pp-icon">
+                                    <span class="pp-hotspot-icon pp-icon">
 										<#
 											iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
 											migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
@@ -1093,7 +1093,7 @@ class Hotspots extends Powerpack_Widget {
                                 </span>
                             <# } else if ( item.hotspot_type == 'text' ) { #>
                                 <span class="pp-hotspot-icon-wrap">
-                                    <span class="pp-hotspot-icon tooltip">{{ item.hotspot_text }}</span>
+                                    <span class="pp-hotspot-icon">{{ item.hotspot_text }}</span>
                                 </span>
                             <# } #>
                         </span>
