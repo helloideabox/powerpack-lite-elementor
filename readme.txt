@@ -153,6 +153,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 = 1.2.9.2 - April 8, 2020 =
 * 	Fixed: Hotspot icon was not showing in editor in Image Hotspots widget
 * 	Added: Option to randomize logos in Logo Carousel widget
+* 	Fixed: Input fields padding option was not working in Gravity Forms widget
+* 	Fixed: Input focus background option was not working in Gravity Forms widget
+* 	Enhancement: Added styling for dropdown option in Gravity Forms widget
+* 	Updated "Input & Textarea" section label to "Input, Textarea & Dropdown" in Gravity Forms widget
+* 	Added input focus color option in Gravity Forms widget
 
 = 1.2.9.1 - March 29, 2020 =
 * 	Fixed: PHP error in query control
