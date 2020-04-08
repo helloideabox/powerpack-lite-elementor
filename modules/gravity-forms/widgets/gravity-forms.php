@@ -430,7 +430,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_fields_style',
             [
-                'label'                 => __( 'Input & Textarea', 'powerpack' ),
+                'label'                 => __( 'Input, Textarea & Dropdown', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -694,6 +694,18 @@ class Gravity_Forms extends Powerpack_Widget {
                 'default'               => '',
                 'selectors'             => [
                     '{{WRAPPER}} .pp-gravity-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus, {{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield textarea:focus' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'field_text_color_focus',
+            [
+                'label'                 => __( 'Text Color', 'powerpack' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .pp-gravity-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus, {{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield textarea:focus' => 'color: {{VALUE}}',
                 ],
             ]
         );

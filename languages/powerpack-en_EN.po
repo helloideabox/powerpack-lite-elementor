@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PowerPack Elements\n"
-"POT-Creation-Date: 2020-04-08 15:55+0530\n"
-"PO-Revision-Date: 2020-04-08 15:56+0530\n"
+"POT-Creation-Date: 2020-04-08 16:07+0530\n"
+"PO-Revision-Date: 2020-04-08 16:07+0530\n"
 "Last-Translator: Simrandeep Singh\n"
 "Language-Team: Puneet Sahalot <hello@ideaboxcreations.com>\n"
 "Language: en\n"
@@ -437,7 +437,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:813
 #: modules/gravity-forms/widgets/gravity-forms.php:125
 #: modules/gravity-forms/widgets/gravity-forms.php:216
-#: modules/gravity-forms/widgets/gravity-forms.php:976
+#: modules/gravity-forms/widgets/gravity-forms.php:988
 #: modules/hotspots/widgets/hotspots.php:399
 #: modules/hotspots/widgets/hotspots.php:495
 #: modules/image-accordion/widgets/image-accordion.php:174
@@ -521,7 +521,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:814
 #: modules/gravity-forms/widgets/gravity-forms.php:126
 #: modules/gravity-forms/widgets/gravity-forms.php:217
-#: modules/gravity-forms/widgets/gravity-forms.php:977
+#: modules/gravity-forms/widgets/gravity-forms.php:989
 #: modules/hotspots/widgets/hotspots.php:400
 #: modules/hotspots/widgets/hotspots.php:496
 #: modules/image-accordion/widgets/image-accordion.php:175
@@ -1594,7 +1594,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:617
 #: modules/formidable-forms/widgets/formidable-forms.php:747
 #: modules/gravity-forms/widgets/gravity-forms.php:500
-#: modules/gravity-forms/widgets/gravity-forms.php:762
+#: modules/gravity-forms/widgets/gravity-forms.php:774
 #: modules/headings/widgets/dual-heading.php:405
 #: modules/icon-list/widgets/icon-list.php:550
 #: modules/image-accordion/widgets/image-accordion.php:756
@@ -1651,10 +1651,10 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1322
 #: modules/formidable-forms/widgets/formidable-forms.php:1424
 #: modules/gravity-forms/widgets/gravity-forms.php:640
-#: modules/gravity-forms/widgets/gravity-forms.php:705
-#: modules/gravity-forms/widgets/gravity-forms.php:1281
-#: modules/gravity-forms/widgets/gravity-forms.php:1492
-#: modules/gravity-forms/widgets/gravity-forms.php:1671
+#: modules/gravity-forms/widgets/gravity-forms.php:717
+#: modules/gravity-forms/widgets/gravity-forms.php:1293
+#: modules/gravity-forms/widgets/gravity-forms.php:1504
+#: modules/gravity-forms/widgets/gravity-forms.php:1683
 #: modules/headings/widgets/dual-heading.php:284
 #: modules/headings/widgets/dual-heading.php:383
 #: modules/hotspots/widgets/hotspots.php:747
@@ -1754,11 +1754,11 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1335
 #: modules/formidable-forms/widgets/formidable-forms.php:1434
 #: modules/gravity-forms/widgets/gravity-forms.php:651
-#: modules/gravity-forms/widgets/gravity-forms.php:1087
-#: modules/gravity-forms/widgets/gravity-forms.php:1114
-#: modules/gravity-forms/widgets/gravity-forms.php:1291
-#: modules/gravity-forms/widgets/gravity-forms.php:1502
-#: modules/gravity-forms/widgets/gravity-forms.php:1681
+#: modules/gravity-forms/widgets/gravity-forms.php:1099
+#: modules/gravity-forms/widgets/gravity-forms.php:1126
+#: modules/gravity-forms/widgets/gravity-forms.php:1303
+#: modules/gravity-forms/widgets/gravity-forms.php:1514
+#: modules/gravity-forms/widgets/gravity-forms.php:1693
 #: modules/headings/widgets/dual-heading.php:294
 #: modules/headings/widgets/dual-heading.php:393
 #: modules/hotspots/widgets/hotspots.php:757
@@ -1846,9 +1846,9 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:850
 #: modules/formidable-forms/widgets/formidable-forms.php:1081
 #: modules/gravity-forms/widgets/gravity-forms.php:469
-#: modules/gravity-forms/widgets/gravity-forms.php:1013
-#: modules/gravity-forms/widgets/gravity-forms.php:1247
-#: modules/gravity-forms/widgets/gravity-forms.php:1460
+#: modules/gravity-forms/widgets/gravity-forms.php:1025
+#: modules/gravity-forms/widgets/gravity-forms.php:1259
+#: modules/gravity-forms/widgets/gravity-forms.php:1472
 #: modules/icon-list/widgets/icon-list.php:493
 #: modules/image-accordion/widgets/image-accordion.php:460
 #: modules/image-accordion/widgets/image-accordion.php:863
@@ -1943,11 +1943,11 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1411
 #: modules/gravity-forms/widgets/gravity-forms.php:476
 #: modules/gravity-forms/widgets/gravity-forms.php:692
-#: modules/gravity-forms/widgets/gravity-forms.php:1254
-#: modules/gravity-forms/widgets/gravity-forms.php:1363
-#: modules/gravity-forms/widgets/gravity-forms.php:1467
-#: modules/gravity-forms/widgets/gravity-forms.php:1574
-#: modules/gravity-forms/widgets/gravity-forms.php:1637
+#: modules/gravity-forms/widgets/gravity-forms.php:1266
+#: modules/gravity-forms/widgets/gravity-forms.php:1375
+#: modules/gravity-forms/widgets/gravity-forms.php:1479
+#: modules/gravity-forms/widgets/gravity-forms.php:1586
+#: modules/gravity-forms/widgets/gravity-forms.php:1649
 #: modules/hotspots/widgets/hotspots.php:349
 #: modules/hotspots/widgets/hotspots.php:734
 #: modules/hotspots/widgets/hotspots.php:803
@@ -2060,9 +2060,9 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:917
 #: modules/formidable-forms/widgets/formidable-forms.php:860
 #: modules/formidable-forms/widgets/formidable-forms.php:976
-#: modules/gravity-forms/widgets/gravity-forms.php:1023
-#: modules/gravity-forms/widgets/gravity-forms.php:1141
-#: modules/gravity-forms/widgets/gravity-forms.php:1774
+#: modules/gravity-forms/widgets/gravity-forms.php:1035
+#: modules/gravity-forms/widgets/gravity-forms.php:1153
+#: modules/gravity-forms/widgets/gravity-forms.php:1786
 #: modules/headings/widgets/fancy-heading.php:244
 #: modules/hotspots/widgets/hotspots.php:336
 #: modules/hotspots/widgets/hotspots.php:721
@@ -2153,9 +2153,9 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:604
 #: modules/formidable-forms/widgets/formidable-forms.php:1135
 #: modules/gravity-forms/widgets/gravity-forms.php:519
-#: modules/gravity-forms/widgets/gravity-forms.php:1303
-#: modules/gravity-forms/widgets/gravity-forms.php:1514
-#: modules/gravity-forms/widgets/gravity-forms.php:1693
+#: modules/gravity-forms/widgets/gravity-forms.php:1315
+#: modules/gravity-forms/widgets/gravity-forms.php:1526
+#: modules/gravity-forms/widgets/gravity-forms.php:1705
 #: modules/headings/widgets/dual-heading.php:306
 #: modules/headings/widgets/dual-heading.php:434
 #: modules/hotspots/widgets/hotspots.php:769
@@ -2227,8 +2227,8 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1313
 #: modules/fluent-forms/widgets/fluent-forms.php:1129
 #: modules/formidable-forms/widgets/formidable-forms.php:1188
-#: modules/gravity-forms/widgets/gravity-forms.php:1356
-#: modules/gravity-forms/widgets/gravity-forms.php:1567
+#: modules/gravity-forms/widgets/gravity-forms.php:1368
+#: modules/gravity-forms/widgets/gravity-forms.php:1579
 #: modules/hotspots/widgets/hotspots.php:424
 #: modules/icon-list/widgets/icon-list.php:607
 #: modules/image-accordion/widgets/image-accordion.php:510
@@ -2287,10 +2287,10 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:1160
 #: modules/formidable-forms/widgets/formidable-forms.php:897
 #: modules/formidable-forms/widgets/formidable-forms.php:1219
-#: modules/gravity-forms/widgets/gravity-forms.php:863
-#: modules/gravity-forms/widgets/gravity-forms.php:1060
-#: modules/gravity-forms/widgets/gravity-forms.php:1387
-#: modules/gravity-forms/widgets/gravity-forms.php:1598
+#: modules/gravity-forms/widgets/gravity-forms.php:875
+#: modules/gravity-forms/widgets/gravity-forms.php:1072
+#: modules/gravity-forms/widgets/gravity-forms.php:1399
+#: modules/gravity-forms/widgets/gravity-forms.php:1610
 #: modules/hotspots/widgets/hotspots.php:361
 #: modules/icon-list/widgets/icon-list.php:643
 #: modules/image-accordion/widgets/image-accordion.php:530
@@ -2417,16 +2417,17 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:362
 #: modules/gravity-forms/widgets/gravity-forms.php:401
 #: modules/gravity-forms/widgets/gravity-forms.php:488
-#: modules/gravity-forms/widgets/gravity-forms.php:742
-#: modules/gravity-forms/widgets/gravity-forms.php:795
-#: modules/gravity-forms/widgets/gravity-forms.php:946
-#: modules/gravity-forms/widgets/gravity-forms.php:1267
-#: modules/gravity-forms/widgets/gravity-forms.php:1375
-#: modules/gravity-forms/widgets/gravity-forms.php:1479
-#: modules/gravity-forms/widgets/gravity-forms.php:1586
-#: modules/gravity-forms/widgets/gravity-forms.php:1649
-#: modules/gravity-forms/widgets/gravity-forms.php:1820
-#: modules/gravity-forms/widgets/gravity-forms.php:1955
+#: modules/gravity-forms/widgets/gravity-forms.php:704
+#: modules/gravity-forms/widgets/gravity-forms.php:754
+#: modules/gravity-forms/widgets/gravity-forms.php:807
+#: modules/gravity-forms/widgets/gravity-forms.php:958
+#: modules/gravity-forms/widgets/gravity-forms.php:1279
+#: modules/gravity-forms/widgets/gravity-forms.php:1387
+#: modules/gravity-forms/widgets/gravity-forms.php:1491
+#: modules/gravity-forms/widgets/gravity-forms.php:1598
+#: modules/gravity-forms/widgets/gravity-forms.php:1661
+#: modules/gravity-forms/widgets/gravity-forms.php:1832
+#: modules/gravity-forms/widgets/gravity-forms.php:1967
 #: modules/headings/widgets/dual-heading.php:250
 #: modules/headings/widgets/dual-heading.php:349
 #: modules/headings/widgets/fancy-heading.php:269
@@ -2514,7 +2515,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1123
 #: modules/fluent-forms/widgets/fluent-forms.php:763
 #: modules/formidable-forms/widgets/formidable-forms.php:822
-#: modules/gravity-forms/widgets/gravity-forms.php:985
+#: modules/gravity-forms/widgets/gravity-forms.php:997
 #: modules/hotspots/widgets/hotspots.php:434
 #: modules/hotspots/widgets/hotspots.php:701
 #: modules/icon-list/widgets/icon-list.php:529
@@ -2571,8 +2572,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:681
 #: modules/fluent-forms/widgets/fluent-forms.php:985
 #: modules/formidable-forms/widgets/formidable-forms.php:1044
-#: modules/gravity-forms/widgets/gravity-forms.php:1210
-#: modules/gravity-forms/widgets/gravity-forms.php:1423
+#: modules/gravity-forms/widgets/gravity-forms.php:1222
+#: modules/gravity-forms/widgets/gravity-forms.php:1435
 #: modules/ninja-forms/widgets/ninja-forms.php:1017
 #: modules/pricing/widgets/pricing-table.php:242
 #: modules/wpforms/widgets/wpforms.php:1011
@@ -2786,7 +2787,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:120
 #: modules/flipbox/widgets/flipbox.php:218
 #: modules/flipbox/widgets/flipbox.php:304
-#: modules/gravity-forms/widgets/gravity-forms.php:822
+#: modules/gravity-forms/widgets/gravity-forms.php:834
 #: modules/icon-list/widgets/icon-list.php:152
 #: modules/image-accordion/widgets/image-accordion.php:402
 #: modules/info-box/widgets/info-box-carousel.php:170
@@ -2816,7 +2817,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:687
 #: modules/counter/widgets/counter.php:880
 #: modules/divider/widgets/divider.php:304
-#: modules/gravity-forms/widgets/gravity-forms.php:823
+#: modules/gravity-forms/widgets/gravity-forms.php:835
 #: modules/icon-list/widgets/icon-list.php:359
 #: modules/info-box/widgets/info-box-carousel.php:1165
 #: modules/info-box/widgets/info-box.php:1074
@@ -2839,7 +2840,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:690
 #: modules/counter/widgets/counter.php:883
 #: modules/divider/widgets/divider.php:305
-#: modules/gravity-forms/widgets/gravity-forms.php:826
+#: modules/gravity-forms/widgets/gravity-forms.php:838
 #: modules/icon-list/widgets/icon-list.php:362
 #: modules/info-box/widgets/info-box-carousel.php:1168
 #: modules/info-box/widgets/info-box.php:1077
@@ -2861,7 +2862,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:689
 #: modules/counter/widgets/counter.php:882
 #: modules/divider/widgets/divider.php:306
-#: modules/gravity-forms/widgets/gravity-forms.php:825
+#: modules/gravity-forms/widgets/gravity-forms.php:837
 #: modules/icon-list/widgets/icon-list.php:361
 #: modules/info-box/widgets/info-box-carousel.php:1167
 #: modules/info-box/widgets/info-box.php:1076
@@ -2927,7 +2928,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1364
 #: modules/gravity-forms/widgets/gravity-forms.php:296
 #: modules/gravity-forms/widgets/gravity-forms.php:441
-#: modules/gravity-forms/widgets/gravity-forms.php:1174
+#: modules/gravity-forms/widgets/gravity-forms.php:1186
 #: modules/headings/widgets/dual-heading.php:181
 #: modules/headings/widgets/fancy-heading.php:150
 #: modules/hotspots/widgets/hotspots.php:661
@@ -2988,7 +2989,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1368
 #: modules/gravity-forms/widgets/gravity-forms.php:300
 #: modules/gravity-forms/widgets/gravity-forms.php:445
-#: modules/gravity-forms/widgets/gravity-forms.php:1178
+#: modules/gravity-forms/widgets/gravity-forms.php:1190
 #: modules/headings/widgets/dual-heading.php:186
 #: modules/headings/widgets/fancy-heading.php:155
 #: modules/hotspots/widgets/hotspots.php:292
@@ -3060,7 +3061,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1372
 #: modules/gravity-forms/widgets/gravity-forms.php:304
 #: modules/gravity-forms/widgets/gravity-forms.php:449
-#: modules/gravity-forms/widgets/gravity-forms.php:1182
+#: modules/gravity-forms/widgets/gravity-forms.php:1194
 #: modules/headings/widgets/dual-heading.php:190
 #: modules/headings/widgets/fancy-heading.php:159
 #: modules/hotspots/widgets/hotspots.php:670
@@ -3132,7 +3133,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1376
 #: modules/gravity-forms/widgets/gravity-forms.php:308
 #: modules/gravity-forms/widgets/gravity-forms.php:453
-#: modules/gravity-forms/widgets/gravity-forms.php:1186
+#: modules/gravity-forms/widgets/gravity-forms.php:1198
 #: modules/headings/widgets/dual-heading.php:194
 #: modules/headings/widgets/fancy-heading.php:163
 #: modules/hotspots/widgets/hotspots.php:293
@@ -3224,12 +3225,12 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:375
 #: modules/gravity-forms/widgets/gravity-forms.php:416
 #: modules/gravity-forms/widgets/gravity-forms.php:664
-#: modules/gravity-forms/widgets/gravity-forms.php:754
-#: modules/gravity-forms/widgets/gravity-forms.php:808
-#: modules/gravity-forms/widgets/gravity-forms.php:1335
-#: modules/gravity-forms/widgets/gravity-forms.php:1546
-#: modules/gravity-forms/widgets/gravity-forms.php:1662
-#: modules/gravity-forms/widgets/gravity-forms.php:1787
+#: modules/gravity-forms/widgets/gravity-forms.php:766
+#: modules/gravity-forms/widgets/gravity-forms.php:820
+#: modules/gravity-forms/widgets/gravity-forms.php:1347
+#: modules/gravity-forms/widgets/gravity-forms.php:1558
+#: modules/gravity-forms/widgets/gravity-forms.php:1674
+#: modules/gravity-forms/widgets/gravity-forms.php:1799
 #: modules/headings/widgets/dual-heading.php:273
 #: modules/headings/widgets/dual-heading.php:372
 #: modules/headings/widgets/fancy-heading.php:224
@@ -3443,7 +3444,7 @@ msgid "Button Size"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:313
-#: modules/gravity-forms/widgets/gravity-forms.php:1630
+#: modules/gravity-forms/widgets/gravity-forms.php:1642
 #: modules/hotspots/widgets/hotspots.php:438
 #: modules/hotspots/widgets/hotspots.php:503
 #: modules/icon-list/widgets/icon-list.php:105
@@ -3828,7 +3829,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:148
 #: modules/formidable-forms/widgets/formidable-forms.php:772
 #: modules/gravity-forms/widgets/gravity-forms.php:201
-#: modules/gravity-forms/widgets/gravity-forms.php:935
+#: modules/gravity-forms/widgets/gravity-forms.php:947
 #: modules/ninja-forms/widgets/ninja-forms.php:138
 #: modules/ninja-forms/widgets/ninja-forms.php:743
 #: modules/wpforms/widgets/wpforms.php:148
@@ -3845,7 +3846,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:166
 #: modules/formidable-forms/widgets/formidable-forms.php:1241
 #: modules/gravity-forms/widgets/gravity-forms.php:231
-#: modules/gravity-forms/widgets/gravity-forms.php:1801
+#: modules/gravity-forms/widgets/gravity-forms.php:1813
 #: modules/ninja-forms/widgets/ninja-forms.php:156
 #: modules/ninja-forms/widgets/ninja-forms.php:1303
 #: modules/wpforms/widgets/wpforms.php:166
@@ -3860,7 +3861,7 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:143
 #: modules/formidable-forms/widgets/formidable-forms.php:173
 #: modules/gravity-forms/widgets/gravity-forms.php:238
-#: modules/gravity-forms/widgets/gravity-forms.php:1809
+#: modules/gravity-forms/widgets/gravity-forms.php:1821
 #: modules/ninja-forms/widgets/ninja-forms.php:163
 #: modules/ninja-forms/widgets/ninja-forms.php:1311
 #: modules/wpforms/widgets/wpforms.php:173
@@ -3889,7 +3890,7 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:314
 #: modules/formidable-forms/widgets/formidable-forms.php:302
 #: modules/formidable-forms/widgets/formidable-forms.php:352
-#: modules/gravity-forms/widgets/gravity-forms.php:878
+#: modules/gravity-forms/widgets/gravity-forms.php:890
 #: modules/info-box/widgets/info-box-carousel.php:880
 #: modules/info-box/widgets/info-box-carousel.php:1515
 #: modules/info-box/widgets/info-box-carousel.php:1975
@@ -3917,7 +3918,6 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:330
 #: modules/fluent-forms/widgets/fluent-forms.php:377
 #: modules/formidable-forms/widgets/formidable-forms.php:412
-#: modules/gravity-forms/widgets/gravity-forms.php:433
 #: modules/ninja-forms/widgets/ninja-forms.php:395
 #: modules/wpforms/widgets/wpforms.php:403
 msgid "Input & Textarea"
@@ -3984,7 +3984,7 @@ msgstr ""
 #: modules/caldera-forms/widgets/caldera-forms.php:707
 #: modules/fluent-forms/widgets/fluent-forms.php:660
 #: modules/formidable-forms/widgets/formidable-forms.php:719
-#: modules/gravity-forms/widgets/gravity-forms.php:734
+#: modules/gravity-forms/widgets/gravity-forms.php:746
 #: modules/ninja-forms/widgets/ninja-forms.php:690
 #: modules/wpforms/widgets/wpforms.php:686
 msgid "Field Description"
@@ -3994,7 +3994,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:681
 #: modules/fluent-forms/widgets/fluent-forms.php:744
 #: modules/formidable-forms/widgets/formidable-forms.php:803
-#: modules/gravity-forms/widgets/gravity-forms.php:966
+#: modules/gravity-forms/widgets/gravity-forms.php:978
 #: modules/ninja-forms/widgets/ninja-forms.php:777
 #: modules/wpforms/widgets/wpforms.php:770
 msgid "Radio & Checkbox"
@@ -4004,7 +4004,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:689
 #: modules/fluent-forms/widgets/fluent-forms.php:752
 #: modules/formidable-forms/widgets/formidable-forms.php:811
-#: modules/gravity-forms/widgets/gravity-forms.php:974
+#: modules/gravity-forms/widgets/gravity-forms.php:986
 #: modules/ninja-forms/widgets/ninja-forms.php:785
 #: modules/wpforms/widgets/wpforms.php:778
 msgid "Custom Styles"
@@ -4014,7 +4014,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:753
 #: modules/fluent-forms/widgets/fluent-forms.php:816
 #: modules/formidable-forms/widgets/formidable-forms.php:875
-#: modules/gravity-forms/widgets/gravity-forms.php:1038
+#: modules/gravity-forms/widgets/gravity-forms.php:1050
 #: modules/info-box/widgets/info-box-carousel.php:1182
 #: modules/info-box/widgets/info-box.php:1091
 #: modules/logos/widgets/logo-grid.php:186
@@ -4028,7 +4028,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:790
 #: modules/fluent-forms/widgets/fluent-forms.php:853
 #: modules/formidable-forms/widgets/formidable-forms.php:912
-#: modules/gravity-forms/widgets/gravity-forms.php:1075
+#: modules/gravity-forms/widgets/gravity-forms.php:1087
 #: modules/ninja-forms/widgets/ninja-forms.php:886
 #: modules/wpforms/widgets/wpforms.php:879
 msgid "Checkbox"
@@ -4038,7 +4038,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:816
 #: modules/fluent-forms/widgets/fluent-forms.php:879
 #: modules/formidable-forms/widgets/formidable-forms.php:938
-#: modules/gravity-forms/widgets/gravity-forms.php:1102
+#: modules/gravity-forms/widgets/gravity-forms.php:1114
 #: modules/ninja-forms/widgets/ninja-forms.php:912
 #: modules/wpforms/widgets/wpforms.php:905
 msgid "Radio Buttons"
@@ -4048,7 +4048,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:844
 #: modules/fluent-forms/widgets/fluent-forms.php:907
 #: modules/formidable-forms/widgets/formidable-forms.php:966
-#: modules/gravity-forms/widgets/gravity-forms.php:1131
+#: modules/gravity-forms/widgets/gravity-forms.php:1143
 #: modules/ninja-forms/widgets/ninja-forms.php:940
 #: modules/wpforms/widgets/wpforms.php:933
 msgid "Checked"
@@ -4058,7 +4058,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:878
 #: modules/fluent-forms/widgets/fluent-forms.php:942
 #: modules/formidable-forms/widgets/formidable-forms.php:1001
-#: modules/gravity-forms/widgets/gravity-forms.php:1166
+#: modules/gravity-forms/widgets/gravity-forms.php:1178
 #: modules/ninja-forms/widgets/ninja-forms.php:975
 #: modules/wpforms/widgets/wpforms.php:968
 msgid "Submit Button"
@@ -4079,10 +4079,10 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:994
 #: modules/formidable-forms/widgets/formidable-forms.php:1039
 #: modules/formidable-forms/widgets/formidable-forms.php:1053
-#: modules/gravity-forms/widgets/gravity-forms.php:1204
-#: modules/gravity-forms/widgets/gravity-forms.php:1219
-#: modules/gravity-forms/widgets/gravity-forms.php:1417
-#: modules/gravity-forms/widgets/gravity-forms.php:1432
+#: modules/gravity-forms/widgets/gravity-forms.php:1216
+#: modules/gravity-forms/widgets/gravity-forms.php:1231
+#: modules/gravity-forms/widgets/gravity-forms.php:1429
+#: modules/gravity-forms/widgets/gravity-forms.php:1444
 #: modules/hotspots/widgets/hotspots.php:637
 #: modules/hotspots/widgets/hotspots.php:831
 #: modules/image-accordion/widgets/image-accordion.php:691
@@ -4113,8 +4113,8 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:920
 #: modules/fluent-forms/widgets/fluent-forms.php:984
 #: modules/formidable-forms/widgets/formidable-forms.php:1043
-#: modules/gravity-forms/widgets/gravity-forms.php:1209
-#: modules/gravity-forms/widgets/gravity-forms.php:1422
+#: modules/gravity-forms/widgets/gravity-forms.php:1221
+#: modules/gravity-forms/widgets/gravity-forms.php:1434
 #: modules/ninja-forms/widgets/ninja-forms.php:1016
 #: modules/wpforms/widgets/wpforms.php:1010
 msgid "Full Width"
@@ -4124,8 +4124,8 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:1023
 #: modules/fluent-forms/widgets/fluent-forms.php:1088
 #: modules/formidable-forms/widgets/formidable-forms.php:1147
-#: modules/gravity-forms/widgets/gravity-forms.php:1315
-#: modules/gravity-forms/widgets/gravity-forms.php:1526
+#: modules/gravity-forms/widgets/gravity-forms.php:1327
+#: modules/gravity-forms/widgets/gravity-forms.php:1538
 #: modules/logos/widgets/logo-carousel.php:638
 #: modules/logos/widgets/logo-grid.php:638
 #: modules/ninja-forms/widgets/ninja-forms.php:1120
@@ -4202,7 +4202,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:198
 #: modules/contact-form-seven/widgets/contact-form-7.php:1245
 #: modules/gravity-forms/widgets/gravity-forms.php:258
-#: modules/gravity-forms/widgets/gravity-forms.php:1835
+#: modules/gravity-forms/widgets/gravity-forms.php:1847
 #: modules/ninja-forms/widgets/ninja-forms.php:183
 #: modules/ninja-forms/widgets/ninja-forms.php:1337
 msgid "Validation Errors"
@@ -4972,7 +4972,7 @@ msgid "Justified"
 msgstr ""
 
 #: modules/counter/widgets/counter.php:501
-#: modules/gravity-forms/widgets/gravity-forms.php:1723
+#: modules/gravity-forms/widgets/gravity-forms.php:1735
 #: modules/headings/widgets/dual-heading.php:263
 #: modules/headings/widgets/dual-heading.php:362
 #: modules/headings/widgets/fancy-heading.php:245
@@ -5011,7 +5011,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:688
 #: modules/counter/widgets/counter.php:881
 #: modules/divider/widgets/divider.php:307
-#: modules/gravity-forms/widgets/gravity-forms.php:824
+#: modules/gravity-forms/widgets/gravity-forms.php:836
 #: modules/icon-list/widgets/icon-list.php:360
 #: modules/info-box/widgets/info-box-carousel.php:1166
 #: modules/info-box/widgets/info-box.php:1075
@@ -5034,7 +5034,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:318
 #: modules/divider/widgets/divider.php:373
 #: modules/flipbox/widgets/flipbox.php:393
-#: modules/gravity-forms/widgets/gravity-forms.php:1733
+#: modules/gravity-forms/widgets/gravity-forms.php:1745
 #: modules/image-accordion/widgets/image-accordion.php:311
 #: modules/promo-box/widgets/promo-box.php:417
 #: modules/twitter/widgets/twitter-timeline.php:149
@@ -5284,14 +5284,14 @@ msgid "WP Fluent Forms"
 msgstr ""
 
 #: modules/fluent-forms/widgets/fluent-forms.php:1205
-#: modules/gravity-forms/widgets/gravity-forms.php:1908
+#: modules/gravity-forms/widgets/gravity-forms.php:1920
 #: modules/ninja-forms/widgets/ninja-forms.php:1364
 #: modules/wpforms/widgets/wpforms.php:1234
 msgid "Error Field Input Border Color"
 msgstr ""
 
 #: modules/fluent-forms/widgets/fluent-forms.php:1217
-#: modules/gravity-forms/widgets/gravity-forms.php:1923
+#: modules/gravity-forms/widgets/gravity-forms.php:1935
 #: modules/wpforms/widgets/wpforms.php:1249
 msgid "Error Field Input Border Width"
 msgstr ""
@@ -5324,11 +5324,15 @@ msgstr ""
 msgid "Use ajax to submit the form"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:787
+#: modules/gravity-forms/widgets/gravity-forms.php:433
+msgid "Input, Textarea & Dropdown"
+msgstr ""
+
+#: modules/gravity-forms/widgets/gravity-forms.php:799
 msgid "Section Field"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:818
+#: modules/gravity-forms/widgets/gravity-forms.php:830
 #: modules/info-box/widgets/info-box-carousel.php:1160
 #: modules/info-box/widgets/info-box.php:1069
 #: modules/pricing/widgets/price-menu.php:483
@@ -5337,78 +5341,78 @@ msgstr ""
 msgid "Border Type"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:838
+#: modules/gravity-forms/widgets/gravity-forms.php:850
 #: modules/info-box/widgets/info-box-carousel.php:1212
 #: modules/info-box/widgets/info-box.php:1121
 #: modules/pricing/widgets/price-menu.php:505
 msgid "Border Height"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:897
+#: modules/gravity-forms/widgets/gravity-forms.php:909
 #: modules/pricing/widgets/price-menu.php:102
 #: modules/pricing/widgets/price-menu.php:592
 #: modules/pricing/widgets/pricing-table.php:266
 msgid "Price"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:905
+#: modules/gravity-forms/widgets/gravity-forms.php:917
 msgid "Price Label Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:917
+#: modules/gravity-forms/widgets/gravity-forms.php:929
 msgid "Price Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1208
-#: modules/gravity-forms/widgets/gravity-forms.php:1421
+#: modules/gravity-forms/widgets/gravity-forms.php:1220
+#: modules/gravity-forms/widgets/gravity-forms.php:1433
 #: modules/info-box/widgets/info-box-carousel.php:633
 msgid "Auto"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1409
+#: modules/gravity-forms/widgets/gravity-forms.php:1421
 #: modules/info-box/widgets/info-box-carousel.php:601
 #: modules/instafeed/widgets/instafeed.php:664
 #: modules/team-member/widgets/team-member-carousel.php:656
 msgid "Pagination"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1620
+#: modules/gravity-forms/widgets/gravity-forms.php:1632
 msgid "Progress Bar"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1715
+#: modules/gravity-forms/widgets/gravity-forms.php:1727
 msgid "Progress"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1765
+#: modules/gravity-forms/widgets/gravity-forms.php:1777
 #: modules/image-comparison/widgets/image-comparison.php:130
 #: modules/image-comparison/widgets/image-comparison.php:162
 #: modules/image-comparison/widgets/image-comparison.php:520
 msgid "Label"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1847
+#: modules/gravity-forms/widgets/gravity-forms.php:1859
 #: modules/ninja-forms/widgets/ninja-forms.php:1349
 msgid "Error Description Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1862
+#: modules/gravity-forms/widgets/gravity-forms.php:1874
 msgid "Error Border Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1878
+#: modules/gravity-forms/widgets/gravity-forms.php:1890
 msgid "Error Field Background Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1893
+#: modules/gravity-forms/widgets/gravity-forms.php:1905
 msgid "Error Field Label Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1947
+#: modules/gravity-forms/widgets/gravity-forms.php:1959
 msgid "Thank You Message"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2027
+#: modules/gravity-forms/widgets/gravity-forms.php:2039
 msgid "Please select a Contact Form!"
 msgstr ""
 
