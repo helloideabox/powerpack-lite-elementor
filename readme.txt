@@ -150,6 +150,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.9.2 - April 8, 2020 =
+* 	Fixed: Hotspot icon was not showing in editor in Image Hotspots widget
+* 	Added: Option to randomize logos in Logo Carousel widget
+
 = 1.2.9.1 - March 29, 2020 =
 * 	Fixed: PHP error in query control
 
