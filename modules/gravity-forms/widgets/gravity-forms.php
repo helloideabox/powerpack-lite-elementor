@@ -66,6 +66,21 @@ class Gravity_Forms extends Powerpack_Widget {
     public function get_icon() {
         return 'ppicon-contact-form power-pack-admin-icon';
     }
+    
+    /**
+	 * Retrieve the list of scripts the gravity forms widget depended on.
+	 *
+	 * Used to set scripts dependencies required to run the widget.
+	 *
+	 * @access public
+	 *
+	 * @return array Widget scripts dependencies.
+	 */
+    public function get_script_depends() {
+        return [
+            'powerpack-frontend'
+        ];
+    }
 
     /**
 	 * Register gravity forms widget controls.
