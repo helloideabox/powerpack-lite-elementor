@@ -40,7 +40,7 @@ class Gravity_Forms extends Powerpack_Widget {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Gravity Forms', 'power-pack' );
+        return __( 'Gravity Forms', 'powerpack' );
     }
 
     /**
@@ -102,14 +102,14 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_info_box',
             [
-                'label'                 => __( 'Gravity Forms', 'power-pack' ),
+                'label'                 => __( 'Gravity Forms', 'powerpack' ),
             ]
         );
 		
 		$this->add_control(
 			'contact_form_list',
 			[
-				'label'                 => esc_html__( 'Contact Form', 'power-pack' ),
+				'label'                 => esc_html__( 'Contact Form', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => true,
 				'options'               => pp_elements_lite_get_gravity_forms(),
@@ -120,10 +120,10 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'custom_title_description',
             [
-                'label'                 => __( 'Custom Title & Description', 'power-pack' ),
+                'label'                 => __( 'Custom Title & Description', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
-                'label_on'              => __( 'Yes', 'power-pack' ),
-                'label_off'             => __( 'No', 'power-pack' ),
+                'label_on'              => __( 'Yes', 'powerpack' ),
+                'label_off'             => __( 'No', 'powerpack' ),
                 'return_value'          => 'yes',
             ]
         );
@@ -131,11 +131,11 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'form_title',
             [
-                'label'                 => __( 'Title', 'power-pack' ),
+                'label'                 => __( 'Title', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'yes',
-                'label_on'              => __( 'Show', 'power-pack' ),
-                'label_off'             => __( 'Hide', 'power-pack' ),
+                'label_on'              => __( 'Show', 'powerpack' ),
+                'label_off'             => __( 'Hide', 'powerpack' ),
                 'return_value'          => 'yes',
                 'condition'             => [
                     'custom_title_description!'   => 'yes',
@@ -146,11 +146,11 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'form_description',
             [
-                'label'                 => __( 'Description', 'power-pack' ),
+                'label'                 => __( 'Description', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'yes',
-                'label_on'              => __( 'Show', 'power-pack' ),
-                'label_off'             => __( 'Hide', 'power-pack' ),
+                'label_on'              => __( 'Show', 'powerpack' ),
+                'label_off'             => __( 'Hide', 'powerpack' ),
                 'return_value'          => 'yes',
                 'condition'             => [
                     'custom_title_description!'   => 'yes',
@@ -161,7 +161,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_title_custom',
 			[
-				'label'                 => esc_html__( 'Title', 'power-pack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXT,
 				'label_block'           => true,
                 'default'               => '',
@@ -174,7 +174,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_description_custom',
 			[
-				'label'                 => esc_html__( 'Description', 'power-pack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXTAREA,
                 'default'               => '',
                 'condition'             => [
@@ -186,11 +186,11 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'labels_switch',
             [
-                'label'                 => __( 'Labels', 'power-pack' ),
+                'label'                 => __( 'Labels', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'yes',
-                'label_on'              => __( 'Show', 'power-pack' ),
-                'label_off'             => __( 'Hide', 'power-pack' ),
+                'label_on'              => __( 'Show', 'powerpack' ),
+                'label_off'             => __( 'Hide', 'powerpack' ),
                 'return_value'          => 'yes',
             ]
         );
@@ -198,11 +198,11 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'placeholder_switch',
             [
-                'label'                 => __( 'Placeholder', 'power-pack' ),
+                'label'                 => __( 'Placeholder', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
                 'default'               => 'yes',
-                'label_on'              => __( 'Show', 'power-pack' ),
-                'label_off'             => __( 'Hide', 'power-pack' ),
+                'label_on'              => __( 'Show', 'powerpack' ),
+                'label_off'             => __( 'Hide', 'powerpack' ),
                 'return_value'          => 'yes',
             ]
         );
@@ -210,11 +210,11 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'form_ajax',
             [
-                'label'                 => __( 'Use Ajax', 'power-pack' ),
+                'label'                 => __( 'Use Ajax', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
-                'description'           => __( 'Use ajax to submit the form', 'power-pack' ),
-                'label_on'              => __( 'Yes', 'power-pack' ),
-                'label_off'             => __( 'No', 'power-pack' ),
+                'description'           => __( 'Use ajax to submit the form', 'powerpack' ),
+                'label_on'              => __( 'Yes', 'powerpack' ),
+                'label_off'             => __( 'No', 'powerpack' ),
                 'return_value'          => 'yes',
             ]
         );
@@ -228,19 +228,19 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_errors',
             [
-                'label'                 => __( 'Errors', 'power-pack' ),
+                'label'                 => __( 'Errors', 'powerpack' ),
             ]
         );
         
         $this->add_control(
             'error_messages',
             [
-                'label'                 => __( 'Error Messages', 'power-pack' ),
+                'label'                 => __( 'Error Messages', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'show',
                 'options'               => [
-                    'show'          => __( 'Show', 'power-pack' ),
-                    'hide'          => __( 'Hide', 'power-pack' ),
+                    'show'          => __( 'Show', 'powerpack' ),
+                    'hide'          => __( 'Hide', 'powerpack' ),
                 ],
                 'selectors_dictionary'  => [
 					'show'          => 'block',
@@ -255,12 +255,12 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'validation_errors',
             [
-                'label'                 => __( 'Validation Errors', 'power-pack' ),
+                'label'                 => __( 'Validation Errors', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'show',
                 'options'               => [
-                    'show'          => __( 'Show', 'power-pack' ),
-                    'hide'          => __( 'Hide', 'power-pack' ),
+                    'show'          => __( 'Show', 'powerpack' ),
+                    'hide'          => __( 'Hide', 'powerpack' ),
                 ],
                 'selectors_dictionary'  => [
 					'show'          => 'block',
@@ -285,7 +285,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_general_style',
             [
-                'label'                 => __( 'Title & Description', 'power-pack' ),
+                'label'                 => __( 'Title & Description', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -293,19 +293,19 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'heading_alignment',
             [
-                'label'                 => __( 'Alignment', 'power-pack' ),
+                'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -319,7 +319,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'title_heading',
             [
-                'label'                 => __( 'Title', 'power-pack' ),
+                'label'                 => __( 'Title', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
             ]
@@ -328,7 +328,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'title_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -341,7 +341,7 @@ class Gravity_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'title_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_title, {{WRAPPER}} .pp-gravity-form .pp-gravity-form-title',
             ]
@@ -350,7 +350,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'description_heading',
             [
-                'label'                 => __( 'Description', 'power-pack' ),
+                'label'                 => __( 'Description', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
             ]
@@ -359,7 +359,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'description_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -372,7 +372,7 @@ class Gravity_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'description_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_description, {{WRAPPER}} .pp-gravity-form .pp-gravity-form-description',
             ]
@@ -387,7 +387,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_label_style',
             [
-                'label'                 => __( 'Labels', 'power-pack' ),
+                'label'                 => __( 'Labels', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'labels_switch'   => 'yes',
@@ -398,7 +398,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'text_color_label',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .pp-gravity-form .gfield label' => 'color: {{VALUE}}',
@@ -413,7 +413,7 @@ class Gravity_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'typography_label',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-gravity-form .gfield label',
                 'condition'             => [
                     'labels_switch'   => 'yes',
@@ -430,7 +430,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_fields_style',
             [
-                'label'                 => __( 'Input & Textarea', 'power-pack' ),
+                'label'                 => __( 'Input & Textarea', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -438,19 +438,19 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'input_alignment',
             [
-                'label'                 => __( 'Alignment', 'power-pack' ),
+                'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'power-pack' ),
+						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'power-pack' ),
+						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'power-pack' ),
+						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -466,14 +466,14 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_fields_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'field_bg_color',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#f9f9f9',
                 'selectors'             => [
@@ -485,7 +485,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'field_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -497,7 +497,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'field_spacing',
             [
-                'label'                 => __( 'Spacing', 'power-pack' ),
+                'label'                 => __( 'Spacing', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -516,15 +516,15 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'default'               => [
-                    'top'       => '10',
-                    'right'     => '10',
-                    'bottom'    => '10',
-                    'left'      => '10',
-                    'unit'      => '',
+                    'top'       => 10,
+                    'right'     => 10,
+                    'bottom'    => 10,
+                    'left'      => 10,
+                    'unit'      => 'px',
                     'isLinked'  => true,
                 ],
 				'selectors'             => [
@@ -536,7 +536,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'text_indent',
             [
-                'label'                 => __( 'Text Indent', 'power-pack' ),
+                'label'                 => __( 'Text Indent', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -560,7 +560,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'input_width',
             [
-                'label'                 => __( 'Input Width', 'power-pack' ),
+                'label'                 => __( 'Input Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -579,7 +579,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'input_height',
             [
-                'label'                 => __( 'Input Height', 'power-pack' ),
+                'label'                 => __( 'Input Height', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -598,7 +598,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'textarea_width',
             [
-                'label'                 => __( 'Textarea Width', 'power-pack' ),
+                'label'                 => __( 'Textarea Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -617,7 +617,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'textarea_height',
             [
-                'label'                 => __( 'Textarea Height', 'power-pack' ),
+                'label'                 => __( 'Textarea Height', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -637,7 +637,7 @@ class Gravity_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'field_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-gravity-form .gfield textarea, {{WRAPPER}} .pp-gravity-form .gfield select',
@@ -648,7 +648,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'field_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -661,7 +661,7 @@ class Gravity_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'field_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-gravity-form .gfield textarea, {{WRAPPER}} .pp-gravity-form .gfield select',
 				'separator'             => 'before',
@@ -682,18 +682,18 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_fields_focus',
             [
-                'label'                 => __( 'Focus', 'power-pack' ),
+                'label'                 => __( 'Focus', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'field_bg_color_focus',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .pp-gravity-form .gfield input:focus, {{WRAPPER}} .pp-gravity-form .gfield textarea:focus' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .pp-gravity-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus, {{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield textarea:focus' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -702,10 +702,10 @@ class Gravity_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'focus_input_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .pp-gravity-form .gfield input:focus, {{WRAPPER}} .pp-gravity-form .gfield textarea:focus',
+				'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus, {{WRAPPER}} .pp-gravity-form .gfield textarea:focus',
 			]
 		);
 
@@ -731,7 +731,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_field_description_style',
             [
-                'label'                 => __( 'Field Description', 'power-pack' ),
+                'label'                 => __( 'Field Description', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -739,7 +739,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'field_description_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .pp-gravity-form .gfield .gfield_description' => 'color: {{VALUE}}',
@@ -751,7 +751,7 @@ class Gravity_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'field_description_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-gravity-form .gfield .gfield_description',
             ]
         );
@@ -759,7 +759,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'field_description_spacing',
             [
-                'label'                 => __( 'Spacing', 'power-pack' ),
+                'label'                 => __( 'Spacing', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -784,7 +784,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_field_style',
             [
-                'label'                 => __( 'Section Field', 'power-pack' ),
+                'label'                 => __( 'Section Field', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -792,7 +792,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'section_field_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -805,7 +805,7 @@ class Gravity_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'section_field_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-gravity-form .gfield.gsection .gsection_title',
 				'separator'             => 'before',
@@ -815,15 +815,15 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'section_field_border_type',
             [
-                'label'                 => __( 'Border Type', 'power-pack' ),
+                'label'                 => __( 'Border Type', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'solid',
                 'options'               => [
-                    'none'      => __( 'None', 'power-pack' ),
-                    'solid'     => __( 'Solid', 'power-pack' ),
-                    'double'    => __( 'Double', 'power-pack' ),
-                    'dotted'    => __( 'Dotted', 'power-pack' ),
-                    'dashed'    => __( 'Dashed', 'power-pack' ),
+                    'none'      => __( 'None', 'powerpack' ),
+                    'solid'     => __( 'Solid', 'powerpack' ),
+                    'double'    => __( 'Double', 'powerpack' ),
+                    'dotted'    => __( 'Dotted', 'powerpack' ),
+                    'dashed'    => __( 'Dashed', 'powerpack' ),
                 ],
                 'selectors'             => [
                     '{{WRAPPER}} .pp-gravity-form .gfield.gsection' => 'border-bottom-style: {{VALUE}}',
@@ -835,7 +835,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'section_field_border_height',
             [
-                'label'                 => __( 'Border Height', 'power-pack' ),
+                'label'                 => __( 'Border Height', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'  => 1,
@@ -860,7 +860,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'section_field_border_color',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -875,7 +875,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'section_field_margin',
 			[
-				'label'                 => __( 'Margin', 'power-pack' ),
+				'label'                 => __( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -894,7 +894,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_price_style',
             [
-                'label'                 => __( 'Price', 'power-pack' ),
+                'label'                 => __( 'Price', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -902,7 +902,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'price_label_color',
             [
-                'label'                 => __( 'Price Label Color', 'power-pack' ),
+                'label'                 => __( 'Price Label Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -914,7 +914,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'price_text_color',
             [
-                'label'                 => __( 'Price Color', 'power-pack' ),
+                'label'                 => __( 'Price Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -932,7 +932,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_placeholder_style',
             [
-                'label'                 => __( 'Placeholder', 'power-pack' ),
+                'label'                 => __( 'Placeholder', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
                 'condition'             => [
                     'placeholder_switch'   => 'yes',
@@ -943,7 +943,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'text_color_placeholder',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .pp-gravity-form .gfield input::-webkit-input-placeholder, {{WRAPPER}} .pp-gravity-form .gfield textarea::-webkit-input-placeholder' => 'color: {{VALUE}}',
@@ -963,7 +963,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_radio_checkbox_style',
             [
-                'label'                 => __( 'Radio & Checkbox', 'power-pack' ),
+                'label'                 => __( 'Radio & Checkbox', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -971,10 +971,10 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'custom_radio_checkbox',
             [
-                'label'                 => __( 'Custom Styles', 'power-pack' ),
+                'label'                 => __( 'Custom Styles', 'powerpack' ),
                 'type'                  => Controls_Manager::SWITCHER,
-                'label_on'              => __( 'Yes', 'power-pack' ),
-                'label_off'             => __( 'No', 'power-pack' ),
+                'label_on'              => __( 'Yes', 'powerpack' ),
+                'label_off'             => __( 'No', 'powerpack' ),
                 'return_value'          => 'yes',
             ]
         );
@@ -982,7 +982,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'radio_checkbox_size',
             [
-                'label'                 => __( 'Size', 'power-pack' ),
+                'label'                 => __( 'Size', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'      => '15',
@@ -1010,7 +1010,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'radio_checkbox_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
                 'condition'             => [
                     'custom_radio_checkbox' => 'yes',
                 ],
@@ -1020,7 +1020,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'radio_checkbox_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1035,7 +1035,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'radio_checkbox_border_width',
             [
-                'label'                 => __( 'Border Width', 'power-pack' ),
+                'label'                 => __( 'Border Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -1057,7 +1057,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'radio_checkbox_border_color',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1072,7 +1072,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'checkbox_heading',
             [
-                'label'                 => __( 'Checkbox', 'power-pack' ),
+                'label'                 => __( 'Checkbox', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
 				'condition'             => [
@@ -1084,7 +1084,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'checkbox_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -1099,7 +1099,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'radio_heading',
             [
-                'label'                 => __( 'Radio Buttons', 'power-pack' ),
+                'label'                 => __( 'Radio Buttons', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
 				'condition'             => [
@@ -1111,7 +1111,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -1128,7 +1128,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'radio_checkbox_checked',
             [
-                'label'                 => __( 'Checked', 'power-pack' ),
+                'label'                 => __( 'Checked', 'powerpack' ),
                 'condition'             => [
                     'custom_radio_checkbox' => 'yes',
                 ],
@@ -1138,7 +1138,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'radio_checkbox_color_checked',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1163,7 +1163,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_submit_button_style',
             [
-                'label'                 => __( 'Submit Button', 'power-pack' ),
+                'label'                 => __( 'Submit Button', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1171,19 +1171,19 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
 			'button_align',
 			[
-				'label'                 => __( 'Alignment', 'power-pack' ),
+				'label'                 => __( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'        => [
-						'title'   => __( 'Left', 'power-pack' ),
+						'title'   => __( 'Left', 'powerpack' ),
 						'icon'    => 'eicon-h-align-left',
 					],
 					'center'      => [
-						'title'   => __( 'Center', 'power-pack' ),
+						'title'   => __( 'Center', 'powerpack' ),
 						'icon'    => 'eicon-h-align-center',
 					],
 					'right'       => [
-						'title'   => __( 'Right', 'power-pack' ),
+						'title'   => __( 'Right', 'powerpack' ),
 						'icon'    => 'eicon-h-align-right',
 					],
 				],
@@ -1201,13 +1201,13 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'button_width_type',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'custom',
                 'options'               => [
-                    'auto'          => __( 'Auto', 'power-pack' ),
-                    'full-width'    => __( 'Full Width', 'power-pack' ),
-                    'custom'        => __( 'Custom', 'power-pack' ),
+                    'auto'          => __( 'Auto', 'powerpack' ),
+                    'full-width'    => __( 'Full Width', 'powerpack' ),
+                    'custom'        => __( 'Custom', 'powerpack' ),
                 ],
                 'prefix_class'          => 'pp-gravity-form-button-',
             ]
@@ -1216,7 +1216,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'button_width',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'      => '100',
@@ -1244,14 +1244,14 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_button_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'button_bg_color_normal',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1264,7 +1264,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'button_text_color_normal',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1278,7 +1278,7 @@ class Gravity_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border_normal',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]',
@@ -1288,7 +1288,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -1300,7 +1300,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -1312,7 +1312,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'button_margin',
             [
-                'label'                 => __( 'Margin Top', 'power-pack' ),
+                'label'                 => __( 'Margin Top', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -1332,7 +1332,7 @@ class Gravity_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'button_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]',
 				'separator'             => 'before',
@@ -1353,14 +1353,14 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_button_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'button_bg_color_hover',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1372,7 +1372,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'button_text_color_hover',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1384,7 +1384,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'button_border_color_hover',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1406,7 +1406,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_pagination_style',
             [
-                'label'                 => __( 'Pagination', 'power-pack' ),
+                'label'                 => __( 'Pagination', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1414,13 +1414,13 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'pagination_buttons_width_type',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'auto',
                 'options'               => [
-                    'auto'          => __( 'Auto', 'power-pack' ),
-                    'full-width'    => __( 'Full Width', 'power-pack' ),
-                    'custom'        => __( 'Custom', 'power-pack' ),
+                    'auto'          => __( 'Auto', 'powerpack' ),
+                    'full-width'    => __( 'Full Width', 'powerpack' ),
+                    'custom'        => __( 'Custom', 'powerpack' ),
                 ],
                 'prefix_class'          => 'pp-gravity-form-pagination-buttons-',
             ]
@@ -1429,7 +1429,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'pagination_buttons_width',
             [
-                'label'                 => __( 'Width', 'power-pack' ),
+                'label'                 => __( 'Width', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'      => '100',
@@ -1457,14 +1457,14 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_pagination_buttons_normal',
             [
-                'label'                 => __( 'Normal', 'power-pack' ),
+                'label'                 => __( 'Normal', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'pagination_buttons_bg_color_normal',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1476,7 +1476,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'pagination_buttons_text_color_normal',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1489,7 +1489,7 @@ class Gravity_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'pagination_buttons_border_normal',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]',
@@ -1499,7 +1499,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'pagination_buttons_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -1511,7 +1511,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'pagination_buttons_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -1523,7 +1523,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'pagination_buttons_margin',
             [
-                'label'                 => __( 'Margin Top', 'power-pack' ),
+                'label'                 => __( 'Margin Top', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -1543,7 +1543,7 @@ class Gravity_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'pagination_buttons_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]',
 				'separator'             => 'before',
@@ -1564,14 +1564,14 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_pagination_buttons_hover',
             [
-                'label'                 => __( 'Hover', 'power-pack' ),
+                'label'                 => __( 'Hover', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'pagination_buttons_bg_color_hover',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1583,7 +1583,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'pagination_buttons_text_color_hover',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1595,7 +1595,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'pagination_buttons_border_color_hover',
             [
-                'label'                 => __( 'Border Color', 'power-pack' ),
+                'label'                 => __( 'Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1617,7 +1617,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_progress_bar_style',
             [
-                'label'                 => __( 'Progress Bar', 'power-pack' ),
+                'label'                 => __( 'Progress Bar', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1627,14 +1627,14 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_progress_bar_default',
             [
-                'label'                 => __( 'Default', 'power-pack' ),
+                'label'                 => __( 'Default', 'powerpack' ),
             ]
         );
 
         $this->add_control(
             'progress_bar_default_bg',
             [
-                'label'                 => __( 'Background Color', 'power-pack' ),
+                'label'                 => __( 'Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1646,7 +1646,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'progress_bar_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1659,7 +1659,7 @@ class Gravity_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'progress_bar_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gf_progressbar_percentage span',
             ]
         );
@@ -1668,7 +1668,7 @@ class Gravity_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'progress_bar_default_border',
-				'label'                 => __( 'Border', 'power-pack' ),
+				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gf_progressbar',
@@ -1678,7 +1678,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'progress_bar_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'power-pack' ),
+				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
@@ -1690,7 +1690,7 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'progress_bar_default_padding',
 			[
-				'label'                 => __( 'Padding', 'power-pack' ),
+				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px' ],
 				'selectors'             => [
@@ -1712,7 +1712,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_tab(
             'tab_progress_bar_progress',
             [
-                'label'                 => __( 'Progress', 'power-pack' ),
+                'label'                 => __( 'Progress', 'powerpack' ),
             ]
         );
         
@@ -1720,7 +1720,7 @@ class Gravity_Forms extends Powerpack_Widget {
             Group_Control_Background::get_type(),
             [
                 'name'                  => 'progress_bar_bg',
-                'label'                 => __( 'Background', 'power-pack' ),
+                'label'                 => __( 'Background', 'powerpack' ),
                 'types'                 => [ 'classic', 'gradient' ],
                 'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gf_progressbar_percentage',
                 'exclude'               => [ 'image' ],
@@ -1730,7 +1730,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_responsive_control(
             'progress_bar_height',
             [
-                'label'                 => __( 'Height', 'power-pack' ),
+                'label'                 => __( 'Height', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -1762,7 +1762,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'progress_bar_label_heading',
             [
-                'label'                 => __( 'Label', 'power-pack' ),
+                'label'                 => __( 'Label', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
             ]
@@ -1771,7 +1771,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'progress_bar_label_color',
             [
-                'label'                 => __( 'Color', 'power-pack' ),
+                'label'                 => __( 'Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1784,7 +1784,7 @@ class Gravity_Forms extends Powerpack_Widget {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'progress_bar_label_typography',
-                'label'                 => __( 'Typography', 'power-pack' ),
+                'label'                 => __( 'Typography', 'powerpack' ),
                 'selector'              => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gf_progressbar_wrapper .gf_progressbar_title, {{WRAPPER}} .pp-gravity-form .gform_wrapper .gf_step',
             ]
         );
@@ -1798,7 +1798,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_error_style',
             [
-                'label'                 => __( 'Errors', 'power-pack' ),
+                'label'                 => __( 'Errors', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1806,7 +1806,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'error_messages_heading',
             [
-                'label'                 => __( 'Error Messages', 'power-pack' ),
+                'label'                 => __( 'Error Messages', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
 				'condition'             => [
 					'error_messages' => 'show',
@@ -1817,7 +1817,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'error_message_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1832,7 +1832,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'validation_errors_heading',
             [
-                'label'                 => __( 'Validation Errors', 'power-pack' ),
+                'label'                 => __( 'Validation Errors', 'powerpack' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
 				'condition'             => [
@@ -1844,7 +1844,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'validation_error_description_color',
             [
-                'label'                 => __( 'Error Description Color', 'power-pack' ),
+                'label'                 => __( 'Error Description Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1859,7 +1859,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'validation_error_border_color',
             [
-                'label'                 => __( 'Error Border Color', 'power-pack' ),
+                'label'                 => __( 'Error Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1875,7 +1875,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'validation_errors_bg_color',
             [
-                'label'                 => __( 'Error Field Background Color', 'power-pack' ),
+                'label'                 => __( 'Error Field Background Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1890,7 +1890,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'validation_error_field_label_color',
             [
-                'label'                 => __( 'Error Field Label Color', 'power-pack' ),
+                'label'                 => __( 'Error Field Label Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1905,7 +1905,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'validation_error_field_input_border_color',
             [
-                'label'                 => __( 'Error Field Input Border Color', 'power-pack' ),
+                'label'                 => __( 'Error Field Input Border Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -1920,7 +1920,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'validation_error_field_input_border_width',
             [
-                'label'                 => __( 'Error Field Input Border Width', 'power-pack' ),
+                'label'                 => __( 'Error Field Input Border Width', 'powerpack' ),
                 'type'                  => Controls_Manager::NUMBER,
                 'default'               => 1,
                 'min'                   => 1,
@@ -1944,7 +1944,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->start_controls_section(
             'section_ty_style',
             [
-                'label'                 => __( 'Thank You Message', 'power-pack' ),
+                'label'                 => __( 'Thank You Message', 'powerpack' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1952,7 +1952,7 @@ class Gravity_Forms extends Powerpack_Widget {
         $this->add_control(
             'ty_message_text_color',
             [
-                'label'                 => __( 'Text Color', 'power-pack' ),
+                'label'                 => __( 'Text Color', 'powerpack' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -2024,7 +2024,7 @@ class Gravity_Forms extends Powerpack_Widget {
                 </div>
                 <?php
             } else {
-                _e('Please select a Contact Form!','power-pack');
+                _e('Please select a Contact Form!','powerpack');
             }
         }
     }

@@ -2109,14 +2109,15 @@ div[class*=' pa-'] {
   margin-top: 20px;
   width: 100%; }
 
-.pp-gravity-form select {
+.pp-gravity-form .gform_wrapper select {
   border-radius: 0;
+  height: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; }
-.pp-gravity-form .pp-gf-select-custom {
+.pp-gravity-form .gform_wrapper .pp-gf-select-custom {
   position: relative; }
-  .pp-gravity-form .pp-gf-select-custom:after {
+  .pp-gravity-form .gform_wrapper .pp-gf-select-custom:after {
     content: "\f078";
     font-family: 'Font Awesome 5 Free';
     font-weight: 800;
