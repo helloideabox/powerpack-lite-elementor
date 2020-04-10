@@ -40,11 +40,32 @@ class UsageTracking {
 	 */
 	public function __construct() {
 		add_action( 'init', [ $this, 'schedule_send' ] );
-		add_action( 'pp_admin_after_settings_saved', [ $this, 'check_for_settings_optin' ], 10, 2 );
-		add_action( 'admin_init', [ $this, 'act_on_tracking_decision' ] );
-		add_action( 'admin_notices', [ $this, 'admin_notice' ] );
 		add_action( 'init', [ $this, 'create_recurring_schedule' ] );
 		add_filter( 'cron_schedules', [ $this, 'cron_add_weekly' ] );
+		add_action( 'pp_admin_after_settings_saved', [ $this, 'check_for_settings_optin' ], 10, 2 );
+		add_action( 'admin_init', [ $this, 'act_on_tracking_decision' ] );
+		add_action( 'admin_init', [ $this, 'hook_notices' ] );
+	}
+
+	public function hook_notices() {
+		if ( isset( $_GET['pp_admin_action'] ) && isset( $_GET['_nonce'] ) ) {
+			$action = $_GET['pp_admin_action'];
+			if ( 'review_maybe_later' === $action && wp_verify_nonce( $_GET['_nonce'], 'pp_admin_notice_nonce' ) ) {
+				PP_Admin_Settings::update_option( 'pp_review_later_date', current_time( 'mysql' ), true );
+			}
+			if ( 'review_already_did' === $action && wp_verify_nonce( $_GET['_nonce'], 'pp_admin_notice_nonce' ) ) {
+				PP_Admin_Settings::update_option( 'pp_review_already_did', 'yes', true );
+			}
+
+			wp_redirect( esc_url_raw( remove_query_arg( array( 'pp_admin_action', '_nonce' ) ) ) );
+		}
+
+		if ( isset( $_GET['page'] ) && 'powerpack-settings' == $_GET['page'] ) {
+			remove_all_actions( 'admin_notices' );
+		}
+
+		add_action( 'admin_notices', [ $this, 'admin_notice' ] );
+		add_action( 'admin_notices', [ $this, 'review_plugin_notice' ] );
 	}
 
 	public function cron_add_weekly( $schedules ) {
@@ -296,7 +317,7 @@ class UsageTracking {
 			);
 			echo '</p>';
 			echo '<p id="pp-what-we-collect" style="display: none;">';
-			echo esc_html__( 'We collect WordPress and PHP version, plugin and theme version, server environment, website, and email address to send you the discount code. No sensitive data is tracked.', 'powerpack' );
+			echo esc_html__( 'We collect WordPress and PHP version, plugin and theme version, server environment, website, user first name, user last name, and email address to send you the discount code. No sensitive data is tracked.', 'powerpack' );
 			echo '</p>';
 			echo '<p>';
 			echo '<a href="' . esc_url( $optin_url ) . '" class="button-primary">' . __( 'Sure! I\'d love to help', 'powerpack' ) . '</a>';
@@ -313,6 +334,89 @@ class UsageTracking {
 			</script>
 			<?php
 		}
+	}
+
+	public function review_plugin_notice() {
+		if ( 'yes' === PP_Admin_Settings::get_option( 'pp_review_already_did', true ) ) {
+			return;
+		}
+
+		$maybe_later_date = PP_Admin_Settings::get_option( 'pp_review_later_date', true );
+
+		if ( ! empty( $maybe_later_date ) ) {
+			$diff = round((time() - strtotime($maybe_later_date)) / 24 / 60 / 60);
+			
+			if ( $diff < 7 ) {
+				return;
+			}
+		} else {
+			$install_date = PP_Admin_Settings::get_option( 'pp_install_date', true );
+		
+			if ( ! $install_date || empty( $install_date ) ) {
+				return;
+			}
+
+			$diff = round((time() - strtotime($install_date)) / 24 / 60 / 60);
+
+			if ( $diff < 7 ) {
+				return;
+			}
+		}
+
+		$nonce = wp_create_nonce( 'pp_admin_notice_nonce' );
+
+		$review_url = 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?filter=5#new-post';
+		$maybe_later_url = esc_url_raw( add_query_arg( 
+			array(
+				'pp_admin_action' 	=> 'review_maybe_later',
+				'_nonce'			=> $nonce,
+			) )
+		);
+		$already_did_url = esc_url_raw( add_query_arg( 
+			array(
+				'pp_admin_action' 	=> 'review_already_did',
+				'_nonce'			=> $nonce,
+			) )
+		);
+
+		$notice = sprintf(
+			__('Hey, It seems you have been using %1$s for at least 7 days now - that\'s awesome!<br>Could you please do us a BIG favor and give it a %2$s5-star rating on WordPress?%3$s This will help us spread the word and boost our motivation - thanks!', 'powerpack'),
+			'PowerPack Elements Lite',
+            '<a href="' . $review_url . '" target="_blank">',
+            '</a>'
+		);
+		?>
+		<style>
+		.pp-review-notice {
+			display: block;
+		}
+		.pp-review-notice p {
+			line-height: 22px;
+		}
+		.pp-review-notice .pp-notice-buttons {
+			margin: 10px 0;
+			display: flex;
+			align-items: center;
+		}
+		.pp-review-notice .pp-notice-buttons a {
+			margin-right: 13px;
+			text-decoration: none;
+		}
+		.pp-review-notice .pp-notice-buttons .dashicons {
+			margin-right: 5px;
+		}
+		</style>
+		<div class="pp-review-notice notice notice-info is-dismissible">
+			<p><?php echo $notice; ?></p>
+			<div class="pp-notice-buttons">
+				<a href="<?php echo $review_url; ?>" target="_blank" class="button-primary"><?php esc_html_e('Ok, you deserve it', 'powerpack'); ?></a>
+				<span class="dashicons dashicons-calendar"></span>
+				<a href="<?php echo $maybe_later_url; ?>"><?php esc_html_e('Nope, maybe later', 'powerpack'); ?></a>
+				<span class="dashicons dashicons-smiley"></span>
+				<a href="<?php echo $already_did_url; ?>"><?php esc_html_e('I already did', 'powerpack'); ?></a>
+			</div>
+		</div>
+		<?php
 	}
 
 	public static function get_instance() {
