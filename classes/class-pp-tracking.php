@@ -1,40 +1,49 @@
 <?php
-namespace PowerpackElementsLite\Classes;
-
-use PowerpackElementsLite\Classes\PP_Admin_Settings;
-
 /**
  * Tracking functions for reporting plugin usage to the PowerPack Elements site for users that have opted in
  *
  * @copyright Copyright (c) 2015, Pippin Williamson
  * @license   http://opensource.org/licenses/gpl-2.0.php GNU Public License
- * @since     1.8.2
+ * @since     1.3
+ *
+ * @package PowerPackElements
  */
 
-// Exit if accessed directly
+namespace PowerpackElementsLite\Classes;
+
+use PowerpackElementsLite\Classes\PP_Admin_Settings;
+
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Usage tracking
+ * Usage tracking.
  *
  * @access public
- * @since  1.8.2
+ * @since  1.3
  * @return void
  */
 class UsageTracking {
 	/**
-	 * The data to send to the PPE site
+	 * The data to send to the remote site.
 	 *
+	 * @var array $data
 	 * @access private
 	 */
 	private $data;
 
+	/**
+	 * Remote site.
+	 *
+	 * @var string $site_url
+	 * @access private
+	 */
 	private $site_url = 'https://powerpackelements.com/';
 
 	/**
-	 * Get things going
+	 * Get things going.
 	 *
 	 * @access public
 	 */
@@ -47,20 +56,26 @@ class UsageTracking {
 		add_action( 'admin_init', [ $this, 'hook_notices' ] );
 	}
 
+	/**
+	 * Hook some notices and perform actions.
+	 *
+	 * @access public
+	 */
 	public function hook_notices() {
 		if ( isset( $_GET['pp_admin_action'] ) && isset( $_GET['_nonce'] ) ) {
-			$action = $_GET['pp_admin_action'];
-			if ( 'review_maybe_later' === $action && wp_verify_nonce( $_GET['_nonce'], 'pp_admin_notice_nonce' ) ) {
+			$action = sanitize_text_field( wp_unslash( $_GET['pp_admin_action'] ) );
+			$nonce = wp_unslash( $_GET['_nonce'] ); // @codingStandardsIgnoreLine.
+			if ( 'review_maybe_later' === $action && wp_verify_nonce( $nonce, 'pp_admin_notice_nonce' ) ) {
 				PP_Admin_Settings::update_option( 'pp_review_later_date', current_time( 'mysql' ), true );
 			}
-			if ( 'review_already_did' === $action && wp_verify_nonce( $_GET['_nonce'], 'pp_admin_notice_nonce' ) ) {
+			if ( 'review_already_did' === $action && wp_verify_nonce( $nonce, 'pp_admin_notice_nonce' ) ) {
 				PP_Admin_Settings::update_option( 'pp_review_already_did', 'yes', true );
 			}
 
-			wp_redirect( esc_url_raw( remove_query_arg( array( 'pp_admin_action', '_nonce' ) ) ) );
+			wp_safe_redirect( esc_url_raw( remove_query_arg( array( 'pp_admin_action', '_nonce' ) ) ) );
 		}
 
-		if ( isset( $_GET['page'] ) && 'powerpack-settings' == $_GET['page'] ) {
+		if ( isset( $_GET['page'] ) && 'powerpack-settings' === $_GET['page'] ) {
 			remove_all_actions( 'admin_notices' );
 		}
 
@@ -68,6 +83,13 @@ class UsageTracking {
 		add_action( 'admin_notices', [ $this, 'review_plugin_notice' ] );
 	}
 
+	/**
+	 * Add weekly schedule for cron.
+	 *
+	 * @param 	array $schedules Array of cron schedules.
+	 * @access 	public
+	 * @return 	array
+	 */
 	public function cron_add_weekly( $schedules ) {
 		$schedules['ppeweekly'] = array(
 			'interval' => 604800,
@@ -76,16 +98,21 @@ class UsageTracking {
 		return $schedules;
 	}
 
+	/**
+	 * Create recurring schedule.
+	 *
+	 * @access public
+	 */
 	public function create_recurring_schedule() {
-		//check if event scheduled before
+		// check if event scheduled before.
 		if ( ! wp_next_scheduled( 'pp_recurring_cron_job' ) ) {
-			//schedule event to run after every day
+			// schedule event to run after every day.
 			wp_schedule_event( time(), 'ppeweekly', 'pp_recurring_cron_job' );
 		}
 	}
 
 	/**
-	 * Check if the user has opted into tracking
+	 * Check if the user has opted into tracking.
 	 *
 	 * @access private
 	 * @return bool
@@ -97,7 +124,7 @@ class UsageTracking {
 	}
 
 	/**
-	 * Setup the data that is going to be tracked
+	 * Setup the data that is going to be tracked.
 	 *
 	 * @access private
 	 * @return void
@@ -105,14 +132,14 @@ class UsageTracking {
 	private function setup_data() {
 		$data = array();
 
-		// Retrieve current theme info
+		// Retrieve current theme info.
 		$theme_data = wp_get_theme();
-		$theme = $theme_data->Name . ' ' . $theme_data->Version;
+		$theme = $theme_data->Name . ' ' . $theme_data->Version; // @codingStandardsIgnoreLine.
 
 		$data['php_version'] = phpversion();
 		$data['edd_version'] = POWERPACK_ELEMENTS_LITE_VER;
 		$data['wp_version'] = get_bloginfo( 'version' );
-		$data['server'] = isset( $_SERVER['SERVER_SOFTWARE'] ) ? $_SERVER['SERVER_SOFTWARE'] : '';
+		$data['server'] = isset( $_SERVER['SERVER_SOFTWARE'] ) ? $_SERVER['SERVER_SOFTWARE'] : ''; // @codingStandardsIgnoreLine.
 
 		$data['install_date'] = PP_Admin_Settings::get_option( 'pp_install_date', true, 'not set' );
 
@@ -121,7 +148,7 @@ class UsageTracking {
 		$data['theme'] = $theme;
 		$data['email'] = get_bloginfo( 'admin_email' );
 
-		// Retrieve current plugin information
+		// Retrieve current plugin information.
 		if ( ! function_exists( 'get_plugins' ) ) {
 			include ABSPATH . '/wp-admin/includes/plugin.php';
 		}
@@ -131,7 +158,7 @@ class UsageTracking {
 
 		foreach ( $plugins as $key => $plugin ) {
 			if ( in_array( $plugin, $active_plugins ) ) {
-				// Remove active plugins from list so we can show active and inactive separately
+				// Remove active plugins from list so we can show active and inactive separately.
 				unset( $plugins[ $key ] );
 			}
 		}
@@ -150,14 +177,16 @@ class UsageTracking {
 	}
 
 	/**
-	 * Send the data to the PPE server
+	 * Send the data to the remote server.
 	 *
+	 * @param boolean $override Force checkin.
+	 * @param boolean $ignore_last_checkin Ignore last checkin.
 	 * @access private
 	 * @return mixed
 	 */
 	public function send_checkin( $override = false, $ignore_last_checkin = false ) {
 		$home_url = trailingslashit( home_url() );
-		// Allows us to stop our own site from checking in, and a filter for our additional sites
+		// Allows us to stop our own site from checking in, and a filter for our additional sites.
 		if ( $this->site_url === $home_url || apply_filters( 'pp_disable_tracking_checkin', false ) ) {
 			return false;
 		}
@@ -166,7 +195,7 @@ class UsageTracking {
 			return false;
 		}
 
-		// Send a maximum of once per week
+		// Send a maximum of once per week.
 		$last_send = $this->get_last_send();
 		if ( is_numeric( $last_send ) && $last_send > strtotime( '-1 week' ) && ! $ignore_last_checkin ) {
 			return false;
@@ -196,35 +225,40 @@ class UsageTracking {
 	}
 
 	/**
-	 * Check for a new opt-in on settings save
+	 * Check for a new opt-in on settings save.
 	 *
-	 * This runs during the sanitation of General settings, thus the return
+	 * This runs during the sanitation of General settings, thus the return.
 	 *
 	 * @access public
-	 * @return array
+	 * @return mixed
 	 */
 	public function check_for_settings_optin() {
-		// Send an initial check in on settings save
-
-		if ( isset( $_POST['pp_allowed_tracking'] ) && 'on' == $_POST['pp_allowed_tracking'] ) {
+		// Send an initial check in on settings save.
+		if ( isset( $_POST['pp_allowed_tracking'] ) && 'on' === wp_unslash( $_POST['pp_allowed_tracking'] ) ) { // @codingStandardsIgnoreLine.
 			$this->send_checkin( true );
 		}
 	}
 
+	/**
+	 * Act on tracking descision.
+	 *
+	 * @access 	public
+	 * @return 	void
+	 */
 	public function act_on_tracking_decision() {
-		if ( isset( $_GET['ppe_action'] ) ) {
-			if ( 'pp_opt_into_tracking' == $_GET['ppe_action'] ) {
+		if ( isset( $_GET['pp_admin_action'] ) ) {
+			if ( 'pp_opt_into_tracking' === $_GET['pp_admin_action'] ) {
 				$this->check_for_optin();
 			}
 
-			if ( 'pp_opt_out_of_tracking' == $_GET['ppe_action'] ) {
+			if ( 'pp_opt_out_of_tracking' === $_GET['pp_admin_action'] ) {
 				$this->check_for_optout();
 			}
 		}
 	}
 
 	/**
-	 * Check for a new opt-in via the admin notice
+	 * Check for a new opt-in via the admin notice.
 	 *
 	 * @access public
 	 * @return void
@@ -235,10 +269,12 @@ class UsageTracking {
 		$this->send_checkin( true );
 
 		PP_Admin_Settings::update_option( 'pp_tracking_notice', '1', true );
+
+		wp_safe_redirect( remove_query_arg( 'pp_admin_action' ) );
 	}
 
 	/**
-	 * Check for a new opt-in via the admin notice
+	 * Check for a new opt-in via the admin notice.
 	 *
 	 * @access public
 	 * @return void
@@ -246,12 +282,12 @@ class UsageTracking {
 	public function check_for_optout() {
 		PP_Admin_Settings::delete_option( 'pp_allowed_tracking' );
 		PP_Admin_Settings::update_option( 'pp_tracking_notice', '1', true );
-		wp_redirect( remove_query_arg( 'ppe_action' ) );
+		wp_safe_redirect( remove_query_arg( 'pp_admin_action' ) );
 		exit;
 	}
 
 	/**
-	 * Get the last time a checkin was sent
+	 * Get the last time a checkin was sent.
 	 *
 	 * @access private
 	 * @return false|string
@@ -261,18 +297,18 @@ class UsageTracking {
 	}
 
 	/**
-	 * Schedule a weekly checkin
+	 * Schedule a weekly checkin.
 	 *
 	 * @access public
 	 * @return void
 	 */
 	public function schedule_send() {
-		// We send once a week (while tracking is allowed) to check in, which can be used to determine active sites
+		// We send once a week (while tracking is allowed) to check in, which can be used to determine active sites.
 		add_action( 'pp_recurring_cron_job', array( $this, 'send_checkin' ) );
 	}
 
 	/**
-	 * Display the admin notice to users that have not opted-in or out
+	 * Display the admin notice to users that have not opted-in or out.
 	 *
 	 * @access public
 	 * @return void
@@ -294,34 +330,34 @@ class UsageTracking {
 
 		if ( stristr( network_site_url( '/' ), 'dev' ) !== false
 			|| stristr( network_site_url( '/' ), 'localhost' ) !== false
-			|| stristr( network_site_url( '/' ), ':8888' ) !== false// This is common with MAMP on OS X
-			|| in_array( $_SERVER['REMOTE_ADDR'], array( '127.0.0.1', '::1' ) )
+			|| stristr( network_site_url( '/' ), ':8888' ) !== false // This is common with MAMP on OS X.
+			|| in_array( wp_unslash( $_SERVER['REMOTE_ADDR'] ), array( '127.0.0.1', '::1' ), true ) // @codingStandardsIgnoreLine.
 		) {
 			PP_Admin_Settings::update_option( 'pp_tracking_notice', '1', true );
 		} else {
 
-			$optin_url = add_query_arg( 'ppe_action', 'pp_opt_into_tracking' );
-			$optout_url = add_query_arg( 'ppe_action', 'pp_opt_out_of_tracking' );
+			$optin_url = add_query_arg( 'pp_admin_action', 'pp_opt_into_tracking' );
+			$optout_url = add_query_arg( 'pp_admin_action', 'pp_opt_out_of_tracking' );
 
 			$source = substr( md5( get_bloginfo( 'name' ) ), 0, 10 );
 			$store_url = $this->site_url . 'pricing/?utm_source=' . $source . '&utm_medium=admin&utm_term=notice&utm_campaign=PPEUsageTracking';
-			$what_we_collect = esc_html__( 'Click here to check what we collect.', 'powerpack' );
 
 			echo '<div class="notice notice-info updated"><p>';
 			printf(
-				__( 'Want to help make <strong>%1$s</strong> even more awesome? Allow us to <a href="#pp-what-we-collect" title="%2$s">collect non-sensitive</a> diagnostic data and plugin usage information. Opt-in to tracking and we will send you a special 15%3$s discount code for <a href="%4$s">Premium Upgrade</a>.', 'powerpack' ),
-				'PowerPack Elements',
-				$what_we_collect,
+				// translators: %1$s denotes plugin name, %2$s denotes title text, %3$s denotes percentile, %4$s denotes store URL.
+				__( 'Want to help make %1$s even more awesome? Allow us to <a href="#pp-what-we-collect" title="%2$s">collect non-sensitive</a> diagnostic data and plugin usage information. Opt-in to tracking and we will send you a special 15%3$s discount code for <a href="%4$s">Premium Upgrade</a>.', 'powerpack' ),
+				'<strong>PowerPack Elements</strong>',
+				esc_html__( 'Click here to check what we collect.', 'powerpack' ),
 				'%',
-				$store_url
+				esc_url( $store_url )
 			);
 			echo '</p>';
 			echo '<p id="pp-what-we-collect" style="display: none;">';
 			echo esc_html__( 'We collect WordPress and PHP version, plugin and theme version, server environment, website, user first name, user last name, and email address to send you the discount code. No sensitive data is tracked.', 'powerpack' );
 			echo '</p>';
 			echo '<p>';
-			echo '<a href="' . esc_url( $optin_url ) . '" class="button-primary">' . __( 'Sure! I\'d love to help', 'powerpack' ) . '</a>';
-			echo '&nbsp;<a href="' . esc_url( $optout_url ) . '" class="button-secondary">' . __( 'No thanks', 'powerpack' ) . '</a>';
+			echo '<a href="' . esc_url( $optin_url ) . '" class="button-primary">' . esc_html__( 'Sure! I\'d love to help', 'powerpack' ) . '</a>';
+			echo '&nbsp;<a href="' . esc_url( $optout_url ) . '" class="button-secondary">' . esc_html__( 'No thanks', 'powerpack' ) . '</a>';
 			echo '</p></div>';
 			?>
 			<script type="text/javascript">
@@ -333,9 +369,15 @@ class UsageTracking {
 			})(jQuery);
 			</script>
 			<?php
-		}
+		} // End if().
 	}
 
+	/**
+	 * Render notice for plugin review.
+	 *
+	 * @access 	public
+	 * @return 	void
+	 */
 	public function review_plugin_notice() {
 		if ( 'yes' === PP_Admin_Settings::get_option( 'pp_review_already_did', true ) ) {
 			return;
@@ -344,19 +386,19 @@ class UsageTracking {
 		$maybe_later_date = PP_Admin_Settings::get_option( 'pp_review_later_date', true );
 
 		if ( ! empty( $maybe_later_date ) ) {
-			$diff = round((time() - strtotime($maybe_later_date)) / 24 / 60 / 60);
-			
+			$diff = round( ( time() - strtotime( $maybe_later_date ) ) / 24 / 60 / 60 );
+
 			if ( $diff < 7 ) {
 				return;
 			}
 		} else {
 			$install_date = PP_Admin_Settings::get_option( 'pp_install_date', true );
-		
+
 			if ( ! $install_date || empty( $install_date ) ) {
 				return;
 			}
 
-			$diff = round((time() - strtotime($install_date)) / 24 / 60 / 60);
+			$diff = round( ( time() - strtotime( $install_date ) ) / 24 / 60 / 60 );
 
 			if ( $diff < 7 ) {
 				return;
@@ -366,24 +408,25 @@ class UsageTracking {
 		$nonce = wp_create_nonce( 'pp_admin_notice_nonce' );
 
 		$review_url = 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?filter=5#new-post';
-		$maybe_later_url = esc_url_raw( add_query_arg( 
+		$maybe_later_url = add_query_arg(
 			array(
 				'pp_admin_action' 	=> 'review_maybe_later',
 				'_nonce'			=> $nonce,
-			) )
+			)
 		);
-		$already_did_url = esc_url_raw( add_query_arg( 
+		$already_did_url = add_query_arg(
 			array(
 				'pp_admin_action' 	=> 'review_already_did',
 				'_nonce'			=> $nonce,
-			) )
+			)
 		);
 
 		$notice = sprintf(
-			__('Hey, It seems you have been using %1$s for at least 7 days now - that\'s awesome!<br>Could you please do us a BIG favor and give it a %2$s5-star rating on WordPress?%3$s This will help us spread the word and boost our motivation - thanks!', 'powerpack'),
-			'PowerPack Elements Lite',
-            '<a href="' . $review_url . '" target="_blank">',
-            '</a>'
+			// translators: %1$s denotes plugin name, %2$s denotes opening anchor tag, %3$s denots closing anchor tag.
+			__( 'Hey, It seems you have been using %1$s for at least 7 days now - that\'s awesome!<br>Could you please do us a BIG favor and give it a %2$s5-star rating on WordPress?%3$s This will help us spread the word and boost our motivation - thanks!', 'powerpack' ),
+			'<storng>PowerPack Elements Lite</strong>',
+			'<a href="' . esc_url( $review_url ) . '" target="_blank">',
+			'</a>'
 		);
 		?>
 		<style>
@@ -407,18 +450,24 @@ class UsageTracking {
 		}
 		</style>
 		<div class="pp-review-notice notice notice-info is-dismissible">
-			<p><?php echo $notice; ?></p>
+			<p><?php echo $notice; // @codingStandardsIgnoreLine. ?></p>
 			<div class="pp-notice-buttons">
-				<a href="<?php echo $review_url; ?>" target="_blank" class="button-primary"><?php esc_html_e('Ok, you deserve it', 'powerpack'); ?></a>
+				<a href="<?php echo esc_url( $review_url ); ?>" target="_blank" class="button-primary"><?php esc_html_e( 'Ok, you deserve it', 'powerpack' ); ?></a>
 				<span class="dashicons dashicons-calendar"></span>
-				<a href="<?php echo $maybe_later_url; ?>"><?php esc_html_e('Nope, maybe later', 'powerpack'); ?></a>
+				<a href="<?php echo esc_url_raw( $maybe_later_url ); ?>"><?php esc_html_e( 'Nope, maybe later', 'powerpack' ); ?></a>
 				<span class="dashicons dashicons-smiley"></span>
-				<a href="<?php echo $already_did_url; ?>"><?php esc_html_e('I already did', 'powerpack'); ?></a>
+				<a href="<?php echo esc_url_raw( $already_did_url ); ?>"><?php esc_html_e( 'I already did', 'powerpack' ); ?></a>
 			</div>
 		</div>
 		<?php
 	}
 
+	/**
+	 * Get singleton class instance.
+	 *
+	 * @access 	public
+	 * @return 	object
+	 */
 	public static function get_instance() {
 		static $instance = null;
 
