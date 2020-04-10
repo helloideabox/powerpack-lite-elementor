@@ -119,6 +119,12 @@ class UsageTracking {
 		$data['inactive_plugins'] = $plugins;
 		$data['locale'] = ($data['wp_version'] >= 4.7) ? get_user_locale() : get_locale();
 
+		$current_user = wp_get_current_user();
+
+		$data['user_firstname'] = esc_html( $current_user->user_firstname );
+		$data['user_lastname'] = esc_html( $current_user->user_lastname );
+		$data['user_email'] = esc_html( $current_user->user_email );
+
 		$this->data = $data;
 	}
 
@@ -268,6 +274,7 @@ class UsageTracking {
 		if ( stristr( network_site_url( '/' ), 'dev' ) !== false
 			|| stristr( network_site_url( '/' ), 'localhost' ) !== false
 			|| stristr( network_site_url( '/' ), ':8888' ) !== false// This is common with MAMP on OS X
+			|| in_array( $_SERVER['REMOTE_ADDR'], array( '127.0.0.1', '::1' ) )
 		) {
 			PP_Admin_Settings::update_option( 'pp_tracking_notice', '1', true );
 		} else {
