@@ -146,7 +146,7 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_VER
 		);
         
-        if ( class_exists( 'GFCommon' ) ) {
+        if ( class_exists( 'GFCommon' ) && \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
             foreach( pp_elements_lite_get_gravity_forms() as $form_id => $form_name ){
                 if ( $form_id != '0' ) {
                     gravity_form_enqueue_scripts( $form_id );
