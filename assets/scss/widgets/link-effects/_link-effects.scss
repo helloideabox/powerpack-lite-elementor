@@ -1,8 +1,8 @@
-.pa-link {
+.pp-link {
     display: inline-block;
 	position: relative;
 }
-.pa-link-effect-1:after {
+.pp-link-effect-1:after {
     background: #000;
     position: absolute;
     bottom: -4px;
@@ -14,12 +14,12 @@
     transition: height 0.25s, opacity 0.25s, transform 0.25s;
     width: 100%;
 }
-.pa-link-effect-1:hover:after {
+.pp-link-effect-1:hover:after {
     height: 4px;
     opacity: 1;
     transform: translateY(0);
 }
-.pa-link-effect-2:after {
+.pp-link-effect-2:after {
     background: #000;
     position: absolute;
     bottom: -4px;
@@ -31,14 +31,14 @@
     transition: height 0.25s, opacity 0.25s, transform 0.25s;
     width: 100%;
 }
-.pa-link-effect-2:hover:after {
+.pp-link-effect-2:hover:after {
     height: 4px;
     opacity: 1;
     transform: translateY(10px);
 }
 /* Effect 3 */
-.pa-link-effect-3:before,
-.pa-link-effect-3:after {
+.pp-link-effect-3:before,
+.pp-link-effect-3:after {
 	display: inline-block;
 	opacity: 0;
 	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
@@ -46,7 +46,7 @@
 	transition: transform 0.3s, opacity 0.2s;
 }
 
-.pa-link-effect-3:before {
+.pp-link-effect-3:before {
 	margin-right: 10px;
 	content: '[';
 	-webkit-transform: translateX(20px);
@@ -54,17 +54,17 @@
 	transform: translateX(20px);
 }
 
-.pa-link-effect-3:after {
+.pp-link-effect-3:after {
 	margin-left: 10px;
 	content: ']';
 	-webkit-transform: translateX(-20px);
 	-moz-transform: translateX(-20px);
 	transform: translateX(-20px);
 }
-.pa-link-effect-3:hover:before,
-.pa-link-effect-3:hover:after,
-.pa-link-effect-3:focus:before,
-.pa-link-effect-3:focus:after {
+.pp-link-effect-3:hover:before,
+.pp-link-effect-3:hover:after,
+.pp-link-effect-3:focus:before,
+.pp-link-effect-3:focus:after {
 	opacity: 1;
 	-webkit-transform: translateX(0px);
 	-moz-transform: translateX(0px);
@@ -72,7 +72,7 @@
 }
 
 /* Effect 4 */
-.pa-link-effect-4 {
+.pp-link-effect-4 {
     -webkit-perspective: 1000px;
     -moz-perspective: 1000px;
     perspective: 1000px;
@@ -111,19 +111,19 @@
         }
     }
 }
-.pa-link-effect-4:hover span,
-.pa-link-effect-4:focus span {
+.pp-link-effect-4:hover span,
+.pp-link-effect-4:focus span {
 	-webkit-transform: rotateX(90deg) translateY(-22px);
 	-moz-transform: rotateX(90deg) translateY(-22px);
 	transform: rotateX(90deg) translateY(-22px);
 }
 
-.pa-link-effect-4:hover span:before,
-.pa-link-effect-4:focus span:before {
+.pp-link-effect-4:hover span:before,
+.pp-link-effect-4:focus span:before {
 	background: #28a2ee;	
 }
 /* Effect 5: same word slide in */
-.pa-link-effect-5 {
+.pp-link-effect-5 {
     display: inline-block;
 	overflow: hidden;
 	padding: 0 4px;
@@ -152,7 +152,7 @@
 }
 
 /* Effect 6: same word slide in and border bottom */
-.pa-link-effect-6 {
+.pp-link-effect-6 {
 	margin: 0 10px;
 	padding: 10px 20px;
     &:before {
@@ -180,16 +180,16 @@
         transition: height 0.3s;
     }
 }
-.pa-link-effect-6:hover::before {
+.pp-link-effect-6:hover::before {
 	top: 100%;
 	opacity: 1;
 }
-.pa-link-effect-6:hover::after {
+.pp-link-effect-6:hover::after {
 	height: 100%;
 } 
 
 /* Effect 7: second border slides up */
-.pa-link-effect-7 {
+.pp-link-effect-7 {
 	padding: 12px 10px 10px;
 	color: #566473;
 	text-shadow: none;
@@ -218,23 +218,23 @@
     }
 }
 
-.pa-link-effect-7:hover::before,
-.pa-link-effect-7:hover::after,
-.pa-link-effect-7:focus::before,
-.pa-link-effect-7:focus::after {
+.pp-link-effect-7:hover::before,
+.pp-link-effect-7:hover::after,
+.pp-link-effect-7:focus::before,
+.pp-link-effect-7:focus::after {
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1);
 	transform: scale(1);
 }
 
-.pa-link-effect-7:hover::after,
-.pa-link-effect-7:focus::after {
+.pp-link-effect-7:hover::after,
+.pp-link-effect-7:focus::after {
 	top: 0%;
 	opacity: 1;
 }
 
 /* Effect 8: border slight translate */
-.pa-link-effect-8 {
+.pp-link-effect-8 {
 	padding: 10px 20px;
     &:before,
     &:after  {
@@ -257,16 +257,16 @@
         transform: translateY(-7px) translateX(6px);
     }
 }
-.pa-link-effect-8:hover:before,
-.pa-link-effect-8:focus:before {
+.pp-link-effect-8:hover:before,
+.pp-link-effect-8:focus:before {
 	opacity: 0;
 	-webkit-transform: translateY(5px) translateX(-5px);
 	-moz-transform: translateY(5px) translateX(-5px);
 	transform: translateY(5px) translateX(-5px);
 }
 
-.pa-link-effect-8:hover:after,
-.pa-link-effect-8:focus:after  {
+.pp-link-effect-8:hover:after,
+.pp-link-effect-8:focus:after  {
 	opacity: 1;
 	-webkit-transform: translateY(0px) translateX(0px);
 	-moz-transform: translateY(0px) translateX(0px);
@@ -274,7 +274,7 @@
 }
 
 /* Effect 9: second text and borders */
-.pa-link-effect-9 {
+.pp-link-effect-9 {
     display: inline-block;
 	margin: 0 20px;
 	padding: 18px 20px;
@@ -350,7 +350,7 @@
 }
 
 /* Effect 10: reveal, push out */
-.pa-link-effect-10  {
+.pp-link-effect-10  {
     display: inline-block;
 	overflow: hidden;
 	margin: 0 15px;
@@ -394,7 +394,7 @@
 }
 
 /* Effect 11: text fill based on Lea Verou's animation http://dabblet.com/gist/6046779 */
-.pa-link-effect-11 {
+.pp-link-effect-11 {
 	padding: 10px 0;
 	border-top: 2px solid #0972b4;
 	color: #0972b4;
@@ -420,7 +420,7 @@
 }
 
 /* Effect 12: circle */
-.pa-link-effect-12 {
+.pp-link-effect-12 {
     &:before,
     &:after {
         position: absolute;
@@ -459,7 +459,7 @@
 }
 
 /* Effect 13: three circles */
-.pa-link-effect-13 {
+.pp-link-effect-13 {
     display: inline-block;
 	-webkit-transition: color 0.3s;
 	-moz-transition: color 0.3s;
@@ -493,7 +493,7 @@
 }
 
 /* Effect 14: border switch */
-.pa-link-effect-14 {
+.pp-link-effect-14 {
     display: inline-block;
 	padding: 0 20px;
 	height: 45px;
@@ -553,7 +553,7 @@
 }
 
 /* Effect 15: scale down, reveal */
-.pa-link-effect-15 {
+.pp-link-effect-15 {
     display: inline-block;
 	color: rgba(0,0,0,0.2);
 	font-weight: 700;
@@ -577,7 +577,7 @@
 }
 
 /* Effect 16: fall down */
-.pa-link-effect-16 {
+.pp-link-effect-16 {
     display: inline-block;
 	color: #6f8686;
 	text-shadow: 0 0 1px rgba(111,134,134,0.3);
@@ -606,7 +606,7 @@
 }
 
 /* Effect 17: move up fade out, push border */
-.pa-link-effect-17 {
+.pp-link-effect-17 {
     display: inline-block;
 	color: #10649b;
 	text-shadow: none;
@@ -658,7 +658,7 @@
 }
 
 /* Effect 18: cross */
-.pa-link-effect-18 {
+.pp-link-effect-18 {
     display: inline-block;
 	position: relative;
 	z-index: 1;
@@ -725,7 +725,7 @@
 }
 
 /* Effect 19: 3D side */
-.pa-link-effect-19 {
+.pp-link-effect-19 {
     display: inline-block;
 	line-height: 2em;
 	-webkit-perspective: 800px;
@@ -783,7 +783,7 @@
 }
 
 /* Effect 20: 3D side */
-.pa-link-effect-20 {
+.pp-link-effect-20 {
     display: inline-block;
 	line-height: 2em;
 	-webkit-perspective: 800px;
@@ -844,7 +844,7 @@
 }
 
 /* Effect 21: borders slight translate */
-.pa-link-effect-21 {
+.pp-link-effect-21 {
     display: inline-block;
 	padding: 10px;
 	color: #237546;
