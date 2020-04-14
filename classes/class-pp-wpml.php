@@ -9,10 +9,20 @@ class PP_Elements_WPML {
 	}
 	
 	public function translate_fields ( $widgets ) {
+		$widgets['pp-advanced-accordion']   = [
+			'conditions'        => [ $this->type => 'pp-advanced-accordion' ],
+			'fields'            => [],
+			'integration-class' => 'WPML_PP_Advanced_Accordion',
+		];
 		$widgets[ 'pp-business-hours' ]       = [
 			'conditions' => [ $this->type => 'pp-business-hours' ],
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Business_Hours'
+		];
+		$widgets['pp-buttons']              = [
+			'conditions'        => [ $this->type => 'pp-buttons' ],
+			'fields'            => [],
+			'integration-class' => 'WPML_PP_Buttons',
 		];
 		$widgets[ 'pp-caldera-forms' ]        = [
 			'conditions' => [ $this->type => 'pp-caldera-forms' ],
@@ -43,6 +53,17 @@ class PP_Elements_WPML {
 					'editor_type' => 'AREA'
 				],
 			],
+		];
+		$widgets['pp-content-ticker']       = [
+			'conditions'        => [ $this->type => 'pp-content-ticker' ],
+			'fields'            => [
+				[
+					'field'       => 'heading',
+					'type'        => __( 'Card Slider - Heading Text', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+			],
+			'integration-class' => 'WPML_PP_Content_Ticker',
 		];
 		$widgets[ 'pp-counter' ]              = [
 			'conditions' => [ $this->type => 'pp-counter' ],
@@ -86,6 +107,81 @@ class PP_Elements_WPML {
 					'field'       => 'second_text',
 					'type'        => __( 'Dual Heading - Second Text', 'power-pack' ),
 					'editor_type' => 'AREA'
+				],
+			],
+		];
+		$widgets['pp-fancy-heading']        = [
+			'conditions' => [ $this->type => 'pp-fancy-heading' ],
+			'fields'     => [
+				[
+					'field'       => 'heading_text',
+					'type'        => __( 'Fancy Heading - Heading Text', 'powerpack' ),
+					'editor_type' => 'AREA',
+				],
+			],
+		];
+		$widgets['pp-flipbox']              = [
+			'conditions' => [ $this->type => 'pp-flipbox' ],
+			'fields'     => [
+				[
+					'field'       => 'title_front',
+					'type'        => __( 'Flip Box - Front Title', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'description_front',
+					'type'        => __( 'Flip Box - Front Description', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'title_back',
+					'type'        => __( 'Flip Box - Back Title', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'description_back',
+					'type'        => __( 'Flip Box - Back Description', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'link',
+					'type'        => __( 'Flip Box - Link', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'flipbox_button_text',
+					'type'        => __( 'Flip Box - Button Text', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+			],
+		];
+		$widgets['pp-fluent-forms']         = [
+			'conditions' => [ $this->type => 'pp-fluent-forms' ],
+			'fields'     => [
+				[
+					'field'       => 'form_title_custom',
+					'type'        => __( 'Fluent Forms - Title', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'form_description_custom',
+					'type'        => __( 'Fluent Forms - Description', 'powerpack' ),
+					'editor_type' => 'AREA',
+				],
+			],
+		];
+		$widgets['pp-formidable-forms']     = [
+			'conditions' => [ $this->type => 'pp-formidable-forms' ],
+			'fields'     => [
+				[
+					'field'       => 'form_title_custom',
+					'type'        => __( 'Formidable Forms - Title', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'form_description_custom',
+					'type'        => __( 'Formidable Forms - Description', 'powerpack' ),
+					'editor_type' => 'AREA',
 				],
 			],
 		];
@@ -358,6 +454,16 @@ class PP_Elements_WPML {
 				],
 			],
 		];
+		$widgets['pp-scroll-image']         = [
+			'conditions' => [ $this->type => 'pp-scroll-image' ],
+			'fields'     => [
+				[
+					'field'       => 'link',
+					'type'        => __( 'Scroll Image - URL', 'powerpack' ),
+					'editor_type' => 'LINK',
+				],
+			],
+		];
 		$widgets[ 'pp-team-member' ]          = [
 			'conditions' => [ $this->type => 'pp-team-member' ],
 			'fields'     => [
@@ -384,6 +490,86 @@ class PP_Elements_WPML {
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Team_Member_Carousel'
 		];
+		$widgets['pp-twitter-buttons']      = [
+			'conditions' => [ $this->type => 'pp-twitter-buttons' ],
+			'fields'     => [
+				[
+					'field'       => 'profile',
+					'type'        => __( 'Twitter Button - Profile URL or Username', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'recipient_id',
+					'type'        => __( 'Twitter Button - Recipient Id', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'default_text',
+					'type'        => __( 'Twitter Button - Default Text', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'hashtag_url',
+					'type'        => __( 'Twitter Button - Hashtag URL or #hashtag', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'via',
+					'type'        => __( 'Twitter Button - Via (twitter handler)', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'share_text',
+					'type'        => __( 'Twitter Button - Custom Share Text', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'share_url',
+					'type'        => __( 'Twitter Button - Custom Share URL', 'powerpack' ),
+					'editor_type' => 'LINK',
+				],
+			],
+		];
+		$widgets['pp-twitter-grid']         = [
+			'conditions' => [ $this->type => 'pp-twitter-grid' ],
+			'fields'     => [
+				[
+					'field'       => 'url',
+					'type'        => __( 'Twitter Grid - Collection URL', 'powerpack' ),
+					'editor_type' => 'LINK',
+				],
+				[
+					'field'       => 'tweet_limit',
+					'type'        => __( 'Twitter Grid - Tweet Limit', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+			],
+		];
+		$widgets['pp-twitter-timeline']     = [
+			'conditions' => [ $this->type => 'pp-twitter-timeline' ],
+			'fields'     => [
+				[
+					'field'       => 'username',
+					'type'        => __( 'Twitter Timeline - Username', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'tweet_limit',
+					'type'        => __( 'Twitter Timeline - Tweet Limit', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+			],
+		];
+		$widgets['pp-twitter-tweet']        = [
+			'conditions' => [ $this->type => 'pp-twitter-tweet' ],
+			'fields'     => [
+				[
+					'field'       => 'tweet_url',
+					'type'        => __( 'Twitter Tweet - Tweet URL', 'powerpack' ),
+					'editor_type' => 'LINK',
+				],
+			],
+		];
 		$widgets[ 'pp-wpforms' ]              = [
 			'conditions' => [ $this->type => 'pp-wpforms' ],
 			'fields'     => [
@@ -406,7 +592,10 @@ class PP_Elements_WPML {
 	}
 	
 	private function init_classes() {
+		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-advanced-accordion.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-business-hours.php';
+		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-buttons.php';
+		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-content-ticker.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-image-hotspots.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-icon-list.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-info-box-carousel.php';
