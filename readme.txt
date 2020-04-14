@@ -150,6 +150,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.9.3 - April 15, 2020 =
+* 	Added: Button width option
+* 	Fixed: WPML compatibility was missing for some widgets
+* 	Fixed: Gravity Forms CSS & JS files were loading on all pages
+
 = 1.2.9.2 - April 8, 2020 =
 * 	Fixed: Hotspot icon was not showing in editor in Image Hotspots widget
 * 	Added: Option to randomize logos in Logo Carousel widget

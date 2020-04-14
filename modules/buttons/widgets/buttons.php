@@ -193,7 +193,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'icon_text',
 				[
-					'label'             => __( 'Title', 'powerpack' ),
+					'label'             => __( 'Icon Text', 'powerpack' ),
 					'label_block'       => false,
 					'type'              => Controls_Manager::TEXT,
 					'default'           => __('1','powerpack'),
@@ -205,6 +205,7 @@ class Buttons extends Powerpack_Widget {
 					],
 				]
 			);
+		
 			$repeater->add_control(
 				'has_tooltip',
 				[
@@ -270,11 +271,73 @@ class Buttons extends Powerpack_Widget {
 			$repeater->end_controls_tab();
 
 			$repeater->start_controls_tab(
-				'button_design',
+				'button_layout_tab',
+				[
+					'label' => __( 'Layout', 'powerpack' ),
+				]
+			);
+		
+			$repeater->add_control(
+				'single_button_size',
+				[
+					'label'                 => __( 'Button Size', 'powerpack' ),
+					'type'                  => Controls_Manager::SELECT,
+					'default'               => 'default',
+					'options'               => [
+						'default' => __( 'Default', 'powerpack' ),
+						'xs' => __( 'Extra Small', 'powerpack' ),
+						'sm' => __( 'Small', 'powerpack' ),
+						'md' => __( 'Medium', 'powerpack' ),
+						'lg' => __( 'Large', 'powerpack' ),
+						'xl' => __( 'Extra Large', 'powerpack' ),
+						'custom' => __( 'Custom', 'powerpack' ),
+					],
+				]
+			);
+
+			$repeater->add_responsive_control(
+				'single_button_width',
+				[
+					'label'                 => __( 'Button Width', 'powerpack' ),
+					'type'                  => Controls_Manager::SLIDER,
+					'size_units'            => [ 'px', '%' ],
+					'range'                 => [
+						'px' => [
+							'min' 	=> 10,
+							'max' 	=> 800,
+							'step'	=> 1,
+						],
+					],
+					'selectors'		=> [
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button' => 'width: {{SIZE}}{{UNIT}};',
+					],
+					'condition'         => [
+						'single_button_size' => 'custom',
+					],
+				]
+			);
+		
+			$repeater->add_responsive_control(
+				'single_button_padding',
+				[
+					'label'                 => __( 'Padding', 'powerpack' ),
+					'type'                  => Controls_Manager::DIMENSIONS,
+					'size_units'            => [ 'px', 'em', '%' ],
+					'selectors'             => [
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			$repeater->end_controls_tab();
+
+			$repeater->start_controls_tab(
+				'button_style_tabs',
 				[
 					'label' => __( 'Style', 'powerpack' ),
 				]
 			);
+		
 			$repeater->add_group_control(
 				Group_Control_Typography::get_type(),
 				[
@@ -285,7 +348,7 @@ class Buttons extends Powerpack_Widget {
 				]
 			);
 
-			$repeater->add_control(
+			$repeater->add_responsive_control(
 				'single_icon_size',
 				[
 					'label'                 => __( 'Icon Size', 'powerpack' ),
@@ -300,36 +363,13 @@ class Buttons extends Powerpack_Widget {
 					'selectors'		=> [
 						'{{WRAPPER}} {{CURRENT_ITEM}} span.pp-button-icon' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
 						'{{WRAPPER}} {{CURRENT_ITEM}} .pp-button-icon-image img' => 'width: {{SIZE}}{{UNIT}};',
-					]
-				]
-			);
-			$repeater->add_control(
-				'single_button_size',
-				[
-					'label'                 => __( 'Button Size', 'powerpack' ),
-					'type'                  => Controls_Manager::SELECT,
-					'default'               => 'default',
-					'options'               => [
-						'default' => __( 'Default', 'powerpack' ),
-						'xs' => __( 'Extra Small', 'powerpack' ),
-						'sm' => __( 'Small', 'powerpack' ),
-						'md' => __( 'Medium', 'powerpack' ),
-						'lg' => __( 'Large', 'powerpack' ),
-						'xl' => __( 'Extra Large', 'powerpack' ),
+					],
+					'condition'         => [
+						'pp_icon_type!' => 'none',
 					],
 				]
 			);
-			$repeater->add_responsive_control(
-				'single_button_padding',
-				[
-					'label'                 => __( 'Padding', 'powerpack' ),
-					'type'                  => Controls_Manager::DIMENSIONS,
-					'size_units'            => [ 'px', 'em', '%' ],
-					'selectors'             => [
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
+		
 			$repeater->add_control(
 				'single_normal_options',
 				[
@@ -684,7 +724,11 @@ class Buttons extends Powerpack_Widget {
 				[
 					'label'                 => __( 'Background Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
-					'default'               => '#818a91',
+					'scheme' 	=> [
+						'type' 	=> Scheme_Color::get_type(),
+						'value' => Scheme_Color::COLOR_4,
+					],
+					'default'               => '',
 					'selectors'             => [
 						'{{WRAPPER}} .pp-button' => 'background: {{VALUE}};',
 					],

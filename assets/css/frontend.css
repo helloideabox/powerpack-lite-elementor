@@ -2912,7 +2912,8 @@ div[class*=' pa-'] {
 
 .pp-button-content-wrapper {
   display: flex;
-  flex-grow: 1; }
+  flex-grow: 1;
+  justify-content: center; }
 
 .pp-buttons-valign-top .pp-buttons-group {
   align-items: flex-start; }
