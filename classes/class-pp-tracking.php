@@ -11,8 +11,6 @@
 
 namespace PowerpackElementsLite\Classes;
 
-use PowerpackElementsLite\Classes\PP_Admin_Settings;
-
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -66,10 +64,10 @@ class UsageTracking {
 			$action = sanitize_text_field( wp_unslash( $_GET['pp_admin_action'] ) );
 			$nonce = wp_unslash( $_GET['_nonce'] ); // @codingStandardsIgnoreLine.
 			if ( 'review_maybe_later' === $action && wp_verify_nonce( $nonce, 'pp_admin_notice_nonce' ) ) {
-				PP_Admin_Settings::update_option( 'pp_review_later_date', current_time( 'mysql' ), true );
+				update_option( 'pp_review_later_date', current_time( 'mysql' ) );
 			}
 			if ( 'review_already_did' === $action && wp_verify_nonce( $nonce, 'pp_admin_notice_nonce' ) ) {
-				PP_Admin_Settings::update_option( 'pp_review_already_did', 'yes', true );
+				update_option( 'pp_review_already_did', 'yes' );
 			}
 
 			wp_safe_redirect( esc_url_raw( remove_query_arg( array( 'pp_admin_action', '_nonce' ) ) ) );
@@ -118,7 +116,7 @@ class UsageTracking {
 	 * @return bool
 	 */
 	private function tracking_allowed() {
-		$setting = PP_Admin_Settings::get_option( 'pp_allowed_tracking', true, false );
+		$setting = get_option( 'pp_allowed_tracking', false );
 
 		return 'on' === $setting;
 	}
@@ -141,7 +139,7 @@ class UsageTracking {
 		$data['wp_version'] = get_bloginfo( 'version' );
 		$data['server'] = isset( $_SERVER['SERVER_SOFTWARE'] ) ? $_SERVER['SERVER_SOFTWARE'] : ''; // @codingStandardsIgnoreLine.
 
-		$data['install_date'] = PP_Admin_Settings::get_option( 'pp_install_date', true, 'not set' );
+		$data['install_date'] = get_option( 'pp_install_date', 'not set' );
 
 		$data['multisite'] = is_multisite();
 		$data['url'] = home_url();
@@ -219,7 +217,7 @@ class UsageTracking {
 			return $request;
 		}
 
-		PP_Admin_Settings::update_option( 'pp_tracking_last_send', time(), true );
+		update_option( 'pp_tracking_last_send', time() );
 
 		return true;
 	}
@@ -264,11 +262,11 @@ class UsageTracking {
 	 * @return void
 	 */
 	public function check_for_optin() {
-		PP_Admin_Settings::update_option( 'pp_allowed_tracking', 'on', true );
+		update_option( 'pp_allowed_tracking', 'on' );
 
 		$this->send_checkin( true );
 
-		PP_Admin_Settings::update_option( 'pp_tracking_notice', '1', true );
+		update_option( 'pp_tracking_notice', '1' );
 
 		wp_safe_redirect( remove_query_arg( 'pp_admin_action' ) );
 	}
@@ -280,8 +278,8 @@ class UsageTracking {
 	 * @return void
 	 */
 	public function check_for_optout() {
-		PP_Admin_Settings::delete_option( 'pp_allowed_tracking' );
-		PP_Admin_Settings::update_option( 'pp_tracking_notice', '1', true );
+		delete_option( 'pp_allowed_tracking' );
+		update_option( 'pp_tracking_notice', '1' );
 		wp_safe_redirect( remove_query_arg( 'pp_admin_action' ) );
 		exit;
 	}
@@ -293,7 +291,7 @@ class UsageTracking {
 	 * @return false|string
 	 */
 	private function get_last_send() {
-		return PP_Admin_Settings::get_option( 'pp_tracking_last_send' );
+		return get_option( 'pp_tracking_last_send' );
 	}
 
 	/**
@@ -314,7 +312,7 @@ class UsageTracking {
 	 * @return void
 	 */
 	public function admin_notice() {
-		$hide_notice = PP_Admin_Settings::get_option( 'pp_tracking_notice', true );
+		$hide_notice = get_option( 'pp_tracking_notice' );
 
 		if ( $hide_notice ) {
 			return;
@@ -333,7 +331,7 @@ class UsageTracking {
 			|| stristr( network_site_url( '/' ), ':8888' ) !== false // This is common with MAMP on OS X.
 			|| in_array( wp_unslash( $_SERVER['REMOTE_ADDR'] ), array( '127.0.0.1', '::1' ), true ) // @codingStandardsIgnoreLine.
 		) {
-			PP_Admin_Settings::update_option( 'pp_tracking_notice', '1', true );
+			update_option( 'pp_tracking_notice', '1' );
 		} else {
 
 			$optin_url = add_query_arg( 'pp_admin_action', 'pp_opt_into_tracking' );
@@ -379,11 +377,11 @@ class UsageTracking {
 	 * @return 	void
 	 */
 	public function review_plugin_notice() {
-		if ( 'yes' === PP_Admin_Settings::get_option( 'pp_review_already_did', true ) ) {
+		if ( 'yes' === get_option( 'pp_review_already_did' ) ) {
 			return;
 		}
 
-		$maybe_later_date = PP_Admin_Settings::get_option( 'pp_review_later_date', true );
+		$maybe_later_date = get_option( 'pp_review_later_date' );
 
 		if ( ! empty( $maybe_later_date ) ) {
 			$diff = round( ( time() - strtotime( $maybe_later_date ) ) / 24 / 60 / 60 );
@@ -392,7 +390,7 @@ class UsageTracking {
 				return;
 			}
 		} else {
-			$install_date = PP_Admin_Settings::get_option( 'pp_install_date', true );
+			$install_date = get_option( 'pp_install_date' );
 
 			if ( ! $install_date || empty( $install_date ) ) {
 				return;

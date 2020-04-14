@@ -171,10 +171,10 @@ function pp_elements_lite_init() {
 
 	add_action( 'elementor/init', 'pp_elements_lite_category' );
 
-	$is_plugin_activated = PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'pp_plugin_activated', true );
+	$is_plugin_activated = get_option( 'pp_plugin_activated' );
 	if ( current_user_can('activate_plugins') && 'yes' !== $is_plugin_activated ) {
-		PowerpackElementsLite\Classes\PP_Admin_Settings::update_option( 'pp_install_date', current_time( 'mysql' ), true );
-		PowerpackElementsLite\Classes\PP_Admin_Settings::update_option( 'pp_plugin_activated', 'yes' );
+		update_option( 'pp_install_date', current_time( 'mysql' ) );
+		update_option( 'pp_plugin_activated', 'yes' );
 	}
 }
 
