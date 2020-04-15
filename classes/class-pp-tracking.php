@@ -46,12 +46,12 @@ class UsageTracking {
 	 * @access public
 	 */
 	public function __construct() {
-		add_action( 'init', [ $this, 'schedule_send' ] );
-		add_action( 'init', [ $this, 'create_recurring_schedule' ] );
-		add_filter( 'cron_schedules', [ $this, 'cron_add_weekly' ] );
-		add_action( 'pp_admin_after_settings_saved', [ $this, 'check_for_settings_optin' ], 10, 2 );
-		add_action( 'admin_init', [ $this, 'act_on_tracking_decision' ] );
-		add_action( 'admin_init', [ $this, 'hook_notices' ] );
+		add_action( 'init', array( $this, 'schedule_send' ) );
+		add_action( 'init', array( $this, 'create_recurring_schedule' ) );
+		add_filter( 'cron_schedules', array( $this, 'cron_add_weekly' ) );
+		add_action( 'pp_admin_after_settings_saved', array( $this, 'check_for_settings_optin' ), 10, 2 );
+		add_action( 'admin_init', array( $this, 'act_on_tracking_decision' ) );
+		add_action( 'admin_init', array( $this, 'hook_notices' ) );
 	}
 
 	/**

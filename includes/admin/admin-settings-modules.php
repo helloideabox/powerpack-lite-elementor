@@ -94,7 +94,7 @@ $enabled_extensions = pp_elements_lite_get_enabled_extensions();
 							name="pp_allowed_tracking"
 							type="checkbox"
 							value="on"
-							<?php echo self::get_option( 'pp_allowed_tracking', true ) ? ' checked="checked"' : '' ?>
+							<?php echo get_option( 'pp_allowed_tracking' ) ? ' checked="checked"' : '' ?>
 						/>
 					</label>
 				</p>
