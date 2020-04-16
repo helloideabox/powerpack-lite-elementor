@@ -2200,8 +2200,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
         );
         
         $this->add_render_attribute( 'info-box-container', 'class', 'pp-info-box-container' );
-            
-        $this->add_render_attribute( 'title-container', 'class', 'pp-info-box-title-container' );
         
         $pp_if_html_tag = 'div';
         $pp_title_html_tag = 'div';
@@ -2231,6 +2229,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 $i = 1;
 
                 foreach ( $settings['pp_info_boxes'] as $item ) :
+            
+        			$this->add_render_attribute( 'title-container' . $i, 'class', 'pp-info-box-title-container' );
 
                     if ( $item['link_type'] != 'none' ) {
                         if ( ! empty( $item['link']['url'] ) ) {
@@ -2239,6 +2239,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
                             
                             if ( $item['link_type'] == 'title' ) {
                                 $pp_title_html_tag = 'a';
+								$this->add_link_attributes( 'title-container' . $i, $item['link'] );
                             }
                             elseif ( $item['link_type'] == 'button' ) {
                                 $pp_button_html_tag = 'a';
@@ -2266,7 +2267,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 								<div class="pp-info-box-title-wrap">
 									<?php
 										if ( ! empty( $item['title'] ) ) {
-											printf( '<%1$s %2$s %3$s>', $pp_title_html_tag, $this->get_render_attribute_string( 'title-container' . $i ), $this->get_render_attribute_string( 'link' . $i ) );
+											printf( '<%1$s %2$s>', $pp_title_html_tag, $this->get_render_attribute_string( 'title-container' . $i ) );
 											printf( '<%1$s class="pp-info-box-title">', $settings['title_html_tag'] );
 											echo $item['title'];
 											printf( '</%1$s>', $settings['title_html_tag'] );
@@ -2611,8 +2612,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
            );
 
            view.addRenderAttribute( 'info-box-container', 'class', 'pp-info-box-container' );
-                       
-           view.addRenderAttribute( 'title-container', 'class', 'pp-info-box-title-container' );
         
            var $pp_if_html_tag = 'div',
                 $pp_title_html_tag = 'div',
@@ -2645,6 +2644,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
                    var i = 1;
 
                    _.each( settings.pp_info_boxes, function( item, index ) {
+                       
+           				view.addRenderAttribute( 'title-container' + i, 'class', 'pp-info-box-title-container' );
 
                         if ( item.link_type != 'none' ) {
                             if ( item.link.url ) {
@@ -2661,6 +2662,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
                             
                                 if ( item.link_type == 'title' ) {
                                     $pp_title_html_tag = 'a';
+				   					view.addRenderAttribute( 'title-container' + i, 'href', item.link.url );
                                 }
                                 else if ( item.link_type == 'button' ) {
                                     $pp_button_html_tag = 'a';
@@ -2703,9 +2705,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 											var image_url = elementor.imagesManager.getImageUrl( image );
 											#>
 											<img src="{{{ image_url }}}" />
-										<# } else if ( item.icon_type == 'text' ) {
+										<# } else if ( item.icon_type == 'text' ) { #>
 											{{{ item.icon_text }}}
-										} #>
+										<# } #>
 									</span>
 									<# if ( item.link_type == 'icon' ) { #>
 										</a>
@@ -2717,7 +2719,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 									<#
 										if ( item.title ) {
 											#>
-											<{{{ $pp_title_html_tag }}} {{{ view.getRenderAttributeString( 'title-container' + i ) }}} {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+											<{{{ $pp_title_html_tag }}} {{{ view.getRenderAttributeString( 'title-container' + i ) }}}>
 
 											<{{{ settings.title_html_tag }}} class="pp-info-box-title">
 											{{ item.title }}

@@ -1748,6 +1748,7 @@ class Info_Box extends Powerpack_Widget {
                 }
                 elseif ( $settings['link_type'] == 'title' ) {
                     $pp_title_html_tag = 'a';
+					$this->add_link_attributes( 'title-container', $settings['link'] );
                 }
             }
         }
@@ -1772,7 +1773,7 @@ class Info_Box extends Powerpack_Widget {
                 <div class="pp-info-box-title-wrap">
                     <?php
                         if ( ! empty( $settings['heading'] ) ) {
-                            echo '<'.$pp_title_html_tag. ' ' . $this->get_render_attribute_string( 'title-container' ) . $this->get_render_attribute_string( 'link' ) . '>';
+                            echo '<'.$pp_title_html_tag. ' ' . $this->get_render_attribute_string( 'title-container' ) . '>';
                             printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'heading' ) );
                             echo $settings['heading'];
                             printf( '</%1$s>', $settings['title_html_tag'] );
@@ -1825,12 +1826,15 @@ class Info_Box extends Powerpack_Widget {
 				buttonIconHTML = elementor.helpers.renderIcon( view, settings.select_button_icon, { 'aria-hidden': true }, 'i' , 'object' ),
 				buttonMigrated = elementor.helpers.isIconMigrated( settings, 'select_button_icon' );
 
+			view.addRenderAttribute( 'title-container', 'class', 'pp-info-box-title-container' );
+
             if ( settings.link.url != '' ) {
                 if ( settings.link_type == 'box' ) {
                     var pp_if_html_tag = 'a';
                 }
                 else if ( settings.link_type == 'title' ) {
                     var pp_title_html_tag = 'a';
+					view.addRenderAttribute( 'title-container', 'href', settings.link.url );
                 }
                 else if ( settings.link_type == 'button' ) {
                     var pp_button_html_tag = 'a';
@@ -1879,7 +1883,7 @@ class Info_Box extends Powerpack_Widget {
                 <div class="pp-info-box-content">
                     <div class="pp-info-box-title-wrap">
                         <# if ( settings.heading ) { #>
-                            <{{pp_title_html_tag}} class="pp-info-box-title-container" href="{{settings.link.url}}">
+                            <{{pp_title_html_tag}} {{{ view.getRenderAttributeString( 'title-container' ) }}}>
                                 <{{settings.title_html_tag}} class="pp-info-box-title elementor-inline-editing" data-elementor-setting-key="heading" data-elementor-inline-editing-toolbar="none">
                                     {{{ settings.heading }}}
                                 </{{settings.title_html_tag}}>
