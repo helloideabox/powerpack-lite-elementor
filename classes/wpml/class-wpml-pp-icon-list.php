@@ -12,6 +12,7 @@ class WPML_PP_Icon_List extends WPML_Elementor_Module_With_Items {
 	public function get_fields() {
 		return array( 
 			'text',
+			'icon_text',
 			'link' => array( 'url' ),
 	 );
 	}
@@ -20,6 +21,8 @@ class WPML_PP_Icon_List extends WPML_Elementor_Module_With_Items {
 		switch( $field ) {
 			case 'text':
 				return esc_html__( 'Icon List - Text', 'power-pack' );
+			case 'icon_text':
+				return esc_html__( 'Icon List - Icon Text', 'power-pack' );
 			case 'url':
 				return esc_html__( 'Icon List - Link', 'power-pack' );
 			default:
@@ -30,6 +33,8 @@ class WPML_PP_Icon_List extends WPML_Elementor_Module_With_Items {
 	protected function get_editor_type( $field ) {
 		switch( $field ) {
 			case 'text':
+				return 'LINE';
+			case 'icon_text':
 				return 'LINE';
 			case 'url':
 				return 'LINK';

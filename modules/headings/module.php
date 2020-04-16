@@ -13,8 +13,8 @@ class Module extends Module_Base {
 
 	public function get_widgets() {
 		return [
-			'Fancy_Heading',
 			'Dual_Heading',
+			'Fancy_Heading',
 		];
 	}
 }
