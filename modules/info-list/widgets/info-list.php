@@ -1500,17 +1500,17 @@ class Info_List extends Powerpack_Widget {
 											<div class="pp-info-list-button-wrapper pp-info-list-button-icon-{{ item.button_icon_position }}">
 												<a href="{{ item.link.url }}">
 													<div class="pp-info-list-button elementor-button elementor-size-{{ settings.button_size }} elementor-animation-{{ settings.button_animation }}">
-														<# if ( item.button_icon || item.selected_icon.value ) { #>
+														<#
+															buttonIconHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
+															buttonMigrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
+													   #>
+														<# if ( buttonIconHTML[ index ] && buttonIconHTML[ index ].rendered && ( ! item.button_icon || buttonMigrated[ index ] ) ) { #>
 															<span class="pp-button-icon pp-icon">
-															<#
-																iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
-																migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
-																if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.button_icon || migrated[ index ] ) ) { #>
-																	{{{ iconsHTML[ index ].value }}}
-																<# } else { #>
-																	<i class="{{ item.button_icon }}" aria-hidden="true"></i>
-																<# }
-															#>
+																{{{ buttonIconHTML[ index ].value }}}
+															</span>
+														<# } else if ( item.button_icon ) { #>
+															<span class="pp-button-icon pp-icon">
+																<i class="{{ item.button_icon }}" aria-hidden="true"></i>
 															</span>
 														<# } #>
 															
