@@ -164,7 +164,8 @@
 			elementSettings				= getElementSettings( $scope ),
             settings                    = instafeed_elem.data('settings'),
             taregt_id					= settings.target,
-            pp_popup                    = settings.popup,
+            popup                    	= settings.popup,
+            image_link                  = settings.img_link,
             layout                    	= elementSettings.feed_layout,
             likes                    	= elementSettings.insta_likes,
             comments                    = elementSettings.insta_comments,
@@ -192,7 +193,7 @@
 					resolution:             settings.resolution,
 					orientation:            'portrait',
 					template:               function () {
-						if (pp_popup === '1') {
+						if (popup === '1') {
 							if (layout === 'carousel') {
 								return '<div class="pp-feed-item swiper-slide"><div class="pp-feed-item-inner"><a href="{{image}}"><div class="pp-if-img"><div class="pp-overlay-container">' + like_span + comments_span + '</div><img src="{{image}}" /></div></a></div></div>';
 							} else {
@@ -252,7 +253,7 @@
 
 				feed.run();
 
-				if (pp_popup === '1') {
+				if (popup === '1') {
 					$(taregt_id).each(function () {
 						$(this).magnificPopup({
 							delegate: 'div a', // child items selector, by clicking on it popup will open
@@ -274,6 +275,8 @@
 					limit: settings.images_count,
 					likes_count: (likes === 'yes'),
 					comments_count: (comments === 'yes'),
+					popup: popup,
+					image_link: image_link,
 					carousel: $slider_options,
 				});
 		}

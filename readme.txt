@@ -156,6 +156,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	Fixed: Gravity Forms CSS & JS files were loading on all pages
 * 	Fixed: Link effects CSS issue
 * 	Fixed: Title container HTML markup in Info Box and Info Box carousel widgets
+* 	Fixed: Lightbox and Image Link options in Instagram Feed widget
 
 = 1.2.9.2 - April 8, 2020 =
 * 	Fixed: Hotspot icon was not showing in editor in Image Hotspots widget
