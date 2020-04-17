@@ -10,7 +10,11 @@ class WPML_PP_Business_Hours extends WPML_Elementor_Module_With_Items {
 	}
 
 	public function get_fields() {
-		return array( 'day', 'closed_text' );
+		return array(
+			'day',
+			'time',
+			'closed_text'
+		);
 	}
 
 	protected function get_title( $field ) {
