@@ -630,6 +630,8 @@ class PP_Elements_WPML {
 				],
 			],
 		];
+
+		$this->init_classes();
 		
 		return $widgets;
 	}
