@@ -27,7 +27,7 @@ class WPML_PP_Buttons extends WPML_Elementor_Module_With_Items {
 			case 'tooltip_content':
 				return esc_html__( 'Buttons - Button Tooltip Content', 'powerpack' );
 			case 'url':
-				return esc_html__( 'Buttons - BUtton Link', 'powerpack' );
+				return esc_html__( 'Buttons - Button Link', 'powerpack' );
 			default:
 				return '';
 		}

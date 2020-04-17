@@ -22,6 +22,8 @@ class WPML_PP_Team_Member_Carousel extends WPML_Elementor_Module_With_Items {
         	'youtube_url',
         	'pinterest_url',
         	'dribbble_url',
+        	'email',
+        	'phone',
 	 );
 	}
 
@@ -49,6 +51,10 @@ class WPML_PP_Team_Member_Carousel extends WPML_Elementor_Module_With_Items {
 				return esc_html__( 'Team Member Carousel - Pinterest URL', 'power-pack' );
 			case 'dribbble_url':
 				return esc_html__( 'Team Member Carousel - Dribbble URL', 'power-pack' );
+			case 'email':
+				return esc_html__( 'Team Member Carousel - Email ID', 'power-pack' );
+			case 'phone':
+				return esc_html__( 'Team Member Carousel - Contact Number', 'power-pack' );
 			default:
 				return '';
 		}
@@ -63,21 +69,25 @@ class WPML_PP_Team_Member_Carousel extends WPML_Elementor_Module_With_Items {
 			case 'team_member_description':
 				return 'AREA';
 			case 'facebook_url':
-				return 'LINK';
+				return 'LINE';
 			case 'twitter_url':
-				return 'LINK';
+				return 'LINE';
 			case 'google_plus_url':
-				return 'LINK';
+				return 'LINE';
 			case 'linkedin_url':
-				return 'LINK';
+				return 'LINE';
 			case 'instagram_url':
-				return 'LINK';
+				return 'LINE';
 			case 'youtube_url':
-				return 'LINK';
+				return 'LINE';
 			case 'pinterest_url':
-				return 'LINK';
+				return 'LINE';
 			case 'dribbble_url':
-				return 'LINK';
+				return 'LINE';
+			case 'email':
+				return 'LINE';
+			case 'phone':
+				return 'LINE';
 			default:
 				return '';
 		}

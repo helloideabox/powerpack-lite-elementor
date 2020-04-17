@@ -2732,7 +2732,7 @@ class Instafeed extends Powerpack_Widget {
 			$this->add_render_attribute( 'load-more-button', 'class', 'elementor-animation-' . $settings['button_animation'] );
 		}
 
-        if ( $settings['feed_layout'] == 'grid' && $settings['load_more_button'] == 'yes' ) { ?>
+        if ( $settings['feed_layout'] == 'grid' && $settings['use_api'] == 'yes' && $settings['load_more_button'] == 'yes' ) { ?>
             <div class="pp-load-more-button-wrap">
                 <div <?php echo $this->get_render_attribute_string( 'load-more-button' ) ?>>
                     <span class="pp-button-loader"></span>

@@ -59,7 +59,7 @@ class PP_Elements_WPML {
 			'fields'            => [
 				[
 					'field'       => 'heading',
-					'type'        => __( 'Card Slider - Heading Text', 'powerpack' ),
+					'type'        => __( 'Content Ticker - Heading Text', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -68,6 +68,16 @@ class PP_Elements_WPML {
 		$widgets[ 'pp-counter' ]              = [
 			'conditions' => [ $this->type => 'pp-counter' ],
 			'fields'     => [
+				[
+					'field'       => 'starting_number',
+					'type'        => __( 'Counter - Starting Number', 'power-pack' ),
+					'editor_type' => 'LINE'
+				],
+				[
+					'field'       => 'ending_number',
+					'type'        => __( 'Counter - Ending Number', 'power-pack' ),
+					'editor_type' => 'LINE'
+				],
 				[
 					'field'       => 'number_prefix',
 					'type'        => __( 'Counter - Number Prefix', 'power-pack' ),
@@ -81,6 +91,11 @@ class PP_Elements_WPML {
 				[
 					'field'       => 'counter_title',
 					'type'        => __( 'Counter - Title', 'power-pack' ),
+					'editor_type' => 'LINE'
+				],
+				[
+					'field'       => 'counter_subtitle',
+					'type'        => __( 'Counter - Subtitle', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
 			],
@@ -101,12 +116,17 @@ class PP_Elements_WPML {
 				[
 					'field'       => 'first_text',
 					'type'        => __( 'Dual Heading - First Text', 'power-pack' ),
-					'editor_type' => 'AREA'
+					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'second_text',
 					'type'        => __( 'Dual Heading - Second Text', 'power-pack' ),
-					'editor_type' => 'AREA'
+					'editor_type' => 'LINE'
+				],
+				'link' => [
+					'field'       => 'url',
+					'type'        => __( 'Dual Heading - Link', 'powerpack' ),
+					'editor_type' => 'LINK',
 				],
 			],
 		];
@@ -116,7 +136,12 @@ class PP_Elements_WPML {
 				[
 					'field'       => 'heading_text',
 					'type'        => __( 'Fancy Heading - Heading Text', 'powerpack' ),
-					'editor_type' => 'AREA',
+					'editor_type' => 'LINE',
+				],
+				'link' => [
+					'field'       => 'url',
+					'type'        => __( 'Fancy Heading - Link', 'powerpack' ),
+					'editor_type' => 'LINK',
 				],
 			],
 		];
@@ -143,10 +168,10 @@ class PP_Elements_WPML {
 					'type'        => __( 'Flip Box - Back Description', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
-				[
-					'field'       => 'link',
+				'link' => [
+					'field'       => 'url',
 					'type'        => __( 'Flip Box - Link', 'powerpack' ),
-					'editor_type' => 'LINE',
+					'editor_type' => 'LINK',
 				],
 				[
 					'field'       => 'flipbox_button_text',
@@ -210,6 +235,11 @@ class PP_Elements_WPML {
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Icon_List'
 		];
+		$widgets['pp-image-accordion']      = [
+			'conditions'        => [ $this->type => 'pp-image-accordion' ],
+			'fields'            => [],
+			'integration-class' => 'WPML_PP_Image_Accordion',
+		];
 		$widgets[ 'pp-image-comparison' ]     = [
 			'conditions' => [ $this->type => 'pp-image-comparison' ],
 			'fields'     => [
@@ -249,8 +279,8 @@ class PP_Elements_WPML {
 					'type'        => __( 'Info Box - Description', 'power-pack' ),
 					'editor_type' => 'AREA'
 				],
-				[
-					'field'       => 'link',
+				'link' => [
+					'field'       => 'url',
 					'type'        => __( 'Info Box - Link', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
@@ -300,8 +330,8 @@ class PP_Elements_WPML {
 					'type'        => __( 'Info Table - Sale Badge Text', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
-				[
-					'field'       => 'link',
+				'link' => [
+					'field'       => 'url',
 					'type'        => __( 'Info Table - Link', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
@@ -321,9 +351,14 @@ class PP_Elements_WPML {
 					'type'        => __( 'Instafeed - Link Title', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
-				[
-					'field'       => 'insta_profile_url',
+				'insta_profile_url' => [
+					'field'       => 'url',
 					'type'        => __( 'Instafeed - Instagram Profile URL', 'power-pack' ),
+					'editor_type' => 'LINE'
+				],
+				[
+					'field'       => 'load_more_button_text',
+					'type'        => __( 'Instafeed - Load More Button Text', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
 			],
@@ -341,9 +376,9 @@ class PP_Elements_WPML {
 					'type'        => __( 'Link Effects - Secondary Text', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
-				[
-					'field'       => 'link',
-					'type'        => __( 'Link Effects - link', 'power-pack' ),
+				'link' => [
+					'field'       => 'url',
+					'type'        => __( 'Link Effects - Link', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
 			],
@@ -407,12 +442,17 @@ class PP_Elements_WPML {
 					'editor_type' => 'LINE'
 				],
 				[
+					'field'       => 'ribbon_title',
+					'type'        => __( 'Pricing Table - Ribbon Title', 'power-pack' ),
+					'editor_type' => 'LINE'
+				],
+				[
 					'field'       => 'table_button_text',
 					'type'        => __( 'Pricing Table - Button Text', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
-				[
-					'field'       => 'link',
+				'link' => [
+					'field'       => 'url',
 					'type'        => __( 'Pricing Table - Link', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
@@ -447,8 +487,8 @@ class PP_Elements_WPML {
 					'type'        => __( 'Promo Box - Button Text', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
-				[
-					'field'       => 'link',
+				'link' => [
+					'field'       => 'url',
 					'type'        => __( 'Promo Box - link', 'power-pack' ),
 					'editor_type' => 'LINE'
 				],
@@ -457,8 +497,8 @@ class PP_Elements_WPML {
 		$widgets['pp-scroll-image']         = [
 			'conditions' => [ $this->type => 'pp-scroll-image' ],
 			'fields'     => [
-				[
-					'field'       => 'link',
+				'link' => [
+					'field'       => 'url',
 					'type'        => __( 'Scroll Image - URL', 'powerpack' ),
 					'editor_type' => 'LINK',
 				],
@@ -480,7 +520,12 @@ class PP_Elements_WPML {
 				[
 					'field'       => 'team_member_description',
 					'type'        => __( 'Team Member - Description', 'power-pack' ),
-					'editor_type' => 'AREA'
+					'editor_type' => 'VISUAL'
+				],
+				'link' => [
+					'field'       => 'url',
+					'type'        => __( 'Team Member - URL', 'powerpack' ),
+					'editor_type' => 'LINK',
 				],
 			],
 			'integration-class' => 'WPML_PP_Team_Member'
@@ -585,8 +630,6 @@ class PP_Elements_WPML {
 				],
 			],
 		];
-
-		$this->init_classes();
 		
 		return $widgets;
 	}
@@ -598,6 +641,7 @@ class PP_Elements_WPML {
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-content-ticker.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-image-hotspots.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-icon-list.php';
+		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-image-accordion.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-info-box-carousel.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-info-list.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-logo-carousel.php';
