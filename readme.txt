@@ -150,7 +150,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
-= 1.2.9.3 - April 17, 2020 =
+= 1.2.9.3 - April 20, 2020 =
 * 	Added: Button width option
 * 	Fixed: WPML compatibility was missing for some widgets
 * 	Fixed: Gravity Forms CSS & JS files were loading on all pages
