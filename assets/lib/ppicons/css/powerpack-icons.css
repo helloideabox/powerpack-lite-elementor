@@ -24,8 +24,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.ppicon-review-box:before {
-  content: "\e95a";
+.ppicon-powerpack-small:before {
+	content: "\e95e";
+}
+.ppicon-categories:before {
+	content: "\e95d";
+}
+.ppicon-how-to:before {
+  content: "\e95b";
+}
+.ppicon-coupon:before {
+  content: "\e95c";
 }
 .ppicon-cta-button:before {
   content: "\e957";
@@ -35,6 +44,9 @@
 }
 .ppicon-heading:before {
   content: "\e959";
+}
+.ppicon-review-box:before {
+  content: "\e95a";
 }
 .ppicon-mini-cart:before {
   content: "\e955";

@@ -24,6 +24,7 @@ define( 'POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED', '5.4' );
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/helper-functions.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-admin-settings.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-config.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-posts-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
 
@@ -169,6 +170,22 @@ function pp_elements_lite_init() {
     add_action( 'init', 'pp_elements_lite_load_plugin_textdomain' );
 
 	add_action( 'elementor/init', 'pp_elements_lite_category' );
+}
+
+/**
+ * Check if PowerPack Elements is active
+ *
+ * @since 1.2.9.4
+ *
+ */
+if ( ! function_exists( 'is_pp_elements_active' ) ) {
+	function is_pp_elements_active() {
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+		$plugin = 'powerpack-elements/powerpack-elements.php';
+
+		return is_plugin_active( $plugin ) || function_exists( 'pp_init' );
+	}
 }
 
 /**

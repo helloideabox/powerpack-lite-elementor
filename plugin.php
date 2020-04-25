@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite;
 
 use Elementor\Utils;
+use PowerpackElementsLite\Classes\PP_Config;
 
 if ( ! defined( 'ABSPATH' ) ) {	exit; } // Exit if accessed directly
 
@@ -385,6 +386,27 @@ class PowerpackLitePlugin {
 			1
 		);
 	}
+	
+	public function get_promotion_widgets($config) {
+
+        if (is_pp_elements_active()) {
+            return $config;
+        }
+
+        $promotion_widgets = [];
+
+        if (isset($config['promotionWidgets'])) {
+            $promotion_widgets = $config['promotionWidgets'];
+        }
+		
+		$pro_widgets = PP_Config::get_pro_widgets();
+
+        $combine_array = array_merge($promotion_widgets, $pro_widgets);
+
+        $config['promotionWidgets'] = $combine_array;
+
+        return $config;
+    }	
 
 	protected function add_actions() {
 		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
@@ -399,6 +421,8 @@ class PowerpackLitePlugin {
 
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'enqueue_frontend_scripts' ] );
 		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_frontend_styles' ] );
+		
+		add_filter('elementor/editor/localize_settings', [$this, 'get_promotion_widgets']);
 	}
 
 	/**

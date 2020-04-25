@@ -6,7 +6,7 @@
 }
 .elementor-element [class*="power-pack-"]:after {
     background: transparent;
-    border-width: 0 0 1px 1px;
+    border-width: 0 1px 1px 0;
     border-color: #e0e0e0;
     border-style: solid;
     color: #798389;
@@ -15,7 +15,7 @@
     font-size: 9px;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     z-index: 1;
     padding: 0.2em 0.5em;
 }
