@@ -14,8 +14,7 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -101,12 +100,12 @@ class Advanced_Accordion extends Powerpack_Widget {
 		/*-----------------------------------------------------------------------------------*/
 
   		/**
-  		 * Content Tab: Tabs
+  		 * Content Tab: Accordion
   		 */
   		$this->start_controls_section(
   			'section_accordion_tabs',
   			[
-  				'label'                 => esc_html__( 'Tabs', 'powerpack' )
+  				'label'                 => esc_html__( 'Accordion', 'powerpack' )
   			]
   		);
         
@@ -117,6 +116,7 @@ class Advanced_Accordion extends Powerpack_Widget {
             [
                 'label'                 => __( 'Title', 'powerpack' ),
                 'type'                  => Controls_Manager::TEXT,
+				'label_block'           => true,
                 'default'               => __( 'Accordion Title', 'powerpack' ),
                 'dynamic'               => [
                     'active'   => true,
@@ -205,66 +205,6 @@ class Advanced_Accordion extends Powerpack_Widget {
                 ],
             ]
         );
-
-        /*$repeater->add_control(
-            'saved_widget',
-            [
-                'label'                 => __( 'Choose Widget', 'powerpack' ),
-                'type'                  => Controls_Manager::SELECT,
-                'options'               => $this->get_page_template_options( 'widget' ),
-				'default'               => '-1',
-				'condition'             => [
-					'content_type'    => 'widget',
-				],
-                'conditions'        => [
-                    'terms' => [
-                        [
-                            'name'      => 'content_type',
-                            'operator'  => '==',
-                            'value'     => 'widget',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $repeater->add_control(
-            'saved_section',
-            [
-                'label'                 => __( 'Choose Section', 'powerpack' ),
-                'type'                  => Controls_Manager::SELECT,
-                'options'               => $this->get_page_template_options( 'section' ),
-				'default'               => '-1',
-                'conditions'        => [
-                    'terms' => [
-                        [
-                            'name'      => 'content_type',
-                            'operator'  => '==',
-                            'value'     => 'section',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        $repeater->add_control(
-            'templates',
-            [
-                'label'                 => __( 'Choose Template', 'powerpack' ),
-                'type'                  => Controls_Manager::SELECT,
-                'options'               => $this->get_page_template_options( 'page' ),
-				'default'               => '-1',
-                'conditions'        => [
-                    'terms' => [
-                        [
-                            'name'      => 'content_type',
-                            'operator'  => '==',
-                            'value'     => 'template',
-                        ],
-                    ],
-                ],
-            ]
-        );*/
 
 		$repeater->add_control(
 			'saved_widget',
@@ -376,11 +316,36 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'					=> __( 'Normal Icon', 'powerpack' ),
 				'type'					=> Controls_Manager::ICONS,
-				'label_block'			=> true,
+				'label_block'			=> false,
+				'skin'					=> 'inline',
 				'fa4compatibility'		=> 'toggle_icon_normal',
 				'default'				=> [
-					'value' => 'fas fa-plus',
-					'library' => 'fa-solid',
+					'value'		=> 'fas fa-plus',
+					'library'	=> 'fa-solid',
+				],
+				'recommended'			=> [
+					'fa-regular' => [
+						'plus-square',
+						'caret-square-up',
+						'caret-square-down',
+					],
+					'fa-solid' => [
+						'chevron-up',
+						'chevron-down',
+						'angle-up',
+						'angle-down',
+						'angle-right',
+						'angle-dowble-up',
+						'angle-dowble-down',
+						'caret-up',
+						'caret-down',
+						'caret-square-up',
+						'caret-square-down',
+						'plus',
+						'plus-circle',
+						'plus-square',
+						'minus',
+					],
 				],
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
@@ -393,11 +358,34 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'					=> __( 'Active Icon', 'powerpack' ),
 				'type'					=> Controls_Manager::ICONS,
-				'label_block'			=> true,
+				'label_block'			=> false,
+				'skin'					=> 'inline',
 				'fa4compatibility'		=> 'toggle_icon_active',
 				'default'				=> [
-					'value' => 'fas fa-minus',
-					'library' => 'fa-solid',
+					'value'		=> 'fas fa-minus',
+					'library'	=> 'fa-solid',
+				],
+				'recommended'			=> [
+					'fa-regular' => [
+						'minus-square',
+						'caret-square-up',
+						'caret-square-down',
+					],
+					'fa-solid' => [
+						'chevron-up',
+						'chevron-down',
+						'angle-up',
+						'angle-down',
+						'angle-dowble-up',
+						'angle-dowble-down',
+						'caret-up',
+						'caret-down',
+						'caret-square-up',
+						'caret-square-down',
+						'minus',
+						'minus-circle',
+						'minus-square',
+					],
 				],
 				'condition'             => [
 					'toggle_icon_show' => 'yes'
@@ -439,6 +427,25 @@ class Advanced_Accordion extends Powerpack_Widget {
 				'frontend_available'    => true,
 			]
 		);
+
+		$this->add_control(
+			'title_html_tag',
+			[
+				'label'					=> __( 'Title HTML Tag', 'powerpack' ),
+				'type'					=> Controls_Manager::SELECT,
+				'options'				=> [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+					'div' => 'div',
+				],
+				'default'				=> 'div',
+			]
+		);
+		
 		$this->end_controls_section();
   		
         /**
@@ -455,7 +462,7 @@ class Advanced_Accordion extends Powerpack_Widget {
         $this->add_responsive_control(
             'accordion_items_spacing',
             [
-                'label'                 => __( 'Spacing', 'powerpack' ),
+                'label'                 => __( 'Items Gap', 'powerpack' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' 	=> [
@@ -528,7 +535,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '#f1f1f1',
+				'default'               => '#F8F8F8',
 				'selectors'	=> [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title' => 'background-color: {{VALUE}};',
 				],
@@ -553,6 +560,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
             	'name'                  => 'tab_title_typography',
 				'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title',
+				'scheme'				=> Schemes\Typography::TYPOGRAPHY_1,
 			]
 		);
         
@@ -769,6 +777,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
             	'name'                  => 'tab_content_typography',
 				'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content',
+				'scheme'				=> Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -958,7 +967,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 					$is_new = ! isset( $settings['toggle_icon_active'] ) && $migration_allowed;
 				?>
 				<div class="pp-accordion-item">
-					<div <?php echo $this->get_render_attribute_string($tab_title_setting_key); ?>>
+					<<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string($tab_title_setting_key); ?>>
 						<span class="pp-accordion-title-icon">
 							<?php if ( ! empty( $tab['accordion_tab_title_icon'] ) || ( ! empty( $tab['tab_title_icon']['value'] ) && $is_new_title_icon ) ) { ?>
 								<span class="pp-accordion-tab-icon pp-icon">
@@ -1000,7 +1009,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 								<?php } ?>
 							</div>
 						<?php } ?>
-					</div>
+					</<?php echo $settings['title_html_tag']; ?>>
 
 					<div <?php echo $this->get_render_attribute_string($tab_content_setting_key); ?>>
 						<?php
@@ -1043,30 +1052,6 @@ class Advanced_Accordion extends Powerpack_Widget {
             <?php endforeach; ?>
         </div>
 	<?php
-	}
-
-	/**
-	 *  Get Saved Widgets
-	 *
-	 *  @param string $type Type.
-	 *  
-	 *  @return string
-	 */
-	public function get_page_template_options( $type = '' ) {
-
-		$page_templates = pp_elements_lite_get_page_templates( $type );
-
-		$options[-1]   = __( 'Select', 'powerpack' );
-
-		if ( count( $page_templates ) ) {
-			foreach ( $page_templates as $id => $name ) {
-				$options[ $id ] = $name;
-			}
-		} else {
-			$options['no_template'] = __( 'No saved templates found!', 'powerpack' );
-		}
-
-		return $options;
 	}
 
 	protected function _content_template() {  }

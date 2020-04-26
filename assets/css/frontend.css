@@ -2433,6 +2433,7 @@ div[class*=' pa-'] {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
   .pp-advanced-accordion .pp-accordion-tab-title {
+    margin: 0;
     padding: 15px;
     font-size: 1rem;
     font-weight: 600;
