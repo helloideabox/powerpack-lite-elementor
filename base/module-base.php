@@ -2,7 +2,6 @@
 namespace PowerpackElementsLite\Base;
 
 use PowerpackElementsLite\Classes\PP_Admin_Settings;
-use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -74,7 +73,6 @@ abstract class Module_Base {
 		$this->reflection = new \ReflectionClass( $this );
 
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
-		add_action( 'powerpack_elements/element/after_section_end', [ $this, 'add_upgrade_pro_section' ], 10, 3 );
 	}
 
 	public function init_widgets() {
@@ -89,33 +87,6 @@ abstract class Module_Base {
                 $widget_manager->register_widget_type( new $class_name() );
             }
 		}
-	}
-	
-	public function add_upgrade_pro_section( $element ) {
-
-		// The name of the section
-		$section_name = 'section_upgrade_powerpack_pro';
-
-		$element->start_controls_section(
-			$section_name,
-			[
-				'tab' 	=> Controls_Manager::TAB_CONTENT,
-				'label' => __( 'Get PowerPack Pro', 'powerpack' ),
-			]
-		);
-		
-		$element->add_control(
-			'important_note_pro',
-			[
-				'label' => __( 'Important Note', 'powerpack' ),
-				'type' => \Elementor\Controls_Manager::RAW_HTML,
-				'raw' => __( 'A very important message to show in the panel.', 'powerpack' ),
-				'content_classes' => 'your-class',
-			]
-		);
-
-		$element->end_controls_section();
-
 	}
     
     static function is_widget_active( $widget = '' ) {

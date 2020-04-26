@@ -67,20 +67,33 @@
 .elementor-control-type-pp-query .elementor-control-input-wrapper {
     width: 135px;
 }
-
+.elementor-panel .elementor-control-section_upgrade_powerpack .elementor-panel-heading-title.elementor-panel-heading-title,
+.elementor-panel .elementor-control-section_upgrade_powerpack .elementor-panel-heading-toggle {
+	color: #d30c5c;
+}
+.elementor-panel .elementor-control-upgrade_powerpack_notice .upgrade-powerpack-notice {
+	background-color: #fcfcfc;
+	border-color: #d30c5c;
+    line-height: 1.8;
+}
+.elementor-panel .elementor-control-upgrade_powerpack_notice .upgrade-powerpack-notice a {
+	border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    border-bottom-color: inherit;
+}
 .pp-editor-doc-links {
-    	font-size: 12px;
-    }
-    .pp-editor-doc-links a {
-    	color: #6d7882;
-    	display: inline-block;
-    	line-height: 1.2;
-    	padding-left: 10px;
-    	position: relative;
-    }
-    .pp-editor-doc-links a:before {
-    	content: '»';
-    	position: absolute;
-    	left: 0;
-    	top: 0;
-    }
+	font-size: 12px;
+}
+.pp-editor-doc-links a {
+	color: #6d7882;
+	display: inline-block;
+	line-height: 1.2;
+	padding-left: 10px;
+	position: relative;
+}
+.pp-editor-doc-links a:before {
+	content: '»';
+	position: absolute;
+	left: 0;
+	top: 0;
+}

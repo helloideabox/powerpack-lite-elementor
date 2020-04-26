@@ -749,6 +749,33 @@ class Instafeed extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+		
+		if ( !is_pp_elements_active() ) {
+			/**
+			 * Content Tab: Upgrade PowerPack
+			 *
+			 * @since 1.2.9.4
+			 */
+			$this->start_controls_section(
+				'section_upgrade_powerpack',
+				[
+					'label'                 => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
+					'tab'					=> Controls_Manager::TAB_CONTENT,
+				]
+			);
+
+			$this->add_control(
+				'upgrade_powerpack_notice',
+				[
+					'label'                 => '',
+					'type'					=> Controls_Manager::RAW_HTML,
+					'raw'					=> apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'content_classes'		=> 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
+				]
+			);
+
+			$this->end_controls_section();
+		}
 
         /*-----------------------------------------------------------------------------------*/
         /*	STYLE TAB
