@@ -1327,6 +1327,7 @@ class Contact_Form_7 extends Powerpack_Widget {
         
         $this->end_controls_section();
 
+		do_action( 'powerpack_elements/element/after_section_end', $this );
     }
 
     /**
