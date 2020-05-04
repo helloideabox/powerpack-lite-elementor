@@ -150,6 +150,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.9.4 - May 6, 2020 =
+* 	Added: Advanced Accordion - Title HTML tag option
+* 	Fixed: Instagram Feed - Square images option was not working
+
 = 1.2.9.3 - April 20, 2020 =
 * 	Added: Button width option
 * 	Fixed: WPML compatibility was missing for some widgets

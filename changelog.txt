@@ -1,6 +1,7 @@
 == 1.2.9.4 ==
-Release date: May 3, 2020
+Release date: May 6, 2020
 * Added: Advanced Accordion - Title HTML tag option
+* Fixed: Instagram Feed - Square images option was not working
 
 == 1.2.9.3 ==
 Release date: April 20, 2020
