@@ -154,6 +154,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	Added: Advanced Accordion - Title HTML tag option
 * 	Fixed: Instagram Feed - Square images option was not working
 * 	Fixed: Image Hotspots - Dynamic link tags were not working
+* 	Added: Icon List - Background color and hover colors for text
 
 = 1.2.9.3 - April 20, 2020 =
 * 	Added: Button width option
