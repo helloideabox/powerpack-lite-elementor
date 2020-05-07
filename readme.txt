@@ -150,10 +150,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
-= 1.2.9.4 - May 6, 2020 =
+= 1.2.9.4 - May 7, 2020 =
 * 	Added: Advanced Accordion - Title HTML tag option
 * 	Fixed: Instagram Feed - Square images option was not working
-* 	Fixed: Image Hotspots - Dynamic link tags were not working
+* 	Fixed: Image Hotspots, Flipbox - Dynamic tags were not working
 * 	Added: Icon List - Background color and hover colors for text
 
 = 1.2.9.3 - April 20, 2020 =
