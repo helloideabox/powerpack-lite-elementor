@@ -45,7 +45,7 @@ class Twitter_Timeline extends Powerpack_Widget {
     }
 
 	public function get_icon() {
-		return 'fa fa-twitter power-pack-admin-icon';
+		return 'ppicon-twitter-timeline power-pack-admin-icon';
 	}
 
     /**
