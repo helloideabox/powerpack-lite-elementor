@@ -84,12 +84,12 @@ https://www.youtube.com/watch?v=blCGxZujnJg
 18. [Magazine Slider](https://powerpackelements.com/demo/magazine-slider/) - Create magazine layout slider of posts
 19. [Video](https://powerpackelements.com/demo/video/) - A widget to embed videos on your website
 20. [Video Gallery](https://powerpackelements.com/demo/video-gallery/) - Create video gallery with filter options
-21. [Davices](https://powerpackelements.com/elementor-widgets/devices/) - Create stunning device mockups to present your work in a style. 
+21. [Devices](https://powerpackelements.com/elementor-widgets/devices/) - Create stunning device mockups to present your work in a style. 
 22. [Fancy Heading](https://powerpackelements.com/elementor-widgets/fancy-heading/) - Setup stylish headings on your Elementor website with gradient fill and background clipping options.
 23. [Review Box](https://powerpackelements.com/elementor-widgets/review-box/) - Display any kind of reviews with the Review box Elementor widget.
 
 ### 7 WooCommerce Elementor Widgets 
-** Get Special WooCommerce Elementor widgets with PowerPack Pro*
+** Get Special WooCommerce Elementor widgets with PowerPack Pro **
 1. [Woo Products](https://powerpackelements.com/demo/woo-product-grid/) - Multiple layout and styling options to create WooCommerce Product Grid and Carousel layouts on your Elementor website 
 2. [Woo Categories](https://powerpackelements.com/demo/woo-category) - Display a grid or carousel for WooCommerce Product Categories
 3. [Add to Cart Button](https://powerpackelements.com/demo/woo-add-to-cart/) - Easily add a special "add to cart" button for any product on any page with extensive styling options. 
