@@ -433,6 +433,7 @@ class UsageTracking {
 			'</a>'
 		);
 		?>
+		<?php $this->print_notices_common_style(); ?>
 		<style>
 		.pp-review-notice {
 			display: block;
@@ -453,10 +454,10 @@ class UsageTracking {
 			margin-right: 5px;
 		}
 		</style>
-		<div class="pp-review-notice notice notice-info is-dismissible">
+		<div class="pp-review-notice pp--notice notice notice-info is-dismissible">
 			<p><?php echo $notice; // @codingStandardsIgnoreLine. ?></p>
 			<div class="pp-notice-buttons">
-				<a href="<?php echo esc_url( $review_url ); ?>" target="_blank" class="button-primary"><?php esc_html_e( 'Ok, you deserve it', 'powerpack' ); ?></a>
+				<a href="<?php echo esc_url( $review_url ); ?>" target="_blank" class="pp-button-primary"><?php esc_html_e( 'Ok, you deserve it', 'powerpack' ); ?></a>
 				<span class="dashicons dashicons-calendar"></span>
 				<a href="<?php echo esc_url_raw( $maybe_later_url ); ?>"><?php esc_html_e( 'Nope, maybe later', 'powerpack' ); ?></a>
 				<span class="dashicons dashicons-smiley"></span>
@@ -500,51 +501,56 @@ class UsageTracking {
 		);
 
 		$notice = __( '<strong>Exclusive Offer!</strong> We don\'t run promotions very often. But for a limited time we are offering an exclusive <strong>20% discount</strong> to all users of Free PowerPack Elementor addon.', 'powerpack' );
+		$button_text = __( 'Get this offer', 'powerpack' );
+
+		if ( class_exists( 'WooCommerce' ) ) {
+			$notice = __( 'Upgrade to <strong>PowerPack Pro for Elementor</strong> and Get WooCommerce Elementor Widgets like Product Grid, Checkout Styler, Off-Canvas Cart, etc.', 'powerpack' );
+			$upgrade_url = 'http://powerpackelements.com/woocommerce-elementor-widgets/?utm_source=wporg&utm_medium=notice&utm_campaign=woo_upgrade';
+			$button_text = __( 'Explore now', 'powerpack' );
+		}
 		?>
+		<?php $this->print_notices_common_style(); ?>
 		<style>
 		.pp-upgrade-notice {
-			display: block;
 			padding-left: 5px;
 			padding-top: 5px;
 			padding-bottom: 5px;
 			border: 0;
-			box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
 		}
 		.pp-upgrade-notice .pp-notice-wrap {
 			display: flex;
 			align-items: center;
 		}
+		.pp-upgrade-notice .pp-notice-col-left {
+			width: <?php echo class_exists( 'WooCommerce' ) ? 8 : 10; ?>%;
+    		min-width: 75px;
+		}
 		.pp-upgrade-notice .pp-notice-col-right {
 			padding-left: 15px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 		}
 		.pp-upgrade-notice img {
-			width: 110px;
 			display: block;
 			max-width: 100%;
 		}
 		.pp-upgrade-notice p {
 			line-height: 22px;
 			font-size: 14px;
+			margin: 0;
 		}
 		.pp-upgrade-notice .pp-notice-buttons {
 			margin: 10px 0;
-		}
-		.pp-upgrade-notice .pp-notice-buttons a {
-			margin-right: 13px;
-			color: #4849d7;
-		}
-		.pp-upgrade-notice .pp-notice-buttons a.pp-button-primary {
-			background: #4849d7;
-			color: #fff;
-			text-decoration: none;
-			padding: 6px 12px;
-			border-radius: 4px;
+			margin-bottom: 0;
+			display: flex;
+    		align-items: center;
 		}
 		.pp-upgrade-notice .pp-notice-buttons .dashicons {
 			margin-right: 5px;
 		}
 		</style>
-		<div class="pp-upgrade-notice notice notice-success is-dismissible">
+		<div class="pp-upgrade-notice pp--notice notice notice-success is-dismissible">
 			<div class="pp-notice-wrap">
 				<div class="pp-notice-col-left">
 					<img src="<?php echo POWERPACK_ELEMENTS_LITE_URL; ?>assets/images/icon-256x256.png" />
@@ -552,12 +558,40 @@ class UsageTracking {
 				<div class="pp-notice-col-right">
 					<p><?php echo $notice; // @codingStandardsIgnoreLine. ?></p>
 					<div class="pp-notice-buttons">
-						<a href="<?php echo esc_url( $upgrade_url ); ?>" target="_blank" class="pp-button-primary"><?php esc_html_e( 'Get this offer', 'powerpack' ); ?></a>
+						<a href="<?php echo esc_url( $upgrade_url ); ?>" target="_blank" class="pp-button-primary"><?php echo $button_text; ?></a>
 						<a href="<?php echo esc_url_raw( $no_upgrade_url ); ?>"><?php esc_html_e( 'I\'m not interested', 'powerpack' ); ?></a>
 					</div>
 				</div>
 			</div>
 		</div>
+		<?php
+	}
+
+	private function print_notices_common_style() {
+		?>
+		<style>
+		.pp--notice {
+			display: block;
+			border-top: 0;
+			border-bottom: 0;
+			border-right: 0;
+			border-left-color: #4849d7;
+			box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+		}
+		.pp--notice a {
+			color: #4849d7;
+		}
+		.pp--notice .pp-notice-buttons a {
+			margin-right: 13px;
+		}
+		.pp--notice .pp-notice-buttons a.pp-button-primary {
+			background: #4849d7;
+			color: #fff;
+			text-decoration: none;
+			padding: 6px 12px;
+			border-radius: 4px;
+		}
+		</style>
 		<?php
 	}
 
