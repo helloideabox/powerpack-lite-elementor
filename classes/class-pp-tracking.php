@@ -46,11 +46,11 @@ class UsageTracking {
 	 * @access public
 	 */
 	public function __construct() {
-		add_action( 'init', array( $this, 'schedule_send' ) );
-		add_action( 'init', array( $this, 'create_recurring_schedule' ) );
-		add_filter( 'cron_schedules', array( $this, 'cron_add_weekly' ) );
-		add_action( 'pp_admin_after_settings_saved', array( $this, 'check_for_settings_optin' ), 10, 2 );
-		add_action( 'admin_init', array( $this, 'act_on_tracking_decision' ) );
+		//add_action( 'init', array( $this, 'schedule_send' ) );
+		//add_action( 'init', array( $this, 'create_recurring_schedule' ) );
+		//add_filter( 'cron_schedules', array( $this, 'cron_add_weekly' ) );
+		//add_action( 'pp_admin_after_settings_saved', array( $this, 'check_for_settings_optin' ), 10, 2 );
+		//add_action( 'admin_init', array( $this, 'act_on_tracking_decision' ) );
 		add_action( 'admin_init', array( $this, 'hook_notices' ) );
 	}
 
@@ -82,7 +82,7 @@ class UsageTracking {
 			remove_all_actions( 'admin_notices' );
 		}
 
-		add_action( 'admin_notices', [ $this, 'admin_notice' ] );
+		//add_action( 'admin_notices', [ $this, 'tracking_admin_notice' ] );
 		add_action( 'admin_notices', [ $this, 'review_plugin_notice' ] );
 		add_action( 'admin_notices', [ $this, 'pro_upgrade_notice' ] );
 	}
@@ -317,7 +317,7 @@ class UsageTracking {
 	 * @access public
 	 * @return void
 	 */
-	public function admin_notice() {
+	public function tracking_admin_notice() {
 		$hide_notice = get_option( 'pp_tracking_notice' );
 
 		if ( $hide_notice ) {
