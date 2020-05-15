@@ -571,21 +571,22 @@ class UsageTracking {
 		?>
 		<style>
 		.pp--notice {
+			--brand-color: #4849d7;
 			display: block;
 			border-top: 0;
 			border-bottom: 0;
 			border-right: 0;
-			border-left-color: #4849d7;
+			border-left-color: var(--brand-color);
 			box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
 		}
 		.pp--notice a {
-			color: #4849d7;
+			color: var(--brand-color);
 		}
 		.pp--notice .pp-notice-buttons a {
 			margin-right: 13px;
 		}
 		.pp--notice .pp-notice-buttons a.pp-button-primary {
-			background: #4849d7;
+			background: var(--brand-color);
 			color: #fff;
 			text-decoration: none;
 			padding: 6px 12px;
