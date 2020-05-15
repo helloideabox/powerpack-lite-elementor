@@ -63,11 +63,16 @@ class UsageTracking {
 		if ( isset( $_GET['pp_admin_action'] ) && isset( $_GET['_nonce'] ) ) {
 			$action = sanitize_text_field( wp_unslash( $_GET['pp_admin_action'] ) );
 			$nonce = wp_unslash( $_GET['_nonce'] ); // @codingStandardsIgnoreLine.
-			if ( 'review_maybe_later' === $action && wp_verify_nonce( $nonce, 'pp_admin_notice_nonce' ) ) {
-				update_option( 'pp_review_later_date', current_time( 'mysql' ) );
-			}
-			if ( 'review_already_did' === $action && wp_verify_nonce( $nonce, 'pp_admin_notice_nonce' ) ) {
-				update_option( 'pp_review_already_did', 'yes' );
+			if ( wp_verify_nonce( $nonce, 'pp_admin_notice_nonce' ) ) {
+				if ( 'review_maybe_later' === $action ) {
+					update_option( 'pp_review_later_date', current_time( 'mysql' ) );
+				}
+				if ( 'review_already_did' === $action ) {
+					update_option( 'pp_review_already_did', 'yes' );
+				}
+				if ( 'do_not_upgrade' === $action ) {
+					update_option( 'pp_do_not_upgrade_to_pro', 'yes' );
+				}
 			}
 
 			wp_safe_redirect( esc_url_raw( remove_query_arg( array( 'pp_admin_action', '_nonce' ) ) ) );
@@ -79,6 +84,7 @@ class UsageTracking {
 
 		add_action( 'admin_notices', [ $this, 'admin_notice' ] );
 		add_action( 'admin_notices', [ $this, 'review_plugin_notice' ] );
+		add_action( 'admin_notices', [ $this, 'pro_upgrade_notice' ] );
 	}
 
 	/**
@@ -422,7 +428,7 @@ class UsageTracking {
 		$notice = sprintf(
 			// translators: %1$s denotes plugin name, %2$s denotes opening anchor tag, %3$s denots closing anchor tag.
 			__( 'Hey, It seems you have been using %1$s for at least 7 days now - that\'s awesome!<br>Could you please do us a BIG favor and give it a %2$s5-star rating on WordPress?%3$s This will help us spread the word and boost our motivation - thanks!', 'powerpack' ),
-			'<storng>PowerPack Elements Lite</strong>',
+			'<strong>PowerPack Elements Lite</strong>',
 			'<a href="' . esc_url( $review_url ) . '" target="_blank">',
 			'</a>'
 		);
@@ -455,6 +461,101 @@ class UsageTracking {
 				<a href="<?php echo esc_url_raw( $maybe_later_url ); ?>"><?php esc_html_e( 'Nope, maybe later', 'powerpack' ); ?></a>
 				<span class="dashicons dashicons-smiley"></span>
 				<a href="<?php echo esc_url_raw( $already_did_url ); ?>"><?php esc_html_e( 'I already did', 'powerpack' ); ?></a>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render notice for Pro upgrade.
+	 *
+	 * @access 	public
+	 * @return 	void
+	 */
+	public function pro_upgrade_notice() {
+		if ( 'yes' === get_option( 'pp_do_not_upgrade_to_pro' ) ) {
+			return;
+		}
+
+		$install_date = get_option( 'pp_install_date' );
+
+		if ( ! $install_date || empty( $install_date ) ) {
+			return;
+		}
+
+		$diff = round( ( time() - strtotime( $install_date ) ) / 24 / 60 / 60 );
+
+		if ( $diff < 23 ) {
+			return;
+		}
+
+		$nonce = wp_create_nonce( 'pp_admin_notice_nonce' );
+
+		$upgrade_url = 'https://powerpackelements.com/upgrade/?utm_source=wporg&utm_medium=notice&utm_campaign=lite_offer';
+		$no_upgrade_url = add_query_arg(
+			array(
+				'pp_admin_action' 	=> 'do_not_upgrade',
+				'_nonce'			=> $nonce,
+			)
+		);
+
+		$notice = __( '<strong>Exclusive Offer!</strong> We don\'t run promotions very often. But for a limited time we are offering an exclusive <strong>20% discount</strong> to all users of Free PowerPack Elementor addon.', 'powerpack' );
+		?>
+		<style>
+		.pp-upgrade-notice {
+			display: block;
+			padding-left: 5px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			border: 0;
+			box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+		}
+		.pp-upgrade-notice .pp-notice-wrap {
+			display: flex;
+			align-items: center;
+		}
+		.pp-upgrade-notice .pp-notice-col-right {
+			padding-left: 15px;
+		}
+		.pp-upgrade-notice img {
+			width: 110px;
+			display: block;
+			max-width: 100%;
+		}
+		.pp-upgrade-notice p {
+			line-height: 22px;
+			font-size: 14px;
+		}
+		.pp-upgrade-notice .pp-notice-buttons {
+			margin: 10px 0;
+		}
+		.pp-upgrade-notice .pp-notice-buttons a {
+			margin-right: 13px;
+			color: #4849d7;
+		}
+		.pp-upgrade-notice .pp-notice-buttons a.pp-button-primary {
+			background: #4849d7;
+			color: #fff;
+			text-decoration: none;
+			padding: 6px 12px;
+			border-radius: 4px;
+		}
+		.pp-upgrade-notice .pp-notice-buttons .dashicons {
+			margin-right: 5px;
+		}
+		</style>
+		<div class="pp-upgrade-notice notice notice-success is-dismissible">
+			<div class="pp-notice-wrap">
+				<div class="pp-notice-col-left">
+					<img src="<?php echo POWERPACK_ELEMENTS_LITE_URL; ?>assets/images/icon-256x256.png" />
+				</div>
+				<div class="pp-notice-col-right">
+					<p><?php echo $notice; // @codingStandardsIgnoreLine. ?></p>
+					<div class="pp-notice-buttons">
+						<a href="<?php echo esc_url( $upgrade_url ); ?>" target="_blank" class="pp-button-primary"><?php esc_html_e( 'Get this offer', 'powerpack' ); ?></a>
+						<a href="<?php echo esc_url_raw( $no_upgrade_url ); ?>"><?php esc_html_e( 'I\'m not interested', 'powerpack' ); ?></a>
+					</div>
+				</div>
 			</div>
 		</div>
 		<?php
