@@ -185,7 +185,7 @@ final class PP_Admin_Settings {
 	 * @param string $key The option key.
 	 * @return mixed
 	 */
-    static public function get_option( $key, $network_override = true )
+    static public function get_option( $key, $network_override = true, $default = null )
     {
     	if ( is_network_admin() ) {
     		$value = get_site_option( $key );
@@ -199,7 +199,11 @@ final class PP_Admin_Settings {
         }
         else {
     		$value = get_option( $key );
-    	}
+		}
+		
+		if ( empty( $value ) && ! is_null( $default ) ) {
+			$value = $default;
+		}
 
         return $value;
     }
@@ -250,15 +254,18 @@ final class PP_Admin_Settings {
 			return;
 		}
 
-		self::save_modules();
-    }
-
-	static public function save_modules()
-	{
 		if ( ! isset( $_POST['pp-modules-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-modules-settings-nonce'], 'pp-modules-settings' ) ) {
             return;
-        }
+		}
 
+		self::save_modules();
+		self::save_tracking();
+
+		do_action( 'pp_admin_after_settings_saved' );
+    }
+
+	static private function save_modules()
+	{
 		if ( isset( $_POST['pp_enabled_modules'] ) ) {
 			update_site_option( 'pp_elementor_modules', $_POST['pp_enabled_modules'] );
 		} else {
@@ -269,6 +276,14 @@ final class PP_Admin_Settings {
 			update_site_option( 'pp_elementor_extensions', $_POST['pp_enabled_extensions'] );
 		} else {
 			update_site_option( 'pp_elementor_extensions', 'disabled' );
+		}
+	}
+
+	static private function save_tracking() {
+		if ( isset( $_POST['pp_allowed_tracking'] ) ) {
+			self::update_option( 'pp_allowed_tracking', sanitize_text_field( $_POST['pp_allowed_tracking'] ), true );
+		} else {
+			self::delete_option( 'pp_allowed_tracking' );
 		}
 	}
 

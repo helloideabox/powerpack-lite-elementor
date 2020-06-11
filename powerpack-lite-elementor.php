@@ -22,10 +22,11 @@ define( 'POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED', '1.7' );
 define( 'POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED', '5.4' );
 
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/helper-functions.php';
-require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-tracking.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-admin-settings.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-posts-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
 
 /**
  * Check if Elementor is installed
@@ -169,6 +170,12 @@ function pp_elements_lite_init() {
     add_action( 'init', 'pp_elements_lite_load_plugin_textdomain' );
 
 	add_action( 'elementor/init', 'pp_elements_lite_category' );
+
+	$is_plugin_activated = get_option( 'pp_plugin_activated' );
+	if ( current_user_can('activate_plugins') && 'yes' !== $is_plugin_activated ) {
+		update_option( 'pp_install_date', current_time( 'mysql' ) );
+		update_option( 'pp_plugin_activated', 'yes' );
+	}
 }
 
 /**
