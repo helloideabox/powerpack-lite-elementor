@@ -150,6 +150,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 1.2.9.5 - June 11, 2020 =
+* 	Added: Image Hotspots - Border, border radius and box shadow options for image
+* 	Fixed: Team Member Carousel - Email and phone icons were not working
+* 	Added: Info Box - Minimum height option
+* 	Added: Image Comparison - Added dynamic controls to image and labels
+
 = 1.2.9.4 - May 7, 2020 =
 * 	Added: Advanced Accordion - Title HTML tag option
 * 	Fixed: Instagram Feed - Square images option was not working

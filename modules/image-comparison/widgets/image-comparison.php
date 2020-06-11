@@ -129,6 +129,9 @@ class Image_Comparison extends Powerpack_Widget {
             [
                 'label'             => __( 'Label', 'powerpack' ),
                 'type'              => Controls_Manager::TEXT,
+				'dynamic'         	=> [
+					'active'   => true,
+				],
                 'default'           => __( 'Before', 'powerpack' ),
             ]
         );
@@ -138,6 +141,9 @@ class Image_Comparison extends Powerpack_Widget {
 			[
 				'label'             => __( 'Image', 'powerpack' ),
 				'type'              => Controls_Manager::MEDIA,
+				'dynamic'         	=> [
+					'active'   => true,
+				],
 				'default'           => [
 					'url' => Utils::get_placeholder_image_src(),
 				],
@@ -161,6 +167,9 @@ class Image_Comparison extends Powerpack_Widget {
             [
                 'label'             => __( 'Label', 'powerpack' ),
                 'type'              => Controls_Manager::TEXT,
+				'dynamic'         	=> [
+					'active'   => true,
+				],
                 'default'           => __( 'After', 'powerpack' ),
             ]
         );
@@ -170,6 +179,9 @@ class Image_Comparison extends Powerpack_Widget {
 			[
 				'label'             => __( 'Image', 'powerpack' ),
 				'type'              => Controls_Manager::MEDIA,
+				'dynamic'         	=> [
+					'active'   => true,
+				],
 				'default'           => [
 					'url' => Utils::get_placeholder_image_src(),
 				],

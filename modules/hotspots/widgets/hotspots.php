@@ -682,6 +682,38 @@ class Hotspots extends Powerpack_Widget {
             ]
         );
 
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'                  => 'image_border',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+				'selector'              => '{{WRAPPER}} .pp-hot-spot-image img'
+			]
+		);
+
+		$this->add_control(
+			'image_border_radius',
+			[
+				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-hot-spot-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'                  => 'image_box_shadow',
+				'selector'              => '{{WRAPPER}} .pp-hot-spot-image img',
+				'separator'             => 'before',
+			]
+		);
+
         $this->end_controls_section();
 
         /**

@@ -720,6 +720,30 @@ class Info_Box extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_responsive_control(
+			'info_box_min_height',
+			array(
+				'label'      => __( 'Min Height', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => array(
+					'px' => array(
+						'min'  => 50,
+						'max'  => 1000,
+						'step' => 1,
+					),
+					'vh' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'size_units' => array( 'px', 'vh' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-info-box-container' => 'min-height: {{SIZE}}{{UNIT}}',
+				),
+			)
+		);
+
         $this->end_controls_section();
 
         /**

@@ -2524,18 +2524,18 @@ class Team_Member_Carousel extends Powerpack_Widget {
         ( $item['youtube_url'] ) ? $pp_social_links['youtube'] = $item['youtube_url'] : '';
         ( $item['pinterest_url'] ) ? $pp_social_links['pinterest'] = $item['pinterest_url'] : '';
         ( $item['dribbble_url'] ) ? $pp_social_links['dribbble'] = $item['dribbble_url'] : '';
-        ( $item['email'] ) ? $pp_social_links['envelope-o'] = $item['email'] : '';
-        ( $item['phone'] ) ? $pp_social_links['phone'] = $item['phone'] : '';
+        ( $item['email'] ) ? $pp_social_links['envelope'] = $item['email'] : '';
+        ( $item['phone'] ) ? $pp_social_links['phone-alt'] = $item['phone'] : '';
         ?>
         <div class="pp-tm-social-links-wrap">
             <ul class="pp-tm-social-links">
                 <?php
                     foreach( $pp_social_links as $icon_id => $icon_url ) {
                         if ( $icon_url ) {
-                            if ( $icon_id == 'envelope-o' ) {
-                                printf( '<li><a href="mailto:%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-'. esc_attr( $icon_id ).'"></span></span></a></li>', sanitize_email( $icon_url )  );
-                            } else if ( $icon_id == 'phone' ) {
-                                printf( '<li><a href="tel:%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-'. esc_attr( $icon_id ).'"></span></span></a></li>', $icon_url  );
+                            if ( $icon_id == 'envelope' ) {
+                                printf( '<li><a href="mailto:%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon far fa-'. esc_attr( $icon_id ).'"></span></span></a></li>', sanitize_email( $icon_url )  );
+                            } else if ( $icon_id == 'phone-alt' ) {
+                                printf( '<li><a href="tel:%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fas fa-'. esc_attr( $icon_id ).'"></span></span></a></li>', $icon_url  );
                             } else {
                                 printf( '<li><a href="%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-'. esc_attr( $icon_id ).'"></span></span></a></li>', esc_url( $icon_url )  );
                             }
@@ -2671,14 +2671,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
                         <# if ( email ) { #>
                             <li>
                                 <a href="mailto:{{ email }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-envelope-o"></span></span>
+                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon far fa-envelope"></span></span>
                                 </a>
                             </li>
                         <# } #>
                         <# if ( phone ) { #>
                             <li>
                                 <a href="tel:{{ phone }}">
-                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa-phone"></span></span>
+                                    <span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fas fa-phone-alt"></span></span>
                                 </a>
                             </li>
                         <# } #>
