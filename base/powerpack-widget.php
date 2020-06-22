@@ -3,6 +3,7 @@
 namespace PowerpackElementsLite\Base;
 
 use Elementor\Widget_Base;
+use PowerpackElementsLite\Classes\PP_Helper;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -22,6 +23,56 @@ abstract class Powerpack_Widget extends Widget_Base {
 	 */
 	public function get_categories() {
 		return [ 'powerpack-elements' ];
+	}
+
+	/**
+	 * Get widget name
+	 *
+	 * @param string $slug Module class.
+	 * @since x.x.x
+	 */
+	public function get_widget_name( $slug = '' ) {
+		return PP_Helper::get_widget_name( $slug );
+	}
+
+	/**
+	 * Get widget title
+	 *
+	 * @param string $slug Module class.
+	 * @since x.x.x
+	 */
+	public function get_widget_title( $slug = '' ) {
+		return PP_Helper::get_widget_title( $slug );
+	}
+
+	/**
+	 * Get widget title
+	 *
+	 * @param string $slug Module class.
+	 * @since x.x.x
+	 */
+	public function get_widget_categories( $slug = '' ) {
+		return PP_Helper::get_widget_categories( $slug );
+	}
+
+	/**
+	 * Get widget title
+	 *
+	 * @param string $slug Module class.
+	 * @since x.x.x
+	 */
+	public function get_widget_icon( $slug = '' ) {
+		return PP_Helper::get_widget_icon( $slug );
+	}
+
+	/**
+	 * Get widget title
+	 *
+	 * @param string $slug Module class.
+	 * @since x.x.x
+	 */
+	public function get_widget_keywords( $slug = '' ) {
+		return PP_Helper::get_widget_keywords( $slug );
 	}
 
 	/**

@@ -25,6 +25,7 @@ require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/helper-functions.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-tracking.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-admin-settings.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-config.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-posts-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
@@ -125,22 +126,6 @@ function pp_elements_lite_load_plugin_textdomain() {
 	load_plugin_textdomain( 'powerpack', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 
-/**
- * Assigns category to PowerPack
- *
- * @since 1.0
- *
- */
-function pp_elements_lite_category() {
-	\Elementor\Plugin::instance()->elements_manager->add_category(
-        'power-pack',
-        array(
-            'title' => 'PowerPack',
-            'icon'  => 'font',
-        ),
-	    1 );
-}
-
 add_action( 'plugins_loaded', 'pp_elements_lite_init' );
 
 function pp_elements_lite_init() {
@@ -169,8 +154,6 @@ function pp_elements_lite_init() {
 	}
     
     add_action( 'init', 'pp_elements_lite_load_plugin_textdomain' );
-
-	add_action( 'elementor/init', 'pp_elements_lite_category' );
 
 	$is_plugin_activated = get_option( 'pp_plugin_activated' );
 	if ( current_user_can('activate_plugins') && 'yes' !== $is_plugin_activated ) {

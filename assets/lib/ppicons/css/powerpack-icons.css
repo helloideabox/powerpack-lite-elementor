@@ -27,6 +27,21 @@
 .ppicon-powerpack-small:before {
 	content: "\e95e";
 }
+.ppicon-login-form:before {
+  content: "\e960";
+}
+.ppicon-my-account:before {
+  content: "\e961";
+}
+.ppicon-registration-form:before {
+  content: "\e962";
+}
+.ppicon-sitemap:before {
+  content: "\e963";
+}
+.ppicon-toc:before {
+  content: "\e95f";
+}
 .ppicon-categories:before {
 	content: "\e95d";
 }

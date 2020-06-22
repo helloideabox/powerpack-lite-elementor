@@ -24,31 +24,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Twitter_Timeline extends Powerpack_Widget {
 
 	public function get_name() {
-		return 'pp-twitter-timeline';
+		return parent::get_widget_name( 'Twitter_Timeline' );
 	}
 
 	public function get_title() {
-		return __( 'Twitter Timeline', 'powerpack' );
+		return parent::get_widget_title( 'Twitter_Timeline' );
 	}
 
-    /**
-	 * Retrieve the list of categories the twitter timeline widget belongs to.
+	public function get_icon() {
+		return parent::get_widget_icon( 'Twitter_Timeline' );
+	}
+
+	/**
+	 * Get widget keywords.
 	 *
-	 * Used to determine where to display the widget in the editor.
+	 * Retrieve the list of keywords the widget belongs to.
 	 *
 	 * @access public
 	 *
-	 * @return array Widget categories.
+	 * @return array Widget keywords.
 	 */
-    public function get_categories() {
-        return [ 'power-pack' ];
-    }
-
-	public function get_icon() {
-		return 'ppicon-twitter-timeline power-pack-admin-icon';
+	public function get_keywords() {
+		return parent::get_widget_keywords( 'Twitter_Timeline' );
 	}
 
-    /**
+	/**
 	 * Retrieve the list of scripts the twitter timeline widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
@@ -57,141 +57,141 @@ class Twitter_Timeline extends Powerpack_Widget {
 	 *
 	 * @return array Widget scripts dependencies.
 	 */
-    public function get_script_depends() {
-        return [
-            'pp-jquery-plugin',
-            'jquery-cookie',
+	public function get_script_depends() {
+		return array(
+			'pp-jquery-plugin',
+			'jquery-cookie',
 			'twitter-widgets',
-			'powerpack-frontend'
-        ];
-    }
+			'powerpack-frontend',
+		);
+	}
 
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_timeline',
-			[
+			array(
 				'label' => __( 'Timeline', 'powerpack' ),
-			]
+			)
 		);
 
 		$this->add_control(
-            'username',
-            [
-                'label'                 => __( 'User Name', 'powerpack' ),
-                'type'                  => Controls_Manager::TEXT,
-                'default'               => '',
-            ]
-        );
+			'username',
+			array(
+				'label'   => __( 'User Name', 'powerpack' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => '',
+			)
+		);
 
 		$this->add_control(
 			'theme',
-			[
-				'label'                 => __( 'Theme', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'default'               => 'light',
-				'options'               => [
-					'light'		=> __( 'Light', 'powerpack' ),
-					'dark' 		=> __( 'Dark', 'powerpack' ),
-				],
-			]
+			array(
+				'label'   => __( 'Theme', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'light',
+				'options' => array(
+					'light' => __( 'Light', 'powerpack' ),
+					'dark'  => __( 'Dark', 'powerpack' ),
+				),
+			)
 		);
 
 		$this->add_control(
 			'show_replies',
-			[
-				'label' => __( 'Show Replies', 'powerpack' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Yes', 'powerpack' ),
-				'label_off' => __( 'No', 'powerpack' ),
+			array(
+				'label'        => __( 'Show Replies', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
 				'return_value' => 'yes',
-				'default' => 'no',
-			]
+				'default'      => 'no',
+			)
 		);
 
 		$this->add_control(
 			'layout',
-			[
-				'label'                 => __( 'Layout', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT2,
-				'default'               => '',
-				'options'               => [
-					'noheader'		=> __( 'No Header', 'powerpack' ),
-					'nofooter' 		=> __( 'No Footer', 'powerpack' ),
-					'noborders' 	=> __( 'No Borders', 'powerpack' ),
-					'transparent' 	=> __( 'Transparent', 'powerpack' ),
-					'noscrollbar' 	=> __( 'No Scroll Bar', 'powerpack' ),
-				],
-				'multiple'	=> true
-			]
+			array(
+				'label'    => __( 'Layout', 'powerpack' ),
+				'type'     => Controls_Manager::SELECT2,
+				'default'  => '',
+				'options'  => array(
+					'noheader'    => __( 'No Header', 'powerpack' ),
+					'nofooter'    => __( 'No Footer', 'powerpack' ),
+					'noborders'   => __( 'No Borders', 'powerpack' ),
+					'transparent' => __( 'Transparent', 'powerpack' ),
+					'noscrollbar' => __( 'No Scroll Bar', 'powerpack' ),
+				),
+				'multiple' => true,
+			)
 		);
 
 		$this->add_control(
-            'width',
-            [
-                'label'                 => __( 'Width', 'powerpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'default'               => [
-					'unit'	=> 'px',
-					'size'	=> ''
-				],
-				'size_units' => [ 'px' ],
-				'range' => [
-					'px' => [
+			'width',
+			array(
+				'label'      => __( 'Width', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'default'    => array(
+					'unit' => 'px',
+					'size' => '',
+				),
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
 						'min' => 100,
 						'max' => 1000,
-					],
-				],
-            ]
-        );
+					),
+				),
+			)
+		);
 		$this->add_control(
-            'height',
-            [
-                'label'                 => __( 'Height', 'powerpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'default'               => [
-					'unit'	=> 'px',
-					'size'	=> ''
-				],
-				'size_units' => [ 'px' ],
-				'range' => [
-					'px' => [
+			'height',
+			array(
+				'label'      => __( 'Height', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'default'    => array(
+					'unit' => 'px',
+					'size' => '',
+				),
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
 						'min' => 100,
 						'max' => 1000,
-					],
-				],
-            ]
-        );
+					),
+				),
+			)
+		);
 
 		$this->add_control(
-            'tweet_limit',
-            [
-                'label'                 => __( 'Tweet Limit', 'powerpack' ),
-                'type'                  => Controls_Manager::TEXT,
-                'default'               => '',
-            ]
-        );
+			'tweet_limit',
+			array(
+				'label'   => __( 'Tweet Limit', 'powerpack' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => '',
+			)
+		);
 
 		$this->add_control(
 			'link_color',
-			[
-				'label'                 => __( 'Link Color', 'powerpack' ),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
-			]
+			array(
+				'label'   => __( 'Link Color', 'powerpack' ),
+				'type'    => Controls_Manager::COLOR,
+				'default' => '',
+			)
 		);
 
 		$this->add_control(
 			'border_color',
-			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
-			]
+			array(
+				'label'   => __( 'Border Color', 'powerpack' ),
+				'type'    => Controls_Manager::COLOR,
+				'default' => '',
+			)
 		);
 
 		$this->end_controls_section();
-		
-		if ( !is_pp_elements_active() ) {
+
+		if ( ! is_pp_elements_active() ) {
 			/**
 			 * Content Tab: Upgrade PowerPack
 			 *
@@ -199,20 +199,20 @@ class Twitter_Timeline extends Powerpack_Widget {
 			 */
 			$this->start_controls_section(
 				'section_upgrade_powerpack',
-				[
-					'label'                 => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
-					'tab'					=> Controls_Manager::TAB_CONTENT,
-				]
+				array(
+					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
+					'tab'   => Controls_Manager::TAB_CONTENT,
+				)
 			);
 
 			$this->add_control(
 				'upgrade_powerpack_notice',
-				[
-					'label'                 => '',
-					'type'					=> Controls_Manager::RAW_HTML,
-					'raw'					=> apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
-					'content_classes'		=> 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				]
+				array(
+					'label'           => '',
+					'type'            => Controls_Manager::RAW_HTML,
+					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
+				)
 			);
 
 			$this->end_controls_section();
@@ -224,12 +224,12 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$settings = $this->get_settings();
 
 		$attrs = array();
-		$attr = ' ';
+		$attr  = ' ';
 
 		$user = $settings['username'];
 
-		$attrs['data-theme'] 			= $settings['theme'];
-		$attrs['data-show-replies'] 	= ( 'yes' == $settings['show_replies'] ) ? 'true' : 'false';
+		$attrs['data-theme']        = $settings['theme'];
+		$attrs['data-show-replies'] = ( 'yes' == $settings['show_replies'] ) ? 'true' : 'false';
 
 		if ( ! empty( $settings['width'] ) ) {
 			$attrs['data-width'] = $settings['width']['size'];
@@ -244,10 +244,10 @@ class Twitter_Timeline extends Powerpack_Widget {
 			$attrs['data-tweet-limit'] = absint( $settings['tweet_limit'] );
 		}
 		if ( ! empty( $settings['link_color'] ) ) {
-			$attrs['data-link-color'] 		= $settings['link_color'];
+			$attrs['data-link-color'] = $settings['link_color'];
 		}
 		if ( ! empty( $settings['border_color'] ) ) {
-			$attrs['data-border-color'] 	= $settings['border_color'];
+			$attrs['data-border-color'] = $settings['border_color'];
 		}
 
 		foreach ( $attrs as $key => $value ) {
