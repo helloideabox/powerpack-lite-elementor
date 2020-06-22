@@ -433,6 +433,7 @@ class PowerpackLitePlugin {
 
 		$this->_includes();
 		$this->add_actions();
+		Classes\UsageTracking::get_instance();
 	}
 	
 }

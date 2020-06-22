@@ -7,6 +7,7 @@ $modules            = pp_elements_lite_get_modules();
 $extensions         = pp_elements_lite_get_extensions();
 $enabled_modules    = pp_elements_lite_get_enabled_modules();
 $enabled_extensions = pp_elements_lite_get_enabled_extensions();
+$usage_tracking 	= false;
 ?>
 <style>
 .pp-modules-wrap:before,
@@ -23,7 +24,6 @@ $enabled_extensions = pp_elements_lite_get_enabled_extensions();
 }
 .pro-upgrade-banner {
 	width: 320px;
-	height: 320px;
 	float: right;
 	margin-top: 40px;
 	background: #fff;
@@ -78,8 +78,36 @@ $enabled_extensions = pp_elements_lite_get_enabled_extensions();
     background: #4242ce;
 }
 </style>
+<?php if ( $usage_tracking ) { ?>
+<div class="pp-general-wrap">
+	<table class="form-table" style="max-width: 100%;">
+		<tr valign="top">
+			<th scope="row" valign="top">
+				<label for="pp_allowed_tracking">
+				<?php esc_html_e('Allow usage tracking?', 'powerpack'); ?>
+				</label>
+			</th>
+			<td>
+				<p>
+					<label for="pp_allowed_tracking">
+						<input
+							id="pp_allowed_tracking"
+							name="pp_allowed_tracking"
+							type="checkbox"
+							value="on"
+							<?php echo get_option( 'pp_allowed_tracking' ) ? ' checked="checked"' : '' ?>
+						/>
+					</label>
+				</p>
+				<p class="description"><?php _e( 'Allow PowerPack to anonymously track how this plugin is used and help us make the plugin better. Opt-in to tracking and our newsletter. No sensitive data is tracked.', 'powerpack' ); ?></p>
+			</td>
+		</tr>
+	</table>
+</div>
+<?php } ?>
 <div class="pp-modules-wrap">
 	<table class="form-table">
+	
 	<tr valign="top">
 		<th scope="row" valign="top">
 			<?php esc_html_e('Enable/Disable Extensions', 'powerpack'); ?>
@@ -146,9 +174,10 @@ $enabled_extensions = pp_elements_lite_get_enabled_extensions();
 		<div class="banner-inner">
 			<div class="banner-image"><img src="<?php echo POWERPACK_ELEMENTS_LITE_URL . 'assets/images/pp-elements-logo.svg'; ?>" /></div>
 			<h3 class="banner-title-1"><?php _e('Get access to more premium widgets and features.', 'power-pack'); ?></h3>
-			<h3 class="banner-title-2"><?php _e('Upgrade to <strong>PowerPack Pro</strong> and get <strong>15%</strong> OFF', 'power-pack'); ?></h3>
+			<h3 class="banner-title-2"><?php _e('Upgrade to <strong>PowerPack Pro</strong> and get', 'power-pack'); ?></h3>
 			<ul>
 				<li><span class="dashicons dashicons-yes"></span><?php esc_html_e('More Widgets', 'power-pack'); ?></li>
+				<li><span class="dashicons dashicons-yes"></span><?php esc_html_e('WooCommerce Widgets', 'power-pack'); ?></li>
 				<li><span class="dashicons dashicons-yes"></span><?php esc_html_e('White Label Branding', 'power-pack'); ?></li>
 				<li><span class="dashicons dashicons-yes"></span><?php esc_html_e('Expert Support', 'power-pack'); ?></li>
 				<li><span class="dashicons dashicons-yes"></span><?php esc_html_e('Lifetime package available', 'power-pack'); ?></li>

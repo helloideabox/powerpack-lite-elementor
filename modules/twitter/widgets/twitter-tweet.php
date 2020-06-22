@@ -45,7 +45,7 @@ class Twitter_Tweet extends Powerpack_Widget {
     }
 
 	public function get_icon() {
-		return 'fa fa-twitter power-pack-admin-icon';
+		return 'ppicon-twitter-tweet power-pack-admin-icon';
 	}
 
     /**

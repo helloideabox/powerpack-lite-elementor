@@ -1594,7 +1594,8 @@ div[class*=' pa-'] {
     position: relative; }
     .pp-instagram-feed .pp-feed-item img {
       -webkit-filter: none;
-      filter: none; }
+      filter: none;
+      vertical-align: middle; }
     .pp-instagram-feed .pp-feed-item:hover img {
       -webkit-filter: none;
       filter: none; }
@@ -1630,16 +1631,10 @@ div[class*=' pa-'] {
     padding: 6px 30px;
     text-align: center; }
   .pp-instagram-feed .pp-feed-item {
+    position: relative; }
+  .pp-instagram-feed .pp-feed-item-inner {
     display: block;
     position: relative; }
-    .pp-instagram-feed .pp-feed-item:before {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      z-index: 1;
-      content: "";
-      -webkit-transition: all 0.25s linear 0s;
-      transition: all 0.25s linear 0s; }
   .pp-instagram-feed-gray .pp-feed-item img {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
@@ -1655,29 +1650,46 @@ div[class*=' pa-'] {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
     z-index: 1; }
     .pp-instagram-feed .pp-overlay-container span {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
       margin: 0 5px; }
   .pp-instagram-feed-hover .pp-overlay-container {
-    opacity: 0;
-    -webkit-transition: all 0.25s linear 0s;
-    transition: all 0.25s linear 0s; }
+    opacity: 0; }
   .pp-instagram-feed-hover .pp-feed-item:hover .pp-overlay-container {
     opacity: 1; }
   .pp-instagram-feed .swiper-container .swiper-slide img {
     width: 100%; }
 
 .pp-instafeed {
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
+
+.pp-if-icon {
+  margin-right: 5px; }
+
+.pp-if-square-images .pp-feed-item-inner {
+  position: relative;
+  padding-bottom: 100%;
+  width: 100%; }
+.pp-if-square-images .pp-if-img {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0; }
+.pp-if-square-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
 
 .pp-load-more-button {
   cursor: pointer; }
-  .pp-load-more-button:disabled {
+  .pp-load-more-button[disabled='disabled'] {
     display: none; }
 
 .pp-button-loading .pp-button-loader {
@@ -2433,6 +2445,7 @@ div[class*=' pa-'] {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
   .pp-advanced-accordion .pp-accordion-tab-title {
+    margin: 0;
     padding: 15px;
     font-size: 1rem;
     font-weight: 600;

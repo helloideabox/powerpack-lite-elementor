@@ -1415,7 +1415,7 @@ class Flipbox extends Powerpack_Widget {
 
 	protected function render() {
 
-   		$settings = $this->get_settings();
+   		$settings = $this->get_settings_for_display();
 
 	  	$flipbox_if_html_tag = 'div';
 	  	$this->add_render_attribute('flipbox-card', 'class', 'pp-flipbox-flip-card');
@@ -1451,7 +1451,7 @@ class Flipbox extends Powerpack_Widget {
 	}
 
 	protected function render_front() {
-   		$settings = $this->get_settings();
+   		$settings = $this->get_settings_for_display();
 			
 		$this->add_render_attribute( 'icon-front', 'class', 'pp-flipbox-icon-image' );
 		
@@ -1515,7 +1515,7 @@ class Flipbox extends Powerpack_Widget {
 	}
 
 	protected function render_back() {
-   		$settings = $this->get_settings();
+   		$settings = $this->get_settings_for_display();
         
 	  	$pp_title_html_tag = 'h3';
         
@@ -1635,7 +1635,7 @@ class Flipbox extends Powerpack_Widget {
 	}
 
 	protected function render_button_icon() {
-   		$settings = $this->get_settings();
+   		$settings = $this->get_settings_for_display();
 		
 		if ( ! isset( $settings['button_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
 			// add old default

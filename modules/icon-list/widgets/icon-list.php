@@ -13,8 +13,7 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -128,6 +127,10 @@ class Icon_List extends Powerpack_Widget {
 					],
                     [
 						'text'      => __( 'List Item #2', 'powerpack' ),
+                        'icon'		=> __('fa fa-check','powerpack')
+					],
+                    [
+						'text'      => __( 'List Item #3', 'powerpack' ),
                         'icon'		=> __('fa fa-check','powerpack')
 					],
 				],
@@ -432,9 +435,9 @@ class Icon_List extends Powerpack_Widget {
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#ddd',
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_3,
+				'scheme' => [
+					'type'	=> Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_3,
 				],
 				'condition'             => [
 					'divider'  => 'yes',
@@ -532,9 +535,9 @@ class Icon_List extends Powerpack_Widget {
 					'{{WRAPPER}} .pp-list-items .pp-icon-list-icon' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-list-items .pp-icon-list-icon svg' => 'fill: {{VALUE}};',
 				],
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_2,
+				'scheme' => [
+					'type'	=> Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_1,
 				],
 			]
 		);
@@ -643,12 +646,8 @@ class Icon_List extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-list-items .pp-icon-wrapper:hover .pp-icon-list-icon' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .pp-list-items .pp-icon-wrapper:hover .pp-icon-list-icon svg' => 'fill: {{VALUE}};',
-				],
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_2,
+					'{{WRAPPER}} .pp-icon-list-item:hover .pp-icon-wrapper .pp-icon-list-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-icon-list-item:hover .pp-icon-wrapper .pp-icon-list-icon svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -660,7 +659,7 @@ class Icon_List extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-list-items .pp-icon-wrapper:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .pp-icon-list-item:hover .pp-icon-wrapper' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -672,11 +671,7 @@ class Icon_List extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-list-items .pp-icon-wrapper:hover' => 'border-color: {{VALUE}};',
-				],
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_2,
+					'{{WRAPPER}} .pp-icon-list-item:hover .pp-icon-wrapper' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -706,18 +701,39 @@ class Icon_List extends Powerpack_Widget {
             ]
         );
 
+        $this->start_controls_tabs( 'tabs_text_style' );
+
+        $this->start_controls_tab(
+            'tab_text_normal',
+            [
+                'label'                 => __( 'Normal', 'powerpack' ),
+            ]
+        );
+
 		$this->add_control(
 			'text_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-icon-list-text' => 'color: {{VALUE}};',
 				],
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_2,
+				'scheme' => [
+					'type'	=> Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_2,
+				],
+			]
+		);
+
+		$this->add_control(
+			'text_bg_color',
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-icon-list-text' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -727,10 +743,46 @@ class Icon_List extends Powerpack_Widget {
             [
                 'name'                  => 'text_typography',
                 'label'                 => __( 'Typography', 'powerpack' ),
-                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+                'scheme'                => Schemes\Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .pp-icon-list-text',
             ]
         );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'tab_text_hover',
+            [
+                'label'                 => __( 'Hover', 'powerpack' ),
+            ]
+        );
+
+		$this->add_control(
+			'text_hover_color',
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-icon-list-item:hover .pp-icon-list-text' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'text_hover_bg_color',
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-icon-list-item:hover .pp-icon-list-text' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
         
         $this->end_controls_section();
 
@@ -768,12 +820,23 @@ class Icon_List extends Powerpack_Widget {
             <ul <?php echo $this->get_render_attribute_string( 'icon-list' ); ?>>
                 <?php foreach ( $settings['list_items'] as $index => $item ) : ?>
                     <?php if ( $item['text'] ) { ?>
-                        <li>
-                            <?php
-                                $text_key = $this->get_repeater_setting_key( 'text', 'list_items', $index );
-                                $this->add_render_attribute( $text_key, 'class', 'pp-icon-list-text' );
-                                $this->add_inline_editing_attributes( $text_key, 'none' );
+						<?php
+							$item_key = $this->get_repeater_setting_key( 'item', 'list_items', $index );
+							$text_key = $this->get_repeater_setting_key( 'text', 'list_items', $index );
+			
+							$this->add_render_attribute( [
+								$item_key => [
+									'class' => 'pp-icon-list-item'
+								],
+								$text_key => [
+									'class' => 'pp-icon-list-text'
+								]
+							] );
 
+							$this->add_inline_editing_attributes( $text_key, 'none' );
+						?>
+                        <li <?php echo $this->get_render_attribute_string( $item_key ); ?>>
+                            <?php
                                 if ( ! empty( $item['link']['url'] ) ) {
                                     $link_key = 'link_' . $i;
 									
@@ -881,20 +944,36 @@ class Icon_List extends Powerpack_Widget {
         ?>
         <div class="pp-list-container">
             <#
+				var iconsHTML = {},
+					migrated = {},
+			   		list_class = '';
+			   
                 if ( settings.view == 'inline' ) {
-                    var list_class = 'pp-inline-items';
-                } else {
-                    var list_class = '';
+                    list_class = 'pp-inline-items';
                 }
 			   
-				var iconsHTML = {},
-					migrated = {};
+			   	view.addRenderAttribute( 'list_items', 'class', [ 'pp-list-items', list_class ] );
             #>
-            <ul class="pp-list-items {{ list_class }}">
+            <ul {{{ view.getRenderAttributeString( 'list_items' ) }}}>
                 <# var i = 1; #>
-                <# _.each( settings.list_items, function( item, index ) { #>
+                <# _.each( settings.list_items, function( item, index ) {
+				   
+				   var itemKey = view.getRepeaterSettingKey( 'item', 'list_items', index ),
+				   	   textKey = view.getRepeaterSettingKey( 'text', 'list_items', index );
+				   
+				   view.addRenderAttribute( {
+				   		itemKey: {
+				   			'class': 'pp-icon-list-item'
+				   		},
+				   		textKey: {
+				   			'class': 'pp-icon-list-text'
+				   		}
+				   } );
+
+				   view.addInlineEditingAttributes( textKey );
+				   #>
                     <# if ( item.text != '' ) { #>
-                        <li>
+                        <li {{{ view.getRenderAttributeString( itemKey ) }}}>
                             <# if ( item.link && item.link.url ) { #>
                                 <a href="{{ item.link.url }}">
                             <# } #>
@@ -953,11 +1032,7 @@ class Icon_List extends Powerpack_Widget {
                             <#
                                 var text = item.text;
 
-                                view.addRenderAttribute( 'list_items.' + (i - 1) + '.text', 'class', 'pp-icon-list-text' );
-
-                                view.addInlineEditingAttributes( 'list_items.' + (i - 1) + '.text' );
-
-                                var text_html = '<span' + ' ' + view.getRenderAttributeString( 'list_items.' + (i - 1) + '.text' ) + '>' + text + '</span>';
+                                var text_html = '<span' + ' ' + view.getRenderAttributeString( textKey ) + '>' + text + '</span>';
 
                                 print( text_html );
                             #>
