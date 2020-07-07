@@ -1,7 +1,49 @@
+*.svn
+
+# Editors
+project.xml
+project.properties
+/nbproject/private/
+.buildpath
+.project
+.settings*
+.idea
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.sublimelinterrc
+
+# Grunt
+/node_modules/
+none
+
+# Sass
 .sass-cache
 .sass-cache/**
-assets/.sass-cache/**
-.DS_Store
 assets/.sass-cache
-.sass-cache/**
-*.svn
+assets/.sass-cache/**
+
+# Misc
+/build/
+temp/
+*.zip
+
+# Build tools lock
+composer.lock
+package-lock.json
+yarn.lock
+
+# OS X metadata
+.DS_Store
+.idea/
+
+# Windows junk
+Thumbs.db
+
+# Composer
+/vendor/
+contributors.md
+
+# Language files
+i18n/languages/*
