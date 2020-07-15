@@ -147,13 +147,15 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_VER
 		);
         
-        if ( class_exists( 'GFCommon' ) && \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
-            foreach( pp_elements_lite_get_gravity_forms() as $form_id => $form_name ){
-                if ( $form_id != '0' ) {
-                    gravity_form_enqueue_scripts( $form_id );
-                }
-            };
-        }
+        if ( class_exists( 'GFCommon' ) ) {
+			$gf_forms = \RGFormsModel::get_forms( null, 'title' );
+			foreach ( $gf_forms as $form ) {
+				if ( '0' !== $form->id ) {
+					wp_enqueue_script( 'gform_gravityforms' );
+					gravity_form_enqueue_scripts( $form->id );
+				}
+			}
+		}
 
         if ( function_exists( 'wpforms' ) ) {
             wpforms()->frontend->assets_css();
