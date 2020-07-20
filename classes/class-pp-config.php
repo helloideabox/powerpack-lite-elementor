@@ -693,7 +693,7 @@ class PP_Config {
 	 * @param  object $widget widget object.
 	 */
 	public static function get_widget_help_links( $widget ) {
-		$settings = \PowerpackElements\Classes\PP_Admin_Settings::get_settings();
+		$settings = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_settings();
 
 		if ( 'on' !== $settings['hide_support'] ) {
 			$links = self::widgets_help_links();

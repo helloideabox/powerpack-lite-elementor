@@ -154,6 +154,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	Enhancement: Updated admin panel UI
 * 	Added: Advanced Accordion - Toggle icon alignment and few other styling options
 * 	Fixed: Hotspots - Hotspot text was not visible on hover
+* 	Added: Gravity Forms - Thank You Message Styling Options
 
 = 1.2.9.5 - June 11, 2020 =
 * 	Added: Image Hotspots - Border, border radius and box shadow options for image
