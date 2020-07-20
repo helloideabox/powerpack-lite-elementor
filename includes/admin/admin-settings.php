@@ -27,6 +27,7 @@ $settings     = self::get_settings();
     padding: 0 20px;
     background: #fff;
     box-shadow: 0 1px 8px 0 rgba(0,0,0,0.05);
+	position: relative;
 }
 .pp-settings-header h3 {
 	margin: 0;
@@ -35,6 +36,10 @@ $settings     = self::get_settings();
 .pp-settings-header h3 .dashicons {
 	color: #a2a2a2;
 	vertical-align: text-bottom;
+}
+.pp-settings-version {
+	position: absolute;
+	right: 20px;
 }
 .pp-settings-tabs {
 	margin-left: 30px;
@@ -240,6 +245,9 @@ $settings     = self::get_settings();
 			<a href="<?php echo self::get_form_action( '&tab=modules' ); ?>" class="nav-tab<?php echo ( $current_tab == 'modules' ? ' nav-tab-active' : '' ); ?>">
 				<span><?php esc_html_e( 'Elements', 'powerpack' ); ?></span>
 			</a>
+		</div>
+		<div class="pp-settings-version wp-clearfix">
+			<span><?php echo sprintf( esc_html__( 'Version %s', 'powerpack' ), POWERPACK_ELEMENTS_LITE_VER ); ?></span>
 		</div>
 	</div>
 
