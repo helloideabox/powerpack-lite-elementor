@@ -46,7 +46,7 @@ function pp_elements_lite_get_contact_form_7_forms() {
 
 		foreach ( $contact_forms as $post ) {	
 			if ( $i == 0 ) {
-				$options[0] = esc_html__( 'Select a Contact form', 'power-pack' );
+				$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
 			}
 			$options[ $post->ID ] = $post->post_title;
 			$i++;
@@ -72,7 +72,7 @@ function pp_elements_lite_get_gravity_forms() {
 
 			foreach ( $contact_forms as $form ) {	
 				if ( $i == 0 ) {
-					$options[0] = esc_html__( 'Select a Contact form', 'power-pack' );
+					$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
 				}
 				$options[ $form->id ] = $form->title;
 				$i++;
@@ -98,7 +98,7 @@ function pp_elements_lite_get_ninja_forms() {
 
 			foreach ( $contact_forms as $form ) {	
 				if ( $i == 0 ) {
-					$options[0] = esc_html__( 'Select a Contact form', 'power-pack' );
+					$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
 				}
 				$options[ $form->get_id() ] = $form->get_setting( 'title' );
 				$i++;
@@ -124,7 +124,7 @@ function pp_elements_lite_get_caldera_forms() {
 
 		foreach ( $contact_forms as $form ) {	
 			if ( $i == 0 ) {
-				$options[0] = esc_html__( 'Select a Contact form', 'power-pack' );
+				$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
 			}
 			$options[ $form['ID'] ] = $form['name'];
 			$i++;
@@ -155,7 +155,7 @@ function pp_elements_lite_get_wpforms_forms() {
 
 		foreach ( $contact_forms as $post ) {	
 			if ( $i == 0 ) {
-				$options[0] = esc_html__( 'Select a Contact form', 'power-pack' );
+				$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
 			}
 			$options[ $post->ID ] = $post->post_title;
 			$i++;
@@ -376,29 +376,29 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 function pp_elements_lite_get_modules() {
     $modules = array(
         'pp-advanced-accordion'     => esc_html__('Advanced Accordion', 'powerpack'),
-        'pp-link-effects'           => esc_html__('Link Effects', 'power-pack'),
-        'pp-divider'                => esc_html__('Divider', 'power-pack'),
-        'pp-flipbox'                => esc_html__('Flipbox', 'power-pack'),
+        'pp-link-effects'           => esc_html__('Link Effects', 'powerpack'),
+        'pp-divider'                => esc_html__('Divider', 'powerpack'),
+        'pp-flipbox'                => esc_html__('Flipbox', 'powerpack'),
         'pp-image-accordion'        => esc_html__('Image Accordion', 'powerpack'),
-        'pp-info-box'               => esc_html__('Info Box', 'power-pack'),
-        'pp-info-box-carousel'      => esc_html__('Info Box Carousel', 'power-pack'),
-        'pp-info-list'              => esc_html__('Info List', 'power-pack'),
-		'pp-info-table'             => esc_html__('Info Table', 'power-pack'),
-        'pp-pricing-table'          => esc_html__('Pricing Table', 'power-pack'),
-        'pp-price-menu'             => esc_html__('Price Menu', 'power-pack'),
-        'pp-business-hours'         => esc_html__('Businsess Hours', 'power-pack'),
-        'pp-team-member'            => esc_html__('Team Member', 'power-pack'),
-        'pp-team-member-carousel'   => esc_html__('Team Member Carousel', 'power-pack'),
-        'pp-counter'                => esc_html__('Counter', 'power-pack'),
-        'pp-hotspots'               => esc_html__('Image Hotspots', 'power-pack'),
-        'pp-icon-list'              => esc_html__('Icon List', 'power-pack'),
-        'pp-dual-heading'           => esc_html__('Dual Heading', 'power-pack'),
-        'pp-promo-box'              => esc_html__('Promo Box', 'power-pack'),
-        'pp-logo-carousel'          => esc_html__('Logo Carousel', 'power-pack'),
-        'pp-logo-grid'              => esc_html__('Logo Grid', 'power-pack'),
-        'pp-image-comparison'       => esc_html__('Image Comparison', 'power-pack'),
-        'pp-instafeed'              => esc_html__('Instagram Feed', 'power-pack'),
-        'pp-content-ticker'         => esc_html__('Content Ticker', 'power-pack'),
+        'pp-info-box'               => esc_html__('Info Box', 'powerpack'),
+        'pp-info-box-carousel'      => esc_html__('Info Box Carousel', 'powerpack'),
+        'pp-info-list'              => esc_html__('Info List', 'powerpack'),
+		'pp-info-table'             => esc_html__('Info Table', 'powerpack'),
+        'pp-pricing-table'          => esc_html__('Pricing Table', 'powerpack'),
+        'pp-price-menu'             => esc_html__('Price Menu', 'powerpack'),
+        'pp-business-hours'         => esc_html__('Businsess Hours', 'powerpack'),
+        'pp-team-member'            => esc_html__('Team Member', 'powerpack'),
+        'pp-team-member-carousel'   => esc_html__('Team Member Carousel', 'powerpack'),
+        'pp-counter'                => esc_html__('Counter', 'powerpack'),
+        'pp-hotspots'               => esc_html__('Image Hotspots', 'powerpack'),
+        'pp-icon-list'              => esc_html__('Icon List', 'powerpack'),
+        'pp-dual-heading'           => esc_html__('Dual Heading', 'powerpack'),
+        'pp-promo-box'              => esc_html__('Promo Box', 'powerpack'),
+        'pp-logo-carousel'          => esc_html__('Logo Carousel', 'powerpack'),
+        'pp-logo-grid'              => esc_html__('Logo Grid', 'powerpack'),
+        'pp-image-comparison'       => esc_html__('Image Comparison', 'powerpack'),
+        'pp-instafeed'              => esc_html__('Instagram Feed', 'powerpack'),
+        'pp-content-ticker'         => esc_html__('Content Ticker', 'powerpack'),
         'pp-scroll-image'           => esc_html__('Scroll Image', 'powerpack'),
         'pp-buttons'				=> esc_html__('Buttons', 'powerpack'),
         'pp-twitter-buttons'        => esc_html__('Twitter Buttons', 'powerpack'),
@@ -410,27 +410,27 @@ function pp_elements_lite_get_modules() {
 
     // Contact Form 7
     if ( function_exists( 'wpcf7' ) ) {
-        $modules['pp-contact-form-7'] = esc_html__('Contact Form 7', 'power-pack');
+        $modules['pp-contact-form-7'] = esc_html__('Contact Form 7', 'powerpack');
     }
     
     // Gravity Forms
     if ( class_exists( 'GFCommon' ) ) {
-        $modules['pp-gravity-forms'] = esc_html__('Gravity Forms', 'power-pack');
+        $modules['pp-gravity-forms'] = esc_html__('Gravity Forms', 'powerpack');
     }
     
     // Ninja Forms
     if ( class_exists( 'Ninja_Forms' ) ) {
-        $modules['pp-ninja-forms'] = esc_html__('Ninja Forms', 'power-pack');
+        $modules['pp-ninja-forms'] = esc_html__('Ninja Forms', 'powerpack');
     }
     
     // Caldera Forms
     if ( class_exists( 'Caldera_Forms' ) ) {
-        $modules['pp-caldera-forms'] = esc_html__('Caldera Forms', 'power-pack');
+        $modules['pp-caldera-forms'] = esc_html__('Caldera Forms', 'powerpack');
     }
     
     // WPForms
     if ( function_exists( 'wpforms' ) ) {
-        $modules['pp-wpforms'] = esc_html__('WPForms', 'power-pack');
+        $modules['pp-wpforms'] = esc_html__('WPForms', 'powerpack');
     }
     
     // Formidable Forms

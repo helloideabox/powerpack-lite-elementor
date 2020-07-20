@@ -116,7 +116,7 @@ final class PP_Admin_Settings {
 	{
 		if ( ! empty( self::$errors ) ) {
 			foreach ( self::$errors as $message ) {
-				echo '<div class="error"><p>' . esc_html__( $message ) . '</p></div>';
+				echo '<div class="error"><p>' . esc_html__( $message, 'powerpack' ) . '</p></div>';
 			}
 		}
 		else if ( ! empty( $_POST ) && ! isset( $_POST['email'] ) ) {

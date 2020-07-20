@@ -5,7 +5,6 @@
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     .pp-accordion-tab-title {
-		margin: 0;
         padding: 15px;
         font-size: 1rem;
         font-weight: 600;
@@ -52,6 +51,12 @@
         }
         &.pp-accordion-tab-active {
             display: block;
+        }
+    }
+    &.pp-toggle-icon-align-left {
+        .pp-accordion-tab-title {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
         }
     }
 }

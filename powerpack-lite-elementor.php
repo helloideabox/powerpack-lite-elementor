@@ -3,7 +3,7 @@
  * Plugin Name: PowerPack Lite for Elementor
  * Plugin URI: https://powerpackelements.com
  * Description: Custom addons for Elementor page builder.
- * Version: 1.2.9.5
+ * Version: 1.3.0
  * Author: IdeaBox Creations
  * Author URI: http://ideabox.io/
  * License: GNU General Public License v2.0
@@ -14,7 +14,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'POWERPACK_ELEMENTS_LITE_VER', '1.2.9.5' );
+define( 'POWERPACK_ELEMENTS_LITE_VER', '1.3.0' );
 define( 'POWERPACK_ELEMENTS_LITE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_BASE', plugin_basename( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_URL', plugins_url( '/', __FILE__ ) );
@@ -24,6 +24,8 @@ define( 'POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED', '5.4' );
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/helper-functions.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-tracking.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-admin-settings.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-config.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-posts-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
@@ -124,22 +126,6 @@ function pp_elements_lite_load_plugin_textdomain() {
 	load_plugin_textdomain( 'powerpack', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 
-/**
- * Assigns category to PowerPack
- *
- * @since 1.0
- *
- */
-function pp_elements_lite_category() {
-	\Elementor\Plugin::instance()->elements_manager->add_category(
-        'power-pack',
-        array(
-            'title' => 'PowerPack',
-            'icon'  => 'font',
-        ),
-	    1 );
-}
-
 add_action( 'plugins_loaded', 'pp_elements_lite_init' );
 
 function pp_elements_lite_init() {
@@ -169,12 +155,26 @@ function pp_elements_lite_init() {
     
     add_action( 'init', 'pp_elements_lite_load_plugin_textdomain' );
 
-	add_action( 'elementor/init', 'pp_elements_lite_category' );
-
 	$is_plugin_activated = get_option( 'pp_plugin_activated' );
 	if ( current_user_can('activate_plugins') && 'yes' !== $is_plugin_activated ) {
 		update_option( 'pp_install_date', current_time( 'mysql' ) );
 		update_option( 'pp_plugin_activated', 'yes' );
+	}
+}
+
+/**
+ * Check if PowerPack Elements is active
+ *
+ * @since 1.2.9.4
+ *
+ */
+if ( ! function_exists( 'is_pp_elements_active' ) ) {
+	function is_pp_elements_active() {
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+		$plugin = 'powerpack-elements/powerpack-elements.php';
+
+		return is_plugin_active( $plugin ) || function_exists( 'pp_init' );
 	}
 }
 
@@ -184,7 +184,7 @@ function pp_elements_lite_init() {
  * @since 1.4.4
  */
 function pp_elements_lite_add_plugin_page_settings_link( $links ) {
-	$links[] = '<a href="' . admin_url( 'admin.php?page=powerpack-settings' ) . '">' . __('Settings') . '</a>';
+	$links[] = '<a href="' . admin_url( 'admin.php?page=powerpack-settings' ) . '">' . __('Settings', 'powerpack') . '</a>';
 	return $links;
 }
 add_filter('plugin_action_links_' . POWERPACK_ELEMENTS_LITE_BASE, 'pp_elements_lite_add_plugin_page_settings_link');
@@ -195,7 +195,7 @@ function pp_add_description_links( $plugin_meta, $plugin_file ) {
 	if ( POWERPACK_ELEMENTS_LITE_BASE === $plugin_file ) {
 		$row_meta = [
 			'docs' => '<a href="https://powerpackelements.com/docs/?utm_source=doclink&utm_medium=widget&utm_campaign=lite" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'powerpack' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'powerpack' ) . '</a>',
-			'ideo' => '<a href="https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite" aria-label="' . esc_attr( __( 'Go Pro', 'powerp-pack' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'powerpack' ) . '</a>',
+			'ideo' => '<a href="https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite" aria-label="' . esc_attr( __( 'Go Pro', 'powerpack' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'powerpack' ) . '</a>',
 		];
 
 		$plugin_meta = array_merge( $plugin_meta, $row_meta );

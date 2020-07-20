@@ -22,15 +22,15 @@ class WPML_PP_Price_Menu extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'menu_title':
-				return esc_html__( 'Price Menu - Menu Title', 'power-pack' );
+				return esc_html__( 'Price Menu - Menu Title', 'powerpack' );
 			case 'menu_description':
-				return esc_html__( 'Price Menu - Menu Description', 'power-pack' );
+				return esc_html__( 'Price Menu - Menu Description', 'powerpack' );
 			case 'menu_price':
-				return esc_html__( 'Price Menu - Menu Price', 'power-pack' );
+				return esc_html__( 'Price Menu - Menu Price', 'powerpack' );
 			case 'original_price':
-				return esc_html__( 'Price Menu - Original Price', 'power-pack' );
+				return esc_html__( 'Price Menu - Original Price', 'powerpack' );
 			case 'url':
-				return esc_html__( 'Price Menu - Link', 'power-pack' );
+				return esc_html__( 'Price Menu - Link', 'powerpack' );
 			default:
 				return '';
 		}

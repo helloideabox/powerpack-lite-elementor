@@ -20,11 +20,11 @@ class WPML_PP_Icon_List extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'text':
-				return esc_html__( 'Icon List - Text', 'power-pack' );
+				return esc_html__( 'Icon List - Text', 'powerpack' );
 			case 'icon_text':
-				return esc_html__( 'Icon List - Icon Text', 'power-pack' );
+				return esc_html__( 'Icon List - Icon Text', 'powerpack' );
 			case 'url':
-				return esc_html__( 'Icon List - Link', 'power-pack' );
+				return esc_html__( 'Icon List - Link', 'powerpack' );
 			default:
 				return '';
 		}

@@ -18,7 +18,7 @@ class WPML_PP_Team_Member extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'url':
-				return esc_html__( 'Team Member - Social Link', 'power-pack' );
+				return esc_html__( 'Team Member - Social Link', 'powerpack' );
 			default:
 				return '';
 		}

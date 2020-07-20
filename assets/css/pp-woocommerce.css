@@ -10,7 +10,6 @@
     padding: 0;
 }
 .pp-woo-categories .pp-woo-category-content-wrap {
-    -webkit-transition: background .25s;
     transition: background .25s;
 }
 .pp-woo-categories-fancy .pp-woo-category-content-wrap {
@@ -28,7 +27,5 @@
 .pp-woo-categories-middle .pp-woo-category-content-wrap {
     bottom: auto;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
