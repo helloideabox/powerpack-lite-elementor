@@ -152,6 +152,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 = 1.3.0 - July 20, 2020 =
 * 	Enhancement: Updated admin panel UI
+* 	Added: Advanced Accordion - Toggle icon alignment and few other styling options
 
 = 1.2.9.5 - June 11, 2020 =
 * 	Added: Image Hotspots - Border, border radius and box shadow options for image

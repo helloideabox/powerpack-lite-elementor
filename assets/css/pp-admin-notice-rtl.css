@@ -7,14 +7,14 @@
 }
 .pp-notice .pp-admin-review-logo-wrapper a img.logo {
   float: none;
-  margin: -10px 0 -14px -16px;
+  margin: -10px -16px -14px 0;
   width: 55px;
   padding: 0;
   border: none;
   vertical-align: center;
 }
 .pp-notice .pp-admin-review-msg-wrapper {
-  padding: 0 10px 0 15px;
+  padding: 0 15px 0 10px;
 }
 .pp-notice .pp-admin-review-msg-wrapper .pp-admin-message {
   position: relative;
@@ -32,7 +32,7 @@
 }
 .pp-notice .pp-admin-review-msg-wrapper .pp-admin-review-options-list li {
   display: inline-block;
-  margin-right: 10px;
+  margin-left: 10px;
   margin-bottom: 0;
   text-decoration: none;
 }

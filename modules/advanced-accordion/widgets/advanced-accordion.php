@@ -99,239 +99,243 @@ class Advanced_Accordion extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore 
+
+		/*-----------------------------------------------------------------------------------*/
+		/*	CONTENT TAB
+		/*-----------------------------------------------------------------------------------*/
 
 		/**
 		 * Content Tab: Accordion
 		 */
 		$this->start_controls_section(
 			'section_accordion_tabs',
-			array(
-				'label' => esc_html__( 'Accordion', 'powerpack' ),
-			)
+			[
+				'label'                 => esc_html__( 'Accordion', 'powerpack' ),
+			]
 		);
 
 		$repeater = new Repeater();
 
 		$repeater->add_control(
 			'tab_title',
-			array(
-				'label'       => __( 'Title', 'powerpack' ),
-				'type'        => Controls_Manager::TEXT,
-				'label_block' => true,
-				'default'     => __( 'Accordion Title', 'powerpack' ),
-				'dynamic'     => array(
-					'active' => true,
-				),
-			)
+			[
+				'label'                 => __( 'Title', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXT,
+				'label_block'           => true,
+				'default'               => __( 'Accordion Title', 'powerpack' ),
+				'dynamic'               => [
+					'active'   => true,
+				],
+			]
 		);
 
 		$repeater->add_control(
 			'tab_title_icon',
-			array(
-				'label'            => __( 'Icon', 'powerpack' ),
-				'type'             => Controls_Manager::ICONS,
-				'label_block'      => true,
-				'fa4compatibility' => 'accordion_tab_title_icon',
-			)
+			[
+				'label'                 => __( 'Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::ICONS,
+				'label_block'           => true,
+				'fa4compatibility'      => 'accordion_tab_title_icon',
+			]
 		);
 
 		$repeater->add_control(
 			'content_type',
-			array(
-				'label'       => esc_html__( 'Content Type', 'powerpack' ),
-				'type'        => Controls_Manager::SELECT,
-				'label_block' => false,
-				'options'     => array(
-					'content'  => __( 'Content', 'powerpack' ),
-					'image'    => __( 'Image', 'powerpack' ),
-					'section'  => __( 'Saved Section', 'powerpack' ),
-					'widget'   => __( 'Saved Widget', 'powerpack' ),
-					'template' => __( 'Saved Page Template', 'powerpack' ),
-				),
-				'default'     => 'content',
-			)
+			[
+				'label'                 => esc_html__( 'Content Type', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'label_block'           => false,
+				'options'               => [
+					'content'   => __( 'Content', 'powerpack' ),
+					'image'     => __( 'Image', 'powerpack' ),
+					'section'   => __( 'Saved Section', 'powerpack' ),
+					'widget'    => __( 'Saved Widget', 'powerpack' ),
+					'template'  => __( 'Saved Page Template', 'powerpack' ),
+				],
+				'default'               => 'content',
+			]
 		);
 
 		$repeater->add_control(
 			'accordion_content',
-			array(
-				'label'     => esc_html__( 'Content', 'powerpack' ),
-				'type'      => Controls_Manager::WYSIWYG,
-				'default'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
-				'dynamic'   => array( 'active' => true ),
-				'condition' => array(
-					'content_type' => 'content',
-				),
-			)
+			[
+				'label'                 => esc_html__( 'Content', 'powerpack' ),
+				'type'                  => Controls_Manager::WYSIWYG,
+				'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
+				'dynamic'               => [ 'active' => true ],
+				'condition'             => [
+					'content_type'  => 'content',
+				],
+			]
 		);
 
 		$repeater->add_control(
 			'image',
-			array(
-				'label'      => __( 'Image', 'powerpack' ),
-				'type'       => Controls_Manager::MEDIA,
-				'dynamic'    => array(
-					'active' => true,
-				),
-				'default'    => array(
+			[
+				'label'                 => __( 'Image', 'powerpack' ),
+				'type'                  => Controls_Manager::MEDIA,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-				'conditions' => array(
-					'terms' => array(
-						array(
-							'name'     => 'content_type',
-							'operator' => '==',
-							'value'    => 'image',
-						),
-					),
-				),
-			)
+				],
+				'conditions'            => [
+					'terms' => [
+						[
+							'name'      => 'content_type',
+							'operator'  => '==',
+							'value'     => 'image',
+						],
+					],
+				],
+			]
 		);
 
 		$repeater->add_group_control(
 			Group_Control_Image_Size::get_type(),
-			array(
-				'name'       => 'image',
-				'label'      => __( 'Image Size', 'powerpack' ),
-				'default'    => 'large',
-				'exclude'    => array( 'custom' ),
-				'conditions' => array(
-					'terms' => array(
-						array(
-							'name'     => 'content_type',
-							'operator' => '==',
-							'value'    => 'image',
-						),
-					),
-				),
-			)
+			[
+				'name'                  => 'image',
+				'label'                 => __( 'Image Size', 'powerpack' ),
+				'default'               => 'large',
+				'exclude'               => [ 'custom' ],
+				'conditions'            => [
+					'terms' => [
+						[
+							'name'      => 'content_type',
+							'operator'  => '==',
+							'value'     => 'image',
+						],
+					],
+				],
+			]
 		);
 
 		$repeater->add_control(
 			'saved_widget',
-			array(
-				'label'       => __( 'Choose Widget', 'powerpack' ),
-				'type'        => 'pp-query',
-				'label_block' => false,
-				'multiple'    => false,
-				'query_type'  => 'templates-widget',
-				'conditions'  => array(
-					'terms' => array(
-						array(
-							'name'     => 'content_type',
-							'operator' => '==',
-							'value'    => 'widget',
-						),
-					),
-				),
-			)
+			[
+				'label'                 => __( 'Choose Widget', 'powerpack' ),
+				'type'                  => 'pp-query',
+				'label_block'           => false,
+				'multiple'              => false,
+				'query_type'            => 'templates-widget',
+				'conditions'        => [
+					'terms' => [
+						[
+							'name'      => 'content_type',
+							'operator'  => '==',
+							'value'     => 'widget',
+						],
+					],
+				],
+			]
 		);
 
 		$repeater->add_control(
 			'saved_section',
-			array(
-				'label'       => __( 'Choose Section', 'powerpack' ),
-				'type'        => 'pp-query',
-				'label_block' => false,
-				'multiple'    => false,
-				'query_type'  => 'templates-section',
-				'conditions'  => array(
-					'terms' => array(
-						array(
-							'name'     => 'content_type',
-							'operator' => '==',
-							'value'    => 'section',
-						),
-					),
-				),
-			)
+			[
+				'label'                 => __( 'Choose Section', 'powerpack' ),
+				'type'                  => 'pp-query',
+				'label_block'           => false,
+				'multiple'              => false,
+				'query_type'            => 'templates-section',
+				'conditions'        => [
+					'terms' => [
+						[
+							'name'      => 'content_type',
+							'operator'  => '==',
+							'value'     => 'section',
+						],
+					],
+				],
+			]
 		);
 
 		$repeater->add_control(
 			'templates',
-			array(
-				'label'       => __( 'Choose Template', 'powerpack' ),
-				'type'        => 'pp-query',
-				'label_block' => false,
-				'multiple'    => false,
-				'query_type'  => 'templates-page',
-				'conditions'  => array(
-					'terms' => array(
-						array(
-							'name'     => 'content_type',
-							'operator' => '==',
-							'value'    => 'template',
-						),
-					),
-				),
-			)
+			[
+				'label'                 => __( 'Choose Template', 'powerpack' ),
+				'type'                  => 'pp-query',
+				'label_block'           => false,
+				'multiple'              => false,
+				'query_type'            => 'templates-page',
+				'conditions'        => [
+					'terms' => [
+						[
+							'name'      => 'content_type',
+							'operator'  => '==',
+							'value'     => 'template',
+						],
+					],
+				],
+			]
 		);
 
 		$repeater->add_control(
 			'accordion_tab_default_active',
-			array(
-				'label'        => esc_html__( 'Active as Default', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'no',
-				'return_value' => 'yes',
-			)
+			[
+				'label'                 => esc_html__( 'Active as Default', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'no',
+				'return_value'          => 'yes',
+			]
 		);
 
 		$this->add_control(
 			'tabs',
-			array(
-				'type'        => Controls_Manager::REPEATER,
-				'default'     => array(
-					array( 'tab_title' => esc_html__( 'Accordion Tab Title 1', 'powerpack' ) ),
-					array( 'tab_title' => esc_html__( 'Accordion Tab Title 2', 'powerpack' ) ),
-					array( 'tab_title' => esc_html__( 'Accordion Tab Title 3', 'powerpack' ) ),
-				),
-				'fields'      => array_values( $repeater->get_controls() ),
-				'title_field' => '{{tab_title}}',
-			)
+			[
+				'type'                  => Controls_Manager::REPEATER,
+				'default'               => [
+					[ 'tab_title' => esc_html__( 'Accordion Tab Title 1', 'powerpack' ) ],
+					[ 'tab_title' => esc_html__( 'Accordion Tab Title 2', 'powerpack' ) ],
+					[ 'tab_title' => esc_html__( 'Accordion Tab Title 3', 'powerpack' ) ],
+				],
+				'fields'                => array_values( $repeater->get_controls() ),
+				'title_field'           => '{{tab_title}}',
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_accordion_toggle_icon',
-			array(
-				'label' => esc_html__( 'Toggle Icon', 'powerpack' ),
-			)
+			[
+				'label'                 => esc_html__( 'Toggle Icon', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'toggle_icon_show',
-			array(
-				'label'        => esc_html__( 'Toggle Icon', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'yes',
-				'label_on'     => __( 'Show', 'powerpack' ),
-				'label_off'    => __( 'Hide', 'powerpack' ),
-				'return_value' => 'yes',
-			)
+			[
+				'label'                 => esc_html__( 'Toggle Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'yes',
+				'label_on'              => __( 'Show', 'powerpack' ),
+				'label_off'             => __( 'Hide', 'powerpack' ),
+				'return_value'          => 'yes',
+			]
 		);
 
 		$this->add_control(
 			'select_toggle_icon',
-			array(
-				'label'            => __( 'Normal Icon', 'powerpack' ),
-				'type'             => Controls_Manager::ICONS,
-				'label_block'      => false,
-				'skin'             => 'inline',
-				'fa4compatibility' => 'toggle_icon_normal',
-				'default'          => array(
-					'value'   => 'fas fa-plus',
-					'library' => 'fa-solid',
-				),
-				'recommended'      => array(
-					'fa-regular' => array(
+			[
+				'label'                 => __( 'Normal Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::ICONS,
+				'label_block'           => false,
+				'skin'                  => 'inline',
+				'fa4compatibility'      => 'toggle_icon_normal',
+				'default'               => [
+					'value'     => 'fas fa-plus',
+					'library'   => 'fa-solid',
+				],
+				'recommended'           => [
+					'fa-regular' => [
 						'plus-square',
 						'caret-square-up',
 						'caret-square-down',
-					),
-					'fa-solid'   => array(
+					],
+					'fa-solid' => [
 						'chevron-up',
 						'chevron-down',
 						'angle-up',
@@ -347,33 +351,33 @@ class Advanced_Accordion extends Powerpack_Widget {
 						'plus-circle',
 						'plus-square',
 						'minus',
-					),
-				),
-				'condition'        => array(
+					],
+				],
+				'condition'             => [
 					'toggle_icon_show' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'select_toggle_icon_active',
-			array(
-				'label'            => __( 'Active Icon', 'powerpack' ),
-				'type'             => Controls_Manager::ICONS,
-				'label_block'      => false,
-				'skin'             => 'inline',
-				'fa4compatibility' => 'toggle_icon_active',
-				'default'          => array(
-					'value'   => 'fas fa-minus',
-					'library' => 'fa-solid',
-				),
-				'recommended'      => array(
-					'fa-regular' => array(
+			[
+				'label'                 => __( 'Active Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::ICONS,
+				'label_block'           => false,
+				'skin'                  => 'inline',
+				'fa4compatibility'      => 'toggle_icon_active',
+				'default'               => [
+					'value'     => 'fas fa-minus',
+					'library'   => 'fa-solid',
+				],
+				'recommended'           => [
+					'fa-regular' => [
 						'minus-square',
 						'caret-square-up',
 						'caret-square-down',
-					),
-					'fa-solid'   => array(
+					],
+					'fa-solid' => [
 						'chevron-up',
 						'chevron-down',
 						'angle-up',
@@ -387,65 +391,65 @@ class Advanced_Accordion extends Powerpack_Widget {
 						'minus',
 						'minus-circle',
 						'minus-square',
-					),
-				),
-				'condition'        => array(
+					],
+				],
+				'condition'             => [
 					'toggle_icon_show' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_accordion_settings',
-			array(
-				'label' => esc_html__( 'Settings', 'powerpack' ),
-			)
+			[
+				'label'                 => esc_html__( 'Settings', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'accordion_type',
-			array(
-				'label'              => esc_html__( 'Accordion Type', 'powerpack' ),
-				'type'               => Controls_Manager::SELECT,
-				'default'            => 'accordion',
-				'label_block'        => false,
-				'options'            => array(
-					'accordion' => esc_html__( 'Accordion', 'powerpack' ),
-					'toggle'    => esc_html__( 'Toggle', 'powerpack' ),
-				),
-				'frontend_available' => true,
-			)
+			[
+				'label'                 => esc_html__( 'Accordion Type', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'accordion',
+				'label_block'           => false,
+				'options'               => [
+					'accordion'     => esc_html__( 'Accordion', 'powerpack' ),
+					'toggle'        => esc_html__( 'Toggle', 'powerpack' ),
+				],
+				'frontend_available'    => true,
+			]
 		);
 
 		$this->add_control(
 			'toggle_speed',
-			array(
-				'label'              => esc_html__( 'Toggle Speed (ms)', 'powerpack' ),
-				'type'               => Controls_Manager::NUMBER,
-				'label_block'        => false,
-				'default'            => 300,
-				'frontend_available' => true,
-			)
+			[
+				'label'                 => esc_html__( 'Toggle Speed (ms)', 'powerpack' ),
+				'type'                  => Controls_Manager::NUMBER,
+				'label_block'           => false,
+				'default'               => 300,
+				'frontend_available'    => true,
+			]
 		);
 
 		$this->add_control(
 			'title_html_tag',
-			array(
-				'label'   => __( 'Title HTML Tag', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => array(
-					'h1'  => 'H1',
-					'h2'  => 'H2',
-					'h3'  => 'H3',
-					'h4'  => 'H4',
-					'h5'  => 'H5',
-					'h6'  => 'H6',
+			[
+				'label'                 => __( 'Title HTML Tag', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'options'               => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
 					'div' => 'div',
-				),
-				'default' => 'div',
-			)
+				],
+				'default'               => 'div',
+			]
 		);
 
 		$this->end_controls_section();
@@ -478,59 +482,59 @@ class Advanced_Accordion extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_accordion_items_style',
-			array(
-				'label' => esc_html__( 'Items', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => esc_html__( 'Items', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_responsive_control(
 			'accordion_items_spacing',
-			array(
-				'label'     => __( 'Items Gap', 'powerpack' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
+			[
+				'label'                 => __( 'Items Gaps', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px'    => [
 						'min' => 0,
 						'max' => 200,
-					),
-				),
-				'default'   => array(
-					'size' => '',
-				),
-				'selectors' => array(
+					],
+				],
+				'default'               => [
+					'size'  => '',
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-accordion-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'     => 'accordion_items_border',
-				'label'    => esc_html__( 'Border', 'powerpack' ),
-				'selector' => '{{WRAPPER}} .pp-accordion-item',
-			)
+			[
+				'name'                  => 'accordion_items_border',
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'selector'              => '{{WRAPPER}} .pp-accordion-item',
+			]
 		);
 
 		$this->add_responsive_control(
 			'accordion_items_border_radius',
-			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-accordion-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'     => 'accordion_items_box_shadow',
-				'selector' => '{{WRAPPER}} .pp-accordion-item',
-			)
+			[
+				'name'                  => 'accordion_items_box_shadow',
+				'selector'              => '{{WRAPPER}} .pp-accordion-item',
+			]
 		);
 
 		$this->end_controls_section();
@@ -540,166 +544,166 @@ class Advanced_Accordion extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_title_style',
-			array(
-				'label' => esc_html__( 'Title', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->start_controls_tabs( 'accordion_tabs_style' );
 
 		$this->start_controls_tab(
 			'accordion_tab_normal',
-			array(
-				'label' => __( 'Normal', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Normal', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'tab_title_bg_color',
-			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#F8F8F8',
-				'selectors' => array(
+			[
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '#f1f1f1',
+				'selectors' => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title' => 'background-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'tab_title_text_color',
-			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#333333',
-				'selectors' => array(
+			[
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '#333333',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title svg' => 'fill: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'     => 'tab_title_typography',
-				'selector' => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
-			)
+			[
+				'name'                  => 'tab_title_typography',
+				'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title',
+				'scheme'                => Schemes\Typography::TYPOGRAPHY_1,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'     => 'tab_title_border',
-				'label'    => esc_html__( 'Border', 'powerpack' ),
-				'selector' => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title',
-			)
+			[
+				'name'                  => 'tab_title_border',
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title',
+			]
 		);
 
 		$this->add_responsive_control(
 			'tab_title_padding',
-			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'accordion_tab_hover',
-			array(
-				'label' => __( 'Hover', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Hover', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'tab_title_bg_color_hover',
-			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors' => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title:hover' => 'background-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'tab_title_text_color_hover',
-			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title:hover' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title:hover svg' => 'fill: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'tab_title_border_color_hover',
-			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title:hover' => 'border-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'accordion_tab_active',
-			array(
-				'label' => __( 'Active', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Active', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'tab_title_bg_color_active',
-			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors' => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active' => 'background-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'tab_title_text_color_active',
-			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active svg' => 'fill: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'tab_title_border_color_active',
-			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active' => 'border-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -708,56 +712,56 @@ class Advanced_Accordion extends Powerpack_Widget {
 
 		$this->add_control(
 			'tab_icon_heading',
-			array(
-				'label'     => __( 'Icon', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			)
+			[
+				'label'                 => __( 'Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_responsive_control(
 			'tab_icon_size',
-			array(
-				'label'      => __( 'Icon Size', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
-					'size' => 16,
-					'unit' => 'px',
-				),
-				'size_units' => array( 'px' ),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Icon Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
+					'size'  => 16,
+					'unit'  => 'px',
+				],
+				'size_units'            => [ 'px' ],
+				'range'                 => [
+					'px'        => [
+						'min'   => 0,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-tab-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_responsive_control(
 			'tab_icon_spacing',
-			array(
-				'label'      => __( 'Icon Spacing', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
-					'size' => 10,
-					'unit' => 'px',
-				),
-				'size_units' => array( 'px' ),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Icon Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
+					'size'  => 10,
+					'unit'  => 'px',
+				],
+				'size_units'            => [ 'px' ],
+				'range'                 => [
+					'px'    => [
+						'min'   => 0,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-tab-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -767,55 +771,55 @@ class Advanced_Accordion extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_content_style',
-			array(
-				'label' => esc_html__( 'Content', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => esc_html__( 'Content', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_control(
 			'tab_content_bg_color',
-			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors' => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content' => 'background-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'tab_content_text_color',
-			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#333',
-				'selectors' => array(
+			[
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '#333',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content' => 'color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'     => 'tab_content_typography',
-				'selector' => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
-			)
+			[
+				'name'                  => 'tab_content_typography',
+				'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content',
+				'scheme'                => Schemes\Typography::TYPOGRAPHY_3,
+			]
 		);
 
 		$this->add_responsive_control(
 			'tab_content_padding',
-			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -825,134 +829,256 @@ class Advanced_Accordion extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_toggle_icon_style',
-			array(
-				'label'     => esc_html__( 'Toggle icon', 'powerpack' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+			[
+				'label'                 => esc_html__( 'Toggle Icon', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+				'condition' => [
 					'toggle_icon_show' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'toggle_icon_color',
-			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#444',
-				'selectors' => array(
-					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-toggle-icon svg' => 'fill: {{VALUE}};',
-				),
-				'condition' => array(
-					'toggle_icon_show' => 'yes',
-				),
-			)
+			'toggle_icon_align',
+			[
+				'label'   => __( 'Alignment', 'powerpack' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'options' => [
+					'left'  => [
+						'title' => __( 'Start', 'powerpack' ),
+						'icon' => 'eicon-h-align-left',
+					],
+					'right' => [
+						'title' => __( 'End', 'powerpack' ),
+						'icon' => 'eicon-h-align-right',
+					],
+				],
+				'default' => is_rtl() ? 'left' : 'right',
+				'toggle'  => false,
+			]
 		);
 
-		$this->add_control(
-			'toggle_icon_active_color',
-			array(
-				'label'     => esc_html__( 'Active Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
-					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active .pp-accordion-toggle-icon, {{WRAPPER}} .pp-advanced-accordion .pp-accordion-item:hover .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active .pp-accordion-toggle-icon svg, {{WRAPPER}} .pp-advanced-accordion .pp-accordion-item:hover .pp-accordion-tab-title .pp-accordion-toggle-icon svg' => 'fill: {{VALUE}};',
-				),
-				'condition' => array(
-					'toggle_icon_show' => 'yes',
-				),
-			)
+		$this->add_responsive_control(
+			'toggle_icon_spacing',
+			[
+				'label'     => __( 'Spacing', 'powerpack' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .pp-toggle-icon-align-left .pp-accordion-toggle-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-toggle-icon-align-right .pp-accordion-toggle-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'toggle_icon_size',
-			array(
+			[
 				'label'      => __( 'Size', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
-					'size' => 16,
-					'unit' => 'px',
-				),
-				'size_units' => array( 'px' ),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'selectors'  => array(
+				'default'    => [
+					'size'  => 16,
+					'unit'  => 'px',
+				],
+				'size_units' => [ 'px' ],
+				'range'      => [
+					'px'    => [
+						'min'   => 0,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'toggle_icon_show' => 'yes',
-				),
-			)
+				],
+			]
 		);
+
+		$this->start_controls_tabs( 'accordion_toggle_icon_tabs_style' );
+
+		$this->start_controls_tab(
+			'accordion_toggle_icon_tab_normal',
+			[
+				'label'                 => __( 'Normal', 'powerpack' ),
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_color',
+			[
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '#444',
+				'selectors' => [
+					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-toggle-icon svg' => 'fill: {{VALUE}};',
+				],
+				'condition' => [
+					'toggle_icon_show' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_background_color',
+			[
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'background-color: {{VALUE}};',
+				],
+				'condition' => [
+					'toggle_icon_show' => 'yes',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'                  => 'toggle_icon_border',
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-toggle-icon',
+			]
+		);
+
+		$this->add_responsive_control(
+			'toggle_icon_border_radius',
+			[
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'toggle_icon_padding',
+			[
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'accordion_toggle_icon_tab_active',
+			[
+				'label'                 => __( 'Hover/Active', 'powerpack' ),
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_active_color',
+			[
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active .pp-accordion-toggle-icon, {{WRAPPER}} .pp-advanced-accordion .pp-accordion-item:hover .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active .pp-accordion-toggle-icon svg, {{WRAPPER}} .pp-advanced-accordion .pp-accordion-item:hover .pp-accordion-tab-title .pp-accordion-toggle-icon svg' => 'fill: {{VALUE}};',
+				],
+				'condition'             => [
+					'toggle_icon_show' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_active_background_color',
+			[
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active .pp-accordion-toggle-icon, {{WRAPPER}} .pp-advanced-accordion .pp-accordion-item:hover .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'background-color: {{VALUE}};',
+				],
+				'condition'             => [
+					'toggle_icon_show' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_active_border_color',
+			[
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title.pp-accordion-tab-active .pp-accordion-toggle-icon, {{WRAPPER}} .pp-advanced-accordion .pp-accordion-item:hover .pp-accordion-tab-title .pp-accordion-toggle-icon' => 'border-color: {{VALUE}};',
+				],
+				'condition'             => [
+					'toggle_icon_show' => 'yes',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
 
 		$this->end_controls_section();
 	}
 
-	/**
-	 * Render Advanced Accordion widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @access protected
-	 */
 	protected function render() {
-		$settings = $this->get_settings_for_display();
-		$id_int   = substr( $this->get_id_int(), 0, 3 );
+		$settings   = $this->get_settings_for_display();
+		$id_int     = substr( $this->get_id_int(), 0, 3 );
 
-		$this->add_render_attribute(
-			'accordion',
-			array(
-				'class'             => 'pp-advanced-accordion',
-				'id'                => 'pp-advanced-accordion-' . esc_attr( $this->get_id() ),
-				'data-accordion-id' => esc_attr( $this->get_id() ),
-			)
-		);
+		$this->add_render_attribute( 'accordion', [
+			'class'                 => [ 'pp-advanced-accordion', 'pp-toggle-icon-align-' . $settings['toggle_icon_align'] ],
+			'id'                    => 'pp-advanced-accordion-' . esc_attr( $this->get_id() ),
+			'data-accordion-id'     => esc_attr( $this->get_id() ),
+		] );
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'accordion' ) ); ?>>
+		<div <?php echo $this->get_render_attribute_string( 'accordion' ); ?>>
 			<?php
 			foreach ( $settings['tabs'] as $index => $tab ) :
 
-				$tab_count               = $index + 1;
-				$tab_title_setting_key   = $this->get_repeater_setting_key( 'tab_title', 'tabs', $index );
+				$tab_count = $index + 1;
+				$tab_title_setting_key = $this->get_repeater_setting_key( 'tab_title', 'tabs', $index );
 				$tab_content_setting_key = $this->get_repeater_setting_key( 'accordion_content', 'tabs', $index );
 
-				$tab_title_class   = array( 'pp-accordion-tab-title' );
-				$tab_content_class = array( 'pp-accordion-tab-content' );
+				$tab_title_class    = [ 'pp-accordion-tab-title' ];
+				$tab_content_class  = [ 'pp-accordion-tab-content' ];
 
 				if ( 'yes' === $tab['accordion_tab_default_active'] ) {
-					$tab_title_class[]   = 'pp-accordion-tab-active-default';
-					$tab_content_class[] = 'pp-accordion-tab-active-default';
+					$tab_title_class[]      = 'pp-accordion-tab-active-default';
+					$tab_content_class[]    = 'pp-accordion-tab-active-default';
 				}
 
-				$this->add_render_attribute(
-					$tab_title_setting_key,
-					array(
-						'id'            => 'pp-accordion-tab-title-' . $id_int . $tab_count,
-						'class'         => $tab_title_class,
-						'tabindex'      => $id_int . $tab_count,
-						'data-tab'      => $tab_count,
-						'role'          => 'tab',
-						'aria-controls' => 'pp-accordion-tab-content-' . $id_int . $tab_count,
-					)
-				);
+				$this->add_render_attribute( $tab_title_setting_key, [
+					'id'                => 'pp-accordion-tab-title-' . $id_int . $tab_count,
+					'class'             => $tab_title_class,
+					'tabindex'          => $id_int . $tab_count,
+					'data-tab'          => $tab_count,
+					'role'              => 'tab',
+					'aria-controls'     => 'pp-accordion-tab-content-' . $id_int . $tab_count,
+				]);
 
-				$this->add_render_attribute(
-					$tab_content_setting_key,
-					array(
-						'id'              => 'pp-accordion-tab-content-' . $id_int . $tab_count,
-						'class'           => $tab_content_class,
-						'data-tab'        => $tab_count,
-						'role'            => 'tabpanel',
-						'aria-labelledby' => 'pp-accordion-tab-title-' . $id_int . $tab_count,
-					)
-				);
+				$this->add_render_attribute( $tab_content_setting_key, [
+					'id'                => 'pp-accordion-tab-content-' . $id_int . $tab_count,
+					'class'             => $tab_content_class,
+					'data-tab'          => $tab_count,
+					'role'              => 'tabpanel',
+					'aria-labelledby'   => 'pp-accordion-tab-title-' . $id_int . $tab_count,
+				] );
 
 				if ( 'content' === $tab['content_type'] ) {
 					$this->add_inline_editing_attributes( $tab_content_setting_key, 'advanced' );
@@ -960,17 +1086,17 @@ class Advanced_Accordion extends Powerpack_Widget {
 
 				$migration_allowed = Icons_Manager::is_migration_allowed();
 
-				// Title Icon - add old default.
+				// Title Icon - add old default
 				if ( ! isset( $tab['accordion_tab_title_icon'] ) && ! $migration_allowed ) {
 					$tab['accordion_tab_title_icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : '';
 				}
 
 				$migrated_title_icon = isset( $tab['__fa4_migrated']['tab_title_icon'] );
-				$is_new_title_icon   = ! isset( $tab['accordion_tab_title_icon'] ) && $migration_allowed;
+				$is_new_title_icon = ! isset( $tab['accordion_tab_title_icon'] ) && $migration_allowed;
 
-				// Toggle Icon Normal.
+				// Toggle Icon Normal
 				if ( ! isset( $settings['toggle_icon_normal'] ) && ! $migration_allowed ) {
-					// add old default.
+					// add old default
 					$settings['toggle_icon_normal'] = 'fa fa-plus';
 				}
 
@@ -985,11 +1111,11 @@ class Advanced_Accordion extends Powerpack_Widget {
 					$has_toggle_icon = true;
 				}
 				$migrated_normal = isset( $settings['__fa4_migrated']['select_toggle_icon'] );
-				$is_new_normal   = ! isset( $settings['toggle_icon_normal'] ) && $migration_allowed;
+				$is_new_normal = ! isset( $settings['toggle_icon_normal'] ) && $migration_allowed;
 
-				// Toggle Icon Active.
+				// Toggle Icon Active
 				if ( ! isset( $settings['toggle_icon_active'] ) && ! $migration_allowed ) {
-					// add old default.
+					// add old default
 					$settings['toggle_icon_active'] = 'fa fa-minus';
 				}
 
@@ -1004,59 +1130,54 @@ class Advanced_Accordion extends Powerpack_Widget {
 					$has_toggle_active_icon = true;
 				}
 				$migrated = isset( $settings['__fa4_migrated']['select_toggle_icon_active'] );
-				$is_new   = ! isset( $settings['toggle_icon_active'] ) && $migration_allowed;
+				$is_new = ! isset( $settings['toggle_icon_active'] ) && $migration_allowed;
 				?>
 				<div class="pp-accordion-item">
-					<<?php echo esc_attr( $settings['title_html_tag'] ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $tab_title_setting_key ) ); ?>>
+					<<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string( $tab_title_setting_key ); ?>>
 						<span class="pp-accordion-title-icon">
-						<?php if ( ! empty( $tab['accordion_tab_title_icon'] ) || ( ! empty( $tab['tab_title_icon']['value'] ) && $is_new_title_icon ) ) { ?>
+							<?php if ( ! empty( $tab['accordion_tab_title_icon'] ) || ( ! empty( $tab['tab_title_icon']['value'] ) && $is_new_title_icon ) ) { ?>
 								<span class="pp-accordion-tab-icon pp-icon">
-								<?php
-								if ( $is_new_title_icon || $migrated_title_icon ) {
-									Icons_Manager::render_icon( $tab['tab_title_icon'], array( 'aria-hidden' => 'true' ) );
-								} else {
-									?>
-									<i class="<?php echo esc_attr( $tab['accordion_tab_title_icon'] ); ?>" aria-hidden="true"></i>
-								<?php } ?>
+									<?php
+									if ( $is_new_title_icon || $migrated_title_icon ) {
+										Icons_Manager::render_icon( $tab['tab_title_icon'], [ 'aria-hidden' => 'true' ] );
+									} else { ?>
+										<i class="<?php echo esc_attr( $tab['accordion_tab_title_icon'] ); ?>" aria-hidden="true"></i>
+									<?php } ?>
 								</span>
 							<?php } ?>
 							<span class="pp-accordion-title-text">
-								<?php echo wp_kses_post( $tab['tab_title'] ); ?>
+								<?php echo $tab['tab_title']; ?>
 							</span>
 						</span>
 						<?php if ( 'yes' === $settings['toggle_icon_show'] ) { ?>
 							<div class="pp-accordion-toggle-icon">
 								<?php if ( $has_toggle_icon ) { ?>
-									<span class='pp-accordion-toggle-icon pp-accordion-toggle-icon-close pp-icon'>
+									<span class='pp-accordion-toggle-icon-close pp-icon'>
 										<?php
 										if ( $is_new_normal || $migrated_normal ) {
-											Icons_Manager::render_icon( $settings['select_toggle_icon'], array( 'aria-hidden' => 'true' ) );
+											Icons_Manager::render_icon( $settings['select_toggle_icon'], [ 'aria-hidden' => 'true' ] );
 										} elseif ( ! empty( $settings['toggle_icon_normal'] ) ) {
-											?>
-											<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'toggle-icon' ) ); ?>></i>
-											<?php
+											?><i <?php echo $this->get_render_attribute_string( 'toggle-icon' ); ?>></i><?php
 										}
 										?>
 									</span>
 								<?php } ?>
 								<?php if ( $has_toggle_active_icon ) { ?>
-									<span class='pp-accordion-toggle-icon pp-accordion-toggle-icon-open pp-icon'>
+									<span class='pp-accordion-toggle-icon-open pp-icon'>
 										<?php
 										if ( $is_new_normal || $migrated_normal ) {
-											Icons_Manager::render_icon( $settings['select_toggle_icon_active'], array( 'aria-hidden' => 'true' ) );
+											Icons_Manager::render_icon( $settings['select_toggle_icon_active'], [ 'aria-hidden' => 'true' ] );
 										} elseif ( ! empty( $settings['toggle_icon_active'] ) ) {
-											?>
-											<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'toggle-icon' ) ); ?>></i>
-											<?php
+											?><i <?php echo $this->get_render_attribute_string( 'toggle-icon' ); ?>></i><?php
 										}
 										?>
 									</span>
 								<?php } ?>
 							</div>
 						<?php } ?>
-					</<?php echo esc_attr( $settings['title_html_tag'] ); ?>>
+					</<?php echo $settings['title_html_tag']; ?>>
 
-					<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tab_content_setting_key ) ); ?>>
+					<div <?php echo $this->get_render_attribute_string( $tab_content_setting_key ); ?>>
 						<?php
 						if ( 'content' === $tab['content_type'] ) {
 
