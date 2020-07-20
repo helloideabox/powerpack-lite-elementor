@@ -49,7 +49,7 @@ class PowerpackLitePlugin {
 	 */
 	public function __clone() {
 		// Cloning instances of the class is forbidden
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'power-pack' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'powerpack' ), '1.0.0' );
 	}
 
 	/**
@@ -60,7 +60,7 @@ class PowerpackLitePlugin {
 	 */
 	public function __wakeup() {
 		// Unserializing instances of the class is forbidden
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'power-pack' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'powerpack' ), '1.0.0' );
 	}
 
 	/**
@@ -382,7 +382,7 @@ class PowerpackLitePlugin {
 		\Elementor\Plugin::instance()->elements_manager->add_category(
 			'powerpack-elements', // This is the name of your addon's category and will be used to group your widgets/elements in the Edit sidebar pane!
 			[
-				'title' => __( 'PowerPack Elements', 'power-pack' ), // The title of your modules category - keep it simple and short!
+				'title' => __( 'PowerPack Elements', 'powerpack' ), // The title of your modules category - keep it simple and short!
 				'icon' => 'font',
 			],
 			1

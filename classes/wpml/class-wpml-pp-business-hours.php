@@ -20,13 +20,13 @@ class WPML_PP_Business_Hours extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'day':
-				return esc_html__( 'Business Hours - Day', 'power-pack' );
+				return esc_html__( 'Business Hours - Day', 'powerpack' );
 
 			case 'time':
-				return esc_html__( 'Business Hours - Time', 'power-pack' );
+				return esc_html__( 'Business Hours - Time', 'powerpack' );
 
 			case 'closed_text':
-				return esc_html__( 'Business Hours - Closed Text', 'power-pack' );
+				return esc_html__( 'Business Hours - Closed Text', 'powerpack' );
 
 			default:
 				return '';

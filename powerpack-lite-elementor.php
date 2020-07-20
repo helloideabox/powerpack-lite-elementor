@@ -184,7 +184,7 @@ if ( ! function_exists( 'is_pp_elements_active' ) ) {
  * @since 1.4.4
  */
 function pp_elements_lite_add_plugin_page_settings_link( $links ) {
-	$links[] = '<a href="' . admin_url( 'admin.php?page=powerpack-settings' ) . '">' . __('Settings') . '</a>';
+	$links[] = '<a href="' . admin_url( 'admin.php?page=powerpack-settings' ) . '">' . __('Settings', 'powerpack') . '</a>';
 	return $links;
 }
 add_filter('plugin_action_links_' . POWERPACK_ELEMENTS_LITE_BASE, 'pp_elements_lite_add_plugin_page_settings_link');
@@ -195,7 +195,7 @@ function pp_add_description_links( $plugin_meta, $plugin_file ) {
 	if ( POWERPACK_ELEMENTS_LITE_BASE === $plugin_file ) {
 		$row_meta = [
 			'docs' => '<a href="https://powerpackelements.com/docs/?utm_source=doclink&utm_medium=widget&utm_campaign=lite" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'powerpack' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'powerpack' ) . '</a>',
-			'ideo' => '<a href="https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite" aria-label="' . esc_attr( __( 'Go Pro', 'powerp-pack' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'powerpack' ) . '</a>',
+			'ideo' => '<a href="https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite" aria-label="' . esc_attr( __( 'Go Pro', 'powerpack' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'powerpack' ) . '</a>',
 		];
 
 		$plugin_meta = array_merge( $plugin_meta, $row_meta );

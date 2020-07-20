@@ -19,9 +19,9 @@ class WPML_PP_Logo_Carousel extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'logo_title':
-				return esc_html__( 'Logo Carousel - Logo Title', 'power-pack' );
+				return esc_html__( 'Logo Carousel - Logo Title', 'powerpack' );
 			case 'url':
-				return esc_html__( 'Logo Carousel - Link', 'power-pack' );
+				return esc_html__( 'Logo Carousel - Link', 'powerpack' );
 			default:
 				return '';
 		}
