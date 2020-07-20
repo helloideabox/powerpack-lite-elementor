@@ -1368,6 +1368,8 @@ div[class*=' pa-'] {
   .pp-hot-spot-inner.hotspot-animation:hover:before {
     -webkit-animation: none;
             animation: none; }
+  .pp-hot-spot-inner.hotspot-animation .pp-hotspot-text {
+    z-index: 1; }
 
 .pp-hot-spot-inner,
 .pp-hot-spot-inner:before {

@@ -38,6 +38,10 @@
         &:hover:before {
             animation: none;
         }
+
+        & .pp-hotspot-text {
+            z-index: 1;
+        }
     }
 }
 .pp-hot-spot-inner,

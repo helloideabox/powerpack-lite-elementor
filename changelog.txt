@@ -2,6 +2,7 @@
 Release date: July 20, 2020
 * Enhancement: Updated admin panel UI
 * Added: Advanced Accordion - Toggle icon alignment and few other styling options
+* Fixed: Hotspots - Hotspot text was not visible on hover
 
 == 1.2.9.5 ==
 Release date: June 11, 2020
