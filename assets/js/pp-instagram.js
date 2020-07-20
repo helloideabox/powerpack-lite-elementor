@@ -120,9 +120,18 @@
 					}*/
 
 					// Start link.
-					if ( 'no' !== this.settings.on_click ) {
-						var link = 'yes' === this.settings.on_click ? imgs[i].node.display_url : url;
-						html += '<a href="' + link + '" target="_blank" rel="nofollow noopener">'
+					if ( '1' == this.settings.popup || '1' == this.settings.image_link ) {
+						var link;
+						
+						if ( this.settings.popup == '1' ) {
+							link = imgs[i].node.display_url;
+						
+							html += '<a href="' + link + '" target="_blank" rel="nofollow noopener" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="pp-ig-' + this.id + '">';
+						} else if ( this.settings.image_link == '1' ) {
+							link = url;
+						
+							html += '<a href="' + link + '" target="_blank" rel="nofollow noopener">';
+						}
 					}
 					html += '<div class="pp-if-img">';
 
@@ -149,7 +158,7 @@
 					html += '</div>';
 
 					// End link.
-					if ( 'no' !== this.settings.on_click ) {
+					if ( '1' == this.settings.popup || '1' == this.settings.image_link ) {
 						html += '</a>';
 					}
 

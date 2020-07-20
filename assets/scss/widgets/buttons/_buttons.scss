@@ -37,6 +37,7 @@
 .pp-button-content-wrapper {
     display: flex;
     flex-grow: 1;
+	justify-content: center;
 }
 .pp-buttons-group {
     .pp-buttons-valign-top & {

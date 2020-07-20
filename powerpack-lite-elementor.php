@@ -3,18 +3,18 @@
  * Plugin Name: PowerPack Lite for Elementor
  * Plugin URI: https://powerpackelements.com
  * Description: Custom addons for Elementor page builder.
- * Version: 1.2.8.3
+ * Version: 1.3.0
  * Author: IdeaBox Creations
- * Author URI: https://ideaboxcreations.com
+ * Author URI: http://ideabox.io/
  * License: GNU General Public License v2.0
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: power-pack
+ * Text Domain: powerpack
  * Domain Path: /languages
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'POWERPACK_ELEMENTS_LITE_VER', '1.2.8.3' );
+define( 'POWERPACK_ELEMENTS_LITE_VER', '1.3.0' );
 define( 'POWERPACK_ELEMENTS_LITE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_BASE', plugin_basename( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_URL', plugins_url( '/', __FILE__ ) );
@@ -22,10 +22,13 @@ define( 'POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED', '1.7' );
 define( 'POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED', '5.4' );
 
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/helper-functions.php';
-require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-tracking.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-admin-settings.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-config.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-posts-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
 
 /**
  * Check if Elementor is installed
@@ -53,8 +56,8 @@ function pp_elements_lite_fail_load() {
 		}
 
 		$activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
-        $message = __( 'PowerPack requires Elementor plugin to be active. Please activate Elementor to continue.', 'power-pack' );
-		$button_text = __( 'Activate Elementor', 'power-pack' );
+        $message = __( 'PowerPack requires Elementor plugin to be active. Please activate Elementor to continue.', 'powerpack' );
+		$button_text = __( 'Activate Elementor', 'powerpack' );
 
 	} else {
 		if ( ! current_user_can( 'install_plugins' ) ) {
@@ -62,8 +65,8 @@ function pp_elements_lite_fail_load() {
 		}
 
 		$activation_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
-        $message = sprintf( __( 'PowerPack requires %1$s"Elementor"%2$s plugin to be installed and activated. Please install Elementor to continue.', 'power-pack' ), '<strong>', '</strong>' );
-		$button_text = __( 'Install Elementor', 'power-pack' );
+        $message = sprintf( __( 'PowerPack requires %1$s"Elementor"%2$s plugin to be installed and activated. Please install Elementor to continue.', 'powerpack' ), '<strong>', '</strong>' );
+		$button_text = __( 'Install Elementor', 'powerpack' );
 	}
 
 	$button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
@@ -83,7 +86,7 @@ function pp_elements_lite_fail_load_out_of_date() {
 		return;
 	}
     
-	$message = __( 'PowerPack requires Elementor version at least ' . POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED . '. Please update Elementor to continue.', 'power-pack' );
+	$message = __( 'PowerPack requires Elementor version at least ' . POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED . '. Please update Elementor to continue.', 'powerpack' );
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 }
@@ -96,7 +99,7 @@ function pp_elements_lite_fail_load_out_of_date() {
  *
  */
 function pp_elements_lite_fail_php() {
-	$message = __( 'PowerPack requires PHP version ' . POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED .'+ to work properly. The plugins is deactivated for now.', 'power-pack' );
+	$message = __( 'PowerPack requires PHP version ' . POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED .'+ to work properly. The plugins is deactivated for now.', 'powerpack' );
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 
@@ -120,23 +123,7 @@ function pp_elements_lite_deactivate() {
  *
  */
 function pp_elements_lite_load_plugin_textdomain() {
-	load_plugin_textdomain( 'power-pack', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-}
-
-/**
- * Assigns category to PowerPack
- *
- * @since 1.0
- *
- */
-function pp_elements_lite_category() {
-	\Elementor\Plugin::instance()->elements_manager->add_category(
-        'power-pack',
-        array(
-            'title' => 'PowerPack',
-            'icon'  => 'font',
-        ),
-	    1 );
+	load_plugin_textdomain( 'powerpack', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 
 add_action( 'plugins_loaded', 'pp_elements_lite_init' );
@@ -168,7 +155,27 @@ function pp_elements_lite_init() {
     
     add_action( 'init', 'pp_elements_lite_load_plugin_textdomain' );
 
-	add_action( 'elementor/init', 'pp_elements_lite_category' );
+	$is_plugin_activated = get_option( 'pp_plugin_activated' );
+	if ( current_user_can('activate_plugins') && 'yes' !== $is_plugin_activated ) {
+		update_option( 'pp_install_date', current_time( 'mysql' ) );
+		update_option( 'pp_plugin_activated', 'yes' );
+	}
+}
+
+/**
+ * Check if PowerPack Elements is active
+ *
+ * @since 1.2.9.4
+ *
+ */
+if ( ! function_exists( 'is_pp_elements_active' ) ) {
+	function is_pp_elements_active() {
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+		$plugin = 'powerpack-elements/powerpack-elements.php';
+
+		return is_plugin_active( $plugin ) || function_exists( 'pp_init' );
+	}
 }
 
 /**
@@ -177,7 +184,7 @@ function pp_elements_lite_init() {
  * @since 1.4.4
  */
 function pp_elements_lite_add_plugin_page_settings_link( $links ) {
-	$links[] = '<a href="' . admin_url( 'admin.php?page=powerpack-settings' ) . '">' . __('Settings') . '</a>';
+	$links[] = '<a href="' . admin_url( 'admin.php?page=powerpack-settings' ) . '">' . __('Settings', 'powerpack') . '</a>';
 	return $links;
 }
 add_filter('plugin_action_links_' . POWERPACK_ELEMENTS_LITE_BASE, 'pp_elements_lite_add_plugin_page_settings_link');
@@ -187,8 +194,8 @@ function pp_add_description_links( $plugin_meta, $plugin_file ) {
 
 	if ( POWERPACK_ELEMENTS_LITE_BASE === $plugin_file ) {
 		$row_meta = [
-			'docs' => '<a href="https://powerpackelements.com/docs/?utm_source=doclink&utm_medium=widget&utm_campaign=lite" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'power-pack' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'power-pack' ) . '</a>',
-			'ideo' => '<a href="https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite" aria-label="' . esc_attr( __( 'Go Pro', 'powerp-pack' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'power-pack' ) . '</a>',
+			'docs' => '<a href="https://powerpackelements.com/docs/?utm_source=doclink&utm_medium=widget&utm_campaign=lite" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'powerpack' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'powerpack' ) . '</a>',
+			'ideo' => '<a href="https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite" aria-label="' . esc_attr( __( 'Go Pro', 'powerpack' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'powerpack' ) . '</a>',
 		];
 
 		$plugin_meta = array_merge( $plugin_meta, $row_meta );

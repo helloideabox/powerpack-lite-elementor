@@ -26,6 +26,7 @@ assets/.sass-cache/**
 /build/
 temp/
 *.zip
+*.svn
 
 # Build tools lock
 composer.lock

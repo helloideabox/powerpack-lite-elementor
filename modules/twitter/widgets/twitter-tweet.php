@@ -24,31 +24,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Twitter_Tweet extends Powerpack_Widget {
 
 	public function get_name() {
-		return 'pp-twitter-tweet';
+		return parent::get_widget_name( 'Twitter_Tweet' );
 	}
 
 	public function get_title() {
-		return __( 'Twitter Tweet', 'powerpack' );
+		return parent::get_widget_title( 'Twitter_Tweet' );
 	}
 
-    /**
-	 * Retrieve the list of categories the twitter tweet widget belongs to.
+	public function get_icon() {
+		return parent::get_widget_icon( 'Twitter_Tweet' );
+	}
+
+	/**
+	 * Get widget keywords.
 	 *
-	 * Used to determine where to display the widget in the editor.
+	 * Retrieve the list of keywords the widget belongs to.
 	 *
 	 * @access public
 	 *
-	 * @return array Widget categories.
+	 * @return array Widget keywords.
 	 */
-    public function get_categories() {
-        return [ 'power-pack' ];
-    }
-
-	public function get_icon() {
-		return 'fa fa-twitter power-pack-admin-icon';
+	public function get_keywords() {
+		return parent::get_widget_keywords( 'Twitter_Tweet' );
 	}
 
-    /**
+	/**
 	 * Retrieve the list of scripts the twitter tweet widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
@@ -57,100 +57,127 @@ class Twitter_Tweet extends Powerpack_Widget {
 	 *
 	 * @return array Widget scripts dependencies.
 	 */
-    public function get_script_depends() {
-        return [
-            'pp-jquery-plugin',
-            'jquery-cookie',
+	public function get_script_depends() {
+		return array(
+			'pp-jquery-plugin',
+			'jquery-cookie',
 			'twitter-widgets',
-			'powerpack-frontend'
-        ];
-    }
+			'powerpack-frontend',
+		);
+	}
 
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_tweet',
-			[
+			array(
 				'label' => __( 'Tweet', 'powerpack' ),
-			]
+			)
 		);
 
 		$this->add_control(
 			'tweet_url',
-			[
-				'label'                 => __( 'Tweet URL', 'powerpack' ),
-				'type'                  => Controls_Manager::TEXT,
-				'default'               => '',
-			]
+			array(
+				'label'   => __( 'Tweet URL', 'powerpack' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => '',
+			)
 		);
 
 		$this->add_control(
 			'theme',
-			[
-				'label'                 => __( 'Theme', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'default'               => 'light',
-				'options'               => [
-					'light'		=> __( 'Light', 'powerpack' ),
-					'dark' 		=> __( 'Dark', 'powerpack' ),
-				],
-			]
+			array(
+				'label'   => __( 'Theme', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'light',
+				'options' => array(
+					'light' => __( 'Light', 'powerpack' ),
+					'dark'  => __( 'Dark', 'powerpack' ),
+				),
+			)
 		);
 
 		$this->add_control(
 			'expanded',
-			[
-				'label' => __( 'Expanded', 'powerpack' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Yes', 'powerpack' ),
-				'label_off' => __( 'No', 'powerpack' ),
+			array(
+				'label'        => __( 'Expanded', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
 				'return_value' => 'yes',
-				'default' => 'yes',
-			]
+				'default'      => 'yes',
+			)
 		);
 
 		$this->add_control(
 			'alignment',
-			[
-				'label'                 => __( 'Alignment', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'default'               => 'center',
-				'options'               => [
-					'left'		=> __( 'Left', 'powerpack' ),
-					'center' 	=> __( 'Center', 'powerpack' ),
-					'right' 	=> __( 'Right', 'powerpack' ),
-				],
-			]
+			array(
+				'label'   => __( 'Alignment', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'center',
+				'options' => array(
+					'left'   => __( 'Left', 'powerpack' ),
+					'center' => __( 'Center', 'powerpack' ),
+					'right'  => __( 'Right', 'powerpack' ),
+				),
+			)
 		);
 
 		$this->add_control(
-            'width',
-            [
-                'label'                 => __( 'Width', 'powerpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'default'               => [
-					'unit'	=> 'px',
-					'size'	=> ''
-				],
-				'size_units' => [ 'px' ],
-				'range' => [
-					'px' => [
+			'width',
+			array(
+				'label'      => __( 'Width', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'default'    => array(
+					'unit' => 'px',
+					'size' => '',
+				),
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
 						'min' => 100,
 						'max' => 1000,
-					],
-				],
-            ]
-        );
+					),
+				),
+			)
+		);
 
 		$this->add_control(
 			'link_color',
-			[
-				'label'                 => __( 'Link Color', 'powerpack' ),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
-			]
+			array(
+				'label'   => __( 'Link Color', 'powerpack' ),
+				'type'    => Controls_Manager::COLOR,
+				'default' => '',
+			)
 		);
 
 		$this->end_controls_section();
+
+		if ( ! is_pp_elements_active() ) {
+			/**
+			 * Content Tab: Upgrade PowerPack
+			 *
+			 * @since 1.2.9.4
+			 */
+			$this->start_controls_section(
+				'section_upgrade_powerpack',
+				array(
+					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
+					'tab'   => Controls_Manager::TAB_CONTENT,
+				)
+			);
+
+			$this->add_control(
+				'upgrade_powerpack_notice',
+				array(
+					'label'           => '',
+					'type'            => Controls_Manager::RAW_HTML,
+					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
+				)
+			);
+
+			$this->end_controls_section();
+		}
 
 	}
 
@@ -158,13 +185,13 @@ class Twitter_Tweet extends Powerpack_Widget {
 		$settings = $this->get_settings();
 
 		$attrs = array();
-		$attr = ' ';
+		$attr  = ' ';
 
 		$url = esc_url( $settings['tweet_url'] );
 
-		$attrs['data-theme'] 	= $settings['theme'];
-		$attrs['data-align'] 	= $settings['alignment'];
-		$attrs['data-lang'] 	= get_locale();
+		$attrs['data-theme'] = $settings['theme'];
+		$attrs['data-align'] = $settings['alignment'];
+		$attrs['data-lang']  = get_locale();
 
 		if ( ! empty( $settings['width'] ) ) {
 			$attrs['data-width'] = $settings['width']['size'];

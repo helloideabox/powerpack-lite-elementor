@@ -22,15 +22,15 @@ class WPML_PP_Info_List extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'text':
-				return esc_html__( 'Info List - Title', 'power-pack' );
+				return esc_html__( 'Info List - Title', 'powerpack' );
 			case 'description':
-				return esc_html__( 'Info List - Description', 'power-pack' );
+				return esc_html__( 'Info List - Description', 'powerpack' );
 			case 'icon_text':
-				return esc_html__( 'Info List - Icon Text', 'power-pack' );
+				return esc_html__( 'Info List - Icon Text', 'powerpack' );
 			case 'url':
-				return esc_html__( 'Info List - Link', 'power-pack' );
+				return esc_html__( 'Info List - Link', 'powerpack' );
 			case 'button_text':
-				return esc_html__( 'Info List - Button Text', 'power-pack' );
+				return esc_html__( 'Info List - Button Text', 'powerpack' );
 			default:
 				return '';
 		}

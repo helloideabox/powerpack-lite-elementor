@@ -24,31 +24,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Twitter_Grid extends Powerpack_Widget {
 
 	public function get_name() {
-		return 'pp-twitter-grid';
+		return parent::get_widget_name( 'Twitter_Grid' );
 	}
 
 	public function get_title() {
-		return __( 'Twitter Grid', 'powerpack' );
+		return parent::get_widget_title( 'Twitter_Grid' );
 	}
 
-    /**
-	 * Retrieve the list of categories the twitter embedded grid widget belongs to.
+	public function get_icon() {
+		return parent::get_widget_icon( 'Twitter_Grid' );
+	}
+
+	/**
+	 * Get widget keywords.
 	 *
-	 * Used to determine where to display the widget in the editor.
+	 * Retrieve the list of keywords the widget belongs to.
 	 *
 	 * @access public
 	 *
-	 * @return array Widget categories.
+	 * @return array Widget keywords.
 	 */
-    public function get_categories() {
-        return [ 'power-pack' ];
-    }
-
-	public function get_icon() {
-		return 'fa fa-twitter power-pack-admin-icon';
+	public function get_keywords() {
+		return parent::get_widget_keywords( 'Twitter_Grid' );
 	}
 
-    /**
+	/**
 	 * Retrieve the list of scripts the twitter embedded grid widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
@@ -57,75 +57,100 @@ class Twitter_Grid extends Powerpack_Widget {
 	 *
 	 * @return array Widget scripts dependencies.
 	 */
-    public function get_script_depends() {
-        return [
-            'pp-jquery-plugin',
-            'jquery-cookie',
+	public function get_script_depends() {
+		return array(
+			'pp-jquery-plugin',
+			'jquery-cookie',
 			'twitter-widgets',
-			'pp-scripts'
-        ];
-    }
+			'pp-scripts',
+		);
+	}
 
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_grid',
-			[
+			array(
 				'label' => __( 'Grid', 'powerpack' ),
-			]
+			)
 		);
-
-		
 
 		$this->add_control(
 			'url',
-			[
-				'label'                 => __( 'Collection URL', 'powerpack' ),
-				'type'                  => Controls_Manager::TEXT,
-				'default'               => '',
-			]
+			array(
+				'label'   => __( 'Collection URL', 'powerpack' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => '',
+			)
 		);
 
 		$this->add_control(
 			'footer',
-			[
-				'label' => __( 'Show Footer?', 'powerpack' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Yes', 'powerpack' ),
-				'label_off' => __( 'No', 'powerpack' ),
+			array(
+				'label'        => __( 'Show Footer?', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
 				'return_value' => 'yes',
-				'default' => 'yes',
-			]
+				'default'      => 'yes',
+			)
 		);
 
 		$this->add_control(
-            'width',
-            [
-                'label'                 => __( 'Width', 'powerpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'default'               => [
-					'unit'	=> 'px',
-					'size'	=> ''
-				],
-				'size_units' => [ 'px' ],
-				'range' => [
-					'px' => [
+			'width',
+			array(
+				'label'      => __( 'Width', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'default'    => array(
+					'unit' => 'px',
+					'size' => '',
+				),
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
 						'min' => 100,
 						'max' => 1000,
-					],
-				],
-            ]
-        );
+					),
+				),
+			)
+		);
 
 		$this->add_control(
-            'tweet_limit',
-            [
-                'label'                 => __( 'Tweet Limit', 'powerpack' ),
-                'type'                  => Controls_Manager::TEXT,
-                'default'               => '',
-            ]
-        );
+			'tweet_limit',
+			array(
+				'label'   => __( 'Tweet Limit', 'powerpack' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => '',
+			)
+		);
 
 		$this->end_controls_section();
+
+		if ( ! is_pp_elements_active() ) {
+			/**
+			 * Content Tab: Upgrade PowerPack
+			 *
+			 * @since 1.2.9.4
+			 */
+			$this->start_controls_section(
+				'section_upgrade_powerpack',
+				array(
+					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
+					'tab'   => Controls_Manager::TAB_CONTENT,
+				)
+			);
+
+			$this->add_control(
+				'upgrade_powerpack_notice',
+				array(
+					'label'           => '',
+					'type'            => Controls_Manager::RAW_HTML,
+					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
+				)
+			);
+
+			$this->end_controls_section();
+		}
 
 	}
 
@@ -133,13 +158,13 @@ class Twitter_Grid extends Powerpack_Widget {
 		$settings = $this->get_settings();
 
 		$attrs = array();
-		$attr = ' ';
+		$attr  = ' ';
 
 		$url = esc_url( $settings['url'] );
 
-		$attrs['data-limit'] 		= ( ! empty( $settings['tweet_limit'] ) ) ? $settings['tweet_limit'] : '';
-		$attrs['data-chrome'] 		= ( 'yes' != $settings['footer'] ) ? 'nofooter' : '';
-		$attrs['data-width'] 		= $settings['width']['size'];
+		$attrs['data-limit']  = ( ! empty( $settings['tweet_limit'] ) ) ? $settings['tweet_limit'] : '';
+		$attrs['data-chrome'] = ( 'yes' != $settings['footer'] ) ? 'nofooter' : '';
+		$attrs['data-width']  = $settings['width']['size'];
 
 		foreach ( $attrs as $key => $value ) {
 			$attr .= $key;

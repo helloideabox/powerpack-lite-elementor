@@ -53,6 +53,12 @@
             display: block;
         }
     }
+    &.pp-toggle-icon-align-left {
+        .pp-accordion-tab-title {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+    }
 }
 .pp-accordion-tab-icon {
     display: inline-block;

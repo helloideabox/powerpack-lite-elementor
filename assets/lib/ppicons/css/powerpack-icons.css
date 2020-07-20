@@ -24,8 +24,32 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.ppicon-review-box:before {
-  content: "\e95a";
+.ppicon-powerpack-small:before {
+	content: "\e95e";
+}
+.ppicon-login-form:before {
+  content: "\e960";
+}
+.ppicon-my-account:before {
+  content: "\e961";
+}
+.ppicon-registration-form:before {
+  content: "\e962";
+}
+.ppicon-sitemap:before {
+  content: "\e963";
+}
+.ppicon-toc:before {
+  content: "\e95f";
+}
+.ppicon-categories:before {
+	content: "\e95d";
+}
+.ppicon-how-to:before {
+  content: "\e95b";
+}
+.ppicon-coupon:before {
+  content: "\e95c";
 }
 .ppicon-cta-button:before {
   content: "\e957";
@@ -35,6 +59,9 @@
 }
 .ppicon-heading:before {
   content: "\e959";
+}
+.ppicon-review-box:before {
+  content: "\e95a";
 }
 .ppicon-mini-cart:before {
   content: "\e955";

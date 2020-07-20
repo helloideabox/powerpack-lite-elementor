@@ -66,3 +66,32 @@
         }
     }
 }
+.pp-gravity-form {
+	.gform_wrapper {
+		select {
+			border-radius: 0;
+			height: auto;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+		.pp-gf-select-custom {
+			position: relative;
+			&:after {
+				content: "\f078";
+				font-family: 'Font Awesome 5 Free';
+				font-weight: 800;
+				font-size: .7em;
+				line-height: 1;
+				pointer-events: none;
+				position: absolute;
+				top: 45%;
+				right: .8em;
+				-webkit-transform: translateY(-45%);
+				-ms-transform: translateY(-45%);
+				transform: translateY(-45%);
+				z-index: 2;
+			}
+		}
+	}
+}

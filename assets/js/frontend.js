@@ -110,68 +110,36 @@
     };
     
     var LogoCarouselHandler = function ($scope, $) {
-        var $carousel                   = $scope.find('.pp-logo-carousel').eq(0),
-            $items                      = ($carousel.data("items") !== undefined) ? $carousel.data("items") : 3,
-            $items_tablet               = ($carousel.data("items-tablet") !== undefined) ? $carousel.data("items-tablet") : 3,
-            $items_mobile               = ($carousel.data("items-mobile") !== undefined) ? $carousel.data("items-mobile") : 3,
-            $margin                     = ($carousel.data("margin") !== undefined) ? $carousel.data("margin") : 10,
-            $margin_tablet              = ($carousel.data("margin-tablet") !== undefined) ? $carousel.data("margin-tablet") : 10,
-            $margin_mobile              = ($carousel.data("margin-mobile") !== undefined) ? $carousel.data("margin-mobile") : 10,
-            $effect                     = ($carousel.data("effect") !== undefined) ? $carousel.data("effect") : 'slide',
-            $speed                      = ($carousel.data("speed") !== undefined) ? $carousel.data("speed") : 400,
-            $autoplay                   = ($carousel.data("autoplay") !== undefined) ? $carousel.data("autoplay") : 999999,
-            $loop                       = ($carousel.data("loop") !== undefined) ? $carousel.data("loop") : 0,
-            $grab_cursor                = ($carousel.data("grab-cursor") !== undefined) ? $carousel.data("grab-cursor") : 0,
-            $pagination                 = ($carousel.data("pagination") !== undefined) ? $carousel.data("pagination") : '.swiper-pagination',
-            $pagination_type            = ($carousel.data("pagination-type") !== undefined) ? $carousel.data("pagination-type") : 'bullets',
-            $arrows                     = ($carousel.data("arrows") !== undefined) ? $carousel.data("arrows") : false,
-            $arrow_next                 = ($carousel.data("arrow-next") !== undefined) ? $carousel.data("arrow-next") : '.swiper-button-next',
-            $arrow_prev                 = ($carousel.data("arrow-prev") !== undefined) ? $carousel.data("arrow-prev") : '.swiper-button-prev',
-            
-            mySwiper = new Swiper($carousel, {
-                direction:              'horizontal',
-                speed:                  $speed,
-                autoplay:               $autoplay,
-                effect:                 $effect,
-                slidesPerView:          $items,
-                spaceBetween:           $margin,
-                grabCursor:             $grab_cursor,
-                paginationClickable:    true,
-                autoHeight:             true,
-                loop:                   $loop,
-                autoplay: {
-                    delay: $autoplay,
-                },
-                pagination: {
-                    el: $pagination,
-                    type: $pagination_type,
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: $arrow_next,
-                    prevEl: $arrow_prev,
-                },
-                breakpoints: {
-                    // when window width is <= 480px
-                    480: {
-                        slidesPerView:  $items_mobile,
-                        spaceBetween:   $margin_mobile
-                    },
-                    // when window width is <= 640px
-                    768: {
-                        slidesPerView:  $items_tablet,
-                        spaceBetween:   $margin_tablet
-                    }
-                }
-            });
+        var carousel_wrap               = $scope.find('.pp-logo-carousel-wrap').eq(0),
+            carousel                    = carousel_wrap.find('.pp-logo-carousel'),
+            slider_options              = JSON.parse( carousel_wrap.attr('data-slider-settings') );
+
+        var mySwiper = new Swiper(carousel, slider_options);
     };
     
     var InfoBoxCarouselHandler = function ($scope, $) {
-        var carousel_wrap               = $scope.find('.pp-info-box-carousel-wrap').eq(0),
+        var elementSettings				= getElementSettings( $scope ),
+        	carousel_wrap               = $scope.find('.pp-info-box-carousel-wrap').eq(0),
             carousel                    = carousel_wrap.find('.pp-info-box-carousel'),
-            slider_options              = JSON.parse( carousel_wrap.attr('data-slider-settings') );
+            slider_options              = JSON.parse( carousel_wrap.attr('data-slider-settings') ),
+            equal_height				= elementSettings.equal_height_boxes;
 
 		var mySwiper = new Swiper(carousel, slider_options);
+		
+		if ( equal_height === 'yes' ) {
+			function setEqualHeight(){
+				var maxHeight = 0;
+				$scope.find('.swiper-slide').each( function( currentSlide ) {
+					if($(this).height() > maxHeight){
+						maxHeight = $(this).height();
+					}
+				});
+				$scope.find('.pp-info-box-content-wrap').css('min-height',maxHeight);
+			}
+
+			$(setEqualHeight);
+			$(window).resize(setEqualHeight);
+		}
 		
 		$(document).on('pp_advanced_tab_changed', function(e, content) {
 			if ( content.find('.pp-info-box-carousel-wrap').length > 0 ) {
@@ -196,7 +164,8 @@
 			elementSettings				= getElementSettings( $scope ),
             settings                    = instafeed_elem.data('settings'),
             taregt_id					= settings.target,
-            pp_popup                    = settings.popup,
+            popup                    	= settings.popup,
+            image_link                  = settings.img_link,
             layout                    	= elementSettings.feed_layout,
             likes                    	= elementSettings.insta_likes,
             comments                    = elementSettings.insta_comments,
@@ -224,7 +193,7 @@
 					resolution:             settings.resolution,
 					orientation:            'portrait',
 					template:               function () {
-						if (pp_popup === '1') {
+						if (popup === '1') {
 							if (layout === 'carousel') {
 								return '<div class="pp-feed-item swiper-slide"><div class="pp-feed-item-inner"><a href="{{image}}"><div class="pp-if-img"><div class="pp-overlay-container">' + like_span + comments_span + '</div><img src="{{image}}" /></div></a></div></div>';
 							} else {
@@ -284,7 +253,7 @@
 
 				feed.run();
 
-				if (pp_popup === '1') {
+				if (popup === '1') {
 					$(taregt_id).each(function () {
 						$(this).magnificPopup({
 							delegate: 'div a', // child items selector, by clicking on it popup will open
@@ -306,6 +275,8 @@
 					limit: settings.images_count,
 					likes_count: (likes === 'yes'),
 					comments_count: (comments === 'yes'),
+					popup: popup,
+					image_link: image_link,
 					carousel: $slider_options,
 				});
 		}
@@ -423,6 +394,13 @@
         });
     };
 
+    var ContentTickerHandler = function ($scope, $) {
+        var $carousel                   = $scope.find('.pp-content-ticker').eq(0),
+            $slider_options             = JSON.parse( $carousel.attr('data-slider-settings') );
+
+        var mySwiper = new Swiper($carousel, $slider_options);
+    };
+
 	var PPButtonHandler = function ( $scope, $) {
 		var id = $scope.data('id');
 		var ttipPosition = $scope.find('.pp-button[data-tooltip]').data('tooltip-position');
@@ -496,6 +474,20 @@
             });
 		}
     };
+
+	var GFormsHandler = function( $scope, $ ) {
+		if ( 'undefined' == typeof $scope )
+			return;
+
+		$scope.find('select:not([multiple])').each(function() {
+			var	gf_select_field = $( this );
+			if( gf_select_field.next().hasClass('chosen-container') ) {
+				gf_select_field.next().wrap( "<span class='pp-gf-select-custom'></span>" );
+			} else {
+				gf_select_field.wrap( "<span class='pp-gf-select-custom'></span>" );
+			}
+		});
+	}
     
     $(window).on('elementor/frontend/init', function () {
         if ( elementorFrontend.isEditMode() ) {
@@ -511,10 +503,61 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-team-member-carousel.default', TeamMemberCarouselHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-scroll-image.default', ImageScrollHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-advanced-accordion.default', AdvancedAccordionHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-content-ticker.default', ContentTickerHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-buttons.default', PPButtonHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-twitter-timeline.default', TwitterTimelineHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-twitter-tweet.default', TwitterTimelineHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-image-accordion.default', ImageAccordionHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-gravity-forms.default', GFormsHandler);
+		
+		if (isEditMode) {
+			parent.document.addEventListener("mousedown", function(e) {
+				var widgets = parent.document.querySelectorAll(".elementor-element--promotion");
+
+				if (widgets.length > 0) {
+					for (var i = 0; i < widgets.length; i++) {
+						if (widgets[i].contains(e.target)) {
+							var dialog = parent.document.querySelector("#elementor-element--promotion__dialog");
+							var icon = widgets[i].querySelector(".icon > i");
+
+							if (icon.classList.toString().indexOf("ppicon") >= 0) {
+								dialog.querySelector(".dialog-buttons-action").style.display = "none";
+
+								if (dialog.querySelector(".pp-dialog-buttons-action") === null) {
+									var button = document.createElement("a");
+									var buttonText = document.createTextNode("Upgrade to PowerPack Pro");
+
+									button.setAttribute("href", "https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-editor-icons&utm_campaign=pp-pro-upgrade");
+									button.setAttribute("target", "_blank");
+									button.classList.add(
+										"dialog-button",
+										"dialog-action",
+										"dialog-buttons-action",
+										"elementor-button",
+										"elementor-button-success",
+										"pp-dialog-buttons-action"
+									);
+									button.appendChild(buttonText);
+
+									dialog.querySelector(".dialog-buttons-action").insertAdjacentHTML("afterend", button.outerHTML);
+								} else {
+									dialog.querySelector(".pp-dialog-buttons-action").style.display = "";
+								}
+							} else {
+								dialog.querySelector(".dialog-buttons-action").style.display = "";
+
+								if (dialog.querySelector(".pp-dialog-buttons-action") !== null) {
+									dialog.querySelector(".pp-dialog-buttons-action").style.display = "none";
+								}
+							}
+
+							// stop loop
+							break;
+						}
+					}
+				}
+			});
+		}
     });
     
 }(jQuery));
