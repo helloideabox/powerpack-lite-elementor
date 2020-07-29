@@ -229,6 +229,26 @@ class Flipbox extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_control(
+			'title_html_tag_front',
+			array(
+				'label'   => __( 'Title HTML Tag', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'h3',
+				'options' => array(
+					'h1'   => __( 'H1', 'powerpack' ),
+					'h2'   => __( 'H2', 'powerpack' ),
+					'h3'   => __( 'H3', 'powerpack' ),
+					'h4'   => __( 'H4', 'powerpack' ),
+					'h5'   => __( 'H5', 'powerpack' ),
+					'h6'   => __( 'H6', 'powerpack' ),
+					'div'  => __( 'div', 'powerpack' ),
+					'span' => __( 'span', 'powerpack' ),
+					'p'    => __( 'p', 'powerpack' ),
+				),
+			)
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -347,6 +367,26 @@ class Flipbox extends Powerpack_Widget {
 				'label_block'           => true,
 				'default'               => __( 'This is the front content. Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'powerpack' ),
 			]
+		);
+
+		$this->add_control(
+			'title_html_tag_back',
+			array(
+				'label'   => __( 'Title HTML Tag', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'h3',
+				'options' => array(
+					'h1'   => __( 'H1', 'powerpack' ),
+					'h2'   => __( 'H2', 'powerpack' ),
+					'h3'   => __( 'H3', 'powerpack' ),
+					'h4'   => __( 'H4', 'powerpack' ),
+					'h5'   => __( 'H5', 'powerpack' ),
+					'h6'   => __( 'H6', 'powerpack' ),
+					'div'  => __( 'div', 'powerpack' ),
+					'span' => __( 'span', 'powerpack' ),
+					'p'    => __( 'p', 'powerpack' ),
+				),
+			)
 		);
 
 		$this->add_control(
@@ -1602,9 +1642,9 @@ class Flipbox extends Powerpack_Widget {
 						<?php } ?>
 					</div>
 
-					<h3 class="pp-flipbox-heading">
+					<<?php echo $settings['title_html_tag_front']; ?> class="pp-flipbox-heading">
 						<?php echo wp_kses_post( $settings['title_front'], 'powerpack' ); ?>
-					</h3>
+					</<?php echo $settings['title_html_tag_front']; ?>>
 
 					<div class="pp-flipbox-content">
 						<?php echo wp_kses_post( $settings['description_front'], 'powerpack' ); ?>
@@ -1618,7 +1658,7 @@ class Flipbox extends Powerpack_Widget {
 	protected function render_back() {
 		$settings = $this->get_settings_for_display();
 
-		$pp_title_html_tag = 'h3';
+		$pp_title_html_tag = $settings['title_html_tag_back'];
 
 		$this->add_render_attribute( 'title-container', 'class', 'pp-flipbox-heading' );
 
