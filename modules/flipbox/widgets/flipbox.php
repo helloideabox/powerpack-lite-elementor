@@ -538,7 +538,7 @@ class Flipbox extends Powerpack_Widget {
 			/**
 			 * Content Tab: Help Docs
 			 *
-			 * @since 1.4.8
+			 * @since 2.0.0
 			 * @access protected
 			 */
 			$this->start_controls_section(

@@ -179,6 +179,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.0.0 - July 29, 2020 =
+* 	New: Template Library
+* 	Added: Team Member Carousel -  border, radius and padding options for team member box
+* 	Added: Flipbox - Icon text option
+
 = 1.3.0 - July 20, 2020 =
 * 	Enhancement: Updated admin panel UI
 * 	Added: Advanced Accordion - Toggle icon alignment and few other styling options
