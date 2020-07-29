@@ -183,6 +183,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	New: Template Library
 * 	Added: Team Member Carousel -  border, radius and padding options for team member box
 * 	Added: Flipbox - Icon text option
+* 	Added: Flipbox - Title HTML tag option
 
 = 1.3.0 - July 20, 2020 =
 * 	Enhancement: Updated admin panel UI
