@@ -752,6 +752,75 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			)
 		);
 
+		$this->start_controls_tabs( 'tabs_box_style' );
+
+		$this->start_controls_tab(
+			'tab_box_normal',
+			array(
+				'label' => __( 'Normal', 'powerpack' ),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'        => 'member_container_border',
+				'label'       => __( 'Border', 'powerpack' ),
+				'placeholder' => '1px',
+				'default'     => '1px',
+				'selector'    => '{{WRAPPER}} .pp-tm',
+			)
+		);
+
+		$this->add_control(
+			'member_container_border_radius',
+			array(
+				'label'      => __( 'Border Radius', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-tm' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'member_container_padding',
+			array(
+				'label'      => __( 'Padding', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', 'em', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-tm' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_box_active',
+			array(
+				'label' => __( 'Active', 'powerpack' ),
+			)
+		);
+
+		$this->add_control(
+			'member_container_border_color_active',
+			array(
+				'label'     => __( 'Border Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .swiper-slide-active .pp-tm' => 'border-color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
 		$this->end_controls_section();
 
 		/**
