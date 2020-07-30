@@ -94,6 +94,10 @@ class Posts extends Posts_Base {
 		$this->register_style_content_controls();
 		$this->register_style_image_controls();
 		$this->register_style_title_controls();
+		$this->register_style_excerpt_controls();
+		$this->register_style_meta_controls();
+		$this->register_style_button_controls();
+		$this->register_style_pagination_controls();
 	}
 
 	protected function register_content_layout_controls() {
@@ -1730,6 +1734,891 @@ class Posts extends Posts_Base {
 	}
 
 	/**
+	 * Style Tab: Content
+	 */
+	protected function register_style_excerpt_controls() {
+		$this->start_controls_section(
+			'section_excerpt_style',
+			array(
+				'label'     => __( 'Content', 'powerpack' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => array(
+					'show_excerpt' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'excerpt_color',
+			array(
+				'label'     => __( 'Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .pp-post-excerpt' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'show_excerpt' => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'      => 'excerpt_typography',
+				'label'     => __( 'Typography', 'powerpack' ),
+				'selector'  => '{{WRAPPER}} .pp-post-excerpt',
+				'condition' => array(
+					'show_excerpt' => 'yes',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'excerpt_margin_bottom',
+			array(
+				'label'      => __( 'Bottom Spacing', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+				),
+				'default'    => array(
+					'size' => 20,
+				),
+				'size_units' => array( 'px' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-post-excerpt' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'show_excerpt' => 'yes',
+				),
+			)
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Style Tab: Meta
+	 */
+	protected function register_style_meta_controls() {
+
+		$this->start_controls_section(
+			'section_meta_style',
+			array(
+				'label'     => __( 'Meta', 'powerpack' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => array(
+					'post_meta' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'meta_text_color',
+			array(
+				'label'     => __( 'Text Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-post-meta' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'post_meta' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'meta_links_color',
+			array(
+				'label'     => __( 'Links Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-post-meta a' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'post_meta' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'meta_links_color_hover',
+			array(
+				'label'     => __( 'Links Hover Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-post-meta a:hover' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'post_meta' => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'      => 'meta_typography',
+				'label'     => __( 'Typography', 'powerpack' ),
+				'selector'  => '{{WRAPPER}} .pp-post-meta',
+				'condition' => array(
+					'post_meta' => 'yes',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'meta_items_spacing',
+			array(
+				'label'      => __( 'Meta Items Spacing', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+				),
+				'default'    => array(
+					'size' => 5,
+				),
+				'size_units' => array( 'px' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-post-meta .pp-meta-separator:not(:last-child)' => 'margin-left: calc({{SIZE}}{{UNIT}} / 2); margin-right: calc({{SIZE}}{{UNIT}} / 2);',
+				),
+				'condition'  => array(
+					'post_meta' => 'yes',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'meta_margin_bottom',
+			array(
+				'label'      => __( 'Bottom Spacing', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+				),
+				'default'    => array(
+					'size' => 20,
+				),
+				'size_units' => array( 'px' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-post-meta' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'post_meta' => 'yes',
+				),
+			)
+		);
+
+		$this->end_controls_section();
+
+	}
+
+	/**
+	 * Style Tab: Button
+	 */
+	protected function register_style_button_controls() {
+
+		$this->start_controls_section(
+			'section_button_style',
+			array(
+				'label'     => __( 'Read More Button', 'powerpack' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'button_size',
+			array(
+				'label'     => __( 'Size', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'sm',
+				'options'   => array(
+					'xs' => __( 'Extra Small', 'powerpack' ),
+					'sm' => __( 'Small', 'powerpack' ),
+					'md' => __( 'Medium', 'powerpack' ),
+					'lg' => __( 'Large', 'powerpack' ),
+					'xl' => __( 'Extra Large', 'powerpack' ),
+				),
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'      => 'button_typography',
+				'label'     => __( 'Typography', 'powerpack' ),
+				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'selector'  => '{{WRAPPER}} .pp-posts-button',
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->start_controls_tabs( 'tabs_button_style' );
+
+		$this->start_controls_tab(
+			'tab_button_normal',
+			array(
+				'label'     => __( 'Normal', 'powerpack' ),
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'button_bg_color_normal',
+			array(
+				'label'     => __( 'Background Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-button' => 'background-color: {{VALUE}}',
+				),
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'button_text_color_normal',
+			array(
+				'label'     => __( 'Text Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-button' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'        => 'button_border_normal',
+				'label'       => __( 'Border', 'powerpack' ),
+				'placeholder' => '1px',
+				'default'     => '1px',
+				'selector'    => '{{WRAPPER}} .pp-posts-button',
+				'condition'   => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'button_border_radius',
+			array(
+				'label'      => __( 'Border Radius', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-posts-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'button_margin',
+			array(
+				'label'      => __( 'Margin', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', 'em', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-posts-button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'button_padding',
+			array(
+				'label'      => __( 'Padding', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', 'em', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-posts-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'button_box_shadow',
+				'selector'  => '{{WRAPPER}} .pp-posts-button',
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'info_box_button_icon_heading',
+			array(
+				'label'     => __( 'Button Icon', 'powerpack' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => array(
+					'show_button' => 'yes',
+					'button_icon!'                         => '',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'button_icon_margin',
+			array(
+				'label'       => __( 'Margin', 'powerpack' ),
+				'type'        => Controls_Manager::DIMENSIONS,
+				'size_units'  => array( 'px', '%' ),
+				'placeholder' => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'selectors'   => array(
+					'{{WRAPPER}} .pp-info-box .pp-button-icon' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
+				),
+				'condition'   => array(
+					'show_button' => 'yes',
+					'button_icon!'                         => '',
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_button_hover',
+			array(
+				'label'     => __( 'Hover', 'powerpack' ),
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'button_bg_color_hover',
+			array(
+				'label'     => __( 'Background Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-button:hover' => 'background-color: {{VALUE}}',
+				),
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'button_text_color_hover',
+			array(
+				'label'     => __( 'Text Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-button:hover' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'button_border_color_hover',
+			array(
+				'label'     => __( 'Border Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-button:hover' => 'border-color: {{VALUE}}',
+				),
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'button_animation',
+			array(
+				'label'     => __( 'Animation', 'powerpack' ),
+				'type'      => Controls_Manager::HOVER_ANIMATION,
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'button_box_shadow_hover',
+				'selector'  => '{{WRAPPER}} .pp-posts-button:hover',
+				'condition' => array(
+					'show_button' => 'yes',
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+	}
+
+	public function register_style_pagination_controls() {
+		$this->start_controls_section(
+			'section_pagination_style',
+			array(
+				'label'     => __( 'Pagination', 'powerpack' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => 'none',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_margin_top',
+			array(
+				'label'     => __( 'Gap between Posts & Pagination', 'powerpack' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => array(
+					'size' => '',
+				),
+				'range'     => array(
+					'px' => array(
+						'min' => 0,
+						'max' => 100,
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-pagination-top .pp-posts-pagination' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-posts-pagination-bottom .pp-posts-pagination' => 'margin-top: {{SIZE}}{{UNIT}};',
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'load_more_button_size',
+			array(
+				'label'     => __( 'Size', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'sm',
+				'options'   => array(
+					'xs' => __( 'Extra Small', 'powerpack' ),
+					'sm' => __( 'Small', 'powerpack' ),
+					'md' => __( 'Medium', 'powerpack' ),
+					'lg' => __( 'Large', 'powerpack' ),
+					'xl' => __( 'Extra Large', 'powerpack' ),
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => 'load_more',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'      => 'pagination_typography',
+				'selector'  => '{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a',
+				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->start_controls_tabs( 'tabs_pagination' );
+
+		$this->start_controls_tab(
+			'tab_pagination_normal',
+			array(
+				'label'     => __( 'Normal', 'powerpack' ),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'pagination_link_bg_color_normal',
+			array(
+				'label'     => __( 'Background Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a' => 'background-color: {{VALUE}}',
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'pagination_color',
+			array(
+				'label'     => __( 'Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a' => 'color: {{VALUE}};',
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'        => 'pagination_link_border_normal',
+				'label'       => __( 'Border', 'powerpack' ),
+				'placeholder' => '1px',
+				'default'     => '1px',
+				'selector'    => '{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a',
+				'condition'   => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'pagination_link_border_radius',
+			array(
+				'label'      => __( 'Border Radius', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_link_padding',
+			array(
+				'label'      => __( 'Padding', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', 'em', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'pagination_link_box_shadow',
+				'selector'  => '{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a',
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_pagination_hover',
+			array(
+				'label'     => __( 'Hover', 'powerpack' ),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'pagination_link_bg_color_hover',
+			array(
+				'label'     => __( 'Background Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-pagination a:hover' => 'background-color: {{VALUE}}',
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'pagination_color_hover',
+			array(
+				'label'     => __( 'Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-pagination a:hover' => 'color: {{VALUE}};',
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'pagination_border_color_hover',
+			array(
+				'label'     => __( 'Border Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-pagination a:hover' => 'border-color: {{VALUE}};',
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'pagination_link_box_shadow_hover',
+				'selector'  => '{{WRAPPER}} .pp-posts-pagination a:hover',
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_pagination_active',
+			array(
+				'label'     => __( 'Active', 'powerpack' ),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'pagination_link_bg_color_active',
+			array(
+				'label'     => __( 'Background Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-pagination .page-numbers.current' => 'background-color: {{VALUE}}',
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'pagination_color_active',
+			array(
+				'label'     => __( 'Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-pagination .page-numbers.current' => 'color: {{VALUE}};',
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'pagination_border_color_active',
+			array(
+				'label'     => __( 'Border Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .pp-posts-pagination .page-numbers.current' => 'border-color: {{VALUE}};',
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next' ),
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'pagination_link_box_shadow_active',
+				'selector'  => '{{WRAPPER}} .pp-posts-pagination .page-numbers.current',
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next' ),
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_responsive_control(
+			'pagination_spacing',
+			array(
+				'label'     => __( 'Space Between', 'powerpack' ),
+				'type'      => Controls_Manager::SLIDER,
+				'separator' => 'before',
+				'default'   => array(
+					'size' => 10,
+				),
+				'range'     => array(
+					'px' => array(
+						'min' => 0,
+						'max' => 100,
+					),
+				),
+				'selectors' => array(
+					'body:not(.rtl) {{WRAPPER}} .pp-posts-pagination .page-numbers:not(:first-child)' => 'margin-left: calc( {{SIZE}}{{UNIT}}/2 );',
+					'body:not(.rtl) {{WRAPPER}} .pp-posts-pagination .page-numbers:not(:last-child)' => 'margin-right: calc( {{SIZE}}{{UNIT}}/2 );',
+					'body.rtl {{WRAPPER}} .pp-posts-pagination .page-numbers:not(:first-child)' => 'margin-right: calc( {{SIZE}}{{UNIT}}/2 );',
+					'body.rtl {{WRAPPER}} .pp-posts-pagination .page-numbers:not(:last-child)' => 'margin-left: calc( {{SIZE}}{{UNIT}}/2 );',
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'numbers', 'numbers_and_prev_next' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'heading_loader',
+			array(
+				'label'     => __( 'Loader', 'powerpack' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'load_more', 'infinite' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'loader_color',
+			array(
+				'label'     => __( 'Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .pp-loader:after, {{WRAPPER}} .pp-posts-loader:after' => 'border-bottom-color: {{VALUE}}; border-top-color: {{VALUE}};',
+				),
+				'condition' => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'load_more', 'infinite' ),
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'loader_size',
+			array(
+				'label'      => __( 'Size', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => array(
+					'px' => array(
+						'min'  => 10,
+						'max'  => 80,
+						'step' => 1,
+					),
+				),
+				'default'    => array(
+					'size' => 46,
+				),
+				'size_units' => array( 'px' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-posts-loader' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'layout!'          => 'carousel',
+					'pagination_type!' => array( 'load_more', 'infinite' ),
+				),
+			)
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
 	 * Render Filters.
 	 *
 	 * Returns the Filter HTML.
@@ -2874,6 +3763,5 @@ endif;
 				$this->render_editor_script();
 			}
 		}
-		echo 'Posts Widget';
 	}
 }
