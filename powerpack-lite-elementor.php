@@ -3,7 +3,7 @@
  * Plugin Name: PowerPack Lite for Elementor
  * Plugin URI: https://powerpackelements.com
  * Description: Custom addons for Elementor page builder.
- * Version: 1.3.0
+ * Version: 2.0.0
  * Author: IdeaBox Creations
  * Author URI: http://ideabox.io/
  * License: GNU General Public License v2.0
@@ -14,7 +14,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'POWERPACK_ELEMENTS_LITE_VER', '1.3.0' );
+define( 'POWERPACK_ELEMENTS_LITE_VER', '2.0.0' );
 define( 'POWERPACK_ELEMENTS_LITE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_BASE', plugin_basename( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_URL', plugins_url( '/', __FILE__ ) );
@@ -27,6 +27,7 @@ require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-admin-settings.php
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-config.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-posts-helper.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-templates-lib.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
 
