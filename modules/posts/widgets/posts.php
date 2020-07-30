@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Posts Grid Widget
  */
-class Posts extends Powerpack_Widget {
+class Posts extends Posts_Base {
 
 	/**
 	 * Retrieve posts grid widget name.
@@ -74,7 +74,29 @@ class Posts extends Powerpack_Widget {
 	}
 
 	protected function _register_controls() {
+		/* Content Tab */
+		$this->register_content_layout_controls();
+		$this->register_query_section_controls( array(), 'posts', '', 'yes' );
+		$this->register_content_filters_controls();
+		$this->register_content_terms_controls();
+		$this->register_content_image_controls();
+		$this->register_content_title_controls();
+		$this->register_content_excerpt_controls();
+		$this->register_content_meta_controls();
+		$this->register_content_button_controls();
+		$this->register_content_pagination_controls();
+		$this->register_content_order_controls();
+		$this->register_content_help_docs_controls();
 
+		/* Style Tab */
+		$this->register_style_layout_controls();
+		$this->register_style_box_controls();
+		$this->register_style_content_controls();
+		$this->register_style_image_controls();
+		$this->register_style_title_controls();
+	}
+
+	protected function register_content_layout_controls() {
 		/**
 		 * Content Tab: Layout
 		 */
@@ -96,6 +118,18 @@ class Posts extends Powerpack_Widget {
 					'portfolio'     => __( 'Portfolio', 'powerpack' ),
 				],
 			]
+		);
+
+		$this->add_control(
+			'posts_per_page',
+			array(
+				'label'     => __( 'Posts Per Page', 'powerpack' ),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => 6,
+				'condition' => array(
+					'query_type' => 'custom',
+				),
+			)
 		);
 
 		$this->add_control(
@@ -136,53 +170,56 @@ class Posts extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_control(
+			'equal_height',
+			array(
+				'label'        => __( 'Equal Height', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '',
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
+				'return_value' => 'yes',
+				'prefix_class' => 'pp-equal-height-',
+				'render_type'  => 'template',
+				'condition'    => array(
+					'layout!' => 'masonry',
+				),
+			)
+		);
+
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Query
-		 */
+	/**
+	 * Content Tab: Filters
+	 */
+	protected function register_content_filters_controls() {
 		$this->start_controls_section(
-			'section_query',
-			[
-				'label'                 => __( 'Query', 'powerpack' ),
-			]
+			'section_filters',
+			array(
+				'label'     => __( 'Filters', 'powerpack' ),
+				'tab'       => Controls_Manager::TAB_CONTENT,
+				'condition' => array(
+					'post_type!' => 'related',
+					'layout!'    => 'carousel',
+				),
+			)
 		);
 
 		$this->add_control(
-			'query_type',
-			[
-				'label'                 => __( 'Query Type', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'default'               => 'custom',
-				'label_block'           => true,
-				'options'               => [
-					'main'      => __( 'Main Query', 'powerpack' ),
-					'custom'    => __( 'Custom Query', 'powerpack' ),
-				],
-			]
-		);
-
-		$post_types = PP_Posts_Helper::get_post_types();
-		$post_types['related'] = __( 'Related', 'powerpack' );
-
-		$this->add_control(
-			'post_type',
-			[
-				'label'                 => __( 'Post Type', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'options'               => $post_types,
-				'default'               => 'post',
-
-			]
-		);
-
-		$this->add_control(
-			'posts_per_page',
-			[
-				'label'                 => __( 'Posts Per Page', 'powerpack' ),
-				'type'                  => Controls_Manager::NUMBER,
-				'default'               => 6,
-			]
+			'show_filters',
+			array(
+				'label'        => __( 'Show Filters', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
+				'return_value' => 'yes',
+				'default'      => 'no',
+				'condition'    => array(
+					'post_type!' => 'related',
+					'layout!'    => 'carousel',
+				),
+			)
 		);
 
 		$post_types = PP_Posts_Helper::get_post_types();
@@ -193,433 +230,140 @@ class Posts extends Powerpack_Widget {
 
 			if ( ! empty( $taxonomy ) ) {
 
+				$related_tax = array();
+
+				// Get all taxonomy values under the taxonomy.
 				foreach ( $taxonomy as $index => $tax ) {
 
 					$terms = get_terms( $index );
 
-					$tax_terms = array();
-
-					if ( ! empty( $terms ) ) {
-
-						foreach ( $terms as $term_index => $term_obj ) {
-
-							$tax_terms[ $term_obj->term_id ] = $term_obj->name;
-						}
-
-						$tax_control_key = $index . '_' . $post_type_slug;
-
-						// Taxonomy filter type
-						$this->add_control(
-							$index . '_' . $post_type_slug . '_filter_type',
-							[
-								/* translators: %s Label */
-								'label'       => sprintf( __( '%s Filter Type', 'powerpack' ), $tax->label ),
-								'type'        => Controls_Manager::SELECT,
-								'default'     => 'IN',
-								'label_block' => true,
-								'options'     => [
-									/* translators: %s label */
-									'IN'     => sprintf( __( 'Include %s', 'powerpack' ), $tax->label ),
-									/* translators: %s label */
-									'NOT IN' => sprintf( __( 'Exclude %s', 'powerpack' ), $tax->label ),
-								],
-								'separator'         => 'before',
-								'condition'   => [
-									'post_type' => $post_type_slug,
-								],
-							]
-						);
-
-						// Add control for all taxonomies.
-						$this->add_control(
-							$tax_control_key,
-							[
-								'label'       => $tax->label,
-								'type'        => Controls_Manager::SELECT2,
-								'multiple'    => true,
-								'default'     => '',
-								'label_block' => true,
-								'options'     => $tax_terms,
-								'condition'   => [
-									'post_type' => $post_type_slug,
-								],
-							]
-						);
-
-					}
+					$related_tax[ $index ] = $tax->label;
 				}
+
+				// Add control for all taxonomies.
+				$this->add_control(
+					'tax_' . $post_type_slug . '_filter',
+					array(
+						'label'       => __( 'Filter By', 'powerpack' ),
+						'type'        => Controls_Manager::SELECT2,
+						'options'     => $related_tax,
+						'multiple'    => true,
+						'label_block' => true,
+						'default'     => array_keys( $related_tax )[0],
+						'condition'   => array(
+							'post_type'    => $post_type_slug,
+							'show_filters' => 'yes',
+							'layout'       => array( 'grid', 'masonry' ),
+						),
+					)
+				);
 			}
 		}
 
 		$this->add_control(
-			'author_filter_type',
-			[
-				'label'                 => __( 'Authors Filter Type', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'default'               => 'author__in',
-				'label_block'           => true,
-				'separator'             => 'before',
-				'options'               => [
-					'author__in'     => __( 'Include Authors', 'powerpack' ),
-					'author__not_in' => __( 'Exclude Authors', 'powerpack' ),
-				],
-				'condition'         => [
-					'post_type!' => 'related',
-				],
-			]
+			'filter_all_label',
+			array(
+				'label'     => __( '"All" Filter Label', 'powerpack' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => __( 'All', 'powerpack' ),
+				'condition' => array(
+					'layout!'      => 'carousel',
+					'show_filters' => 'yes',
+				),
+			)
 		);
 
 		$this->add_control(
-			'authors',
-			[
-				'label'                 => __( 'Authors', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT2,
-				'label_block'           => true,
-				'multiple'              => true,
-				'options'               => PP_Posts_Helper::get_users(),
-				'condition'         => [
-					'post_type!' => 'related',
-				],
-			]
+			'enable_active_filter',
+			array(
+				'label'        => __( 'Default Active Filter', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
+				'return_value' => 'yes',
+				'default'      => 'no',
+				'condition'    => array(
+					'layout!'      => 'carousel',
+					'show_filters' => 'yes',
+				),
+			)
 		);
 
-		$post_types = PP_Posts_Helper::get_post_types();
-
-		foreach ( $post_types as $post_type_slug => $post_type_label ) {
-
-			$posts_all = PP_Posts_Helper::get_all_posts_by_type( $post_type_slug );
-
-			$this->add_control(
-				$post_type_slug . '_filter_type',
-				[
-					'label'             => sprintf( __( '%s Filter Type', 'powerpack' ), $post_type_label ),
-					'type'              => Controls_Manager::SELECT,
-					'default'           => 'post__not_in',
-					'label_block'       => true,
-					'separator'         => 'before',
-					'options'           => [
-						'post__in'     => sprintf( __( 'Include %s', 'powerpack' ), $post_type_label ),
-						'post__not_in' => sprintf( __( 'Exclude %s', 'powerpack' ), $post_type_label ),
-					],
-					'condition'         => [
-						'post_type' => $post_type_slug,
-					],
-				]
-			);
-
-			$this->add_control(
-				$post_type_slug . '_filter',
-				[
-					/* translators: %s Label */
-					'label'             => $post_type_label,
-					'type'              => Controls_Manager::SELECT2,
-					'default'           => '',
-					'multiple'          => true,
-					'label_block'       => true,
-					'options'           => $posts_all,
-					'condition'         => [
-						'post_type' => $post_type_slug,
-					],
-				]
-			);
-		}
-
-		$taxonomy = PP_Posts_Helper::get_post_taxonomies( $post_type_slug );
-		$taxonomies = array();
-		foreach ( $taxonomy as $index => $tax ) {
-			$taxonomies[ $tax->name ] = $tax->label;
-		}
-
-		$this->start_controls_tabs(
-			'tabs_related',
-			[
-				'condition'             => [
-					'post_type' => 'related',
-				],
-			]
-		);
-
-		$this->start_controls_tab(
-			'tab_related_include',
-			[
-				'label'                 => __( 'Include', 'powerpack' ),
-				'condition'             => [
-					'post_type' => 'related',
-				],
-			]
+		// Active filter
+		$this->add_control(
+			'filter_active',
+			array(
+				'label'        => __( 'Active Filter', 'powerpack' ),
+				'type'         => 'pp-query',
+				'post_type'    => '',
+				'options'      => array(),
+				'label_block'  => true,
+				'multiple'     => false,
+				'query_type'   => 'terms',
+				'object_type'  => '',
+				'include_type' => true,
+				'condition'    => array(
+					'layout!'              => 'carousel',
+					'show_filters'         => 'yes',
+					'enable_active_filter' => 'yes',
+				),
+			)
 		);
 
 		$this->add_control(
-			'related_include_by',
-			[
-				'label'                 => __( 'Include By', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT2,
-				'default'               => '',
-				'label_block'           => true,
-				'multiple'              => true,
-				'options'               => [
-					'terms'     => __( 'Term', 'powerpack' ),
-					'authors'   => __( 'Author', 'powerpack' ),
-				],
-				'condition'             => [
-					'post_type' => 'related',
-				],
-			]
+			'show_filters_count',
+			array(
+				'label'        => __( 'Show Post Count', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
+				'return_value' => 'yes',
+				'default'      => 'no',
+				'condition'    => array(
+					'layout!'      => 'carousel',
+					'show_filters' => 'yes',
+				),
+			)
 		);
 
-		$this->add_control(
-			'related_filter_include',
-			[
-				'label'                 => __( 'Term', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT2,
-				'default'               => '',
-				'label_block'           => true,
-				'multiple'              => true,
-				'options'               => PP_Posts_Helper::get_taxonomies_options(),
-				'condition'             => [
-					'post_type' => 'related',
-					'related_include_by' => 'terms',
-				],
-			]
-		);
-
-		$this->end_controls_tab();
-
-		$this->start_controls_tab(
-			'tab_related_exclude',
-			[
-				'label'                 => __( 'Exclude', 'powerpack' ),
-				'condition'             => [
-					'post_type' => 'related',
-				],
-			]
-		);
-
-		$this->add_control(
-			'related_exclude_by',
-			[
-				'label'                 => __( 'Exclude By', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT2,
-				'default'               => '',
-				'label_block'           => true,
-				'multiple'              => true,
-				'options'               => [
-					'current_post'  => __( 'Current Post', 'powerpack' ),
-					'authors'       => __( 'Author', 'powerpack' ),
-				],
-				'condition'             => [
-					'post_type' => 'related',
-				],
-			]
-		);
-
-		$this->end_controls_tab();
-		$this->end_controls_tabs();
-
-		$this->add_control(
-			'related_fallback',
-			[
-				'label'                 => __( 'Fallback', 'powerpack' ),
-				'description'           => __( 'Displayed if no relevant results are found.', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'options'               => [
-					'none'      => __( 'None', 'powerpack' ),
-					'recent'    => __( 'Recent Posts', 'powerpack' ),
-				],
-				'default'               => 'none',
-				'label_block'           => false,
-				'separator'             => 'before',
-				'condition'             => [
-					'post_type' => 'related',
-				],
-			]
-		);
-
-		$this->add_control(
-			'select_date',
-			[
-				'label'                 => __( 'Date', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'options'               => [
-					'anytime'   => __( 'All', 'powerpack' ),
-					'today'     => __( 'Past Day', 'powerpack' ),
-					'week'      => __( 'Past Week', 'powerpack' ),
-					'month'     => __( 'Past Month', 'powerpack' ),
-					'quarter'   => __( 'Past Quarter', 'powerpack' ),
-					'year'      => __( 'Past Year', 'powerpack' ),
-					'exact'     => __( 'Custom', 'powerpack' ),
-				],
-				'default'               => 'anytime',
-				'label_block'           => false,
-				'multiple'              => false,
-				'separator'             => 'before',
-			]
-		);
-
-		$this->add_control(
-			'date_before',
-			[
-				'label'                 => __( 'Before', 'powerpack' ),
-				'description'           => __( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'powerpack' ),
-				'type'                  => Controls_Manager::DATE_TIME,
-				'label_block'           => false,
-				'multiple'              => false,
-				'placeholder'           => __( 'Choose', 'powerpack' ),
-				'condition'             => [
-					'select_date' => 'exact',
-				],
-			]
-		);
-
-		$this->add_control(
-			'date_after',
-			[
-				'label'                 => __( 'After', 'powerpack' ),
-				'description'           => __( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'powerpack' ),
-				'type'                  => Controls_Manager::DATE_TIME,
-				'label_block'           => false,
-				'multiple'              => false,
-				'placeholder'           => __( 'Choose', 'powerpack' ),
-				'condition'             => [
-					'select_date' => 'exact',
-				],
-			]
-		);
-
-		$this->add_control(
-			'order',
-			[
-				'label'                 => __( 'Order', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'options'               => [
-					'DESC'       => __( 'Descending', 'powerpack' ),
-					'ASC'        => __( 'Ascending', 'powerpack' ),
-				],
-				'default'               => 'DESC',
-				'separator'             => 'before',
-			]
-		);
-
-		$this->add_control(
-			'orderby',
-			[
-				'label'                 => __( 'Order By', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'options'               => [
-					'date'           => __( 'Date', 'powerpack' ),
-					'modified'       => __( 'Last Modified Date', 'powerpack' ),
-					'rand'           => __( 'Random', 'powerpack' ),
-					'comment_count'  => __( 'Comment Count', 'powerpack' ),
-					'title'          => __( 'Title', 'powerpack' ),
-					'ID'             => __( 'Post ID', 'powerpack' ),
-					'author'         => __( 'Post Author', 'powerpack' ),
-				],
-				'default'               => 'date',
-			]
-		);
-
-		$this->add_control(
-			'sticky_posts',
-			[
-				'label'                 => __( 'Sticky Posts', 'powerpack' ),
-				'type'                  => Controls_Manager::SWITCHER,
-				'default'               => '',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
-				'return_value'          => 'yes',
-				'separator'             => 'before',
-			]
-		);
-
-		$this->add_control(
-			'all_sticky_posts',
-			[
-				'label'                 => __( 'Show Only Sticky Posts', 'powerpack' ),
-				'type'                  => Controls_Manager::SWITCHER,
-				'default'               => '',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
-				'return_value'          => 'yes',
-				'condition'             => [
-					'sticky_posts' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'offset',
-			[
-				'label'                 => __( 'Offset', 'powerpack' ),
-				'description'           => __( 'Use this setting to skip this number of initial posts', 'powerpack' ),
-				'type'                  => Controls_Manager::NUMBER,
-				'default'               => '',
-				'separator'             => 'before',
-				'condition'             => [
-					'post_type!' => 'related',
-				],
-			]
-		);
-
-		$this->add_control(
-			'query_id',
-			[
-				'label'                 => __( 'Query ID', 'powerpack' ),
-				'description'           => __( 'Give your Query a custom unique id to allow server side filtering', 'powerpack' ),
-				'type'                  => Controls_Manager::TEXT,
-				'default'               => '',
-				'separator'             => 'before',
-			]
-		);
-
-		$this->add_control(
-			'heading_nothing_found',
-			[
-				'label'                 => __( 'If Nothing Found!', 'powerpack' ),
-				'type'                  => Controls_Manager::HEADING,
-				'separator'             => 'before',
-			]
-		);
-
-		$this->add_control(
-			'nothing_found_message',
-			[
-				'label'                 => __( 'Nothing Found Message', 'powerpack' ),
-				'type'                  => Controls_Manager::TEXTAREA,
-				'rows'                  => 3,
-				'default'               => __( 'It seems we can\'t find what you\'re looking for.', 'powerpack' ),
-			]
-		);
-
-		$this->add_control(
-			'show_search_form',
-			[
-				'label'                 => __( 'Show Search Form', 'powerpack' ),
-				'type'                  => Controls_Manager::SWITCHER,
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
-				'return_value'          => 'yes',
-				'default'               => '',
-			]
+		$this->add_responsive_control(
+			'filter_alignment',
+			array(
+				'label'       => __( 'Alignment', 'powerpack' ),
+				'label_block' => false,
+				'type'        => Controls_Manager::CHOOSE,
+				'default'     => 'left',
+				'options'     => array(
+					'left'   => array(
+						'title' => __( 'Left', 'powerpack' ),
+						'icon'  => 'eicon-h-align-left',
+					),
+					'center' => array(
+						'title' => __( 'Center', 'powerpack' ),
+						'icon'  => 'eicon-h-align-center',
+					),
+					'right'  => array(
+						'title' => __( 'Right', 'powerpack' ),
+						'icon'  => 'eicon-h-align-right',
+					),
+				),
+				'selectors'   => array(
+					'{{WRAPPER}} .pp-post-filters' => 'text-align: {{VALUE}};',
+				),
+				'condition'   => array(
+					'layout!'      => 'carousel',
+					'show_filters' => 'yes',
+				),
+			)
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Filters
-		 */
-		$this->start_controls_section(
-			'section_filters',
-			[
-				'label'                 => __( 'Filters', 'powerpack' ),
-				'tab'                   => Controls_Manager::TAB_CONTENT,
-			]
-		);
-
-		$this->end_controls_section();
-
-		/**
-		 * Content Tab: Post Terms
-		 */
+	/**
+	 * Content Tab: Post Terms
+	 */
+	protected function register_content_terms_controls() {
 		$this->start_controls_section(
 			'section_terms',
 			[
@@ -719,10 +463,12 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Image
-		 */
+	/**
+	 * Content Tab: Image
+	 */
+	protected function register_content_image_controls() {
 		$this->start_controls_section(
 			'section_image',
 			[
@@ -817,10 +563,12 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Title
-		 */
+	/**
+	 * Content Tab: Title
+	 */
+	protected function register_content_title_controls() {
 		$this->start_controls_section(
 			'section_post_title',
 			[
@@ -879,10 +627,12 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Excerpt
-		 */
+	/**
+	 * Content Tab: Excerpt
+	 */
+	protected function register_content_excerpt_controls() {
 		$this->start_controls_section(
 			'section_post_excerpt',
 			[
@@ -952,10 +702,12 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Meta
-		 */
+	/**
+	 * Content Tab: Meta
+	 */
+	protected function register_content_meta_controls() {
 		$this->start_controls_section(
 			'section_post_meta',
 			[
@@ -1227,10 +979,12 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Read More Button
-		 */
+	/**
+	 * Content Tab: Read More Button
+	 */
+	protected function register_content_button_controls() {
 		$this->start_controls_section(
 			'section_button',
 			[
@@ -1295,10 +1049,12 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Pagination
-		 */
+	/**
+	 * Content Tab: Pagination
+	 */
+	protected function register_content_pagination_controls() {
 		$this->start_controls_section(
 			'section_pagination',
 			[
@@ -1479,10 +1235,12 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Order
-		 */
+	/**
+	 * Content Tab: Order
+	 */
+	protected function register_content_order_controls() {
 		$this->start_controls_section(
 			'section_order',
 			[
@@ -1491,13 +1249,15 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Help Docs
-		 *
-		 * @since 1.4.8
-		 * @access protected
-		 */
+	/**
+	 * Content Tab: Help Docs
+	 *
+	 * @since 1.4.8
+	 * @access protected
+	 */
+	protected function register_content_help_docs_controls() {
 		$this->start_controls_section(
 			'section_help_docs',
 			[
@@ -1516,10 +1276,12 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Layout
-		 */
+	/**
+	 * Style Tab: Layout
+	 */
+	protected function register_style_layout_controls() {
 		$this->start_controls_section(
 			'section_layout_style',
 			[
@@ -1570,10 +1332,12 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Box
-		 */
+	/**
+	 * Style Tab: Box
+	 */
+	protected function register_style_box_controls() {
 		$this->start_controls_section(
 			'section_post_box_style',
 			[
@@ -1691,10 +1455,12 @@ class Posts extends Powerpack_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Content
-		 */
+	/**
+	 * Style Tab: Content
+	 */
+	protected function register_style_content_controls() {
 		$this->start_controls_section(
 			'section_post_content_style',
 			[
@@ -1767,10 +1533,12 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Image
-		 */
+	/**
+	 * Style Tab: Image
+	 */
+	protected function register_style_image_controls() {
 		$this->start_controls_section(
 			'section_image_style',
 			[
@@ -1864,14 +1632,15 @@ class Posts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_tab();
-
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Title
-		 */
+	/**
+	 * Style Tab: Title
+	 */
+	protected function register_style_title_controls() {
 		$this->start_controls_section(
 			'section_title_style',
 			[
@@ -1960,7 +1729,1151 @@ class Posts extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Render Filters.
+	 *
+	 * Returns the Filter HTML.
+	 *
+	 * @since 1.7.0
+	 * @access public
+	 */
+	public function render_filters() {
+		$settings = $this->get_settings_for_display();
+
+		$layout                = $settings['layout'];
+		$show_filters          = $settings['show_filters'];
+		$show_filters_count    = $settings['show_filters_count'];
+		$show_ajax_search_form = $settings['show_ajax_search_form'];
+		$search_form_action    = $settings['search_form_action'];
+
+		if ( 'carousel' == $layout ) {
+			return;
+		}
+
+		if ( 'yes' != $show_filters && 'yes' != $show_ajax_search_form ) {
+			return;
+		}
+
+		$filters   = $this->get_filter_values();
+		$all_label = $settings['filter_all_label'];
+
+		$this->add_render_attribute( 'filters-container', 'class', 'pp-post-filters-container' );
+
+		if ( 'yes' === $show_ajax_search_form ) {
+			$this->add_render_attribute(
+				'filters-container',
+				array(
+					'data-search-form'   => 'show',
+					'data-search-action' => $search_form_action,
+				)
+			);
+		}
+
+		$enable_active_filter = $settings['enable_active_filter'];
+		if ( $enable_active_filter == 'yes' ) {
+			$filter_active = $settings['filter_active'];
+		}
+		?>
+		<div <?php echo $this->get_render_attribute_string( 'filters-container' ); ?>>
+			<?php if ( 'yes' == $show_filters ) { ?>
+			<div class="pp-post-filters-wrap">
+				<ul class="pp-post-filters">
+					<li class="pp-post-filter <?php echo ( $enable_active_filter == 'yes' ) ? '' : 'pp-filter-current'; ?>" data-filter="*" data-taxonomy=""><?php echo ( 'All' == $all_label || '' == $all_label ) ? __( 'All', 'powerpack' ) : $all_label; ?></li>
+					<?php foreach ( $filters as $key => $value ) { ?>
+						<?php
+						if ( 'yes' == $show_filters_count ) {
+							$filter_value = $value->name . '<span class="pp-post-filter-count">' . $value->count . '</span>';
+						} else {
+							$filter_value = $value->name;
+						}
+						?>
+						<?php if ( $enable_active_filter == 'yes' && ( $key == $filter_active ) ) { ?>
+					<li class="pp-post-filter pp-filter-current" data-filter="<?php echo '.' . $value->slug; ?>" data-taxonomy="<?php echo '.' . $value->taxonomy; ?>"><?php echo $filter_value; ?></li>
+					<?php } else { ?>
+					<li class="pp-post-filter" data-filter="<?php echo '.' . $value->slug; ?>" data-taxonomy="<?php echo '.' . $value->taxonomy; ?>"><?php echo $filter_value; ?></li>
+							<?php
+					}
+					}
+					?>
+				</ul>
+			</div>
+			<?php } ?>
+			<?php $this->render_search_form(); ?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Get Masonry classes array.
+	 *
+	 * Returns the Masonry classes array.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function get_masonry_classes() {
+		$settings = $this->get_settings_for_display();
+
+		$post_type = $settings['post_type'];
+		$filter_by = $settings[ 'tax_' . $post_type . '_filter' ];
+
+		$taxonomies = wp_get_post_terms( get_the_ID(), $filter_by );
+		$class      = array();
+
+		if ( count( $taxonomies ) > 0 ) {
+
+			foreach ( $taxonomies as $taxonomy ) {
+
+				if ( is_object( $taxonomy ) ) {
+
+					$class[] = $taxonomy->slug;
+				}
+			}
+		}
+
+		return implode( ' ', $class );
+	}
+
+	/**
+	 * Render post terms output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render_terms() {
+		$settings   = $this->get_settings_for_display();
+		$post_terms = $settings['post_terms'];
+
+		if ( 'yes' !== $post_terms ) {
+			return;
+		}
+
+		$post_type = $settings['post_type'];
+
+		if ( 'related' === $settings['post_type'] ) {
+			$post_type = get_post_type();
+		}
+
+		$taxonomies = $settings[ 'tax_badge_' . $post_type ];
+
+		$terms = array();
+
+		if ( is_array( $taxonomies ) ) {
+			foreach ( $taxonomies as $taxonomy ) {
+				$terms_tax = wp_get_post_terms( get_the_ID(), $taxonomy );
+				$terms     = array_merge( $terms, $terms_tax );
+			}
+		} else {
+			$terms = wp_get_post_terms( get_the_ID(), $taxonomies );
+		}
+
+		if ( empty( $terms ) || is_wp_error( $terms ) ) {
+			return;
+		}
+
+		$max_terms = $settings['max_terms'];
+
+		if ( $max_terms ) {
+			$terms = array_slice( $terms, 0, $max_terms );
+		}
+
+		$terms = apply_filters( 'ppe_posts_terms', $terms );
+
+		$link_terms = $settings['post_taxonomy_link'];
+
+		if ( 'yes' === $link_terms ) {
+			$format = '<span class="pp-post-term"><a href="%2$s">%1$s</a></span>';
+		} else {
+			$format = '<span class="pp-post-term">%1$s</span>';
+		}
+		?>
+		<?php do_action( 'ppe_before_single_post_terms', get_the_ID(), $settings ); ?>
+		<div class="pp-post-terms-wrap">
+			<span class="pp-post-terms">
+				<?php
+				foreach ( $terms as $term ) {
+					printf( $format, $term->name, get_term_link( (int) $term->term_id ) );
+				}
+
+					do_action( 'ppe_single_post_terms', get_the_ID(), $settings );
+				?>
+			</span>
+		</div>
+		<?php do_action( 'ppe_after_single_post_terms', get_the_ID(), $settings ); ?>
+		<?php
+	}
+
+	/**
+	 * Render post meta output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render_meta_item( $item_type = '' ) {
+		$settings = $this->get_settings_for_display();
+
+		if ( ! $item_type ) {
+			return;
+		}
+
+		$show_item   = $settings[ 'show_' . $item_type ];
+		$item_link   = $settings[ $item_type . '_link' ];
+		$item_icon   = $settings[ $item_type . '_icon' ];
+		$item_prefix = $settings[ $item_type . '_prefix' ];
+
+		if ( 'yes' !== $show_item ) {
+			return;
+		}
+		?>
+		<?php do_action( 'ppe_before_single_post_' . $item_type, get_the_ID(), $settings ); ?>
+		<span class="pp-post-<?php echo $item_type; ?>">
+			<?php
+			if ( $item_icon ) {
+				?>
+				<span class="pp-meta-icon <?php echo $item_icon; ?>">
+				</span>
+				<?php
+			}
+
+			if ( $item_prefix ) {
+				?>
+				<span class="pp-meta-prefix">
+				<?php
+					echo $item_prefix;
+				?>
+				</span>
+				<?php
+			}
+			?>
+			<span class="pp-meta-text">
+				<?php
+				if ( 'author' === $item_type ) {
+					echo $this->get_post_author( $item_link );
+				} elseif ( 'date' === $item_type ) {
+					if ( $item_link == 'yes' ) {
+						echo '<a href="' . get_permalink() . '">' . $this->get_post_date() . '</a>';
+					} else {
+						echo $this->get_post_date();
+					}
+				} elseif ( 'comments' === $item_type ) {
+					echo $this->get_post_comments();
+				}
+				?>
+			</span>
+		</span>
+		<span class="pp-meta-separator"></span>
+		<?php do_action( 'ppe_after_single_post_' . $item_type, get_the_ID(), $settings ); ?>
+		<?php
+	}
+
+	/**
+	 * Get post author
+	 *
+	 * @access protected
+	 */
+	protected function get_post_author( $author_link = '' ) {
+		if ( 'yes' === $author_link ) {
+			return get_the_author_posts_link();
+		} else {
+			return get_the_author();
+		}
+	}
+
+	/**
+	 * Get post author
+	 *
+	 * @access protected
+	 */
+	protected function get_post_comments() {
+		/**
+		 * Comments Filter
+		 *
+		 * Filters the output for comments
+		 *
+		 * @since x.x.x
+		 * @param string    $comments       The original text
+		 * @param int       get_the_id()    The post ID
+		 */
+		$comments = get_comments_number_text();
+		$comments = apply_filters( 'ppe_posts_comments', $comments, get_the_ID() );
+		return $comments;
+	}
+
+	/**
+	 * Get post date
+	 *
+	 * @access protected
+	 */
+	protected function get_post_date( $date_link = '' ) {
+		$settings    = $this->get_settings_for_display();
+		$date_format = $settings['date_format'];
+		$date        = '';
+
+		switch ( $date_format ) {
+			case 'ago':
+				$date = sprintf( _x( '%s ago', '%s = human-readable time difference', 'powerpack' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+				break;
+
+			case 'modified':
+				$date = get_the_modified_date( '', get_the_ID() );
+				break;
+
+			case 'custom':
+				$date_custom_format = $settings['date_custom_format'];
+				$date               = ( $date_custom_format ) ? get_the_date( $date_custom_format ) : get_the_date();
+				break;
+
+			case 'key':
+				$date_meta_key = $settings['date_meta_key'];
+				if ( $date_meta_key ) {
+					$date = get_post_meta( get_the_ID(), $date_meta_key, 'true' );
+				}
+				break;
+
+			default:
+				$date = get_the_date();
+				break;
+		}
+
+		return apply_filters( 'ppe_posts_date', $date, get_the_ID() );
+	}
+
+	/**
+	 * Render post thumbnail output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function get_post_thumbnail() {
+		$settings              = $this->get_settings_for_display();
+		$image                 = $settings['show_thumbnail'];
+		$fallback_image        = $settings['fallback_image'];
+		$fallback_image_custom = $settings['fallback_image_custom'];
+
+		if ( 'yes' !== $image ) {
+			return;
+		}
+
+		if ( has_post_thumbnail() ) {
+
+			$image_id = get_post_thumbnail_id( get_the_ID() );
+
+			$setting_key              = 'thumbnail';
+			$settings[ $setting_key ] = array(
+				'id' => $image_id,
+			);
+			$thumbnail_html           = Group_Control_Image_Size::get_attachment_image_html( $settings, $setting_key );
+
+		} elseif ( 'default' === $fallback_image ) {
+
+			$thumbnail_url  = Utils::get_placeholder_image_src();
+			$thumbnail_html = '<img src="' . $thumbnail_url . '"/>';
+
+		} elseif ( 'custom' === $fallback_image ) {
+
+			$custom_image_id          = $fallback_image_custom['id'];
+			$setting_key              = 'thumbnail';
+			$settings[ $setting_key ] = array(
+				'id' => $custom_image_id,
+			);
+			$thumbnail_html           = Group_Control_Image_Size::get_attachment_image_html( $settings, $setting_key );
+
+		}
+
+		if ( empty( $thumbnail_html ) ) {
+			return;
+		}
+
+		return $thumbnail_html;
+	}
+
+	/**
+	 * Render post title output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render_post_title() {
+		$settings = $this->get_settings_for_display();
+
+		$show_post_title      = $settings['post_title'];
+		$title_tag            = $settings['title_html_tag'];
+		$title_link           = $settings['post_title_link'];
+		$post_title_separator = $settings['post_title_separator'];
+
+		if ( 'yes' !== $show_post_title ) {
+			return;
+		}
+
+		$post_title = get_the_title();
+		/**
+		 * Post Title Filter
+		 *
+		 * Filters post title
+		 *
+		 * @since x.x.x
+		 * @param string    $post_title     The original text
+		 * @param int       get_the_id()    The post ID
+		 */
+		$post_title = apply_filters( 'ppe_posts_title', $post_title, get_the_ID() );
+		if ( $post_title ) {
+			?>
+			<?php do_action( 'ppe_before_single_post_title', get_the_ID(), $settings ); ?>
+			<<?php echo $title_tag; ?> class="pp-post-title">
+				<?php if ( $title_link == 'yes' ) { ?>
+					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+						<?php echo $post_title; ?>
+					</a>
+					<?php
+				} else {
+					echo $post_title; }
+				?>
+			</<?php echo $title_tag; ?>>
+			<?php
+			if ( 'yes' === $post_title_separator ) {
+				?>
+				<div class="pp-post-separator-wrap">
+					<div class="pp-post-separator"></div>
+				</div>
+				<?php
+			}
+		}
+
+		do_action( 'ppe_after_single_post_title', get_the_ID(), $settings );
+	}
+
+	/**
+	 * Render post thumbnail output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render_post_thumbnail() {
+		$settings = $this->get_settings_for_display();
+
+		$image_link = $settings['thumbnail_link'];
+
+		$thumbnail_html = $this->get_post_thumbnail();
+
+		if ( empty( $thumbnail_html ) ) {
+			return;
+		}
+
+		if ( 'yes' === $image_link ) {
+
+			$thumbnail_html = '<a href="' . get_the_permalink() . '">' . $thumbnail_html . '</a>';
+
+		}
+		do_action( 'ppe_before_single_post_thumbnail', get_the_ID(), $settings );
+		?>
+		<div class="pp-post-thumbnail">
+			<div class="pp-post-thumbnail-wrap">
+				<?php echo $thumbnail_html; ?>
+			</div>
+		</div>
+		<?php
+		do_action( 'ppe_after_single_post_thumbnail', get_the_ID(), $settings );
+	}
+
+	/**
+	 * Get post excerpt length.
+	 *
+	 * Returns the length of post excerpt.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function pp_excerpt_length_filter() {
+        $settings = $this->get_settings_for_display();
+
+		return $settings['excerpt_length'];
+	}
+
+	/**
+	 * Get post excerpt end text.
+	 *
+	 * Returns the string to append to post excerpt.
+	 *
+	 * @param string $more returns string.
+	 * @since 1.7.0
+	 * @access public
+	 */
+	public function pp_excerpt_more_filter( $more ) {
+		return ' ...';
+	}
+
+	/**
+	 * Get post excerpt.
+	 *
+	 * Returns the post excerpt HTML wrap.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function render_excerpt() {
+		$settings       = $this->get_settings_for_display();
+		$show_excerpt   = $settings['show_excerpt'];
+		$excerpt_length = $settings['excerpt_length'];
+		$content_type   = $settings['content_type'];
+		$content_length = $settings['content_length'];
+
+		if ( 'yes' !== $show_excerpt ) {
+			return;
+		}
+
+		if ( 'excerpt' === $content_type && 0 === $excerpt_length ) {
+			return;
+		}
+		?>
+		<?php do_action( 'ppe_before_single_post_excerpt', get_the_ID(), $settings ); ?>
+		<div class="pp-post-excerpt">
+			<?php
+			if ( 'full' === $content_type ) {
+				the_content();
+			} elseif ( 'content' === $content_type ) {
+				$more = '...';
+				echo wp_trim_words( get_the_content(), $content_length, apply_filters( 'pp_posts_content_limit_more', $more ) );
+			} else {
+				add_filter( 'excerpt_length', array( $this, 'pp_excerpt_length_filter' ), 20 );
+				add_filter( 'excerpt_more', array( $this, 'pp_excerpt_more_filter' ), 20 );
+				the_excerpt();
+				remove_filter( 'excerpt_length', array( $this, 'pp_excerpt_length_filter' ), 20 );
+				remove_filter( 'excerpt_more', array( $this, 'pp_excerpt_more_filter' ), 20 );
+			}
+			?>
+		</div>
+		<?php do_action( 'ppe_after_single_post_excerpt', get_the_ID(), $settings ); ?>
+		<?php
+	}
+
+	/**
+	 * Render button output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render_button() {
+		$settings         = $this->get_settings_for_display();
+		$show_button      = $settings['show_button'];
+		$button_animation = $settings['button_animation'];
+
+		if ( 'yes' !== $show_button ) {
+			return;
+		}
+
+		$button_text          = $settings['button_text'];
+		$button_icon          = $settings['button_icon'];
+		$button_icon_position = $settings['button_icon_position'];
+		$button_size          = $settings['button_size'];
+
+		$classes = array(
+			'pp-posts-button',
+			'elementor-button',
+			'elementor-size-' . $button_size,
+		);
+
+		if ( $button_animation ) {
+			$classes[] = 'elementor-animation-' . $button_animation;
+		}
+
+		/**
+		 * Button Text Filter
+		 *
+		 * Filters the text for the button
+		 *
+		 * @since x.x.x
+		 * @param string    $button_text    The original text
+		 * @param int       get_the_id()    The post ID
+		 */
+		$button_text = apply_filters( 'ppe_posts_button_text', $button_text, get_the_ID() );
+		?>
+		<?php do_action( 'ppe_before_single_post_button', get_the_ID(), $settings ); ?>
+		<a class="<?php echo implode( ' ', $classes ); ?>" href="<?php echo get_the_permalink(); ?>">
+			<?php if ( $button_icon && 'before' === $button_icon_position ) { ?>
+				<span class="pp-button-icon <?php echo esc_attr( $button_icon ); ?>" aria-hidden="true"></span>
+			<?php } ?>
+			<?php if ( $button_text ) { ?>
+				<span class="pp-button-text">
+					<?php echo esc_html( $button_text ); ?>
+				</span>
+			<?php } ?>
+			<?php if ( $button_icon && 'after' === $button_icon_position ) { ?>
+				<span class="pp-button-icon <?php echo esc_attr( $button_icon ); ?>" aria-hidden="true"></span>
+			<?php } ?>
+		</a>
+		<?php do_action( 'ppe_after_single_post_button', get_the_ID(), $settings ); ?>
+		<?php
+	}
+
+	/**
+	 * Render post body output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	public function render_ajax_post_body( $filter = '', $taxonomy = '', $search = '' ) {
+		ob_start();
+		$this->query_posts( $filter, $taxonomy, $search );
+
+		$query       = $this->get_query();
+		$total_pages = $query->max_num_pages;
+
+		while ( $query->have_posts() ) {
+			$query->the_post();
+
+			$this->render_post_body();
+		}
+
+		wp_reset_postdata();
+
+		return ob_get_clean();
+	}
+
+	/**
+	 * Render post body output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	public function render_ajax_pagination() {
+		ob_start();
+		$this->render_pagination();
+		return ob_get_clean();
+	}
+
+	/**
+	 * Get Pagination.
+	 *
+	 * Returns the Pagination HTML.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function render_pagination() {
+		$settings = $this->get_settings_for_display();
+
+		$pagination_type    = $settings['pagination_type'];
+		$page_limit         = $settings['pagination_page_limit'];
+		$pagination_shorten = $settings['pagination_numbers_shorten'];
+
+		if ( 'none' === $pagination_type ) {
+			return;
+		}
+
+		// Get current page number.
+		$paged = $this->get_paged();
+
+		$query       = $this->get_query();
+		$total_pages = $query->max_num_pages;
+
+		if ( 'load_more' !== $pagination_type || 'infinite' !== $pagination_type ) {
+
+			if ( '' !== $page_limit && null !== $page_limit ) {
+				$total_pages = min( $page_limit, $total_pages );
+			}
+		}
+
+		if ( 2 > $total_pages ) {
+			return;
+		}
+
+		$has_numbers   = in_array( $pagination_type, array( 'numbers', 'numbers_and_prev_next' ) );
+		$has_prev_next = ( 'numbers_and_prev_next' === $pagination_type );
+		$is_load_more  = ( 'load_more' === $pagination_type );
+		$is_infinite   = ( 'infinite' === $pagination_type );
+
+		$links = array();
+
+		if ( $has_numbers || $is_infinite ) {
+
+			$current_page = $paged;
+			if ( ! $current_page ) {
+				$current_page = 1;
+			}
+
+			$paginate_args = array(
+				'type'      => 'array',
+				'current'   => $current_page,
+				'total'     => $total_pages,
+				'prev_next' => false,
+				'show_all'  => 'yes' !== $pagination_shorten,
+			);
+		}
+
+		if ( $has_prev_next ) {
+			$prev_label = $settings['pagination_prev_label'];
+			$next_label = $settings['pagination_next_label'];
+
+			$paginate_args['prev_next'] = true;
+
+			if ( $prev_label ) {
+				$paginate_args['prev_text'] = $prev_label;
+			}
+			if ( $next_label ) {
+				$paginate_args['next_text'] = $next_label;
+			}
+		}
+
+		if ( $has_numbers || $has_prev_next || $is_infinite ) {
+
+			if ( is_singular() && ! is_front_page() ) {
+				global $wp_rewrite;
+				if ( $wp_rewrite->using_permalinks() ) {
+					$paginate_args['base']   = trailingslashit( get_permalink() ) . '%_%';
+					$paginate_args['format'] = user_trailingslashit( '%#%', 'single_paged' );
+				} else {
+					$paginate_args['format'] = '?page=%#%';
+				}
+			}
+
+			$links = paginate_links( $paginate_args );
+
+		}
+
+		if ( ! $is_load_more ) {
+			$pagination_ajax = $settings['pagination_ajax'];
+
+			if ( 'yes' === $pagination_ajax ) {
+				$pagination_type = 'ajax';
+			} else {
+				$pagination_type = 'standard';
+			}
+			?>
+			<nav class="pp-posts-pagination pp-posts-pagination-<?php echo $pagination_type; ?> elementor-pagination" role="navigation" aria-label="<?php _e( 'Pagination', 'powerpack' ); ?>">
+				<?php echo implode( PHP_EOL, $links ); ?>
+			</nav>
+			<?php
+		}
+
+		if ( $is_load_more ) {
+			$load_more_label                = $settings['pagination_load_more_label'];
+			$load_more_button_icon          = $settings['pagination_load_more_button_icon'];
+			$load_more_button_icon_position = $settings['pagination_load_more_button_icon_position'];
+			$load_more_button_size          = $settings['load_more_button_size'];
+			?>
+			<div class="pp-post-load-more-wrap pp-posts-pagination">
+				<a class="pp-post-load-more elementor-button elementor-size-<?php echo $load_more_button_size; ?>" href="javascript:void(0);">
+					<?php if ( $load_more_button_icon && 'before' === $load_more_button_icon_position ) { ?>
+						<span class="pp-button-icon <?php echo esc_attr( $load_more_button_icon ); ?>" aria-hidden="true"></span>
+					<?php } ?>
+					<?php if ( $load_more_label ) { ?>
+						<span class="pp-button-text">
+							<?php echo esc_html( $load_more_label ); ?>
+						</span>
+					<?php } ?>
+					<?php if ( $load_more_button_icon && 'after' === $load_more_button_icon_position ) { ?>
+						<span class="pp-button-icon <?php echo esc_attr( $load_more_button_icon ); ?>" aria-hidden="true"></span>
+					<?php } ?>
+				</a>
+			</div>
+			<?php
+		}
+	}
+
+	public function get_posts_outer_wrap_classes() {
+		$settings = $this->get_settings_for_display();
+
+		$classes = array(
+			'pp-posts-container',
+		);
+
+		if ( 'infinite' === $settings['pagination_type'] ) {
+			$classes[] = 'pp-posts-infinite-scroll';
+		}
+
+		return apply_filters( 'ppe_posts_outer_wrap_classes', $classes );
+	}
+
+	public function get_posts_wrap_classes() {
+		$settings = $this->get_settings_for_display();
+
+		$classes = array(
+			'pp-posts',
+			'pp-posts-skin-' . $this->get_id(),
+		);
+
+		if ( 'carousel' === $settings['layout'] ) {
+			$classes[] = 'pp-posts-carousel';
+			$classes[] = 'pp-slick-slider';
+		} else {
+			$classes[] = 'pp-elementor-grid';
+			$classes[] = 'pp-posts-grid';
+		}
+
+		return apply_filters( 'ppe_posts_wrap_classes', $classes );
+	}
+
+	public function get_item_wrap_classes() {
+		$settings = $this->get_settings_for_display();
+
+		$classes = array( 'pp-post-wrap' );
+
+		if ( 'carousel' === $settings['layout'] ) {
+			$classes[] = 'pp-carousel-item-wrap';
+		} else {
+			$classes[] = 'pp-grid-item-wrap';
+		}
+
+		return implode( ' ', $classes );
+	}
+
+	public function get_item_classes() {
+		$settings = $this->get_settings_for_display();
+
+		$classes = array();
+
+		$classes[] = 'pp-post';
+
+		if ( 'carousel' === $settings['layout'] ) {
+			$classes[] = 'pp-carousel-item';
+		} else {
+			$classes[] = 'pp-grid-item';
+		}
+
+		return implode( ' ', $classes );
+	}
+
+	/**
+	 * Render post meta output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render_post_meta() {
+		$settings  = $this->get_settings_for_display();
+
+		if ( 'yes' === $settings['post_meta'] ) {
+			?>
+			<?php do_action( 'ppe_before_single_post_meta', get_the_ID(), $settings ); ?>
+			<div class="pp-post-meta">
+				<?php
+					// Post Author
+					$this->render_meta_item( 'author' );
+
+					// Post Date
+					$this->render_meta_item( 'date' );
+
+					// Post Comments
+					$this->render_meta_item( 'comments' );
+				?>
+			</div>
+			<?php
+			do_action( 'ppe_after_single_post_meta', get_the_ID(), $settings );
+		}
+	}
+
+	/**
+	 * Render post body output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render_post_body() {
+		$settings = $this->get_settings_for_display();
+
+		$post_terms         = $settings['post_terms'];
+		$post_meta          = $settings['post_meta'];
+		$thumbnail_location = $settings['thumbnail_location'];
+
+		do_action( 'ppe_before_single_post_wrap', get_the_ID(), $settings );
+		?>
+		<div class="<?php echo $this->get_item_wrap_classes(); ?>">
+			<?php do_action( 'ppe_before_single_post', get_the_ID(), $settings ); ?>
+			<div class="<?php echo $this->get_item_classes(); ?>">
+				<?php
+				if ( 'outside' === $thumbnail_location ) {
+					$this->render_post_thumbnail();
+				}
+				?>
+
+				<?php do_action( 'ppe_before_single_post_content', get_the_ID(), $settings ); ?>
+
+				<div class="pp-post-content">
+					<?php
+					if ( 'inside' === $thumbnail_location ) {
+						$this->render_post_thumbnail();
+					}
+
+					$this->render_terms();
+
+					$this->render_post_title();
+
+					$this->render_post_meta();
+
+					$this->render_excerpt();
+
+					$this->render_button();
+					?>
+				</div>
+
+				<?php do_action( 'ppe_after_single_post_content', get_the_ID(), $settings ); ?>
+			</div>
+			<?php do_action( 'ppe_after_single_post', get_the_ID(), $settings ); ?>
+		</div>
+		<?php
+		do_action( 'ppe_after_single_post_wrap', get_the_ID(), $settings );
+	}
+
+	/**
+	 * Render Search Form HTML.
+	 *
+	 * Returns the Search Form HTML.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function render_search() {
+		$settings = $this->get_settings_for_display();
+		?>
+		<div class="pp-posts-empty">
+			<?php if ( $settings['nothing_found_message'] ) { ?>
+				<p><?php echo $settings['nothing_found_message']; ?></p>
+			<?php } ?>
+
+			<?php if ( $settings['show_search_form'] === 'yes' ) { ?>
+				<?php get_search_form(); ?>
+			<?php } ?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Carousel Settings.
+	 *
+	 * @access public
+	 */
+	public function slider_settings() {
+		$autoplay        = $settings['autoplay'];
+		$autoplay_speed  = $settings['autoplay_speed'];
+		$arrows          = $settings['arrows'];
+		$arrow           = $settings['arrow'];
+		$dots            = $settings['dots'];
+		$animation_speed = $settings['animation_speed'];
+		$infinite_loop   = $settings['infinite_loop'];
+		$pause_on_hover  = $settings['pause_on_hover'];
+		$adaptive_height = $settings['adaptive_height'];
+		$direction       = $settings['direction'];
+
+		$slides_to_show          = ( $settings['columns'] !== '' ) ? absint( $settings['columns'] ) : 3;
+		$slides_to_show_tablet   = ( $settings['columns_tablet'] !== '' ) ? absint( $settings['columns_tablet'] ) : 2;
+		$slides_to_show_mobile   = ( $settings['columns_mobile'] !== '' ) ? absint( $settings['columns_mobile'] ) : 2;
+		$slides_to_scroll        = ( $settings['slides_to_scroll'] !== '' ) ? absint( $settings['slides_to_scroll'] ) : 1;
+		$slides_to_scroll_tablet = ( $settings['slides_to_scroll_tablet'] !== '' ) ? absint( $settings['slides_to_scroll_tablet'] ) : 1;
+		$slides_to_scroll_mobile = ( $settings['slides_to_scroll_mobile'] !== '' ) ? absint( $settings['slides_to_scroll_mobile'] ) : 1;
+
+		$slider_options = array(
+			'slidesToShow'   => $slides_to_show,
+			'slidesToScroll' => $slides_to_scroll,
+			'autoplay'       => ( 'yes' === $autoplay ),
+			'autoplaySpeed'  => ( '' !== $autoplay_speed ) ? $autoplay_speed : 3000,
+			'arrows'         => ( 'yes' === $arrows ),
+			'dots'           => ( 'yes' === $dots ),
+			'speed'          => ( '' !== $animation_speed ) ? $animation_speed : 600,
+			'infinite'       => ( 'yes' === $infinite_loop ),
+			'pauseOnHover'   => ( 'yes' === $pause_on_hover ),
+			'adaptiveHeight' => ( 'yes' === $adaptive_height ),
+		);
+
+		if ( 'right' === $direction ) {
+			$slider_options['rtl'] = true;
+		}
+
+		if ( 'yes' === $arrows ) {
+			if ( $arrow ) {
+				$pa_next_arrow = $arrow;
+				$pa_prev_arrow = str_replace( 'right', 'left', $arrow );
+			} else {
+				$pa_next_arrow = 'fa fa-angle-right';
+				$pa_prev_arrow = 'fa fa-angle-left';
+			}
+
+			$slider_options['prevArrow'] = '<div class="pp-slider-arrow pp-arrow pp-arrow-prev"><i class="' . $pa_prev_arrow . '"></i></div>';
+			$slider_options['nextArrow'] = '<div class="pp-slider-arrow pp-arrow pp-arrow-next"><i class="' . $pa_next_arrow . '"></i></div>';
+		}
+
+		$slider_options['responsive'] = array(
+			array(
+				'breakpoint' => 1024,
+				'settings'   => array(
+					'slidesToShow'   => $slides_to_show_tablet,
+					'slidesToScroll' => $slides_to_scroll_tablet,
+				),
+			),
+			array(
+				'breakpoint' => 768,
+				'settings'   => array(
+					'slidesToShow'   => $slides_to_show_mobile,
+					'slidesToScroll' => $slides_to_scroll_mobile,
+				),
+			),
+		);
+
+		$this->add_render_attribute(
+			'posts-wrap',
+			array(
+				'data-slider-settings' => wp_json_encode( $slider_options ),
+			)
+		);
+	}
+
 	protected function render() {
+        $settings = $this->get_settings_for_display();
+
+		$query_type          = $settings['query_type'];
+		$layout              = $settings['layout'];
+		$pagination_type     = $settings['pagination_type'];
+		$pagination_position = $settings['pagination_position'];
+		$equal_height        = $settings['equal_height'];
+		$direction           = $settings['direction'];
+		$skin                = $this->get_id();
+		$posts_outer_wrap    = $this->get_posts_outer_wrap_classes();
+		$posts_wrap          = $this->get_posts_wrap_classes();
+		$page_id             = '';
+		if ( null != \Elementor\Plugin::$instance->documents->get_current() ) {
+			$page_id = \Elementor\Plugin::$instance->documents->get_current()->get_main_id();
+		}
+
+		$this->add_render_attribute( 'posts-container', 'class', $posts_outer_wrap );
+
+		$this->add_render_attribute( 'posts-wrap', 'class', $posts_wrap );
+
+		if ( $layout == 'carousel' ) {
+			if ( $equal_height == 'yes' ) {
+				$this->add_render_attribute( 'posts-wrap', 'data-equal-height', 'yes' );
+			}
+			if ( $direction == 'right' ) {
+				$this->add_render_attribute( 'posts-wrap', 'dir', 'rtl' );
+			}
+		}
+
+		$this->add_render_attribute(
+			'posts-wrap',
+			array(
+				'data-query-type' => $query_type,
+				'data-layout'     => $layout,
+				'data-page'       => $page_id,
+				'data-skin'       => $skin,
+			)
+		);
+
+		$this->add_render_attribute( 'post-categories', 'class', 'pp-post-categories' );
+
+		// Filters
+		if ( $settings['post_type'] != 'related' ) {
+			$this->render_filters();
+		}
+
+		if ( $layout == 'carousel' ) {
+			$this->slider_settings();
+		}
+		?>
+
+		<?php do_action( 'ppe_before_posts_outer_wrap', $settings ); ?>
+
+		<div <?php echo $this->get_render_attribute_string( 'posts-container' ); ?>>
+			<?php
+				do_action( 'ppe_before_posts_wrap', $settings );
+
+				$i = 1;
+
+				$enable_active_filter = $settings['enable_active_filter'];
+			if ( $enable_active_filter == 'yes' ) {
+				$filter_active = $settings['filter_active'];
+				$filters       = $this->get_filter_values();
+				$taxonomy      = $filters[ $filter_active ]->taxonomy;
+				$filter        = $filters[ $filter_active ]->slug;
+			} else {
+				$filter   = '';
+				$taxonomy = '';
+			}
+				$this->query_posts( $filter, $taxonomy );
+				$query = $this->get_query();
+
+			if ( ! $query->found_posts ) {
+
+				$this->render_search();
+
+				return;
+			}
+
+				$total_pages = $query->max_num_pages;
+			?>
+			
+			<?php if ( 'carousel' != $layout ) { ?>
+				<?php if ( ( 'numbers' == $pagination_type || 'numbers_and_prev_next' == $pagination_type ) && ( 'top' == $pagination_position || 'top-bottom' == $pagination_position ) ) { ?>
+				<div class="pp-posts-pagination-wrap pp-posts-pagination-top" data-total="<?php echo $total_pages; ?>">
+					<?php
+						$this->render_pagination();
+					?>
+				</div>
+			<?php } ?>
+			<?php } ?>
+			
+			<div <?php echo $this->get_render_attribute_string( 'posts-wrap' ); ?>>
+				<?php
+					$i = 1;
+
+				if ( $query->have_posts() ) :
+					while ( $query->have_posts() ) :
+						$query->the_post();
+
+						$this->render_post_body();
+
+						$i++;
+
+					endwhile;
+endif;
+				wp_reset_postdata();
+				?>
+			</div>
+			
+			<?php do_action( 'ppe_after_posts_wrap', $settings ); ?>
+			
+			<?php if ( 'load_more' == $pagination_type || 'infinite' == $pagination_type ) { ?>
+			<div class="pp-posts-loader"></div>
+			<?php } ?>
+			
+			<?php
+			if ( 'load_more' == $pagination_type || 'infinite' == $pagination_type ) {
+				$pagination_bottom = true;
+			} elseif ( ( 'numbers' == $pagination_type || 'numbers_and_prev_next' == $pagination_type ) && ( '' == $pagination_position || 'bottom' == $pagination_position || 'top-bottom' == $pagination_position ) ) {
+				$pagination_bottom = true;
+			} else {
+				$pagination_bottom = false;
+			}
+			?>
+			
+			<?php if ( 'carousel' != $layout ) { ?>
+				<?php if ( $pagination_bottom ) { ?>
+				<div class="pp-posts-pagination-wrap pp-posts-pagination-bottom" data-total="<?php echo $total_pages; ?>">
+					<?php
+						$this->render_pagination();
+					?>
+				</div>
+			<?php } ?>
+			<?php } ?>
+		</div>
+
+		<?php do_action( 'ppe_after_posts_outer_wrap', $settings ); ?>
+
+		<?php
+
+		if ( \Elementor\Plugin::instance()->editor->is_edit_mode() ) {
+
+			if ( 'masonry' === $layout ) {
+				$this->render_editor_script();
+			}
+		}
 		echo 'Posts Widget';
 	}
 }
