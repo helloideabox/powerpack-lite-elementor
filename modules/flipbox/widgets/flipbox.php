@@ -578,7 +578,7 @@ class Flipbox extends Powerpack_Widget {
 			/**
 			 * Content Tab: Help Docs
 			 *
-			 * @since 2.0.0
+			 * @since 1.4.8
 			 * @access protected
 			 */
 			$this->start_controls_section(
@@ -895,6 +895,9 @@ class Flipbox extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Title', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
+				'condition'             => [
+					'title_front!' => '',
+				],
 			]
 		);
 
@@ -907,6 +910,9 @@ class Flipbox extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-front .pp-flipbox-heading' => 'color: {{VALUE}};',
 				],
+				'condition'             => [
+					'title_front!' => '',
+				],
 			]
 		);
 
@@ -915,6 +921,29 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'name'                  => 'title_typography_front',
 				'selector'              => '{{WRAPPER}} .pp-flipbox-front .pp-flipbox-heading',
+				'condition'             => [
+					'title_front!' => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'title_spacing_front',
+			[
+				'label'                 => __( 'Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-front .pp-flipbox-heading' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+				'condition'             => [
+					'title_front!' => '',
+				],
 			]
 		);
 
@@ -924,6 +953,9 @@ class Flipbox extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Description', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
+				'condition'             => [
+					'description_front!' => '',
+				],
 			]
 		);
 
@@ -936,6 +968,9 @@ class Flipbox extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-front .pp-flipbox-content' => 'color: {{VALUE}};',
 				],
+				'condition'             => [
+					'description_front!' => '',
+				],
 			]
 		);
 
@@ -944,6 +979,9 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'name'                  => 'description_typography_front',
 				'selector'              => '{{WRAPPER}} .pp-flipbox-front .pp-flipbox-content',
+				'condition'             => [
+					'description_front!' => '',
+				],
 			]
 		);
 
@@ -1211,6 +1249,9 @@ class Flipbox extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Title', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
+				'condition'             => [
+					'title_back!' => '',
+				],
 			]
 		);
 
@@ -1223,6 +1264,9 @@ class Flipbox extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-back .pp-flipbox-heading' => 'color: {{VALUE}};',
 				],
+				'condition'             => [
+					'title_back!' => '',
+				],
 			]
 		);
 
@@ -1231,6 +1275,29 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'name'                  => 'title_typography_back',
 				'selector'              => '{{WRAPPER}} .pp-flipbox-back .pp-flipbox-heading',
+				'condition'             => [
+					'title_back!' => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'title_spacing_back',
+			[
+				'label'                 => __( 'Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-back .pp-flipbox-heading' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+				'condition'             => [
+					'title_back!' => '',
+				],
 			]
 		);
 
@@ -1240,6 +1307,9 @@ class Flipbox extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Description', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
+				'condition'             => [
+					'description_back!' => '',
+				],
 			]
 		);
 
@@ -1252,6 +1322,9 @@ class Flipbox extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-back .pp-flipbox-content' => 'color: {{VALUE}};',
 				],
+				'condition'             => [
+					'description_back!' => '',
+				],
 			]
 		);
 
@@ -1260,6 +1333,9 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'name'                  => 'description_typography_back',
 				'selector'              => '{{WRAPPER}} .pp-flipbox-back .pp-flipbox-content',
+				'condition'             => [
+					'description_back!' => '',
+				],
 			]
 		);
 
@@ -1555,38 +1631,6 @@ class Flipbox extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	protected function render() {
-
-		$settings = $this->get_settings_for_display();
-
-		$flipbox_if_html_tag = 'div';
-		$this->add_render_attribute( 'flipbox-card', 'class', 'pp-flipbox-flip-card' );
-
-		$this->add_render_attribute(
-			'flipbox-container',
-			[
-				'class' => [
-					'pp-flipbox-container',
-					'pp-animate-' . esc_attr( $settings['flip_effect'] ),
-					'pp-direction-' . esc_attr( $settings['flip_direction'] ),
-				],
-			]
-		);
-		?>
-		<div <?php echo $this->get_render_attribute_string( 'flipbox-container' ); ?>>
-			<div <?php echo $this->get_render_attribute_string( 'flipbox-card' ); ?>>
-				<?php
-					// Front
-					$this->render_front();
-
-					// Back
-					$this->render_back();
-				?>
-			</div>
-		</div>
-		<?php
-	}
-
 	protected function render_front() {
 		$settings = $this->get_settings_for_display();
 
@@ -1810,5 +1854,269 @@ class Flipbox extends Powerpack_Widget {
 			}
 			echo '</span>';
 		}
+	}
+
+	/**
+	 * Render flipbox widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render() {
+		$settings = $this->get_settings_for_display();
+		$flipbox_if_html_tag = 'div';
+
+		$this->add_render_attribute(
+			[
+				'flipbox-card' => [
+					'class' => [
+						'pp-flipbox-flip-card',
+					],
+				],
+				'flipbox-container' => [
+					'class' => [
+						'pp-flipbox-container',
+						'pp-animate-' . esc_attr( $settings['flip_effect'] ),
+						'pp-direction-' . esc_attr( $settings['flip_direction'] ),
+					],
+				],
+			]
+		);
+		?>
+		<div <?php echo $this->get_render_attribute_string( 'flipbox-container' ); ?>>
+			<div <?php echo $this->get_render_attribute_string( 'flipbox-card' ); ?>>
+				<?php
+					// Front
+					$this->render_front();
+
+					// Back
+					$this->render_back();
+				?>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render flipbox widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @access protected
+	 */
+	protected function _content_template() {
+		?>
+		<#
+			view.addRenderAttribute( 'flipbox-card', {
+				'class': [
+					'pp-flipbox-flip-card'
+				],
+			} );
+
+			view.addRenderAttribute( 'flipbox-container', {
+				'class': [
+					'pp-flipbox-container',
+					'pp-animate-' + settings.flip_effect,
+					'pp-direction-' + settings.flip_direction
+				],
+			} );
+
+			function render_button_icon() {
+				var buttonIconHTML = elementor.helpers.renderIcon( view, settings.select_button_icon, { 'aria-hidden': true }, 'i' , 'object' ),
+					buttonMigrated = elementor.helpers.isIconMigrated( settings, 'select_button_icon' );
+
+				if ( settings.button_icon || settings.select_button_icon ) { #>
+					<span class="pp-button-icon">
+					<#
+					if ( buttonIconHTML && buttonIconHTML.rendered && ( ! settings.button_icon || buttonMigrated ) ) { #>
+						{{{ buttonIconHTML.value }}}
+					<# } else if ( settings.button_icon ) { #>
+						<i class="{{ settings.button_icon }}" aria-hidden="true"></i>
+					<# } #>
+					</span>
+					<#
+				}
+			}
+
+			function render_front() {
+				view.addRenderAttribute( 'icon-front', 'class', 'pp-flipbox-icon-image' );
+
+				var iconHTML = elementor.helpers.renderIcon( view, settings.select_icon, { 'aria-hidden': true }, 'i' , 'object' ),
+					migrated = elementor.helpers.isIconMigrated( settings, 'select_icon' );
+
+				if ( 'icon' === settings.icon_type ) {
+					view.addRenderAttribute( 'icon-front', 'class', 'pp-icon' );
+				}
+				#>
+				<div class="pp-flipbox-front">
+					<div class="pp-flipbox-overlay">
+						<div class="pp-flipbox-inner">
+							<div {{{ view.getRenderAttributeString( 'icon-front' ) }}}>
+								<#
+								if ( 'icon' === settings.icon_type ) {
+									if ( settings.icon || settings.select_icon ) {
+										if ( iconHTML && iconHTML.rendered && ( ! settings.icon || migrated ) ) { #>
+											{{{ iconHTML.value }}}
+										<# } else { #>
+											<i class="{{ settings.icon }}" aria-hidden="true"></i>
+										<# }
+									}
+								} else if ( 'image' === settings.icon_type ) {
+									var flipbox_image = {
+										id: settings.icon_image.id,
+										url: settings.icon_image.url,
+										size: settings.thumbnail_size,
+										dimension: settings.thumbnail_custom_dimension,
+										model: view.getEditModel()
+									};
+									var flipbox_image_url = elementor.imagesManager.getImageUrl( flipbox_image );
+
+									if ( flipbox_image_url ) { #>
+										<img src="{{{ flipbox_image_url }}}" />
+									<# }
+								} else if ( 'text' === settings.icon_type ) { #>
+									<span class="pp-icon-text">
+										{{{ settings.icon_text }}}
+									</span>
+								<# } #>
+							</div>
+
+							<{{ settings.title_html_tag_front }} class="pp-flipbox-heading">
+								{{{ settings.title_front }}}
+							</{{ settings.title_html_tag_front }}>
+
+							<div class="pp-flipbox-content">
+								{{{ settings.description_front }}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<#
+			}
+
+			function render_back() {
+				var pp_title_html_tag = settings.title_html_tag_back;
+
+				view.addRenderAttribute( 'title-container', 'class', 'pp-flipbox-heading' );
+
+				view.addRenderAttribute( 'icon-back', 'class', 'pp-flipbox-icon-image' );
+
+				var iconHTML = elementor.helpers.renderIcon( view, settings.select_icon_back, { 'aria-hidden': true }, 'i' , 'object' ),
+					migrated = elementor.helpers.isIconMigrated( settings, 'select_icon_back' );
+
+				if ( 'icon' === settings.icon_type_back ) {
+					view.addRenderAttribute( 'icon-back', 'class', 'pp-icon' );
+				}
+
+				if ( 'none' !== settings.link_type ) {
+					if ( settings.link.url ) {
+						if ( 'title' === settings.link_type ) {
+
+							var pp_title_html_tag = 'a';
+
+							view.addRenderAttribute( 'title-container', 'class', 'pp-flipbox-linked-title' );
+							view.addRenderAttribute( 'title-container', 'href', settings.link.url );
+
+						} else if ( 'button' === settings.link_type ) {
+
+							view.addRenderAttribute( 'button', {
+								'class': [
+									'elementor-button',
+									'pp-flipbox-button',
+									'elementor-size-' + settings.button_size,
+								],
+								'href': [
+									settings.link.url,
+								],
+							} );
+
+						}
+					}
+				}
+				#>
+				<div class="pp-flipbox-back">
+					<#
+					if ( 'box' === settings.link_type && settings.link.url ) {
+						view.addRenderAttribute( 'box-link', 'class', 'pp-flipbox-box-link' );
+						view.addRenderAttribute( 'box-link', 'href', settings.link.url );
+						#>
+						<a <{{{ view.getRenderAttributeString( 'box-link' ) }}}></a>
+					<# } #>
+					<div class="pp-flipbox-overlay">
+						<div class="pp-flipbox-inner">
+							<# if ( 'none' !== settings.icon_type_back ) { #>
+								<div {{{ view.getRenderAttributeString( 'icon-back' ) }}}>
+									<#
+									if ( 'icon' === settings.icon_type_back ) {
+										if ( settings.icon_back || settings.select_icon_back ) {
+											if ( iconHTML && iconHTML.rendered && ( ! settings.icon || migrated ) ) { #>
+												{{{ iconHTML.value }}}
+											<# } else { #>
+												<i class="{{ settings.icon_back }}" aria-hidden="true"></i>
+											<# }
+										}
+									} else if ( 'image' === settings.icon_type_back ) {
+										var flipbox_image = {
+											id: settings.icon_image_back.id,
+											url: settings.icon_image_back.url,
+											size: settings.thumbnail_back_size,
+											dimension: settings.thumbnail_back_custom_dimension,
+											model: view.getEditModel()
+										};
+										var flipbox_image_url = elementor.imagesManager.getImageUrl( flipbox_image );
+
+										if ( flipbox_image_url ) { #>
+											<img src="{{{ flipbox_image_url }}}" />
+										<# }
+									} else if ( 'text' === settings.icon_type_back ) { #>
+										<span class="pp-icon-text">
+											{{{ settings.icon_text_back }}}
+										</span>
+									<# } #>
+								</div>
+							<# } #>
+
+							<{{ pp_title_html_tag }} {{{ view.getRenderAttributeString( 'title-container' ) }}}>
+								{{{ settings.title_back }}}
+							</{{ pp_title_html_tag }}>
+
+							<div class="pp-flipbox-content">
+								{{{ settings.description_back }}}
+							</div>
+
+							<# if ( 'button' === settings.link_type && '' != settings.flipbox_button_text ) { #>
+								<a {{{ view.getRenderAttributeString( 'button' ) }}}>
+									<#
+									if ( 'before' === settings.button_icon_position ) {
+										render_button_icon();
+									}
+									#>
+
+									{{{ settings.flipbox_button_text }}}
+
+									<#
+									if ( 'after' === settings.button_icon_position ) {
+										render_button_icon();
+									}
+									#>
+								</a>
+							<# } #>
+						</div>
+					</div>
+				</div>
+				<#
+			}
+		#>
+		<div {{{ view.getRenderAttributeString( 'flipbox-container' ) }}}>
+			<div {{{ view.getRenderAttributeString( 'flipbox-card' ) }}}>
+				<#
+					render_front();
+
+					render_back();
+				#>
+			</div>
+		</div>
+		<?php
 	}
 }
