@@ -44,15 +44,4 @@ class Skin_News extends Skin_Base {
 	public function get_title() {
 		return __( 'News', 'powerpack' );
 	}
-
-	/**
-	 * Register Control Actions.
-	 *
-	 * @access protected
-	 */
-	protected function _register_controls_actions() {
-
-		parent::_register_controls_actions();
-
-	}
 }

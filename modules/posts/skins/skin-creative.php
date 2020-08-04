@@ -46,15 +46,4 @@ class Skin_Creative extends Skin_Base {
 	public function get_title() {
 		return __( 'Creative', 'powerpack' );
 	}
-
-	/**
-	 * Register Control Actions.
-	 *
-	 * @access protected
-	 */
-	protected function _register_controls_actions() {
-
-		parent::_register_controls_actions();
-
-	}
 }

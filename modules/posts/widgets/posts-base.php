@@ -701,7 +701,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 			}
 
 			// Taxonomy Filter.
-			$taxonomy = pp_get_post_taxonomies( $post_type );
+			$taxonomy = PP_Posts_Helper::get_post_taxonomies( $post_type );
 
 			if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
 

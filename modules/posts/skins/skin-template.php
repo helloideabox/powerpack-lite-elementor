@@ -45,15 +45,4 @@ class Skin_Template extends Skin_Base {
 	public function get_title() {
 		return __( 'Saved Template', 'powerpack' );
 	}
-
-	/**
-	 * Register Control Actions.
-	 *
-	 * @access protected
-	 */
-	protected function _register_controls_actions() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore 
-
-		parent::_register_controls_actions();
-
-	}
 }

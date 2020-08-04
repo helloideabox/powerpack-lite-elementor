@@ -230,6 +230,13 @@ class PP_Config {
 					'keywords'   => array( 'powerpack', 'contact', 'form' ),
 					'icon'       => 'ppicon-contact-form power-pack-admin-icon',
 				),
+				'Posts'              => array(
+					'name'       => 'pp-posts',
+					'title'      => __( 'Posts', 'powerpack' ),
+					'categories' => '["powerpack-elements"]',
+					'keywords'   => array( 'powerpack' ),
+					'icon'       => 'ppicon-posts-grid power-pack-admin-icon',
+				),
 				'Price_Menu'           => array(
 					'name'       => 'pp-price-menu',
 					'title'      => __( 'Price Menu', 'powerpack' ),
@@ -448,13 +455,6 @@ class PP_Config {
 					'categories' => '["powerpack-elements"]',
 					'keywords'   => array( 'powerpack', 'modal', 'popup' ),
 					'icon'       => 'ppicon-popup-box power-pack-admin-icon',
-				),
-				'Posts'              => array(
-					'name'       => 'pp-posts',
-					'title'      => __( 'Posts', 'powerpack' ),
-					'categories' => '["powerpack-elements"]',
-					'keywords'   => array( 'powerpack' ),
-					'icon'       => 'ppicon-posts-grid power-pack-admin-icon',
 				),
 				'Recipe'             => array(
 					'name'       => 'pp-recipe',

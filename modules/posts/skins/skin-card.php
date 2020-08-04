@@ -44,15 +44,4 @@ class Skin_Card extends Skin_Base {
 	public function get_title() {
 		return __( 'Card', 'powerpack' );
 	}
-
-	/**
-	 * Register Control Actions.
-	 *
-	 * @access protected
-	 */
-	protected function _register_controls_actions() {
-
-		parent::_register_controls_actions();
-
-	}
 }
