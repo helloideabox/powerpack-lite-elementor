@@ -701,7 +701,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 			}
 
 			// Taxonomy Filter.
-			$taxonomy = PP_Posts_Helper::get_post_taxonomies( $post_type );
+			$taxonomy = pp_get_post_taxonomies( $post_type );
 
 			if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
 
@@ -872,8 +872,8 @@ abstract class Posts_Base extends Powerpack_Widget {
 		global $wp_the_query, $paged;
 
 		$skin_id         = $settings['_skin'];
-		$pagination_ajax = $settings['pagination_ajax'];
-		$pagination_type = $settings['pagination_type'];
+		$pagination_ajax = $settings[ $skin_id . '_pagination_ajax' ];
+		$pagination_type = $settings[ $skin_id . '_pagination_type' ];
 
 		if ( 'yes' === $pagination_ajax || 'load_more' === $pagination_type || 'infinite' === $pagination_type ) {
 			if ( isset( $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'pp-posts-widget-nonce' ) ) {
