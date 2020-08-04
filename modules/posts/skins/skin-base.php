@@ -57,6 +57,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->register_pagination_controls();
 		$this->register_content_order();
 		$this->register_content_help_docs();
+		$this->register_content_upgrade_pro_controls();
 	}
 
 	public function register_style_controls() {
@@ -1767,7 +1768,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	/**
 	 * Content Tab: Help Docs
 	 *
-	 * @since 1.4.8
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_content_help_docs() {
@@ -1779,7 +1780,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			/**
 			 * Content Tab: Help Docs
 			 *
-			 * @since 1.4.8
+			 * @since x.x.x
 			 * @access protected
 			 */
 			$this->start_controls_section(
@@ -1807,10 +1808,38 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		}
 	}
 
-	/*
-	-----------------------------------------------------------------------------------*/
-	/*
-	  STYLE TAB
+	/**
+	 * Content Tab: Upgrade pro section
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_content_upgrade_pro_controls() {
+		if ( ! is_pp_elements_active() ) {
+			$this->start_controls_section(
+				'section_upgrade_powerpack',
+				array(
+					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
+					'tab'   => Controls_Manager::TAB_CONTENT,
+				)
+			);
+
+			$this->add_control(
+				'upgrade_powerpack_notice',
+				array(
+					'label'           => '',
+					'type'            => Controls_Manager::RAW_HTML,
+					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
+				)
+			);
+
+			$this->end_controls_section();
+		}
+	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	STYLE TAB
 	/*-----------------------------------------------------------------------------------*/
 
 	/**

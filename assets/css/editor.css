@@ -56,8 +56,8 @@
 .elementor-control-type-pp-query .elementor-control-input-wrapper {
     width: 135px;
 }
-.elementor-panel .elementor-control-section_upgrade_powerpack .elementor-panel-heading-title.elementor-panel-heading-title,
-.elementor-panel .elementor-control-section_upgrade_powerpack .elementor-panel-heading-toggle {
+.elementor-panel div[class*="section_upgrade_powerpack"] .elementor-panel-heading-title.elementor-panel-heading-title,
+.elementor-panel div[class*="section_upgrade_powerpack"] .elementor-panel-heading-toggle {
 	color: #d30c5c;
 }
 .elementor-panel .elementor-control-upgrade_powerpack_notice .upgrade-powerpack-notice {

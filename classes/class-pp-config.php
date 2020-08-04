@@ -665,6 +665,12 @@ class PP_Config {
 			'Onepage_Nav'       => array(
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=onZ0mnkRJiY&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
 			),
+			// Posts.
+			'Posts'              => array(
+				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=9-SF5w93Yr8&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj&index=14',
+				__( 'Action Hooks for Post Widget', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/posts/actions-hooks-for-post-widget/' . $utm_suffix,
+				__( 'How to Customize Query in Post Widget?', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/posts/how-to-customize-query-in-post-widget/' . $utm_suffix,
+			),
 			// Price Menu.
 			'Price_Menu'        => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/price-menu/price-menu-widget-overview/' . $utm_suffix,
