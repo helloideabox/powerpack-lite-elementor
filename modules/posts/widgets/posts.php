@@ -99,6 +99,19 @@ class Posts extends Posts_Base {
 		);
 
 		$this->add_control(
+			'skin_notice',
+			array(
+				'label'           => '',
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => __( 'This feature is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
+				'condition'    => array(
+					$this->get_control_id( '_skin!' ) => 'classic',
+				),
+			)
+		);
+
+		$this->add_control(
 			'posts_per_page',
 			array(
 				'label'     => __( 'Posts Per Page', 'powerpack' ),
