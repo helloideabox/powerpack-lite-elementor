@@ -2857,59 +2857,6 @@ div[class*=' pa-'] {
   height: 1px;
   width: 100%; }
 
-.pp-equal-height-yes .pp-posts-skin-portfolio .pp-post-thumbnail {
-  position: absolute;
-  right: 0;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-.pp-equal-height-yes .pp-posts-skin-portfolio .pp-post-thumbnail-wrap {
-  height: 100%; }
-
-.pp-content-on-hover .pp-post-thumb-content {
-  opacity: 0;
-  transition: all 0.25s linear 0s; }
-
-.pp-content-on-hover:hover .pp-post-thumb-content {
-  opacity: 1; }
-
-.pp-post-content-align-left .pp-posts-skin-creative .pp-post-content {
-  text-align: right; }
-
-.pp-post-content-align-left .pp-posts-skin-creative .pp-post-authorbox {
-  display: flex;
-  align-items: center; }
-
-.pp-post-content-align-left .pp-posts-skin-creative .pp-post-avtar {
-  margin-left: 10px; }
-
-.pp-post-content-align-center .pp-posts-skin-creative .pp-post-content {
-  text-align: center; }
-
-.pp-post-content-align-center .pp-posts-skin-creative .pp-post-authorbox {
-  display: block; }
-
-.pp-post-content-align-center .pp-posts-skin-creative .pp-post-avtar {
-  margin-bottom: 10px; }
-
-.pp-post-content-align-right .pp-posts-skin-creative .pp-post-content {
-  text-align: left; }
-
-.pp-post-content-align-right .pp-posts-skin-creative .pp-post-authorbox {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse; }
-
-.pp-post-content-align-right .pp-posts-skin-creative .pp-post-avtar {
-  margin-right: 10px; }
-
-.pp-post-thumbnail-align-right .pp-posts-skin-news .pp-post-thumbnail {
-  order: 2; }
-
-.pp-post-thumbnail-align-right .pp-posts-skin-news .pp-post-content {
-  order: 1; }
-
 .pp-post-terms {
   transition: all 0.25s linear 0s;
   display: inline-block; }

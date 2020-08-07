@@ -41,93 +41,6 @@
 	height: 1px;
 	width: 100%;
 }
-.pp-equal-height-yes {
-	.pp-posts-skin-portfolio {
-		.pp-post-thumbnail {
-			position: absolute;
-			left: 0;
-			top: 0;
-			right: 0;
-			bottom: 0;
-		}
-		.pp-post-thumbnail-wrap {
-			height: 100%;
-		}
-	}
-}
-.pp-content-on-hover {
-	.pp-post-thumb-content {
-		opacity: 0;
-		@include transition($target: all, $time: 0.25s, $timing-function: linear);
-	}
-	&:hover {
-		.pp-post-thumb-content {
-			opacity: 1;
-		}
-	}
-}
-.pp-post-content-align-left {
-	.pp-posts-skin-creative {
-		.pp-post-content {
-			text-align: left;
-		}
-		.pp-post-authorbox {
-			display: -webkit-box;
-			display: -webkit-flex;
-			display: -moz-box;
-			display: -ms-flexbox;
-			display: flex;
-			align-items: center;
-		}
-		.pp-post-avtar {
-			margin-right: 10px;
-		}
-	}
-}
-.pp-post-content-align-center {
-	.pp-posts-skin-creative {
-		.pp-post-content {
-			text-align: center;
-		}
-		.pp-post-authorbox {
-			display: block;
-		}
-		.pp-post-avtar {
-			margin-bottom: 10px;
-		}
-	}
-}
-.pp-post-content-align-right {
-	.pp-posts-skin-creative {
-		.pp-post-content {
-			text-align: right;
-		}
-		.pp-post-authorbox {
-			display: -webkit-box;
-			display: -webkit-flex;
-			display: -moz-box;
-			display: -ms-flexbox;
-			display: flex;
-			align-items: center;
-			-webkit-flex-direction: row-reverse;
-			-ms-flex-direction: row-reverse;
-			flex-direction: row-reverse;
-		}
-		.pp-post-avtar {
-			margin-left: 10px;
-		}
-	}
-}
-.pp-post-thumbnail-align-right {
-	.pp-posts-skin-news {
-		.pp-post-thumbnail {
-			order: 2;
-		}
-		.pp-post-content {
-			order: 1;
-		}
-	}
-}
 .pp-post-terms {
 	@include transition($target: all, $time: 0.25s, $timing-function: linear);
 	display: inline-block;
@@ -297,20 +210,4 @@
     z-index: 1;
     height: 100%;
     width: 100%;
-}
-@mixin posts--tablet() {
-	.pp-posts-image-stack-tablet .pp-post {
-		display: block;
-	}
-	.pp-posts-image-stack-tablet .pp-post-thumbnail {
-		float: none !important;
-	}
-}
-@mixin posts--mobile() {
-	.pp-posts-image-stack-mobile .pp-post {
-		display: block;
-	}
-	.pp-posts-image-stack-mobile .pp-post-thumbnail {
-		float: none !important;
-	}
 }
