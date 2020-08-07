@@ -300,6 +300,14 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
+
+		$pp_localize = apply_filters(
+			'pp_elements_lite_js_localize',
+			array(
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+			)
+		);
+		wp_localize_script( 'jquery', 'pp', $pp_localize );
 	}
 
     /**
