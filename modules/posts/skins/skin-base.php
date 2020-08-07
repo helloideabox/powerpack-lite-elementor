@@ -431,9 +431,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'section_terms',
 			array(
 				'label'     => __( 'Post Terms', 'powerpack' ),
-				'condition' => array(
-					'_skin!' => 'custom',
-				),
 			)
 		);
 
@@ -540,9 +537,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'section_image',
 			array(
 				'label'     => __( 'Image', 'powerpack' ),
-				'condition' => array(
-					'_skin!' => 'custom',
-				),
 			)
 		);
 
@@ -690,9 +684,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'section_post_title',
 			array(
 				'label'     => __( 'Title', 'powerpack' ),
-				'condition' => array(
-					'_skin!' => 'custom',
-				),
 			)
 		);
 
@@ -772,9 +763,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'section_post_excerpt',
 			array(
 				'label'     => __( 'Content', 'powerpack' ),
-				'condition' => array(
-					'_skin!' => 'custom',
-				),
 			)
 		);
 
@@ -850,9 +838,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'section_post_meta',
 			array(
 				'label'     => __( 'Meta', 'powerpack' ),
-				'condition' => array(
-					'_skin!' => 'custom',
-				),
 			)
 		);
 
@@ -1401,9 +1386,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'section_order',
 			array(
 				'label'     => __( 'Order', 'powerpack' ),
-				'condition' => array(
-					'_skin!' => 'custom',
-				),
 			)
 		);
 
@@ -1917,7 +1899,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'     => __( 'Image', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
-					'_skin!' => 'custom',
 					$this->get_control_id( 'show_thumbnail' ) => 'yes',
 				),
 			)
@@ -2035,7 +2016,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'     => __( 'Title', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
-					'_skin!'                              => 'custom',
 					$this->get_control_id( 'post_title' ) => 'yes',
 				),
 			)
@@ -2242,7 +2222,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'     => __( 'Post Terms', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
-					'_skin!'                              => 'custom',
 					$this->get_control_id( 'post_terms' ) => 'yes',
 				),
 			)
@@ -2432,7 +2411,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'     => __( 'Content', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
-					'_skin!' => 'custom',
 					$this->get_control_id( 'show_excerpt' ) => 'yes',
 				),
 			)
@@ -2507,7 +2485,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'     => __( 'Meta', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
-					'_skin!'                             => 'custom',
 					$this->get_control_id( 'post_meta' ) => 'yes',
 				),
 			)
@@ -2635,7 +2612,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'     => __( 'Read More Button', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
-					'_skin!'                               => 'custom',
 					$this->get_control_id( 'show_button' ) => 'yes',
 				),
 			)

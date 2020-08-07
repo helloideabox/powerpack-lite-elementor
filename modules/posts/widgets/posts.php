@@ -103,10 +103,10 @@ class Posts extends Posts_Base {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => __( 'This feature is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => __( 'This skin is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				'condition'    => array(
-					$this->get_control_id( '_skin!' ) => 'classic',
+				'condition'       => array(
+					'_skin!' => 'classic',
 				),
 			)
 		);
@@ -119,20 +119,6 @@ class Posts extends Posts_Base {
 				'default'   => 6,
 				'condition' => array(
 					'query_type' => 'custom',
-				),
-			)
-		);
-
-		$this->add_control(
-			'templates',
-			array(
-				'label'       => __( 'Choose Template', 'powerpack' ),
-				'type'        => 'pp-query',
-				'label_block' => false,
-				'multiple'    => false,
-				'query_type'  => 'templates-all',
-				'condition'   => array(
-					'_skin' => 'template',
 				),
 			)
 		);
