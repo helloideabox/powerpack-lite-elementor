@@ -2,6 +2,7 @@
     @include grid--desktop();
 }
 @media (max-width: 1024px) {
+    @include image-accordion--tablet();
     @include info-box--tablet();
     @include info-list--tablet();
 }
@@ -9,6 +10,7 @@
     @include grid--tablet();
 }
 @media only screen and (max-width: 767px) {
+    @include image-accordion--mobile();
     @include info-box--mobile();
     @include info-list--mobile();
     @include grid--mobile();
