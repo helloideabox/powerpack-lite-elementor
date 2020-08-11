@@ -11,43 +11,52 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class PP_Posts_Helper.
  */
 class PP_Posts_Helper {
-	
+
+	protected static $post_types = array();
+	protected static $post_tax   = array();
+	protected static $tax_terms  = array();
+	protected static $taxonomies = array();
+
 	/**
 	 * Get Post Categories.
 	 *
 	 * @since 1.4.2
 	 * @access public
 	 */
-    public static function get_post_categories() {
+	public static function get_post_categories() {
 
-        $options = array();
-        
-        $terms = get_terms( array( 
-            'taxonomy'      => 'category',
-            'hide_empty'    => true,
-        ));
+		$options = array();
 
-        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-            foreach ( $terms as $term ) {
-                $options[ $term->term_id ] = $term->name;
-            }
-        }
+		$terms = get_terms(
+			array(
+				'taxonomy'   => 'category',
+				'hide_empty' => true,
+			)
+		);
 
-        return $options;
-    }
-	
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+			foreach ( $terms as $term ) {
+				$options[ $term->term_id ] = $term->name;
+			}
+		}
+
+		return $options;
+	}
+
 	/**
 	 * Get Post Types.
 	 *
 	 * @since 1.4.2
 	 * @access public
 	 */
-    public static function get_post_types() {
+	public static function get_post_types() {
+		if ( ! empty( self::$post_types ) ) {
+			return self::$post_types;
+		}
 
-        $post_types = get_post_types(
+		$post_types = get_post_types(
 			array(
-				'public'            => true,
-				'show_in_nav_menus' => true
+				'public' => true,
 			),
 			'objects'
 		);
@@ -58,35 +67,39 @@ class PP_Posts_Helper {
 			$options[ $post_type->name ] = $post_type->label;
 		}
 
+		self::$post_types = $options;
+
 		return $options;
-    }
-	
+	}
+
 	/**
 	 * Get All Posts.
 	 *
 	 * @since 1.4.2
 	 * @access public
 	 */
-    public static function get_all_posts() {
+	public static function get_all_posts() {
 
-        $post_list = get_posts( array(
-            'post_type'         => 'post',
-            'orderby'           => 'date',
-            'order'             => 'DESC',
-            'posts_per_page'    => -1,
-        ) );
+		$post_list = get_posts(
+			array(
+				'post_type'      => 'post',
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'posts_per_page' => -1,
+			)
+		);
 
-        $posts = array();
+		$posts = array();
 
-        if ( ! empty( $post_list ) && ! is_wp_error( $post_list ) ) {
-            foreach ( $post_list as $post ) {
-               $posts[ $post->ID ] = $post->post_title;
-            }
-        }
+		if ( ! empty( $post_list ) && ! is_wp_error( $post_list ) ) {
+			foreach ( $post_list as $post ) {
+				$posts[ $post->ID ] = $post->post_title;
+			}
+		}
 
-        return $posts;
-    }
-	
+		return $posts;
+	}
+
 	/**
 	 * Get All Posts by Post Type.
 	 *
@@ -94,26 +107,28 @@ class PP_Posts_Helper {
 	 * @param string $post_type Post type.
 	 * @access public
 	 */
-    public static function get_all_posts_by_type( $post_type ) {
+	public static function get_all_posts_by_type( $post_type ) {
 
-        $post_list = get_posts( array(
-            'post_type'         => $post_type,
-            'orderby'           => 'date',
-            'order'             => 'DESC',
-            'posts_per_page'    => -1,
-        ) );
+		$post_list = get_posts(
+			array(
+				'post_type'      => $post_type,
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'posts_per_page' => -1,
+			)
+		);
 
-        $posts = array();
+		$posts = array();
 
-        if ( ! empty( $post_list ) && ! is_wp_error( $post_list ) ) {
-            foreach ( $post_list as $post ) {
-               $posts[ $post->ID ] = $post->post_title;
-            }
-        }
+		if ( ! empty( $post_list ) && ! is_wp_error( $post_list ) ) {
+			foreach ( $post_list as $post ) {
+				$posts[ $post->ID ] = $post->post_title;
+			}
+		}
 
-        return $posts;
-    }
-	
+		return $posts;
+	}
+
 	/**
 	 * Get Post Taxonomies.
 	 *
@@ -122,23 +137,51 @@ class PP_Posts_Helper {
 	 * @access public
 	 */
 	public static function get_post_taxonomies( $post_type ) {
-
-		$taxonomies = get_object_taxonomies( $post_type, 'objects' );
 		$data       = array();
+		$taxonomies = array();
 
-		foreach ( $taxonomies as $tax_slug => $tax ) {
+		if ( ! empty( self::$post_tax ) ) {
+			if ( isset( self::$post_tax[ $post_type ] ) ) {
+				$data = self::$post_tax[ $post_type ];
+			}
+		}
 
-			if ( ! $tax->public || ! $tax->show_ui ) {
-				continue;
+		if ( empty( $data ) ) {
+			$taxonomies = get_object_taxonomies( $post_type, 'objects' );
+
+			foreach ( $taxonomies as $tax_slug => $tax ) {
+
+				if ( ! $tax->public || ! $tax->show_ui ) {
+					continue;
+				}
+
+				$data[ $tax_slug ] = $tax;
 			}
 
-			$data[ $tax_slug ] = $tax;
+			self::$post_tax[ $post_type ] = $data;
 		}
 
 		return apply_filters( 'pp_post_loop_taxonomies', $data, $taxonomies, $post_type );
 	}
-	
-    /**
+
+	public static function get_tax_terms( $taxonomy ) {
+		$terms = array();
+
+		if ( ! empty( self::$tax_terms ) ) {
+			if ( isset( self::$tax_terms[ $taxonomy ] ) ) {
+				$terms = self::$tax_terms[ $taxonomy ];
+			}
+		}
+
+		if ( empty( $terms ) ) {
+			$terms                        = get_terms( $taxonomy );
+			self::$tax_terms[ $taxonomy ] = $terms;
+		}
+
+		return $terms;
+	}
+
+	/**
 	 * Get list of users.
 	 *
 	 * @uses   get_users()
@@ -148,21 +191,21 @@ class PP_Posts_Helper {
 	 */
 	public static function get_users() {
 
-        $users = get_users();
-        $user_list = array();
-		
+		$users     = get_users();
+		$user_list = array();
+
 		if ( empty( $users ) ) {
 			return $user_list;
 		}
 
-        foreach ( $users as $user ) {
-            $user_list[ $user->ID ] = $user->display_name;
-        }
+		foreach ( $users as $user ) {
+			$user_list[ $user->ID ] = $user->display_name;
+		}
 
-        return $user_list;
-    }
-	
-    /**
+		return $user_list;
+	}
+
+	/**
 	 * Get Post Tags.
 	 *
 	 * @since 1.4.2
@@ -170,17 +213,17 @@ class PP_Posts_Helper {
 	 */
 	public static function get_post_tags() {
 
-        $options = array();
+		$options = array();
 
-        $tags = get_tags();
+		$tags = get_tags();
 
-        foreach ( $tags as $tag ) {
-            $options[ $tag->term_id ] = $tag->name;
-        }
+		foreach ( $tags as $tag ) {
+			$options[ $tag->term_id ] = $tag->name;
+		}
 
-        return $options;
-    }
-	
+		return $options;
+	}
+
 	/**
 	 * Get custom excerpt.
 	 *
@@ -189,20 +232,20 @@ class PP_Posts_Helper {
 	 * @access public
 	 */
 	public static function custom_excerpt( $limit = '' ) {
-		
-        $excerpt = explode(' ', get_the_excerpt(), $limit);
-		
-        if ( count( $excerpt ) >= $limit ) {
-            array_pop( $excerpt );
-            $excerpt = implode( " ", $excerpt ).'...';
-        } else {
-            $excerpt = implode( " ", $excerpt );
-        }
-		
-        $excerpt = preg_replace( '`[[^]]*]`', '', $excerpt );
-		
-        return $excerpt;
-    }
+
+		$excerpt = explode( ' ', get_the_excerpt(), $limit );
+
+		if ( count( $excerpt ) >= $limit ) {
+			array_pop( $excerpt );
+			$excerpt = implode( ' ', $excerpt ) . '...';
+		} else {
+			$excerpt = implode( ' ', $excerpt );
+		}
+
+		$excerpt = preg_replace( '`[[^]]*]`', '', $excerpt );
+
+		return $excerpt;
+	}
 
 	/**
 	 * Get all available taxonomies
@@ -210,15 +253,21 @@ class PP_Posts_Helper {
 	 * @since 1.4.7
 	 */
 	public static function get_taxonomies_options() {
+		if ( ! empty( self::$taxonomies ) ) {
+			return self::$taxonomies;
+		}
 
-		$options = [];
+		$options = array();
 
-		$taxonomies = get_taxonomies( array(
-			'show_in_nav_menus' => true
-		), 'objects' );
+		$taxonomies = get_taxonomies(
+			array(
+				'show_in_nav_menus' => true,
+			),
+			'objects'
+		);
 
 		if ( empty( $taxonomies ) ) {
-			$options[ '' ] = __( 'No taxonomies found', 'powerpack' );
+			$options[''] = __( 'No taxonomies found', 'powerpack' );
 			return $options;
 		}
 
@@ -226,7 +275,8 @@ class PP_Posts_Helper {
 			$options[ $taxonomy->name ] = $taxonomy->label;
 		}
 
+		self::$taxonomies = $options;
+
 		return $options;
 	}
-	
 }

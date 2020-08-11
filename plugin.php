@@ -264,6 +264,24 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
+			'powerpack-pp-posts',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/pp-posts.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_localize_script(
+			'powerpack-pp-posts',
+			'pp_posts_script',
+			array(
+				'posts_nonce' => wp_create_nonce( 'pp-posts-widget-nonce' ),
+			)
+		);
+
+		wp_register_script(
 			'pp-tooltip',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/tooltip.js',
 			[
@@ -282,6 +300,14 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
+
+		$pp_localize = apply_filters(
+			'pp_elements_lite_js_localize',
+			array(
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+			)
+		);
+		wp_localize_script( 'jquery', 'pp', $pp_localize );
 	}
 
     /**

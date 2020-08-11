@@ -230,6 +230,13 @@ class PP_Config {
 					'keywords'   => array( 'powerpack', 'contact', 'form' ),
 					'icon'       => 'ppicon-contact-form power-pack-admin-icon',
 				),
+				'Posts'              => array(
+					'name'       => 'pp-posts',
+					'title'      => __( 'Posts', 'powerpack' ),
+					'categories' => '["powerpack-elements"]',
+					'keywords'   => array( 'powerpack' ),
+					'icon'       => 'ppicon-posts-grid power-pack-admin-icon',
+				),
 				'Price_Menu'           => array(
 					'name'       => 'pp-price-menu',
 					'title'      => __( 'Price Menu', 'powerpack' ),
@@ -449,13 +456,6 @@ class PP_Config {
 					'keywords'   => array( 'powerpack', 'modal', 'popup' ),
 					'icon'       => 'ppicon-popup-box power-pack-admin-icon',
 				),
-				'Posts'              => array(
-					'name'       => 'pp-posts',
-					'title'      => __( 'Posts', 'powerpack' ),
-					'categories' => '["powerpack-elements"]',
-					'keywords'   => array( 'powerpack' ),
-					'icon'       => 'ppicon-posts-grid power-pack-admin-icon',
-				),
 				'Recipe'             => array(
 					'name'       => 'pp-recipe',
 					'title'      => __( 'Recipe', 'powerpack' ),
@@ -664,6 +664,12 @@ class PP_Config {
 			// One Page Navigation.
 			'Onepage_Nav'       => array(
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=onZ0mnkRJiY&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
+			),
+			// Posts.
+			'Posts'              => array(
+				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=9-SF5w93Yr8&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj&index=14',
+				__( 'Action Hooks for Post Widget', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/posts/actions-hooks-for-post-widget/' . $utm_suffix,
+				__( 'How to Customize Query in Post Widget?', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/posts/how-to-customize-query-in-post-widget/' . $utm_suffix,
 			),
 			// Price Menu.
 			'Price_Menu'        => array(

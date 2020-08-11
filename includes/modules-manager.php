@@ -38,6 +38,7 @@ class Modules_Manager {
 			'instafeed',
 			'link-effects',
 			'logos',
+			'posts',
 			'pricing',
 			'promo-box',
 			'scroll-image',
