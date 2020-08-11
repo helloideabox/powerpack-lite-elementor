@@ -63,7 +63,7 @@ class Info_Table extends Powerpack_Widget {
 	 *
 	 * Retrieve the list of keywords the widget belongs to.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @access public
 	 *
 	 * @return array Widget keywords.

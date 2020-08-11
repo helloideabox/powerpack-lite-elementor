@@ -1,5 +1,6 @@
 == 2.1.0 ==
-Release date: August 12, 2020
+Release date: August 11, 2020
+* New: Posts widget
 * Fixed: Image Accordion - Stack On option was not working
 
 == 2.0.0 ==

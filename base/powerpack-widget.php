@@ -29,7 +29,7 @@ abstract class Powerpack_Widget extends Widget_Base {
 	 * Get widget name
 	 *
 	 * @param string $slug Module class.
-	 * @since x.x.x
+	 * @since 2.1.0
 	 */
 	public function get_widget_name( $slug = '' ) {
 		return PP_Helper::get_widget_name( $slug );
@@ -39,7 +39,7 @@ abstract class Powerpack_Widget extends Widget_Base {
 	 * Get widget title
 	 *
 	 * @param string $slug Module class.
-	 * @since x.x.x
+	 * @since 2.1.0
 	 */
 	public function get_widget_title( $slug = '' ) {
 		return PP_Helper::get_widget_title( $slug );
@@ -49,7 +49,7 @@ abstract class Powerpack_Widget extends Widget_Base {
 	 * Get widget title
 	 *
 	 * @param string $slug Module class.
-	 * @since x.x.x
+	 * @since 2.1.0
 	 */
 	public function get_widget_categories( $slug = '' ) {
 		return PP_Helper::get_widget_categories( $slug );
@@ -59,7 +59,7 @@ abstract class Powerpack_Widget extends Widget_Base {
 	 * Get widget title
 	 *
 	 * @param string $slug Module class.
-	 * @since x.x.x
+	 * @since 2.1.0
 	 */
 	public function get_widget_icon( $slug = '' ) {
 		return PP_Helper::get_widget_icon( $slug );
@@ -69,7 +69,7 @@ abstract class Powerpack_Widget extends Widget_Base {
 	 * Get widget title
 	 *
 	 * @param string $slug Module class.
-	 * @since x.x.x
+	 * @since 2.1.0
 	 */
 	public function get_widget_keywords( $slug = '' ) {
 		return PP_Helper::get_widget_keywords( $slug );

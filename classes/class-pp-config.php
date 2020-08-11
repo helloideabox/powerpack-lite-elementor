@@ -34,7 +34,7 @@ class PP_Config {
 	/**
 	 * Get Widget List.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 *
 	 * @return array The Widget List.
 	 */

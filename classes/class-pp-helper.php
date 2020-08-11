@@ -137,7 +137,7 @@ class PP_Helper {
 	/**
 	 * Get widget styles.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return array
 	 */
 	public static function get_widget_style() {
@@ -160,7 +160,7 @@ class PP_Helper {
 	/**
 	 * Check if script debug is enabled.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 *
 	 * @return string The CSS suffix.
 	 */
@@ -290,7 +290,7 @@ class PP_Helper {
 	/**
 	 * Returns user agent.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return string
 	 */
 	public static function get_user_agent() {
@@ -314,7 +314,7 @@ class PP_Helper {
 	/**
 	 * Get Client IP address
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return string
 	 */
 	public static function get_client_ip() {

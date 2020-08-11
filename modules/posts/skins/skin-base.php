@@ -1531,7 +1531,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	/**
 	 * Content Tab: Help Docs
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @access protected
 	 */
 	protected function register_content_help_docs() {
@@ -1543,7 +1543,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			/**
 			 * Content Tab: Help Docs
 			 *
-			 * @since x.x.x
+			 * @since 2.1.0
 			 * @access protected
 			 */
 			$this->start_controls_section(
@@ -1574,7 +1574,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	/**
 	 * Content Tab: Upgrade pro section
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @access protected
 	 */
 	protected function register_content_upgrade_pro_controls() {
