@@ -2133,6 +2133,85 @@ div[class*=' pa-'] {
   transition-property: all;
   -webkit-transition-property: all; }
 
+.pp-slider-arrow {
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 50%;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 22px;
+  line-height: 22px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: all 0.25s linear 0s; }
+
+.pp-arrow-next {
+  left: 20px; }
+
+.pp-arrow-prev {
+  right: 20px; }
+
+[dir="rtl"] .pp-slick-slider .pp-arrow-next {
+  right: 20px;
+  left: auto; }
+
+[dir="rtl"] .pp-slick-slider .pp-arrow-prev {
+  right: auto;
+  left: 20px; }
+
+.pp-slick-slider:not(.slick-initialized) > * {
+  display: none; }
+
+.pp-slick-slider .slick-slide:focus {
+  outline: 0; }
+
+.pp-slick-slider .slick-dots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  width: 100%; }
+
+.pp-slick-slider li {
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  margin: 0 4px;
+  padding: 0;
+  vertical-align: middle;
+  transition: 0.3s; }
+  .pp-slick-slider li.slick-active {
+    background: #000; }
+  .pp-slick-slider li button {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    color: transparent;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    outline: none;
+    transition: 0.3s; }
+
+.pp-slick-slider-dots-inside .slick-dots {
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+  left: 0; }
+
 .pp-info-table-container .pp-info-table-link {
   text-decoration: none !important; }
 

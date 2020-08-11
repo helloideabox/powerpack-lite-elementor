@@ -39,44 +39,6 @@
 
 			});
 		}
-
-		set_posts_count( $scope, 1 );
-
-		if ( container.hasClass( 'pp-posts-infinite-scroll' ) ) {
-
-			var windowHeight50 = jQuery( window ).outerHeight() / 1.25;
-
-			$( window ).scroll( function () {
-
-				if ( elementorFrontend.isEditMode() ) {
-					loader.show();
-					return false;
-				}
-
-				if ( ( $( window ).scrollTop() + windowHeight50 ) >= ( $scope.find( '.pp-post:last' ).offset().top ) ) {
-
-					var $args = {
-						'page_id':		$scope.find( '.pp-posts-grid' ).data('page'),
-						'widget_id':	$scope.data( 'id' ),
-						'skin':			$scope.find( '.pp-posts-grid' ).data( 'skin' ),
-						'page_number':	$scope.find( '.pp-posts-pagination .current' ).next( 'a' ).html()
-					};
-
-					total = $scope.find( '.pp-posts-pagination' ).data( 'total' );
-
-					if( true == loadStatus ) {
-
-						if ( count < total ) {
-							loader.show();
-							_callAjax( $scope, $args, true );
-							count++;
-							loadStatus = false;
-						}
-
-					}
-				}
-			} );
-		}
 		
 		if ( 'carousel' == layout ) {
 			var $carousel		= $scope.find( '.pp-posts-carousel' ).eq( 0 ),
@@ -92,49 +54,6 @@
 				equalHeight($scope);
 			});
 		}
-	}
-
-	$( document ).on( 'click', '.pp-post-load-more', function( e ) {
-
-		$scope = $( this ).closest( '.elementor-widget-pp-posts' );
-		loader = $scope.find( '.pp-posts-loader' );
-
-		e.preventDefault();
-
-		if( elementorFrontend.isEditMode() ) {
-			loader.show();
-			return false;
-		}
-
-		var page_count = get_posts_count( $scope );
-
-		var $args = {
-			'page_id':		$scope.find( '.pp-posts-grid' ).data('page'),
-			'widget_id':	$scope.data( 'id' ),
-			'skin':			$scope.find( '.pp-posts-grid' ).data( 'skin' ),
-			'page_number':	( page_count + 1 )
-		};
-
-		total = $scope.find( '.pp-posts-pagination' ).data( 'total' );
-
-		if( true == loadStatus ) {
-
-			if ( page_count < total ) {
-				loader.show();
-				$( this ).hide();
-				_callAjax( $scope, $args, true, page_count );
-				page_count++;
-				loadStatus = false;
-			}
-
-		}
-	} );
-
-	function get_posts_count( $scope ) {
-		return $scope.find('.pp-post-load-more').data('count');
-	}
-	function set_posts_count( $scope, count ) {
-		$scope.find('.pp-post-load-more').attr('data-count', count);
 	}
 
 	$( 'body' ).delegate( '.pp-posts-pagination-ajax .page-numbers', 'click', function( e ) {
@@ -226,16 +145,9 @@
 				loadStatus = true;
 				if ( true == $append ) {
 					loader.hide();
-					$scope.find( '.pp-post-load-more' ).show();
 				}
-
-				set_posts_count( $scope, $obj.page_number );
 				
 				$count = $count + 1;
-				
-				if( $count == total ) {
-					$scope.find( '.pp-post-load-more' ).hide();
-				}
 
 				$scope.trigger('posts.rendered');
 			}

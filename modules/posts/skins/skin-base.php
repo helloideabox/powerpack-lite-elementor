@@ -1206,6 +1206,23 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		$this->add_control(
+			'pagination_notice',
+			array(
+				'label'           => '',
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => __( 'This pagination option is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
+				'condition'       => array(
+					$this->get_control_id( 'layout!' ) => 'carousel',
+					$this->get_control_id( 'pagination_type' ) => array(
+						'load_more',
+						'infinite',
+					),
+				),
+			)
+		);
+
+		$this->add_control(
 			'pagination_position',
 			array(
 				'label'     => __( 'Pagination Position', 'powerpack' ),
@@ -1275,49 +1292,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		$this->add_control(
-			'pagination_load_more_label',
-			array(
-				'label'     => __( 'Button Label', 'powerpack' ),
-				'default'   => __( 'Load More', 'powerpack' ),
-				'condition' => array(
-					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => 'load_more',
-				),
-			)
-		);
-
-		$this->add_control(
-			'pagination_load_more_button_icon',
-			array(
-				'label'     => __( 'Button Icon', 'powerpack' ),
-				'type'      => Controls_Manager::ICON,
-				'default'   => '',
-				'condition' => array(
-					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => 'load_more',
-				),
-			)
-		);
-
-		$this->add_control(
-			'pagination_load_more_button_icon_position',
-			array(
-				'label'     => __( 'Icon Position', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'after',
-				'options'   => array(
-					'after'  => __( 'After', 'powerpack' ),
-					'before' => __( 'Before', 'powerpack' ),
-				),
-				'condition' => array(
-					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => 'load_more',
-					$this->get_control_id( 'pagination_load_more_button_icon!' ) => '',
-				),
-			)
-		);
-
-		$this->add_control(
 			'pagination_prev_label',
 			array(
 				'label'     => __( 'Previous Label', 'powerpack' ),
@@ -1366,7 +1340,10 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type!' ) => 'none',
+					$this->get_control_id( 'pagination_type' ) => array(
+						'numbers',
+						'numbers_and_prev_next',
+					),
 				),
 			)
 		);
@@ -3378,7 +3355,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type!' ) => 'none',
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3403,27 +3380,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
-				),
-			)
-		);
-
-		$this->add_control(
-			'load_more_button_size',
-			array(
-				'label'     => __( 'Size', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'sm',
-				'options'   => array(
-					'xs' => __( 'Extra Small', 'powerpack' ),
-					'sm' => __( 'Small', 'powerpack' ),
-					'md' => __( 'Medium', 'powerpack' ),
-					'lg' => __( 'Large', 'powerpack' ),
-					'xl' => __( 'Extra Large', 'powerpack' ),
-				),
-				'condition' => array(
-					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => 'load_more',
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3436,7 +3393,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3449,7 +3406,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'     => __( 'Normal', 'powerpack' ),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3465,7 +3422,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3480,7 +3437,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3495,7 +3452,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'selector'    => '{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a',
 				'condition'   => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3511,7 +3468,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'condition'  => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3527,7 +3484,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'condition'  => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3539,7 +3496,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'selector'  => '{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a',
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3552,7 +3509,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'     => __( 'Hover', 'powerpack' ),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3568,7 +3525,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3583,7 +3540,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3598,7 +3555,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -3610,7 +3567,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'selector'  => '{{WRAPPER}} .pp-posts-pagination a:hover',
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
-					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next', 'load_more' ),
+					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
 				),
 			)
 		);
@@ -4359,13 +4316,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$total_pages = $query->max_num_pages;
 		$total_pages_pagination = $query->max_num_pages;
 
-		if ( 'load_more' != $pagination_type || 'infinite' != $pagination_type ) {
-
-			if ( '' !== $page_limit && null != $page_limit ) {
-				$total_pages = min( $page_limit, $total_pages );
-			}
-		}
-
 		if ( 2 > $total_pages ) {
 			return;
 		}
@@ -4373,11 +4323,10 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$has_numbers   = in_array( $pagination_type, array( 'numbers', 'numbers_and_prev_next' ) );
 		$has_prev_next = ( $pagination_type == 'numbers_and_prev_next' );
 		$is_load_more  = ( $pagination_type == 'load_more' );
-		$is_infinite   = ( $pagination_type == 'infinite' );
 
 		$links = array();
 
-		if ( $has_numbers || $is_infinite ) {
+		if ( $has_numbers ) {
 
 			$current_page = $paged;
 			if ( ! $current_page ) {
@@ -4407,7 +4356,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			}
 		}
 
-		if ( $has_numbers || $has_prev_next || $is_infinite ) {
+		if ( $has_numbers || $has_prev_next ) {
 
 			if ( is_singular() && ! is_front_page() ) {
 				global $wp_rewrite;
@@ -4439,27 +4388,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		}
 
 		if ( $is_load_more ) {
-			$load_more_label                = $this->get_instance_value( 'pagination_load_more_label' );
-			$load_more_button_icon          = $this->get_instance_value( 'pagination_load_more_button_icon' );
-			$load_more_button_icon_position = $this->get_instance_value( 'pagination_load_more_button_icon_position' );
-			$load_more_button_size          = $this->get_instance_value( 'load_more_button_size' );
-			?>
-			<div class="pp-post-load-more-wrap pp-posts-pagination" data-total="<?php echo $total_pages_pagination; ?>">
-				<a class="pp-post-load-more elementor-button elementor-size-<?php echo $load_more_button_size; ?>" href="javascript:void(0);">
-					<?php if ( $load_more_button_icon != '' && $load_more_button_icon_position == 'before' ) { ?>
-						<span class="pp-button-icon <?php echo esc_attr( $load_more_button_icon ); ?>" aria-hidden="true"></span>
-					<?php } ?>
-					<?php if ( $load_more_label != '' ) { ?>
-						<span class="pp-button-text">
-							<?php echo esc_html( $load_more_label ); ?>
-						</span>
-					<?php } ?>
-					<?php if ( $load_more_button_icon != '' && $load_more_button_icon_position == 'after' ) { ?>
-						<span class="pp-button-icon <?php echo esc_attr( $load_more_button_icon ); ?>" aria-hidden="true"></span>
-					<?php } ?>
-				</a>
-			</div>
-			<?php
 		}
 	}
 
@@ -4469,10 +4397,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$classes = array(
 			'pp-posts-container',
 		);
-
-		if ( $pagination_type == 'infinite' ) {
-			$classes[] = 'pp-posts-infinite-scroll';
-		}
 
 		return apply_filters( 'ppe_posts_outer_wrap_classes', $classes );
 	}
