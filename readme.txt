@@ -179,6 +179,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.1.0 - August 11, 2020 =
+* 	New: Posts widget
+* 	Fixed: Image Accordion - Stack On option was not working
+
 = 2.0.0 - July 29, 2020 =
 * 	New: Template Library
 * 	Added: Team Member Carousel -  border, radius and padding options for team member box
