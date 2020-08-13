@@ -109,7 +109,7 @@ Want to connect us with more? We have an active Facebook Group where we keep pos
 
 ### TEMPLATE LIBRRAY FOR ELEMENTOR
 
-**Easiest, Fastest, and Creative way to design websites!** 
+**Easiest, Fastest and Creative way to design websites!** 
 https://www.youtube.com/watch?v=IoSvG1-0f4M&t=1s
 
 PowerPack template library includes 150+ ready-to-use section blocks. All block templates are precise work of our designers that can be used to create any website.
