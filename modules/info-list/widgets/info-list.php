@@ -6,6 +6,7 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Control_Media;
+use Elementor\Repeater;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
@@ -113,6 +114,192 @@ class Info_List extends Powerpack_Widget {
 			)
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'text',
+			array(
+				'label'       => __( 'Title', 'powerpack' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'default'     => __( 'List Item #1', 'powerpack' ),
+			),
+		);
+
+		$repeater->add_control(
+			'description',
+			array(
+				'label'       => __( 'Description', 'powerpack' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::TEXTAREA,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'default'     => __( 'List Item Description', 'powerpack' ),
+			),
+		);
+
+		$repeater->add_control(
+			'pp_icon_type',
+			array(
+				'label'       => esc_html__( 'Icon Type', 'powerpack' ),
+				'type'        => Controls_Manager::CHOOSE,
+				'label_block' => false,
+				'options'     => array(
+					'none'  => array(
+						'title' => esc_html__( 'None', 'powerpack' ),
+						'icon'  => 'fa fa-ban',
+					),
+					'icon'  => array(
+						'title' => esc_html__( 'Icon', 'powerpack' ),
+						'icon'  => 'fa fa-gear',
+					),
+					'image' => array(
+						'title' => esc_html__( 'Image', 'powerpack' ),
+						'icon'  => 'fa fa-picture-o',
+					),
+					'text'  => array(
+						'title' => esc_html__( 'Text', 'powerpack' ),
+						'icon'  => 'fa fa-hashtag',
+					),
+				),
+				'default'     => 'icon',
+			),
+		);
+
+		$repeater->add_control(
+			'icon',
+			array(
+				'label'            => __( 'Icon', 'powerpack' ),
+				'type'             => Controls_Manager::ICONS,
+				'label_block'      => true,
+				'default'          => array(
+					'value'   => 'fas fa-check',
+					'library' => 'fa-solid',
+				),
+				'fa4compatibility' => 'list_icon',
+				'condition'        => array(
+					'pp_icon_type' => 'icon',
+				),
+			),
+		);
+
+		$repeater->add_control(
+			'list_image',
+			array(
+				'label'       => __( 'Image', 'powerpack' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::MEDIA,
+				'default'     => array(
+					'url' => Utils::get_placeholder_image_src(),
+				),
+				'condition'   => array(
+					'pp_icon_type' => 'image',
+				),
+			),
+		);
+
+		$repeater->add_control(
+			'icon_text',
+			array(
+				'label'       => __( 'Icon Text', 'powerpack' ),
+				'label_block' => false,
+				'type'        => Controls_Manager::TEXT,
+				'default'     => __( '1', 'powerpack' ),
+				'condition'   => array(
+					'pp_icon_type' => 'text',
+				),
+			),
+		);
+
+		$repeater->add_control(
+			'link_type',
+			array(
+				'label'   => __( 'Link Type', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => array(
+					'none'   => __( 'None', 'powerpack' ),
+					'box'    => __( 'Box', 'powerpack' ),
+					'title'  => __( 'Title', 'powerpack' ),
+					'button' => __( 'Button', 'powerpack' ),
+				),
+				'default' => 'none',
+			),
+		);
+
+		$repeater->add_control(
+			'button_text',
+			array(
+				'label'     => __( 'Button Text', 'powerpack' ),
+				'type'      => Controls_Manager::TEXT,
+				'dynamic'   => array(
+					'active' => true,
+				),
+				'default'   => __( 'Get Started', 'powerpack' ),
+				'condition' => array(
+					'link_type' => 'button',
+				),
+			),
+		);
+
+		$repeater->add_control(
+			'selected_icon',
+			array(
+				'label'            => __( 'Button Icon', 'powerpack' ),
+				'type'             => Controls_Manager::ICONS,
+				'label_block'      => true,
+				'fa4compatibility' => 'button_icon',
+				'condition'        => array(
+					'link_type' => 'button',
+				),
+			),
+		);
+
+
+		$repeater->add_control(
+			'button_icon_position',
+			array(
+				'label'     => __( 'Icon Position', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'after',
+				'options'   => array(
+					'after'  => __( 'After', 'powerpack' ),
+					'before' => __( 'Before', 'powerpack' ),
+				),
+				'condition' => array(
+					'link_type' => 'button',
+				),
+			),
+		);
+
+		$repeater->add_control(
+			'link',
+			array(
+				'label'       => __( 'Link', 'powerpack' ),
+				'type'        => Controls_Manager::URL,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'label_block' => true,
+				'placeholder' => __( 'http://your-link.com', 'powerpack' ),
+				'default'     => array(
+					'url' => '#',
+				),
+				'conditions'  => array(
+					'terms' => array(
+						array(
+							'name'     => 'link_type',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+					),
+				),
+			),
+		);
+
 		$this->add_control(
 			'list_items',
 			array(
@@ -128,158 +315,7 @@ class Info_List extends Powerpack_Widget {
 						'icon' => __( 'fa fa-check', 'powerpack' ),
 					),
 				),
-				'fields'      => array(
-					array(
-						'name'        => 'text',
-						'label'       => __( 'Title', 'powerpack' ),
-						'label_block' => true,
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => array(
-							'active' => true,
-						),
-						'default'     => __( 'List Item #1', 'powerpack' ),
-					),
-					array(
-						'name'        => 'description',
-						'label'       => __( 'Description', 'powerpack' ),
-						'label_block' => true,
-						'type'        => Controls_Manager::TEXTAREA,
-						'dynamic'     => array(
-							'active' => true,
-						),
-						'default'     => __( 'List Item Description', 'powerpack' ),
-					),
-					array(
-						'name'        => 'pp_icon_type',
-						'label'       => esc_html__( 'Icon Type', 'powerpack' ),
-						'type'        => Controls_Manager::CHOOSE,
-						'label_block' => false,
-						'options'     => array(
-							'none'  => array(
-								'title' => esc_html__( 'None', 'powerpack' ),
-								'icon'  => 'fa fa-ban',
-							),
-							'icon'  => array(
-								'title' => esc_html__( 'Icon', 'powerpack' ),
-								'icon'  => 'fa fa-gear',
-							),
-							'image' => array(
-								'title' => esc_html__( 'Image', 'powerpack' ),
-								'icon'  => 'fa fa-picture-o',
-							),
-							'text'  => array(
-								'title' => esc_html__( 'Text', 'powerpack' ),
-								'icon'  => 'fa fa-hashtag',
-							),
-						),
-						'default'     => 'icon',
-					),
-					array(
-						'name'             => 'icon',
-						'label'            => __( 'Icon', 'powerpack' ),
-						'type'             => Controls_Manager::ICONS,
-						'label_block'      => true,
-						'default'          => array(
-							'value'   => 'fas fa-check',
-							'library' => 'fa-solid',
-						),
-						'fa4compatibility' => 'list_icon',
-						'condition'        => array(
-							'pp_icon_type' => 'icon',
-						),
-					),
-					array(
-						'name'        => 'list_image',
-						'label'       => __( 'Image', 'powerpack' ),
-						'label_block' => true,
-						'type'        => Controls_Manager::MEDIA,
-						'default'     => array(
-							'url' => Utils::get_placeholder_image_src(),
-						),
-						'condition'   => array(
-							'pp_icon_type' => 'image',
-						),
-					),
-					array(
-						'name'        => 'icon_text',
-						'label'       => __( 'Icon Text', 'powerpack' ),
-						'label_block' => false,
-						'type'        => Controls_Manager::TEXT,
-						'default'     => __( '1', 'powerpack' ),
-						'condition'   => array(
-							'pp_icon_type' => 'text',
-						),
-					),
-					array(
-						'name'    => 'link_type',
-						'label'   => __( 'Link Type', 'powerpack' ),
-						'type'    => Controls_Manager::SELECT,
-						'options' => array(
-							'none'   => __( 'None', 'powerpack' ),
-							'box'    => __( 'Box', 'powerpack' ),
-							'title'  => __( 'Title', 'powerpack' ),
-							'button' => __( 'Button', 'powerpack' ),
-						),
-						'default' => 'none',
-					),
-					array(
-						'name'      => 'button_text',
-						'label'     => __( 'Button Text', 'powerpack' ),
-						'type'      => Controls_Manager::TEXT,
-						'dynamic'   => array(
-							'active' => true,
-						),
-						'default'   => __( 'Get Started', 'powerpack' ),
-						'condition' => array(
-							'link_type' => 'button',
-						),
-					),
-					array(
-						'name'             => 'selected_icon',
-						'label'            => __( 'Button Icon', 'powerpack' ),
-						'type'             => Controls_Manager::ICONS,
-						'label_block'      => true,
-						'fa4compatibility' => 'button_icon',
-						'condition'        => array(
-							'link_type' => 'button',
-						),
-					),
-					array(
-						'name'      => 'button_icon_position',
-						'label'     => __( 'Icon Position', 'powerpack' ),
-						'type'      => Controls_Manager::SELECT,
-						'default'   => 'after',
-						'options'   => array(
-							'after'  => __( 'After', 'powerpack' ),
-							'before' => __( 'Before', 'powerpack' ),
-						),
-						'condition' => array(
-							'link_type' => 'button',
-						),
-					),
-					array(
-						'name'        => 'link',
-						'label'       => __( 'Link', 'powerpack' ),
-						'type'        => Controls_Manager::URL,
-						'dynamic'     => array(
-							'active' => true,
-						),
-						'label_block' => true,
-						'placeholder' => __( 'http://your-link.com', 'powerpack' ),
-						'default'     => array(
-							'url' => '#',
-						),
-						'conditions'  => array(
-							'terms' => array(
-								array(
-									'name'     => 'link_type',
-									'operator' => '!=',
-									'value'    => 'none',
-								),
-							),
-						),
-					),
-				),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ text }}}',
 			)
 		);

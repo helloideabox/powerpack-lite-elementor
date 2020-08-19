@@ -279,7 +279,7 @@ class Image_Accordion extends Powerpack_Widget {
 						),
 					),
 				),
-				'fields'      => array_values( $repeater->get_controls() ),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{title}}',
 			)
 		);

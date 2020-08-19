@@ -291,8 +291,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 					[ 'tab_title' => esc_html__( 'Accordion Tab Title 2', 'powerpack' ) ],
 					[ 'tab_title' => esc_html__( 'Accordion Tab Title 3', 'powerpack' ) ],
 				],
-				'fields'                => array_values( $repeater->get_controls() ),
-				'title_field'           => '{{tab_title}}',
+				'fields'                => $repeater->get_controls(),
+				'title_field'           => '{{{ tab_title }}}',
 			]
 		);
 

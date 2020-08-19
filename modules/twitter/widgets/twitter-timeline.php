@@ -265,4 +265,32 @@ class Twitter_Timeline extends Powerpack_Widget {
 		</div>
 		<?php
 	}
+
+	/**
+	 * Render Twitter Timeline widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @access protected
+	 */
+	protected function _content_template() {
+		?>
+		<#
+			view.addRenderAttribute( 'atts', {
+				'data-theme': settings.theme,
+				'data-show-replies': ( 'yes' == settings.show_replies ) ? 'true' : 'false',
+				'link_color': settings.link_color,
+				'data-width': settings.width.size,
+				'data-height': settings.height.size,
+				'data-chrome': settings.layout,
+				'data-tweet-limit': settings.tweet_limit,
+				'data-link-color': settings.link_color,
+				'data-border-color': settings.border_color,
+			});
+		#>
+		<div class="pp-twitter-timeline" {{{ view.getRenderAttributeString( 'atts' ) }}}>
+			<a class="twitter-timeline" href="https://twitter.com/{{ settings.username }}" {{{ view.getRenderAttributeString( 'atts' ) }}}>Tweets by <# {{ settings.username }} #></a>
+		</div>
+		<?php
+	}
 }
