@@ -7,6 +7,7 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 use Elementor\Controls_Manager;
 use Elementor\Control_Media;
 use Elementor\Utils;
+use Elementor\Repeater;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
@@ -67,6 +68,130 @@ class Price_Menu extends Powerpack_Widget {
 			)
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'menu_title',
+			array(
+				'label'       => __( 'Title', 'powerpack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'label_block' => true,
+				'placeholder' => __( 'Title', 'powerpack' ),
+				'default'     => __( 'Title', 'powerpack' ),
+			),
+		);
+
+		$repeater->add_control(
+			'menu_description',
+			array(
+				'label'       => __( 'Description', 'powerpack' ),
+				'type'        => Controls_Manager::TEXTAREA,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'label_block' => true,
+				'placeholder' => __( 'Description', 'powerpack' ),
+				'default'     => __( 'Description', 'powerpack' ),
+			),
+		);
+
+		$repeater->add_control(
+			'menu_price',
+			array(
+				'label'   => __( 'Price', 'powerpack' ),
+				'type'    => Controls_Manager::TEXT,
+				'dynamic' => array(
+					'active' => true,
+				),
+				'default' => '$49',
+			),
+		);
+
+		$repeater->add_control(
+			'discount',
+			array(
+				'label'        => __( 'Discount', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'label_on'     => __( 'On', 'powerpack' ),
+				'label_off'    => __( 'Off', 'powerpack' ),
+				'return_value' => 'yes',
+			),
+		);
+
+		$repeater->add_control(
+			'original_price',
+			array(
+				'label'      => __( 'Original Price', 'powerpack' ),
+				'type'       => Controls_Manager::TEXT,
+				'dynamic'    => array(
+					'active' => true,
+				),
+				'default'    => '$69',
+				'conditions' => array(
+					'terms' => array(
+						array(
+							'name'     => 'discount',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
+					),
+				),
+			),
+		);
+
+		$repeater->add_control(
+			'image_switch',
+			array(
+				'label'        => __( 'Show Image', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '',
+				'label_on'     => __( 'On', 'powerpack' ),
+				'label_off'    => __( 'Off', 'powerpack' ),
+				'return_value' => 'yes',
+			),
+		);
+
+		$repeater->add_control(
+			'image',
+			array(
+				'name'       => 'image',
+				'label'      => __( 'Image', 'powerpack' ),
+				'type'       => Controls_Manager::MEDIA,
+				'default'    => array(
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
+				),
+				'dynamic'    => array(
+					'active' => true,
+				),
+				'conditions' => array(
+					'terms' => array(
+						array(
+							'name'     => 'image_switch',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
+					),
+				),
+			),
+		);
+
+		$repeater->add_control(
+			'link',
+			array(
+				'name'        => 'link',
+				'label'       => __( 'Link', 'powerpack' ),
+				'type'        => Controls_Manager::URL,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'placeholder' => 'https://www.your-link.com',
+			),
+		);
+
 		$this->add_control(
 			'menu_items',
 			array(
@@ -86,104 +211,7 @@ class Price_Menu extends Powerpack_Widget {
 						'menu_price' => '$49',
 					),
 				),
-				'fields'      => array(
-					array(
-						'name'        => 'menu_title',
-						'label'       => __( 'Title', 'powerpack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => array(
-							'active' => true,
-						),
-						'label_block' => true,
-						'placeholder' => __( 'Title', 'powerpack' ),
-						'default'     => __( 'Title', 'powerpack' ),
-					),
-					array(
-						'name'        => 'menu_description',
-						'label'       => __( 'Description', 'powerpack' ),
-						'type'        => Controls_Manager::TEXTAREA,
-						'dynamic'     => array(
-							'active' => true,
-						),
-						'label_block' => true,
-						'placeholder' => __( 'Description', 'powerpack' ),
-						'default'     => __( 'Description', 'powerpack' ),
-					),
-					array(
-						'name'    => 'menu_price',
-						'label'   => __( 'Price', 'powerpack' ),
-						'type'    => Controls_Manager::TEXT,
-						'dynamic' => array(
-							'active' => true,
-						),
-						'default' => '$49',
-					),
-					array(
-						'name'         => 'discount',
-						'label'        => __( 'Discount', 'powerpack' ),
-						'type'         => Controls_Manager::SWITCHER,
-						'default'      => 'no',
-						'label_on'     => __( 'On', 'powerpack' ),
-						'label_off'    => __( 'Off', 'powerpack' ),
-						'return_value' => 'yes',
-					),
-					array(
-						'name'       => 'original_price',
-						'label'      => __( 'Original Price', 'powerpack' ),
-						'type'       => Controls_Manager::TEXT,
-						'dynamic'    => array(
-							'active' => true,
-						),
-						'default'    => '$69',
-						'conditions' => array(
-							'terms' => array(
-								array(
-									'name'     => 'discount',
-									'operator' => '==',
-									'value'    => 'yes',
-								),
-							),
-						),
-					),
-					array(
-						'name'         => 'image_switch',
-						'label'        => __( 'Show Image', 'powerpack' ),
-						'type'         => Controls_Manager::SWITCHER,
-						'default'      => '',
-						'label_on'     => __( 'On', 'powerpack' ),
-						'label_off'    => __( 'Off', 'powerpack' ),
-						'return_value' => 'yes',
-					),
-					array(
-						'name'       => 'image',
-						'label'      => __( 'Image', 'powerpack' ),
-						'type'       => Controls_Manager::MEDIA,
-						'default'    => array(
-							'url' => \Elementor\Utils::get_placeholder_image_src(),
-						),
-						'dynamic'    => array(
-							'active' => true,
-						),
-						'conditions' => array(
-							'terms' => array(
-								array(
-									'name'     => 'image_switch',
-									'operator' => '==',
-									'value'    => 'yes',
-								),
-							),
-						),
-					),
-					array(
-						'name'        => 'link',
-						'label'       => __( 'Link', 'powerpack' ),
-						'type'        => Controls_Manager::URL,
-						'dynamic'     => array(
-							'active' => true,
-						),
-						'placeholder' => 'https://www.your-link.com',
-					),
-				),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ menu_title }}}',
 			)
 		);

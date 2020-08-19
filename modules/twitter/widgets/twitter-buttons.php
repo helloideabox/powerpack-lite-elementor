@@ -285,4 +285,58 @@ class Twitter_Buttons extends Powerpack_Widget {
 		</div>
 		<?php
 	}
+
+	/**
+	 * Render Twitter Buttons widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @access protected
+	 */
+	protected function _content_template() {
+		?>
+		<#
+			var text = ( settings.default_text ) ? '&text='+settings.default_text : '';
+			var type = settings.button_type;
+
+			if ( 'share' == type || 'mention' == type || 'hashtag' == type ) {
+				
+				view.addRenderAttribute( 'atts', {
+					'data-via': settings.via,
+					'data-text': settings.share_text,
+					'data-url': settings.share_url,
+				});
+			}
+			if ( 'follow' == type ) {
+				view.addRenderAttribute( 'atts', {
+					'data-show-count': ( 'yes' == settings.show_count ) ? 'true' : 'false',
+				});
+			}
+
+			if ( 'message' == type ) {
+				view.addRenderAttribute( 'atts', {
+					'data-screen-name': settings.profile,
+				});
+			}
+
+			view.addRenderAttribute( 'atts', {
+				'data-size': ( 'yes' == settings.large_button ) ? 'large' : '',
+				'data-lang': '',
+			});
+		#>
+		<div class="pp-twitter-buttons">
+			<# if ( 'share' == settings.button_type ) { #>
+				<a href="https://twitter.com/share" class="twitter-share-button" {{{ view.getRenderAttributeString( 'atts' ) }}}>Share</a>
+			<# } else if ( 'follow' == settings.button_type ) { #>
+				<a href="https://twitter.com/{{ settings.profile }}" class="twitter-follow-button" {{{ view.getRenderAttributeString( 'atts' ) }}}>Follow</a>
+			<# } else if ( 'mention' == settings.button_type ) { #>
+				<a href="https://twitter.com/intent/tweet?screen_name={{ settings.profile }}" class="twitter-mention-button" {{{ view.getRenderAttributeString( 'atts' ) }}}>Mention</a>
+			<# } else if ( 'hashtag' == settings.button_type ) { #>
+				<a href="https://twitter.com/intent/tweet?button_hashtag={{ settings.hashtag_url }}" class="twitter-hashtag-button" {{{ view.getRenderAttributeString( 'atts' ) }}}>Hashtag</a>
+			<# } else { #>
+				<a href="https://twitter.com/messages/compose?recipient_id={{ settings.recipient_id }}{{ text }}" class="twitter-dm-button" {{{ view.getRenderAttributeString( 'atts' ) }}}>Message</a>
+			<# } #>
+		</div>
+		<?php
+	}
 }

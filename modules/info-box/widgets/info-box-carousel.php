@@ -341,7 +341,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						'title' => __( 'Info Box 3', 'powerpack' ),
 					),
 				),
-				'fields'      => array_values( $repeater->get_controls() ),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ title }}}',
 			)
 		);

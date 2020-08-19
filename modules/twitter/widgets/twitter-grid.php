@@ -181,4 +181,26 @@ class Twitter_Grid extends Powerpack_Widget {
 		</div>
 		<?php
 	}
+
+	/**
+	 * Render Twitter Grid widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @access protected
+	 */
+	protected function _content_template() {
+		?>
+		<#
+			view.addRenderAttribute( 'atts', {
+				'data-limit': ( settings.tweet_limit ) ? settings.tweet_limit : '',
+				'data-chrome': ( 'yes' != settings.footer ) ? 'nofooter' : '',
+				'data-width': settings.width.size,
+			});
+		#>
+		<div class="pp-twitter-grid" {{{ view.getRenderAttributeString( 'atts' ) }}}>
+			<a class="twitter-grid" href="{{ settings.url }}?ref_src=twsrc%5Etfw" {{{ view.getRenderAttributeString( 'atts' ) }}}></a>
+		</div>
+		<?php
+	}
 }

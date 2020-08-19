@@ -6,6 +6,7 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Utils;
+use Elementor\Repeater;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
@@ -323,6 +324,90 @@ class Pricing_Table extends Powerpack_Widget {
 			)
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'feature_text',
+			array(
+				'label'       => __( 'Text', 'powerpack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'placeholder' => __( 'Feature', 'powerpack' ),
+				'default'     => __( 'Feature', 'powerpack' ),
+			),
+		);
+
+		$repeater->add_control(
+			'exclude',
+			array(
+				'label'        => __( 'Exclude', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '',
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
+				'return_value' => 'yes',
+			),
+		);
+
+
+		$repeater->add_control(
+			'select_feature_icon',
+			array(
+				'label'            => __( 'Icon', 'powerpack' ),
+				'type'             => Controls_Manager::ICONS,
+				'label_block'      => true,
+				'default'          => array(
+					'value'   => 'fas fa-check',
+					'library' => 'fa-solid',
+				),
+				'fa4compatibility' => 'feature_icon',
+			),
+		);
+
+		$repeater->add_control(
+			'feature_icon_color',
+			array(
+				'label'     => __( 'Icon Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} {{CURRENT_ITEM}} .pp-icon i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .pp-icon svg' => 'fill: {{VALUE}}',
+				),
+				'condition' => array(
+					'select_feature_icon[value]!' => '',
+				),
+			),
+		);
+
+
+		$repeater->add_control(
+			'feature_text_color',
+			array(
+				'label'     => __( 'Text Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'color: {{VALUE}}',
+				),
+			),
+		);
+
+		$repeater->add_control(
+			'feature_bg_color',
+			array(
+				'name'      => 'feature_bg_color',
+				'label'     => __( 'Background Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
+				),
+			),
+		);
+
 		$this->add_control(
 			'table_features',
 			array(
@@ -342,69 +427,7 @@ class Pricing_Table extends Powerpack_Widget {
 						'select_feature_icon' => 'fa fa-check',
 					),
 				),
-				'fields'      => array(
-					array(
-						'name'        => 'feature_text',
-						'label'       => __( 'Text', 'powerpack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => array(
-							'active' => true,
-						),
-						'placeholder' => __( 'Feature', 'powerpack' ),
-						'default'     => __( 'Feature', 'powerpack' ),
-					),
-					array(
-						'name'         => 'exclude',
-						'label'        => __( 'Exclude', 'powerpack' ),
-						'type'         => Controls_Manager::SWITCHER,
-						'default'      => '',
-						'label_on'     => __( 'Yes', 'powerpack' ),
-						'label_off'    => __( 'No', 'powerpack' ),
-						'return_value' => 'yes',
-					),
-					array(
-						'name'             => 'select_feature_icon',
-						'label'            => __( 'Icon', 'powerpack' ),
-						'type'             => Controls_Manager::ICONS,
-						'label_block'      => true,
-						'default'          => array(
-							'value'   => 'fas fa-check',
-							'library' => 'fa-solid',
-						),
-						'fa4compatibility' => 'feature_icon',
-					),
-					array(
-						'name'      => 'feature_icon_color',
-						'label'     => __( 'Icon Color', 'powerpack' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '',
-						'selectors' => array(
-							'{{WRAPPER}} {{CURRENT_ITEM}} .pp-icon i' => 'color: {{VALUE}}',
-							'{{WRAPPER}} {{CURRENT_ITEM}} .pp-icon svg' => 'fill: {{VALUE}}',
-						),
-						'condition' => array(
-							'select_feature_icon[value]!' => '',
-						),
-					),
-					array(
-						'name'      => 'feature_text_color',
-						'label'     => __( 'Text Color', 'powerpack' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '',
-						'selectors' => array(
-							'{{WRAPPER}} {{CURRENT_ITEM}}' => 'color: {{VALUE}}',
-						),
-					),
-					array(
-						'name'      => 'feature_bg_color',
-						'label'     => __( 'Background Color', 'powerpack' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '',
-						'selectors' => array(
-							'{{WRAPPER}} {{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
-						),
-					),
-				),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ feature_text }}}',
 			)
 		);
