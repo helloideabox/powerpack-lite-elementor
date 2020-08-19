@@ -117,6 +117,110 @@ class Icon_List extends Powerpack_Widget {
 			)
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'text',
+			array(
+				'label'       => __( 'Text', 'powerpack' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'default'     => __( 'List Item #1', 'powerpack' ),
+			),
+		);
+
+		$repeater->add_control(
+			'pp_icon_type',
+			array(
+				'label'       => esc_html__( 'Icon Type', 'powerpack' ),
+				'type'        => Controls_Manager::CHOOSE,
+				'label_block' => false,
+				'options'     => array(
+					'none'   => array(
+						'title' => esc_html__( 'None', 'powerpack' ),
+						'icon'  => 'fa fa-ban',
+					),
+					'icon'   => array(
+						'title' => esc_html__( 'Icon', 'powerpack' ),
+						'icon'  => 'fa fa-star',
+					),
+					'image'  => array(
+						'title' => esc_html__( 'Image', 'powerpack' ),
+						'icon'  => 'fa fa-picture-o',
+					),
+					'number' => array(
+						'title' => esc_html__( 'Number', 'powerpack' ),
+						'icon'  => 'fa fa-hashtag',
+					),
+				),
+				'default'     => 'icon',
+			),
+		);
+
+		$repeater->add_control(
+			'icon',
+			array(
+				'label'            => __( 'Icon', 'powerpack' ),
+				'type'             => Controls_Manager::ICONS,
+				'label_block'      => true,
+				'default'          => array(
+					'value'   => 'fas fa-check',
+					'library' => 'fa-solid',
+				),
+				'fa4compatibility' => 'list_icon',
+				'condition'        => array(
+					'pp_icon_type' => 'icon',
+				),
+			),
+		);
+
+		$repeater->add_control(
+			'list_image',
+			array(
+				'label'       => __( 'Image', 'powerpack' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::MEDIA,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'default'     => array(
+					'url' => Utils::get_placeholder_image_src(),
+				),
+				'condition'   => array(
+					'pp_icon_type' => 'image',
+				),
+			),
+		);
+
+		$repeater->add_control(
+			'icon_text',
+			array(
+				'label'       => __( 'Number/Text', 'powerpack' ),
+				'label_block' => false,
+				'type'        => Controls_Manager::TEXT,
+				'default'     => '',
+				'condition'   => array(
+					'pp_icon_type' => 'number',
+				),
+			),
+		);
+
+		$repeater->add_control(
+			'link',
+			array(
+				'label'       => __( 'Link', 'powerpack' ),
+				'type'        => Controls_Manager::URL,
+				'label_block' => true,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'placeholder' => __( 'http://your-link.com', 'powerpack' ),
+			),
+		);
+
 		$this->add_control(
 			'list_items',
 			array(
@@ -136,92 +240,7 @@ class Icon_List extends Powerpack_Widget {
 						'icon' => __( 'fa fa-check', 'powerpack' ),
 					),
 				),
-				'fields'      => array(
-					array(
-						'name'        => 'text',
-						'label'       => __( 'Text', 'powerpack' ),
-						'label_block' => true,
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => array(
-							'active' => true,
-						),
-						'default'     => __( 'List Item #1', 'powerpack' ),
-					),
-					array(
-						'name'        => 'pp_icon_type',
-						'label'       => esc_html__( 'Icon Type', 'powerpack' ),
-						'type'        => Controls_Manager::CHOOSE,
-						'label_block' => false,
-						'options'     => array(
-							'none'   => array(
-								'title' => esc_html__( 'None', 'powerpack' ),
-								'icon'  => 'fa fa-ban',
-							),
-							'icon'   => array(
-								'title' => esc_html__( 'Icon', 'powerpack' ),
-								'icon'  => 'fa fa-star',
-							),
-							'image'  => array(
-								'title' => esc_html__( 'Image', 'powerpack' ),
-								'icon'  => 'fa fa-picture-o',
-							),
-							'number' => array(
-								'title' => esc_html__( 'Number', 'powerpack' ),
-								'icon'  => 'fa fa-hashtag',
-							),
-						),
-						'default'     => 'icon',
-					),
-					array(
-						'name'             => 'icon',
-						'label'            => __( 'Icon', 'powerpack' ),
-						'type'             => Controls_Manager::ICONS,
-						'label_block'      => true,
-						'default'          => array(
-							'value'   => 'fas fa-check',
-							'library' => 'fa-solid',
-						),
-						'fa4compatibility' => 'list_icon',
-						'condition'        => array(
-							'pp_icon_type' => 'icon',
-						),
-					),
-					array(
-						'name'        => 'list_image',
-						'label'       => __( 'Image', 'powerpack' ),
-						'label_block' => true,
-						'type'        => Controls_Manager::MEDIA,
-						'dynamic'     => array(
-							'active' => true,
-						),
-						'default'     => array(
-							'url' => Utils::get_placeholder_image_src(),
-						),
-						'condition'   => array(
-							'pp_icon_type' => 'image',
-						),
-					),
-					array(
-						'name'        => 'icon_text',
-						'label'       => __( 'Number/Text', 'powerpack' ),
-						'label_block' => false,
-						'type'        => Controls_Manager::TEXT,
-						'default'     => '',
-						'condition'   => array(
-							'pp_icon_type' => 'number',
-						),
-					),
-					array(
-						'name'        => 'link',
-						'label'       => __( 'Link', 'powerpack' ),
-						'type'        => Controls_Manager::URL,
-						'label_block' => true,
-						'dynamic'     => array(
-							'active' => true,
-						),
-						'placeholder' => __( 'http://your-link.com', 'powerpack' ),
-					),
-				),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => '<i class="{{ icon }}" aria-hidden="true"></i> {{{ text }}}',
 			)
 		);
@@ -968,18 +987,16 @@ endforeach;
 			<ul {{{ view.getRenderAttributeString( 'list_items' ) }}}>
 				<# var i = 1; #>
 				<# _.each( settings.list_items, function( item, index ) {
+					
+					var itemKey = view.getRepeaterSettingKey( 'item', 'list_items', index ),
+						textKey = view.getRepeaterSettingKey( 'text', 'list_items', index );
 				   
-				   var itemKey = view.getRepeaterSettingKey( 'item', 'list_items', index ),
-						  textKey = view.getRepeaterSettingKey( 'text', 'list_items', index );
-				   
-				   view.addRenderAttribute( {
-						   itemKey: {
-							   'class': 'pp-icon-list-item'
-						   },
-						   textKey: {
-							   'class': 'pp-icon-list-text'
-						   }
-				   } );
+				   view.addRenderAttribute( itemKey, {
+						'class': 'pp-icon-list-item'
+					});
+					view.addRenderAttribute( textKey, {
+						'class': 'pp-icon-list-text'
+					});
 
 				   view.addInlineEditingAttributes( textKey );
 				   #>
@@ -1043,7 +1060,7 @@ endforeach;
 							<#
 								var text = item.text;
 
-								var text_html = '<span' + ' ' + view.getRenderAttributeString( textKey ) + '>' + text + '</span>';
+								var text_html = '<span' + ' ' + view.getRenderAttributeString( textKey ) + ' >' + text + '</span>';
 
 								print( text_html );
 							#>
