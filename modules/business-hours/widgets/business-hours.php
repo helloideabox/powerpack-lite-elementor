@@ -314,6 +314,103 @@ class Business_Hours extends Powerpack_Widget {
 			)
 		);
 
+		$repeater_custom = new Repeater();
+		
+		$repeater_custom->add_control(
+			'day',
+			array(
+				'label'   => __( 'Day', 'powerpack' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => 'Monday',
+			),
+		);
+
+		$repeater_custom->add_control(
+			'closed',
+			array(
+				'label'        => __( 'Closed?', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'label_on'     => __( 'No', 'powerpack' ),
+				'label_off'    => __( 'Yes', 'powerpack' ),
+				'return_value' => 'no',
+			),
+		);
+
+		$repeater_custom->add_control(
+			'time',
+			array(
+				'label'     => __( 'Time', 'powerpack' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => '09:00 AM - 05:00 PM',
+				'condition' => array(
+					'closed' => 'no',
+				),
+			),
+		);
+
+		$repeater_custom->add_control(
+			'closed_text',
+			array(
+				'label'       => __( 'Closed Text', 'powerpack' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'placeholder' => __( 'Closed', 'powerpack' ),
+				'default'     => __( 'Closed', 'powerpack' ),
+				'conditions'  => array(
+					'terms' => array(
+						array(
+							'name'     => 'closed',
+							'operator' => '!=',
+							'value'    => 'no',
+						),
+					),
+				),
+			),
+		);
+
+		$repeater_custom->add_control(
+			'highlight',
+			array(
+				'label'        => __( 'Highlight', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
+				'return_value' => 'yes',
+			),
+		);
+
+		$repeater_custom->add_control(
+			'highlight_bg',
+			array(
+				'label'     => __( 'Background Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row{{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
+				),
+				'condition' => array(
+					'highlight' => 'yes',
+				),
+			),
+		);
+
+		$repeater_custom->add_control(
+			'highlight_color',
+			array(
+				'label'     => __( 'Text Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row{{CURRENT_ITEM}} .pp-business-day, {{WRAPPER}} .pp-business-hours .pp-business-hours-row{{CURRENT_ITEM}} .pp-business-timing' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'highlight' => 'yes',
+				),
+			),
+		);
+
 		$this->add_control(
 			'business_hours_custom',
 			array(
@@ -348,82 +445,7 @@ class Business_Hours extends Powerpack_Widget {
 						'highlight_color' => '#bc1705',
 					),
 				),
-				'fields'      => array(
-					array(
-						'name'    => 'day',
-						'label'   => __( 'Day', 'powerpack' ),
-						'type'    => Controls_Manager::TEXT,
-						'default' => 'Monday',
-					),
-					array(
-						'name'         => 'closed',
-						'label'        => __( 'Closed?', 'powerpack' ),
-						'type'         => Controls_Manager::SWITCHER,
-						'default'      => 'no',
-						'label_on'     => __( 'No', 'powerpack' ),
-						'label_off'    => __( 'Yes', 'powerpack' ),
-						'return_value' => 'no',
-					),
-					array(
-						'name'      => 'time',
-						'label'     => __( 'Time', 'powerpack' ),
-						'type'      => Controls_Manager::TEXT,
-						'default'   => '09:00 AM - 05:00 PM',
-						'condition' => array(
-							'closed' => 'no',
-						),
-					),
-					array(
-						'name'        => 'closed_text',
-						'label'       => __( 'Closed Text', 'powerpack' ),
-						'type'        => Controls_Manager::TEXT,
-						'label_block' => true,
-						'placeholder' => __( 'Closed', 'powerpack' ),
-						'default'     => __( 'Closed', 'powerpack' ),
-						'conditions'  => array(
-							'terms' => array(
-								array(
-									'name'     => 'closed',
-									'operator' => '!=',
-									'value'    => 'no',
-								),
-							),
-						),
-					),
-					array(
-						'name'         => 'highlight',
-						'label'        => __( 'Highlight', 'powerpack' ),
-						'type'         => Controls_Manager::SWITCHER,
-						'default'      => 'no',
-						'label_on'     => __( 'Yes', 'powerpack' ),
-						'label_off'    => __( 'No', 'powerpack' ),
-						'return_value' => 'yes',
-					),
-					array(
-						'name'      => 'highlight_bg',
-						'label'     => __( 'Background Color', 'powerpack' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '',
-						'selectors' => array(
-							'{{WRAPPER}} .pp-business-hours .pp-business-hours-row{{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
-						),
-						'condition' => array(
-							'highlight' => 'yes',
-						),
-					),
-					array(
-						'name'      => 'highlight_color',
-						'label'     => __( 'Text Color', 'powerpack' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '',
-						'selectors' => array(
-							'{{WRAPPER}} .pp-business-hours .pp-business-hours-row{{CURRENT_ITEM}} .pp-business-day, {{WRAPPER}} .pp-business-hours .pp-business-hours-row{{CURRENT_ITEM}} .pp-business-timing' => 'color: {{VALUE}}',
-						),
-						'condition' => array(
-							'highlight' => 'yes',
-						),
-					),
-				),
+				'fields'      => $repeater_custom->get_controls(),
 				'title_field' => '{{{ day }}}',
 				'condition'   => array(
 					'business_timings' => 'custom',
