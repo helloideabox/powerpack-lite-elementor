@@ -101,7 +101,7 @@
 		var loader = $scope.find( '.pp-posts-loader' );
 		
 		$.ajax({
-			url: pp.ajax_url,
+			url: pp_posts_script.ajax_url,
 			data: {
 				action:			'pp_get_post',
 				page_id:		$obj.page_id,
