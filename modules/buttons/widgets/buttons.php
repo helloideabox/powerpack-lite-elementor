@@ -504,7 +504,7 @@ class Buttons extends Powerpack_Widget {
 				'label'       => __( 'Buttons', 'powerpack' ),
 				'type'        => Controls_Manager::REPEATER,
 				'show_label'  => true,
-				'fields'      => array_values( $repeater->get_controls() ),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ text }}}',
 				'default'     => array(
 					array(

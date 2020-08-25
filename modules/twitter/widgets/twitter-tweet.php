@@ -220,4 +220,5 @@ class Twitter_Tweet extends Powerpack_Widget {
 		</div>
 		<?php
 	}
+
 }

@@ -374,7 +374,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'instagram_url'        => '#',
 					),
 				),
-				'fields'      => array_values( $repeater->get_controls() ),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ team_member_name }}}',
 			)
 		);

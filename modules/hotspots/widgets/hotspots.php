@@ -387,7 +387,7 @@ class Hotspots extends Powerpack_Widget {
 						'top_position'        => 30,
 					),
 				),
-				'fields'      => array_values( $repeater->get_controls() ),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ hotspot_admin_label }}}',
 			)
 		);

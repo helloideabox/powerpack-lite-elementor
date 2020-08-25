@@ -228,7 +228,7 @@ class Logo_Grid extends Powerpack_Widget {
 						),
 					),
 				),
-				'fields'      => array_values( $repeater->get_controls() ),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => __( 'Logo Image', 'powerpack' ),
 			)
 		);
