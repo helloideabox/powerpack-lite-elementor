@@ -167,7 +167,7 @@ class Business_Hours extends Powerpack_Widget {
 					'Saturday'  => __( 'Saturday', 'powerpack' ),
 					'Sunday'    => __( 'Sunday', 'powerpack' ),
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -179,7 +179,7 @@ class Business_Hours extends Powerpack_Widget {
 				'label_on'     => __( 'No', 'powerpack' ),
 				'label_off'    => __( 'Yes', 'powerpack' ),
 				'return_value' => 'no',
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -192,7 +192,7 @@ class Business_Hours extends Powerpack_Widget {
 				'condition' => array(
 					'closed' => 'no',
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -205,9 +205,8 @@ class Business_Hours extends Powerpack_Widget {
 				'condition' => array(
 					'closed' => 'no',
 				),
-			),
+			)
 		);
-
 
 		$repeater->add_control(
 			'closed_text',
@@ -229,7 +228,6 @@ class Business_Hours extends Powerpack_Widget {
 			),
 		);
 
-
 		$repeater->add_control(
 			'highlight',
 			array(
@@ -239,7 +237,7 @@ class Business_Hours extends Powerpack_Widget {
 				'label_on'     => __( 'Yes', 'powerpack' ),
 				'label_off'    => __( 'No', 'powerpack' ),
 				'return_value' => 'yes',
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -254,7 +252,7 @@ class Business_Hours extends Powerpack_Widget {
 				'condition' => array(
 					'highlight' => 'yes',
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -269,7 +267,7 @@ class Business_Hours extends Powerpack_Widget {
 				'condition' => array(
 					'highlight' => 'yes',
 				),
-			),
+			)
 		);
 
 		$this->add_control(
@@ -315,14 +313,14 @@ class Business_Hours extends Powerpack_Widget {
 		);
 
 		$repeater_custom = new Repeater();
-		
+
 		$repeater_custom->add_control(
 			'day',
 			array(
 				'label'   => __( 'Day', 'powerpack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => 'Monday',
-			),
+			)
 		);
 
 		$repeater_custom->add_control(
@@ -334,7 +332,7 @@ class Business_Hours extends Powerpack_Widget {
 				'label_on'     => __( 'No', 'powerpack' ),
 				'label_off'    => __( 'Yes', 'powerpack' ),
 				'return_value' => 'no',
-			),
+			)
 		);
 
 		$repeater_custom->add_control(
@@ -346,7 +344,7 @@ class Business_Hours extends Powerpack_Widget {
 				'condition' => array(
 					'closed' => 'no',
 				),
-			),
+			)
 		);
 
 		$repeater_custom->add_control(
@@ -366,7 +364,7 @@ class Business_Hours extends Powerpack_Widget {
 						),
 					),
 				),
-			),
+			)
 		);
 
 		$repeater_custom->add_control(
@@ -378,7 +376,7 @@ class Business_Hours extends Powerpack_Widget {
 				'label_on'     => __( 'Yes', 'powerpack' ),
 				'label_off'    => __( 'No', 'powerpack' ),
 				'return_value' => 'yes',
-			),
+			)
 		);
 
 		$repeater_custom->add_control(
@@ -393,7 +391,7 @@ class Business_Hours extends Powerpack_Widget {
 				'condition' => array(
 					'highlight' => 'yes',
 				),
-			),
+			)
 		);
 
 		$repeater_custom->add_control(
@@ -408,7 +406,7 @@ class Business_Hours extends Powerpack_Widget {
 				'condition' => array(
 					'highlight' => 'yes',
 				),
-			),
+			)
 		);
 
 		$this->add_control(
