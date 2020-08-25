@@ -390,7 +390,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'selectors' => array(
 					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'color: {{VALUE}}',
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
