@@ -336,7 +336,7 @@ class Pricing_Table extends Powerpack_Widget {
 				),
 				'placeholder' => __( 'Feature', 'powerpack' ),
 				'default'     => __( 'Feature', 'powerpack' ),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -348,9 +348,8 @@ class Pricing_Table extends Powerpack_Widget {
 				'label_on'     => __( 'Yes', 'powerpack' ),
 				'label_off'    => __( 'No', 'powerpack' ),
 				'return_value' => 'yes',
-			),
+			)
 		);
-
 
 		$repeater->add_control(
 			'select_feature_icon',
@@ -363,7 +362,7 @@ class Pricing_Table extends Powerpack_Widget {
 					'library' => 'fa-solid',
 				),
 				'fa4compatibility' => 'feature_icon',
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -379,9 +378,8 @@ class Pricing_Table extends Powerpack_Widget {
 				'condition' => array(
 					'select_feature_icon[value]!' => '',
 				),
-			),
+			)
 		);
-
 
 		$repeater->add_control(
 			'feature_text_color',
@@ -405,7 +403,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'selectors' => array(
 					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
 				),
-			),
+			)
 		);
 
 		$this->add_control(
