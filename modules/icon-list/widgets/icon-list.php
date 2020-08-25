@@ -129,7 +129,7 @@ class Icon_List extends Powerpack_Widget {
 					'active' => true,
 				),
 				'default'     => __( 'List Item #1', 'powerpack' ),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -157,7 +157,7 @@ class Icon_List extends Powerpack_Widget {
 					),
 				),
 				'default'     => 'icon',
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -174,7 +174,7 @@ class Icon_List extends Powerpack_Widget {
 				'condition'        => array(
 					'pp_icon_type' => 'icon',
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -192,7 +192,7 @@ class Icon_List extends Powerpack_Widget {
 				'condition'   => array(
 					'pp_icon_type' => 'image',
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -205,7 +205,7 @@ class Icon_List extends Powerpack_Widget {
 				'condition'   => array(
 					'pp_icon_type' => 'number',
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -218,7 +218,7 @@ class Icon_List extends Powerpack_Widget {
 					'active' => true,
 				),
 				'placeholder' => __( 'http://your-link.com', 'powerpack' ),
-			),
+			)
 		);
 
 		$this->add_control(
