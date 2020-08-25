@@ -126,7 +126,7 @@ class Info_List extends Powerpack_Widget {
 					'active' => true,
 				),
 				'default'     => __( 'List Item #1', 'powerpack' ),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -139,7 +139,7 @@ class Info_List extends Powerpack_Widget {
 					'active' => true,
 				),
 				'default'     => __( 'List Item Description', 'powerpack' ),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -167,7 +167,7 @@ class Info_List extends Powerpack_Widget {
 					),
 				),
 				'default'     => 'icon',
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -184,7 +184,7 @@ class Info_List extends Powerpack_Widget {
 				'condition'        => array(
 					'pp_icon_type' => 'icon',
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -199,7 +199,7 @@ class Info_List extends Powerpack_Widget {
 				'condition'   => array(
 					'pp_icon_type' => 'image',
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -212,7 +212,7 @@ class Info_List extends Powerpack_Widget {
 				'condition'   => array(
 					'pp_icon_type' => 'text',
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -227,7 +227,7 @@ class Info_List extends Powerpack_Widget {
 					'button' => __( 'Button', 'powerpack' ),
 				),
 				'default' => 'none',
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -242,7 +242,7 @@ class Info_List extends Powerpack_Widget {
 				'condition' => array(
 					'link_type' => 'button',
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -255,7 +255,7 @@ class Info_List extends Powerpack_Widget {
 				'condition'        => array(
 					'link_type' => 'button',
 				),
-			),
+			)
 		);
 
 
@@ -272,7 +272,7 @@ class Info_List extends Powerpack_Widget {
 				'condition' => array(
 					'link_type' => 'button',
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -297,7 +297,7 @@ class Info_List extends Powerpack_Widget {
 						),
 					),
 				),
-			),
+			)
 		);
 
 		$this->add_control(
