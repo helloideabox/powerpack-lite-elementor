@@ -196,6 +196,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.1.1 - August 25, 2020 =
+* 	Fixed: Posts - Ajax error after updating to WP 5.5
+
 = 2.1.0 - August 11, 2020 =
 * 	New: Posts widget
 * 	Fixed: Image Accordion - Stack On option was not working

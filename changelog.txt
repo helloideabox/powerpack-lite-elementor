@@ -1,3 +1,7 @@
+== 2.1.1 ==
+Release date: August 25, 2020
+* Fixed: Posts - Ajax error after updating to WP 5.5
+
 == 2.1.0 ==
 Release date: August 11, 2020
 * New: Posts widget
