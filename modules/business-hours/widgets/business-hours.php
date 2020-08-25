@@ -225,7 +225,7 @@ class Business_Hours extends Powerpack_Widget {
 						),
 					),
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
