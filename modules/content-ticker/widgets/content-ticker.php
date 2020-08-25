@@ -427,7 +427,7 @@ class Content_Ticker extends Powerpack_Widget {
 						'ticker_title' => __( 'Content Ticker Item 4', 'powerpack' ),
 					),
 				),
-				'fields'      => array_values( $repeater->get_controls() ),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ ticker_title }}}',
 				'condition'   => array(
 					'source' => 'custom',
