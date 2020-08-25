@@ -1,3 +1,7 @@
+== 2.1.2 ==
+Release date: August 25, 2020
+* Enhancement: Compatibility to Elementor 3.0
+
 == 2.1.1 ==
 Release date: August 25, 2020
 * Fixed: Posts - Ajax error after updating to WP 5.5

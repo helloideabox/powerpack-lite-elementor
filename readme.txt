@@ -196,6 +196,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.1.2 - August 25, 2020 =
+* 	Enhancement: Compatibility to Elementor 3.0
+
 = 2.1.1 - August 25, 2020 =
 * 	Fixed: Posts - Ajax error after updating to WP 5.5
 
