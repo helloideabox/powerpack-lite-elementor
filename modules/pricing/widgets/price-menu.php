@@ -81,7 +81,7 @@ class Price_Menu extends Powerpack_Widget {
 				'label_block' => true,
 				'placeholder' => __( 'Title', 'powerpack' ),
 				'default'     => __( 'Title', 'powerpack' ),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -95,7 +95,7 @@ class Price_Menu extends Powerpack_Widget {
 				'label_block' => true,
 				'placeholder' => __( 'Description', 'powerpack' ),
 				'default'     => __( 'Description', 'powerpack' ),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -107,7 +107,7 @@ class Price_Menu extends Powerpack_Widget {
 					'active' => true,
 				),
 				'default' => '$49',
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -119,7 +119,7 @@ class Price_Menu extends Powerpack_Widget {
 				'label_on'     => __( 'On', 'powerpack' ),
 				'label_off'    => __( 'Off', 'powerpack' ),
 				'return_value' => 'yes',
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -140,7 +140,7 @@ class Price_Menu extends Powerpack_Widget {
 						),
 					),
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -152,7 +152,7 @@ class Price_Menu extends Powerpack_Widget {
 				'label_on'     => __( 'On', 'powerpack' ),
 				'label_off'    => __( 'Off', 'powerpack' ),
 				'return_value' => 'yes',
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -176,7 +176,7 @@ class Price_Menu extends Powerpack_Widget {
 						),
 					),
 				),
-			),
+			)
 		);
 
 		$repeater->add_control(
@@ -189,7 +189,7 @@ class Price_Menu extends Powerpack_Widget {
 					'active' => true,
 				),
 				'placeholder' => 'https://www.your-link.com',
-			),
+			)
 		);
 
 		$this->add_control(
