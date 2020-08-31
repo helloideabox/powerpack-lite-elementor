@@ -109,8 +109,9 @@ Want to connect us with more? We have an active Facebook Group where we keep pos
 
 ### TEMPLATE LIBRRAY FOR ELEMENTOR
 
-**Easiest, Fastest and Creative way to design websites!** 
-https://www.youtube.com/watch?v=IoSvG1-0f4M&t=1s
+**Easiest, Fastest and Creative way to design websites!**
+
+https://www.youtube.com/watch?v=IoSvG1-0f4M
 
 PowerPack template library includes 150+ ready-to-use section blocks. All block templates are precise work of our designers that can be used to create any website.
 
@@ -195,6 +196,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 
 == Changelog ==
+
+= 2.1.3 - August 31, 2020 =
+* 	Fixed: Buttons - Tooltip styling options were not working in buttons widget
+* 	Fixed: Info Box Carousel - Icon type image was not showing on frontend
+* 	Fixed: PHP error in template library
 
 = 2.1.2 - August 25, 2020 =
 * 	Enhancement: Compatibility to Elementor 3.0

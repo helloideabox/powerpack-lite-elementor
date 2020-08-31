@@ -1,3 +1,9 @@
+== 2.1.3 ==
+Release date: August 31, 2020
+* Fixed: Buttons - Tooltip styling options were not working in buttons widget
+* Fixed: Info Box Carousel - Icon type image was not showing on frontend
+* Fixed: PHP error in template library
+
 == 2.1.2 ==
 Release date: August 25, 2020
 * Enhancement: Compatibility to Elementor 3.0

@@ -327,7 +327,7 @@ module.exports = function( grunt ) {
 		// Replace.
 		replace: {
 			main: {
-				src: ['powerpack-elements.php'],
+				src: ['powerpack-lite-elementor.php'],
 				overwrite: true,
 				replacements: [
 					{
@@ -335,8 +335,8 @@ module.exports = function( grunt ) {
 						to: 'Version: <%= pkg.version %>\n'
 					},
 					{
-						from: /IBX_ADMIN_UI_VER', '.*?'/g,
-						to: 'POWERPACK_ELEMENTS_VER\', \'<%= pkg.version %>\''
+						from: /POWERPACK_ELEMENTS_LITE_VER', '.*?'/g,
+						to: 'POWERPACK_ELEMENTS_LITE_VER\', \'<%= pkg.version %>\''
 					},
 				]
 			},
