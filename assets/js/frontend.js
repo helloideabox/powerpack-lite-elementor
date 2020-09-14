@@ -23,6 +23,44 @@
 
     var isEditMode		= false;
     
+    var PPSwiperSliderHandler = function ($scope, $) {
+        var $carousel                   = $scope.find('.pp-swiper-slider').eq(0),
+            $slider_options             = JSON.parse( $carousel.attr('data-slider-settings') );
+
+		var mySwiper = new Swiper($carousel, $slider_options);
+			
+		PPSliderUpdate( mySwiper, '.pp-swiper-slider', 'swiper' );
+    };
+    
+    var PPSliderUpdate = function (slider, selector, type) {
+
+		if( 'undefined' !== typeof type ){
+			type = 'swiper';
+		}
+
+		var $triggers = [
+			'ppe-tabs-switched',
+			'ppe-toggle-switched',
+		];
+
+		$triggers.forEach(function(trigger) {
+			if ( 'undefined' !== typeof trigger ) {
+				$(document).on(trigger, function(e, wrap) {
+					if ( wrap.find( selector ).length > 0 ) {
+						setTimeout(function() {
+							if ( 'slick' === type ) {
+								slider.slick( 'setPosition' );
+							}
+							if ( 'swiper' === type ) {
+								slider.update();
+							}
+						}, 100);
+					}
+				});
+			}
+		});
+	};
+    
     var ImageHotspotHandler = function ($scope, $) {
 		var id 				= $scope.data('id'),
 			elementSettings = getElementSettings( $scope ),
@@ -116,46 +154,30 @@
 
         var mySwiper = new Swiper(carousel, slider_options);
     };
-    
-    var InfoBoxCarouselHandler = function ($scope, $) {
-        var elementSettings				= getElementSettings( $scope ),
-        	carousel_wrap               = $scope.find('.pp-info-box-carousel-wrap').eq(0),
-            carousel                    = carousel_wrap.find('.pp-info-box-carousel'),
-            slider_options              = JSON.parse( carousel_wrap.attr('data-slider-settings') ),
-            equal_height				= elementSettings.equal_height_boxes;
-
-		var mySwiper = new Swiper(carousel, slider_options);
-		
-		if ( equal_height === 'yes' ) {
-			function setEqualHeight(){
-				var maxHeight = 0;
-				$scope.find('.swiper-slide').each( function( currentSlide ) {
-					if($(this).height() > maxHeight){
-						maxHeight = $(this).height();
-					}
-				});
-				$scope.find('.pp-info-box-content-wrap').css('min-height',maxHeight);
-			}
-
-			$(setEqualHeight);
-			$(window).resize(setEqualHeight);
-		}
-		
-		$(document).on('pp_advanced_tab_changed', function(e, content) {
-			if ( content.find('.pp-info-box-carousel-wrap').length > 0 ) {
-				setTimeout(function() {
-					mySwiper.update();
-				}, 400);
+	
+	var IbEqualHeight = function($scope, $) {
+		var maxHeight = 0;
+		$scope.find('.swiper-slide').each( function() {
+			if($(this).height() > maxHeight){
+				maxHeight = $(this).height();
 			}
 		});
-
-		if ( $(carousel_wrap).closest('.elementor-tabs').length > 0 ) {
-			$(carousel_wrap).closest('.elementor-tabs').find('.elementor-tab-title').on('click', function() {
-				setTimeout(function() {
-					mySwiper.update();
-				}, 400);
-			});
+		$scope.find('.pp-info-box-content-wrap').css('min-height',maxHeight);
+	};
+    
+    var InfoBoxCarouselHandler = function ($scope, $) {
+		var elementSettings			= getElementSettings( $scope ),
+            $carousel               = $scope.find('.pp-info-box-carousel'),
+            slider_options          = JSON.parse( $carousel.attr('data-slider-settings') ),
+            equal_height			= elementSettings.equal_height_boxes,
+			mySwiper				= new Swiper($carousel, slider_options);
+		
+		if ( equal_height === 'yes' ) {
+			IbEqualHeight($scope, $);
+			$(window).resize(IbEqualHeight($scope, $));
 		}
+		
+		PPSliderUpdate( mySwiper, '.pp-info-box-carousel', 'swiper' );
     };
     
     var InstaFeedPopupHandler = function ($scope, $) {

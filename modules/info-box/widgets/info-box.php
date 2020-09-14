@@ -1,9 +1,16 @@
 <?php
+/**
+ * Info Box Widget
+ *
+ * @package PPE
+ */
+
 namespace PowerpackElementsLite\Modules\InfoBox\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Config;
 
-// Elementor Classes
+// Elementor Classes.
 use Elementor\Controls_Manager;
 use Elementor\Control_Media;
 use Elementor\Utils;
@@ -80,14 +87,41 @@ class Info_Box extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->register_controls();
+	}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  CONTENT TAB
-		/*-----------------------------------------------------------------------------------*/
+	/**
+	 * Register info box widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since 2.0.3
+	 * @access protected
+	 */
+	protected function register_controls() {
+		/* Content Tab */
+		$this->register_content_icon_controls();
+		$this->register_content_content_controls();
+		$this->register_content_link_controls();
+		$this->register_content_help_docs_controls();
+		$this->register_content_upgrade_controls();
 
+		/* Style Tab */
+		$this->register_style_info_box_controls();
+		$this->register_style_icon_controls();
+		$this->register_style_title_controls();
+		$this->register_style_title_divider_controls();
+		$this->register_style_description_controls();
+		$this->register_style_button_controls();
+	}
+
+	/**
+	 * Register Icon Controls in Content tab
+	 *
+	 * @return void
+	 */
+	protected function register_content_icon_controls() {
 		/**
 		 * Content Tab: Icon
 		 * -------------------------------------------------
@@ -335,7 +369,14 @@ class Info_Box extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Info Box Content Controls in Content tab
+	 *
+	 * @return void
+	 */
+	protected function register_content_content_controls() {
 		/**
 		 * Content Tab: Content
 		 * -------------------------------------------------
@@ -375,7 +416,7 @@ class Info_Box extends Powerpack_Widget {
 			'description',
 			array(
 				'label'   => __( 'Description', 'powerpack' ),
-				'type'    => Controls_Manager::TEXTAREA,
+				'type'    => Controls_Manager::WYSIWYG,
 				'dynamic' => array(
 					'active' => true,
 				),
@@ -439,7 +480,14 @@ class Info_Box extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Link Controls in Content tab
+	 *
+	 * @return void
+	 */
+	protected function register_content_link_controls() {
 		/**
 		 * Content Tab: Link
 		 * -------------------------------------------------
@@ -490,16 +538,53 @@ class Info_Box extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'button_visible',
+			array(
+				'label'        => __( 'Show Button', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
+				'return_value' => 'yes',
+				'condition'    => array(
+					'link_type' => 'box'
+				),
+			)
+		);
+
+		$this->add_control(
 			'button_text',
 			array(
-				'label'     => __( 'Button', 'powerpack' ) . ' ' . __( 'Text', 'powerpack' ),
-				'type'      => Controls_Manager::TEXT,
-				'dynamic'   => array(
+				'label'      => __( 'Button', 'powerpack' ) . ' ' . __( 'Text', 'powerpack' ),
+				'type'       => Controls_Manager::TEXT,
+				'dynamic'    => array(
 					'active' => true,
 				),
-				'default'   => __( 'Get Started', 'powerpack' ),
-				'condition' => array(
-					'link_type' => 'button',
+				'default'    => __( 'Get Started', 'powerpack' ),
+				'conditions' => array(
+					'relation' => 'or',
+					'terms' => array(
+						array(
+							'name'     => 'link_type',
+							'operator' => '==',
+							'value'    => 'button',
+						),
+						array(
+							'relation' => 'and',
+							'terms' => array(
+								array(
+									'name'     => 'link_type',
+									'operator' => '==',
+									'value'    => 'box',
+								),
+								array(
+									'name'     => 'button_visible',
+									'operator' => '==',
+									'value'    => 'yes',
+								),
+							),
+						),
+					),
 				),
 			)
 		);
@@ -510,8 +595,30 @@ class Info_Box extends Powerpack_Widget {
 				'label'            => __( 'Button', 'powerpack' ) . ' ' . __( 'Icon', 'powerpack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'button_icon',
-				'condition'        => array(
-					'link_type' => 'button',
+				'conditions'       => array(
+					'relation' => 'or',
+					'terms' => array(
+						array(
+							'name'     => 'link_type',
+							'operator' => '==',
+							'value'    => 'button',
+						),
+						array(
+							'relation' => 'and',
+							'terms' => array(
+								array(
+									'name'     => 'link_type',
+									'operator' => '==',
+									'value'    => 'box',
+								),
+								array(
+									'name'     => 'button_visible',
+									'operator' => '==',
+									'value'    => 'yes',
+								),
+							),
+						),
+					),
 				),
 			)
 		);
@@ -526,40 +633,100 @@ class Info_Box extends Powerpack_Widget {
 					'after'  => __( 'After', 'powerpack' ),
 					'before' => __( 'Before', 'powerpack' ),
 				),
-				'condition' => array(
-					'link_type'                  => 'button',
-					'select_button_icon[value]!' => '',
+				'conditions'       => array(
+					'relation' => 'or',
+					'terms' => array(
+						array(
+							'relation' => 'and',
+							'terms' => array(
+								array(
+									'name'     => 'link_type',
+									'operator' => '==',
+									'value'    => 'button',
+								),
+								array(
+									'name'     => 'select_button_icon[value]',
+									'operator' => '!=',
+									'value'    => '',
+								),
+							),
+						),
+						array(
+							'relation' => 'and',
+							'terms' => array(
+								array(
+									'name'     => 'link_type',
+									'operator' => '==',
+									'value'    => 'box',
+								),
+								array(
+									'name'     => 'button_visible',
+									'operator' => '==',
+									'value'    => 'yes',
+								),
+								array(
+									'name'     => 'select_button_icon[value]',
+									'operator' => '!=',
+									'value'    => '',
+								),
+							),
+						),
+					),
 				),
 			)
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Docs Links
-		 *
-		 * @since 1.4.8
-		 * @access protected
-		 */
-		$this->start_controls_section(
-			'section_help_docs',
-			array(
-				'label' => __( 'Help Docs', 'powerpack' ),
-			)
-		);
+	/**
+	 * Register Help Docs Controls in Content tab
+	 *
+	 * @return void
+	 */
+	protected function register_content_help_docs_controls() {
 
-		$this->add_control(
-			'help_doc_1',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/info-box/info-box-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+		$help_docs = PP_Config::get_widget_help_links( 'Info_Box' );
 
-		$this->end_controls_section();
+		if ( ! empty( $help_docs ) ) {
 
+			/**
+			 * Content Tab: Help Docs
+			 *
+			 * @since 1.4.8
+			 * @access protected
+			 */
+			$this->start_controls_section(
+				'section_help_docs',
+				array(
+					'label' => __( 'Help Docs', 'powerpack' ),
+				)
+			);
+
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					array(
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					)
+				);
+
+				$hd_counter++;
+			}
+
+			$this->end_controls_section();
+		}
+	}
+
+	/**
+	 * Register PowerPack Upgrade in Content tab
+	 *
+	 * @return void
+	 */
+	protected function register_content_upgrade_controls() {
 		if ( ! is_pp_elements_active() ) {
 			$this->start_controls_section(
 				'section_upgrade_powerpack',
@@ -581,13 +748,14 @@ class Info_Box extends Powerpack_Widget {
 
 			$this->end_controls_section();
 		}
+	}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  STYLE TAB
-		/*-----------------------------------------------------------------------------------*/
-
+	/**
+	 * Register Info Box Controls in Style tab
+	 *
+	 * @return void
+	 */
+	protected function register_style_info_box_controls() {
 		/**
 		 * Style Tab: Info Box
 		 * -------------------------------------------------
@@ -772,7 +940,14 @@ class Info_Box extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Icon Controls in Style tab
+	 *
+	 * @return void
+	 */
+	protected function register_style_icon_controls() {
 		/**
 		 * Style Tab: Icon
 		 * -------------------------------------------------
@@ -965,7 +1140,14 @@ class Info_Box extends Powerpack_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Title Controls in Style tab
+	 *
+	 * @return void
+	 */
+	protected function register_style_title_controls() {
 		/**
 		 * Style Tab: Title
 		 * -------------------------------------------------
@@ -986,6 +1168,21 @@ class Info_Box extends Powerpack_Widget {
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-info-box-title' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_control(
+			'title_color_hover',
+			array(
+				'label'     => __( 'Hover Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-title' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'heading!' => '',
 				),
 			)
 		);
@@ -1054,6 +1251,21 @@ class Info_Box extends Powerpack_Widget {
 			)
 		);
 
+		$this->add_control(
+			'subtitle_color_hover',
+			array(
+				'label'     => __( 'Hover Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-subtitle' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'sub_heading!' => '',
+				),
+			)
+		);
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			array(
@@ -1098,7 +1310,14 @@ class Info_Box extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Title Separator Controls in Style tab
+	 *
+	 * @return void
+	 */
+	protected function register_style_title_divider_controls() {
 		/**
 		 * Style Tab: Title Separator
 		 * -------------------------------------------------
@@ -1266,7 +1485,14 @@ class Info_Box extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Description Controls in Style tab
+	 *
+	 * @return void
+	 */
+	protected function register_style_description_controls() {
 		/**
 		 * Style Tab: Description
 		 * -------------------------------------------------
@@ -1290,6 +1516,21 @@ class Info_Box extends Powerpack_Widget {
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-info-box-description' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'description!' => '',
+				),
+			)
+		);
+
+		$this->add_control(
+			'description_color_hover',
+			array(
+				'label'     => __( 'Hover Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-description' => 'color: {{VALUE}}',
 				),
 				'condition' => array(
 					'description!' => '',
@@ -1341,7 +1582,14 @@ class Info_Box extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Button Controls in Style tab
+	 *
+	 * @return void
+	 */
+	protected function register_style_button_controls() {
 		/**
 		 * Style Tab: Button
 		 * -------------------------------------------------
@@ -1606,7 +1854,6 @@ class Info_Box extends Powerpack_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
-
 	}
 
 	/**
@@ -1629,7 +1876,7 @@ class Info_Box extends Powerpack_Widget {
 		}
 
 		if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
-			// add old default
+			// add old default.
 			$settings['icon'] = 'fa fa-star';
 		}
 
@@ -1646,27 +1893,27 @@ class Info_Box extends Powerpack_Widget {
 		$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
 		$is_new   = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 		?>
-		<span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
-			<?php if ( $settings['icon_type'] == 'icon' && $has_icon ) { ?>
+		<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
+			<?php if ( 'icon' === $settings['icon_type'] && $has_icon ) { ?>
 				<?php
 				if ( $is_new || $migrated ) {
 					Icons_Manager::render_icon( $settings['selected_icon'], array( 'aria-hidden' => 'true' ) );
 				} elseif ( ! empty( $settings['icon'] ) ) {
 					?>
-					<i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
+					<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i>
 					<?php
 				}
 				?>
 				<?php
-			} elseif ( $settings['icon_type'] == 'image' ) {
+			} elseif ( 'image' === $settings['icon_type'] ) {
 
 				if ( ! empty( $settings['image']['url'] ) ) {
-					echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'image' );
+					echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'image' ) );
 				}
-			} elseif ( $settings['icon_type'] == 'text' ) {
+			} elseif ( 'text' === $settings['icon_type'] ) {
 				?>
 				<span class="pp-icon-text">
-					<?php echo $settings['icon_text']; ?>
+					<?php echo wp_kses_post( $settings['icon_text'] ); ?>
 				</span>
 			<?php } ?>
 		</span>
@@ -1696,14 +1943,18 @@ class Info_Box extends Powerpack_Widget {
 			)
 		);
 
-		$pp_button_html_tag = ( $settings['link_type'] == 'button' ) ? 'a' : 'div';
+		if ( 'button' === $settings['link_type'] ) {
+			$pp_button_html_tag = ( 'button' === $settings['link_type'] ) ? 'a' : 'div';
+		} else if ( 'box' === $settings['link_type'] && 'yes' === $settings['button_visible'] ) {
+			$pp_button_html_tag = ( 'button' === $settings['link_type'] ) ? 'div' : 'div';
+		}
 
 		if ( $settings['button_animation'] ) {
 			$this->add_render_attribute( 'info-box-button', 'class', 'elementor-animation-' . $settings['button_animation'] );
 		}
 
 		if ( ! isset( $settings['button_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
-			// add old default
+			// add old default.
 			$settings['button_icon'] = '';
 		}
 
@@ -1719,44 +1970,44 @@ class Info_Box extends Powerpack_Widget {
 		}
 		$migrated = isset( $settings['__fa4_migrated']['select_button_icon'] );
 		$is_new   = ! isset( $settings['button_icon'] ) && Icons_Manager::is_migration_allowed();
-
-		if ( $settings['link_type'] == 'button' ) {
+		
+		if ( 'button' === $settings['link_type'] || ( 'box' === $settings['link_type'] && 'yes' === $settings['button_visible'] ) ) {
 			?>
-			<?php if ( $settings['button_text'] != '' || $has_icon ) { ?>
+			<?php if ( '' !== $settings['button_text'] || $has_icon ) { ?>
 				<div class="pp-info-box-footer">
-					<<?php echo $pp_button_html_tag . ' ' . $this->get_render_attribute_string( 'info-box-button' ) . $this->get_render_attribute_string( 'link' ); ?>>
-						<?php if ( $settings['button_icon_position'] == 'before' && $has_icon ) { ?>
+					<<?php echo esc_attr( $pp_button_html_tag ) . ' ' . wp_kses_post( $this->get_render_attribute_string( 'info-box-button' ) ) . wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>>
+						<?php if ( 'before' === $settings['button_icon_position'] && $has_icon ) { ?>
 							<span class='pp-button-icon pp-icon'>
 								<?php
 								if ( $is_new || $migrated ) {
 									Icons_Manager::render_icon( $settings['select_button_icon'], array( 'aria-hidden' => 'true' ) );
 								} elseif ( ! empty( $settings['button_icon'] ) ) {
 									?>
-									<i <?php echo $this->get_render_attribute_string( 'button-icon' ); ?>></i>
+									<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'button-icon' ) ); ?>></i>
 									<?php
 								}
 								?>
 							</span>
 						<?php } ?>
 						<?php if ( ! empty( $settings['button_text'] ) ) { ?>
-							<span <?php echo $this->get_render_attribute_string( 'button_text' ); ?>>
+							<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'button_text' ) ); ?>>
 								<?php echo esc_attr( $settings['button_text'] ); ?>
 							</span>
 						<?php } ?>
-						<?php if ( $settings['button_icon_position'] == 'after' && $has_icon ) { ?>
+						<?php if ( 'after' === $settings['button_icon_position'] && $has_icon ) { ?>
 							<span class='pp-button-icon pp-icon'>
 								<?php
 								if ( $is_new || $migrated ) {
 									Icons_Manager::render_icon( $settings['select_button_icon'], array( 'aria-hidden' => 'true' ) );
 								} elseif ( ! empty( $settings['button_icon'] ) ) {
 									?>
-									<i <?php echo $this->get_render_attribute_string( 'button-icon' ); ?>></i>
+									<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'button-icon' ) ); ?>></i>
 									<?php
 								}
 								?>
 							</span>
 						<?php } ?>
-					</<?php echo $pp_button_html_tag; ?>>
+					</<?php echo esc_attr( $pp_button_html_tag ); ?>>
 				</div>
 			<?php } ?>
 			<?php
@@ -1803,31 +2054,30 @@ class Info_Box extends Powerpack_Widget {
 		$this->add_inline_editing_attributes( 'sub_heading', 'none' );
 		$this->add_inline_editing_attributes( 'description', 'basic' );
 
-		if ( $settings['link_type'] != 'none' ) {
+		if ( 'none' !== $settings['link_type'] ) {
 			if ( ! empty( $settings['link']['url'] ) ) {
 				$this->add_link_attributes( 'link', $settings['link'] );
 
-				if ( $settings['link_type'] == 'box' ) {
+				if ( 'box' === $settings['link_type'] ) {
 					$pp_if_html_tag = 'a';
-				} elseif ( $settings['link_type'] == 'title' ) {
+				} elseif ( 'title' === $settings['link_type'] ) {
 					$pp_title_html_tag = 'a';
-					$this->add_link_attributes( 'title-container', $settings['link'] );
 				}
 			}
 		}
 		?>
-		<<?php echo $pp_if_html_tag . ' ' . $this->get_render_attribute_string( 'info-box-container' ) . $this->get_render_attribute_string( 'link' ); ?>>
-		<div <?php echo $this->get_render_attribute_string( 'info-box' ); ?>>
-			<?php if ( $settings['icon_type'] != 'none' ) { ?>
+		<<?php echo esc_attr( $pp_if_html_tag ) . ' ' . wp_kses_post( $this->get_render_attribute_string( 'info-box-container' ) ) . wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>>
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box' ) ); ?>>
+			<?php if ( 'none' !== $settings['icon_type'] ) { ?>
 				<div class="pp-info-box-icon-wrap">
-					<?php if ( $settings['link_type'] == 'icon' ) { ?>
-						<a <?php echo $this->get_render_attribute_string( 'link' ); ?>>
+					<?php if ( 'icon' === $settings['link_type'] ) { ?>
+						<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>>
 					<?php } ?>
 					<?php
-						// Icon
+						// Icon.
 						$this->render_infobox_icon();
 					?>
-					<?php if ( $settings['link_type'] == 'icon' ) { ?>
+					<?php if ( 'icon' === $settings['link_type'] ) { ?>
 						</a>
 					<?php } ?>
 				</div>
@@ -1836,39 +2086,39 @@ class Info_Box extends Powerpack_Widget {
 				<div class="pp-info-box-title-wrap">
 					<?php
 					if ( ! empty( $settings['heading'] ) ) {
-						echo '<' . $pp_title_html_tag . ' ' . $this->get_render_attribute_string( 'title-container' ) . '>';
-						printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'heading' ) );
-						echo $settings['heading'];
-						printf( '</%1$s>', $settings['title_html_tag'] );
-						echo '</' . $pp_title_html_tag . '>';
+						echo '<' . esc_attr( $pp_title_html_tag ) . ' ' . wp_kses_post( $this->get_render_attribute_string( 'title-container' ) ) . wp_kses_post( $this->get_render_attribute_string( 'link' ) ) . '>';
+						printf( '<%1$s %2$s>', esc_attr( $settings['title_html_tag'] ), wp_kses_post( $this->get_render_attribute_string( 'heading' ) ) );
+						echo wp_kses_post( $settings['heading'] );
+						printf( '</%1$s>', esc_attr( $settings['title_html_tag'] ) );
+						echo '</' . esc_attr( $pp_title_html_tag ) . '>';
 					}
 
 					if ( ! empty( $settings['sub_heading'] ) ) {
-						printf( '<%1$s %2$s>', $settings['sub_title_html_tag'], $this->get_render_attribute_string( 'sub_heading' ) );
-						echo $settings['sub_heading'];
-						printf( '</%1$s>', $settings['sub_title_html_tag'] );
+						printf( '<%1$s %2$s>', esc_attr( $settings['sub_title_html_tag'] ), wp_kses_post( $this->get_render_attribute_string( 'sub_heading' ) ) );
+						echo wp_kses_post( $settings['sub_heading'] );
+						printf( '</%1$s>', esc_attr( $settings['sub_title_html_tag'] ) );
 					}
 					?>
 				</div>
 
-				<?php if ( $settings['divider_title_switch'] == 'yes' ) { ?>
+				<?php if ( 'yes' === $settings['divider_title_switch'] ) { ?>
 					<div class="pp-info-box-divider-wrap">
 						<div class="pp-info-box-divider"></div>
 					</div>
 				<?php } ?>
 
 				<?php if ( ! empty( $settings['description'] ) ) { ?>
-					<div <?php echo $this->get_render_attribute_string( 'description' ); ?>>
-						<?php echo $this->parse_text_editor( nl2br( $settings['description'] ) ); ?>
+					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'description' ) ); ?>>
+						<?php echo wp_kses_post( $this->parse_text_editor( nl2br( $settings['description'] ) ) ); ?>
 					</div>
 				<?php } ?>
 				<?php
-					// Button
+					// Button.
 					$this->render_infobox_button();
 				?>
 			</div>
 		</div>
-		</<?php echo $pp_if_html_tag; ?>>
+		</<?php echo esc_attr( $pp_if_html_tag ); ?>>
 		<?php
 	}
 
@@ -1879,7 +2129,7 @@ class Info_Box extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 			var pp_if_html_tag = 'div',
@@ -1890,15 +2140,12 @@ class Info_Box extends Powerpack_Widget {
 				buttonIconHTML = elementor.helpers.renderIcon( view, settings.select_button_icon, { 'aria-hidden': true }, 'i' , 'object' ),
 				buttonMigrated = elementor.helpers.isIconMigrated( settings, 'select_button_icon' );
 
-			view.addRenderAttribute( 'title-container', 'class', 'pp-info-box-title-container' );
-
 			if ( settings.link.url != '' ) {
 				if ( settings.link_type == 'box' ) {
 					var pp_if_html_tag = 'a';
 				}
 				else if ( settings.link_type == 'title' ) {
 					var pp_title_html_tag = 'a';
-					view.addRenderAttribute( 'title-container', 'href', settings.link.url );
 				}
 				else if ( settings.link_type == 'button' ) {
 					var pp_button_html_tag = 'a';
@@ -1947,7 +2194,7 @@ class Info_Box extends Powerpack_Widget {
 				<div class="pp-info-box-content">
 					<div class="pp-info-box-title-wrap">
 						<# if ( settings.heading ) { #>
-							<{{pp_title_html_tag}} {{{ view.getRenderAttributeString( 'title-container' ) }}}>
+							<{{pp_title_html_tag}} class="pp-info-box-title-container" href="{{settings.link.url}}">
 								<{{settings.title_html_tag}} class="pp-info-box-title elementor-inline-editing" data-elementor-setting-key="heading" data-elementor-inline-editing-toolbar="none">
 									{{{ settings.heading }}}
 								</{{settings.title_html_tag}}>
@@ -1971,7 +2218,7 @@ class Info_Box extends Powerpack_Widget {
 							{{{ settings.description }}}
 						</div>
 					<# } #>
-					<# if ( settings.link_type == 'button' ) { #>
+					<# if ( settings.link_type == 'button' || ( settings.link_type == 'box' && settings.button_visible == 'yes' ) ) { #>
 						<# if ( settings.button_text != '' || settings.button_icon != '' ) { #>
 							<div class="pp-info-box-footer">
 								<{{pp_button_html_tag}} href="{{ settings.link.url }}" class="pp-info-box-button elementor-button elementor-size-{{ settings.button_size }} elementor-animation-{{ settings.button_animation }}">
@@ -2012,4 +2259,17 @@ class Info_Box extends Powerpack_Widget {
 		<?php
 	}
 
+	/**
+	 * Render info box widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 */
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->content_template();
+	}
 }
