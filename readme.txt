@@ -11,7 +11,7 @@ A collection of 30+ Free Elementor addons widgets. Take Elementor to the next le
 
 == Description ==
 
-Extend Elementor with 60+ Creative Elementor Widgets and exetnsions with [PowerPack Elementor addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - The fastest growing Elementor addon. Get 30+ Free Elementor widgets with PowerPack Lite. These Elementor widgets are designed with focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever! 
+Extend Elementor with 60+ Creative Elementor Widgets and extensions with [PowerPack Elementor addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - The fastest growing Elementor addon. Get 30+ Free Elementor widgets with PowerPack Lite. These Elementor widgets are designed with focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever! 
 
 PowerPack Elementor addon is built by [IdeaBox Creations](https://ideabox.io/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link).
 
@@ -28,14 +28,14 @@ Want to connect us with more? We have an active Facebook Group where we keep pos
 
 ## PowerPack Addons for Elementor Lite - Features
 
-1. [Businsess Hours](https://powerpackelements.com/demo/business-hours/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link): A content widget that allows you to display opening and closing hours with various styling options.
-2. [Counter](https://powerpackelements.com/demo/counter/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) : An impressive widget that allows you to show important facts on your website.
-3. [Divider](https://powerpackelements.com/demo/divider/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link):  This widget allows you to create a stylish break to your content with fancy dividers.
-4. [Dual Heading](https://powerpackelements.com/demo/dual-heading/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link): - A creative widget that lets you highlight other words in a heading with different color and variation.
-5. [Image Hotspots](https://powerpackelements.com/demo/image-hotspot/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link): With Image Hotspot widget, you can display feature of the product, create virtual tours, display information easily and interactively.
+1. [Businsess Hours](https://powerpackelements.com/demo/business-hours/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A content widget that allows you to display opening and closing hours with various styling options.
+2. [Counter](https://powerpackelements.com/demo/counter/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - An impressive widget that allows you to show important facts on your website.
+3. [Divider](https://powerpackelements.com/demo/divider/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - This widget allows you to create a stylish break to your content with fancy dividers.
+4. [Dual Heading](https://powerpackelements.com/demo/dual-heading/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A creative widget that lets you highlight other words in a heading with different color and variation.
+5. [Image Hotspots](https://powerpackelements.com/demo/image-hotspot/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - With Image Hotspot widget, you can display feature of the product, create virtual tours, display information easily and interactively.
 6. [Icon List](https://powerpackelements.com/demo/icon-list/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – A content widget that allows you to display list of features with font icons or numbers for bullet points.
-7. [Image Comparison](https://powerpackelements.com/demo/image-comparison/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) : With this widget, you can compare before and after versions of the image.
-8. [Info Box](https://powerpackelements.com/demo/info-box/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link): A fantastic content widget that can be used to create beautiful content blocks with  **icon, heading, description**, and  **call-to-action** button/link.
+7. [Image Comparison](https://powerpackelements.com/demo/image-comparison/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)- With this widget, you can compare before and after versions of the image.
+8. [Info Box](https://powerpackelements.com/demo/info-box/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A fantastic content widget that can be used to create beautiful content blocks with  **icon, heading, description**, and  **call-to-action** button/link.
 9. [Info Box Carousel](https://powerpackelements.com/demo/info-box-carousel/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – A creative widget that allows you to create a slider of your infobox content.
 10. [Info List](https://powerpackelements.com/demo/info-list/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Another content widget that allows you to showcase product features and services with icon and description
 11. [Info Table](https://powerpackelements.com/demo/info-table/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – This widget allows you to create beautiful content blocks with **icon, heading, description**, and **call-to-action** button/link.
@@ -115,7 +115,7 @@ https://www.youtube.com/watch?v=IoSvG1-0f4M
 
 PowerPack template library includes 150+ ready-to-use section blocks. All block templates are precise work of our designers that can be used to create any website.
 
-### 7 WooCommerce Elementor Widgets 
+### WooCommerce Elementor Widgets 
 **Get Special WooCommerce Elementor widgets with PowerPack Pro**
 
 1. [Woo Products](https://powerpackelements.com/demo/woo-product-grid/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Multiple layout and styling options to create WooCommerce Product Grid and Carousel layouts on your Elementor website 
@@ -125,13 +125,15 @@ PowerPack template library includes 150+ ready-to-use section blocks. All block 
 5. [Woo Checkout](https://powerpackelements.com/demo/woo-checkout/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Another unique solution for WooCommerce to create beautiful Checkout page with Elementor free version. Create a single column or two column layout for checkout page. Styling options for input fields, form, sections, labels, buttons, etc. [Check out the video](https://www.youtube.com/watch?v=XFE04Mzk_p0)
 6. [Woo Mini Cart](https://powerpackelements.com/demo/woo-mini-cart/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Add a sleek, mini cart icon to your website's header/menu with Elementor and PowerPack Elementor addons. [Check out the video](https://www.youtube.com/watch?v=jkfzj3qXwGM)
 7. [Woo Off-canvas Cart](https://powerpackelements.com/demo/woo-off-canvas-cart/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Add a stunning off-canvas cart panel to your WooCommerce website. [Check out the video](https://www.youtube.com/watch?v=u1Wh5z6vpo4)
+8. [Woo My Account](https://powerpackelements.com/elementor-widgets/my-account-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Easily customize My Account area of your WooCommerce websites.
+
 
 ### NEW SCHEMA WIDGETS
  **Boost your Search Engine Rankings with new, unique, Schema markup widgets for Elementor.**   
  
  1. [FAQ Schema Markup Widget](https://powerpackelements.com/elementor-widgets/faq/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) – Create a search engine optimized FAQ Page for your site with FAQ Schema markup widget and leverage the power of Structured Data.  
  2. [How-to Schema Markup Widget](https://powerpackelements.com/elementor-widgets/how-to/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) – Easily create stylish How-to Guides, Tutorials, and walk-throughs.
- 3.  Business Listing Schema Markup Widget – Coming Soon!
+ 
 ### CREATIVE EXTENSIONS
  1.  **Advanced Display Conditions Functionality**
 Use Elementor for advanced cases like timed-content, content for logged in users, special content based on user's browser, display content based on page, post, archive rules, and much more. The most UNIQUE solution for Elementor widgets and sections. [Click here for details.](https://powerpackelements.com/display-conditions/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)
@@ -139,7 +141,7 @@ Use Elementor for advanced cases like timed-content, content for logged in users
 https://www.youtube.com/watch?v=blCGxZujnJg
 
 [Header Footer Builder](https://powerpackelements.com/elementor-widgets/header-footer-builder-elementor/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)
-Create a custom header and footer layout for your website. 
+Create a custom Header and Footer layout for your website. 
 [Magic Wand Feature](https://powerpackelements.com/elementor-widgets/cross-domain-copy-paste/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)
 Copy-paste content from one domain to another easily.
 [BackGround Effects](https://powerpackelements.com/elementor-widgets/background-effects/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) 
@@ -154,9 +156,11 @@ Self-branding is extremely important when you are working for third-party client
 
  - **Light weight, fast, and easy to use**
 PowerPack for Elementor boasts of superior code quality optimized for performance. Minimal usage of external scripts helps you maintain superior loading time for your websites.
- - **Extensive styling options**
+
+- **Extensive styling options**
 All the Elementor Widgets included with PowerPack come with well-thought design and styling options. These options make it easy for you to build creative layouts without having to worry about the custom code.
- - **Professional Support**
+
+- **Professional Support**
 PowerPack Addon for Elementor comes from our team of experts, who always deliver the best and try to fix all of their queries earliest. 
 
 ## Other Elementor Plugins
