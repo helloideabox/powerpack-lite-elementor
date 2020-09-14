@@ -54,6 +54,7 @@
             offset: this.element.data("tooltipOffset") || 7,
             extraClass: this.element.data("tooltipClass") || false,
             toggleable: this.element.data("tooltipToggleable") || false,
+            alwaysOpen: this.element.data("alwaysOpen") || false,
             width: this.element.data("tooltipWidth") || undefined,
             height: this.element.data("tooltipHeight") || undefined
 		}, options);
@@ -74,7 +75,7 @@
             html = self.element.find(self.options.contentElement);
         } else {
             var dataContent = self.element.data("tooltip") || false;
-            var contentElement = self.element.find(".tooltip-content");
+            var contentElement = self.element.find(".pp-tooltip-content");
             if (!dataContent && contentElement.length) {
                 html = contentElement.children();
             } else if (dataContent) {
@@ -140,37 +141,42 @@
      */
     Tooltip.prototype.init = function() {
         var self = this;
-        if (self.options.toggleable) {
-            self.element.on("click", function() {
-                if (!self.tooltip) {
-                    self.create();
-                }
-                if (!self._visible) {
-                    self.position();
-                    self.show();
-                } else {
-                    self.hide();
-                }
-            });
+        
+        if ( true === self.options.alwaysOpen  ) {
+            self.show();
         } else {
-            self.element.on({
-                "mouseenter": function(e) {
-                    if (self._showTimer) {
-                        return;
+            if (self.options.toggleable) {
+                self.element.on("click", function() {
+                    if (!self.tooltip) {
+                        self.create();
                     }
-                    self._showTimer = setTimeout(function() {
-                        self._showTimer = null;
+                    if (!self._visible) {
+                        self.position();
                         self.show();
-                    }, self.options.showDelay);
-                },
-                "mouseleave": function(e) {
-                    if (self._showTimer) {
-                        clearTimeout(self._showTimer);
-                        self._showTimer = null;
+                    } else {
+                        self.hide();
                     }
-                    self.hide(true);
-                }
-            });
+                });
+            } else {
+                self.element.on({
+                    "mouseenter": function(e) {
+                        if (self._showTimer) {
+                            return;
+                        }
+                        self._showTimer = setTimeout(function() {
+                            self._showTimer = null;
+                            self.show();
+                        }, self.options.showDelay);
+                    },
+                    "mouseleave": function(e) {
+                        if (self._showTimer) {
+                            clearTimeout(self._showTimer);
+                            self._showTimer = null;
+                        }
+                        self.hide(true);
+                    }
+                });
+            }
         }
     };
 
@@ -442,7 +448,7 @@
     // Throttle timer
     var throttled = false;
     // Let's reposition tooltips on resize and scroll
-    $(window).on("resize scroll", function() {
+    $(window).on("resize", function() {
         // If throttled, do nothing
         if (throttled) {
             return;

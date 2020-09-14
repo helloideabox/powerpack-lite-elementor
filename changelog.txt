@@ -3,6 +3,8 @@ Release date: September 14, 2020
 * Added: Info Box, Info Box Carousel - Option to show button in case of link type box option
 * Enhancement: Info Box Carousel - Updated Choose Arrow control
 * Fixed: Logo Grid - Greyscale option was not working in editor
+* Added: Image Hotspots - Typography option for hotspot type text
+* Added: Image Hotspots - Option to keep tooltips always open
 
 == 2.1.3 ==
 Release date: August 31, 2020

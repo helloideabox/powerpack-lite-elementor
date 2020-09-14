@@ -8,8 +8,9 @@
 namespace PowerpackElementsLite\Modules\Hotspots\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Config;
 
-// Elementor Classes.
+// Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
@@ -96,10 +97,37 @@ class Hotspots extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
+	 * Remove this after Elementor v3.4.0
+	 *
 	 * @access protected
 	 */
 	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->register_controls();
+	}
 
+	/**
+	 * Register image hotspots widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_controls() {
+		/* Content Tab */
+		$this->register_content_image_controls();
+		$this->register_content_hotspots_controls();
+		$this->register_content_tooltip_controls();
+		$this->register_content_help_docs_controls();
+		$this->register_content_upgrade_controls();
+
+		/* Style Tab */
+		$this->register_style_image_controls();
+		$this->register_style_hotspot_controls();
+		$this->register_style_tooltip_controls();
+	}
+
+	protected function register_content_image_controls() {
 		/**
 		 * Content Tab: Image
 		 */
@@ -113,7 +141,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'image',
 			array(
-				'label'   => __( 'Image', 'powerpack' ),
+				'label'   => __( 'Choose Image', 'powerpack' ),
 				'type'    => Controls_Manager::MEDIA,
 				'default' => array(
 					'url' => Utils::get_placeholder_image_src(),
@@ -131,7 +159,9 @@ class Hotspots extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_content_hotspots_controls() {
 		/**
 		 * Content Tab: Hotspots
 		 */
@@ -177,12 +207,13 @@ class Hotspots extends Powerpack_Widget {
 				array(
 					'label'            => __( 'Icon', 'powerpack' ),
 					'type'             => Controls_Manager::ICONS,
-					'label_block'      => true,
+					'label_block'      => false,
 					'default'          => array(
 						'value'   => 'fas fa-plus',
 						'library' => 'fa-solid',
 					),
 					'fa4compatibility' => 'hotspot_icon',
+					'skin'             => 'inline',
 					'conditions'       => array(
 						'terms' => array(
 							array(
@@ -217,7 +248,7 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'left_position',
 				array(
-					'label'     => __( 'Left Position', 'powerpack' ),
+					'label'     => __( 'Left Position (%)', 'powerpack' ),
 					'type'      => Controls_Manager::SLIDER,
 					'range'     => array(
 						'px' => array(
@@ -226,6 +257,7 @@ class Hotspots extends Powerpack_Widget {
 							'step' => 0.1,
 						),
 					),
+					'separator' => 'before',
 					'selectors' => array(
 						'{{WRAPPER}} {{CURRENT_ITEM}}' => 'left: {{SIZE}}%;',
 					),
@@ -235,7 +267,7 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'top_position',
 				array(
-					'label'     => __( 'Top Position', 'powerpack' ),
+					'label'     => __( 'Top Position (%)', 'powerpack' ),
 					'type'      => Controls_Manager::SLIDER,
 					'range'     => array(
 						'px' => array(
@@ -254,6 +286,7 @@ class Hotspots extends Powerpack_Widget {
 				'hotspot_link',
 				array(
 					'label'       => __( 'Link', 'powerpack' ),
+					'description' => __( 'Works only when tolltips\' Trigger is set to Hover or if tooltip is disabled.', 'powerpack' ),
 					'type'        => Controls_Manager::URL,
 					'dynamic'     => array(
 						'active' => true,
@@ -262,6 +295,7 @@ class Hotspots extends Powerpack_Widget {
 					'default'     => array(
 						'url' => '#',
 					),
+					'separator'   => 'before',
 				)
 			);
 
@@ -332,6 +366,18 @@ class Hotspots extends Powerpack_Widget {
 
 		$repeater->start_controls_tab( 'tab_style', array( 'label' => __( 'Style', 'powerpack' ) ) );
 
+			$repeater->add_group_control(
+				Group_Control_Typography::get_type(),
+				array(
+					'name'      => 'hotspot_typography',
+					'label'     => __( 'Typography', 'powerpack' ),
+					'selector'  => '{{WRAPPER}} {{CURRENT_ITEM}}.pp-hot-spot-wrap',
+					'condition' => array(
+						'hotspot_type' => 'text',
+					),
+				)
+			);
+
 			$repeater->add_control(
 				'hotspot_color_single',
 				array(
@@ -341,6 +387,9 @@ class Hotspots extends Powerpack_Widget {
 					'selectors' => array(
 						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-hot-spot-wrap, {{WRAPPER}} {{CURRENT_ITEM}} .pp-hot-spot-inner, {{WRAPPER}} {{CURRENT_ITEM}} .pp-hot-spot-inner:before' => 'color: {{VALUE}}',
 						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-hot-spot-wrap .pp-icon svg' => 'fill: {{VALUE}}',
+					),
+					'condition' => array(
+						'hotspot_type!' => 'blank',
 					),
 				)
 			);
@@ -401,11 +450,14 @@ class Hotspots extends Powerpack_Widget {
 				'label_on'     => __( 'Yes', 'powerpack' ),
 				'label_off'    => __( 'No', 'powerpack' ),
 				'return_value' => 'yes',
+				'separator'    => 'before',
 			)
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_content_tooltip_controls() {
 		/**
 		 * Content Tab: Tooltip Settings
 		 */
@@ -413,6 +465,19 @@ class Hotspots extends Powerpack_Widget {
 			'section_tooltip',
 			array(
 				'label' => __( 'Tooltip Settings', 'powerpack' ),
+			)
+		);
+
+		$this->add_control(
+			'tooltip_always_open',
+			array(
+				'label'              => __( 'Always Open?', 'powerpack' ),
+				'type'               => Controls_Manager::SWITCHER,
+				'default'            => 'no',
+				'label_on'           => __( 'Yes', 'powerpack' ),
+				'label_off'          => __( 'No', 'powerpack' ),
+				'return_value'       => 'yes',
+				'frontend_available' => true,
 			)
 		);
 
@@ -427,6 +492,9 @@ class Hotspots extends Powerpack_Widget {
 					'click' => __( 'Click', 'powerpack' ),
 				),
 				'frontend_available' => true,
+				'condition' => array(
+					'tooltip_always_open!' => 'yes',
+				),
 			)
 		);
 
@@ -592,39 +660,52 @@ class Hotspots extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Docs Links
-		 *
-		 * @since 1.4.8
-		 * @access protected
-		 */
-		$this->start_controls_section(
-			'section_help_docs',
-			array(
-				'label' => __( 'Help Docs', 'powerpack' ),
-			)
-		);
+	protected function register_content_help_docs_controls() {
 
-		$this->add_control(
-			'help_doc_1',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/image-hotspots/image-hotspots-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+		$help_docs = PP_Config::get_widget_help_links( 'Hotspots' );
 
-		$this->end_controls_section();
+		if ( ! empty( $help_docs ) ) {
 
-		if ( ! is_pp_elements_active() ) {
 			/**
-			 * Content Tab: Upgrade PowerPack
+			 * Content Tab: Help Docs
 			 *
-			 * @since 1.2.9.4
+			 * @since 1.4.8
 			 * @access protected
 			 */
+			$this->start_controls_section(
+				'section_help_docs',
+				array(
+					'label' => __( 'Help Docs', 'powerpack' ),
+				)
+			);
+
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					array(
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					)
+				);
+
+				$hd_counter++;
+			}
+
+			$this->end_controls_section();
+		}
+	}
+
+	/**
+	 * Register PowerPack Upgrade in Content tab
+	 *
+	 * @return void
+	 */
+	protected function register_content_upgrade_controls() {
+		if ( ! is_pp_elements_active() ) {
 			$this->start_controls_section(
 				'section_upgrade_powerpack',
 				array(
@@ -638,7 +719,6 @@ class Hotspots extends Powerpack_Widget {
 				array(
 					'label'           => '',
 					'type'            => Controls_Manager::RAW_HTML,
-					// translators: %1$s opening link tag, %2$s closing link tag.
 					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				)
@@ -646,7 +726,9 @@ class Hotspots extends Powerpack_Widget {
 
 			$this->end_controls_section();
 		}
+	}
 
+	protected function register_style_image_controls() {
 		/**
 		 * Style Tab: Image
 		 */
@@ -742,7 +824,9 @@ class Hotspots extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_style_hotspot_controls() {
 		/**
 		 * Style Tab: Hotspot
 		 */
@@ -771,6 +855,15 @@ class Hotspots extends Powerpack_Widget {
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-hot-spot-wrap' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; font-size: {{SIZE}}{{UNIT}};',
 				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'      => 'hotspots_typography',
+				'label'     => __( 'Typography', 'powerpack' ),
+				'selector'  => '{{WRAPPER}} .pp-hot-spot-wrap',
 			)
 		);
 
@@ -844,7 +937,9 @@ class Hotspots extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_style_tooltip_controls() {
 		/**
 		 * Style Tab: Tooltip
 		 */
@@ -958,13 +1053,6 @@ class Hotspots extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	/**
-	 * Render Image Hostspots output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @access protected
-	 */
 	protected function render() {
 		$settings          = $this->get_settings_for_display();
 		$fallback_defaults = array(
@@ -996,7 +1084,7 @@ class Hotspots extends Powerpack_Widget {
 						)
 					);
 
-					if ( 'yes' === $item['tooltip'] && '' !== $item['tooltip_content'] ) {
+					if ( 'yes' === $item['tooltip'] && $item['tooltip_content'] ) {
 						if ( 'global' !== $item['tooltip_position_local'] ) {
 							$tooltip_position = 'tt-' . $item['tooltip_position_local'];
 						} else {
@@ -1034,7 +1122,7 @@ class Hotspots extends Powerpack_Widget {
 
 					$migration_allowed = Icons_Manager::is_migration_allowed();
 
-					// add old default.
+					// add old default
 					if ( ! isset( $item['hotspot_icon'] ) && ! $migration_allowed ) {
 						$item['hotspot_icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-plus';
 					}
@@ -1052,9 +1140,10 @@ class Hotspots extends Powerpack_Widget {
 
 						}
 					}
+
 					?>
-					<<?php echo esc_attr( $hotspot_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $hotspot_key ) ); ?>>
-						<span <?php echo wp_kses_post( $this->get_render_attribute_string( $hotspot_inner_key ) ); ?>>
+					<<?php echo $hotspot_tag; ?> <?php echo $this->get_render_attribute_string( $hotspot_key ); ?>>
+						<span <?php echo $this->get_render_attribute_string( $hotspot_inner_key ); ?>>
 							<span class="pp-hotspot-icon-wrap">
 							<?php
 							if ( 'icon' === $item['hotspot_type'] ) {
@@ -1075,10 +1164,10 @@ class Hotspots extends Powerpack_Widget {
 							?>
 							</span>
 						</span>
-					</<?php echo esc_attr( $hotspot_tag ); ?>>
+					</<?php echo $hotspot_tag; ?>>
 				<?php endforeach; ?>
 
-				<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings ) ); ?>
+				<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings ); ?>
 			</div>
 		</div>
 		<?php
@@ -1089,9 +1178,10 @@ class Hotspots extends Powerpack_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
+	 * @since 2.0.3
 	 * @access protected
 	 */
-	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore 
+	protected function content_template() {
 		?>
 		<#
 			var i = 1;
@@ -1197,5 +1287,19 @@ class Hotspots extends Powerpack_Widget {
 			</div>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Render image hotspots widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 */
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->content_template();
 	}
 }

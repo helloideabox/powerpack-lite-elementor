@@ -65,6 +65,7 @@
 		var id 				= $scope.data('id'),
 			elementSettings = getElementSettings( $scope ),
         	$tt_arrow       = elementSettings.tooltip_arrow,
+        	$tt_always_open = elementSettings.tooltip_always_open,
 			$tt_trigger     = elementSettings.tooltip_trigger;
 		
         $('.pp-hot-spot-wrap[data-tooltip]').each(function () {
@@ -96,6 +97,7 @@
 				animationIn		: $animation_in,
 				animationOut	: $animation_out,
 				animDuration	: 400,
+				alwaysOpen		: ( $tt_always_open === 'yes' ) ? true : false,
                 toggleable		: ($tt_trigger === 'click') ? true : false
 			};
 
