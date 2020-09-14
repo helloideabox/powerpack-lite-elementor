@@ -2314,7 +2314,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 	 * Get swiper slider settings
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 2.1.4
 	 */
 	public function get_slider_settings() {
 		$settings = $this->get_settings_for_display();
