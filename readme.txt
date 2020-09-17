@@ -38,20 +38,20 @@ Want to connect us with more? We have an active Facebook Group where we keep pos
 8. [Info Box](https://powerpackelements.com/demo/info-box/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A fantastic content widget that can be used to create beautiful content blocks with  **icon, heading, description**, and  **call-to-action** button/link.
 9. [Info Box Carousel](https://powerpackelements.com/demo/info-box-carousel/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – A creative widget that allows you to create a slider of your infobox content.
 10. [Info List](https://powerpackelements.com/demo/info-list/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Another content widget that allows you to showcase product features and services with icon and description
-11. [Info Table](https://powerpackelements.com/demo/info-table/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – This widget allows you to create beautiful content blocks with **icon, heading, description**, and **call-to-action** button/link.
+11. [Info Table](https://powerpackelements.com/demo/info-table/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) –Create beautiful info boxes with **icon, heading, description**, and **call-to-action** button/link.
 12. [Instagram Feed](https://powerpackelements.com/demo/instagram-feed/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – A creative widget that allows you to display Instagram Gallery on your website with various impressive options.
 13. [Link Effects](https://powerpackelements.com/demo/link-effects/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – With this wonderful widget you can create stylish and attractive links with various hover effects.
-14. [Logo Grid](https://powerpackelements.com/demo/logo-grid/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – A widget to create grid of clients or partner logos
-15. [Logo Carousel](https://powerpackelements.com/demo/logo-carousel/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Create a slider of clients or partner logos
-16. [Price Menu](https://powerpackelements.com/demo/pricing-menu/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Showcase your product with price or create restaurant/services menus
-17. [Pricing Table](https://powerpackelements.com/demo/pricing-table/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – List your packages with various styling options
-18. [Promo Box](https://powerpackelements.com/demo/promo-box/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Design stylish and attractive promo banners
-19. [Team Member](https://powerpackelements.com/demo/team-member/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Show off your team of experts with this widget
-20. [Team Member Carousel](https://powerpackelements.com/demo/team-member-carousel/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create beautiful carousel of team members
-21. [Contact Form 7](https://powerpackelements.com/demo/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Style your Contact Form 7 through Elementor with numerous customization options
-22. [Gravity Forms Styler](https://powerpackelements.com/demo/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Style your Gravity Forms through Elementor with numerous customization options
-23. [Caldera Forms Styler](https://powerpackelements.com/demo/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Style Caldera Forms through Elementor with numerous customization options
-24. [Ninja Forms Styler](https://powerpackelements.com/demo/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Style Ninja Forms through Elementor with numerous customization options
+14. [Logo Grid](https://powerpackelements.com/demo/logo-grid/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – A widget to create grid of clients or partner logos.
+15. [Logo Carousel](https://powerpackelements.com/demo/logo-carousel/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Create a slider of clients or partner logos.
+16. [Price Menu](https://powerpackelements.com/demo/pricing-menu/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Showcase your product with price or create restaurant/services menus.
+17. [Pricing Table](https://powerpackelements.com/demo/pricing-table/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – List your packages with various styling options.
+18. [Promo Box](https://powerpackelements.com/demo/promo-box/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Design stylish and attractive promo banners.
+19. [Team Member](https://powerpackelements.com/demo/team-member/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Show off your team of experts with this widget.
+20. [Team Member Carousel](https://powerpackelements.com/demo/team-member-carousel/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create beautiful carousel of team members.
+21. [Contact Form 7](https://powerpackelements.com/demo/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Style your Contact Form 7 through Elementor with numerous customization options.
+22. [Gravity Forms Styler](https://powerpackelements.com/demo/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Style your Gravity Forms through Elementor with numerous customization options.
+23. [Caldera Forms Styler](https://powerpackelements.com/demo/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Style Caldera Forms through Elementor with numerous customization options.
+24. [Ninja Forms Styler](https://powerpackelements.com/demo/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Style Ninja Forms through Elementor with numerous customization options.
 25. [WPForms Styler](https://powerpackelements.com/demo/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Style WPForms through Elementor with numerous customization options.
 26. [Fluent Forms](https://powerpackelements.com/elementor-widgets/wp-fluent-forms/) - Style WP Fluent forms through Elementor with numerous customization options.
 27. [Formidable Forms](https://powerpackelements.com/elementor-widgets/formidable-forms/) - Style Formidable Forms through Elementor with numerous customization options.
@@ -59,8 +59,8 @@ Want to connect us with more? We have an active Facebook Group where we keep pos
 29. [Image Accordion](https://powerpackelements.com/demo/image-accordion/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Gives the flexibility to toggle between image panels.
 30. [Flip Box](https://powerpackelements.com/demo/flip-box/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Add dual side content on information boxes with flip animations.
 31. [Content Ticker](https://powerpackelements.com/demo/content-ticker/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Display updates, popular content or messages.
-32. [Buttons](https://powerpackelements.com/button-widget/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create call-to-action button or multiple buttons with this widget
-33. [Scroll Image](https://powerpackelements.com/demo/image-scroll/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Vertical and Horizontal scroll effect on image
+32. [Buttons](https://powerpackelements.com/button-widget/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create call-to-action button or multiple buttons with this widget.
+33. [Scroll Image](https://powerpackelements.com/demo/image-scroll/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Vertical and Horizontal scroll effect on image.
 34. [Twitter](https://powerpackelements.com/demo/twitter-widget/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Embed Twitter tweet and follow buttons, embedded grid and timeline. 
 35. [Fancy Headings](https://powerpackelements.com/elementor-widgets/fancy-heading?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Setup stylish headings on your Elementor website with gradient fill and background clipping options.
 36. [Posts](https://powerpackelements.com/elementor-widgets/posts/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display blog posts beautifully on your Elementor websites. 
@@ -135,17 +135,22 @@ PowerPack template library includes 150+ ready-to-use section blocks. All block 
  2. [How-to Schema Markup Widget](https://powerpackelements.com/elementor-widgets/how-to/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) – Easily create stylish How-to Guides, Tutorials, and walk-throughs.
  
 ### CREATIVE EXTENSIONS
- 1.  **Advanced Display Conditions Functionality**
+ - **Advanced Display Conditions Functionality**
 Use Elementor for advanced cases like timed-content, content for logged in users, special content based on user's browser, display content based on page, post, archive rules, and much more. The most UNIQUE solution for Elementor widgets and sections. [Click here for details.](https://powerpackelements.com/display-conditions/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)
 
 https://www.youtube.com/watch?v=blCGxZujnJg
 
-[Header Footer Builder](https://powerpackelements.com/elementor-widgets/header-footer-builder-elementor/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)
+- **[Header Footer Builder](https://powerpackelements.com/elementor-widgets/header-footer-builder-elementor/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)**
 Create a custom Header and Footer layout for your website. 
-[Magic Wand Feature](https://powerpackelements.com/elementor-widgets/cross-domain-copy-paste/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)
+
+- **[Magic Wand Feature](https://powerpackelements.com/elementor-widgets/cross-domain-copy-paste/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)**
 Copy-paste content from one domain to another easily.
-[BackGround Effects](https://powerpackelements.com/elementor-widgets/background-effects/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) 
+
+- **[BackGround Effects](https://powerpackelements.com/elementor-widgets/background-effects/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)** 
 Add stylish & animated backgrounds on your website.
+
+- **[WooCommerce Builder For Elementor](https://powerpackelements.com/woocommerce-builder/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)**
+Includes a wide range of Woo Widgets that lets you design WooCommerce Single Product and Archive Page Templates. Easily!
 
  ## Top Features of PowerPack Elementor Addon
  - **Elementor 2.0 Compatible**
