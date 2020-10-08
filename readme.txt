@@ -38,7 +38,7 @@ Want to connect us with more? We have an active Facebook Group where we keep pos
 8. [Info Box](https://powerpackelements.com/demo/info-box/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A fantastic content widget that can be used to create beautiful content blocks with  **icon, heading, description**, and  **call-to-action** button/link.
 9. [Info Box Carousel](https://powerpackelements.com/demo/info-box-carousel/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – A creative widget that allows you to create a slider of your infobox content.
 10. [Info List](https://powerpackelements.com/demo/info-list/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Another content widget that allows you to showcase product features and services with icon and description
-11. [Info Table](https://powerpackelements.com/demo/info-table/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) –Create beautiful info boxes with **icon, heading, description**, and **call-to-action** button/link.
+11. [Info Table](https://powerpackelements.com/demo/info-table/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Create beautiful info boxes with **icon, heading, description**, and **call-to-action** button/link.
 12. [Instagram Feed](https://powerpackelements.com/demo/instagram-feed/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – A creative widget that allows you to display Instagram Gallery on your website with various impressive options.
 13. [Link Effects](https://powerpackelements.com/demo/link-effects/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – With this wonderful widget you can create stylish and attractive links with various hover effects.
 14. [Logo Grid](https://powerpackelements.com/demo/logo-grid/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – A widget to create grid of clients or partner logos.
@@ -205,6 +205,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 
 == Changelog ==
+
+= 2.1.5 - October 8, 2020 =
+* 	Added: Info Box Carousel - Border radius option for slides
+* 	Added: Buttons - Image Size option
+* 	Enhancement: Buttons - Added alt tag to image mark-up
 
 = 2.1.4 - September 14, 2020 =
 * 	Added: Info Box, Info Box Carousel - Option to show button in case of link type box option
