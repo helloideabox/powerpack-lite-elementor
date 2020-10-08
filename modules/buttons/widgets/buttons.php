@@ -8,6 +8,7 @@ use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Repeater;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
