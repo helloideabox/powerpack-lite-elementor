@@ -202,6 +202,17 @@ class Buttons extends Powerpack_Widget {
 					],
 				]
 			);
+			$repeater->add_group_control(
+				Group_Control_Image_Size::get_type(),
+				array(
+					'name'      => 'icon_img',
+					'label'     => __( 'Image Size', 'powerpack' ),
+					'default'   => 'full',
+					'condition' => array(
+						'pp_icon_type' => 'image',
+					),
+				)
+			);
 			$repeater->add_control(
 				'icon_text',
 				[
@@ -1256,7 +1267,7 @@ class Buttons extends Powerpack_Widget {
 											<?php
 										}
 									} elseif ( 'image' === $item['pp_icon_type'] ) {
-										printf( '<span class="pp-button-icon-image"><img src="%1$s"></span>', esc_url( $item['icon_img']['url'] ) );
+										printf( '<span class="pp-button-icon-image">%1$s</span>', Group_Control_Image_Size::get_attachment_image_html( $item, 'icon_img', 'icon_img' ) );
 									} elseif ( 'text' === $item['pp_icon_type'] ) {
 										printf( '<span class="pp-button-icon pp-button-icon-number">%1$s</span>', esc_attr( $item['icon_text'] ) );
 									}
@@ -1440,7 +1451,17 @@ class Buttons extends Powerpack_Widget {
 										<# } #>
 									<# } else if ( item.pp_icon_type == 'image' ) { #>
 										<span class="pp-button-icon-image">
-											<img src="{{{ item.icon_img.url }}}">
+											<#
+											var image = {
+												id: item.icon_img.id,
+												url: item.icon_img.url,
+												size: item.icon_img_size,
+												dimension: item.icon_img_custom_dimension,
+												model: view.getEditModel()
+											};
+											var image_url = elementor.imagesManager.getImageUrl( image );
+											#>
+											<img src="{{{ image_url }}}">
 										</span>
 									<# } else if ( item.pp_icon_type == 'text' ) { #>
 										<span class="pp-button-icon pp-button-icon-number">

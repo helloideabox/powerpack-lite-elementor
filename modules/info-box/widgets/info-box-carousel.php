@@ -922,6 +922,18 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_control(
+			'info_box_border_radius',
+			[
+				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-info-box-content-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->add_responsive_control(
 			'info_box_padding',
 			[

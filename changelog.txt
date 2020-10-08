@@ -1,3 +1,9 @@
+== 2.1.5 ==
+Release date: October 8, 2020
+* Added: Info Box Carousel - Border radius option for slides
+* Added: Buttons - Image Size option
+* Enhancement: Buttons - Added alt tag to image mark-up
+
 == 2.1.4 ==
 Release date: September 14, 2020
 * Added: Info Box, Info Box Carousel - Option to show button in case of link type box option
