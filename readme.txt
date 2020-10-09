@@ -28,7 +28,7 @@ Want to connect us with more? We have an active Facebook Group where we keep pos
 
 ## PowerPack Addons for Elementor Lite - Features
 
-1. [Businsess Hours](https://powerpackelements.com/demo/business-hours/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A content widget that allows you to display opening and closing hours with various styling options.
+1. [Business Hours](https://powerpackelements.com/demo/business-hours/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A content widget that allows you to display opening and closing hours with various styling options.
 2. [Counter](https://powerpackelements.com/demo/counter/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - An impressive widget that allows you to show important facts on your website.
 3. [Divider](https://powerpackelements.com/demo/divider/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - This widget allows you to create a stylish break to your content with fancy dividers.
 4. [Dual Heading](https://powerpackelements.com/demo/dual-heading/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A creative widget that lets you highlight other words in a heading with different color and variation.
@@ -107,7 +107,7 @@ Want to connect us with more? We have an active Facebook Group where we keep pos
 24. [Breadcrumbs](https://powerpackelements.com/elementor-widgets/breadcrumbs/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - This widget lets you add breadcrumbs to pages on your website.
 25. [Advanced Posts](https://powerpackelements.com/elementor-widgets/posts/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create stylish blog layouts with the Elementor Posts widget.
 
-### TEMPLATE LIBRRAY FOR ELEMENTOR
+### TEMPLATE LIBRARY FOR ELEMENTOR
 
 **Easiest, Fastest and Creative way to design websites!**
 
