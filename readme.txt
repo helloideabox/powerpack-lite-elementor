@@ -100,7 +100,7 @@ Want to connect us with more? We have an active Facebook Group where we keep pos
 17. [Magazine Slider](https://powerpackelements.com/demo/magazine-slider/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create magazine layout slider of posts
 18. [Video](https://powerpackelements.com/demo/video/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – A widget to embed videos on your website
 19. [Video Gallery](https://powerpackelements.com/demo/video-gallery/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create video gallery with filter options.
-20. [Album](https://powerpackelements.com/elementor-widgets/album/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create create beautiful Photo Albums on your website.
+20. [Album](https://powerpackelements.com/elementor-widgets/album/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create beautiful Photo Albums on your website.
 21. [Categories](https://powerpackelements.com/elementor-widgets/categories/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create attractive category displays on your website.
 22. [Coupons](https://powerpackelements.com/elementor-widgets/coupon/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) -  Display special offers, discounts, and deals with the help of coupon widget.
 23. [Table of Contents](https://powerpackelements.com/elementor-widgets/table-of-content/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create table of contents for your blog/page.
