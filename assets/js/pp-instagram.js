@@ -13,6 +13,8 @@
 		this._data		= false;
 		this._swiper	= {};
 
+		this._messages	= ppInsta;
+
 		this._init();
 	};
 
@@ -21,7 +23,11 @@
 		_swiper: {},
 
 		_init: function() {
+
 			if ( '' === this.username && ! this.settings.isBuilderActive ) {
+
+				this._handleEmptyWidget();
+
 				console.error('PP Instagram Feed (' + this.id + '): No username provided.');
 				return;
 				//throw new Error( 'PP Instagram Feed (' + this.id + '): No username provided.' );
@@ -38,14 +44,22 @@
 			}
 
 			var self = this;
-			$.get( url, function( data ) {
-				data = self._processData( data );
-				if ( 'function' === typeof callback ) {
-					callback( data );
+			var xhr = new XMLHttpRequest();
+			xhr.open( 'GET', url );
+			xhr.send( null );
+			xhr.onreadystatechange = function() {
+				if ( xhr.readyState == 4 ) {
+					if ( xhr.status == 200 ) {
+						if ( 'function' === typeof callback ) {
+							var data = self._processData( xhr.responseText );
+							callback( data );
+						}
+					} else {
+						self.node.append('<div class="pp-instagram-warning">' + self._messages.invalid_username + '</div>');
+						console.error('PP Instagram Feed ('+ self.id +'): Unable to fetch the given user. Instagram responded with the status code: ', xhr.status);
+					}
 				}
-			} ).fail(function(e) {
-				console.error('PP Instagram Feed ('+ self.id +'): Unable to fetch the given user. Instagram responded with the status code: ', e.status);
-			} );
+			};
 		},
 
 		_processData: function( data ) {
@@ -70,9 +84,16 @@
 			}
 
 			if ( data.is_private ) {
-				html = '<p>This account is private.</p>';
+				this.node.append('<div class="pp-instagram-warning">' + this._messages.private_account + '</div>');
 			} else {
+
 				var imgs = (data.edge_owner_to_timeline_media || data.edge_hashtag_to_media).edges;
+
+				if( 1 > imgs.length) {
+					this.node.append('<div class="pp-instagram-warning">' + this._messages.no_images + this.username + '</b></div>');
+					return;
+				}
+
 				var max = (imgs.length > this.settings.limit) ? this.settings.limit : imgs.length;
 
 				for (var i = 0; i < max; i++ ) {
@@ -136,7 +157,7 @@
 					html += '<div class="pp-if-img">';
 
 					// Start overlay container.
-					html += '<div class="pp-overlay-container">';
+					html += '<div class="pp-overlay-container pp-media-overlay">';
 					
 					if ( this.settings.likes_count ) {
 						html += '<span class="likes"><i class="pp-if-icon fa fa-heart"></i> ' + likes + '</span>';
@@ -184,7 +205,7 @@
 
 		_initGrid: function() {
 			var grid = $('#pp-instafeed-' + this.id).imagesLoaded( function() {
-				
+
 			});
 		},
 
