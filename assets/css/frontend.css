@@ -2407,6 +2407,7 @@ div[class*=' pa-'] {
   margin-right: 10px; }
 
 .pp-flipbox-container {
+  overflow: hidden;
   position: relative;
   height: 300px;
   width: 100%; }
@@ -2432,7 +2433,7 @@ div[class*=' pa-'] {
   -webkit-display: flex;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center; }
 
 .pp-flipbox-front,
@@ -2583,7 +2584,8 @@ div[class*=' pa-'] {
   transform: scale(0.75); }
 
 .pp-animate-fade.pp-flipbox-container:hover .pp-flipbox-front {
-  opacity: 0; }
+  opacity: 0;
+  visibility: hidden; }
 
 .pp-content-ticker-container {
   background: #f4f4f4;

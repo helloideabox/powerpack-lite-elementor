@@ -1,4 +1,5 @@
 .pp-flipbox-container {
+    overflow: hidden;
     position: relative;
     height: 300px;
     width: 100%;
@@ -30,10 +31,10 @@
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+    -webkit-align-items: stretch;
+    -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -241,4 +242,5 @@
 
 .pp-animate-fade.pp-flipbox-container:hover .pp-flipbox-front {
     opacity: 0;
+	visibility: hidden;
 }

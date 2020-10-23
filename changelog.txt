@@ -1,3 +1,6 @@
+== 2.1.6 ==
+* Fixed: Flip Box - Link was not working if fade effect is selected
+
 == 2.1.5 ==
 Release date: October 8, 2020
 * Added: Info Box Carousel - Border radius option for slides
