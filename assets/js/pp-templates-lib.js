@@ -260,7 +260,7 @@
 			this.$el.toggleClass('elementor-templates-filter-active', !!(pp_templates_lib.templates.getFilter('text') || pp_templates_lib.templates.getFilter('favorite')));
 		},
 		onRender: function onRender() {
-			if ('powerpack' === pp_templates_lib.templates.getFilter('source') && 'page' !== pp_templates_lib.templates.getFilter('type')) {
+			if ('powerpack' === pp_templates_lib.templates.getFilter('source')) {
 				this.setFiltersUI();
 			}
 		},
@@ -347,6 +347,16 @@
 		},
 	});
 
+	var TemplateLibraryHeaderMenuView = Marionette.ItemView.extend({
+		template: '#tmpl-elementor-template-library-header-menu',
+		id: 'elementor-template-library-header-menu',
+		templateHelpers: function templateHelpers() {
+			return {
+				tabs: $e.components.get('powerpack').getTabs()
+			};
+		}
+	});
+
 	var TemplateLibraryLayoutView = elementorModules.common.views.modal.Layout.extend({
 		getModalOptions: function() {
 			return {
@@ -383,8 +393,8 @@
 		setHeaderDefaultParts: function() {
 			var headerView = this.getHeaderView();
 			headerView.tools.show(new TemplateLibraryHeaderActionsView());
-			// headerView.menuArea.show(new TemplateLibraryHeaderMenuView());
-			headerView.menuArea.reset();
+			headerView.menuArea.show(new TemplateLibraryHeaderMenuView());
+			//headerView.menuArea.reset();
 			this.showLogo();
 		},
 		showLogo: function() {
@@ -439,7 +449,14 @@
 							subtype: elementor.config.document.remoteLibrary.category,
 						}
 					}
-				}
+				},
+				'templates/pages': {
+					title: 'Pages',
+					filter: {
+						source: 'powerpack',
+						type: 'page',
+					},
+				},
 			};
 		};
 		Component.prototype.defaultRoutes = function() {
@@ -539,8 +556,8 @@
 					self.manager.layout.hideModal();
 	
 					$e.run( 'document/elements/import', {
-						model,
-						data,
+						model:model,
+						data:data,
 						options: importOptions,
 					} );
 				},
@@ -561,14 +578,14 @@
 		
 						dialog.onConfirm = function() {
 							$e.run( 'library/insert-template', {
-								model,
+								model:model,
 								withPageSettings: true,
 							} );
 						};
 		
 						dialog.onCancel = function() {
 							$e.run( 'library/insert-template', {
-								model,
+								model:model,
 								withPageSettings: false,
 							} );
 						};
@@ -621,7 +638,10 @@
 		var self = this,
 			errorDialog,
 			config = {},
-			templateTypes = {},
+			templateTypes = {
+				page: {},
+				section: {}
+			},
 			filterTerms = {},
 			templatesCollection = false;
 
@@ -754,7 +774,7 @@
 					return false;
 				}
 
-				return 'block' === model.get('type');
+				return 'block' === model.get('type') || 'page' === model.get('type');
 			});
 		};
 
@@ -849,6 +869,20 @@
 		$templateLibBtn.insertAfter( $previewContents.find('.elementor-add-section-area-button.elementor-add-template-button') );
 		$templateLibBtn.on( 'click', function() {
 			$e.run('powerpack/open');
+		});
+
+		$previewContents.find('body').delegate('.elementor-editor-element-add', 'click', function(e) {
+			setTimeout(function() {
+				var sectionInner = $previewContents.find('body').find('.elementor-add-section-inner');
+
+				if ( sectionInner.length > 0 ) {
+					sectionInner.find( '.pp-add-template-button' ).remove();
+					$templateLibBtn.off('click').on( 'click', function() {
+						$e.run('powerpack/open');
+					});
+					$templateLibBtn.insertAfter( sectionInner.find('.elementor-add-section-area-button.elementor-add-template-button') );
+				}
+			}, 100);
 		});
 	});
 

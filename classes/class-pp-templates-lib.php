@@ -419,7 +419,7 @@ class PP_Templates_Lib {
 					var activeType = pp_templates_lib.templates.getFilter('type');
 					#>
 					<div id="elementor-template-library-filter-toolbar-remote" class="elementor-template-library-filter-toolbar">
-						<# if ( 'page' === activeType ) { #>
+						<# if ( 'new_page' === activeType ) { #>
 							<div id="elementor-template-library-order">
 								<input type="radio" id="elementor-template-library-order-new" class="elementor-template-library-order-input" name="elementor-template-library-order" value="date">
 								<label for="elementor-template-library-order-new" class="elementor-template-library-order-label"><?php echo esc_html__( 'New', 'powerpack' ); ?></label>
