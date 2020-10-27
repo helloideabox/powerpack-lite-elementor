@@ -277,6 +277,18 @@ class Logo_Grid extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_control(
+			'randomize',
+			[
+				'label'                 => __( 'Randomize Logos', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => '',
+				'label_on'              => __( 'Yes', 'powerpack' ),
+				'label_off'             => __( 'No', 'powerpack' ),
+				'return_value'          => 'yes',
+			]
+		);
+
 		$this->add_responsive_control(
 			'columns',
 			[
@@ -756,7 +768,13 @@ class Logo_Grid extends Powerpack_Widget {
 		?>
 		<div <?php echo $this->get_render_attribute_string( 'logo-grid' ); ?>>
 			<?php
-			foreach ( $settings['pp_logos'] as $item ) :
+			$logos = $settings['pp_logos'];
+
+			if ( 'yes' === $settings['randomize'] ) {
+				shuffle( $logos );
+			}
+
+			foreach ( $logos as $item ) :
 				if ( ! empty( $item['logo_image']['url'] ) ) {
 
 					$this->add_render_attribute( 'logo-grid-item-wrap-' . $i, 'class', 'pp-grid-item-wrap' );
