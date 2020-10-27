@@ -289,6 +289,33 @@ class Counter extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'thousand_separator',
+			[
+				'label'     => __( 'Thousand Separator', 'powerpack' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => 'yes',
+				'label_on'  => __( 'Show', 'powerpack' ),
+				'label_off' => __( 'Hide', 'powerpack' ),
+			]
+		);
+
+		$this->add_control(
+			'thousand_separator_char',
+			[
+				'label'     => __( 'Separator', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
+					''  => 'Default',
+					'.' => 'Dot',
+					' ' => 'Space',
+				],
+				'condition' => [
+					'thousand_separator' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
 			'title_heading',
 			array(
 				'label'     => __( 'Title', 'powerpack' ),
@@ -1300,10 +1327,12 @@ class Counter extends Powerpack_Widget {
 					'data-target' => '.pp-counter-number-' . esc_attr( $this->get_id() ),
 				),
 				'counter-number' => array(
-					'class'      => 'pp-counter-number pp-counter-number-' . esc_attr( $this->get_id() ),
-					'data-from'  => $starting_number,
-					'data-to'    => $ending_number,
-					'data-speed' => $counter_speed,
+					'class'               => 'pp-counter-number pp-counter-number-' . esc_attr( $this->get_id() ),
+					'data-from'           => $starting_number,
+					'data-to'             => $ending_number,
+					'data-speed'          => $counter_speed,
+					'data-separator'      => $settings['thousand_separator'],
+					'data-separator-char' => $settings['thousand_separator_char'],
 				),
 			)
 		);
@@ -1653,7 +1682,7 @@ class Counter extends Powerpack_Widget {
 							print( prefix_html );
 						}
 					#>
-					<div class="pp-counter-number" data-from="{{ settings.starting_number }}" data-to="{{ settings.ending_number }}" data-speed="{{ settings.counter_speed.size }}">
+					<div class="pp-counter-number" data-from="{{ settings.starting_number }}" data-to="{{ settings.ending_number }}" data-speed="{{ settings.counter_speed.size }}" data-separator="{{ settings.thousand_separator }}" data-separator-char="{{ settings.thousand_separator_char }}">
 						{{{ settings.starting_number }}}
 					</div>
 					<#
