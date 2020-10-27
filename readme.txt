@@ -206,6 +206,15 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.2.0 - October 27, 2020 =
+* 	New: Added page templates in PowerPack Template Library
+* 	Fixed: Flip Box - Link was not working if fade effect is selected
+* 	Added: Counter - Thousand separator option
+* 	Added: Logo Grid - Randomize logos option
+* 	Added: Content Ticker - Options to show post date and time
+* 	Enhancement: Content Ticker - Added recommended icons for post author and category
+* 	Fixed: Buttons - Tooltip position option was not working
+
 = 2.1.5 - October 8, 2020 =
 * 	Added: Info Box Carousel - Border radius option for slides
 * 	Added: Buttons - Image Size option

@@ -1296,9 +1296,7 @@ class Buttons extends Powerpack_Widget {
 		</div><?php
 	}
 
-	protected function get_tooltip_position( $pos ) {
-		$tt_position = '';
-
+	protected function get_tooltip_position( $tt_position ) {
 		switch ( $tt_position ) {
 			case 'above':
 				$tt_position = 'tt-top';
@@ -1336,6 +1334,33 @@ class Buttons extends Powerpack_Widget {
 		?>
 		<div class="pp-buttons-group">
 			<# var i = 1; #>
+			<#
+			function get_tooltip_position( $tt_position ) {
+				switch ( $tt_position ) {
+					case 'above':
+						$tt_position = 'tt-top';
+						break;
+
+					case 'below':
+						$tt_position = 'tt-bottom';
+						break;
+
+					case 'left':
+						$tt_position = 'tt-left';
+						break;
+
+					case 'right':
+						$tt_position = 'tt-right';
+						break;
+
+					default:
+						$tt_position = 'tt-top';
+						break;
+				}
+
+				return $tt_position;
+			}
+			#>
 			<# _.each( settings.buttons, function( item, index ) { #>
 				<#
 				var button_key = 'button_' + i,
@@ -1397,9 +1422,9 @@ class Buttons extends Powerpack_Widget {
 						button_key,
 						{
 							'data-tooltip': item.tooltip_content,
-							'data-tooltip-position': settings.tooltips_position,
-							'data-tooltip-position-tablet': ttip_tablet,
-							'data-tooltip-position-mobile': ttip_mobile,
+							'data-tooltip-position': get_tooltip_position( settings.tooltips_position ),
+							'data-tooltip-position-tablet': get_tooltip_position( ttip_tablet ),
+							'data-tooltip-position-mobile': get_tooltip_position( ttip_mobile ),
 						}
 					);
 				}
