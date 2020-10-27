@@ -234,6 +234,113 @@ class Content_Ticker extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'post_date',
+			array(
+				'label'              => __( 'Date', 'powerpack' ),
+				'type'               => Controls_Manager::SWITCHER,
+				'default'            => '',
+				'label_on'           => __( 'Show', 'powerpack' ),
+				'label_off'          => __( 'Hide', 'powerpack' ),
+				'return_value'       => 'yes',
+				'condition'          => array(
+					'source'    => 'posts',
+					'post_meta' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'post_time',
+			array(
+				'label'              => __( 'Time', 'powerpack' ),
+				'type'               => Controls_Manager::SWITCHER,
+				'default'            => '',
+				'label_on'           => __( 'Show', 'powerpack' ),
+				'label_off'          => __( 'Hide', 'powerpack' ),
+				'return_value'       => 'yes',
+				'condition'          => array(
+					'source'    => 'posts',
+					'post_meta' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'datetime_separator',
+			array(
+				'label'       => __( 'Date Time Separator', 'powerpack' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => false,
+				'default'     => 'at',
+				'condition'   => array(
+					'source'    => 'posts',
+					'post_meta' => 'yes',
+					'post_date' => 'yes',
+					'post_time' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'datetime_icon',
+			array(
+				'label'            => __( 'Date Time Icon', 'powerpack' ),
+				'type'             => Controls_Manager::ICONS,
+				'label_block'      => false,
+				'skin'             => 'inline',
+				'default'          => array(
+					'value'   => 'fas fa-calendar-alt',
+					'library' => 'fa-solid',
+				),
+				'recommended'     => array(
+					'fa-regular' => array(
+						'calendar',
+						'calendar-alt',
+						'calendar-check',
+						'calendar-day',
+						'clock',
+					),
+					'fa-solid'   => array(
+						'calendar',
+						'calendar-alt',
+						'calendar-check',
+						'clock',
+					),
+				),
+				'conditions'       => array(
+					'relation' => 'and',
+					'terms'    => array(
+						array(
+							'name'     => 'source',
+							'operator' => '==',
+							'value'    => 'posts',
+						),
+						array(
+							'name'     => 'post_meta',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
+						array(
+							'relation' => 'or',
+							'terms'    => array(
+								array(
+									'name'     => 'post_date',
+									'operator' => '==',
+									'value'    => 'yes',
+								),
+								array(
+									'name'     => 'post_time',
+									'operator' => '==',
+									'value'    => 'yes',
+								),
+							),
+						),
+					),
+				),
+			)
+		);
+
+		$this->add_control(
 			'post_author',
 			array(
 				'label'              => __( 'Author', 'powerpack' ),
@@ -257,6 +364,23 @@ class Content_Ticker extends Powerpack_Widget {
 				'default'          => array(
 					'value'   => 'fas fa-user',
 					'library' => 'fa-solid',
+				),
+				'recommended'     => array(
+					'fa-regular' => array(
+						'user',
+						'user-circle',
+					),
+					'fa-solid'   => array(
+						'user',
+						'user-alt',
+						'user-check',
+						'user-circle',
+						'user-graduate',
+						'user-md',
+						'user-nurse',
+						'user-secret',
+						'user-tie',
+					),
 				),
 				'condition'        => array(
 					'source'      => 'posts',
@@ -290,6 +414,17 @@ class Content_Ticker extends Powerpack_Widget {
 				'default'          => array(
 					'value'   => 'fas fa-folder-open',
 					'library' => 'fa-solid',
+				),
+				'recommended'     => array(
+					'fa-regular' => array(
+						'folder',
+						'folder-open',
+					),
+					'fa-solid'   => array(
+						'folder',
+						'folder-open',
+						'tag',
+					),
 				),
 				'condition'        => array(
 					'source'        => 'posts',
@@ -1991,21 +2126,39 @@ class Content_Ticker extends Powerpack_Widget {
 						</div>
 					<?php } ?>
 					<div class="pp-content-ticker-item-title-wrap">
-									<?php
-										printf( '<%s class="pp-content-ticker-item-title">', $settings['title_html_tag'] );
-									if ( $settings['link_type'] == 'title' || $settings['link_type'] == 'both' ) {
-										printf( '<a href="%1$s">%2$s</a>', get_permalink(), get_the_title() );
-									} else {
-										the_title();
-									}
-										printf( '</%s>', $settings['title_html_tag'] );
-									?>
-							
-									<?php if ( $settings['post_meta'] == 'yes' ) { ?>
+						<?php
+						printf( '<%s class="pp-content-ticker-item-title">', $settings['title_html_tag'] );
+						if ( 'title' === $settings['link_type'] || 'both' === $settings['link_type'] ) {
+							printf( '<a href="%1$s">%2$s</a>', get_permalink(), get_the_title() );
+						} else {
+							the_title();
+						}
+						printf( '</%s>', $settings['title_html_tag'] );
+						if ( 'yes' === $settings['post_meta'] ) { ?>
 							<div class="pp-content-ticker-meta">
-										<?php if ( $settings['post_author'] == 'yes' ) { ?>
+								<?php if ( 'yes' === $settings['post_date'] || 'yes' === $settings['post_time'] ) { ?>
+									<span class="pp-content-ticker-item-datetime">
+										<?php if ( ! empty( $settings['datetime_icon']['value'] ) ) { ?>
+											<span class="pp-content-ticker-meta-icon pp-icon">
+												<?php Icons_Manager::render_icon( $settings['datetime_icon'], array( 'aria-hidden' => 'true' ) ); ?>
+											</span>
+										<?php } ?>
+										<?php
+										if ( 'yes' === $settings['post_date'] ) {
+											the_date();
+										}
+										if ( 'yes' === $settings['post_date'] && 'yes' === $settings['post_time'] ) {
+											echo ' ' . $settings['datetime_separator'] . ' ';
+										}
+										if ( 'yes' === $settings['post_time'] ) {
+											the_time();
+										}
+										?>
+									</span>
+								<?php } ?>
+								<?php if ( 'yes' === $settings['post_author'] ) { ?>
 									<span class="pp-content-author">
-											<?php if ( $has_author_icon ) { ?>
+										<?php if ( $has_author_icon ) { ?>
 											<span class="pp-content-ticker-meta-icon pp-icon">
 												<?php
 												if ( $is_new_author_icon || $migrated_author_icon ) {
@@ -2023,7 +2176,7 @@ class Content_Ticker extends Powerpack_Widget {
 										</span>
 									</span>
 								<?php } ?>  
-										<?php if ( $settings['post_category'] == 'yes' ) { ?>
+								<?php if ( 'yes' === $settings['post_category'] ) { ?>
 									<span class="pp-post-category">
 											<?php if ( $has_category_icon ) { ?>
 											<span class="pp-content-ticker-meta-icon pp-icon">
@@ -2040,7 +2193,7 @@ class Content_Ticker extends Powerpack_Widget {
 										<?php } ?>
 										<span class="pp-content-ticker-meta-text">
 											<?php
-												$category = get_the_category();
+											$category = get_the_category();
 											if ( $category ) {
 												echo esc_attr( $category[0]->name );
 											}
