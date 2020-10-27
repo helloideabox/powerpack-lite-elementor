@@ -7,6 +7,7 @@ Release date: October 27, 2020
 * Added: Content Ticker - Options to show post date and time
 * Enhancement: Content Ticker - Added recommended icons for post author and category
 * Fixed: Buttons - Tooltip position option was not working
+* Fixed: Image Hotspots - Minor CSS glitch in hotspot glow effect
 
 == 2.1.5 ==
 Release date: October 8, 2020

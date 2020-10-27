@@ -214,6 +214,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	Added: Content Ticker - Options to show post date and time
 * 	Enhancement: Content Ticker - Added recommended icons for post author and category
 * 	Fixed: Buttons - Tooltip position option was not working
+* 	Fixed: Image Hotspots - Minor CSS glitch in hotspot glow effect
 
 = 2.1.5 - October 8, 2020 =
 * 	Added: Info Box Carousel - Border radius option for slides
