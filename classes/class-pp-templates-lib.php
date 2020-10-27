@@ -395,7 +395,7 @@ class PP_Templates_Lib {
 		?>
 		<script type="text/template" id="tmpl-elementor-template-library-header-actions-pp">
 			<div id="elementor-template-library-header-sync" class="elementor-templates-modal__header__item">
-				<i class="eicon-sync" aria-hidden="true" title="<?php esc_attr_e( 'Sync Templates', 'elementor' ); ?>"></i>
+				<i class="eicon-sync" aria-hidden="true" title="<?php esc_attr_e( 'Sync Templates', 'powerpack' ); ?>"></i>
 				<span class="elementor-screen-only"><?php echo esc_html__( 'Sync Templates', 'powerpack' ); ?></span>
 			</div>
 		</script>
