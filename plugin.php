@@ -4,7 +4,8 @@ namespace PowerpackElementsLite;
 use Elementor\Utils;
 use PowerpackElementsLite\Classes\PP_Config;
 
-if ( ! defined( 'ABSPATH' ) ) {	exit; } // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; } // Exit if accessed directly
 
 /**
  * Main class plugin
@@ -94,7 +95,7 @@ class PowerpackLitePlugin {
 		$filename = POWERPACK_ELEMENTS_LITE_PATH . $filename . '.php';
 
 		if ( is_readable( $filename ) ) {
-			include( $filename );
+			include $filename;
 		}
 	}
 
@@ -118,7 +119,7 @@ class PowerpackLitePlugin {
 		$this->_localize_settings[ $setting_key ] = array_replace_recursive( $this->_localize_settings[ $setting_key ], $setting_value );
 	}
 
-    /**
+	/**
 	 * Enqueue frontend styles
 	 *
 	 * @since 1.3.3
@@ -132,22 +133,22 @@ class PowerpackLitePlugin {
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
-        
+
 		wp_register_style(
 			'odometer',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/odometer/odometer-theme-default.css',
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
-        
+
 		wp_register_style(
 			'twentytwenty',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/twentytwenty.css',
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
-        
-        if ( class_exists( 'GFCommon' ) ) {
+
+		if ( class_exists( 'GFCommon' ) ) {
 			$gf_forms = \RGFormsModel::get_forms( null, 'title' );
 			foreach ( $gf_forms as $form ) {
 				if ( '0' !== $form->id ) {
@@ -157,12 +158,12 @@ class PowerpackLitePlugin {
 			}
 		}
 
-        if ( function_exists( 'wpforms' ) ) {
-            wpforms()->frontend->assets_css();
-        }
+		if ( function_exists( 'wpforms' ) ) {
+			wpforms()->frontend->assets_css();
+		}
 	}
 
-    /**
+	/**
 	 * Enqueue frontend scripts
 	 *
 	 * @since 1.3.3
@@ -321,7 +322,7 @@ class PowerpackLitePlugin {
 		wp_localize_script( 'jquery', 'pp', $pp_localize );
 	}
 
-    /**
+	/**
 	 * Enqueue editor styles
 	 *
 	 * @since 1.3.3
@@ -335,7 +336,7 @@ class PowerpackLitePlugin {
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
-        
+
 		wp_enqueue_style(
 			'powerpack-icons',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/ppicons/css/powerpack-icons.css',
@@ -344,7 +345,7 @@ class PowerpackLitePlugin {
 		);
 	}
 
-    /**
+	/**
 	 * Enqueue editor scripts
 	 *
 	 * @since 1.3.3
@@ -361,7 +362,7 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
-        
+
 		wp_enqueue_script(
 			'magnific-popup',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/magnific-popup/jquery.magnific-popup.min.js',
@@ -377,7 +378,7 @@ class PowerpackLitePlugin {
 
 	public function enqueue_editor_preview_styles() {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		
+
 		wp_enqueue_style( 'odometer' );
 		wp_enqueue_style( 'twentytwenty' );
 	}
@@ -426,26 +427,26 @@ class PowerpackLitePlugin {
 		);
 	}
 
-	public function get_promotion_widgets($config) {
+	public function get_promotion_widgets( $config ) {
 
-        if (is_pp_elements_active()) {
-            return $config;
-        }
+		if ( is_pp_elements_active() ) {
+			return $config;
+		}
 
-        $promotion_widgets = [];
+		$promotion_widgets = [];
 
-        if (isset($config['promotionWidgets'])) {
-            $promotion_widgets = $config['promotionWidgets'];
-        }
+		if ( isset( $config['promotionWidgets'] ) ) {
+			$promotion_widgets = $config['promotionWidgets'];
+		}
 
 		$pro_widgets = PP_Config::get_pro_widgets();
 
-        $combine_array = array_merge($promotion_widgets, $pro_widgets);
+		$combine_array = array_merge( $promotion_widgets, $pro_widgets );
 
-        $config['promotionWidgets'] = $combine_array;
+		$config['promotionWidgets'] = $combine_array;
 
-        return $config;
-    }
+		return $config;
+	}
 
 	protected function add_actions() {
 		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
@@ -454,14 +455,14 @@ class PowerpackLitePlugin {
 		add_action( 'elementor/controls/controls_registered', [ $this, 'include_group_controls' ] );
 
 		add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
-        add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );
+		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );
 
-        add_action( 'elementor/preview/enqueue_styles', [ $this, 'enqueue_editor_preview_styles' ] );
+		add_action( 'elementor/preview/enqueue_styles', [ $this, 'enqueue_editor_preview_styles' ] );
 
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'enqueue_frontend_scripts' ] );
 		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_frontend_styles' ] );
 
-		add_filter('elementor/editor/localize_settings', [$this, 'get_promotion_widgets']);
+		add_filter( 'elementor/editor/localize_settings', [ $this, 'get_promotion_widgets' ] );
 	}
 
 	/**
