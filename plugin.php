@@ -170,7 +170,7 @@ class PowerpackLitePlugin {
 	 * @access public
 	 */
 	public function enqueue_frontend_scripts() {
-        $settings = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_settings();
+		$settings = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_settings();
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_register_script(
@@ -191,6 +191,16 @@ class PowerpackLitePlugin {
 			],
 			POWERPACK_ELEMENTS_LITE_VER,
 			true
+		);
+
+		wp_localize_script(
+			'pp-instagram',
+			'ppInsta',
+			array(
+				'invalid_username' => __( 'The <b>username</b> added is not a valid Instagram Username. Check browser console for more details.', 'powerpack' ),
+				'private_account'  => __( 'This account is private.', 'powerpack' ),
+				'no_images'        => __( 'No <i>images</i> were found in the Instagram profile for <b>', 'powerpack' ),
+			)
 		);
 
 		wp_register_script(
