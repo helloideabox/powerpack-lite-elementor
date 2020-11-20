@@ -205,6 +205,16 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
+			'isotope',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/isotope/isotope.pkgd' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			'0.5.3',
+			true
+		);
+
+		wp_register_script(
 			'twentytwenty',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/jquery.twentytwenty.js',
 			[

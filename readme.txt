@@ -206,6 +206,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.2.1 - November 23, 2020 =
+* 	Fixed: Instagram Feed - Masonry layout
+
 = 2.2.1 - November 2, 2020 =
 * 	Fixed: Instagram Feed - Feed was not working
 
