@@ -2,7 +2,7 @@
 Contributors: ideaboxcreations, simrandeep, puneetsahalot, ibachal, jainnidhi, prash17, nirbhay18
 Tags: elementor, addons, elementor addon, elementor widgets, elements, powerpack elementor addon, essential addons
 Requires at least: 5.0
-Tested up to: 5.5.1
+Tested up to: 5.6
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -206,7 +206,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
-= 2.2.1 - November 23, 2020 =
+= 2.2.2 - December 10, 2020 =
 * 	Fixed: Instagram Feed - Masonry layout
 
 = 2.2.1 - November 2, 2020 =

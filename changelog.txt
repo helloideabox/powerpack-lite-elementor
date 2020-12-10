@@ -1,5 +1,5 @@
 == 2.2.2 ==
-Release date: November 23, 2020
+Release date: December 10, 2020
 * Fixed: Instagram Feed - Masonry layout
 
 == 2.2.1 ==
