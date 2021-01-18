@@ -1,6 +1,8 @@
 == 2.2.3 ==
 Release date: January 18, 2021
 * Fixed: Team Member, Team Member Carousel - Added option to show content over image
+* Fixed: Display Conditions - Timezone issue
+* Added: Display Conditions - Post term, Terms archive, Current User, Day of Week, Current Date and Time conditions
 
 == 2.2.2 ==
 Release date: December 10, 2020

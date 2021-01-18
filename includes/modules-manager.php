@@ -45,6 +45,7 @@ class Modules_Manager {
 			'team-member',
 			'twitter',
 			'query-control',
+			'display-conditions',
 		];
         
         ksort($modules);

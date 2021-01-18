@@ -25,7 +25,7 @@ class PowerpackLitePlugin {
 	/**
 	 * @var Manager
 	 */
-	private $_modules_manager;
+	public $modules_manager;
 
 	/**
 	 * @var array
@@ -423,8 +423,8 @@ class PowerpackLitePlugin {
 	}
 
 	public function elementor_init() {
+		$this->modules_manager = new Modules_Manager();
 		$this->_extensions_manager = new Extensions_Manager();
-		$this->_modules_manager = new Modules_Manager();
 
 		// Add element category in panel
 		\Elementor\Plugin::instance()->elements_manager->add_category(
