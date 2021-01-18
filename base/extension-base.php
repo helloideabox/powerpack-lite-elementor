@@ -195,7 +195,7 @@ class Extension_Base {
 			$section_name,
 			[
 				'tab' 	=> Controls_Manager::TAB_ADVANCED,
-				'label' => __( 'PowerPack Display Conditions', 'powerpack' ),
+				'label' => __( 'PowerPack', 'powerpack' ),
 			]
 		);	
 

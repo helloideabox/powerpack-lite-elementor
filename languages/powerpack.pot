@@ -1,15 +1,15 @@
-# Copyright (C) 2020 IdeaBox Creations
+# Copyright (C) 2021 IdeaBox Creations
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.2.0\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.2.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2020-10-27 12:59:53+00:00\n"
+"POT-Creation-Date: 2021-01-18 15:02:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -61,10 +61,10 @@ msgid "8"
 msgstr ""
 
 #: base/extension-base.php:198
-msgid "PowerPack Display Conditions"
+msgid "PowerPack"
 msgstr ""
 
-#: base/module-base.php:33 base/module-base.php:44 plugin.php:52 plugin.php:63
+#: base/module-base.php:33 base/module-base.php:44 plugin.php:53 plugin.php:64
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
@@ -113,8 +113,8 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:708
 #: modules/promo-box/widgets/promo-box.php:401
 #: modules/scroll-image/widgets/scroll-image.php:314
-#: modules/team-member/widgets/team-member-carousel.php:694
-#: modules/team-member/widgets/team-member.php:514
+#: modules/team-member/widgets/team-member-carousel.php:710
+#: modules/team-member/widgets/team-member.php:513
 #: modules/twitter/widgets/twitter-buttons.php:215
 #: modules/twitter/widgets/twitter-grid.php:137
 #: modules/twitter/widgets/twitter-timeline.php:203
@@ -158,8 +158,8 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:718
 #: modules/promo-box/widgets/promo-box.php:411
 #: modules/scroll-image/widgets/scroll-image.php:324
-#: modules/team-member/widgets/team-member-carousel.php:704
-#: modules/team-member/widgets/team-member.php:524
+#: modules/team-member/widgets/team-member-carousel.php:720
+#: modules/team-member/widgets/team-member.php:523
 #: modules/twitter/widgets/twitter-buttons.php:225
 #: modules/twitter/widgets/twitter-grid.php:147
 #: modules/twitter/widgets/twitter-timeline.php:213
@@ -226,12 +226,12 @@ msgstr ""
 #: modules/image-comparison/widgets/image-comparison.php:501
 #: modules/pricing/widgets/pricing-table.php:1727
 #: modules/pricing/widgets/pricing-table.php:1737
-#: modules/team-member/widgets/team-member-carousel.php:1123
-#: modules/team-member/widgets/team-member-carousel.php:1326
-#: modules/team-member/widgets/team-member-carousel.php:1529
-#: modules/team-member/widgets/team-member.php:832
-#: modules/team-member/widgets/team-member.php:1035
-#: modules/team-member/widgets/team-member.php:1254
+#: modules/team-member/widgets/team-member-carousel.php:1137
+#: modules/team-member/widgets/team-member-carousel.php:1340
+#: modules/team-member/widgets/team-member-carousel.php:1543
+#: modules/team-member/widgets/team-member.php:829
+#: modules/team-member/widgets/team-member.php:1032
+#: modules/team-member/widgets/team-member.php:1251
 msgid "Divider"
 msgstr ""
 
@@ -600,7 +600,8 @@ msgstr ""
 msgid "Search Templates:"
 msgstr ""
 
-#: classes/class-pp-templates-lib.php:458 extensions/display-conditions.php:214
+#: classes/class-pp-templates-lib.php:458
+#: modules/display-conditions/conditions/search-results.php:54
 msgid "Search"
 msgstr ""
 
@@ -1263,451 +1264,10 @@ msgstr ""
 msgid "Team Member - Social Link"
 msgstr ""
 
-#: extensions/display-conditions.php:68
+#: extensions/display-conditions.php:56
 msgid ""
 "Adds display conditions to widgets and sections allowing you to show them "
 "depending on authentication, roles, date and time of day."
-msgstr ""
-
-#: extensions/display-conditions.php:137 includes/helper-functions.php:455
-msgid "Display Conditions"
-msgstr ""
-
-#: extensions/display-conditions.php:140 extensions/display-conditions.php:155
-#: modules/business-hours/widgets/business-hours.php:180
-#: modules/business-hours/widgets/business-hours.php:237
-#: modules/business-hours/widgets/business-hours.php:333
-#: modules/business-hours/widgets/business-hours.php:376
-#: modules/business-hours/widgets/business-hours.php:460
-#: modules/business-hours/widgets/business-hours.php:602
-#: modules/buttons/widgets/buttons.php:239
-#: modules/caldera-forms/widgets/caldera-forms.php:111
-#: modules/caldera-forms/widgets/caldera-forms.php:827
-#: modules/contact-form-seven/widgets/contact-form-7.php:665
-#: modules/contact-form-seven/widgets/contact-form-7.php:717
-#: modules/content-ticker/widgets/content-ticker.php:497
-#: modules/content-ticker/widgets/content-ticker.php:909
-#: modules/content-ticker/widgets/content-ticker.php:925
-#: modules/content-ticker/widgets/content-ticker.php:967
-#: modules/content-ticker/widgets/content-ticker.php:1028
-#: modules/content-ticker/widgets/content-ticker.php:1087
-#: modules/content-ticker/widgets/content-ticker.php:1116
-#: modules/content-ticker/widgets/content-ticker.php:1130
-#: modules/content-ticker/widgets/content-ticker.php:1152
-#: modules/fluent-forms/widgets/fluent-forms.php:82
-#: modules/fluent-forms/widgets/fluent-forms.php:789
-#: modules/formidable-forms/widgets/formidable-forms.php:80
-#: modules/formidable-forms/widgets/formidable-forms.php:852
-#: modules/gravity-forms/widgets/gravity-forms.php:152
-#: modules/gravity-forms/widgets/gravity-forms.php:243
-#: modules/gravity-forms/widgets/gravity-forms.php:1096
-#: modules/hotspots/widgets/hotspots.php:450
-#: modules/hotspots/widgets/hotspots.php:477
-#: modules/hotspots/widgets/hotspots.php:565
-#: modules/image-accordion/widgets/image-accordion.php:176
-#: modules/info-box/widgets/info-box-carousel.php:315
-#: modules/info-box/widgets/info-box-carousel.php:653
-#: modules/info-box/widgets/info-box-carousel.php:667
-#: modules/info-box/widgets/info-box-carousel.php:703
-#: modules/info-box/widgets/info-box-carousel.php:738
-#: modules/info-box/widgets/info-box-carousel.php:750
-#: modules/info-box/widgets/info-box.php:546
-#: modules/info-list/widgets/info-list.php:359
-#: modules/info-list/widgets/info-list.php:371
-#: modules/instafeed/widgets/instafeed.php:128
-#: modules/instafeed/widgets/instafeed.php:290
-#: modules/instafeed/widgets/instafeed.php:388
-#: modules/instafeed/widgets/instafeed.php:400
-#: modules/instafeed/widgets/instafeed.php:415
-#: modules/instafeed/widgets/instafeed.php:496
-#: modules/instafeed/widgets/instafeed.php:582
-#: modules/instafeed/widgets/instafeed.php:611
-#: modules/instafeed/widgets/instafeed.php:648
-#: modules/instafeed/widgets/instafeed.php:663
-#: modules/instafeed/widgets/instafeed.php:883
-#: modules/instafeed/widgets/instafeed.php:927
-#: modules/logos/widgets/logo-carousel.php:221
-#: modules/logos/widgets/logo-carousel.php:326
-#: modules/logos/widgets/logo-carousel.php:360
-#: modules/logos/widgets/logo-carousel.php:375
-#: modules/logos/widgets/logo-carousel.php:410
-#: modules/logos/widgets/logo-carousel.php:422
-#: modules/logos/widgets/logo-carousel.php:575
-#: modules/logos/widgets/logo-carousel.php:614
-#: modules/logos/widgets/logo-grid.php:286
-#: modules/logos/widgets/logo-grid.php:568
-#: modules/logos/widgets/logo-grid.php:656
-#: modules/ninja-forms/widgets/ninja-forms.php:86
-#: modules/ninja-forms/widgets/ninja-forms.php:827
-#: modules/posts/skins/skin-base.php:130 modules/posts/skins/skin-base.php:194
-#: modules/posts/skins/skin-base.php:210 modules/posts/skins/skin-base.php:226
-#: modules/posts/skins/skin-base.php:256 modules/posts/skins/skin-base.php:273
-#: modules/posts/skins/skin-base.php:289 modules/posts/skins/skin-base.php:346
-#: modules/posts/skins/skin-base.php:399 modules/posts/skins/skin-base.php:443
-#: modules/posts/skins/skin-base.php:504 modules/posts/skins/skin-base.php:549
-#: modules/posts/skins/skin-base.php:561 modules/posts/skins/skin-base.php:576
-#: modules/posts/skins/skin-base.php:696 modules/posts/skins/skin-base.php:708
-#: modules/posts/skins/skin-base.php:746 modules/posts/skins/skin-base.php:775
-#: modules/posts/skins/skin-base.php:850 modules/posts/skins/skin-base.php:889
-#: modules/posts/skins/skin-base.php:904 modules/posts/skins/skin-base.php:958
-#: modules/posts/skins/skin-base.php:973 modules/posts/skins/skin-base.php:1085
-#: modules/posts/skins/skin-base.php:1125
-#: modules/posts/widgets/posts-base.php:484
-#: modules/posts/widgets/posts-base.php:500
-#: modules/posts/widgets/posts-base.php:530
-#: modules/posts/widgets/posts-base.php:577
-#: modules/pricing/widgets/price-menu.php:284
-#: modules/pricing/widgets/price-menu.php:299
-#: modules/pricing/widgets/pricing-table.php:348
-#: modules/pricing/widgets/pricing-table.php:452
-#: modules/pricing/widgets/pricing-table.php:1615
-#: modules/promo-box/widgets/promo-box.php:224
-#: modules/team-member/widgets/team-member-carousel.php:450
-#: modules/team-member/widgets/team-member-carousel.php:581
-#: modules/team-member/widgets/team-member-carousel.php:614
-#: modules/team-member/widgets/team-member-carousel.php:649
-#: modules/team-member/widgets/team-member-carousel.php:661
-#: modules/team-member/widgets/team-member.php:167
-#: modules/team-member/widgets/team-member.php:242
-#: modules/twitter/widgets/twitter-buttons.php:182
-#: modules/twitter/widgets/twitter-buttons.php:197
-#: modules/twitter/widgets/twitter-grid.php:91
-#: modules/twitter/widgets/twitter-timeline.php:104
-#: modules/twitter/widgets/twitter-tweet.php:104
-#: modules/wpforms/widgets/wpforms.php:82
-#: modules/wpforms/widgets/wpforms.php:819
-msgid "Yes"
-msgstr ""
-
-#: extensions/display-conditions.php:141 extensions/display-conditions.php:156
-#: modules/business-hours/widgets/business-hours.php:179
-#: modules/business-hours/widgets/business-hours.php:238
-#: modules/business-hours/widgets/business-hours.php:332
-#: modules/business-hours/widgets/business-hours.php:377
-#: modules/business-hours/widgets/business-hours.php:461
-#: modules/business-hours/widgets/business-hours.php:603
-#: modules/buttons/widgets/buttons.php:240
-#: modules/caldera-forms/widgets/caldera-forms.php:112
-#: modules/caldera-forms/widgets/caldera-forms.php:828
-#: modules/contact-form-seven/widgets/contact-form-7.php:666
-#: modules/contact-form-seven/widgets/contact-form-7.php:718
-#: modules/content-ticker/widgets/content-ticker.php:498
-#: modules/content-ticker/widgets/content-ticker.php:910
-#: modules/content-ticker/widgets/content-ticker.php:926
-#: modules/content-ticker/widgets/content-ticker.php:968
-#: modules/content-ticker/widgets/content-ticker.php:1029
-#: modules/content-ticker/widgets/content-ticker.php:1088
-#: modules/content-ticker/widgets/content-ticker.php:1117
-#: modules/content-ticker/widgets/content-ticker.php:1131
-#: modules/content-ticker/widgets/content-ticker.php:1153
-#: modules/fluent-forms/widgets/fluent-forms.php:83
-#: modules/fluent-forms/widgets/fluent-forms.php:790
-#: modules/formidable-forms/widgets/formidable-forms.php:81
-#: modules/formidable-forms/widgets/formidable-forms.php:853
-#: modules/gravity-forms/widgets/gravity-forms.php:153
-#: modules/gravity-forms/widgets/gravity-forms.php:244
-#: modules/gravity-forms/widgets/gravity-forms.php:1097
-#: modules/hotspots/widgets/hotspots.php:451
-#: modules/hotspots/widgets/hotspots.php:478
-#: modules/hotspots/widgets/hotspots.php:566
-#: modules/image-accordion/widgets/image-accordion.php:177
-#: modules/info-box/widgets/info-box-carousel.php:316
-#: modules/info-box/widgets/info-box-carousel.php:654
-#: modules/info-box/widgets/info-box-carousel.php:668
-#: modules/info-box/widgets/info-box-carousel.php:704
-#: modules/info-box/widgets/info-box-carousel.php:739
-#: modules/info-box/widgets/info-box-carousel.php:751
-#: modules/info-box/widgets/info-box.php:547
-#: modules/info-list/widgets/info-list.php:360
-#: modules/info-list/widgets/info-list.php:372
-#: modules/instafeed/widgets/instafeed.php:129
-#: modules/instafeed/widgets/instafeed.php:291
-#: modules/instafeed/widgets/instafeed.php:389
-#: modules/instafeed/widgets/instafeed.php:401
-#: modules/instafeed/widgets/instafeed.php:416
-#: modules/instafeed/widgets/instafeed.php:497
-#: modules/instafeed/widgets/instafeed.php:583
-#: modules/instafeed/widgets/instafeed.php:612
-#: modules/instafeed/widgets/instafeed.php:649
-#: modules/instafeed/widgets/instafeed.php:664
-#: modules/instafeed/widgets/instafeed.php:884
-#: modules/instafeed/widgets/instafeed.php:928
-#: modules/logos/widgets/logo-carousel.php:222
-#: modules/logos/widgets/logo-carousel.php:327
-#: modules/logos/widgets/logo-carousel.php:361
-#: modules/logos/widgets/logo-carousel.php:376
-#: modules/logos/widgets/logo-carousel.php:411
-#: modules/logos/widgets/logo-carousel.php:423
-#: modules/logos/widgets/logo-carousel.php:576
-#: modules/logos/widgets/logo-carousel.php:615
-#: modules/logos/widgets/logo-grid.php:287
-#: modules/logos/widgets/logo-grid.php:569
-#: modules/logos/widgets/logo-grid.php:657
-#: modules/ninja-forms/widgets/ninja-forms.php:87
-#: modules/ninja-forms/widgets/ninja-forms.php:828
-#: modules/posts/skins/skin-base.php:131 modules/posts/skins/skin-base.php:195
-#: modules/posts/skins/skin-base.php:211 modules/posts/skins/skin-base.php:227
-#: modules/posts/skins/skin-base.php:257 modules/posts/skins/skin-base.php:274
-#: modules/posts/skins/skin-base.php:290 modules/posts/skins/skin-base.php:347
-#: modules/posts/skins/skin-base.php:400 modules/posts/skins/skin-base.php:444
-#: modules/posts/skins/skin-base.php:505 modules/posts/skins/skin-base.php:550
-#: modules/posts/skins/skin-base.php:562 modules/posts/skins/skin-base.php:577
-#: modules/posts/skins/skin-base.php:697 modules/posts/skins/skin-base.php:709
-#: modules/posts/skins/skin-base.php:747 modules/posts/skins/skin-base.php:776
-#: modules/posts/skins/skin-base.php:851 modules/posts/skins/skin-base.php:890
-#: modules/posts/skins/skin-base.php:905 modules/posts/skins/skin-base.php:959
-#: modules/posts/skins/skin-base.php:974 modules/posts/skins/skin-base.php:1086
-#: modules/posts/skins/skin-base.php:1126
-#: modules/posts/widgets/posts-base.php:485
-#: modules/posts/widgets/posts-base.php:501
-#: modules/posts/widgets/posts-base.php:531
-#: modules/posts/widgets/posts-base.php:578
-#: modules/pricing/widgets/price-menu.php:285
-#: modules/pricing/widgets/price-menu.php:300
-#: modules/pricing/widgets/pricing-table.php:349
-#: modules/pricing/widgets/pricing-table.php:453
-#: modules/pricing/widgets/pricing-table.php:1616
-#: modules/promo-box/widgets/promo-box.php:225
-#: modules/team-member/widgets/team-member-carousel.php:451
-#: modules/team-member/widgets/team-member-carousel.php:582
-#: modules/team-member/widgets/team-member-carousel.php:615
-#: modules/team-member/widgets/team-member-carousel.php:650
-#: modules/team-member/widgets/team-member-carousel.php:662
-#: modules/team-member/widgets/team-member.php:168
-#: modules/team-member/widgets/team-member.php:243
-#: modules/twitter/widgets/twitter-buttons.php:183
-#: modules/twitter/widgets/twitter-buttons.php:198
-#: modules/twitter/widgets/twitter-grid.php:92
-#: modules/twitter/widgets/twitter-timeline.php:105
-#: modules/twitter/widgets/twitter-tweet.php:105
-#: modules/wpforms/widgets/wpforms.php:83
-#: modules/wpforms/widgets/wpforms.php:820
-msgid "No"
-msgstr ""
-
-#: extensions/display-conditions.php:151
-msgid "Output HTML"
-msgstr ""
-
-#: extensions/display-conditions.php:152
-msgid ""
-"If enabled, the HTML code will exist on the page but the %s will be hidden "
-"using CSS."
-msgstr ""
-
-#: extensions/display-conditions.php:169
-msgid "Display on"
-msgstr ""
-
-#: extensions/display-conditions.php:173
-msgid "All conditions met"
-msgstr ""
-
-#: extensions/display-conditions.php:174
-msgid "Any condition met"
-msgstr ""
-
-#: extensions/display-conditions.php:192
-msgid "User"
-msgstr ""
-
-#: extensions/display-conditions.php:194
-msgid "Login Status"
-msgstr ""
-
-#: extensions/display-conditions.php:195
-msgid "User Role"
-msgstr ""
-
-#: extensions/display-conditions.php:199
-msgid "Singular"
-msgstr ""
-
-#: extensions/display-conditions.php:201
-msgid "Page"
-msgstr ""
-
-#: extensions/display-conditions.php:202
-msgid "Post"
-msgstr ""
-
-#: extensions/display-conditions.php:203
-msgid "Special (404, Home, Front, Blog)"
-msgstr ""
-
-#: extensions/display-conditions.php:204 extensions/display-conditions.php:211
-#: modules/content-ticker/widgets/content-ticker.php:591
-#: modules/posts/widgets/posts-base.php:99
-msgid "Post Type"
-msgstr ""
-
-#: extensions/display-conditions.php:208
-msgid "Archive"
-msgstr ""
-
-#: extensions/display-conditions.php:210
-msgid "Taxonomy"
-msgstr ""
-
-#: extensions/display-conditions.php:212
-#: modules/content-ticker/widgets/content-ticker.php:239
-#: modules/content-ticker/widgets/content-ticker.php:812
-#: modules/content-ticker/widgets/content-ticker.php:888
-#: modules/posts/skins/skin-base.php:1499
-#: modules/posts/widgets/posts-base.php:385
-#: modules/posts/widgets/posts-base.php:461
-#. translators: %s Label
-msgid "Date"
-msgstr ""
-
-#: extensions/display-conditions.php:213
-#: modules/content-ticker/widgets/content-ticker.php:346
-#: modules/posts/skins/skin-base.php:1483
-#: modules/posts/widgets/posts-base.php:301
-#: modules/posts/widgets/posts-base.php:350
-msgid "Author"
-msgstr ""
-
-#: extensions/display-conditions.php:218
-msgid "Date & Time (Pro)"
-msgstr ""
-
-#: extensions/display-conditions.php:220
-msgid "Current Date"
-msgstr ""
-
-#: extensions/display-conditions.php:221
-msgid "Time of Day"
-msgstr ""
-
-#: extensions/display-conditions.php:225
-msgid "Misc (Pro)"
-msgstr ""
-
-#: extensions/display-conditions.php:227
-msgid "Operating System"
-msgstr ""
-
-#: extensions/display-conditions.php:228
-msgid "Browser"
-msgstr ""
-
-#: extensions/display-conditions.php:229
-msgid "Search Bots"
-msgstr ""
-
-#: extensions/display-conditions.php:243
-msgid "Is"
-msgstr ""
-
-#: extensions/display-conditions.php:244
-msgid "Is not"
-msgstr ""
-
-#: extensions/display-conditions.php:256
-msgid "Logged in"
-msgstr ""
-
-#: extensions/display-conditions.php:268
-msgid "Warning: This condition applies only to logged in visitors."
-msgstr ""
-
-#: extensions/display-conditions.php:281
-msgid "In interval"
-msgstr ""
-
-#: extensions/display-conditions.php:298
-#: modules/buttons/widgets/buttons.php:913
-#: modules/content-ticker/widgets/content-ticker.php:836
-#: modules/divider/widgets/divider.php:542
-#: modules/flipbox/widgets/flipbox.php:464
-#: modules/image-accordion/widgets/image-accordion.php:233
-#: modules/image-comparison/widgets/image-comparison.php:132
-#: modules/image-comparison/widgets/image-comparison.php:647
-#: modules/info-box/widgets/info-box-carousel.php:403
-#: modules/info-box/widgets/info-box.php:634
-#: modules/info-list/widgets/info-list.php:270
-#: modules/info-table/widgets/info-table.php:352
-#: modules/posts/skins/skin-base.php:1166
-#: modules/posts/widgets/posts-base.php:409
-#: modules/pricing/widgets/pricing-table.php:1244
-msgid "Before"
-msgstr ""
-
-#: extensions/display-conditions.php:364 extensions/display-conditions.php:380
-#: extensions/display-conditions.php:414 extensions/display-conditions.php:430
-#: extensions/display-conditions.php:446 extensions/display-conditions.php:462
-#: extensions/display-conditions.php:482
-msgid "Any"
-msgstr ""
-
-#: extensions/display-conditions.php:365
-msgid "Leave blank for any page."
-msgstr ""
-
-#: extensions/display-conditions.php:381
-msgid "Leave blank for any post."
-msgstr ""
-
-#: extensions/display-conditions.php:398
-msgid "Homepage"
-msgstr ""
-
-#: extensions/display-conditions.php:399
-msgid "Front Page"
-msgstr ""
-
-#: extensions/display-conditions.php:400
-msgid "Blog"
-msgstr ""
-
-#: extensions/display-conditions.php:401
-msgid "404 Page"
-msgstr ""
-
-#: extensions/display-conditions.php:415 extensions/display-conditions.php:447
-msgid "Leave blank or select all for any post type."
-msgstr ""
-
-#: extensions/display-conditions.php:431
-msgid "Leave blank or select all for any taxonomy."
-msgstr ""
-
-#: extensions/display-conditions.php:463
-msgid "Leave blank or select all for any date based archive."
-msgstr ""
-
-#: extensions/display-conditions.php:467
-#: modules/business-hours/widgets/business-hours.php:158
-#: modules/business-hours/widgets/business-hours.php:320
-#: modules/business-hours/widgets/business-hours.php:874
-msgid "Day"
-msgstr ""
-
-#: extensions/display-conditions.php:468
-msgid "Month"
-msgstr ""
-
-#: extensions/display-conditions.php:469
-msgid "Year"
-msgstr ""
-
-#: extensions/display-conditions.php:483
-msgid "Leave blank for all authors."
-msgstr ""
-
-#: extensions/display-conditions.php:498
-msgid "Keywords"
-msgstr ""
-
-#: extensions/display-conditions.php:499
-msgid ""
-"Enter keywords, separated by commas, to condition the display on specific "
-"keywords and leave blank for any."
-msgstr ""
-
-#: extensions/display-conditions.php:510
-msgid "Conditions"
 msgstr ""
 
 #: includes/admin/admin-settings-modules.php:18
@@ -1839,6 +1399,10 @@ msgstr ""
 msgid "WPForms"
 msgstr ""
 
+#: includes/helper-functions.php:455 modules/display-conditions/module.php:318
+msgid "Display Conditions"
+msgstr ""
+
 #: modules/advanced-accordion/widgets/advanced-accordion.php:114
 #: modules/advanced-accordion/widgets/advanced-accordion.php:419
 msgid "Accordion"
@@ -1906,8 +1470,8 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:177
 #: modules/pricing/widgets/pricing-table.php:478
 #: modules/pricing/widgets/pricing-table.php:985
-#: modules/team-member/widgets/team-member-carousel.php:181
-#: modules/team-member/widgets/team-member.php:197
+#: modules/team-member/widgets/team-member-carousel.php:195
+#: modules/team-member/widgets/team-member.php:195
 #: modules/wpforms/widgets/wpforms.php:91
 #: modules/wpforms/widgets/wpforms.php:121
 #: modules/wpforms/widgets/wpforms.php:302
@@ -1999,9 +1563,9 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:459
 #: modules/promo-box/widgets/promo-box.php:96
 #: modules/promo-box/widgets/promo-box.php:548
-#: modules/team-member/widgets/team-member-carousel.php:120
-#: modules/team-member/widgets/team-member-carousel.php:832
-#: modules/team-member/widgets/team-member.php:544
+#: modules/team-member/widgets/team-member-carousel.php:134
+#: modules/team-member/widgets/team-member-carousel.php:846
+#: modules/team-member/widgets/team-member.php:541
 msgid "Content"
 msgstr ""
 
@@ -2050,13 +1614,13 @@ msgstr ""
 #: modules/scroll-image/widgets/scroll-image.php:103
 #: modules/scroll-image/widgets/scroll-image.php:110
 #: modules/scroll-image/widgets/scroll-image.php:344
-#: modules/team-member/widgets/team-member-carousel.php:161
-#: modules/team-member/widgets/team-member-carousel.php:180
-#: modules/team-member/widgets/team-member-carousel.php:980
-#: modules/team-member/widgets/team-member.php:98
-#: modules/team-member/widgets/team-member.php:105
-#: modules/team-member/widgets/team-member.php:196
-#: modules/team-member/widgets/team-member.php:717
+#: modules/team-member/widgets/team-member-carousel.php:175
+#: modules/team-member/widgets/team-member-carousel.php:194
+#: modules/team-member/widgets/team-member-carousel.php:994
+#: modules/team-member/widgets/team-member.php:96
+#: modules/team-member/widgets/team-member.php:103
+#: modules/team-member/widgets/team-member.php:194
+#: modules/team-member/widgets/team-member.php:714
 msgid "Image"
 msgstr ""
 
@@ -2097,8 +1661,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:621
 #: modules/pricing/widgets/price-menu.php:223
 #: modules/scroll-image/widgets/scroll-image.php:124
-#: modules/team-member/widgets/team-member-carousel.php:398
-#: modules/team-member/widgets/team-member.php:120
+#: modules/team-member/widgets/team-member-carousel.php:412
+#: modules/team-member/widgets/team-member.php:118
 msgid "Image Size"
 msgstr ""
 
@@ -2176,13 +1740,13 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:178
 #: modules/ninja-forms/widgets/ninja-forms.php:198
 #: modules/scroll-image/widgets/scroll-image.php:456
-#: modules/team-member/widgets/team-member-carousel.php:494
-#: modules/team-member/widgets/team-member-carousel.php:507
-#: modules/team-member/widgets/team-member-carousel.php:519
-#: modules/team-member/widgets/team-member-carousel.php:627
-#: modules/team-member/widgets/team-member.php:467
-#: modules/team-member/widgets/team-member.php:479
-#: modules/team-member/widgets/team-member.php:494
+#: modules/team-member/widgets/team-member-carousel.php:510
+#: modules/team-member/widgets/team-member-carousel.php:523
+#: modules/team-member/widgets/team-member-carousel.php:535
+#: modules/team-member/widgets/team-member-carousel.php:643
+#: modules/team-member/widgets/team-member.php:466
+#: modules/team-member/widgets/team-member.php:478
+#: modules/team-member/widgets/team-member.php:493
 #: modules/wpforms/widgets/wpforms.php:94
 #: modules/wpforms/widgets/wpforms.php:109
 #: modules/wpforms/widgets/wpforms.php:149
@@ -2231,13 +1795,13 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:179
 #: modules/ninja-forms/widgets/ninja-forms.php:199
 #: modules/scroll-image/widgets/scroll-image.php:457
-#: modules/team-member/widgets/team-member-carousel.php:495
-#: modules/team-member/widgets/team-member-carousel.php:508
-#: modules/team-member/widgets/team-member-carousel.php:520
-#: modules/team-member/widgets/team-member-carousel.php:628
-#: modules/team-member/widgets/team-member.php:468
-#: modules/team-member/widgets/team-member.php:480
-#: modules/team-member/widgets/team-member.php:495
+#: modules/team-member/widgets/team-member-carousel.php:511
+#: modules/team-member/widgets/team-member-carousel.php:524
+#: modules/team-member/widgets/team-member-carousel.php:536
+#: modules/team-member/widgets/team-member-carousel.php:644
+#: modules/team-member/widgets/team-member.php:467
+#: modules/team-member/widgets/team-member.php:479
+#: modules/team-member/widgets/team-member.php:494
 #: modules/wpforms/widgets/wpforms.php:95
 #: modules/wpforms/widgets/wpforms.php:110
 #: modules/wpforms/widgets/wpforms.php:150
@@ -2259,7 +1823,7 @@ msgstr ""
 #: modules/image-accordion/widgets/image-accordion.php:306
 #: modules/image-comparison/widgets/image-comparison.php:196
 #: modules/scroll-image/widgets/scroll-image.php:218
-#: modules/team-member/widgets/team-member.php:386
+#: modules/team-member/widgets/team-member.php:384
 #: powerpack-lite-elementor.php:190
 msgid "Settings"
 msgstr ""
@@ -2391,15 +1955,15 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:975
 #: modules/promo-box/widgets/promo-box.php:1204
 #: modules/promo-box/widgets/promo-box.php:1480
-#: modules/team-member/widgets/team-member-carousel.php:768
-#: modules/team-member/widgets/team-member-carousel.php:853
-#: modules/team-member/widgets/team-member-carousel.php:1012
-#: modules/team-member/widgets/team-member-carousel.php:1768
-#: modules/team-member/widgets/team-member-carousel.php:1985
-#: modules/team-member/widgets/team-member-carousel.php:2196
-#: modules/team-member/widgets/team-member.php:590
-#: modules/team-member/widgets/team-member.php:749
-#: modules/team-member/widgets/team-member.php:1505
+#: modules/team-member/widgets/team-member-carousel.php:782
+#: modules/team-member/widgets/team-member-carousel.php:867
+#: modules/team-member/widgets/team-member-carousel.php:1026
+#: modules/team-member/widgets/team-member-carousel.php:1782
+#: modules/team-member/widgets/team-member-carousel.php:2012
+#: modules/team-member/widgets/team-member-carousel.php:2223
+#: modules/team-member/widgets/team-member.php:587
+#: modules/team-member/widgets/team-member.php:746
+#: modules/team-member/widgets/team-member.php:1502
 #: modules/wpforms/widgets/wpforms.php:510
 #: modules/wpforms/widgets/wpforms.php:696
 #: modules/wpforms/widgets/wpforms.php:1119
@@ -2505,14 +2069,14 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:814
 #: modules/promo-box/widgets/promo-box.php:1490
 #: modules/scroll-image/widgets/scroll-image.php:384
-#: modules/team-member/widgets/team-member-carousel.php:778
-#: modules/team-member/widgets/team-member-carousel.php:864
-#: modules/team-member/widgets/team-member-carousel.php:1022
-#: modules/team-member/widgets/team-member-carousel.php:1779
-#: modules/team-member/widgets/team-member-carousel.php:1996
-#: modules/team-member/widgets/team-member-carousel.php:2210
-#: modules/team-member/widgets/team-member.php:759
-#: modules/team-member/widgets/team-member.php:1516
+#: modules/team-member/widgets/team-member-carousel.php:792
+#: modules/team-member/widgets/team-member-carousel.php:878
+#: modules/team-member/widgets/team-member-carousel.php:1036
+#: modules/team-member/widgets/team-member-carousel.php:1793
+#: modules/team-member/widgets/team-member-carousel.php:2023
+#: modules/team-member/widgets/team-member-carousel.php:2237
+#: modules/team-member/widgets/team-member.php:756
+#: modules/team-member/widgets/team-member.php:1513
 #: modules/wpforms/widgets/wpforms.php:521
 #: modules/wpforms/widgets/wpforms.php:929
 #: modules/wpforms/widgets/wpforms.php:955
@@ -2592,11 +2156,11 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:755
 #: modules/promo-box/widgets/promo-box.php:1448
 #: modules/scroll-image/widgets/scroll-image.php:369
-#: modules/team-member/widgets/team-member-carousel.php:760
-#: modules/team-member/widgets/team-member-carousel.php:1736
-#: modules/team-member/widgets/team-member-carousel.php:1953
-#: modules/team-member/widgets/team-member-carousel.php:2152
-#: modules/team-member/widgets/team-member.php:1472
+#: modules/team-member/widgets/team-member-carousel.php:774
+#: modules/team-member/widgets/team-member-carousel.php:1750
+#: modules/team-member/widgets/team-member-carousel.php:1980
+#: modules/team-member/widgets/team-member-carousel.php:2179
+#: modules/team-member/widgets/team-member.php:1469
 #: modules/wpforms/widgets/wpforms.php:478
 #: modules/wpforms/widgets/wpforms.php:856
 #: modules/wpforms/widgets/wpforms.php:1087
@@ -2737,13 +2301,13 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:870
 #: modules/promo-box/widgets/promo-box.php:1455
 #: modules/promo-box/widgets/promo-box.php:1540
-#: modules/team-member/widgets/team-member-carousel.php:840
-#: modules/team-member/widgets/team-member-carousel.php:1755
-#: modules/team-member/widgets/team-member-carousel.php:1825
-#: modules/team-member/widgets/team-member-carousel.php:1960
-#: modules/team-member/widgets/team-member-carousel.php:2017
-#: modules/team-member/widgets/team-member.php:1492
-#: modules/team-member/widgets/team-member.php:1563
+#: modules/team-member/widgets/team-member-carousel.php:854
+#: modules/team-member/widgets/team-member-carousel.php:1769
+#: modules/team-member/widgets/team-member-carousel.php:1839
+#: modules/team-member/widgets/team-member-carousel.php:1987
+#: modules/team-member/widgets/team-member-carousel.php:2044
+#: modules/team-member/widgets/team-member.php:1489
+#: modules/team-member/widgets/team-member.php:1560
 #: modules/wpforms/widgets/wpforms.php:485
 #: modules/wpforms/widgets/wpforms.php:1094
 #: modules/wpforms/widgets/wpforms.php:1201
@@ -2855,12 +2419,12 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:907
 #: modules/promo-box/widgets/promo-box.php:1136
 #: modules/promo-box/widgets/promo-box.php:1362
-#: modules/team-member/widgets/team-member-carousel.php:1972
-#: modules/team-member/widgets/team-member-carousel.php:2029
-#: modules/team-member/widgets/team-member-carousel.php:2163
-#: modules/team-member/widgets/team-member-carousel.php:2262
-#: modules/team-member/widgets/team-member.php:1479
-#: modules/team-member/widgets/team-member.php:1550
+#: modules/team-member/widgets/team-member-carousel.php:1999
+#: modules/team-member/widgets/team-member-carousel.php:2056
+#: modules/team-member/widgets/team-member-carousel.php:2190
+#: modules/team-member/widgets/team-member-carousel.php:2289
+#: modules/team-member/widgets/team-member.php:1476
+#: modules/team-member/widgets/team-member.php:1547
 #: modules/wpforms/widgets/wpforms.php:866
 #: modules/wpforms/widgets/wpforms.php:982
 msgid "Color"
@@ -2947,12 +2511,12 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:670
 #: modules/promo-box/widgets/promo-box.php:791
 #: modules/promo-box/widgets/promo-box.php:1511
-#: modules/team-member/widgets/team-member-carousel.php:790
-#: modules/team-member/widgets/team-member-carousel.php:876
-#: modules/team-member/widgets/team-member-carousel.php:1791
-#: modules/team-member/widgets/team-member-carousel.php:2057
-#: modules/team-member/widgets/team-member.php:622
-#: modules/team-member/widgets/team-member.php:1528
+#: modules/team-member/widgets/team-member-carousel.php:804
+#: modules/team-member/widgets/team-member-carousel.php:890
+#: modules/team-member/widgets/team-member-carousel.php:1805
+#: modules/team-member/widgets/team-member-carousel.php:2084
+#: modules/team-member/widgets/team-member.php:619
+#: modules/team-member/widgets/team-member.php:1525
 #: modules/wpforms/widgets/wpforms.php:634
 #: modules/wpforms/widgets/wpforms.php:1141
 msgid "Padding"
@@ -3016,10 +2580,10 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:1533
 #: modules/scroll-image/widgets/scroll-image.php:228
 #: modules/scroll-image/widgets/scroll-image.php:414
-#: modules/team-member/widgets/team-member-carousel.php:1806
-#: modules/team-member/widgets/team-member-carousel.php:2010
-#: modules/team-member/widgets/team-member-carousel.php:2251
-#: modules/team-member/widgets/team-member.php:1543
+#: modules/team-member/widgets/team-member-carousel.php:1820
+#: modules/team-member/widgets/team-member-carousel.php:2037
+#: modules/team-member/widgets/team-member-carousel.php:2278
+#: modules/team-member/widgets/team-member.php:1540
 #: modules/wpforms/widgets/wpforms.php:1194
 msgid "Hover"
 msgstr ""
@@ -3083,11 +2647,11 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:1077
 #: modules/promo-box/widgets/promo-box.php:1306
 #: modules/promo-box/widgets/promo-box.php:1564
-#: modules/team-member/widgets/team-member-carousel.php:811
-#: modules/team-member/widgets/team-member-carousel.php:1837
-#: modules/team-member/widgets/team-member-carousel.php:2041
-#: modules/team-member/widgets/team-member-carousel.php:2278
-#: modules/team-member/widgets/team-member.php:1575
+#: modules/team-member/widgets/team-member-carousel.php:825
+#: modules/team-member/widgets/team-member-carousel.php:1851
+#: modules/team-member/widgets/team-member-carousel.php:2068
+#: modules/team-member/widgets/team-member-carousel.php:2305
+#: modules/team-member/widgets/team-member.php:1572
 #: modules/twitter/widgets/twitter-timeline.php:186
 #: modules/wpforms/widgets/wpforms.php:903
 #: modules/wpforms/widgets/wpforms.php:1225
@@ -3097,7 +2661,7 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:668
 #: modules/posts/skins/skin-base.php:3258
 #: modules/posts/skins/skin-base.php:3580
-#: modules/team-member/widgets/team-member-carousel.php:804
+#: modules/team-member/widgets/team-member-carousel.php:818
 msgid "Active"
 msgstr ""
 
@@ -3109,8 +2673,8 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:732
 #: modules/promo-box/widgets/promo-box.php:698
 #: modules/scroll-image/widgets/scroll-image.php:189
-#: modules/team-member/widgets/team-member-carousel.php:1707
-#: modules/team-member/widgets/team-member.php:1443
+#: modules/team-member/widgets/team-member-carousel.php:1721
+#: modules/team-member/widgets/team-member.php:1440
 msgid "Icon Size"
 msgstr ""
 
@@ -3245,13 +2809,13 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:2094
 #: modules/promo-box/widgets/promo-box.php:1467
 #: modules/promo-box/widgets/promo-box.php:1552
-#: modules/team-member/widgets/team-member-carousel.php:1084
-#: modules/team-member/widgets/team-member-carousel.php:1287
-#: modules/team-member/widgets/team-member-carousel.php:1490
-#: modules/team-member/widgets/team-member-carousel.php:2316
-#: modules/team-member/widgets/team-member.php:793
-#: modules/team-member/widgets/team-member.php:996
-#: modules/team-member/widgets/team-member.php:1207
+#: modules/team-member/widgets/team-member-carousel.php:1098
+#: modules/team-member/widgets/team-member-carousel.php:1301
+#: modules/team-member/widgets/team-member-carousel.php:1504
+#: modules/team-member/widgets/team-member-carousel.php:2343
+#: modules/team-member/widgets/team-member.php:790
+#: modules/team-member/widgets/team-member.php:993
+#: modules/team-member/widgets/team-member.php:1204
 #: modules/wpforms/widgets/wpforms.php:311
 #: modules/wpforms/widgets/wpforms.php:360
 #: modules/wpforms/widgets/wpforms.php:415
@@ -3310,10 +2874,10 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:747
 #: modules/pricing/widgets/pricing-table.php:1419
 #: modules/promo-box/widgets/promo-box.php:556
-#: modules/team-member/widgets/team-member-carousel.php:732
-#: modules/team-member/widgets/team-member-carousel.php:913
-#: modules/team-member/widgets/team-member.php:552
-#: modules/team-member/widgets/team-member.php:650
+#: modules/team-member/widgets/team-member-carousel.php:746
+#: modules/team-member/widgets/team-member-carousel.php:927
+#: modules/team-member/widgets/team-member.php:549
+#: modules/team-member/widgets/team-member.php:647
 #: modules/twitter/widgets/twitter-tweet.php:114
 #: modules/wpforms/widgets/wpforms.php:276
 #: modules/wpforms/widgets/wpforms.php:450
@@ -3379,7 +2943,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:1157
 #: modules/promo-box/widgets/promo-box.php:1322
 #: modules/promo-box/widgets/promo-box.php:1383
-#: modules/team-member/widgets/team-member-carousel.php:2127
+#: modules/team-member/widgets/team-member-carousel.php:2154
 #: modules/wpforms/widgets/wpforms.php:647
 #: modules/wpforms/widgets/wpforms.php:753
 msgid "Spacing"
@@ -3420,7 +2984,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1542
 #: modules/pricing/widgets/pricing-table.php:1818
 #: modules/promo-box/widgets/promo-box.php:1427
-#: modules/team-member/widgets/team-member-carousel.php:2104
+#: modules/team-member/widgets/team-member-carousel.php:2131
 #: modules/wpforms/widgets/wpforms.php:828
 msgid "Size"
 msgstr ""
@@ -3455,37 +3019,265 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
+#: modules/business-hours/widgets/business-hours.php:158
+#: modules/business-hours/widgets/business-hours.php:320
+#: modules/business-hours/widgets/business-hours.php:874
+#: modules/display-conditions/conditions/date-archive.php:74
+msgid "Day"
+msgstr ""
+
 #: modules/business-hours/widgets/business-hours.php:162
+#: modules/display-conditions/conditions/day.php:70
 msgid "Monday"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:163
+#: modules/display-conditions/conditions/day.php:71
 msgid "Tuesday"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:164
+#: modules/display-conditions/conditions/day.php:72
 msgid "Wednesday"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:165
+#: modules/display-conditions/conditions/day.php:73
 msgid "Thursday"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:166
+#: modules/display-conditions/conditions/day.php:74
 msgid "Friday"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:167
+#: modules/display-conditions/conditions/day.php:75
 msgid "Saturday"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:168
+#: modules/display-conditions/conditions/day.php:76
 msgid "Sunday"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:176
 #: modules/business-hours/widgets/business-hours.php:329
 msgid "Closed?"
+msgstr ""
+
+#: modules/business-hours/widgets/business-hours.php:179
+#: modules/business-hours/widgets/business-hours.php:238
+#: modules/business-hours/widgets/business-hours.php:332
+#: modules/business-hours/widgets/business-hours.php:377
+#: modules/business-hours/widgets/business-hours.php:461
+#: modules/business-hours/widgets/business-hours.php:603
+#: modules/buttons/widgets/buttons.php:240
+#: modules/caldera-forms/widgets/caldera-forms.php:112
+#: modules/caldera-forms/widgets/caldera-forms.php:828
+#: modules/contact-form-seven/widgets/contact-form-7.php:666
+#: modules/contact-form-seven/widgets/contact-form-7.php:718
+#: modules/content-ticker/widgets/content-ticker.php:498
+#: modules/content-ticker/widgets/content-ticker.php:910
+#: modules/content-ticker/widgets/content-ticker.php:926
+#: modules/content-ticker/widgets/content-ticker.php:968
+#: modules/content-ticker/widgets/content-ticker.php:1029
+#: modules/content-ticker/widgets/content-ticker.php:1088
+#: modules/content-ticker/widgets/content-ticker.php:1117
+#: modules/content-ticker/widgets/content-ticker.php:1131
+#: modules/content-ticker/widgets/content-ticker.php:1153
+#: modules/display-conditions/module.php:322
+#: modules/display-conditions/module.php:337
+#: modules/fluent-forms/widgets/fluent-forms.php:83
+#: modules/fluent-forms/widgets/fluent-forms.php:790
+#: modules/formidable-forms/widgets/formidable-forms.php:81
+#: modules/formidable-forms/widgets/formidable-forms.php:853
+#: modules/gravity-forms/widgets/gravity-forms.php:153
+#: modules/gravity-forms/widgets/gravity-forms.php:244
+#: modules/gravity-forms/widgets/gravity-forms.php:1097
+#: modules/hotspots/widgets/hotspots.php:451
+#: modules/hotspots/widgets/hotspots.php:478
+#: modules/hotspots/widgets/hotspots.php:566
+#: modules/image-accordion/widgets/image-accordion.php:177
+#: modules/info-box/widgets/info-box-carousel.php:316
+#: modules/info-box/widgets/info-box-carousel.php:654
+#: modules/info-box/widgets/info-box-carousel.php:668
+#: modules/info-box/widgets/info-box-carousel.php:704
+#: modules/info-box/widgets/info-box-carousel.php:739
+#: modules/info-box/widgets/info-box-carousel.php:751
+#: modules/info-box/widgets/info-box.php:547
+#: modules/info-list/widgets/info-list.php:360
+#: modules/info-list/widgets/info-list.php:372
+#: modules/instafeed/widgets/instafeed.php:129
+#: modules/instafeed/widgets/instafeed.php:291
+#: modules/instafeed/widgets/instafeed.php:389
+#: modules/instafeed/widgets/instafeed.php:401
+#: modules/instafeed/widgets/instafeed.php:416
+#: modules/instafeed/widgets/instafeed.php:497
+#: modules/instafeed/widgets/instafeed.php:583
+#: modules/instafeed/widgets/instafeed.php:612
+#: modules/instafeed/widgets/instafeed.php:649
+#: modules/instafeed/widgets/instafeed.php:664
+#: modules/instafeed/widgets/instafeed.php:884
+#: modules/instafeed/widgets/instafeed.php:928
+#: modules/logos/widgets/logo-carousel.php:222
+#: modules/logos/widgets/logo-carousel.php:327
+#: modules/logos/widgets/logo-carousel.php:361
+#: modules/logos/widgets/logo-carousel.php:376
+#: modules/logos/widgets/logo-carousel.php:411
+#: modules/logos/widgets/logo-carousel.php:423
+#: modules/logos/widgets/logo-carousel.php:576
+#: modules/logos/widgets/logo-carousel.php:615
+#: modules/logos/widgets/logo-grid.php:287
+#: modules/logos/widgets/logo-grid.php:569
+#: modules/logos/widgets/logo-grid.php:657
+#: modules/ninja-forms/widgets/ninja-forms.php:87
+#: modules/ninja-forms/widgets/ninja-forms.php:828
+#: modules/posts/skins/skin-base.php:131 modules/posts/skins/skin-base.php:195
+#: modules/posts/skins/skin-base.php:211 modules/posts/skins/skin-base.php:227
+#: modules/posts/skins/skin-base.php:257 modules/posts/skins/skin-base.php:274
+#: modules/posts/skins/skin-base.php:290 modules/posts/skins/skin-base.php:347
+#: modules/posts/skins/skin-base.php:400 modules/posts/skins/skin-base.php:444
+#: modules/posts/skins/skin-base.php:505 modules/posts/skins/skin-base.php:550
+#: modules/posts/skins/skin-base.php:562 modules/posts/skins/skin-base.php:577
+#: modules/posts/skins/skin-base.php:697 modules/posts/skins/skin-base.php:709
+#: modules/posts/skins/skin-base.php:747 modules/posts/skins/skin-base.php:776
+#: modules/posts/skins/skin-base.php:851 modules/posts/skins/skin-base.php:890
+#: modules/posts/skins/skin-base.php:905 modules/posts/skins/skin-base.php:959
+#: modules/posts/skins/skin-base.php:974 modules/posts/skins/skin-base.php:1086
+#: modules/posts/skins/skin-base.php:1126
+#: modules/posts/widgets/posts-base.php:485
+#: modules/posts/widgets/posts-base.php:501
+#: modules/posts/widgets/posts-base.php:531
+#: modules/posts/widgets/posts-base.php:578
+#: modules/pricing/widgets/price-menu.php:285
+#: modules/pricing/widgets/price-menu.php:300
+#: modules/pricing/widgets/pricing-table.php:349
+#: modules/pricing/widgets/pricing-table.php:453
+#: modules/pricing/widgets/pricing-table.php:1616
+#: modules/promo-box/widgets/promo-box.php:225
+#: modules/team-member/widgets/team-member-carousel.php:465
+#: modules/team-member/widgets/team-member-carousel.php:598
+#: modules/team-member/widgets/team-member-carousel.php:631
+#: modules/team-member/widgets/team-member-carousel.php:666
+#: modules/team-member/widgets/team-member-carousel.php:678
+#: modules/team-member/widgets/team-member.php:166
+#: modules/team-member/widgets/team-member.php:241
+#: modules/twitter/widgets/twitter-buttons.php:183
+#: modules/twitter/widgets/twitter-buttons.php:198
+#: modules/twitter/widgets/twitter-grid.php:92
+#: modules/twitter/widgets/twitter-timeline.php:105
+#: modules/twitter/widgets/twitter-tweet.php:105
+#: modules/wpforms/widgets/wpforms.php:83
+#: modules/wpforms/widgets/wpforms.php:820
+msgid "No"
+msgstr ""
+
+#: modules/business-hours/widgets/business-hours.php:180
+#: modules/business-hours/widgets/business-hours.php:237
+#: modules/business-hours/widgets/business-hours.php:333
+#: modules/business-hours/widgets/business-hours.php:376
+#: modules/business-hours/widgets/business-hours.php:460
+#: modules/business-hours/widgets/business-hours.php:602
+#: modules/buttons/widgets/buttons.php:239
+#: modules/caldera-forms/widgets/caldera-forms.php:111
+#: modules/caldera-forms/widgets/caldera-forms.php:827
+#: modules/contact-form-seven/widgets/contact-form-7.php:665
+#: modules/contact-form-seven/widgets/contact-form-7.php:717
+#: modules/content-ticker/widgets/content-ticker.php:497
+#: modules/content-ticker/widgets/content-ticker.php:909
+#: modules/content-ticker/widgets/content-ticker.php:925
+#: modules/content-ticker/widgets/content-ticker.php:967
+#: modules/content-ticker/widgets/content-ticker.php:1028
+#: modules/content-ticker/widgets/content-ticker.php:1087
+#: modules/content-ticker/widgets/content-ticker.php:1116
+#: modules/content-ticker/widgets/content-ticker.php:1130
+#: modules/content-ticker/widgets/content-ticker.php:1152
+#: modules/display-conditions/module.php:321
+#: modules/display-conditions/module.php:336
+#: modules/fluent-forms/widgets/fluent-forms.php:82
+#: modules/fluent-forms/widgets/fluent-forms.php:789
+#: modules/formidable-forms/widgets/formidable-forms.php:80
+#: modules/formidable-forms/widgets/formidable-forms.php:852
+#: modules/gravity-forms/widgets/gravity-forms.php:152
+#: modules/gravity-forms/widgets/gravity-forms.php:243
+#: modules/gravity-forms/widgets/gravity-forms.php:1096
+#: modules/hotspots/widgets/hotspots.php:450
+#: modules/hotspots/widgets/hotspots.php:477
+#: modules/hotspots/widgets/hotspots.php:565
+#: modules/image-accordion/widgets/image-accordion.php:176
+#: modules/info-box/widgets/info-box-carousel.php:315
+#: modules/info-box/widgets/info-box-carousel.php:653
+#: modules/info-box/widgets/info-box-carousel.php:667
+#: modules/info-box/widgets/info-box-carousel.php:703
+#: modules/info-box/widgets/info-box-carousel.php:738
+#: modules/info-box/widgets/info-box-carousel.php:750
+#: modules/info-box/widgets/info-box.php:546
+#: modules/info-list/widgets/info-list.php:359
+#: modules/info-list/widgets/info-list.php:371
+#: modules/instafeed/widgets/instafeed.php:128
+#: modules/instafeed/widgets/instafeed.php:290
+#: modules/instafeed/widgets/instafeed.php:388
+#: modules/instafeed/widgets/instafeed.php:400
+#: modules/instafeed/widgets/instafeed.php:415
+#: modules/instafeed/widgets/instafeed.php:496
+#: modules/instafeed/widgets/instafeed.php:582
+#: modules/instafeed/widgets/instafeed.php:611
+#: modules/instafeed/widgets/instafeed.php:648
+#: modules/instafeed/widgets/instafeed.php:663
+#: modules/instafeed/widgets/instafeed.php:883
+#: modules/instafeed/widgets/instafeed.php:927
+#: modules/logos/widgets/logo-carousel.php:221
+#: modules/logos/widgets/logo-carousel.php:326
+#: modules/logos/widgets/logo-carousel.php:360
+#: modules/logos/widgets/logo-carousel.php:375
+#: modules/logos/widgets/logo-carousel.php:410
+#: modules/logos/widgets/logo-carousel.php:422
+#: modules/logos/widgets/logo-carousel.php:575
+#: modules/logos/widgets/logo-carousel.php:614
+#: modules/logos/widgets/logo-grid.php:286
+#: modules/logos/widgets/logo-grid.php:568
+#: modules/logos/widgets/logo-grid.php:656
+#: modules/ninja-forms/widgets/ninja-forms.php:86
+#: modules/ninja-forms/widgets/ninja-forms.php:827
+#: modules/posts/skins/skin-base.php:130 modules/posts/skins/skin-base.php:194
+#: modules/posts/skins/skin-base.php:210 modules/posts/skins/skin-base.php:226
+#: modules/posts/skins/skin-base.php:256 modules/posts/skins/skin-base.php:273
+#: modules/posts/skins/skin-base.php:289 modules/posts/skins/skin-base.php:346
+#: modules/posts/skins/skin-base.php:399 modules/posts/skins/skin-base.php:443
+#: modules/posts/skins/skin-base.php:504 modules/posts/skins/skin-base.php:549
+#: modules/posts/skins/skin-base.php:561 modules/posts/skins/skin-base.php:576
+#: modules/posts/skins/skin-base.php:696 modules/posts/skins/skin-base.php:708
+#: modules/posts/skins/skin-base.php:746 modules/posts/skins/skin-base.php:775
+#: modules/posts/skins/skin-base.php:850 modules/posts/skins/skin-base.php:889
+#: modules/posts/skins/skin-base.php:904 modules/posts/skins/skin-base.php:958
+#: modules/posts/skins/skin-base.php:973 modules/posts/skins/skin-base.php:1085
+#: modules/posts/skins/skin-base.php:1125
+#: modules/posts/widgets/posts-base.php:484
+#: modules/posts/widgets/posts-base.php:500
+#: modules/posts/widgets/posts-base.php:530
+#: modules/posts/widgets/posts-base.php:577
+#: modules/pricing/widgets/price-menu.php:284
+#: modules/pricing/widgets/price-menu.php:299
+#: modules/pricing/widgets/pricing-table.php:348
+#: modules/pricing/widgets/pricing-table.php:452
+#: modules/pricing/widgets/pricing-table.php:1615
+#: modules/promo-box/widgets/promo-box.php:224
+#: modules/team-member/widgets/team-member-carousel.php:464
+#: modules/team-member/widgets/team-member-carousel.php:597
+#: modules/team-member/widgets/team-member-carousel.php:630
+#: modules/team-member/widgets/team-member-carousel.php:665
+#: modules/team-member/widgets/team-member-carousel.php:677
+#: modules/team-member/widgets/team-member.php:165
+#: modules/team-member/widgets/team-member.php:240
+#: modules/twitter/widgets/twitter-buttons.php:182
+#: modules/twitter/widgets/twitter-buttons.php:197
+#: modules/twitter/widgets/twitter-grid.php:91
+#: modules/twitter/widgets/twitter-timeline.php:104
+#: modules/twitter/widgets/twitter-tweet.php:104
+#: modules/wpforms/widgets/wpforms.php:82
+#: modules/wpforms/widgets/wpforms.php:819
+msgid "Yes"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:188
@@ -3612,19 +3404,19 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:640
 #: modules/pricing/widgets/price-menu.php:814
 #: modules/pricing/widgets/pricing-table.php:1490
-#: modules/team-member/widgets/team-member-carousel.php:1034
-#: modules/team-member/widgets/team-member-carousel.php:1096
-#: modules/team-member/widgets/team-member-carousel.php:1234
-#: modules/team-member/widgets/team-member-carousel.php:1299
-#: modules/team-member/widgets/team-member-carousel.php:1437
-#: modules/team-member/widgets/team-member-carousel.php:1502
-#: modules/team-member/widgets/team-member-carousel.php:1640
-#: modules/team-member/widgets/team-member.php:805
-#: modules/team-member/widgets/team-member.php:943
-#: modules/team-member/widgets/team-member.php:1008
-#: modules/team-member/widgets/team-member.php:1146
-#: modules/team-member/widgets/team-member.php:1223
-#: modules/team-member/widgets/team-member.php:1375
+#: modules/team-member/widgets/team-member-carousel.php:1048
+#: modules/team-member/widgets/team-member-carousel.php:1110
+#: modules/team-member/widgets/team-member-carousel.php:1248
+#: modules/team-member/widgets/team-member-carousel.php:1313
+#: modules/team-member/widgets/team-member-carousel.php:1451
+#: modules/team-member/widgets/team-member-carousel.php:1516
+#: modules/team-member/widgets/team-member-carousel.php:1654
+#: modules/team-member/widgets/team-member.php:802
+#: modules/team-member/widgets/team-member.php:940
+#: modules/team-member/widgets/team-member.php:1005
+#: modules/team-member/widgets/team-member.php:1143
+#: modules/team-member/widgets/team-member.php:1220
+#: modules/team-member/widgets/team-member.php:1372
 msgid "Margin Bottom"
 msgstr ""
 
@@ -3642,12 +3434,12 @@ msgid "Rows Divider"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:794
-#: modules/team-member/widgets/team-member-carousel.php:1154
-#: modules/team-member/widgets/team-member-carousel.php:1357
-#: modules/team-member/widgets/team-member-carousel.php:1560
-#: modules/team-member/widgets/team-member.php:863
-#: modules/team-member/widgets/team-member.php:1066
-#: modules/team-member/widgets/team-member.php:1289
+#: modules/team-member/widgets/team-member-carousel.php:1168
+#: modules/team-member/widgets/team-member-carousel.php:1371
+#: modules/team-member/widgets/team-member-carousel.php:1574
+#: modules/team-member/widgets/team-member.php:860
+#: modules/team-member/widgets/team-member.php:1063
+#: modules/team-member/widgets/team-member.php:1286
 msgid "Divider Style"
 msgstr ""
 
@@ -3680,10 +3472,10 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:111
 #: modules/pricing/widgets/pricing-table.php:214
 #: modules/pricing/widgets/pricing-table.php:616
-#: modules/team-member/widgets/team-member-carousel.php:179
-#: modules/team-member/widgets/team-member-carousel.php:480
-#: modules/team-member/widgets/team-member.php:195
-#: modules/team-member/widgets/team-member.php:454
+#: modules/team-member/widgets/team-member-carousel.php:193
+#: modules/team-member/widgets/team-member-carousel.php:495
+#: modules/team-member/widgets/team-member.php:193
+#: modules/team-member/widgets/team-member.php:452
 msgid "None"
 msgstr ""
 
@@ -3701,12 +3493,12 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:1016
 #: modules/promo-box/widgets/promo-box.php:1003
 #: modules/promo-box/widgets/promo-box.php:1232
-#: modules/team-member/widgets/team-member-carousel.php:1158
-#: modules/team-member/widgets/team-member-carousel.php:1361
-#: modules/team-member/widgets/team-member-carousel.php:1564
-#: modules/team-member/widgets/team-member.php:867
-#: modules/team-member/widgets/team-member.php:1070
-#: modules/team-member/widgets/team-member.php:1293
+#: modules/team-member/widgets/team-member-carousel.php:1172
+#: modules/team-member/widgets/team-member-carousel.php:1375
+#: modules/team-member/widgets/team-member-carousel.php:1578
+#: modules/team-member/widgets/team-member.php:864
+#: modules/team-member/widgets/team-member.php:1067
+#: modules/team-member/widgets/team-member.php:1290
 msgid "Solid"
 msgstr ""
 
@@ -3723,12 +3515,12 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:1017
 #: modules/promo-box/widgets/promo-box.php:1006
 #: modules/promo-box/widgets/promo-box.php:1235
-#: modules/team-member/widgets/team-member-carousel.php:1160
-#: modules/team-member/widgets/team-member-carousel.php:1363
-#: modules/team-member/widgets/team-member-carousel.php:1566
-#: modules/team-member/widgets/team-member.php:869
-#: modules/team-member/widgets/team-member.php:1072
-#: modules/team-member/widgets/team-member.php:1295
+#: modules/team-member/widgets/team-member-carousel.php:1174
+#: modules/team-member/widgets/team-member-carousel.php:1377
+#: modules/team-member/widgets/team-member-carousel.php:1580
+#: modules/team-member/widgets/team-member.php:866
+#: modules/team-member/widgets/team-member.php:1069
+#: modules/team-member/widgets/team-member.php:1292
 msgid "Dashed"
 msgstr ""
 
@@ -3745,12 +3537,12 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:1018
 #: modules/promo-box/widgets/promo-box.php:1005
 #: modules/promo-box/widgets/promo-box.php:1234
-#: modules/team-member/widgets/team-member-carousel.php:1159
-#: modules/team-member/widgets/team-member-carousel.php:1362
-#: modules/team-member/widgets/team-member-carousel.php:1565
-#: modules/team-member/widgets/team-member.php:868
-#: modules/team-member/widgets/team-member.php:1071
-#: modules/team-member/widgets/team-member.php:1294
+#: modules/team-member/widgets/team-member-carousel.php:1173
+#: modules/team-member/widgets/team-member-carousel.php:1376
+#: modules/team-member/widgets/team-member-carousel.php:1579
+#: modules/team-member/widgets/team-member.php:865
+#: modules/team-member/widgets/team-member.php:1068
+#: modules/team-member/widgets/team-member.php:1291
 msgid "Dotted"
 msgstr ""
 
@@ -3768,12 +3560,12 @@ msgstr ""
 #: modules/divider/widgets/divider.php:525
 #: modules/divider/widgets/divider.php:552
 #: modules/divider/widgets/divider.php:579
-#: modules/team-member/widgets/team-member-carousel.php:1135
-#: modules/team-member/widgets/team-member-carousel.php:1338
-#: modules/team-member/widgets/team-member-carousel.php:1541
-#: modules/team-member/widgets/team-member.php:844
-#: modules/team-member/widgets/team-member.php:1047
-#: modules/team-member/widgets/team-member.php:1268
+#: modules/team-member/widgets/team-member-carousel.php:1149
+#: modules/team-member/widgets/team-member-carousel.php:1352
+#: modules/team-member/widgets/team-member-carousel.php:1555
+#: modules/team-member/widgets/team-member.php:841
+#: modules/team-member/widgets/team-member.php:1044
+#: modules/team-member/widgets/team-member.php:1265
 msgid "Divider Color"
 msgstr ""
 
@@ -3848,10 +3640,10 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:752
 #: modules/pricing/widgets/pricing-table.php:1424
 #: modules/promo-box/widgets/promo-box.php:561
-#: modules/team-member/widgets/team-member-carousel.php:736
-#: modules/team-member/widgets/team-member-carousel.php:917
-#: modules/team-member/widgets/team-member.php:556
-#: modules/team-member/widgets/team-member.php:654
+#: modules/team-member/widgets/team-member-carousel.php:750
+#: modules/team-member/widgets/team-member-carousel.php:931
+#: modules/team-member/widgets/team-member.php:553
+#: modules/team-member/widgets/team-member.php:651
 #: modules/twitter/widgets/twitter-tweet.php:118
 #: modules/wpforms/widgets/wpforms.php:280
 #: modules/wpforms/widgets/wpforms.php:454
@@ -3921,10 +3713,10 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1428
 #: modules/promo-box/widgets/promo-box.php:565
 #: modules/promo-box/widgets/promo-box.php:593
-#: modules/team-member/widgets/team-member-carousel.php:740
-#: modules/team-member/widgets/team-member-carousel.php:921
-#: modules/team-member/widgets/team-member.php:560
-#: modules/team-member/widgets/team-member.php:658
+#: modules/team-member/widgets/team-member-carousel.php:754
+#: modules/team-member/widgets/team-member-carousel.php:935
+#: modules/team-member/widgets/team-member.php:557
+#: modules/team-member/widgets/team-member.php:655
 #: modules/twitter/widgets/twitter-tweet.php:119
 #: modules/wpforms/widgets/wpforms.php:284
 #: modules/wpforms/widgets/wpforms.php:458
@@ -3998,10 +3790,10 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:760
 #: modules/pricing/widgets/pricing-table.php:1432
 #: modules/promo-box/widgets/promo-box.php:569
-#: modules/team-member/widgets/team-member-carousel.php:744
-#: modules/team-member/widgets/team-member-carousel.php:925
-#: modules/team-member/widgets/team-member.php:564
-#: modules/team-member/widgets/team-member.php:662
+#: modules/team-member/widgets/team-member-carousel.php:758
+#: modules/team-member/widgets/team-member-carousel.php:939
+#: modules/team-member/widgets/team-member.php:561
+#: modules/team-member/widgets/team-member.php:659
 #: modules/twitter/widgets/twitter-tweet.php:120
 #: modules/wpforms/widgets/wpforms.php:288
 #: modules/wpforms/widgets/wpforms.php:462
@@ -4131,13 +3923,13 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:1149
 #: modules/promo-box/widgets/promo-box.php:1375
 #: modules/promo-box/widgets/promo-box.php:1503
-#: modules/team-member/widgets/team-member-carousel.php:1075
-#: modules/team-member/widgets/team-member-carousel.php:1278
-#: modules/team-member/widgets/team-member-carousel.php:1481
-#: modules/team-member/widgets/team-member-carousel.php:2333
-#: modules/team-member/widgets/team-member.php:785
-#: modules/team-member/widgets/team-member.php:987
-#: modules/team-member/widgets/team-member.php:1194
+#: modules/team-member/widgets/team-member-carousel.php:1089
+#: modules/team-member/widgets/team-member-carousel.php:1292
+#: modules/team-member/widgets/team-member-carousel.php:1495
+#: modules/team-member/widgets/team-member-carousel.php:2360
+#: modules/team-member/widgets/team-member.php:782
+#: modules/team-member/widgets/team-member.php:984
+#: modules/team-member/widgets/team-member.php:1191
 #: modules/wpforms/widgets/wpforms.php:324
 #: modules/wpforms/widgets/wpforms.php:373
 #: modules/wpforms/widgets/wpforms.php:427
@@ -4243,8 +4035,8 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:186
 #: modules/pricing/widgets/pricing-table.php:636
 #: modules/promo-box/widgets/promo-box.php:349
-#: modules/team-member/widgets/team-member-carousel.php:189
-#: modules/team-member/widgets/team-member.php:205
+#: modules/team-member/widgets/team-member-carousel.php:203
+#: modules/team-member/widgets/team-member.php:203
 msgid "Link"
 msgstr ""
 
@@ -4583,6 +4375,25 @@ msgstr ""
 msgid "After"
 msgstr ""
 
+#: modules/buttons/widgets/buttons.php:913
+#: modules/content-ticker/widgets/content-ticker.php:836
+#: modules/display-conditions/conditions/date-time-before.php:69
+#: modules/display-conditions/conditions/time.php:67
+#: modules/divider/widgets/divider.php:542
+#: modules/flipbox/widgets/flipbox.php:464
+#: modules/image-accordion/widgets/image-accordion.php:233
+#: modules/image-comparison/widgets/image-comparison.php:132
+#: modules/image-comparison/widgets/image-comparison.php:647
+#: modules/info-box/widgets/info-box-carousel.php:403
+#: modules/info-box/widgets/info-box.php:634
+#: modules/info-list/widgets/info-list.php:270
+#: modules/info-table/widgets/info-table.php:352
+#: modules/posts/skins/skin-base.php:1166
+#: modules/posts/widgets/posts-base.php:409
+#: modules/pricing/widgets/pricing-table.php:1244
+msgid "Before"
+msgstr ""
+
 #: modules/buttons/widgets/buttons.php:1018
 #: modules/hotspots/widgets/hotspots.php:304
 #: modules/hotspots/widgets/hotspots.php:309
@@ -4662,10 +4473,13 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:784
 #: modules/promo-box/widgets/promo-box.php:197
 #: modules/promo-box/widgets/promo-box.php:1354
-#: modules/team-member/widgets/team-member-carousel.php:149
-#: modules/team-member/widgets/team-member-carousel.php:1472
-#: modules/team-member/widgets/team-member.php:176
-#: modules/team-member/widgets/team-member.php:1181
+#: modules/team-member/widgets/team-member-carousel.php:163
+#: modules/team-member/widgets/team-member-carousel.php:497
+#: modules/team-member/widgets/team-member-carousel.php:498
+#: modules/team-member/widgets/team-member-carousel.php:1486
+#: modules/team-member/widgets/team-member.php:174
+#: modules/team-member/widgets/team-member.php:454
+#: modules/team-member/widgets/team-member.php:1178
 #: modules/wpforms/widgets/wpforms.php:106
 #: modules/wpforms/widgets/wpforms.php:134
 #: modules/wpforms/widgets/wpforms.php:351
@@ -4778,8 +4592,8 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:926
 #: modules/pricing/widgets/pricing-table.php:1174
 #: modules/promo-box/widgets/promo-box.php:826
-#: modules/team-member/widgets/team-member-carousel.php:2226
-#: modules/team-member/widgets/team-member.php:609
+#: modules/team-member/widgets/team-member-carousel.php:2253
+#: modules/team-member/widgets/team-member.php:606
 #: modules/wpforms/widgets/wpforms.php:332
 #: modules/wpforms/widgets/wpforms.php:382
 msgid "Margin"
@@ -5107,8 +4921,8 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:505
 #: modules/info-list/widgets/info-list.php:221
 #: modules/info-table/widgets/info-table.php:295
-#: modules/team-member/widgets/team-member-carousel.php:175
-#: modules/team-member/widgets/team-member.php:191
+#: modules/team-member/widgets/team-member-carousel.php:189
+#: modules/team-member/widgets/team-member.php:189
 msgid "Link Type"
 msgstr ""
 
@@ -5145,10 +4959,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:724
 #: modules/promo-box/widgets/promo-box.php:119
 #: modules/promo-box/widgets/promo-box.php:166
-#: modules/team-member/widgets/team-member-carousel.php:410
-#: modules/team-member/widgets/team-member-carousel.php:431
-#: modules/team-member/widgets/team-member.php:397
-#: modules/team-member/widgets/team-member.php:417
+#: modules/team-member/widgets/team-member-carousel.php:424
+#: modules/team-member/widgets/team-member-carousel.php:445
+#: modules/team-member/widgets/team-member.php:395
+#: modules/team-member/widgets/team-member.php:415
 msgid "H1"
 msgstr ""
 
@@ -5173,10 +4987,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:725
 #: modules/promo-box/widgets/promo-box.php:120
 #: modules/promo-box/widgets/promo-box.php:167
-#: modules/team-member/widgets/team-member-carousel.php:411
-#: modules/team-member/widgets/team-member-carousel.php:432
-#: modules/team-member/widgets/team-member.php:398
-#: modules/team-member/widgets/team-member.php:418
+#: modules/team-member/widgets/team-member-carousel.php:425
+#: modules/team-member/widgets/team-member-carousel.php:446
+#: modules/team-member/widgets/team-member.php:396
+#: modules/team-member/widgets/team-member.php:416
 msgid "H2"
 msgstr ""
 
@@ -5201,10 +5015,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:726
 #: modules/promo-box/widgets/promo-box.php:121
 #: modules/promo-box/widgets/promo-box.php:168
-#: modules/team-member/widgets/team-member-carousel.php:412
-#: modules/team-member/widgets/team-member-carousel.php:433
-#: modules/team-member/widgets/team-member.php:399
-#: modules/team-member/widgets/team-member.php:419
+#: modules/team-member/widgets/team-member-carousel.php:426
+#: modules/team-member/widgets/team-member-carousel.php:447
+#: modules/team-member/widgets/team-member.php:397
+#: modules/team-member/widgets/team-member.php:417
 msgid "H3"
 msgstr ""
 
@@ -5229,10 +5043,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:727
 #: modules/promo-box/widgets/promo-box.php:122
 #: modules/promo-box/widgets/promo-box.php:169
-#: modules/team-member/widgets/team-member-carousel.php:413
-#: modules/team-member/widgets/team-member-carousel.php:434
-#: modules/team-member/widgets/team-member.php:400
-#: modules/team-member/widgets/team-member.php:420
+#: modules/team-member/widgets/team-member-carousel.php:427
+#: modules/team-member/widgets/team-member-carousel.php:448
+#: modules/team-member/widgets/team-member.php:398
+#: modules/team-member/widgets/team-member.php:418
 msgid "H4"
 msgstr ""
 
@@ -5257,10 +5071,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:728
 #: modules/promo-box/widgets/promo-box.php:123
 #: modules/promo-box/widgets/promo-box.php:170
-#: modules/team-member/widgets/team-member-carousel.php:414
-#: modules/team-member/widgets/team-member-carousel.php:435
-#: modules/team-member/widgets/team-member.php:401
-#: modules/team-member/widgets/team-member.php:421
+#: modules/team-member/widgets/team-member-carousel.php:428
+#: modules/team-member/widgets/team-member-carousel.php:449
+#: modules/team-member/widgets/team-member.php:399
+#: modules/team-member/widgets/team-member.php:419
 msgid "H5"
 msgstr ""
 
@@ -5285,10 +5099,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:729
 #: modules/promo-box/widgets/promo-box.php:124
 #: modules/promo-box/widgets/promo-box.php:171
-#: modules/team-member/widgets/team-member-carousel.php:415
-#: modules/team-member/widgets/team-member-carousel.php:436
-#: modules/team-member/widgets/team-member.php:402
-#: modules/team-member/widgets/team-member.php:422
+#: modules/team-member/widgets/team-member-carousel.php:429
+#: modules/team-member/widgets/team-member-carousel.php:450
+#: modules/team-member/widgets/team-member.php:400
+#: modules/team-member/widgets/team-member.php:420
 msgid "H6"
 msgstr ""
 
@@ -5313,10 +5127,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:730
 #: modules/promo-box/widgets/promo-box.php:125
 #: modules/promo-box/widgets/promo-box.php:172
-#: modules/team-member/widgets/team-member-carousel.php:416
-#: modules/team-member/widgets/team-member-carousel.php:437
-#: modules/team-member/widgets/team-member.php:403
-#: modules/team-member/widgets/team-member.php:423
+#: modules/team-member/widgets/team-member-carousel.php:430
+#: modules/team-member/widgets/team-member-carousel.php:451
+#: modules/team-member/widgets/team-member.php:401
+#: modules/team-member/widgets/team-member.php:421
 msgid "div"
 msgstr ""
 
@@ -5341,10 +5155,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:731
 #: modules/promo-box/widgets/promo-box.php:126
 #: modules/promo-box/widgets/promo-box.php:173
-#: modules/team-member/widgets/team-member-carousel.php:417
-#: modules/team-member/widgets/team-member-carousel.php:438
-#: modules/team-member/widgets/team-member.php:404
-#: modules/team-member/widgets/team-member.php:424
+#: modules/team-member/widgets/team-member-carousel.php:431
+#: modules/team-member/widgets/team-member-carousel.php:452
+#: modules/team-member/widgets/team-member.php:402
+#: modules/team-member/widgets/team-member.php:422
 msgid "span"
 msgstr ""
 
@@ -5369,10 +5183,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:732
 #: modules/promo-box/widgets/promo-box.php:127
 #: modules/promo-box/widgets/promo-box.php:174
-#: modules/team-member/widgets/team-member-carousel.php:418
-#: modules/team-member/widgets/team-member-carousel.php:439
-#: modules/team-member/widgets/team-member.php:405
-#: modules/team-member/widgets/team-member.php:425
+#: modules/team-member/widgets/team-member-carousel.php:432
+#: modules/team-member/widgets/team-member-carousel.php:453
+#: modules/team-member/widgets/team-member.php:403
+#: modules/team-member/widgets/team-member.php:423
 msgid "p"
 msgstr ""
 
@@ -5383,12 +5197,31 @@ msgstr ""
 msgid "Post Meta"
 msgstr ""
 
+#: modules/content-ticker/widgets/content-ticker.php:239
+#: modules/content-ticker/widgets/content-ticker.php:812
+#: modules/content-ticker/widgets/content-ticker.php:888
+#: modules/display-conditions/conditions/date-archive.php:54
+#: modules/posts/skins/skin-base.php:1499
+#: modules/posts/widgets/posts-base.php:385
+#: modules/posts/widgets/posts-base.php:461
+#. translators: %s Label
+msgid "Date"
+msgstr ""
+
 #: modules/content-ticker/widgets/content-ticker.php:271
 msgid "Date Time Separator"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:287
 msgid "Date Time Icon"
+msgstr ""
+
+#: modules/content-ticker/widgets/content-ticker.php:346
+#: modules/display-conditions/conditions/author-archive.php:55
+#: modules/posts/skins/skin-base.php:1483
+#: modules/posts/widgets/posts-base.php:301
+#: modules/posts/widgets/posts-base.php:350
+msgid "Author"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:361
@@ -5440,6 +5273,13 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:581
 #: modules/posts/widgets/posts-base.php:74
 msgid "Query"
+msgstr ""
+
+#: modules/content-ticker/widgets/content-ticker.php:591
+#: modules/display-conditions/conditions/post-type-archive.php:55
+#: modules/display-conditions/conditions/post-type.php:55
+#: modules/posts/widgets/posts-base.php:99
+msgid "Post Type"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:635
@@ -5684,7 +5524,7 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:579
 #: modules/logos/widgets/logo-carousel.php:323
 #: modules/posts/skins/skin-base.php:223
-#: modules/team-member/widgets/team-member-carousel.php:578
+#: modules/team-member/widgets/team-member-carousel.php:594
 msgid "Autoplay"
 msgstr ""
 
@@ -5692,7 +5532,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:679
 #: modules/instafeed/widgets/instafeed.php:594
 #: modules/posts/skins/skin-base.php:239
-#: modules/team-member/widgets/team-member-carousel.php:591
+#: modules/team-member/widgets/team-member-carousel.php:607
 msgid "Autoplay Speed"
 msgstr ""
 
@@ -5701,7 +5541,7 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:608
 #: modules/logos/widgets/logo-carousel.php:372
 #: modules/posts/skins/skin-base.php:270
-#: modules/team-member/widgets/team-member-carousel.php:611
+#: modules/team-member/widgets/team-member-carousel.php:627
 msgid "Infinite Loop"
 msgstr ""
 
@@ -5709,7 +5549,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:712
 #: modules/instafeed/widgets/instafeed.php:623
 #: modules/logos/widgets/logo-carousel.php:384
-#: modules/team-member/widgets/team-member-carousel.php:623
+#: modules/team-member/widgets/team-member-carousel.php:639
 msgid "Grab Cursor"
 msgstr ""
 
@@ -5717,7 +5557,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:713
 #: modules/instafeed/widgets/instafeed.php:624
 #: modules/logos/widgets/logo-carousel.php:385
-#: modules/team-member/widgets/team-member-carousel.php:624
+#: modules/team-member/widgets/team-member-carousel.php:640
 msgid "Shows grab cursor when you hover over the slider"
 msgstr ""
 
@@ -5725,7 +5565,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:726
 #: modules/instafeed/widgets/instafeed.php:636
 #: modules/logos/widgets/logo-carousel.php:398
-#: modules/team-member/widgets/team-member-carousel.php:637
+#: modules/team-member/widgets/team-member-carousel.php:653
 msgid "Navigation"
 msgstr ""
 
@@ -5738,8 +5578,8 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:407
 #: modules/logos/widgets/logo-carousel.php:703
 #: modules/posts/skins/skin-base.php:191 modules/posts/skins/skin-base.php:2865
-#: modules/team-member/widgets/team-member-carousel.php:646
-#: modules/team-member/widgets/team-member-carousel.php:1858
+#: modules/team-member/widgets/team-member-carousel.php:662
+#: modules/team-member/widgets/team-member-carousel.php:1872
 msgid "Arrows"
 msgstr ""
 
@@ -5771,7 +5611,7 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:1657
 #: modules/logos/widgets/logo-carousel.php:714
 #: modules/posts/skins/skin-base.php:2877
-#: modules/team-member/widgets/team-member-carousel.php:1869
+#: modules/team-member/widgets/team-member-carousel.php:1883
 msgid "Choose Arrow"
 msgstr ""
 
@@ -5830,7 +5670,7 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:1681
 #: modules/logos/widgets/logo-carousel.php:741
 #: modules/posts/skins/skin-base.php:2905
-#: modules/team-member/widgets/team-member-carousel.php:1893
+#: modules/team-member/widgets/team-member-carousel.php:1920
 msgid "Arrows Size"
 msgstr ""
 
@@ -5927,15 +5767,15 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:614
 #: modules/promo-box/widgets/promo-box.php:440
 #: modules/promo-box/widgets/promo-box.php:611
-#: modules/team-member/widgets/team-member.php:579
+#: modules/team-member/widgets/team-member.php:576
 msgid "Background"
 msgstr ""
 
 #: modules/counter/widgets/counter.php:597
 #: modules/info-table/widgets/info-table.php:774
 #: modules/logos/widgets/logo-grid.php:410
-#: modules/team-member/widgets/team-member-carousel.php:988
-#: modules/team-member/widgets/team-member.php:725
+#: modules/team-member/widgets/team-member-carousel.php:1002
+#: modules/team-member/widgets/team-member.php:722
 msgid "Image Width"
 msgstr ""
 
@@ -5962,12 +5802,12 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:1019
 #: modules/promo-box/widgets/promo-box.php:1004
 #: modules/promo-box/widgets/promo-box.php:1233
-#: modules/team-member/widgets/team-member-carousel.php:1161
-#: modules/team-member/widgets/team-member-carousel.php:1364
-#: modules/team-member/widgets/team-member-carousel.php:1567
-#: modules/team-member/widgets/team-member.php:870
-#: modules/team-member/widgets/team-member.php:1073
-#: modules/team-member/widgets/team-member.php:1296
+#: modules/team-member/widgets/team-member-carousel.php:1175
+#: modules/team-member/widgets/team-member-carousel.php:1378
+#: modules/team-member/widgets/team-member-carousel.php:1581
+#: modules/team-member/widgets/team-member.php:867
+#: modules/team-member/widgets/team-member.php:1070
+#: modules/team-member/widgets/team-member.php:1293
 msgid "Double"
 msgstr ""
 
@@ -5994,6 +5834,225 @@ msgstr ""
 
 #: modules/counter/widgets/counter.php:1118
 msgid "Suffix"
+msgstr ""
+
+#: modules/display-conditions/conditions/authentication.php:54
+msgid "Login Status"
+msgstr ""
+
+#: modules/display-conditions/conditions/authentication.php:71
+msgid "Logged in"
+msgstr ""
+
+#: modules/display-conditions/conditions/author-archive.php:69
+#: modules/display-conditions/conditions/date-archive.php:69
+#: modules/display-conditions/conditions/page.php:72
+#: modules/display-conditions/conditions/post-type-archive.php:70
+#: modules/display-conditions/conditions/post-type.php:70
+#: modules/display-conditions/conditions/post.php:72
+#: modules/display-conditions/conditions/taxonomy-archive.php:70
+#: modules/display-conditions/conditions/user.php:69
+msgid "Any"
+msgstr ""
+
+#: modules/display-conditions/conditions/author-archive.php:70
+msgid "Leave blank for all authors."
+msgstr ""
+
+#: modules/display-conditions/conditions/browser.php:54
+msgid "Browser"
+msgstr ""
+
+#: modules/display-conditions/conditions/date-archive.php:70
+msgid "Leave blank or select all for any date based archive."
+msgstr ""
+
+#: modules/display-conditions/conditions/date-archive.php:75
+msgid "Month"
+msgstr ""
+
+#: modules/display-conditions/conditions/date-archive.php:76
+msgid "Year"
+msgstr ""
+
+#: modules/display-conditions/conditions/date-time-before.php:54
+msgid "Current Date & Time"
+msgstr ""
+
+#: modules/display-conditions/conditions/date.php:54
+msgid "Current Date"
+msgstr ""
+
+#: modules/display-conditions/conditions/date.php:71
+msgid "In interval"
+msgstr ""
+
+#: modules/display-conditions/conditions/day.php:54
+msgid "Day of Week"
+msgstr ""
+
+#: modules/display-conditions/conditions/day.php:67
+msgid "Day(s)"
+msgstr ""
+
+#: modules/display-conditions/conditions/os.php:54
+msgid "Operating System"
+msgstr ""
+
+#: modules/display-conditions/conditions/page.php:55
+msgid "Page"
+msgstr ""
+
+#: modules/display-conditions/conditions/page.php:73
+msgid "Leave blank for any page."
+msgstr ""
+
+#: modules/display-conditions/conditions/post-term.php:54
+msgid "Post Term"
+msgstr ""
+
+#: modules/display-conditions/conditions/post-term.php:68
+#: modules/display-conditions/conditions/term-archive.php:69
+msgid "Leave blank or select all for any term."
+msgstr ""
+
+#: modules/display-conditions/conditions/post-type-archive.php:71
+#: modules/display-conditions/conditions/post-type.php:71
+msgid "Leave blank or select all for any post type."
+msgstr ""
+
+#: modules/display-conditions/conditions/post.php:54
+msgid "Post"
+msgstr ""
+
+#: modules/display-conditions/conditions/post.php:73
+msgid "Leave blank for any post."
+msgstr ""
+
+#: modules/display-conditions/conditions/role.php:54
+msgid "User Role"
+msgstr ""
+
+#: modules/display-conditions/conditions/role.php:70
+msgid "Warning: This condition applies only to logged in visitors."
+msgstr ""
+
+#: modules/display-conditions/conditions/search-bot.php:54
+msgid "Search Bots"
+msgstr ""
+
+#: modules/display-conditions/conditions/search-results.php:69
+msgid "Keywords"
+msgstr ""
+
+#: modules/display-conditions/conditions/search-results.php:70
+msgid ""
+"Enter keywords, separated by commas, to condition the display on specific "
+"keywords and leave blank for any."
+msgstr ""
+
+#: modules/display-conditions/conditions/static-page.php:54
+msgid "Static Page"
+msgstr ""
+
+#: modules/display-conditions/conditions/static-page.php:71
+msgid "Homepage"
+msgstr ""
+
+#: modules/display-conditions/conditions/static-page.php:72
+msgid "Front Page"
+msgstr ""
+
+#: modules/display-conditions/conditions/static-page.php:73
+msgid "Blog"
+msgstr ""
+
+#: modules/display-conditions/conditions/static-page.php:74
+msgid "404 Page"
+msgstr ""
+
+#: modules/display-conditions/conditions/taxonomy-archive.php:55
+msgid "Taxonomy"
+msgstr ""
+
+#: modules/display-conditions/conditions/taxonomy-archive.php:71
+msgid "Leave blank or select all for any taxonomy."
+msgstr ""
+
+#: modules/display-conditions/conditions/term-archive.php:55
+#: modules/posts/widgets/posts-base.php:300
+#: modules/posts/widgets/posts-base.php:313
+msgid "Term"
+msgstr ""
+
+#: modules/display-conditions/conditions/time.php:54
+msgid "Time of Day"
+msgstr ""
+
+#: modules/display-conditions/conditions/user.php:54
+msgid "Current User"
+msgstr ""
+
+#: modules/display-conditions/conditions/user.php:70
+msgid "Works only when visitor is a logged in user. Leave blank for all users."
+msgstr ""
+
+#: modules/display-conditions/module.php:69
+msgid "User"
+msgstr ""
+
+#: modules/display-conditions/module.php:72
+msgid "Singular"
+msgstr ""
+
+#: modules/display-conditions/module.php:75
+msgid "Archive"
+msgstr ""
+
+#: modules/display-conditions/module.php:78
+msgid "Date & Time"
+msgstr ""
+
+#: modules/display-conditions/module.php:81
+msgid "Advanced Custom Fields"
+msgstr ""
+
+#: modules/display-conditions/module.php:84
+msgid "Misc"
+msgstr ""
+
+#: modules/display-conditions/module.php:332
+msgid "Output HTML"
+msgstr ""
+
+#: modules/display-conditions/module.php:333
+msgid ""
+"If enabled, the HTML code will exist on the page but the %s will be hidden "
+"using CSS."
+msgstr ""
+
+#: modules/display-conditions/module.php:350
+msgid "Display on"
+msgstr ""
+
+#: modules/display-conditions/module.php:354
+msgid "All conditions met"
+msgstr ""
+
+#: modules/display-conditions/module.php:355
+msgid "Any condition met"
+msgstr ""
+
+#: modules/display-conditions/module.php:384
+msgid "Is"
+msgstr ""
+
+#: modules/display-conditions/module.php:385
+msgid "Is not"
+msgstr ""
+
+#: modules/display-conditions/module.php:395
+msgid "Conditions"
 msgstr ""
 
 #: modules/divider/widgets/divider.php:102
@@ -6054,11 +6113,11 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:934
 #: modules/pricing/widgets/pricing-table.php:572
 #: modules/pricing/widgets/pricing-table.php:1238
-#: modules/team-member/widgets/team-member-carousel.php:137
-#: modules/team-member/widgets/team-member-carousel.php:1269
-#: modules/team-member/widgets/team-member-carousel.php:2087
-#: modules/team-member/widgets/team-member.php:152
-#: modules/team-member/widgets/team-member.php:978
+#: modules/team-member/widgets/team-member-carousel.php:151
+#: modules/team-member/widgets/team-member-carousel.php:1283
+#: modules/team-member/widgets/team-member-carousel.php:2114
+#: modules/team-member/widgets/team-member.php:150
+#: modules/team-member/widgets/team-member.php:975
 msgid "Position"
 msgstr ""
 
@@ -6214,8 +6273,8 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:517
 #: modules/scroll-image/widgets/scroll-image.php:446
 #: modules/scroll-image/widgets/scroll-image.php:454
-#: modules/team-member/widgets/team-member-carousel.php:902
-#: modules/team-member/widgets/team-member.php:639
+#: modules/team-member/widgets/team-member-carousel.php:916
+#: modules/team-member/widgets/team-member.php:636
 msgid "Overlay"
 msgstr ""
 
@@ -6316,7 +6375,7 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1192
 #: modules/posts/skins/skin-base.php:3354
 #: modules/posts/skins/skin-base.php:4384
-#: modules/team-member/widgets/team-member-carousel.php:658
+#: modules/team-member/widgets/team-member-carousel.php:674
 msgid "Pagination"
 msgstr ""
 
@@ -6978,7 +7037,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:560
 #: modules/instafeed/widgets/instafeed.php:529
 #: modules/logos/widgets/logo-carousel.php:235
-#: modules/team-member/widgets/team-member-carousel.php:533
+#: modules/team-member/widgets/team-member-carousel.php:549
 msgid "Carousel Settings"
 msgstr ""
 
@@ -6995,7 +7054,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:584
 #: modules/instafeed/widgets/instafeed.php:539
 #: modules/logos/widgets/logo-carousel.php:259
-#: modules/team-member/widgets/team-member-carousel.php:540
+#: modules/team-member/widgets/team-member-carousel.php:556
 msgid "Visible Items"
 msgstr ""
 
@@ -7006,7 +7065,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:608
 #: modules/instafeed/widgets/instafeed.php:559
 #: modules/logos/widgets/logo-carousel.php:282
-#: modules/team-member/widgets/team-member-carousel.php:559
+#: modules/team-member/widgets/team-member-carousel.php:575
 msgid "Items Gap"
 msgstr ""
 
@@ -7031,7 +7090,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:759
 #: modules/instafeed/widgets/instafeed.php:675
 #: modules/logos/widgets/logo-carousel.php:431
-#: modules/team-member/widgets/team-member-carousel.php:670
+#: modules/team-member/widgets/team-member-carousel.php:686
 msgid "Pagination Type"
 msgstr ""
 
@@ -7040,14 +7099,14 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:419
 #: modules/logos/widgets/logo-carousel.php:435
 #: modules/posts/skins/skin-base.php:207 modules/posts/skins/skin-base.php:3115
-#: modules/team-member/widgets/team-member-carousel.php:674
+#: modules/team-member/widgets/team-member-carousel.php:690
 msgid "Dots"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:764
 #: modules/instafeed/widgets/instafeed.php:680
 #: modules/logos/widgets/logo-carousel.php:436
-#: modules/team-member/widgets/team-member-carousel.php:675
+#: modules/team-member/widgets/team-member-carousel.php:691
 msgid "Fraction"
 msgstr ""
 
@@ -7072,49 +7131,49 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:1888
 #: modules/instafeed/widgets/instafeed.php:1701
 #: modules/logos/widgets/logo-carousel.php:761
-#: modules/team-member/widgets/team-member-carousel.php:1913
+#: modules/team-member/widgets/team-member-carousel.php:1940
 msgid "Align Left Arrow"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:1907
 #: modules/instafeed/widgets/instafeed.php:1720
 #: modules/logos/widgets/logo-carousel.php:780
-#: modules/team-member/widgets/team-member-carousel.php:1932
+#: modules/team-member/widgets/team-member-carousel.php:1959
 msgid "Align Right Arrow"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2052
 #: modules/instafeed/widgets/instafeed.php:1862
 #: modules/logos/widgets/logo-carousel.php:922
-#: modules/team-member/widgets/team-member-carousel.php:2075
+#: modules/team-member/widgets/team-member-carousel.php:2102
 msgid "Pagination: Dots"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2067
 #: modules/instafeed/widgets/instafeed.php:1878
 #: modules/logos/widgets/logo-carousel.php:937
-#: modules/team-member/widgets/team-member-carousel.php:2090
+#: modules/team-member/widgets/team-member-carousel.php:2117
 msgid "Inside"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2068
 #: modules/instafeed/widgets/instafeed.php:1879
 #: modules/logos/widgets/logo-carousel.php:938
-#: modules/team-member/widgets/team-member-carousel.php:2091
+#: modules/team-member/widgets/team-member-carousel.php:2118
 msgid "Outside"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2156
 #: modules/instafeed/widgets/instafeed.php:1972
 #: modules/logos/widgets/logo-carousel.php:1026
-#: modules/team-member/widgets/team-member-carousel.php:2179
+#: modules/team-member/widgets/team-member-carousel.php:2206
 msgid "Active Color"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2283
 #: modules/instafeed/widgets/instafeed.php:2104
 #: modules/logos/widgets/logo-carousel.php:1151
-#: modules/team-member/widgets/team-member-carousel.php:2304
+#: modules/team-member/widgets/team-member-carousel.php:2331
 msgid "Pagination: Fraction"
 msgstr ""
 
@@ -7311,7 +7370,7 @@ msgid "Least Commented"
 msgstr ""
 
 #: modules/instafeed/widgets/instafeed.php:265
-#: modules/team-member/widgets/team-member-carousel.php:390
+#: modules/team-member/widgets/team-member-carousel.php:404
 msgid "General Settings"
 msgstr ""
 
@@ -7649,8 +7708,8 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:623
 #: modules/logos/widgets/logo-grid.php:577
 #: modules/logos/widgets/logo-grid.php:665
-#: modules/team-member/widgets/team-member-carousel.php:954
-#: modules/team-member/widgets/team-member.php:691
+#: modules/team-member/widgets/team-member-carousel.php:968
+#: modules/team-member/widgets/team-member.php:688
 msgid "Opacity"
 msgstr ""
 
@@ -8083,11 +8142,6 @@ msgstr ""
 
 #: modules/posts/widgets/posts-base.php:294
 msgid "Include By"
-msgstr ""
-
-#: modules/posts/widgets/posts-base.php:300
-#: modules/posts/widgets/posts-base.php:313
-msgid "Term"
 msgstr ""
 
 #: modules/posts/widgets/posts-base.php:332
@@ -8529,233 +8583,233 @@ msgstr ""
 msgid "Reverse Direction"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:112
+#: modules/team-member/widgets/team-member-carousel.php:126
 msgid "Team Members"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:125
-#: modules/team-member/widgets/team-member-carousel.php:1066
-#: modules/team-member/widgets/team-member.php:140
-#: modules/team-member/widgets/team-member.php:776
+#: modules/team-member/widgets/team-member-carousel.php:139
+#: modules/team-member/widgets/team-member-carousel.php:1080
+#: modules/team-member/widgets/team-member.php:138
+#: modules/team-member/widgets/team-member.php:773
 msgid "Name"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:130
-#: modules/team-member/widgets/team-member.php:145
+#: modules/team-member/widgets/team-member-carousel.php:144
+#: modules/team-member/widgets/team-member.php:143
 msgid "John Doe"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:142
-#: modules/team-member/widgets/team-member.php:157
+#: modules/team-member/widgets/team-member-carousel.php:156
+#: modules/team-member/widgets/team-member.php:155
 msgid "WordPress Developer"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:154
-#: modules/team-member/widgets/team-member.php:181
+#: modules/team-member/widgets/team-member-carousel.php:168
+#: modules/team-member/widgets/team-member.php:179
 msgid ""
 "Enter member description here which describes the position of member in "
 "company"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:210
-#: modules/team-member/widgets/team-member.php:232
-#: modules/team-member/widgets/team-member.php:1412
+#: modules/team-member/widgets/team-member-carousel.php:224
+#: modules/team-member/widgets/team-member.php:230
+#: modules/team-member/widgets/team-member.php:1409
 msgid "Social Links"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:216
+#: modules/team-member/widgets/team-member-carousel.php:230
 msgid "Facebook"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:224
+#: modules/team-member/widgets/team-member-carousel.php:238
 msgid "Enter Facebook page or profile URL of team member"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:232
+#: modules/team-member/widgets/team-member-carousel.php:246
 msgid "Twitter"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:240
+#: modules/team-member/widgets/team-member-carousel.php:254
 msgid "Enter Twitter profile URL of team member"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:247
+#: modules/team-member/widgets/team-member-carousel.php:261
 msgid "Instagram"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:255
+#: modules/team-member/widgets/team-member-carousel.php:269
 msgid "Enter Instagram profile URL of team member"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:262
+#: modules/team-member/widgets/team-member-carousel.php:276
 msgid "Linkedin"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:270
+#: modules/team-member/widgets/team-member-carousel.php:284
 msgid "Enter Linkedin profile URL of team member"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:277
+#: modules/team-member/widgets/team-member-carousel.php:291
 msgid "YouTube"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:285
+#: modules/team-member/widgets/team-member-carousel.php:299
 msgid "Enter YouTube profile URL of team member"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:292
+#: modules/team-member/widgets/team-member-carousel.php:306
 msgid "Pinterest"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:300
+#: modules/team-member/widgets/team-member-carousel.php:314
 msgid "Enter Pinterest profile URL of team member"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:307
+#: modules/team-member/widgets/team-member-carousel.php:321
 msgid "Dribbble"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:315
+#: modules/team-member/widgets/team-member-carousel.php:329
 msgid "Enter Dribbble profile URL of team member"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:322
+#: modules/team-member/widgets/team-member-carousel.php:336
 msgid "Email"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:330
+#: modules/team-member/widgets/team-member-carousel.php:344
 msgid "Enter email ID of team member"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:337
+#: modules/team-member/widgets/team-member-carousel.php:351
 msgid "Contact Number"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:345
+#: modules/team-member/widgets/team-member-carousel.php:359
 msgid "Enter contact number of team member"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:406
-#: modules/team-member/widgets/team-member.php:393
+#: modules/team-member/widgets/team-member-carousel.php:420
+#: modules/team-member/widgets/team-member.php:391
 msgid "Name HTML Tag"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:427
-#: modules/team-member/widgets/team-member.php:413
+#: modules/team-member/widgets/team-member-carousel.php:441
+#: modules/team-member/widgets/team-member.php:411
 msgid "Position HTML Tag"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:447
+#: modules/team-member/widgets/team-member-carousel.php:461
 msgid "Show Social Icons"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:460
+#: modules/team-member/widgets/team-member-carousel.php:474
 msgid "Social Icons Position"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:464
-#: modules/team-member/widgets/team-member.php:437
+#: modules/team-member/widgets/team-member-carousel.php:478
+#: modules/team-member/widgets/team-member.php:435
 msgid "Before Description"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:465
-#: modules/team-member/widgets/team-member.php:438
+#: modules/team-member/widgets/team-member-carousel.php:479
+#: modules/team-member/widgets/team-member.php:436
 msgid "After Description"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:476
-#: modules/team-member/widgets/team-member.php:450
+#: modules/team-member/widgets/team-member-carousel.php:491
+#: modules/team-member/widgets/team-member.php:448
 msgid "Overlay Content"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:481
-#: modules/team-member/widgets/team-member-carousel.php:1675
-#: modules/team-member/widgets/team-member.php:455
+#: modules/team-member/widgets/team-member-carousel.php:496
+#: modules/team-member/widgets/team-member-carousel.php:498
+#: modules/team-member/widgets/team-member-carousel.php:1689
+#: modules/team-member/widgets/team-member.php:453
 msgid "Social Icons"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:482
-#: modules/team-member/widgets/team-member.php:456
-msgid "Content + Social Icons"
-msgstr ""
-
-#: modules/team-member/widgets/team-member-carousel.php:491
-#: modules/team-member/widgets/team-member.php:464
+#: modules/team-member/widgets/team-member-carousel.php:507
+#: modules/team-member/widgets/team-member.php:463
 msgid "Divider after Name"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:504
-#: modules/team-member/widgets/team-member.php:476
+#: modules/team-member/widgets/team-member-carousel.php:520
+#: modules/team-member/widgets/team-member.php:475
 msgid "Divider after Position"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:516
-#: modules/team-member/widgets/team-member.php:491
+#: modules/team-member/widgets/team-member-carousel.php:532
+#: modules/team-member/widgets/team-member.php:490
 msgid "Divider after Description"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:724
+#: modules/team-member/widgets/team-member-carousel.php:738
 msgid "Box Style"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:1175
-#: modules/team-member/widgets/team-member-carousel.php:1378
-#: modules/team-member/widgets/team-member-carousel.php:1581
-#: modules/team-member/widgets/team-member.php:884
-#: modules/team-member/widgets/team-member.php:1087
-#: modules/team-member/widgets/team-member.php:1312
+#: modules/team-member/widgets/team-member-carousel.php:1189
+#: modules/team-member/widgets/team-member-carousel.php:1392
+#: modules/team-member/widgets/team-member-carousel.php:1595
+#: modules/team-member/widgets/team-member.php:881
+#: modules/team-member/widgets/team-member.php:1084
+#: modules/team-member/widgets/team-member.php:1309
 msgid "Divider Width"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:1205
-#: modules/team-member/widgets/team-member-carousel.php:1408
-#: modules/team-member/widgets/team-member-carousel.php:1611
-#: modules/team-member/widgets/team-member.php:914
-#: modules/team-member/widgets/team-member.php:1117
-#: modules/team-member/widgets/team-member.php:1344
+#: modules/team-member/widgets/team-member-carousel.php:1219
+#: modules/team-member/widgets/team-member-carousel.php:1422
+#: modules/team-member/widgets/team-member-carousel.php:1625
+#: modules/team-member/widgets/team-member.php:911
+#: modules/team-member/widgets/team-member.php:1114
+#: modules/team-member/widgets/team-member.php:1341
 msgid "Divider Height"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:1683
-#: modules/team-member/widgets/team-member.php:1420
+#: modules/team-member/widgets/team-member-carousel.php:1697
+#: modules/team-member/widgets/team-member.php:1417
 msgid "Icons Gap"
 msgstr ""
 
-#: modules/team-member/widgets/team-member-carousel.php:1743
-#: modules/team-member/widgets/team-member-carousel.php:1813
+#: modules/team-member/widgets/team-member-carousel.php:1757
+#: modules/team-member/widgets/team-member-carousel.php:1827
 msgid "Icons Color"
 msgstr ""
 
-#: modules/team-member/widgets/team-member.php:133
+#: modules/team-member/widgets/team-member.php:131
 msgid "Details"
 msgstr ""
 
-#: modules/team-member/widgets/team-member.php:164
+#: modules/team-member/widgets/team-member.php:162
 msgid "Show Description"
 msgstr ""
 
-#: modules/team-member/widgets/team-member.php:239
+#: modules/team-member/widgets/team-member.php:237
 msgid "Show Social Links"
 msgstr ""
 
-#: modules/team-member/widgets/team-member.php:253
+#: modules/team-member/widgets/team-member.php:251
 msgid "Social Icon"
 msgstr ""
 
-#: modules/team-member/widgets/team-member.php:326
+#: modules/team-member/widgets/team-member.php:324
 msgid "Social Link"
 msgstr ""
 
-#: modules/team-member/widgets/team-member.php:332
+#: modules/team-member/widgets/team-member.php:330
 msgid "Enter URL"
 msgstr ""
 
-#: modules/team-member/widgets/team-member.php:339
+#: modules/team-member/widgets/team-member.php:337
 msgid "Add Social Links"
 msgstr ""
 
-#: modules/team-member/widgets/team-member.php:433
+#: modules/team-member/widgets/team-member.php:431
 msgid "Social Links Position"
+msgstr ""
+
+#: modules/team-member/widgets/team-member.php:455
+msgid "Description + Social Icons"
 msgstr ""
 
 #: modules/twitter/widgets/twitter-buttons.php:84
@@ -8882,7 +8936,21 @@ msgstr ""
 msgid "Expanded"
 msgstr ""
 
-#: plugin.php:412
+#: plugin.php:201
+msgid ""
+"The <b>username</b> added is not a valid Instagram Username. Check browser "
+"console for more details."
+msgstr ""
+
+#: plugin.php:202
+msgid "This account is private."
+msgstr ""
+
+#: plugin.php:203
+msgid "No <i>images</i> were found in the Instagram profile for <b>"
+msgstr ""
+
+#: plugin.php:433
 msgid "PowerPack Elements"
 msgstr ""
 
