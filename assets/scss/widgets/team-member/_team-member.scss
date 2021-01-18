@@ -8,6 +8,7 @@
             list-style: none;
             margin: 0;
             padding: 0;
+			vertical-align: top;
         }
     }
     .pp-tm-title-divider-wrap {
@@ -27,7 +28,10 @@
     }
     .pp-tm-image {
         display: inline-block;
-        position: relative;
+		position: relative;
+		img {
+			display: block;
+		}
     }
 }
 .pp-tm-content-normal {
@@ -70,4 +74,9 @@
     a {
         color: inherit;
     }
+}
+.pp-tm-description {
+	p:last-child {
+		margin-bottom: 0;
+	}
 }

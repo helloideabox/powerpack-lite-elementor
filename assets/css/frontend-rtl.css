@@ -1786,7 +1786,8 @@ div[class*=' pa-'] {
     .pp-tm-wrapper .pp-tm-social-links li {
       list-style: none;
       margin: 0;
-      padding: 0; }
+      padding: 0;
+      vertical-align: top; }
   .pp-tm-wrapper .pp-tm-title-divider-wrap {
     font-size: 0;
     line-height: 1; }
@@ -1800,6 +1801,8 @@ div[class*=' pa-'] {
   .pp-tm-wrapper .pp-tm-image {
     display: inline-block;
     position: relative; }
+    .pp-tm-wrapper .pp-tm-image img {
+      display: block; }
 
 .pp-tm-content-normal {
   position: relative;
@@ -1839,6 +1842,9 @@ div[class*=' pa-'] {
 
 .pp-tm-name a {
   color: inherit; }
+
+.pp-tm-description p:last-child {
+  margin-bottom: 0; }
 
 .pp-tm-carousel {
   position: relative; }

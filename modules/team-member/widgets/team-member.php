@@ -81,12 +81,10 @@ class Team_Member extends Powerpack_Widget {
 	 *
 	 * @return array Widget scripts dependencies.
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  CONTENT TAB
+		/*-----------------------------------------------------------------------------------*/
+		/*	CONTENT TAB
 		/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -439,7 +437,7 @@ class Team_Member extends Powerpack_Widget {
 				),
 				'condition' => array(
 					'member_social_links' => 'yes',
-					'overlay_content!'    => 'social_icons',
+					'overlay_content'     => [ 'none', 'all_content' ],
 				),
 			)
 		);
@@ -453,7 +451,8 @@ class Team_Member extends Powerpack_Widget {
 				'options' => array(
 					'none'         => __( 'None', 'powerpack' ),
 					'social_icons' => __( 'Social Icons', 'powerpack' ),
-					'all_content'  => __( 'Content + Social Icons', 'powerpack' ),
+					'content'      => __( 'Description', 'powerpack' ),
+					'all_content'  => __( 'Description + Social Icons', 'powerpack' ),
 				),
 			)
 		);
@@ -529,10 +528,8 @@ class Team_Member extends Powerpack_Widget {
 			$this->end_controls_section();
 		}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  STYLE TAB
+		/*-----------------------------------------------------------------------------------*/
+		/*	STYLE TAB
 		/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -1593,7 +1590,7 @@ class Team_Member extends Powerpack_Widget {
 		$link_key = 'link';
 
 		if ( ! empty( $settings['image']['url'] ) ) {
-			if ( $settings['link_type'] == 'image' && $settings['link']['url'] != '' ) {
+			if ( 'image' === $settings['link_type'] && $settings['link']['url'] ) {
 				printf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( $link_key ), Group_Control_Image_Size::get_attachment_image_html( $settings ) );
 			} else {
 				echo Group_Control_Image_Size::get_attachment_image_html( $settings );
@@ -1605,20 +1602,20 @@ class Team_Member extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 
 		$member_key = 'team_member_name';
-		$link_key   = 'link';
+		$link_key = 'link';
 
 		$this->add_inline_editing_attributes( $member_key, 'none' );
 		$this->add_render_attribute( $member_key, 'class', 'pp-tm-name' );
 
-		if ( $settings[ $member_key ] != '' ) {
-			if ( $settings['link_type'] == 'title' && $settings['link']['url'] != '' ) {
+		if ( $settings[ $member_key ] ) {
+			if ( 'title' === $settings['link_type'] && $settings['link']['url'] ) {
 				printf( '<%1$s %2$s><a %3$s>%4$s</a></%1$s>', $settings['name_html_tag'], $this->get_render_attribute_string( $member_key ), $this->get_render_attribute_string( $link_key ), $settings['team_member_name'] );
 			} else {
 				printf( '<%1$s %2$s>%3$s</%1$s>', $settings['name_html_tag'], $this->get_render_attribute_string( $member_key ), $settings['team_member_name'] );
 			}
 		}
 
-		if ( $settings['member_title_divider'] == 'yes' ) { ?>
+		if ( 'yes' === $settings['member_title_divider'] ) { ?>
 			<div class="pp-tm-title-divider-wrap">
 				<div class="pp-tm-divider pp-tm-title-divider"></div>
 			</div>
@@ -1631,17 +1628,15 @@ class Team_Member extends Powerpack_Widget {
 		$this->add_inline_editing_attributes( 'team_member_position', 'none' );
 		$this->add_render_attribute( 'team_member_position', 'class', 'pp-tm-position' );
 
-		if ( $settings['team_member_position'] != '' ) {
+		if ( $settings['team_member_position'] ) {
 			printf( '<%1$s %2$s>%3$s</%1$s>', $settings['position_html_tag'], $this->get_render_attribute_string( 'team_member_position' ), $settings['team_member_position'] );
 		}
 
-		if ( $settings['member_position_divider'] == 'yes' ) {
-			?>
+		if ( 'yes' === $settings['member_position_divider'] ) { ?>
 			<div class="pp-tm-position-divider-wrap">
 				<div class="pp-tm-divider pp-tm-position-divider"></div>
 			</div>
-			<?php
-		}
+		<?php }
 	}
 
 	protected function render_description() {
@@ -1649,31 +1644,29 @@ class Team_Member extends Powerpack_Widget {
 		$this->add_inline_editing_attributes( 'team_member_description', 'basic' );
 		$this->add_render_attribute( 'team_member_description', 'class', 'pp-tm-description' );
 
-		if ( $settings['team_member_description_switch'] == 'yes' ) {
-			if ( $settings['team_member_description'] != '' ) {
-				?>
+		if ( 'yes' === $settings['team_member_description_switch'] ) {
+			if ( $settings['team_member_description'] ) { ?>
 				<div <?php echo $this->get_render_attribute_string( 'team_member_description' ); ?>>
 					<?php echo $this->parse_text_editor( $settings['team_member_description'] ); ?>
 				</div>
 			<?php } ?>
-			<?php if ( $settings['member_description_divider'] == 'yes' ) { ?>
+			<?php if ( 'yes' === $settings['member_description_divider'] ) { ?>
 				<div class="pp-tm-description-divider-wrap">
 					<div class="pp-tm-divider pp-tm-description-divider"></div>
 				</div>
-				<?php
-			}
+			<?php }
 		}
 	}
 
 	protected function render_social_links() {
 		$settings = $this->get_settings_for_display();
-		$i        = 1;
+		$i = 1;
 
-		$fallback_defaults = array(
+		$fallback_defaults = [
 			'fa fa-facebook',
 			'fa fa-twitter',
 			'fa fa-google-plus',
-		);
+		];
 
 		$migration_allowed = Icons_Manager::is_migration_allowed();
 
@@ -1683,17 +1676,17 @@ class Team_Member extends Powerpack_Widget {
 		}
 
 		$migrated = isset( $item['__fa4_migrated']['select_social_icon'] );
-		$is_new   = ! isset( $item['icon'] ) && $migration_allowed;
+		$is_new = ! isset( $item['icon'] ) && $migration_allowed;
 		?>
 		<div class="pp-tm-social-links-wrap">
 			<ul class="pp-tm-social-links">
 				<?php foreach ( $settings['team_member_social'] as $index => $item ) : ?>
 					<?php
-						$migrated = isset( $item['__fa4_migrated']['select_social_icon'] );
-						$is_new   = empty( $item['social_icon'] ) && $migration_allowed;
-						$social   = '';
+					$migrated = isset( $item['__fa4_migrated']['select_social_icon'] );
+					$is_new = empty( $item['social_icon'] ) && $migration_allowed;
+					$social = '';
 
-						// add old default
+					// add old default
 					if ( empty( $item['social_icon'] ) && ! $migration_allowed ) {
 						$item['social_icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-wordpress';
 					}
@@ -1714,38 +1707,33 @@ class Team_Member extends Powerpack_Widget {
 						$social = '';
 					}
 
-						$this->add_render_attribute( 'social-link', 'class', 'pp-tm-social-link' );
-						$social_link_key = 'social-link' . $i;
+					$this->add_render_attribute( 'social-link', 'class', 'pp-tm-social-link' );
+					$social_link_key = 'social-link' . $i;
 					if ( ! empty( $item['social_link']['url'] ) ) {
 						$this->add_link_attributes( $social_link_key, $item['social_link'] );
 					}
 					?>
 					<li>
 						<?php
-							// if ( $item['social_icon'] ) :
-						?>
+							//if ( $item['social_icon'] ) : ?>
 								<a <?php echo $this->get_render_attribute_string( $social_link_key ); ?>>
 									<span class="pp-tm-social-icon-wrap">
 										<span class="elementor-screen-only"><?php echo ucwords( $social ); ?></span>
 										<span class="pp-tm-social-icon pp-icon">
 										<?php
 										if ( $is_new || $migrated ) {
-											Icons_Manager::render_icon( $item['select_social_icon'], array( 'aria-hidden' => 'true' ) );
-										} else {
-											?>
+											Icons_Manager::render_icon( $item['select_social_icon'], [ 'aria-hidden' => 'true' ] );
+										} else { ?>
 											<i class="<?php echo esc_attr( $item['social_icon'] ); ?>"></i>
 										<?php } ?>
 										</span>
 									</span>
 								</a>
-							<?php
-							// endif;
+							<?php //endif;
 							?>
 					</li>
-					<?php
-					$i++;
-endforeach;
-				?>
+					<?php $i++;
+				endforeach; ?>
 			</ul>
 		</div>
 		<?php
@@ -1755,7 +1743,7 @@ endforeach;
 		$settings = $this->get_settings_for_display();
 		$link_key = 'link';
 
-		if ( $settings['link_type'] != 'none' ) {
+		if ( 'none' !== $settings['link_type'] ) {
 			if ( ! empty( $settings['link']['url'] ) ) {
 				$this->add_link_attributes( $link_key, $settings['link'] );
 			}
@@ -1763,114 +1751,76 @@ endforeach;
 		?>
 		<div class="pp-tm-wrapper">
 			<div class="pp-tm">
-				<?php
-				if ( $settings['overlay_content'] == 'social_icons' ) {
-					?>
-						<div class="pp-tm-image"> 
-							<?php
-							// Image
-							$this->render_image();
-							?>
-							<div class="pp-tm-overlay-content-wrap">
-								<div class="pp-tm-content">
-								<?php
-								if ( $settings['member_social_links'] == 'yes' ) {
-									$this->render_social_links();
-								}
-								?>
-								</div>
-							</div>
-						</div>
-						<?php
-				}
+				<div class="pp-tm-image"> 
+					<?php $this->render_image(); ?>
 
-				if ( $settings['overlay_content'] == 'all_content' ) {
-					?>
-						<div class="pp-tm-image"> 
-							<?php
-							// Image
-							$this->render_image();
-							?>
-							<div class="pp-tm-overlay-content-wrap">
-								<div class="pp-tm-content">
+					<?php if ( 'none' !== $settings['overlay_content'] ) { ?>
+						<div class="pp-tm-overlay-content-wrap">
+							<div class="pp-tm-content">
 								<?php
-								if ( $settings['member_social_links'] == 'yes' ) {
-									if ( $settings['social_links_position'] == 'before_desc' ) {
+								if ( 'yes' === $settings['member_social_links'] ) {
+									if ( 'social_icons' === $settings['overlay_content'] ) {
 										$this->render_social_links();
+									} elseif ( 'all_content' === $settings['overlay_content'] ) {
+										if ( 'before_desc' === $settings['social_links_position'] ) {
+											$this->render_social_links();
+										}
 									}
 								}
 
-									// Description
+								if ( 'content' === $settings['overlay_content'] || 'all_content' === $settings['overlay_content'] ) {
 									$this->render_description();
+								}
 
-								if ( $settings['member_social_links'] == 'yes' ) {
-									if ( $settings['social_links_position'] == 'after_desc' ) {
+								if ( 'yes' === $settings['member_social_links'] && 'all_content' === $settings['overlay_content'] ) {
+									if ( 'after_desc' === $settings['social_links_position'] ) {
 										$this->render_social_links();
 									}
 								}
 								?>
-								</div>
 							</div>
 						</div>
-						<div class="pp-tm-content pp-tm-content-normal">
-							<?php
-							// Name
-							$this->render_name();
-
-							// Position
-							$this->render_position();
-							?>
-						</div>
-						<?php
-				}
-
-				if ( $settings['overlay_content'] == 'none' || $settings['overlay_content'] == '' ) {
-					if ( ! empty( $settings['image']['url'] ) ) {
-						?>
-							<div class="pp-tm-image"> 
-								<?php
-								// Image
-								$this->render_image();
-								?>
-							</div>
-							<?php
-					}
-					?>
-					<div class="pp-tm-content pp-tm-content-normal">
+					<?php } ?>
+				</div>
+				<div class="pp-tm-content pp-tm-content-normal">
 					<?php
-						// Name
-						$this->render_name();
+					// Name
+					$this->render_name();
 
-						// Position
-						$this->render_position();
+					// Position
+					$this->render_position();
 
-					if ( $settings['member_social_links'] == 'yes' && $settings['overlay_content'] == 'none' ) {
-						if ( $settings['social_links_position'] == 'before_desc' ) {
+					if ( 'yes' === $settings['member_social_links'] && ( 'none' === $settings['overlay_content'] || 'content' === $settings['overlay_content'] ) ) {
+						if ( 'none' === $settings['overlay_content'] ) {
+							if ( 'before_desc' === $settings['social_links_position'] ) {
+								$this->render_social_links();
+							}
+						} else {
 							$this->render_social_links();
 						}
 					}
 
-						// Description
+					if ( 'none' === $settings['overlay_content'] || 'social_icons' === $settings['overlay_content'] ) {
 						$this->render_description();
+					}
 
-					if ( $settings['member_social_links'] == 'yes' && $settings['overlay_content'] == 'none' ) {
-						if ( $settings['social_links_position'] == 'after_desc' ) {
+					if ( 'yes' === $settings['member_social_links'] && ( 'none' === $settings['overlay_content'] || 'content' === $settings['overlay_content'] ) ) {
+						if ( 'after_desc' === $settings['social_links_position'] && 'none' === $settings['overlay_content'] ) {
 							$this->render_social_links();
 						}
 					}
 					?>
-					</div><!-- .pp-tm-content -->
-				<?php } ?>
-			</div><!-- .pp-tm -->
+				</div>
+			</div>
 		</div>
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		?>
 		<#
-			  function member_image() {
-				   if ( '' !== settings.image.url ) {
+			function member_image() {
+				if ( '' !== settings.image.url ) {
 					var image = {
 						id: settings.image.id,
 						url: settings.image.url,
@@ -1882,8 +1832,8 @@ endforeach;
 					var image_url = elementor.imagesManager.getImageUrl( image );
 				}
 		   
-				   if ( settings.image.url != '' ) {
-					   if ( settings.link_type == 'image' && settings.link.url != '' ) {
+				if ( settings.image.url != '' ) {
+					if ( settings.link_type == 'image' && settings.link.url != '' ) {
 						var target = settings.link.is_external ? ' target="_blank"' : '';
 						var nofollow = settings.link.nofollow ? ' rel="nofollow"' : '';
 						#>
@@ -1895,9 +1845,9 @@ endforeach;
 					<# }
 				}
 			}
-	
-			   function member_name() {
-				   if ( settings.team_member_name != '' ) {
+
+			function member_name() {
+				if ( settings.team_member_name != '' ) {
 					var name = settings.team_member_name;
 
 					view.addRenderAttribute( 'team_member_name', 'class', 'pp-tm-name' );
@@ -1905,29 +1855,29 @@ endforeach;
 					view.addInlineEditingAttributes( 'team_member_name' );
 
 					var name_html = '<' + settings.name_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + settings.name_html_tag + '>';
-		   
-					if ( settings.link_type == 'title' && settings.link.url != '' ) {
-						var target = settings.link.is_external ? ' target="_blank"' : '';
-						var nofollow = settings.link.nofollow ? ' rel="nofollow"' : '';
-
-						var name = '<a href="' + settings.link.url + '" ' + target + '>' + name + '</a>';
-					}
-				   
-					var name_html = '<' + settings.name_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + settings.name_html_tag + '>';
-
-					print( name_html );
-
-					if ( settings.member_title_divider == 'yes' ) { #>
-						<div class="pp-tm-title-divider-wrap">
-							<div class="pp-tm-divider pp-tm-title-divider"></div>
-						</div>
-						<#
-					}
 				}
+		   
+				if ( settings.link_type == 'title' && settings.link.url != '' ) { #>
+					<#
+					var target = settings.link.is_external ? ' target="_blank"' : '';
+					var nofollow = settings.link.nofollow ? ' rel="nofollow"' : '';
+					#>
+					<a href="{{ settings.link.url }}"{{ target }}{{ nofollow }}>
+						<# print( name_html ); #>
+					</a>
+				<# } else {
+					print( name_html );
+				}
+				   
+				if ( settings.member_title_divider == 'yes' ) { #>
+					<div class="pp-tm-title-divider-wrap">
+						<div class="pp-tm-divider pp-tm-title-divider"></div>
+					</div>
+				<# }
 			}
-	
-			  function member_position() {
-				   if ( settings.team_member_position != '' ) {
+
+			function member_position() {
+				if ( settings.team_member_position != '' ) {
 					var position = settings.team_member_position;
 
 					view.addRenderAttribute( 'team_member_position', 'class', 'pp-tm-position' );
@@ -1939,15 +1889,15 @@ endforeach;
 					print( position_html );
 				}
 		   
-				   if ( settings.member_position_divider == 'yes' ) { #>
+				if ( settings.member_position_divider == 'yes' ) { #>
 					<div class="pp-tm-position-divider-wrap">
 						<div class="pp-tm-divider pp-tm-position-divider"></div>
 					</div>
 				<# }
 			}
-	
+
 			function member_description() {
-				   if ( settings.team_member_description_switch == 'yes' ) {
+				if ( settings.team_member_description_switch == 'yes' ) {
 					if ( settings.team_member_description != '' ) {
 						var description = settings.team_member_description;
 
@@ -1960,7 +1910,7 @@ endforeach;
 						print( description_html );
 					}
 		   
-					   if ( settings.member_description_divider == 'yes' ) { #>
+					if ( settings.member_description_divider == 'yes' ) { #>
 						<div class="pp-tm-description-divider-wrap">
 							<div class="pp-tm-divider pp-tm-description-divider"></div>
 						</div>
@@ -2006,79 +1956,64 @@ endforeach;
 
 		<div class="pp-tm-wrapper">
 			<div class="pp-tm">
-				<# if ( settings.overlay_content == 'social_icons' ) { #>
-					<div class="pp-tm-image"> 
-						<# member_image(); #>
-						<div class="pp-tm-overlay-content-wrap">
-							<div class="pp-tm-content">
-								<# if ( settings.member_social_links == 'yes' ) { #>
-									<# member_social_links(); #>
-								<# } #>
-							</div>
-						</div>
-					</div>
-				<# } #>
+				<div class="pp-tm-image"> 
+					<# member_image(); #>
 
-				<# if ( settings.overlay_content == 'all_content' ) { #>
-					<div class="pp-tm-image"> 
-						<# member_image(); #>
+					<# if ( settings.overlay_content != 'none' ) { #>
 						<div class="pp-tm-overlay-content-wrap">
 							<div class="pp-tm-content">
 								<#
-								   if ( settings.member_social_links == 'yes' ) {
-										   if ( settings.social_links_position == 'before_desc' ) {
-											   member_social_links();
-										   }
-								   }
-								   
-								   member_description();
-								   
-								   if ( settings.member_social_links == 'yes' ) {
-										   if ( settings.social_links_position == 'after_desc' ) {
-											   member_social_links();
-										   }
-								   }
+									if ( settings.member_social_links == 'yes' ) {
+										if ( settings.overlay_content == 'social_icons' ) {
+											member_social_links();
+										} else if ( settings.overlay_content == 'all_content' ) {
+											if ( settings.social_links_position == 'before_desc' ) {
+												member_social_links();
+											}
+										}
+									}
+
+									if ( settings.overlay_content == 'content' || settings.overlay_content == 'all_content' ) {
+										member_description();
+									}
+
+									if ( settings.member_social_links == 'yes' && settings.overlay_content == 'all_content' ) {
+										if ( settings.social_links_position == 'after_desc' ) {
+											member_social_links();
+										}
+									}
 								#>
 							</div>
 						</div>
-					</div>
-					<div class="pp-tm-content pp-tm-content-normal">
-						<# member_name(); #>
-						<# member_position(); #>
-					</div>
-				<# } #>
-
-				<# if ( settings.overlay_content != 'all_content' ) { #>
-					<# if ( settings.overlay_content != 'social_icons' ) { #>
-						<# if ( settings.image.url != '' ) { #>
-							<div class="pp-tm-image"> 
-								<# member_image(); #>
-							</div>
-						<# } #>
 					<# } #>
-					<div class="pp-tm-content pp-tm-content-normal">
-						<#
-						   member_name();
-						   member_position();
-						   
-						   if ( settings.member_social_links == 'yes' && settings.overlay_content == 'none' ) {
-								   if ( settings.social_links_position == 'before_desc' ) {
-									   member_social_links();
-								   }
+				</div>
+				<div class="pp-tm-content pp-tm-content-normal">
+					<#
+						member_name();
+						member_position();
+
+						if ( settings.member_social_links == 'yes' && ( settings.overlay_content == 'none' || settings.overlay_content == 'content' ) ) {
+							if ( settings.overlay_content == 'none' ) {
+								if ( settings.social_links_position == 'before_desc' ) {
+									member_social_links();
+								}
+							} else {
+								member_social_links();
 							}
-						   
-							   member_description();
-						   
-							   if ( settings.member_social_links == 'yes' && settings.overlay_content == 'none' ) {
-								   if ( settings.social_links_position == 'after_desc' ) {
-									   member_social_links();
-								   }
-							   }
-						#>
-					</div>
-				<# } #>
+						}
+
+						if ( settings.overlay_content == 'none' || settings.overlay_content == 'social_icons' ) {
+							member_description();
+						}
+
+						if ( settings.member_social_links == 'yes' && ( settings.overlay_content == 'none' || settings.overlay_content == 'content' ) ) {
+							if ( settings.social_links_position == 'after_desc' && settings.overlay_content == 'none' ) {
+								member_social_links();
+							}
+						}
+					#>
+				</div>
 			</div>
 		</div>
-		<?php
-	}
+		<?php }
 }
