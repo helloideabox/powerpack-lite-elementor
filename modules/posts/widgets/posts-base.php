@@ -48,7 +48,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		return array(
 			'isotope',
 			'imagesloaded',
-			'jquery-slick',
+			'pp-slick',
 			'powerpack-frontend-posts',
 			'powerpack-pp-posts',
 			'powerpack-frontend',
