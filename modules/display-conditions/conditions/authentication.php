@@ -76,7 +76,7 @@ class Authentication extends Condition {
 	/**
 	 * Check condition
 	 *
-	 * @since x.x.x
+	 * @since 2.2.3
 	 *
 	 * @access public
 	 *

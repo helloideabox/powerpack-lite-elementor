@@ -206,10 +206,8 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
-= 2.2.4 - February 2, 2020 =
+= 2.2.3 - February 3, 2020 =
 * 	Fixed: Compatibility with Elementor 3.0
-
-= 2.2.3 - January 18, 2020 =
 * 	Fixed: Team Member, Team Member Carousel - Added option to show content over image
 * 	Fixed: Display Conditions - Timezone issue
 * 	Added: Display Conditions - Post term, Terms archive, Current User, Day of Week, Current Date and Time conditions

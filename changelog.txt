@@ -1,9 +1,6 @@
-== 2.2.4 ==
-Release date: February 2, 2021
-* Fixed: Compatibility with Elementor 3.0
-
 == 2.2.3 ==
-Release date: January 18, 2021
+Release date: February 3, 2021
+* Fixed: Compatibility with Elementor 3.0
 * Fixed: Team Member, Team Member Carousel - Added option to show content over image
 * Fixed: Display Conditions - Timezone issue
 * Added: Display Conditions - Post term, Terms archive, Current User, Day of Week, Current Date and Time conditions

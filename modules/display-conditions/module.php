@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * \Modules\DisplayConditions\Module
  *
- * @since  x.x.x
+ * @since  2.2.3
  */
 class Module extends Module_Base {
 

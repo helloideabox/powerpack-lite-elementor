@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * \Modules\DisplayConditions\Conditions\Term_Archive
  *
- * @since  x.x.x
+ * @since  2.2.3
  */
 class Term_Archive extends Condition {
 
@@ -24,7 +24,7 @@ class Term_Archive extends Condition {
 	 *
 	 * Get the group of the condition
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.3
 	 * @return string
 	 */
 	public function get_group() {
@@ -36,7 +36,7 @@ class Term_Archive extends Condition {
 	 *
 	 * Get the name of the module
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.3
 	 * @return string
 	 */
 	public function get_name() {
@@ -48,7 +48,7 @@ class Term_Archive extends Condition {
 	 *
 	 * Get the title of the module
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.3
 	 * @return string
 	 */
 	public function get_title() {
@@ -60,7 +60,7 @@ class Term_Archive extends Condition {
 	 *
 	 * Get the settings for the value control
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.3
 	 * @return string
 	 */
 	public function get_value_control() {
@@ -80,7 +80,7 @@ class Term_Archive extends Condition {
 	/**
 	 * Checks a given taxonomy term against the current page template
 	 *
-	 * @since x.x.x
+	 * @since 2.2.3
 	 *
 	 * @access protected
 	 *
@@ -103,7 +103,7 @@ class Term_Archive extends Condition {
 	/**
 	 * Check condition
 	 *
-	 * @since x.x.x
+	 * @since 2.2.3
 	 *
 	 * @access public
 	 *

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * \Modules\DisplayConditions\Conditions\Condition
  *
- * @since  x.x.x
+ * @since  2.2.3
  */
 class Post_Term extends Condition {
 
@@ -23,7 +23,7 @@ class Post_Term extends Condition {
 	 *
 	 * Get the group of the condition
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.3
 	 * @return string
 	 */
 	public function get_group() {
@@ -35,7 +35,7 @@ class Post_Term extends Condition {
 	 *
 	 * Get the name of the module
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.3
 	 * @return string
 	 */
 	public function get_name() {
@@ -47,7 +47,7 @@ class Post_Term extends Condition {
 	 *
 	 * Get the title of the module
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.3
 	 * @return string
 	 */
 	public function get_title() {
@@ -59,7 +59,7 @@ class Post_Term extends Condition {
 	 *
 	 * Get the settings for the value control
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.3
 	 * @return string
 	 */
 	public function get_value_control() {
@@ -79,7 +79,7 @@ class Post_Term extends Condition {
 	/**
 	 * Check condition
 	 *
-	 * @since x.x.x
+	 * @since 2.2.3
 	 *
 	 * @access public
 	 *
