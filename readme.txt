@@ -211,6 +211,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	Fixed: Team Member, Team Member Carousel - Added option to show content over image
 * 	Fixed: Display Conditions - Timezone issue
 * 	Added: Display Conditions - Post term, Terms archive, Current User, Day of Week, Current Date and Time conditions
+* 	Enhancement: Advanced Accordion - Updated default styling
+* 	Added: Advanced Accordion - Hover and active colors for Items
+* 	Added: Advanced Accordion - Title bottom spacing option
 
 = 2.2.2 - December 10, 2020 =
 * 	Fixed: Instagram Feed - Masonry layout
