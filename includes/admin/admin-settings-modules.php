@@ -1,13 +1,9 @@
 <?php
-
-/*$modules = pp_elements_lite_get_modules();
-$enabled_modules = pp_elements_lite_get_enabled_modules();*/
-
 $modules            = pp_elements_lite_get_modules();
 $extensions         = pp_elements_lite_get_extensions();
 $enabled_modules    = pp_elements_lite_get_enabled_modules();
 $enabled_extensions = pp_elements_lite_get_enabled_extensions();
-$usage_tracking 	= false;
+$usage_tracking     = false;
 ?>
 <?php if ( $usage_tracking ) { ?>
 <div class="pp-general-wrap">
@@ -15,7 +11,7 @@ $usage_tracking 	= false;
 		<tr valign="top">
 			<th scope="row" valign="top">
 				<label for="pp_allowed_tracking">
-				<?php esc_html_e('Allow usage tracking?', 'powerpack'); ?>
+				<?php esc_html_e( 'Allow usage tracking?', 'powerpack' ); ?>
 				</label>
 			</th>
 			<td>
@@ -26,7 +22,7 @@ $usage_tracking 	= false;
 							name="pp_allowed_tracking"
 							type="checkbox"
 							value="on"
-							<?php echo get_option( 'pp_allowed_tracking' ) ? ' checked="checked"' : '' ?>
+							<?php echo get_option( 'pp_allowed_tracking' ) ? ' checked="checked"' : ''; ?>
 						/>
 					</label>
 				</p>
@@ -52,7 +48,7 @@ $usage_tracking 	= false;
 				} else {
 					$extension_enabled = in_array( $extension_name, $enabled_extensions ) || isset( $enabled_extensions[ $extension_name ] );
 				}
-			?>
+				?>
 			<tr valign="top">
 				<th scope="row" valign="top">
 					<label for="<?php echo $extension_name; ?>">
@@ -66,7 +62,7 @@ $usage_tracking 	= false;
 							name="pp_enabled_extensions[]"
 							type="checkbox"
 							value="<?php echo $extension_name; ?>"
-							<?php echo $extension_enabled ? ' checked="checked"' : '' ?>
+							<?php echo $extension_enabled ? ' checked="checked"' : ''; ?>
 						/>
 						<span class="pp-admin-field-toggle-slider" aria-hidden="true"></span>
 					</label>
@@ -91,7 +87,7 @@ $usage_tracking 	= false;
 				} else {
 					$module_enabled = in_array( $module_name, $enabled_modules ) || isset( $enabled_modules[ $module_name ] );
 				}
-			?>
+				?>
 			<tr valign="top">
 				<th scope="row" valign="top">
 					<label for="<?php echo $module_name; ?>">
@@ -105,7 +101,7 @@ $usage_tracking 	= false;
 							name="pp_enabled_modules[]"
 							type="checkbox"
 							value="<?php echo $module_name; ?>"
-							<?php echo $module_enabled ? ' checked="checked"' : '' ?>
+							<?php echo $module_enabled ? ' checked="checked"' : ''; ?>
 						/>
 						<span class="pp-admin-field-toggle-slider" aria-hidden="true"></span>
 					</label>
@@ -115,4 +111,4 @@ $usage_tracking 	= false;
 		</table>
 	</div>
 </div>
-<?php wp_nonce_field('pp-modules-settings', 'pp-modules-settings-nonce'); ?>
+<?php wp_nonce_field( 'pp-modules-settings', 'pp-modules-settings-nonce' ); ?>
