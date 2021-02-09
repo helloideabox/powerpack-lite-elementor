@@ -1,3 +1,7 @@
+== 2.2.4 ==
+Release date: February 10, 2021
+* Fixed: Instagram Feed – Added compatibility with new Instagram API changes
+
 == 2.2.3 ==
 Release date: February 3, 2021
 * Fixed: Compatibility with Elementor 3.0

@@ -186,19 +186,19 @@
     };
     
     var InstaFeedPopupHandler = function ($scope, $) {
-        var widget_id					= $scope.data('id'),
-			instafeed_elem              = $scope.find('.pp-instagram-feed').eq(0),
-			elementSettings				= getElementSettings( $scope ),
-            layout                    	= elementSettings.feed_layout,
-            likes                    	= elementSettings.insta_likes,
-            comments                    = elementSettings.insta_comments;
+        var widgetId        = $scope.data('id'),
+			instafeedElem   = $scope.find('.pp-instagram-feed').eq(0),
+			elementSettings = getElementSettings( $scope ),
+            layout          = elementSettings.feed_layout,
+            likes           = elementSettings.insta_likes,
+            comments        = elementSettings.insta_comments;
 
 		if ( layout === 'carousel' ) {
 			var carousel      = $scope.find('.swiper-container').eq(0),
 				sliderOptions = JSON.parse( carousel.attr('data-slider-settings') ),
 				mySwiper      = new Swiper(carousel, sliderOptions);
-		} else if (layout === 'masonry') {
-			var grid = $('#pp-instafeed-' + widget_id).imagesLoaded( function() {
+		} else if ( layout === 'masonry' ) {
+			var grid = $('#pp-instafeed-' + widgetId).imagesLoaded( function() {
 				grid.masonry({
 					itemSelector: '.pp-feed-item',
 					percentPosition: true
@@ -207,12 +207,12 @@
 		}
 		
 		if ( elementSettings.use_api !== 'yes' ) {
-			var settings   = instafeed_elem.data('settings'),
+			var settings   = instafeedElem.data('settings'),
             	popup      = settings.popup,
             	image_link = settings.img_link;
 
 			var pp_feed = new PPInstagramFeed({
-					id: widget_id,
+					id: widgetId,
 					username: elementSettings.username,
 					layout: layout,
 					limit: settings.images_count,
@@ -220,16 +220,15 @@
 					comments_count: (comments === 'yes'),
 					popup: popup,
 					image_link: image_link,
-					carousel: $slider_options,
+					carousel: sliderOptions,
 				});
 		}
     };
     
     var TeamMemberCarouselHandler = function ($scope, $) {
-        var $carousel                   = $scope.find('.pp-tm-carousel').eq(0),
-            $slider_options             = JSON.parse( $carousel.attr('data-slider-settings') );
-            
-        var mySwiper = new Swiper($carousel, $slider_options);
+        var carousel      = $scope.find('.pp-tm-carousel').eq(0),
+            sliderOptions = JSON.parse( carousel.attr('data-slider-settings') ),
+			mySwiper      = new Swiper(carousel, sliderOptions);
     };
     
     var ImageScrollHandler = function($scope, $) {
