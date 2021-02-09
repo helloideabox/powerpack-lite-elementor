@@ -651,6 +651,7 @@ class PP_Config {
 			'Instafeed'         => array(
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=33A9XL1twFE&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
 				__( 'Widget Overview', 'powerpack' )      => 'https://powerpackelements.com/docs/powerpack/widgets/instagram-feed/instagram-feed-widget-overview/' . $utm_suffix,
+				__( 'How to get Instagram Access Token?', 'powerpack' ) => 'https://powerpackelements.com/docs/create-instagram-access-token-for-instagram-feed-widget/' . $utm_suffix,
 				__( 'How to set up Instagram Feed widget?', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/instagram-feed/elementor-instagram-widget-setup/' . $utm_suffix,
 			),
 			// Logo Carousel.
