@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\Instafeed\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -23,6 +24,30 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Instagram Feed Widget
  */
 class Instafeed extends Powerpack_Widget {
+
+	/**
+	 * Instagram Access token.
+	 *
+	 * @since x.x.x
+	 * @var   string
+	 */
+	private $insta_access_token = null;
+
+	/**
+	 * Instagram API URL.
+	 *
+	 * @since x.x.x
+	 * @var   string
+	 */
+	private $insta_api_url = 'https://www.instagram.com/';
+
+	/**
+	 * Official Instagram API URL.
+	 *
+	 * @since x.x.x
+	 * @var   string
+	 */
+	private $insta_official_api_url = 'https://graph.instagram.com/';
 
 	/**
 	 * Retrieve instagram feed widget name.
@@ -97,11 +122,69 @@ class Instafeed extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->register_controls();
+	}
 
-		/**
-		 * Content Tab: Instagram Account
-		 */
+	/**
+	 * Register FAQ widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since 2.0.3
+	 * @access protected
+	 */
+	protected function register_controls() {
+		/* Content Tab: Instagram Account */
+		$this->register_content_instaaccount_controls();
+
+		/* Content Tab: Feed Settings */
+		//$this->register_content_feed_settings_controls();
+
+		/* Content Tab: General Settings */
+		$this->register_content_general_settings_controls();
+
+		/* Content Tab: Carousel Settings */
+		$this->register_content_carousel_settings_controls();
+
+		/* Content Tab: Help Docs */
+		$this->register_content_help_docs();
+
+		/* Content Tab: Upgrade Pro */
+		$this->register_content_upgrade_pro();
+
+		/* Style Tab: Layout */
+		$this->register_style_layout_controls();
+
+		/* Style Tab: Images */
+		$this->register_style_images_controls();
+
+		/* Style Tab: Content */
+		$this->register_style_content_controls();
+
+		/* Style Tab: Overlay */
+		$this->register_style_overlay_controls();
+
+		/* Style Tab: Feed Title */
+		$this->register_style_feed_title_controls();
+
+		/* Style Tab: Arrows */
+		$this->register_style_arrows_controls();
+
+		/* Style Tab: Dots */
+		$this->register_style_dots_controls();
+
+		/* Style Tab: Fraction */
+		$this->register_style_fraction_controls();
+
+		/* Style Tab: Load More Button */
+		//$this->register_style_load_more_button_controls();
+	}
+
+	/**
+	 * Content Tab: Instagram Account
+	 */
+	protected function register_content_instaaccount_controls() {
 		$this->start_controls_section(
 			'section_instaaccount',
 			array(
@@ -110,18 +193,21 @@ class Instafeed extends Powerpack_Widget {
 		);
 
 		$this->add_control(
-			'api_info',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => __( 'Starting October 15, 2019, new client registration and permission review on Instagram API platform are discontinued.', 'powerpack' ),
-				'separator'       => 'after',
-				'content_classes' => 'pp-editor-info',
-			)
+			'insta_display',
+			[
+				'label'     => __( 'Display', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'feed',
+				'options'   => [
+					'feed'  => __( 'My Photos', 'powerpack' ),
+					'tags'  => __( 'Tagged Photos', 'powerpack' ),
+				],
+			]
 		);
 
 		$this->add_control(
 			'use_api',
-			array(
+			[
 				'label'              => __( 'Use Instagram API', 'powerpack' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
@@ -129,65 +215,87 @@ class Instafeed extends Powerpack_Widget {
 				'label_off'          => __( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
 				'frontend_available' => true,
-			)
+				'condition'          => [
+					'insta_display' => 'feed',
+				],
+			]
 		);
 
-		$this->add_control(
-			'user_id',
-			array(
-				'label'     => __( 'User ID', 'powerpack' ),
-				'type'      => Controls_Manager::TEXT,
-				'condition' => array(
-					'use_api' => 'yes',
-				),
-			)
-		);
+		if ( ! $this->get_insta_global_access_token() ) {
+			$this->add_control(
+				'access_token_missing',
+				[
+					'type'            => Controls_Manager::RAW_HTML,
+					'raw'             => sprintf(
+						__( 'The global Instagram access token is missing. You can add it %1$shere%2$s or use a custom one below.', 'powerpack' ),
+						'<a target="_blank" href="' . admin_url( 'admin.php?page=powerpack-settings&tab=integration' ) . '">',
+						'</a>'
+					),
+					'content_classes' => 'pp-editor-info',
+					'condition'       => [
+						'insta_display' => 'feed',
+						'use_api'       => 'yes',
+					],
+				]
+			);
+		}
 
 		$this->add_control(
 			'access_token',
-			array(
-				'label'     => __( 'Access Token', 'powerpack' ),
-				'type'      => Controls_Manager::TEXT,
-				'condition' => array(
-					'use_api' => 'yes',
-				),
-			)
-		);
-
-		$this->add_control(
-			'client_id',
-			array(
-				'label'     => __( 'Client ID', 'powerpack' ),
-				'type'      => Controls_Manager::TEXT,
-				'condition' => array(
-					'use_api' => 'yes',
-				),
-			)
+			[
+				'label'                 => __( 'Custom Access Token', 'powerpack' ),
+				'description'           => __( 'Overrides global Instagram access token', 'powerpack' ),
+				'label_block'           => true,
+				'type'                  => Controls_Manager::TEXT,
+				'condition'             => [
+					'insta_display' => 'feed',
+					'use_api'       => 'yes',
+				],
+			]
 		);
 
 		$this->add_control(
 			'username',
-			array(
-				'label'              => __( 'Instagram Username', 'powerpack' ),
-				'description'        => __( 'This must be public account.', 'powerpack' ),
-				'label_block'        => true,
-				'type'               => Controls_Manager::TEXT,
-				'frontend_available' => true,
-				'condition'          => array(
-					'use_api!' => 'yes',
-				),
-			)
+			[
+				'label'                 => __( 'Instagram Username', 'powerpack' ),
+				'description'           => __( 'This must be public account.', 'powerpack' ),
+				'label_block'           => true,
+				'type'                  => Controls_Manager::TEXT,
+				'frontend_available'    => true,
+				'condition'             => [
+					'insta_display' => 'feed',
+					'use_api!'      => 'yes',
+				],
+			]
 		);
 
-		$this->end_controls_section();
+		$this->add_control(
+			'insta_hashtag',
+			[
+				'label'                 => __( 'Hashtag', 'powerpack' ),
+				'description'           => __( 'Enter without the # symbol', 'powerpack' ),
+				'label_block'           => false,
+				'type'                  => Controls_Manager::TEXT,
+				'condition'             => [
+					'insta_display' => 'tags',
+					'use_api'       => 'yes',
+				],
+			]
+		);
 
-		/**
-		 * Content Tab: Feed Settings
-		 */
-		$this->start_controls_section(
-			'section_instafeed',
+		$this->add_control(
+			'cache_timeout',
 			array(
-				'label' => __( 'Feed Settings', 'powerpack' ),
+				'label'   => esc_html__( 'Cache Timeout', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'hour',
+				'options' => array(
+					'none'   => esc_html__( 'None', 'powerpack' ),
+					'minute' => esc_html__( 'Minute', 'powerpack' ),
+					'hour'   => esc_html__( 'Hour', 'powerpack' ),
+					'day'    => esc_html__( 'Day', 'powerpack' ),
+					'week'   => esc_html__( 'Week', 'powerpack' ),
+				),
 			)
 		);
 
@@ -210,55 +318,72 @@ class Instafeed extends Powerpack_Widget {
 
 		$this->add_control(
 			'images_info',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => __( 'Maximum 12 images can be displayed without using API.', 'powerpack' ),
-				'separator'       => 'after',
-				'content_classes' => 'pp-editor-info',
-				'condition'       => array(
-					'use_api!' => 'yes',
-				),
-			)
+			[
+				'type'                  => Controls_Manager::RAW_HTML,
+				'raw'                   => __( 'Maximum 12 images can be displayed without using API.', 'powerpack' ),
+				'separator'             => 'after',
+				'content_classes'       => 'pp-editor-info',
+				'condition'             => [
+					'use_api!'   => 'yes',
+				],
+			]
 		);
 
 		$this->add_control(
 			'resolution',
-			array(
-				'label'   => __( 'Image Resolution', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => array(
-					'thumbnail'           => __( 'Thumbnail', 'powerpack' ),
-					'low_resolution'      => __( 'Low Resolution', 'powerpack' ),
-					'standard_resolution' => __( 'Standard Resolution', 'powerpack' ),
-				),
-				'default' => 'low_resolution',
-			)
-		);
-
-		$this->add_control(
-			'sort_by',
-			array(
-				'label'   => __( 'Sort By', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => array(
-					'none'            => __( 'None', 'powerpack' ),
-					'most-recent'     => __( 'Most Recent', 'powerpack' ),
-					'least-recent'    => __( 'Least Recent', 'powerpack' ),
-					'most-liked'      => __( 'Most Liked', 'powerpack' ),
-					'least-liked'     => __( 'Least Liked', 'powerpack' ),
-					'most-commented'  => __( 'Most Commented', 'powerpack' ),
-					'least-commented' => __( 'Least Commented', 'powerpack' ),
-					'random'          => __( 'Random', 'powerpack' ),
-				),
-				'default' => 'none',
-			)
+			[
+				'label'                 => __( 'Image Resolution', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'options'               => [
+					'thumbnail'              => __( 'Thumbnail (150x150)', 'powerpack' ),
+					'low_resolution'         => __( 'Low Resolution (320x320)', 'powerpack' ),
+					'standard_resolution'    => __( 'Standard Resolution (640x640)', 'powerpack' ),
+					'high'                   => __( 'High Resolution (original)', 'powerpack' ),
+				],
+				'default'               => 'low_resolution',
+			]
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: General Settings
-		 */
+	/**
+	 * Content Tab: Feed Settings
+	 */
+	protected function register_content_feed_settings_controls() {
+		$this->start_controls_section(
+			'section_instafeed',
+			array(
+				'label' => __( 'Feed Settings', 'powerpack' ),
+			)
+		);
+
+		/* $this->add_control(
+			'sort_by',
+			[
+				'label'                 => __( 'Sort By', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'options'               => [
+					'none'               => __( 'None', 'powerpack' ),
+					'most-recent'        => __( 'Most Recent', 'powerpack' ),
+					'least-recent'       => __( 'Least Recent', 'powerpack' ),
+					'most-liked'         => __( 'Most Liked', 'powerpack' ),
+					'least-liked'        => __( 'Least Liked', 'powerpack' ),
+					'most-commented'     => __( 'Most Commented', 'powerpack' ),
+					'least-commented'    => __( 'Least Commented', 'powerpack' ),
+					'random'             => __( 'Random', 'powerpack' ),
+				],
+				'default'               => 'none',
+			]
+		); */
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Content Tab: General Settings
+	 */
+	protected function register_content_general_settings_controls() {
 		$this->start_controls_section(
 			'section_general_settings',
 			array(
@@ -318,6 +443,7 @@ class Instafeed extends Powerpack_Widget {
 				'selectors'      => array(
 					'{{WRAPPER}} .pp-instagram-feed-grid .pp-feed-item' => 'width: calc( 100% / {{VALUE}} )',
 				),
+				'render_type'    => 'template',
 				'condition'      => array(
 					'feed_layout' => array( 'grid', 'masonry' ),
 				),
@@ -348,6 +474,33 @@ class Instafeed extends Powerpack_Widget {
 				'label_off'          => __( 'Hide', 'powerpack' ),
 				'return_value'       => 'yes',
 				'frontend_available' => true,
+			)
+		);
+
+		$this->add_control(
+			'insta_caption',
+			array(
+				'label'              => __( 'Caption', 'powerpack' ),
+				'type'               => Controls_Manager::SWITCHER,
+				'default'            => '',
+				'label_on'           => __( 'Show', 'powerpack' ),
+				'label_off'          => __( 'Hide', 'powerpack' ),
+				'return_value'       => 'yes',
+			)
+		);
+
+		$this->add_control(
+			'insta_caption_length',
+			array(
+				'label'   => __( 'Caption Length', 'powerpack' ),
+				'type'    => Controls_Manager::NUMBER,
+				'dynamic' => array(
+					'active' => true,
+				),
+				'default' => 30,
+				'condition'             => [
+					'insta_caption' => 'yes',
+				],
 			)
 		);
 
@@ -456,9 +609,18 @@ class Instafeed extends Powerpack_Widget {
 					'fa-brands' => array(
 						'instagram',
 					),
+					'fa-regular' => array(
+						'user',
+						'user-circle',
+					),
 					'fa-solid'  => array(
+						'user',
+						'user-circle',
 						'user-check',
+						'user-graduate',
+						'user-md',
 						'user-plus',
+						'user-tie',
 					),
 				),
 				'default'          => array(
@@ -487,7 +649,7 @@ class Instafeed extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		/* $this->add_control(
 			'load_more_button',
 			array(
 				'label'        => __( 'Show Load More Button', 'powerpack' ),
@@ -516,13 +678,15 @@ class Instafeed extends Powerpack_Widget {
 					'feed_layout'      => 'grid',
 				),
 			)
-		);
+		); */
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Carousel Settings
-		 */
+	/**
+	 * Content Tab: Carousel Settings
+	 */
+	protected function register_content_carousel_settings_controls() {
 		$this->start_controls_section(
 			'section_carousel_settings',
 			array(
@@ -574,6 +738,28 @@ class Instafeed extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'slider_speed',
+			array(
+				'label'       => __( 'Slider Speed', 'powerpack' ),
+				'description' => __( 'Duration of transition between slides (in ms)', 'powerpack' ),
+				'type'        => Controls_Manager::SLIDER,
+				'default'     => array( 'size' => 600 ),
+				'range'       => array(
+					'px' => array(
+						'min'  => 100,
+						'max'  => 3000,
+						'step' => 1,
+					),
+				),
+				'size_units'  => '',
+				'separator'   => 'before',
+				'condition'   => array(
+					'feed_layout' => 'carousel',
+				),
+			)
+		);
+
+		$this->add_control(
 			'autoplay',
 			array(
 				'label'        => __( 'Autoplay', 'powerpack' ),
@@ -589,11 +775,28 @@ class Instafeed extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'pause_on_interaction',
+			array(
+				'label'        => __( 'Pause on Interaction', 'powerpack' ),
+				'description'  => __( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '',
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
+				'return_value' => 'yes',
+				'condition'    => array(
+					'autoplay'    => 'yes',
+					'feed_layout' => 'carousel',
+				),
+			)
+		);
+
+		$this->add_control(
 			'autoplay_speed',
 			array(
 				'label'     => __( 'Autoplay Speed', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => '2400',
+				'default'   => 3000,
 				'title'     => __( 'Enter carousel speed', 'powerpack' ),
 				'condition' => array(
 					'autoplay'    => 'yes',
@@ -700,52 +903,58 @@ class Instafeed extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Docs Links
-		 *
-		 * @since 1.4.8
-		 * @access protected
-		 */
-		$this->start_controls_section(
-			'section_help_docs',
-			array(
-				'label' => __( 'Help Docs', 'powerpack' ),
-			)
-		);
+	/**
+	 * Content Tab: Help Docs
+	 *
+	 * @since 1.4.8
+	 * @access protected
+	 */
+	protected function register_content_help_docs() {
 
-		$this->add_control(
-			'help_doc_1',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Watch Video Overview %2$s', 'powerpack' ), '<a href="https://www.youtube.com/watch?v=33A9XL1twFE&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+		$help_docs = PP_Config::get_widget_help_links( 'Instafeed' );
 
-		$this->add_control(
-			'help_doc_2',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Getting started article %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/instagram-feed/instagram-feed-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+		if ( ! empty( $help_docs ) ) {
 
-		$this->add_control(
-			'help_doc_3',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s How to set up Instagram Feed widget? %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/instagram-feed/elementor-instagram-widget-setup/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+			/**
+			 * Content Tab: Help Docs
+			 *
+			 * @since 1.4.8
+			 * @access protected
+			 */
+			$this->start_controls_section(
+				'section_help_docs',
+				array(
+					'label' => __( 'Help Docs', 'powerpack' ),
+				)
+			);
 
-		$this->end_controls_section();
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					array(
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					)
+				);
 
+				$hd_counter++;
+			}
+
+			$this->end_controls_section();
+		}
+	}
+
+	/**
+	 * Content Tab: Upgrade Pro
+	 *
+	 * @since 1.4.8
+	 * @access protected
+	 */
+	protected function register_content_upgrade_pro() {
 		if ( ! is_pp_elements_active() ) {
 			/**
 			 * Content Tab: Upgrade PowerPack
@@ -772,23 +981,23 @@ class Instafeed extends Powerpack_Widget {
 
 			$this->end_controls_section();
 		}
+	}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  STYLE TAB
-		/*-----------------------------------------------------------------------------------*/
+	/*-----------------------------------------------------------------------------------*/
+	/* STYLE TAB
+	/*-----------------------------------------------------------------------------------*/
 
-		/**
-		 * Style Tab: Layout
-		 */
+	/**
+	 * Style Tab: Layout
+	 */
+	protected function register_style_layout_controls() {
 		$this->start_controls_section(
 			'section_layout_style',
 			array(
 				'label'     => __( 'Layout', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
-					'feed_layout' => 'grid',
+					'feed_layout' => array( 'grid', 'masonry' ),
 				),
 			)
 		);$this->add_responsive_control(
@@ -816,8 +1025,9 @@ class Instafeed extends Powerpack_Widget {
 					'{{WRAPPER}} .pp-instafeed-grid .pp-feed-item' => 'padding-left: calc({{SIZE}}{{UNIT}}/2); padding-right: calc({{SIZE}}{{UNIT}}/2);',
 					'{{WRAPPER}} .pp-instafeed-grid' => 'margin-left: calc(-{{SIZE}}{{UNIT}}/2); margin-right: calc(-{{SIZE}}{{UNIT}}/2);',
 				),
+				'render_type'    => 'template',
 				'condition'      => array(
-					'feed_layout' => 'grid',
+					'feed_layout' => array( 'grid', 'masonry' ),
 				),
 			)
 		);
@@ -846,17 +1056,20 @@ class Instafeed extends Powerpack_Widget {
 				'selectors'      => array(
 					'{{WRAPPER}} .pp-instafeed-grid .pp-feed-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				),
+				'render_type'    => 'template',
 				'condition'      => array(
-					'feed_layout' => 'grid',
+					'feed_layout' => array( 'grid', 'masonry' ),
 				),
 			)
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Images
-		 */
+	/**
+	 * Style Tab: Images
+	 */
+	protected function register_style_images_controls() {
 		$this->start_controls_section(
 			'section_image_style',
 			array(
@@ -947,10 +1160,12 @@ class Instafeed extends Powerpack_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Content
-		 */
+	/**
+	 * Style Tab: Content
+	 */
+	protected function register_style_content_controls() {
 		$this->start_controls_section(
 			'section_content_style',
 			array(
@@ -966,6 +1181,11 @@ class Instafeed extends Powerpack_Widget {
 						),
 						array(
 							'name'     => 'insta_comments',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
+						array(
+							'name'     => 'insta_caption',
 							'operator' => '==',
 							'value'    => 'yes',
 						),
@@ -993,6 +1213,11 @@ class Instafeed extends Powerpack_Widget {
 							'operator' => '==',
 							'value'    => 'yes',
 						),
+						array(
+							'name'     => 'insta_caption',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
 					),
 				),
 			)
@@ -1017,6 +1242,11 @@ class Instafeed extends Powerpack_Widget {
 						),
 						array(
 							'name'     => 'insta_comments',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
+						array(
+							'name'     => 'insta_caption',
 							'operator' => '==',
 							'value'    => 'yes',
 						),
@@ -1053,7 +1283,7 @@ class Instafeed extends Powerpack_Widget {
 					'bottom' => 'flex-end',
 				),
 				'selectors'            => array(
-					'{{WRAPPER}} .pp-overlay-container' => 'align-items: {{VALUE}};',
+					'{{WRAPPER}} .pp-overlay-container' => 'justify-content: {{VALUE}};',
 				),
 				'conditions'           => array(
 					'relation' => 'or',
@@ -1065,6 +1295,11 @@ class Instafeed extends Powerpack_Widget {
 						),
 						array(
 							'name'     => 'insta_comments',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
+						array(
+							'name'     => 'insta_caption',
 							'operator' => '==',
 							'value'    => 'yes',
 						),
@@ -1101,7 +1336,7 @@ class Instafeed extends Powerpack_Widget {
 					'right'  => 'flex-end',
 				),
 				'selectors'            => array(
-					'{{WRAPPER}} .pp-overlay-container' => 'justify-content: {{VALUE}};',
+					'{{WRAPPER}} .pp-overlay-container' => 'align-items: {{VALUE}};',
 				),
 				'conditions'           => array(
 					'relation' => 'or',
@@ -1113,6 +1348,57 @@ class Instafeed extends Powerpack_Widget {
 						),
 						array(
 							'name'     => 'insta_comments',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
+						array(
+							'name'     => 'insta_caption',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
+					),
+				),
+			)
+		);
+
+		$this->add_control(
+			'text_align',
+			array(
+				'label'    => __( 'Text Align', 'powerpack' ),
+				'type'     => Controls_Manager::CHOOSE,
+				'options'  => array(
+					'left' => array(
+						'title' => __( 'Left', 'powerpack' ),
+						'icon'  => 'fa fa-align-left',
+					),
+					'center' => array(
+						'title' => __( 'Center', 'powerpack' ),
+						'icon'  => 'fa fa-align-center',
+					),
+					'right' => array(
+						'title' => __( 'Right', 'powerpack' ),
+						'icon'  => 'fa fa-align-right',
+					),
+				),
+				'default'   => 'center',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-overlay-container' => 'text-align: {{VALUE}};',
+				),
+				'conditions'           => array(
+					'relation' => 'or',
+					'terms'    => array(
+						array(
+							'name'     => 'insta_likes',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
+						array(
+							'name'     => 'insta_comments',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
+						array(
+							'name'     => 'insta_caption',
 							'operator' => '==',
 							'value'    => 'yes',
 						),
@@ -1143,6 +1429,11 @@ class Instafeed extends Powerpack_Widget {
 							'operator' => '==',
 							'value'    => 'yes',
 						),
+						array(
+							'name'     => 'insta_caption',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
 					),
 				),
 			)
@@ -1164,6 +1455,11 @@ class Instafeed extends Powerpack_Widget {
 						),
 						array(
 							'name'     => 'insta_comments',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
+						array(
+							'name'     => 'insta_caption',
 							'operator' => '==',
 							'value'    => 'yes',
 						),
@@ -1204,6 +1500,11 @@ class Instafeed extends Powerpack_Widget {
 							'operator' => '==',
 							'value'    => 'yes',
 						),
+						array(
+							'name'     => 'insta_caption',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
 					),
 				),
 			)
@@ -1238,16 +1539,23 @@ class Instafeed extends Powerpack_Widget {
 							'operator' => '==',
 							'value'    => 'yes',
 						),
+						array(
+							'name'     => 'insta_caption',
+							'operator' => '==',
+							'value'    => 'yes',
+						),
 					),
 				),
 			)
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Overlay
-		 */
+	/**
+	 * Style Tab: Overlay
+	 */
+	protected function register_style_overlay_controls() {
 		$this->start_controls_section(
 			'section_overlay_style',
 			array(
@@ -1390,10 +1698,12 @@ class Instafeed extends Powerpack_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Feed Title
-		 */
+	/**
+	 * Style Tab: Feed Title
+	 */
+	protected function register_style_feed_title_controls() {
 		$this->start_controls_section(
 			'section_feed_title_style',
 			array(
@@ -1635,10 +1945,12 @@ class Instafeed extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Arrows
-		 */
+	/**
+	 * Style Tab: Arrows
+	 */
+	protected function register_style_arrows_controls() {
 		$this->start_controls_section(
 			'section_arrows_style',
 			array(
@@ -1690,7 +2002,7 @@ class Instafeed extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-button-next, {{WRAPPER}} .pp-instagram-feed .swiper-button-prev' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'font-size: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -1709,7 +2021,7 @@ class Instafeed extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -1728,7 +2040,7 @@ class Instafeed extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -1749,7 +2061,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-button-next, {{WRAPPER}} .pp-instagram-feed .swiper-button-prev' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1761,7 +2073,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-button-next, {{WRAPPER}} .pp-instagram-feed .swiper-button-prev' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -1773,7 +2085,7 @@ class Instafeed extends Powerpack_Widget {
 				'label'       => __( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-instagram-feed .swiper-button-next, {{WRAPPER}} .pp-instagram-feed .swiper-button-prev',
+				'selector'    => '{{WRAPPER}} .pp-instagram-feed .pp-swiper-button',
 			)
 		);
 
@@ -1784,7 +2096,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-button-next, {{WRAPPER}} .pp-instagram-feed .swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1805,7 +2117,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-button-next:hover, {{WRAPPER}} .pp-instagram-feed .swiper-button-prev:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button:hover' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1817,7 +2129,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-button-next:hover, {{WRAPPER}} .pp-instagram-feed .swiper-button-prev:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button:hover' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -1829,7 +2141,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-button-next:hover, {{WRAPPER}} .pp-instagram-feed .swiper-button-prev:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button:hover' => 'border-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1845,17 +2157,19 @@ class Instafeed extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-button-next, {{WRAPPER}} .pp-instagram-feed .swiper-button-prev' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 				'separator'  => 'before',
 			)
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Pagination: Dots
-		 */
+	/**
+	 * Style Tab: Pagination: Dots
+	 */
+	protected function register_style_dots_controls() {
 		$this->start_controls_section(
 			'section_dots_style',
 			array(
@@ -1872,14 +2186,15 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'dots_position',
 			array(
-				'label'     => __( 'Position', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'options'   => array(
+				'label'        => __( 'Position', 'powerpack' ),
+				'type'         => Controls_Manager::SELECT,
+				'options'      => array(
 					'inside'  => __( 'Inside', 'powerpack' ),
 					'outside' => __( 'Outside', 'powerpack' ),
 				),
-				'default'   => 'outside',
-				'condition' => array(
+				'default'      => 'outside',
+				'prefix_class' => 'swiper-container-dots-',
+				'condition'    => array(
 					'feed_layout'     => 'carousel',
 					'dots'            => 'yes',
 					'pagination_type' => 'bullets',
@@ -2093,11 +2408,13 @@ class Instafeed extends Powerpack_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Pagination: Fraction
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Style Tab: Pagination: Fraction
+	 * -------------------------------------------------
+	 */
+	protected function register_style_fraction_controls() {
 		$this->start_controls_section(
 			'section_fraction_style',
 			array(
@@ -2144,11 +2461,13 @@ class Instafeed extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Button
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Style Tab: Load More Button
+	 * -------------------------------------------------
+	 */
+	protected function register_style_load_more_button_controls() {
 		$this->start_controls_section(
 			'section_load_more_button_style',
 			array(
@@ -2494,12 +2813,6 @@ class Instafeed extends Powerpack_Widget {
 				),
 			)
 		);
-
-		$this->end_controls_tab();
-		$this->end_controls_tabs();
-
-		$this->end_controls_section();
-
 	}
 
 	/**
@@ -2566,68 +2879,418 @@ class Instafeed extends Powerpack_Widget {
 			),
 		);
 
-		$this->add_render_attribute(
-			'insta-feed-container',
-			array(
-				'data-slider-settings' => wp_json_encode( $slider_options ),
-			)
+		return $slider_options;
+	}
+
+	/**
+	 * Get Instagram access token.
+	 *
+	 * @since x.x.x
+	 * @return string
+	 */
+	public function get_insta_access_token() {
+		$settings = $this->get_settings_for_display();
+
+		if ( ! $this->insta_access_token ) {
+			$custom_access_token = $settings['access_token'];
+
+			if ( '' !== trim( $custom_access_token ) ) {
+				$this->insta_access_token = $custom_access_token;
+			} else {
+				$this->insta_access_token = $this->get_insta_global_access_token();
+			}
+		}
+
+		return $this->insta_access_token;
+	}
+
+	/**
+	 * Get Instagram access token from PowerPack options.
+	 *
+	 * @since x.x.x
+	 * @return string
+	 */
+	public function get_insta_global_access_token() {
+		return \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'pp_instagram_access_token' );
+	}
+
+	/**
+	 * Retrieve a URL for own photos.
+	 *
+	 * @since  x.x.x
+	 * @return string
+	 */
+	public function get_feed_endpoint() {
+		return $this->insta_official_api_url . 'me/media/';
+	}
+
+	/**
+	 * Retrieve a URL for photos by hashtag.
+	 *
+	 * @since  x.x.x
+	 * @return string
+	 */
+	public function get_tags_endpoint() {
+		return $this->insta_api_url . 'explore/tags/%s/';
+	}
+
+	public function get_user_endpoint() {
+		return $this->insta_official_api_url . 'me/';
+	}
+
+	public function get_user_media_endpoint() {
+		return $this->insta_official_api_url . '%s/media/';
+	}
+
+	public function get_media_endpoint() {
+		return $this->insta_official_api_url . '%s/';
+	}
+
+	public function get_user_url() {
+		$url = $this->get_user_endpoint();
+		$url = add_query_arg( [
+			'access_token' => $this->get_insta_access_token(),
+			// 'fields' => 'media.limit(10){comments_count,like_count,likes,likes_count,media_url,permalink,caption}',
+		], $url );
+
+		return $url;
+	}
+
+	public function get_user_media_url( $user_id ) {
+		$url = sprintf( $this->get_user_media_endpoint(), $user_id );
+		$url = add_query_arg( [
+			'access_token' => $this->get_insta_access_token(),
+			'fields' => 'id,like_count',
+		], $url );
+
+		return $url;
+	}
+
+	public function get_media_url( $media_id ) {
+		$url = sprintf( $this->get_media_endpoint(), $media_id );
+		$url = add_query_arg( [
+			'access_token' => $this->get_insta_access_token(),
+			'fields' => 'id,media_type,media_url,timestamp,like_count',
+		], $url );
+
+		return $url;
+	}
+
+	public function get_insta_user_id() {
+		$result = $this->get_insta_remote( $this->get_user_url() );
+		return $result;
+	}
+
+	public function get_insta_user_media( $user_id ) {
+		$result = $this->get_insta_remote( $this->get_user_media_url( $user_id ) );
+
+		return $result;
+	}
+
+	public function get_insta_media( $media_id ) {
+		$result = $this->get_insta_remote( $this->get_media_url( $media_id ) );
+
+		return $result;
+	}
+
+	/**
+	 * Retrieve a grab URL.
+	 *
+	 * @since  x.x.x
+	 * @return string
+	 */
+	public function get_fetch_url() {
+		$settings = $this->get_settings();
+
+		if ( 'tags' === $settings['insta_display'] ) {
+			$url = sprintf( $this->get_tags_endpoint(), $settings['insta_hashtag'] );
+			$url = add_query_arg( array( '__a' => 1 ), $url );
+
+		} elseif ( 'feed' === $settings['insta_display'] ) {
+			$url = $this->get_feed_endpoint();
+			$url = add_query_arg( [
+				'fields'       => 'id,media_type,media_url,thumbnail_url,permalink,caption,likes_count,likes',
+				'access_token' => $this->get_insta_access_token(),
+			], $url );
+		}
+
+		return $url;
+	}
+
+	/**
+	 * Get thumbnail data from response data
+	 *
+	 * @param $post
+	 * @since x.x.x
+	 *
+	 * @return array
+	 */
+	public function get_insta_feed_thumbnail_data( $post ) {
+		$thumbnail = array(
+			'thumbnail' => false,
+			'low'       => false,
+			'standard'  => false,
+			'high'      => false,
+		);
+
+		if ( ! empty( $post['images'] ) && is_array( $post['images'] ) ) {
+			$data = $post['images'];
+
+			$thumbnail['thumbnail'] = [
+				'src'           => $data['thumbnail']['url'],
+				'config_width'  => $data['thumbnail']['width'],
+				'config_height' => $data['thumbnail']['height'],
+			];
+
+			$thumbnail['low'] = [
+				'src'           => $data['low_resolution']['url'],
+				'config_width'  => $data['low_resolution']['width'],
+				'config_height' => $data['low_resolution']['height'],
+			];
+
+			$thumbnail['standard'] = [
+				'src'           => $data['standard_resolution']['url'],
+				'config_width'  => $data['standard_resolution']['width'],
+				'config_height' => $data['standard_resolution']['height'],
+			];
+
+			$thumbnail['high'] = $thumbnail['standard'];
+		}
+
+		return $thumbnail;
+	}
+
+	/**
+	 * Get data from response
+	 *
+	 * @param  $response
+	 * @since  x.x.x
+	 *
+	 * @return array
+	 */
+	public function get_insta_feed_response_data( $response ) {
+		$settings = $this->get_settings();
+
+		if ( ! array_key_exists( 'data', $response ) ) { // Avoid PHP notices
+			return;
+		}
+
+		$response_posts = $response['data'];
+
+		if ( empty( $response_posts ) ) {
+			return array();
+		}
+
+		$return_data  = array();
+		$images_count = ! empty( $settings['images_count']['size'] ) ? $settings['images_count']['size'] : 5;
+		$posts = array_slice( $response_posts, 0, $images_count, true );
+
+		foreach ( $posts as $post ) {
+			$_post              = array();
+
+			$_post['id']        = $post['id'];
+			$_post['link']      = $post['permalink'];
+			$_post['caption']   = '';
+			$_post['image']     = 'VIDEO' === $post['media_type'] ? $post['thumbnail_url'] : $post['media_url'];
+			$_post['comments']  = ! empty( $post['comments_count'] ) ? $post['comments_count'] : 0;
+			$_post['likes']     = ! empty( $post['likes_count'] ) ? $post['likes_count'] : 0;
+
+			$_post['thumbnail'] = $this->get_insta_feed_thumbnail_data( $post );
+
+			if ( ! empty( $post['caption'] ) ) {
+				$_post['caption'] = wp_html_excerpt( $post['caption'], $this->get_settings( 'insta_caption_length' ), '&hellip;' );
+			}
+
+			$return_data[] = $_post;
+		}
+
+		return $return_data;
+	}
+
+	/**
+	 * Get data from response
+	 *
+	 * @param  $response
+	 * @since  x.x.x
+	 *
+	 * @return array
+	 */
+	public function get_insta_tags_response_data( $response ) {
+		$settings = $this->get_settings();
+		$response_posts = $response['graphql']['hashtag']['edge_hashtag_to_media']['edges'];
+
+		$insta_caption_length = ( $settings['insta_caption_length'] ) ? $settings['insta_caption_length'] : 30;
+
+		if ( empty( $response_posts ) ) {
+			$response_posts = $response['graphql']['hashtag']['edge_hashtag_to_top_posts']['edges'];
+		}
+
+		$return_data  = array();
+		$images_count = ! empty( $settings['images_count']['size'] ) ? $settings['images_count']['size'] : 5;
+		$posts = array_slice( $response_posts, 0, $images_count, true );
+
+		foreach ( $posts as $post ) {
+			$_post              = array();
+
+			$_post['link']      = sprintf( $this->insta_api_url . 'p/%s/', $post['node']['shortcode'] );
+			$_post['caption']   = '';
+			$_post['comments']  = $post['node']['edge_media_to_comment']['count'];
+			$_post['likes']     = $post['node']['edge_liked_by']['count'];
+			$_post['thumbnail'] = $this->get_insta_tags_thumbnail_data( $post );
+
+			if ( isset( $post['node']['edge_media_to_caption']['edges'][0]['node']['text'] ) ) {
+				$_post['caption'] = wp_html_excerpt( $post['node']['edge_media_to_caption']['edges'][0]['node']['text'], $insta_caption_length, '&hellip;' );
+			}
+
+			$return_data[] = $_post;
+		}
+
+		return $return_data;
+	}
+
+	/**
+	 * Generate thumbnail resources.
+	 *
+	 * @since x.x.x
+	 * @param $post_data
+	 *
+	 * @return array
+	 */
+	public function get_insta_tags_thumbnail_data( $post ) {
+		$post = $post['node'];
+
+		$thumbnail = array(
+			'thumbnail' => false,
+			'low'       => false,
+			'standard'  => false,
+			'high'		=> false,
+		);
+
+		if ( is_array( $post['thumbnail_resources'] ) && ! empty( $post['thumbnail_resources'] ) ) {
+			foreach ( $post['thumbnail_resources'] as $key => $resources_data ) {
+
+				if ( 150 === $resources_data['config_width'] ) {
+					$thumbnail['thumbnail'] = $resources_data;
+					continue;
+				}
+
+				if ( 320 === $resources_data['config_width'] ) {
+					$thumbnail['low'] = $resources_data;
+					continue;
+				}
+
+				if ( 640 === $resources_data['config_width'] ) {
+					$thumbnail['standard'] = $resources_data;
+					continue;
+				}
+			}
+		}
+
+		if ( ! empty( $post['display_url'] ) ) {
+			$thumbnail['high'] = array(
+				'src'           => $post['display_url'],
+				'config_width'  => $post['dimensions']['width'],
+				'config_height' => $post['dimensions']['height'],
+			) ;
+		}
+
+		return $thumbnail;
+	}
+
+	/**
+	 * Get Insta Thumbnail Image URL
+	 *
+	 * @since  x.x.x
+	 * @return string   The url of the instagram post image
+	 */
+	protected function get_insta_image_size() {
+		$settings = $this->get_settings();
+
+		$size = $settings['resolution'];
+
+		switch ( $size ) {
+			case 'thumbnail':
+				return 'thumbnail';
+			case 'low_resolution':
+				return 'low';
+			case 'standard_resolution':
+				return 'standard';
+			default:
+				return 'low';
+		}
+	}
+
+	/**
+	 * Retrieve response from API
+	 *
+	 * @since  x.x.x
+	 * @return array|WP_Error
+	 */
+	public function get_insta_remote( $url ) {
+		$response       = wp_remote_get( $url, array(
+			'timeout'   => 60,
+			'sslverify' => false,
+		) );
+
+		$response_code  = wp_remote_retrieve_response_code( $response );
+		$result         = json_decode( wp_remote_retrieve_body( $response ), true );
+
+		if ( 200 !== $response_code ) {
+			$message = is_array( $result ) && isset( $result['error']['message'] ) ? $result['error']['message'] : __( 'No posts found', 'powerpack' );
+
+			return new \WP_Error( $response_code, $message );
+		}
+
+		if ( ! is_array( $result ) ) {
+			return new \WP_Error( 'error', __( 'Data Error', 'powerpack' ) );
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Sanitize endpoint.
+	 *
+	 * @since  x.x.x
+	 * @return string
+	 */
+	public function sanitize_endpoint() {
+		$settings = $this->get_settings();
+
+		return in_array( $settings['insta_display'] , array( 'feed', 'tags' ) ) ? $settings['insta_display'] : 'tags';
+	}
+
+	/**
+	 * Get transient key.
+	 *
+	 * @since  x.x.x
+	 * @return string
+	 */
+	public function get_transient_key() {
+		$settings = $this->get_settings();
+
+		$endpoint = $this->sanitize_endpoint();
+		$target = ( 'tags' === $endpoint ) ? sanitize_text_field( $settings['insta_hashtag'] ) : 'users';
+		$insta_caption_length = ( $settings['insta_caption_length'] ) ? $settings['insta_caption_length'] : 30;
+		$images_count = $settings['images_count']['size'];
+
+		return sprintf( 'ppe_instagram_%s_%s_posts_count_%s_caption_%s',
+			$endpoint,
+			$target,
+			$images_count,
+			$insta_caption_length
 		);
 	}
 
 	/**
-	 * Render promo box widget output on the frontend.
+	 * Render Instagram profile link.
 	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @access protected
+	 * @since  x.x.x
+	 * @param  array $settings
+	 * @return array
 	 */
-	protected function render() {
-		$settings = $this->get_settings();
-
-		if ( $settings['feed_layout'] == 'carousel' ) {
-			$layout = 'carousel';
-		} else {
-			$layout = 'grid';
-		}
-
-		$this->add_render_attribute(
-			'insta-feed-wrap',
-			'class',
-			array(
-				'pp-instagram-feed',
-				'clearfix',
-				'pp-instagram-feed-' . $layout,
-				'pp-instagram-feed-' . $settings['content_visibility'],
-			)
-		);
-
-		if ( ( $settings['feed_layout'] == 'grid' || $settings['feed_layout'] == 'masonry' ) && $settings['grid_cols'] ) {
-			$this->add_render_attribute( 'insta-feed-wrap', 'class', 'pp-instagram-feed-grid-' . $settings['grid_cols'] );
-		}
-
-		if ( $settings['insta_image_grayscale'] == 'yes' ) {
-			$this->add_render_attribute( 'insta-feed-wrap', 'class', 'pp-instagram-feed-gray' );
-		}
-
-		if ( $settings['insta_image_grayscale_hover'] == 'yes' ) {
-			$this->add_render_attribute( 'insta-feed-wrap', 'class', 'pp-instagram-feed-hover-gray' );
-		}
-
-		if ( $settings['feed_layout'] != 'masonry' && $settings['square_images'] == 'yes' ) {
-			$this->add_render_attribute( 'insta-feed-wrap', 'class', 'pp-if-square-images' );
-		}
-
-		$this->add_render_attribute( 'insta-feed-container', 'class', 'pp-instafeed' );
-
-		$this->add_render_attribute(
-			'insta-feed',
-			array(
-				'id'    => 'pp-instafeed-' . esc_attr( $this->get_id() ),
-				'class' => 'pp-instafeed-grid',
-			)
-		);
-
-		$this->add_render_attribute( 'insta-feed-inner', 'class', 'pp-insta-feed-inner' );
+	public function get_insta_profile_link() {
+		$settings = $this->get_settings_for_display();
 
 		if ( ! isset( $settings['insta_title_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
 			// add old default
@@ -2649,109 +3312,386 @@ class Instafeed extends Powerpack_Widget {
 
 		$this->add_render_attribute( 'title-icon', 'class', 'pp-icon pp-icon-' . $settings['insta_title_icon_position'] );
 
-		if ( $settings['feed_layout'] == 'carousel' ) {
+		if ( 'yes' === $settings['insta_profile_link'] && $settings['insta_link_title'] ) { ?>
+			<span class="pp-instagram-feed-title-wrap">
+				<a <?php echo $this->get_render_attribute_string( 'instagram-profile-link' ); ?>>
+					<span class="pp-instagram-feed-title">
+						<?php if ( 'before_title' === $settings['insta_title_icon_position'] && $has_icon ) { ?>
+						<span <?php echo $this->get_render_attribute_string( 'title-icon' ); ?>>
+							<?php
+							if ( $is_new || $migrated ) {
+								Icons_Manager::render_icon( $settings['title_icon'], array( 'aria-hidden' => 'true' ) );
+							} elseif ( ! empty( $settings['insta_title_icon'] ) ) {
+								?>
+								<i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
+								<?php
+							}
+							?>
+						</span>
+						<?php } ?>
 
+						<?php echo esc_attr( $settings['insta_link_title'] ); ?>
+
+						<?php if ( 'after_title' === $settings['insta_title_icon_position'] && $has_icon ) { ?>
+						<span <?php echo $this->get_render_attribute_string( 'title-icon' ); ?>>
+							<?php
+							if ( $is_new || $migrated ) {
+								Icons_Manager::render_icon( $settings['title_icon'], array( 'aria-hidden' => 'true' ) );
+							} elseif ( ! empty( $settings['insta_title_icon'] ) ) {
+								?>
+								<i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
+								<?php
+							}
+							?>
+						</span>
+						<?php } ?>
+					</span>
+				</a>
+			</span>
+		<?php }
+	}
+
+	/**
+	 * Retrieve Instagram posts.
+	 *
+	 * @since  x.x.x
+	 * @param  array $settings
+	 * @return array
+	 */
+	public function get_insta_posts( $settings ) {
+		$settings = $this->get_settings();
+
+		$transient_key = md5( $this->get_transient_key() );
+
+		$data = get_transient( $transient_key );
+
+		if ( ! empty( $data ) && 1 !== $settings['cache_timeout'] && array_key_exists( 'thumbnail_resources', $data[0] ) ) {
+			return $data;
+		}
+
+		// $user = $this->get_insta_user_id();
+		// $user_media = $this->get_insta_user_media( $user['id'] );
+
+		// foreach( $user_media['data'] as $media ) {
+		// 	$media_object = $this->get_insta_media( $media['id'] );
+		// }
+
+		$response = $this->get_insta_remote( $this->get_fetch_url() );
+
+		if ( is_wp_error( $response ) ) {
+			return $response;
+		}
+
+		$data = ( 'tags' === $settings['insta_display'] ) ? $this->get_insta_tags_response_data( $response ) : $this->get_insta_feed_response_data( $response );
+
+		if ( empty( $data ) ) {
+			return array();
+		}
+
+		set_transient( $transient_key, $data, $settings['cache_timeout'] );
+
+		return $data;
+	}
+
+	/**
+	 * Render promo box widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render() {
+		$settings = $this->get_settings();
+
+		if ( 'carousel' === $settings['feed_layout'] ) {
+			$layout = 'carousel';
+		} else {
+			$layout = 'grid';
+		}
+
+		$this->add_render_attribute(
+			'insta-feed-wrap',
+			'class',
+			array(
+				'pp-instagram-feed',
+				'clearfix',
+				'pp-instagram-feed-' . $layout,
+				'pp-instagram-feed-' . $settings['content_visibility'],
+			)
+		);
+
+		if ( ( 'grid' === $settings['feed_layout'] || 'masonry' === $settings['feed_layout'] ) && $settings['grid_cols'] ) {
+			$this->add_render_attribute( 'insta-feed-wrap', 'class', 'pp-instagram-feed-grid-' . $settings['grid_cols'] );
+		}
+
+		if ( 'yes' === $settings['insta_image_grayscale'] ) {
+			$this->add_render_attribute( 'insta-feed-wrap', 'class', 'pp-instagram-feed-gray' );
+		}
+
+		if ( 'yes' === $settings['insta_image_grayscale_hover'] ) {
+			$this->add_render_attribute( 'insta-feed-wrap', 'class', 'pp-instagram-feed-hover-gray' );
+		}
+
+		if ( 'masonry' !== $settings['feed_layout'] && 'yes' === $settings['square_images'] ) {
+			$this->add_render_attribute( 'insta-feed-wrap', 'class', 'pp-if-square-images' );
+		}
+
+		$this->add_render_attribute( 'insta-feed-container', 'class', 'pp-instafeed' );
+
+		$this->add_render_attribute(
+			'insta-feed',
+			array(
+				'id'    => 'pp-instafeed-' . esc_attr( $this->get_id() ),
+				'class' => 'pp-instafeed-grid',
+			)
+		);
+
+		$this->add_render_attribute( 'insta-feed-inner', 'class', 'pp-insta-feed-inner' );
+
+		if ( 'carousel' === $settings['feed_layout'] ) {
 			$this->add_render_attribute(
-				'insta-feed-inner',
-				'class',
 				array(
-					'swiper-container-wrap',
-					'pp-insta-feed-carousel-wrap',
+					'insta-feed-inner'     => array(
+						'class' => array(
+							'swiper-container-wrap',
+							'pp-insta-feed-carousel-wrap',
+						),
+					),
+					'insta-feed-container' => array(
+						'class' => array(
+							'swiper-container',
+							'swiper-container-' . esc_attr( $this->get_id() ),
+						),
+					),
+					'insta-feed'           => array(
+						'class' => array(
+							'swiper-wrapper',
+						),
+					),
 				)
 			);
+
+			$slider_options = $this->slider_settings();
 
 			$this->add_render_attribute(
 				'insta-feed-container',
-				'class',
 				array(
-					'swiper-container',
-					'swiper-container-' . esc_attr( $this->get_id() ),
+					'data-slider-settings' => wp_json_encode( $slider_options ),
 				)
 			);
 
-			$this->slider_settings();
-
-			if ( $settings['dots_position'] ) {
-				$this->add_render_attribute( 'insta-feed-inner', 'class', 'swiper-container-dots-' . $settings['dots_position'] );
-			} elseif ( $settings['pagination_type'] == 'fraction' ) {
-				$this->add_render_attribute( 'insta-feed-inner', 'class', 'swiper-container-dots-outside' );
-			}
-
-			if ( $settings['direction'] == 'right' ) {
+			if ( 'right' === $settings['direction'] ) {
 				$this->add_render_attribute( 'insta-feed-container', 'dir', 'rtl' );
 			}
-
-			$this->add_render_attribute( 'insta-feed', 'class', 'swiper-wrapper' );
 		}
 
 		if ( ! empty( $settings['insta_profile_url']['url'] ) ) {
 			$this->add_link_attributes( 'instagram-profile-link', $settings['insta_profile_url'] );
 		}
 
-		$pp_widget_options = array(
-			'user_id'      => ! empty( $settings['user_id'] ) ? $settings['user_id'] : '',
-			'access_token' => ! empty( $settings['access_token'] ) ? $settings['access_token'] : '',
-			'sort_by'      => ! empty( $settings['sort_by'] ) ? $settings['sort_by'] : '',
-			'images_count' => ! empty( $settings['images_count']['size'] ) ? $settings['images_count']['size'] : '3',
-			'target'       => 'pp-instafeed-' . esc_attr( $this->get_id() ),
-			'resolution'   => ! empty( $settings['resolution'] ) ? $settings['resolution'] : '',
-			'popup'        => ( $settings['insta_image_popup'] == 'yes' ) ? '1' : '0',
-			'img_link'     => ( $settings['insta_image_popup'] != 'yes' && $settings['insta_image_link'] == 'yes' ) ? '1' : '0',
-		);
+		$pp_widget_options = [
+			'user_id'           => '',
+			'access_token'      => ! empty( $settings['access_token'] ) ? $settings['access_token'] : '',
+			//'sort_by'           => ! empty( $settings['sort_by'] ) ? $settings['sort_by'] : '',
+			'images_count'      => ! empty( $settings['images_count']['size'] ) ? $settings['images_count']['size'] : 5,
+			'target'            => 'pp-instafeed-' . esc_attr( $this->get_id() ),
+			'resolution'        => ! empty( $settings['resolution'] ) ? $settings['resolution'] : '',
+			'popup'             => ( 'yes' === $settings['insta_image_popup'] ) ? '1' : '0',
+			'img_link'          => ( 'yes' !== $settings['insta_image_popup'] && 'yes' === $settings['insta_image_link'] ) ? '1' : '0',
+		];
+
+		if ( 'yes' === $settings['use_api'] ) {
+			$this->render_api_images();
+		} else {
+			?>
+			<div <?php echo $this->get_render_attribute_string( 'insta-feed-wrap' ); ?> data-settings='<?php echo wp_json_encode( $pp_widget_options ); ?>'>
+				<div <?php echo $this->get_render_attribute_string( 'insta-feed-inner' ); ?>>
+					<div <?php echo $this->get_render_attribute_string( 'insta-feed-container' ); ?>>
+						<?php $this->get_insta_profile_link(); ?>
+						<div <?php echo $this->get_render_attribute_string( 'insta-feed' ); ?>></div>
+						<?php
+							$edit_mode = \Elementor\Plugin::instance()->editor->is_edit_mode();
+						if ( $edit_mode ) {
+							if ( 'yes' === $settings['use_api'] ) {
+								if ( $settings['access_token'] == '' ) {
+									$placeholder = sprintf( 'Click here to edit the "%1$s" settings and enter Instagram account details.', esc_attr( $this->get_title() ) );
+
+									echo $this->render_editor_placeholder( [
+										'title' => __( 'Instagram Feed not displayed!', 'powerpack' ),
+										'body' => $placeholder,
+									] );
+								}
+							} else {
+								if ( $settings['username'] == '' ) {
+									$placeholder = sprintf( 'Click here to edit the "%1$s" settings and enter Instagram Username.', esc_attr( $this->get_title() ) );
+
+									echo $this->render_editor_placeholder( [
+										'title' => __( 'Instagram Feed not displayed!', 'powerpack' ),
+										'body' => $placeholder,
+									] );
+								}
+							}
+						}
+						?>
+					</div>
+					<?php
+						//$this->render_load_more_button();
+
+						$this->render_dots();
+
+						$this->render_arrows();
+					?>
+				</div>
+			</div>
+			<?php
+		}
+	}
+
+	/**
+	 * Render load more button output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since  x.x.x
+	 * @access protected
+	 */
+	protected function render_api_images() {
+		$settings = $this->get_settings();
+
+		$gallery = $this->get_insta_posts( $settings );
+
+		if ( empty( $gallery ) || is_wp_error( $gallery ) ) {
+			$message = is_wp_error( $gallery ) ? $gallery->get_error_message() : esc_html__( 'No Posts Found', 'powerpack' );
+
+			echo $message;
+			return;
+		}
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'insta-feed-wrap' ); ?> data-settings='<?php echo wp_json_encode( $pp_widget_options ); ?>'>
-			
+		<div <?php echo $this->get_render_attribute_string( 'insta-feed-wrap' ); ?>>
 			<div <?php echo $this->get_render_attribute_string( 'insta-feed-inner' ); ?>>
 				<div <?php echo $this->get_render_attribute_string( 'insta-feed-container' ); ?>>
-					<?php if ( $settings['insta_profile_link'] == 'yes' && $settings['insta_link_title'] ) { ?>
-						<span class="pp-instagram-feed-title-wrap">
-							<a <?php echo $this->get_render_attribute_string( 'instagram-profile-link' ); ?>>
-								<span class="pp-instagram-feed-title">
-									<?php if ( $settings['insta_title_icon_position'] == 'before_title' && $has_icon ) { ?>
-									<span <?php echo $this->get_render_attribute_string( 'title-icon' ); ?>>
-										<?php
-										if ( $is_new || $migrated ) {
-											Icons_Manager::render_icon( $settings['title_icon'], array( 'aria-hidden' => 'true' ) );
-										} elseif ( ! empty( $settings['insta_title_icon'] ) ) {
-											?>
-											<i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
-											<?php
-										}
-										?>
-									</span>
-									<?php } ?>
+					<?php $this->get_insta_profile_link(); ?>
+					<div <?php echo $this->get_render_attribute_string( 'insta-feed' ); ?>>
+						<?php
+						foreach ( $gallery as $index => $item ) {
+							$item_key = $this->get_repeater_setting_key( 'item', 'insta_images', $index );
+							$this->add_render_attribute( $item_key, 'class', 'pp-feed-item' );
 
-									<?php echo esc_attr( $settings['insta_link_title'] ); ?>
-
-									<?php if ( $settings['insta_title_icon_position'] == 'after_title' && $has_icon ) { ?>
-									<span <?php echo $this->get_render_attribute_string( 'title-icon' ); ?>>
-										<?php
-										if ( $is_new || $migrated ) {
-											Icons_Manager::render_icon( $settings['title_icon'], array( 'aria-hidden' => 'true' ) );
-										} elseif ( ! empty( $settings['insta_title_icon'] ) ) {
-											?>
-											<i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
-											<?php
-										}
-										?>
-									</span>
-									<?php } ?>
-								</span>
-							</a>
-						</span>
-					<?php } ?>
-					<div <?php echo $this->get_render_attribute_string( 'insta-feed' ); ?>></div>
+							if ( 'carousel' === $settings['feed_layout'] ) {
+								$this->add_render_attribute( $item_key, 'class', 'swiper-slide' );
+							}
+							?>
+							<div <?php echo $this->get_render_attribute_string( $item_key ); ?>>
+								<div class="pp-feed-item-inner">
+								<?php $this->render_image_thumbnail( $item, $index ); ?>
+								</div>
+							</div>
+							<?php
+						}
+						?>
+					</div>
 				</div>
 				<?php
-					$this->render_load_more_button();
+				$this->render_dots();
 
-					$this->render_dots();
-
-					$this->render_arrows();
+				$this->render_arrows();
 				?>
 			</div>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Render Image Thumbnail
+	 *
+	 * @since  x.x.x
+	 * @return void
+	 */
+	protected function render_image_thumbnail( $item, $index ) {
+		$settings        = $this->get_settings();
+		$thumbnail_url   = $this->get_insta_image_url( $item, $this->get_insta_image_size() );
+		$thumbnail_alt   = $item['caption'];
+		$thumbnail_title = $item['caption'];
+		$likes           = $item['likes'];
+		$comments        = $item['comments'];
+		$image_key       = $this->get_repeater_setting_key( 'image', 'insta', $index );
+		$link_key        = $this->get_repeater_setting_key( 'link', 'image', $index );
+		$item_link       = '';
+
+		$this->add_render_attribute( $image_key, 'src', $thumbnail_url );
+
+		if ( '' !== $thumbnail_alt ) {
+			$this->add_render_attribute( $image_key, 'alt', $thumbnail_alt );
+		}
+
+		if ( '' !== $thumbnail_title ) {
+			$this->add_render_attribute( $image_key, 'title', $thumbnail_title );
+		}
+
+		if ( 'yes' === $settings['insta_image_popup'] ) {
+
+			$item_link = $this->get_insta_image_url( $item, 'high' );
+
+			$this->add_render_attribute( $link_key, [
+				'data-elementor-open-lightbox'      => 'yes',
+				'data-elementor-lightbox-title'     => $thumbnail_alt,
+				'data-elementor-lightbox-slideshow' => 'pp-ig-' . $this->get_id(),
+			] );
+
+			/*if ( $this->_is_edit_mode ) {
+				$this->add_render_attribute( $link_key, 'class', 'elementor-clickable' );
+			}*/
+
+		} elseif ( 'yes' === $settings['insta_image_link'] ) {
+			$item_link = $item['link'];
+
+			$this->add_render_attribute( $link_key, 'target', '_blank' );
+		}
+
+		$this->add_render_attribute( $link_key, 'href', $item_link );
+
+		$image_html = '<div class="pp-if-img">';
+		$image_html .= '<div class="pp-overlay-container pp-media-overlay">';
+		if ( 'yes' === $settings['insta_caption'] ) {
+			$image_html .= '<div class="pp-insta-caption">' . $thumbnail_alt . '</div>';
+		}
+		if ( 'yes' === $settings['insta_comments'] || 'yes' === $settings['insta_likes'] ) {
+			$image_html .= '<div class="pp-insta-icons">';
+			if ( 'yes' === $settings['insta_comments'] ) {
+				$image_html .= '<span class="comments"><i class="pp-if-icon fa fa-comment"></i> ' . $comments . '</span>';
+			}
+			if ( 'yes' === $settings['insta_likes'] ) {
+				$image_html .= '<span class="likes"><i class="pp-if-icon fa fa-heart"></i> ' . $likes . '</span>';
+			}
+			$image_html .= '</div>';
+		}
+		$image_html .= '</div>';
+		$image_html .= '<img ' . $this->get_render_attribute_string( $image_key ) . '/>';
+		$image_html .= '</div>';
+
+		if ( 'yes' === $settings['insta_image_popup'] || 'yes' === $settings['insta_image_link'] ) {
+			$image_html = '<a ' . $this->get_render_attribute_string( $link_key ) . '>' . $image_html . '</a>';
+		}
+
+		echo $image_html;
+	}
+
+	/**
+	 * Get Insta Thumbnail Image URL
+	 *
+	 * @since  x.x.x
+	 * @return string   The url of the instagram post image
+	 */
+	protected function get_insta_image_url( $item, $size = 'high' ) {
+		$thumbnail  = $item['thumbnail'];
+
+		if ( ! empty( $thumbnail[ $size ] ) ) {
+			$image_url = $thumbnail[ $size ]['src'];
+		} else {
+			$image_url = isset( $item['image'] ) ? $item['image'] : '';
+		}
+
+		return $image_url;
 	}
 
 	/**
@@ -2764,21 +3704,17 @@ class Instafeed extends Powerpack_Widget {
 	protected function render_load_more_button() {
 		$settings = $this->get_settings();
 
-		$this->add_render_attribute(
-			'load-more-button',
-			'class',
-			array(
-				'pp-load-more-button',
-				'elementor-button',
-				'elementor-size-' . $settings['button_size'],
-			)
-		);
+		$this->add_render_attribute( 'load-more-button', 'class', [
+			'pp-load-more-button',
+			'elementor-button',
+			'elementor-size-' . $settings['button_size'],
+		] );
 
 		if ( $settings['button_animation'] ) {
 			$this->add_render_attribute( 'load-more-button', 'class', 'elementor-animation-' . $settings['button_animation'] );
 		}
 
-		if ( $settings['feed_layout'] == 'grid' && $settings['use_api'] == 'yes' && $settings['load_more_button'] == 'yes' ) {
+		if ( 'grid' === $settings['feed_layout'] && 'yes' === $settings['load_more_button'] ) {
 			?>
 			<div class="pp-load-more-button-wrap">
 				<div <?php echo $this->get_render_attribute_string( 'load-more-button' ); ?>>
@@ -2802,7 +3738,7 @@ class Instafeed extends Powerpack_Widget {
 	protected function render_dots() {
 		$settings = $this->get_settings();
 
-		if ( $settings['feed_layout'] == 'carousel' && $settings['dots'] == 'yes' ) {
+		if ( 'carousel' === $settings['feed_layout'] && 'yes' === $settings['dots'] ) {
 			?>
 			<!-- Add Pagination -->
 			<div class="swiper-pagination swiper-pagination-<?php echo esc_attr( $this->get_id() ); ?>"></div>
@@ -2820,23 +3756,23 @@ class Instafeed extends Powerpack_Widget {
 	protected function render_arrows() {
 		$settings = $this->get_settings();
 
-		if ( $settings['feed_layout'] == 'carousel' && $settings['arrows'] == 'yes' ) {
+		if ( 'carousel' === $settings['feed_layout'] && 'yes' === $settings['arrows'] ) {
 			?>
 			<?php
 			if ( $settings['arrow'] ) {
-				$pa_next_arrow = $settings['arrow'];
-				$pa_prev_arrow = str_replace( 'right', 'left', $settings['arrow'] );
+				$next_arrow = $settings['arrow'];
+				$prev_arrow = str_replace( 'right', 'left', $settings['arrow'] );
 			} else {
-				$pa_next_arrow = 'fa fa-angle-right';
-				$pa_prev_arrow = 'fa fa-angle-left';
+				$next_arrow = 'fa fa-angle-right';
+				$prev_arrow = 'fa fa-angle-left';
 			}
 			?>
 			<!-- Add Arrows -->
-			<div class="swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
-				<i class="<?php echo esc_attr( $pa_next_arrow ); ?>"></i>
+			<div class="pp-swiper-button pp-swiper-button-prev pp-slider-arrow pp-arrow-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
+				<i class="<?php echo esc_attr( $prev_arrow ); ?>"></i>
 			</div>
-			<div class="swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
-				<i class="<?php echo esc_attr( $pa_prev_arrow ); ?>"></i>
+			<div class="pp-swiper-button pp-swiper-button-next pp-slider-arrow pp-arrow-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
+				<i class="<?php echo esc_attr( $next_arrow ); ?>"></i>
 			</div>
 			<?php
 		}
