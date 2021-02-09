@@ -242,9 +242,7 @@ $settings     = self::get_settings();
 			</span>
 		</h3>
 		<div class="pp-settings-tabs wp-clearfix">
-			<a href="<?php echo self::get_form_action( '&tab=modules' ); ?>" class="nav-tab<?php echo ( $current_tab == 'modules' ? ' nav-tab-active' : '' ); ?>">
-				<span><?php esc_html_e( 'Elements', 'powerpack' ); ?></span>
-			</a>
+			<?php self::render_tabs( $current_tab ); ?>
 		</div>
 		<div class="pp-settings-version wp-clearfix">
 			<span><?php echo sprintf( esc_html__( 'Version %s', 'powerpack' ), POWERPACK_ELEMENTS_LITE_VER ); ?></span>
@@ -256,12 +254,7 @@ $settings     = self::get_settings();
 		<?php \PowerpackElementsLite\Classes\PP_Admin_Settings::render_update_message(); ?>
 		<div class="pp-settings-form-wrap">
 			<form method="post" id="pp-settings-form" action="<?php echo self::get_form_action( '&tab=' . $current_tab ); ?>">
-				<?php
-				// Modules settings.
-				if ( 'modules' == $current_tab ) {
-					include POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-modules.php';
-				}
-				?>
+				<?php self::render_setting_page(); ?>
 				<?php submit_button(); ?>
 			</form>
 			<div class="pro-upgrade-banner">

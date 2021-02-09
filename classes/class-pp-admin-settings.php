@@ -164,6 +164,100 @@ final class PP_Admin_Settings {
     {
 		include POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings.php';
     }
+	
+	static public function get_tabs() {
+		$settings = self::get_settings();
+
+		return apply_filters( 'pp_elements_lite_admin_settings_tabs', array(
+			'modules'   => array(
+				'title'     => esc_html__( 'Elements', 'powerpack' ),
+				'show'      => true,
+				'cap'		=> 'edit_posts',
+				'file'		=> POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-modules.php',
+				'priority'  => 150,
+			),
+			'integration'	=> array(
+				'title'			=> esc_html__( 'Integration', 'powerpack' ),
+				'show'			=> 'off' == $settings['hide_integration_tab'],
+				'cap'			=> ! is_network_admin() ? 'manage_options' : 'manage_network_plugins',
+				'file'			=> POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-integration.php',
+				'priority'  	=> 300,
+			),
+		) );
+	}
+
+	static public function render_tabs( $current_tab ) {
+		$tabs = self::get_tabs();
+		$sorted_data = array();
+
+		foreach ( $tabs as $key => $data ) {
+			$data['key'] = $key;
+			$sorted_data[ $data['priority'] ] = $data;
+		}
+
+		ksort( $sorted_data );
+
+		foreach ( $sorted_data as $data ) {
+			if ( $data['show'] ) {
+				if ( isset( $data['cap'] ) && ! current_user_can( $data['cap'] ) ) {
+					continue;
+				}
+				?>
+				<a href="<?php echo self::get_form_action( '&tab=' . $data['key'] ); ?>" class="nav-tab<?php echo ( $current_tab == $data['key'] ? ' nav-tab-active' : '' ); ?>"><span><?php echo $data['title']; ?></span></a>
+				<?php
+			}
+		}
+	}
+
+	static public function render_setting_page() {
+		$tabs = self::get_tabs();
+		$current_tab = self::get_current_tab();
+
+		if ( isset( $tabs[ $current_tab ] ) ) {
+			$no_setting_file_msg = esc_html__( 'Setting page file could not be located.', 'powerpack' );
+			
+			if ( ! isset( $tabs[ $current_tab ]['file'] ) || empty( $tabs[ $current_tab ]['file'] ) ) {
+				echo $no_setting_file_msg;
+				return;
+			}
+
+			if ( ! file_exists( $tabs[ $current_tab ]['file'] ) ) {
+				echo $no_setting_file_msg;
+				return;
+			}
+
+			$render = ! isset( $tabs[ $current_tab ]['show'] ) ? true : $tabs[ $current_tab ]['show'];
+			$cap = 'manage_options';
+
+			if ( isset( $tabs[ $current_tab ]['cap'] ) && ! empty( $tabs[ $current_tab ]['cap'] ) ) {
+				$cap = $tabs[ $current_tab ]['cap'];
+			} else {
+				$cap = ! is_network_admin() ? 'manage_options' : 'manage_network_plugins';
+			}
+
+			if ( ! $render || ! current_user_can( $cap ) ) {
+				esc_html_e( 'You do not have permission to view this setting.', 'powerpack' );
+				return;
+			}
+
+			include $tabs[ $current_tab ]['file'];
+		}
+	}
+
+	/**
+	 * Get current tab.
+	 */
+	static public function get_current_tab() {
+		$current_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'general';
+
+		// if ( ! isset( $_GET['tab'] ) ) {
+		// 	if ( is_multisite() && ! is_network_admin() ) {
+		// 		$current_tab = 'modules';
+		// 	}
+		// }
+
+		return $current_tab;
+	}
 
 	/**
 	 * Renders the action for a form.
