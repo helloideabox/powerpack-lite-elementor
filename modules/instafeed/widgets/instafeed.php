@@ -28,7 +28,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Instagram Access token.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.4
 	 * @var   string
 	 */
 	private $insta_access_token = null;
@@ -36,7 +36,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Instagram API URL.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.4
 	 * @var   string
 	 */
 	private $insta_api_url = 'https://www.instagram.com/';
@@ -44,7 +44,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Official Instagram API URL.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.4
 	 * @var   string
 	 */
 	private $insta_official_api_url = 'https://graph.instagram.com/';
@@ -2885,7 +2885,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Get Instagram access token.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.4
 	 * @return string
 	 */
 	public function get_insta_access_token() {
@@ -2907,7 +2907,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Get Instagram access token from PowerPack options.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.4
 	 * @return string
 	 */
 	public function get_insta_global_access_token() {
@@ -2917,7 +2917,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Retrieve a URL for own photos.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @return string
 	 */
 	public function get_feed_endpoint() {
@@ -2927,7 +2927,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Retrieve a URL for photos by hashtag.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @return string
 	 */
 	public function get_tags_endpoint() {
@@ -2996,7 +2996,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Retrieve a grab URL.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @return string
 	 */
 	public function get_fetch_url() {
@@ -3021,7 +3021,7 @@ class Instafeed extends Powerpack_Widget {
 	 * Get thumbnail data from response data
 	 *
 	 * @param $post
-	 * @since x.x.x
+	 * @since 2.2.4
 	 *
 	 * @return array
 	 */
@@ -3064,7 +3064,7 @@ class Instafeed extends Powerpack_Widget {
 	 * Get data from response
 	 *
 	 * @param  $response
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 *
 	 * @return array
 	 */
@@ -3111,7 +3111,7 @@ class Instafeed extends Powerpack_Widget {
 	 * Get data from response
 	 *
 	 * @param  $response
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 *
 	 * @return array
 	 */
@@ -3151,7 +3151,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Generate thumbnail resources.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.4
 	 * @param $post_data
 	 *
 	 * @return array
@@ -3200,7 +3200,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Get Insta Thumbnail Image URL
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @return string   The url of the instagram post image
 	 */
 	protected function get_insta_image_size() {
@@ -3223,7 +3223,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Retrieve response from API
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @return array|WP_Error
 	 */
 	public function get_insta_remote( $url ) {
@@ -3251,7 +3251,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Sanitize endpoint.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @return string
 	 */
 	public function sanitize_endpoint() {
@@ -3263,7 +3263,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Get transient key.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @return string
 	 */
 	public function get_transient_key() {
@@ -3285,7 +3285,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Render Instagram profile link.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @param  array $settings
 	 * @return array
 	 */
@@ -3354,7 +3354,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Retrieve Instagram posts.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @param  array $settings
 	 * @return array
 	 */
@@ -3552,7 +3552,7 @@ class Instafeed extends Powerpack_Widget {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @access protected
 	 */
 	protected function render_api_images() {
@@ -3604,7 +3604,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Render Image Thumbnail
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @return void
 	 */
 	protected function render_image_thumbnail( $item, $index ) {
@@ -3679,7 +3679,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Get Insta Thumbnail Image URL
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.4
 	 * @return string   The url of the instagram post image
 	 */
 	protected function get_insta_image_url( $item, $size = 'high' ) {
