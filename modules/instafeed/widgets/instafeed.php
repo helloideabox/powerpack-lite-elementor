@@ -107,7 +107,6 @@ class Instafeed extends Powerpack_Widget {
 	public function get_script_depends() {
 		return array(
 			'isotope',
-			'instafeed',
 			'imagesloaded',
 			'pp-instagram',
 			'magnific-popup',

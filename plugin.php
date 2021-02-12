@@ -175,16 +175,6 @@ class PowerpackLitePlugin {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_register_script(
-			'instafeed',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/instafeed/instafeed' . $suffix . '.js',
-			[
-				'jquery',
-			],
-			'1.4.1',
-			true
-		);
-
-		wp_register_script(
 			'pp-instagram',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/pp-instagram.js',
 			[
