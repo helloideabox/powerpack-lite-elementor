@@ -56,7 +56,8 @@
             toggleable: this.element.data("tooltipToggleable") || false,
             alwaysOpen: this.element.data("alwaysOpen") || false,
             width: this.element.data("tooltipWidth") || undefined,
-            height: this.element.data("tooltipHeight") || undefined
+            height: this.element.data("tooltipHeight") || undefined,
+            zindex: this.element.data("zindex") || 99,
 		}, options);
 		
         this.init();
@@ -273,7 +274,8 @@
 
         this.tooltip.css({
             top: top,
-            left: left
+            left: left,
+            'z-index': this.options.zindex
         }).removeClass("tt-top tt-bottom tt-right tt-left").addClass(position);
 
         this._currentPosition = position;
@@ -282,7 +284,8 @@
 
         return {
             top: top,
-            left: left
+            left: left,
+            'z-index': this.options.zindex
         };
     };
 
@@ -327,7 +330,8 @@
 
             this.callout.css({
                 top: top,
-                left: left
+                left: left,
+				'z-index': this.options.zindex
             });
         }
     };

@@ -659,6 +659,19 @@ class Hotspots extends Powerpack_Widget {
 			)
 		);
 
+		$this->add_control(
+			'tooltip_zindex',
+			array(
+				'label'              => __( 'Z-Index', 'powerpack' ),
+				'description'        => __( 'Increase the z-index value if you are unable to see the tooltip. For example: 99, 999, 9999 ', 'powerpack' ),
+				'type'               => Controls_Manager::NUMBER,
+				'default'            => 99,
+				'min'                => -9999999,
+				'step'               => 1,
+				'frontend_available' => true,
+			)
+		);
+
 		$this->end_controls_section();
 	}
 

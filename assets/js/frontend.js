@@ -62,46 +62,47 @@
 	};
     
     var ImageHotspotHandler = function ($scope, $) {
-		var id 				= $scope.data('id'),
-			elementSettings = getElementSettings( $scope ),
-        	$tt_arrow       = elementSettings.tooltip_arrow,
-        	$tt_always_open = elementSettings.tooltip_always_open,
-			$tt_trigger     = elementSettings.tooltip_trigger;
-		
+		var id                   = $scope.data('id'),
+			elementSettings      = getElementSettings( $scope ),
+        	ttArrow              = elementSettings.tooltip_arrow,
+        	ttAlwaysOpen         = elementSettings.tooltip_always_open,
+			$tt_trigger          = elementSettings.tooltip_trigger,
+			tooltipZindex        = elementSettings.tooltip_zindex,
+			elementorBreakpoints = elementorFrontend.config.breakpoints;
+
         $('.pp-hot-spot-wrap[data-tooltip]').each(function () {
-            var $tt_position        = $(this).data('tooltip-position'),
-				$tt_template        = '',
-				$tt_size            = $(this).data('tooltip-size'),
-				$animation_in       = $(this).data('tooltip-animation-in'),
-				$animation_out      = $(this).data('tooltip-animation-out');
+            var ttPosition   = $(this).data('tooltip-position'),
+				ttTemplate   = '',
+				ttSize       = $(this).data('tooltip-size'),
+				animationIn  = $(this).data('tooltip-animation-in'),
+				animationOut = $(this).data('tooltip-animation-out');
 
             // tablet
-            if ( window.innerWidth <= 1024 && window.innerWidth >= 768 ) {
-                $tt_position = $scope.find('.pp-hot-spot-wrap[data-tooltip]').data('tooltip-position-tablet');
+            if ( window.innerWidth <= elementorBreakpoints.lg && window.innerWidth >= elementorBreakpoints.md ) {
+                ttPosition = $scope.find('.pp-hot-spot-wrap[data-tooltip]').data('tooltip-position-tablet');
             }
 
             // mobile
-            if ( window.innerWidth < 768 ) {
-                $tt_position = $scope.find('.pp-hot-spot-wrap[data-tooltip]').data('tooltip-position-mobile');
+            if ( window.innerWidth < elementorBreakpoints.md ) {
+                ttPosition = $scope.find('.pp-hot-spot-wrap[data-tooltip]').data('tooltip-position-mobile');
             }
             
-            if ( $tt_arrow == 'yes' ) {
-                $tt_template = '<div class="pp-tooltip pp-tooltip-'+id+' pp-tooltip-'+$tt_size+'"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div><div class="pp-tooltip-callout"></div></div></div>';
+            if ( ttArrow === 'yes' ) {
+                ttTemplate = '<div class="pp-tooltip pp-tooltip-' + id + ' pp-tooltip-' + ttSize + '"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div><div class="pp-tooltip-callout"></div></div></div>';
             } else {
-                $tt_template = '<div class="pp-tooltip pp-tooltip-'+id+' pp-tooltip-'+$tt_size+'"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div></div></div>';
+                ttTemplate = '<div class="pp-tooltip pp-tooltip-' + id + ' pp-tooltip-' + ttSize + '"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div></div></div>';
 			}
 			
 			var tooltipConfig = {
-                template		: $tt_template,
-				position		: $tt_position,
-				animationIn		: $animation_in,
-				animationOut	: $animation_out,
-				animDuration	: 400,
-				alwaysOpen		: ( $tt_always_open === 'yes' ) ? true : false,
-                toggleable		: ($tt_trigger === 'click') ? true : false
+                template     : ttTemplate,
+				position     : ttPosition,
+				animationIn	 : animationIn,
+				animationOut : animationOut,
+				animDuration : 400,
+				zindex       : tooltipZindex,
+				alwaysOpen   : ( ttAlwaysOpen === 'yes' ) ? true : false,
+                toggleable   : ($tt_trigger === 'click') ? true : false
 			};
-
-			console.log(tooltipConfig);
             
             $(this)._tooltip( tooltipConfig );
         });
