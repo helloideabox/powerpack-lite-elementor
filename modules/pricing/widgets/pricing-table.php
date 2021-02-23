@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\Pricing\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -75,20 +76,68 @@ class Pricing_Table extends Powerpack_Widget {
 	}
 
 	/**
+	 * Retrieve the list of scripts the pricing table widget depended on.
+	 *
+	 * Used to set scripts dependencies required to run the widget.
+	 *
+	 * @since 2.2.5
+	 * @access public
+	 *
+	 * @return array Widget scripts dependencies.
+	 */
+	public function get_script_depends() {
+		return array(
+			'pp-tooltip',
+			'powerpack-frontend',
+		);
+	}
+
+	/**
 	 * Register pricing table widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->register_controls();
+	}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  CONTENT TAB
-		/*-----------------------------------------------------------------------------------*/
+	/**
+	 * Register pricing table widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_controls() {
+		/* Content Tab */
+		$this->register_content_header_controls();
+		$this->register_content_pricing_controls();
+		$this->register_content_features_controls();
+		$this->register_content_ribbon_controls();
+		$this->register_content_tooltip_controls();
+		$this->register_content_button_controls();
+		$this->register_content_help_docs_controls();
+		$this->register_content_upgrade_pro_controls();
 
+		/* Style Tab */
+		$this->register_style_table_controls();
+		$this->register_style_header_controls();
+		$this->register_style_pricing_controls();
+		$this->register_style_features_controls();
+		$this->register_style_tooltip_controls();
+		$this->register_style_ribbon_controls();
+		$this->register_style_button_controls();
+		$this->register_style_footer_controls();
+	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	CONTENT TAB
+	/*-----------------------------------------------------------------------------------*/
+
+	protected function register_content_header_controls() {
 		/**
 		 * Content Tab: Header
 		 * -------------------------------------------------
@@ -193,7 +242,9 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_content_pricing_controls() {
 		/**
 		 * Content Tab: Pricing
 		 * -------------------------------------------------
@@ -258,7 +309,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'dynamic' => array(
 					'active' => true,
 				),
-				'default' => '49',
+				'default' => '49.99',
 			)
 		);
 
@@ -267,7 +318,7 @@ class Pricing_Table extends Powerpack_Widget {
 			array(
 				'label'   => __( 'Currency Format', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => '',
+				'default' => 'raised',
 				'options' => array(
 					'raised' => __( 'Raised', 'powerpack' ),
 					''       => __( 'Normal', 'powerpack' ),
@@ -312,7 +363,9 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_content_features_controls() {
 		/**
 		 * Content Tab: Features
 		 * -------------------------------------------------
@@ -352,14 +405,26 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$repeater->add_control(
+			'tooltip_content',
+			array(
+				'label'       => __( 'Tooltip Content', 'powerpack' ),
+				'type'        => Controls_Manager::WYSIWYG,
+				'default'     => __( 'This is a tooltip', 'powerpack' ),
+				'dynamic'     => array(
+					'active' => true,
+				),
+			)
+		);
+
+		$repeater->add_control(
 			'select_feature_icon',
 			array(
 				'label'            => __( 'Icon', 'powerpack' ),
 				'type'             => Controls_Manager::ICONS,
 				'label_block'      => true,
 				'default'          => array(
-					'value'   => 'fas fa-check',
-					'library' => 'fa-solid',
+					'value'   => 'far fa-arrow-alt-circle-right',
+					'library' => 'fa-regular',
 				),
 				'fa4compatibility' => 'feature_icon',
 			)
@@ -431,7 +496,264 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Pricing Table Tooltip Controls
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	protected function register_content_tooltip_controls() {
+		$this->start_controls_section(
+			'section_tooltip',
+			[
+				'label'                 => __( 'Tooltip', 'powerpack' ),
+			]
+		);
+
+		$this->add_control(
+			'show_tooltip',
+			[
+				'label'                 => __( 'Enable Tooltip', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => '',
+				'label_on'              => __( 'Yes', 'powerpack' ),
+				'label_off'             => __( 'No', 'powerpack' ),
+				'return_value'          => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'tooltip_trigger',
+			[
+				'label'              => __( 'Trigger', 'powerpack' ),
+				'type'               => Controls_Manager::SELECT,
+				'default'            => 'hover',
+				'options'            => array(
+					'hover' => __( 'Hover', 'powerpack' ),
+					'click' => __( 'Click', 'powerpack' ),
+				),
+				'frontend_available' => true,
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'tooltip_size',
+			array(
+				'label'   => __( 'Size', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'default',
+				'options' => array(
+					'default' => __( 'Default', 'powerpack' ),
+					'tiny'    => __( 'Tiny', 'powerpack' ),
+					'small'   => __( 'Small', 'powerpack' ),
+					'large'   => __( 'Large', 'powerpack' ),
+				),
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			)
+		);
+
+		$this->add_control(
+			'tooltip_position',
+			array(
+				'label'   => __( 'Position', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'top',
+				'options' => array(
+					'top'          => __( 'Top', 'powerpack' ),
+					'bottom'       => __( 'Bottom', 'powerpack' ),
+					'left'         => __( 'Left', 'powerpack' ),
+					'right'        => __( 'Right', 'powerpack' ),
+				),
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			)
+		);
+
+		$this->add_control(
+			'tooltip_arrow',
+			array(
+				'label'   => __( 'Show Arrow', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'yes',
+				'options' => array(
+					'yes' => __( 'Yes', 'powerpack' ),
+					'no'  => __( 'No', 'powerpack' ),
+				),
+				'frontend_available' => true,
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			)
+		);
+
+		$this->add_control(
+			'tooltip_display_on',
+			array(
+				'label'   => __( 'Display On', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'text',
+				'options' => array(
+					'text' => __( 'Text', 'powerpack' ),
+					'icon' => __( 'Icon', 'powerpack' ),
+				),
+				'frontend_available' => true,
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			)
+		);
+
+		$this->add_control(
+			'tooltip_icon',
+			[
+				'label'     => __( 'Icon', 'powerpack' ),
+				'type'      => Controls_Manager::ICONS,
+				'default'   => [
+					'value'   => 'fas fa-info-circle',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_tooltip'       => 'yes',
+					'tooltip_display_on' => 'icon',
+				],
+			]
+		);
+
+		$this->add_control(
+			'tooltip_distance',
+			array(
+				'label'       => __( 'Distance', 'powerpack' ),
+				'description' => __( 'The distance between the text/icon and the tooltip.', 'powerpack' ),
+				'type'        => Controls_Manager::SLIDER,
+				'default'     => array(
+					'size' => '',
+				),
+				'range'       => array(
+					'px' => array(
+						'min' => 0,
+						'max' => 100,
+					),
+				),
+				'selectors'   => array(
+					'.pp-tooltip.pp-tooltip-{{ID}}.tt-top' => 'transform: translateY(-{{SIZE}}{{UNIT}});',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tt-bottom' => 'transform: translateY({{SIZE}}{{UNIT}});',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tt-left' => 'transform: translateX(-{{SIZE}}{{UNIT}});',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tt-right' => 'transform: translateX({{SIZE}}{{UNIT}});',
+				),
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			)
+		);
+
+		$tooltip_animations = array(
+			''                  => __( 'Default', 'powerpack' ),
+			'bounce'            => __( 'Bounce', 'powerpack' ),
+			'flash'             => __( 'Flash', 'powerpack' ),
+			'pulse'             => __( 'Pulse', 'powerpack' ),
+			'rubberBand'        => __( 'rubberBand', 'powerpack' ),
+			'shake'             => __( 'Shake', 'powerpack' ),
+			'swing'             => __( 'Swing', 'powerpack' ),
+			'tada'              => __( 'Tada', 'powerpack' ),
+			'wobble'            => __( 'Wobble', 'powerpack' ),
+			'bounceIn'          => __( 'bounceIn', 'powerpack' ),
+			'bounceInDown'      => __( 'bounceInDown', 'powerpack' ),
+			'bounceInLeft'      => __( 'bounceInLeft', 'powerpack' ),
+			'bounceInRight'     => __( 'bounceInRight', 'powerpack' ),
+			'bounceInUp'        => __( 'bounceInUp', 'powerpack' ),
+			'bounceOut'         => __( 'bounceOut', 'powerpack' ),
+			'bounceOutDown'     => __( 'bounceOutDown', 'powerpack' ),
+			'bounceOutLeft'     => __( 'bounceOutLeft', 'powerpack' ),
+			'bounceOutRight'    => __( 'bounceOutRight', 'powerpack' ),
+			'bounceOutUp'       => __( 'bounceOutUp', 'powerpack' ),
+			'fadeIn'            => __( 'fadeIn', 'powerpack' ),
+			'fadeInDown'        => __( 'fadeInDown', 'powerpack' ),
+			'fadeInDownBig'     => __( 'fadeInDownBig', 'powerpack' ),
+			'fadeInLeft'        => __( 'fadeInLeft', 'powerpack' ),
+			'fadeInLeftBig'     => __( 'fadeInLeftBig', 'powerpack' ),
+			'fadeInRight'       => __( 'fadeInRight', 'powerpack' ),
+			'fadeInRightBig'    => __( 'fadeInRightBig', 'powerpack' ),
+			'fadeInUp'          => __( 'fadeInUp', 'powerpack' ),
+			'fadeInUpBig'       => __( 'fadeInUpBig', 'powerpack' ),
+			'fadeOut'           => __( 'fadeOut', 'powerpack' ),
+			'fadeOutDown'       => __( 'fadeOutDown', 'powerpack' ),
+			'fadeOutDownBig'    => __( 'fadeOutDownBig', 'powerpack' ),
+			'fadeOutLeft'       => __( 'fadeOutLeft', 'powerpack' ),
+			'fadeOutLeftBig'    => __( 'fadeOutLeftBig', 'powerpack' ),
+			'fadeOutRight'      => __( 'fadeOutRight', 'powerpack' ),
+			'fadeOutRightBig'   => __( 'fadeOutRightBig', 'powerpack' ),
+			'fadeOutUp'         => __( 'fadeOutUp', 'powerpack' ),
+			'fadeOutUpBig'      => __( 'fadeOutUpBig', 'powerpack' ),
+			'flip'              => __( 'flip', 'powerpack' ),
+			'flipInX'           => __( 'flipInX', 'powerpack' ),
+			'flipInY'           => __( 'flipInY', 'powerpack' ),
+			'flipOutX'          => __( 'flipOutX', 'powerpack' ),
+			'flipOutY'          => __( 'flipOutY', 'powerpack' ),
+			'lightSpeedIn'      => __( 'lightSpeedIn', 'powerpack' ),
+			'lightSpeedOut'     => __( 'lightSpeedOut', 'powerpack' ),
+			'rotateIn'          => __( 'rotateIn', 'powerpack' ),
+			'rotateInDownLeft'  => __( 'rotateInDownLeft', 'powerpack' ),
+			'rotateInDownLeft'  => __( 'rotateInDownRight', 'powerpack' ),
+			'rotateInUpLeft'    => __( 'rotateInUpLeft', 'powerpack' ),
+			'rotateInUpRight'   => __( 'rotateInUpRight', 'powerpack' ),
+			'rotateOut'         => __( 'rotateOut', 'powerpack' ),
+			'rotateOutDownLeft' => __( 'rotateOutDownLeft', 'powerpack' ),
+			'rotateOutDownLeft' => __( 'rotateOutDownRight', 'powerpack' ),
+			'rotateOutUpLeft'   => __( 'rotateOutUpLeft', 'powerpack' ),
+			'rotateOutUpRight'  => __( 'rotateOutUpRight', 'powerpack' ),
+			'hinge'             => __( 'Hinge', 'powerpack' ),
+			'rollIn'            => __( 'rollIn', 'powerpack' ),
+			'rollOut'           => __( 'rollOut', 'powerpack' ),
+			'zoomIn'            => __( 'zoomIn', 'powerpack' ),
+			'zoomInDown'        => __( 'zoomInDown', 'powerpack' ),
+			'zoomInLeft'        => __( 'zoomInLeft', 'powerpack' ),
+			'zoomInRight'       => __( 'zoomInRight', 'powerpack' ),
+			'zoomInUp'          => __( 'zoomInUp', 'powerpack' ),
+			'zoomOut'           => __( 'zoomOut', 'powerpack' ),
+			'zoomOutDown'       => __( 'zoomOutDown', 'powerpack' ),
+			'zoomOutLeft'       => __( 'zoomOutLeft', 'powerpack' ),
+			'zoomOutRight'      => __( 'zoomOutRight', 'powerpack' ),
+			'zoomOutUp'         => __( 'zoomOutUp', 'powerpack' ),
+		);
+
+		$this->add_control(
+			'tooltip_animation_in',
+			array(
+				'label'   => __( 'Animation In', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT2,
+				'default' => '',
+				'options' => $tooltip_animations,
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			)
+		);
+
+		$this->add_control(
+			'tooltip_animation_out',
+			array(
+				'label'   => __( 'Animation Out', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT2,
+				'default' => '',
+				'options' => $tooltip_animations,
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			)
+		);
+
+		$this->end_controls_section();
+	}
+
+	protected function register_content_ribbon_controls() {
 		/**
 		 * Content Tab: Ribbon
 		 * -------------------------------------------------
@@ -592,7 +914,9 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_content_button_controls() {
 		/**
 		 * Content Tab: Button
 		 * -------------------------------------------------
@@ -660,41 +984,44 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Docs Links
-		 *
-		 * @since 1.4.8
-		 * @access protected
-		 */
-		$this->start_controls_section(
-			'section_help_docs',
-			array(
-				'label' => __( 'Help Docs', 'powerpack' ),
-			)
-		);
+	protected function register_content_help_docs_controls() {
 
-		$this->add_control(
-			'help_doc_1',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Watch Video Overview %2$s', 'powerpack' ), '<a href="https://www.youtube.com/watch?v=cO-WFCHtwiM&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+		$help_docs = PP_Config::get_widget_help_links( 'Pricing_Table' );
+		if ( ! empty( $help_docs ) ) {
+			/**
+			 * Content Tab: Docs Links
+			 *
+			 * @since 1.4.8
+			 * @access protected
+			 */
+			$this->start_controls_section(
+				'section_help_docs',
+				[
+					'label' => __( 'Help Docs', 'powerpack' ),
+				]
+			);
 
-		$this->add_control(
-			'help_doc_2',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/pricing-table/pricing-table-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					[
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					]
+				);
 
-		$this->end_controls_section();
+				$hd_counter++;
+			}
+
+			$this->end_controls_section();
+		}
+	}
+
+	protected function register_content_upgrade_pro_controls() {
 
 		if ( ! is_pp_elements_active() ) {
 			/**
@@ -722,13 +1049,13 @@ class Pricing_Table extends Powerpack_Widget {
 
 			$this->end_controls_section();
 		}
+	}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  STYLE TAB
-		/*-----------------------------------------------------------------------------------*/
+	/*-----------------------------------------------------------------------------------*/
+	/*	STYLE TAB
+	/*-----------------------------------------------------------------------------------*/
 
+	protected function register_style_table_controls() {
 		/**
 		 * Content Tab: Table
 		 * -------------------------------------------------
@@ -767,7 +1094,9 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_style_header_controls() {
 		/**
 		 * Style Tab: Header
 		 * -------------------------------------------------
@@ -788,7 +1117,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'default'   => '',
 				'scheme'    => array(
 					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'value' => Scheme_Color::COLOR_2,
 				),
 				'selectors' => array(
 					'{{WRAPPER}} .pp-pricing-table-head' => 'background-color: {{VALUE}}',
@@ -1005,7 +1334,7 @@ class Pricing_Table extends Powerpack_Widget {
 			array(
 				'name'     => 'table_title_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .pp-pricing-table-title',
 			)
 		);
@@ -1042,7 +1371,7 @@ class Pricing_Table extends Powerpack_Widget {
 			array(
 				'name'      => 'table_subtitle_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
 				'condition' => array(
 					'table_subtitle!' => '',
 				),
@@ -1073,7 +1402,9 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_style_pricing_controls() {
 		/**
 		 * Style Tab: Pricing
 		 * -------------------------------------------------
@@ -1091,7 +1422,7 @@ class Pricing_Table extends Powerpack_Widget {
 			array(
 				'name'      => 'table_pricing_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .pp-pricing-table-price',
 				'separator' => 'before',
 			)
@@ -1114,7 +1445,7 @@ class Pricing_Table extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#e6e6e6',
+				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-pricing-table-price' => 'background-color: {{VALUE}}',
 				),
@@ -1324,6 +1655,7 @@ class Pricing_Table extends Powerpack_Widget {
 			array(
 				'name'     => 'duration_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .pp-pricing-table-price-duration',
 			)
 		);
@@ -1400,7 +1732,9 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_style_features_controls() {
 		/**
 		 * Style Tab: Features
 		 * -------------------------------------------------
@@ -1457,6 +1791,10 @@ class Pricing_Table extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'     => Scheme_Color::get_type(),
+					'value'    => Scheme_Color::COLOR_3,
+				),
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-pricing-table-features' => 'color: {{VALUE}}',
@@ -1508,7 +1846,7 @@ class Pricing_Table extends Powerpack_Widget {
 			array(
 				'name'      => 'table_features_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
 				'selector'  => '{{WRAPPER}} .pp-pricing-table-features',
 				'separator' => 'before',
 			)
@@ -1742,7 +2080,207 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Tooltip Style Controls
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	protected function register_style_tooltip_controls() {
+
+		$this->start_controls_section(
+			'section_tooltips_style',
+			[
+				'label'     => __( 'Tooltip', 'powerpack' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'tooltip_bg_color',
+			[
+				'label'     => __( 'Background Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content' => 'background-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tt-top .pp-tooltip-callout:after'    => 'border-top-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tt-bottom .pp-tooltip-callout:after' => 'border-bottom-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tt-left .pp-tooltip-callout:after'   => 'border-left-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tt-right .pp-tooltip-callout:after'  => 'border-right-color: {{VALUE}};',
+				],
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'tooltip_color',
+			[
+				'label'     => __( 'Text Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'tooltip_width',
+			[
+				'label'     => __( 'Width', 'powerpack' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'min'  => 50,
+						'max'  => 400,
+						'step' => 1,
+					],
+				],
+				'selectors' => [
+					'.pp-tooltip.pp-tooltip-{{ID}}' => 'max-width: {{SIZE}}{{UNIT}};',
+				],
+				'render_type'        => 'template',
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'      => 'tooltip_typography',
+				'label'     => __( 'Typography', 'powerpack' ),
+				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'selector'  => '.pp-tooltip.pp-tooltip-{{ID}}',
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'        => 'tooltip_border',
+				'label'       => __( 'Border', 'powerpack' ),
+				'placeholder' => '1px',
+				'default'     => '1px',
+				'selector'    => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
+				'condition'   => [
+					'show_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'tooltip_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
+					'.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition'  => [
+					'show_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'tooltip_padding',
+			[
+				'label'      => __( 'Padding', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'condition'  => [
+					'show_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'      => 'tooltip_box_shadow',
+				'selector'  => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'tooltip_icon_style_heading',
+			[
+				'label'     => __( 'Tooltip Icon', 'powerpack' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'show_tooltip'       => 'yes',
+					'tooltip_display_on' => 'icon',
+				],
+			]
+		);
+
+		$this->add_control(
+			'tooltip_icon_color',
+			[
+				'label'     => __( 'Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-pricing-table-features .pp-pricing-table-tooltip-icon' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'show_tooltip'       => 'yes',
+					'tooltip_display_on' => 'icon',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'tooltip_icon_size',
+			[
+				'label'      => __( 'Size', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => [
+					'px' => [
+						'min'   => 5,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units' => [ 'px', 'em' ],
+				'selectors'  => [
+					'{{WRAPPER}} .pp-pricing-table-features .pp-pricing-table-tooltip-icon' => 'font-size: {{SIZE}}{{UNIT}}',
+				],
+				'condition'  => [
+					'show_tooltip'       => 'yes',
+					'tooltip_display_on' => 'icon',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	protected function register_style_ribbon_controls() {
 		/**
 		 * Style Tab: Ribbon
 		 * -------------------------------------------------
@@ -1796,7 +2334,9 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_style_button_controls() {
 		/**
 		 * Style Tab: Button
 		 * -------------------------------------------------
@@ -1875,12 +2415,16 @@ class Pricing_Table extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'condition' => array(
-					'table_button_text!' => '',
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_4,
 				),
+				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-pricing-table-button' => 'background-color: {{VALUE}}',
+				),
+				'condition' => array(
+					'table_button_text!' => '',
 				),
 			)
 		);
@@ -1948,11 +2492,11 @@ class Pricing_Table extends Powerpack_Widget {
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
-				'condition'  => array(
-					'table_button_text!' => '',
-				),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-pricing-table-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'table_button_text!' => '',
 				),
 			)
 		);
@@ -1961,10 +2505,10 @@ class Pricing_Table extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name'      => 'pa_pricing_table_button_shadow',
+				'selector'  => '{{WRAPPER}} .pp-pricing-table-button',
 				'condition' => array(
 					'table_button_text!' => '',
 				),
-				'selector'  => '{{WRAPPER}} .pp-pricing-table-button',
 			)
 		);
 
@@ -2039,7 +2583,9 @@ class Pricing_Table extends Powerpack_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
+	protected function register_style_footer_controls() {
 		/**
 		 * Style Tab: Footer
 		 * -------------------------------------------------
@@ -2070,6 +2616,14 @@ class Pricing_Table extends Powerpack_Widget {
 				'label'      => __( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
+				'default'    => array(
+					'top'       => '30',
+					'right'     => '30',
+					'bottom'    => '30',
+					'left'      => '30',
+					'unit'      => 'px',
+					'isLinked'  => true,
+				),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-pricing-table-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2094,11 +2648,15 @@ class Pricing_Table extends Powerpack_Widget {
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'condition' => array(
-					'table_additional_info!' => '',
+				'scheme'    => array(
+					'type'     => Scheme_Color::get_type(),
+					'value'    => Scheme_Color::COLOR_3,
 				),
 				'selectors' => array(
 					'{{WRAPPER}} .pp-pricing-table-additional-info' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'table_additional_info!' => '',
 				),
 			)
 		);
@@ -2109,11 +2667,11 @@ class Pricing_Table extends Powerpack_Widget {
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'condition' => array(
-					'table_additional_info!' => '',
-				),
 				'selectors' => array(
 					'{{WRAPPER}} .pp-pricing-table-additional-info' => 'background: {{VALUE}}',
+				),
+				'condition' => array(
+					'table_additional_info!' => '',
 				),
 			)
 		);
@@ -2164,7 +2722,7 @@ class Pricing_Table extends Powerpack_Widget {
 			array(
 				'name'      => 'additional_info_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
 				'condition' => array(
 					'table_additional_info!' => '',
 				),
@@ -2206,9 +2764,43 @@ class Pricing_Table extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
+	protected function get_tooltip_attributes( $item, $tooltip_key ) {
+		$settings = $this->get_settings_for_display();
+		$tooltip_position = 'tt-' . $settings['tooltip_position'];
+
+		$this->add_render_attribute(
+			$tooltip_key,
+			array(
+				'class'                 => 'pp-pricing-table-tooptip',
+				'data-tooltip'          => $item['tooltip_content'],
+				'data-tooltip-position' => $tooltip_position,
+				'data-tooltip-size'     => $settings['tooltip_size'],
+			)
+		);
+
+		if ( $settings['tooltip_width'] ) {
+			$this->add_render_attribute( $tooltip_key, 'data-tooltip-width', $settings['tooltip_width']['size'] );
+		}
+
+		if ( $settings['tooltip_animation_in'] ) {
+			$this->add_render_attribute( $tooltip_key, 'data-tooltip-animation-in', $settings['tooltip_animation_in'] );
+		}
+
+		if ( $settings['tooltip_animation_out'] ) {
+			$this->add_render_attribute( $tooltip_key, 'data-tooltip-animation-out', $settings['tooltip_animation_out'] );
+		}
+	}
+
+	/**
+	 * Render pricing table widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$symbol   = '';
+		$symbol = '';
 
 		if ( ! empty( $settings['currency_symbol'] ) ) {
 			if ( 'custom' !== $settings['currency_symbol'] ) {
@@ -2234,7 +2826,7 @@ class Pricing_Table extends Powerpack_Widget {
 			$has_icon = true;
 		}
 		$migrated = isset( $settings['__fa4_migrated']['select_table_icon'] );
-		$is_new   = ! isset( $settings['table_icon'] ) && Icons_Manager::is_migration_allowed();
+		$is_new = ! isset( $settings['table_icon'] ) && Icons_Manager::is_migration_allowed();
 
 		$this->add_inline_editing_attributes( 'table_title', 'none' );
 		$this->add_render_attribute( 'table_title', 'class', 'pp-pricing-table-title' );
@@ -2256,22 +2848,18 @@ class Pricing_Table extends Powerpack_Widget {
 
 		$this->add_inline_editing_attributes( 'table_button_text', 'none' );
 
-		$this->add_render_attribute(
-			'table_button_text',
-			'class',
-			array(
-				'pp-pricing-table-button',
-				'elementor-button',
-				'elementor-size-' . $settings['table_button_size'],
-			)
-		);
+		$this->add_render_attribute( 'table_button_text', 'class', [
+			'pp-pricing-table-button',
+			'elementor-button',
+			'elementor-size-' . $settings['table_button_size'],
+		] );
 
 		if ( ! empty( $settings['link']['url'] ) ) {
 			$this->add_link_attributes( 'table_button_text', $settings['link'] );
 		}
 
 		$this->add_render_attribute( 'pricing-table-duration', 'class', 'pp-pricing-table-price-duration' );
-		if ( $settings['duration_position'] == 'wrap' ) {
+		if ( 'wrap' === $settings['duration_position'] ) {
 			$this->add_render_attribute( 'pricing-table-duration', 'class', 'next-line' );
 		}
 
@@ -2279,8 +2867,8 @@ class Pricing_Table extends Powerpack_Widget {
 			$this->add_render_attribute( 'table_button_text', 'class', 'elementor-animation-' . $settings['button_hover_animation'] );
 		}
 
-		if ( $settings['currency_format'] == 'raised' ) {
-			$price    = explode( '.', $settings['table_price'] );
+		if ( 'raised' === $settings['currency_format'] ) {
+			$price = explode( '.', $settings['table_price'] );
 			$intvalue = $price[0];
 			$fraction = '';
 			if ( 2 === count( $price ) ) {
@@ -2294,41 +2882,35 @@ class Pricing_Table extends Powerpack_Widget {
 		<div class="pp-pricing-table-container">
 			<div <?php echo $this->get_render_attribute_string( 'pricing-table' ); ?>>
 				<div class="pp-pricing-table-head">
-					<?php if ( $settings['icon_type'] != 'none' ) { ?>
+					<?php if ( 'none' !== $settings['icon_type'] ) { ?>
 						<div class="pp-pricing-table-icon-wrap">
-							<?php if ( $settings['icon_type'] == 'icon' && $has_icon ) { ?>
+							<?php if ( 'icon' === $settings['icon_type'] && $has_icon ) { ?>
 								<span class="pp-pricing-table-icon pp-icon">
 									<?php
 									if ( $is_new || $migrated ) {
-										Icons_Manager::render_icon( $settings['select_table_icon'], array( 'aria-hidden' => 'true' ) );
+										Icons_Manager::render_icon( $settings['select_table_icon'], [ 'aria-hidden' => 'true' ] );
 									} elseif ( ! empty( $settings['table_icon'] ) ) {
-										?>
-										<i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
-										<?php
+										?><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i><?php
 									}
 									?>
 								</span>
-							<?php } elseif ( $settings['icon_type'] == 'image' ) { ?>
-								<?php
-								$image = $settings['icon_image'];
-								if ( ! empty( $image['url'] ) ) {
-									?>
+							<?php } elseif ( 'image' === $settings['icon_type'] ) { ?>
+								<?php $image = $settings['icon_image'];
+								if ( $image['url'] ) { ?>
 									<span class="pp-pricing-table-icon pp-pricing-table-icon-image">
-										<?php
-											echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'icon_image' );
-										?>
+										<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'icon_image' ); ?>
 									</span>
 								<?php } ?>
 							<?php } ?>
 						</div>
 					<?php } ?>
 					<div class="pp-pricing-table-title-wrap">
-						<?php if ( ! empty( $settings['table_title'] ) ) { ?>
+						<?php if ( $settings['table_title'] ) { ?>
 							<h3 <?php echo $this->get_render_attribute_string( 'table_title' ); ?>>
 								<?php echo $settings['table_title']; ?>
 							</h3>
 						<?php } ?>
-						<?php if ( ! empty( $settings['table_subtitle'] ) ) { ?>
+						<?php if ( $settings['table_subtitle'] ) { ?>
 							<h4 <?php echo $this->get_render_attribute_string( 'table_subtitle' ); ?>>
 								<?php echo $settings['table_subtitle']; ?>
 							</h4>
@@ -2337,10 +2919,10 @@ class Pricing_Table extends Powerpack_Widget {
 				</div>
 				<div class="pp-pricing-table-price-wrap">
 					<div class="pp-pricing-table-price">
-						<?php if ( $settings['discount'] == 'yes' && $settings['table_original_price'] ) { ?>
+						<?php if ( 'yes' === $settings['discount'] && $settings['table_original_price'] ) { ?>
 							<span class="pp-pricing-table-price-original">
 								<?php
-								if ( ! empty( $symbol ) && $settings['currency_position'] === 'after' ) {
+								if ( $symbol && 'after' === $settings['currency_position'] ) {
 									echo $settings['table_original_price'] . $symbol;
 								} else {
 									echo $symbol . $settings['table_original_price'];
@@ -2348,7 +2930,7 @@ class Pricing_Table extends Powerpack_Widget {
 								?>
 							</span>
 						<?php } ?>
-						<?php if ( ! empty( $symbol ) && ( $settings['currency_position'] === 'before' || $settings['currency_position'] === '' ) ) { ?>
+						<?php if ( $symbol && ( 'before' === $settings['currency_position'] || '' === $settings['currency_position'] ) ) { ?>
 							<span class="pp-pricing-table-price-prefix">
 								<?php echo $symbol; ?>
 							</span>
@@ -2363,21 +2945,21 @@ class Pricing_Table extends Powerpack_Widget {
 								</span>
 							<?php } ?>
 						</span>
-						<?php if ( ! empty( $symbol ) && $settings['currency_position'] === 'after' ) { ?>
+						<?php if ( $symbol && 'after' === $settings['currency_position'] ) { ?>
 							<span class="pp-pricing-table-price-prefix">
 								<?php echo $symbol; ?>
 							</span>
 						<?php } ?>
-						<?php if ( ! empty( $settings['table_duration'] ) ) { ?>
+						<?php if ( $settings['table_duration'] ) { ?>
 							<span <?php echo $this->get_render_attribute_string( 'table_duration' ); ?>>
 								<?php echo $settings['table_duration']; ?>
 							</span>
 						<?php } ?>
 					</div>
 				</div>
-				<?php if ( $settings['table_button_position'] == 'above' ) { ?>
+				<?php if ( 'above' === $settings['table_button_position'] ) { ?>
 					<div class="pp-pricing-table-button-wrap">
-						<?php if ( ! empty( $settings['table_button_text'] ) ) { ?>
+						<?php if ( $settings['table_button_text'] ) { ?>
 							<a <?php echo $this->get_render_attribute_string( 'table_button_text' ); ?>>
 								<?php echo $settings['table_button_text']; ?>
 							</a>
@@ -2387,78 +2969,103 @@ class Pricing_Table extends Powerpack_Widget {
 				<ul class="pp-pricing-table-features">
 					<?php foreach ( $settings['table_features'] as $index => $item ) : ?>
 						<?php
-							$fallback_defaults = array(
-								'fa fa-check',
-								'fa fa-times',
-								'fa fa-dot-circle-o',
-							);
+						$fallback_defaults = [
+							'fa fa-check',
+							'fa fa-times',
+							'fa fa-dot-circle-o',
+						];
 
-							$migration_allowed = Icons_Manager::is_migration_allowed();
+						$migration_allowed = Icons_Manager::is_migration_allowed();
 
-							// add old default
-							if ( ! isset( $item['feature_icon'] ) && ! $migration_allowed ) {
-								$item['feature_icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-check';
-							}
+						// add old default
+						if ( ! isset( $item['feature_icon'] ) && ! $migration_allowed ) {
+							$item['feature_icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-check';
+						}
 
-							$migrated = isset( $item['__fa4_migrated']['select_feature_icon'] );
-							$is_new   = ! isset( $item['feature_icon'] ) && $migration_allowed;
+						$migrated = isset( $item['__fa4_migrated']['select_feature_icon'] );
+						$is_new = ! isset( $item['feature_icon'] ) && $migration_allowed;
 
-							$feature_key = $this->get_repeater_setting_key( 'feature_text', 'table_features', $index );
-							$this->add_render_attribute( $feature_key, 'class', 'pp-pricing-table-feature-text' );
-							$this->add_inline_editing_attributes( $feature_key, 'none' );
+						$feature_list_key = $this->get_repeater_setting_key( 'feature_list_key', 'table_features', $index );
+						$this->add_render_attribute( $feature_list_key, 'class', 'elementor-repeater-item-' . $item['_id'] );
 
-							$pa_class = '';
+						$feature_content_key = $this->get_repeater_setting_key( 'feature_content_key', 'table_features', $index );
+						$this->add_render_attribute( $feature_content_key, 'class', 'pp-pricing-table-feature-content' );
 
-							if ( $item['exclude'] == 'yes' ) {
-								$pa_class .= ' excluded';
-							} else {
-								$pa_class .= '';
-							}
-							?>
-						<li class="elementor-repeater-item-<?php echo $item['_id'] . $pa_class; ?>">
-							<?php
-							if ( ! empty( $item['select_feature_icon'] ) || ( ! empty( $item['feature_icon']['value'] ) && $is_new ) ) :
-								echo '<span class="pp-pricing-table-fature-icon pp-icon">';
-								if ( $is_new || $migrated ) {
-									Icons_Manager::render_icon( $item['select_feature_icon'], array( 'aria-hidden' => 'true' ) );
-								} else {
-									?>
-											<i class="<?php echo $item['feature_icon']; ?>" aria-hidden="true"></i>
-									<?php
+						$tooltip_icon_key = $this->get_repeater_setting_key( 'tooltip_icon_key', 'table_features', $index );
+						$this->add_render_attribute( $tooltip_icon_key, 'class', 'pp-pricing-table-tooltip-icon' );
+
+						if ( 'yes' === $settings['show_tooltip'] && $item['tooltip_content'] ) {
+							if ( 'text' === $settings['tooltip_display_on'] ) {
+								$this->get_tooltip_attributes( $item, $feature_content_key );
+								if ( 'click' === $settings['tooltip_trigger'] ) {
+									$this->add_render_attribute( $feature_content_key, 'class', 'pp-tooltip-click' );
 								}
-								echo '</span>';
-								endif;
-							?>
-							<?php if ( $item['feature_text'] ) { ?>
-								<span <?php echo $this->get_render_attribute_string( $feature_key ); ?>>
-									<?php echo $item['feature_text']; ?>
-								</span>
-							<?php } ?>
+							} else {
+								$this->get_tooltip_attributes( $item, $tooltip_icon_key );
+								if ( 'click' === $settings['tooltip_trigger'] ) {
+									$this->add_render_attribute( $tooltip_icon_key, 'class', 'pp-tooltip-click' );
+								}
+							}
+						}
+
+						$feature_key = $this->get_repeater_setting_key( 'feature_text', 'table_features', $index );
+						$this->add_render_attribute( $feature_key, 'class', 'pp-pricing-table-feature-text' );
+						$this->add_inline_editing_attributes( $feature_key, 'none' );
+
+						if ( 'yes' === $item['exclude'] ) {
+							$this->add_render_attribute( $feature_list_key, 'class', 'excluded' );
+						}
+						?>
+						<li <?php echo $this->get_render_attribute_string( $feature_list_key ); ?>>
+							<div <?php echo $this->get_render_attribute_string( $feature_content_key ); ?>>
+								<?php
+								if ( ! empty( $item['select_feature_icon'] ) || ( ! empty( $item['feature_icon']['value'] ) && $is_new ) ) :
+									echo '<span class="pp-pricing-table-fature-icon pp-icon">';
+									if ( $is_new || $migrated ) {
+										Icons_Manager::render_icon( $item['select_feature_icon'], [ 'aria-hidden' => 'true' ] );
+									} else { ?>
+										<i class="<?php echo $item['feature_icon']; ?>" aria-hidden="true"></i>
+										<?php
+									}
+									echo '</span>';
+									endif;
+								?>
+								<?php if ( $item['feature_text'] ) { ?>
+									<span <?php echo $this->get_render_attribute_string( $feature_key ); ?>>
+										<?php echo $item['feature_text']; ?>
+									</span>
+								<?php } ?>
+								<?php if ( 'yes' === $settings['show_tooltip'] && 'icon' === $settings['tooltip_display_on'] && $item['tooltip_content'] ) { ?>
+									<span <?php echo $this->get_render_attribute_string( $tooltip_icon_key ); ?>>
+										<?php \Elementor\Icons_Manager::render_icon( $settings['tooltip_icon'], array( 'aria-hidden' => 'true' ) ); ?>
+									</span>
+								<?php } ?>
+							</div>
 						</li>
 					<?php endforeach; ?>
 				</ul>
 				<div class="pp-pricing-table-footer">
-					<?php if ( $settings['table_button_position'] == 'below' ) { ?>
-						<?php if ( ! empty( $settings['table_button_text'] ) ) { ?>
+					<?php if ( 'below' === $settings['table_button_position'] ) { ?>
+						<?php if ( $settings['table_button_text'] ) { ?>
 							<a <?php echo $this->get_render_attribute_string( 'table_button_text' ); ?>>
 								<?php echo $settings['table_button_text']; ?>
 							</a>
 						<?php } ?>
 					<?php } ?>
-					<?php if ( ! empty( $settings['table_additional_info'] ) ) { ?>
+					<?php if ( $settings['table_additional_info'] ) { ?>
 						<div <?php echo $this->get_render_attribute_string( 'table_additional_info' ); ?>>
 							<?php echo $this->parse_text_editor( $settings['table_additional_info'] ); ?>
 						</div>
 					<?php } ?>
 				</div>
-			</div><!-- .pp-pricing-table -->
-			<?php if ( $settings['show_ribbon'] == 'yes' && $settings['ribbon_title'] != '' ) { ?>
+			</div>
+			<?php if ( 'yes' === $settings['show_ribbon'] && $settings['ribbon_title'] ) { ?>
 				<?php
-					$classes = array(
+					$classes = [
 						'pp-pricing-table-ribbon',
 						'pp-pricing-table-ribbon-' . $settings['ribbon_style'],
 						'pp-pricing-table-ribbon-' . $settings['ribbon_position'],
-					);
+					];
 					$this->add_render_attribute( 'ribbon', 'class', $classes );
 					?>
 				<div <?php echo $this->get_render_attribute_string( 'ribbon' ); ?>>
@@ -2469,7 +3076,7 @@ class Pricing_Table extends Powerpack_Widget {
 					</div>
 				</div>
 			<?php } ?>
-		</div><!-- .pp-pricing-table-container -->
+		</div>
 		<?php
 	}
 
@@ -2480,7 +3087,7 @@ class Pricing_Table extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 			var buttonClasses = 'pp-pricing-table-button elementor-button elementor-size-' + settings.table_button_size + ' elementor-animation-' + settings.button_hover_animation;
@@ -2508,8 +3115,9 @@ class Pricing_Table extends Powerpack_Widget {
 				symbol = '',
 				iconHTML = {},
 				iconsHTML = {},
-				migrated = {};
-				iconsMigrated = {};
+				migrated = {},
+				iconsMigrated = {},
+				tooltipIconHTML = {};
 
 			if ( settings.currency_symbol ) {
 				if ( 'custom' !== settings.currency_symbol ) {
@@ -2519,15 +3127,34 @@ class Pricing_Table extends Powerpack_Widget {
 				}
 			}
 		   
-		   if ( settings.currency_format == 'raised' ) {
-				   var table_price = settings.table_price.toString(),
+			if ( settings.currency_format == 'raised' ) {
+				var table_price = settings.table_price.toString(),
 					price = table_price.split( '.' ),
 					intvalue = price[0],
 					fraction = price[1];
-		   } else {
-				   var intvalue = settings.table_price,
+			} else {
+				var intvalue = settings.table_price,
 					fraction = '';
-		   }
+			}
+
+			function get_tooltip_attributes( item, toolTipKey ) {
+				view.addRenderAttribute( toolTipKey, 'class', 'pp-pricing-table-tooptip' );
+				view.addRenderAttribute( toolTipKey, 'data-tooltip', item.tooltip_content );
+				view.addRenderAttribute( toolTipKey, 'data-tooltip-position', 'tt-' + settings.tooltip_position );
+				view.addRenderAttribute( toolTipKey, 'data-tooltip-size', settings.tooltip_size );
+
+				if ( settings.tooltip_width.size ) {
+					view.addRenderAttribute( toolTipKey, 'data-tooltip-width', settings.tooltip_width.size );
+				}
+
+				if ( settings.tooltip_animation_in ) {
+					view.addRenderAttribute( toolTipKey, 'data-tooltip-animation-in', settings.tooltip_animation_in );
+				}
+
+				if ( settings.tooltip_animation_out ) {
+					view.addRenderAttribute( toolTipKey, 'data-tooltip-animation-out', settings.tooltip_animation_out );
+				}
+			}
 		#>
 		<div class="pp-pricing-table-container">
 			<div class="pp-pricing-table">
@@ -2613,83 +3240,112 @@ class Pricing_Table extends Powerpack_Widget {
 				<# if ( settings.table_button_position == 'above' ) { #>
 					<div class="pp-pricing-table-button-wrap">
 						<#
-						   if ( settings.table_button_text ) {
-							var button_text = settings.table_button_text;
+						if ( settings.table_button_text ) {
+						var button_text = settings.table_button_text;
 
-							view.addRenderAttribute( 'table_button_text', 'class', buttonClasses );
+						view.addRenderAttribute( 'table_button_text', 'class', buttonClasses );
 
-							view.addInlineEditingAttributes( 'table_button_text' );
+						view.addInlineEditingAttributes( 'table_button_text' );
 
-							var button_text_html = '<a ' + 'href="' + settings.link.url + '"' + view.getRenderAttributeString( 'table_button_text' ) + '>' + button_text + '</a>';
+						var button_text_html = '<a ' + 'href="' + settings.link.url + '"' + view.getRenderAttributeString( 'table_button_text' ) + '>' + button_text + '</a>';
 
-							print( button_text_html );
-						   }
+						print( button_text_html );
+						}
 						#>
 					</div>
 				<# } #>
 				<ul class="pp-pricing-table-features">
 					<# var i = 1; #>
-					<# _.each( settings.table_features, function( item, index ) { #>
+					<# _.each( settings.table_features, function( item, index ) {
+						var featureContentKey = view.getRepeaterSettingKey( 'feature_content_key', 'table_features', index );
+						view.addRenderAttribute( featureContentKey, 'class', 'pp-pricing-table-feature-content' );
+
+						var tooltipIconKey = view.getRepeaterSettingKey( 'tooltip_icon_key', 'table_features', index );
+						view.addRenderAttribute( tooltipIconKey, 'class', 'pp-pricing-table-tooltip-icon' );
+
+						if ( 'yes' === settings.show_tooltip && item.tooltip_content ) {
+							if ( 'text' === settings.tooltip_display_on ) {
+								get_tooltip_attributes( item, featureContentKey );
+								if ( 'click' === settings.tooltip_trigger ) {
+									view.addRenderAttribute( featureContentKey, 'class', 'pp-tooltip-click' );
+								}
+							} else {
+								get_tooltip_attributes( item, tooltipIconKey );
+								if ( 'click' === settings.tooltip_trigger ) {
+									view.addRenderAttribute( tooltipIconKey, 'class', 'pp-tooltip-click' );
+								}
+							}
+						} #>
 						<li class="elementor-repeater-item-{{ item._id }} <# if ( item.exclude == 'yes' ) { #> excluded <# } #>">
-							<# if ( item.select_feature_icon || item.feature_icon.value ) { #>
-								<span class="pp-pricing-table-fature-icon pp-icon">
+							<div {{{ view.getRenderAttributeString( featureContentKey ) }}}>
+								<# if ( item.select_feature_icon || item.feature_icon.value ) { #>
+									<span class="pp-pricing-table-fature-icon pp-icon">
+									<#
+										iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.select_feature_icon, { 'aria-hidden': true }, 'i', 'object' );
+										iconsMigrated[ index ] = elementor.helpers.isIconMigrated( item, 'select_feature_icon' );
+										if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.feature_icon || iconsMigrated[ index ] ) ) { #>
+											{{{ iconsHTML[ index ].value }}}
+										<# } else { #>
+											<i class="{{ item.feature_icon }}" aria-hidden="true"></i>
+										<# }
+									#>
+									</span>
+								<# } #>
+
 								<#
-									iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.select_feature_icon, { 'aria-hidden': true }, 'i', 'object' );
-									iconsMigrated[ index ] = elementor.helpers.isIconMigrated( item, 'select_feature_icon' );
-									if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.feature_icon || iconsMigrated[ index ] ) ) { #>
-										{{{ iconsHTML[ index ].value }}}
-									<# } else { #>
-										<i class="{{ item.feature_icon }}" aria-hidden="true"></i>
-									<# }
+									var feature_text = item.feature_text;
+
+									view.addRenderAttribute( 'table_features.' + (i - 1) + '.feature_text', 'class', 'pp-pricing-table-feature-text' );
+
+									view.addInlineEditingAttributes( 'table_features.' + (i - 1) + '.feature_text' );
+
+									var feature_text_html = '<span' + ' ' + view.getRenderAttributeString( 'table_features.' + (i - 1) + '.feature_text' ) + '>' + feature_text + '</span>';
+
+									print( feature_text_html );
 								#>
-								</span>
-							<# } #>
 
-							<#
-								var feature_text = item.feature_text;
+								<#
+								if ( 'yes' === settings.show_tooltip && 'icon' === settings.tooltip_display_on && item.tooltip_content ) {
+									tooltipIconHTML = elementor.helpers.renderIcon( view, settings.tooltip_icon, { 'aria-hidden': true }, 'i', 'object' );
+									var tooltip_icon_html = '<span' + ' ' + view.getRenderAttributeString( tooltipIconKey ) + '>' + tooltipIconHTML.value + '</span>';
 
-								view.addRenderAttribute( 'table_features.' + (i - 1) + '.feature_text', 'class', 'pp-pricing-table-feature-text' );
-
-								view.addInlineEditingAttributes( 'table_features.' + (i - 1) + '.feature_text' );
-
-								var feature_text_html = '<span' + ' ' + view.getRenderAttributeString( 'table_features.' + (i - 1) + '.feature_text' ) + '>' + feature_text + '</span>';
-
-								print( feature_text_html );
-							#>
+									print( tooltip_icon_html );
+								}
+								#>
+							</div>
 						</li>
 					<# i++ } ); #>
 				</ul>
 				<div class="pp-pricing-table-footer">
 					<#
-					   if ( settings.table_button_position == 'below' ) {
-						   if ( settings.table_button_text ) {
-							var button_text = settings.table_button_text;
+					if ( settings.table_button_position == 'below' ) {
+						if ( settings.table_button_text ) {
+						var button_text = settings.table_button_text;
 
-							view.addRenderAttribute( 'table_button_text', 'class', buttonClasses );
+						view.addRenderAttribute( 'table_button_text', 'class', buttonClasses );
 
-							view.addInlineEditingAttributes( 'table_button_text' );
+						view.addInlineEditingAttributes( 'table_button_text' );
 
-							var button_text_html = '<a ' + 'href="' + settings.link.url + '"' + view.getRenderAttributeString( 'table_button_text' ) + '>' + button_text + '</a>';
+						var button_text_html = '<a ' + 'href="' + settings.link.url + '"' + view.getRenderAttributeString( 'table_button_text' ) + '>' + button_text + '</a>';
 
-							print( button_text_html );
-						   }
-					   }
-					#>
-					<#
-					   if ( settings.table_additional_info ) {
-						var additional_info_text = settings.table_additional_info;
+						print( button_text_html );
+						}
+					}
 
-						view.addRenderAttribute( 'table_additional_info', 'class', 'pp-pricing-table-additional-info' );
+					if ( settings.table_additional_info ) {
+					var additional_info_text = settings.table_additional_info;
 
-						view.addInlineEditingAttributes( 'table_additional_info' );
+					view.addRenderAttribute( 'table_additional_info', 'class', 'pp-pricing-table-additional-info' );
 
-						var additional_info_text_html = '<div ' + view.getRenderAttributeString( 'table_additional_info' ) + '>' + additional_info_text + '</div>';
+					view.addInlineEditingAttributes( 'table_additional_info' );
 
-						print( additional_info_text_html );
-					   }
+					var additional_info_text_html = '<div ' + view.getRenderAttributeString( 'table_additional_info' ) + '>' + additional_info_text + '</div>';
+
+					print( additional_info_text_html );
+					}
 					#>
 				</div>
-			</div><!-- .pp-pricing-table -->
+			</div>
 			<# if ( settings.show_ribbon == 'yes' && settings.ribbon_title != '' ) { #>
 				<div class="pp-pricing-table-ribbon pp-pricing-table-ribbon-{{ settings.ribbon_style }} pp-pricing-table-ribbon-{{ settings.ribbon_position }}">
 					<div class="pp-pricing-table-ribbon-inner">
@@ -2699,8 +3355,22 @@ class Pricing_Table extends Powerpack_Widget {
 					</div>
 				</div>
 			<# } #>
-		</div><!-- .pp-pricing-table-container -->
+		</div>
 		<?php
+	}
+
+	/**
+	 * Render pricing table widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 */
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->content_template();
 	}
 
 }

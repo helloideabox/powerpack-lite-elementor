@@ -430,7 +430,52 @@
 				gf_select_field.wrap( "<span class='pp-gf-select-custom'></span>" );
 			}
 		});
-	}
+	};
+
+	var PricingTableHandler = function( $scope, $ ) {
+		var id                   = $scope.data('id'),
+			toolTopElm           = $scope.find('.pp-pricing-table-tooptip[data-tooltip]'),
+			elementSettings      = getElementSettings( $scope ),
+        	ttArrow              = elementSettings.tooltip_arrow,
+			ttTrigger            = elementSettings.tooltip_trigger,
+			elementorBreakpoints = elementorFrontend.config.breakpoints;
+
+		toolTopElm.each(function () {
+            var ttPosition   = $(this).data('tooltip-position'),
+				ttTemplate   = '',
+				ttSize       = $(this).data('tooltip-size'),
+				animationIn  = $(this).data('tooltip-animation-in'),
+				animationOut = $(this).data('tooltip-animation-out');
+
+            // tablet
+            if ( window.innerWidth <= elementorBreakpoints.lg && window.innerWidth >= elementorBreakpoints.md ) {
+                ttPosition = $scope.find('.pp-pricing-table-tooptip[data-tooltip]').data('tooltip-position-tablet');
+            }
+
+            // mobile
+            if ( window.innerWidth < elementorBreakpoints.md ) {
+                ttPosition = $scope.find('.pp-pricing-table-tooptip[data-tooltip]').data('tooltip-position-mobile');
+            }
+            
+            if ( ttArrow === 'yes' ) {
+                ttTemplate = '<div class="pp-tooltip pp-tooltip-' + id + ' pp-tooltip-' + ttSize + '"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div><div class="pp-tooltip-callout"></div></div></div>';
+            } else {
+                ttTemplate = '<div class="pp-tooltip pp-tooltip-' + id + ' pp-tooltip-' + ttSize + '"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div></div></div>';
+			}
+			
+			var tooltipConfig = {
+                template:     ttTemplate,
+				position:     ttPosition,
+				animationIn:  animationIn,
+				animationOut: animationOut,
+				animDuration: 400,
+				alwaysOpen:   false,
+                toggleable:   (ttTrigger === 'click') ? true : false
+			};
+            
+            $(this)._tooltip( tooltipConfig );
+        });
+	};
     
     $(window).on('elementor/frontend/init', function () {
         if ( elementorFrontend.isEditMode() ) {
@@ -452,6 +497,7 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-twitter-tweet.default', TwitterTimelineHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-image-accordion.default', ImageAccordionHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-gravity-forms.default', GFormsHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-pricing-table.default', PricingTableHandler);
 		
 		if (isEditMode) {
 			parent.document.addEventListener("mousedown", function(e) {
