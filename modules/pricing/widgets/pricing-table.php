@@ -108,7 +108,7 @@ class Pricing_Table extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.5
 	 * @access protected
 	 */
 	protected function register_controls() {
@@ -501,7 +501,7 @@ class Pricing_Table extends Powerpack_Widget {
 	/**
 	 * Register Pricing Table Tooltip Controls
 	 *
-	 * @since x.x.x
+	 * @since 2.2.5
 	 * @return void
 	 */
 	protected function register_content_tooltip_controls() {
@@ -2085,7 +2085,7 @@ class Pricing_Table extends Powerpack_Widget {
 	/**
 	 * Register Tooltip Style Controls
 	 *
-	 * @since x.x.x
+	 * @since 2.2.5
 	 * @return void
 	 */
 	protected function register_style_tooltip_controls() {

@@ -206,6 +206,14 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+== 2.2.5 ==
+Release date: February 23, 2021
+* 	Added: Image Hotspots - Z-index option for tooltips
+* 	Enhancement: Pricing Table - Added pointer cursor if click trigger is used for tooltip
+* 	Fixed: Pricing Table - If tooltip content is left blank it was showing content from previous item's tooltip content
+* 	Added: Pricing Table - Settings to change color and size for tooltip icon
+* 	Fixed: Pricing Table - Tooltip icon was showing even if there was no tooltip content
+
 = 2.2.4 - February 10, 2020 =
 * 	Fixed: Instagram Feed – Added compatibility with new Instagram API changes
 

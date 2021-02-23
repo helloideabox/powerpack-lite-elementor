@@ -1,3 +1,6 @@
+.elementor-widget-pp-pricing-table .elementor-widget-container {
+	background-color: #f8f8f8;
+}
 .pp-pricing-table {
     overflow: hidden;
     text-align: center;
@@ -115,6 +118,9 @@
         text-decoration: line-through;
     }
 }
+.pp-pricing-table-feature-content {
+	display: inline-block;
+}
 .pp-pricing-table-ribbon {
     color: #fff;
     font-size: 13px;
@@ -229,4 +235,7 @@
             }
         }
     }
+}
+.pp-tooltip-click {
+	cursor: pointer;
 }

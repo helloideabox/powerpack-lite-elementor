@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
 		// JavaScript linting with JSHint.
 		jshint: {
 			options: {
-				jshintrc: 'config/.jshintrc'
+				jshintrc: '.jshintrc'
 			},
 			all: [
 				'<%= dirs.js %>/admin/*.js',
@@ -34,7 +34,7 @@ module.exports = function( grunt ) {
 		// Sass linting with Stylelint.
 		stylelint: {
 			options: {
-				configFile: 'config/.stylelintrc'
+				configFile: '.stylelintrc'
 			},
 			all: [
 				'<%= dirs.css %>/*.scss'
