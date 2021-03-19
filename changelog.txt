@@ -1,3 +1,7 @@
+== 2.2.6 ==
+Release date: March 22, 2021
+* Fixed: Display Conditions - Day of the Week option was not working for Sunday
+
 == 2.2.5 ==
 Release date: February 23, 2021
 * Added: Image Hotspots - Z-index option for tooltips

@@ -206,6 +206,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.2.6 - March 22, 2021 =
+* 	Fixed: Display Conditions - Day of the Week option was not working for Sunday
+
 = 2.2.5 - February 23, 2021 =
 * 	Added: Image Hotspots - Z-index option for tooltips
 * 	Enhancement: Pricing Table - Added pointer cursor if click trigger is used for tooltip

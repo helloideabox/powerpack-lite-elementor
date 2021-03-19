@@ -73,7 +73,7 @@ class Day extends Condition {
 				'4' => __( 'Thursday', 'powerpack' ),
 				'5' => __( 'Friday', 'powerpack' ),
 				'6' => __( 'Saturday', 'powerpack' ),
-				'7' => __( 'Sunday', 'powerpack' ),
+				'0' => __( 'Sunday', 'powerpack' ),
 			],
 			'multiple'          => true,
 			'label_block'       => true,
