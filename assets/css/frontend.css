@@ -392,6 +392,9 @@ div[class*=' pa-'] {
 .pp-info-box-carousel .pp-info-box-content-wrap {
   overflow: hidden; }
 
+.pp-info-box-description p:last-child {
+  margin-bottom: 0; }
+
 .pp-info-list-container {
   overflow: hidden; }
   .pp-info-list-container li {
@@ -3376,13 +3379,14 @@ div[class*=' pa-'] {
   .pp-image-accordion-stack-on-tablet .pp-image-accordion-item {
     margin-right: 0 !important; }
   .pp-info-box-tablet-top .pp-info-box {
-    flex-direction: column; }
+    display: inline-block; }
     .pp-info-box-tablet-top .pp-info-box .pp-info-box-icon-wrap {
       display: inline-block;
       margin: 0; }
     .pp-info-box-tablet-top .pp-info-box .pp-info-box-icon {
       margin-right: auto; }
   .pp-info-box-tablet-left .pp-info-box {
+    display: flex;
     flex-direction: row; }
     .pp-info-box-tablet-left .pp-info-box .pp-info-box-icon-wrap {
       display: flex;
@@ -3391,6 +3395,7 @@ div[class*=' pa-'] {
     .pp-info-box-tablet-left .pp-info-box img {
       width: 100%; }
   .pp-info-box-tablet-right .pp-info-box {
+    display: flex;
     flex-direction: row-reverse; }
     .pp-info-box-tablet-right .pp-info-box .pp-info-box-icon-wrap {
       display: flex;
@@ -3489,13 +3494,14 @@ div[class*=' pa-'] {
   .pp-image-accordion-stack-on-mobile .pp-image-accordion-item {
     margin-right: 0 !important; }
   .pp-info-box-mobile-top .pp-info-box {
-    flex-direction: column; }
+    display: inline-block; }
     .pp-info-box-mobile-top .pp-info-box .pp-info-box-icon-wrap {
       display: inline-block;
       margin: 0; }
     .pp-info-box-mobile-top .pp-info-box .pp-info-box-icon {
       margin-right: auto; }
   .pp-info-box-mobile-left .pp-info-box {
+    display: flex;
     flex-direction: row; }
     .pp-info-box-mobile-left .pp-info-box .pp-info-box-icon-wrap {
       display: flex;
@@ -3504,6 +3510,7 @@ div[class*=' pa-'] {
     .pp-info-box-mobile-left .pp-info-box img {
       width: 100%; }
   .pp-info-box-mobile-right .pp-info-box {
+    display: flex;
     flex-direction: row-reverse; }
     .pp-info-box-mobile-right .pp-info-box .pp-info-box-icon-wrap {
       display: flex;
