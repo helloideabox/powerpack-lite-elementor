@@ -11,7 +11,7 @@
  * Text Domain: powerpack
  * Domain Path: /languages
  * Elementor tested up to: 3.1.4
- * Elementor Pro tested up to: 3.2.0
+ * Elementor Pro tested up to: 3.2.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
