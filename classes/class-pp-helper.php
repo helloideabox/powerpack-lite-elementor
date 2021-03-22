@@ -21,6 +21,20 @@ class PP_Helper {
 	private static $script_debug = null;
 
 	/**
+	 * Widgets List
+	 *
+	 * @var widgets_list
+	 */
+	private static $widgets_list = null;
+
+	/**
+	 * Widget Options
+	 *
+	 * @var widget_options
+	 */
+	private static $widget_options = null;
+
+	/**
 	 * Convert Comma Separated List into Array
 	 *
 	 * @param string $list Comma separated list.
@@ -35,6 +49,21 @@ class PP_Helper {
 	}
 
 	/**
+	 * Get widgets list.
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function get_widgets_list() {
+
+		if ( ! isset( self::$widgets_list ) ) {
+			self::$widgets_list = PP_Config::get_widget_info();
+		}
+
+		return apply_filters( 'ppe_lite_widgets_list', self::$widgets_list );
+	}
+
+	/**
 	 * Get Widget Name
 	 *
 	 * @param string $slug Module slug.
@@ -43,12 +72,12 @@ class PP_Helper {
 	 */
 	public static function get_widget_name( $slug = '' ) {
 
-		$widget_list = PP_Config::get_widget_info();
+		self::$widgets_list = PP_Config::get_widget_info();
 
 		$widget_name = '';
 
-		if ( isset( $widget_list[ $slug ] ) ) {
-			$widget_name = $widget_list[ $slug ]['name'];
+		if ( isset( self::$widgets_list[ $slug ] ) ) {
+			$widget_name = self::$widgets_list[ $slug ]['name'];
 		}
 
 		return apply_filters( 'pp_elements_lite_widget_name', $widget_name );
@@ -63,12 +92,12 @@ class PP_Helper {
 	 */
 	public static function get_widget_title( $slug = '' ) {
 
-		$widget_list = PP_Config::get_widget_info();
+		self::$widgets_list = PP_Config::get_widget_info();
 
 		$widget_name = '';
 
-		if ( isset( $widget_list[ $slug ] ) ) {
-			$widget_name = $widget_list[ $slug ]['title'];
+		if ( isset( self::$widgets_list[ $slug ] ) ) {
+			$widget_name = self::$widgets_list[ $slug ]['title'];
 		}
 
 		return apply_filters( 'pp_elements_lite_widget_title', $widget_name );
@@ -83,12 +112,12 @@ class PP_Helper {
 	 */
 	public static function get_widget_categories( $slug = '' ) {
 
-		$widget_list = PP_Config::get_widget_info();
+		self::$widgets_list = PP_Config::get_widget_info();
 
 		$widget_categories = '';
 
-		if ( isset( $widget_list[ $slug ] ) ) {
-			$widget_categories = $widget_list[ $slug ]['categories'];
+		if ( isset( self::$widgets_list[ $slug ] ) ) {
+			$widget_categories = self::$widgets_list[ $slug ]['categories'];
 		}
 
 		return apply_filters( 'pp_elements_lite_widget_categories', $widget_categories );
@@ -103,12 +132,12 @@ class PP_Helper {
 	 */
 	public static function get_widget_icon( $slug = '' ) {
 
-		$widget_list = PP_Config::get_widget_info();
+		self::$widgets_list = PP_Config::get_widget_info();
 
 		$widget_icon = '';
 
-		if ( isset( $widget_list[ $slug ] ) ) {
-			$widget_icon = $widget_list[ $slug ]['icon'];
+		if ( isset( self::$widgets_list[ $slug ] ) ) {
+			$widget_icon = self::$widgets_list[ $slug ]['icon'];
 		}
 
 		return apply_filters( 'pp_elements_lite_widget_icon', $widget_icon );
@@ -123,12 +152,12 @@ class PP_Helper {
 	 */
 	public static function get_widget_keywords( $slug = '' ) {
 
-		$widget_list = PP_Config::get_widget_info();
+		self::$widgets_list = PP_Config::get_widget_info();
 
 		$widget_keywords = '';
 
-		if ( isset( $widget_list[ $slug ] ) ) {
-			$widget_keywords = $widget_list[ $slug ]['keywords'];
+		if ( isset( self::$widgets_list[ $slug ] ) ) {
+			$widget_keywords = self::$widgets_list[ $slug ]['keywords'];
 		}
 
 		return apply_filters( 'pp_elements_lite_widget_keywords', $widget_keywords );
@@ -143,6 +172,58 @@ class PP_Helper {
 	public static function get_widget_style() {
 
 		return PP_Config::get_widget_style();
+	}
+
+	/**
+	 * Get Widget Options.
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function get_widget_options() {
+		if ( null === self::$widget_options ) {
+			if ( ! isset( self::$widgets_list ) ) {
+				$widgets = self::get_widgets_list();
+			} else {
+				$widgets = self::$widgets_list;
+			}
+
+			$saved_widgets = pp_get_enabled_modules();
+
+			if ( is_array( $widgets ) ) {
+
+				foreach ( $widgets as $slug => $data ) {
+
+					if ( in_array( $data['name'], $saved_widgets, true ) ) {
+						$widgets[ $slug ]['is_activate'] = true;
+					} else {
+						$widgets[ $slug ]['is_activate'] = false;
+					}
+				}
+			}
+
+			self::$widget_options = $widgets;
+		}
+
+		return apply_filters( 'ppe_lite_enabled_widgets', self::$widget_options );
+	}
+
+	/**
+	 * Check if widget is active.
+	 *
+	 * @param string $slug Module slug.
+	 * @return boolean
+	 * @since x.x.x
+	 */
+	public static function is_widget_active( $slug = '' ) {
+		$widgets     = self::get_widget_options();
+		$is_activate = false;
+
+		if ( isset( $widgets[ $slug ] ) ) {
+			$is_activate = $widgets[ $slug ]['is_activate'];
+		}
+
+		return $is_activate;
 	}
 
 	/**
