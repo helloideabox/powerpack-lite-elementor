@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.2.5\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.3.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2021-03-22 05:42:58+00:00\n"
+"POT-Creation-Date: 2021-03-22 06:29:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -117,6 +117,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:341
 #: modules/pricing/widgets/pricing-table.php:1035
 #: modules/promo-box/widgets/promo-box.php:401
+#: modules/random-image/widgets/random-image.php:379
 #: modules/scroll-image/widgets/scroll-image.php:314
 #: modules/team-member/widgets/team-member-carousel.php:710
 #: modules/team-member/widgets/team-member.php:513
@@ -162,6 +163,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:351
 #: modules/pricing/widgets/pricing-table.php:1045
 #: modules/promo-box/widgets/promo-box.php:411
+#: modules/random-image/widgets/random-image.php:390
 #: modules/scroll-image/widgets/scroll-image.php:324
 #: modules/team-member/widgets/team-member-carousel.php:720
 #: modules/team-member/widgets/team-member.php:523
@@ -1507,7 +1509,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:226
 #: modules/pricing/widgets/pricing-table.php:800
 #: modules/pricing/widgets/pricing-table.php:1314
-#: modules/random-image/widgets/random-image.php:258
+#: modules/random-image/widgets/random-image.php:259
 #: modules/team-member/widgets/team-member-carousel.php:195
 #: modules/team-member/widgets/team-member.php:195
 #: modules/wpforms/widgets/wpforms.php:91
@@ -1651,7 +1653,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:987
 #: modules/promo-box/widgets/promo-box.php:1205
 #: modules/promo-box/widgets/promo-box.php:1216
-#: modules/random-image/widgets/random-image.php:379
+#: modules/random-image/widgets/random-image.php:410
 #: modules/scroll-image/widgets/scroll-image.php:103
 #: modules/scroll-image/widgets/scroll-image.php:110
 #: modules/scroll-image/widgets/scroll-image.php:344
@@ -1701,7 +1703,7 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:402
 #: modules/posts/skins/skin-base.php:621
 #: modules/pricing/widgets/price-menu.php:223
-#: modules/random-image/widgets/random-image.php:220
+#: modules/random-image/widgets/random-image.php:221
 #: modules/scroll-image/widgets/scroll-image.php:124
 #: modules/team-member/widgets/team-member-carousel.php:412
 #: modules/team-member/widgets/team-member.php:118
@@ -1978,8 +1980,8 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:1448
 #: modules/random-image/module.php:92
 #: modules/random-image/widgets/random-image.php:141
-#: modules/random-image/widgets/random-image.php:518
-#: modules/random-image/widgets/random-image.php:888
+#: modules/random-image/widgets/random-image.php:549
+#: modules/random-image/widgets/random-image.php:919
 #: modules/scroll-image/widgets/scroll-image.php:369
 #: modules/team-member/widgets/team-member-carousel.php:774
 #: modules/team-member/widgets/team-member-carousel.php:1750
@@ -2032,9 +2034,9 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:160
 #: modules/pricing/widgets/pricing-table.php:265
 #: modules/pricing/widgets/pricing-table.php:940
-#: modules/random-image/widgets/random-image.php:257
-#: modules/random-image/widgets/random-image.php:288
-#: modules/random-image/widgets/random-image.php:855
+#: modules/random-image/widgets/random-image.php:258
+#: modules/random-image/widgets/random-image.php:289
+#: modules/random-image/widgets/random-image.php:886
 #: modules/team-member/widgets/team-member-carousel.php:193
 #: modules/team-member/widgets/team-member-carousel.php:495
 #: modules/team-member/widgets/team-member.php:193
@@ -2189,7 +2191,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:1077
 #: modules/promo-box/widgets/promo-box.php:1306
 #: modules/promo-box/widgets/promo-box.php:1564
-#: modules/random-image/widgets/random-image.php:1033
+#: modules/random-image/widgets/random-image.php:1064
 #: modules/team-member/widgets/team-member-carousel.php:825
 #: modules/team-member/widgets/team-member-carousel.php:1851
 #: modules/team-member/widgets/team-member-carousel.php:2068
@@ -2299,8 +2301,8 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:633
 #: modules/promo-box/widgets/promo-box.php:814
 #: modules/promo-box/widgets/promo-box.php:1490
-#: modules/random-image/widgets/random-image.php:623
-#: modules/random-image/widgets/random-image.php:942
+#: modules/random-image/widgets/random-image.php:654
+#: modules/random-image/widgets/random-image.php:973
 #: modules/scroll-image/widgets/scroll-image.php:384
 #: modules/team-member/widgets/team-member-carousel.php:792
 #: modules/team-member/widgets/team-member-carousel.php:878
@@ -2377,8 +2379,8 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:2520
 #: modules/promo-box/widgets/promo-box.php:846
 #: modules/promo-box/widgets/promo-box.php:1533
-#: modules/random-image/widgets/random-image.php:552
-#: modules/random-image/widgets/random-image.php:993
+#: modules/random-image/widgets/random-image.php:583
+#: modules/random-image/widgets/random-image.php:1024
 #: modules/scroll-image/widgets/scroll-image.php:228
 #: modules/scroll-image/widgets/scroll-image.php:414
 #: modules/team-member/widgets/team-member-carousel.php:1820
@@ -2481,7 +2483,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:670
 #: modules/promo-box/widgets/promo-box.php:791
 #: modules/promo-box/widgets/promo-box.php:1511
-#: modules/random-image/widgets/random-image.php:836
+#: modules/random-image/widgets/random-image.php:867
 #: modules/team-member/widgets/team-member-carousel.php:804
 #: modules/team-member/widgets/team-member-carousel.php:890
 #: modules/team-member/widgets/team-member-carousel.php:1805
@@ -2632,8 +2634,8 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:2648
 #: modules/promo-box/widgets/promo-box.php:1467
 #: modules/promo-box/widgets/promo-box.php:1552
-#: modules/random-image/widgets/random-image.php:898
-#: modules/random-image/widgets/random-image.php:1003
+#: modules/random-image/widgets/random-image.php:929
+#: modules/random-image/widgets/random-image.php:1034
 #: modules/team-member/widgets/team-member-carousel.php:1098
 #: modules/team-member/widgets/team-member-carousel.php:1301
 #: modules/team-member/widgets/team-member-carousel.php:1504
@@ -2790,8 +2792,8 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:870
 #: modules/promo-box/widgets/promo-box.php:1455
 #: modules/promo-box/widgets/promo-box.php:1540
-#: modules/random-image/widgets/random-image.php:913
-#: modules/random-image/widgets/random-image.php:1018
+#: modules/random-image/widgets/random-image.php:944
+#: modules/random-image/widgets/random-image.php:1049
 #: modules/team-member/widgets/team-member-carousel.php:854
 #: modules/team-member/widgets/team-member-carousel.php:1769
 #: modules/team-member/widgets/team-member-carousel.php:1839
@@ -2900,7 +2902,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:975
 #: modules/promo-box/widgets/promo-box.php:1204
 #: modules/promo-box/widgets/promo-box.php:1480
-#: modules/random-image/widgets/random-image.php:929
+#: modules/random-image/widgets/random-image.php:960
 #: modules/team-member/widgets/team-member-carousel.php:782
 #: modules/team-member/widgets/team-member-carousel.php:867
 #: modules/team-member/widgets/team-member-carousel.php:1026
@@ -2980,7 +2982,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1074
 #: modules/pricing/widgets/pricing-table.php:1753
 #: modules/promo-box/widgets/promo-box.php:556
-#: modules/random-image/widgets/random-image.php:228
+#: modules/random-image/widgets/random-image.php:229
 #: modules/team-member/widgets/team-member-carousel.php:746
 #: modules/team-member/widgets/team-member-carousel.php:927
 #: modules/team-member/widgets/team-member.php:549
@@ -3378,7 +3380,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:775
 #: modules/pricing/widgets/pricing-table.php:1954
 #: modules/promo-box/widgets/promo-box.php:225
-#: modules/random-image/widgets/random-image.php:320
+#: modules/random-image/widgets/random-image.php:321
 #: modules/team-member/widgets/team-member-carousel.php:465
 #: modules/team-member/widgets/team-member-carousel.php:598
 #: modules/team-member/widgets/team-member-carousel.php:631
@@ -3488,7 +3490,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:774
 #: modules/pricing/widgets/pricing-table.php:1953
 #: modules/promo-box/widgets/promo-box.php:224
-#: modules/random-image/widgets/random-image.php:319
+#: modules/random-image/widgets/random-image.php:320
 #: modules/team-member/widgets/team-member-carousel.php:464
 #: modules/team-member/widgets/team-member-carousel.php:597
 #: modules/team-member/widgets/team-member-carousel.php:630
@@ -3576,7 +3578,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:316
 #: modules/pricing/widgets/pricing-table.php:1002
 #: modules/promo-box/widgets/promo-box.php:376
-#: modules/random-image/widgets/random-image.php:346
+#: modules/random-image/widgets/random-image.php:347
 #: modules/scroll-image/widgets/scroll-image.php:289
 #: modules/wpforms/widgets/wpforms.php:212
 msgid "Help Docs"
@@ -3787,9 +3789,9 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1079
 #: modules/pricing/widgets/pricing-table.php:1758
 #: modules/promo-box/widgets/promo-box.php:561
-#: modules/random-image/widgets/random-image.php:232
-#: modules/random-image/widgets/random-image.php:719
-#: modules/random-image/widgets/random-image.php:760
+#: modules/random-image/widgets/random-image.php:233
+#: modules/random-image/widgets/random-image.php:750
+#: modules/random-image/widgets/random-image.php:791
 #: modules/team-member/widgets/team-member-carousel.php:750
 #: modules/team-member/widgets/team-member-carousel.php:931
 #: modules/team-member/widgets/team-member.php:553
@@ -3864,10 +3866,10 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1762
 #: modules/promo-box/widgets/promo-box.php:565
 #: modules/promo-box/widgets/promo-box.php:593
-#: modules/random-image/widgets/random-image.php:236
-#: modules/random-image/widgets/random-image.php:687
-#: modules/random-image/widgets/random-image.php:723
-#: modules/random-image/widgets/random-image.php:764
+#: modules/random-image/widgets/random-image.php:237
+#: modules/random-image/widgets/random-image.php:718
+#: modules/random-image/widgets/random-image.php:754
+#: modules/random-image/widgets/random-image.php:795
 #: modules/team-member/widgets/team-member-carousel.php:754
 #: modules/team-member/widgets/team-member-carousel.php:935
 #: modules/team-member/widgets/team-member.php:557
@@ -3947,9 +3949,9 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1087
 #: modules/pricing/widgets/pricing-table.php:1766
 #: modules/promo-box/widgets/promo-box.php:569
-#: modules/random-image/widgets/random-image.php:240
-#: modules/random-image/widgets/random-image.php:727
-#: modules/random-image/widgets/random-image.php:768
+#: modules/random-image/widgets/random-image.php:241
+#: modules/random-image/widgets/random-image.php:758
+#: modules/random-image/widgets/random-image.php:799
 #: modules/team-member/widgets/team-member-carousel.php:758
 #: modules/team-member/widgets/team-member-carousel.php:939
 #: modules/team-member/widgets/team-member.php:561
@@ -4084,7 +4086,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:1149
 #: modules/promo-box/widgets/promo-box.php:1375
 #: modules/promo-box/widgets/promo-box.php:1503
-#: modules/random-image/widgets/random-image.php:665
+#: modules/random-image/widgets/random-image.php:696
 #: modules/team-member/widgets/team-member-carousel.php:1089
 #: modules/team-member/widgets/team-member-carousel.php:1292
 #: modules/team-member/widgets/team-member-carousel.php:1495
@@ -4200,7 +4202,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:186
 #: modules/pricing/widgets/pricing-table.php:960
 #: modules/promo-box/widgets/promo-box.php:349
-#: modules/random-image/widgets/random-image.php:298
+#: modules/random-image/widgets/random-image.php:299
 #: modules/team-member/widgets/team-member-carousel.php:203
 #: modules/team-member/widgets/team-member.php:203
 msgid "Link"
@@ -4254,8 +4256,8 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:551
 #: modules/pricing/widgets/pricing-table.php:658
 #: modules/pricing/widgets/pricing-table.php:787
-#: modules/random-image/widgets/random-image.php:318
-#: modules/random-image/widgets/random-image.php:494
+#: modules/random-image/widgets/random-image.php:319
+#: modules/random-image/widgets/random-image.php:525
 msgid "Default"
 msgstr ""
 
@@ -4419,7 +4421,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:569
 #: modules/pricing/widgets/pricing-table.php:1594
 #: modules/promo-box/widgets/promo-box.php:589
-#: modules/random-image/widgets/random-image.php:683
+#: modules/random-image/widgets/random-image.php:714
 msgid "Top"
 msgstr ""
 
@@ -4458,7 +4460,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:570
 #: modules/pricing/widgets/pricing-table.php:1602
 #: modules/promo-box/widgets/promo-box.php:597
-#: modules/random-image/widgets/random-image.php:691
+#: modules/random-image/widgets/random-image.php:722
 msgid "Bottom"
 msgstr ""
 
@@ -4595,7 +4597,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:1040
 #: modules/image-accordion/widgets/image-accordion.php:691
 #: modules/instafeed/widgets/instafeed.php:1366
-#: modules/random-image/widgets/random-image.php:755
+#: modules/random-image/widgets/random-image.php:786
 msgid "Text Align"
 msgstr ""
 
@@ -4653,7 +4655,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:784
 #: modules/promo-box/widgets/promo-box.php:197
 #: modules/promo-box/widgets/promo-box.php:1354
-#: modules/random-image/widgets/random-image.php:260
+#: modules/random-image/widgets/random-image.php:261
 #: modules/team-member/widgets/team-member-carousel.php:163
 #: modules/team-member/widgets/team-member-carousel.php:497
 #: modules/team-member/widgets/team-member-carousel.php:498
@@ -4773,7 +4775,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1255
 #: modules/pricing/widgets/pricing-table.php:1505
 #: modules/promo-box/widgets/promo-box.php:826
-#: modules/random-image/widgets/random-image.php:821
+#: modules/random-image/widgets/random-image.php:852
 #: modules/team-member/widgets/team-member-carousel.php:2253
 #: modules/team-member/widgets/team-member.php:606
 #: modules/wpforms/widgets/wpforms.php:332
@@ -4956,7 +4958,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:725
 #: modules/promo-box/widgets/promo-box.php:1021
 #: modules/promo-box/widgets/promo-box.php:1250
-#: modules/random-image/widgets/random-image.php:387
+#: modules/random-image/widgets/random-image.php:418
 #: modules/twitter/widgets/twitter-grid.php:101
 #: modules/twitter/widgets/twitter-timeline.php:131
 #: modules/twitter/widgets/twitter-tweet.php:128
@@ -5961,7 +5963,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1859
 #: modules/image-accordion/widgets/image-accordion.php:313
 #: modules/promo-box/widgets/promo-box.php:449
-#: modules/random-image/widgets/random-image.php:457
+#: modules/random-image/widgets/random-image.php:488
 #: modules/twitter/widgets/twitter-timeline.php:149
 msgid "Height"
 msgstr ""
@@ -6595,7 +6597,7 @@ msgid "Add Your Heading Text Here"
 msgstr ""
 
 #: modules/headings/widgets/fancy-heading.php:267
-#: modules/random-image/widgets/random-image.php:495
+#: modules/random-image/widgets/random-image.php:526
 msgid "Fill"
 msgstr ""
 
@@ -7159,7 +7161,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:621
 #: modules/instafeed/widgets/instafeed.php:1260
 #: modules/logos/widgets/logo-grid.php:337
-#: modules/random-image/widgets/random-image.php:676
+#: modules/random-image/widgets/random-image.php:707
 msgid "Vertical Align"
 msgstr ""
 
@@ -7167,7 +7169,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:655
 #: modules/instafeed/widgets/instafeed.php:1313
 #: modules/logos/widgets/logo-grid.php:369
-#: modules/random-image/widgets/random-image.php:713
+#: modules/random-image/widgets/random-image.php:744
 msgid "Horizontal Align"
 msgstr ""
 
@@ -7636,9 +7638,9 @@ msgid "Comments"
 msgstr ""
 
 #: modules/instafeed/widgets/instafeed.php:482
-#: modules/random-image/widgets/random-image.php:253
-#: modules/random-image/widgets/random-image.php:259
-#: modules/random-image/widgets/random-image.php:653
+#: modules/random-image/widgets/random-image.php:254
+#: modules/random-image/widgets/random-image.php:260
+#: modules/random-image/widgets/random-image.php:684
 msgid "Caption"
 msgstr ""
 
@@ -7655,7 +7657,7 @@ msgid "Always"
 msgstr ""
 
 #: modules/instafeed/widgets/instafeed.php:537
-#: modules/random-image/widgets/random-image.php:314
+#: modules/random-image/widgets/random-image.php:315
 msgid "Lightbox"
 msgstr ""
 
@@ -7704,7 +7706,7 @@ msgid "Rows Gap"
 msgstr ""
 
 #: modules/instafeed/widgets/instafeed.php:1075
-#: modules/random-image/widgets/random-image.php:201
+#: modules/random-image/widgets/random-image.php:202
 msgid "Images"
 msgstr ""
 
@@ -7948,10 +7950,10 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:623
 #: modules/logos/widgets/logo-grid.php:577
 #: modules/logos/widgets/logo-grid.php:665
-#: modules/random-image/widgets/random-image.php:525
-#: modules/random-image/widgets/random-image.php:559
-#: modules/random-image/widgets/random-image.php:969
-#: modules/random-image/widgets/random-image.php:1060
+#: modules/random-image/widgets/random-image.php:556
+#: modules/random-image/widgets/random-image.php:590
+#: modules/random-image/widgets/random-image.php:1000
+#: modules/random-image/widgets/random-image.php:1091
 #: modules/team-member/widgets/team-member-carousel.php:968
 #: modules/team-member/widgets/team-member.php:688
 msgid "Opacity"
@@ -8939,145 +8941,145 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:208
+#: modules/random-image/widgets/random-image.php:209
 msgid "Add Images"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:268
+#: modules/random-image/widgets/random-image.php:269
 msgid "Caption Position"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:272
+#: modules/random-image/widgets/random-image.php:273
 msgid "Over Image"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:273
+#: modules/random-image/widgets/random-image.php:274
 msgid "Below Image"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:284
+#: modules/random-image/widgets/random-image.php:285
 msgid "Link to"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:289
+#: modules/random-image/widgets/random-image.php:290
 msgid "Media File"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:290
+#: modules/random-image/widgets/random-image.php:291
 msgid "Custom URL"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:303
+#: modules/random-image/widgets/random-image.php:304
 msgid "https://your-link.com"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:422
+#: modules/random-image/widgets/random-image.php:453
 msgid "Max Width"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:488
+#: modules/random-image/widgets/random-image.php:519
 msgid "Object Fit"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:496
+#: modules/random-image/widgets/random-image.php:527
 #: modules/scroll-image/widgets/scroll-image.php:180
 msgid "Cover"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:497
+#: modules/random-image/widgets/random-image.php:528
 msgid "Contain"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:585
+#: modules/random-image/widgets/random-image.php:616
 msgid "Transition Duration"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:602
+#: modules/random-image/widgets/random-image.php:633
 msgid "Hover Animation"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:731
+#: modules/random-image/widgets/random-image.php:762
 msgid "Justify"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:851
+#: modules/random-image/widgets/random-image.php:882
 msgid "Hover Effect"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:856
+#: modules/random-image/widgets/random-image.php:887
 msgid "Fade In"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:857
+#: modules/random-image/widgets/random-image.php:888
 msgid "Fade Out"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:858
+#: modules/random-image/widgets/random-image.php:889
 msgid "Fade From Top"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:859
+#: modules/random-image/widgets/random-image.php:890
 msgid "Fade From Bottom"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:860
+#: modules/random-image/widgets/random-image.php:891
 msgid "Fade From Left"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:861
+#: modules/random-image/widgets/random-image.php:892
 msgid "Fade From Right"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:862
+#: modules/random-image/widgets/random-image.php:893
 msgid "Slide From Top"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:863
+#: modules/random-image/widgets/random-image.php:894
 msgid "Slide From Bottom"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:864
+#: modules/random-image/widgets/random-image.php:895
 msgid "Slide From Left"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:865
+#: modules/random-image/widgets/random-image.php:896
 msgid "Slide From Right"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:866
+#: modules/random-image/widgets/random-image.php:897
 msgid "Fade To Top"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:867
+#: modules/random-image/widgets/random-image.php:898
 msgid "Fade To Bottom"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:868
+#: modules/random-image/widgets/random-image.php:899
 msgid "Fade To Left"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:869
+#: modules/random-image/widgets/random-image.php:900
 msgid "Fade To Right"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:870
+#: modules/random-image/widgets/random-image.php:901
 msgid "Slide To Top"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:871
+#: modules/random-image/widgets/random-image.php:902
 msgid "Slide To Bottom"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:872
+#: modules/random-image/widgets/random-image.php:903
 msgid "Slide To Left"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:873
+#: modules/random-image/widgets/random-image.php:904
 msgid "Slide To Right"
 msgstr ""
 
-#: modules/random-image/widgets/random-image.php:958
-#: modules/random-image/widgets/random-image.php:1049
+#: modules/random-image/widgets/random-image.php:989
+#: modules/random-image/widgets/random-image.php:1080
 msgid "Text Shadow"
 msgstr ""
 

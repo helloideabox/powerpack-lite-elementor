@@ -1,9 +1,9 @@
 == 2.3.0 ==
 Release date: March 22, 2021
 * New: Random Image widget
-* Fixed: Info Box - Responsive Icon Position control was not working 
+* Fixed: Info Box - Responsive Icon Position control was not working
 * Fixed: Display Conditions - Day of the Week option was not working for Sunday
-* Fixed: Gravity forms was enqueuing all scripts and styles on frontend even if widget is not active
+* Fixed: Gravity forms was enqueuing all scripts and styles on frontend
 
 == 2.2.5 ==
 Release date: February 23, 2021
