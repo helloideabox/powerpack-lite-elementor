@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.2.4\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.2.5\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2021-02-23 10:37:08+00:00\n"
+"POT-Creation-Date: 2021-03-22 05:42:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,11 +60,16 @@ msgstr ""
 msgid "8"
 msgstr ""
 
+#: modules/random-image/module.php:93
+#: modules/random-image/widgets/random-image.php:142
+msgid "1977"
+msgstr ""
+
 #: base/extension-base.php:198
 msgid "PowerPack"
 msgstr ""
 
-#: base/module-base.php:33 base/module-base.php:44 plugin.php:53 plugin.php:64
+#: base/module-base.php:33 base/module-base.php:44 plugin.php:54 plugin.php:65
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
@@ -217,12 +222,12 @@ msgstr ""
 msgid "Buttons"
 msgstr ""
 
-#: classes/class-pp-config.php:67 includes/helper-functions.php:429
+#: classes/class-pp-config.php:67 includes/helper-functions.php:430
 #: modules/caldera-forms/widgets/caldera-forms.php:91
 msgid "Caldera Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:74 includes/helper-functions.php:414
+#: classes/class-pp-config.php:74 includes/helper-functions.php:415
 msgid "Contact Form 7"
 msgstr ""
 
@@ -256,16 +261,16 @@ msgstr ""
 msgid "Flip Box"
 msgstr ""
 
-#: classes/class-pp-config.php:109 includes/helper-functions.php:444
+#: classes/class-pp-config.php:109 includes/helper-functions.php:445
 msgid "Fluent Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:116 includes/helper-functions.php:439
+#: classes/class-pp-config.php:116 includes/helper-functions.php:440
 #: modules/formidable-forms/widgets/formidable-forms.php:60
 msgid "Formidable Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:123 includes/helper-functions.php:419
+#: classes/class-pp-config.php:123 includes/helper-functions.php:420
 #: modules/gravity-forms/widgets/gravity-forms.php:132
 msgid "Gravity Forms"
 msgstr ""
@@ -335,7 +340,7 @@ msgstr ""
 msgid "Logo Grid"
 msgstr ""
 
-#: classes/class-pp-config.php:228 includes/helper-functions.php:424
+#: classes/class-pp-config.php:228 includes/helper-functions.php:425
 #: modules/ninja-forms/widgets/ninja-forms.php:66
 msgid "Ninja Forms"
 msgstr ""
@@ -359,227 +364,231 @@ msgstr ""
 msgid "Promo Box"
 msgstr ""
 
-#: classes/class-pp-config.php:263 includes/helper-functions.php:402
+#: classes/class-pp-config.php:263 includes/helper-functions.php:410
+msgid "Random Image"
+msgstr ""
+
+#: classes/class-pp-config.php:270 includes/helper-functions.php:402
 #: modules/scroll-image/widgets/scroll-image.php:52
 msgid "Scroll Image"
 msgstr ""
 
-#: classes/class-pp-config.php:270 includes/helper-functions.php:390
+#: classes/class-pp-config.php:277 includes/helper-functions.php:390
 msgid "Team Member"
 msgstr ""
 
-#: classes/class-pp-config.php:277 includes/helper-functions.php:391
+#: classes/class-pp-config.php:284 includes/helper-functions.php:391
 msgid "Team Member Carousel"
 msgstr ""
 
-#: classes/class-pp-config.php:284 includes/helper-functions.php:404
+#: classes/class-pp-config.php:291 includes/helper-functions.php:404
 msgid "Twitter Buttons"
 msgstr ""
 
-#: classes/class-pp-config.php:291 includes/helper-functions.php:405
+#: classes/class-pp-config.php:298 includes/helper-functions.php:405
 msgid "Twitter Grid"
 msgstr ""
 
-#: classes/class-pp-config.php:298 includes/helper-functions.php:406
+#: classes/class-pp-config.php:305 includes/helper-functions.php:406
 msgid "Twitter Timeline"
 msgstr ""
 
-#: classes/class-pp-config.php:305 includes/helper-functions.php:407
+#: classes/class-pp-config.php:312 includes/helper-functions.php:407
 msgid "Twitter Tweet"
 msgstr ""
 
-#: classes/class-pp-config.php:312
+#: classes/class-pp-config.php:319
 msgid "WP Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:335
+#: classes/class-pp-config.php:342
 msgid "Advanced Menu"
 msgstr ""
 
-#: classes/class-pp-config.php:342
+#: classes/class-pp-config.php:349
 msgid "Advanced Tabs"
 msgstr ""
 
-#: classes/class-pp-config.php:349
+#: classes/class-pp-config.php:356
 msgid "Album"
 msgstr ""
 
-#: classes/class-pp-config.php:356
+#: classes/class-pp-config.php:363
 msgid "Breadcrumbs"
 msgstr ""
 
-#: classes/class-pp-config.php:363
+#: classes/class-pp-config.php:370
 msgid "Card Slider"
 msgstr ""
 
-#: classes/class-pp-config.php:370
+#: classes/class-pp-config.php:377
 msgid "Categories"
 msgstr ""
 
-#: classes/class-pp-config.php:377
+#: classes/class-pp-config.php:384
 msgid "Countdown Timer"
 msgstr ""
 
-#: classes/class-pp-config.php:384
+#: classes/class-pp-config.php:391
 msgid "Coupons"
 msgstr ""
 
-#: classes/class-pp-config.php:391
+#: classes/class-pp-config.php:398
 msgid "Devices"
 msgstr ""
 
-#: classes/class-pp-config.php:398
+#: classes/class-pp-config.php:405
 msgid "FAQ"
 msgstr ""
 
-#: classes/class-pp-config.php:405
+#: classes/class-pp-config.php:412
 msgid "Image Gallery"
 msgstr ""
 
-#: classes/class-pp-config.php:412
+#: classes/class-pp-config.php:419
 msgid "Image Slider"
 msgstr ""
 
-#: classes/class-pp-config.php:419
+#: classes/class-pp-config.php:426
 msgid "Google Maps"
 msgstr ""
 
-#: classes/class-pp-config.php:426
+#: classes/class-pp-config.php:433
 msgid "How To"
 msgstr ""
 
-#: classes/class-pp-config.php:433
+#: classes/class-pp-config.php:440
 msgid "Magazine Slider"
 msgstr ""
 
-#: classes/class-pp-config.php:440
+#: classes/class-pp-config.php:447
 msgid "Offcanvas Content"
 msgstr ""
 
-#: classes/class-pp-config.php:447
+#: classes/class-pp-config.php:454
 msgid "One Page Navigation"
 msgstr ""
 
-#: classes/class-pp-config.php:454
+#: classes/class-pp-config.php:461
 msgid "Popup Box"
 msgstr ""
 
-#: classes/class-pp-config.php:461
+#: classes/class-pp-config.php:468
 msgid "Recipe"
 msgstr ""
 
-#: classes/class-pp-config.php:468
+#: classes/class-pp-config.php:475
 msgid "Review Box"
 msgstr ""
 
-#: classes/class-pp-config.php:475
+#: classes/class-pp-config.php:482
 msgid "Showcase"
 msgstr ""
 
-#: classes/class-pp-config.php:482
+#: classes/class-pp-config.php:489
 #: modules/pricing/widgets/pricing-table.php:1066
 msgid "Table"
 msgstr ""
 
-#: classes/class-pp-config.php:489
+#: classes/class-pp-config.php:496
 msgid "Tabbed Gallery"
 msgstr ""
 
-#: classes/class-pp-config.php:496
+#: classes/class-pp-config.php:503
 msgid "Testimonials"
 msgstr ""
 
-#: classes/class-pp-config.php:503
+#: classes/class-pp-config.php:510
 msgid "Tiled Posts"
 msgstr ""
 
-#: classes/class-pp-config.php:510
+#: classes/class-pp-config.php:517
 #: modules/twitter/widgets/twitter-timeline.php:73
 msgid "Timeline"
 msgstr ""
 
-#: classes/class-pp-config.php:517
+#: classes/class-pp-config.php:524
 #: modules/advanced-accordion/widgets/advanced-accordion.php:464
 #: modules/content-ticker/widgets/content-ticker.php:1627
 #: modules/instafeed/widgets/instafeed.php:1983
 msgid "Toggle"
 msgstr ""
 
-#: classes/class-pp-config.php:524
+#: classes/class-pp-config.php:531
 msgid "Video"
 msgstr ""
 
-#: classes/class-pp-config.php:531
+#: classes/class-pp-config.php:538
 msgid "Video Gallery"
 msgstr ""
 
-#: classes/class-pp-config.php:538
+#: classes/class-pp-config.php:545
 msgid "Woo - Add To Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:545
+#: classes/class-pp-config.php:552
 msgid "Woo - Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:552
+#: classes/class-pp-config.php:559
 msgid "Woo - Categories"
 msgstr ""
 
-#: classes/class-pp-config.php:559
+#: classes/class-pp-config.php:566
 msgid "Woo - Checkout"
 msgstr ""
 
-#: classes/class-pp-config.php:566
+#: classes/class-pp-config.php:573
 msgid "Woo - Mini Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:573
+#: classes/class-pp-config.php:580
 msgid "Woo - Off Canvas Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:580
+#: classes/class-pp-config.php:587
 msgid "Woo - Products"
 msgstr ""
 
-#: classes/class-pp-config.php:603 classes/class-pp-config.php:608
-#: classes/class-pp-config.php:612 classes/class-pp-config.php:620
-#: classes/class-pp-config.php:628 classes/class-pp-config.php:632
-#: classes/class-pp-config.php:636 classes/class-pp-config.php:640
-#: classes/class-pp-config.php:644 classes/class-pp-config.php:648
-#: classes/class-pp-config.php:653 classes/class-pp-config.php:659
-#: classes/class-pp-config.php:663 classes/class-pp-config.php:677
-#: classes/class-pp-config.php:682 classes/class-pp-config.php:686
+#: classes/class-pp-config.php:610 classes/class-pp-config.php:615
+#: classes/class-pp-config.php:619 classes/class-pp-config.php:627
+#: classes/class-pp-config.php:635 classes/class-pp-config.php:639
+#: classes/class-pp-config.php:643 classes/class-pp-config.php:647
+#: classes/class-pp-config.php:651 classes/class-pp-config.php:655
+#: classes/class-pp-config.php:660 classes/class-pp-config.php:666
+#: classes/class-pp-config.php:670 classes/class-pp-config.php:684
+#: classes/class-pp-config.php:689 classes/class-pp-config.php:693
 msgid "Widget Overview"
 msgstr ""
 
-#: classes/class-pp-config.php:607 classes/class-pp-config.php:616
-#: classes/class-pp-config.php:624 classes/class-pp-config.php:652
-#: classes/class-pp-config.php:667 classes/class-pp-config.php:671
-#: classes/class-pp-config.php:681 classes/class-pp-config.php:690
+#: classes/class-pp-config.php:614 classes/class-pp-config.php:623
+#: classes/class-pp-config.php:631 classes/class-pp-config.php:659
+#: classes/class-pp-config.php:674 classes/class-pp-config.php:678
+#: classes/class-pp-config.php:688 classes/class-pp-config.php:697
 msgid "Watch Video Overview"
 msgstr ""
 
-#: classes/class-pp-config.php:654
+#: classes/class-pp-config.php:661
 msgid "How to get Instagram Access Token?"
 msgstr ""
 
-#: classes/class-pp-config.php:655
+#: classes/class-pp-config.php:662
 msgid "How to set up Instagram Feed widget?"
 msgstr ""
 
-#: classes/class-pp-config.php:672
+#: classes/class-pp-config.php:679
 msgid "Action Hooks for Post Widget"
 msgstr ""
 
-#: classes/class-pp-config.php:673
+#: classes/class-pp-config.php:680
 msgid "How to Customize Query in Post Widget?"
 msgstr ""
 
-#: classes/class-pp-helper.php:277 includes/helper-functions.php:207
+#: classes/class-pp-helper.php:358 includes/helper-functions.php:207
 msgid "Select a Contact Form"
 msgstr ""
 
-#: classes/class-pp-helper.php:284
+#: classes/class-pp-helper.php:365
 msgid "No contact forms found!"
 msgstr ""
 
@@ -634,7 +643,7 @@ msgstr ""
 msgid "Favorite"
 msgstr ""
 
-#: classes/class-pp-templates-lib.php:496 powerpack-lite-elementor.php:201
+#: classes/class-pp-templates-lib.php:496 powerpack-lite-elementor.php:203
 msgid "Go Pro"
 msgstr ""
 
@@ -1423,11 +1432,11 @@ msgstr ""
 msgid "Businsess Hours"
 msgstr ""
 
-#: includes/helper-functions.php:434 modules/wpforms/widgets/wpforms.php:62
+#: includes/helper-functions.php:435 modules/wpforms/widgets/wpforms.php:62
 msgid "WPForms"
 msgstr ""
 
-#: includes/helper-functions.php:455 modules/display-conditions/module.php:318
+#: includes/helper-functions.php:456 modules/display-conditions/module.php:318
 msgid "Display Conditions"
 msgstr ""
 
@@ -1498,6 +1507,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:226
 #: modules/pricing/widgets/pricing-table.php:800
 #: modules/pricing/widgets/pricing-table.php:1314
+#: modules/random-image/widgets/random-image.php:258
 #: modules/team-member/widgets/team-member-carousel.php:195
 #: modules/team-member/widgets/team-member.php:195
 #: modules/wpforms/widgets/wpforms.php:91
@@ -1641,6 +1651,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:987
 #: modules/promo-box/widgets/promo-box.php:1205
 #: modules/promo-box/widgets/promo-box.php:1216
+#: modules/random-image/widgets/random-image.php:379
 #: modules/scroll-image/widgets/scroll-image.php:103
 #: modules/scroll-image/widgets/scroll-image.php:110
 #: modules/scroll-image/widgets/scroll-image.php:344
@@ -1690,6 +1701,7 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:402
 #: modules/posts/skins/skin-base.php:621
 #: modules/pricing/widgets/price-menu.php:223
+#: modules/random-image/widgets/random-image.php:220
 #: modules/scroll-image/widgets/scroll-image.php:124
 #: modules/team-member/widgets/team-member-carousel.php:412
 #: modules/team-member/widgets/team-member.php:118
@@ -1856,7 +1868,7 @@ msgstr ""
 #: modules/image-comparison/widgets/image-comparison.php:196
 #: modules/scroll-image/widgets/scroll-image.php:218
 #: modules/team-member/widgets/team-member.php:384
-#: powerpack-lite-elementor.php:190
+#: powerpack-lite-elementor.php:192
 msgid "Settings"
 msgstr ""
 
@@ -1964,6 +1976,10 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:2406
 #: modules/promo-box/widgets/promo-box.php:755
 #: modules/promo-box/widgets/promo-box.php:1448
+#: modules/random-image/module.php:92
+#: modules/random-image/widgets/random-image.php:141
+#: modules/random-image/widgets/random-image.php:518
+#: modules/random-image/widgets/random-image.php:888
 #: modules/scroll-image/widgets/scroll-image.php:369
 #: modules/team-member/widgets/team-member-carousel.php:774
 #: modules/team-member/widgets/team-member-carousel.php:1750
@@ -2016,6 +2032,9 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:160
 #: modules/pricing/widgets/pricing-table.php:265
 #: modules/pricing/widgets/pricing-table.php:940
+#: modules/random-image/widgets/random-image.php:257
+#: modules/random-image/widgets/random-image.php:288
+#: modules/random-image/widgets/random-image.php:855
 #: modules/team-member/widgets/team-member-carousel.php:193
 #: modules/team-member/widgets/team-member-carousel.php:495
 #: modules/team-member/widgets/team-member.php:193
@@ -2170,6 +2189,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:1077
 #: modules/promo-box/widgets/promo-box.php:1306
 #: modules/promo-box/widgets/promo-box.php:1564
+#: modules/random-image/widgets/random-image.php:1033
 #: modules/team-member/widgets/team-member-carousel.php:825
 #: modules/team-member/widgets/team-member-carousel.php:1851
 #: modules/team-member/widgets/team-member-carousel.php:2068
@@ -2279,6 +2299,8 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:633
 #: modules/promo-box/widgets/promo-box.php:814
 #: modules/promo-box/widgets/promo-box.php:1490
+#: modules/random-image/widgets/random-image.php:623
+#: modules/random-image/widgets/random-image.php:942
 #: modules/scroll-image/widgets/scroll-image.php:384
 #: modules/team-member/widgets/team-member-carousel.php:792
 #: modules/team-member/widgets/team-member-carousel.php:878
@@ -2355,6 +2377,8 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:2520
 #: modules/promo-box/widgets/promo-box.php:846
 #: modules/promo-box/widgets/promo-box.php:1533
+#: modules/random-image/widgets/random-image.php:552
+#: modules/random-image/widgets/random-image.php:993
 #: modules/scroll-image/widgets/scroll-image.php:228
 #: modules/scroll-image/widgets/scroll-image.php:414
 #: modules/team-member/widgets/team-member-carousel.php:1820
@@ -2457,6 +2481,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:670
 #: modules/promo-box/widgets/promo-box.php:791
 #: modules/promo-box/widgets/promo-box.php:1511
+#: modules/random-image/widgets/random-image.php:836
 #: modules/team-member/widgets/team-member-carousel.php:804
 #: modules/team-member/widgets/team-member-carousel.php:890
 #: modules/team-member/widgets/team-member-carousel.php:1805
@@ -2607,6 +2632,8 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:2648
 #: modules/promo-box/widgets/promo-box.php:1467
 #: modules/promo-box/widgets/promo-box.php:1552
+#: modules/random-image/widgets/random-image.php:898
+#: modules/random-image/widgets/random-image.php:1003
 #: modules/team-member/widgets/team-member-carousel.php:1098
 #: modules/team-member/widgets/team-member-carousel.php:1301
 #: modules/team-member/widgets/team-member-carousel.php:1504
@@ -2763,6 +2790,8 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:870
 #: modules/promo-box/widgets/promo-box.php:1455
 #: modules/promo-box/widgets/promo-box.php:1540
+#: modules/random-image/widgets/random-image.php:913
+#: modules/random-image/widgets/random-image.php:1018
 #: modules/team-member/widgets/team-member-carousel.php:854
 #: modules/team-member/widgets/team-member-carousel.php:1769
 #: modules/team-member/widgets/team-member-carousel.php:1839
@@ -2871,6 +2900,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:975
 #: modules/promo-box/widgets/promo-box.php:1204
 #: modules/promo-box/widgets/promo-box.php:1480
+#: modules/random-image/widgets/random-image.php:929
 #: modules/team-member/widgets/team-member-carousel.php:782
 #: modules/team-member/widgets/team-member-carousel.php:867
 #: modules/team-member/widgets/team-member-carousel.php:1026
@@ -2950,6 +2980,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1074
 #: modules/pricing/widgets/pricing-table.php:1753
 #: modules/promo-box/widgets/promo-box.php:556
+#: modules/random-image/widgets/random-image.php:228
 #: modules/team-member/widgets/team-member-carousel.php:746
 #: modules/team-member/widgets/team-member-carousel.php:927
 #: modules/team-member/widgets/team-member.php:549
@@ -3347,6 +3378,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:775
 #: modules/pricing/widgets/pricing-table.php:1954
 #: modules/promo-box/widgets/promo-box.php:225
+#: modules/random-image/widgets/random-image.php:320
 #: modules/team-member/widgets/team-member-carousel.php:465
 #: modules/team-member/widgets/team-member-carousel.php:598
 #: modules/team-member/widgets/team-member-carousel.php:631
@@ -3456,6 +3488,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:774
 #: modules/pricing/widgets/pricing-table.php:1953
 #: modules/promo-box/widgets/promo-box.php:224
+#: modules/random-image/widgets/random-image.php:319
 #: modules/team-member/widgets/team-member-carousel.php:464
 #: modules/team-member/widgets/team-member-carousel.php:597
 #: modules/team-member/widgets/team-member-carousel.php:630
@@ -3543,6 +3576,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:316
 #: modules/pricing/widgets/pricing-table.php:1002
 #: modules/promo-box/widgets/promo-box.php:376
+#: modules/random-image/widgets/random-image.php:346
 #: modules/scroll-image/widgets/scroll-image.php:289
 #: modules/wpforms/widgets/wpforms.php:212
 msgid "Help Docs"
@@ -3753,6 +3787,9 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1079
 #: modules/pricing/widgets/pricing-table.php:1758
 #: modules/promo-box/widgets/promo-box.php:561
+#: modules/random-image/widgets/random-image.php:232
+#: modules/random-image/widgets/random-image.php:719
+#: modules/random-image/widgets/random-image.php:760
 #: modules/team-member/widgets/team-member-carousel.php:750
 #: modules/team-member/widgets/team-member-carousel.php:931
 #: modules/team-member/widgets/team-member.php:553
@@ -3827,6 +3864,10 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1762
 #: modules/promo-box/widgets/promo-box.php:565
 #: modules/promo-box/widgets/promo-box.php:593
+#: modules/random-image/widgets/random-image.php:236
+#: modules/random-image/widgets/random-image.php:687
+#: modules/random-image/widgets/random-image.php:723
+#: modules/random-image/widgets/random-image.php:764
 #: modules/team-member/widgets/team-member-carousel.php:754
 #: modules/team-member/widgets/team-member-carousel.php:935
 #: modules/team-member/widgets/team-member.php:557
@@ -3906,6 +3947,9 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1087
 #: modules/pricing/widgets/pricing-table.php:1766
 #: modules/promo-box/widgets/promo-box.php:569
+#: modules/random-image/widgets/random-image.php:240
+#: modules/random-image/widgets/random-image.php:727
+#: modules/random-image/widgets/random-image.php:768
 #: modules/team-member/widgets/team-member-carousel.php:758
 #: modules/team-member/widgets/team-member-carousel.php:939
 #: modules/team-member/widgets/team-member.php:561
@@ -4040,6 +4084,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:1149
 #: modules/promo-box/widgets/promo-box.php:1375
 #: modules/promo-box/widgets/promo-box.php:1503
+#: modules/random-image/widgets/random-image.php:665
 #: modules/team-member/widgets/team-member-carousel.php:1089
 #: modules/team-member/widgets/team-member-carousel.php:1292
 #: modules/team-member/widgets/team-member-carousel.php:1495
@@ -4155,6 +4200,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:186
 #: modules/pricing/widgets/pricing-table.php:960
 #: modules/promo-box/widgets/promo-box.php:349
+#: modules/random-image/widgets/random-image.php:298
 #: modules/team-member/widgets/team-member-carousel.php:203
 #: modules/team-member/widgets/team-member.php:203
 msgid "Link"
@@ -4208,6 +4254,8 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:551
 #: modules/pricing/widgets/pricing-table.php:658
 #: modules/pricing/widgets/pricing-table.php:787
+#: modules/random-image/widgets/random-image.php:318
+#: modules/random-image/widgets/random-image.php:494
 msgid "Default"
 msgstr ""
 
@@ -4371,6 +4419,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:569
 #: modules/pricing/widgets/pricing-table.php:1594
 #: modules/promo-box/widgets/promo-box.php:589
+#: modules/random-image/widgets/random-image.php:683
 msgid "Top"
 msgstr ""
 
@@ -4409,6 +4458,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:570
 #: modules/pricing/widgets/pricing-table.php:1602
 #: modules/promo-box/widgets/promo-box.php:597
+#: modules/random-image/widgets/random-image.php:691
 msgid "Bottom"
 msgstr ""
 
@@ -4545,6 +4595,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:1040
 #: modules/image-accordion/widgets/image-accordion.php:691
 #: modules/instafeed/widgets/instafeed.php:1366
+#: modules/random-image/widgets/random-image.php:755
 msgid "Text Align"
 msgstr ""
 
@@ -4602,6 +4653,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:784
 #: modules/promo-box/widgets/promo-box.php:197
 #: modules/promo-box/widgets/promo-box.php:1354
+#: modules/random-image/widgets/random-image.php:260
 #: modules/team-member/widgets/team-member-carousel.php:163
 #: modules/team-member/widgets/team-member-carousel.php:497
 #: modules/team-member/widgets/team-member-carousel.php:498
@@ -4721,6 +4773,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:1255
 #: modules/pricing/widgets/pricing-table.php:1505
 #: modules/promo-box/widgets/promo-box.php:826
+#: modules/random-image/widgets/random-image.php:821
 #: modules/team-member/widgets/team-member-carousel.php:2253
 #: modules/team-member/widgets/team-member.php:606
 #: modules/wpforms/widgets/wpforms.php:332
@@ -4903,6 +4956,7 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:725
 #: modules/promo-box/widgets/promo-box.php:1021
 #: modules/promo-box/widgets/promo-box.php:1250
+#: modules/random-image/widgets/random-image.php:387
 #: modules/twitter/widgets/twitter-grid.php:101
 #: modules/twitter/widgets/twitter-timeline.php:131
 #: modules/twitter/widgets/twitter-tweet.php:128
@@ -5907,6 +5961,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1859
 #: modules/image-accordion/widgets/image-accordion.php:313
 #: modules/promo-box/widgets/promo-box.php:449
+#: modules/random-image/widgets/random-image.php:457
 #: modules/twitter/widgets/twitter-timeline.php:149
 msgid "Height"
 msgstr ""
@@ -6540,6 +6595,7 @@ msgid "Add Your Heading Text Here"
 msgstr ""
 
 #: modules/headings/widgets/fancy-heading.php:267
+#: modules/random-image/widgets/random-image.php:495
 msgid "Fill"
 msgstr ""
 
@@ -7103,6 +7159,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:621
 #: modules/instafeed/widgets/instafeed.php:1260
 #: modules/logos/widgets/logo-grid.php:337
+#: modules/random-image/widgets/random-image.php:676
 msgid "Vertical Align"
 msgstr ""
 
@@ -7110,6 +7167,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:655
 #: modules/instafeed/widgets/instafeed.php:1313
 #: modules/logos/widgets/logo-grid.php:369
+#: modules/random-image/widgets/random-image.php:713
 msgid "Horizontal Align"
 msgstr ""
 
@@ -7578,6 +7636,9 @@ msgid "Comments"
 msgstr ""
 
 #: modules/instafeed/widgets/instafeed.php:482
+#: modules/random-image/widgets/random-image.php:253
+#: modules/random-image/widgets/random-image.php:259
+#: modules/random-image/widgets/random-image.php:653
 msgid "Caption"
 msgstr ""
 
@@ -7594,6 +7655,7 @@ msgid "Always"
 msgstr ""
 
 #: modules/instafeed/widgets/instafeed.php:537
+#: modules/random-image/widgets/random-image.php:314
 msgid "Lightbox"
 msgstr ""
 
@@ -7642,6 +7704,7 @@ msgid "Rows Gap"
 msgstr ""
 
 #: modules/instafeed/widgets/instafeed.php:1075
+#: modules/random-image/widgets/random-image.php:201
 msgid "Images"
 msgstr ""
 
@@ -7885,6 +7948,10 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:623
 #: modules/logos/widgets/logo-grid.php:577
 #: modules/logos/widgets/logo-grid.php:665
+#: modules/random-image/widgets/random-image.php:525
+#: modules/random-image/widgets/random-image.php:559
+#: modules/random-image/widgets/random-image.php:969
+#: modules/random-image/widgets/random-image.php:1060
 #: modules/team-member/widgets/team-member-carousel.php:968
 #: modules/team-member/widgets/team-member.php:688
 msgid "Opacity"
@@ -8748,16 +8815,278 @@ msgstr ""
 msgid "Toolset"
 msgstr ""
 
+#: modules/random-image/module.php:94
+#: modules/random-image/widgets/random-image.php:143
+msgid "Aden"
+msgstr ""
+
+#: modules/random-image/module.php:95
+#: modules/random-image/widgets/random-image.php:144
+msgid "Amaro"
+msgstr ""
+
+#: modules/random-image/module.php:96
+#: modules/random-image/widgets/random-image.php:145
+msgid "Ashby"
+msgstr ""
+
+#: modules/random-image/module.php:97
+#: modules/random-image/widgets/random-image.php:146
+msgid "Brannan"
+msgstr ""
+
+#: modules/random-image/module.php:98
+#: modules/random-image/widgets/random-image.php:147
+msgid "Brooklyn"
+msgstr ""
+
+#: modules/random-image/module.php:99
+#: modules/random-image/widgets/random-image.php:148
+msgid "Charmes"
+msgstr ""
+
+#: modules/random-image/module.php:100
+#: modules/random-image/widgets/random-image.php:149
+msgid "Clarendon"
+msgstr ""
+
+#: modules/random-image/module.php:101
+#: modules/random-image/widgets/random-image.php:150
+msgid "Crema"
+msgstr ""
+
+#: modules/random-image/module.php:102
+#: modules/random-image/widgets/random-image.php:151
+msgid "Dogpatch"
+msgstr ""
+
+#: modules/random-image/module.php:103
+#: modules/random-image/widgets/random-image.php:152
+msgid "Earlybird"
+msgstr ""
+
+#: modules/random-image/module.php:104
+#: modules/random-image/widgets/random-image.php:153
+msgid "Gingham"
+msgstr ""
+
+#: modules/random-image/module.php:105
+#: modules/random-image/widgets/random-image.php:154
+msgid "Ginza"
+msgstr ""
+
+#: modules/random-image/module.php:106
+#: modules/random-image/widgets/random-image.php:155
+msgid "Hefe"
+msgstr ""
+
+#: modules/random-image/module.php:107
+#: modules/random-image/widgets/random-image.php:156
+msgid "Helena"
+msgstr ""
+
+#: modules/random-image/module.php:108
+#: modules/random-image/widgets/random-image.php:157
+msgid "Hudson"
+msgstr ""
+
+#: modules/random-image/module.php:109
+#: modules/random-image/widgets/random-image.php:158
+msgid "Inkwell"
+msgstr ""
+
+#: modules/random-image/module.php:110
+#: modules/random-image/widgets/random-image.php:159
+msgid "Juno"
+msgstr ""
+
+#: modules/random-image/module.php:111
+#: modules/random-image/widgets/random-image.php:160
+msgid "Kelvin"
+msgstr ""
+
+#: modules/random-image/module.php:112
+#: modules/random-image/widgets/random-image.php:161
+msgid "Lark"
+msgstr ""
+
+#: modules/random-image/module.php:113
+#: modules/random-image/widgets/random-image.php:162
+msgid "Lofi"
+msgstr ""
+
+#: modules/random-image/module.php:114
+#: modules/random-image/widgets/random-image.php:163
+msgid "Ludwig"
+msgstr ""
+
+#: modules/random-image/module.php:115
+#: modules/random-image/widgets/random-image.php:164
+msgid "Maven"
+msgstr ""
+
+#: modules/random-image/module.php:116
+#: modules/random-image/widgets/random-image.php:165
+msgid "Mayfair"
+msgstr ""
+
+#: modules/random-image/module.php:117
+#: modules/random-image/widgets/random-image.php:166
+msgid "Moon"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:136
+msgid "Inherit"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:208
+msgid "Add Images"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:268
+msgid "Caption Position"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:272
+msgid "Over Image"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:273
+msgid "Below Image"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:284
+msgid "Link to"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:289
+msgid "Media File"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:290
+msgid "Custom URL"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:303
+msgid "https://your-link.com"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:422
+msgid "Max Width"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:488
+msgid "Object Fit"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:496
+#: modules/scroll-image/widgets/scroll-image.php:180
+msgid "Cover"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:497
+msgid "Contain"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:585
+msgid "Transition Duration"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:602
+msgid "Hover Animation"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:731
+msgid "Justify"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:851
+msgid "Hover Effect"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:856
+msgid "Fade In"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:857
+msgid "Fade Out"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:858
+msgid "Fade From Top"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:859
+msgid "Fade From Bottom"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:860
+msgid "Fade From Left"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:861
+msgid "Fade From Right"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:862
+msgid "Slide From Top"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:863
+msgid "Slide From Bottom"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:864
+msgid "Slide From Left"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:865
+msgid "Slide From Right"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:866
+msgid "Fade To Top"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:867
+msgid "Fade To Bottom"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:868
+msgid "Fade To Left"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:869
+msgid "Fade To Right"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:870
+msgid "Slide To Top"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:871
+msgid "Slide To Bottom"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:872
+msgid "Slide To Left"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:873
+msgid "Slide To Right"
+msgstr ""
+
+#: modules/random-image/widgets/random-image.php:958
+#: modules/random-image/widgets/random-image.php:1049
+msgid "Text Shadow"
+msgstr ""
+
 #: modules/scroll-image/widgets/scroll-image.php:132
 msgid "Image Height"
 msgstr ""
 
 #: modules/scroll-image/widgets/scroll-image.php:158
 msgid "URL"
-msgstr ""
-
-#: modules/scroll-image/widgets/scroll-image.php:180
-msgid "Cover"
 msgstr ""
 
 #: modules/scroll-image/widgets/scroll-image.php:229
@@ -9129,49 +9458,49 @@ msgstr ""
 msgid "Expanded"
 msgstr ""
 
-#: plugin.php:191
+#: plugin.php:192
 msgid ""
 "The <b>username</b> added is not a valid Instagram Username. Check browser "
 "console for more details."
 msgstr ""
 
-#: plugin.php:192
+#: plugin.php:193
 msgid "This account is private."
 msgstr ""
 
-#: plugin.php:193
+#: plugin.php:194
 msgid "No <i>images</i> were found in the Instagram profile for <b>"
 msgstr ""
 
-#: plugin.php:433
+#: plugin.php:434
 msgid "PowerPack Elements"
 msgstr ""
 
-#: powerpack-lite-elementor.php:62
+#: powerpack-lite-elementor.php:64
 msgid ""
 "PowerPack requires Elementor plugin to be active. Please activate Elementor "
 "to continue."
 msgstr ""
 
-#: powerpack-lite-elementor.php:63
+#: powerpack-lite-elementor.php:65
 msgid "Activate Elementor"
 msgstr ""
 
-#: powerpack-lite-elementor.php:71
+#: powerpack-lite-elementor.php:73
 msgid ""
 "PowerPack requires %1$s\"Elementor\"%2$s plugin to be installed and "
 "activated. Please install Elementor to continue."
 msgstr ""
 
-#: powerpack-lite-elementor.php:72
+#: powerpack-lite-elementor.php:74
 msgid "Install Elementor"
 msgstr ""
 
-#: powerpack-lite-elementor.php:200
+#: powerpack-lite-elementor.php:202
 msgid "View PowerPack Documentation"
 msgstr ""
 
-#: powerpack-lite-elementor.php:200
+#: powerpack-lite-elementor.php:202
 msgid "Docs & FAQs"
 msgstr ""
 

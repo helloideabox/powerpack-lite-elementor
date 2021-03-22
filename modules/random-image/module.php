@@ -10,7 +10,7 @@ class Module extends Module_Base {
 	/**
 	 * Module is active or not.
 	 *
-	 * @since 1.3.3
+	 * @since 2.3.0
      *
 	 * @access public
 	 *
@@ -23,7 +23,7 @@ class Module extends Module_Base {
     /**
 	 * Get Module Name.
 	 *
-	 * @since 1.3.3
+	 * @since 2.3.0
      *
 	 * @access public
 	 *
@@ -36,7 +36,7 @@ class Module extends Module_Base {
     /**
 	 * Get Widgets.
 	 *
-	 * @since 1.3.3
+	 * @since 2.3.0
      *
 	 * @access public
 	 *
@@ -51,7 +51,7 @@ class Module extends Module_Base {
     /**
 	 * Get Image Caption.
 	 *
-	 * @since 1.3.3
+	 * @since 2.3.0
      *
 	 * @access public
 	 *
@@ -80,7 +80,7 @@ class Module extends Module_Base {
     /**
 	 * Get Image Filters.
 	 *
-	 * @since 1.3.3
+	 * @since 2.3.0
      *
 	 * @access public
 	 *

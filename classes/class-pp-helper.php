@@ -51,7 +51,7 @@ class PP_Helper {
 	/**
 	 * Get widgets list.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @return array()
 	 */
 	public static function get_widgets_list() {
@@ -177,7 +177,7 @@ class PP_Helper {
 	/**
 	 * Get Widget Options.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @return array()
 	 */
 	public static function get_widget_options() {
@@ -213,7 +213,7 @@ class PP_Helper {
 	 *
 	 * @param string $slug Module slug.
 	 * @return boolean
-	 * @since x.x.x
+	 * @since 2.3.0
 	 */
 	public static function is_widget_active( $slug = '' ) {
 		$widgets     = self::get_widget_options();

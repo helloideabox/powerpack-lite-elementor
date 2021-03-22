@@ -337,7 +337,7 @@ class Random_Image extends Powerpack_Widget {
 			/**
 			 * Content Tab: Help Docs
 			 *
-			 * @since 1.4.8
+			 * @since 2.3.0
 			 * @access protected
 			 */
 			$this->start_controls_section(
