@@ -26,6 +26,85 @@ div[class*=' pa-'] {
 .pp-no-trans {
   transition: none; }
 
+.pp-hidden {
+  display: none !important; }
+
+.pp-v-hidden {
+  opacity: 0;
+  visibility: hidden; }
+
+.pp-icon {
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  transition: all .3s; }
+
+.pp-icon i,
+.pp-icon svg {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  display: block; }
+
+.pp-no-trans {
+  transition: none; }
+
+.pp-pos-abs {
+  position: absolute; }
+
+.pp-media-content,
+.pp-media-overlay,
+.pp-image-overlay,
+.pp-media-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.pp-media-overlay {
+  transition: all 0.25s linear 0s; }
+
+.pp-media-background {
+  background-color: rgba(0, 0, 0, 0.2);
+  background-size: cover; }
+
+.pp-floating-element {
+  position: fixed;
+  z-index: 999; }
+  .pp-floating-element-align-top-left .pp-floating-element {
+    top: 0;
+    left: 0; }
+  .pp-floating-element-align-top-right .pp-floating-element {
+    top: 0;
+    right: 0; }
+  .pp-floating-element-align-top-center .pp-floating-element {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); }
+  .pp-floating-element-align-middle-left .pp-floating-element {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%); }
+  .pp-floating-element-align-middle-right .pp-floating-element {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%); }
+  .pp-floating-element-align-bottom-left .pp-floating-element {
+    bottom: 0;
+    left: 0; }
+  .pp-floating-element-align-bottom-right .pp-floating-element {
+    bottom: 0;
+    right: 0; }
+  .pp-floating-element-align-bottom-center .pp-floating-element {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); }
+
+.pp-submit-button,
+.pp-tooltip-click {
+  cursor: pointer; }
+
 .pp-elementor-grid {
   display: flex;
   flex-wrap: wrap;
@@ -3118,6 +3197,121 @@ div[class*=' pa-'] {
   z-index: 1;
   height: 100%;
   width: 100%; }
+
+.pp-media-content .pp-gallery-image-caption {
+  color: #fff;
+  padding: 5px 10px; }
+  .pp-media-content .pp-gallery-image-caption a {
+    color: inherit; }
+
+.pp-random-image-wrap {
+  text-align: center; }
+  .pp-random-image-wrap .pp-random-image {
+    display: inline-block;
+    vertical-align: middle; }
+  .pp-random-image-wrap .pp-media-content {
+    display: flex;
+    flex-direction: column; }
+
+.pp-random-image-caption-over .pp-random-image-link {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1; }
+
+.pp-gallery-image-content,
+.pp-gallery-image-caption {
+  transition: all 0.25s linear 0s; }
+
+.pp-caption-hover-effect-fade-in .pp-gallery-image-caption {
+  opacity: 0; }
+
+.pp-caption-hover-effect-fade-in .pp-image:hover .pp-media-content .pp-gallery-image-caption {
+  opacity: 1; }
+
+.pp-caption-hover-effect-fade-out .pp-gallery-image-caption {
+  opacity: 1; }
+
+.pp-caption-hover-effect-fade-out .pp-image:hover .pp-media-content .pp-gallery-image-caption {
+  opacity: 0; }
+
+.pp-caption-hover-effect-slide-from-top .pp-media-content {
+  transform: translateY(-100%); }
+
+.pp-caption-hover-effect-slide-from-bottom .pp-media-content {
+  transform: translateY(100%); }
+
+.pp-caption-hover-effect-slide-from-left .pp-media-content {
+  transform: translateX(-100%); }
+
+.pp-caption-hover-effect-slide-from-right .pp-media-content {
+  transform: translateX(100%); }
+
+.pp-caption-hover-effect-fade-from-top .pp-media-content {
+  transform: translateY(-24px); }
+
+.pp-caption-hover-effect-fade-from-bottom .pp-media-content {
+  transform: translateY(24px); }
+
+.pp-caption-hover-effect-fade-from-left .pp-media-content {
+  transform: translateX(-24px); }
+
+.pp-caption-hover-effect-fade-from-right .pp-media-content {
+  transform: translateX(24px); }
+
+.pp-caption-hover-effect-fade-to-top .pp-image:hover .pp-media-content {
+  transform: translateY(-24px); }
+
+.pp-caption-hover-effect-fade-to-bottom .pp-image:hover .pp-media-content {
+  transform: translateY(24px); }
+
+.pp-caption-hover-effect-fade-to-left .pp-image:hover .pp-media-content {
+  transform: translateX(-24px); }
+
+.pp-caption-hover-effect-fade-to-right .pp-image:hover .pp-media-content {
+  transform: translateX(24px); }
+
+.pp-caption-hover-effect-slide-to-top .pp-image:hover .pp-media-content {
+  transform: translateY(-100%); }
+
+.pp-caption-hover-effect-slide-to-bottom .pp-image:hover .pp-media-content {
+  transform: translateY(100%); }
+
+.pp-caption-hover-effect-slide-to-left .pp-image:hover .pp-media-content {
+  transform: translateX(-100%); }
+
+.pp-caption-hover-effect-slide-to-right .pp-image:hover .pp-media-content {
+  transform: translateX(100%); }
+
+.pp-caption-hover-effect-fade-from-top .pp-media-content,
+.pp-caption-hover-effect-fade-from-bottom .pp-media-content,
+.pp-caption-hover-effect-fade-from-left .pp-media-content,
+.pp-caption-hover-effect-fade-from-right .pp-media-content {
+  opacity: 0; }
+
+.pp-caption-hover-effect-fade-to-top .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-fade-to-bottom .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-fade-to-left .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-fade-to-right .pp-image:hover .pp-media-content {
+  opacity: 0; }
+
+.pp-caption-hover-effect-slide-from-bottom .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-slide-from-top .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-slide-from-right .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-slide-from-left .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-fade-from-top .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-fade-from-bottom .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-fade-from-left .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-fade-from-right .pp-image:hover .pp-media-content {
+  transform: translateY(0) translateX(0); }
+
+.pp-caption-hover-effect-fade-from-top .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-fade-from-bottom .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-fade-from-left .pp-image:hover .pp-media-content,
+.pp-caption-hover-effect-fade-from-right .pp-image:hover .pp-media-content {
+  opacity: 1; }
 
 @media only screen and (min-width: 1025px) {
   /* For Desktop: */

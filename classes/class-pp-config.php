@@ -258,6 +258,13 @@ class PP_Config {
 					'keywords'   => array( 'powerpack', 'info' ),
 					'icon'       => 'ppicon-promo-box power-pack-admin-icon',
 				),
+				'Random_Image' => array(
+					'name'       => 'pp-random-image',
+					'title'      => __( 'Random Image', 'powerpack' ),
+					'categories' => array( 'powerpack-elements' ),
+					'keywords'   => array( 'powerpack', 'image' ),
+					'icon'       => 'eicon-image power-pack-admin-icon',
+				),
 				'Scroll_Image'         => array(
 					'name'       => 'pp-scroll-image',
 					'title'      => __( 'Scroll Image', 'powerpack' ),

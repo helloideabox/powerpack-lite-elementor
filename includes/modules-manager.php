@@ -41,6 +41,7 @@ class Modules_Manager {
 			'posts',
 			'pricing',
 			'promo-box',
+			'random-image',
 			'scroll-image',
 			'team-member',
 			'twitter',
