@@ -3,7 +3,7 @@ namespace PowerpackElementsLite;
 
 use Elementor\Utils;
 use PowerpackElementsLite\Classes\PP_Config;
-use PowerpackElements\Classes\PP_Helper;
+use PowerpackElementsLite\Classes\PP_Helper;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; } // Exit if accessed directly

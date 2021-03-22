@@ -188,7 +188,7 @@ class PP_Helper {
 				$widgets = self::$widgets_list;
 			}
 
-			$saved_widgets = pp_get_enabled_modules();
+			$saved_widgets = pp_elements_lite_get_enabled_modules();
 
 			if ( is_array( $widgets ) ) {
 
