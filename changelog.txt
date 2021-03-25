@@ -1,3 +1,7 @@
+== 2.3.1 ==
+Release date: March 29, 2021
+* Fixed: Flip Box - Link option was not working in zoom out effect
+
 == 2.3.0 ==
 Release date: March 22, 2021
 * New: Random Image widget
