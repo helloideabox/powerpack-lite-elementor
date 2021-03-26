@@ -10,6 +10,7 @@ use PowerpackElementsLite\Group_Control_Transition;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Utils;
+use Elementor\Icons_Manager;
 use Elementor\Skin_Base as Elementor_Skin_Base;
 use Elementor\Widget_Base;
 use Elementor\Group_Control_Image_Size;
@@ -1144,12 +1145,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		$this->add_control(
-			'button_icon',
+			'select_button_icon',
 			array(
-				'label'     => __( 'Button Icon', 'powerpack' ),
-				'type'      => Controls_Manager::ICON,
-				'default'   => '',
-				'condition' => array(
+				'label'            => __( 'Button Icon', 'powerpack' ),
+				'type'             => Controls_Manager::ICONS,
+				'fa4compatibility' => $this->get_control_id( 'button_icon' ),
+				'condition'        => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
 				),
 			)
@@ -1162,12 +1163,23 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'after',
 				'options'   => array(
-					'after'  => __( 'After', 'powerpack' ),
 					'before' => __( 'Before', 'powerpack' ),
+					'after'  => __( 'After', 'powerpack' ),
 				),
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
-					$this->get_control_id( 'button_icon!' ) => '',
+					$this->get_control_id( 'select_button_icon[value]!' ) => '',
+				),
+			)
+		);
+
+		$this->add_control(
+			'button_link_target',
+			array(
+				'label'     => __( 'Open in a New Tab', 'powerpack' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'condition' => array(
+					$this->get_control_id( 'show_button' ) => 'yes',
 				),
 			)
 		);
@@ -2739,36 +2751,35 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		$this->add_control(
-			'info_box_button_icon_heading',
+			'read_more_button_icon_style_heading',
 			array(
 				'label'     => __( 'Button Icon', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
-					'button_icon!'                         => '',
+					$this->get_control_id( 'select_button_icon[value]!' ) => '',
 				),
 			)
 		);
 
-		$this->add_responsive_control(
-			'button_icon_margin',
+		$this->add_control(
+			'button_icon_spacing',
 			array(
-				'label'       => __( 'Margin', 'powerpack' ),
-				'type'        => Controls_Manager::DIMENSIONS,
-				'size_units'  => array( 'px', '%' ),
-				'placeholder' => array(
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => '',
+				'label'     => __( 'Icon Spacing', 'powerpack' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'max' => 50,
+					),
 				),
-				'selectors'   => array(
-					'{{WRAPPER}} .pp-info-box .pp-button-icon' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
+				'selectors' => array(
+					'{{WRAPPER}} .elementor-align-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-align-icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
 				),
-				'condition'   => array(
+				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
-					'button_icon!'                         => '',
+					$this->get_control_id( 'select_button_icon[value]!' ) => '',
 				),
 			)
 		);
@@ -4194,6 +4205,43 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	}
 
 	/**
+	 * Render button icon output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render_button_icon() {
+		$skin             = $this->get_id();
+		$settings         = $this->parent->get_settings_for_display();
+		$show_button      = $this->get_instance_value( 'show_button' );
+
+		if ( 'yes' !== $show_button ) {
+			return;
+		}
+
+		$button_icon          = $this->get_instance_value( 'button_icon' );
+		$select_button_icon   = $this->get_instance_value( 'select_button_icon' );
+		$button_icon_position = $this->get_instance_value( 'button_icon_position' );
+		$button_icon_align = ( 'before' === $button_icon_position ) ? 'left' : 'right';
+
+		$migrated = isset( $settings['__fa4_migrated'][ $skin . '_select_button_icon' ] );
+		$is_new   = empty( $settings[ $skin . '_button_icon' ] ) && Icons_Manager::is_migration_allowed();
+
+		if ( $is_new || $migrated ) { ?>
+			<span class="pp-button-icon elementor-button-icon elementor-align-icon-<?php echo esc_attr( $button_icon_align ); ?>">
+				<?php Icons_Manager::render_icon( $select_button_icon, array( 'aria-hidden' => 'true' ) ); ?>
+			</span>
+			<?php
+		} else { ?>
+			<span class="pp-button-icon elementor-button-icon elementor-align-icon-<?php echo esc_attr( $button_icon_align ); ?>">
+				<i class="pp-button-icon <?php echo esc_attr( $button_icon ); ?>" aria-hidden="true"></i>
+			</span>
+			<?php
+		}
+	}
+
+	/**
 	 * Render button output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -4201,18 +4249,19 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access protected
 	 */
 	protected function render_button() {
+		$skin             = $this->get_id();
 		$settings         = $this->parent->get_settings_for_display();
 		$show_button      = $this->get_instance_value( 'show_button' );
 		$button_animation = $this->get_instance_value( 'button_animation' );
 
-		if ( $show_button != 'yes' ) {
+		if ( 'yes' !== $show_button ) {
 			return;
 		}
 
-		$button_text          = $this->get_instance_value( 'button_text' );
-		$button_icon          = $this->get_instance_value( 'button_icon' );
+		$button_text          = isset( $settings[ $skin . '_button_text' ] ) ? $settings[ $skin . '_button_text' ] : $this->get_instance_value( 'button_text' );
 		$button_icon_position = $this->get_instance_value( 'button_icon_position' );
 		$button_size          = $this->get_instance_value( 'button_size' );
+		$button_link_target   = $this->get_instance_value( 'button_link_target' );
 
 		$classes = array(
 			'pp-posts-button',
@@ -4222,6 +4271,18 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		if ( $button_animation ) {
 			$classes[] = 'elementor-animation-' . $button_animation;
+		}
+
+		$this->parent->add_render_attribute(
+			'button-' . get_the_ID(),
+			array(
+				'class' => implode( ' ', $classes ),
+				'href'  => apply_filters( 'ppe_posts_button_link', get_the_permalink(), get_the_ID() ),
+			)
+		);
+
+		if ( 'yes' === $button_link_target ) {
+			$this->parent->add_render_attribute( 'button-' . get_the_ID(), 'target', '_blank' );
 		}
 
 		/**
@@ -4236,18 +4297,18 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$button_text = apply_filters( 'ppe_posts_button_text', $button_text, get_the_ID() );
 		?>
 		<?php do_action( 'ppe_before_single_post_button', get_the_ID(), $settings ); ?>
-		<a class="<?php echo implode( ' ', $classes ); ?>" href="<?php echo get_the_permalink(); ?>">
-			<?php if ( $button_icon != '' && $button_icon_position == 'before' ) { ?>
-				<span class="pp-button-icon <?php echo esc_attr( $button_icon ); ?>" aria-hidden="true"></span>
-			<?php } ?>
-			<?php if ( $button_text != '' ) { ?>
-				<span class="pp-button-text">
+		<a <?php echo $this->parent->get_render_attribute_string( 'button-' . get_the_ID() ); ?>>
+			<?php if ( 'before' === $button_icon_position ) {
+				$this->render_button_icon();
+			} ?>
+			<?php if ( $button_text ) { ?>
+				<span class="pp-button-text elementor-button-text">
 					<?php echo esc_html( $button_text ); ?>
 				</span>
 			<?php } ?>
-			<?php if ( $button_icon != '' && $button_icon_position == 'after' ) { ?>
-				<span class="pp-button-icon <?php echo esc_attr( $button_icon ); ?>" aria-hidden="true"></span>
-			<?php } ?>
+			<?php if ( 'after' === $button_icon_position ) {
+				$this->render_button_icon();
+			} ?>
 		</a>
 		<?php do_action( 'ppe_after_single_post_button', get_the_ID(), $settings ); ?>
 		<?php

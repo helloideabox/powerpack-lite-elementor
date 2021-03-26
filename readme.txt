@@ -206,6 +206,13 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.3.1 - March 26, 2021 =
+* 	Fixed: Flip Box - Link option was not working in zoom out effect
+* 	Fixed: Posts - Dynamic tag was not working for Read More Button text
+* 	Added: Posts - Option to open read more button in new tab
+* 	Added: Posts - Read More Button Icon Spacing option
+* 	Enhancement: Posts - Updated Read More Button Icon control
+
 = 2.3.0 - March 22, 2021 =
 * 	New: Random Image widget
 * 	Fixed: Info Box - Responsive Icon Position control was not working
