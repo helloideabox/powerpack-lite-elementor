@@ -84,7 +84,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return array(
-			'jquery-swiper',
+			'swiper',
 			'powerpack-frontend',
 		);
 	}
@@ -2455,7 +2455,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_render_attribute(
 			'team-member-carousel',
 			array(
-				'class' => array( 'swiper-container', 'pp-tm-wrapper', 'pp-tm-carousel' ),
+				'class' => array( 'pp-tm-wrapper', 'pp-tm-carousel', 'pp-swiper-slider', 'swiper-container' ),
 				'id'    => 'swiper-container-' . esc_attr( $this->get_id() ),
 			)
 		);

@@ -176,26 +176,6 @@ class PowerpackLitePlugin {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_register_script(
-			'pp-instagram',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/pp-instagram.js',
-			[
-				'jquery',
-			],
-			POWERPACK_ELEMENTS_LITE_VER,
-			true
-		);
-
-		wp_localize_script(
-			'pp-instagram',
-			'ppInsta',
-			array(
-				'invalid_username' => __( 'The <b>username</b> added is not a valid Instagram Username. Check browser console for more details.', 'powerpack' ),
-				'private_account'  => __( 'This account is private.', 'powerpack' ),
-				'no_images'        => __( 'No <i>images</i> were found in the Instagram profile for <b>', 'powerpack' ),
-			)
-		);
-
-		wp_register_script(
 			'isotope',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/isotope/isotope.pkgd' . $suffix . '.js',
 			array(

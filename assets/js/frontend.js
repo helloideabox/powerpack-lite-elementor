@@ -23,36 +23,76 @@
 
     var isEditMode		= false;
     
-    var PPSwiperSliderHandler = function ($scope, $) {
-        var $carousel                   = $scope.find('.pp-swiper-slider').eq(0),
-            $slider_options             = JSON.parse( $carousel.attr('data-slider-settings') );
+    var ppSwiperSliderinit = function (carousel, carouselWrap, elementSettings, sliderOptions) {
+		if ( 'undefined' === typeof Swiper ) {
+			const asyncSwiper = elementorFrontend.utils.swiper;
 
-		var mySwiper = new Swiper($carousel, $slider_options);
-			
-		PPSliderUpdate( mySwiper, '.pp-swiper-slider', 'swiper' );
+			new asyncSwiper( carousel, sliderOptions ).then( function( newSwiperInstance ) {
+				var mySwiper = newSwiperInstance;
+				ppSwiperSliderAfterinit( carousel, carouselWrap, elementSettings, mySwiper );
+			} );
+		} else {
+			var mySwiper = new Swiper(carousel, sliderOptions);
+			ppSwiperSliderAfterinit( carousel, carouselWrap, elementSettings, mySwiper );
+		}
     };
-    
-    var PPSliderUpdate = function (slider, selector, type) {
 
-		if( 'undefined' !== typeof type ){
+	var ppSwiperSliderAfterinit = function (carousel, carouselWrap, elementSettings, mySwiper) {
+		if ( 'yes' === elementSettings.pause_on_hover ) {
+			carousel.on( 'mouseover', function() {
+				mySwiper.autoplay.stop();
+			});
+
+			carousel.on( 'mouseout', function() {
+				mySwiper.autoplay.start();
+			});
+		}
+
+		if ( isEditMode ) {
+			carouselWrap.resize( function() {
+				mySwiper.update();
+			});
+		}
+
+		ppWidgetUpdate( mySwiper, '.pp-swiper-slider', 'swiper' );
+    };
+	
+    var ppSwiperSliderHandler = function ($scope, $) {
+		var elementSettings = getElementSettings( $scope ),
+			carouselWrap    = $scope.find('.swiper-container-wrap'),
+            carousel        = $scope.find('.pp-swiper-slider'),
+            sliderOptions   = JSON.parse( carousel.attr('data-slider-settings') );
+
+		ppSwiperSliderinit(carousel, carouselWrap, elementSettings, sliderOptions);
+	};
+    
+    var ppWidgetUpdate = function (slider, selector, type) {
+		if( 'undefined' === typeof type ){
 			type = 'swiper';
 		}
 
 		var $triggers = [
 			'ppe-tabs-switched',
 			'ppe-toggle-switched',
+			'ppe-accordion-switched',
+			'ppe-popup-opened',
 		];
 
 		$triggers.forEach(function(trigger) {
 			if ( 'undefined' !== typeof trigger ) {
 				$(document).on(trigger, function(e, wrap) {
+					if ( trigger == 'ppe-popup-opened' ) {
+						wrap = $('.pp-modal-popup-' + wrap);
+					}
 					if ( wrap.find( selector ).length > 0 ) {
 						setTimeout(function() {
 							if ( 'slick' === type ) {
 								slider.slick( 'setPosition' );
-							}
-							if ( 'swiper' === type ) {
+							} else if ( 'swiper' === type ) {
 								slider.update();
+							} else if ( 'gallery' === type ) {
+								var $gallery = wrap.find('.pp-image-gallery').eq(0);
+								$gallery.isotope( 'layout' );
 							}
 						}, 100);
 					}
@@ -152,14 +192,6 @@
                 triggerOnce:        true
             });
 	};
-    
-    var LogoCarouselHandler = function ($scope, $) {
-        var carousel_wrap               = $scope.find('.pp-logo-carousel-wrap').eq(0),
-            carousel                    = carousel_wrap.find('.pp-logo-carousel'),
-            slider_options              = JSON.parse( carousel_wrap.attr('data-slider-settings') );
-
-        var mySwiper = new Swiper(carousel, slider_options);
-    };
 	
 	var IbEqualHeight = function($scope, $) {
 		var maxHeight = 0;
@@ -172,33 +204,32 @@
 	};
     
     var InfoBoxCarouselHandler = function ($scope, $) {
-		var elementSettings			= getElementSettings( $scope ),
-            $carousel               = $scope.find('.pp-info-box-carousel'),
-            slider_options          = JSON.parse( $carousel.attr('data-slider-settings') ),
-            equal_height			= elementSettings.equal_height_boxes,
-			mySwiper				= new Swiper($carousel, slider_options);
+		var elementSettings = getElementSettings( $scope ),
+			carouselWrap    = $scope.find('.swiper-container-wrap'),
+            carousel        = $scope.find('.pp-info-box-carousel'),
+            sliderOptions   = JSON.parse( carousel.attr('data-slider-settings') ),
+            equalHeight	    = elementSettings.equal_height_boxes;
+
+		ppSwiperSliderinit(carousel, carouselWrap, elementSettings, sliderOptions);
 		
-		if ( equal_height === 'yes' ) {
-			IbEqualHeight($scope, $);
-			$(window).resize(IbEqualHeight($scope, $));
+		if ( equalHeight === 'yes' ) {
+			infoBoxEqualHeight($scope, $);
+			$(window).resize(infoBoxEqualHeight($scope, $));
 		}
-		
-		PPSliderUpdate( mySwiper, '.pp-info-box-carousel', 'swiper' );
     };
     
     var InstaFeedPopupHandler = function ($scope, $) {
-        var widgetId        = $scope.data('id'),
-			instafeedElem   = $scope.find('.pp-instagram-feed').eq(0),
+        var widgetId		= $scope.data('id'),
 			elementSettings = getElementSettings( $scope ),
-            layout          = elementSettings.feed_layout,
-            likes           = elementSettings.insta_likes,
-            comments        = elementSettings.insta_comments;
+            layout          = elementSettings.feed_layout;
 
 		if ( layout === 'carousel' ) {
-			var carousel      = $scope.find('.swiper-container').eq(0),
-				sliderOptions = JSON.parse( carousel.attr('data-slider-settings') ),
-				mySwiper      = new Swiper(carousel, sliderOptions);
-		} else if ( layout === 'masonry' ) {
+			var carouselWrap  = $scope.find('.swiper-container-wrap'),
+				carousel      = $scope.find('.swiper-container').eq(0),
+				sliderOptions = JSON.parse( carousel.attr('data-slider-settings') );
+
+			ppSwiperSliderinit(carousel, carouselWrap, elementSettings, sliderOptions);
+		} else if (layout === 'masonry') {
 			var grid = $('#pp-instafeed-' + widgetId).imagesLoaded( function() {
 				grid.masonry({
 					itemSelector: '.pp-feed-item',
@@ -206,30 +237,6 @@
 				});
 			});
 		}
-		
-		if ( elementSettings.use_api !== 'yes' ) {
-			var settings   = instafeedElem.data('settings'),
-            	popup      = settings.popup,
-            	image_link = settings.img_link;
-
-			var pp_feed = new PPInstagramFeed({
-					id: widgetId,
-					username: elementSettings.username,
-					layout: layout,
-					limit: settings.images_count,
-					likes_count: (likes === 'yes'),
-					comments_count: (comments === 'yes'),
-					popup: popup,
-					image_link: image_link,
-					carousel: sliderOptions,
-				});
-		}
-    };
-    
-    var TeamMemberCarouselHandler = function ($scope, $) {
-        var carousel      = $scope.find('.pp-tm-carousel').eq(0),
-            sliderOptions = JSON.parse( carousel.attr('data-slider-settings') ),
-			mySwiper      = new Swiper(carousel, sliderOptions);
     };
     
     var ImageScrollHandler = function($scope, $) {
@@ -335,13 +342,6 @@
                 }
             }
         });
-    };
-
-    var ContentTickerHandler = function ($scope, $) {
-        var $carousel                   = $scope.find('.pp-content-ticker').eq(0),
-            $slider_options             = JSON.parse( $carousel.attr('data-slider-settings') );
-
-        var mySwiper = new Swiper($carousel, $slider_options);
     };
 
 	var PPButtonHandler = function ( $scope, $) {
@@ -485,13 +485,13 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-image-hotspots.default', ImageHotspotHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-image-comparison.default', ImageComparisonHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-counter.default', CounterHandler);
-        elementorFrontend.hooks.addAction('frontend/element_ready/pp-logo-carousel.default', LogoCarouselHandler);
+        elementorFrontend.hooks.addAction('frontend/element_ready/pp-logo-carousel.default', ppSwiperSliderHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-info-box-carousel.default', InfoBoxCarouselHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-instafeed.default', InstaFeedPopupHandler);
-        elementorFrontend.hooks.addAction('frontend/element_ready/pp-team-member-carousel.default', TeamMemberCarouselHandler);
+        elementorFrontend.hooks.addAction('frontend/element_ready/pp-team-member-carousel.default', ppSwiperSliderHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-scroll-image.default', ImageScrollHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-advanced-accordion.default', AdvancedAccordionHandler);
-		elementorFrontend.hooks.addAction('frontend/element_ready/pp-content-ticker.default', ContentTickerHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-content-ticker.default', ppSwiperSliderHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-buttons.default', PPButtonHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-twitter-timeline.default', TwitterTimelineHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-twitter-tweet.default', TwitterTimelineHandler);

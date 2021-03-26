@@ -86,7 +86,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return [
-			'jquery-swiper',
+			'swiper',
 			'powerpack-frontend',
 		];
 	}

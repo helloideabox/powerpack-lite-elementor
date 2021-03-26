@@ -84,7 +84,7 @@ class Content_Ticker extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return array(
-			'jquery-swiper',
+			'swiper',
 			'powerpack-frontend',
 		);
 	}
@@ -1854,7 +1854,7 @@ class Content_Ticker extends Powerpack_Widget {
 			$this->add_render_attribute( 'content-ticker-container', 'class', 'pp-content-ticker-heading-arrow' );
 		}
 
-		$this->add_render_attribute( 'content-ticker', 'class', 'pp-content-ticker' );
+		$this->add_render_attribute( 'content-ticker', 'class', array( 'pp-content-ticker', 'pp-swiper-slider' ) );
 
 		$this->slider_settings();
 

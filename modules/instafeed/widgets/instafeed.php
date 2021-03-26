@@ -108,8 +108,8 @@ class Instafeed extends Powerpack_Widget {
 		return array(
 			'isotope',
 			'imagesloaded',
-			'pp-instagram',
 			'magnific-popup',
+			'swiper',
 			'powerpack-frontend',
 		);
 	}

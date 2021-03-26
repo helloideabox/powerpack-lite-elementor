@@ -83,7 +83,7 @@ class Logo_Carousel extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return array(
-			'jquery-swiper',
+			'swiper',
 			'powerpack-frontend',
 		);
 	}
@@ -97,10 +97,8 @@ class Logo_Carousel extends Powerpack_Widget {
 	 */
 	protected function _register_controls() {
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  CONTENT TAB
+		/* -----------------------------------------------------------------------------------*/
+		/* CONTENT TAB
 		/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -495,10 +493,8 @@ class Logo_Carousel extends Powerpack_Widget {
 			$this->end_controls_section();
 		}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  STYLE TAB
+		/* -----------------------------------------------------------------------------------*/
+		/* STYLE TAB
 		/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -1258,7 +1254,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		);
 
 		$this->add_render_attribute(
-			'logo-carousel-wrap',
+			'logo-carousel',
 			array(
 				'data-slider-settings' => wp_json_encode( $slider_options ),
 			)
@@ -1282,7 +1278,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_render_attribute(
 			'logo-carousel',
 			array(
-				'class'           => array( 'swiper-container', 'pp-logo-carousel' ),
+				'class'             => [ 'pp-logo-carousel', 'pp-swiper-slider', 'swiper-container' ],
 				'data-pagination' => '.swiper-pagination-' . esc_attr( $this->get_id() ),
 				'data-arrow-next' => '.swiper-button-next-' . esc_attr( $this->get_id() ),
 				'data-arrow-prev' => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
@@ -1449,17 +1445,17 @@ class Logo_Carousel extends Powerpack_Widget {
 		$bp_mobile           = 320;
 		?>
 		<#
-		   var i = 1;
+			var i = 1;
 
-		   function dots_template() {
+			function dots_template() {
 				if ( settings.dots == 'yes' ) {
 					#>
 					<div class="swiper-pagination"></div>
 					<#
 				}
-		   }
+			}
 
-		   function arrows_template() {
+			function arrows_template() {
 				if ( settings.arrows == 'yes' ) {
 					if ( settings.arrow ) {
 						var pp_next_arrow = settings.arrow;
@@ -1478,10 +1474,9 @@ class Logo_Carousel extends Powerpack_Widget {
 					</div>
 					<#
 				}
-		   }
+			}
 
-		   function get_slider_settings( settings ) {
-
+			function get_slider_settings( settings ) {
 				var $items          = ( settings.items.size !== '' || settings.items.size !== undefined ) ? settings.items.size : 3,
 					$items_tablet   = ( settings.items_tablet.size !== '' || settings.items_tablet.size !== undefined ) ? settings.items_tablet.size : 2,
 					$items_mobile   = ( settings.items_mobile.size !== '' || settings.items_mobile.size !== undefined ) ? settings.items_mobile.size : 1,
@@ -1528,37 +1523,37 @@ class Logo_Carousel extends Powerpack_Widget {
 						}
 					}
 				};
-		   };
+			};
 
-		   view.addRenderAttribute(
+			view.addRenderAttribute(
 				'container',
 				{
-					'class': [ 'swiper-container', 'pp-logo-carousel' ],
+					'class': [ 'pp-logo-carousel', 'pp-swiper-slider', 'swiper-container' ],
 				}
-		   );
+			);
 
-		   if ( settings.grayscale_normal == 'yes' ) {
+			if ( settings.grayscale_normal == 'yes' ) {
 				view.addRenderAttribute( 'container', 'class', 'grayscale-normal' );
-		   }
+			}
 
-		   if ( settings.grayscale_hover == 'yes' ) {
+			if ( settings.grayscale_hover == 'yes' ) {
 				view.addRenderAttribute( 'container', 'class', 'grayscale-hover' );
-		   }
+			}
 
-		   if ( settings.direction == 'right' ) {
+			if ( settings.direction == 'right' ) {
 				view.addRenderAttribute( 'container', 'dir', 'rtl' );
-		   }
+			}
 
-		   view.addRenderAttribute(
+			view.addRenderAttribute(
 				'wrapper',
 				{
 					'class': [ "swiper-container-wrap", "pp-logo-carousel-wrap", "swiper-container-wrap-dots-" + settings.dots_position ],
 				}
-		   );
+			);
 
-		   var slider_options = get_slider_settings( settings );
+			var slider_options = get_slider_settings( settings );
 
-		   view.addRenderAttribute( 'wrapper', 'data-slider-settings', JSON.stringify( slider_options ) );
+			view.addRenderAttribute( 'container', 'data-slider-settings', JSON.stringify( slider_options ) );
 		#>
 		<div {{{ view.getRenderAttributeString( 'wrapper' ) }}}>
 			<div {{{ view.getRenderAttributeString( 'container' ) }}}>
