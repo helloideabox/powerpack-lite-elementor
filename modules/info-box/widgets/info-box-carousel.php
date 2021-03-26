@@ -2341,6 +2341,13 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			$margin = ( $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
 			$margin_tablet = ( $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
 			$margin_mobile = ( $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
+		} elseif ( 'coverflow' === $effect ) {
+			$items  = 3;
+			$items_tablet  = 2;
+			$items_mobile  = 1;
+			$margin = 10;
+			$margin_tablet = 10;
+			$margin_mobile = 10;
 		} else {
 			$items  = 1;
 			$items_tablet  = 1;
@@ -2765,20 +2772,24 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					var $effect = 'slide';
 				}
 
-				if ( $effect == 'slide' ) {
-					var $items          = ( settings.items.size !== '' || settings.items.size !== undefined ) ? settings.items.size : 3,
-						$items_tablet   = ( settings.items_tablet.size !== '' || settings.items_tablet.size !== undefined ) ? settings.items_tablet.size : 2,
-						$items_mobile   = ( settings.items_mobile.size !== '' || settings.items_mobile.size !== undefined ) ? settings.items_mobile.size : 1,
-						$margin         = ( settings.margin.size !== '' || settings.margin.size !== undefined ) ? settings.margin.size : 10,
-						$margin_tablet  = ( settings.margin_tablet.size !== '' || settings.margin_tablet.size !== undefined ) ? settings.margin_tablet.size : 10,
-						$margin_mobile  = ( settings.margin_mobile.size !== '' || settings.margin_mobile.size !== undefined ) ? settings.margin_mobile.size : 10;
-				} else {
-					var $items          = 1,
-						$items_tablet   = 1,
-						$items_mobile   = 1,
-						$margin         = 10,
-						$margin_tablet  = 10,
-						$margin_mobile  = 10;
+				var $items          = ( settings.items.size !== '' || settings.items.size !== undefined ) ? settings.items.size : 3,
+					$items_tablet   = ( settings.items_tablet.size !== '' || settings.items_tablet.size !== undefined ) ? settings.items_tablet.size : 2,
+					$items_mobile   = ( settings.items_mobile.size !== '' || settings.items_mobile.size !== undefined ) ? settings.items_mobile.size : 1,
+					$margin         = ( settings.margin.size !== '' || settings.margin.size !== undefined ) ? settings.margin.size : 10,
+					$margin_tablet  = ( settings.margin_tablet.size !== '' || settings.margin_tablet.size !== undefined ) ? settings.margin_tablet.size : 10,
+					$margin_mobile  = ( settings.margin_mobile.size !== '' || settings.margin_mobile.size !== undefined ) ? settings.margin_mobile.size : 10;
+
+				if ( $effect == 'coverflow' ) {
+					$items          = 3,
+					$items_tablet   = 2,
+					$items_mobile   = 1;
+				} else if ( $effect == 'fade' || $effect == 'cube' || $effect == 'flip' ) {
+					$items          = 1,
+					$items_tablet   = 1,
+					$items_mobile   = 1,
+					$margin         = 10,
+					$margin_tablet  = 10,
+					$margin_mobile  = 10;
 				}
 
 				var $autoplay = ( settings.autoplay == 'yes' && settings.autoplay_speed.size != '' ) ? settings.autoplay_speed.size : 999999;

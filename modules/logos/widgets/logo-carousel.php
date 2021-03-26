@@ -1195,41 +1195,64 @@ class Logo_Carousel extends Powerpack_Widget {
 	public function slider_settings() {
 		$settings = $this->get_settings();
 
+		$slides_per_view = ( $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
+		$slides_per_view_tablet = ( $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2;
+		$slides_per_view_mobile = ( $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1;
+		$margin = ( $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
+		$margin_tablet = ( $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
+		$margin_mobile = ( $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
+
+		if ( 'fade' === $settings['carousel_effect'] || 'cube' === $settings['carousel_effect'] || 'flip' === $settings['carousel_effect'] ) {
+			$slides_per_view = 1;
+			$slides_per_view_tablet = 1;
+			$slides_per_view_mobile = 1;
+			$margin = 10;
+			$margin_tablet = 10;
+			$margin_mobile = 10;
+		} elseif ( 'coverflow' === $settings['carousel_effect'] ) {
+			$slides_per_view = 3;
+			$slides_per_view_tablet = 2;
+			$slides_per_view_mobile = 1;
+			$margin = 10;
+			$margin_tablet = 10;
+			$margin_mobile = 10;
+		}
+
 		$slider_options = array(
 			'direction'     => 'horizontal',
 			'speed'         => ( $settings['slider_speed']['size'] !== '' ) ? $settings['slider_speed']['size'] : 400,
 			'effect'        => ( $settings['carousel_effect'] ) ? $settings['carousel_effect'] : 'slide',
-			'slidesPerView' => ( $settings['items']['size'] !== '' ) ? absint( $settings['items']['size'] ) : 3,
-			'spaceBetween'  => ( $settings['margin']['size'] !== '' ) ? $settings['margin']['size'] : 10,
-			'grabCursor'    => ( $settings['grab_cursor'] === 'yes' ),
+			'slidesPerView' => $slides_per_view,
+			'spaceBetween'  => $margin,
+			'grabCursor'    => ( 'yes' === $settings['grab_cursor'] ),
 			'autoHeight'    => true,
-			'loop'          => ( $settings['infinite_loop'] === 'yes' ),
+			'loop'          => ( 'yes' === $settings['infinite_loop'] ),
 		);
 
-		if ( $settings['autoplay'] == 'yes' && ! empty( $settings['autoplay_speed']['size'] ) ) {
+		if ( 'yes' === $settings['autoplay'] && ! empty( $settings['autoplay_speed']['size'] ) ) {
 			$autoplay_speed = $settings['autoplay_speed']['size'];
 		} else {
 			$autoplay_speed = 999999;
 		}
 
-		$slider_options['autoplay'] = array(
-			'delay'                => $autoplay_speed,
-			'disableOnInteraction' => ( $settings['pause_on_interaction'] === 'yes' ),
-		);
+		$slider_options['autoplay'] = [
+			'delay'                  => $autoplay_speed,
+			'disableOnInteraction'   => ( 'yes' === $settings['pause_on_interaction'] ),
+		];
 
-		if ( $settings['dots'] == 'yes' ) {
-			$slider_options['pagination'] = array(
-				'el'        => '.swiper-pagination-' . esc_attr( $this->get_id() ),
-				'type'      => $settings['pagination_type'],
-				'clickable' => true,
-			);
+		if ( 'yes' === $settings['dots'] ) {
+			$slider_options['pagination'] = [
+				'el'                 => '.swiper-pagination-' . esc_attr( $this->get_id() ),
+				'type'               => $settings['pagination_type'],
+				'clickable'          => true,
+			];
 		}
 
-		if ( $settings['arrows'] == 'yes' ) {
-			$slider_options['navigation'] = array(
-				'nextEl' => '.swiper-button-next-' . esc_attr( $this->get_id() ),
-				'prevEl' => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
-			);
+		if ( 'yes' === $settings['arrows'] ) {
+			$slider_options['navigation'] = [
+				'nextEl'             => '.swiper-button-next-' . esc_attr( $this->get_id() ),
+				'prevEl'             => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
+			];
 		}
 
 		$elementor_bp_lg = get_option( 'elementor_viewport_lg' );
@@ -1238,20 +1261,20 @@ class Logo_Carousel extends Powerpack_Widget {
 		$bp_tablet       = ! empty( $elementor_bp_md ) ? $elementor_bp_md : 768;
 		$bp_mobile       = 320;
 
-		$slider_options['breakpoints'] = array(
-			$bp_desktop => array(
-				'slidesPerView' => ( $settings['items']['size'] !== '' ) ? absint( $settings['items']['size'] ) : 2,
-				'spaceBetween'  => ( $settings['margin']['size'] !== '' ) ? $settings['margin']['size'] : 10,
-			),
-			$bp_tablet  => array(
-				'slidesPerView' => ( $settings['items_tablet']['size'] !== '' ) ? absint( $settings['items_tablet']['size'] ) : 2,
-				'spaceBetween'  => ( $settings['margin_tablet']['size'] !== '' ) ? $settings['margin_tablet']['size'] : 10,
-			),
-			$bp_mobile  => array(
-				'slidesPerView' => ( $settings['items_mobile']['size'] !== '' ) ? absint( $settings['items_mobile']['size'] ) : 1,
-				'spaceBetween'  => ( $settings['margin_mobile']['size'] !== '' ) ? $settings['margin_mobile']['size'] : 10,
-			),
-		);
+		$slider_options['breakpoints'] = [
+			$bp_desktop   => [
+				'slidesPerView'      => $slides_per_view,
+				'spaceBetween'       => $margin,
+			],
+			$bp_tablet   => [
+				'slidesPerView'      => $slides_per_view_tablet,
+				'spaceBetween'       => $margin_tablet,
+			],
+			$bp_mobile   => [
+				'slidesPerView'      => $slides_per_view_mobile,
+				'spaceBetween'       => $margin_mobile,
+			],
+		];
 
 		$this->add_render_attribute(
 			'logo-carousel',
@@ -1485,6 +1508,16 @@ class Logo_Carousel extends Powerpack_Widget {
 					$margin_tablet  = ( settings.margin_tablet.size !== '' || settings.margin_tablet.size !== undefined ) ? settings.margin_tablet.size : 10,
 					$margin_mobile  = ( settings.margin_mobile.size !== '' || settings.margin_mobile.size !== undefined ) ? settings.margin_mobile.size : 10,
 					$autoplay       = ( settings.autoplay == 'yes' && settings.autoplay_speed.size != '' ) ? settings.autoplay_speed.size : 999999;
+
+				if ( 'fade' == settings.carousel_effect || 'cube' == settings.carousel_effect || 'flip' == settings.carousel_effect ) {
+					$items = 1;
+					$items_tablet = 1;
+					$items_mobile = 1;
+				} else if ( 'coverflow' == settings.carousel_effect ) {
+					$items = 3;
+					$items_tablet = 2;
+					$items_mobile = 1;
+				}
 
 				return {
 					direction:              "horizontal",
