@@ -16,6 +16,10 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+if ( defined( 'POWERPACK_ELEMENTS_VER' ) ) {
+	return;
+}
+
 define( 'POWERPACK_ELEMENTS_LITE_VER', '2.3.0' );
 define( 'POWERPACK_ELEMENTS_LITE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_BASE', plugin_basename( __FILE__ ) );
