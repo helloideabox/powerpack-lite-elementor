@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\Flipbox\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
@@ -94,8 +95,19 @@ class Flipbox extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore 
+		$this->register_controls();
+	}
 
+	/**
+	 * Register FAQ widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_controls() {
 		/* Content Tab */
 		$this->register_content_front_controls();
 		$this->register_content_back_controls();
@@ -1634,6 +1646,8 @@ class Flipbox extends Powerpack_Widget {
 	protected function render_front() {
 		$settings = $this->get_settings_for_display();
 
+		$title_tag_front = PP_Helper::validate_html_tag( $settings['title_html_tag_front'] );
+
 		$this->add_render_attribute( 'icon-front', 'class', 'pp-flipbox-icon-image' );
 
 		if ( 'icon' === $settings['icon_type'] ) {
@@ -1661,13 +1675,13 @@ class Flipbox extends Powerpack_Widget {
 		<div class="pp-flipbox-front">
 			<div class="pp-flipbox-overlay">
 				<div class="pp-flipbox-inner">
-					<div <?php echo $this->get_render_attribute_string( 'icon-front' ); ?>>
+					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon-front' ) ); ?>>
 						<?php if ( 'icon' === $settings['icon_type'] && $has_icon ) { ?>
 							<?php
 							if ( $is_new || $migrated ) {
 								Icons_Manager::render_icon( $settings['select_icon'], [ 'aria-hidden' => 'true' ] );
 							} elseif ( ! empty( $settings['icon'] ) ) {
-								?><i <?php echo $this->get_render_attribute_string( 'front-i' ); ?>></i><?php
+								?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'front-i' ) ); ?>></i><?php
 							}
 							?>
 						<?php } elseif ( 'image' === $settings['icon_type'] ) { ?>
@@ -1686,9 +1700,9 @@ class Flipbox extends Powerpack_Widget {
 						<?php } ?>
 					</div>
 
-					<<?php echo $settings['title_html_tag_front']; ?> class="pp-flipbox-heading">
+					<<?php echo esc_html( $title_tag_front ); ?> class="pp-flipbox-heading">
 						<?php echo wp_kses_post( $settings['title_front'], 'powerpack' ); ?>
-					</<?php echo $settings['title_html_tag_front']; ?>>
+					</<?php echo esc_html( $title_tag_front ); ?>>
 
 					<div class="pp-flipbox-content">
 						<?php echo wp_kses_post( $settings['description_front'], 'powerpack' ); ?>
@@ -1702,13 +1716,9 @@ class Flipbox extends Powerpack_Widget {
 	protected function render_back() {
 		$settings = $this->get_settings_for_display();
 
-		$pp_title_html_tag = $settings['title_html_tag_back'];
+		$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag_back'] );
 
 		$this->add_render_attribute( 'title-container', 'class', 'pp-flipbox-heading' );
-
-		$flipbox_image_back = $settings['icon_image_back'];
-		$flipbox_back_image_url = Group_Control_Image_Size::get_attachment_image_src( $flipbox_image_back['id'], 'thumbnail_back', $settings );
-		$flipbox_back_image_url = ( empty( $flipbox_back_image_url ) ) ? $flipbox_image_back['url'] : $flipbox_back_image_url;
 
 		if ( 'none' !== $settings['icon_type_back'] ) {
 
@@ -1733,6 +1743,10 @@ class Flipbox extends Powerpack_Widget {
 			$is_new_icon_back = ! isset( $settings['icon_back'] ) && Icons_Manager::is_migration_allowed();
 
 			if ( 'image' === $settings['icon_type_back'] ) {
+				$flipbox_image_back = $settings['icon_image_back'];
+				$flipbox_back_image_url = Group_Control_Image_Size::get_attachment_image_src( $flipbox_image_back['id'], 'thumbnail_back', $settings );
+				$flipbox_back_image_url = ( empty( $flipbox_back_image_url ) ) ? $flipbox_image_back['url'] : $flipbox_back_image_url;
+
 				$this->add_render_attribute(
 					'icon-image-back',
 					[
@@ -1748,8 +1762,7 @@ class Flipbox extends Powerpack_Widget {
 		if ( 'none' !== $settings['link_type'] ) {
 			if ( ! empty( $settings['link']['url'] ) ) {
 				if ( 'title' === $settings['link_type'] ) {
-
-					$pp_title_html_tag = 'a';
+					$title_tag = 'a';
 
 					$this->add_render_attribute( 'title-container', 'class', 'pp-flipbox-linked-title' );
 
@@ -1772,20 +1785,20 @@ class Flipbox extends Powerpack_Widget {
 
 				$this->add_link_attributes( 'box-link', $settings['link'] );
 				?>
-				<a <?php echo $this->get_render_attribute_string( 'box-link' ); ?>></a>
+				<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'box-link' ) ); ?>></a>
 			<?php } ?>
 			<div class="pp-flipbox-overlay">
 				<div class="pp-flipbox-inner">
 					<?php if ( 'none' !== $settings['icon_type_back'] ) { ?>
-						<div <?php echo $this->get_render_attribute_string( 'icon-back' ); ?>>
+						<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon-back' ) ); ?>>
 							<?php if ( 'image' === $settings['icon_type_back'] ) { ?>
-								<img <?php echo $this->get_render_attribute_string( 'icon-image-back' ); ?>>
+								<img <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon-image-back' ) ); ?>>
 							<?php } elseif ( 'icon' === $settings['icon_type_back'] && $has_icon_back ) { ?>
 								<?php
 								if ( $is_new_icon_back || $migrated_icon_back ) {
 									Icons_Manager::render_icon( $settings['select_icon_back'], [ 'aria-hidden' => 'true' ] );
 								} elseif ( ! empty( $settings['icon_back'] ) ) {
-									?><i <?php echo $this->get_render_attribute_string( 'back-i' ); ?>></i><?php
+									?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'back-i' ) ); ?>></i><?php
 								}
 								?>
 							<?php } elseif ( 'text' === $settings['icon_type_back'] ) { ?>
@@ -1797,9 +1810,9 @@ class Flipbox extends Powerpack_Widget {
 					<?php } ?>
 
 					<?php if ( $settings['title_back'] ) { ?>
-						<<?php echo $pp_title_html_tag,' ', $this->get_render_attribute_string( 'title-container' ); ?>>
+						<<?php echo esc_html( $title_tag ),' ', wp_kses_post( $this->get_render_attribute_string( 'title-container' ) ); ?>>
 							<?php echo wp_kses_post( $settings['title_back'], 'powerpack' ); ?>
-						</<?php echo $pp_title_html_tag; ?>>
+						</<?php echo esc_html( $title_tag ); ?>>
 					<?php } ?>
 
 					<div class="pp-flipbox-content">
@@ -1807,7 +1820,7 @@ class Flipbox extends Powerpack_Widget {
 					</div>
 
 					<?php if ( 'button' === $settings['link_type'] && ! empty( $settings['flipbox_button_text'] ) ) : ?>
-						<a <?php echo $this->get_render_attribute_string( 'button' ); ?>>
+						<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'button' ) ); ?>>
 							<?php if ( 'before' === $settings['button_icon_position'] ) : ?>
 								<?php $this->render_button_icon(); ?>
 							<?php endif; ?>
@@ -1845,14 +1858,17 @@ class Flipbox extends Powerpack_Widget {
 		$migrated_button_icon = isset( $settings['__fa4_migrated']['select_button_icon'] );
 		$is_new_button_icon = ! isset( $settings['button_icon'] ) && Icons_Manager::is_migration_allowed();
 
-		if ( $has_button_icon ) {
-			echo '<span class="pp-button-icon">';
-			if ( $is_new_button_icon || $migrated_button_icon ) {
-				Icons_Manager::render_icon( $settings['select_button_icon'], [ 'aria-hidden' => 'true' ] );
-			} elseif ( ! empty( $settings['button_icon'] ) ) {
-				?><i <?php echo $this->get_render_attribute_string( 'button-i' ); ?>></i><?php
-			}
-			echo '</span>';
+		if ( $has_button_icon ) { ?>
+			<span class="pp-button-icon">
+				<?php
+				if ( $is_new_button_icon || $migrated_button_icon ) {
+					Icons_Manager::render_icon( $settings['select_button_icon'], [ 'aria-hidden' => 'true' ] );
+				} elseif ( ! empty( $settings['button_icon'] ) ) {
+					?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'button-i' ) ); ?>></i><?php
+				}
+				?>
+			</span>
+			<?php
 		}
 	}
 
@@ -1884,8 +1900,8 @@ class Flipbox extends Powerpack_Widget {
 			]
 		);
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'flipbox-container' ); ?>>
-			<div <?php echo $this->get_render_attribute_string( 'flipbox-card' ); ?>>
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'flipbox-container' ) ); ?>>
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'flipbox-card' ) ); ?>>
 				<?php
 					// Front
 					$this->render_front();
