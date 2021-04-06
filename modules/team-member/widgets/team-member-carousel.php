@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\TeamMember\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -408,7 +409,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			array(
-				'name'    => 'thumbnail', // Usage: '{name}_size' and '{name}_custom_dimension', in this case 'thumbnail_size' and 'thumbnail_custom_dimension'.,
+				'name'    => 'thumbnail', // Usage: '{name}_size' and '{name}_custom_dimension', in this case 'thumbnail_size' and 'thumbnail_custom_dimension'.
 				'label'   => __( 'Image Size', 'powerpack' ),
 				'default' => 'full',
 			)
@@ -480,7 +481,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				),
 				'condition' => array(
 					'member_social_links' => 'yes',
-					'overlay_content'     => [ 'none', 'all_content' ],
+					'overlay_content'     => array( 'none', 'all_content' ),
 				),
 			)
 		);
@@ -2466,8 +2467,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 		$this->slider_settings();
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'team-member-carousel-wrap' ); ?>>
-			<div <?php echo $this->get_render_attribute_string( 'team-member-carousel' ); ?>>
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'team-member-carousel-wrap' ) ); ?>>
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'team-member-carousel' ) ); ?>>
 				<div class="swiper-wrapper">
 					<?php foreach ( $settings['team_member_details'] as $index => $item ) : ?>
 						<div class="swiper-slide">
@@ -2489,11 +2490,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 											$this->add_link_attributes( $link_key, $item['link'] );
 
-											echo '<a ' . $this->get_render_attribute_string( $link_key ) . '>' . $image_html . '</a>';
+											echo '<a ' . wp_kses_post( $this->get_render_attribute_string( $link_key ) ) . '>' . wp_kses_post( $image_html ) . '</a>';
 
 										} else {
 
-											echo $image_html;
+											echo wp_kses_post( $image_html );
 
 										}
 									}
@@ -2584,13 +2585,22 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			if ( ! empty( $item['link']['url'] ) ) {
 				$this->add_link_attributes( $link_key, $item['link'] );
 			}
-
-			printf( '<%1$s class="pp-tm-name"><a %3$s>%4$s</a></%1$s>', $settings['name_html_tag'], $this->get_render_attribute_string( $member_key ), $this->get_render_attribute_string( $link_key ), $item['team_member_name'] );
+			$name_html_tag = PP_Helper::validate_html_tag( $settings['name_html_tag'] );
+			?>
+			<<?php echo esc_html( $name_html_tag ); ?> class="pp-tm-name">
+				<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
+					<?php echo esc_html( $item['team_member_name'] ); ?>
+				</a>
+			</<?php echo esc_html( $name_html_tag ); ?>>
+			<?php
 
 		} else {
-
-			printf( '<%1$s class="pp-tm-name">%2$s</%1$s>', $settings['name_html_tag'], $item['team_member_name'] );
-
+			$name_html_tag = PP_Helper::validate_html_tag( $settings['name_html_tag'] );
+			?>
+			<<?php echo esc_html( $name_html_tag ); ?> class="pp-tm-name">
+					<?php echo esc_html( $item['team_member_name'] ); ?>
+			</<?php echo esc_html( $name_html_tag ); ?>>
+			<?php
 		}
 		?>
 		<?php if ( 'yes' === $settings['member_title_divider'] ) { ?>
@@ -2605,7 +2615,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 
 		if ( $item['team_member_position'] ) {
-			printf( '<%1$s class="pp-tm-position">%2$s</%1$s>', $settings['position_html_tag'], $item['team_member_position'] );
+			$position_html_tag = PP_Helper::validate_html_tag( $settings['position_html_tag'] );
+			?>
+			<<?php echo esc_html( $position_html_tag ); ?>>
+				<?php echo esc_html( $item['team_member_position'] ); ?>
+			</<?php echo esc_html( $position_html_tag ); ?>
+			<?php
 		}
 		?>
 		<?php if ( 'yes' === $settings['member_position_divider'] ) { ?>
@@ -2651,9 +2666,26 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				foreach ( $pp_social_links as $icon_id => $icon_url ) {
 					if ( $icon_url ) {
 						if ( 'envelope' === $icon_id ) {
-							printf( '<li><a href="mailto:%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon far fa fa-' . esc_attr( $icon_id ) . '"></span></span></a></li>', sanitize_email( $icon_url ) );
+							?>
+							<li>
+								<a href="mailto:<?php echo esc_attr( sanitize_email( $icon_url ) ); ?>">
+									<span class="pp-tm-social-icon-wrap">
+										<span class="pp-tm-social-icon far fa fa-<?php echo esc_attr( $icon_id ); ?>"></span>
+									</span>
+								</a>
+							</li>
+							<?php
+
 						} elseif ( 'phone-alt' === $icon_id ) {
-							printf( '<li><a href="tel:%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fas fa fa-' . esc_attr( $icon_id ) . ' fa-phone"></span></span></a></li>', $icon_url );
+							?>
+							<li>
+								<a href="tel:<?php echo esc_attr( $icon_url ); ?>">
+									<span class="pp-tm-social-icon-wrap">
+										<span class="pp-tm-social-icon fas fa fa-<?php echo esc_attr( $icon_id ); ?> fa-phone"></span>
+									</span>
+								</a>
+							</li>
+							<?php
 						} else {
 							printf( '<li><a href="%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa fa-' . esc_attr( $icon_id ) . '"></span></span></a></li>', esc_url( $icon_url ) );
 						}
@@ -2707,7 +2739,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		}
 
 		$migrated = isset( $settings['__fa4_migrated']['select_arrow'] );
-		$is_new = ! isset( $settings['arrow'] ) && $migration_allowed;
+		$is_new   = ! isset( $settings['arrow'] ) && $migration_allowed;
 
 		if ( 'yes' === $settings['arrows'] ) {
 			?>
@@ -2968,15 +3000,15 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						prevEl: '.swiper-button-prev',
 					},
 					breakpoints: {
-						<?php echo $bp_desktop; ?>: {
+						<?php echo esc_html( $bp_desktop ); ?>: {
 							slidesPerView:  $items,
 							spaceBetween:   $margin
 						},
-						<?php echo $bp_tablet; ?>: {
+						<?php echo esc_html( $bp_tablet ); ?>: {
 							slidesPerView:  $items_tablet,
 							spaceBetween:   $margin_tablet
 						},
-						<?php echo $bp_mobile; ?>: {
+						<?php echo esc_html( $bp_mobile ); ?>: {
 							slidesPerView:  $items_mobile,
 							spaceBetween:   $margin_mobile
 						}
