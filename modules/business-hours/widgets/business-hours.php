@@ -72,7 +72,35 @@ class Business_Hours extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->register_controls();
+	}
+
+	/**
+	 * Register countdown widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_controls() {
+
+		/* Content Tab */
+		$this->register_content_business_hours_controls();
+		$this->register_content_help_docs_controls();
+		$this->register_content_upgrade_pro_controls();
+
+		/* Style Tab */
+		$this->register_style_rows_controls();
+		$this->register_style_business_hours_controls();
+	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	CONTENT TAB
+	/*-----------------------------------------------------------------------------------*/
+
+	protected function register_content_business_hours_controls() {
 
 		/**
 		 * Content Tab: Business Hours
@@ -483,7 +511,9 @@ class Business_Hours extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_content_help_docs_controls() {
 		/**
 		 * Content Tab: Docs Links
 		 *
@@ -508,7 +538,9 @@ class Business_Hours extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_content_upgrade_pro_controls() {
 		if ( ! is_pp_elements_active() ) {
 			$this->start_controls_section(
 				'section_upgrade_powerpack',
@@ -530,64 +562,64 @@ class Business_Hours extends Powerpack_Widget {
 
 			$this->end_controls_section();
 		}
+	}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  STYLE TAB
-		/*-----------------------------------------------------------------------------------*/
+	/*-----------------------------------------------------------------------------------*/
+	/*	STYLE TAB
+	/*-----------------------------------------------------------------------------------*/
 
+	protected function register_style_rows_controls() {
 		/**
 		 * Style Tab: Row Style
 		 */
 		$this->start_controls_section(
 			'section_rows_style',
-			array(
-				'label' => __( 'Rows Style', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'             => __( 'Rows Style', 'powerpack' ),
+				'tab'               => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_rows_style' );
 
 		$this->start_controls_tab(
 			'tab_row_normal',
-			array(
-				'label' => __( 'Normal', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Normal', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'row_bg_color_normal',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Background Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_row_hover',
-			array(
-				'label' => __( 'Hover', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Hover', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'row_bg_color_hover',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Background Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:hover' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -595,99 +627,99 @@ class Business_Hours extends Powerpack_Widget {
 
 		$this->add_control(
 			'stripes',
-			array(
-				'label'        => __( 'Striped Rows', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'no',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
-				'return_value' => 'yes',
-				'separator'    => 'before',
-			)
+			[
+				'label'             => __( 'Striped Rows', 'powerpack' ),
+				'type'              => Controls_Manager::SWITCHER,
+				'default'           => 'no',
+				'label_on'          => __( 'Yes', 'powerpack' ),
+				'label_off'         => __( 'No', 'powerpack' ),
+				'return_value'      => 'yes',
+				'separator'         => 'before',
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_alternate_style' );
 
 		$this->start_controls_tab(
 			'tab_even',
-			array(
-				'label'     => __( 'Even Row', 'powerpack' ),
-				'condition' => array(
+			[
+				'label'                 => __( 'Even Row', 'powerpack' ),
+				'condition'             => [
 					'stripes' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'row_even_bg_color',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#f5f5f5',
-				'selectors' => array(
+			[
+				'label'             => __( 'Background Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '#f5f5f5',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:nth-child(even)' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'         => [
 					'stripes' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'row_even_text_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Text Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:nth-child(even)' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'         => [
 					'stripes' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_odd',
-			array(
-				'label'     => __( 'Odd Row', 'powerpack' ),
-				'condition' => array(
+			[
+				'label'                 => __( 'Odd Row', 'powerpack' ),
+				'condition'             => [
 					'stripes' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'row_odd_bg_color',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
-				'selectors' => array(
+			[
+				'label'             => __( 'Background Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '#ffffff',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:nth-child(odd)' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'         => [
 					'stripes' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'row_odd_text_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Text Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:nth-child(odd)' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'         => [
 					'stripes' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -696,323 +728,325 @@ class Business_Hours extends Powerpack_Widget {
 
 		$this->add_responsive_control(
 			'rows_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'default'    => array(
-					'top'      => '8',
-					'right'    => '10',
-					'bottom'   => '8',
-					'left'     => '10',
-					'unit'     => 'px',
-					'isLinked' => false,
-				),
-				'selectors'  => array(
+			[
+				'label'             => __( 'Padding', 'powerpack' ),
+				'type'              => Controls_Manager::DIMENSIONS,
+				'size_units'        => [ 'px', '%' ],
+				'default'           => [
+					'top'       => '8',
+					'right'     => '10',
+					'bottom'    => '8',
+					'left'      => '10',
+					'unit'      => 'px',
+					'isLinked'  => false,
+				],
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'separator'  => 'before',
-			)
+				],
+				'separator'         => 'before',
+			]
 		);
 
 		$this->add_responsive_control(
 			'rows_margin',
-			array(
-				'label'      => __( 'Margin Bottom', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 80,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px' ),
-				'selectors'  => array(
+			[
+				'label'             => __( 'Margin Bottom', 'powerpack' ),
+				'type'              => Controls_Manager::SLIDER,
+				'range'             => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 80,
+						'step'  => 1,
+					],
+				],
+				'size_units'        => [ 'px' ],
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'closed_row_heading',
-			array(
-				'label'     => __( 'Closed Row', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			)
+			[
+				'label'             => __( 'Closed Row', 'powerpack' ),
+				'type'              => Controls_Manager::HEADING,
+				'separator'         => 'before',
+			]
 		);
 
 		$this->add_control(
 			'closed_row_bg_color',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Background Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row.row-closed' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'closed_row_day_color',
-			array(
-				'label'     => __( 'Day Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Day Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row.row-closed .pp-business-day' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'closed_row_tex_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Text Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row.row-closed .pp-business-timing' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'divider_heading',
-			array(
-				'label'     => __( 'Rows Divider', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			)
+			[
+				'label'             => __( 'Rows Divider', 'powerpack' ),
+				'type'              => Controls_Manager::HEADING,
+				'separator'         => 'before',
+			]
 		);
 
 		$this->add_control(
 			'rows_divider_style',
-			array(
-				'label'     => __( 'Divider Style', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'none',
-				'options'   => array(
-					'none'   => __( 'None', 'powerpack' ),
-					'solid'  => __( 'Solid', 'powerpack' ),
-					'dashed' => __( 'Dashed', 'powerpack' ),
-					'dotted' => __( 'Dotted', 'powerpack' ),
-					'groove' => __( 'Groove', 'powerpack' ),
-					'ridge'  => __( 'Ridge', 'powerpack' ),
-				),
-				'selectors' => array(
+			[
+				'label'                => __( 'Divider Style', 'powerpack' ),
+				'type'                 => Controls_Manager::SELECT,
+				'default'              => 'none',
+				'options'              => [
+					'none'      => __( 'None', 'powerpack' ),
+					'solid'     => __( 'Solid', 'powerpack' ),
+					'dashed'    => __( 'Dashed', 'powerpack' ),
+					'dotted'    => __( 'Dotted', 'powerpack' ),
+					'groove'    => __( 'Groove', 'powerpack' ),
+					'ridge'     => __( 'Ridge', 'powerpack' ),
+				],
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:not(:last-child)' => 'border-bottom-style: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'rows_divider_color',
-			array(
-				'label'     => __( 'Divider Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Divider Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:not(:last-child)' => 'border-bottom-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'         => [
 					'rows_divider_style!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'rows_divider_weight',
-			array(
-				'label'      => __( 'Divider Weight', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'default'    => array( 'size' => 1 ),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 30,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px' ),
-				'selectors'  => array(
+			[
+				'label'             => __( 'Divider Weight', 'powerpack' ),
+				'type'              => Controls_Manager::SLIDER,
+				'default'           => [ 'size' => 1 ],
+				'range'             => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 30,
+						'step'  => 1,
+					],
+				],
+				'size_units'        => [ 'px' ],
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:not(:last-child)' => 'border-bottom-width: {{SIZE}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'         => [
 					'rows_divider_style!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_style_business_hours_controls() {
 		/**
 		 * Style Tab: Business Hours
 		 */
 		$this->start_controls_section(
-			'section_pricing_table_style',
-			array(
-				'label' => __( 'Business Hours', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			'section_business_hours_style',
+			[
+				'label'             => __( 'Business Hours', 'powerpack' ),
+				'tab'               => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_hours_style' );
 
 		$this->start_controls_tab(
 			'tab_hours_normal',
-			array(
-				'label' => __( 'Normal', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Normal', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'title_heading',
-			array(
-				'label'     => __( 'Day', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			)
+			[
+				'label'             => __( 'Day', 'powerpack' ),
+				'type'              => Controls_Manager::HEADING,
+				'separator'         => 'before',
+			]
 		);
 
 		$this->add_responsive_control(
 			'day_alignment',
-			array(
-				'label'     => __( 'Alignment', 'powerpack' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'left'   => array(
+			[
+				'label'                 => __( 'Alignment', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'options'               => [
+					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
+					],
+					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
+					],
+					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
-				'default'   => 'left',
-				'selectors' => array(
+					],
+				],
+				'default'               => 'left',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-day' => 'text-align: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'day_color',
-			array(
-				'label'     => __( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-day' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'     => 'title_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .pp-business-hours .pp-business-day',
-			)
+			[
+				'name'              => 'title_typography',
+				'label'             => __( 'Typography', 'powerpack' ),
+				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'selector'          => '{{WRAPPER}} .pp-business-hours .pp-business-day',
+			]
 		);
 
 		$this->add_control(
 			'hours_heading',
-			array(
-				'label'     => __( 'Hours', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			)
+			[
+				'label'             => __( 'Hours', 'powerpack' ),
+				'type'              => Controls_Manager::HEADING,
+				'separator'         => 'before',
+			]
 		);
 
 		$this->add_responsive_control(
 			'hours_alignment',
-			array(
-				'label'     => __( 'Alignment', 'powerpack' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'left'   => array(
+			[
+				'label'                 => __( 'Alignment', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'options'               => [
+					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
+					],
+					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
+					],
+					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
-				'default'   => 'right',
-				'selectors' => array(
+					],
+				],
+				'default'               => 'right',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-timing' => 'text-align: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'hours_color',
-			array(
-				'label'     => __( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-timing' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'     => 'hours_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .pp-business-hours .pp-business-timing',
-			)
+			[
+				'name'              => 'hours_typography',
+				'label'             => __( 'Typography', 'powerpack' ),
+				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'selector'          => '{{WRAPPER}} .pp-business-hours .pp-business-timing',
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_hours_hover',
-			array(
-				'label' => __( 'Hover', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Hover', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'day_color_hover',
-			array(
-				'label'     => __( 'Day Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Day Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:hover .pp-business-day' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'hours_color_hover',
-			array(
-				'label'     => __( 'Hours Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'             => __( 'Hours Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:hover .pp-business-timing' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -1021,7 +1055,6 @@ class Business_Hours extends Powerpack_Widget {
 
 		$this->end_controls_section();
 
-		do_action( 'powerpack_elements/element/after_section_end', $this );
 	}
 
 	/**
@@ -1035,13 +1068,12 @@ class Business_Hours extends Powerpack_Widget {
 		$settings = $this->get_settings();
 
 		$this->add_render_attribute( 'business-hours', 'class', 'pp-business-hours' );
-		$i = 1;
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'business-hours' ); ?>>
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'business-hours' ) ); ?>>
 			<?php
-			if ( $settings['business_timings'] == 'predefined' ) {
+			if ( 'predefined' === $settings['business_timings'] ) {
 				$this->render_business_hours_predefined();
-			} elseif ( $settings['business_timings'] == 'custom' ) {
+			} elseif ( 'custom' === $settings['business_timings'] ) {
 				$this->render_business_hours_custom();
 			}
 			?>
@@ -1058,62 +1090,62 @@ class Business_Hours extends Powerpack_Widget {
 	 */
 	protected function render_business_hours_predefined() {
 		$settings = $this->get_settings();
-		$i        = 1;
-		?>
-			<?php foreach ( $settings['business_hours'] as $index => $item ) : ?>
-				<?php
-					$this->add_render_attribute( 'row' . $i, 'class', 'pp-business-hours-row clearfix elementor-repeater-item-' . esc_attr( $item['_id'] ) );
-				if ( $item['closed'] != 'no' ) {
-					$this->add_render_attribute( 'row' . $i, 'class', 'row-closed' );
-				}
-				?>
-				<div <?php echo $this->get_render_attribute_string( 'row' . $i ); ?>>
-					<span class="pp-business-day">
-						<?php
-						if ( $settings['days_format'] == 'long' ) {
-							echo ucwords( esc_attr( $item['day'] ) );
-						} else {
-							echo ucwords( esc_attr( substr( $item['day'], 0, 3 ) ) );
-						}
-						?>
-					</span>
-					<span class="pp-business-timing">
-						<?php if ( $item['closed'] == 'no' ) { ?>
-							<span class="pp-opening-hours">
-								<?php
-								if ( $settings['hours_format'] == 'yes' ) {
-									echo esc_attr( $item['opening_hours'] );
-								} else {
-									echo esc_attr( date( 'g:i A', strtotime( $item['opening_hours'] ) ) );
-								}
-								?>
-							</span>
-							-
-							<span class="pp-closing-hours">
-								<?php
-								if ( $settings['hours_format'] == 'yes' ) {
-									echo esc_attr( $item['closing_hours'] );
-								} else {
-									echo esc_attr( date( 'g:i A', strtotime( $item['closing_hours'] ) ) );
-								}
-								?>
-							</span>
-							<?php
-						} else {
-							if ( $item['closed_text'] ) {
-								echo esc_attr( $item['closed_text'] );
-							} else {
-								esc_attr_e( 'Closed', 'powerpack' );
-							}
-						}
-						?>
-					</span>
-				</div>
-				<?php
-				$i++;
-endforeach;
+		$i = 1;
+		foreach ( $settings['business_hours'] as $index => $item ) : ?>
+			<?php
+			$row_setting_key = $this->get_repeater_setting_key( 'row', 'business_hours', $index );
+			$this->add_render_attribute( $row_setting_key, 'class', [
+				'pp-business-hours-row',
+				'clearfix',
+				'elementor-repeater-item-' . esc_attr( $item['_id'] ),
+			] );
+
+			if ( 'no' !== $item['closed'] ) {
+				$this->add_render_attribute( $row_setting_key, 'class', 'row-closed' );
+			}
 			?>
-		<?php
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( $row_setting_key ) ); ?>>
+				<span class="pp-business-day">
+					<?php
+					if ( 'long' === $settings['days_format'] ) {
+						echo esc_attr( ucwords( $item['day'] ) );
+					} else {
+						echo esc_attr( ucwords( substr( $item['day'], 0, 3 ) ) );
+					}
+					?>
+				</span>
+				<span class="pp-business-timing">
+					<?php if ( 'no' === $item['closed'] ) { ?>
+						<span class="pp-opening-hours">
+							<?php
+							if ( 'yes' === $settings['hours_format'] ) {
+								echo esc_attr( $item['opening_hours'] );
+							} else {
+								echo esc_attr( gmdate( 'g:i A', strtotime( $item['opening_hours'] ) ) );
+							}
+							?>
+						</span>
+						-
+						<span class="pp-closing-hours">
+							<?php
+							if ( 'yes' === $settings['hours_format'] ) {
+								echo esc_attr( $item['closing_hours'] );
+							} else {
+								echo esc_attr( gmdate( 'g:i A', strtotime( $item['closing_hours'] ) ) );
+							}
+							?>
+						</span>
+					<?php } else {
+						if ( $item['closed_text'] ) {
+							echo esc_attr( $item['closed_text'] );
+						} else {
+							esc_attr_e( 'Closed', 'powerpack' );
+						}
+					} ?>
+				</span>
+			</div>
+			<?php $i++;
+		endforeach;
 	}
 
 	/**
@@ -1125,17 +1157,23 @@ endforeach;
 	 */
 	protected function render_business_hours_custom() {
 		$settings = $this->get_settings();
-		$i        = 1;
+		$i = 1;
 		?>
 			<?php foreach ( $settings['business_hours_custom'] as $index => $item ) : ?>
 				<?php
-					$this->add_render_attribute( 'row' . $i, 'class', 'pp-business-hours-row clearfix elementor-repeater-item-' . esc_attr( $item['_id'] ) );
-				if ( $item['closed'] != 'no' ) {
-					$this->add_render_attribute( 'row' . $i, 'class', 'row-closed' );
+				$row_setting_key = $this->get_repeater_setting_key( 'row', 'business_hours_custom', $index );
+				$this->add_render_attribute( $row_setting_key, 'class', [
+					'pp-business-hours-row',
+					'clearfix',
+					'elementor-repeater-item-' . esc_attr( $item['_id'] ),
+				] );
+
+				if ( 'no' !== $item['closed'] ) {
+					$this->add_render_attribute( $row_setting_key, 'class', 'row-closed' );
 				}
 				?>
-				<div <?php echo $this->get_render_attribute_string( 'row' . $i ); ?>>
-					<?php if ( $item['day'] != '' ) { ?>
+				<div <?php echo wp_kses_post( $this->get_render_attribute_string( $row_setting_key ) ); ?>>
+					<?php if ( $item['day'] ) { ?>
 						<span class="pp-business-day">
 							<?php
 								echo esc_attr( $item['day'] );
@@ -1144,7 +1182,7 @@ endforeach;
 					<?php } ?>
 					<span class="pp-business-timing">
 						<?php
-						if ( $item['closed'] == 'no' && $item['time'] != '' ) {
+						if ( 'no' === $item['closed'] && $item['time'] ) {
 							echo esc_attr( $item['time'] );
 						} else {
 							if ( $item['closed_text'] ) {
@@ -1156,10 +1194,8 @@ endforeach;
 						?>
 					</span>
 				</div>
-				<?php
-				$i++;
-endforeach;
-			?>
+				<?php $i++;
+			endforeach; ?>
 		<?php
 	}
 
@@ -1168,44 +1204,23 @@ endforeach;
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
+	 * @since 2.0.3
 	 * @access protected
 	 */
-	protected function _content_template() {
-		?>
-		<div class="pp-business-hours">
-			
-			<# if ( settings.business_timings == 'predefined' ) { #>
-				<?php $this->_business_hours_predefined_template(); ?>
-			<# } else { #>
-				<?php $this->_business_hours_custom_template(); ?>
-			<# } #>
-				
-		</div>
-		<?php
-	}
-
-	/**
-	 * Render predefined business hours widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @access protected
-	 */
-	protected function _business_hours_predefined_template() {
+	protected function content_template() {
 		?>
 		<#
 			function pp_timeTo12HrFormat(time) {
 				// Take a time in 24 hour format and format it in 12 hour format
-				var time_part_array = time.split(":");
 				var ampm = 'AM';
 		   
-				var first_part = time_part_array[0];
-				var second_part = time_part_array[1];
+				var first_part = time.substring(0,2);
+				var second_part = time.substring(3,5);
 
 				if (first_part >= 12) {
 					ampm = 'PM';
 				}
-			
+
 				if (first_part == 00) {
 					first_part = 12;
 				}
@@ -1213,7 +1228,7 @@ endforeach;
 				if (first_part >= 1 && first_part < 10) {
 					var first_part = first_part.substr(1, 2);
 				}
-			
+
 				if (first_part > 12) {
 					first_part = first_part - 12;
 				}
@@ -1222,83 +1237,98 @@ endforeach;
 
 				return formatted_time;
 			}
-		#>
-		<# _.each( settings.business_hours, function( item ) { #>
-			<#
-				var closed = ( item.closed != 'no' ) ? 'row-closed' : '';
-			#>
-			<div class="pp-business-hours-row clearfix elementor-repeater-item-{{ item._id }} {{ closed }}">
-				<span class="pp-business-day">
-					<# if ( settings.days_format == 'long' ) { #>
-						{{ item.day }}
-					<# } else { #>
-						{{ item.day.substring(0,3) }}
-					<# } #>
-				</span>
-				<span class="pp-business-timing">
-					<# if ( item.closed == 'no' ) { #>
-						<span class="pp-opening-hours">
-							<# if ( settings.hours_format == 'yes' ) { #>
-								{{ item.opening_hours }}
+
+			function business_hours_predefined_template() {
+				_.each( settings.business_hours, function( item ) { #>
+					<#
+						var closed = ( item.closed != 'no' ) ? 'row-closed' : '';
+					#>
+					<div class="pp-business-hours-row clearfix elementor-repeater-item-{{ item._id }} {{ closed }}">
+						<span class="pp-business-day">
+							<# if ( settings.days_format == 'long' ) { #>
+								{{ item.day }}
 							<# } else { #>
-								{{ pp_timeTo12HrFormat( item.opening_hours ) }}
+								{{ item.day.substring(0,3) }}
 							<# } #>
 						</span>
-						-
-						<span class="pp-closing-hours">
-							<# if ( settings.hours_format == 'yes' ) { #>
-								{{ item.closing_hours }}
+						<span class="pp-business-timing">
+							<# if ( item.closed == 'no' ) { #>
+								<span class="pp-opening-hours">
+									<# if ( settings.hours_format == 'yes' ) { #>
+										{{ item.opening_hours }}
+									<# } else { #>
+										{{ pp_timeTo12HrFormat( item.opening_hours ) }}
+									<# } #>
+								</span>
+								-
+								<span class="pp-closing-hours">
+									<# if ( settings.hours_format == 'yes' ) { #>
+										{{ item.closing_hours }}
+									<# } else { #>
+										{{ pp_timeTo12HrFormat( item.closing_hours ) }}
+									<# } #>
+								</span>
 							<# } else { #>
-								{{ pp_timeTo12HrFormat( item.closing_hours ) }}
+								<# if ( item.closed_text != '' ) { #>
+									{{ item.closed_text }}
+								<# } else { #>
+									<?php esc_attr_e( 'Closed', 'powerpack' ); ?>
+								<# } #>
 							<# } #>
 						</span>
-					<# } else { #>
-						<# if ( item.closed_text != '' ) { #>
-							{{ item.closed_text }}
-						<# } else { #>
-							<?php esc_attr_e( 'Closed', 'powerpack' ); ?>
+					</div>
+				<# } );
+			}
+
+			function business_hours_custom_template() {
+				_.each( settings.business_hours_custom, function( item ) { #>
+					<#
+						var closed = ( item.closed != 'no' ) ? 'row-closed' : '';
+					#>
+					<div class="pp-business-hours-row clearfix elementor-repeater-item-{{ item._id }} {{ closed }}">
+						<# if ( item.day != '' ) { #>
+							<span class="pp-business-day">
+								{{ item.day }}
+							</span>
 						<# } #>
-					<# } #>
-				</span>
-			</div>
-		<# } ); #>
+						<span class="pp-business-timing">
+							<# if ( item.closed == 'no' && item.time != '' ) { #>
+								{{ item.time }}
+							<# } else { #>
+								<# if ( item.closed_text != '' ) { #>
+									{{ item.closed_text }}
+								<# } else { #>
+									<?php esc_attr_e( 'Closed', 'powerpack' ); ?>
+								<# } #>
+							<# } #>
+						</span>
+					</div>
+				<# } );
+			}
+		#>
+		<div class="pp-business-hours">
+			<#
+				if ( settings.business_timings == 'predefined' ) {
+					business_hours_predefined_template();
+				} else {
+					business_hours_custom_template();
+				}
+			#>
+		</div>
 		<?php
 	}
 
 	/**
-	 * Render custom business hours widget output in the editor.
+	 * Render divider widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _business_hours_custom_template() {
-		?>
-		<# _.each( settings.business_hours_custom, function( item ) { #>
-			<#
-				var closed = ( item.closed != 'no' ) ? 'row-closed' : '';
-			#>
-			<div class="pp-business-hours-row clearfix elementor-repeater-item-{{ item._id }} {{ closed }}">
-				<# if ( item.day != '' ) { #>
-					<span class="pp-business-day">
-						{{ item.day }}
-					</span>
-				<# } #>
-				<span class="pp-business-timing">
-					<# if ( item.closed == 'no' && item.time != '' ) { #>
-						{{ item.time }}
-					<# } else { #>
-						<# if ( item.closed_text != '' ) { #>
-							{{ item.closed_text }}
-						<# } else { #>
-							<?php esc_attr_e( 'Closed', 'powerpack' ); ?>
-						<# } #>
-					<# } #>
-				</span>
-			</div>
-		<# } ); #>
-		<?php
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->content_template();
 	}
 }
-
-// Plugin::instance()->widgets_manager->register_widget_type( new PP_Business_Hours_Widget() );
