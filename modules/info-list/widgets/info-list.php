@@ -1359,7 +1359,7 @@ class Info_List extends Powerpack_Widget {
 								$this->render_infolist_icon( $item, $i );
 							?>
 							<div class="pp-infolist-content-wrapper">
-								<?php if ( ! empty( $item['link']['url'] ) && $item['link_type'] == 'box' ) { ?>
+								<?php if ( ! empty( $item['link']['url'] ) && 'box' === $item['link_type'] ) { ?>
 									<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
 								<?php } ?>
 								<?php
@@ -1385,7 +1385,7 @@ class Info_List extends Powerpack_Widget {
 									<?php
 								}
 								?>
-								<?php if ( ! empty( $item['link']['url'] ) && $item['link_type'] == 'button' ) { ?>
+								<?php if ( ! empty( $item['link']['url'] ) && 'button' === $item['link_type'] ) { ?>
 									<div <?php echo wp_kses_post( $this->get_render_attribute_string( $button_key ) ); ?>>
 										<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
 											<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-list-button' ) ); ?>>
