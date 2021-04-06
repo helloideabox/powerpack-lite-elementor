@@ -301,6 +301,13 @@ div[class*=' pa-'] {
   .pp-counter .pp-icon-number-wrap .pp-counter-number-wrap {
     display: inline-block; }
 
+.pp-counter-number {
+  direction: ltr; }
+
+.pp-counter-number-wrap {
+  font-size: 69px;
+  line-height: 1; }
+
 .pp-business-hours .pp-business-day,
 .pp-business-hours .pp-business-timing {
   float: left;
