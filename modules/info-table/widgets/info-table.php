@@ -2,6 +2,8 @@
 namespace PowerpackElementsLite\Modules\InfoTable\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -12,8 +14,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes\Typography as Scheme_Typography;
+use Elementor\Core\Schemes\Color as Scheme_Color;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -79,97 +81,113 @@ class Info_Table extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->register_controls();
+	}
+
+	/**
+	 * Register info table widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_controls() {
+
+		/*-----------------------------------------------------------------------------------*/
+		/*	CONTENT TAB
+		/*-----------------------------------------------------------------------------------*/
 
 		/**
 		 * Content Tab: Icon
 		 */
 		$this->start_controls_section(
 			'section_price_menu',
-			array(
+			[
 				'label' => __( 'Icon', 'powerpack' ),
-			)
+			]
 		);
 		$this->add_control(
 			'icon_type',
-			array(
+			[
 				'label'       => esc_html__( 'Icon Type', 'powerpack' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
-				'options'     => array(
-					'none'  => array(
+				'options'     => [
+					'none' => [
 						'title' => esc_html__( 'None', 'powerpack' ),
 						'icon'  => 'fa fa-ban',
-					),
-					'icon'  => array(
+					],
+					'icon' => [
 						'title' => esc_html__( 'Icon', 'powerpack' ),
 						'icon'  => 'fa fa-gear',
-					),
-					'image' => array(
+					],
+					'image' => [
 						'title' => esc_html__( 'Image', 'powerpack' ),
 						'icon'  => 'fa fa-picture-o',
-					),
-					'text'  => array(
+					],
+					'text' => [
 						'title' => esc_html__( 'Text', 'powerpack' ),
 						'icon'  => 'fa fa-font',
-					),
-				),
+					],
+				],
 				'default'     => 'icon',
-			)
+			]
 		);
 
 		$this->add_control(
 			'selected_icon',
-			array(
-				'label'            => __( 'Icon', 'powerpack' ),
-				'type'             => Controls_Manager::ICONS,
-				'fa4compatibility' => 'icon',
-				'default'          => array(
-					'value'   => 'fas fa-star',
-					'library' => 'fa-solid',
-				),
-				'condition'        => array(
-					'icon_type' => 'icon',
-				),
-			)
+			[
+				'label'                 => __( 'Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::ICONS,
+				'fa4compatibility'      => 'icon',
+				'default'               => [
+					'value'     => 'fas fa-star',
+					'library'   => 'fa-solid',
+				],
+				'condition'             => [
+					'icon_type'     => 'icon',
+				],
+			]
 		);
 
 		$this->add_control(
 			'image',
-			array(
+			[
 				'label'     => __( 'Image', 'powerpack' ),
 				'type'      => Controls_Manager::MEDIA,
-				'default'   => array(
+				'default'   => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'icon_type' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
-			array(
+			[
 				'name'      => 'image', // Usage: '{name}_size' and '{name}_custom_dimension', in this case 'image_size' and 'image_custom_dimension'.
 				'default'   => 'full',
 				'separator' => 'none',
-				'condition' => array(
+				'condition' => [
 					'icon_type' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon_text',
-			array(
+			[
 				'label'     => __( 'Icon Text', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '1',
-				'condition' => array(
+				'condition' => [
 					'icon_type' => 'text',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -180,25 +198,25 @@ class Info_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_content',
-			array(
+			[
 				'label' => __( 'Content', 'powerpack' ),
-			)
+			]
 		);
 		$this->add_control(
 			'heading',
-			array(
+			[
 				'label'   => __( 'Title', 'powerpack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => __( 'Title', 'powerpack' ),
-			)
+			]
 		);
 		$this->add_control(
 			'title_html_tag',
-			array(
+			[
 				'label'   => __( 'Title HTML Tag', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'h4',
-				'options' => array(
+				'options' => [
 					'h1'   => __( 'H1', 'powerpack' ),
 					'h2'   => __( 'H2', 'powerpack' ),
 					'h3'   => __( 'H3', 'powerpack' ),
@@ -208,24 +226,24 @@ class Info_Table extends Powerpack_Widget {
 					'div'  => __( 'div', 'powerpack' ),
 					'span' => __( 'span', 'powerpack' ),
 					'p'    => __( 'p', 'powerpack' ),
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'sub_heading',
-			array(
+			[
 				'label'   => __( 'Subtitle', 'powerpack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => __( 'Subtitle', 'powerpack' ),
-			)
+			]
 		);
 		$this->add_control(
 			'sub_title_html_tag',
-			array(
+			[
 				'label'     => __( 'Subtitle HTML Tag', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'h5',
-				'options'   => array(
+				'options'   => [
 					'h1'   => __( 'H1', 'powerpack' ),
 					'h2'   => __( 'H2', 'powerpack' ),
 					'h3'   => __( 'H3', 'powerpack' ),
@@ -235,48 +253,48 @@ class Info_Table extends Powerpack_Widget {
 					'div'  => __( 'div', 'powerpack' ),
 					'span' => __( 'span', 'powerpack' ),
 					'p'    => __( 'p', 'powerpack' ),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'sub_heading!' => '',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'description',
-			array(
+			[
 				'label'   => __( 'Description', 'powerpack' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'default' => __( 'Enter description', 'powerpack' ),
-			)
+			]
 		);
 		$this->add_responsive_control(
 			'sale_badge',
-			array(
-				'label'   => __( 'Sale Badge', 'powerpack' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => array(
-					'show' => array(
+			[
+				'label'     => __( 'Sale Badge', 'powerpack' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'show'    => [
 						'title' => __( 'Show', 'powerpack' ),
 						'icon'  => 'fa fa-eye',
-					),
-					'hide' => array(
+					],
+					'hide'  => [
 						'title' => __( 'Hide', 'powerpack' ),
 						'icon'  => 'fa fa-eye-slash',
-					),
-				),
-				'default' => 'show',
-			)
+					],
+				],
+				'default'   => 'show',
+			]
 		);
 		$this->add_control(
 			'sale_badge_text',
-			array(
-				'label'     => __( 'Sale Badge Text', 'powerpack' ),
-				'type'      => Controls_Manager::TEXT,
-				'default'   => __( 'Sale', 'powerpack' ),
-				'condition' => array(
+			[
+				'label'   => __( 'Sale Badge Text', 'powerpack' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => __( 'Sale', 'powerpack' ),
+				'condition' => [
 					'sale_badge' => 'show',
-				),
-			)
+				],
+			]
 		);
 		$this->end_controls_section();
 		/**
@@ -285,77 +303,77 @@ class Info_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_link',
-			array(
+			[
 				'label' => __( 'Link', 'powerpack' ),
-			)
+			]
 		);
 		$this->add_control(
 			'link_type',
-			array(
+			[
 				'label'   => __( 'Link Type', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'none',
-				'options' => array(
-					'none'   => __( 'None', 'powerpack' ),
-					'box'    => __( 'Box', 'powerpack' ),
-					'title'  => __( 'Title', 'powerpack' ),
-					'button' => __( 'Button', 'powerpack' ),
-				),
-			)
+				'options' => [
+					'none'  => __( 'None', 'powerpack' ),
+					'box'   => __( 'Box', 'powerpack' ),
+					'title' => __( 'Title', 'powerpack' ),
+					'button'    => __( 'Button', 'powerpack' ),
+				],
+			]
 		);
 		$this->add_control(
 			'link',
-			array(
+			[
 				'label'       => __( 'Link', 'powerpack' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => 'https://www.your-link.com',
-				'default'     => array(
+				'default'     => [
 					'url' => '#',
-				),
-				'condition'   => array(
+				],
+				'condition'   => [
 					'link_type!' => 'none',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'button_text',
-			array(
+			[
 				'label'     => __( 'Button Text', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => __( 'Get Started', 'powerpack' ),
-				'condition' => array(
+				'condition' => [
 					'link_type' => 'button',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'select_button_icon',
-			array(
-				'label'            => __( 'Button', 'powerpack' ) . ' ' . __( 'Icon', 'powerpack' ),
-				'type'             => Controls_Manager::ICONS,
-				'fa4compatibility' => 'button_icon',
-				'condition'        => array(
-					'link_type' => 'button',
-				),
-			)
+			[
+				'label'                 => __( 'Button', 'powerpack' ) . ' ' . __( 'Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::ICONS,
+				'fa4compatibility'      => 'button_icon',
+				'condition'             => [
+					'link_type'   => 'button',
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_icon_position',
-			array(
+			[
 				'label'     => __( 'Icon Position', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'after',
-				'options'   => array(
+				'options'   => [
 					'after'  => __( 'After', 'powerpack' ),
 					'before' => __( 'Before', 'powerpack' ),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'link_type'    => 'button',
 					'button_icon!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -382,10 +400,8 @@ class Info_Table extends Powerpack_Widget {
 			$this->end_controls_section();
 		}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  STYLE TAB
+		/*-----------------------------------------------------------------------------------*/
+		/*	STYLE TAB
 		/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -394,35 +410,35 @@ class Info_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_info_table_style',
-			array(
+			[
 				'label' => __( 'Info Table', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			]
 		);
 		$this->add_responsive_control(
 			'align',
-			array(
+			[
 				'label'     => __( 'Alignment', 'powerpack' ),
 				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'left'   => array(
+				'options'   => [
+					'left'    => [
 						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
+					],
+					'center'  => [
 						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
+					],
+					'right'   => [
 						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
+					],
+				],
 				'default'   => 'center',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table' => 'text-align: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 		$this->start_controls_tabs( 'tabs_info_table_style' );
 		/**
@@ -431,46 +447,46 @@ class Info_Table extends Powerpack_Widget {
 		 */
 			$this->start_controls_tab(
 				'tab_info_table_normal',
-				array(
+				[
 					'label' => __( 'Normal', 'powerpack' ),
-				)
+				]
 			);
 			$this->add_group_control(
 				Group_Control_Background::get_type(),
-				array(
+				[
 					'name'     => 'info_table_bg',
 					'label'    => __( 'Background', 'powerpack' ),
-					'types'    => array( 'none', 'classic', 'gradient' ),
+					'types'    => [ 'none', 'classic', 'gradient' ],
 					'selector' => '{{WRAPPER}} .pp-info-table-container',
-				)
+				]
 			);
 			$this->add_group_control(
 				Group_Control_Border::get_type(),
-				array(
+				[
 					'name'        => 'info_table_border',
 					'label'       => __( 'Border', 'powerpack' ),
 					'placeholder' => '1px',
 					'default'     => '1px',
 					'selector'    => '{{WRAPPER}} .pp-info-table-container',
-				)
+				]
 			);
 			$this->add_control(
 				'info_table_border_radius',
-				array(
+				[
 					'label'      => __( 'Border Radius', 'powerpack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => array( 'px', '%' ),
-					'selectors'  => array(
+					'size_units' => [ 'px', '%' ],
+					'selectors'  => [
 						'{{WRAPPER}} .pp-info-table-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					),
-				)
+					],
+				]
 			);
 			$this->add_group_control(
 				Group_Control_Box_Shadow::get_type(),
-				array(
+				[
 					'name'     => 'info_table_shadow',
 					'selector' => '{{WRAPPER}} .pp-info-table-container',
-				)
+				]
 			);
 			$this->end_controls_tab();
 		/**
@@ -479,46 +495,46 @@ class Info_Table extends Powerpack_Widget {
 		 */
 			$this->start_controls_tab(
 				'tab_info_table_hover',
-				array(
+				[
 					'label' => __( 'Hover', 'powerpack' ),
-				)
+				]
 			);
 			$this->add_group_control(
 				Group_Control_Background::get_type(),
-				array(
+				[
 					'name'     => 'info_table_bg_hover',
 					'label'    => __( 'Background', 'powerpack' ),
-					'types'    => array( 'none', 'classic', 'gradient' ),
+					'types'    => [ 'none', 'classic', 'gradient' ],
 					'selector' => '{{WRAPPER}} .pp-info-table-container:hover',
-				)
+				]
 			);
 			$this->add_group_control(
 				Group_Control_Border::get_type(),
-				array(
+				[
 					'name'        => 'info_table_border_hover',
 					'label'       => __( 'Border', 'powerpack' ),
 					'placeholder' => '1px',
 					'default'     => '1px',
 					'selector'    => '{{WRAPPER}} .pp-info-table-container:hover',
-				)
+				]
 			);
 			$this->add_control(
 				'info_table_border_radius_hover',
-				array(
+				[
 					'label'      => __( 'Border Radius', 'powerpack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => array( 'px', '%' ),
-					'selectors'  => array(
+					'size_units' => [ 'px', '%' ],
+					'selectors'  => [
 						'{{WRAPPER}} .pp-info-table-container:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					),
-				)
+					],
+				]
 			);
 			$this->add_group_control(
 				Group_Control_Box_Shadow::get_type(),
-				array(
+				[
 					'name'     => 'info_table_shadow_hover',
 					'selector' => '{{WRAPPER}} .pp-info-table-container:hover',
-				)
+				]
 			);
 			$this->end_controls_tab();
 
@@ -526,15 +542,15 @@ class Info_Table extends Powerpack_Widget {
 
 			$this->add_responsive_control(
 				'info_table_padding',
-				array(
+				[
 					'label'      => __( 'Padding', 'powerpack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => array( 'px', '%' ),
+					'size_units' => [ 'px', '%' ],
 					'separator'  => 'before',
-					'selectors'  => array(
+					'selectors'  => [
 						'{{WRAPPER}} .pp-info-table-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					),
-				)
+					],
+				]
 			);
 
 		$this->end_controls_section();
@@ -545,148 +561,156 @@ class Info_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_info_table_title_style',
-			array(
+			[
 				'label' => __( 'Title', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			]
 		);
 		$this->add_control(
 			'title_box_bg_color',
-			array(
+			[
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-title-wrap' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'title_color',
-			array(
+			[
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-title' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'     => 'title_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .pp-info-table-title',
-			)
+			]
 		);
 		$this->add_responsive_control(
 			'title_box_padding',
-			array(
+			[
 				'label'      => __( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-title-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_responsive_control(
 			'title_margin',
-			array(
+			[
 				'label'      => __( 'Margin Bottom', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => 20,
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%' => [
 						'min'  => 0,
 						'max'  => 30,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-title' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'subtitle_heading',
-			array(
+			[
 				'label'     => __( 'Sub Title', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array(
+				'condition' => [
 					'sub_heading!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'subtitle_color',
-			array(
+			[
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				],
 				'default'   => '',
-				'condition' => array(
+				'condition' => [
 					'sub_heading!' => '',
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-subtitle' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'subtitle_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'condition' => array(
+				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
+				'condition' => [
 					'sub_heading!' => '',
-				),
+				],
 				'selector'  => '{{WRAPPER}} .pp-info-table-subtitle',
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'subtitle_margin',
-			array(
+			[
 				'label'      => __( 'Margin Bottom', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => 20,
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%' => [
 						'min'  => 0,
 						'max'  => 30,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'condition'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%' ],
+				'condition'  => [
 					'sub_heading!' => '',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-subtitle' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 		$this->end_controls_section();
 
@@ -696,279 +720,283 @@ class Info_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_info_table_icon_style',
-			array(
+			[
 				'label'     => __( 'Icon / Image', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'icon_type!' => 'none',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'icon_box_bg_color',
-			array(
+			[
 				'label'     => __( 'Box Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-icon-container' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 		$this->add_responsive_control(
 			'icon_box_padding',
-			array(
+			[
 				'label'      => __( 'Box Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-icon-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_responsive_control(
 			'icon_size',
-			array(
+			[
 				'label'      => __( 'Icon Size', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+				'range'      => [
+					'px' => [
 						'min'  => 5,
 						'max'  => 100,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', 'em' ),
-				'condition'  => array(
+					],
+				],
+				'size_units' => [ 'px', 'em' ],
+				'condition'  => [
 					'icon_type' => 'icon',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_responsive_control(
 			'icon_box_size',
-			array(
+			[
 				'label'      => __( 'Icon Box Size', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+				'range'      => [
+					'px' => [
 						'min'  => 5,
 						'max'  => 100,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', 'em' ),
-				'condition'  => array(
+					],
+				],
+				'size_units' => [ 'px', 'em' ],
+				'condition'  => [
 					'icon_type' => 'icon',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-icon-wrap' => 'height: calc({{SIZE}}{{UNIT}} * 2); width: calc({{SIZE}}{{UNIT}} * 2);',
-				),
-			)
+				],
+			]
 		);
 		$this->add_responsive_control(
 			'icon_img_width',
-			array(
+			[
 				'label'      => __( 'Image Width', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+				'range'      => [
+					'px' => [
 						'min'  => 25,
 						'max'  => 600,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%' => [
 						'min'  => 25,
 						'max'  => 100,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-icon img' => 'width: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'icon_type' => 'image',
-				),
-			)
+				],
+			]
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'icon_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'condition' => array(
+				'condition' => [
 					'icon_type' => 'text',
-				),
+				],
 				'selector'  => '{{WRAPPER}} .pp-info-table-icon',
-			)
+			]
 		);
 		$this->start_controls_tabs( 'tabs_icon_style' );
 
 		$this->start_controls_tab(
 			'tab_icon_normal',
-			array(
+			[
 				'label' => __( 'Normal', 'powerpack' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'icon_color_normal',
-			array(
+			[
 				'label'     => __( 'Icon Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
 				'default'   => '',
-				'selectors' => array(
-					'{{WRAPPER}} .pp-info-table-icon'     => 'color: {{VALUE}}',
+				'selectors' => [
+					'{{WRAPPER}} .pp-info-table-icon' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .pp-info-table-icon svg' => 'fill: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'icon_type!' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon_bg_color_normal',
-			array(
+			[
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-icon-wrap' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
+			[
 				'name'        => 'icon_border',
 				'label'       => __( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'condition'   => array(
+				'condition'   => [
 					'icon_type!' => 'none',
-				),
+				],
 				'selector'    => '{{WRAPPER}} .pp-info-table-icon-container',
-			)
+			]
 		);
 
 		$this->add_control(
 			'icon_border_radius',
-			array(
+			[
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'condition'  => array(
+				'size_units' => [ 'px', '%' ],
+				'condition'  => [
 					'icon_type!' => 'none',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-icon-wrap, {{WRAPPER}} .pp-info-table-icon-wrap img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'icon_rotation',
-			array(
+			[
 				'label'      => __( 'Icon Rotation', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 360,
 						'step' => 1,
-					),
-				),
+					],
+				],
 				'size_units' => '',
-				'condition'  => array(
+				'condition'  => [
 					'icon_type!' => 'none',
 					'icon_type!' => 'text',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-icon span' => 'transform: rotate( {{SIZE}}deg );',
-					'{{WRAPPER}} .pp-info-table-icon img'  => 'transform: rotate( {{SIZE}}deg );',
-				),
-			)
+					'{{WRAPPER}} .pp-info-table-icon img' => 'transform: rotate( {{SIZE}}deg );',
+				],
+			]
 		);
 		$this->add_responsive_control(
 			'img_inside_padding',
-			array(
+			[
 				'label'      => __( 'Inside Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'condition'  => array(
+				'size_units' => [ 'px', '%' ],
+				'condition'  => [
 					'icon_type!' => 'icon',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-icon-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 		$this->end_controls_tab();
 		$this->start_controls_tab(
 			'tab_icon_hover',
-			array(
+			[
 				'label' => __( 'Hover', 'powerpack' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'icon_color_hover',
-			array(
+			[
 				'label'     => __( 'Icon Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-icon-wrap:hover' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .pp-info-table-icon-wrap:hover svg' => 'fill: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'icon_type!' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon_bg_color_hover',
-			array(
+			[
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'condition' => array(
+				'condition' => [
 					'icon_type!' => 'none',
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-icon-wrap:hover' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon_border_color_hover',
-			array(
+			[
 				'label'     => __( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'condition' => array(
+				'condition' => [
 					'icon_type!' => 'none',
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-icon-wrap:hover .fa' => 'border-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'hover_animation_icon',
-			array(
+			[
 				'label' => __( 'Icon Animation', 'powerpack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
-			)
+			]
 		);
 
 		$this->end_controls_tab();
@@ -983,90 +1011,94 @@ class Info_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_info_description_style',
-			array(
+			[
 				'label'     => __( 'Description', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'description!' => '',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'description_bg_color',
-			array(
+			[
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-description' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'description_color',
-			array(
+			[
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_3,
+				],
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-description' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'description!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'description_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
 				'selector'  => '{{WRAPPER}} .pp-info-table-description',
-				'condition' => array(
+				'condition' => [
 					'description!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'description_padding',
-			array(
+			[
 				'label'      => __( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => [ 'px', '%' ],
 				'separator'  => 'before',
-				'selectors'  => array(
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_responsive_control(
 			'description_margin',
-			array(
+			[
 				'label'      => __( 'Margin Bottom', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => 20,
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%' => [
 						'min'  => 0,
 						'max'  => 30,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-description' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 		$this->end_controls_section();
 
@@ -1076,273 +1108,273 @@ class Info_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_info_table_button_style',
-			array(
+			[
 				'label'     => __( 'Button', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_size',
-			array(
+			[
 				'label'     => __( 'Size', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'md',
-				'options'   => array(
+				'options'   => [
 					'xs' => __( 'Extra Small', 'powerpack' ),
 					'sm' => __( 'Small', 'powerpack' ),
 					'md' => __( 'Medium', 'powerpack' ),
 					'lg' => __( 'Large', 'powerpack' ),
 					'xl' => __( 'Extra Large', 'powerpack' ),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_button_style' );
 
 		$this->start_controls_tab(
 			'tab_button_normal',
-			array(
+			[
 				'label'     => __( 'Normal', 'powerpack' ),
-				'condition' => array(
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_bg_color_normal',
-			array(
+			[
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#000',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-button' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_text_color_normal',
-			array(
+			[
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-button' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .pp-info-table-button .pp-icon svg' => 'fill: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
+			[
 				'name'        => 'button_border_normal',
 				'label'       => __( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-info-table-button',
-				'condition'   => array(
+				'condition'   => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_border_radius',
-			array(
+			[
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'button_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .pp-info-table-button',
-				'condition' => array(
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'button_padding',
-			array(
+			[
 				'label'      => __( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
+			[
 				'name'      => 'button_box_shadow',
 				'selector'  => '{{WRAPPER}} .pp-info-table-button',
-				'condition' => array(
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'info_table_button_icon_heading',
-			array(
+			[
 				'label'     => __( 'Button Icon', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array(
+				'condition' => [
 					'link_type'    => 'button',
 					'button_icon!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'button_icon_margin',
-			array(
+			[
 				'label'       => __( 'Margin', 'powerpack' ),
 				'type'        => Controls_Manager::DIMENSIONS,
-				'size_units'  => array( 'px', '%' ),
-				'placeholder' => array(
+				'size_units'  => [ 'px', '%' ],
+				'placeholder' => [
 					'top'    => '',
 					'right'  => '',
 					'bottom' => '',
 					'left'   => '',
-				),
-				'condition'   => array(
+				],
+				'condition'   => [
 					'link_type'    => 'button',
 					'button_icon!' => '',
-				),
-				'selectors'   => array(
+				],
+				'selectors'   => [
 					'{{WRAPPER}} .pp-info-table .pp-button-icon' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_button_hover',
-			array(
+			[
 				'label'     => __( 'Hover', 'powerpack' ),
-				'condition' => array(
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_bg_color_hover',
-			array(
+			[
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-button:hover' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_text_color_hover',
-			array(
+			[
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-button:hover' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .pp-info-table-button:hover .pp-icon svg' => 'fill: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_border_color_hover',
-			array(
+			[
 				'label'     => __( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-button:hover' => 'border-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_animation',
-			array(
+			[
 				'label'     => __( 'Animation', 'powerpack' ),
 				'type'      => Controls_Manager::HOVER_ANIMATION,
-				'condition' => array(
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
+			[
 				'name'      => 'button_box_shadow_hover',
 				'selector'  => '{{WRAPPER}} .pp-info-table-button:hover',
-				'condition' => array(
+				'condition' => [
 					'link_type'    => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -1355,148 +1387,159 @@ class Info_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_info_sale_badge_style',
-			array(
+			[
 				'label'     => __( 'Sale Badge', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'sale_badge' => 'show',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'sale_badge_bg_color',
-			array(
+			[
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#000',
-				'selectors' => array(
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_4,
+				],
+				'default'   => '',
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-sale-badge' => 'background-color: {{VALUE}}',
 					'{{WRAPPER}} .pp-info-table-sale-badge.right:after' => 'border-left-color: {{VALUE}}',
 					'{{WRAPPER}} .pp-info-table-sale-badge.left:after' => 'border-right-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'sale_badge' => 'show',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'sale_badge_color',
-			array(
+			[
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-table-sale-badge' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'sale_badge' => 'show',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'sale_badge_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .pp-info-table-sale-badge',
-				'condition' => array(
+				'condition' => [
 					'sale_badge' => 'show',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'sale_badge_padding',
-			array(
+			[
 				'label'      => __( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => [ 'px', '%' ],
 				'separator'  => 'before',
-				'selectors'  => array(
+				'default'    => [
+					'top'      => 5,
+					'right'    => 10,
+					'bottom'   => 5,
+					'left'     => 10,
+					'isLinked' => true,
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-sale-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition' => [
 					'sale_badge' => 'show',
-				),
-			)
+				],
+			]
 		);
 		$this->add_responsive_control(
 			'sale_badge_width',
-			array(
+			[
 				'label'      => __( 'Width', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+				'range'      => [
+					'px' => [
 						'min'  => 25,
 						'max'  => 600,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%' => [
 						'min'  => 25,
 						'max'  => 100,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-sale-badge' => 'width: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition' => [
 					'sale_badge' => 'show',
-				),
-			)
+				],
+			]
 		);
 		$this->add_responsive_control(
 			'sale_badge_align',
-			array(
-				'label'   => __( 'Alignment', 'powerpack' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => array(
-					'left'  => array(
+			[
+				'label'     => __( 'Alignment', 'powerpack' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'left'    => [
 						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'right' => array(
+					],
+					'right'   => [
 						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
-				'default' => 'right',
-			)
+					],
+				],
+				'default'   => 'right',
+			]
 		);
 		$this->add_responsive_control(
 			'sale_badge_position',
-			array(
+			[
 				'label'      => __( 'Position From Top', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'%' => array(
+				'range'      => [
+					'%' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( '%', '' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ '%', '' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-sale-badge' => 'top: {{SIZE}}%',
-				),
-				'condition'  => array(
+				],
+				'condition' => [
 					'sale_badge' => 'show',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'sale_badge_border_radius',
-			array(
+			[
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-sale-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 		$this->end_controls_section();
 	}
@@ -1511,7 +1554,7 @@ class Info_Table extends Powerpack_Widget {
 	protected function render_infotable_icon() {
 		$settings = $this->get_settings_for_display();
 
-		$this->add_render_attribute( 'icon', 'class', array( 'pp-info-table-icon', 'pp-icon' ) );
+		$this->add_render_attribute( 'icon', 'class', [ 'pp-info-table-icon', 'pp-icon' ] );
 
 		if ( $settings['hover_animation_icon'] ) {
 			$this->add_render_attribute( 'icon', 'class', 'elementor-animation-' . $settings['hover_animation_icon'] );
@@ -1535,40 +1578,37 @@ class Info_Table extends Powerpack_Widget {
 			$has_icon = true;
 		}
 		$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
-		$is_new   = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
+		$is_new = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 		?>
-		<?php if ( 'none' != $settings['icon_type'] ) { ?>
+		<?php if ( 'none' !== $settings['icon_type'] ) { ?>
 			<div class="pp-info-table-icon-container">
 				<div class="pp-info-table-icon-inner">
 					<div class="pp-info-table-icon-wrap">
-						<span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
-							<?php if ( 'icon' == $settings['icon_type'] ) { ?>
+						<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
+							<?php if ( 'icon' === $settings['icon_type'] ) { ?>
 								<?php
 								if ( $is_new || $migrated ) {
-									Icons_Manager::render_icon( $settings['selected_icon'], array( 'aria-hidden' => 'true' ) );
+									Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
 								} elseif ( ! empty( $settings['icon'] ) ) {
-									?>
-									<i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
-									<?php
+									?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i><?php
 								}
 								?>
-							<?php } elseif ( 'image' == $settings['icon_type'] ) { ?>
+							<?php } elseif ( 'image' === $settings['icon_type'] ) { ?>
 								<?php
 								if ( ! empty( $settings['image']['url'] ) ) {
-									echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'image' );
+									echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'image' ) );
 								}
 								?>
-							<?php } elseif ( 'text' == $settings['icon_type'] ) { ?>
+							<?php } elseif ( 'text' === $settings['icon_type'] ) { ?>
 								<span class="pp-icon-text">
-									<?php echo $settings['icon_text']; ?>
+									<?php echo wp_kses_post( $settings['icon_text'] ); ?>
 								</span>
 							<?php } ?>
 						</span>
 					</div>
 				</div>
 			</div>
-			<?php
-		}
+		<?php }
 	}
 
 	/**
@@ -1584,11 +1624,15 @@ class Info_Table extends Powerpack_Widget {
 		$this->add_render_attribute( 'info-table-container', 'class', 'pp-info-table-container' );
 		$this->add_render_attribute( 'info-table-link', 'class', 'pp-info-table-link' );
 		$this->add_render_attribute( 'title-container', 'class', 'pp-info-table-title-container' );
+		$this->add_render_attribute( 'sale-badge', 'class', [
+			'pp-info-table-sale-badge',
+			$settings['sale_badge_align'],
+		] );
 
-		$pp_if_html_tag     = 'div';
-		$pp_if_html_tag_a   = 'div';
-		$pp_title_html_tag  = 'div';
-		$pp_button_html_tag = 'div';
+		$if_html_tag = 'div';
+		$if_html_tag_a = 'div';
+		$title_html_tag = 'div';
+		$button_html_tag = 'div';
 
 		$this->add_inline_editing_attributes( 'icon_text', 'none' );
 		$this->add_render_attribute( 'icon_text', 'class', 'pp-icon-text' );
@@ -1601,43 +1645,37 @@ class Info_Table extends Powerpack_Widget {
 		$this->add_inline_editing_attributes( 'button_text', 'none' );
 		$this->add_render_attribute( 'button_text', 'class', 'pp-button-text' );
 
-		$this->add_render_attribute(
-			'info-table-button',
-			'class',
-			array(
-				'pp-info-table-button',
-				'elementor-button',
-				'elementor-size-' . $settings['button_size'],
-			)
-		);
+		$this->add_render_attribute( 'info-table-button', 'class', [
+			'pp-info-table-button',
+			'elementor-button',
+			'elementor-size-' . $settings['button_size'],
+		] );
 
 		if ( $settings['button_animation'] ) {
 			$this->add_render_attribute( 'info-table-button', 'class', 'elementor-animation-' . $settings['button_animation'] );
 		}
 
-		if ( 'none' != $settings['link_type'] ) {
+		if ( 'none' !== $settings['link_type'] ) {
 
 			if ( ! empty( $settings['link']['url'] ) ) {
 
-				if ( 'box' == $settings['link_type'] ) {
+				if ( 'box' === $settings['link_type'] ) {
 
-					$pp_if_html_tag_a = 'a';
+					$if_html_tag_a = 'a';
 					$this->add_link_attributes( 'info-table-container-a', $settings['link'] );
 
-				} elseif ( 'title' == $settings['link_type'] ) {
+				} elseif ( 'title' === $settings['link_type'] ) {
 
-					$pp_title_html_tag = 'a';
+					$title_html_tag = 'a';
 					$this->add_link_attributes( 'title-container', $settings['link'] );
 
-				} elseif ( 'button' == $settings['link_type'] ) {
+				} elseif ( 'button' === $settings['link_type'] ) {
 
-					$pp_button_html_tag = 'a';
-
+					$button_html_tag = 'a';
 					$this->add_link_attributes( 'info-table-button', $settings['link'] );
-
-				} // End if().
-			} // End if().
-		} // End if().
+				}
+			}
+		}
 
 		if ( ! isset( $settings['button_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
 			// add old default
@@ -1655,38 +1693,37 @@ class Info_Table extends Powerpack_Widget {
 			$has_button_icon = true;
 		}
 		$button_icon_migrated = isset( $settings['__fa4_migrated']['select_button_icon'] );
-		$is_new_button_icon   = ! isset( $settings['button_icon'] ) && Icons_Manager::is_migration_allowed();
+		$is_new_button_icon = ! isset( $settings['button_icon'] ) && Icons_Manager::is_migration_allowed();
 		?>
-		<<?php echo $pp_if_html_tag . ' ' . $this->get_render_attribute_string( 'info-table-container' ); ?>>
-		<?php
-		if ( $pp_if_html_tag_a ) {
-			?>
-			<<?php echo $pp_if_html_tag_a . ' ' . $this->get_render_attribute_string( 'info-table-container-a' ); ?>> <?php } ?>
-			<div <?php echo $this->get_render_attribute_string( 'info-table' ); ?>>
-				<?php
-				if ( 'show' == $settings['sale_badge'] && ! empty( $settings['sale_badge_text'] ) ) {
-					if ( 'right' == $settings['sale_badge_align'] ) {
-						?>
-						<div class='pp-info-table-sale-badge right'>
-							<?php } elseif ( 'left' == $settings['sale_badge_align'] ) { ?>
-						<div class='pp-info-table-sale-badge left'>
-					<?php } ?>
-							<p><?php echo $this->parse_text_editor( nl2br( $settings['sale_badge_text'] ) ); ?></p>
-						</div>
+		<<?php echo esc_html( $if_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-table-container' ) ); ?>>
+			<?php if ( $if_html_tag_a ) { ?>
+			<<?php echo esc_html( $if_html_tag_a ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-table-container-a' ) ); ?>>
+			<?php } ?>
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-table' ) ); ?>>
+				<?php if ( 'show' === $settings['sale_badge'] && ! empty( $settings['sale_badge_text'] ) ) { ?>
+					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'sale-badge' ) ); ?>>
+						<p><?php echo wp_kses_post( $settings['sale_badge_text'] ); ?></p>
+					</div>
 				<?php } ?>
 				<div class="pp-info-table-title-wrap">
 				<?php
 				if ( ! empty( $settings['heading'] ) ) {
-					echo '<' . $pp_title_html_tag . ' ' . $this->get_render_attribute_string( 'title-container' ) . '>';
-					printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'heading' ) );
-					echo esc_attr( $settings['heading'] );
-					printf( '</%1$s>', $settings['title_html_tag'] );
-					echo '</' . $pp_title_html_tag . '>';
+					?>
+					<<?php echo esc_html( $title_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'title-container' ) ); ?>>
+						<?php $title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] ); ?>
+						<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'heading' ) ); ?>>
+							<?php echo wp_kses_post( $settings['heading'] ); ?>
+						</<?php esc_html( $title_tag ); ?>>
+					</<?php echo esc_html( $title_html_tag ); ?>>
+					<?php
 				}
 				if ( ! empty( $settings['sub_heading'] ) ) {
-					printf( '<%1$s %2$s>', $settings['sub_title_html_tag'], $this->get_render_attribute_string( 'sub_heading' ) );
-					echo esc_attr( $settings['sub_heading'] );
-					printf( '</%1$s>', $settings['sub_title_html_tag'] );
+					$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
+					?>
+					<<?php echo esc_html( $subtitle_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'sub_heading' ) ); ?>>
+						<?php echo wp_kses_post( $settings['sub_heading'] ); ?>
+					</<?php esc_html( $subtitle_tag ); ?>>
+					<?php
 				}
 				?>
 				</div>
@@ -1694,53 +1731,48 @@ class Info_Table extends Powerpack_Widget {
 				<?php $this->render_infotable_icon(); ?>
 
 				<?php if ( ! empty( $settings['description'] ) ) { ?>
-					<div <?php echo $this->get_render_attribute_string( 'description' ); ?>>
-						<?php echo $this->parse_text_editor( nl2br( $settings['description'] ) ); ?>
+					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'description' ) ); ?>>
+						<?php echo wp_kses_post( $this->parse_text_editor( nl2br( $settings['description'] ) ) ); ?>
 					</div>
 				<?php } ?>
-				<?php if ( 'button' == $settings['link_type'] ) { ?>
+				<?php if ( 'button' === $settings['link_type'] ) { ?>
 					<div class="pp-info-table-footer">
-						<<?php echo $pp_button_html_tag . ' ' . $this->get_render_attribute_string( 'info-table-button' ); ?>>
-							<?php if ( $has_button_icon && 'before' == $settings['button_icon_position'] ) { ?>
+						<<?php echo esc_html( $button_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-table-button' ) ); ?>>
+							<?php if ( $has_button_icon && 'before' === $settings['button_icon_position'] ) { ?>
 								<span class='pp-button-icon pp-icon pp-no-trans'>
 									<?php
 									if ( $is_new_button_icon || $button_icon_migrated ) {
-										Icons_Manager::render_icon( $settings['select_button_icon'], array( 'aria-hidden' => 'true' ) );
+										Icons_Manager::render_icon( $settings['select_button_icon'], [ 'aria-hidden' => 'true' ] );
 									} elseif ( ! empty( $settings['button_icon'] ) ) {
-										?>
-										<i <?php echo $this->get_render_attribute_string( 'button-icon' ); ?>></i>
-										<?php
+										?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'button-icon' ) ); ?>></i><?php
 									}
 									?>
 								</span>
 							<?php } ?>
 							<?php if ( ! empty( $settings['button_text'] ) ) { ?>
-								<span <?php echo $this->get_render_attribute_string( 'button_text' ); ?>>
+								<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'button_text' ) ); ?>>
 									<?php echo esc_attr( $settings['button_text'] ); ?>
 								</span>
 							<?php } ?>
-							<?php if ( $has_button_icon && 'after' == $settings['button_icon_position'] ) { ?>
+							<?php if ( $has_button_icon && 'after' === $settings['button_icon_position'] ) { ?>
 								<span class='pp-button-icon pp-icon pp-no-trans'>
 									<?php
 									if ( $is_new_button_icon || $button_icon_migrated ) {
-										Icons_Manager::render_icon( $settings['select_button_icon'], array( 'aria-hidden' => 'true' ) );
+										Icons_Manager::render_icon( $settings['select_button_icon'], [ 'aria-hidden' => 'true' ] );
 									} elseif ( ! empty( $settings['button_icon'] ) ) {
-										?>
-										<i <?php echo $this->get_render_attribute_string( 'button-icon' ); ?>></i>
-										<?php
+										?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'button-icon' ) ); ?>></i><?php
 									}
 									?>
 								</span>
 							<?php } ?>
-						</<?php echo $pp_button_html_tag; ?>>
+						</<?php echo esc_html( $button_html_tag ); ?>>
 					</div>
 				<?php } ?>
 			</div>
-			<?php
-			if ( $pp_if_html_tag_a ) {
-				?>
-				</<?php echo $pp_if_html_tag_a; ?>> <?php } ?>
-		</<?php echo $pp_if_html_tag; ?>>
+			<?php if ( $if_html_tag_a ) { ?>
+				</<?php echo esc_html( $if_html_tag_a ); ?>>
+			<?php } ?>
+		</<?php echo esc_html( $if_html_tag ); ?>>
 		<?php
 	}
 
@@ -1749,55 +1781,56 @@ class Info_Table extends Powerpack_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
+	 * @since 2.0.3
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
-		   view.addRenderAttribute( 'info-table', 'class', 'pp-info-table' );
-		   view.addRenderAttribute( 'info-table-container', 'class', 'pp-info-table-container' );
-		   view.addRenderAttribute( 'info-table-link', 'class', 'pp-info-table-link' );
-		   view.addRenderAttribute( 'title-container', 'class', 'pp-info-table-title-container' );
+			view.addRenderAttribute( 'info-table', 'class', 'pp-info-table' );
+			view.addRenderAttribute( 'info-table-container', 'class', 'pp-info-table-container' );
+			view.addRenderAttribute( 'info-table-link', 'class', 'pp-info-table-link' );
+			view.addRenderAttribute( 'title-container', 'class', 'pp-info-table-title-container' );
 		   
-		   var pp_if_html_tag = 'div',
-			   pp_if_html_tag_a = 'div',
-			   pp_title_html_tag = 'div',
-			   pp_button_html_tag = 'div',
-			   iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
-			   migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' ),
-			   buttonIconHTML = elementor.helpers.renderIcon( view, settings.select_button_icon, { 'aria-hidden': true }, 'i' , 'object' ),
-			   buttonIconMigrated = elementor.helpers.isIconMigrated( settings, 'select_button_icon' );
+			var if_html_tag = 'div',
+				if_html_tag_a = 'div',
+				pp_title_html_tag = 'div',
+				button_html_tag = 'div',
+				iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
+				migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' ),
+				buttonIconHTML = elementor.helpers.renderIcon( view, settings.select_button_icon, { 'aria-hidden': true }, 'i' , 'object' ),
+				buttonIconMigrated = elementor.helpers.isIconMigrated( settings, 'select_button_icon' );
 		   
-		   view.addInlineEditingAttributes( 'icon_text', 'none' );
-		   view.addRenderAttribute( 'icon_text', 'class', 'pp-icon-text' );
-		   view.addInlineEditingAttributes( 'heading', 'none' );
-		   view.addRenderAttribute( 'heading', 'class', 'pp-info-table-title' );
-		   view.addInlineEditingAttributes( 'sub_heading', 'none' );
-		   view.addRenderAttribute( 'sub_heading', 'class', 'pp-info-table-subtitle' );
-		   view.addInlineEditingAttributes( 'description', 'basic' );
-		   view.addRenderAttribute( 'description', 'class', 'pp-info-table-description' );
-		   view.addInlineEditingAttributes( 'button_text', 'none' );
-		   view.addRenderAttribute( 'button_text', 'class', 'pp-button-text' );
+			view.addInlineEditingAttributes( 'icon_text', 'none' );
+			view.addRenderAttribute( 'icon_text', 'class', 'pp-icon-text' );
+			view.addInlineEditingAttributes( 'heading', 'none' );
+			view.addRenderAttribute( 'heading', 'class', 'pp-info-table-title' );
+			view.addInlineEditingAttributes( 'sub_heading', 'none' );
+			view.addRenderAttribute( 'sub_heading', 'class', 'pp-info-table-subtitle' );
+			view.addInlineEditingAttributes( 'description', 'basic' );
+			view.addRenderAttribute( 'description', 'class', 'pp-info-table-description' );
+			view.addInlineEditingAttributes( 'button_text', 'none' );
+			view.addRenderAttribute( 'button_text', 'class', 'pp-button-text' );
 
-		   view.addRenderAttribute( 'icon', 'class', 'pp-info-table-icon pp-icon' );
+			view.addRenderAttribute( 'icon', 'class', 'pp-info-table-icon pp-icon' );
 
-		   if ( settings.hover_animation_icon ) {
-				   view.addRenderAttribute( 'icon', 'class', 'elementor-animation-' + settings.hover_animation_icon );
+			if ( settings.hover_animation_icon ) {
+				view.addRenderAttribute( 'icon', 'class', 'elementor-animation-' + settings.hover_animation_icon );
 			}
 		   
-		   view.addRenderAttribute( 'info-table-button', 'class', [ 'pp-info-table-button', 'elementor-button', 'elementor-size-' + settings.button_size ] );
-		   
-		   if ( settings.button_animation ) {
-			   view.addRenderAttribute( 'info-table-button', 'class', 'elementor-animation-' + settings.button_animation );
-		   }
-		   
-		   if (settings.link_type != 'none' ) {
-			   if ( settings.link.url != '' ) {
-					if ( settings.link_type == 'box' ) {
-						var pp_if_html_tag = 'a';
-						   view.addRenderAttribute( 'info-table-container-a', 'href', settings.link.url );
+			view.addRenderAttribute( 'info-table-button', 'class', [ 'pp-info-table-button', 'elementor-button', 'elementor-size-' + settings.button_size ] );
 
-						   if ( settings.link.is_external ) {
+			if ( settings.button_animation ) {
+				view.addRenderAttribute( 'info-table-button', 'class', 'elementor-animation-' + settings.button_animation );
+			}
+		   
+			if (settings.link_type != 'none' ) {
+				if ( settings.link.url != '' ) {
+					if ( settings.link_type == 'box' ) {
+						var if_html_tag = 'a';
+						view.addRenderAttribute( 'info-table-container-a', 'href', settings.link.url );
+
+					if ( settings.link.is_external ) {
 							view.addRenderAttribute( 'info-table-container-a', 'target', '_blank' );
 						}
 						if ( settings.link.nofollow ) {
@@ -1816,7 +1849,7 @@ class Info_Table extends Powerpack_Widget {
 						}
 					}
 					else if ( settings.link_type == 'button' ) {
-						var pp_button_html_tag = 'a';
+						var button_html_tag = 'a';
 						view.addRenderAttribute( 'info-table-button', 'href', settings.link.url );
 
 						if ( settings.link.is_external ) {
@@ -1829,11 +1862,11 @@ class Info_Table extends Powerpack_Widget {
 				}
 			}
 		#>
-		<{{{pp_if_html_tag}}} {{{view.getRenderAttributeString('info-table-container')}}}>
-			<{{{pp_if_html_tag_a}}} {{{view.getRenderAttributeString('info-table-container-a')}}}>
+		<{{{if_html_tag}}} {{{view.getRenderAttributeString('info-table-container')}}}>
+			<{{{if_html_tag_a}}} {{{view.getRenderAttributeString('info-table-container-a')}}}>
 			<div {{{view.getRenderAttributeString('info-table')}}}>
 				<#
-					  if ( settings.sale_badge == 'show' && settings.sale_badge_text != '' ) {
+				if ( settings.sale_badge == 'show' && settings.sale_badge_text != '' ) {
 					if ( settings.sale_badge_align == 'right' ) { #>
 						<div class='pp-info-table-sale-badge right'>
 						<# } else if ( settings.sale_badge_align == 'left' ) { #>
@@ -1901,10 +1934,10 @@ class Info_Table extends Powerpack_Widget {
 						{{{ settings.description }}}
 					</div>
 				<# } #>
-					
+
 				<# if ( settings.link_type == 'button' ) { #>
 					<div class="pp-info-table-footer">
-						<{{{pp_button_html_tag}}} {{{view.getRenderAttributeString('info-table-button')}}}>
+						<{{{button_html_tag}}} {{{view.getRenderAttributeString('info-table-button')}}}>
 							<# if ( settings.button_icon_position == 'before' ) { #>
 								<# if ( settings.button_icon || settings.select_button_icon ) { #>
 								<span class='pp-button-icon pp-icon pp-no-trans'>
@@ -1918,7 +1951,7 @@ class Info_Table extends Powerpack_Widget {
 							<# } #>
 							<# if ( settings.button_text != '' ) { #>
 								<span {{{view.getRenderAttributeString('button_text')}}}>
-									 {{{ settings.button_text }}}
+									{{{ settings.button_text }}}
 								</span>
 							<# } #>
 							<# if ( settings.button_icon_position == 'after' ) { #>
@@ -1932,12 +1965,26 @@ class Info_Table extends Powerpack_Widget {
 								</span>
 								<# } #>
 							<# } #>
-						</{{{pp_button_html_tag}}}>
+						</{{{button_html_tag}}}>
 					</div>
 				<# } #>
 			</div>
-			<# if ( pp_if_html_tag_a ) { #></{{{pp_if_html_tag_a}}}> <# } #>
-		</{{{pp_if_html_tag}}}>
+			<# if ( if_html_tag_a ) { #></{{{if_html_tag_a}}}> <# } #>
+		</{{{if_html_tag}}}>
 		<?php
+	}
+
+	/**
+	 * Render divider widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @since 1.3.0
+	 * @access protected
+	 */
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->content_template();
 	}
 }

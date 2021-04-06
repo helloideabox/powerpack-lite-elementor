@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\Logos\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
@@ -14,8 +15,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes\Typography as Scheme_Typography;
+use Elementor\Core\Schemes\Color as Scheme_Color;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -99,8 +100,8 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->register_content_upgrade_controls();
 
 		/* Style Tab */
-		$this->register_content_logos_controls();
-		$this->register_content_title_controls();
+		$this->register_style_logos_controls();
+		$this->register_style_title_controls();
 	}
 
 	protected function register_content_logo_grid_controls() {
@@ -496,7 +497,7 @@ class Logo_Grid extends Powerpack_Widget {
 	/*	STYLE TAB
 	/*-----------------------------------------------------------------------------------*/
 
-	protected function register_content_logos_controls() {
+	protected function register_style_logos_controls() {
 		$this->start_controls_section(
 			'section_logos_style',
 			[
@@ -693,7 +694,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	protected function register_content_title_controls() {
+	protected function register_style_title_controls() {
 		$this->start_controls_section(
 			'section_logo_title_style',
 			[
@@ -754,7 +755,6 @@ class Logo_Grid extends Powerpack_Widget {
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$i = 1;
 
 		$this->add_render_attribute( 'logo-grid', 'class', 'pp-logo-grid pp-elementor-grid clearfix' );
 
@@ -766,7 +766,7 @@ class Logo_Grid extends Powerpack_Widget {
 			$this->add_render_attribute( 'logo-grid', 'class', 'grayscale-hover' );
 		}
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'logo-grid' ); ?>>
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'logo-grid' ) ); ?>>
 			<?php
 			$logos = $settings['pp_logos'];
 
@@ -774,58 +774,67 @@ class Logo_Grid extends Powerpack_Widget {
 				shuffle( $logos );
 			}
 
-			foreach ( $logos as $item ) :
+			foreach ( $logos as $index => $item ) :
 				if ( ! empty( $item['logo_image']['url'] ) ) {
+					$item_wrap_setting_key = $this->get_repeater_setting_key( 'item_wrap', 'logos', $index );
+					$link_setting_key = $this->get_repeater_setting_key( 'link', 'logos', $index );
 
-					$this->add_render_attribute( 'logo-grid-item-wrap-' . $i, 'class', 'pp-grid-item-wrap' );
-					$this->add_render_attribute( 'logo-grid-item-wrap-' . $i, 'class', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) );
-
-					$this->add_render_attribute( 'logo-grid-item-' . $i, 'class', 'pp-grid-item' );
+					$this->add_render_attribute( $item_wrap_setting_key, 'class', [
+						'pp-grid-item-wrap',
+						'elementor-repeater-item-' . esc_attr( $item['_id'] ),
+					] );
 
 					if ( 'yes' === $item['custom_style'] ) {
-						$this->add_render_attribute( 'logo-grid-item-wrap-' . $i, 'class', 'pp-logo-grid-item-custom' );
+						$this->add_render_attribute( $item_wrap_setting_key, 'class', 'pp-logo-grid-item-custom' );
 					}
-
-					$this->add_render_attribute( 'title' . $i, 'class', 'pp-logo-grid-title' );
 					?>
-						<div <?php echo $this->get_render_attribute_string( 'logo-grid-item-wrap-' . $i ); ?>>
-							<div <?php echo $this->get_render_attribute_string( 'logo-grid-item-' . $i ); ?>>
-							<?php
-							if ( ! empty( $item['link']['url'] ) ) {
+					<div <?php echo wp_kses_post( $this->get_render_attribute_string( $item_wrap_setting_key ) ); ?>>
+						<div class="pp-grid-item">
+						<?php
+						if ( '' !== $item['link']['url'] ) {
+							$this->add_link_attributes( $link_setting_key, $item['link'] );
+						}
 
-								$this->add_link_attributes( 'logo-link' . $i, $item['link'] );
-
-							}
-
-							if ( ! empty( $item['link']['url'] ) ) {
-								echo '<a ' . $this->get_render_attribute_string( 'logo-link' . $i ) . '>';
-							}
-
-								echo $this->render_image( $item, $settings );
-
-							if ( ! empty( $item['link']['url'] ) ) {
-								echo '</a>';
-							}
+						if ( ! empty( $item['link']['url'] ) ) {
 							?>
-							</div>
+							<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
 							<?php
-							if ( ! empty( $item['title'] ) ) {
-								printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'title' . $i ) );
-								if ( ! empty( $item['link']['url'] ) ) {
-									echo '<a ' . $this->get_render_attribute_string( 'logo-link' . $i ) . '>';
-								}
-									echo $item['title'];
-								if ( ! empty( $item['link']['url'] ) ) {
-									echo '</a>';
-								}
-								printf( '</%1$s>', $settings['title_html_tag'] );
-							}
-							?>
+						}
+
+						echo wp_kses_post( $this->render_image( $item, $settings ) );
+
+						if ( '' !== $item['link']['url'] ) { ?>
+							</a>
+							<?php
+						}
+						?>
 						</div>
 						<?php
+						if ( '' !== $item['title'] ) {
+							$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+							?>
+							<<?php echo esc_html( $title_tag ); ?> class="pp-logo-grid-title">
+							<?php
+							if ( '' !== $item['link']['url'] ) { ?>
+								<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+								<?php
+							}
+
+							echo wp_kses_post( $item['title'] );
+
+							if ( '' !== $item['link']['url'] ) { ?>
+								</a>
+								<?php
+							}
+							?>
+							</<?php echo esc_html( $title_tag ); ?>>
+							<?php
+						}
+						?>
+					</div>
+					<?php
 				}
-				$i++;
-				endforeach;
+			endforeach;
 			?>
 		</div>
 		<?php

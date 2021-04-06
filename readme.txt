@@ -1,4 +1,4 @@
-=== Elementor Addons -  PowerPack Addons for Elementor ===
+=== PowerPack Addons for Elementor ===
 Contributors: ideaboxcreations, simrandeep, puneetsahalot, ibachal, jainnidhi, prash17, nirbhay18
 Tags: elementor, addons, elementor addon, elementor widgets, elements, powerpack elementor addon, essential addons
 Requires at least: 5.0
