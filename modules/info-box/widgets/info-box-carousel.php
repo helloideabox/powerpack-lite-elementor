@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\InfoBox\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
@@ -15,8 +16,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes\Typography as Scheme_Typography;
+use Elementor\Core\Schemes\Color as Scheme_Color;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -996,6 +997,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Icon Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-icon' => 'color: {{VALUE}}',
@@ -1240,6 +1245,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-title' => 'color: {{VALUE}}',
@@ -1252,7 +1261,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'title_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
 				'selector'              => '{{WRAPPER}} .pp-info-box-title',
 			]
 		);
@@ -1298,6 +1307,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				],
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-subtitle' => 'color: {{VALUE}}',
@@ -1310,7 +1323,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'subtitle_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_2,
 				'selector'              => '{{WRAPPER}} .pp-info-box-subtitle',
 			]
 		);
@@ -1533,6 +1546,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_3,
+				],
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-description' => 'color: {{VALUE}}',
@@ -1545,7 +1562,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'description_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
 				'selector'              => '{{WRAPPER}} .pp-info-box-description',
 			]
 		);
@@ -1648,6 +1665,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_4,
+				],
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-button' => 'background-color: {{VALUE}}',
@@ -2459,9 +2480,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		$this->add_render_attribute( 'info-box-container', 'class', 'pp-info-box-container' );
 
-		$pp_if_html_tag     = 'div';
-		$pp_title_html_tag  = 'div';
-		$pp_button_html_tag = 'div';
+		$if_html_tag         = 'div';
+		$title_container_tag = 'div';
+		$button_html_tag     = 'div';
 
 		$this->add_render_attribute( 'info-box-button', 'class', [
 			'pp-info-box-button',
@@ -2479,109 +2500,117 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			$this->add_render_attribute( 'icon', 'class', 'elementor-animation-' . $settings['icon_animation'] );
 		}
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'info-box-carousel-wrap' ); ?>>
-			<div <?php echo $this->get_render_attribute_string( 'info-box-carousel' ); ?>>
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-carousel-wrap' ) ); ?>>
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-carousel' ) ); ?>>
 				<div class="swiper-wrapper">
-				<?php
-				$i = 1;
+					<?php
+					$i = 1;
 
-				foreach ( $settings['pp_info_boxes'] as $item ) :
+					foreach ( $settings['pp_info_boxes'] as $index => $item ) :
+						$title_container_setting_key = $this->get_repeater_setting_key( 'title_container', 'info_boxes', $index );
+						$link_setting_key = $this->get_repeater_setting_key( 'link', 'info_boxes', $index );
 
-					$this->add_render_attribute( 'title-container' . $i, 'class', 'pp-info-box-title-container' );
+						$this->add_render_attribute( $title_container_setting_key, 'class', 'pp-info-box-title-container' );
 
-					if ( 'none' !== $item['link_type'] ) {
-						if ( ! empty( $item['link']['url'] ) ) {
+						if ( 'none' !== $item['link_type'] ) {
+							if ( ! empty( $item['link']['url'] ) ) {
 
-							$this->add_link_attributes( 'link' . $i, $item['link'] );
+								$this->add_link_attributes( $link_setting_key, $item['link'] );
 
-							if ( 'title' === $item['link_type'] ) {
-								$pp_title_html_tag = 'a';
-								$this->add_link_attributes( 'title-container' . $i, $item['link'] );
-							} elseif ( 'button' === $item['link_type'] ) {
-								$pp_button_html_tag = 'a';
-							} elseif ( $item['link_type'] == 'box' ) {
-                                $pp_button_html_tag = 'div';
-                            }
+								if ( 'title' === $item['link_type'] ) {
+									$title_container_tag = 'a';
+									$this->add_link_attributes( $title_container_setting_key, $item['link'] );
+								} elseif ( 'button' === $item['link_type'] ) {
+									$button_html_tag = 'a';
+								} elseif ( 'box' === $item['link_type'] ) {
+									$button_html_tag = 'div';
+								}
+							}
 						}
-					}
-					?>
-					<div class="swiper-slide">
-						<div class="pp-info-box-content-wrap">
-							<?php if ( 'box' === $item['link_type'] ) { ?>
-								<a <?php echo $this->get_render_attribute_string( 'link' . $i ); ?>>
-							<?php } ?>
-							<?php if ( 'none' !== $item['icon_type'] ) { ?>
-								<div class="pp-info-box-icon-wrap">
-									<?php if ( 'icon' === $item['link_type'] ) { ?>
-										<a <?php echo $this->get_render_attribute_string( 'link' . $i ); ?>>
+						?>
+						<div class="swiper-slide">
+							<div class="pp-info-box-content-wrap">
+								<?php if ( 'box' === $item['link_type'] ) { ?>
+									<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+								<?php } ?>
+								<?php if ( 'none' !== $item['icon_type'] ) { ?>
+									<div class="pp-info-box-icon-wrap">
+										<?php if ( 'icon' === $item['link_type'] ) { ?>
+											<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+										<?php } ?>
+										<?php $this->render_infobox_icon( $item ); ?>
+										<?php if ( 'icon' === $item['link_type'] ) { ?>
+											</a>
+										<?php } ?>
+									</div>
+								<?php } ?>
+								<div class="pp-info-box-content">
+									<div class="pp-info-box-title-wrap">
+										<?php
+										if ( '' !== $item['title'] ) {
+											$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+											?>
+											<<?php echo esc_html( $title_container_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $title_container_setting_key ) ); ?>>
+												<<?php echo esc_html( $title_tag ); ?> class="pp-info-box-title">
+													<?php echo wp_kses_post( $item['title'] ); ?>
+												</<?php echo esc_html( $title_tag ); ?>>
+											</<?php echo esc_html( $title_container_tag ); ?>>
+											<?php
+										}
+
+										if ( '' !== $item['subtitle'] ) {
+											$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
+											?>
+											<<?php echo esc_html( $subtitle_tag ); ?> class="pp-info-box-subtitle">
+												<?php echo wp_kses_post( $item['subtitle'] ); ?>
+											</<?php echo esc_html( $subtitle_tag ); ?>>
+											<?php
+										}
+										?>
+									</div>
+
+									<?php if ( 'yes' === $settings['divider_title_switch'] ) { ?>
+										<div class="pp-info-box-divider-wrap">
+											<div class="pp-info-box-divider"></div>
+										</div>
 									<?php } ?>
-									<?php $this->render_infobox_icon( $item ); ?>
-									<?php if ( 'icon' === $item['link_type'] ) { ?>
+
+									<?php if ( ! empty( $item['description'] ) ) { ?>
+										<div class="pp-info-box-description">
+											<?php echo wp_kses_post( $this->parse_text_editor( $item['description'] ) ); ?>
+										</div>
+									<?php } ?>
+									<?php if ( 'button' === $item['link_type'] || ( 'box' === $item['link_type'] && 'yes' === $item['button_visible'] ) ) { ?>
+										<div class="pp-info-box-footer">
+											<<?php echo esc_html( $button_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-button' . $i ) ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+												<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-button' ) ); ?>>
+													<?php
+													if ( 'before' === $item['button_icon_position'] ) {
+														$this->render_infobox_button_icon( $item );
+													}
+													?>
+													<?php if ( ! empty( $item['button_text'] ) ) { ?>
+														<span class="pp-button-text">
+															<?php echo wp_kses_post( $item['button_text'] ); ?>
+														</span>
+													<?php } ?>
+													<?php
+													if ( 'after' === $item['button_icon_position'] ) {
+														$this->render_infobox_button_icon( $item );
+													}
+													?>
+												</div>
+											</<?php echo esc_html( $button_html_tag ); ?>>
+										</div>
+									<?php } ?>
+									<?php if ( 'box' === $item['link_type'] ) { ?>
 										</a>
 									<?php } ?>
 								</div>
-							<?php } ?>
-							<div class="pp-info-box-content">
-								<div class="pp-info-box-title-wrap">
-									<?php
-									if ( ! empty( $item['title'] ) ) {
-										printf( '<%1$s %2$s>', $pp_title_html_tag, $this->get_render_attribute_string( 'title-container' . $i ) );
-										printf( '<%1$s class="pp-info-box-title">', $settings['title_html_tag'] );
-										echo $item['title'];
-										printf( '</%1$s>', $settings['title_html_tag'] );
-										printf( '</%1$s>', $pp_title_html_tag );
-									}
-
-									if ( ! empty( $item['subtitle'] ) ) {
-										printf( '<%1$s class="pp-info-box-subtitle">', $settings['sub_title_html_tag'] );
-										echo $item['subtitle'];
-										printf( '</%1$s>', $settings['sub_title_html_tag'] );
-									}
-									?>
-								</div>
-
-								<?php if ( 'yes' === $settings['divider_title_switch'] ) { ?>
-									<div class="pp-info-box-divider-wrap">
-										<div class="pp-info-box-divider"></div>
-									</div>
-								<?php } ?>
-
-								<?php if ( ! empty( $item['description'] ) ) { ?>
-									<div class="pp-info-box-description">
-										<?php echo $this->parse_text_editor( nl2br( $item['description'] ) ); ?>
-									</div>
-								<?php } ?>
-								<?php if ( 'button' === $item['link_type'] || ( 'box' === $item['link_type'] && 'yes' === $item['button_visible'] ) ) { ?>
-									<div class="pp-info-box-footer">
-										<<?php echo $pp_button_html_tag . ' ' . $this->get_render_attribute_string( 'info-box-button' . $i ) . $this->get_render_attribute_string( 'link' . $i ); ?>>
-											<div <?php echo $this->get_render_attribute_string( 'info-box-button' ); ?>>
-												<?php
-												if ( 'before' === $item['button_icon_position'] ) {
-													$this->render_infobox_button_icon( $item );
-												}
-												?>
-												<?php if ( ! empty( $item['button_text'] ) ) { ?>
-													<span class="pp-button-text">
-														<?php echo esc_attr( $item['button_text'] ); ?>
-													</span>
-												<?php } ?>
-												<?php
-												if ( 'after' === $item['button_icon_position'] ) {
-													$this->render_infobox_button_icon( $item );
-												}
-												?>
-											</div>
-										</<?php echo $pp_button_html_tag; ?>>
-									</div>
-								<?php } ?>
-								<?php if ( 'box' === $item['link_type'] ) { ?>
-									</a>
-								<?php } ?>
 							</div>
 						</div>
-					</div>
-					<?php $i++;
-				endforeach; ?>
+						<?php $i++;
+					endforeach; ?>
 				</div>
 			</div>
 			<?php
@@ -2621,13 +2650,13 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) || ! empty( $item['image']['url'] ) ) {
 			?>
-			<span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
+			<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
 				<?php if ( 'icon' === $item['icon_type'] ) { ?>
 					<?php
 					if ( $is_new || $migrated ) {
 						Icons_Manager::render_icon( $item['selected_icon'], [ 'aria-hidden' => 'true' ] );
 					} else { ?>
-							<i class="<?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
+						<i class="<?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
 					<?php } ?>
 				<?php } elseif ( 'image' === $item['icon_type'] ) { ?>
 					<?php
@@ -2635,14 +2664,18 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['image']['id'], 'thumbnail', $settings );
 
 						if ( $image_url ) {
-							echo '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( Control_Media::get_image_alt( $item['image'] ) ) . '">';
+							?>
+							<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $item['image'] ) ); ?>">
+							<?php
 						} else {
-							echo '<img src="' . esc_url( $item['image']['url'] ) . '">';
+							?>
+							<img src="<?php echo esc_url( $item['image']['url'] ); ?>">
+							<?php
 						}
 					}
 					?>
 				<?php } elseif ( 'text' === $item['icon_type'] ) {
-					echo $item['icon_text'];
+					echo wp_kses_post( $item['icon_text'] );
 				} ?>
 			</span>
 			<?php
@@ -2676,7 +2709,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				if ( $is_new || $migrated ) {
 					Icons_Manager::render_icon( $item['select_button_icon'], [ 'aria-hidden' => 'true' ] );
 				} else { ?>
-						<i class="<?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></i>
+					<i class="<?php echo esc_attr( $item['button_icon'] ); ?>" aria-hidden="true"></i>
 				<?php } ?>
 			</span>
 			<?php
@@ -2694,7 +2727,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 
 		if ( 'yes' === $settings['dots'] ) { ?>
-			<!-- Add Pagination -->
 			<div class="swiper-pagination swiper-pagination-<?php echo esc_attr( $this->get_id() ); ?>"></div>
 		<?php }
 	}
@@ -2743,7 +2775,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			?>
 
 			<?php if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
-				<!-- Add Arrows -->
 				<div class="swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
 					<i aria-hidden="true" class="<?php echo esc_attr( $prev_arrow ); ?>"></i>
 				</div>
@@ -2817,15 +2848,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						prevEl: '.swiper-button-prev',
 					},
 					breakpoints: {
-						<?php echo $bp_desktop; ?>: {
+						<?php echo esc_attr( $bp_desktop ); ?>: {
 							slidesPerView:  $items,
 							spaceBetween:   $margin
 						},
-						<?php echo $bp_tablet; ?>: {
+						<?php echo esc_attr( $bp_tablet ); ?>: {
 							slidesPerView:  $items_tablet,
 							spaceBetween:   $margin_tablet
 						},
-						<?php echo $bp_mobile; ?>: {
+						<?php echo esc_attr( $bp_mobile ); ?>: {
 							slidesPerView:  $items_mobile,
 							spaceBetween:   $margin_mobile
 						}
@@ -2848,22 +2879,22 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				if ( settings.arrows == 'yes' ) {
 					if ( settings.arrow || settings.select_arrow.value ) {
 						if ( arrowIconHTML && arrowIconHTML.rendered && ( ! settings.arrow || arrowMigrated ) ) {
-							var pp_next_arrow = settings.select_arrow.value;
-							var pp_prev_arrow = pp_next_arrow.replace('right', "left");
+							var next_arrow = settings.select_arrow.value;
+							var prev_arrow = next_arrow.replace('right', "left");
 						} else if ( settings.arrow != '' ) {
-							var pp_next_arrow = settings.arrow;
-							var pp_prev_arrow = pp_next_arrow.replace('right', "left");
+							var next_arrow = settings.arrow;
+							var prev_arrow = next_arrow.replace('right', "left");
 						}
 						else {
-							var pp_next_arrow = 'fa fa-angle-right';
-							var pp_prev_arrow = 'fa fa-angle-left';
+							var next_arrow = 'fa fa-angle-right';
+							var prev_arrow = 'fa fa-angle-left';
 						}
 						#>
 						<div class="swiper-button-next">
-							<i class="{{ pp_next_arrow }}"></i>
+							<i class="{{ next_arrow }}"></i>
 						</div>
 						<div class="swiper-button-prev">
-							<i class="{{ pp_prev_arrow }}"></i>
+							<i class="{{ prev_arrow }}"></i>
 						</div>
 						<#
 					}
@@ -2923,9 +2954,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 			view.addRenderAttribute( 'info-box-container', 'class', 'pp-info-box-container' );
 
-			var $pp_if_html_tag = 'div',
-				$pp_title_html_tag = 'div',
-				$pp_button_html_tag = 'div';
+			var $if_html_tag = 'div',
+				$title_container_tag = 'div',
+				$button_html_tag = 'div';
 
 			view.addRenderAttribute( 'info-box-button', 'class', [
 					'pp-info-box-button',
@@ -2971,11 +3002,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 								}
 
 								if ( item.link_type == 'title' ) {
-									$pp_title_html_tag = 'a';
+									$title_container_tag = 'a';
 									view.addRenderAttribute( 'title-container' + i, 'href', item.link.url );
 								}
 								else if ( item.link_type == 'button' ) {
-									$pp_button_html_tag = 'a';
+									$button_html_tag = 'a';
 								}
 							}
 						}
@@ -3029,12 +3060,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 									<#
 										if ( item.title ) {
 											#>
-											<{{{ $pp_title_html_tag }}} {{{ view.getRenderAttributeString( 'title-container' + i ) }}}>
+											<{{{ $title_container_tag }}} {{{ view.getRenderAttributeString( 'title-container' + i ) }}}>
 
 											<{{{ settings.title_html_tag }}} class="pp-info-box-title">
 											{{ item.title }}
 											</{{{ settings.title_html_tag }}}>
-											</{{{ $pp_title_html_tag }}}>
+											</{{{ $title_container_tag }}}>
 											<#
 										}
 
@@ -3061,7 +3092,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 								<# } #>
 								<# if ( item.link_type == 'button' || ( item.link_type == 'box' && item.button_visible == 'yes' ) ) { #>
 									<div class="pp-info-box-footer">
-										<{{{ $pp_button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' + i ) }}} {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+										<{{{ $button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' + i ) }}} {{{ view.getRenderAttributeString( 'link' + i ) }}}>
 											<div {{{ view.getRenderAttributeString( 'info-box-button' ) }}}>
 												<# if ( item.button_icon_position == 'before' ) { #>
 													<# button_icon_template( item, index ); #>
@@ -3075,7 +3106,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 													<# button_icon_template( item, index ); #>
 												<# } #>
 											</div>
-										</{{{ $pp_button_html_tag }}}>
+										</{{{ $button_html_tag }}}>
 									</div>
 								<# } #>
 								<# if ( item.link_type == 'box' ) { #>
