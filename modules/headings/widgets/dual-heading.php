@@ -2,6 +2,8 @@
 namespace PowerpackElementsLite\Modules\Headings\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -10,7 +12,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Schemes\Typography as Scheme_Typography;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -75,162 +78,196 @@ class Dual_Heading extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->register_controls();
+	}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  CONTENT TAB
-		/*-----------------------------------------------------------------------------------*/
+	/**
+	 * Register dual heading widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_controls() {
+		/* Content Tab */
+		$this->register_content_heading_controls();
+		$this->register_content_help_docs_controls();
+		$this->register_content_upgrade_pro_controls();
 
+		/* Style Tab */
+		$this->register_style_first_section_controls();
+		$this->register_style_second_section_controls();
+	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	CONTENT TAB
+	/*-----------------------------------------------------------------------------------*/
+
+	protected function register_content_heading_controls() {
 		/**
 		 * Content Tab: Dual Heading
 		 */
 		$this->start_controls_section(
 			'section_dual_heading',
-			array(
-				'label' => __( 'Dual Heading', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Dual Heading', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'first_text',
-			array(
-				'label'       => __( 'First Part', 'powerpack' ),
-				'type'        => Controls_Manager::TEXTAREA,
-				'dynamic'     => array(
-					'active' => true,
-				),
-				'label_block' => true,
-				'rows'        => 3,
-				'default'     => __( 'Our', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'First Part', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXTAREA,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'label_block'           => true,
+				'rows'                  => 3,
+				'default'               => __( 'Our', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'second_text',
-			array(
-				'label'       => __( 'Second Part', 'powerpack' ),
-				'type'        => Controls_Manager::TEXTAREA,
-				'dynamic'     => array(
-					'active' => true,
-				),
-				'label_block' => true,
-				'rows'        => 3,
-				'default'     => __( 'Services', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Second Part', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXTAREA,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'label_block'           => true,
+				'rows'                  => 3,
+				'default'               => __( 'Services', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'link',
-			array(
-				'label'       => __( 'Link', 'powerpack' ),
-				'type'        => Controls_Manager::URL,
-				'dynamic'     => array(
-					'active'     => true,
-					'categories' => array(
+			[
+				'label'                 => __( 'Link', 'powerpack' ),
+				'type'                  => Controls_Manager::URL,
+				'dynamic'               => [
+					'active'        => true,
+					'categories'    => [
 						TagsModule::POST_META_CATEGORY,
 						TagsModule::URL_CATEGORY,
-					),
-				),
-				'label_block' => true,
-				'placeholder' => 'https://www.your-link.com',
-			)
+					],
+				],
+				'label_block'           => true,
+				'placeholder'           => 'https://www.your-link.com',
+			]
 		);
 
 		$this->add_control(
 			'heading_html_tag',
-			array(
-				'label'       => __( 'HTML Tag', 'powerpack' ),
-				'type'        => Controls_Manager::SELECT,
-				'label_block' => false,
-				'default'     => 'h2',
-				'options'     => array(
-					'h1'   => __( 'H1', 'powerpack' ),
-					'h2'   => __( 'H2', 'powerpack' ),
-					'h3'   => __( 'H3', 'powerpack' ),
-					'h4'   => __( 'H4', 'powerpack' ),
-					'h5'   => __( 'H5', 'powerpack' ),
-					'h6'   => __( 'H6', 'powerpack' ),
-					'div'  => __( 'div', 'powerpack' ),
-					'span' => __( 'span', 'powerpack' ),
-					'p'    => __( 'p', 'powerpack' ),
-				),
-			)
+			[
+				'label'                 => __( 'HTML Tag', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'label_block'           => false,
+				'default'               => 'h2',
+				'options'               => [
+					'h1'     => __( 'H1', 'powerpack' ),
+					'h2'     => __( 'H2', 'powerpack' ),
+					'h3'     => __( 'H3', 'powerpack' ),
+					'h4'     => __( 'H4', 'powerpack' ),
+					'h5'     => __( 'H5', 'powerpack' ),
+					'h6'     => __( 'H6', 'powerpack' ),
+					'div'    => __( 'div', 'powerpack' ),
+					'span'   => __( 'span', 'powerpack' ),
+					'p'      => __( 'p', 'powerpack' ),
+				],
+			]
 		);
 
 		$this->add_control(
 			'second_part_display',
-			array(
-				'label'        => __( 'Second Part Display', 'powerpack' ),
-				'type'         => Controls_Manager::SELECT,
-				'label_block'  => false,
-				'default'      => 'inline-block',
-				'options'      => array(
-					'inline-block' => __( 'Inline', 'powerpack' ),
-					'block'        => __( 'Block', 'powerpack' ),
-				),
-				'prefix_class' => 'pp-dual-heading-',
-				'selectors'    => array(
+			[
+				'label'                 => __( 'Second Part Display', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'label_block'           => false,
+				'default'               => 'inline-block',
+				'options'               => [
+					'inline-block'  => __( 'Inline', 'powerpack' ),
+					'block'         => __( 'Block', 'powerpack' ),
+				],
+				'prefix_class'          => 'pp-dual-heading-',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-second-text' => 'display: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'align',
-			array(
-				'label'       => __( 'Alignment', 'powerpack' ),
-				'type'        => Controls_Manager::CHOOSE,
-				'label_block' => true,
-				'options'     => array(
-					'left'   => array(
+			[
+				'label'                 => __( 'Alignment', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'label_block'           => false,
+				'options'               => [
+					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
+					],
+					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
+					],
+					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
-				'default'     => '',
-				'selectors'   => array(
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
-				),
-			)
+					],
+				],
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}}'   => 'text-align: {{VALUE}};',
+				],
+			]
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Docs Links
-		 *
-		 * @since 1.4.8
-		 * @access protected
-		 */
-		$this->start_controls_section(
-			'section_help_docs',
-			array(
-				'label' => __( 'Help Docs', 'powerpack' ),
-			)
-		);
+	protected function register_content_help_docs_controls() {
 
-		$this->add_control(
-			'help_doc_1',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/dual-heading/dual-heading-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+		$help_docs = PP_Config::get_widget_help_links( 'Dual_Heading' );
 
-		$this->end_controls_section();
+		if ( ! empty( $help_docs ) ) {
 
+			/**
+			 * Content Tab: Help Docs
+			 *
+			 * @since 1.4.8
+			 * @access protected
+			 */
+			$this->start_controls_section(
+				'section_help_docs',
+				[
+					'label' => __( 'Help Docs', 'powerpack' ),
+				]
+			);
+
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					[
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					]
+				);
+
+				$hd_counter++;
+			}
+
+			$this->end_controls_section();
+		}
+	}
+
+	protected function register_content_upgrade_pro_controls() {
 		if ( ! is_pp_elements_active() ) {
 			/**
 			 * Content Tab: Upgrade PowerPack
@@ -258,236 +295,246 @@ class Dual_Heading extends Powerpack_Widget {
 
 			$this->end_controls_section();
 		}
+	}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  STYLE TAB
-		/*-----------------------------------------------------------------------------------*/
+	/*-----------------------------------------------------------------------------------*/
+	/*	STYLE TAB
+	/*-----------------------------------------------------------------------------------*/
 
+	protected function register_style_first_section_controls() {
 		/**
 		 * Style Tab: First Part
 		 */
 		$this->start_controls_section(
 			'first_section_style',
-			array(
-				'label' => __( 'First Part', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'First Part', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_control(
 			'first_text_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-first-text' => 'color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
-			array(
-				'name'     => 'first_part_bg',
-				'label'    => __( 'Background', 'powerpack' ),
-				'types'    => array( 'none', 'classic', 'gradient' ),
-				'selector' => '{{WRAPPER}} .pp-first-text',
-			)
+			[
+				'name'                  => 'first_part_bg',
+				'label'                 => __( 'Background', 'powerpack' ),
+				'types'                 => [ 'none', 'classic', 'gradient' ],
+				'selector'              => '{{WRAPPER}} .pp-first-text',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'      => 'first_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'  => '{{WRAPPER}} .pp-first-text',
-				'separator' => 'before',
-			)
+			[
+				'name'                  => 'first_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'selector'              => '{{WRAPPER}} .pp-first-text',
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'      => 'first_border',
-				'label'     => __( 'Border', 'powerpack' ),
-				'default'   => '1px',
-				'selector'  => '{{WRAPPER}} .pp-first-text',
-				'separator' => 'before',
-			)
+			[
+				'name'                  => 'first_border',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'default'               => '1px',
+				'selector'              => '{{WRAPPER}} .pp-first-text',
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_control(
 			'first_border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-first-text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'first_text_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-first-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
-			array(
-				'name'      => 'first_text_shadow',
-				'selector'  => '{{WRAPPER}} .pp-first-text',
-				'separator' => 'before',
-			)
+			[
+				'name'                  => 'first_text_shadow',
+				'selector'              => '{{WRAPPER}} .pp-first-text',
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'      => 'first_box_shadow',
-				'selector'  => '{{WRAPPER}} .pp-first-text',
-				'separator' => 'before',
-			)
+			[
+				'name'                  => 'first_box_shadow',
+				'selector'              => '{{WRAPPER}} .pp-first-text',
+				'separator'             => 'before',
+			]
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_style_second_section_controls() {
 		/**
 		 * Style Tab: Second Part
 		 */
 		$this->start_controls_section(
 			'second_section_style',
-			array(
-				'label' => __( 'Second Part', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Second Part', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_control(
 			'second_text_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-second-text' => 'color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
-			array(
-				'name'     => 'second_part_bg',
-				'label'    => __( 'Background', 'powerpack' ),
-				'types'    => array( 'none', 'classic', 'gradient' ),
-				'selector' => '{{WRAPPER}} .pp-second-text',
-			)
+			[
+				'name'                  => 'second_part_bg',
+				'label'                 => __( 'Background', 'powerpack' ),
+				'types'                 => [ 'none', 'classic', 'gradient' ],
+				'selector'              => '{{WRAPPER}} .pp-second-text',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'      => 'second_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'  => '{{WRAPPER}} .pp-second-text',
-				'separator' => 'before',
-			)
+			[
+				'name'                  => 'second_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'selector'              => '{{WRAPPER}} .pp-second-text',
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'      => 'second_border',
-				'label'     => __( 'Border', 'powerpack' ),
-				'default'   => '1px',
-				'selector'  => '{{WRAPPER}} .pp-second-text',
-				'separator' => 'before',
-			)
+			[
+				'name'                  => 'second_border',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'default'               => '1px',
+				'selector'              => '{{WRAPPER}} .pp-second-text',
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_control(
 			'second_border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-second-text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'second_text_margin',
-			array(
-				'label'          => __( 'Spacing', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( '%', 'px' ),
-				'default'        => array(
+			[
+				'label'                 => __( 'Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ '%', 'px' ],
+				'default'               => [
 					'size' => 0,
 					'unit' => 'px',
-				),
-				'range'          => array(
-					'px' => array(
+				],
+				'range'                 => [
+					'px' => [
 						'max' => 100,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}}.pp-dual-heading-inline-block .pp-second-text' => 'margin-left: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}}.pp-dual-heading-block .pp-second-text' => 'margin-top: {{SIZE}}{{UNIT}};',
-				),
-				'separator'      => 'before',
-			)
+				],
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_control(
 			'second_text_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-second-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
-			array(
-				'name'      => 'second_text_shadow',
-				'selector'  => '{{WRAPPER}} .pp-second-text',
-				'separator' => 'before',
-			)
+			[
+				'name'                  => 'second_text_shadow',
+				'selector'              => '{{WRAPPER}} .pp-second-text',
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'      => 'second_box_shadow',
-				'selector'  => '{{WRAPPER}} .pp-second-text',
-				'separator' => 'before',
-			)
+			[
+				'name'                  => 'second_box_shadow',
+				'selector'              => '{{WRAPPER}} .pp-second-text',
+				'separator'             => 'before',
+			]
 		);
 
 		$this->end_controls_section();
@@ -515,20 +562,35 @@ class Dual_Heading extends Powerpack_Widget {
 		}
 
 		if ( $settings['first_text'] || $settings['second_text'] ) {
-			printf( '<%1$s %2$s>', $settings['heading_html_tag'], $this->get_render_attribute_string( 'dual-heading' ) );
-			if ( ! empty( $settings['link']['url'] ) ) {
-				printf( '<a %1$s>', $this->get_render_attribute_string( 'dual-heading-link' ) ); }
+			$heading_html_tag = PP_Helper::validate_html_tag( $settings['heading_html_tag'] );
+			?>
+			<<?php echo esc_html( $heading_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'dual-heading' ) ); ?>>
+				<?php
+				if ( ! empty( $settings['link']['url'] ) ) { ?>
+					<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'dual-heading-link' ) ); ?>>
+					<?php
+				}
 
-			if ( $settings['first_text'] ) {
-				printf( '<span %1$s>%2$s</span>', $this->get_render_attribute_string( 'first_text' ), $this->parse_text_editor( $settings['first_text'] ) );
-			}
-			if ( $settings['second_text'] ) {
-				printf( ' <span %1$s>%2$s</span>', $this->get_render_attribute_string( 'second_text' ), $this->parse_text_editor( $settings['second_text'] ) );
-			}
+				if ( $settings['first_text'] ) {
+					?>
+					<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'first_text' ) ); ?>>
+						<?php echo $this->parse_text_editor( $settings['first_text'] ); ?>
+					</span>
+					<?php
+				}
+				if ( $settings['second_text'] ) {
+					?>
+					<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'second_text' ) ); ?>>
+						<?php echo $this->parse_text_editor( $settings['second_text'] ); ?>
+					</span>
+					<?php
+				}
 
-			if ( ! empty( $settings['link']['url'] ) ) {
-				printf( '</a>' ); }
-			printf( '</%1$s>', $settings['heading_html_tag'] );
+				if ( ! empty( $settings['link']['url'] ) ) { ?>
+					</a>
+				<?php } ?>
+			</<?php echo esc_html( $heading_html_tag ); ?>>
+			<?php
 		}
 	}
 
