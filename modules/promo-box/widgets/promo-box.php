@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\PromoBox\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -84,7 +85,7 @@ class Promo_Box extends Powerpack_Widget {
 		/*
 		-----------------------------------------------------------------------------------*/
 		/*
-		  CONTENT TAB
+		CONTENT TAB
 		/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -419,7 +420,7 @@ class Promo_Box extends Powerpack_Widget {
 		/*
 		-----------------------------------------------------------------------------------*/
 		/*
-		  STYLE TAB
+		STYLE TAB
 		/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -1628,24 +1629,24 @@ class Promo_Box extends Powerpack_Widget {
 		$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
 		$is_new   = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 		?>
-		 <div class="pp-promo-box-icon-wrap">
-			<span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
-				<?php if ( $settings['icon_type'] == 'icon' ) { ?>
+		<div class="pp-promo-box-icon-wrap">
+			<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
+				<?php if ( 'icon' === $settings['icon_type'] ) { ?>
 					<span class="pp-promo-box-icon-inner">
 					<?php
 					if ( $is_new || $migrated ) {
 						Icons_Manager::render_icon( $settings['selected_icon'], array( 'aria-hidden' => 'true' ) );
 					} elseif ( ! empty( $settings['icon'] ) ) {
 						?>
-						<i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
+						<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i>
 						<?php
 					}
 					?>
-					 </span>
-				<?php } elseif ( $settings['icon_type'] == 'image' ) { ?>
+					</span>
+				<?php } elseif ( 'image' === $settings['icon_type'] ) { ?>
 					<?php if ( ! empty( $settings['icon_image']['url'] ) ) { ?>
 					<span class="pp-promo-box-icon-inner">
-						<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'icon_image' ); ?>
+						<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'icon_image' ) ); ?>
 					</span>
 					<?php } ?>
 				<?php } ?>
@@ -1697,32 +1698,32 @@ class Promo_Box extends Powerpack_Widget {
 			$this->add_render_attribute( 'button_text', 'class', 'elementor-animation-' . $settings['button_hover_animation'] );
 		}
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'promo-box' ); ?>>
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'promo-box' ) ); ?>>
 			<div class="pp-promo-box-bg"></div>
-			<?php if ( $settings['overlay_switch'] == 'yes' ) { ?>
+			<?php if ( 'yes' === $settings['overlay_switch'] ) { ?>
 				<div class="pp-promo-box-overlay"></div>
 			<?php } ?>
 			<div class="pp-promo-box-wrap">
 				<div class="pp-promo-box-inner">
 					<div class="pp-promo-box-inner-content">
 						<?php
-						if ( $settings['icon_switch'] == 'yes' ) {
-							if ( $settings['icon_position'] == 'above-title' ) {
+						if ( 'yes' === $settings['icon_switch'] ) {
+							if ( 'above-title' === $settings['icon_position'] ) {
 								$this->render_promobox_icon();
 							}
 						}
 						?>
-						
+
 						<?php if ( ! empty( $settings['heading'] ) ) { ?>
-							<<?php echo $settings['heading_html_tag']; ?> <?php echo $this->get_render_attribute_string( 'heading' ); ?>>
+							<<?php echo esc_html( $settings['heading_html_tag'] ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'heading' ) ); ?>>
 								<?php echo $this->parse_text_editor( $settings['heading'] ); ?>
-							</<?php echo $settings['heading_html_tag']; ?>>
+							</<?php echo esc_html( $settings['heading_html_tag'] ); ?>>
 						<?php } ?>
 
-						<?php if ( $settings['divider_heading_switch'] == 'yes' ) { ?>
+						<?php if ( 'yes' === $settings['divider_heading_switch'] ) { ?>
 							<div class="pp-promo-box-heading-divider-wrap">
 								<div class="pp-promo-box-heading-divider">
-									<?php if ( $settings['divider_heading_type'] == 'image' && $settings['divider_title_image']['url'] != '' ) { ?>
+									<?php if ( 'image' === $settings['divider_heading_type'] && '' !== $settings['divider_title_image']['url'] ) { ?>
 										<img src="<?php echo esc_url( $settings['divider_title_image']['url'] ); ?>">
 									<?php } ?>
 								</div>
@@ -1730,23 +1731,23 @@ class Promo_Box extends Powerpack_Widget {
 						<?php } ?>
 
 						<?php
-						if ( $settings['icon_switch'] == 'yes' ) {
-							if ( $settings['icon_position'] == 'below-title' ) {
+						if ( 'yes' === $settings['icon_switch'] ) {
+							if ( 'below-title' === $settings['icon_position'] ) {
 								$this->render_promobox_icon();
 							}
 						}
 						?>
-						
+
 						<?php if ( ! empty( $settings['sub_heading'] ) ) { ?>
-							<<?php echo $settings['sub_heading_html_tag']; ?> <?php echo $this->get_render_attribute_string( 'sub_heading' ); ?>>
-								<?php echo $settings['sub_heading']; ?>
-							</<?php echo $settings['sub_heading_html_tag']; ?>>
+							<<?php echo esc_html( $settings['sub_heading_html_tag'] ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'sub_heading' ) ); ?>>
+								<?php echo esc_html( $settings['sub_heading'] ); ?>
+							</<?php echo esc_html( $settings['sub_heading_html_tag'] ); ?>>
 						<?php } ?>
 
-						<?php if ( $settings['divider_subheading_switch'] == 'yes' ) { ?>
+						<?php if ( 'yes' === $settings['divider_subheading_switch'] ) { ?>
 							<div class="pp-promo-box-subheading-divider-wrap">
 								<div class="pp-promo-box-subheading-divider">
-									<?php if ( $settings['divider_subheading_type'] == 'image' && $settings['divider_subheading_image']['url'] != '' ) { ?>
+									<?php if ( 'image' === $settings['divider_subheading_type'] && '' !== $settings['divider_subheading_image']['url'] ) { ?>
 										<img src="<?php echo esc_url( $settings['divider_subheading_image']['url'] ); ?>">
 									<?php } ?>
 								</div>
@@ -1754,14 +1755,14 @@ class Promo_Box extends Powerpack_Widget {
 						<?php } ?>
 
 						<?php if ( ! empty( $settings['content'] ) ) { ?>
-							<div <?php echo $this->get_render_attribute_string( 'content' ); ?>>
+							<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'content' ) ); ?>>
 								<?php echo $this->parse_text_editor( $settings['content'] ); ?>
 							</div>
 						<?php } ?>
-						<?php if ( $settings['button_switch'] == 'yes' ) { ?>
+						<?php if ( 'yes' === $settings['button_switch'] ) { ?>
 							<?php if ( ! empty( $settings['button_text'] ) ) { ?>
 								<div class="pp-promo-box-footer">
-									<a <?php echo $this->get_render_attribute_string( 'button_text' ); ?>>
+									<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'button_text' ) ); ?>>
 										<?php echo esc_attr( $settings['button_text'] ); ?>
 									</a>
 								</div>
@@ -1784,9 +1785,9 @@ class Promo_Box extends Powerpack_Widget {
 	protected function _content_template() {
 		?>
 		<#
-		   function icon_template() {
-				   var iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
-					migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' );
+		function icon_template() {
+				var iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
+				migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' );
 				#>
 				<div class="pp-promo-box-icon-wrap">
 					<span class="pp-promo-box-icon pp-icon elementor-animation-{{ settings.hover_animation_icon }}">
@@ -1818,7 +1819,7 @@ class Promo_Box extends Powerpack_Widget {
 					</span>
 				</div>
 				<#
-		   }
+		}
 		#>
 		<div class="pp-promo-box">
 			<div class="pp-promo-box-bg"></div>
@@ -1841,7 +1842,7 @@ class Promo_Box extends Powerpack_Widget {
 
 							view.addInlineEditingAttributes( 'heading' );
 
-						   var heading_html = '<' + settings.heading_html_tag + ' ' + view.getRenderAttributeString( 'heading' ) + '>' + heading + '</' + settings.heading_html_tag + '>';
+						    var heading_html = '<' + settings.heading_html_tag + ' ' + view.getRenderAttributeString( 'heading' ) + '>' + heading + '</' + settings.heading_html_tag + '>';
 
 							print( heading_html );
 						}
