@@ -79,7 +79,7 @@ class Divider extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 
 		/*-----------------------------------------------------------------------------------*/
 		/*	CONTENT TAB
@@ -964,7 +964,7 @@ class Divider extends Powerpack_Widget {
 		$this->add_inline_editing_attributes( 'divider_text', 'none' );
 		$this->add_render_attribute( 'divider_text', 'class', 'pp-divider-' . $settings['divider_type'] );
 
-		if ( $settings['divider_type'] == 'icon' ) {
+		if ( 'icon' === $settings['divider_type'] ) {
 			if ( ! isset( $settings['divider_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
 				// add old default
 				$settings['divider_icon'] = 'fa fa-circle';

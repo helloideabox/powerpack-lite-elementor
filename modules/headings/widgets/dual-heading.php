@@ -574,14 +574,14 @@ class Dual_Heading extends Powerpack_Widget {
 				if ( $settings['first_text'] ) {
 					?>
 					<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'first_text' ) ); ?>>
-						<?php echo $this->parse_text_editor( $settings['first_text'] ); ?>
+						<?php echo $this->parse_text_editor( $settings['first_text'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</span>
 					<?php
 				}
 				if ( $settings['second_text'] ) {
 					?>
 					<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'second_text' ) ); ?>>
-						<?php echo $this->parse_text_editor( $settings['second_text'] ); ?>
+						<?php echo $this->parse_text_editor( $settings['second_text'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</span>
 					<?php
 				}
@@ -601,7 +601,7 @@ class Dual_Heading extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		?>
 		<{{{settings.heading_html_tag}}} class="pp-dual-heading">
 			<# if ( settings.link.url ) { #><a href="{{settings.link.url}}"><# } #>
