@@ -2724,6 +2724,15 @@ div[class*=' pa-'] {
   display: flex;
   overflow: hidden; }
 
+.pp-content-ticker-heading-left .pp-content-ticker-heading {
+  justify-content: flex-start; }
+
+.pp-content-ticker-heading-center .pp-content-ticker-heading {
+  justify-content: center; }
+
+.pp-content-ticker-heading-right .pp-content-ticker-heading {
+  justify-content: flex-end; }
+
 .pp-content-ticker-heading {
   background: #333;
   color: #fff;

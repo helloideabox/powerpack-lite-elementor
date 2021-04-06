@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Classes;
 
 use Elementor\Plugin;
+use Elementor\Utils;
 use PowerpackElementsLite\Classes\PP_Config;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -417,5 +418,22 @@ class PP_Helper {
 
 		// fallback IP address.
 		return '127.0.0.1';
+	}
+
+	/**
+	 * Validate an HTML tag against a safe allowed list.
+	 *
+	 * @since x.x.x
+	 * @param string $tag specifies the HTML Tag.
+	 * @access public
+	 * @return string
+	 */
+	public static function validate_html_tag( $tag ) {
+		// Check if Elementor method exists, else we will run custom validation code.
+		if ( method_exists( 'Elementor\Utils', 'validate_html_tag' ) ) {
+			return Utils::validate_html_tag( $tag );
+		} else {
+			return in_array( strtolower( $tag ), self::ALLOWED_HTML_WRAPPER_TAGS, true ) ? $tag : 'div';
+		}
 	}
 }

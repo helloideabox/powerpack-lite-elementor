@@ -3,6 +3,25 @@
     display: flex;
     overflow: hidden;
 }
+
+.pp-content-ticker-heading-left {
+	.pp-content-ticker-heading {
+		justify-content: flex-start;
+	}
+}
+
+.pp-content-ticker-heading-center {
+	.pp-content-ticker-heading {
+		justify-content: center;
+	}
+}
+
+.pp-content-ticker-heading-right {
+	.pp-content-ticker-heading {
+		justify-content: flex-end;
+	}
+}
+
 .pp-content-ticker-heading {
     background: #333;
     color: #fff;
@@ -86,4 +105,19 @@
     .swiper-button-prev {
         margin-right: 6px;
     }
+}
+
+@mixin content-ticker--mobile {
+	.pp-content-ticker-heading {
+		width: 100% !important;
+	}
+	.pp-content-ticker-heading-arrow .pp-content-ticker-heading:after {
+		display: none;
+	}
+	.pp-content-ticker-container {
+		flex-direction: column;
+	}
+	.pp-content-ticker-navigation {
+		justify-content: center;
+	}
 }
