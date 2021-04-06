@@ -3745,15 +3745,15 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 	public function get_avatar_size( $size = 'sm' ) {
 
-		if ( $size == 'xs' ) {
+		if ( 'xs' === $size ) {
 			$value = 30;
-		} elseif ( $size == 'sm' ) {
+		} elseif ( 'sm' === $size ) {
 			$value = 60;
-		} elseif ( $size == 'md' ) {
+		} elseif ( 'md' === $size ) {
 			$value = 120;
-		} elseif ( $size == 'lg' ) {
+		} elseif ( 'lg' === $size ) {
 			$value = 180;
-		} elseif ( $size == 'xl' ) {
+		} elseif ( 'xl' === $size ) {
 			$value = 240;
 		} else {
 			$value = 60;
@@ -3806,13 +3806,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$settings   = $this->parent->get_settings_for_display();
 		$post_terms = $this->get_instance_value( 'post_terms' );
 
-		if ( $post_terms != 'yes' ) {
+		if ( 'yes' !== $post_terms ) {
 			return;
 		}
 
 		$post_type = $settings['post_type'];
 
-		if ( $settings['post_type'] == 'related' ) {
+		if ( 'related' === $settings['post_type'] ) {
 			$post_type = get_post_type();
 		}
 
@@ -3835,7 +3835,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		$max_terms = $this->get_instance_value( 'max_terms' );
 
-		if ( $max_terms != '' ) {
+		if ( '' !== $max_terms ) {
 			$terms = array_slice( $terms, 0, $max_terms );
 		}
 
@@ -3843,7 +3843,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		$link_terms = $this->get_instance_value( 'post_taxonomy_link' );
 
-		if ( $link_terms == 'yes' ) {
+		if ( 'yes' === $link_terms ) {
 			$format = '<span class="pp-post-term"><a href="%2$s">%1$s</a></span>';
 		} else {
 			$format = '<span class="pp-post-term">%1$s</span>';
@@ -3856,7 +3856,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				foreach ( $terms as $term ) {
 					printf( $format, $term->name, get_term_link( (int) $term->term_id ) );
 				}
-
 					do_action( 'ppe_single_post_terms', get_the_ID(), $settings );
 				?>
 			</span>
@@ -3875,7 +3874,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	protected function render_meta_item( $item_type = '' ) {
 		$settings = $this->parent->get_settings_for_display();
 
-		if ( $item_type == '' ) {
+		if ( '' === $item_type ) {
 			return;
 		}
 
@@ -3884,25 +3883,25 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$item_icon   = $this->get_instance_value( $item_type . '_icon' );
 		$item_prefix = $this->get_instance_value( $item_type . '_prefix' );
 
-		if ( $show_item != 'yes' ) {
+		if ( 'yes' !== $show_item ) {
 			return;
 		}
 		?>
 		<?php do_action( 'ppe_before_single_post_' . $item_type, get_the_ID(), $settings ); ?>
-		<span class="pp-post-<?php echo $item_type; ?>">
+		<span class="pp-post-<?php echo esc_attr( $item_type ); ?>">
 			<?php
-			if ( $item_icon != '' ) {
+			if ( '' !== $item_icon ) {
 				?>
-					<span class="pp-meta-icon <?php echo $item_icon; ?>">
+					<span class="pp-meta-icon <?php echo esc_attr( $item_icon ); ?>">
 					</span>
 					<?php
 			}
 
-			if ( $item_prefix != '' ) {
+			if ( '' !== $item_prefix ) {
 				?>
 					<span class="pp-meta-prefix">
 					<?php
-						echo $item_prefix;
+						echo esc_html( $item_prefix );
 					?>
 					</span>
 					<?php
@@ -3910,16 +3909,18 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			?>
 			<span class="pp-meta-text">
 				<?php
-				if ( $item_type == 'author' ) {
-					echo $this->get_post_author( $item_link );
-				} elseif ( $item_type == 'date' ) {
-					if ( $item_link == 'yes' ) {
-						echo '<a href="' . get_permalink() . '">' . $this->get_post_date() . '</a>';
+				if ( 'author' === $item_type ) {
+					echo wp_kses_post( $this->get_post_author( $item_link ) );
+				} elseif ( 'date' === $item_type ) {
+					if ( 'yes' === $item_link ) {
+						?>
+						<a href="<?php echo esc_url( get_permalink() ); ?>"> <?php echo esc_attr( $this->get_post_date() ); ?></a>
+						<?php
 					} else {
-						echo $this->get_post_date();
+						echo wp_kses_post( $this->get_post_date() );
 					}
-				} elseif ( $item_type == 'comments' ) {
-					echo $this->get_post_comments();
+				} elseif ( 'comments' === $item_type ) {
+					echo wp_kses_post( $this->get_post_comments() );
 				}
 				?>
 			</span>
@@ -4078,16 +4079,16 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		if ( $post_title ) {
 			?>
 			<?php do_action( 'ppe_before_single_post_title', get_the_ID(), $settings ); ?>
-			<<?php echo $title_tag; ?> class="pp-post-title">
+			<<?php echo esc_html( $title_tag ); ?> class="pp-post-title">
 				<?php if ( $title_link == 'yes' ) { ?>
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-						<?php echo $post_title; ?>
+						<?php echo esc_html( $post_title ); ?>
 					</a>
 					<?php
 				} else {
-					echo $post_title; }
+					echo esc_html( $post_title ); }
 				?>
-			</<?php echo $title_tag; ?>>
+			</<?php echo esc_html( $title_tag ); ?>>
 			<?php
 			if ( $post_title_separator == 'yes' ) {
 				?>
@@ -4128,7 +4129,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		?>
 		<div class="pp-post-thumbnail">
 			<div class="pp-post-thumbnail-wrap">
-				<?php echo $thumbnail_html; ?>
+				<?php echo wp_kses_post( $thumbnail_html ); ?>
 			</div>
 		</div>
 		<?php
@@ -4190,7 +4191,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				the_content();
 			} elseif ( $content_type == 'content' ) {
 				$more = '...';
-				echo wp_trim_words( get_the_content(), $content_length, apply_filters( 'pp_posts_content_limit_more', $more ) );
+				echo wp_kses_post( wp_trim_words( get_the_content(), $content_length, apply_filters( 'pp_posts_content_limit_more', $more ) ) );
 			} else {
 				add_filter( 'excerpt_length', array( $this, 'pp_excerpt_length_filter' ), 20 );
 				add_filter( 'excerpt_more', array( $this, 'pp_excerpt_more_filter' ), 20 );
@@ -4297,7 +4298,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$button_text = apply_filters( 'ppe_posts_button_text', $button_text, get_the_ID() );
 		?>
 		<?php do_action( 'ppe_before_single_post_button', get_the_ID(), $settings ); ?>
-		<a <?php echo $this->parent->get_render_attribute_string( 'button-' . get_the_ID() ); ?>>
+		<a <?php echo wp_kses_post( $this->parent->get_render_attribute_string( 'button-' . get_the_ID() ) ); ?>>
 			<?php if ( 'before' === $button_icon_position ) {
 				$this->render_button_icon();
 			} ?>
@@ -4442,8 +4443,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				$pagination_type = 'standard';
 			}
 			?>
-			<nav class="pp-posts-pagination pp-posts-pagination-<?php echo $pagination_type; ?> elementor-pagination" role="navigation" aria-label="<?php _e( 'Pagination', 'powerpack' ); ?>" data-total="<?php echo $total_pages_pagination; ?>">
-				<?php echo implode( PHP_EOL, $links ); ?>
+			<nav class="pp-posts-pagination pp-posts-pagination-<?php echo esc_attr( $pagination_type ); ?> elementor-pagination" role="navigation" aria-label="<?php esc_html_e( 'Pagination', 'powerpack' ); ?>" data-total="<?php echo esc_attr( $total_pages_pagination ); ?>">
+				<?php echo wp_kses_post( implode( PHP_EOL, $links ) ); ?>
 			</nav>
 			<?php
 		}
@@ -4589,9 +4590,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		do_action( 'ppe_before_single_post_wrap', get_the_ID(), $settings );
 		?>
-		<div class="<?php echo $this->get_item_wrap_classes(); ?>">
+		<div class="<?php echo esc_attr( $this->get_item_wrap_classes() ); ?>">
 			<?php do_action( 'ppe_before_single_post', get_the_ID(), $settings ); ?>
-			<div class="<?php echo $this->get_item_classes(); ?>">
+			<div class="<?php echo esc_attr( $this->get_item_classes() ); ?>">
 				<?php
 				if ( $thumbnail_location == 'outside' ) {
 					$this->render_post_thumbnail();
@@ -4655,7 +4656,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		?>
 		<div class="pp-posts-empty">
 			<?php if ( $settings['nothing_found_message'] ) { ?>
-				<p><?php echo $settings['nothing_found_message']; ?></p>
+				<p><?php echo esc_html( $settings['nothing_found_message'] ); ?></p>
 			<?php } ?>
 
 			<?php if ( $settings['show_search_form'] === 'yes' ) { ?>
@@ -4800,7 +4801,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		<?php do_action( 'ppe_before_posts_outer_wrap', $settings ); ?>
 
-		<div <?php echo $this->parent->get_render_attribute_string( 'posts-container' ); ?>>
+		<div <?php echo wp_kses_post( $this->parent->get_render_attribute_string( 'posts-container' ) ); ?>>
 			<?php
 				do_action( 'ppe_before_posts_wrap', $settings );
 
@@ -4839,7 +4840,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			<?php } ?>
 			<?php } ?>
 			
-			<div <?php echo $this->parent->get_render_attribute_string( 'posts-wrap' ); ?>>
+			<div <?php echo wp_kses_post( $this->parent->get_render_attribute_string( 'posts-wrap' ) ); ?>>
 				<?php
 					$i = 1;
 
@@ -4943,7 +4944,7 @@ endif;
 			jQuery( document ).ready( function( $ ) {
 				$( '.pp-posts-grid' ).each( function() {
 
-					var $node_id 	= '<?php echo $this->parent->get_id(); ?>',
+					var $node_id 	= '<?php echo esc_attr( $this->parent->get_id() ); ?>',
 						$scope 		= $( '[data-id="' + $node_id + '"]' ),
 						$selector 	= $(this);
 
@@ -4954,7 +4955,7 @@ endif;
 					$selector.imagesLoaded( function() {
 
 						$isotopeObj = $selector.isotope({
-							layoutMode: '<?php echo $layout; ?>',
+							layoutMode: '<?php echo esc_attr( $layout ); ?>',
 							itemSelector: '.pp-grid-item-wrap',
 						});
 
