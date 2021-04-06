@@ -12,8 +12,8 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Color;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Schemes\Typography as Scheme_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -1062,10 +1062,10 @@ class Buttons extends Powerpack_Widget {
 			$this->add_responsive_control(
 				'tooltips_padding',
 				[
-					'label' 		=> __( 'Padding', 'powerpack' ),
-					'type' 			=> Controls_Manager::DIMENSIONS,
-					'size_units' 	=> [ 'px', 'em', '%' ],
-					'selectors' 	=> [
+					'label'      => __( 'Padding', 'powerpack' ),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors'  => [
 						'.pp-tooltip-{{ID}} .pp-tooltip-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 				]
@@ -1073,10 +1073,10 @@ class Buttons extends Powerpack_Widget {
 			$this->add_responsive_control(
 				'tooltips_border_radius',
 				[
-					'label' 		=> __( 'Border Radius', 'powerpack' ),
-					'type' 			=> Controls_Manager::DIMENSIONS,
-					'size_units' 	=> [ 'px', '%' ],
-					'selectors' 	=> [
+					'label'      => __( 'Border Radius', 'powerpack' ),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%' ],
+					'selectors'  => [
 						'.pp-tooltip-{{ID}} .pp-tooltip-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 				]
@@ -1087,7 +1087,7 @@ class Buttons extends Powerpack_Widget {
 					'name'      => 'tooltips_typography',
 					'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
 					'separator' => 'after',
-					'selector' 	=> '.pp-tooltip-{{ID}} .pp-tooltip-content',
+					'selector'  => '.pp-tooltip-{{ID}} .pp-tooltip-content',
 				]
 			);
 			$this->add_control(
@@ -1155,8 +1155,8 @@ class Buttons extends Powerpack_Widget {
 		<div class="pp-buttons-group">
 			<?php foreach ( $settings['buttons'] as $index => $item ) : ?>
 				<?php
-				$button_key         = $this->get_repeater_setting_key( 'button', 'buttons', $index );
-				$content_inner_key  = $this->get_repeater_setting_key( 'content', 'buttons', $index );
+				$button_key        = $this->get_repeater_setting_key( 'button', 'buttons', $index );
+				$content_inner_key = $this->get_repeater_setting_key( 'content', 'buttons', $index );
 
 				// Button Size
 				$button_size = ( 'default' !== $item['single_button_size'] ) ? $item['single_button_size'] : $settings['button_size'];
@@ -1217,10 +1217,10 @@ class Buttons extends Powerpack_Widget {
 					$this->add_render_attribute(
 						$button_key,
 						[
-							'data-tooltip'                  => htmlspecialchars( $item['tooltip_content'] ),
-							'data-tooltip-position'         => $ttip_position,
-							'data-tooltip-position-tablet'  => $ttip_tablet,
-							'data-tooltip-position-mobile'  => $ttip_mobile,
+							'data-tooltip'                 => htmlspecialchars( $item['tooltip_content'] ),
+							'data-tooltip-position'        => $ttip_position,
+							'data-tooltip-position-tablet' => $ttip_tablet,
+							'data-tooltip-position-mobile' => $ttip_mobile,
 						]
 					);
 				}
@@ -1230,9 +1230,9 @@ class Buttons extends Powerpack_Widget {
 					$icon_position,
 				] );
 				?>
-				<a <?php echo $this->get_render_attribute_string( $button_key ); ?>>
+				<a <?php echo wp_kses_post( $this->get_render_attribute_string( $button_key ) ); ?>>
 					<div class="pp-button-content-wrapper">
-						<span <?php echo $this->get_render_attribute_string( $content_inner_key ); ?>>
+						<span <?php echo wp_kses_post( $this->get_render_attribute_string( $content_inner_key ) ); ?>>
 							<?php
 							if ( 'none' !== $item['pp_icon_type'] ) {
 								$icon_key = 'icon_' . $i;
@@ -1240,7 +1240,7 @@ class Buttons extends Powerpack_Widget {
 								$this->add_render_attribute( $icon_key, 'class', $icon_wrap );
 								$migration_allowed = Icons_Manager::is_migration_allowed();
 								?>
-								<span <?php echo $this->get_render_attribute_string( $icon_key ); ?>>
+								<span <?php echo wp_kses_post( $this->get_render_attribute_string( $icon_key ) ); ?>>
 									<?php
 									if ( 'icon' === $item['pp_icon_type'] ) {
 										// add old default
@@ -1260,17 +1260,23 @@ class Buttons extends Powerpack_Widget {
 														'aria-hidden' => 'true',
 													] );
 												} else { ?>
-														<i class="pp-button-icon <?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
-														<?php
+													<i class="pp-button-icon <?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
+													<?php
 												}
 												?>
 											</span>
 											<?php
 										}
-									} elseif ( 'image' === $item['pp_icon_type'] ) {
-										printf( '<span class="pp-button-icon-image">%1$s</span>', Group_Control_Image_Size::get_attachment_image_html( $item, 'icon_img', 'icon_img' ) );
-									} elseif ( 'text' === $item['pp_icon_type'] ) {
-										printf( '<span class="pp-button-icon pp-button-icon-number">%1$s</span>', esc_attr( $item['icon_text'] ) );
+									} elseif ( 'image' === $item['pp_icon_type'] ) { ?>
+										<span class="pp-button-icon-image">
+											<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $item, 'icon_img', 'icon_img' ) ); ?>
+										</span>
+										<?php
+									} elseif ( 'text' === $item['pp_icon_type'] ) { ?>
+										<span class="pp-button-icon pp-button-icon-number">
+											<?php echo esc_attr( $item['icon_text'] ); ?>
+										</span>
+										<?php
 									}
 									?>
 								</span>
@@ -1282,9 +1288,9 @@ class Buttons extends Powerpack_Widget {
 								$this->add_render_attribute( $text_key, 'class', 'pp-button-title' );
 								$this->add_inline_editing_attributes( $text_key, 'none' ); ?>
 
-								<span <?php echo $this->get_render_attribute_string( $text_key ); ?>>
+								<span <?php echo wp_kses_post( $this->get_render_attribute_string( $text_key ) ); ?>>
 								<?php
-									echo $item['text'];
+									echo esc_attr( $item['text'] );
 								?>
 								</span>
 							<?php } ?>
@@ -1333,8 +1339,9 @@ class Buttons extends Powerpack_Widget {
 	protected function content_template() {
 		?>
 		<div class="pp-buttons-group">
-			<# var i = 1; #>
 			<#
+			var i = 1;
+
 			function get_tooltip_position( $tt_position ) {
 				switch ( $tt_position ) {
 					case 'above':
