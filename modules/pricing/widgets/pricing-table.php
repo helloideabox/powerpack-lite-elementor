@@ -15,8 +15,8 @@ use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes\Typography as Scheme_Typography;
+use Elementor\Core\Schemes\Color as Scheme_Color;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -144,101 +144,101 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_header',
-			array(
-				'label' => __( 'Header', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Header', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'icon_type',
-			array(
-				'label'       => esc_html__( 'Icon Type', 'powerpack' ),
-				'type'        => Controls_Manager::CHOOSE,
-				'label_block' => false,
-				'options'     => array(
-					'none'  => array(
-						'title' => esc_html__( 'None', 'powerpack' ),
-						'icon'  => 'fa fa-ban',
-					),
-					'icon'  => array(
-						'title' => esc_html__( 'Icon', 'powerpack' ),
-						'icon'  => 'fa fa-star',
-					),
-					'image' => array(
-						'title' => esc_html__( 'Image', 'powerpack' ),
-						'icon'  => 'fa fa-picture-o',
-					),
-				),
-				'default'     => 'none',
-			)
+			[
+				'label'                 => esc_html__( 'Icon Type', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'label_block'           => false,
+				'options'               => [
+					'none'        => [
+						'title'   => esc_html__( 'None', 'powerpack' ),
+						'icon'    => 'fa fa-ban',
+					],
+					'icon'        => [
+						'title'   => esc_html__( 'Icon', 'powerpack' ),
+						'icon'    => 'fa fa-star',
+					],
+					'image'       => [
+						'title'   => esc_html__( 'Image', 'powerpack' ),
+						'icon'    => 'fa fa-picture-o',
+					],
+				],
+				'default'               => 'none',
+			]
 		);
 
 		$this->add_control(
 			'select_table_icon',
-			array(
-				'label'            => __( 'Icon', 'powerpack' ),
-				'type'             => Controls_Manager::ICONS,
-				'fa4compatibility' => 'table_icon',
-				'default'          => array(
-					'value'   => 'fas fa-star',
-					'library' => 'fa-solid',
-				),
-				'condition'        => array(
-					'icon_type' => 'icon',
-				),
-			)
+			[
+				'label'                 => __( 'Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::ICONS,
+				'fa4compatibility'      => 'table_icon',
+				'default'               => [
+					'value'     => 'fas fa-star',
+					'library'   => 'fa-solid',
+				],
+				'condition'             => [
+					'icon_type'     => 'icon',
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon_image',
-			array(
-				'label'     => __( 'Image', 'powerpack' ),
-				'type'      => Controls_Manager::MEDIA,
-				'default'   => array(
+			[
+				'label'                 => __( 'Image', 'powerpack' ),
+				'type'                  => Controls_Manager::MEDIA,
+				'default'               => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-				'condition' => array(
-					'icon_type' => 'image',
-				),
-			)
+				],
+				'condition'             => [
+					'icon_type'  => 'image',
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
-			array(
-				'name'      => 'image', // Usage: '{name}_size' and '{name}_custom_dimension', in this case 'image_size' and 'image_custom_dimension'.
-				'default'   => 'full',
-				'separator' => 'none',
-				'condition' => array(
-					'icon_type' => 'image',
-				),
-			)
+			[
+				'name'                  => 'image', // Usage: '{name}_size' and '{name}_custom_dimension', in this case 'image_size' and 'image_custom_dimension'.
+				'default'               => 'full',
+				'separator'             => 'none',
+				'condition'             => [
+					'icon_type'  => 'image',
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_title',
-			array(
-				'label'   => __( 'Title', 'powerpack' ),
-				'type'    => Controls_Manager::TEXT,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => __( 'Title', 'powerpack' ),
-				'title'   => __( 'Enter table title', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Title', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => __( 'Title', 'powerpack' ),
+				'title'                 => __( 'Enter table title', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'table_subtitle',
-			array(
-				'label'   => __( 'Subtitle', 'powerpack' ),
-				'type'    => Controls_Manager::TEXT,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => __( 'Subtitle', 'powerpack' ),
-				'title'   => __( 'Enter table subtitle', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Subtitle', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => __( 'Subtitle', 'powerpack' ),
+				'title'                 => __( 'Enter table subtitle', 'powerpack' ),
+			]
 		);
 
 		$this->end_controls_section();
@@ -251,17 +251,17 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_pricing',
-			array(
-				'label' => __( 'Pricing', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Pricing', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'currency_symbol',
-			array(
-				'label'   => __( 'Currency Symbol', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => array(
+			[
+				'label'                 => __( 'Currency Symbol', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'options'               => [
 					''             => __( 'None', 'powerpack' ),
 					'dollar'       => '&#36; ' . __( 'Dollar', 'powerpack' ),
 					'euro'         => '&#128; ' . __( 'Euro', 'powerpack' ),
@@ -281,85 +281,85 @@ class Pricing_Table extends Powerpack_Widget {
 					'yen'          => '&#165; ' . __( 'Yen/Yuan', 'powerpack' ),
 					'won'          => '&#8361; ' . __( 'Won', 'powerpack' ),
 					'custom'       => __( 'Custom', 'powerpack' ),
-				),
-				'default' => 'dollar',
-			)
+				],
+				'default'               => 'dollar',
+			]
 		);
 
 		$this->add_control(
 			'currency_symbol_custom',
-			array(
-				'label'     => __( 'Custom Symbol', 'powerpack' ),
-				'type'      => Controls_Manager::TEXT,
-				'dynamic'   => array(
-					'active' => true,
-				),
-				'default'   => '',
-				'condition' => array(
-					'currency_symbol' => 'custom',
-				),
-			)
+			[
+				'label'                 => __( 'Custom Symbol', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => '',
+				'condition'             => [
+					'currency_symbol'   => 'custom',
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_price',
-			array(
-				'label'   => __( 'Price', 'powerpack' ),
-				'type'    => Controls_Manager::TEXT,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => '49.99',
-			)
+			[
+				'label'                 => __( 'Price', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => '49.99',
+			]
 		);
 
 		$this->add_control(
 			'currency_format',
-			array(
-				'label'   => __( 'Currency Format', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'raised',
-				'options' => array(
+			[
+				'label'                 => __( 'Currency Format', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'raised',
+				'options'               => [
 					'raised' => __( 'Raised', 'powerpack' ),
 					''       => __( 'Normal', 'powerpack' ),
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'discount',
-			array(
-				'label'        => __( 'Discount', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => '',
-				'label_on'     => __( 'On', 'powerpack' ),
-				'label_off'    => __( 'Off', 'powerpack' ),
-				'return_value' => 'yes',
-			)
+			[
+				'label'                 => __( 'Discount', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => '',
+				'label_on'              => __( 'On', 'powerpack' ),
+				'label_off'             => __( 'Off', 'powerpack' ),
+				'return_value'          => 'yes',
+			]
 		);
 
 		$this->add_control(
 			'table_original_price',
-			array(
-				'label'     => __( 'Original Price', 'powerpack' ),
-				'type'      => Controls_Manager::TEXT,
-				'dynamic'   => array(
-					'active' => true,
-				),
-				'default'   => '69',
-				'condition' => array(
+			[
+				'label'                 => __( 'Original Price', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => '69',
+				'condition'             => [
 					'discount' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_duration',
-			array(
-				'label'   => __( 'Duration', 'powerpack' ),
-				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'per month', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Duration', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXT,
+				'default'               => __( 'per month', 'powerpack' ),
+			]
 		);
 
 		$this->end_controls_section();
@@ -372,9 +372,9 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_features',
-			array(
-				'label' => __( 'Features', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Features', 'powerpack' ),
+			]
 		);
 
 		$repeater = new Repeater();
@@ -760,157 +760,157 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_ribbon',
-			array(
-				'label' => __( 'Ribbon', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Ribbon', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'show_ribbon',
-			array(
-				'label'        => __( 'Show Ribbon', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
-				'return_value' => 'yes',
-			)
+			[
+				'label'                 => __( 'Show Ribbon', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => '',
+				'label_on'              => __( 'Yes', 'powerpack' ),
+				'label_off'             => __( 'No', 'powerpack' ),
+				'return_value'          => 'yes',
+			]
 		);
 
 		$this->add_control(
 			'ribbon_style',
-			array(
-				'label'     => __( 'Style', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => '1',
-				'options'   => array(
-					'1' => __( 'Default', 'powerpack' ),
-					'2' => __( 'Circle', 'powerpack' ),
-					'3' => __( 'Flag', 'powerpack' ),
-				),
-				'condition' => array(
-					'show_ribbon' => 'yes',
-				),
-			)
+			[
+				'label'                => __( 'Style', 'powerpack' ),
+				'type'                 => Controls_Manager::SELECT,
+				'default'              => '1',
+				'options'              => [
+					'1'         => __( 'Default', 'powerpack' ),
+					'2'         => __( 'Circle', 'powerpack' ),
+					'3'         => __( 'Flag', 'powerpack' ),
+				],
+				'condition'             => [
+					'show_ribbon'  => 'yes',
+				],
+			]
 		);
 
 		$this->add_control(
 			'ribbon_title',
-			array(
-				'label'     => __( 'Title', 'powerpack' ),
-				'type'      => Controls_Manager::TEXT,
-				'dynamic'   => array(
-					'active' => true,
-				),
-				'default'   => __( 'New', 'powerpack' ),
-				'condition' => array(
-					'show_ribbon' => 'yes',
-				),
-			)
+			[
+				'label'                 => __( 'Title', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => __( 'New', 'powerpack' ),
+				'condition'             => [
+					'show_ribbon'  => 'yes',
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'ribbon_size',
-			array(
-				'label'      => __( 'Size', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px', 'em' ),
-				'range'      => array(
-					'px' => array(
-						'min' => 1,
-						'max' => 200,
-					),
-					'em' => array(
-						'min' => 1,
-						'max' => 15,
-					),
-				),
-				'default'    => array(
-					'size' => 4,
-					'unit' => 'em',
-				),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em' ],
+				'range'                 => [
+					'px' => [
+						'min'   => 1,
+						'max'   => 200,
+					],
+					'em' => [
+						'min'   => 1,
+						'max'   => 15,
+					],
+				],
+				'default'               => [
+					'size'      => 4,
+					'unit'      => 'em',
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-ribbon-2' => 'min-width: {{SIZE}}{{UNIT}}; min-height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'             => [
 					'show_ribbon'  => 'yes',
-					'ribbon_style' => array( '2' ),
-				),
-			)
+					'ribbon_style' => [ '2' ],
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'top_distance',
-			array(
-				'label'      => __( 'Distance from Top', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px', '%' ),
-				'range'      => array(
-					'px' => array(
-						'min' => 1,
-						'max' => 200,
-					),
-				),
-				'default'    => array(
-					'size' => 20,
-					'unit' => '%',
-				),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Distance from Top', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%' ],
+				'range'                 => [
+					'px' => [
+						'min'   => 1,
+						'max'   => 200,
+					],
+				],
+				'default'               => [
+					'size'      => 20,
+					'unit'      => '%',
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-ribbon' => 'top: {{SIZE}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'             => [
 					'show_ribbon'  => 'yes',
-					'ribbon_style' => array( '2', '3' ),
-				),
-			)
+					'ribbon_style' => [ '2', '3' ],
+				],
+			]
 		);
 
 		$ribbon_distance_transform = is_rtl() ? 'translateY(-50%) translateX({{SIZE}}{{UNIT}}) rotate(-45deg)' : 'translateY(-50%) translateX(-50%) translateX({{SIZE}}{{UNIT}}) rotate(-45deg)';
 
 		$this->add_responsive_control(
 			'ribbon_distance',
-			array(
-				'label'     => __( 'Distance', 'powerpack' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
+			[
+				'label'                 => __( 'Distance', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
 						'min' => 0,
 						'max' => 50,
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-ribbon-inner' => 'margin-top: {{SIZE}}{{UNIT}}; transform: ' . $ribbon_distance_transform,
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'show_ribbon'  => 'yes',
-					'ribbon_style' => array( '1' ),
-				),
-			)
+					'ribbon_style' => [ '1' ],
+				],
+			]
 		);
 
 		$this->add_control(
 			'ribbon_position',
-			array(
-				'label'       => __( 'Position', 'powerpack' ),
-				'type'        => Controls_Manager::CHOOSE,
-				'toggle'      => false,
-				'label_block' => false,
-				'options'     => array(
-					'left'  => array(
+			[
+				'label'                 => __( 'Position', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'toggle'                => false,
+				'label_block'           => false,
+				'options'               => [
+					'left'  => [
 						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
-					),
-					'right' => array(
+					],
+					'right' => [
 						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
-					),
-				),
-				'default'     => 'right',
-				'condition'   => array(
+					],
+				],
+				'default'               => 'right',
+				'condition'             => [
 					'show_ribbon'  => 'yes',
-					'ribbon_style' => array( '1', '2', '3' ),
-				),
-			)
+					'ribbon_style' => [ '1', '2', '3' ],
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -923,64 +923,64 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_button',
-			array(
-				'label' => __( 'Button', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Button', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'table_button_position',
-			array(
-				'label'   => __( 'Button Position', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'below',
-				'options' => array(
-					'above' => __( 'Above Features', 'powerpack' ),
-					'below' => __( 'Below Features', 'powerpack' ),
-					'none'  => __( 'None', 'powerpack' ),
-				),
-			)
+			[
+				'label'                => __( 'Button Position', 'powerpack' ),
+				'type'                 => Controls_Manager::SELECT,
+				'default'              => 'below',
+				'options'              => [
+					'above'    => __( 'Above Features', 'powerpack' ),
+					'below'    => __( 'Below Features', 'powerpack' ),
+					'none'    => __( 'None', 'powerpack' ),
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_button_text',
-			array(
-				'label'   => __( 'Button Text', 'powerpack' ),
-				'type'    => Controls_Manager::TEXT,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => __( 'Get Started', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Button Text', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => __( 'Get Started', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'link',
-			array(
-				'label'       => __( 'Link', 'powerpack' ),
-				'label_block' => true,
-				'type'        => Controls_Manager::URL,
-				'dynamic'     => array(
-					'active' => true,
-				),
-				'placeholder' => 'https://www.your-link.com',
-				'default'     => array(
+			[
+				'label'                 => __( 'Link', 'powerpack' ),
+				'label_block'           => true,
+				'type'                  => Controls_Manager::URL,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'placeholder'           => 'https://www.your-link.com',
+				'default'               => [
 					'url' => '#',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_additional_info',
-			array(
-				'label'   => __( 'Additional Info', 'powerpack' ),
-				'type'    => Controls_Manager::TEXTAREA,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => __( 'Enter additional info here', 'powerpack' ),
-				'title'   => __( 'Additional Info', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Additional Info', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXTAREA,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => __( 'Enter additional info here', 'powerpack' ),
+				'title'                 => __( 'Additional Info', 'powerpack' ),
+			]
 		);
 
 		$this->end_controls_section();
@@ -1062,35 +1062,35 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_table_style',
-			array(
-				'label' => __( 'Table', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Table', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_control(
 			'table_align',
-			array(
-				'label'        => __( 'Alignment', 'powerpack' ),
-				'type'         => Controls_Manager::CHOOSE,
-				'label_block'  => false,
-				'options'      => array(
-					'left'   => array(
+			[
+				'label'                 => __( 'Alignment', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'label_block'           => false,
+				'options'               => [
+					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
+					],
+					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
+					],
+					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
-				'default'      => '',
-				'prefix_class' => 'pp-pricing-table-align-',
-			)
+					],
+				],
+				'default'               => '',
+				'prefix_class'      => 'pp-pricing-table-align-',
+			]
 		);
 
 		$this->end_controls_section();
@@ -1103,302 +1103,302 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_table_header_style',
-			array(
-				'label' => __( 'Header', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Header', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_control(
 			'table_title_bg_color',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				),
-				'selectors' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'scheme'                => [
+					'type'     => Scheme_Color::get_type(),
+					'value'    => Scheme_Color::COLOR_2,
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-head' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'        => 'table_header_border',
-				'label'       => __( 'Border', 'powerpack' ),
-				'placeholder' => '1px',
-				'default'     => '1px',
-				'condition'   => array(
+			[
+				'name'                  => 'table_header_border',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-				'selector'    => '{{WRAPPER}} .pp-pricing-table-head',
-			)
+				],
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-head',
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_title_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-head' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_title_icon',
-			array(
-				'label'     => __( 'Icon', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => array(
+			[
+				'label'                 => __( 'Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+				'condition'             => [
 					'icon_type!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_icon_size',
-			array(
-				'label'      => __( 'Size', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+			[
+				'label'                 => __( 'Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'unit' => 'px',
 					'size' => 26,
-				),
-				'range'      => array(
-					'px' => array(
-						'min'  => 5,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', 'em' ),
-				'condition'  => array(
-					'icon_type'                 => 'icon',
+				],
+				'range'                 => [
+					'px' => [
+						'min'   => 5,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px', 'em' ],
+				'condition'             => [
+					'icon_type'   => 'icon',
 					'select_table_icon[value]!' => '',
-				),
-				'selectors'  => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-icon' => 'font-size: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_icon_image_width',
-			array(
-				'label'      => __( 'Width', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+			[
+				'label'                 => __( 'Width', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 120,
 					'unit' => 'px',
-				),
-				'range'      => array(
-					'px' => array(
-						'min'  => 1,
-						'max'  => 1200,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'condition'  => array(
+				],
+				'range'                 => [
+					'px' => [
+						'min'   => 1,
+						'max'   => 1200,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px', '%' ],
+				'condition'             => [
 					'icon_type'   => 'image',
 					'icon_image!' => '',
-				),
-				'selectors'  => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-icon' => 'width: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_icon_bg_color',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'condition' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'condition'             => [
 					'icon_type!' => 'none',
-				),
-				'selectors' => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-icon' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_icon_color',
-			array(
-				'label'     => __( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
-				'condition' => array(
-					'icon_type'                 => 'icon',
+			[
+				'label'                 => __( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '#ffffff',
+				'condition'             => [
+					'icon_type'   => 'icon',
 					'select_table_icon[value]!' => '',
-				),
-				'selectors' => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-icon' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .pp-pricing-table-icon svg' => 'fill: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_icon_margin',
-			array(
-				'label'      => __( 'Margin', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'condition'  => array(
+			[
+				'label'                 => __( 'Margin', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'condition'             => [
 					'icon_type!' => 'none',
-				),
-				'selectors'  => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_icon_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'condition'  => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'condition'             => [
 					'icon_type!' => 'none',
-				),
-				'selectors'  => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'        => 'table_icon_border',
-				'label'       => __( 'Border', 'powerpack' ),
-				'placeholder' => '1px',
-				'default'     => '1px',
-				'condition'   => array(
+			[
+				'name'                  => 'table_icon_border',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+				'condition'             => [
 					'icon_type!' => 'none',
-				),
-				'selector'    => '{{WRAPPER}} .pp-pricing-table-icon',
-			)
+				],
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-icon',
+			]
 		);
 
 		$this->add_control(
 			'icon_border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'condition'  => array(
+			[
+				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'condition'             => [
 					'icon_type!' => 'none',
-				),
-				'selectors'  => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-icon, {{WRAPPER}} .pp-pricing-table-icon img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_title_heading',
-			array(
-				'label'     => __( 'Title', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			)
+			[
+				'label'                 => __( 'Title', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_control(
 			'table_title_color',
-			array(
-				'label'     => __( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#fff',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '#fff',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-title' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'     => 'table_title_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .pp-pricing-table-title',
-			)
+			[
+				'name'                  => 'table_title_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-title',
+			]
 		);
 
 		$this->add_control(
 			'table_subtitle_heading',
-			array(
-				'label'     => __( 'Sub Title', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => array(
+			[
+				'label'                 => __( 'Sub Title', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+				'condition'             => [
 					'table_subtitle!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_subtitle_color',
-			array(
-				'label'     => __( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#fff',
-				'condition' => array(
+			[
+				'label'                 => __( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '#fff',
+				'condition'             => [
 					'table_subtitle!' => '',
-				),
-				'selectors' => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-subtitle' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'      => 'table_subtitle_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
-				'condition' => array(
+			[
+				'name'                  => 'table_subtitle_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_2,
+				'condition'             => [
 					'table_subtitle!' => '',
-				),
-				'selector'  => '{{WRAPPER}} .pp-pricing-table-subtitle',
-			)
+				],
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-subtitle',
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_subtitle_spacing',
-			array(
-				'label'      => __( 'Spacing', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'condition'  => array(
+			[
+				'label'                 => __( 'Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px', '%' ],
+				'condition'             => [
 					'table_subtitle!' => '',
-				),
-				'selectors'  => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-subtitle' => 'margin-top: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -1411,324 +1411,324 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_table_pricing_style',
-			array(
-				'label' => __( 'Pricing', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Pricing', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'      => 'table_pricing_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
-				'selector'  => '{{WRAPPER}} .pp-pricing-table-price',
-				'separator' => 'before',
-			)
+			[
+				'name'                  => 'table_pricing_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-price',
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_control(
 			'table_price_color_normal',
-			array(
-				'label'     => __( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_price_bg_color_normal',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'        => 'price_border_normal',
-				'label'       => __( 'Border', 'powerpack' ),
-				'placeholder' => '1px',
-				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-pricing-table-price',
-			)
+			[
+				'name'                  => 'price_border_normal',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-price',
+			]
 		);
 
 		$this->add_control(
 			'pricing_border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_pricing_width',
-			array(
-				'label'      => __( 'Width', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'%'  => array(
-						'min'  => 1,
-						'max'  => 100,
-						'step' => 1,
-					),
-					'px' => array(
-						'min'  => 25,
-						'max'  => 1200,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Width', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'%' => [
+						'min'   => 1,
+						'max'   => 100,
+						'step'  => 1,
+					],
+					'px' => [
+						'min'   => 25,
+						'max'   => 1200,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price' => 'width: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_price_margin',
-			array(
-				'label'      => __( 'Margin', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Margin', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_price_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'     => 'pa_logo_wrapper_shadow',
-				'selector' => '{{WRAPPER}} .pp-pricing-table-price',
-			)
+			[
+				'name'                  => 'pa_logo_wrapper_shadow',
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-price',
+			]
 		);
 
 		$this->add_control(
 			'table_curreny_heading',
-			array(
-				'label'     => __( 'Currency Symbol', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => array(
+			[
+				'label'                 => __( 'Currency Symbol', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+				'condition' => [
 					'currency_symbol!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'currency_size',
-			array(
-				'label'     => __( 'Size', 'powerpack' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
+			[
+				'label'                 => __( 'Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
 						'min' => 0,
 						'max' => 100,
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price-prefix' => 'font-size: calc({{SIZE}}em/100)',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'currency_symbol!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'currency_position',
-			array(
-				'label'       => __( 'Position', 'powerpack' ),
-				'type'        => Controls_Manager::CHOOSE,
-				'label_block' => false,
-				'default'     => 'before',
-				'options'     => array(
-					'before' => array(
+			[
+				'label'                 => __( 'Position', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'label_block'           => false,
+				'default'               => 'before',
+				'options'               => [
+					'before' => [
 						'title' => __( 'Before', 'powerpack' ),
-						'icon'  => 'eicon-h-align-left',
-					),
-					'after'  => array(
+						'icon' => 'eicon-h-align-left',
+					],
+					'after' => [
 						'title' => __( 'After', 'powerpack' ),
-						'icon'  => 'eicon-h-align-right',
-					),
-				),
-			)
+						'icon' => 'eicon-h-align-right',
+					],
+				],
+			]
 		);
 
 		$this->add_control(
 			'currency_vertical_position',
-			array(
-				'label'                => __( 'Vertical Position', 'powerpack' ),
-				'type'                 => Controls_Manager::CHOOSE,
-				'label_block'          => false,
-				'options'              => array(
-					'top'    => array(
+			[
+				'label'                 => __( 'Vertical Position', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'label_block'           => false,
+				'options'               => [
+					'top'       => [
 						'title' => __( 'Top', 'powerpack' ),
 						'icon'  => 'eicon-v-align-top',
-					),
-					'middle' => array(
+					],
+					'middle'    => [
 						'title' => __( 'Middle', 'powerpack' ),
 						'icon'  => 'eicon-v-align-middle',
-					),
-					'bottom' => array(
+					],
+					'bottom'    => [
 						'title' => __( 'Bottom', 'powerpack' ),
 						'icon'  => 'eicon-v-align-bottom',
-					),
-				),
-				'default'              => 'top',
-				'selectors_dictionary' => array(
-					'top'    => 'flex-start',
-					'middle' => 'center',
-					'bottom' => 'flex-end',
-				),
-				'selectors'            => array(
+					],
+				],
+				'default'               => 'top',
+				'selectors_dictionary'  => [
+					'top'      => 'flex-start',
+					'middle'   => 'center',
+					'bottom'   => 'flex-end',
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price-prefix' => 'align-self: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_duration_heading',
-			array(
-				'label'     => __( 'Duration', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			)
+			[
+				'label'                 => __( 'Duration', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_control(
 			'duration_position',
-			array(
-				'label'        => __( 'Duration Position', 'powerpack' ),
-				'type'         => Controls_Manager::SELECT,
-				'default'      => 'nowrap',
-				'options'      => array(
-					'nowrap' => __( 'Same Line', 'powerpack' ),
-					'wrap'   => __( 'Next Line', 'powerpack' ),
-				),
+			[
+				'label'                => __( 'Duration Position', 'powerpack' ),
+				'type'                 => Controls_Manager::SELECT,
+				'default'              => 'wrap',
+				'options'              => [
+					'nowrap'    => __( 'Same Line', 'powerpack' ),
+					'wrap'      => __( 'Next Line', 'powerpack' ),
+				],
 				'prefix_class' => 'pp-pricing-table-price-duration-',
-			)
+			]
 		);
 
 		$this->add_control(
 			'duration_text_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price-duration' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'     => 'duration_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
-				'selector' => '{{WRAPPER}} .pp-pricing-table-price-duration',
-			)
+			[
+				'name'                  => 'duration_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_2,
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-price-duration',
+			]
 		);
 
 		$this->add_responsive_control(
 			'duration_spacing',
-			array(
-				'label'      => __( 'Spacing', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px' ],
+				'selectors'             => [
 					'{{WRAPPER}}.pp-pricing-table-price-duration-wrap .pp-pricing-table-price-duration' => 'margin-top: {{SIZE}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'             => [
 					'duration_position' => 'wrap',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_original_price_style_heading',
-			array(
-				'label'     => __( 'Original Price', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => array(
+			[
+				'label'                 => __( 'Original Price', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+				'condition'             => [
 					'discount' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_original_price_text_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'condition' => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'condition'             => [
 					'discount' => 'yes',
-				),
-				'selectors' => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price-original' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_original_price_text_size',
-			array(
-				'label'      => __( 'Font Size', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
-						'min'  => 5,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', 'em' ),
-				'condition'  => array(
+			[
+				'label'                 => __( 'Font Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min'   => 5,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px', 'em' ],
+				'condition'             => [
 					'discount' => 'yes',
-				),
-				'selectors'  => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price-original' => 'font-size: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -1741,318 +1741,318 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_table_features_style',
-			array(
-				'label' => __( 'Features', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Features', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_control(
 			'table_features_align',
-			array(
-				'label'       => __( 'Alignment', 'powerpack' ),
-				'type'        => Controls_Manager::CHOOSE,
-				'label_block' => false,
-				'options'     => array(
-					'left'   => array(
+			[
+				'label'                 => __( 'Alignment', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'label_block'           => false,
+				'options'               => [
+					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
+					],
+					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
+					],
+					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
-				'default'     => '',
-				'selectors'   => array(
+					],
+				],
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-features'   => 'text-align: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_features_bg_color',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-features' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_features_text_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
 					'type'     => Scheme_Color::get_type(),
 					'value'    => Scheme_Color::COLOR_3,
-				),
-				'default'   => '',
-				'selectors' => array(
+				],
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-features' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_features_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'default'    => array(
-					'top'      => '20',
-					'right'    => '',
-					'bottom'   => '20',
-					'left'     => '',
-					'unit'     => 'px',
-					'isLinked' => false,
-				),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'default'               => [
+					'top'       => '20',
+					'right'     => '',
+					'bottom'    => '20',
+					'left'      => '',
+					'unit'      => 'px',
+					'isLinked'  => false,
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-features' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_features_margin',
-			array(
-				'label'      => __( 'Margin Bottom', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 60,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Margin Bottom', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 60,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-features' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'      => 'table_features_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
-				'selector'  => '{{WRAPPER}} .pp-pricing-table-features',
-				'separator' => 'before',
-			)
+			[
+				'name'                  => 'table_features_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-features',
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_control(
 			'table_features_icon_heading',
-			array(
-				'label'     => __( 'Icon', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			)
+			[
+				'label'                 => __( 'Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_control(
 			'table_features_icon_color',
-			array(
-				'label'     => __( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-fature-icon' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .pp-pricing-table-fature-icon svg' => 'fill: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_features_icon_size',
-			array(
-				'label'      => __( 'Size', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
-						'min'  => 5,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', 'em' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min'   => 5,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px', 'em' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-fature-icon' => 'font-size: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_features_icon_spacing',
-			array(
-				'label'      => __( 'Spacing', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-fature-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_features_rows_heading',
-			array(
-				'label'     => __( 'Rows', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			)
+			[
+				'label'                 => __( 'Rows', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_features_spacing',
-			array(
-				'label'      => __( 'Spacing', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+			[
+				'label'                 => __( 'Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'unit' => 'px',
 					'size' => 10,
-				),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px' ),
-				'selectors'  => array(
+				],
+				'range'                 => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-features li:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_features_alternate',
-			array(
-				'label'        => __( 'Striped Rows', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
-				'return_value' => 'yes',
-			)
+			[
+				'label'                 => __( 'Striped Rows', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => '',
+				'label_on'              => __( 'Yes', 'powerpack' ),
+				'label_off'             => __( 'No', 'powerpack' ),
+				'return_value'          => 'yes',
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_features_rows_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-features li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'             => [
 					'table_features_alternate' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_features_style' );
 
 		$this->start_controls_tab(
 			'tab_features_even',
-			array(
-				'label'     => __( 'Even', 'powerpack' ),
-				'condition' => array(
+			[
+				'label'                 => __( 'Even', 'powerpack' ),
+				'condition'             => [
 					'table_features_alternate' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_features_bg_color_even',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-features li:nth-child(even)' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'table_features_alternate' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_features_text_color_even',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-features li:nth-child(even)' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'table_features_alternate' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_features_odd',
-			array(
-				'label'     => __( 'Odd', 'powerpack' ),
-				'condition' => array(
+			[
+				'label'                 => __( 'Odd', 'powerpack' ),
+				'condition'             => [
 					'table_features_alternate' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_features_bg_color_odd',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-features li:nth-child(odd)' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'table_features_alternate' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_features_text_color_odd',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-features li:nth-child(odd)' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'table_features_alternate' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -2061,22 +2061,22 @@ class Pricing_Table extends Powerpack_Widget {
 
 		$this->add_control(
 			'table_divider_heading',
-			array(
-				'label'     => __( 'Divider', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			)
+			[
+				'label'                 => __( 'Divider', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'        => 'table_feature_divider',
-				'label'       => __( 'Divider', 'powerpack' ),
-				'placeholder' => '1px',
-				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-pricing-table-features li',
-			)
+			[
+				'name'                  => 'table_feature_divider',
+				'label'                 => __( 'Divider', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-features li',
+			]
 		);
 
 		$this->end_controls_section();
@@ -2287,50 +2287,50 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_table_ribbon_style',
-			array(
-				'label' => __( 'Ribbon', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Ribbon', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_control(
 			'ribbon_bg_color',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-ribbon .pp-pricing-table-ribbon-inner' => 'background-color: {{VALUE}}',
 					'{{WRAPPER}} .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right:before' => 'border-left-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'ribbon_text_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '#ffffff',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-ribbon .pp-pricing-table-ribbon-inner' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'     => 'ribbon_typography',
-				'selector' => '{{WRAPPER}} .pp-pricing-table-ribbon .pp-pricing-table-ribbon-inner',
-			)
+			[
+				'name'                  => 'ribbon_typography',
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-ribbon .pp-pricing-table-ribbon-inner',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'     => 'box_shadow',
-				'selector' => '{{WRAPPER}} .pp-pricing-table-ribbon .pp-pricing-table-ribbon-inner',
-			)
+			[
+				'name'                  => 'box_shadow',
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-ribbon .pp-pricing-table-ribbon-inner',
+			]
 		);
 
 		$this->end_controls_section();
@@ -2343,240 +2343,240 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_table_button_style',
-			array(
-				'label'     => __( 'Button', 'powerpack' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+			[
+				'label'                 => __( 'Button', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_button_size',
-			array(
-				'label'     => __( 'Size', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'md',
-				'options'   => array(
+			[
+				'label'                 => __( 'Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'md',
+				'options'               => [
 					'xs' => __( 'Extra Small', 'powerpack' ),
 					'sm' => __( 'Small', 'powerpack' ),
 					'md' => __( 'Medium', 'powerpack' ),
 					'lg' => __( 'Large', 'powerpack' ),
 					'xl' => __( 'Extra Large', 'powerpack' ),
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'button_spacing',
-			array(
-				'label'      => __( 'Spacing', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
-					'size' => 20,
-					'unit' => 'px',
-				),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
+					'size'      => 20,
+					'unit'      => 'px',
+				],
+				'range'                 => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-button-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				),
-				'condition'  => array(
-					'table_button_text!'    => '',
+				],
+				'condition'             => [
+					'table_button_text!' => '',
 					'table_button_position' => 'above',
-				),
-			)
+				],
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_button_style' );
 
 		$this->start_controls_tab(
 			'tab_button_normal',
-			array(
-				'label'     => __( 'Normal', 'powerpack' ),
-				'condition' => array(
+			[
+				'label'                 => __( 'Normal', 'powerpack' ),
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_bg_color_normal',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => array(
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_4,
 				),
-				'default'   => '',
-				'selectors' => array(
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-button' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_text_color_normal',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'condition' => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-				'selectors' => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-button' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'        => 'button_border_normal',
-				'label'       => __( 'Border', 'powerpack' ),
-				'placeholder' => '1px',
-				'default'     => '1px',
-				'condition'   => array(
+			[
+				'name'                  => 'button_border_normal',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-				'selector'    => '{{WRAPPER}} .pp-pricing-table-button',
-			)
+				],
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-button',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'      => 'button_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'condition' => array(
+			[
+				'name'                  => 'button_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-				'selector'  => '{{WRAPPER}} .pp-pricing-table-button',
-			)
+				],
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-button',
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_button_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'condition'  => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-				'selectors'  => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
-					'{{WRAPPER}} .pp-pricing-table-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
+			[
+				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-			)
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-pricing-table-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'      => 'pa_pricing_table_button_shadow',
-				'selector'  => '{{WRAPPER}} .pp-pricing-table-button',
-				'condition' => array(
+			[
+				'name'                  => 'pa_pricing_table_button_shadow',
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-			)
+				],
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-button',
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_button_hover',
-			array(
-				'label'     => __( 'Hover', 'powerpack' ),
-				'condition' => array(
+			[
+				'label'                 => __( 'Hover', 'powerpack' ),
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_bg_color_hover',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'condition' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-				'selectors' => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-button:hover' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_text_color_hover',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'condition' => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-				'selectors' => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-button:hover' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'        => 'button_border_hover',
-				'label'       => __( 'Border', 'powerpack' ),
-				'placeholder' => '1px',
-				'default'     => '1px',
-				'condition'   => array(
+			[
+				'name'                  => 'button_border_hover',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-				'selector'    => '{{WRAPPER}} .pp-pricing-table-button:hover',
-			)
+				],
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-button:hover',
+			]
 		);
 
 		$this->add_control(
 			'button_hover_animation',
-			array(
-				'label'     => __( 'Animation', 'powerpack' ),
-				'type'      => Controls_Manager::HOVER_ANIMATION,
-				'condition' => array(
+			[
+				'label'                 => __( 'Animation', 'powerpack' ),
+				'type'                  => Controls_Manager::HOVER_ANIMATION,
+				'condition'             => [
 					'table_button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -2592,142 +2592,142 @@ class Pricing_Table extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_table_footer_style',
-			array(
-				'label' => __( 'Footer', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Footer', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_control(
 			'table_footer_bg_color',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-footer' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'table_footer_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'default'    => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'default'               => [
 					'top'       => '30',
 					'right'     => '30',
 					'bottom'    => '30',
 					'left'      => '30',
 					'unit'      => 'px',
 					'isLinked'  => true,
-				),
-				'selectors'  => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'table_additional_info_heading',
-			array(
-				'label'     => __( 'Additional Info', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => array(
+			[
+				'label'                 => __( 'Additional Info', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+				'condition'             => [
 					'table_additional_info!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'additional_info_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'scheme'    => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
 					'type'     => Scheme_Color::get_type(),
 					'value'    => Scheme_Color::COLOR_3,
-				),
-				'selectors' => array(
-					'{{WRAPPER}} .pp-pricing-table-additional-info' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'default'               => '',
+				'condition'             => [
 					'table_additional_info!' => '',
-				),
-			)
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-pricing-table-additional-info' => 'color: {{VALUE}}',
+				],
+			]
 		);
 
 		$this->add_control(
 			'additional_info_bg_color',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
-					'{{WRAPPER}} .pp-pricing-table-additional-info' => 'background: {{VALUE}}',
-				),
-				'condition' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'condition'             => [
 					'table_additional_info!' => '',
-				),
-			)
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-pricing-table-additional-info' => 'background: {{VALUE}}',
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'additional_info_margin',
-			array(
-				'label'      => __( 'Margin Top', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
-					'size' => 20,
-					'unit' => 'px',
-				),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Margin Top', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
+					'size'      => 20,
+					'unit'      => 'px',
+				],
+				'range'                 => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-additional-info' => 'margin-top: {{SIZE}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'             => [
 					'table_additional_info!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'additional_info_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'condition'  => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'condition'             => [
 					'table_additional_info!' => '',
-				),
-				'selectors'  => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-additional-info' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'      => 'additional_info_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
-				'condition' => array(
+			[
+				'name'                  => 'additional_info_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
+				'condition'             => [
 					'table_additional_info!' => '',
-				),
-				'selector'  => '{{WRAPPER}} .pp-pricing-table-additional-info',
-			)
+				],
+				'selector'              => '{{WRAPPER}} .pp-pricing-table-additional-info',
+			]
 		);
 
 		$this->end_controls_section();
@@ -2735,25 +2735,25 @@ class Pricing_Table extends Powerpack_Widget {
 	}
 
 	private function get_currency_symbol( $symbol_name ) {
-		$symbols = array(
-			'dollar'       => '&#36;',
-			'euro'         => '&#128;',
-			'franc'        => '&#8355;',
-			'pound'        => '&#163;',
-			'ruble'        => '&#8381;',
-			'shekel'       => '&#8362;',
-			'baht'         => '&#3647;',
-			'yen'          => '&#165;',
-			'won'          => '&#8361;',
-			'guilder'      => '&fnof;',
-			'peso'         => '&#8369;',
-			'peseta'       => '&#8359',
-			'lira'         => '&#8356;',
-			'rupee'        => '&#8360;',
-			'indian_rupee' => '&#8377;',
-			'real'         => 'R$',
-			'krona'        => 'kr',
-		);
+		$symbols = [
+			'dollar'         => '&#36;',
+			'euro'           => '&#128;',
+			'franc'          => '&#8355;',
+			'pound'          => '&#163;',
+			'ruble'          => '&#8381;',
+			'shekel'         => '&#8362;',
+			'baht'           => '&#3647;',
+			'yen'            => '&#165;',
+			'won'            => '&#8361;',
+			'guilder'        => '&fnof;',
+			'peso'           => '&#8369;',
+			'peseta'         => '&#8359',
+			'lira'           => '&#8356;',
+			'rupee'          => '&#8360;',
+			'indian_rupee'   => '&#8377;',
+			'real'           => 'R$',
+			'krona'          => 'kr',
+		];
 		return isset( $symbols[ $symbol_name ] ) ? $symbols[ $symbol_name ] : '';
 	}
 
@@ -2880,7 +2880,7 @@ class Pricing_Table extends Powerpack_Widget {
 		}
 		?>
 		<div class="pp-pricing-table-container">
-			<div <?php echo $this->get_render_attribute_string( 'pricing-table' ); ?>>
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'pricing-table' ) ); ?>>
 				<div class="pp-pricing-table-head">
 					<?php if ( 'none' !== $settings['icon_type'] ) { ?>
 						<div class="pp-pricing-table-icon-wrap">
@@ -2890,7 +2890,7 @@ class Pricing_Table extends Powerpack_Widget {
 									if ( $is_new || $migrated ) {
 										Icons_Manager::render_icon( $settings['select_table_icon'], [ 'aria-hidden' => 'true' ] );
 									} elseif ( ! empty( $settings['table_icon'] ) ) {
-										?><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i><?php
+										?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i><?php
 									}
 									?>
 								</span>
@@ -2898,7 +2898,7 @@ class Pricing_Table extends Powerpack_Widget {
 								<?php $image = $settings['icon_image'];
 								if ( $image['url'] ) { ?>
 									<span class="pp-pricing-table-icon pp-pricing-table-icon-image">
-										<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'icon_image' ); ?>
+										<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'icon_image' ) ); ?>
 									</span>
 								<?php } ?>
 							<?php } ?>
@@ -2906,13 +2906,13 @@ class Pricing_Table extends Powerpack_Widget {
 					<?php } ?>
 					<div class="pp-pricing-table-title-wrap">
 						<?php if ( $settings['table_title'] ) { ?>
-							<h3 <?php echo $this->get_render_attribute_string( 'table_title' ); ?>>
-								<?php echo $settings['table_title']; ?>
+							<h3 <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_title' ) ); ?>>
+								<?php echo wp_kses_post( $settings['table_title'] ); ?>
 							</h3>
 						<?php } ?>
 						<?php if ( $settings['table_subtitle'] ) { ?>
-							<h4 <?php echo $this->get_render_attribute_string( 'table_subtitle' ); ?>>
-								<?php echo $settings['table_subtitle']; ?>
+							<h4 <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_subtitle' ) ); ?>>
+								<?php echo wp_kses_post( $settings['table_subtitle'] ); ?>
 							</h4>
 						<?php } ?>
 					</div>
@@ -2923,36 +2923,36 @@ class Pricing_Table extends Powerpack_Widget {
 							<span class="pp-pricing-table-price-original">
 								<?php
 								if ( $symbol && 'after' === $settings['currency_position'] ) {
-									echo $settings['table_original_price'] . $symbol;
+									echo wp_kses_post( $settings['table_original_price'] ) . esc_attr( $symbol );
 								} else {
-									echo $symbol . $settings['table_original_price'];
+									echo esc_attr( $symbol ) . wp_kses_post( $settings['table_original_price'] );
 								}
 								?>
 							</span>
 						<?php } ?>
 						<?php if ( $symbol && ( 'before' === $settings['currency_position'] || '' === $settings['currency_position'] ) ) { ?>
 							<span class="pp-pricing-table-price-prefix">
-								<?php echo $symbol; ?>
+								<?php echo esc_attr( $symbol ); ?>
 							</span>
 						<?php } ?>
-						<span <?php echo $this->get_render_attribute_string( 'table_price' ); ?>>
+						<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_price' ) ); ?>>
 							<span class="pp-pricing-table-integer-part">
-								<?php echo $intvalue; ?>
+								<?php echo wp_kses_post( $intvalue ); ?>
 							</span>
 							<?php if ( $fraction ) { ?>
 								<span class="pp-pricing-table-after-part">
-									<?php echo $fraction; ?>
+									<?php echo esc_attr( $fraction ); ?>
 								</span>
 							<?php } ?>
 						</span>
 						<?php if ( $symbol && 'after' === $settings['currency_position'] ) { ?>
 							<span class="pp-pricing-table-price-prefix">
-								<?php echo $symbol; ?>
+								<?php echo esc_attr( $symbol ); ?>
 							</span>
 						<?php } ?>
 						<?php if ( $settings['table_duration'] ) { ?>
-							<span <?php echo $this->get_render_attribute_string( 'table_duration' ); ?>>
-								<?php echo $settings['table_duration']; ?>
+							<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_duration' ) ); ?>>
+								<?php echo wp_kses_post( $settings['table_duration'] ); ?>
 							</span>
 						<?php } ?>
 					</div>
@@ -2960,8 +2960,8 @@ class Pricing_Table extends Powerpack_Widget {
 				<?php if ( 'above' === $settings['table_button_position'] ) { ?>
 					<div class="pp-pricing-table-button-wrap">
 						<?php if ( $settings['table_button_text'] ) { ?>
-							<a <?php echo $this->get_render_attribute_string( 'table_button_text' ); ?>>
-								<?php echo $settings['table_button_text']; ?>
+							<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_button_text' ) ); ?>>
+								<?php echo wp_kses_post( $settings['table_button_text'] ); ?>
 							</a>
 						<?php } ?>
 					</div>
@@ -3016,27 +3016,30 @@ class Pricing_Table extends Powerpack_Widget {
 							$this->add_render_attribute( $feature_list_key, 'class', 'excluded' );
 						}
 						?>
-						<li <?php echo $this->get_render_attribute_string( $feature_list_key ); ?>>
-							<div <?php echo $this->get_render_attribute_string( $feature_content_key ); ?>>
+						<li <?php echo wp_kses_post( $this->get_render_attribute_string( $feature_list_key ) ); ?>>
+							<div <?php echo wp_kses_post( $this->get_render_attribute_string( $feature_content_key ) ); ?>>
 								<?php
-								if ( ! empty( $item['select_feature_icon'] ) || ( ! empty( $item['feature_icon']['value'] ) && $is_new ) ) :
-									echo '<span class="pp-pricing-table-fature-icon pp-icon">';
-									if ( $is_new || $migrated ) {
-										Icons_Manager::render_icon( $item['select_feature_icon'], [ 'aria-hidden' => 'true' ] );
-									} else { ?>
-										<i class="<?php echo $item['feature_icon']; ?>" aria-hidden="true"></i>
+								if ( ! empty( $item['select_feature_icon'] ) || ( ! empty( $item['feature_icon']['value'] ) && $is_new ) ) : ?>
+									<span class="pp-pricing-table-fature-icon pp-icon">
 										<?php
-									}
-									echo '</span>';
+										if ( $is_new || $migrated ) {
+											Icons_Manager::render_icon( $item['select_feature_icon'], [ 'aria-hidden' => 'true' ] );
+										} else { ?>
+											<i class="<?php echo esc_attr( $item['feature_icon'] ); ?>" aria-hidden="true"></i>
+											<?php
+										}
+										?>
+									</span>
+									<?php
 									endif;
 								?>
 								<?php if ( $item['feature_text'] ) { ?>
-									<span <?php echo $this->get_render_attribute_string( $feature_key ); ?>>
-										<?php echo $item['feature_text']; ?>
+									<span <?php echo wp_kses_post( $this->get_render_attribute_string( $feature_key ) ); ?>>
+										<?php echo wp_kses_post( $item['feature_text'] ); ?>
 									</span>
 								<?php } ?>
 								<?php if ( 'yes' === $settings['show_tooltip'] && 'icon' === $settings['tooltip_display_on'] && $item['tooltip_content'] ) { ?>
-									<span <?php echo $this->get_render_attribute_string( $tooltip_icon_key ); ?>>
+									<span <?php echo wp_kses_post( $this->get_render_attribute_string( $tooltip_icon_key ) ); ?>>
 										<?php \Elementor\Icons_Manager::render_icon( $settings['tooltip_icon'], array( 'aria-hidden' => 'true' ) ); ?>
 									</span>
 								<?php } ?>
@@ -3047,14 +3050,14 @@ class Pricing_Table extends Powerpack_Widget {
 				<div class="pp-pricing-table-footer">
 					<?php if ( 'below' === $settings['table_button_position'] ) { ?>
 						<?php if ( $settings['table_button_text'] ) { ?>
-							<a <?php echo $this->get_render_attribute_string( 'table_button_text' ); ?>>
-								<?php echo $settings['table_button_text']; ?>
+							<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_button_text' ) ); ?>>
+								<?php echo wp_kses_post( $settings['table_button_text'] ); ?>
 							</a>
 						<?php } ?>
 					<?php } ?>
 					<?php if ( $settings['table_additional_info'] ) { ?>
-						<div <?php echo $this->get_render_attribute_string( 'table_additional_info' ); ?>>
-							<?php echo $this->parse_text_editor( $settings['table_additional_info'] ); ?>
+						<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_additional_info' ) ); ?>>
+							<?php echo wp_kses_post( $this->parse_text_editor( $settings['table_additional_info'] ) ); ?>
 						</div>
 					<?php } ?>
 				</div>
@@ -3068,10 +3071,10 @@ class Pricing_Table extends Powerpack_Widget {
 					];
 					$this->add_render_attribute( 'ribbon', 'class', $classes );
 					?>
-				<div <?php echo $this->get_render_attribute_string( 'ribbon' ); ?>>
+				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'ribbon' ) ); ?>>
 					<div class="pp-pricing-table-ribbon-inner">
 						<div class="pp-pricing-table-ribbon-title">
-							<?php echo $settings['ribbon_title']; ?>
+							<?php echo wp_kses_post( $settings['ribbon_title'] ); ?>
 						</div>
 					</div>
 				</div>
@@ -3372,5 +3375,4 @@ class Pricing_Table extends Powerpack_Widget {
 	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		$this->content_template();
 	}
-
 }
