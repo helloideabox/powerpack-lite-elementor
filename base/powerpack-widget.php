@@ -1,4 +1,9 @@
 <?php
+/**
+ * PowerPack Elements Common Widget.
+ *
+ * @package PowerPack Elements
+ */
 
 namespace PowerpackElementsLite\Base;
 
@@ -17,9 +22,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 abstract class Powerpack_Widget extends Widget_Base {
 
 	/**
+	 * Widget base constructor.
+	 *
+	 * Initializing the widget base class.
+	 *
+	 * @since 1.2.9.4
+	 * @access public
+	 *
+	 * @param array       $data Widget data. Default is an empty array.
+	 * @param array|null  $args Optional. Widget default arguments. Default is null.
+	 */
+	public function __construct( $data = [], $args = null ) {
+
+		parent::__construct( $data, $args );
+
+		add_filter( 'upgrade_powerpack_title', [ $this, 'upgrade_powerpack_title' ], 10, 3 );
+		add_filter( 'upgrade_powerpack_message', [ $this, 'upgrade_powerpack_message' ], 10, 3 );
+	}
+
+	public function upgrade_powerpack_title() {
+		$upgrade_title = __( 'Get PowerPack Pro', 'powerpack' );
+
+		return $upgrade_title;
+	}
+
+	public function upgrade_powerpack_message() {
+		$upgrade_message = sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-widget-upgrade-section&utm_campaign=pp-pro-upgrade" target="_blank" rel="noopener">', '</a>' );
+
+		return $upgrade_message;
+	}
+
+	/**
 	 * Get categories
 	 *
-	 * @since 0.0.1
+	 * @since 1.0.0
 	 */
 	public function get_categories() {
 		return [ 'powerpack-elements' ];
@@ -90,8 +126,8 @@ abstract class Powerpack_Widget extends Widget_Base {
 		}
 
 		$defaults = [
-			'title' => $this->get_title(),
-			'body' 	=> __( 'This is a placeholder for this widget and is visible only in the editor.', 'powerpack' ),
+			'title' => $this->get_title() . ' - ' . __( 'ID', 'powerpack' ) . ' ' . $this->get_id(),
+			'body'  => __( 'This is a placeholder for this widget and is visible only in the editor.', 'powerpack' ),
 		];
 
 		$args = wp_parse_args( $args, $defaults );
@@ -108,96 +144,165 @@ abstract class Powerpack_Widget extends Widget_Base {
 			],
 		]);
 
-		?><div <?php echo $this->get_render_attribute_string( 'placeholder' ); ?>>
-			<h4 <?php echo $this->get_render_attribute_string( 'placeholder-title' ); ?>>
-				<?php echo $args['title']; ?>
+		?><div <?php echo wp_kses_post( $this->get_render_attribute_string( 'placeholder' ) ); ?>>
+			<h4 <?php echo wp_kses_post( $this->get_render_attribute_string( 'placeholder-title' ) ); ?>>
+				<?php echo esc_html( $args['title'] ); ?>
 			</h4>
-			<div <?php echo $this->get_render_attribute_string( 'placeholder-content' ); ?>>
-				<?php echo $args['body']; ?>
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'placeholder-content' ) ); ?>>
+				<?php echo esc_html( $args['body'] ); ?>
 			</div>
 		</div><?php
 	}
 
 	/**
-	 * Render Template Content
+	 * Get swiper slider settings
 	 *
 	 * @access public
-	 *
-	 * @param int                                       $template_id  The template post ID
-	 * @param \PowerpackElementsLite\Base\Powerpack_Widget  $widget       The widget instance
-	 * @since 1.3.0
+	 * @since x.x.x
 	 */
-	public function render_template_content( $template_id, \PowerpackElementsLite\Base\Powerpack_Widget $widget ) {
+	public function get_swiper_slider_settings( $settings, $new = true ) {
+		$pagination = ( $new ) ? $settings['pagination'] : $settings['dots'];
 
-		if ( 'publish' !== get_post_status( $template_id ) || ! method_exists( '\Elementor\Frontend', 'get_builder_content_for_display' ) ) {
-			return;
-		}
+		$effect = ( isset( $settings['carousel_effect'] ) && ( $settings['carousel_effect'] ) ) ? $settings['carousel_effect'] : 'slide';
 
-		if ( ! $template_id ) {
-			if ( method_exists( $widget, 'render_editor_placeholder' ) ) {
-				$placeholder = __( 'Choose a post template that you want to use as post skin in widget settings.', 'powerpack' );
+		$slider_options = [
+			'direction'         => 'horizontal',
+			'effect'            => $effect,
+			'speed'             => ( '' !== $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
+			'slidesPerView'     => ( '' !== $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3,
+			'spaceBetween'      => ( '' !== $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10,
+			'grabCursor'        => ( 'yes' === $settings['grab_cursor'] ),
+			'autoHeight'        => true,
+			'loop'              => ( 'yes' === $settings['infinite_loop'] ),
+		];
 
-				$widget->render_editor_placeholder([
-					'title' => __( 'No template selected!', 'powerpack' ),
-					'body' => $placeholder,
-				]);
-			} else {
-				_e( 'No template selected!', 'powerpack' );
+		$autoplay_speed = 999999;
+
+		if ( 'yes' === $settings['autoplay'] ) {
+			if ( isset( $settings['autoplay_speed']['size'] ) ) {
+				$autoplay_speed = $settings['autoplay_speed']['size'];
+			} elseif ( $settings['autoplay_speed'] ) {
+				$autoplay_speed = $settings['autoplay_speed'];
 			}
-		} else {
-
-			global $wp_query;
-
-			// Keep old global wp_query
-			$old_query = $wp_query;
-
-			// Create a new query from the current post in loop
-			$new_query = new \WP_Query( [
-				'post_type' => 'any',
-				'p' => get_the_ID(),
-			] );
-
-			// Set the global query to the new query
-			$wp_query = $new_query;
-
-			// Fetch the template
-			$template = PP_Helper::elementor()->frontend->get_builder_content_for_display( $template_id, true );
-
-			// Revert to the initial query
-			$wp_query = $old_query;
-
-			?><div class="elementor-template"><?php echo $template; ?></div><?php
 		}
+
+		$slider_options['autoplay'] = [
+			'delay'                  => $autoplay_speed,
+			'disableOnInteraction'   => ( 'yes' === $settings['pause_on_interaction'] ),
+		];
+
+		if ( 'yes' === $pagination ) {
+			$slider_options['pagination'] = [
+				'el'                 => '.swiper-pagination-' . esc_attr( $this->get_id() ),
+				'type'               => $settings['pagination_type'],
+				'clickable'          => true,
+			];
+		}
+
+		if ( 'yes' === $settings['arrows'] ) {
+			$slider_options['navigation'] = [
+				'nextEl'             => '.swiper-button-next-' . esc_attr( $this->get_id() ),
+				'prevEl'             => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
+			];
+		}
+
+		$elementor_bp_lg = get_option( 'elementor_viewport_lg' );
+		$elementor_bp_md = get_option( 'elementor_viewport_md' );
+		$bp_desktop      = ! empty( $elementor_bp_lg ) ? $elementor_bp_lg : 1025;
+		$bp_tablet       = ! empty( $elementor_bp_md ) ? $elementor_bp_md : 768;
+		$bp_mobile       = 320;
+
+		$slider_options['breakpoints'] = [
+			$bp_desktop   => [
+				'slidesPerView'      => ( '' !== $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3,
+				'spaceBetween'       => ( '' !== $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10,
+			],
+			$bp_tablet   => [
+				'slidesPerView'      => ( '' !== $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2,
+				'spaceBetween'       => ( '' !== $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10,
+			],
+			$bp_mobile   => [
+				'slidesPerView'      => ( '' !== $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1,
+				'spaceBetween'       => ( '' !== $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10,
+			],
+		];
+
+		return $slider_options;
 	}
+
+
 
 	/**
-	 * Widget base constructor.
+	 * Get swiper slider settings for _content_template function
 	 *
-	 * Initializing the widget base class.
-	 *
-	 * @since 1.2.9.4
 	 * @access public
-	 *
-	 * @param array       $data Widget data. Default is an empty array.
-	 * @param array|null  $args Optional. Widget default arguments. Default is null.
+	 * @since x.x.x
 	 */
-	public function __construct( $data = [], $args = null ) {
+	public function get_swiper_slider_settings_js() {
+		$elementor_bp_tablet    = get_option( 'elementor_viewport_lg' );
+		$elementor_bp_mobile    = get_option( 'elementor_viewport_md' );
+		$elementor_bp_lg        = get_option( 'elementor_viewport_lg' );
+		$elementor_bp_md        = get_option( 'elementor_viewport_md' );
+		$bp_desktop             = ! empty( $elementor_bp_lg ) ? $elementor_bp_lg : 1025;
+		$bp_tablet              = ! empty( $elementor_bp_md ) ? $elementor_bp_md : 768;
+		$bp_mobile              = 320;
+		?>
+		<#
+			function get_slider_settings( settings ) {
+		   
+				if (typeof settings.effect !== 'undefined') {
+					var $effect = settings.effect;
+				} else {
+					var $effect = 'slide';
+				}
 
-		parent::__construct( $data, $args );
+				var $items          = ( settings.items.size !== '' || settings.items.size !== undefined ) ? settings.items.size : 3,
+					$items_tablet   = ( settings.items_tablet.size !== '' || settings.items_tablet.size !== undefined ) ? settings.items_tablet.size : 2,
+					$items_mobile   = ( settings.items_mobile.size !== '' || settings.items_mobile.size !== undefined ) ? settings.items_mobile.size : 1,
+					$margin         = ( settings.margin.size !== '' || settings.margin.size !== undefined ) ? settings.margin.size : 10,
+					$margin_tablet  = ( settings.margin_tablet.size !== '' || settings.margin_tablet.size !== undefined ) ? settings.margin_tablet.size : 10,
+					$margin_mobile  = ( settings.margin_mobile.size !== '' || settings.margin_mobile.size !== undefined ) ? settings.margin_mobile.size : 10,
+					$autoplay       = ( settings.autoplay == 'yes' && settings.autoplay_speed.size != '' ) ? settings.autoplay_speed.size : 999999;
 
-		add_filter( 'upgrade_powerpack_title', [$this, 'upgrade_powerpack_title'], 10, 3 );
-		add_filter( 'upgrade_powerpack_message', [$this, 'upgrade_powerpack_message'], 10, 3 );
-	}
-	
-	public function upgrade_powerpack_title() {
-		$upgrade_title = __( 'Get PowerPack Pro', 'powerpack' );
-
-		return $upgrade_title;
-	}
-	
-	public function upgrade_powerpack_message() {
-		$upgrade_message = sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-widget-upgrade-section&utm_campaign=pp-pro-upgrade" target="_blank" rel="noopener">', '</a>' );
-
-		return $upgrade_message;
+				return {
+					direction:              "horizontal",
+					speed:                  ( settings.slider_speed.size !== '' || settings.slider_speed.size !== undefined ) ? settings.slider_speed.size : 400,
+					effect:                 $effect,
+					slidesPerView:          $items,
+					spaceBetween:           $margin,
+					grabCursor:             ( settings.grab_cursor === 'yes' ) ? true : false,
+					autoHeight:             true,
+					loop:                   ( settings.infinite_loop === 'yes' ),
+					autoplay: {
+						delay: $autoplay,
+						disableOnInteraction: ( settings.disableOnInteraction === 'yes' ),
+					},
+					pagination: {
+						el: '.swiper-pagination',
+						type: settings.pagination_type,
+						clickable: true,
+					},
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev',
+					},
+					breakpoints: {
+						<?php echo esc_attr( $bp_desktop ); ?>: {
+							slidesPerView:  $items,
+							spaceBetween:   $margin
+						},
+						<?php echo esc_attr( $bp_tablet ); ?>: {
+							slidesPerView:  $items_tablet,
+							spaceBetween:   $margin_tablet
+						},
+						<?php echo esc_attr( $bp_mobile ); ?>: {
+							slidesPerView:  $items_mobile,
+							spaceBetween:   $margin_mobile
+						}
+					}
+				};
+			};
+		#>
+		<?php
 	}
 }

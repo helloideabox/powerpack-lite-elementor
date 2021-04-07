@@ -82,7 +82,7 @@ class Image_Comparison extends Powerpack_Widget {
 	public function get_script_depends() {
 		return array(
 			'jquery-event-move',
-			'twentytwenty',
+			'pp-twentytwenty',
 			'imagesloaded',
 			'powerpack-frontend',
 		);
@@ -99,7 +99,7 @@ class Image_Comparison extends Powerpack_Widget {
 	 */
 	public function get_style_depends() {
 		return array(
-			'twentytwenty',
+			'pp-twentytwenty',
 		);
 	}
 

@@ -51,7 +51,7 @@ class PowerpackLitePlugin {
 	 */
 	public function __clone() {
 		// Cloning instances of the class is forbidden
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'powerpack' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'powerpack' ), '1.0.0' );
 	}
 
 	/**
@@ -62,7 +62,7 @@ class PowerpackLitePlugin {
 	 */
 	public function __wakeup() {
 		// Unserializing instances of the class is forbidden
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'powerpack' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'powerpack' ), '1.0.0' );
 	}
 
 	/**
@@ -128,6 +128,11 @@ class PowerpackLitePlugin {
 	 * @access public
 	 */
 	public function enqueue_frontend_styles() {
+		$debug_suffix     = ( PP_Helper::is_script_debug() ) ? '' : '.min';
+		$direction_suffix = is_rtl() ? '-rtl' : '';
+		$suffix           = $direction_suffix . $debug_suffix;
+		$path             = ( PP_Helper::is_script_debug() ) ? 'assets/css/' : 'assets/css/min/';
+
 		wp_enqueue_style(
 			'powerpack-frontend',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/css/frontend.css',
@@ -143,9 +148,16 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_style(
-			'twentytwenty',
+			'pp-twentytwenty',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/twentytwenty.css',
 			[],
+			POWERPACK_ELEMENTS_LITE_VER
+		);
+
+		wp_register_style(
+			'pp-magnific-popup',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/magnific-popup/magnific-popup' . $suffix . '.css',
+			array(),
 			POWERPACK_ELEMENTS_LITE_VER
 		);
 
@@ -186,7 +198,7 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
-			'twentytwenty',
+			'pp-twentytwenty',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/jquery.twentytwenty.js',
 			[
 				'jquery',
@@ -206,8 +218,8 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
-			'magnific-popup',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/magnific-popup/jquery.magnific-popup.min.js',
+			'pp-magnific-popup',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/magnific-popup/jquery.magnific-popup' . $suffix . '.js',
 			[
 				'jquery',
 			],
@@ -355,13 +367,7 @@ class PowerpackLitePlugin {
 		);
 
 		wp_enqueue_script(
-			'magnific-popup',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/magnific-popup/jquery.magnific-popup.min.js',
-			[
-				'jquery',
-			],
-			'2.2.1',
-			true
+			'pp-magnific-popup'
 		);
 	}
 
@@ -371,7 +377,8 @@ class PowerpackLitePlugin {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_style( 'odometer' );
-		wp_enqueue_style( 'twentytwenty' );
+		wp_enqueue_style( 'pp-magnific-popup' );
+		wp_enqueue_style( 'pp-twentytwenty' );
 	}
 
 	/**
