@@ -332,7 +332,7 @@ class Scroll_Image extends Powerpack_Widget {
 		/*
 		-----------------------------------------------------------------------------------*/
 		/*
-		  STYLE TAB
+		STYLE TAB
 		/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -488,7 +488,7 @@ class Scroll_Image extends Powerpack_Widget {
 
 		$link_url = $settings['link']['url'];
 
-		if ( $settings['link']['url'] != '' ) {
+		if ( '' !== $settings['link']['url'] ) {
 			$this->add_render_attribute( 'link', 'class', 'pp-image-scroll-link' );
 
 			$this->add_link_attributes( 'link', $settings['link'] );
@@ -536,34 +536,34 @@ class Scroll_Image extends Powerpack_Widget {
 		);
 		?>
 		<div class="pp-image-scroll-wrap">
-			<div <?php echo $this->get_render_attribute_string( 'container' ); ?>>
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container' ) ); ?>>
 				<?php if ( ! empty( $settings['icon'] ) || ( ! empty( $settings['selected_icon']['value'] ) && $is_new ) ) { ?>
 					<div class="pp-image-scroll-content">
-						<span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
+						<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
 							<?php
 							if ( $is_new || $migrated ) {
 								Icons_Manager::render_icon( $settings['selected_icon'], array( 'aria-hidden' => 'true' ) );
 							} elseif ( ! empty( $settings['icon'] ) ) {
 								?>
-								<i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
+								<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i>
 								<?php
 							}
 							?>
 						</span>
 					</div>
 				<?php } ?>
-				<div <?php echo $this->get_render_attribute_string( 'direction_type' ); ?>>
-					<?php if ( $settings['overlay'] == 'yes' ) { ?>
+				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'direction_type' ) ); ?>>
+					<?php if ( 'yes' !== $settings['overlay'] ) { ?>
 						<div class="pp-image-scroll-overlay">
 					<?php } ?>
 					<?php if ( ! empty( $link_url ) ) { ?>
-							<a <?php echo $this->get_render_attribute_string( 'link' ); ?>></a>
+							<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>></a>
 					<?php } ?>
-					<?php if ( $settings['overlay'] == 'yes' ) { ?>
+					<?php if ( 'yes' === $settings['overlay'] ) { ?>
 						</div> 
 					<?php } ?>
 
-					<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings ); ?>
+					<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings ) ); ?>
 				</div>
 			</div>
 		</div>
@@ -576,11 +576,11 @@ class Scroll_Image extends Powerpack_Widget {
 			var direction = settings.direction_type,
 				reverse = settings.reverse,
 				url,
-				   iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
+				iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
 				migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' );
-			
+
 			if ( settings.icon || settings.selected_icon.value ) {
-			
+
 				view.addRenderAttribute( 'icon', 'class', [
 					   'pp-image-scroll-icon',
 					   'pp-icon',
