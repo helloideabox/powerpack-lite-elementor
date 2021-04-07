@@ -176,7 +176,7 @@ class Random_Image extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 
 		/* Content Tab */
 		$this->register_content_gallery_controls();
@@ -1119,16 +1119,16 @@ class Random_Image extends Powerpack_Widget {
 		if ( ! $settings['wp_gallery'] ) {
 			$placeholder = sprintf( 'Click here to edit the "%1$s" settings and choose some images.', esc_attr( $this->get_title() ) );
 
-			echo $this->render_editor_placeholder(
+			echo esc_attr( $this->render_editor_placeholder(
 				array(
 					'body'  => $placeholder,
 				)
-			);
+			) );
 			return;
 		}
 
 		$count       = count( $settings['wp_gallery'] );
-		$index       = ( $count > 1 ) ? rand( 0, $count - 1 ) : 0;
+		$index       = ( $count > 1 ) ? wp_rand( 0, $count - 1 ) : 0;
 		$id          = $settings['wp_gallery'][ $index ]['id'];
 		$has_caption = '' !== $settings['caption'];
 		$link        = '';
@@ -1160,12 +1160,6 @@ class Random_Image extends Powerpack_Widget {
 			],
 		] );
 
-		if ( 'over_image' === $settings['caption_position'] ) {
-			/* $this->add_render_attribute( 'wrapper', [
-				'class' => 'pp-media-content',
-			] ); */
-		}
-
 		if ( '' !== $settings['hover_animation'] ) {
 			$this->add_render_attribute( 'image', 'class', 'elementor-animation-' . $settings['hover_animation'] );
 		}
@@ -1192,9 +1186,9 @@ class Random_Image extends Powerpack_Widget {
 			}
 		}
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
 			<?php if ( $has_caption ) { ?>
-			<figure <?php echo $this->get_render_attribute_string( 'figure' ); ?>>
+			<figure <?php echo wp_kses_post( $this->get_render_attribute_string( 'figure' ) ); ?>>
 			<?php } ?>
 
 			<?php
@@ -1208,14 +1202,14 @@ class Random_Image extends Powerpack_Widget {
 				}
 			}
 
-			echo $image_html;
+			echo wp_kses_post( $image_html );
 			?>
 			<?php if ( $has_caption ) { ?>
 				<?php if ( 'over_image' === $settings['caption_position'] ) { ?>
 				<div class="pp-gallery-image-content pp-media-content">
 				<?php } ?>
-				<figcaption <?php echo $this->get_render_attribute_string( 'caption' ); ?>>
-					<?php echo $this->render_image_caption( $attachment ); ?>
+				<figcaption <?php echo wp_kses_post( $this->get_render_attribute_string( 'caption' ) ); ?>>
+					<?php echo wp_kses_post( $this->render_image_caption( $attachment ) ); ?>
 				</figcaption>
 				<?php if ( 'over_image' === $settings['caption_position'] ) { ?>
 				</div>
@@ -1237,13 +1231,13 @@ class Random_Image extends Powerpack_Widget {
 
 		$caption = Module::get_image_caption( $id, $caption_type );
 
-		if ( $caption == '' ) {
+		if ( '' === $caption ) {
 			return '';
 		}
 
 		ob_start();
 
-		echo $caption;
+		echo wp_kses_post( $caption );
 
 		$html = ob_get_contents();
 		ob_end_clean();
@@ -1284,7 +1278,7 @@ class Random_Image extends Powerpack_Widget {
 				if ( $is_new_link_icon || $migrated_link_icon ) {
 					Icons_Manager::render_icon( $settings['select_link_icon'], [ 'aria-hidden' => 'true' ] );
 				} elseif ( ! empty( $settings['link_icon'] ) ) {
-					?><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i><?php
+					?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i><?php
 				}
 				?>
 			</span>
@@ -1307,6 +1301,6 @@ class Random_Image extends Powerpack_Widget {
 		return '<div ' . $this->get_render_attribute_string( $pp_overlay_key ) . '></div>';
 	}
 
-	protected function _content_template() {
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 	}
 }
