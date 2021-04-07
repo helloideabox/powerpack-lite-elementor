@@ -2577,7 +2577,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 									<?php if ( ! empty( $item['description'] ) ) { ?>
 										<div class="pp-info-box-description">
-											<?php echo wp_kses_post( $this->parse_text_editor( $item['description'] ) ); ?>
+											<?php echo $this->parse_text_editor( $item['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 										</div>
 									<?php } ?>
 									<?php if ( 'button' === $item['link_type'] || ( 'box' === $item['link_type'] && 'yes' === $item['button_visible'] ) ) { ?>

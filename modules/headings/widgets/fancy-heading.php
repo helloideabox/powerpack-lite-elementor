@@ -381,8 +381,8 @@ class Fancy_Heading extends Powerpack_Widget {
 					<?php
 				}
 				?>
-				<span <?php echo $this->get_render_attribute_string( 'heading_text' ); ?>>
-					<?php echo $this->parse_text_editor( $settings['heading_text'] ); ?>
+				<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'heading_text' ) ); ?>>
+					<?php echo $this->parse_text_editor( $settings['heading_text'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</span>
 				<?php
 				if ( '' !== $settings['link']['url'] ) { ?>

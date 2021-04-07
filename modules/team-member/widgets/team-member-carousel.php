@@ -2636,7 +2636,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		if ( $item['team_member_description'] ) {
 			?>
 			<div class="pp-tm-description">
-				<?php echo $this->parse_text_editor( $item['team_member_description'] ); ?>
+				<?php echo $this->parse_text_editor( $item['team_member_description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 		<?php } ?>
 		<?php if ( 'yes' === $settings['member_description_divider'] ) { ?>

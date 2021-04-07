@@ -2136,7 +2136,7 @@ class Info_Box extends Powerpack_Widget {
 
 				<?php if ( ! empty( $settings['description'] ) ) { ?>
 					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'description' ) ); ?>>
-						<?php echo wp_kses_post( $this->parse_text_editor( $settings['description'] ) ); ?>
+						<?php echo $this->parse_text_editor( $settings['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
 				<?php } ?>
 				<?php

@@ -1109,8 +1109,8 @@ class Image_Accordion extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute( 'image-accordion', [
-			'class'     => [ 'pp-image-accordion', 'pp-image-accordion-' . $settings['accordion_action'] ],
-			'id'        => 'pp-image-accordion-' . $this->get_id(),
+			'class' => [ 'pp-image-accordion', 'pp-image-accordion-' . $settings['accordion_action'] ],
+			'id'    => 'pp-image-accordion-' . $this->get_id(),
 		] );
 
 		if ( ! empty( $settings['accordion_items'] ) ) { ?>
@@ -1209,8 +1209,5 @@ class Image_Accordion extends Powerpack_Widget {
 				<?php } ?>
 			</div>
 		<?php }
-	}
-
-	protected function content_template() {
 	}
 }

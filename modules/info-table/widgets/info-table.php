@@ -1707,7 +1707,7 @@ class Info_Table extends Powerpack_Widget {
 				<?php } ?>
 				<div class="pp-info-table-title-wrap">
 				<?php
-				if ( ! empty( $settings['heading'] ) ) {
+				if ( '' !== $settings['heading'] ) {
 					?>
 					<<?php echo esc_html( $title_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'title-container' ) ); ?>>
 						<?php $title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] ); ?>
@@ -1717,7 +1717,7 @@ class Info_Table extends Powerpack_Widget {
 					</<?php echo esc_html( $title_html_tag ); ?>>
 					<?php
 				}
-				if ( ! empty( $settings['sub_heading'] ) ) {
+				if ( '' !== $settings['sub_heading'] ) {
 					$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
 					?>
 					<<?php echo esc_html( $subtitle_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'sub_heading' ) ); ?>>
@@ -1732,7 +1732,7 @@ class Info_Table extends Powerpack_Widget {
 
 				<?php if ( ! empty( $settings['description'] ) ) { ?>
 					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'description' ) ); ?>>
-						<?php echo wp_kses_post( $this->parse_text_editor( nl2br( $settings['description'] ) ) ); ?>
+						<?php echo $this->parse_text_editor( nl2br( $settings['description'] ) ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
 				<?php } ?>
 				<?php if ( 'button' === $settings['link_type'] ) { ?>

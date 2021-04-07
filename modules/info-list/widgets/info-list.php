@@ -1380,12 +1380,12 @@ class Info_List extends Powerpack_Widget {
 								if ( $item['description'] ) {
 									?>
 									<div <?php echo wp_kses_post( $this->get_render_attribute_string( $description_key ) ); ?>>
-										<?php echo wp_kses_post( $this->parse_text_editor( $item['description'] ) ); ?>
+										<?php echo $this->parse_text_editor( $item['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 									</div>
 									<?php
 								}
 								?>
-								<?php if ( ! empty( $item['link']['url'] ) && 'button' === $item['link_type'] ) { ?>
+								<?php if ( '' !== $item['link']['url'] && 'button' === $item['link_type'] ) { ?>
 									<div <?php echo wp_kses_post( $this->get_render_attribute_string( $button_key ) ); ?>>
 										<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
 											<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-list-button' ) ); ?>>
@@ -1401,7 +1401,7 @@ class Info_List extends Powerpack_Widget {
 									</div>
 								<?php } ?>
 								<?php
-								if ( ! empty( $item['link']['url'] ) && 'box' === $item['link_type'] ) { ?>
+								if ( '' !== $item['link']['url'] && 'box' === $item['link_type'] ) { ?>
 									</a>
 									<?php
 								}
