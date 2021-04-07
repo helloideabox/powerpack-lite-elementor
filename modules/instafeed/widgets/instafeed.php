@@ -126,7 +126,7 @@ class Instafeed extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register FAQ widget controls.
+	 * Register instagram feed widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *

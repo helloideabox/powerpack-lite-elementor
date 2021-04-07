@@ -89,7 +89,7 @@ class Flipbox extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register counter widget controls.
+	 * Register flipbox widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
@@ -100,7 +100,7 @@ class Flipbox extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register FAQ widget controls.
+	 * Register flipbox widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *

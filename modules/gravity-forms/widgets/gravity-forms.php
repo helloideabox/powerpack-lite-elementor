@@ -91,7 +91,19 @@ class Gravity_Forms extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->register_controls();
+	}
+
+	/**
+	 * Register gravity forms widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_controls() {
 
 		/* Content Tab */
 		$this->register_content_gravity_forms_controls();
@@ -115,10 +127,8 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->register_style_thankyou_controls();
 	}
 
-	/*
-	-----------------------------------------------------------------------------------*/
-	/*
-		CONTENT TAB
+	/*-----------------------------------------------------------------------------------*/
+	/* CONTENT TAB
 	/*-----------------------------------------------------------------------------------*/
 
 	protected function register_content_gravity_forms_controls() {
@@ -512,6 +522,28 @@ class Gravity_Forms extends Powerpack_Widget {
 				'label'     => __( 'Typography', 'powerpack' ),
 				'selector'  => '{{WRAPPER}} .pp-gravity-form .gfield label',
 				'condition' => array(
+					'labels_switch' => 'yes',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'label_spacing',
+			array(
+				'label'      => __( 'Spacing', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'size_units' => array( 'px', 'em', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-gravity-form .gfield label' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+				),
+				'condition'  => array(
 					'labels_switch' => 'yes',
 				),
 			)
@@ -2231,35 +2263,35 @@ class Gravity_Forms extends Powerpack_Widget {
 			)
 		);
 
-		if ( $settings['labels_switch'] != 'yes' ) {
+		if ( 'yes' !== $settings['labels_switch'] ) {
 			$this->add_render_attribute( 'contact-form', 'class', 'labels-hide' );
 		}
 
-		if ( $settings['placeholder_switch'] != 'yes' ) {
+		if ( 'yes' !== $settings['placeholder_switch'] ) {
 			$this->add_render_attribute( 'contact-form', 'class', 'placeholder-hide' );
 		}
 
-		if ( $settings['custom_title_description'] == 'yes' ) {
+		if ( 'yes' === $settings['custom_title_description'] ) {
 			$this->add_render_attribute( 'contact-form', 'class', 'title-description-hide' );
 		}
 
-		if ( $settings['custom_radio_checkbox'] == 'yes' ) {
+		if ( 'yes' === $settings['custom_radio_checkbox'] ) {
 			$this->add_render_attribute( 'contact-form', 'class', 'pp-custom-radio-checkbox' );
 		}
 
 		if ( class_exists( 'GFCommon' ) ) {
 			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
-				<div <?php echo $this->get_render_attribute_string( 'contact-form' ); ?>>
-					<?php if ( $settings['custom_title_description'] == 'yes' ) { ?>
+				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'contact-form' ) ); ?>>
+					<?php if ( 'yes' === $settings['custom_title_description'] ) { ?>
 						<div class="pp-gravity-form-heading">
-							<?php if ( $settings['form_title_custom'] != '' ) { ?>
+							<?php if ( $settings['form_title_custom'] ) { ?>
 								<h3 class="pp-contact-form-title pp-gravity-form-title">
 									<?php echo esc_attr( $settings['form_title_custom'] ); ?>
 								</h3>
 							<?php } ?>
-							<?php if ( $settings['form_description_custom'] != '' ) { ?>
+							<?php if ( $settings['form_description_custom'] ) { ?>
 								<div class="pp-contact-form-description pp-gravity-form-description">
-									<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); ?>
+									<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> 
 								</div>
 							<?php } ?>
 						</div>
@@ -2277,12 +2309,12 @@ class Gravity_Forms extends Powerpack_Widget {
 			} else {
 				$placeholder = sprintf( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', esc_attr( $this->get_title() ) );
 
-				echo $this->render_editor_placeholder(
+				echo esc_attr( $this->render_editor_placeholder(
 					array(
 						'title' => __( 'No Contact Form Selected!', 'powerpack' ),
 						'body'  => $placeholder,
 					)
-				);
+				) );
 			}
 		}
 	}

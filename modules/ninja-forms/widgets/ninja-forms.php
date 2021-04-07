@@ -54,7 +54,7 @@ class Ninja_Forms extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register FAQ widget controls.
+	 * Register ninja forms widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
