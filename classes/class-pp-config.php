@@ -614,6 +614,10 @@ class PP_Config {
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=g70UKxK_1dU&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
 				__( 'Widget Overview', 'powerpack' )      => 'https://powerpackelements.com/docs/powerpack/widgets/counter/counter-widget-overview/' . $utm_suffix,
 			),
+			// Caldera Forms.
+			'Caldera_Forms'      => array(
+				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=G1pqLXdyl08&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
+			),
 			// Dual Heading.
 			'Dual_Heading'      => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/dual-heading/dual-heading-widget-overview/' . $utm_suffix,

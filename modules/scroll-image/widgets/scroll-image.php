@@ -92,7 +92,7 @@ class Scroll_Image extends Powerpack_Widget {
 		);
 	}
 
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 
 		/**
 		 * Content Tab: Image
@@ -489,20 +489,16 @@ class Scroll_Image extends Powerpack_Widget {
 		$link_url = $settings['link']['url'];
 
 		if ( '' !== $settings['link']['url'] ) {
-			$this->add_render_attribute( 'link', 'class', 'pp-image-scroll-link' );
+			$this->add_render_attribute( 'link', 'class', 'pp-image-scroll-link pp-media-content' );
 
 			$this->add_link_attributes( 'link', $settings['link'] );
 		}
 
-		$this->add_render_attribute(
-			'icon',
-			'class',
-			array(
-				'pp-image-scroll-icon',
-				'pp-icon',
-				'pp-mouse-scroll-' . $settings['direction_type'],
-			)
-		);
+		$this->add_render_attribute( 'icon', 'class', [
+			'pp-image-scroll-icon',
+			'pp-icon',
+			'pp-mouse-scroll-' . $settings['direction_type'],
+		] );
 
 		if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
 			// add old default
@@ -522,18 +518,16 @@ class Scroll_Image extends Powerpack_Widget {
 			$has_icon = true;
 		}
 		$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
-		$is_new   = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
+		$is_new = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 
-		$this->add_render_attribute(
-			array(
-				'container'      => array(
-					'class' => 'pp-image-scroll-container',
-				),
-				'direction_type' => array(
-					'class' => array( 'pp-image-scroll-image', 'pp-image-scroll-' . $settings['direction_type'] ),
-				),
-			)
-		);
+		$this->add_render_attribute( [
+			'container' => [
+				'class' => 'pp-image-scroll-container',
+			],
+			'direction_type' => [
+				'class' => [ 'pp-image-scroll-image', 'pp-image-scroll-' . $settings['direction_type'] ],
+			],
+		] );
 		?>
 		<div class="pp-image-scroll-wrap">
 			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container' ) ); ?>>
@@ -542,19 +536,17 @@ class Scroll_Image extends Powerpack_Widget {
 						<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
 							<?php
 							if ( $is_new || $migrated ) {
-								Icons_Manager::render_icon( $settings['selected_icon'], array( 'aria-hidden' => 'true' ) );
+								Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
 							} elseif ( ! empty( $settings['icon'] ) ) {
-								?>
-								<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i>
-								<?php
+								?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i><?php
 							}
 							?>
 						</span>
 					</div>
 				<?php } ?>
 				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'direction_type' ) ); ?>>
-					<?php if ( 'yes' !== $settings['overlay'] ) { ?>
-						<div class="pp-image-scroll-overlay">
+					<?php if ( 'yes' === $settings['overlay'] ) { ?>
+						<div class="pp-image-scroll-overlay pp-media-overlay">
 					<?php } ?>
 					<?php if ( ! empty( $link_url ) ) { ?>
 							<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>></a>
@@ -570,7 +562,7 @@ class Scroll_Image extends Powerpack_Widget {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		?>
 		<#
 			var direction = settings.direction_type,
@@ -582,24 +574,23 @@ class Scroll_Image extends Powerpack_Widget {
 			if ( settings.icon || settings.selected_icon.value ) {
 
 				view.addRenderAttribute( 'icon', 'class', [
-					   'pp-image-scroll-icon',
-					   'pp-icon',
+					'pp-image-scroll-icon',
+					'pp-icon',
 					'pp-mouse-scroll-' + settings.direction_type,
-				   ] );
-			
+				] );
 			}
-			
+
 			if ( settings.link.url ) {
 				view.addRenderAttribute( 'link', 'class', 'pp-image-scroll-link' );
 				url = settings.link.url;
 				view.addRenderAttribute( 'link', 'href',  url );
 			}
-			
+
 			view.addRenderAttribute( 'container', 'class', 'pp-image-scroll-container' );
-			
+
 			view.addRenderAttribute( 'direction_type', 'class', 'pp-image-scroll-image pp-image-scroll-' + direction );
 		#>
-		
+
 		<div class="pp-image-scroll-wrap">
 			<div {{{ view.getRenderAttributeString('container') }}}>
 				<# if ( settings.icon || settings.selected_icon ) { #>
@@ -623,7 +614,7 @@ class Scroll_Image extends Powerpack_Widget {
 					if( 'yes' == settings.overlay ) { #>
 						</div> 
 					<# } #>
-						
+
 					<#
 					var image = {
 						id: settings.image.id,
