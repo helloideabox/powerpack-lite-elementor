@@ -66,7 +66,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		);
 	}
 
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		$this->start_controls_section(
 			'section_timeline',
 			array(
@@ -229,7 +229,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$user = $settings['username'];
 
 		$attrs['data-theme']        = $settings['theme'];
-		$attrs['data-show-replies'] = ( 'yes' == $settings['show_replies'] ) ? 'true' : 'false';
+		$attrs['data-show-replies'] = ( 'yes' === $settings['show_replies'] ) ? 'true' : 'false';
 
 		if ( ! empty( $settings['width'] ) ) {
 			$attrs['data-width'] = $settings['width']['size'];
@@ -260,8 +260,8 @@ class Twitter_Timeline extends Powerpack_Widget {
 		}
 
 		?>
-		<div class="pp-twitter-timeline" <?php echo $attr; ?>>
-			<a class="twitter-timeline" href="https://twitter.com/<?php echo $user; ?>" <?php echo $attr; ?>>Tweets by <?php echo $user; ?></a>
+		<div class="pp-twitter-timeline" <?php echo esc_attr( $attr ); ?>>
+			<a class="twitter-timeline" href="https://twitter.com/<?php echo esc_attr( $user ); ?>" <?php echo esc_attr( $attr ); ?>><?php esc_attr_e( 'Tweets by', 'powerpack' ); ?> <?php echo esc_attr( $user ); ?></a>
 		</div>
 		<?php
 	}
@@ -273,7 +273,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		?>
 		<#
 			view.addRenderAttribute( 'atts', {
