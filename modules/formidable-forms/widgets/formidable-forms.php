@@ -2,6 +2,8 @@
 namespace PowerpackElementsLite\Modules\FormidableForms\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -11,15 +13,15 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes\Typography as Scheme_Typography;
+use Elementor\Core\Schemes\Color as Scheme_Color;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * WPForms Widget
+ * Formidable Forms Widget
  */
 class Formidable_Forms extends Powerpack_Widget {
 
@@ -48,12 +50,47 @@ class Formidable_Forms extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Formidable_Forms' );
 	}
 
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->register_controls();
+	}
 
-		/**
-		 * Content Tab: Formidable Forms
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Register formidable forms widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_controls() {
+		/* Content Tab */
+		$this->register_content_form_controls();
+		$this->register_content_errors_controls();
+		$this->register_content_help_docs_controls();
+		$this->register_content_upgrade_pro_controls();
+
+		/* Style Tab */
+		$this->register_style_title_controls();
+		$this->register_style_label_controls();
+		$this->register_style_input_controls();
+		$this->register_style_field_description_controls();
+		$this->register_style_placeholder_controls();
+		$this->register_style_checkbox_controls();
+		$this->register_style_submit_button_controls();
+		$this->register_style_errors_controls();
+		$this->register_style_confirmation_message_controls();
+	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	Content Tab
+	/*-----------------------------------------------------------------------------------*/
+
+	/**
+	 * Content Tab: Formidable Forms
+	 * -------------------------------------------------
+	 */
+	protected function register_content_form_controls() {
+
 		$this->start_controls_section(
 			'section_formidable_forms',
 			array(
@@ -67,7 +104,7 @@ class Formidable_Forms extends Powerpack_Widget {
 				'label'       => esc_html__( 'Contact Form', 'powerpack' ),
 				'type'        => Controls_Manager::SELECT,
 				'label_block' => true,
-				'options'     => pp_elements_lite_get_formidable_forms(),
+				'options'     => PP_Helper::get_contact_forms( 'Formidable_Forms' ),
 				'default'     => '0',
 			)
 		);
@@ -164,11 +201,15 @@ class Formidable_Forms extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Errors
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Content Tab: Register errors controls
+	 *
+	 * @return void
+	 */
+	protected function register_content_errors_controls() {
+
 		$this->start_controls_section(
 			'section_errors',
 			array(
@@ -197,49 +238,53 @@ class Formidable_Forms extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Docs Links
-		 *
-		 * @since 1.4.8
-		 * @access protected
-		 */
-		$this->start_controls_section(
-			'section_help_docs',
-			array(
-				'label' => __( 'Help Docs', 'powerpack' ),
-			)
-		);
+	/**
+	 * Content Tab: Docs Links
+	 *
+	 * @since 1.4.8
+	 * @access protected
+	 */
+	protected function register_content_help_docs_controls() {
 
-		$this->add_control(
-			'help_doc_1',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Watch Video Overview %2$s', 'powerpack' ), '<a href="https://www.youtube.com/watch?v=UJJH2n4bNVI&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+		$help_docs = PP_Config::get_widget_help_links( 'Formidable_Forms' );
+		if ( ! empty( $help_docs ) ) {
 
-		$this->add_control(
-			'help_doc_2',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/wpforms-styler/wpforms-styler-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+			$this->start_controls_section(
+				'section_help_docs',
+				[
+					'label' => __( 'Help Docs', 'powerpack' ),
+				]
+			);
 
-		$this->end_controls_section();
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					[
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					]
+				);
+
+				$hd_counter++;
+			}
+
+			$this->end_controls_section();
+		}
+	}
+
+	/**
+	 * Content Tab: Upgrade PowerPack
+	 *
+	 * @since 1.2.9.4
+	 * @access protected
+	 */
+	protected function register_content_upgrade_pro_controls() {
 
 		if ( ! is_pp_elements_active() ) {
-			/**
-			 * Content Tab: Upgrade PowerPack
-			 *
-			 * @since 1.2.9.4
-			 * @access protected
-			 */
 			$this->start_controls_section(
 				'section_upgrade_powerpack',
 				array(
@@ -260,17 +305,19 @@ class Formidable_Forms extends Powerpack_Widget {
 
 			$this->end_controls_section();
 		}
+	}
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		  STYLE TAB
-		/*-----------------------------------------------------------------------------------*/
+	/*-----------------------------------------------------------------------------------*/
+	/*	Style Tab
+	/*-----------------------------------------------------------------------------------*/
 
-		/**
-		 * Style Tab: Form Title & Description
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Style Tab: Register Form Title & Description controls
+	 *
+	 * @access protected
+	 */
+	protected function register_style_title_controls() {
+
 		$this->start_controls_section(
 			'section_form_title_style',
 			array(
@@ -405,11 +452,15 @@ class Formidable_Forms extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Labels
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Style Tab: Register labels controls
+	 *
+	 * @access protected
+	 */
+	protected function register_style_label_controls() {
+
 		$this->start_controls_section(
 			'section_label_style',
 			array(
@@ -440,11 +491,15 @@ class Formidable_Forms extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Input & Textarea
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Style Tab: Register Input & Textarea controls
+	 *
+	 * @access protected
+	 */
+	protected function register_style_input_controls() {
+
 		$this->start_controls_section(
 			'section_fields_style',
 			array(
@@ -747,11 +802,15 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Field Description
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Style Tab: Register Field Description controls
+	 *
+	 * @access protected
+	 */
+	protected function register_style_field_description_controls() {
+
 		$this->start_controls_section(
 			'section_field_description_style',
 			array(
@@ -800,11 +859,15 @@ class Formidable_Forms extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Placeholder
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Style Tab: Register Placeholder controls
+	 *
+	 * @access protected
+	 */
+	protected function register_style_placeholder_controls() {
+
 		$this->start_controls_section(
 			'section_placeholder_style',
 			array(
@@ -831,11 +894,15 @@ class Formidable_Forms extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Radio & Checkbox
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Style Tab: Register Radio & Checkbox controls
+	 *
+	 * @access protected
+	 */
+	protected function register_style_checkbox_controls() {
+
 		$this->start_controls_section(
 			'section_radio_checkbox_style',
 			array(
@@ -1029,11 +1096,15 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Submit Button
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Style Tab: Register Submit Button controls
+	 *
+	 * @access protected
+	 */
+	protected function register_style_submit_button_controls() {
+
 		$this->start_controls_section(
 			'section_submit_button_style',
 			array(
@@ -1269,11 +1340,15 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Errors
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Style Tab: Register Errors controls
+	 *
+	 * @access protected
+	 */
+	protected function register_style_errors_controls() {
+
 		$this->start_controls_section(
 			'section_error_style',
 			array(
@@ -1384,11 +1459,15 @@ class Formidable_Forms extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Style Tab: Confirmation Message
-		 * -------------------------------------------------
-		 */
+	/**
+	 * Style Tab: Confirmation Message
+	 *
+	 * @access protected
+	 */
+	protected function register_style_confirmation_message_controls() {
+
 		$this->start_controls_section(
 			'section_confirmation_style',
 			array(
@@ -1494,53 +1573,59 @@ class Formidable_Forms extends Powerpack_Widget {
 			)
 		);
 
-		if ( $settings['placeholder_switch'] != 'yes' ) {
+		if ( 'yes' !== $settings['placeholder_switch'] ) {
 			$this->add_render_attribute( 'contact-form', 'class', 'placeholder-hide' );
 		}
 
-		if ( $settings['custom_title_description'] == 'yes' ) {
+		if ( 'yes' === $settings['custom_title_description'] ) {
 			$this->add_render_attribute( 'contact-form', 'class', 'title-description-hide' );
 		}
 
-		if ( $settings['custom_radio_checkbox'] == 'yes' ) {
+		if ( 'yes' === $settings['custom_radio_checkbox'] ) {
 			$this->add_render_attribute( 'contact-form', 'class', 'pp-custom-radio-checkbox' );
 		}
 
 		if ( class_exists( 'FrmForm' ) ) {
 			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
-				<div <?php echo $this->get_render_attribute_string( 'contact-form' ); ?>>
-					<?php if ( $settings['custom_title_description'] == 'yes' ) { ?>
+				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'contact-form' ) ); ?>>
+					<?php if ( 'yes' === $settings['custom_title_description'] ) { ?>
 						<div class="pp-formidable-forms-heading">
-							<?php if ( $settings['form_title_custom'] != '' ) { ?>
+							<?php if ( '' !== $settings['form_title_custom'] ) { ?>
 								<h3 class="pp-contact-form-title pp-formidable-forms-title">
 									<?php echo esc_attr( $settings['form_title_custom'] ); ?>
 								</h3>
 							<?php } ?>
-							<?php if ( $settings['form_description_custom'] != '' ) { ?>
+							<?php if ( '' !== $settings['form_description_custom'] ) { ?>
 								<div class="pp-contact-form-description pp-formidable-forms-description">
-									<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); ?>
+									<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 								</div>
 							<?php } ?>
 						</div>
 					<?php } ?>
 					<?php
-						$pp_form_title       = ( $settings['form_title'] == 'yes' ) ? 1 : 0;
-						$pp_form_description = ( $settings['form_description'] == 'yes' ) ? 1 : 0;
+					$form_title       = ( 'yes' === $settings['form_title'] ) ? 1 : 0;
+					$form_description = ( 'yes' === $settings['form_description'] ) ? 1 : 0;
 
-					if ( $settings['custom_title_description'] == 'yes' ) {
-						$pp_form_title       = 0;
-						$pp_form_description = 0;
+					if ( 'yes' === $settings['custom_title_description'] ) {
+						$form_title       = 0;
+						$form_description = 0;
 					}
 
-						echo do_shortcode( '[formidable id=' . absint( $settings['contact_form_list'] ) . ' title=' . $pp_form_title . ' description=' . $pp_form_description . ' ajax=true]' );
-
+					echo do_shortcode( '[formidable id=' . absint( $settings['contact_form_list'] ) . ' title=' . $form_title . ' description=' . $form_description . ' ajax=true]' );
 					?>
 				</div>
 				<?php
+			} else {
+				$placeholder = sprintf( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', esc_attr( $this->get_title() ) );
+
+				echo esc_attr( $this->render_editor_placeholder(
+					[
+						'title' => __( 'No Contact Form Selected!', 'powerpack' ),
+						'body' => $placeholder,
+					]
+				) );
 			}
 		}
 	}
-
-	protected function _content_template() {}
 
 }
