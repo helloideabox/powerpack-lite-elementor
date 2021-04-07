@@ -119,7 +119,7 @@ class Image_Comparison extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.2
 	 * @access protected
 	 */
 	protected function register_controls() {
@@ -887,7 +887,7 @@ class Image_Comparison extends Powerpack_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.2
 	 * @access protected
 	 */
 	protected function content_template() {

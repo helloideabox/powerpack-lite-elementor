@@ -81,7 +81,7 @@ class Business_Hours extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.2
 	 * @access protected
 	 */
 	protected function register_controls() {

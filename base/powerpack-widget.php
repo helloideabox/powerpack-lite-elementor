@@ -158,7 +158,7 @@ abstract class Powerpack_Widget extends Widget_Base {
 	 * Get swiper slider settings
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 2.3.2
 	 */
 	public function get_swiper_slider_settings( $settings, $new = true ) {
 		$pagination = ( $new ) ? $settings['pagination'] : $settings['dots'];
@@ -236,7 +236,7 @@ abstract class Powerpack_Widget extends Widget_Base {
 	 * Get swiper slider settings for _content_template function
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 2.3.2
 	 */
 	public function get_swiper_slider_settings_js() {
 		$elementor_bp_tablet    = get_option( 'elementor_viewport_lg' );

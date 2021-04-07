@@ -1,3 +1,12 @@
+== 2.3.2 ==
+Release date: April 7, 2021
+* Added: Content Ticker - Pause on Interaction option
+* Added: Content Ticker - Heading alignment and padding options
+* Enhancement: Content Ticker, Logo Carousel - Updated arrows control
+* Enhancement: Instagram Feed - Updated autoplay speed control type to number control
+* Enhancement: Instagram Feed - Removed Use API option as it was not working any more
+* Added: Gravity Forms - Label spacing option
+
 == 2.3.1 ==
 Release date: March 29, 2021
 * Fixed: Flip Box - Link option was not working in zoom out effect

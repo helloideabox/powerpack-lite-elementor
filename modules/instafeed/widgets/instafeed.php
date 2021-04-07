@@ -3150,7 +3150,7 @@ class Instafeed extends Powerpack_Widget {
 	/**
 	 * Render Title Icon.
 	 *
-	 * @since  x.x.x
+	 * @since  2.3.2
 	 */
 	public function render_title_icon() {
 		$settings = $this->get_settings_for_display();

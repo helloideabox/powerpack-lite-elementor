@@ -423,7 +423,7 @@ class PP_Helper {
 	/**
 	 * Validate an HTML tag against a safe allowed list.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.2
 	 * @param string $tag specifies the HTML Tag.
 	 * @access public
 	 * @return string

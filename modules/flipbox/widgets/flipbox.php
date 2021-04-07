@@ -104,7 +104,7 @@ class Flipbox extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.2
 	 * @access protected
 	 */
 	protected function register_controls() {
@@ -1921,7 +1921,7 @@ class Flipbox extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		?>
 		<#
 			view.addRenderAttribute( 'flipbox-card', {

@@ -1340,7 +1340,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 	/**
 	 * Render accordion content.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.2
 	 */
 	protected function get_accordion_content( $tab ) {
 		$settings     = $this->get_settings_for_display();
