@@ -168,7 +168,7 @@ final class PP_Admin_Settings {
 			),
 			'integration'   => array(
 				'title'         => esc_html__( 'Integration', 'powerpack' ),
-				'show'          => 'off' == $settings['hide_integration_tab'],
+				'show'          => true,
 				'cap'           => ! is_network_admin() ? 'manage_options' : 'manage_network_plugins',
 				'file'          => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-integration.php',
 				'priority'      => 300,
