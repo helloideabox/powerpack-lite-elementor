@@ -115,7 +115,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 
 		/*-----------------------------------------------------------------------------------*/
-		/*	CONTENT TAB
+		/* CONTENT TAB
 		/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -409,7 +409,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			array(
-				'name'    => 'thumbnail', // Usage: '{name}_size' and '{name}_custom_dimension', in this case 'thumbnail_size' and 'thumbnail_custom_dimension'.
+				'name'    => 'thumbnail', // Usage: '{name}_size' and '{name}_custom_dimension', in this case 'thumbnail_size' and 'thumbnail_custom_dimension'.,
 				'label'   => __( 'Image Size', 'powerpack' ),
 				'default' => 'full',
 			)
@@ -481,7 +481,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				),
 				'condition' => array(
 					'member_social_links' => 'yes',
-					'overlay_content'     => array( 'none', 'all_content' ),
+					'overlay_content'     => [ 'none', 'all_content' ],
 				),
 			)
 		);
@@ -590,6 +590,25 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'slider_speed',
+			array(
+				'label'       => __( 'Slider Speed', 'powerpack' ),
+				'description' => __( 'Duration of transition between slides (in ms)', 'powerpack' ),
+				'type'        => Controls_Manager::SLIDER,
+				'default'     => array( 'size' => 600 ),
+				'range'       => array(
+					'px' => array(
+						'min'  => 100,
+						'max'  => 3000,
+						'step' => 1,
+					),
+				),
+				'size_units'  => '',
+				'separator'   => 'before',
+			)
+		);
+
+		$this->add_control(
 			'autoplay',
 			array(
 				'label'        => __( 'Autoplay', 'powerpack' ),
@@ -603,11 +622,27 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'pause_on_interaction',
+			array(
+				'label'        => __( 'Pause on Interaction', 'powerpack' ),
+				'description'  => __( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '',
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
+				'return_value' => 'yes',
+				'condition'    => array(
+					'autoplay' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
 			'autoplay_speed',
 			array(
 				'label'      => __( 'Autoplay Speed', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array( 'size' => 2000 ),
+				'default'    => array( 'size' => 3000 ),
 				'range'      => array(
 					'px' => array(
 						'min'  => 500,
@@ -727,7 +762,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		}
 
 		/*-----------------------------------------------------------------------------------*/
-		/*	STYLE TAB
+		/* STYLE TAB
 		/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -760,7 +795,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'icon'  => 'fa fa-align-right',
 					),
 				),
-				'default'   => '',
+				'default'   => 'center',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm' => 'text-align: {{VALUE}};',
 				),
@@ -1088,7 +1123,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'name'     => 'member_name_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .pp-tm-name',
 			)
 		);
@@ -1098,6 +1133,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-name' => 'color: {{VALUE}}',
@@ -1291,7 +1330,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'name'     => 'member_position_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .pp-tm-position',
 			)
 		);
@@ -1301,6 +1340,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				],
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-position' => 'color: {{VALUE}}',
@@ -1494,7 +1537,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'name'     => 'member_description_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .pp-tm-description',
 			)
 		);
@@ -1504,6 +1547,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_3,
+				],
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-description' => 'color: {{VALUE}}',
@@ -2371,83 +2418,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	/**
-	 * Slider Settings.
-	 *
-	 * @access public
-	 */
-	public function slider_settings() {
-		$settings = $this->get_settings();
-
-		$slider_options = array(
-			'direction'     => 'horizontal',
-			'speed'         => 400,
-			'slidesPerView' => ( $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3,
-			'spaceBetween'  => ( $settings['margin']['size'] ) ? $settings['margin']['size'] : 10,
-			'grabCursor'    => ( 'yes' === $settings['grab_cursor'] ),
-			'autoHeight'    => true,
-			'loop'          => ( 'yes' === $settings['infinite_loop'] ),
-		);
-
-		if ( 'yes' === $settings['autoplay'] && ! empty( $settings['autoplay_speed']['size'] ) ) {
-			$autoplay_speed = $settings['autoplay_speed']['size'];
-		} else {
-			$autoplay_speed = 999999;
-		}
-
-		$slider_options['autoplay'] = array(
-			'delay' => $autoplay_speed,
-		);
-
-		if ( 'yes' === $settings['dots'] ) {
-			$slider_options['pagination'] = array(
-				'el'        => '.swiper-pagination-' . esc_attr( $this->get_id() ),
-				'type'      => $settings['pagination_type'],
-				'clickable' => true,
-			);
-		}
-
-		if ( 'yes' === $settings['arrows'] ) {
-			$slider_options['navigation'] = array(
-				'nextEl' => '.swiper-button-next-' . esc_attr( $this->get_id() ),
-				'prevEl' => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
-			);
-		}
-
-		$elementor_bp_lg = get_option( 'elementor_viewport_lg' );
-		$elementor_bp_md = get_option( 'elementor_viewport_md' );
-		$bp_desktop      = ! empty( $elementor_bp_lg ) ? $elementor_bp_lg : 1025;
-		$bp_tablet       = ! empty( $elementor_bp_md ) ? $elementor_bp_md : 768;
-		$bp_mobile       = 320;
-
-		$slider_options['breakpoints'] = array(
-			$bp_desktop => array(
-				'slidesPerView' => ( $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 2,
-				'spaceBetween'  => ( $settings['margin']['size'] ) ? $settings['margin']['size'] : 10,
-			),
-			$bp_tablet  => array(
-				'slidesPerView' => ( $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2,
-				'spaceBetween'  => ( $settings['margin_tablet']['size'] ) ? $settings['margin_tablet']['size'] : 10,
-			),
-			$bp_mobile  => array(
-				'slidesPerView' => ( $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1,
-				'spaceBetween'  => ( $settings['margin_mobile']['size'] ) ? $settings['margin_mobile']['size'] : 10,
-			),
-		);
-
-		$this->add_render_attribute(
-			'team-member-carousel',
-			array(
-				'data-slider-settings' => wp_json_encode( $slider_options ),
-			)
-		);
-	}
-
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$image    = $this->get_settings( 'member_image' );
 
-		$this->add_render_attribute( 'team-member-carousel-wrap', 'class', 'swiper-container-wrap pp-team-member-carousel-wrap' );
+		$this->add_render_attribute( 'team-member-carousel-wrap', 'class', [
+			'swiper-container-wrap',
+			'pp-team-member-carousel-wrap',
+		] );
 
 		if ( $settings['dots_position'] ) {
 			$this->add_render_attribute( 'team-member-carousel-wrap', 'class', 'swiper-container-wrap-dots-' . $settings['dots_position'] );
@@ -2465,7 +2443,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			$this->add_render_attribute( 'team-member-carousel', 'dir', 'rtl' );
 		}
 
-		$this->slider_settings();
+		$slider_options = $this->get_swiper_slider_settings( $settings, false );
+
+		$this->add_render_attribute(
+			'team-member-carousel',
+			array(
+				'data-slider-settings' => wp_json_encode( $slider_options ),
+			)
+		);
 		?>
 		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'team-member-carousel-wrap' ) ); ?>>
 			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'team-member-carousel' ) ); ?>>
@@ -2489,13 +2474,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 											$link_key = $this->get_repeater_setting_key( 'link', 'team_member_image', $index );
 
 											$this->add_link_attributes( $link_key, $item['link'] );
-
-											echo '<a ' . wp_kses_post( $this->get_render_attribute_string( $link_key ) ) . '>' . wp_kses_post( $image_html ) . '</a>';
-
+											?>
+											<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
+												<?php echo wp_kses_post( $image_html ); ?>
+											</a>
+											<?php
 										} else {
-
 											echo wp_kses_post( $image_html );
-
 										}
 									}
 									?>
@@ -2619,7 +2604,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			?>
 			<<?php echo esc_html( $position_html_tag ); ?>>
 				<?php echo esc_html( $item['team_member_position'] ); ?>
-			</<?php echo esc_html( $position_html_tag ); ?>
+			</<?php echo esc_html( $position_html_tag ); ?>>
 			<?php
 		}
 		?>
@@ -2648,34 +2633,33 @@ class Team_Member_Carousel extends Powerpack_Widget {
 	}
 
 	private function member_social_links( $item ) {
-		$pp_social_links = array();
+		$social_links = array();
 
-		( $item['facebook_url'] ) ? $pp_social_links['facebook']   = $item['facebook_url'] : '';
-		( $item['twitter_url'] ) ? $pp_social_links['twitter']     = $item['twitter_url'] : '';
-		( $item['instagram_url'] ) ? $pp_social_links['instagram'] = $item['instagram_url'] : '';
-		( $item['linkedin_url'] ) ? $pp_social_links['linkedin']   = $item['linkedin_url'] : '';
-		( $item['youtube_url'] ) ? $pp_social_links['youtube']     = $item['youtube_url'] : '';
-		( $item['pinterest_url'] ) ? $pp_social_links['pinterest'] = $item['pinterest_url'] : '';
-		( $item['dribbble_url'] ) ? $pp_social_links['dribbble']   = $item['dribbble_url'] : '';
-		( $item['email'] ) ? $pp_social_links['envelope']          = $item['email'] : '';
-		( $item['phone'] ) ? $pp_social_links['phone-alt']         = $item['phone'] : '';
+		( $item['facebook_url'] ) ? $social_links['facebook']   = $item['facebook_url'] : '';
+		( $item['twitter_url'] ) ? $social_links['twitter']     = $item['twitter_url'] : '';
+		( $item['instagram_url'] ) ? $social_links['instagram'] = $item['instagram_url'] : '';
+		( $item['linkedin_url'] ) ? $social_links['linkedin']   = $item['linkedin_url'] : '';
+		( $item['youtube_url'] ) ? $social_links['youtube']     = $item['youtube_url'] : '';
+		( $item['pinterest_url'] ) ? $social_links['pinterest'] = $item['pinterest_url'] : '';
+		( $item['dribbble_url'] ) ? $social_links['dribbble']   = $item['dribbble_url'] : '';
+		( $item['email'] ) ? $social_links['envelope']          = $item['email'] : '';
+		( $item['phone'] ) ? $social_links['phone-alt']         = $item['phone'] : '';
 		?>
 		<div class="pp-tm-social-links-wrap">
 			<ul class="pp-tm-social-links">
 				<?php
-				foreach ( $pp_social_links as $icon_id => $icon_url ) {
+				foreach ( $social_links as $icon_id => $icon_url ) {
 					if ( $icon_url ) {
 						if ( 'envelope' === $icon_id ) {
 							?>
 							<li>
-								<a href="mailto:<?php echo esc_attr( sanitize_email( $icon_url ) ); ?>">
+								<a href="mailto:<?php echo sanitize_email( $icon_url ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
 									<span class="pp-tm-social-icon-wrap">
 										<span class="pp-tm-social-icon far fa fa-<?php echo esc_attr( $icon_id ); ?>"></span>
 									</span>
 								</a>
 							</li>
 							<?php
-
 						} elseif ( 'phone-alt' === $icon_id ) {
 							?>
 							<li>
@@ -2687,7 +2671,15 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							</li>
 							<?php
 						} else {
-							printf( '<li><a href="%1$s"><span class="pp-tm-social-icon-wrap"><span class="pp-tm-social-icon fab fa fa-' . esc_attr( $icon_id ) . '"></span></span></a></li>', esc_url( $icon_url ) );
+							?>
+							<li>
+								<a href="<?php echo esc_url( $icon_url ); ?>">
+									<span class="pp-tm-social-icon-wrap">
+										<span class="pp-tm-social-icon fab fa fa-<?php echo esc_attr( $icon_id ); ?>"></span>
+									</span>
+								</a>
+							</li>
+							<?php
 						}
 					}
 				}
@@ -2739,7 +2731,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		}
 
 		$migrated = isset( $settings['__fa4_migrated']['select_arrow'] );
-		$is_new   = ! isset( $settings['arrow'] ) && $migration_allowed;
+		$is_new = ! isset( $settings['arrow'] ) && $migration_allowed;
 
 		if ( 'yes' === $settings['arrows'] ) {
 			?>
@@ -2779,6 +2771,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$bp_desktop          = ! empty( $elementor_bp_lg ) ? $elementor_bp_lg : 1025;
 		$bp_tablet           = ! empty( $elementor_bp_md ) ? $elementor_bp_md : 768;
 		$bp_mobile           = 320;
+		$this->get_swiper_slider_settings_js();
 		?>
 		<#
 			var i = 1;
@@ -2967,54 +2960,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					}
 				}
 			}
-
-			function get_slider_settings( settings ) {
-
-				var $items          = ( settings.items.size !== '' || settings.items.size !== undefined ) ? settings.items.size : 3,
-					$items_tablet   = ( settings.items_tablet.size !== '' || settings.items_tablet.size !== undefined ) ? settings.items_tablet.size : 2,
-					$items_mobile   = ( settings.items_mobile.size !== '' || settings.items_mobile.size !== undefined ) ? settings.items_mobile.size : 1,
-					$speed          = 400,
-					$margin         = ( settings.margin.size !== '' || settings.margin.size !== undefined ) ? settings.margin.size : 10,
-					$margin_tablet  = ( settings.margin_tablet.size !== '' || settings.margin_tablet.size !== undefined ) ? settings.margin_tablet.size : 10,
-					$margin_mobile  = ( settings.margin_mobile.size !== '' || settings.margin_mobile.size !== undefined ) ? settings.margin_mobile.size : 10,
-					$autoplay       = ( settings.autoplay == 'yes' && settings.autoplay_speed.size != '' ) ? settings.autoplay_speed.size : 999999;
-
-				return {
-					direction:              "horizontal",
-					speed:                  $speed,
-					slidesPerView:          $items,
-					spaceBetween:           $margin,
-					grabCursor:             ( settings.grab_cursor === 'yes' ) ? true : false,
-					autoHeight:             true,
-					loop:                   ( settings.infinite_loop === 'yes' ),
-					autoplay: {
-						delay: $autoplay,
-					},
-					pagination: {
-						el: '.swiper-pagination',
-						type: settings.pagination_type,
-						clickable: true,
-					},
-					navigation: {
-						nextEl: '.swiper-button-next',
-						prevEl: '.swiper-button-prev',
-					},
-					breakpoints: {
-						<?php echo esc_html( $bp_desktop ); ?>: {
-							slidesPerView:  $items,
-							spaceBetween:   $margin
-						},
-						<?php echo esc_html( $bp_tablet ); ?>: {
-							slidesPerView:  $items_tablet,
-							spaceBetween:   $margin_tablet
-						},
-						<?php echo esc_html( $bp_mobile ); ?>: {
-							slidesPerView:  $items_mobile,
-							spaceBetween:   $margin_mobile
-						}
-					}
-				};
-			};
 
 			view.addRenderAttribute(
 				'container',
