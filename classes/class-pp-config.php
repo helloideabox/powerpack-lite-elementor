@@ -700,6 +700,9 @@ class PP_Config {
 			'Scroll_Image'      => array(
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=eduATa8FPpU&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
 			),
+			'WP_Forms'          => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/wpforms-styler/wpforms-styler-widget-overview/',
+			),
 		);
 
 		return apply_filters( 'pp_elements_lite_help_links', self::$help_docs );
