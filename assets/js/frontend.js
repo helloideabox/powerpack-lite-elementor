@@ -299,48 +299,54 @@
     };
     
     var AdvancedAccordionHandler = function ($scope, $) {
-    	var $advanced_accordion         = $scope.find(".pp-advanced-accordion").eq(0),
-            elementSettings             = getElementSettings( $scope ),
-        	$accordion_title            = $scope.find(".pp-accordion-tab-title"),
-        	$accordion_type             = elementSettings.accordion_type,
-        	$accordion_speed            = elementSettings.toggle_speed;
-			
+    	var accordionTitle  = $scope.find('.pp-accordion-tab-title'),
+            elementSettings = getElementSettings( $scope ),
+        	accordionType   = elementSettings.accordion_type,
+        	accordionSpeed  = elementSettings.toggle_speed;
+	
         // Open default actived tab
-        $accordion_title.each(function(){
+        accordionTitle.each(function(){
             if ( $(this).hasClass('pp-accordion-tab-active-default') ) {
                 $(this).addClass('pp-accordion-tab-show pp-accordion-tab-active');
-                $(this).next().slideDown($accordion_speed)
+                $(this).next().slideDown(accordionSpeed);
             }
-        })
+        });
 
         // Remove multiple click event for nested accordion
-        $accordion_title.unbind("click");
+        accordionTitle.unbind('click');
 
-        $accordion_title.click(function(e) {
+        accordionTitle.click(function(e) {
             e.preventDefault();
 
-            var $this = $(this);
+            var $this = $(this),
+				$item = $this.parent();
+			
+			$(document).trigger('ppe-accordion-switched', [ $item ]);
 
-            if ( $accordion_type === 'accordion' ) {
-                if ( $this.hasClass("pp-accordion-tab-show") ) {
-                    $this.removeClass("pp-accordion-tab-show pp-accordion-tab-active");
-                    $this.next().slideUp($accordion_speed);
+            if ( accordionType === 'accordion' ) {
+                if ( $this.hasClass('pp-accordion-tab-show') ) {
+                    $this.closest('.pp-accordion-item').removeClass('pp-accordion-item-active');
+                    $this.removeClass('pp-accordion-tab-show pp-accordion-tab-active');
+                    $this.next().slideUp(accordionSpeed);
                 } else {
-                    $this.parent().parent().find(".pp-accordion-tab-title").removeClass("pp-accordion-tab-show pp-accordion-tab-active");
-                    $this.parent().parent().find(".pp-accordion-tab-content").slideUp($accordion_speed);
-                    $this.toggleClass("pp-accordion-tab-show pp-accordion-tab-active");
-                    $this.next().slideToggle($accordion_speed);
+                    $this.closest('.pp-advanced-accordion').find('.pp-accordion-item').removeClass('pp-accordion-item-active');
+                    $this.closest('.pp-advanced-accordion').find('.pp-accordion-tab-title').removeClass('pp-accordion-tab-show pp-accordion-tab-active');
+                    $this.closest('.pp-advanced-accordion').find('.pp-accordion-tab-title').removeClass('pp-accordion-tab-active-default');
+                    $this.closest('.pp-advanced-accordion').find('.pp-accordion-tab-content').slideUp(accordionSpeed);
+                    $this.toggleClass('pp-accordion-tab-show pp-accordion-tab-active');
+                    $this.closest('.pp-accordion-item').toggleClass('pp-accordion-item-active');
+                    $this.next().slideToggle(accordionSpeed);
                 }
             } else {
                 // For acccordion type 'toggle'
-                if ( $this.hasClass("pp-accordion-tab-show") ) {
-                    $this.removeClass("pp-accordion-tab-show pp-accordion-tab-active");
-                    $this.next().slideUp($accordion_speed);
+                if ( $this.hasClass('pp-accordion-tab-show') ) {
+                    $this.removeClass('pp-accordion-tab-show pp-accordion-tab-active');
+                    $this.next().slideUp(accordionSpeed);
                 } else {
-                    $this.addClass("pp-accordion-tab-show pp-accordion-tab-active");
-                    $this.next().slideDown($accordion_speed);
+                    $this.addClass('pp-accordion-tab-show pp-accordion-tab-active');
+                    $this.next().slideDown(accordionSpeed);
                 }
-            }
+			}
         });
     };
 
