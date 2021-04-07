@@ -66,7 +66,7 @@ class Twitter_Grid extends Powerpack_Widget {
 		);
 	}
 
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		$this->start_controls_section(
 			'section_grid',
 			array(
@@ -163,7 +163,7 @@ class Twitter_Grid extends Powerpack_Widget {
 		$url = esc_url( $settings['url'] );
 
 		$attrs['data-limit']  = ( ! empty( $settings['tweet_limit'] ) ) ? $settings['tweet_limit'] : '';
-		$attrs['data-chrome'] = ( 'yes' != $settings['footer'] ) ? 'nofooter' : '';
+		$attrs['data-chrome'] = ( 'yes' !== $settings['footer'] ) ? 'nofooter' : '';
 		$attrs['data-width']  = $settings['width']['size'];
 
 		foreach ( $attrs as $key => $value ) {
@@ -176,8 +176,8 @@ class Twitter_Grid extends Powerpack_Widget {
 		}
 
 		?>
-		<div class="pp-twitter-grid" <?php echo $attr; ?>>
-			<a class="twitter-grid" href="<?php echo $url; ?>?ref_src=twsrc%5Etfw" <?php echo $attr; ?>></a>
+		<div class="pp-twitter-grid" <?php echo esc_attr( $attr ); ?>>
+			<a class="twitter-grid" href="<?php echo esc_url( $url ); ?>?ref_src=twsrc%5Etfw" <?php echo esc_attr( $attr ); ?>></a>
 		</div>
 		<?php
 	}
@@ -189,7 +189,7 @@ class Twitter_Grid extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		?>
 		<#
 			view.addRenderAttribute( 'atts', {
