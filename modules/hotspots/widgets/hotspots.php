@@ -257,6 +257,10 @@ class Hotspots extends Powerpack_Widget {
 							'step' => 0.1,
 						),
 					),
+					'default'   => [
+						'unit' => 'px',
+						'size' => 20,
+					],
 					'separator' => 'before',
 					'selectors' => array(
 						'{{WRAPPER}} {{CURRENT_ITEM}}' => 'left: {{SIZE}}%;',
@@ -276,6 +280,10 @@ class Hotspots extends Powerpack_Widget {
 							'step' => 0.1,
 						),
 					),
+					'default'   => [
+						'unit' => 'px',
+						'size' => 20,
+					],
 					'selectors' => array(
 						'{{WRAPPER}} {{CURRENT_ITEM}}' => 'top: {{SIZE}}%;',
 					),
@@ -1155,32 +1163,41 @@ class Hotspots extends Powerpack_Widget {
 					}
 
 					?>
-					<<?php echo $hotspot_tag; ?> <?php echo $this->get_render_attribute_string( $hotspot_key ); ?>>
-						<span <?php echo $this->get_render_attribute_string( $hotspot_inner_key ); ?>>
+					<<?php echo esc_html( $hotspot_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $hotspot_key ) ); ?>>
+						<span <?php echo wp_kses_post( $this->get_render_attribute_string( $hotspot_inner_key ) ); ?>>
 							<span class="pp-hotspot-icon-wrap">
 							<?php
 							if ( 'icon' === $item['hotspot_type'] ) {
 								if ( ! empty( $item['hotspot_icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) ) {
-									echo '<span class="pp-hotspot-icon pp-icon">';
-									if ( $is_new || $migrated ) {
-										Icons_Manager::render_icon( $item['selected_icon'], array( 'aria-hidden' => 'true' ) );
-									} else {
-										?>
-										<i class="<?php echo esc_attr( $item['hotspot_icon'] ); ?>" aria-hidden="true"></i>
+									?>
+									<span class="pp-hotspot-icon pp-icon">
 										<?php
-									}
-									echo '</span>';
+										if ( $is_new || $migrated ) {
+											Icons_Manager::render_icon( $item['selected_icon'], array( 'aria-hidden' => 'true' ) );
+										} else {
+											?>
+											<i class="<?php echo esc_attr( $item['hotspot_icon'] ); ?>" aria-hidden="true"></i>
+											<?php
+										}
+										?>
+									</span>
+									<?php
 								}
-							} elseif ( 'text' === $item['hotspot_type'] ) {
-								printf( '<span class="pp-hotspot-icon-wrap"><span class="pp-hotspot-text">%1$s</span></span>', esc_attr( $item['hotspot_text'] ) );
+							} elseif ( 'text' === $item['hotspot_type'] ) { ?>
+								<span class="pp-hotspot-icon-wrap">
+									<span class="pp-hotspot-text">
+										<?php echo esc_attr( $item['hotspot_text'] ); ?>
+									</span>
+								</span>
+								<?php
 							}
 							?>
 							</span>
 						</span>
-					</<?php echo $hotspot_tag; ?>>
+					</<?php echo esc_html( $hotspot_tag ); ?>>
 				<?php endforeach; ?>
 
-				<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings ); ?>
+				<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings ) ); ?>
 			</div>
 		</div>
 		<?php
