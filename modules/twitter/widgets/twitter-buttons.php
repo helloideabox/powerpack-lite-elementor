@@ -66,7 +66,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		);
 	}
 
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		$this->start_controls_section(
 			'section_buttons',
 			array(
@@ -244,19 +244,19 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$recipient_id = $settings['recipient_id'];
 		$default_text = ( isset( $settings['default_text'] ) && ! empty( $settings['default_text'] ) ) ? rawurlencode( $settings['default_text'] ) : '';
 
-		$attrs['data-size'] = ( 'yes' == $settings['large_button'] ) ? 'large' : '';
-		if ( 'share' == $type || 'mention' == $type || 'hashtag' == $type ) {
+		$attrs['data-size'] = ( 'yes' === $settings['large_button'] ) ? 'large' : '';
+		if ( 'share' === $type || 'mention' === $type || 'hashtag' === $type ) {
 			$attrs['data-via']  = $settings['via'];
 			$attrs['data-text'] = $settings['share_text'];
 			$attrs['data-url']  = $settings['share_url'];
 		}
 		$attrs['data-lang'] = get_locale();
 
-		if ( 'follow' == $type ) {
-			$attrs['data-show-count'] = ( 'yes' == $settings['show_count'] ) ? 'true' : 'false';
+		if ( 'follow' === $type ) {
+			$attrs['data-show-count'] = ( 'yes' === $settings['show_count'] ) ? 'true' : 'false';
 		}
 
-		if ( 'message' == $type ) {
+		if ( 'message' === $type ) {
 			$attrs['data-screen-name'] = $profile;
 		}
 
@@ -271,16 +271,26 @@ class Twitter_Buttons extends Powerpack_Widget {
 
 		?>
 		<div class="pp-twitter-buttons">
-			<?php if ( 'share' == $type ) { ?>
-				<a href="https://twitter.com/share" class="twitter-share-button" <?php echo $attr; ?>>Share</a>
-			<?php } elseif ( 'follow' == $type ) { ?>
-				<a href="https://twitter.com/<?php echo $profile; ?>" class="twitter-follow-button" <?php echo $attr; ?>>Follow</a>
-			<?php } elseif ( 'mention' == $type ) { ?>
-				<a href="https://twitter.com/intent/tweet?screen_name=<?php echo $profile; ?>" class="twitter-mention-button" <?php echo $attr; ?>>Mention</a>
-			<?php } elseif ( 'hashtag' == $type ) { ?>
-				<a href="https://twitter.com/intent/tweet?button_hashtag=<?php echo $hashtag; ?>" class="twitter-hashtag-button" <?php echo $attr; ?>>Hashtag</a>
+			<?php if ( 'share' === $type ) { ?>
+				<a href="https://twitter.com/share" class="twitter-share-button" <?php echo esc_attr( $attr ); ?>>
+					<?php esc_attr_e( 'Share', 'powerpack' ); ?>
+				</a>
+			<?php } elseif ( 'follow' === $type ) { ?>
+				<a href="https://twitter.com/<?php echo esc_attr( $profile ); ?>" class="twitter-follow-button" <?php echo esc_attr( $attr ); ?>>
+					<?php esc_attr_e( 'Follow', 'powerpack' ); ?>
+				</a>
+			<?php } elseif ( 'mention' === $type ) { ?>
+				<a href="https://twitter.com/intent/tweet?screen_name=<?php echo esc_attr( $profile ); ?>" class="twitter-mention-button" <?php echo esc_attr( $attr ); ?>>
+					<?php esc_attr_e( 'Mention', 'powerpack' ); ?>
+				</a>
+			<?php } elseif ( 'hashtag' === $type ) { ?>
+				<a href="https://twitter.com/intent/tweet?button_hashtag=<?php echo esc_attr( $hashtag ); ?>" class="twitter-hashtag-button" <?php echo esc_attr( $attr ); ?>>
+					<?php esc_attr_e( 'Hashtag', 'powerpack' ); ?>
+				</a>
 			<?php } else { ?>
-				<a href="https://twitter.com/messages/compose?recipient_id=<?php echo $recipient_id; ?><?php echo ! empty( $default_text ) ? '&text=' . $default_text : ''; ?>" class="twitter-dm-button" <?php echo $attr; ?>>Message</a>
+				<a href="https://twitter.com/messages/compose?recipient_id=<?php echo esc_attr( $recipient_id ); ?><?php echo ! empty( $default_text ) ? '&text=' . esc_attr( $default_text ) : ''; ?>" class="twitter-dm-button" <?php echo esc_attr( $attr ); ?>>
+					<?php esc_attr_e( 'Message', 'powerpack' ); ?>
+				</a>
 			<?php } ?>
 		</div>
 		<?php
@@ -293,14 +303,14 @@ class Twitter_Buttons extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		?>
 		<#
 			var text = ( settings.default_text ) ? '&text='+settings.default_text : '';
 			var type = settings.button_type;
 
 			if ( 'share' == type || 'mention' == type || 'hashtag' == type ) {
-				
+
 				view.addRenderAttribute( 'atts', {
 					'data-via': settings.via,
 					'data-text': settings.share_text,
