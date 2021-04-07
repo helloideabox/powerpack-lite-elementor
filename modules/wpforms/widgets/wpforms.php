@@ -48,12 +48,12 @@ class WPforms extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'WP_Forms' );
 	}
 
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 
 		/*
 		-----------------------------------------------------------------------------------*/
 		/*
-		  Content Tab
+		Content Tab
 		/*-----------------------------------------------------------------------------------*/
 
 		$this->start_controls_section(
@@ -255,7 +255,7 @@ class WPforms extends Powerpack_Widget {
 		/*
 		-----------------------------------------------------------------------------------*/
 		/*
-		  STYLE TAB
+		STYLE TAB
 		/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -1385,31 +1385,31 @@ class WPforms extends Powerpack_Widget {
 			)
 		);
 
-		if ( $settings['placeholder_switch'] != 'yes' ) {
+		if ( 'yes' !== $settings['placeholder_switch'] ) {
 			$this->add_render_attribute( 'contact-form', 'class', 'placeholder-hide' );
 		}
 
-		if ( $settings['custom_title_description'] == 'yes' ) {
+		if ( 'yes' === $settings['custom_title_description'] ) {
 			$this->add_render_attribute( 'contact-form', 'class', 'title-description-hide' );
 		}
 
-		if ( $settings['custom_radio_checkbox'] == 'yes' ) {
+		if ( 'yes' === $settings['custom_radio_checkbox'] ) {
 			$this->add_render_attribute( 'contact-form', 'class', 'pp-custom-radio-checkbox' );
 		}
 
 		if ( class_exists( 'WPForms' ) ) {
 			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
-				<div <?php echo $this->get_render_attribute_string( 'contact-form' ); ?>>
-					<?php if ( $settings['custom_title_description'] == 'yes' ) { ?>
+				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'contact-form' ) ); ?>>
+					<?php if ( 'yes' === $settings['custom_title_description'] ) { ?>
 						<div class="pp-wpforms-heading">
-							<?php if ( $settings['form_title_custom'] != '' ) { ?>
+							<?php if ( '' !== $settings['form_title_custom'] ) { ?>
 								<h3 class="pp-contact-form-title pp-wpforms-title">
 									<?php echo esc_attr( $settings['form_title_custom'] ); ?>
 								</h3>
 							<?php } ?>
-							<?php if ( $settings['form_description_custom'] != '' ) { ?>
+							<?php if ( '' !== $settings['form_description_custom'] ) { ?>
 								<div class="pp-contact-form-description pp-wpforms-description">
-									<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); ?>
+									<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 								</div>
 							<?php } ?>
 						</div>
@@ -1418,12 +1418,12 @@ class WPforms extends Powerpack_Widget {
 						$pp_form_title       = $settings['form_title'];
 						$pp_form_description = $settings['form_description'];
 
-					if ( $settings['custom_title_description'] == 'yes' ) {
+					if ( 'yes' === $settings['custom_title_description'] ) {
 						$pp_form_title       = false;
 						$pp_form_description = false;
 					}
 
-						echo wpforms_display( $settings['contact_form_list'], $pp_form_title, $pp_form_description );
+						echo wpforms_display( $settings['contact_form_list'], $pp_form_title, $pp_form_description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					?>
 				</div>
 				<?php
@@ -1431,6 +1431,6 @@ class WPforms extends Powerpack_Widget {
 		}
 	}
 
-	protected function _content_template() {}
+	protected function _content_template() {}  // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 
 }
