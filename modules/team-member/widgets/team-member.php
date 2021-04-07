@@ -119,59 +119,59 @@ class Team_Member extends Powerpack_Widget {
 
 		$this->start_controls_section(
 			'section_image',
-			array(
-				'label' => __( 'Image', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Image', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'image',
-			array(
-				'label'   => __( 'Image', 'powerpack' ),
-				'type'    => Controls_Manager::MEDIA,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => array(
+			[
+				'label'                 => __( 'Image', 'powerpack' ),
+				'type'                  => Controls_Manager::MEDIA,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
-			array(
-				'name'    => 'image',
-				'label'   => __( 'Image Size', 'powerpack' ),
-				'default' => 'medium_large',
-			)
+			[
+				'name'                  => 'image',
+				'label'                 => __( 'Image Size', 'powerpack' ),
+				'default'               => 'medium_large',
+			]
 		);
 
 		$this->add_responsive_control(
 			'member_image_width',
-			array(
-				'label'          => __( 'Image Width', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( '%', 'px' ),
-				'default'        => array(
+			[
+				'label'                 => __( 'Image Width', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ '%', 'px' ],
+				'default'               => [
 					'size' => 200,
 					'unit' => 'px',
-				),
-				'range'          => array(
-					'px' => array(
+				],
+				'range'                 => [
+					'px' => [
 						'max' => 1200,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-image' => 'width: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -186,96 +186,96 @@ class Team_Member extends Powerpack_Widget {
 
 		$this->start_controls_section(
 			'section_details',
-			array(
-				'label' => __( 'Details', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Details', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'team_member_name',
-			array(
-				'label'   => __( 'Name', 'powerpack' ),
-				'type'    => Controls_Manager::TEXT,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => __( 'John Doe', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Name', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => __( 'John Doe', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'team_member_position',
-			array(
-				'label'   => __( 'Position', 'powerpack' ),
-				'type'    => Controls_Manager::TEXT,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => __( 'WordPress Developer', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Position', 'powerpack' ),
+				'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => __( 'WordPress Developer', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'team_member_description_switch',
-			array(
-				'label'        => __( 'Show Description', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
-				'return_value' => 'yes',
-			)
+			[
+				'label'                 => __( 'Show Description', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'yes',
+				'label_on'              => __( 'Yes', 'powerpack' ),
+				'label_off'             => __( 'No', 'powerpack' ),
+				'return_value'          => 'yes',
+			]
 		);
 
 		$this->add_control(
 			'team_member_description',
-			array(
-				'label'     => __( 'Description', 'powerpack' ),
-				'type'      => Controls_Manager::WYSIWYG,
-				'dynamic'   => array(
-					'active' => true,
-				),
-				'default'   => __( 'Enter member description here which describes the position of member in company', 'powerpack' ),
-				'condition' => array(
+			[
+				'label'                 => __( 'Description', 'powerpack' ),
+				'type'                  => Controls_Manager::WYSIWYG,
+				'dynamic'               => [
+					'active'   => true,
+				],
+				'default'               => __( 'Enter member description here which describes the position of member in company', 'powerpack' ),
+				'condition'             => [
 					'team_member_description_switch' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'link_type',
-			array(
-				'label'   => __( 'Link Type', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'none',
-				'options' => array(
-					'none'  => __( 'None', 'powerpack' ),
-					'image' => __( 'Image', 'powerpack' ),
-					'title' => __( 'Title', 'powerpack' ),
-				),
-			)
+			[
+				'label'                 => __( 'Link Type', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'none',
+				'options'               => [
+					'none'      => __( 'None', 'powerpack' ),
+					'image'     => __( 'Image', 'powerpack' ),
+					'title'     => __( 'Title', 'powerpack' ),
+				],
+			]
 		);
 
 		$this->add_control(
 			'link',
-			array(
-				'label'       => __( 'Link', 'powerpack' ),
-				'type'        => Controls_Manager::URL,
-				'dynamic'     => array(
-					'active'     => true,
-					'categories' => array(
+			[
+				'label'                 => __( 'Link', 'powerpack' ),
+				'type'                  => Controls_Manager::URL,
+				'dynamic'               => [
+					'active'        => true,
+					'categories'    => [
 						TagsModule::POST_META_CATEGORY,
 						TagsModule::URL_CATEGORY,
-					),
-				),
-				'placeholder' => 'https://www.your-link.com',
-				'default'     => array(
+					],
+				],
+				'placeholder'           => 'https://www.your-link.com',
+				'default'               => [
 					'url' => '#',
-				),
-				'condition'   => array(
-					'link_type!' => 'none',
-				),
-			)
+				],
+				'condition'             => [
+					'link_type!'   => 'none',
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -290,33 +290,33 @@ class Team_Member extends Powerpack_Widget {
 
 		$this->start_controls_section(
 			'section_member_social_links',
-			array(
-				'label' => __( 'Social Links', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Social Links', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'member_social_links',
-			array(
-				'label'        => __( 'Show Social Links', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
-				'return_value' => 'yes',
-			)
+			[
+				'label'                 => __( 'Show Social Links', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'yes',
+				'label_on'              => __( 'Yes', 'powerpack' ),
+				'label_off'             => __( 'No', 'powerpack' ),
+				'return_value'          => 'yes',
+			]
 		);
 
 		$repeater = new Repeater();
 
 		$repeater->add_control(
 			'select_social_icon',
-			array(
-				'label'            => __( 'Social Icon', 'powerpack' ),
-				'type'             => Controls_Manager::ICONS,
-				'fa4compatibility' => 'social_icon',
-				'recommended'      => array(
-					'fa-brands' => array(
+			[
+				'label'                 => __( 'Social Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::ICONS,
+				'fa4compatibility'      => 'social_icon',
+				'recommended' => [
+					'fa-brands' => [
 						'android',
 						'apple',
 						'behance',
@@ -372,69 +372,69 @@ class Team_Member extends Powerpack_Widget {
 						'yelp',
 						'youtube',
 						'500px',
-					),
-					'fa-solid'  => array(
+					],
+					'fa-solid' => [
 						'envelope',
 						'link',
 						'rss',
-					),
-				),
-			)
+					],
+				],
+			]
 		);
 
 		$repeater->add_control(
 			'social_link',
-			array(
-				'label'       => __( 'Social Link', 'powerpack' ),
-				'type'        => Controls_Manager::URL,
-				'dynamic'     => array(
-					'active' => true,
-				),
-				'label_block' => true,
-				'placeholder' => __( 'Enter URL', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Social Link', 'powerpack' ),
+				'type'                  => Controls_Manager::URL,
+				'dynamic'               => [
+					'active'  => true,
+				],
+				'label_block'           => true,
+				'placeholder'           => __( 'Enter URL', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'team_member_social',
-			array(
-				'label'       => __( 'Add Social Links', 'powerpack' ),
-				'type'        => Controls_Manager::REPEATER,
-				'default'     => array(
-					array(
-						'select_social_icon' => array(
-							'value'   => 'fab fa-facebook',
+			[
+				'label'                 => __( 'Add Social Links', 'powerpack' ),
+				'type'                  => Controls_Manager::REPEATER,
+				'default'               => [
+					[
+						'select_social_icon' => [
+							'value' => 'fab fa-facebook',
 							'library' => 'fa-brands',
-						),
-						'social_link'        => array(
+						],
+						'social_link' => [
 							'url' => '#',
-						),
-					),
-					array(
-						'select_social_icon' => array(
-							'value'   => 'fab fa-twitter',
+						],
+					],
+					[
+						'select_social_icon' => [
+							'value' => 'fab fa-twitter',
 							'library' => 'fa-brands',
-						),
-						'social_link'        => array(
+						],
+						'social_link' => [
 							'url' => '#',
-						),
-					),
-					array(
-						'select_social_icon' => array(
-							'value'   => 'fab fa-youtube',
+						],
+					],
+					[
+						'select_social_icon' => [
+							'value' => 'fab fa-youtube',
 							'library' => 'fa-brands',
-						),
-						'social_link'        => array(
+						],
+						'social_link' => [
 							'url' => '#',
-						),
-					),
-				),
-				'fields'      => $repeater->get_controls(),
+						],
+					],
+				],
+				'fields'                => $repeater->get_controls(),
 				'title_field' => '<# var migrated = "undefined" !== typeof __fa4_migrated, social = ( "undefined" === typeof social ) ? false : social; #>{{{ elementor.helpers.getSocialNetworkNameFromIcon( select_social_icon, social, true, migrated, true ) }}}',
-				'condition'   => array(
+				'condition'             => [
 					'member_social_links' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -449,123 +449,123 @@ class Team_Member extends Powerpack_Widget {
 
 		$this->start_controls_section(
 			'section_member_box_settings',
-			array(
-				'label' => __( 'Settings', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Settings', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'name_html_tag',
-			array(
-				'label'   => __( 'Name HTML Tag', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'h4',
-				'options' => array(
-					'h1'   => __( 'H1', 'powerpack' ),
-					'h2'   => __( 'H2', 'powerpack' ),
-					'h3'   => __( 'H3', 'powerpack' ),
-					'h4'   => __( 'H4', 'powerpack' ),
-					'h5'   => __( 'H5', 'powerpack' ),
-					'h6'   => __( 'H6', 'powerpack' ),
-					'div'  => __( 'div', 'powerpack' ),
-					'span' => __( 'span', 'powerpack' ),
-					'p'    => __( 'p', 'powerpack' ),
-				),
-			)
+			[
+				'label'                => __( 'Name HTML Tag', 'powerpack' ),
+				'type'                 => Controls_Manager::SELECT,
+				'default'              => 'h4',
+				'options'              => [
+					'h1'     => __( 'H1', 'powerpack' ),
+					'h2'     => __( 'H2', 'powerpack' ),
+					'h3'     => __( 'H3', 'powerpack' ),
+					'h4'     => __( 'H4', 'powerpack' ),
+					'h5'     => __( 'H5', 'powerpack' ),
+					'h6'     => __( 'H6', 'powerpack' ),
+					'div'    => __( 'div', 'powerpack' ),
+					'span'   => __( 'span', 'powerpack' ),
+					'p'      => __( 'p', 'powerpack' ),
+				],
+			]
 		);
 
 		$this->add_control(
 			'position_html_tag',
-			array(
-				'label'   => __( 'Position HTML Tag', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'div',
-				'options' => array(
-					'h1'   => __( 'H1', 'powerpack' ),
-					'h2'   => __( 'H2', 'powerpack' ),
-					'h3'   => __( 'H3', 'powerpack' ),
-					'h4'   => __( 'H4', 'powerpack' ),
-					'h5'   => __( 'H5', 'powerpack' ),
-					'h6'   => __( 'H6', 'powerpack' ),
-					'div'  => __( 'div', 'powerpack' ),
-					'span' => __( 'span', 'powerpack' ),
-					'p'    => __( 'p', 'powerpack' ),
-				),
-			)
+			[
+				'label'                => __( 'Position HTML Tag', 'powerpack' ),
+				'type'                 => Controls_Manager::SELECT,
+				'default'              => 'div',
+				'options'              => [
+					'h1'     => __( 'H1', 'powerpack' ),
+					'h2'     => __( 'H2', 'powerpack' ),
+					'h3'     => __( 'H3', 'powerpack' ),
+					'h4'     => __( 'H4', 'powerpack' ),
+					'h5'     => __( 'H5', 'powerpack' ),
+					'h6'     => __( 'H6', 'powerpack' ),
+					'div'    => __( 'div', 'powerpack' ),
+					'span'   => __( 'span', 'powerpack' ),
+					'p'      => __( 'p', 'powerpack' ),
+				],
+			]
 		);
 
 		$this->add_control(
 			'social_links_position',
-			array(
-				'label'     => __( 'Social Links Position', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'after_desc',
-				'options'   => array(
-					'before_desc' => __( 'Before Description', 'powerpack' ),
-					'after_desc'  => __( 'After Description', 'powerpack' ),
-				),
-				'condition' => array(
+			[
+				'label'                => __( 'Social Links Position', 'powerpack' ),
+				'type'                 => Controls_Manager::SELECT,
+				'default'              => 'after_desc',
+				'options'              => [
+					'before_desc'      => __( 'Before Description', 'powerpack' ),
+					'after_desc'       => __( 'After Description', 'powerpack' ),
+				],
+				'condition'            => [
 					'member_social_links' => 'yes',
-					'overlay_content'     => array( 'none', 'all_content' ),
-				),
-			)
+					'overlay_content'     => [ 'none', 'all_content' ],
+				],
+			]
 		);
 
 		$this->add_control(
 			'overlay_content',
-			array(
-				'label'   => __( 'Overlay Content', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'none',
-				'options' => array(
+			[
+				'label'                => __( 'Overlay Content', 'powerpack' ),
+				'type'                 => Controls_Manager::SELECT,
+				'default'              => 'none',
+				'options'              => [
 					'none'         => __( 'None', 'powerpack' ),
 					'social_icons' => __( 'Social Icons', 'powerpack' ),
 					'content'      => __( 'Description', 'powerpack' ),
 					'all_content'  => __( 'Description + Social Icons', 'powerpack' ),
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'member_title_divider',
-			array(
-				'label'        => __( 'Divider after Name', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'no',
-				'label_on'     => __( 'Show', 'powerpack' ),
-				'label_off'    => __( 'Hide', 'powerpack' ),
-				'return_value' => 'yes',
-			)
+			[
+				'label'                 => __( 'Divider after Name', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'no',
+				'label_on'              => __( 'Show', 'powerpack' ),
+				'label_off'             => __( 'Hide', 'powerpack' ),
+				'return_value'          => 'yes',
+			]
 		);
 
 		$this->add_control(
 			'member_position_divider',
-			array(
-				'label'        => __( 'Divider after Position', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'yes',
-				'label_on'     => __( 'Show', 'powerpack' ),
-				'label_off'    => __( 'Hide', 'powerpack' ),
-				'return_value' => 'yes',
-				'condition'    => array(
-					'team_member_position!' => '',
-				),
-			)
+			[
+				'label'                 => __( 'Divider after Position', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'yes',
+				'label_on'              => __( 'Show', 'powerpack' ),
+				'label_off'             => __( 'Hide', 'powerpack' ),
+				'return_value'          => 'yes',
+				'condition'             => [
+					'team_member_position!'  => '',
+				],
+			]
 		);
 
 		$this->add_control(
 			'member_description_divider',
-			array(
-				'label'        => __( 'Divider after Description', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'hide',
-				'label_on'     => __( 'Show', 'powerpack' ),
-				'label_off'    => __( 'Hide', 'powerpack' ),
-				'return_value' => 'yes',
-				'condition'    => array(
-					'team_member_description_switch' => 'yes',
-				),
-			)
+			[
+				'label'                 => __( 'Divider after Description', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'hide',
+				'label_on'              => __( 'Show', 'powerpack' ),
+				'label_off'             => __( 'Hide', 'powerpack' ),
+				'return_value'          => 'yes',
+				'condition'             => [
+					'team_member_description_switch'  => 'yes',
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -614,92 +614,92 @@ class Team_Member extends Powerpack_Widget {
 
 		$this->start_controls_section(
 			'section_content_style',
-			array(
-				'label' => __( 'Content', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Content', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_responsive_control(
 			'member_box_alignment',
-			array(
-				'label'     => __( 'Alignment', 'powerpack' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'left'   => array(
+			[
+				'label'                 => __( 'Alignment', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'options'               => [
+					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
+					],
+					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
+					],
+					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
-				'default'   => 'center',
-				'selectors' => array(
+					],
+				],
+				'default'               => 'center',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-wrapper' => 'text-align: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
-			array(
-				'name'      => 'content_background',
-				'label'     => __( 'Background', 'powerpack' ),
-				'types'     => array( 'classic', 'gradient' ),
-				'separator' => 'before',
-				'selector'  => '{{WRAPPER}} .pp-tm-content-normal',
-			)
+			[
+				'name'                  => 'content_background',
+				'label'                 => __( 'Background', 'powerpack' ),
+				'types'                 => [ 'classic', 'gradient' ],
+				'separator'             => 'before',
+				'selector'              => '{{WRAPPER}} .pp-tm-content-normal',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'        => 'member_content_border',
-				'label'       => __( 'Border', 'powerpack' ),
-				'placeholder' => '1px',
-				'default'     => '1px',
-				'separator'   => 'before',
-				'selector'    => '{{WRAPPER}} .pp-tm-content',
-			)
+			[
+				'name'                  => 'member_content_border',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+				'separator'             => 'before',
+				'selector'              => '{{WRAPPER}} .pp-tm-content',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'     => 'content_box_shadow',
-				'selector' => '{{WRAPPER}} .pp-tm-content',
-			)
+			[
+				'name'                  => 'content_box_shadow',
+				'selector'              => '{{WRAPPER}} .pp-tm-content',
+			]
 		);
 
 		$this->add_responsive_control(
 			'member_box_content_margin',
-			array(
-				'label'      => __( 'Margin', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'separator'  => 'before',
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Margin', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'separator'             => 'before',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-content-normal' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'member_box_content_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -714,75 +714,75 @@ class Team_Member extends Powerpack_Widget {
 
 		$this->start_controls_section(
 			'section_member_overlay_style',
-			array(
-				'label'     => __( 'Overlay', 'powerpack' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
-					'overlay_content!' => 'none',
-				),
-			)
+			[
+				'label'                 => __( 'Overlay', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+				'condition'             => [
+					'overlay_content!'  => 'none',
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'overlay_alignment',
-			array(
-				'label'     => __( 'Alignment', 'powerpack' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'left'   => array(
+			[
+				'label'                 => __( 'Alignment', 'powerpack' ),
+				'type'                  => Controls_Manager::CHOOSE,
+				'options'               => [
+					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
+					],
+					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
 						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
+					],
+					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
-				'default'   => '',
-				'selectors' => array(
+					],
+				],
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-overlay-content-wrap' => 'text-align: {{VALUE}};',
-				),
-				'condition' => array(
-					'overlay_content!' => 'none',
-				),
-			)
+				],
+				'condition'             => [
+					'overlay_content!'  => 'none',
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
-			array(
-				'name'      => 'overlay_background',
-				'types'     => array( 'classic', 'gradient' ),
-				'selector'  => '{{WRAPPER}} .pp-tm-overlay-content-wrap:before',
-				'condition' => array(
-					'overlay_content!' => 'none',
-				),
-			)
+			[
+				'name'                  => 'overlay_background',
+				'types'                 => [ 'classic', 'gradient' ],
+				'selector'              => '{{WRAPPER}} .pp-tm-overlay-content-wrap:before',
+				'condition'             => [
+					'overlay_content!'  => 'none',
+				],
+			]
 		);
 
 		$this->add_control(
 			'overlay_opacity',
-			array(
-				'label'     => __( 'Opacity', 'powerpack' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 1,
-						'step' => 0.1,
-					),
-				),
-				'selectors' => array(
+			[
+				'label'                 => __( 'Opacity', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 1,
+						'step'  => 0.1,
+					],
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-overlay-content-wrap:before' => 'opacity: {{SIZE}};',
-				),
-				'condition' => array(
-					'overlay_content!' => 'none',
-				),
-			)
+				],
+				'condition'             => [
+					'overlay_content!'  => 'none',
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -797,33 +797,33 @@ class Team_Member extends Powerpack_Widget {
 
 		$this->start_controls_section(
 			'section_member_image_style',
-			array(
-				'label' => __( 'Image', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Image', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'        => 'member_image_border',
-				'label'       => __( 'Border', 'powerpack' ),
-				'placeholder' => '1px',
-				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-tm-image img',
-			)
+			[
+				'name'                  => 'member_image_border',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+				'selector'              => '{{WRAPPER}} .pp-tm-image img',
+			]
 		);
 
 		$this->add_control(
 			'member_image_border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-image img, {{WRAPPER}} .pp-tm-overlay-content-wrap:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -838,204 +838,204 @@ class Team_Member extends Powerpack_Widget {
 
 		$this->start_controls_section(
 			'section_member_name_style',
-			array(
-				'label' => __( 'Name', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Name', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'     => 'member_name_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .pp-tm-name',
-			)
+			[
+				'name'                  => 'member_name_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'selector'              => '{{WRAPPER}} .pp-tm-name',
+			]
 		);
 
 		$this->add_control(
 			'member_name_text_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_1,
-				),
-				'default'   => '',
-				'selectors' => array(
+				],
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-name' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'member_name_margin',
-			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Margin Bottom', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 10,
 					'unit' => 'px',
-				),
-				'size_units'     => array( 'px', '%' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px', '%' ],
+				'range'                 => [
+					'px' => [
 						'max' => 100,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-name' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'name_divider_heading',
-			array(
-				'label'     => __( 'Divider', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => array(
+			[
+				'label'                 => __( 'Divider', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+				'condition'             => [
 					'member_title_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'name_divider_color',
-			array(
-				'label'     => __( 'Divider Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				),
-				'selectors' => array(
+			[
+				'label'                 => __( 'Divider Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'scheme'                => [
+					'type'     => Scheme_Color::get_type(),
+					'value'    => Scheme_Color::COLOR_1,
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-title-divider' => 'border-bottom-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'member_title_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'name_divider_style',
-			array(
-				'label'     => __( 'Divider Style', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'solid',
-				'options'   => array(
-					'solid'  => __( 'Solid', 'powerpack' ),
-					'dotted' => __( 'Dotted', 'powerpack' ),
-					'dashed' => __( 'Dashed', 'powerpack' ),
-					'double' => __( 'Double', 'powerpack' ),
-				),
-				'selectors' => array(
+			[
+				'label'                => __( 'Divider Style', 'powerpack' ),
+				'type'                 => Controls_Manager::SELECT,
+				'default'              => 'solid',
+				'options'              => [
+					'solid'     => __( 'Solid', 'powerpack' ),
+					'dotted'    => __( 'Dotted', 'powerpack' ),
+					'dashed'    => __( 'Dashed', 'powerpack' ),
+					'double'    => __( 'Double', 'powerpack' ),
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-title-divider' => 'border-bottom-style: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'member_title_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'name_divider_width',
-			array(
-				'label'          => __( 'Divider Width', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Divider Width', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 100,
 					'unit' => 'px',
-				),
-				'size_units'     => array( 'px', '%' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px', '%' ],
+				'range'                 => [
+					'px' => [
 						'max' => 800,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-title-divider' => 'width: {{SIZE}}{{UNIT}};',
-				),
-				'condition'      => array(
+				],
+				'condition'             => [
 					'member_title_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'name_divider_height',
-			array(
-				'label'          => __( 'Divider Height', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Divider Height', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 4,
-				),
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px' ],
+				'range'                 => [
+					'px' => [
 						'max' => 20,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-title-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}};',
-				),
-				'condition'      => array(
+				],
+				'condition'             => [
 					'member_title_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'name_divider_margin',
-			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Margin Bottom', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 10,
 					'unit' => 'px',
-				),
-				'size_units'     => array( 'px', '%' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px', '%' ],
+				'range'                 => [
+					'px' => [
 						'max' => 100,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-title-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				),
-				'condition'      => array(
+				],
+				'condition'             => [
 					'member_title_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -1050,204 +1050,204 @@ class Team_Member extends Powerpack_Widget {
 
 		$this->start_controls_section(
 			'section_member_position_style',
-			array(
-				'label' => __( 'Position', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Position', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'     => 'member_position_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
-				'selector' => '{{WRAPPER}} .pp-tm-position',
-			)
+			[
+				'name'                  => 'member_position_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_2,
+				'selector'              => '{{WRAPPER}} .pp-tm-position',
+			]
 		);
 
 		$this->add_control(
 			'member_position_text_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_2,
-				),
-				'default'   => '',
-				'selectors' => array(
+				],
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-position' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'member_position_margin',
-			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Margin Bottom', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 10,
 					'unit' => 'px',
-				),
-				'size_units'     => array( 'px', '%' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px', '%' ],
+				'range'                 => [
+					'px' => [
 						'max' => 100,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-position' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'position_divider_heading',
-			array(
-				'label'     => __( 'Divider', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => array(
+			[
+				'label'                 => __( 'Divider', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+				'condition'             => [
 					'member_position_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'position_divider_color',
-			array(
-				'label'     => __( 'Divider Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
-				),
-				'selectors' => array(
+			[
+				'label'                 => __( 'Divider Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'scheme'                => [
+					'type'     => Scheme_Color::get_type(),
+					'value'    => Scheme_Color::COLOR_4,
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-position-divider' => 'border-bottom-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'member_position_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'position_divider_style',
-			array(
-				'label'     => __( 'Divider Style', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'solid',
-				'options'   => array(
-					'solid'  => __( 'Solid', 'powerpack' ),
-					'dotted' => __( 'Dotted', 'powerpack' ),
-					'dashed' => __( 'Dashed', 'powerpack' ),
-					'double' => __( 'Double', 'powerpack' ),
-				),
-				'selectors' => array(
+			[
+				'label'                => __( 'Divider Style', 'powerpack' ),
+				'type'                 => Controls_Manager::SELECT,
+				'default'              => 'solid',
+				'options'              => [
+					'solid'     => __( 'Solid', 'powerpack' ),
+					'dotted'    => __( 'Dotted', 'powerpack' ),
+					'dashed'    => __( 'Dashed', 'powerpack' ),
+					'double'    => __( 'Double', 'powerpack' ),
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-position-divider' => 'border-bottom-style: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'member_position_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'position_divider_width',
-			array(
-				'label'          => __( 'Divider Width', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Divider Width', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 100,
 					'unit' => 'px',
-				),
-				'size_units'     => array( 'px', '%' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px', '%' ],
+				'range'                 => [
+					'px' => [
 						'max' => 800,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-position-divider' => 'width: {{SIZE}}{{UNIT}};',
-				),
-				'condition'      => array(
+				],
+				'condition'             => [
 					'member_position_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'position_divider_height',
-			array(
-				'label'          => __( 'Divider Height', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Divider Height', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 3,
-				),
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px' ],
+				'range'                 => [
+					'px' => [
 						'max' => 20,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-position-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}};',
-				),
-				'condition'      => array(
+				],
+				'condition'             => [
 					'member_position_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'position_divider_margin',
-			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Margin Bottom', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 10,
 					'unit' => 'px',
-				),
-				'size_units'     => array( 'px', '%' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px', '%' ],
+				'range'                 => [
+					'px' => [
 						'max' => 100,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-position-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				),
-				'condition'      => array(
+				],
+				'condition'             => [
 					'member_position_divider' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -1262,232 +1262,232 @@ class Team_Member extends Powerpack_Widget {
 
 		$this->start_controls_section(
 			'section_member_description_style',
-			array(
-				'label'     => __( 'Description', 'powerpack' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+			[
+				'label'                 => __( 'Description', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+				'condition'             => [
 					'team_member_description_switch' => 'yes',
-					'team_member_description!'       => '',
-				),
-			)
+					'team_member_description!' => '',
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'      => 'member_description_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
-				'selector'  => '{{WRAPPER}} .pp-tm-description',
-				'condition' => array(
+			[
+				'name'                  => 'member_description_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
+				'selector'              => '{{WRAPPER}} .pp-tm-description',
+				'condition'             => [
 					'team_member_description_switch' => 'yes',
-					'team_member_description!'       => '',
-				),
-			)
+					'team_member_description!' => '',
+				],
+			]
 		);
 
 		$this->add_control(
 			'member_description_text_color',
-			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'scheme'                => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_3,
-				),
-				'default'   => '',
-				'selectors' => array(
+				],
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-description' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'team_member_description_switch' => 'yes',
-					'team_member_description!'       => '',
-				),
-			)
+					'team_member_description!' => '',
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'member_description_margin',
-			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Margin Bottom', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 10,
 					'unit' => 'px',
-				),
-				'size_units'     => array( 'px', '%' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px', '%' ],
+				'range'                 => [
+					'px' => [
 						'max' => 100,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-description' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				),
-				'condition'      => array(
+				],
+				'condition'             => [
 					'team_member_description_switch' => 'yes',
-					'team_member_description!'       => '',
-				),
-			)
+					'team_member_description!' => '',
+				],
+			]
 		);
 
 		$this->add_control(
 			'description_divider_heading',
-			array(
-				'label'     => __( 'Divider', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => array(
+			[
+				'label'                 => __( 'Divider', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+				'condition'             => [
 					'team_member_description_switch' => 'yes',
-					'team_member_description!'       => '',
-					'member_description_divider'     => 'yes',
-				),
-			)
+					'team_member_description!' => '',
+					'member_description_divider' => 'yes',
+				],
+			]
 		);
 
 		$this->add_control(
 			'description_divider_color',
-			array(
-				'label'     => __( 'Divider Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				),
-				'selectors' => array(
+			[
+				'label'                 => __( 'Divider Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'scheme'                => [
+					'type'     => Scheme_Color::get_type(),
+					'value'    => Scheme_Color::COLOR_1,
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-description-divider' => 'border-bottom-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'team_member_description_switch' => 'yes',
-					'team_member_description!'       => '',
-					'member_description_divider'     => 'yes',
-				),
-			)
+					'team_member_description!' => '',
+					'member_description_divider' => 'yes',
+				],
+			]
 		);
 
 		$this->add_control(
 			'description_divider_style',
-			array(
-				'label'     => __( 'Divider Style', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'solid',
-				'options'   => array(
-					'solid'  => __( 'Solid', 'powerpack' ),
-					'dotted' => __( 'Dotted', 'powerpack' ),
-					'dashed' => __( 'Dashed', 'powerpack' ),
-					'double' => __( 'Double', 'powerpack' ),
-				),
-				'selectors' => array(
+			[
+				'label'                => __( 'Divider Style', 'powerpack' ),
+				'type'                 => Controls_Manager::SELECT,
+				'default'              => 'solid',
+				'options'              => [
+					'solid'     => __( 'Solid', 'powerpack' ),
+					'dotted'    => __( 'Dotted', 'powerpack' ),
+					'dashed'    => __( 'Dashed', 'powerpack' ),
+					'double'    => __( 'Double', 'powerpack' ),
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-description-divider' => 'border-bottom-style: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'team_member_description_switch' => 'yes',
-					'team_member_description!'       => '',
-					'member_description_divider'     => 'yes',
-				),
-			)
+					'team_member_description!' => '',
+					'member_description_divider' => 'yes',
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'description_divider_width',
-			array(
-				'label'          => __( 'Divider Width', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Divider Width', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 100,
 					'unit' => 'px',
-				),
-				'size_units'     => array( 'px', '%' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px', '%' ],
+				'range'                 => [
+					'px' => [
 						'max' => 800,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-description-divider' => 'width: {{SIZE}}{{UNIT}};',
-				),
-				'condition'      => array(
+				],
+				'condition'             => [
 					'team_member_description_switch' => 'yes',
-					'team_member_description!'       => '',
-					'member_description_divider'     => 'yes',
-				),
-			)
+					'team_member_description!' => '',
+					'member_description_divider' => 'yes',
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'description_divider_height',
-			array(
-				'label'          => __( 'Divider Height', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Divider Height', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 4,
-				),
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px' ],
+				'range'                 => [
+					'px' => [
 						'max' => 20,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-description-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}};',
-				),
-				'condition'      => array(
+				],
+				'condition'             => [
 					'team_member_description_switch' => 'yes',
-					'team_member_description!'       => '',
-					'member_description_divider'     => 'yes',
-				),
-			)
+					'team_member_description!' => '',
+					'member_description_divider' => 'yes',
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'description_divider_margin',
-			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+			[
+				'label'                 => __( 'Margin Bottom', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'default'               => [
 					'size' => 10,
 					'unit' => 'px',
-				),
-				'size_units'     => array( 'px', '%' ),
-				'range'          => array(
-					'px' => array(
+				],
+				'size_units'            => [ 'px', '%' ],
+				'range'                 => [
+					'px' => [
 						'max' => 100,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-description-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				),
-				'condition'      => array(
+				],
+				'condition'             => [
 					'team_member_description_switch' => 'yes',
-					'team_member_description!'       => '',
-					'member_description_divider'     => 'yes',
-				),
-			)
+					'team_member_description!' => '',
+					'member_description_divider' => 'yes',
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -1502,177 +1502,177 @@ class Team_Member extends Powerpack_Widget {
 
 		$this->start_controls_section(
 			'section_member_social_links_style',
-			array(
-				'label' => __( 'Social Links', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label'                 => __( 'Social Links', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_responsive_control(
 			'member_icons_gap',
-			array(
-				'label'          => __( 'Icons Gap', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( '%', 'px' ),
-				'range'          => array(
-					'px' => array(
+			[
+				'label'                 => __( 'Icons Gap', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ '%', 'px' ],
+				'range'                 => [
+					'px' => [
 						'max' => 60,
-					),
-				),
-				'tablet_default' => array(
+					],
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-social-links li:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'member_icon_size',
-			array(
-				'label'          => __( 'Icon Size', 'powerpack' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
+			[
+				'label'                 => __( 'Icon Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px' ],
+				'range'                 => [
+					'px' => [
 						'max' => 30,
-					),
-				),
-				'default'        => array(
+					],
+				],
+				'default'    => [
 					'size' => '14',
 					'unit' => 'px',
-				),
-				'tablet_default' => array(
+				],
+				'tablet_default'        => [
 					'unit' => 'px',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default'        => [
 					'unit' => 'px',
-				),
-				'selectors'      => array(
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_links_style' );
 
 		$this->start_controls_tab(
 			'tab_links_normal',
-			array(
-				'label' => __( 'Normal', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Normal', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'member_links_icons_color',
-			array(
-				'label'     => __( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap svg' => 'fill: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'member_links_bg_color',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'background-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'        => 'member_links_border',
-				'label'       => __( 'Border', 'powerpack' ),
-				'placeholder' => '1px',
-				'default'     => '1px',
-				'separator'   => 'before',
-				'selector'    => '{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap',
-			)
+			[
+				'name'                  => 'member_links_border',
+				'label'                 => __( 'Border', 'powerpack' ),
+				'placeholder'           => '1px',
+				'default'               => '1px',
+				'separator'             => 'before',
+				'selector'              => '{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap',
+			]
 		);
 
 		$this->add_control(
 			'member_links_border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'member_links_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'separator'  => 'before',
-				'selectors'  => array(
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'separator'             => 'before',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_links_hover',
-			array(
-				'label' => __( 'Hover', 'powerpack' ),
-			)
+			[
+				'label'                 => __( 'Hover', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'member_links_icons_color_hover',
-			array(
-				'label'     => __( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover svg' => 'fill: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'member_links_bg_color_hover',
-			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover' => 'background-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'member_links_border_color_hover',
-			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'                 => __( 'Border Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover' => 'border-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -1745,7 +1745,7 @@ class Team_Member extends Powerpack_Widget {
 			?>
 			<<?php echo esc_html( $position_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'team_member_position' ) ); ?>>
 				<?php echo wp_kses_post( $settings['team_member_position'] ); ?>
-			</<?php echo esc_html( $position_html_tag ); ?>
+			</<?php echo esc_html( $position_html_tag ); ?>>
 			<?php
 		}
 
@@ -1781,13 +1781,13 @@ class Team_Member extends Powerpack_Widget {
 
 	protected function render_social_links() {
 		$settings = $this->get_settings_for_display();
-		$i        = 1;
+		$i = 1;
 
-		$fallback_defaults = array(
+		$fallback_defaults = [
 			'fa fa-facebook',
 			'fa fa-twitter',
 			'fa fa-google-plus',
-		);
+		];
 
 		$migration_allowed = Icons_Manager::is_migration_allowed();
 
@@ -1797,15 +1797,15 @@ class Team_Member extends Powerpack_Widget {
 		}
 
 		$migrated = isset( $item['__fa4_migrated']['select_social_icon'] );
-		$is_new   = ! isset( $item['icon'] ) && $migration_allowed;
+		$is_new = ! isset( $item['icon'] ) && $migration_allowed;
 		?>
 		<div class="pp-tm-social-links-wrap">
 			<ul class="pp-tm-social-links">
 				<?php foreach ( $settings['team_member_social'] as $index => $item ) : ?>
 					<?php
 					$migrated = isset( $item['__fa4_migrated']['select_social_icon'] );
-					$is_new   = empty( $item['social_icon'] ) && $migration_allowed;
-					$social   = '';
+					$is_new = empty( $item['social_icon'] ) && $migration_allowed;
+					$social = '';
 
 					// add old default
 					if ( empty( $item['social_icon'] ) && ! $migration_allowed ) {
@@ -1850,10 +1850,8 @@ class Team_Member extends Powerpack_Widget {
 							</span>
 						</a>
 					</li>
-					<?php
-					$i++;
-				endforeach;
-				?>
+					<?php $i++;
+				endforeach; ?>
 			</ul>
 		</div>
 		<?php
@@ -2135,6 +2133,5 @@ class Team_Member extends Powerpack_Widget {
 				</div>
 			</div>
 		</div>
-		<?php
-	}
+		<?php }
 }
