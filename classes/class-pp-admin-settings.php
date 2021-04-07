@@ -110,7 +110,7 @@ final class PP_Admin_Settings {
 	public static function render_update_message() {
 		if ( ! empty( self::$errors ) ) {
 			foreach ( self::$errors as $message ) {
-				echo '<div class="error"><p>' . esc_html__( $message, 'powerpack' ) . '</p></div>';
+				echo '<div class="error"><p>' . esc_html( $message ) . '</p></div>';
 			}
 		} elseif ( ! empty( $_POST ) && ! isset( $_POST['email'] ) ) {
 			echo '<div class="updated"><p>' . esc_html__( 'Settings updated!', 'powerpack' ) . '</p></div>';
@@ -168,7 +168,7 @@ final class PP_Admin_Settings {
 			),
 			'integration'   => array(
 				'title'         => esc_html__( 'Integration', 'powerpack' ),
-				'show'          => 'off' == $settings['hide_integration_tab'],
+				'show'          => true,
 				'cap'           => ! is_network_admin() ? 'manage_options' : 'manage_network_plugins',
 				'file'          => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-integration.php',
 				'priority'      => 300,
@@ -193,7 +193,7 @@ final class PP_Admin_Settings {
 					continue;
 				}
 				?>
-				<a href="<?php echo self::get_form_action( '&tab=' . $data['key'] ); ?>" class="nav-tab<?php echo ( $current_tab == $data['key'] ? ' nav-tab-active' : '' ); ?>"><span><?php echo $data['title']; ?></span></a>
+				<a href="<?php echo esc_attr( self::get_form_action( '&tab=' . $data['key'] ) ); ?>" class="nav-tab<?php echo ( $current_tab == $data['key'] ? ' nav-tab-active' : '' ); ?>"><span><?php echo esc_html( $data['title'] ); ?></span></a>
 				<?php
 			}
 		}
@@ -207,12 +207,12 @@ final class PP_Admin_Settings {
 			$no_setting_file_msg = esc_html__( 'Setting page file could not be located.', 'powerpack' );
 
 			if ( ! isset( $tabs[ $current_tab ]['file'] ) || empty( $tabs[ $current_tab ]['file'] ) ) {
-				echo $no_setting_file_msg;
+				echo esc_html( $no_setting_file_msg );
 				return;
 			}
 
 			if ( ! file_exists( $tabs[ $current_tab ]['file'] ) ) {
-				echo $no_setting_file_msg;
+				echo esc_html( $no_setting_file_msg );
 				return;
 			}
 
@@ -292,9 +292,8 @@ final class PP_Admin_Settings {
 	public static function update_option( $key, $value, $network_override = true ) {
 		if ( is_network_admin() ) {
 			update_site_option( $key, $value );
-		}
-		// Delete the option if network overrides are allowed and the override checkbox isn't checked.
-		elseif ( $network_override && is_multisite() && ! isset( $_POST['pp_override_ms'] ) ) {
+		} elseif ( $network_override && is_multisite() && ! isset( $_POST['pp_override_ms'] ) ) {
+			// Delete the option if network overrides are allowed and the override checkbox isn't checked.
 			delete_option( $key );
 		} else {
 			update_option( $key, $value );

@@ -8,6 +8,8 @@
 namespace PowerpackElementsLite\Modules\AdvancedAccordion\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes.
 use Elementor\Controls_Manager;
@@ -1335,6 +1337,56 @@ class Advanced_Accordion extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Render accordion content.
+	 *
+	 * @since x.x.x
+	 */
+	protected function get_accordion_content( $tab ) {
+		$settings     = $this->get_settings_for_display();
+		$content_type = $tab['content_type'];
+		$output       = '';
+
+		switch ( $content_type ) {
+			case 'content':
+				$output = do_shortcode( $tab['accordion_content'] );
+				break;
+
+			case 'image':
+				$image_url = Group_Control_Image_Size::get_attachment_image_src( $tab['image']['id'], 'image', $tab );
+
+				if ( ! $image_url ) {
+					$image_url = $tab['image']['url'];
+				}
+
+				$image_html = '<div class="pp-showcase-preview-image">';
+
+				$image_html .= '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( Control_Media::get_image_alt( $tab['image'] ) ) . '">';
+
+				$image_html .= '</div>';
+
+				$output = $image_html;
+				break;
+
+			case 'section':
+				$output = \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_section'] );
+				break;
+
+			case 'template':
+				$output = \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['templates'] );
+				break;
+
+			case 'widget':
+				$output = \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_widget'] );
+				break;
+
+			default:
+				return;
+		}
+
+		return $output;
+	}
+
 	protected function render() {
 		$settings   = $this->get_settings_for_display();
 		$id_int     = substr( $this->get_id_int(), 0, 3 );
@@ -1345,7 +1397,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 			'data-accordion-id'     => esc_attr( $this->get_id() ),
 		] );
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'accordion' ); ?>>
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'accordion' ) ); ?>>
 			<?php
 			foreach ( $settings['tabs'] as $index => $tab ) :
 
@@ -1431,7 +1483,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 				$is_new = ! isset( $settings['toggle_icon_active'] ) && $migration_allowed;
 				?>
 				<div class="pp-accordion-item">
-					<<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string( $tab_title_setting_key ); ?>>
+					<?php $title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] ); ?>
+					<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $tab_title_setting_key ) ); ?>>
 						<span class="pp-accordion-title-icon">
 							<?php if ( ! empty( $tab['accordion_tab_title_icon'] ) || ( ! empty( $tab['tab_title_icon']['value'] ) && $is_new_title_icon ) ) { ?>
 								<span class="pp-accordion-tab-icon pp-icon">
@@ -1444,7 +1497,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 								</span>
 							<?php } ?>
 							<span class="pp-accordion-title-text">
-								<?php echo $tab['tab_title']; ?>
+								<?php echo wp_kses_post( $tab['tab_title'] ); ?>
 							</span>
 						</span>
 						<?php if ( 'yes' === $settings['toggle_icon_show'] ) { ?>
@@ -1455,7 +1508,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 										if ( $is_new_normal || $migrated_normal ) {
 											Icons_Manager::render_icon( $settings['select_toggle_icon'], [ 'aria-hidden' => 'true' ] );
 										} elseif ( ! empty( $settings['toggle_icon_normal'] ) ) {
-											?><i <?php echo $this->get_render_attribute_string( 'toggle-icon' ); ?>></i><?php
+											?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'toggle-icon' ) ); ?>></i><?php
 										}
 										?>
 									</span>
@@ -1466,51 +1519,17 @@ class Advanced_Accordion extends Powerpack_Widget {
 										if ( $is_new_normal || $migrated_normal ) {
 											Icons_Manager::render_icon( $settings['select_toggle_icon_active'], [ 'aria-hidden' => 'true' ] );
 										} elseif ( ! empty( $settings['toggle_icon_active'] ) ) {
-											?><i <?php echo $this->get_render_attribute_string( 'toggle-icon' ); ?>></i><?php
+											?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'toggle-icon' ) ); ?>></i><?php
 										}
 										?>
 									</span>
 								<?php } ?>
 							</div>
 						<?php } ?>
-					</<?php echo $settings['title_html_tag']; ?>>
+					</<?php echo esc_html( $title_tag ); ?>>
 
-					<div <?php echo $this->get_render_attribute_string( $tab_content_setting_key ); ?>>
-						<?php
-						if ( 'content' === $tab['content_type'] ) {
-
-							echo do_shortcode( $tab['accordion_content'] );
-
-						} elseif ( 'image' === $tab['content_type'] && $tab['image']['url'] ) {
-
-							$image_url = Group_Control_Image_Size::get_attachment_image_src( $tab['image']['id'], 'image', $tab );
-
-							if ( ! $image_url ) {
-								$image_url = $tab['image']['url'];
-							}
-
-							$image_html = '<div class="pp-showcase-preview-image">';
-
-							$image_html .= '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( Control_Media::get_image_alt( $tab['image'] ) ) . '">';
-
-							$image_html .= '</div>';
-
-							echo $image_html;
-
-						} elseif ( 'section' === $tab['content_type'] && ! empty( $tab['saved_section'] ) ) {
-
-							echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_section'] );
-
-						} elseif ( 'template' === $tab['content_type'] && ! empty( $tab['templates'] ) ) {
-
-							echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['templates'] );
-
-						} elseif ( 'widget' === $tab['content_type'] && ! empty( $tab['saved_widget'] ) ) {
-
-							echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_widget'] );
-
-						}
-						?>
+					<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tab_content_setting_key ) ); ?>>
+						<?php echo $this->get_accordion_content( $tab ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
 				</div>
 			<?php endforeach; ?>

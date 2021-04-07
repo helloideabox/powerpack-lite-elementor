@@ -2470,7 +2470,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_render_attribute(
 			'info-box-carousel',
 			[
-				'class'             => [ 'pp-info-box', 'pp-info-box-carousel', 'swiper-container', 'swiper-container-' . esc_attr( $this->get_id() ) ],
+				'class'             => [ 'pp-info-box', 'pp-info-box-carousel', 'pp-swiper-slider', 'swiper-container', 'swiper-container-' . esc_attr( $this->get_id() ) ],
 				'data-pagination'   => '.swiper-pagination-' . esc_attr( $this->get_id() ),
 				'data-arrow-next'   => '.swiper-button-next-' . esc_attr( $this->get_id() ),
 				'data-arrow-prev'   => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
@@ -2942,7 +2942,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			view.addRenderAttribute(
 				'info-box-carousel',
 				{
-					'class': [ 'swiper-container', 'pp-info-box', 'pp-info-box-carousel' ],
+					'class': [ 'swiper-container', 'pp-info-box', 'pp-info-box-carousel', 'pp-swiper-slider' ],
 					'data-pagination': 'swiper-pagination',
 					'data-arrow-next': 'swiper-button-next',
 					'data-arrow-prev': 'swiper-button-prev',
