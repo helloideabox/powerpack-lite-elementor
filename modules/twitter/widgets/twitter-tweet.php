@@ -66,7 +66,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 		);
 	}
 
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		$this->start_controls_section(
 			'section_tweet',
 			array(
@@ -197,7 +197,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 			$attrs['data-width'] = $settings['width']['size'];
 		}
 
-		if ( '' == $settings['expanded'] ) {
+		if ( '' === $settings['expanded'] ) {
 			$attrs['data-cards'] = 'hidden';
 		}
 
@@ -215,8 +215,8 @@ class Twitter_Tweet extends Powerpack_Widget {
 		}
 
 		?>
-		<div class="pp-twitter-tweet" <?php echo $attr; ?>>
-			<blockquote class="twitter-tweet" <?php echo $attr; ?>><a href="<?php echo $url; ?>"></a></blockquote>
+		<div class="pp-twitter-tweet" <?php echo esc_attr( $attr ); ?>>
+			<blockquote class="twitter-tweet" <?php echo esc_attr( $attr ); ?>><a href="<?php echo esc_url( $url ); ?>"></a></blockquote>
 		</div>
 		<?php
 	}
