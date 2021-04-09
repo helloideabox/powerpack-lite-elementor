@@ -11,20 +11,34 @@ A collection of 30+ Free Elementor addons widgets. Take Elementor to the next le
 
 == Description ==
 
-Extend Elementor with 60+ Creative Elementor Widgets and extensions with [PowerPack Elementor addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - The fastest growing Elementor addon. Get 30+ Free Elementor widgets with PowerPack Lite. These Elementor widgets are designed with focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever! 
+Extend Elementor with 60+ Creative Elementor Widgets and extensions with [PowerPack Elementor addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - The fastest-growing Elementor addon. Get 30+ Free Elementor widgets with PowerPack Lite. These Elementor widgets are designed with a focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever!  
 
 PowerPack Elementor addon is built by [IdeaBox Creations](https://ideabox.io/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link).
 
 Head over to [PowerPack for Elementor](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) website to explore addon.
 
-### LEARN FROM EXTENSIVE DOCUMENTATION 
-We have [Extensive Documentation](https://powerpackelements.com/docs/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) which includes all types of docs that support users to understand [PowerPack for Elementor](https://powerpackelements.com/docs/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) better. 
+## Top Features of PowerPack Elementor Addon
 
-### Follow us on Twitter
-Want to know more about us? Follow us on [Twitter](https://twitter.com/ppelementor) for more updates and information.
+- **UNIQUE WIDGETS**
+PowerPack includes a  range of advanced elementor widgets that opens a whole new way of designing possibilities with the elementor.
 
-### Join our Facebook Group
-Want to connect us with more? We have an active Facebook Group where we keep posting PowerPack's latest updates and help our users with any questions they may have! We are sure you will love the group. Join in and say, Hello! [PowerPack Elements Facebook Group.](https://www.facebook.com/groups/ppelementor/)
+- **FULLY CUSTOMIZABLE**
+All PowerPack widgets are completely customizable; you can alter settings and style widgets as per your requirements.
+
+- **ELEMENTOR 3.0 COMPATIBLE**
+PowerPack for Elementor is 100% Compatible with Elementor 3.0 Dynamic Fields. Hence, you can use them to display dynamic content.
+
+- **WHITE LABEL BRANDING**
+Self-branding is extremely important when you are working for third-party clients. This feature allows you to change the branding of the plugin and help you maintain your personal brand while building client sites.
+
+- **LIGHTWEIGHT, FAST, USER-FRIENDLY**
+PowerPack for Elementor boasts of superior code quality optimized for performance. Minimal usage of external scripts helps you maintain superior loading time for your websites.
+
+- **EXTENSIVE STYLING OPTIONS**
+All the Elementor Widgets included with PowerPack come with well-thought design and styling options. These options make it easy for you to build creative layouts without worrying about the custom code.
+
+- **PROFESSIONAL SUPPORT**
+PowerPack Addon for Elementor comes from our team of experts, who always deliver the best and try to fix all of their queries earliest. 
 
 ## PowerPack Addons for Elementor Lite - Features
 
@@ -107,15 +121,14 @@ Want to connect us with more? We have an active Facebook Group where we keep pos
 24. [Breadcrumbs](https://powerpackelements.com/elementor-widgets/breadcrumbs/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - This widget lets you add breadcrumbs to pages on your website.
 25. [Advanced Posts](https://powerpackelements.com/elementor-widgets/posts/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create stylish blog layouts with the Elementor Posts widget.
 
-### TEMPLATE LIBRARY FOR ELEMENTOR
-
-**Easiest, Fastest and Creative way to design websites!**
-
-https://www.youtube.com/watch?v=IoSvG1-0f4M
+### TEMPLATE LIBRRAY FOR ELEMENTOR - FREE & PRO
+**Easiest, Fastest, and Creative Way to Design Websites!** 
 
 PowerPack template library includes 150+ ready-to-use section blocks. All block templates are precise work of our designers that can be used to create any website.
 
-### WooCommerce Elementor Widgets 
+https://www.youtube.com/watch?v=IoSvG1-0f4M&t=1s
+
+### WOOCOMMERCE ELEMENTOR WIDGETS - PRO 
 **Get Special WooCommerce Elementor widgets with PowerPack Pro**
 
 1. [Woo Products](https://powerpackelements.com/demo/woo-product-grid/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Multiple layout and styling options to create WooCommerce Product Grid and Carousel layouts on your Elementor website 
@@ -128,45 +141,46 @@ PowerPack template library includes 150+ ready-to-use section blocks. All block 
 8. [Woo My Account](https://powerpackelements.com/elementor-widgets/my-account-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Easily customize My Account area of your WooCommerce websites.
 
 
-### NEW SCHEMA WIDGETS
+### NEW SCHEMA WIDGETS - PRO
  **Boost your Search Engine Rankings with new, unique, Schema markup widgets for Elementor.**   
  
  1. [FAQ Schema Markup Widget](https://powerpackelements.com/elementor-widgets/faq/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) – Create a search engine optimized FAQ Page for your site with FAQ Schema markup widget and leverage the power of Structured Data.  
  2. [How-to Schema Markup Widget](https://powerpackelements.com/elementor-widgets/how-to/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) – Easily create stylish How-to Guides, Tutorials, and walk-throughs.
  
 ### CREATIVE EXTENSIONS
- - **Advanced Display Conditions Functionality**
-Use Elementor for advanced cases like timed-content, content for logged in users, special content based on user's browser, display content based on page, post, archive rules, and much more. The most UNIQUE solution for Elementor widgets and sections. [Click here for details.](https://powerpackelements.com/display-conditions/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)
+
+ - **ADVANCED DISPLAY CONDITIONS FUNCTIONALITY**
+Use Elementor for advanced cases like timed-content, content for logged in users, special content based on user's browser, display content based on page, post, archive rules, and much more. The most UNIQUE solution for Elementor widgets and sections. 
 
 https://www.youtube.com/watch?v=blCGxZujnJg
 
-- **[Header Footer Builder](https://powerpackelements.com/elementor-widgets/header-footer-builder-elementor/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)**
-Create a custom Header and Footer layout for your website. 
+- **HEADER FOOTER BUILDER**
+PowerPack addon includes a unique Header & Footer extension that allows you to create a custom Header and Footer layout. If you are using Elementor Free version, the PowerPack Header Footer extension could be a great fit for your website.
 
-- **[Magic Wand Feature](https://powerpackelements.com/elementor-widgets/cross-domain-copy-paste/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)**
-Copy-paste content from one domain to another easily.
+[Watch Demo](https://powerpackelements.com/elementor-widgets/header-footer-builder-elementor/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)
 
-- **[BackGround Effects](https://powerpackelements.com/elementor-widgets/background-effects/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)** 
+**[Magic Wand Feature](https://powerpackelements.com/elementor-widgets/cross-domain-copy-paste/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)** -  Cross-Domain Copy Paste for Elementor
+
+Get rid of all the repetitve & time-consuing process reuires in website design. With PowerPack magical cross-domain cpoyy paste feature you can copy content from one website to another in just four simple steps.
+
+https://www.youtube.com/watch?v=0vy63aKyH68
+
+- **[WOOCOMMERCE BUILDER FOR ELEMENTOR](https://powerpackelements.com/woocommerce-builder/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)**
+The most flexible and easiest way to build an online store with WooCommerce and Elementor. PowerPack WooCommerce builder includes a wide range of Woo Widgets that lets you design WooCommerce Single Product and Archive Page Templates. Easily!
+
+https://www.youtube.com/watch?v=-VPXg2L1sew&feature=youtu.be
+
+- **[BACKGROUND EFFECTS](https://powerpackelements.com/elementor-widgets/background-effects/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)** 
 Add stylish & animated backgrounds on your website.
 
-- **[WooCommerce Builder For Elementor](https://powerpackelements.com/woocommerce-builder/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)**
-Includes a wide range of Woo Widgets that lets you design WooCommerce Single Product and Archive Page Templates. Easily!
+### LEARN FROM EXTENSIVE DOCUMENTATION 
+We have [Extensive Documentation](https://powerpackelements.com/docs/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) which includes all types of docs that support users to understand [PowerPack for Elementor](https://powerpackelements.com/docs/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) better. 
 
- ## Top Features of PowerPack Elementor Addon
- - **Elementor 2.0 Compatible**
-PowerPack widgets are compatible with Elementor 2.0 Dynamic Fields. Hence, you can use them to display dynamic content.
+### Follow us on Twitter
+Want to know more about us? Follow us on [Twitter](https://twitter.com/ppelementor) for more updates and information.
 
- - **White Label Branding**
-Self-branding is extremely important when you are working for third-party clients. This feature allows you to change the branding of the plugin and help you maintain your personal brand while building client sites.
-
- - **Light weight, fast, and easy to use**
-PowerPack for Elementor boasts of superior code quality optimized for performance. Minimal usage of external scripts helps you maintain superior loading time for your websites.
-
-- **Extensive styling options**
-All the Elementor Widgets included with PowerPack come with well-thought design and styling options. These options make it easy for you to build creative layouts without having to worry about the custom code.
-
-- **Professional Support**
-PowerPack Addon for Elementor comes from our team of experts, who always deliver the best and try to fix all of their queries earliest. 
+### Join our Facebook Group
+Want to connect us with more? We have an active Facebook Group where we keep posting PowerPack's latest updates and help our users with any questions they may have! We are sure you will love the group. Join in and say, Hello! [PowerPack Elements Facebook Group.](https://www.facebook.com/groups/ppelementor/)
 
 ## Other Elementor Plugins
 - **[Dashboard Welcome for Elementor](https://wordpress.org/plugins/dashboard-welcome-for-elementor/)**
