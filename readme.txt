@@ -206,6 +206,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.3.3 - April 14, 2021 =
+* 	Fixed: Team Member - Dynamic image tag was not working
+
 = 2.3.2 - April 7, 2021 =
 * 	Added: Content Ticker - Pause on Interaction option
 * 	Added: Content Ticker - Heading alignment and padding options
@@ -213,6 +216,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	Enhancement: Instagram Feed - Updated autoplay speed control type to number control
 * 	Enhancement: Instagram Feed - Removed Use API option as it was not working any more
 * 	Added: Gravity Forms - Label spacing option
+* 	Fixed: Sanitized and escaped data to enforce better security
 
 = 2.3.1 - March 26, 2021 =
 * 	Fixed: Flip Box - Link option was not working in zoom out effect

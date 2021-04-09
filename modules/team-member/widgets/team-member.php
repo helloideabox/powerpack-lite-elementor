@@ -1683,7 +1683,7 @@ class Team_Member extends Powerpack_Widget {
 	}
 
 	protected function render_image() {
-		$settings = $this->get_settings();
+		$settings = $this->get_settings_for_display();
 		$link_key = 'link';
 
 		if ( ! empty( $settings['image']['url'] ) ) {

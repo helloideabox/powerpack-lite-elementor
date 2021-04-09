@@ -1,3 +1,7 @@
+== 2.3.3 ==
+Release date: April 14, 2021
+* Fixed: Team Member - Dynamic image tag was not working
+
 == 2.3.2 ==
 Release date: April 7, 2021
 * Added: Content Ticker - Pause on Interaction option
@@ -6,6 +10,7 @@ Release date: April 7, 2021
 * Enhancement: Instagram Feed - Updated autoplay speed control type to number control
 * Enhancement: Instagram Feed - Removed Use API option as it was not working any more
 * Added: Gravity Forms - Label spacing option
+* Fixed: Sanitized and escaped data to enforce better security
 
 == 2.3.1 ==
 Release date: March 29, 2021
