@@ -224,6 +224,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	Fixed: Team Member - Dynamic image tag was not working
 * 	Fixed: Logo Carousel - PHP error when logo title is used
 * 	Fixed: Updated soon to be deprecated code
+* 	Enhancement: Buttons, Icon List - Added support for HTML tags for text field
 * 	Enhancement: Updated compatibility tag
 
 = 2.3.2 - April 7, 2021 =

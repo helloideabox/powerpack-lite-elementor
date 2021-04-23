@@ -919,7 +919,7 @@ class Icon_List extends Powerpack_Widget {
 							$this->render_iconlist_icon( $item, $i );
 							?>
 							<span <?php echo wp_kses_post( $this->get_render_attribute_string( $text_key ) ); ?>>
-								<?php echo esc_attr( $item['text'] ); ?>
+								<?php echo wp_kses_post( $item['text'] ); ?>
 							</span>
 							<?php
 							if ( '' !== $item['link']['url'] ) { ?>

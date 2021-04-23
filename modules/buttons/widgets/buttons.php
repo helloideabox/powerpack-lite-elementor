@@ -1290,7 +1290,7 @@ class Buttons extends Powerpack_Widget {
 
 								<span <?php echo wp_kses_post( $this->get_render_attribute_string( $text_key ) ); ?>>
 								<?php
-									echo esc_attr( $item['text'] );
+									echo wp_kses_post( $item['text'] );
 								?>
 								</span>
 							<?php } ?>
