@@ -95,7 +95,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register advanced tabs widget controls.
+	 * Register advanced accordion widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *

@@ -2,13 +2,14 @@
 namespace PowerpackElementsLite\Modules\BusinessHours\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Schemes\Typography as Scheme_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -514,30 +515,38 @@ class Business_Hours extends Powerpack_Widget {
 	}
 
 	protected function register_content_help_docs_controls() {
-		/**
-		 * Content Tab: Docs Links
-		 *
-		 * @since 1.4.8
-		 * @access protected
-		 */
-		$this->start_controls_section(
-			'section_help_docs',
-			array(
-				'label' => __( 'Help Docs', 'powerpack' ),
-			)
-		);
 
-		$this->add_control(
-			'help_doc_1',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/business-hours/business-hours-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+		$help_docs = PP_Config::get_widget_help_links( 'Business_Hours' );
+		if ( ! empty( $help_docs ) ) {
+			/**
+			 * Content Tab: Docs Links
+			 *
+			 * @since 1.4.8
+			 * @access protected
+			 */
+			$this->start_controls_section(
+				'section_help_docs',
+				[
+					'label' => __( 'Help Docs', 'powerpack' ),
+				]
+			);
 
-		$this->end_controls_section();
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					[
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					]
+				);
+
+				$hd_counter++;
+			}
+
+			$this->end_controls_section();
+		}
 	}
 
 	protected function register_content_upgrade_pro_controls() {

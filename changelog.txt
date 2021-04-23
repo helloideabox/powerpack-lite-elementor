@@ -1,6 +1,9 @@
 == 2.3.3 ==
-Release date: April 14, 2021
+Release date: April 23, 2021
 * Fixed: Team Member - Dynamic image tag was not working
+* Fixed: Logo Carousel - PHP error when logo title is used
+* Fixed: Updated soon to be deprecated code
+* Enhancement: Updated compatibility tag
 
 == 2.3.2 ==
 Release date: April 7, 2021

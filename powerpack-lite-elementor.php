@@ -10,7 +10,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: powerpack
  * Domain Path: /languages
- * Elementor tested up to: 3.1.4
+ * Elementor tested up to: 3.2.1
  * Elementor Pro tested up to: 3.2.1
  */
 

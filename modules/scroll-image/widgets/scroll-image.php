@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\ScrollImage\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Config;
 use PowerpackElementsLite\Modules\ScrollImage\Module;
 
 // Elementor Classes
@@ -17,7 +18,7 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Css_Filter;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Schemes\Typography as Scheme_Typography;
 use Elementor\Embed;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
