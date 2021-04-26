@@ -220,7 +220,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
-= 2.3.3 - April 23, 2021 =
+= 2.3.3 - April 26, 2021 =
 * 	Fixed: Team Member - Dynamic image tag was not working
 * 	Fixed: Logo Carousel - PHP error when logo title is used
 * 	Fixed: Updated soon to be deprecated code

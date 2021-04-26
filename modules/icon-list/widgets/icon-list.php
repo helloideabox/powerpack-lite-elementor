@@ -995,7 +995,7 @@ class Icon_List extends Powerpack_Widget {
 						$image_html = '<img src="' . esc_url( $item['list_image']['url'] ) . '">';
 					}
 					?>
-					<span class="pp-icon-list-image <?php echo wp_kses_post( $image_html ); ?>"><?php echo esc_attr( $icon_animation ); ?></span>
+					<span class="pp-icon-list-image <?php echo esc_attr( $icon_animation ); ?>"><?php echo wp_kses_post( $image_html ); ?></span>
 					<?php
 				} elseif ( 'number' === $item['pp_icon_type'] ) {
 					if ( $item['icon_text'] ) {
@@ -1004,7 +1004,7 @@ class Icon_List extends Powerpack_Widget {
 						$number = $i;
 					}
 					?>
-					<span class="pp-icon-list-icon <?php echo esc_attr( $number ); ?>"><?php echo esc_attr( $icon_animation ); ?></span>
+					<span class="pp-icon-list-icon <?php echo esc_attr( $icon_animation ); ?>"><?php echo esc_attr( $number ); ?></span>
 					<?php
 				}
 				?>
