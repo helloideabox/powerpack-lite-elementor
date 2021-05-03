@@ -213,8 +213,8 @@
 		ppSwiperSliderinit(carousel, carouselWrap, elementSettings, sliderOptions);
 		
 		if ( equalHeight === 'yes' ) {
-			infoBoxEqualHeight($scope, $);
-			$(window).resize(infoBoxEqualHeight($scope, $));
+			IbEqualHeight($scope, $);
+			$(window).resize(IbEqualHeight($scope, $));
 		}
     };
     
