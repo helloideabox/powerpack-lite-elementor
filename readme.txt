@@ -220,6 +220,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.3.4 - May 3, 2021 =
+* 	Fixed: Twitter Timeline - Tweet limit option was not working
+* 	Fixed: Infobox Carousel - Equal height console error
+* 	Enhancement: Link Effects - Added support for HTML tags in text field
+
 = 2.3.3 - April 26, 2021 =
 * 	Fixed: Team Member - Dynamic image tag was not working
 * 	Fixed: Logo Carousel - PHP error when logo title is used
