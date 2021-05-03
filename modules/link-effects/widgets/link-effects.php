@@ -423,7 +423,7 @@ class Link_Effects extends Powerpack_Widget {
 			case 'effect-5':
 			case 'effect-19':
 			case 'effect-20':
-				$this->add_render_attribute( 'pp-link-text', 'data-hover', $link_text );
+				$this->add_render_attribute( 'pp-link-text', 'data-hover', wp_strip_all_tags( $link_text ) );
 				break;
 
 			case 'effect-10':
@@ -432,17 +432,17 @@ class Link_Effects extends Powerpack_Widget {
 			case 'effect-16':
 			case 'effect-17':
 			case 'effect-18':
-				$this->add_render_attribute( 'pp-link-text-2', 'data-hover', $link_text );
+				$this->add_render_attribute( 'pp-link-text-2', 'data-hover', wp_strip_all_tags( $link_text ) );
 				break;
 		}
 		?>
 
 		<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'pp-link-text-2' ) ); ?>>
 			<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'pp-link-text' ) ); ?>>
-				<?php echo esc_attr( $link_text ); ?>
+				<?php echo wp_kses_post( $link_text ); ?>
 			</span>
 			<?php if ( 'effect-9' === $settings['effect'] ) { ?>
-				<span><?php echo esc_attr( $link_secondary_text ); ?></span>
+				<span><?php echo wp_kses_post( $link_secondary_text ); ?></span>
 			<?php } ?>
 		</a>
 		<?php
