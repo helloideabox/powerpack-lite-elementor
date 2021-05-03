@@ -25,7 +25,7 @@
     
     var ppSwiperSliderinit = function (carousel, carouselWrap, elementSettings, sliderOptions) {
 		if ( 'undefined' === typeof Swiper ) {
-			const asyncSwiper = elementorFrontend.utils.swiper;
+			var asyncSwiper = elementorFrontend.utils.swiper;
 
 			new asyncSwiper( carousel, sliderOptions ).then( function( newSwiperInstance ) {
 				var mySwiper = newSwiperInstance;
