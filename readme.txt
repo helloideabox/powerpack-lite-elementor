@@ -156,12 +156,9 @@ https://www.youtube.com/watch?v=blCGxZujnJg
 
 - **HEADER FOOTER BUILDER**
 PowerPack addon includes a unique Header & Footer extension that allows you to create a custom Header and Footer layout. If you are using Elementor Free version, the PowerPack Header Footer extension could be a great fit for your website.
-
 [Watch Demo](https://powerpackelements.com/elementor-widgets/header-footer-builder-elementor/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)
 
-**[Magic Wand Feature](https://powerpackelements.com/elementor-widgets/cross-domain-copy-paste/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)** -  Cross-Domain Copy Paste for Elementor
-
-Get rid of all the repetitve & time-consuing process reuires in website design. With PowerPack magical cross-domain cpoyy paste feature you can copy content from one website to another in just four simple steps.
+- **[MAGIC WAND FEATURE](https://powerpackelements.com/elementor-widgets/cross-domain-copy-paste/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)** Cross-Domain Copy Paste for Elementor: Get rid of all the repetitive & time-consuming processes requires in website design. With PowerPack magical cross-domain copy paste feature you can copy content from one website to another in just four simple steps.
 
 https://www.youtube.com/watch?v=0vy63aKyH68
 
