@@ -2602,7 +2602,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		if ( $item['team_member_position'] ) {
 			$position_html_tag = PP_Helper::validate_html_tag( $settings['position_html_tag'] );
 			?>
-			<<?php echo esc_html( $position_html_tag ); ?>>
+			<<?php echo esc_html( $position_html_tag ); ?> class="pp-tm-position">
 				<?php echo esc_html( $item['team_member_position'] ); ?>
 			</<?php echo esc_html( $position_html_tag ); ?>>
 			<?php

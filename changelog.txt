@@ -1,7 +1,11 @@
+== 2.3.5 ==
+Release date: May 12, 2021
+* Fixed: Team Member Carousel - Position style options were not working
+
 == 2.3.4 ==
 Release date: May 3, 2021
 * Fixed: Twitter Timeline - Tweet limit option was not working
-* Fixed: Infobox Carousel - Equal height console error
+* Fixed: Info Box Carousel - Equal height console error
 * Enhancement: Link Effects - Added support for HTML tags in text field
 
 == 2.3.3 ==
