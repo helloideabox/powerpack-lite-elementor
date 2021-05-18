@@ -1,6 +1,7 @@
 == 2.3.5 ==
-Release date: May 12, 2021
+Release date: May 18, 2021
 * Fixed: Team Member Carousel - Position style options were not working
+* Added: Pricing Table - Z-Index option for tooltip
 
 == 2.3.4 ==
 Release date: May 3, 2021

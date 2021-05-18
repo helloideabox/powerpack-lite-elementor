@@ -270,9 +270,9 @@ class PowerpackLitePlugin {
 		wp_register_script(
 			'pp-slick',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/slick/slick' . $suffix . '.js',
-			array(
+			[
 				'jquery',
-			),
+			],
 			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
@@ -280,9 +280,9 @@ class PowerpackLitePlugin {
 		wp_register_script(
 			'powerpack-pp-posts',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/pp-posts.js',
-			array(
+			[
 				'jquery',
-			),
+			],
 			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
@@ -290,15 +290,15 @@ class PowerpackLitePlugin {
 		wp_localize_script(
 			'powerpack-pp-posts',
 			'pp_posts_script',
-			array(
+			[
 				'ajax_url'    => admin_url( 'admin-ajax.php' ),
 				'posts_nonce' => wp_create_nonce( 'pp-posts-widget-nonce' ),
-			)
+			]
 		);
 
 		wp_register_script(
-			'pp-tooltip',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/tooltip.js',
+			'pp-tooltipster',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tooltipster/tooltipster' . $suffix . '.js',
 			[
 				'jquery',
 			],

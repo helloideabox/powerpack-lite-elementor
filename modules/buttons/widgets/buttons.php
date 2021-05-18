@@ -81,7 +81,7 @@ class Buttons extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return [
-			'pp-tooltip',
+			'pp-tooltipster',
 			'powerpack-frontend',
 		];
 	}
@@ -1034,6 +1034,7 @@ class Buttons extends Powerpack_Widget {
 					],
 				]
 			);
+
 			$this->add_control(
 				'tooltips_align',
 				[
@@ -1059,37 +1060,7 @@ class Buttons extends Powerpack_Widget {
 					],
 				]
 			);
-			$this->add_responsive_control(
-				'tooltips_padding',
-				[
-					'label'      => __( 'Padding', 'powerpack' ),
-					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', 'em', '%' ],
-					'selectors'  => [
-						'.pp-tooltip-{{ID}} .pp-tooltip-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
-			$this->add_responsive_control(
-				'tooltips_border_radius',
-				[
-					'label'      => __( 'Border Radius', 'powerpack' ),
-					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', '%' ],
-					'selectors'  => [
-						'.pp-tooltip-{{ID}} .pp-tooltip-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
-			$this->add_group_control(
-				Group_Control_Typography::get_type(),
-				[
-					'name'      => 'tooltips_typography',
-					'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
-					'separator' => 'after',
-					'selector'  => '.pp-tooltip-{{ID}} .pp-tooltip-content',
-				]
-			);
+
 			$this->add_control(
 				'tooltips_background_color',
 				[
@@ -1097,14 +1068,15 @@ class Buttons extends Powerpack_Widget {
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#000000',
 					'selectors' => [
-						'.pp-tooltip-{{ID}} .pp-tooltip-content'       => 'background-color: {{VALUE}};',
-						'.pp-tooltip-{{ID}}.tt-above .pp-tooltip-callout:after' => 'border-top-color: {{VALUE}};',
-						'.pp-tooltip-{{ID}}.tt-left .pp-tooltip-callout:after' => 'border-left-color: {{VALUE}};',
-						'.pp-tooltip-{{ID}}.tt-right .pp-tooltip-callout:after' => 'border-right-color: {{VALUE}};',
-						'.pp-tooltip-{{ID}}.tt-bottom .pp-tooltip-callout:after' => 'border-bottom-color: {{VALUE}};',
+						'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'background-color: {{VALUE}};',
+						'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-top .tooltipster-arrow-background' => 'border-top-color: {{VALUE}};',
+						'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-bottom .tooltipster-arrow-background' => 'border-bottom-color: {{VALUE}};',
+						'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-left .tooltipster-arrow-background' => 'border-left-color: {{VALUE}};',
+						'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-right .tooltipster-arrow-background' => 'border-right-color: {{VALUE}};',
 					],
 				]
 			);
+
 			$this->add_control(
 				'tooltips_color',
 				[
@@ -1112,15 +1084,50 @@ class Buttons extends Powerpack_Widget {
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#ffffff',
 					'selectors' => [
-						'.pp-tooltip-{{ID}} .pp-tooltip-content' => 'color: {{VALUE}};',
+						'.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content' => 'color: {{VALUE}};',
 					],
 				]
 			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name'      => 'tooltips_typography',
+					'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
+					'separator' => 'after',
+					'selector'  => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
+				]
+			);
+
+			$this->add_responsive_control(
+				'tooltips_border_radius',
+				[
+					'label'      => __( 'Border Radius', 'powerpack' ),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%' ],
+					'selectors'  => [
+						'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'tooltips_padding',
+				[
+					'label'      => __( 'Padding', 'powerpack' ),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors'  => [
+						'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
 			$this->add_group_control(
 				Group_Control_Box_Shadow::get_type(),
 				[
 					'name'      => 'tooltips_box_shadow',
-					'selector' => '.pp-tooltip-{{ID}}',
+					'selector'  => '.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box',
 					'separator' => '',
 				]
 			);
@@ -1155,8 +1162,10 @@ class Buttons extends Powerpack_Widget {
 		<div class="pp-buttons-group">
 			<?php foreach ( $settings['buttons'] as $index => $item ) : ?>
 				<?php
-				$button_key        = $this->get_repeater_setting_key( 'button', 'buttons', $index );
-				$content_inner_key = $this->get_repeater_setting_key( 'content', 'buttons', $index );
+				$button_key          = $this->get_repeater_setting_key( 'button', 'buttons', $index );
+				$tooltip_content_key = $this->get_repeater_setting_key( 'tooltip_content', 'buttons', $index );
+				$tooltip_content_id  = $this->get_id() . '-' . $item['_id'];
+				$content_inner_key   = $this->get_repeater_setting_key( 'content', 'buttons', $index );
 
 				// Button Size
 				$button_size = ( 'default' !== $item['single_button_size'] ) ? $item['single_button_size'] : $settings['button_size'];
@@ -1202,6 +1211,14 @@ class Buttons extends Powerpack_Widget {
 					$ttip_position_tablet = $this->get_tooltip_position( $settings['tooltips_position_tablet'] );
 					$ttip_position_mobile = $this->get_tooltip_position( $settings['tooltips_position_mobile'] );
 
+					$this->add_render_attribute(
+						$tooltip_content_key,
+						array(
+							'class' => [ 'pp-tooltip-content', 'pp-tooltip-content-' . $this->get_id() ],
+							'id'    => 'pp-tooltip-content-' . $tooltip_content_id,
+						)
+					);
+
 					if ( $settings['tooltips_position_tablet'] ) {
 						$ttip_tablet = $ttip_position_tablet;
 					} else {
@@ -1217,10 +1234,11 @@ class Buttons extends Powerpack_Widget {
 					$this->add_render_attribute(
 						$button_key,
 						[
-							'data-tooltip'                 => htmlspecialchars( $item['tooltip_content'] ),
+							'data-tooltip'                 => 'yes',
 							'data-tooltip-position'        => $ttip_position,
 							'data-tooltip-position-tablet' => $ttip_tablet,
 							'data-tooltip-position-mobile' => $ttip_mobile,
+							'data-tooltip-content'         => '#pp-tooltip-content-' . $tooltip_content_id,
 						]
 					);
 				}
@@ -1289,14 +1307,19 @@ class Buttons extends Powerpack_Widget {
 								$this->add_inline_editing_attributes( $text_key, 'none' ); ?>
 
 								<span <?php echo wp_kses_post( $this->get_render_attribute_string( $text_key ) ); ?>>
-								<?php
-									echo wp_kses_post( $item['text'] );
-								?>
+									<?php echo wp_kses_post( $item['text'] ); ?>
 								</span>
 							<?php } ?>
 						</span>
 					</div>
 				</a>
+				<?php if ( 'yes' === $item['has_tooltip'] && $item['tooltip_content'] ) { ?>
+					<div class="pp-tooltip-container">
+						<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tooltip_content_key ) ); ?>>
+							<?php echo wp_kses_post( $item['tooltip_content'] ); ?>
+						</div>
+					</div>
+				<?php } ?>
 				<?php $i++;
 			endforeach; ?>
 		</div><?php
@@ -1305,23 +1328,23 @@ class Buttons extends Powerpack_Widget {
 	protected function get_tooltip_position( $tt_position ) {
 		switch ( $tt_position ) {
 			case 'above':
-				$tt_position = 'tt-top';
+				$tt_position = 'top';
 				break;
 
 			case 'below':
-				$tt_position = 'tt-bottom';
+				$tt_position = 'bottom';
 				break;
 
 			case 'left':
-				$tt_position = 'tt-left';
+				$tt_position = 'left';
 				break;
 
 			case 'right':
-				$tt_position = 'tt-right';
+				$tt_position = 'right';
 				break;
 
 			default:
-				$tt_position = 'tt-top';
+				$tt_position = 'top';
 				break;
 		}
 
@@ -1345,23 +1368,23 @@ class Buttons extends Powerpack_Widget {
 			function get_tooltip_position( $tt_position ) {
 				switch ( $tt_position ) {
 					case 'above':
-						$tt_position = 'tt-top';
+						$tt_position = 'top';
 						break;
 
 					case 'below':
-						$tt_position = 'tt-bottom';
+						$tt_position = 'bottom';
 						break;
 
 					case 'left':
-						$tt_position = 'tt-left';
+						$tt_position = 'left';
 						break;
 
 					case 'right':
-						$tt_position = 'tt-right';
+						$tt_position = 'right';
 						break;
 
 					default:
-						$tt_position = 'tt-top';
+						$tt_position = 'top';
 						break;
 				}
 
@@ -1370,12 +1393,15 @@ class Buttons extends Powerpack_Widget {
 			#>
 			<# _.each( settings.buttons, function( item, index ) { #>
 				<#
-				var button_key = 'button_' + i,
-					content_inner_key = 'content-inner_' + i,
+				var content_inner_key = 'content-inner_' + i,
+					tooltipContentId = view.$el.data('id') + '-' + item._id;
 					buttonSize = '',
 					iconPosition = '',
 					iconsHTML = {},
 					migrated = {};
+
+				var button_key = view.getRepeaterSettingKey( 'button', 'buttons', index ),
+					tooltipContentKey = view.getRepeaterSettingKey( 'tooltip_content', 'buttons', index );
 
 				if ( item.single_button_size != 'default' ) {
 					buttonSize = item.single_button_size;
@@ -1410,6 +1436,14 @@ class Buttons extends Powerpack_Widget {
 					}
 				);
 
+				view.addRenderAttribute(
+					tooltipContentKey,
+					{
+						'class': [ 'pp-tooltip-content', 'pp-tooltip-content-' + tooltipContentId ],
+						'id': 'pp-tooltip-content-' + tooltipContentId,
+					}
+				);
+
 				if ( item.has_tooltip == 'yes' && item.tooltip_content != '' ) {
 					var ttip_tablet;
 					var ttip_mobile;
@@ -1428,10 +1462,11 @@ class Buttons extends Powerpack_Widget {
 					view.addRenderAttribute(
 						button_key,
 						{
-							'data-tooltip': item.tooltip_content,
+							'data-tooltip': 'yes',
 							'data-tooltip-position': get_tooltip_position( settings.tooltips_position ),
 							'data-tooltip-position-tablet': get_tooltip_position( ttip_tablet ),
 							'data-tooltip-position-mobile': get_tooltip_position( ttip_mobile ),
+							'data-tooltip-content': '#pp-tooltip-content-' + tooltipContentId,
 						}
 					);
 				}
@@ -1520,6 +1555,13 @@ class Buttons extends Powerpack_Widget {
 						</span>
 					</div>
 				</a>
+				<# if ( 'yes' === item.has_tooltip && item.tooltip_content ) { #>
+					<div class="pp-tooltip-container">
+						<div {{{ view.getRenderAttributeString( tooltipContentKey ) }}}>
+							{{ item.tooltip_content }}
+						</div>
+					</div>
+				<# } #>
 			<# i++ } ); #>
 		</div>
 		<?php

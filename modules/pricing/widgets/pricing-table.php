@@ -87,7 +87,7 @@ class Pricing_Table extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return array(
-			'pp-tooltip',
+			'pp-tooltipster',
 			'powerpack-frontend',
 		);
 	}
@@ -553,6 +553,7 @@ class Pricing_Table extends Powerpack_Widget {
 					'small'   => __( 'Small', 'powerpack' ),
 					'large'   => __( 'Large', 'powerpack' ),
 				),
+				'frontend_available' => true,
 				'condition' => [
 					'show_tooltip' => 'yes',
 				],
@@ -591,6 +592,23 @@ class Pricing_Table extends Powerpack_Widget {
 				'condition' => [
 					'show_tooltip' => 'yes',
 				],
+			)
+		);
+
+		$this->add_control(
+			'tooltip_animation',
+			array(
+				'label'   => __( 'Animation', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'fade',
+				'options' => array(
+					'fade'  => __( 'Fade', 'powerpack' ),
+					'fall'  => __( 'Fall', 'powerpack' ),
+					'grow'  => __( 'Grow', 'powerpack' ),
+					'slide' => __( 'Slide', 'powerpack' ),
+					'swing' => __( 'Swing', 'powerpack' ),
+				),
+				'frontend_available' => true,
 			)
 		);
 
@@ -642,12 +660,7 @@ class Pricing_Table extends Powerpack_Widget {
 						'max' => 100,
 					),
 				),
-				'selectors'   => array(
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-top' => 'transform: translateY(-{{SIZE}}{{UNIT}});',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-bottom' => 'transform: translateY({{SIZE}}{{UNIT}});',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-left' => 'transform: translateX(-{{SIZE}}{{UNIT}});',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-right' => 'transform: translateX({{SIZE}}{{UNIT}});',
-				),
+				'frontend_available' => true,
 				'condition' => [
 					'show_tooltip' => 'yes',
 				],
@@ -724,7 +737,7 @@ class Pricing_Table extends Powerpack_Widget {
 			'zoomOutUp'         => __( 'zoomOutUp', 'powerpack' ),
 		);
 
-		$this->add_control(
+		/* $this->add_control(
 			'tooltip_animation_in',
 			array(
 				'label'   => __( 'Animation In', 'powerpack' ),
@@ -747,6 +760,19 @@ class Pricing_Table extends Powerpack_Widget {
 				'condition' => [
 					'show_tooltip' => 'yes',
 				],
+			)
+		); */
+
+		$this->add_control(
+			'tooltip_zindex',
+			array(
+				'label'              => __( 'Z-Index', 'powerpack' ),
+				'description'        => __( 'Increase the z-index value if you are unable to see the tooltip. For example: 99, 999, 9999 ', 'powerpack' ),
+				'type'               => Controls_Manager::NUMBER,
+				'default'            => 99,
+				'min'                => -9999999,
+				'step'               => 1,
+				'frontend_available' => true,
 			)
 		);
 
@@ -2108,11 +2134,11 @@ class Pricing_Table extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content' => 'background-color: {{VALUE}};',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-top .pp-tooltip-callout:after'    => 'border-top-color: {{VALUE}};',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-bottom .pp-tooltip-callout:after' => 'border-bottom-color: {{VALUE}};',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-left .pp-tooltip-callout:after'   => 'border-left-color: {{VALUE}};',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-right .pp-tooltip-callout:after'  => 'border-right-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'background-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-top .tooltipster-arrow-background' => 'border-top-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-bottom .tooltipster-arrow-background' => 'border-bottom-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-left .tooltipster-arrow-background' => 'border-left-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-right .tooltipster-arrow-background' => 'border-right-color: {{VALUE}};',
 				],
 				'condition' => [
 					'show_tooltip' => 'yes',
@@ -2147,10 +2173,7 @@ class Pricing_Table extends Powerpack_Widget {
 						'step' => 1,
 					],
 				],
-				'selectors' => [
-					'.pp-tooltip.pp-tooltip-{{ID}}' => 'max-width: {{SIZE}}{{UNIT}};',
-				],
-				'render_type'        => 'template',
+				'frontend_available' => true,
 				'condition' => [
 					'show_tooltip' => 'yes',
 				],
@@ -2163,7 +2186,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'name'      => 'tooltip_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'  => '.pp-tooltip.pp-tooltip-{{ID}}',
+				'selector'  => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
 				'condition' => [
 					'show_tooltip' => 'yes',
 				],
@@ -2177,7 +2200,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'label'       => __( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
+				'selector'    => '.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box',
 				'condition'   => [
 					'show_tooltip' => 'yes',
 				],
@@ -2191,7 +2214,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition'  => [
 					'show_tooltip' => 'yes',
@@ -2206,7 +2229,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 				'condition'  => [
 					'show_tooltip' => 'yes',
@@ -2218,7 +2241,7 @@ class Pricing_Table extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'      => 'tooltip_box_shadow',
-				'selector'  => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
+				'selector'  => '.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box',
 				'condition' => [
 					'show_tooltip' => 'yes',
 				],
@@ -2764,31 +2787,44 @@ class Pricing_Table extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function get_tooltip_attributes( $item, $tooltip_key ) {
+	protected function get_tooltip_attributes( $item, $tooltip_key, $tooltip_content_key ) {
 		$settings = $this->get_settings_for_display();
-		$tooltip_position = 'tt-' . $settings['tooltip_position'];
+		$tooltip_position = $settings['tooltip_position'];
+		$tooltip_content_id  = $this->get_id() . '-' . $item['_id'];
 
 		$this->add_render_attribute(
 			$tooltip_key,
 			array(
 				'class'                 => 'pp-pricing-table-tooptip',
-				'data-tooltip'          => $item['tooltip_content'],
+				'data-tooltip'          => 'yes',
 				'data-tooltip-position' => $tooltip_position,
-				'data-tooltip-size'     => $settings['tooltip_size'],
+				'data-tooltip-content'  => '#pp-tooltip-content-' . $tooltip_content_id,
 			)
 		);
 
-		if ( $settings['tooltip_width'] ) {
+		if ( $settings['tooltip_distance']['size'] ) {
+			$this->add_render_attribute( $tooltip_key, 'data-tooltip-distance', $settings['tooltip_distance']['size'] );
+		}
+
+		if ( $settings['tooltip_width']['size'] ) {
 			$this->add_render_attribute( $tooltip_key, 'data-tooltip-width', $settings['tooltip_width']['size'] );
 		}
 
-		if ( $settings['tooltip_animation_in'] ) {
+		$this->add_render_attribute(
+			$tooltip_content_key,
+			array(
+				'class' => [ 'pp-tooltip-content', 'pp-tooltip-content-' . $this->get_id() ],
+				'id'    => 'pp-tooltip-content-' . $tooltip_content_id,
+			)
+		);
+
+		/* if ( $settings['tooltip_animation_in'] ) {
 			$this->add_render_attribute( $tooltip_key, 'data-tooltip-animation-in', $settings['tooltip_animation_in'] );
 		}
 
 		if ( $settings['tooltip_animation_out'] ) {
 			$this->add_render_attribute( $tooltip_key, 'data-tooltip-animation-out', $settings['tooltip_animation_out'] );
-		}
+		} */
 	}
 
 	/**
@@ -2994,14 +3030,16 @@ class Pricing_Table extends Powerpack_Widget {
 						$tooltip_icon_key = $this->get_repeater_setting_key( 'tooltip_icon_key', 'table_features', $index );
 						$this->add_render_attribute( $tooltip_icon_key, 'class', 'pp-pricing-table-tooltip-icon' );
 
+						$tooltip_content_key = $this->get_repeater_setting_key( 'tooltip_content_key', 'table_features', $index );
+
 						if ( 'yes' === $settings['show_tooltip'] && $item['tooltip_content'] ) {
 							if ( 'text' === $settings['tooltip_display_on'] ) {
-								$this->get_tooltip_attributes( $item, $feature_content_key );
+								$this->get_tooltip_attributes( $item, $feature_content_key, $tooltip_content_key );
 								if ( 'click' === $settings['tooltip_trigger'] ) {
 									$this->add_render_attribute( $feature_content_key, 'class', 'pp-tooltip-click' );
 								}
 							} else {
-								$this->get_tooltip_attributes( $item, $tooltip_icon_key );
+								$this->get_tooltip_attributes( $item, $tooltip_icon_key, $tooltip_content_key );
 								if ( 'click' === $settings['tooltip_trigger'] ) {
 									$this->add_render_attribute( $tooltip_icon_key, 'class', 'pp-tooltip-click' );
 								}
@@ -3038,10 +3076,17 @@ class Pricing_Table extends Powerpack_Widget {
 										<?php echo wp_kses_post( $item['feature_text'] ); ?>
 									</span>
 								<?php } ?>
-								<?php if ( 'yes' === $settings['show_tooltip'] && 'icon' === $settings['tooltip_display_on'] && $item['tooltip_content'] ) { ?>
-									<span <?php echo wp_kses_post( $this->get_render_attribute_string( $tooltip_icon_key ) ); ?>>
-										<?php \Elementor\Icons_Manager::render_icon( $settings['tooltip_icon'], array( 'aria-hidden' => 'true' ) ); ?>
-									</span>
+								<?php if ( 'yes' === $settings['show_tooltip'] && $item['tooltip_content'] ) { ?>
+									<?php if ( 'icon' === $settings['tooltip_display_on'] ) { ?>
+										<span <?php echo wp_kses_post( $this->get_render_attribute_string( $tooltip_icon_key ) ); ?>>
+											<?php \Elementor\Icons_Manager::render_icon( $settings['tooltip_icon'], array( 'aria-hidden' => 'true' ) ); ?>
+										</span>
+									<?php } ?>
+									<div class="pp-tooltip-container">
+										<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tooltip_content_key ) ); ?>>
+											<?php echo wp_kses_post( $item['tooltip_content'] ); ?>
+										</div>
+									</div>
 								<?php } ?>
 							</div>
 						</li>
@@ -3141,21 +3186,24 @@ class Pricing_Table extends Powerpack_Widget {
 			}
 
 			function get_tooltip_attributes( item, toolTipKey ) {
-				view.addRenderAttribute( toolTipKey, 'class', 'pp-pricing-table-tooptip' );
-				view.addRenderAttribute( toolTipKey, 'data-tooltip', item.tooltip_content );
-				view.addRenderAttribute( toolTipKey, 'data-tooltip-position', 'tt-' + settings.tooltip_position );
-				view.addRenderAttribute( toolTipKey, 'data-tooltip-size', settings.tooltip_size );
+				var tooltipContentId = view.$el.data('id') + '-' + item._id;
+
+				view.addRenderAttribute(
+					toolTipKey,
+					{
+						'class': 'pp-pricing-table-tooptip',
+						'data-tooltip': 'yes',
+						'data-tooltip-position': settings.tooltip_position,
+						'data-tooltip-content': '#pp-tooltip-content-' + tooltipContentId,
+					}
+				);
+
+				if ( settings.tooltip_distance.size ) {
+					view.addRenderAttribute( toolTipKey, 'data-tooltip-distance', settings.tooltip_distance.size );
+				}
 
 				if ( settings.tooltip_width.size ) {
 					view.addRenderAttribute( toolTipKey, 'data-tooltip-width', settings.tooltip_width.size );
-				}
-
-				if ( settings.tooltip_animation_in ) {
-					view.addRenderAttribute( toolTipKey, 'data-tooltip-animation-in', settings.tooltip_animation_in );
-				}
-
-				if ( settings.tooltip_animation_out ) {
-					view.addRenderAttribute( toolTipKey, 'data-tooltip-animation-out', settings.tooltip_animation_out );
 				}
 			}
 		#>
@@ -3260,11 +3308,23 @@ class Pricing_Table extends Powerpack_Widget {
 				<ul class="pp-pricing-table-features">
 					<# var i = 1; #>
 					<# _.each( settings.table_features, function( item, index ) {
+						var  tooltipContentId = view.$el.data('id') + '-' + item._id;
+
 						var featureContentKey = view.getRepeaterSettingKey( 'feature_content_key', 'table_features', index );
 						view.addRenderAttribute( featureContentKey, 'class', 'pp-pricing-table-feature-content' );
 
-						var tooltipIconKey = view.getRepeaterSettingKey( 'tooltip_icon_key', 'table_features', index );
+						var tooltipIconKey = view.getRepeaterSettingKey( 'tooltip_icon_key', 'table_features', index ),
+							tooltipContentKey = view.getRepeaterSettingKey( 'tooltip_content', 'hot_spots', index );
+
 						view.addRenderAttribute( tooltipIconKey, 'class', 'pp-pricing-table-tooltip-icon' );
+
+						view.addRenderAttribute(
+							tooltipContentKey,
+							{
+								'class': [ 'pp-tooltip-content', 'pp-tooltip-content-' + tooltipContentId ],
+								'id': 'pp-tooltip-content-' + tooltipContentId,
+							}
+						);
 
 						if ( 'yes' === settings.show_tooltip && item.tooltip_content ) {
 							if ( 'text' === settings.tooltip_display_on ) {
@@ -3307,14 +3367,21 @@ class Pricing_Table extends Powerpack_Widget {
 									print( feature_text_html );
 								#>
 
-								<#
-								if ( 'yes' === settings.show_tooltip && 'icon' === settings.tooltip_display_on && item.tooltip_content ) {
-									tooltipIconHTML = elementor.helpers.renderIcon( view, settings.tooltip_icon, { 'aria-hidden': true }, 'i', 'object' );
-									var tooltip_icon_html = '<span' + ' ' + view.getRenderAttributeString( tooltipIconKey ) + '>' + tooltipIconHTML.value + '</span>';
+								<# if ( 'yes' === settings.show_tooltip && item.tooltip_content ) { #>
+									<#
+									if ( 'icon' === settings.tooltip_display_on) {
+										tooltipIconHTML = elementor.helpers.renderIcon( view, settings.tooltip_icon, { 'aria-hidden': true }, 'i', 'object' );
+										var tooltip_icon_html = '<span' + ' ' + view.getRenderAttributeString( tooltipIconKey ) + '>' + tooltipIconHTML.value + '</span>';
 
-									print( tooltip_icon_html );
-								}
-								#>
+										print( tooltip_icon_html );
+									}
+									#>
+									<div class="pp-tooltip-container">
+										<div {{{ view.getRenderAttributeString( tooltipContentKey ) }}}>
+											{{ item.tooltip_content }}
+										</div>
+									</div>
+								<# } #>
 							</div>
 						</li>
 					<# i++ } ); #>

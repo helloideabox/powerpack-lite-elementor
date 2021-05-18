@@ -87,7 +87,7 @@ class Hotspots extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return array(
-			'pp-tooltip',
+			'pp-tooltipster',
 			'powerpack-frontend',
 		);
 	}
@@ -335,10 +335,6 @@ class Hotspots extends Powerpack_Widget {
 						'bottom'       => __( 'Bottom', 'powerpack' ),
 						'left'         => __( 'Left', 'powerpack' ),
 						'right'        => __( 'Right', 'powerpack' ),
-						'top-left'     => __( 'Top Left', 'powerpack' ),
-						'top-right'    => __( 'Top Right', 'powerpack' ),
-						'bottom-left'  => __( 'Bottom Left', 'powerpack' ),
-						'bottom-right' => __( 'Bottom Right', 'powerpack' ),
 					),
 					'conditions' => array(
 						'terms' => array(
@@ -518,6 +514,7 @@ class Hotspots extends Powerpack_Widget {
 					'small'   => __( 'Small', 'powerpack' ),
 					'large'   => __( 'Large', 'powerpack' ),
 				),
+				'frontend_available' => true,
 			)
 		);
 
@@ -532,10 +529,6 @@ class Hotspots extends Powerpack_Widget {
 					'bottom'       => __( 'Bottom', 'powerpack' ),
 					'left'         => __( 'Left', 'powerpack' ),
 					'right'        => __( 'Right', 'powerpack' ),
-					'top-left'     => __( 'Top Left', 'powerpack' ),
-					'top-right'    => __( 'Top Right', 'powerpack' ),
-					'bottom-left'  => __( 'Bottom Left', 'powerpack' ),
-					'bottom-right' => __( 'Bottom Right', 'powerpack' ),
 				),
 			)
 		);
@@ -555,12 +548,7 @@ class Hotspots extends Powerpack_Widget {
 						'max' => 100,
 					),
 				),
-				'selectors'   => array(
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-top' => 'transform: translateY(-{{SIZE}}{{UNIT}});',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-bottom' => 'transform: translateY({{SIZE}}{{UNIT}});',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-left' => 'transform: translateX(-{{SIZE}}{{UNIT}});',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-right' => 'transform: translateX({{SIZE}}{{UNIT}});',
-				),
+				'frontend_available' => true,
 			)
 		);
 
@@ -573,6 +561,23 @@ class Hotspots extends Powerpack_Widget {
 				'label_on'           => __( 'Yes', 'powerpack' ),
 				'label_off'          => __( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
+				'frontend_available' => true,
+			)
+		);
+
+		$this->add_control(
+			'tooltip_animation',
+			array(
+				'label'   => __( 'Animation', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'fade',
+				'options' => array(
+					'fade'  => __( 'Fade', 'powerpack' ),
+					'fall'  => __( 'Fall', 'powerpack' ),
+					'grow'  => __( 'Grow', 'powerpack' ),
+					'slide' => __( 'Slide', 'powerpack' ),
+					'swing' => __( 'Swing', 'powerpack' ),
+				),
 				'frontend_available' => true,
 			)
 		);
@@ -647,13 +652,14 @@ class Hotspots extends Powerpack_Widget {
 			'zoomOutUp'         => __( 'zoomOutUp', 'powerpack' ),
 		);
 
-		$this->add_control(
+		/* $this->add_control(
 			'tooltip_animation_in',
 			array(
 				'label'   => __( 'Animation In', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT2,
 				'default' => '',
 				'options' => $tooltip_animations,
+				'frontend_available' => true,
 			)
 		);
 
@@ -664,8 +670,9 @@ class Hotspots extends Powerpack_Widget {
 				'type'    => Controls_Manager::SELECT2,
 				'default' => '',
 				'options' => $tooltip_animations,
+				'frontend_available' => true,
 			)
-		);
+		); */
 
 		$this->add_control(
 			'tooltip_zindex',
@@ -979,11 +986,11 @@ class Hotspots extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content' => 'background-color: {{VALUE}};',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-top .pp-tooltip-callout:after'    => 'border-top-color: {{VALUE}};',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-bottom .pp-tooltip-callout:after' => 'border-bottom-color: {{VALUE}};',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-left .pp-tooltip-callout:after'   => 'border-left-color: {{VALUE}};',
-					'.pp-tooltip.pp-tooltip-{{ID}}.tt-right .pp-tooltip-callout:after'  => 'border-right-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'background-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-top .tooltipster-arrow-background' => 'border-top-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-bottom .tooltipster-arrow-background' => 'border-bottom-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-left .tooltipster-arrow-background' => 'border-left-color: {{VALUE}};',
+					'.pp-tooltip.pp-tooltip-{{ID}}.tooltipster-right .tooltipster-arrow-background' => 'border-right-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1007,14 +1014,12 @@ class Hotspots extends Powerpack_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
-						'min'  => 50,
+						'min'  => 100,
 						'max'  => 400,
 						'step' => 1,
 					),
 				),
-				'selectors' => array(
-					'.pp-tooltip.pp-tooltip-{{ID}}' => 'max-width: {{SIZE}}{{UNIT}};',
-				),
+				'frontend_available' => true,
 			)
 		);
 
@@ -1024,7 +1029,7 @@ class Hotspots extends Powerpack_Widget {
 				'name'     => 'tooltip_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '.pp-tooltip.pp-tooltip-{{ID}}',
+				'selector' => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
 			)
 		);
 
@@ -1035,7 +1040,7 @@ class Hotspots extends Powerpack_Widget {
 				'label'       => __( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
+				'selector'    => '.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box',
 			)
 		);
 
@@ -1046,7 +1051,7 @@ class Hotspots extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1058,7 +1063,7 @@ class Hotspots extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1067,7 +1072,7 @@ class Hotspots extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name'     => 'tooltip_box_shadow',
-				'selector' => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
+				'selector' => '.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box',
 			)
 		);
 
@@ -1091,10 +1096,12 @@ class Hotspots extends Powerpack_Widget {
 				<?php
 				foreach ( $settings['hot_spots'] as $index => $item ) :
 
-					$hotspot_tag       = 'span';
-					$hotspot_key       = $this->get_repeater_setting_key( 'hotspot', 'hot_spots', $index );
-					$hotspot_inner_key = $this->get_repeater_setting_key( 'hotspot-inner', 'hot_spots', $index );
-					$link_key          = $this->get_repeater_setting_key( 'link', 'hot_spots', $index );
+					$hotspot_tag         = 'span';
+					$hotspot_key         = $this->get_repeater_setting_key( 'hotspot', 'hot_spots', $index );
+					$tooltip_content_key = $this->get_repeater_setting_key( 'tooltip_content', 'hot_spots', $index );
+					$tooltip_content_id  = $this->get_id() . '-' . $item['_id'];
+					$hotspot_inner_key   = $this->get_repeater_setting_key( 'hotspot-inner', 'hot_spots', $index );
+					$link_key            = $this->get_repeater_setting_key( 'link', 'hot_spots', $index );
 
 					$this->add_render_attribute(
 						$hotspot_key,
@@ -1107,31 +1114,31 @@ class Hotspots extends Powerpack_Widget {
 
 					if ( 'yes' === $item['tooltip'] && $item['tooltip_content'] ) {
 						if ( 'global' !== $item['tooltip_position_local'] ) {
-							$tooltip_position = 'tt-' . $item['tooltip_position_local'];
+							$tooltip_position = $item['tooltip_position_local'];
 						} else {
-							$tooltip_position = 'tt-' . $settings['tooltip_position'];
+							$tooltip_position = $settings['tooltip_position'];
 						}
+
+						$this->add_render_attribute(
+							$tooltip_content_key,
+							array(
+								'class' => [ 'pp-tooltip-content', 'pp-tooltip-content-' . $this->get_id() ],
+								'id'    => 'pp-tooltip-content-' . $tooltip_content_id,
+							)
+						);
 
 						$this->add_render_attribute(
 							$hotspot_key,
 							array(
 								'class'                 => 'pp-hot-spot-tooptip',
-								'data-tooltip'          => $item['tooltip_content'],
+								'data-tooltip'          => 'yes',
 								'data-tooltip-position' => $tooltip_position,
-								'data-tooltip-size'     => $settings['tooltip_size'],
+								'data-tooltip-content'  => '#pp-tooltip-content-' . $tooltip_content_id,
 							)
 						);
 
 						if ( $settings['tooltip_width'] ) {
 							$this->add_render_attribute( $hotspot_key, 'data-tooltip-width', $settings['tooltip_width']['size'] );
-						}
-
-						if ( $settings['tooltip_animation_in'] ) {
-							$this->add_render_attribute( $hotspot_key, 'data-tooltip-animation-in', $settings['tooltip_animation_in'] );
-						}
-
-						if ( $settings['tooltip_animation_out'] ) {
-							$this->add_render_attribute( $hotspot_key, 'data-tooltip-animation-out', $settings['tooltip_animation_out'] );
 						}
 					}
 
@@ -1195,6 +1202,13 @@ class Hotspots extends Powerpack_Widget {
 							</span>
 						</span>
 					</<?php echo esc_html( $hotspot_tag ); ?>>
+					<?php if ( 'yes' === $item['tooltip'] && $item['tooltip_content'] ) { ?>
+						<div class="pp-tooltip-container">
+							<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tooltip_content_key ) ); ?>>
+								<?php echo wp_kses_post( $item['tooltip_content'] ); ?>
+							</div>
+						</div>
+					<?php } ?>
 				<?php endforeach; ?>
 
 				<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings ) ); ?>
@@ -1221,15 +1235,14 @@ class Hotspots extends Powerpack_Widget {
 				<# _.each( settings.hot_spots, function( item, index ) {
 				   
 					var hotspotTag 			= 'span',
-						$tt_size            = ( settings.tooltip_size ) ? settings.tooltip_size : '',
-						$tt_animation_in    = ( settings.tooltip_animation_in ) ? settings.tooltip_animation_in : '',
-						$tt_animation_out   = ( settings.tooltip_animation_out ) ? settings.tooltip_animation_out : '',
+						tooltipContentId    = view.$el.data('id') + '-' + item._id;
 						hotspotAnimation	= ( settings.hotspot_pulse == 'yes' ) ? 'hotspot-animation' : '',
 						ttPosition			= '',
 						iconsHTML			= {},
 						migrated			= {};
 
-					var hotspotKey 			= view.getRepeaterSettingKey( 'hotspot', 'hot_spots', index );
+					var hotspotKey 			= view.getRepeaterSettingKey( 'hotspot', 'hot_spots', index ),
+						tooltipContentKey   = view.getRepeaterSettingKey( 'tooltip_content', 'hot_spots', index );
 
 					view.addRenderAttribute(
 						hotspotKey,
@@ -1241,22 +1254,28 @@ class Hotspots extends Powerpack_Widget {
 						}
 					);
 
+					view.addRenderAttribute(
+						tooltipContentKey,
+						{
+							'class': [ 'pp-tooltip-content', 'pp-tooltip-content-' + tooltipContentId ],
+							'id': 'pp-tooltip-content-' + tooltipContentId,
+						}
+					);
+
 					if ( item.tooltip_position_local != 'global' ) {
-						ttPosition = 'tt-' + item.tooltip_position_local;
+						ttPosition = item.tooltip_position_local;
 					} else {
-						ttPosition = 'tt-' + settings.tooltip_position;
+						ttPosition = settings.tooltip_position;
 					}
 
 					if ( item.tooltip == 'yes' ) {
 						view.addRenderAttribute(
 							hotspotKey,
 							{
-								'class': [ 'pp-hot-spot-tooptip' ],
-								'data-tooltip': item.tooltip_content,
+								'class': 'pp-hot-spot-tooptip',
+								'data-tooltip': 'yes',
 								'data-tooltip-position': ttPosition,
-								'data-tooltip-size': $tt_size,
-								'data-tooltip-animation-in': $tt_animation_in,
-								'data-tooltip-animation-out': $tt_animation_out,
+								'data-tooltip-content': '#pp-tooltip-content-' + tooltipContentId,
 							}
 						);
 					}
@@ -1299,6 +1318,13 @@ class Hotspots extends Powerpack_Widget {
 							<# } #>
 						</span>
 					</{{ hotspotTag }}>
+					<# if ( 'yes' === item.tooltip && item.tooltip_content ) { #>
+						<div class="pp-tooltip-container">
+							<div {{{ view.getRenderAttributeString( tooltipContentKey ) }}}>
+								{{ item.tooltip_content }}
+							</div>
+						</div>
+					<# } #>
 				<# i++ } ); #>
 
 				<# if ( settings.image.url != '' ) { #>
