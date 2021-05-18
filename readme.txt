@@ -220,6 +220,8 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 = 2.3.5 - May 18, 2021 =
 * 	Fixed: Team Member Carousel - Position style options were not working
 * 	Added: Pricing Table - Z-Index option for tooltip
+* 	Enhancement: Hotspots - Replaced Animation In and Animation Out options with Animation option
+* 	Enhancement: Updated tooltip JS code
 
 = 2.3.4 - May 3, 2021 =
 * 	Fixed: Twitter Timeline - Tweet limit option was not working

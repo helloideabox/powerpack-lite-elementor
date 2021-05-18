@@ -2,6 +2,8 @@
 Release date: May 18, 2021
 * Fixed: Team Member Carousel - Position style options were not working
 * Added: Pricing Table - Z-Index option for tooltip
+* Enhancement: Hotspots - Replaced Animation In and Animation Out options with Animation option
+* Enhancement: Updated tooltip JS code
 
 == 2.3.4 ==
 Release date: May 3, 2021

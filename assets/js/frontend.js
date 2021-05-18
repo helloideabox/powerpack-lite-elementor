@@ -102,50 +102,43 @@
 	};
     
     var ImageHotspotHandler = function ($scope, $) {
-		var id                   = $scope.data('id'),
-			elementSettings      = getElementSettings( $scope ),
-        	ttArrow              = elementSettings.tooltip_arrow,
-        	ttAlwaysOpen         = elementSettings.tooltip_always_open,
-			$tt_trigger          = elementSettings.tooltip_trigger,
-			tooltipZindex        = elementSettings.tooltip_zindex,
-			elementorBreakpoints = elementorFrontend.config.breakpoints;
+		var id              = $scope.data('id'),
+			elementSettings = getElementSettings( $scope ),
+			ppclass         = 'pp-tooltip' + ' pp-tooltip-' + id,
+        	ttArrow         = elementSettings.tooltip_arrow,
+        	ttAlwaysOpen    = elementSettings.tooltip_always_open,
+			ttTrigger       = elementSettings.tooltip_trigger,
+			ttDistance      = elementSettings.distance.size,
+			animation       = elementSettings.tooltip_animation,
+			minWidth        = elementSettings.tooltip_width.size,
+			tooltipSize     = elementSettings.tooltip_size,
+			tooltipZindex   = elementSettings.tooltip_zindex;
 
-        $('.pp-hot-spot-wrap[data-tooltip]').each(function () {
-            var ttPosition   = $(this).data('tooltip-position'),
-				ttTemplate   = '',
-				ttSize       = $(this).data('tooltip-size'),
-				animationIn  = $(this).data('tooltip-animation-in'),
-				animationOut = $(this).data('tooltip-animation-out');
+		if ( '' !== tooltipSize && undefined !== tooltipSize ) {
+			ppclass += ' pp-tooltip-size-' + tooltipSize;
+		}
 
-            // tablet
-            if ( window.innerWidth <= elementorBreakpoints.lg && window.innerWidth >= elementorBreakpoints.md ) {
-                ttPosition = $scope.find('.pp-hot-spot-wrap[data-tooltip]').data('tooltip-position-tablet');
-            }
+		$('.pp-hot-spot-wrap[data-tooltip]').each(function () {
+			var ttPosition   = $(this).data('tooltip-position');
 
-            // mobile
-            if ( window.innerWidth < elementorBreakpoints.md ) {
-                ttPosition = $scope.find('.pp-hot-spot-wrap[data-tooltip]').data('tooltip-position-mobile');
-            }
-            
-            if ( ttArrow === 'yes' ) {
-                ttTemplate = '<div class="pp-tooltip pp-tooltip-' + id + ' pp-tooltip-' + ttSize + '"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div><div class="pp-tooltip-callout"></div></div></div>';
-            } else {
-                ttTemplate = '<div class="pp-tooltip pp-tooltip-' + id + ' pp-tooltip-' + ttSize + '"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div></div></div>';
+			$( this ).pptooltipster({
+				trigger : ttTrigger,
+				animation : animation,
+	        	minWidth: minWidth,
+				ppclass : ppclass,
+				side : ttPosition,
+	        	arrow : ( 'yes' === ttArrow ),
+	        	distance : ttDistance,
+	        	interactive : true,
+	        	positionTracker : true,
+	        	zIndex : tooltipZindex,
+			});
+
+			if ( ttAlwaysOpen === 'yes' ) {
+				$(this).pptooltipster();
+				$(this).pptooltipster('show');
 			}
-			
-			var tooltipConfig = {
-                template     : ttTemplate,
-				position     : ttPosition,
-				animationIn	 : animationIn,
-				animationOut : animationOut,
-				animDuration : 400,
-				zindex       : tooltipZindex,
-				alwaysOpen   : ( ttAlwaysOpen === 'yes' ) ? true : false,
-                toggleable   : ($tt_trigger === 'click') ? true : false
-			};
-            
-            $(this)._tooltip( tooltipConfig );
-        });
+		});
     };
     
     var ImageComparisonHandler = function ($scope, $) {
@@ -350,23 +343,29 @@
         });
     };
 
-	var PPButtonHandler = function ( $scope, $) {
-		var id = $scope.data('id');
-		var ttipPosition = $scope.find('.pp-button[data-tooltip]').data('tooltip-position');
+	var PPButtonHandler = function ( $scope ) {
+		var id = $scope.data('id'),
+			ppclass = 'pp-tooltip' + ' pp-tooltip-' + id,
+			ttipPosition = $scope.find('.pp-button[data-tooltip]').data('tooltip-position'),
+			elementorBreakpoints = elementorFrontend.config.breakpoints;
 
 		// tablet
-		if ( window.innerWidth <= 1024 && window.innerWidth >= 768 ) {
+		if ( window.innerWidth <= elementorBreakpoints.lg && window.innerWidth >= elementorBreakpoints.md ) {
 			ttipPosition = $scope.find('.pp-button[data-tooltip]').data('tooltip-position-tablet');
 		}
 		// mobile
-		if ( window.innerWidth < 768 ) {
+		if ( window.innerWidth < elementorBreakpoints.md ) {
 			ttipPosition = $scope.find('.pp-button[data-tooltip]').data('tooltip-position-mobile');
 		}
-		$scope.find('.pp-button[data-tooltip]')._tooltip( {
-			template: '<div class="pp-tooltip pp-tooltip-'+id+'"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div><div class="pp-tooltip-callout"></div></div></div>',
-			position: ttipPosition,
-			animDuration: 400
-		} );
+
+		$scope.find('.pp-button[data-tooltip]').pptooltipster({
+			trigger : 'hover',
+			animation : 'fade',
+			ppclass : ppclass,
+			side : ttipPosition,
+			interactive : true,
+			positionTracker : true,
+		});
 	};
 
 	var TwitterTimelineHandler = function ($scope, $) {
@@ -442,16 +441,22 @@
 		var id                   = $scope.data('id'),
 			toolTopElm           = $scope.find('.pp-pricing-table-tooptip[data-tooltip]'),
 			elementSettings      = getElementSettings( $scope ),
+			ppclass              = 'pp-tooltip' + ' pp-tooltip-' + id,
         	ttArrow              = elementSettings.tooltip_arrow,
 			ttTrigger            = elementSettings.tooltip_trigger,
+			animation            = elementSettings.tooltip_animation,
+			tooltipSize          = elementSettings.tooltip_size,
+			tooltipZindex        = elementSettings.tooltip_zindex,
 			elementorBreakpoints = elementorFrontend.config.breakpoints;
+
+		if ( '' !== tooltipSize && undefined !== tooltipSize ) {
+			ppclass += ' pp-tooltip-size-' + tooltipSize;
+		}
 
 		toolTopElm.each(function () {
             var ttPosition   = $(this).data('tooltip-position'),
-				ttTemplate   = '',
-				ttSize       = $(this).data('tooltip-size'),
-				animationIn  = $(this).data('tooltip-animation-in'),
-				animationOut = $(this).data('tooltip-animation-out');
+				minWidth     = $(this).data('tooltip-width'),
+				ttDistance   = $(this).data('tooltip-distance');
 
             // tablet
             if ( window.innerWidth <= elementorBreakpoints.lg && window.innerWidth >= elementorBreakpoints.md ) {
@@ -462,26 +467,21 @@
             if ( window.innerWidth < elementorBreakpoints.md ) {
                 ttPosition = $scope.find('.pp-pricing-table-tooptip[data-tooltip]').data('tooltip-position-mobile');
             }
-            
-            if ( ttArrow === 'yes' ) {
-                ttTemplate = '<div class="pp-tooltip pp-tooltip-' + id + ' pp-tooltip-' + ttSize + '"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div><div class="pp-tooltip-callout"></div></div></div>';
-            } else {
-                ttTemplate = '<div class="pp-tooltip pp-tooltip-' + id + ' pp-tooltip-' + ttSize + '"><div class="pp-tooltip-body"><div class="pp-tooltip-content"></div></div></div>';
-			}
-			
-			var tooltipConfig = {
-                template:     ttTemplate,
-				position:     ttPosition,
-				animationIn:  animationIn,
-				animationOut: animationOut,
-				animDuration: 400,
-				alwaysOpen:   false,
-                toggleable:   (ttTrigger === 'click') ? true : false
-			};
-            
-            $(this)._tooltip( tooltipConfig );
+
+			$( this ).pptooltipster({
+				trigger : ttTrigger,
+				animation : animation,
+	        	minWidth: minWidth,
+				ppclass : ppclass,
+				side : ttPosition,
+	        	arrow : ( 'yes' === ttArrow ),
+	        	distance : ttDistance,
+	        	interactive : true,
+	        	positionTracker : true,
+	        	zIndex : tooltipZindex,
+			});
         });
-	};
+	}
     
     $(window).on('elementor/frontend/init', function () {
         if ( elementorFrontend.isEditMode() ) {

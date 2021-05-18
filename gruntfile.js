@@ -52,18 +52,6 @@ module.exports = function( grunt ) {
 					comments : /@license|@preserve|^!/
 				}
 			},
-			admin: {
-				files: [{
-					expand: true,
-					cwd: '<%= dirs.js %>/admin/',
-					src: [
-						'*.js',
-						'!*.min.js'
-					],
-					dest: '<%= dirs.js %>/admin/',
-					ext: '.min.js'
-				}]
-			},
 			frontend: {
 				files: [{
 					expand: true,
