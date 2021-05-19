@@ -228,16 +228,6 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
-			'waypoints',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/waypoints/waypoints.min.js',
-			[
-				'jquery',
-			],
-			'4.0.1',
-			true
-		);
-
-		wp_register_script(
 			'odometer',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/odometer/odometer.min.js',
 			[

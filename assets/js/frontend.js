@@ -158,32 +158,36 @@
     };
     
     var CounterHandler = function ($scope, $) {
-        var counter_elem   = $scope.find('.pp-counter').eq(0),
-            target         = counter_elem.data('target'),
-            separator      = $scope.find('.pp-counter-number').data('separator'),
-			separator_char = $scope.find('.pp-counter-number').data('separator-char'),
-			format         = ( separator_char !== '' ) ? '(' + separator_char + 'ddd).dd' : '(,ddd).dd';
+        var counterElem   = $scope.find('.pp-counter').eq(0),
+            target        = counterElem.data('target'),
+            separator     = $scope.find('.pp-counter-number').data('separator'),
+			separatorChar = $scope.find('.pp-counter-number').data('separator-char'),
+			format        = ( separatorChar !== '' ) ? '(' + separatorChar + 'ddd).dd' : '(,ddd).dd';
 
-        $(counter_elem).waypoint(function () {
-            $(target).each(function () {
-                var v                   = $(this).data('to'),
-                    speed               = $(this).data('speed'),
-                    od                  = new Odometer({
-                        el:             this,
-                        value:          0,
-                        duration:       speed,
-                        format:         (separator === 'yes') ? format : ''
-                    });
-                od.render();
-                setInterval(function () {
-                    od.update(v);
-                });
-            });
-        },
-            {
-                offset:             '80%',
-                triggerOnce:        true
-            });
+		var counter = function () {
+			$(target).each(function () {
+				var to     = $(this).data('to'),
+					speed  = $(this).data('speed'),
+					od     = new Odometer({
+						el:       this,
+						value:    0,
+						duration: speed,
+						format:   (separator === 'yes') ? format : ''
+					});
+				od.render();
+				setInterval(function () {
+					od.update(to);
+				});
+			})
+		}
+
+		if ( 'undefined' !== typeof elementorFrontend.waypoint ) {
+			elementorFrontend.waypoint(
+				counterElem,
+				counter,
+				{ offset: '80%', triggerOnce: true }
+			);
+		}
 	};
 	
 	var IbEqualHeight = function($scope, $) {

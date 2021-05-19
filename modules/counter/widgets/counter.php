@@ -85,7 +85,7 @@ class Counter extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return array(
-			'waypoints',
+			'elementor-waypoints',
 			'odometer',
 			'powerpack-frontend',
 		);
