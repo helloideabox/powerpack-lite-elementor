@@ -6,11 +6,13 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Extensions_Manager {
 
 	const DISPLAY_CONDITIONS 	= 'display-conditions';
+	const UPGRADE_PRO 	= 'upgrade-pro';
 
 	private $_extensions = null;
 
 	public $available_extensions = [
 		self::DISPLAY_CONDITIONS,
+		self::UPGRADE_PRO,
 	];
 
 	/**
@@ -63,7 +65,8 @@ class Extensions_Manager {
 	 */
     public function is_extension_disabled( $extension = '' ) {
         $enabled_extensions = pp_elements_lite_get_enabled_extensions();
-		
+		$enabled_extensions[] = 'pp-upgrade-pro';
+
 		$extension = str_replace( '_', '-', $extension );
 		
 		$extension_name = 'pp-' . $extension;
