@@ -1931,6 +1931,10 @@ class Pricing_Table extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
+				'default'               => [
+					'size' => 5,
+					'unit' => 'px',
+				],
 				'size_units'            => [ 'px' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-fature-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
@@ -2324,6 +2328,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-ribbon .pp-pricing-table-ribbon-inner' => 'background-color: {{VALUE}}',
 					'{{WRAPPER}} .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right:before' => 'border-left-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left:before' => 'border-right-color: {{VALUE}}',
 				],
 			]
 		);

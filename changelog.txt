@@ -1,3 +1,8 @@
+== 2.3.7 ==
+Release date: June 1, 2021
+* Fixed: Pricing Table - Table alignment issue
+* Fixed: Pricing Table - Features icon position issue
+
 == 2.3.5 ==
 Release date: May 18, 2021
 * Fixed: Team Member Carousel - Position style options were not working

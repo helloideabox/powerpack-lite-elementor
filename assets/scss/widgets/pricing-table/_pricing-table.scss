@@ -18,7 +18,8 @@
     }
     &-align {
         &-left {
-            .pp-pricing-table {
+            .pp-pricing-table,
+			&.pp-pricing-table-price-duration-wrap .pp-pricing-table-price-duration {
                 text-align: left;
             }
             .pp-pricing-table-price {
@@ -26,7 +27,8 @@
             }
         }
         &-right {
-            .pp-pricing-table {
+            .pp-pricing-table,
+			&.pp-pricing-table-price-duration-wrap .pp-pricing-table-price-duration {
                 text-align: right;
             }
             .pp-pricing-table-price {
@@ -66,7 +68,7 @@
     .pp-pricing-table-features {
         list-style: none;
         margin: 0;
-        padding: 0;
+        padding: 0 30px;
         li {
             margin: 0;
             padding: 0;
@@ -119,7 +121,8 @@
     }
 }
 .pp-pricing-table-feature-content {
-	display: inline-block;
+    display: inline-flex;
+    align-items: center;
 }
 .pp-pricing-table-ribbon {
     color: #fff;
@@ -142,23 +145,17 @@
         &.pp-pricing-table-ribbon-right {
             left: auto;
             right: 0;
-            -webkit-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
             transform: rotate(90deg);
         }
         &.pp-pricing-table-ribbon-left {
             left: 0;
             right: auto;
-            -webkit-transform: rotate(0);
-            -ms-transform: rotate(0);
             transform: rotate(0);
         }
         .pp-pricing-table-ribbon-inner {
             text-align: center;
             left: 0;
             width: 200%;
-            -webkit-transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
-            -ms-transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
             transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
             margin-top: 35px;
             line-height: 2;
@@ -174,13 +171,9 @@
             border-radius: 50%;
         }
         &.pp-pricing-table-ribbon-right {
-            -webkit-transform: translateX(38%) translateY(-38%);
-            -ms-transform: translateX(38%) translateY(-38%);
             transform: translateX(38%) translateY(-38%)
         }
         &.pp-pricing-table-ribbon-left {
-            -webkit-transform: translateX(-38%) translateY(-38%);
-            -ms-transform: translateX(-38%) translateY(-38%);
             transform: translateX(-38%) translateY(-38%)
         }
     }
@@ -235,7 +228,4 @@
             }
         }
     }
-}
-.pp-tooltip-click {
-	cursor: pointer;
 }
