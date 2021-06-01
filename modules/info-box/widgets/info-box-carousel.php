@@ -708,6 +708,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'centered_slides',
+			[
+				'label'                 => __( 'Centered Slides', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'separator'             => 'before',
+			]
+		);
+
+		$this->add_control(
 			'grab_cursor',
 			[
 				'label'                 => __( 'Grab Cursor', 'powerpack' ),
@@ -2379,14 +2388,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		}
 
 		$slider_options = [
-			'direction'     => 'horizontal',
-			'effect'        => $effect,
-			'speed'         => ( $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
-			'slidesPerView' => $items,
-			'spaceBetween'  => $margin,
-			'grabCursor'    => ( 'yes' === $settings['grab_cursor'] ),
-			'autoHeight'    => true,
-			'loop'          => ( 'yes' === $settings['infinite_loop'] ),
+			'direction'      => 'horizontal',
+			'effect'         => $effect,
+			'speed'          => ( $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
+			'slidesPerView'  => $items,
+			'spaceBetween'   => $margin,
+			'centeredSlides' => ( 'yes' === $settings['centered_slides'] ),
+			'grabCursor'     => ( 'yes' === $settings['grab_cursor'] ),
+			'autoHeight'     => true,
+			'loop'           => ( 'yes' === $settings['infinite_loop'] ),
 		];
 
 		$autoplay_speed = 999999;

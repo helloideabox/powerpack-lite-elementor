@@ -233,7 +233,7 @@ class PP_Config {
 				'Posts'              => array(
 					'name'       => 'pp-posts',
 					'title'      => __( 'Posts', 'powerpack' ),
-					'categories' => '["powerpack-elements"]',
+					'categories' => array( 'powerpack-elements' ),
 					'keywords'   => array( 'powerpack' ),
 					'icon'       => 'ppicon-posts-grid power-pack-admin-icon',
 				),
