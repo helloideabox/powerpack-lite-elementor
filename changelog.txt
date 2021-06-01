@@ -1,5 +1,6 @@
-== 2.3.7 ==
+== 2.3.6 ==
 Release date: June 1, 2021
+* Added: Info Box Carousel - Centered Slides option
 * Fixed: Pricing Table - Table alignment issue
 * Fixed: Pricing Table - Features icon position issue
 

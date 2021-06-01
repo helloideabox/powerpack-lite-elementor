@@ -217,6 +217,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.3.6 - June 1, 2021 =
+* 	Added: Info Box Carousel - Centered Slides option
+* 	Fixed: Pricing Table - Table alignment issue
+* 	Fixed: Pricing Table - Features icon position issue
+
 = 2.3.5 - May 18, 2021 =
 * 	Fixed: Team Member Carousel - Position style options were not working
 * 	Added: Pricing Table - Z-Index option for tooltip

@@ -810,7 +810,8 @@ abstract class Posts_Base extends Powerpack_Widget {
 		 *
 		 * @param \WP_Query     $wp_query
 		 */
-		do_action( "pp_query_{$query_id}", $wp_query );
+		do_action_deprecated( "pp_query_{$query_id}", [ $wp_query ], '2.3.6', "powerpack/query/{$query_id}" );
+		do_action( "powerpack/query/{$query_id}", $wp_query );
 
 	}
 

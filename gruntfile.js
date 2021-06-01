@@ -377,7 +377,6 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'js', [
 		'jshint',
-		'uglify:admin',
 		'uglify:frontend'
 	] );
 
