@@ -2,7 +2,7 @@
 /**
  * Plugin Name: PowerPack Lite for Elementor
  * Plugin URI: https://powerpackelements.com
- * Description: Custom addons for Elementor page builder.
+ * Description: Extend Elementor Page Builder with 30+ Creative Widgets and exciting extensions.
  * Version: 2.3.6
  * Author: IdeaBox Creations
  * Author URI: http://ideabox.io/
@@ -10,8 +10,8 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: powerpack
  * Domain Path: /languages
- * Elementor tested up to: 3.2.1
- * Elementor Pro tested up to: 3.2.1
+ * Elementor tested up to: 3.2.4
+ * Elementor Pro tested up to: 3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
