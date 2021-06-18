@@ -212,6 +212,40 @@ class Link_Effects extends Powerpack_Widget {
 
 		$this->end_controls_section();
 
+		$help_docs = PP_Config::get_widget_help_links( 'Link_Effects' );
+
+		if ( ! empty( $help_docs ) ) {
+
+			/**
+			 * Content Tab: Help Docs
+			 *
+			 * @since x.x.x
+			 * @access protected
+			 */
+			$this->start_controls_section(
+				'section_help_docs',
+				[
+					'label' => __( 'Help Docs', 'powerpack' ),
+				]
+			);
+
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					[
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					]
+				);
+
+				$hd_counter++;
+			}
+
+			$this->end_controls_section();
+		}
+
 		if ( ! is_pp_elements_active() ) {
 			/**
 			 * Content Tab: Upgrade PowerPack
@@ -436,7 +470,6 @@ class Link_Effects extends Powerpack_Widget {
 				break;
 		}
 		?>
-
 		<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'pp-link-text-2' ) ); ?>>
 			<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'pp-link-text' ) ); ?>>
 				<?php echo wp_kses_post( $link_text ); ?>
@@ -448,7 +481,61 @@ class Link_Effects extends Powerpack_Widget {
 		<?php
 	}
 
+	/**
+	 * Render link effects widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		?>
+		<#
+		view.addRenderAttribute( 'link', 'class', ['pp-link', 'pp-link-' + settings.effect] );
+
+		var link = settings.link.url ? 'href="' + settings.link.url + '"' : '';
+
+		switch ( settings.effect ) {
+			case 'effect-4':
+			case 'effect-5':
+			case 'effect-19':
+			case 'effect-20':
+				view.addRenderAttribute( 'pp-link-text', 'data-hover', settings.text );
+				break;
+
+			case 'effect-10':
+			case 'effect-11':
+			case 'effect-15':
+			case 'effect-16':
+			case 'effect-17':
+			case 'effect-18':
+				view.addRenderAttribute( 'link', 'data-hover', settings.text );
+				break;
+		}
+		#>
+		<a {{{ view.getRenderAttributeString( 'link' ) }}} {{{ link }}}>
+			<span {{{ view.getRenderAttributeString( 'pp-link-text' ) }}}>
+				{{{ settings.text }}}
+			</span>
+			<# if ( 'effect-9' === settings.effect ) { #>
+				<span>{{{ settings.secondary_text }}}</span>
+			<# } #>
+		</a>
+		<?php
+	}
+
+	/**
+	 * Render link effects widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @access protected
+	 */
 	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->content_template();
 	}
 
 }
