@@ -170,6 +170,9 @@ https://www.youtube.com/watch?v=-VPXg2L1sew&feature=youtu.be
 - **[BACKGROUND EFFECTS](https://powerpackelements.com/elementor-widgets/background-effects/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)** 
 Add stylish & animated backgrounds on your website.
 
+- **[WRAPPER LINK](https://powerpackelements.com/elementor-widgets/wrapper-link/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)** 
+This feature gives you the flexibility to add links to any Section, Column, and Widget in just one click!
+
 ### LEARN FROM EXTENSIVE DOCUMENTATION 
 We have [Extensive Documentation](https://powerpackelements.com/docs/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) which includes all types of docs that support users to understand [PowerPack for Elementor](https://powerpackelements.com/docs/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) better. 
 
