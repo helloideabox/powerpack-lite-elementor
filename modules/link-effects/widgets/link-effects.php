@@ -220,7 +220,7 @@ class Link_Effects extends Powerpack_Widget {
 			/**
 			 * Content Tab: Help Docs
 			 *
-			 * @since x.x.x
+			 * @since 2.4.0
 			 * @access protected
 			 */
 			$this->start_controls_section(
@@ -487,7 +487,7 @@ class Link_Effects extends Powerpack_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.0
 	 * @access protected
 	 */
 	protected function content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore

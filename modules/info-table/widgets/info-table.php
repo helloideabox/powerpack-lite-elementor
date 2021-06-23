@@ -385,7 +385,7 @@ class Info_Table extends Powerpack_Widget {
 			/**
 			 * Content Tab: Help Docs
 			 *
-			 * @since x.x.x
+			 * @since 2.4.0
 			 * @access protected
 			 */
 			$this->start_controls_section(

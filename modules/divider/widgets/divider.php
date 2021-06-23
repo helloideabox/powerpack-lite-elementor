@@ -89,7 +89,7 @@ class Divider extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.0
 	 * @access protected
 	 */
 	protected function register_controls() {
@@ -282,7 +282,7 @@ class Divider extends Powerpack_Widget {
 	/**
 	 * Register Help Docs Controls in Content tab
 	 *
-	 * @since x.x.x
+	 * @since 2.4.0
 	 * @return void
 	 */
 	protected function register_content_help_docs_controls() {
@@ -294,7 +294,7 @@ class Divider extends Powerpack_Widget {
 			/**
 			 * Content Tab: Help Docs
 			 *
-			 * @since x.x.x
+			 * @since 2.4.0
 			 * @access protected
 			 */
 			$this->start_controls_section(

@@ -575,7 +575,7 @@ class Team_Member extends Powerpack_Widget {
 	/**
 	 * Content Tab: Help Doc Links
 	 *
-	 * @since x.x.x
+	 * @since 2.4.0
 	 * @access protected
 	 */
 	protected function register_content_help_docs_controls() {
