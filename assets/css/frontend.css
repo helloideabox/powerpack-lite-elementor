@@ -102,7 +102,8 @@ div[class*=' pa-'] {
     transform: translateX(-50%); }
 
 .pp-submit-button,
-.pp-tooltip-click {
+.pp-tooltip-click,
+.pp-wrapper-link {
   cursor: pointer; }
 
 .pp-elementor-grid {

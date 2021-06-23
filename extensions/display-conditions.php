@@ -1,5 +1,4 @@
 <?php
-
 namespace PowerpackElementsLite\Extensions;
 
 // Powerpack Elements classes

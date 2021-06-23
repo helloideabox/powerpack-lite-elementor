@@ -1207,7 +1207,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px' ],
+				'size_units'            => [ 'px', '%' ],
+				'default'               => [
+					'size' => 100,
+					'unit' => 'px',
+				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-icon img' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -2656,7 +2660,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$migrated = isset( $item['__fa4_migrated']['selected_icon'] );
 		$is_new = ! isset( $item['icon'] ) && $migration_allowed;
 
-		if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) || ! empty( $item['image']['url'] ) ) {
+		if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) || ! empty( $item['image']['url'] ) || '' !== $item['icon_text'] ) {
 			?>
 			<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
 				<?php if ( 'icon' === $item['icon_type'] ) { ?>

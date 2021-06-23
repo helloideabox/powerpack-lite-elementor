@@ -1,16 +1,20 @@
 <?php
 namespace PowerpackElementsLite;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Extensions_Manager {
 
-	const DISPLAY_CONDITIONS 	= 'display-conditions';
+	const DISPLAY_CONDITIONS    = 'display-conditions';
+	const WRAPPER_LINK          = 'wrapper-link';
 
 	private $_extensions = null;
 
 	public $available_extensions = [
 		self::DISPLAY_CONDITIONS,
+		self::WRAPPER_LINK,
 	];
 
 	/**
@@ -33,15 +37,16 @@ class Extensions_Manager {
 
 			$extension_filename = POWERPACK_ELEMENTS_LITE_PATH . "extensions/{$extension_filename}.php";
 
-			require( $extension_filename );
+			require $extension_filename;
 
 			$class_name = str_replace( '-', '_', $extension_id );
 
 			$class_name = 'PowerpackElementsLite\Extensions\Extension_' . ucwords( $class_name );
 
-			if ( ! $this->is_available( $extension_name ) )
+			if ( ! $this->is_available( $extension_name ) ) {
 				unset( $this->available_extensions[ $index ] );
-			
+			}
+
 			// Skip extension if it's disabled in admin settings
 			if ( $this->is_extension_disabled( $extension_name ) ) {
 				continue;
@@ -52,7 +57,7 @@ class Extensions_Manager {
 
 		do_action( 'powerpack_elements/extensions/extensions_registered', $this );
 	}
-    
+
 	/**
 	 * Check if extension is enabled through admin settings
 	 *
@@ -61,19 +66,23 @@ class Extensions_Manager {
 	 * @access public
 	 * @return bool
 	 */
-    public function is_extension_disabled( $extension = '' ) {
-        $enabled_extensions = pp_elements_lite_get_enabled_extensions();
-		
+	public function is_extension_disabled( $extension = '' ) {
+		$enabled_extensions = pp_elements_lite_get_enabled_extensions();
+
+		if ( ! is_array( $enabled_extensions ) ) {
+			$enabled_extensions = array();
+		}
+
 		$extension = str_replace( '_', '-', $extension );
-		
+
 		$extension_name = 'pp-' . $extension;
-		
-        if ( !in_array( $extension_name, $enabled_extensions ) ) {
-            return true;
-        }
-        
-        return false;
-    }
+
+		if ( in_array( $extension_name, $enabled_extensions ) || isset( $enabled_extensions[ $extension_name ] ) ) {
+			return false;
+		}
+
+		return true;
+	}
 
 	/**
 	 * Check if extension is disabled by default
@@ -84,14 +93,16 @@ class Extensions_Manager {
 	 * @return bool
 	 */
 	public function is_default_disabled( $extension_name ) {
-		if ( ! $extension_name )
+		if ( ! $extension_name ) {
 			return false;
+		}
 
 		$class_name = str_replace( '-', '_', $extension_name );
 		$class_name = 'PowerpackElementsLite\Extensions\Extension_' . ucwords( $class_name );
 
-		if ( $class_name::is_default_disabled() )
+		if ( $class_name::is_default_disabled() ) {
 			return true;
+		}
 
 		return false;
 	}
@@ -105,16 +116,19 @@ class Extensions_Manager {
 	 * @return bool
 	 */
 	public function is_available( $extension_name ) {
-		if ( ! $extension_name )
+		if ( ! $extension_name ) {
 			return false;
+		}
 
 		$class_name = str_replace( '-', '_', $extension_name );
 		$class_name = 'PowerpackElementsLite\Extensions\Extension_' . ucwords( $class_name );
 
-		if ( $class_name::requires_elementor_pro() && ! is_elementor_pro_active() )
+		if ( $class_name::requires_elementor_pro() && ! is_elementor_pro_active() ) {
 			return false;
+		}
 
 		return true;
+
 	}
 
 	/**
@@ -169,7 +183,7 @@ class Extensions_Manager {
 	}
 
 	private function require_files() {
-		require( POWERPACK_ELEMENTS_LITE_PATH . 'base/extension-base.php' );
+		require POWERPACK_ELEMENTS_LITE_PATH . 'base/extension-base.php';
 	}
 
 	public function __construct() {

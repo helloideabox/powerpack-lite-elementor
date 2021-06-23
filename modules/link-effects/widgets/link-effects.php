@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\LinkEffects\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;

@@ -217,6 +217,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.4.0 - June 23, 2021 =
+* 	New: Wrapper Link extension
+* 	Fixed: Info Box Carousel - Icon type text was not showing on frontend
+* 	Enhancement: Info Box Carousel - Added  Percentage unit support to icon image width
+* 	Enhancement: Info Box Carousel - Added default size of 100px to icon image
+
 = 2.3.6 - June 1, 2021 =
 * 	Added: Info Box Carousel - Centered Slides option
 * 	Fixed: Pricing Table - Table alignment issue
