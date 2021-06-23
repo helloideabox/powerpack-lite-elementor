@@ -222,6 +222,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	Fixed: Info Box Carousel - Icon type text was not showing on frontend
 * 	Enhancement: Info Box Carousel - Added  Percentage unit support to icon image width
 * 	Enhancement: Info Box Carousel - Added default size of 100px to icon image
+* 	Fixed: Core - PHP error in validate_html_tag() function
 
 = 2.3.6 - June 1, 2021 =
 * 	Added: Info Box Carousel - Centered Slides option
