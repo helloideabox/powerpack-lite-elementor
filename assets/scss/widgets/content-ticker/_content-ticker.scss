@@ -63,6 +63,9 @@
     overflow: hidden;
     .swiper-wrapper {
         align-items: center;
+		.swiper-slide {
+			text-align: left;
+		}
     }
     .pp-content-ticker-item-title {
         font-size: 20px;
