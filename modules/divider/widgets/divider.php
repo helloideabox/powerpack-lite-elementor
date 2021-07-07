@@ -3,6 +3,7 @@ namespace PowerpackElementsLite\Modules\Divider\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
 use PowerpackElementsLite\Classes\PP_Helper;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -80,6 +81,33 @@ class Divider extends Powerpack_Widget {
 	 * @access protected
 	 */
 	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->register_controls();
+	}
+
+	/**
+	 * Register divider widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since 2.4.0
+	 * @access protected
+	 */
+	protected function register_controls() {
+		/* Content Tab */
+		$this->register_content_divider_controls();
+		$this->register_content_help_docs_controls();
+		$this->register_content_upgrade_pro_controls();
+
+		/* Style Tab */
+		$this->register_style_divider_controls();
+	}
+
+	/**
+	 * Register Icon Controls in Content tab
+	 *
+	 * @return void
+	 */
+	protected function register_content_divider_controls() {
 
 		/*-----------------------------------------------------------------------------------*/
 		/*	CONTENT TAB
@@ -104,19 +132,19 @@ class Divider extends Powerpack_Widget {
 				'options'               => [
 					'plain'        => [
 						'title'    => esc_html__( 'Plain', 'powerpack' ),
-						'icon'     => 'fa fa-ellipsis-h',
+						'icon'     => 'eicon-navigation-horizontal',
 					],
 					'text'         => [
 						'title'    => esc_html__( 'Text', 'powerpack' ),
-						'icon'     => 'fa fa-file-text-o',
+						'icon'     => 'eicon-t-letter-bold',
 					],
 					'icon'         => [
 						'title'    => esc_html__( 'Icon', 'powerpack' ),
-						'icon'     => 'fa fa-certificate',
+						'icon'     => 'eicon-star',
 					],
 					'image'        => [
 						'title'    => esc_html__( 'Image', 'powerpack' ),
-						'icon'     => 'fa fa-picture-o',
+						'icon'     => 'eicon-image',
 					],
 				],
 				'default'               => 'plain',
@@ -130,11 +158,11 @@ class Divider extends Powerpack_Widget {
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'horizontal',
 				'options'               => [
-					'horizontal'     => __( 'Horizontal', 'powerpack' ),
-					'vertical'       => __( 'Vertical', 'powerpack' ),
+					'horizontal' => __( 'Horizontal', 'powerpack' ),
+					'vertical'   => __( 'Vertical', 'powerpack' ),
 				],
 				'condition'             => [
-					'divider_type'    => 'plain',
+					'divider_type' => 'plain',
 				],
 			]
 		);
@@ -145,11 +173,11 @@ class Divider extends Powerpack_Widget {
 				'label'                 => __( 'Text', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
-					'active'   => true,
+					'active' => true,
 				],
 				'default'               => __( 'Divider Text', 'powerpack' ),
 				'condition'             => [
-					'divider_type'    => 'text',
+					'divider_type' => 'text',
 				],
 			]
 		);
@@ -161,8 +189,8 @@ class Divider extends Powerpack_Widget {
 				'type'                  => Controls_Manager::ICONS,
 				'fa4compatibility'      => 'divider_icon',
 				'default'               => [
-					'value'     => 'fas fa-circle',
-					'library'   => 'fa-solid',
+					'value'   => 'fas fa-circle',
+					'library' => 'fa-solid',
 				],
 				'condition'             => [
 					'divider_type'  => 'icon',
@@ -188,7 +216,7 @@ class Divider extends Powerpack_Widget {
 					'p'             => __( 'p', 'powerpack' ),
 				],
 				'condition'             => [
-					'divider_type'    => 'text',
+					'divider_type' => 'text',
 				],
 			]
 		);
@@ -199,13 +227,13 @@ class Divider extends Powerpack_Widget {
 				'label'                 => __( 'Image', 'powerpack' ),
 				'type'                  => Controls_Manager::MEDIA,
 				'dynamic'               => [
-					'active'   => true,
+					'active' => true,
 				],
 				'default'               => [
-					'url'           => Utils::get_placeholder_image_src(),
+					'url' => Utils::get_placeholder_image_src(),
 				],
 				'condition'             => [
-					'divider_type'    => 'image',
+					'divider_type' => 'image',
 				],
 			]
 		);
@@ -217,7 +245,7 @@ class Divider extends Powerpack_Widget {
 				'default'               => 'full',
 				'separator'             => 'none',
 				'condition'             => [
-					'divider_type'    => 'image',
+					'divider_type' => 'image',
 				],
 			]
 		);
@@ -243,13 +271,58 @@ class Divider extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}}'   => 'text-align: {{VALUE}};',
+					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Help Docs Controls in Content tab
+	 *
+	 * @since 2.4.0
+	 * @return void
+	 */
+	protected function register_content_help_docs_controls() {
+
+		$help_docs = PP_Config::get_widget_help_links( 'Divider' );
+
+		if ( ! empty( $help_docs ) ) {
+
+			/**
+			 * Content Tab: Help Docs
+			 *
+			 * @since 2.4.0
+			 * @access protected
+			 */
+			$this->start_controls_section(
+				'section_help_docs',
+				array(
+					'label' => __( 'Help Docs', 'powerpack' ),
+				)
+			);
+
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					array(
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					)
+				);
+
+				$hd_counter++;
+			}
+
+			$this->end_controls_section();
+		}
+	}
+
+	protected function register_content_upgrade_pro_controls() {
 		if ( ! is_pp_elements_active() ) {
 			$this->start_controls_section(
 				'section_upgrade_powerpack',
@@ -271,6 +344,14 @@ class Divider extends Powerpack_Widget {
 
 			$this->end_controls_section();
 		}
+	}
+
+	/**
+	 * Register Divider Controls in Style tab
+	 *
+	 * @return void
+	 */
+	protected function register_style_divider_controls() {
 
 		/*-----------------------------------------------------------------------------------*/
 		/*	STYLE TAB
@@ -317,7 +398,7 @@ class Divider extends Powerpack_Widget {
 					'bottom'       => 'flex-end',
 				],
 				'condition'             => [
-					'divider_type!'   => 'plain',
+					'divider_type!' => 'plain',
 				],
 			]
 		);
@@ -532,7 +613,7 @@ class Divider extends Powerpack_Widget {
 					'{{WRAPPER}} .pp-divider, {{WRAPPER}} .divider-border' => 'border-color: {{VALUE}};',
 				],
 				'condition'             => [
-					'divider_type'    => 'plain',
+					'divider_type' => 'plain',
 				],
 			]
 		);
@@ -544,7 +625,7 @@ class Divider extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Before', 'powerpack' ),
 				'condition'             => [
-					'divider_type!'   => 'plain',
+					'divider_type!' => 'plain',
 				],
 			]
 		);
@@ -571,7 +652,7 @@ class Divider extends Powerpack_Widget {
 			[
 				'label'                 => __( 'After', 'powerpack' ),
 				'condition'             => [
-					'divider_type!'   => 'plain',
+					'divider_type!' => 'plain',
 				],
 			]
 		);
@@ -658,7 +739,7 @@ class Divider extends Powerpack_Widget {
 				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
 				'selector'              => '{{WRAPPER}} .pp-divider-text',
 				'condition'             => [
-					'divider_type'    => 'text',
+					'divider_type' => 'text',
 				],
 			]
 		);
@@ -683,7 +764,7 @@ class Divider extends Powerpack_Widget {
 					],
 				],
 				'condition'             => [
-					'divider_type'    => 'text',
+					'divider_type' => 'text',
 				],
 				'selectors'             => [
 					'{{WRAPPER}}.pp-divider-center .pp-divider-content' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}};',
@@ -704,7 +785,7 @@ class Divider extends Powerpack_Widget {
 				'label'                 => __( 'Icon', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
-					'divider_type'    => 'icon',
+					'divider_type' => 'icon',
 				],
 			]
 		);
@@ -740,7 +821,7 @@ class Divider extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'condition'             => [
-					'divider_type'    => 'icon',
+					'divider_type' => 'icon',
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-divider-icon' => 'color: {{VALUE}};',
@@ -765,7 +846,7 @@ class Divider extends Powerpack_Widget {
 					'unit' => 'px',
 				],
 				'condition'             => [
-					'divider_type'    => 'icon',
+					'divider_type' => 'icon',
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-divider-icon' => 'font-size: {{SIZE}}{{UNIT}};',
@@ -797,7 +878,7 @@ class Divider extends Powerpack_Widget {
 					'{{WRAPPER}} .pp-divider-icon .fa' => 'transform: rotate( {{SIZE}}deg );',
 				],
 				'condition'             => [
-					'divider_type'    => 'icon',
+					'divider_type' => 'icon',
 				],
 			]
 		);
@@ -814,7 +895,7 @@ class Divider extends Powerpack_Widget {
 					],
 				],
 				'condition'             => [
-					'divider_type'    => 'icon',
+					'divider_type' => 'icon',
 				],
 				'selectors'             => [
 					'{{WRAPPER}}.pp-divider-center .pp-divider-content' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}};',
@@ -835,7 +916,7 @@ class Divider extends Powerpack_Widget {
 				'label'                 => __( 'Image', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
-					'divider_type'    => 'image',
+					'divider_type' => 'image',
 				],
 			]
 		);
@@ -886,7 +967,7 @@ class Divider extends Powerpack_Widget {
 					'unit' => 'px',
 				],
 				'condition'             => [
-					'divider_type'    => 'image',
+					'divider_type' => 'image',
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-divider-image' => 'width: {{SIZE}}{{UNIT}};',
@@ -921,7 +1002,7 @@ class Divider extends Powerpack_Widget {
 					],
 				],
 				'condition'             => [
-					'divider_type'    => 'image',
+					'divider_type' => 'image',
 				],
 				'selectors'             => [
 					'{{WRAPPER}}.pp-divider-center .pp-divider-content' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}};',
@@ -1047,6 +1128,7 @@ class Divider extends Powerpack_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
+	 * @since 2.0.3
 	 * @access protected
 	 */
 	protected function content_template() {

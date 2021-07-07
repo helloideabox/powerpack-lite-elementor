@@ -233,7 +233,7 @@ class PP_Config {
 				'Posts'              => array(
 					'name'       => 'pp-posts',
 					'title'      => __( 'Posts', 'powerpack' ),
-					'categories' => '["powerpack-elements"]',
+					'categories' => array( 'powerpack-elements' ),
 					'keywords'   => array( 'powerpack' ),
 					'icon'       => 'ppicon-posts-grid power-pack-admin-icon',
 				),
@@ -618,6 +618,10 @@ class PP_Config {
 			'Caldera_Forms'      => array(
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=G1pqLXdyl08&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
 			),
+			// Divider.
+			'Divider'       => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/divider-widget-overview/' . $utm_suffix,
+			),
 			// Dual Heading.
 			'Dual_Heading'      => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/dual-heading/dual-heading-widget-overview/' . $utm_suffix,
@@ -658,12 +662,20 @@ class PP_Config {
 			'Info_List'         => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/info-list/info-list-widget-overview/' . $utm_suffix,
 			),
+			// Info Table.
+			'Info_Table'        => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/info-table-widget-overview/' . $utm_suffix,
+			),
 			// Instafeed.
 			'Instafeed'         => array(
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=33A9XL1twFE&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
 				__( 'Widget Overview', 'powerpack' )      => 'https://powerpackelements.com/docs/powerpack/widgets/instagram-feed/instagram-feed-widget-overview/' . $utm_suffix,
 				__( 'How to get Instagram Access Token?', 'powerpack' ) => 'https://powerpackelements.com/docs/create-instagram-access-token-for-instagram-feed-widget/' . $utm_suffix,
 				__( 'How to set up Instagram Feed widget?', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/instagram-feed/elementor-instagram-widget-setup/' . $utm_suffix,
+			),
+			// Link Effects.
+			'Link_Effects'          => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/link-effects-widget-overview/' . $utm_suffix,
 			),
 			// Logo Carousel.
 			'Logo_Carousel'     => array(
@@ -696,9 +708,17 @@ class PP_Config {
 			'Promo_Box'         => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/promo-box/promo-box-widget-overview/' . $utm_suffix,
 			),
+			// Random Image.
+			'Random_Image'          => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/use-the-random-image-widget/' . $utm_suffix,
+			),
 			// Scroll Image.
 			'Scroll_Image'      => array(
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=eduATa8FPpU&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
+			),
+			// Team Member.
+			'Team_Member'        => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/team-member-widget-overview/' . $utm_suffix,
 			),
 			'WP_Forms'          => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/wpforms-styler/wpforms-styler-widget-overview/',

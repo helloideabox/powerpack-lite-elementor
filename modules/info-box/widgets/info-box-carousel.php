@@ -708,6 +708,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'centered_slides',
+			[
+				'label'                 => __( 'Centered Slides', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'separator'             => 'before',
+			]
+		);
+
+		$this->add_control(
 			'grab_cursor',
 			[
 				'label'                 => __( 'Grab Cursor', 'powerpack' ),
@@ -1198,7 +1207,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px' ],
+				'size_units'            => [ 'px', '%' ],
+				'default'               => [
+					'size' => 100,
+					'unit' => 'px',
+				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-icon img' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -2379,14 +2392,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		}
 
 		$slider_options = [
-			'direction'     => 'horizontal',
-			'effect'        => $effect,
-			'speed'         => ( $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
-			'slidesPerView' => $items,
-			'spaceBetween'  => $margin,
-			'grabCursor'    => ( 'yes' === $settings['grab_cursor'] ),
-			'autoHeight'    => true,
-			'loop'          => ( 'yes' === $settings['infinite_loop'] ),
+			'direction'      => 'horizontal',
+			'effect'         => $effect,
+			'speed'          => ( $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
+			'slidesPerView'  => $items,
+			'spaceBetween'   => $margin,
+			'centeredSlides' => ( 'yes' === $settings['centered_slides'] ),
+			'grabCursor'     => ( 'yes' === $settings['grab_cursor'] ),
+			'autoHeight'     => true,
+			'loop'           => ( 'yes' === $settings['infinite_loop'] ),
 		];
 
 		$autoplay_speed = 999999;
@@ -2646,7 +2660,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$migrated = isset( $item['__fa4_migrated']['selected_icon'] );
 		$is_new = ! isset( $item['icon'] ) && $migration_allowed;
 
-		if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) || ! empty( $item['image']['url'] ) ) {
+		if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) || ! empty( $item['image']['url'] ) || '' !== $item['icon_text'] ) {
 			?>
 			<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
 				<?php if ( 'icon' === $item['icon_type'] ) { ?>

@@ -3,6 +3,7 @@ namespace PowerpackElementsLite\Modules\TeamMember\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
 use PowerpackElementsLite\Classes\PP_Helper;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -569,6 +570,42 @@ class Team_Member extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
+	}
+
+	/**
+	 * Content Tab: Help Doc Links
+	 *
+	 * @since 2.4.0
+	 * @access protected
+	 */
+	protected function register_content_help_docs_controls() {
+
+		$help_docs = PP_Config::get_widget_help_links( 'Team_Member' );
+		if ( ! empty( $help_docs ) ) {
+
+			$this->start_controls_section(
+				'section_help_docs',
+				array(
+					'label' => __( 'Help Docs', 'powerpack' ),
+				)
+			);
+
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					array(
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					)
+				);
+
+				$hd_counter++;
+			}
+
+			$this->end_controls_section();
+		}
 	}
 
 	protected function register_content_upgrade_pro_controls() {
