@@ -618,6 +618,15 @@ class PP_Config {
 			'Caldera_Forms'      => array(
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=G1pqLXdyl08&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
 			),
+			// Content Ticker.
+			'Content_Ticker'     => array(
+				__( 'Widget Overview', 'powerpack' )      => 'https://powerpackelements.com/docs/content-ticker-widget-overview/' . $utm_suffix,
+			),
+			// Counter.
+			'Counter'            => array(
+				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=g70UKxK_1dU&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
+				__( 'Widget Overview', 'powerpack' )      => 'https://powerpackelements.com/docs/powerpack/widgets/counter/counter-widget-overview/' . $utm_suffix,
+			),
 			// Divider.
 			'Divider'       => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/divider-widget-overview/' . $utm_suffix,
@@ -628,27 +637,36 @@ class PP_Config {
 			),
 			// Fancy Heading.
 			'Fancy_Heading'     => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/fancy-heading-widget-overview/' . $utm_suffix,
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=PxWWUTeW4dc&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
 			),
 			// Flip Box.
 			'Flipbox'           => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/flip-box/flip-box-widget-overview/' . $utm_suffix,
 			),
+			// Fluent Forms.
+			'Fluent_Forms'       => array(
+				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=fvPnKNpsNyc&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
+			),
 			// Gravity Forms.
 			'Gravity_Forms'     => array(
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=fw47JcVDIpI&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
 			),
-			// Icon List.
-			'Icon_List'         => array(
-				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/icon-list/icon-list-widget-overview/' . $utm_suffix,
-			),
-			// Image Comparison.
-			'Image_Comparison'  => array(
-				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/image-comparison/image-comparison-widget-overview/' . $utm_suffix,
-			),
 			// Image Hotspots.
 			'Hotspots'          => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/image-hotspots/image-hotspots-widget-overview/' . $utm_suffix,
+			),
+			// Icon List.
+			'Icon_List'          => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/icon-list/icon-list-widget-overview/' . $utm_suffix,
+			),
+			// Image Accordion.
+			'Image_Accordion'   => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/image-accordion-widget-overview/' . $utm_suffix,
+			),
+			// Image Comparison.
+			'Image_Comparison'   => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/image-comparison/image-comparison-widget-overview/' . $utm_suffix,
 			),
 			// Info Box.
 			'Info_Box'          => array(
