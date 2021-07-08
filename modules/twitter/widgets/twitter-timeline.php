@@ -199,7 +199,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 			/**
 			 * Content Tab: Docs Links
 			 *
-			 * @since x.x.x
+			 * @since 2.4.1
 			 * @access protected
 			 */
 			$this->start_controls_section(

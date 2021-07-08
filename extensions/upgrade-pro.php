@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * Adds upgrade pro notice to PowerPack elements
  *
- * @since x.x.x
+ * @since 2.4.1
  */
 class Extension_Upgrade_Pro extends Extension_Base {
 
@@ -23,7 +23,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	 *
 	 * Defines if the current extension is common for all element types or not
 	 *
-	 * @since x.x.x
+	 * @since 2.4.1
 	 * @access protected
 	 *
 	 * @var bool
@@ -33,7 +33,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	/**
 	 * A list of scripts that the widgets is depended in
 	 *
-	 * @since x.x.x
+	 * @since 2.4.1
 	 **/
 	public function get_script_depends() {
 		return [];
@@ -42,7 +42,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	/**
 	 * The description of the current extension
 	 *
-	 * @since x.x.x
+	 * @since 2.4.1
 	 **/
 	public static function get_description() {
 		return __( 'Adds upgrade PowerPack notice to all widgets of PowerPack.', 'powerpack' );
@@ -55,7 +55,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	 * prior to user actually saving a value in the admin page
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 2.4.1
 	 * @return bool
 	 */
 	public static function is_default_disabled() {
@@ -65,7 +65,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	/**
 	 * Add Controls
 	 *
-	 * @since x.x.x
+	 * @since 2.4.1
 	 *
 	 * @access private
 	 */
@@ -97,7 +97,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	/**
 	 * Add Actions
 	 *
-	 * @since x.x.x
+	 * @since 2.4.1
 	 *
 	 * @access protected
 	 */

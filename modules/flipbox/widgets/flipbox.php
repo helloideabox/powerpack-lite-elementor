@@ -1894,7 +1894,7 @@ class Flipbox extends Powerpack_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.1
 	 * @access protected
 	 */
 	protected function content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
