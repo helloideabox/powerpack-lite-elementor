@@ -364,7 +364,17 @@ class PowerpackLitePlugin {
 	public function enqueue_panel_scripts() {}
 
 	public function enqueue_editor_preview_styles() {
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		$debug_suffix     = ( PP_Helper::is_script_debug() ) ? '' : '.min';
+		$direction_suffix = is_rtl() ? '-rtl' : '';
+		$suffix           = $direction_suffix . $debug_suffix;
+		$path             = ( PP_Helper::is_script_debug() ) ? 'assets/css/' : 'assets/css/min/';
+
+		wp_enqueue_style(
+			'powerpack-editor',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'editor' . $debug_suffix . '.css',
+			array(),
+			POWERPACK_ELEMENTS_LITE_VER
+		);
 
 		wp_enqueue_style( 'odometer' );
 		wp_enqueue_style( 'pp-magnific-popup' );

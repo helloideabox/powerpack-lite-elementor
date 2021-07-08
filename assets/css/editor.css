@@ -6,16 +6,15 @@
 }
 .elementor-element [class*="power-pack-"]:after {
     background: transparent;
-    border-width: 0 1px 1px 0;
+    border-width: 0 0 1px 1px;
     border-color: #e0e0e0;
     border-style: solid;
-    color: #798389;
     content: "PP";
     font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
     font-size: 9px;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     z-index: 1;
     padding: 0.2em 0.5em;
 }
@@ -25,24 +24,32 @@
     color: #fff;
 }
 .elementor-control-layout.elementor-control-type-choose.elementor-control-separator-none .elementor-control-input-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    border: 1px solid #a4afb7;
+    border-bottom: 1px solid #d5dadf;
+	border-right: 1px solid #d5dadf;
     border-radius: 2px;
     overflow: hidden
 }
 .elementor-control-layout.elementor-control-type-choose.elementor-control-separator-none .elementor-control-input-wrapper .elementor-choices {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: auto;
-    flex-wrap: wrap;
-    align-items: stretch;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
     background: #fff;
     margin-bottom: -1px;
 }
 .elementor-control-layout.elementor-control-type-choose.elementor-control-separator-none .elementor-control-input-wrapper .elementor-choices .elementor-choices-label {
-    border-right: 1px solid #a4afb7;
-    border-bottom: 1px solid #a4afb7;
+    border-bottom: 0;
     border-radius: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     font-size: 25px;
     padding: 7px 0;
     width: 33.33333%;
@@ -53,22 +60,26 @@
 .elementor-control-layout.elementor-control-type-choose.elementor-control-separator-none .elementor-control-input-wrapper .elementor-choices input:checked+.elementor-choices-label {
     background: #a4afb7;
 }
-.elementor-control-type-pp-query .elementor-control-input-wrapper {
+.elementor-control-arrow.elementor-control-type-choose .elementor-choices {
+	border-radius: 0;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	height: auto;
+}
+.elementor-control-arrow.elementor-control-type-choose .elementor-choices label {
+	border-right-width: 1px;
+    border-right-style: solid;
+	border-radius: 0;
+    margin-right: 3px;
+	margin-bottom: 3px;
+	width: 40px;
+}
+.elementor-control-type-pp-query .elementor-control-input-wrapper,
+.elementor-control-type-select2.elementor-label-inline .elementor-control-input-wrapper,
+.elementor-control-sticky_toc_disable_on .elementor-control-input-wrapper,
+.elementor-control-email_metadata .elementor-control-input-wrapper,
+.elementor-control-toolbar_buttons .elementor-control-input-wrapper {
     width: 135px;
-}
-.elementor-panel div[class*="section_upgrade_powerpack"] .elementor-panel-heading-title.elementor-panel-heading-title,
-.elementor-panel div[class*="section_upgrade_powerpack"] .elementor-panel-heading-toggle {
-	color: #d30c5c;
-}
-.elementor-panel .elementor-control-upgrade_powerpack_notice .upgrade-powerpack-notice {
-	background-color: #fcfcfc;
-	border-color: #d30c5c;
-    line-height: 1.8;
-}
-.elementor-panel .upgrade-powerpack-notice a {
-	border-bottom-style: dotted;
-    border-bottom-width: 1px;
-    border-bottom-color: inherit;
 }
 .pp-editor-info {
     background-color: #fcf8e3;
@@ -109,4 +120,9 @@
 .pp-editor-placeholder-content {
 	color: #666;
 	font-size: 12px;
+}
+
+/* Template Library */
+#elementor-template-library-templates[data-template-source="powerpack"] #elementor-template-library-templates-container {
+	margin: 10px -15px 0;
 }
