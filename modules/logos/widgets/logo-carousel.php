@@ -569,6 +569,58 @@ class Logo_Carousel extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_responsive_control(
+			'logos_vertical_alignment',
+			array(
+				'label'     => __( 'Vertical Alignment', 'powerpack' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => array(
+					'flex-start' => array(
+						'title' => __( 'Top', 'powerpack' ),
+						'icon'  => 'eicon-v-align-top',
+					),
+					'center'     => array(
+						'title' => __( 'Center', 'powerpack' ),
+						'icon'  => 'eicon-v-align-middle',
+					),
+					'flex-end'   => array(
+						'title' => __( 'Bottom', 'powerpack' ),
+						'icon'  => 'eicon-v-align-bottom',
+					),
+				),
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-logo-carousel .swiper-wrapper' => 'align-items: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'logos_horizontal_alignment',
+			array(
+				'label'     => __( 'Horizontal Alignment', 'powerpack' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => array(
+					'left' => array(
+						'title' => __( 'Left', 'powerpack' ),
+						'icon'  => 'eicon-h-align-left',
+					),
+					'center'     => array(
+						'title' => __( 'Center', 'powerpack' ),
+						'icon'  => 'eicon-h-align-center',
+					),
+					'right'   => array(
+						'title' => __( 'Right', 'powerpack' ),
+						'icon'  => 'eicon-h-align-right',
+					),
+				),
+				'default'   => 'center',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-logo-carousel .swiper-slide' => 'text-align: {{VALUE}};',
+				),
+			)
+		);
+
 		$this->start_controls_tabs( 'tabs_logos_style' );
 
 		$this->start_controls_tab(
