@@ -106,6 +106,14 @@ class Extension_Upgrade_Pro extends Extension_Base {
 		$widgets = pp_elements_lite_get_enabled_modules();
 
 		foreach ( $widgets as $widget ) {
+			if ( 'pp-hotspots' === $widget ) {
+				$widget = 'pp-image-hotspots';
+			}
+
+			if ( 'pp-link-effects' === $widget ) {
+				$widget = 'pa-link-effects';
+			}
+
 			add_action( 'elementor/element/' . $widget . '/section_help_docs/after_section_end', function( $element, $args ) {
 					$this->add_controls( $element, $args );
 			}, 10, 2 );

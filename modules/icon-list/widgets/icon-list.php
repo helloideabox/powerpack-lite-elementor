@@ -95,7 +95,6 @@ class Icon_List extends Powerpack_Widget {
 		/* Content Tab */
 		$this->register_content_list_controls();
 		$this->register_content_help_docs_controls();
-		$this->register_content_upgrade_pro_controls();
 
 		/* Style Tab */
 		$this->register_style_list_controls();
@@ -312,36 +311,6 @@ class Icon_List extends Powerpack_Widget {
 
 				$hd_counter++;
 			}
-
-			$this->end_controls_section();
-		}
-	}
-
-	protected function register_content_upgrade_pro_controls() {
-		if ( ! is_pp_elements_active() ) {
-			/**
-			 * Content Tab: Upgrade PowerPack
-			 *
-			 * @since 1.2.9.4
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_upgrade_powerpack',
-				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
-					'tab'   => Controls_Manager::TAB_CONTENT,
-				)
-			);
-
-			$this->add_control(
-				'upgrade_powerpack_notice',
-				array(
-					'label'           => '',
-					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
-					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				)
-			);
 
 			$this->end_controls_section();
 		}

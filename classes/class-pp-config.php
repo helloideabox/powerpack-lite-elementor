@@ -606,6 +606,10 @@ class PP_Config {
 
 		self::$help_docs = array(
 			// Business Hours.
+			'Advanced_Accordion'    => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/advanced-accordion-widget-overview/' . $utm_suffix,
+			),
+			// Business Hours.
 			'Business_Hours'    => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/business-hours/business-hours-widget-overview/' . $utm_suffix,
 			),
@@ -737,6 +741,14 @@ class PP_Config {
 			// Team Member.
 			'Team_Member'        => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/team-member-widget-overview/' . $utm_suffix,
+			),
+			// Team Member.
+			'Team_Member_Carousel' => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/team-member-carousel-widget-overview/' . $utm_suffix,
+			),
+			// Twitter Widget.
+			'Twitter_Widget'        => array(
+				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/twitter-widget-overview/' . $utm_suffix,
 			),
 			'WP_Forms'          => array(
 				__( 'Widget Overview', 'powerpack' ) => 'https://powerpackelements.com/docs/powerpack/widgets/wpforms-styler/wpforms-styler-widget-overview/',

@@ -79,26 +79,26 @@ abstract class Module_Base {
 		$widget_manager = \Elementor\Plugin::instance()->widgets_manager;
 
 		foreach ( $this->get_widgets() as $widget ) {
-            $widget_name = strtolower( $widget );
+			$widget_name = strtolower( $widget );
 			$widget_filename = 'pp-' . str_replace( '_', '-', $widget_name );
-            
-            if ( $this->is_widget_active( $widget_filename ) ) {
-                $class_name = $this->reflection->getNamespaceName() . '\Widgets\\' . $widget;
-                $widget_manager->register_widget_type( new $class_name() );
-            }
+
+			if ( $this->is_widget_active( $widget_filename ) ) {
+				$class_name = $this->reflection->getNamespaceName() . '\Widgets\\' . $widget;
+				$widget_manager->register_widget_type( new $class_name() );
+			}
 		}
 	}
-    
-    static function is_widget_active( $widget = '' ) {
-        $enabled_modules = pp_elements_lite_get_enabled_modules();
-        
-        if ( in_array( $widget, $enabled_modules ) ) {
-            return true;
-        }
-        
-        return false;
-    }
-	
+
+	public static function is_widget_active( $widget = '' ) {
+		$enabled_modules = pp_elements_lite_get_enabled_modules();
+
+		if ( in_array( $widget, $enabled_modules ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
 	/**
 	 * Add module component.
 	 *

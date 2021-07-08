@@ -117,7 +117,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 		$this->register_content_accordion_controls();
 		$this->register_content_toggle_icon_controls();
 		$this->register_content_settings_controls();
-		$this->register_content_upgrade_pro_controls();
+		$this->register_content_help_docs_controls();
 
 		/* Style Tab */
 		$this->register_style_items_controls();
@@ -501,31 +501,36 @@ class Advanced_Accordion extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	/**
-	 * Register upgrade pro content controls
-	 *
-	 * @return void
-	 */
-	protected function register_content_upgrade_pro_controls() {
-		if ( ! is_pp_elements_active() ) {
+	protected function register_content_help_docs_controls() {
+
+		$help_docs = PP_Config::get_widget_help_links( 'Advanced_Accordion' );
+		if ( ! empty( $help_docs ) ) {
+			/**
+			 * Content Tab: Docs Links
+			 *
+			 * @since x.x.x
+			 * @access protected
+			 */
 			$this->start_controls_section(
-				'section_upgrade_powerpack',
-				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
-					'tab'   => Controls_Manager::TAB_CONTENT,
-				)
+				'section_help_docs',
+				[
+					'label' => __( 'Help Docs', 'powerpack' ),
+				]
 			);
 
-			$this->add_control(
-				'upgrade_powerpack_notice',
-				array(
-					'label'           => '',
-					'type'            => Controls_Manager::RAW_HTML,
-					// translators: %1$s opening link tag, %2$s closing link tag.
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
-					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				)
-			);
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					[
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					]
+				);
+
+				$hd_counter++;
+			}
 
 			$this->end_controls_section();
 		}

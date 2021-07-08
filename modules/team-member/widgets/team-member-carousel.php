@@ -3,6 +3,7 @@ namespace PowerpackElementsLite\Modules\TeamMember\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
 use PowerpackElementsLite\Classes\PP_Helper;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -734,29 +735,34 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 		$this->end_controls_section();
 
-		if ( ! is_pp_elements_active() ) {
+		$help_docs = PP_Config::get_widget_help_links( 'Team_Member_Carousel' );
+		if ( ! empty( $help_docs ) ) {
 			/**
-			 * Content Tab: Upgrade PowerPack
+			 * Content Tab: Docs Links
 			 *
-			 * @since 1.2.9.4
+			 * @since x.x.x
+			 * @access protected
 			 */
 			$this->start_controls_section(
-				'section_upgrade_powerpack',
-				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
-					'tab'   => Controls_Manager::TAB_CONTENT,
-				)
+				'section_help_docs',
+				[
+					'label' => __( 'Help Docs', 'powerpack' ),
+				]
 			);
 
-			$this->add_control(
-				'upgrade_powerpack_notice',
-				array(
-					'label'           => '',
-					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
-					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				)
-			);
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					[
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					]
+				);
+
+				$hd_counter++;
+			}
 
 			$this->end_controls_section();
 		}

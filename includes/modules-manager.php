@@ -48,8 +48,8 @@ class Modules_Manager {
 			'query-control',
 			'display-conditions',
 		];
-        
-        ksort($modules);
+
+		ksort($modules);
 
 		foreach ( $modules as $module_name ) {
 			$class_name = str_replace( '-', ' ', $module_name );
