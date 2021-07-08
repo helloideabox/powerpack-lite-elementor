@@ -733,6 +733,21 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			)
 		);
 
+		$this->add_control(
+			'direction',
+			array(
+				'label'                 => __( 'Direction', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'left',
+				'options'               => [
+					'auto'  => __( 'Auto', 'powerpack' ),
+					'left'  => __( 'Left', 'powerpack' ),
+					'right' => __( 'Right', 'powerpack' ),
+				],
+				'separator'             => 'before',
+			)
+		);
+
 		$this->end_controls_section();
 
 		$help_docs = PP_Config::get_widget_help_links( 'Team_Member_Carousel' );
@@ -745,20 +760,20 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			 */
 			$this->start_controls_section(
 				'section_help_docs',
-				[
+				array(
 					'label' => __( 'Help Docs', 'powerpack' ),
-				]
+				)
 			);
 
 			$hd_counter = 1;
 			foreach ( $help_docs as $hd_title => $hd_link ) {
 				$this->add_control(
 					'help_doc_' . $hd_counter,
-					[
+					array(
 						'type'            => Controls_Manager::RAW_HTML,
 						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
 						'content_classes' => 'pp-editor-doc-links',
-					]
+					)
 				);
 
 				$hd_counter++;
@@ -2445,8 +2460,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			)
 		);
 
-		if ( is_rtl() ) {
-			$this->add_render_attribute( 'team-member-carousel', 'dir', 'rtl' );
+		if ( 'auto' === $settings['direction'] ) {
+			if ( is_rtl() ) {
+				$this->add_render_attribute( 'team-member-carousel', 'dir', 'rtl' );
+			}
+		} else {
+			if ( 'right' === $settings['direction'] ) {
+				$this->add_render_attribute( 'team-member-carousel', 'dir', 'rtl' );
+			}
 		}
 
 		$slider_options = $this->get_swiper_slider_settings( $settings, false );
@@ -2769,7 +2790,15 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		}
 	}
 
-	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	/**
+	 * Render team member carousel widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		$elementor_bp_tablet = get_option( 'elementor_viewport_lg' );
 		$elementor_bp_mobile = get_option( 'elementor_viewport_md' );
 		$elementor_bp_lg     = get_option( 'elementor_viewport_lg' );
@@ -2974,6 +3003,18 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				}
 			);
 
+			if ( settings.direction == 'auto' ) {
+				#>
+				<?php if ( is_rtl() ) { ?>
+					<# view.addRenderAttribute( 'container', 'dir', 'rtl' ); #>
+				<?php } ?>
+				<#
+			} else {
+				if ( settings.direction == 'right' ) {
+					view.addRenderAttribute( 'container', 'dir', 'rtl' );
+				}
+			}
+
 			var slider_options = get_slider_settings( settings );
 
 			view.addRenderAttribute( 'container', 'data-slider-settings', JSON.stringify( slider_options ) );
@@ -3078,5 +3119,18 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			<# arrows_template(); #>
 		</div>    
 		<?php
+	}
+
+	/**
+	 * Render team member carousel widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @access protected
+	 */
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->content_template();
 	}
 }
