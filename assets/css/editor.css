@@ -24,8 +24,6 @@
     color: #fff;
 }
 .elementor-control-layout.elementor-control-type-choose.elementor-control-separator-none .elementor-control-input-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     border-bottom: 1px solid #d5dadf;
 	border-right: 1px solid #d5dadf;
@@ -33,23 +31,17 @@
     overflow: hidden
 }
 .elementor-control-layout.elementor-control-type-choose.elementor-control-separator-none .elementor-control-input-wrapper .elementor-choices {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     height: auto;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
+    flex-wrap: wrap;
+    align-items: stretch;
     background: #fff;
     margin-bottom: -1px;
 }
 .elementor-control-layout.elementor-control-type-choose.elementor-control-separator-none .elementor-control-input-wrapper .elementor-choices .elementor-choices-label {
     border-bottom: 0;
     border-radius: 0;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     font-size: 25px;
     padding: 7px 0;
     width: 33.33333%;
@@ -62,8 +54,7 @@
 }
 .elementor-control-arrow.elementor-control-type-choose .elementor-choices {
 	border-radius: 0;
-	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
+	flex-wrap: wrap;
 	height: auto;
 }
 .elementor-control-arrow.elementor-control-type-choose .elementor-choices label {
