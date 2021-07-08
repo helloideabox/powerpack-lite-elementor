@@ -217,6 +217,13 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.4.1 - July 8, 2021 =
+* 	Added: Logo Carousel - Vertical and horizontal alignment options
+* 	Added: Info Box Carousel - Pause on Hover option
+* 	Enhancement: Info Box Carousel - Updated description control to WYSIWYG
+* 	Fixed: Flip Box - Issue with Icon Size option
+* 	Added: Team Member Carousel - Option to change direction of carousel
+
 = 2.4.0 - June 23, 2021 =
 * 	New: Wrapper Link extension
 * 	Fixed: Info Box Carousel - Icon type text was not showing on frontend

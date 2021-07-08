@@ -1,3 +1,11 @@
+== 2.4.1 ==
+Release date: July 8, 2021
+* Added: Logo Carousel - Vertical and horizontal alignment options
+* Added: Info Box Carousel - Pause on Hover option
+* Enhancement: Info Box Carousel - Updated description control to WYSIWYG
+* Fixed: Flip Box - Issue with Icon Size option
+* Added: Team Member Carousel - Option to change direction of carousel
+
 == 2.4.0 ==
 Release date: June 23, 2021
 * New: Wrapper Link extension
