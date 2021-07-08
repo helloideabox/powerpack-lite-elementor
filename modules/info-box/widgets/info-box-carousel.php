@@ -179,7 +179,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'description',
 				[
 					'label'                 => __( 'Description', 'powerpack' ),
-					'type'                  => Controls_Manager::TEXTAREA,
+					'type'                  => Controls_Manager::WYSIWYG,
 					'dynamic'               => [
 						'active'   => true,
 					],
@@ -658,6 +658,23 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'pause_on_hover',
+			[
+				'label'                 => __( 'Pause on Hover', 'powerpack' ),
+				'description'           => '',
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => '',
+				'label_on'              => __( 'Yes', 'powerpack' ),
+				'label_off'             => __( 'No', 'powerpack' ),
+				'return_value'          => 'yes',
+				'frontend_available'    => true,
+				'condition'             => [
+					'autoplay'      => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
 			'pause_on_interaction',
 			[
 				'label'                 => __( 'Pause on Interaction', 'powerpack' ),
@@ -725,7 +742,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label_on'              => __( 'Show', 'powerpack' ),
 				'label_off'             => __( 'Hide', 'powerpack' ),
 				'return_value'          => 'yes',
-				'separator'             => 'before',
 			]
 		);
 
@@ -1171,9 +1187,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Width', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
-					'%' => [
+					'px' => [
 						'min'   => 25,
-						'max'   => 100,
+						'max'   => 200,
 						'step'  => 1,
 					],
 				],
@@ -2813,6 +2829,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					effect:                 $effect,
 					slidesPerView:          $items,
 					spaceBetween:           $margin,
+					centeredSlides:         ( settings.centered_slides === 'yes' ) ? true : false,
 					grabCursor:             ( settings.grab_cursor === 'yes' ) ? true : false,
 					autoHeight:             true,
 					loop:                   ( settings.infinite_loop === 'yes' ),
