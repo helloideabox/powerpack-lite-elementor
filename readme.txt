@@ -217,6 +217,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.4.2 - July 15, 2021 =
+* 	Fixed: Team Member - HTML error when link is applied to title
+* 	Fixed: Advanced Accordion - Border radius was not working when background is applied to title and content
+* 	Fixed: Compatibility issues with PHP 8
+
 = 2.4.1 - July 8, 2021 =
 * 	Added: Logo Carousel - Vertical and horizontal alignment options
 * 	Added: Info Box Carousel - Pause on Hover option
