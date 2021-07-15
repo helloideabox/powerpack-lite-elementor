@@ -1,6 +1,7 @@
 == 2.4.2 ==
 Release date: July 15, 2021
 * Fixed: Team Member - HTML error when link is applied to title
+* Fixed: Advanced Accordion - Border radius was not working when background is applied to title and content
 * Fixed: Compatibility issues with PHP 8
 
 == 2.4.1 ==
