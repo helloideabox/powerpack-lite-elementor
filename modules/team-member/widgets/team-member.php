@@ -1717,7 +1717,7 @@ class Team_Member extends Powerpack_Widget {
 			if ( 'title' === $settings['link_type'] && $settings['link']['url'] ) {
 				$name_html_tag = PP_Helper::validate_html_tag( $settings['name_html_tag'] );
 				?>
-				<<?php echo esc_html( $name_html_tag ); ?><?php echo wp_kses_post( $this->get_render_attribute_string( $member_key ) ); ?>>
+				<<?php echo esc_html( $name_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $member_key ) ); ?>>
 					<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
 						<?php echo esc_html( $settings['team_member_name'] ); ?>
 					</a>
@@ -1941,7 +1941,15 @@ class Team_Member extends Powerpack_Widget {
 		<?php
 	}
 
-	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	/**
+	 * Render team member widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		?>
 		<#
 			function member_image() {
@@ -2140,5 +2148,19 @@ class Team_Member extends Powerpack_Widget {
 				</div>
 			</div>
 		</div>
-		<?php }
+		<?php
+	}
+
+	/**
+	 * Render team member widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @access protected
+	 */
+	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->content_template();
+	}
 }
