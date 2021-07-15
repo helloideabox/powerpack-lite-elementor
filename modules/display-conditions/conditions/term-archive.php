@@ -111,7 +111,7 @@ class Term_Archive extends Condition {
 	 * @param string    $operator   Comparison operator
 	 * @param mixed     $value      The control value to check
 	 */
-	public function check( $name = null, $operator, $value ) {
+	public function check( $name, $operator, $value ) {
 		$show = false;
 
 		if ( is_array( $value ) && ! empty( $value ) ) {

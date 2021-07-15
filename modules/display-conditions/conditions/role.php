@@ -85,7 +85,7 @@ class Role extends Condition {
 	 * @param string    $operator   Comparison operator
 	 * @param mixed     $value      The control value to check
 	 */
-	public function check( $name = null, $operator, $value ) {
+	public function check( $name, $operator, $value ) {
 		$user = wp_get_current_user();
 		return $this->compare( is_user_logged_in() && in_array( $value, $user->roles ), true, $operator );
 	}

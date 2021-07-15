@@ -115,7 +115,7 @@ abstract class Condition {
 	 * @param mixed  $value  	The control value to check
 	 * @param string $operator  Comparison operator.
 	 */
-	public function check( $name = null, $operator, $value ) {}
+	public function check( $name, $operator, $value ) {}
 
 	/**
 	 * Compare conditions.

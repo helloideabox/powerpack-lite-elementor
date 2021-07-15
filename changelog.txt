@@ -1,3 +1,7 @@
+== 2.4.2 ==
+Release date: July 15, 2021
+* Fixed: Compatibility issues with PHP 8
+
 == 2.4.1 ==
 Release date: July 8, 2021
 * Added: Logo Carousel - Vertical and horizontal alignment options

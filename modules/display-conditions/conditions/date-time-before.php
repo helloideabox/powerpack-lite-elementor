@@ -87,7 +87,7 @@ class Date_Time_Before extends Condition {
 	 * @param string    $operator   Comparison operator
 	 * @param mixed     $value      The control value to check
 	 */
-	public function check( $name = null, $operator, $value ) {
+	public function check( $name, $operator, $value ) {
 		// Default returned bool to false
 		$show = false;
 

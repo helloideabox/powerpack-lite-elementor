@@ -82,7 +82,7 @@ class Search_Bot extends Condition {
 	 * @param string    $operator   Comparison operator
 	 * @param mixed     $value      The control value to check
 	 */
-	public function check( $name = null, $operator, $value ) {
+	public function check( $name, $operator, $value ) {
 		$search_bot = [
 			'all_search_bots'        => '(nuhk)|(Googlebot)|(Yammybot)|(Openbot)|(Slurp/cat)|(msnbot)|(ia_archiver)',
 		];

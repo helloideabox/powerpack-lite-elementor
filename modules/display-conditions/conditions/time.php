@@ -87,7 +87,7 @@ class Time extends Condition {
 	 * @param string    $operator   Comparison operator
 	 * @param mixed     $value      The control value to check
 	 */
-	public function check( $name = null, $operator, $value ) {
+	public function check( $name, $operator, $value ) {
 		// Split control valur into two dates
 		$time   = date( 'H:i', strtotime( preg_replace( '/\s+/', '', $value ) ) );
 		$now    = date( 'H:i', strtotime( 'now' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) );
