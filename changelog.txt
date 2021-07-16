@@ -1,3 +1,7 @@
+== 2.4.3 ==
+Release date: July 22, 2021
+* Gravity Forms, Caldera Forms, WP Forms - Removed duplicate upgrade pro notice
+
 == 2.4.2 ==
 Release date: July 15, 2021
 * Fixed: Team Member - HTML error when link is applied to title

@@ -92,7 +92,6 @@ class Caldera_Forms extends Powerpack_Widget {
 		$this->register_content_form_controls();
 		$this->register_content_errors_controls();
 		$this->register_content_help_docs_controls();
-		$this->register_content_upgrade_pro_controls();
 
 		/* Style Tab */
 		$this->register_style_title_controls();
