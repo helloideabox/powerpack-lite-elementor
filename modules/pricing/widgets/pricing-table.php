@@ -3,6 +3,7 @@ namespace PowerpackElementsLite\Modules\Pricing\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
 use PowerpackElementsLite\Classes\PP_Config;
+use PowerpackElementsLite\Classes\PP_Helper;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -228,6 +229,26 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'title_html_tag',
+			array(
+				'label'   => __( 'Title HTML Tag', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'h3',
+				'options' => array(
+					'h1'   => __( 'H1', 'powerpack' ),
+					'h2'   => __( 'H2', 'powerpack' ),
+					'h3'   => __( 'H3', 'powerpack' ),
+					'h4'   => __( 'H4', 'powerpack' ),
+					'h5'   => __( 'H5', 'powerpack' ),
+					'h6'   => __( 'H6', 'powerpack' ),
+					'div'  => __( 'div', 'powerpack' ),
+					'span' => __( 'span', 'powerpack' ),
+					'p'    => __( 'p', 'powerpack' ),
+				),
+			)
+		);
+
+		$this->add_control(
 			'table_subtitle',
 			[
 				'label'                 => __( 'Subtitle', 'powerpack' ),
@@ -238,6 +259,26 @@ class Pricing_Table extends Powerpack_Widget {
 				'default'               => __( 'Subtitle', 'powerpack' ),
 				'title'                 => __( 'Enter table subtitle', 'powerpack' ),
 			]
+		);
+
+		$this->add_control(
+			'subtitle_html_tag',
+			array(
+				'label'   => __( 'Subtitle HTML Tag', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'h4',
+				'options' => array(
+					'h1'   => __( 'H1', 'powerpack' ),
+					'h2'   => __( 'H2', 'powerpack' ),
+					'h3'   => __( 'H3', 'powerpack' ),
+					'h4'   => __( 'H4', 'powerpack' ),
+					'h5'   => __( 'H5', 'powerpack' ),
+					'h6'   => __( 'H6', 'powerpack' ),
+					'div'  => __( 'div', 'powerpack' ),
+					'span' => __( 'span', 'powerpack' ),
+					'p'    => __( 'p', 'powerpack' ),
+				),
+			)
 		);
 
 		$this->end_controls_section();
@@ -382,7 +423,8 @@ class Pricing_Table extends Powerpack_Widget {
 			'feature_text',
 			array(
 				'label'       => __( 'Text', 'powerpack' ),
-				'type'        => Controls_Manager::TEXT,
+				'type'        => Controls_Manager::TEXTAREA,
+				'rows'        => '3',
 				'dynamic'     => array(
 					'active' => true,
 				),
@@ -2915,16 +2957,25 @@ class Pricing_Table extends Powerpack_Widget {
 						</div>
 					<?php } ?>
 					<div class="pp-pricing-table-title-wrap">
-						<?php if ( $settings['table_title'] ) { ?>
-							<h3 <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_title' ) ); ?>>
+						<?php
+						if ( $settings['table_title'] ) {
+							$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+							?>
+							<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_title' ) ); ?>>
 								<?php echo wp_kses_post( $settings['table_title'] ); ?>
-							</h3>
-						<?php } ?>
-						<?php if ( $settings['table_subtitle'] ) { ?>
-							<h4 <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_subtitle' ) ); ?>>
+							</<?php echo esc_html( $title_tag ); ?>>
+							<?php
+						}
+
+						if ( $settings['table_subtitle'] ) {
+							$subtitle_tag = PP_Helper::validate_html_tag( $settings['subtitle_html_tag'] );
+							?>
+							<<?php echo esc_html( $subtitle_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_subtitle' ) ); ?>>
 								<?php echo wp_kses_post( $settings['table_subtitle'] ); ?>
-							</h4>
-						<?php } ?>
+							</<?php echo esc_html( $subtitle_tag ); ?>>
+							<?php
+						}
+						?>
 					</div>
 				</div>
 				<div class="pp-pricing-table-price-wrap">
@@ -3217,14 +3268,14 @@ class Pricing_Table extends Powerpack_Widget {
 					<# } #>
 					<div class="pp-pricing-table-title-wrap">
 						<# if ( settings.table_title ) { #>
-							<h3 class="pp-pricing-table-title elementor-inline-editing" data-elementor-setting-key="table_title" data-elementor-inline-editing-toolbar="none">
+							<{{settings.title_html_tag}} class="pp-pricing-table-title elementor-inline-editing" data-elementor-setting-key="table_title" data-elementor-inline-editing-toolbar="none">
 								{{{ settings.table_title }}}
-							</h3>
+							</{{settings.title_html_tag}}>
 						<# } #>
 						<# if ( settings.table_subtitle ) { #>
-							<h4 class="pp-pricing-table-subtitle elementor-inline-editing" data-elementor-setting-key="table_subtitle" data-elementor-inline-editing-toolbar="none">
+							<{{settings.subtitle_html_tag}} class="pp-pricing-table-subtitle elementor-inline-editing" data-elementor-setting-key="table_subtitle" data-elementor-inline-editing-toolbar="none">
 								{{{ settings.table_subtitle }}}
-							</h4>
+							</{{settings.subtitle_html_tag}}>
 						<# } #>
 					</div>
 				</div>

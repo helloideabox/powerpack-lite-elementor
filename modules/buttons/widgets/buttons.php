@@ -372,6 +372,14 @@ class Buttons extends Powerpack_Widget {
 				]
 			);
 
+			$repeater->add_group_control(
+				Group_Control_Text_Shadow::get_type(),
+				[
+					'name'     => 'text_shadow',
+					'selector' => '{{WRAPPER}} {{CURRENT_ITEM}}.pp-button .pp-button-title',
+				]
+			);
+
 			$repeater->add_responsive_control(
 				'single_icon_size',
 				[
@@ -755,6 +763,15 @@ class Buttons extends Powerpack_Widget {
 				'selector'              => '{{WRAPPER}} .pp-button',
 			]
 		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'     => 'text_shadow',
+				'selector' => '{{WRAPPER}} .pp-button',
+			]
+		);
+
 		$this->start_controls_tabs( 'tabs_button_style' );
 
 		$this->start_controls_tab(

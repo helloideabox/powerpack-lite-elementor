@@ -506,6 +506,26 @@ class Price_Menu extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'title_html_tag',
+			array(
+				'label'   => __( 'HTML Tag', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'h4',
+				'options' => array(
+					'h1'   => __( 'H1', 'powerpack' ),
+					'h2'   => __( 'H2', 'powerpack' ),
+					'h3'   => __( 'H3', 'powerpack' ),
+					'h4'   => __( 'H4', 'powerpack' ),
+					'h5'   => __( 'H5', 'powerpack' ),
+					'h6'   => __( 'H6', 'powerpack' ),
+					'div'  => __( 'div', 'powerpack' ),
+					'span' => __( 'span', 'powerpack' ),
+					'p'    => __( 'p', 'powerpack' ),
+				),
+			)
+		);
+
+		$this->add_control(
 			'title_color',
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
@@ -1173,8 +1193,11 @@ class Price_Menu extends Powerpack_Widget {
 
 							<div class="pp-restaurant-menu-content">
 								<div class="pp-restaurant-menu-header">
-									<?php if ( ! empty( $item['menu_title'] ) ) { ?>
-										<h4 class="pp-restaurant-menu-title">
+									<?php
+									if ( ! empty( $item['menu_title'] ) ) {
+										$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+										?>
+										<<?php echo esc_html( $title_tag ); ?> class="pp-restaurant-menu-title">
 											<?php
 											if ( ! empty( $item['link']['url'] ) ) {
 												$title_link_key = $this->get_repeater_setting_key( 'menu_title_link', 'menu_items', $index );
@@ -1194,14 +1217,16 @@ class Price_Menu extends Powerpack_Widget {
 												<?php
 											}
 											?>
-										</h4>
-									<?php } ?>
+										</<?php echo esc_html( $title_tag ); ?>>
+										<?php
+									}
 
-									<?php if ( 'yes' === $settings['title_price_connector'] ) { ?>
+									if ( 'yes' === $settings['title_price_connector'] ) { ?>
 										<span class="pp-price-title-connector"></span>
-									<?php } ?>
+										<?php
+									}
 
-									<?php if ( 'style-1' === $settings['menu_style'] ) { ?>
+									if ( 'style-1' === $settings['menu_style'] ) { ?>
 										<?php if ( ! empty( $item['menu_price'] ) ) { ?>
 											<span class="pp-restaurant-menu-price">
 												<?php if ( 'yes' === $item['discount'] ) { ?>
@@ -1332,7 +1357,7 @@ class Price_Menu extends Powerpack_Widget {
 							<div class="pp-restaurant-menu-content">
 								<div class="pp-restaurant-menu-header">
 									<# if ( item.menu_title != '' ) { #>
-										<h4 class="pp-restaurant-menu-title">
+										<{{settings.title_html_tag}} class="pp-restaurant-menu-title">
 											<# if ( item.link && item.link.url ) { #>
 												<a href="{{ item.link.url }}">
 													<# title_template( item ) #>
@@ -1340,7 +1365,7 @@ class Price_Menu extends Powerpack_Widget {
 											<# } else { #>
 												<# title_template( item ) #>
 											<# } #>
-										</h4>
+										</{{settings.title_html_tag}}>
 									<# } #>
 
 									<# if ( settings.title_price_connector == 'yes' ) { #>
