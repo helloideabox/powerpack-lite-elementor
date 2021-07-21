@@ -218,6 +218,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.5.1 - July 21, 2021 =
+* 	Fixed: PHP error in Buttons widget
+
 = 2.5.0 - July 21, 2021 =
 * 	New: Content Reveal Widget
 * 	Added: Pricing Table - Options to change HTML tag for title and subtitle
