@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.4.2\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.5.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2021-07-15 09:44:25+00:00\n"
+"POT-Creation-Date: 2021-07-21 11:36:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,30 +74,30 @@ msgid "Cheatin&#8217; huh?"
 msgstr ""
 
 #: base/powerpack-widget.php:44 extensions/upgrade-pro.php:79
-#: modules/buttons/widgets/buttons.php:547
-#: modules/caldera-forms/widgets/caldera-forms.php:280
+#: modules/buttons/widgets/buttons.php:555
+#: modules/caldera-forms/widgets/caldera-forms.php:279
 #: modules/contact-form-seven/widgets/contact-form-7.php:252
+#: modules/content-reveal/widgets/content-reveal.php:443
 #: modules/formidable-forms/widgets/formidable-forms.php:291
-#: modules/gravity-forms/widgets/gravity-forms.php:365
+#: modules/gravity-forms/widgets/gravity-forms.php:364
 #: modules/ninja-forms/widgets/ninja-forms.php:264
 #: modules/posts/skins/skin-base.php:1597
 #: modules/scroll-image/widgets/scroll-image.php:315
-#: modules/wpforms/widgets/wpforms.php:258
 msgid "Get PowerPack Pro"
 msgstr ""
 
 #: base/powerpack-widget.php:50 extensions/upgrade-pro.php:89
-#: modules/buttons/widgets/buttons.php:557
-#: modules/caldera-forms/widgets/caldera-forms.php:290
+#: modules/buttons/widgets/buttons.php:565
+#: modules/caldera-forms/widgets/caldera-forms.php:289
 #: modules/contact-form-seven/widgets/contact-form-7.php:262
+#: modules/content-reveal/widgets/content-reveal.php:453
 #: modules/formidable-forms/widgets/formidable-forms.php:301
-#: modules/gravity-forms/widgets/gravity-forms.php:375
+#: modules/gravity-forms/widgets/gravity-forms.php:374
 #: modules/ninja-forms/widgets/ninja-forms.php:274
 #: modules/posts/skins/skin-base.php:363 modules/posts/skins/skin-base.php:415
 #: modules/posts/skins/skin-base.php:1225
 #: modules/posts/skins/skin-base.php:1607 modules/posts/widgets/posts.php:106
 #: modules/scroll-image/widgets/scroll-image.php:325
-#: modules/wpforms/widgets/wpforms.php:268
 msgid ""
 "Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and "
 "advanced features."
@@ -152,36 +152,41 @@ msgstr ""
 
 #: classes/class-pp-config.php:60 includes/helper-functions.php:403
 #: modules/buttons/widgets/buttons.php:119
-#: modules/buttons/widgets/buttons.php:526
+#: modules/buttons/widgets/buttons.php:534
 #: modules/twitter/widgets/twitter-buttons.php:74
 msgid "Buttons"
 msgstr ""
 
-#: classes/class-pp-config.php:67 includes/helper-functions.php:430
-#: modules/caldera-forms/widgets/caldera-forms.php:121
+#: classes/class-pp-config.php:67 includes/helper-functions.php:431
+#: modules/caldera-forms/widgets/caldera-forms.php:120
 msgid "Caldera Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:74 includes/helper-functions.php:415
+#: classes/class-pp-config.php:74 includes/helper-functions.php:416
 msgid "Contact Form 7"
 msgstr ""
 
-#: classes/class-pp-config.php:81 includes/helper-functions.php:401
+#: classes/class-pp-config.php:81 includes/helper-functions.php:410
+#: modules/content-reveal/widgets/content-reveal.php:372
+msgid "Content Reveal"
+msgstr ""
+
+#: classes/class-pp-config.php:88 includes/helper-functions.php:401
 msgid "Content Ticker"
 msgstr ""
 
-#: classes/class-pp-config.php:88 includes/helper-functions.php:392
+#: classes/class-pp-config.php:95 includes/helper-functions.php:392
 #: modules/counter/widgets/counter.php:153
 msgid "Counter"
 msgstr ""
 
-#: classes/class-pp-config.php:95 includes/helper-functions.php:380
+#: classes/class-pp-config.php:102 includes/helper-functions.php:380
 #: modules/divider/widgets/divider.php:121
 #: modules/divider/widgets/divider.php:341
 #: modules/icon-list/widgets/icon-list.php:408
 #: modules/image-comparison/widgets/image-comparison.php:531
-#: modules/pricing/widgets/pricing-table.php:2064
-#: modules/pricing/widgets/pricing-table.php:2074
+#: modules/pricing/widgets/pricing-table.php:2106
+#: modules/pricing/widgets/pricing-table.php:2116
 #: modules/team-member/widgets/team-member-carousel.php:1198
 #: modules/team-member/widgets/team-member-carousel.php:1405
 #: modules/team-member/widgets/team-member-carousel.php:1612
@@ -191,338 +196,338 @@ msgstr ""
 msgid "Divider"
 msgstr ""
 
-#: classes/class-pp-config.php:102
+#: classes/class-pp-config.php:109
 msgid "Flip Box"
 msgstr ""
 
-#: classes/class-pp-config.php:109 includes/helper-functions.php:445
+#: classes/class-pp-config.php:116 includes/helper-functions.php:446
 msgid "Fluent Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:116 includes/helper-functions.php:440
+#: classes/class-pp-config.php:123 includes/helper-functions.php:441
 #: modules/formidable-forms/widgets/formidable-forms.php:97
 msgid "Formidable Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:123 includes/helper-functions.php:420
-#: modules/gravity-forms/widgets/gravity-forms.php:142
+#: classes/class-pp-config.php:130 includes/helper-functions.php:421
+#: modules/gravity-forms/widgets/gravity-forms.php:141
 msgid "Gravity Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:130 includes/helper-functions.php:395
+#: classes/class-pp-config.php:137 includes/helper-functions.php:395
 #: modules/headings/widgets/dual-heading.php:114
 msgid "Dual Heading"
 msgstr ""
 
-#: classes/class-pp-config.php:137 includes/helper-functions.php:408
+#: classes/class-pp-config.php:144 includes/helper-functions.php:408
 #: modules/headings/widgets/fancy-heading.php:113
 #: modules/headings/widgets/fancy-heading.php:251
 msgid "Fancy Heading"
 msgstr ""
 
-#: classes/class-pp-config.php:144 includes/helper-functions.php:393
+#: classes/class-pp-config.php:151 includes/helper-functions.php:393
 msgid "Image Hotspots"
 msgstr ""
 
-#: classes/class-pp-config.php:151 includes/helper-functions.php:394
+#: classes/class-pp-config.php:158 includes/helper-functions.php:394
 msgid "Icon List"
 msgstr ""
 
-#: classes/class-pp-config.php:158 includes/helper-functions.php:382
+#: classes/class-pp-config.php:165 includes/helper-functions.php:382
 msgid "Image Accordion"
 msgstr ""
 
-#: classes/class-pp-config.php:165 includes/helper-functions.php:399
+#: classes/class-pp-config.php:172 includes/helper-functions.php:399
 msgid "Image Comparison"
 msgstr ""
 
-#: classes/class-pp-config.php:172 includes/helper-functions.php:383
+#: classes/class-pp-config.php:179 includes/helper-functions.php:383
 #: modules/info-box/widgets/info-box.php:737
 msgid "Info Box"
 msgstr ""
 
-#: classes/class-pp-config.php:179 includes/helper-functions.php:384
+#: classes/class-pp-config.php:186 includes/helper-functions.php:384
 msgid "Info Box Carousel"
 msgstr ""
 
-#: classes/class-pp-config.php:186 includes/helper-functions.php:385
+#: classes/class-pp-config.php:193 includes/helper-functions.php:385
 msgid "Info List"
 msgstr ""
 
-#: classes/class-pp-config.php:193 includes/helper-functions.php:386
+#: classes/class-pp-config.php:200 includes/helper-functions.php:386
 #: modules/info-table/widgets/info-table.php:426
 msgid "Info Table"
 msgstr ""
 
-#: classes/class-pp-config.php:200 includes/helper-functions.php:400
+#: classes/class-pp-config.php:207 includes/helper-functions.php:400
 msgid "Instagram Feed"
 msgstr ""
 
-#: classes/class-pp-config.php:207 includes/helper-functions.php:379
+#: classes/class-pp-config.php:214 includes/helper-functions.php:379
 #: modules/link-effects/widgets/link-effects.php:105
 #: modules/link-effects/widgets/link-effects.php:261
 msgid "Link Effects"
 msgstr ""
 
-#: classes/class-pp-config.php:214 includes/helper-functions.php:397
+#: classes/class-pp-config.php:221 includes/helper-functions.php:397
 #: modules/logos/widgets/logo-carousel.php:137
 msgid "Logo Carousel"
 msgstr ""
 
-#: classes/class-pp-config.php:221 includes/helper-functions.php:398
+#: classes/class-pp-config.php:228 includes/helper-functions.php:398
 #: modules/logos/widgets/logo-grid.php:110
 msgid "Logo Grid"
 msgstr ""
 
-#: classes/class-pp-config.php:228 includes/helper-functions.php:425
+#: classes/class-pp-config.php:235 includes/helper-functions.php:426
 #: modules/ninja-forms/widgets/ninja-forms.php:99
 msgid "Ninja Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:235 includes/helper-functions.php:409
+#: classes/class-pp-config.php:242 includes/helper-functions.php:409
 #: modules/content-ticker/widgets/content-ticker.php:153
 msgid "Posts"
 msgstr ""
 
-#: classes/class-pp-config.php:242 includes/helper-functions.php:388
+#: classes/class-pp-config.php:249 includes/helper-functions.php:388
 #: modules/pricing/widgets/price-menu.php:94
 msgid "Price Menu"
 msgstr ""
 
-#: classes/class-pp-config.php:249 includes/helper-functions.php:387
+#: classes/class-pp-config.php:256 includes/helper-functions.php:387
 msgid "Pricing Table"
 msgstr ""
 
-#: classes/class-pp-config.php:256 includes/helper-functions.php:396
+#: classes/class-pp-config.php:263 includes/helper-functions.php:396
 #: modules/promo-box/widgets/promo-box.php:451
 msgid "Promo Box"
 msgstr ""
 
-#: classes/class-pp-config.php:263 includes/helper-functions.php:410
+#: classes/class-pp-config.php:270 includes/helper-functions.php:411
 msgid "Random Image"
 msgstr ""
 
-#: classes/class-pp-config.php:270 includes/helper-functions.php:402
+#: classes/class-pp-config.php:277 includes/helper-functions.php:402
 #: modules/scroll-image/widgets/scroll-image.php:53
 msgid "Scroll Image"
 msgstr ""
 
-#: classes/class-pp-config.php:277 includes/helper-functions.php:390
+#: classes/class-pp-config.php:284 includes/helper-functions.php:390
 msgid "Team Member"
 msgstr ""
 
-#: classes/class-pp-config.php:284 includes/helper-functions.php:391
+#: classes/class-pp-config.php:291 includes/helper-functions.php:391
 msgid "Team Member Carousel"
 msgstr ""
 
-#: classes/class-pp-config.php:291 includes/helper-functions.php:404
+#: classes/class-pp-config.php:298 includes/helper-functions.php:404
 msgid "Twitter Buttons"
 msgstr ""
 
-#: classes/class-pp-config.php:298 includes/helper-functions.php:405
+#: classes/class-pp-config.php:305 includes/helper-functions.php:405
 msgid "Twitter Grid"
 msgstr ""
 
-#: classes/class-pp-config.php:305 includes/helper-functions.php:406
+#: classes/class-pp-config.php:312 includes/helper-functions.php:406
 msgid "Twitter Timeline"
 msgstr ""
 
-#: classes/class-pp-config.php:312 includes/helper-functions.php:407
+#: classes/class-pp-config.php:319 includes/helper-functions.php:407
 msgid "Twitter Tweet"
 msgstr ""
 
-#: classes/class-pp-config.php:319
+#: classes/class-pp-config.php:326
 msgid "WP Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:342
+#: classes/class-pp-config.php:349
 msgid "Advanced Menu"
 msgstr ""
 
-#: classes/class-pp-config.php:349
+#: classes/class-pp-config.php:356
 msgid "Advanced Tabs"
 msgstr ""
 
-#: classes/class-pp-config.php:356
+#: classes/class-pp-config.php:363
 msgid "Album"
 msgstr ""
 
-#: classes/class-pp-config.php:363
+#: classes/class-pp-config.php:370
 msgid "Breadcrumbs"
 msgstr ""
 
-#: classes/class-pp-config.php:370
+#: classes/class-pp-config.php:377
 msgid "Card Slider"
 msgstr ""
 
-#: classes/class-pp-config.php:377
+#: classes/class-pp-config.php:384
 msgid "Categories"
 msgstr ""
 
-#: classes/class-pp-config.php:384
+#: classes/class-pp-config.php:391
 msgid "Countdown Timer"
 msgstr ""
 
-#: classes/class-pp-config.php:391
+#: classes/class-pp-config.php:398
 msgid "Coupons"
 msgstr ""
 
-#: classes/class-pp-config.php:398
+#: classes/class-pp-config.php:405
 msgid "Devices"
 msgstr ""
 
-#: classes/class-pp-config.php:405
+#: classes/class-pp-config.php:412
 msgid "FAQ"
 msgstr ""
 
-#: classes/class-pp-config.php:412
+#: classes/class-pp-config.php:419
 msgid "Image Gallery"
 msgstr ""
 
-#: classes/class-pp-config.php:419
+#: classes/class-pp-config.php:426
 msgid "Image Slider"
 msgstr ""
 
-#: classes/class-pp-config.php:426
+#: classes/class-pp-config.php:433
 msgid "Google Maps"
 msgstr ""
 
-#: classes/class-pp-config.php:433
+#: classes/class-pp-config.php:440
 msgid "How To"
 msgstr ""
 
-#: classes/class-pp-config.php:440
+#: classes/class-pp-config.php:447
 msgid "Magazine Slider"
 msgstr ""
 
-#: classes/class-pp-config.php:447
+#: classes/class-pp-config.php:454
 msgid "Offcanvas Content"
 msgstr ""
 
-#: classes/class-pp-config.php:454
+#: classes/class-pp-config.php:461
 msgid "One Page Navigation"
 msgstr ""
 
-#: classes/class-pp-config.php:461
+#: classes/class-pp-config.php:468
 msgid "Popup Box"
 msgstr ""
 
-#: classes/class-pp-config.php:468
+#: classes/class-pp-config.php:475
 msgid "Recipe"
 msgstr ""
 
-#: classes/class-pp-config.php:475
+#: classes/class-pp-config.php:482
 msgid "Review Box"
 msgstr ""
 
-#: classes/class-pp-config.php:482
+#: classes/class-pp-config.php:489
 msgid "Showcase"
 msgstr ""
 
-#: classes/class-pp-config.php:489
-#: modules/pricing/widgets/pricing-table.php:1061
+#: classes/class-pp-config.php:496
+#: modules/pricing/widgets/pricing-table.php:1103
 msgid "Table"
 msgstr ""
 
-#: classes/class-pp-config.php:496
+#: classes/class-pp-config.php:503
 msgid "Tabbed Gallery"
 msgstr ""
 
-#: classes/class-pp-config.php:503
+#: classes/class-pp-config.php:510
 msgid "Testimonials"
 msgstr ""
 
-#: classes/class-pp-config.php:510
+#: classes/class-pp-config.php:517
 msgid "Tiled Posts"
 msgstr ""
 
-#: classes/class-pp-config.php:517
+#: classes/class-pp-config.php:524
 #: modules/twitter/widgets/twitter-timeline.php:74
 msgid "Timeline"
 msgstr ""
 
-#: classes/class-pp-config.php:524
+#: classes/class-pp-config.php:531
 #: modules/advanced-accordion/widgets/advanced-accordion.php:466
 #: modules/instafeed/widgets/instafeed.php:1898
 msgid "Toggle"
 msgstr ""
 
-#: classes/class-pp-config.php:531
+#: classes/class-pp-config.php:538
 msgid "Video"
 msgstr ""
 
-#: classes/class-pp-config.php:538
+#: classes/class-pp-config.php:545
 msgid "Video Gallery"
 msgstr ""
 
-#: classes/class-pp-config.php:545
+#: classes/class-pp-config.php:552
 msgid "Woo - Add To Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:552
+#: classes/class-pp-config.php:559
 msgid "Woo - Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:559
+#: classes/class-pp-config.php:566
 msgid "Woo - Categories"
 msgstr ""
 
-#: classes/class-pp-config.php:566
+#: classes/class-pp-config.php:573
 msgid "Woo - Checkout"
 msgstr ""
 
-#: classes/class-pp-config.php:573
+#: classes/class-pp-config.php:580
 msgid "Woo - Mini Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:580
+#: classes/class-pp-config.php:587
 msgid "Woo - Off Canvas Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:587
+#: classes/class-pp-config.php:594
 msgid "Woo - Products"
 msgstr ""
 
-#: classes/class-pp-config.php:610 classes/class-pp-config.php:614
-#: classes/class-pp-config.php:619 classes/class-pp-config.php:627
-#: classes/class-pp-config.php:632 classes/class-pp-config.php:636
-#: classes/class-pp-config.php:640 classes/class-pp-config.php:644
-#: classes/class-pp-config.php:649 classes/class-pp-config.php:661
-#: classes/class-pp-config.php:665 classes/class-pp-config.php:669
-#: classes/class-pp-config.php:673 classes/class-pp-config.php:677
-#: classes/class-pp-config.php:681 classes/class-pp-config.php:685
-#: classes/class-pp-config.php:689 classes/class-pp-config.php:694
-#: classes/class-pp-config.php:700 classes/class-pp-config.php:704
-#: classes/class-pp-config.php:708 classes/class-pp-config.php:722
-#: classes/class-pp-config.php:727 classes/class-pp-config.php:731
-#: classes/class-pp-config.php:735 classes/class-pp-config.php:743
-#: classes/class-pp-config.php:747 classes/class-pp-config.php:751
-#: classes/class-pp-config.php:754
+#: classes/class-pp-config.php:617 classes/class-pp-config.php:621
+#: classes/class-pp-config.php:626 classes/class-pp-config.php:634
+#: classes/class-pp-config.php:639 classes/class-pp-config.php:643
+#: classes/class-pp-config.php:647 classes/class-pp-config.php:651
+#: classes/class-pp-config.php:656 classes/class-pp-config.php:668
+#: classes/class-pp-config.php:672 classes/class-pp-config.php:676
+#: classes/class-pp-config.php:680 classes/class-pp-config.php:684
+#: classes/class-pp-config.php:688 classes/class-pp-config.php:692
+#: classes/class-pp-config.php:696 classes/class-pp-config.php:701
+#: classes/class-pp-config.php:707 classes/class-pp-config.php:711
+#: classes/class-pp-config.php:715 classes/class-pp-config.php:729
+#: classes/class-pp-config.php:734 classes/class-pp-config.php:738
+#: classes/class-pp-config.php:742 classes/class-pp-config.php:750
+#: classes/class-pp-config.php:754 classes/class-pp-config.php:758
+#: classes/class-pp-config.php:761
 msgid "Widget Overview"
 msgstr ""
 
-#: classes/class-pp-config.php:618 classes/class-pp-config.php:623
-#: classes/class-pp-config.php:631 classes/class-pp-config.php:645
-#: classes/class-pp-config.php:653 classes/class-pp-config.php:657
-#: classes/class-pp-config.php:693 classes/class-pp-config.php:712
-#: classes/class-pp-config.php:716 classes/class-pp-config.php:726
-#: classes/class-pp-config.php:739
+#: classes/class-pp-config.php:625 classes/class-pp-config.php:630
+#: classes/class-pp-config.php:638 classes/class-pp-config.php:652
+#: classes/class-pp-config.php:660 classes/class-pp-config.php:664
+#: classes/class-pp-config.php:700 classes/class-pp-config.php:719
+#: classes/class-pp-config.php:723 classes/class-pp-config.php:733
+#: classes/class-pp-config.php:746
 msgid "Watch Video Overview"
 msgstr ""
 
-#: classes/class-pp-config.php:695
+#: classes/class-pp-config.php:702
 msgid "How to get Instagram Access Token?"
 msgstr ""
 
-#: classes/class-pp-config.php:696
+#: classes/class-pp-config.php:703
 msgid "How to set up Instagram Feed widget?"
 msgstr ""
 
-#: classes/class-pp-config.php:717
+#: classes/class-pp-config.php:724
 msgid "Action Hooks for Post Widget"
 msgstr ""
 
-#: classes/class-pp-config.php:718
+#: classes/class-pp-config.php:725
 msgid "How to Customize Query in Post Widget?"
 msgstr ""
 
@@ -552,7 +557,7 @@ msgid "Sync Templates"
 msgstr ""
 
 #: classes/class-pp-templates-lib.php:425
-#: modules/pricing/widgets/pricing-table.php:830
+#: modules/pricing/widgets/pricing-table.php:872
 msgid "New"
 msgstr ""
 
@@ -1250,7 +1255,7 @@ msgstr ""
 msgid "Adds link around sections, columns and widgets."
 msgstr ""
 
-#: extensions/wrapper-link.php:133 includes/helper-functions.php:456
+#: extensions/wrapper-link.php:133 includes/helper-functions.php:457
 msgid "Wrapper Link"
 msgstr ""
 
@@ -1262,8 +1267,8 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:488
 #: modules/business-hours/widgets/business-hours.php:618
 #: modules/buttons/widgets/buttons.php:239
-#: modules/caldera-forms/widgets/caldera-forms.php:141
-#: modules/caldera-forms/widgets/caldera-forms.php:911
+#: modules/caldera-forms/widgets/caldera-forms.php:140
+#: modules/caldera-forms/widgets/caldera-forms.php:910
 #: modules/contact-form-seven/widgets/contact-form-7.php:699
 #: modules/contact-form-seven/widgets/contact-form-7.php:753
 #: modules/content-ticker/widgets/content-ticker.php:542
@@ -1282,9 +1287,9 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:861
 #: modules/formidable-forms/widgets/formidable-forms.php:117
 #: modules/formidable-forms/widgets/formidable-forms.php:919
-#: modules/gravity-forms/widgets/gravity-forms.php:162
-#: modules/gravity-forms/widgets/gravity-forms.php:253
-#: modules/gravity-forms/widgets/gravity-forms.php:1128
+#: modules/gravity-forms/widgets/gravity-forms.php:161
+#: modules/gravity-forms/widgets/gravity-forms.php:252
+#: modules/gravity-forms/widgets/gravity-forms.php:1127
 #: modules/hotspots/widgets/hotspots.php:453
 #: modules/hotspots/widgets/hotspots.php:480
 #: modules/hotspots/widgets/hotspots.php:560
@@ -1342,11 +1347,11 @@ msgstr ""
 #: modules/posts/widgets/posts-base.php:577
 #: modules/pricing/widgets/price-menu.php:310
 #: modules/pricing/widgets/price-menu.php:325
-#: modules/pricing/widgets/pricing-table.php:400
-#: modules/pricing/widgets/pricing-table.php:520
-#: modules/pricing/widgets/pricing-table.php:587
-#: modules/pricing/widgets/pricing-table.php:799
-#: modules/pricing/widgets/pricing-table.php:1952
+#: modules/pricing/widgets/pricing-table.php:442
+#: modules/pricing/widgets/pricing-table.php:562
+#: modules/pricing/widgets/pricing-table.php:629
+#: modules/pricing/widgets/pricing-table.php:841
+#: modules/pricing/widgets/pricing-table.php:1994
 #: modules/promo-box/widgets/promo-box.php:259
 #: modules/random-image/widgets/random-image.php:319
 #: modules/team-member/widgets/team-member-carousel.php:466
@@ -1363,7 +1368,7 @@ msgstr ""
 #: modules/twitter/widgets/twitter-timeline.php:105
 #: modules/twitter/widgets/twitter-tweet.php:105
 #: modules/wpforms/widgets/wpforms.php:94
-#: modules/wpforms/widgets/wpforms.php:838
+#: modules/wpforms/widgets/wpforms.php:811
 msgid "Yes"
 msgstr ""
 
@@ -1375,8 +1380,8 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:489
 #: modules/business-hours/widgets/business-hours.php:619
 #: modules/buttons/widgets/buttons.php:240
-#: modules/caldera-forms/widgets/caldera-forms.php:142
-#: modules/caldera-forms/widgets/caldera-forms.php:912
+#: modules/caldera-forms/widgets/caldera-forms.php:141
+#: modules/caldera-forms/widgets/caldera-forms.php:911
 #: modules/contact-form-seven/widgets/contact-form-7.php:700
 #: modules/contact-form-seven/widgets/contact-form-7.php:754
 #: modules/content-ticker/widgets/content-ticker.php:543
@@ -1395,9 +1400,9 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:862
 #: modules/formidable-forms/widgets/formidable-forms.php:118
 #: modules/formidable-forms/widgets/formidable-forms.php:920
-#: modules/gravity-forms/widgets/gravity-forms.php:163
-#: modules/gravity-forms/widgets/gravity-forms.php:254
-#: modules/gravity-forms/widgets/gravity-forms.php:1129
+#: modules/gravity-forms/widgets/gravity-forms.php:162
+#: modules/gravity-forms/widgets/gravity-forms.php:253
+#: modules/gravity-forms/widgets/gravity-forms.php:1128
 #: modules/hotspots/widgets/hotspots.php:454
 #: modules/hotspots/widgets/hotspots.php:481
 #: modules/hotspots/widgets/hotspots.php:561
@@ -1455,11 +1460,11 @@ msgstr ""
 #: modules/posts/widgets/posts-base.php:578
 #: modules/pricing/widgets/price-menu.php:311
 #: modules/pricing/widgets/price-menu.php:326
-#: modules/pricing/widgets/pricing-table.php:401
-#: modules/pricing/widgets/pricing-table.php:521
-#: modules/pricing/widgets/pricing-table.php:588
-#: modules/pricing/widgets/pricing-table.php:800
-#: modules/pricing/widgets/pricing-table.php:1953
+#: modules/pricing/widgets/pricing-table.php:443
+#: modules/pricing/widgets/pricing-table.php:563
+#: modules/pricing/widgets/pricing-table.php:630
+#: modules/pricing/widgets/pricing-table.php:842
+#: modules/pricing/widgets/pricing-table.php:1995
 #: modules/promo-box/widgets/promo-box.php:260
 #: modules/random-image/widgets/random-image.php:320
 #: modules/team-member/widgets/team-member-carousel.php:467
@@ -1476,7 +1481,7 @@ msgstr ""
 #: modules/twitter/widgets/twitter-timeline.php:106
 #: modules/twitter/widgets/twitter-tweet.php:106
 #: modules/wpforms/widgets/wpforms.php:95
-#: modules/wpforms/widgets/wpforms.php:839
+#: modules/wpforms/widgets/wpforms.php:812
 msgid "No"
 msgstr ""
 
@@ -1500,7 +1505,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:195
 #: modules/logos/widgets/logo-grid.php:148
 #: modules/pricing/widgets/price-menu.php:212
-#: modules/pricing/widgets/pricing-table.php:985
+#: modules/pricing/widgets/pricing-table.php:1027
 #: modules/promo-box/widgets/promo-box.php:386
 #: modules/random-image/widgets/random-image.php:298
 #: modules/team-member/widgets/team-member-carousel.php:205
@@ -1640,11 +1645,11 @@ msgstr ""
 msgid "Businsess Hours"
 msgstr ""
 
-#: includes/helper-functions.php:435 modules/wpforms/widgets/wpforms.php:74
+#: includes/helper-functions.php:436 modules/wpforms/widgets/wpforms.php:74
 msgid "WPForms"
 msgstr ""
 
-#: includes/helper-functions.php:455 modules/display-conditions/module.php:318
+#: includes/helper-functions.php:456 modules/display-conditions/module.php:318
 msgid "Display Conditions"
 msgstr ""
 
@@ -1655,8 +1660,8 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:153
 #: modules/advanced-accordion/widgets/advanced-accordion.php:755
-#: modules/caldera-forms/widgets/caldera-forms.php:150
-#: modules/caldera-forms/widgets/caldera-forms.php:351
+#: modules/caldera-forms/widgets/caldera-forms.php:149
+#: modules/caldera-forms/widgets/caldera-forms.php:350
 #: modules/contact-form-seven/widgets/contact-form-7.php:144
 #: modules/contact-form-seven/widgets/contact-form-7.php:317
 #: modules/content-ticker/widgets/content-ticker.php:166
@@ -1677,9 +1682,9 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:126
 #: modules/formidable-forms/widgets/formidable-forms.php:156
 #: modules/formidable-forms/widgets/formidable-forms.php:358
-#: modules/gravity-forms/widgets/gravity-forms.php:171
-#: modules/gravity-forms/widgets/gravity-forms.php:201
-#: modules/gravity-forms/widgets/gravity-forms.php:426
+#: modules/gravity-forms/widgets/gravity-forms.php:170
+#: modules/gravity-forms/widgets/gravity-forms.php:200
+#: modules/gravity-forms/widgets/gravity-forms.php:425
 #: modules/image-accordion/widgets/image-accordion.php:136
 #: modules/image-accordion/widgets/image-accordion.php:773
 #: modules/info-box/widgets/info-box-carousel.php:157
@@ -1711,16 +1716,16 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:109
 #: modules/pricing/widgets/price-menu.php:110
 #: modules/pricing/widgets/price-menu.php:503
-#: modules/pricing/widgets/pricing-table.php:220
-#: modules/pricing/widgets/pricing-table.php:225
-#: modules/pricing/widgets/pricing-table.php:825
-#: modules/pricing/widgets/pricing-table.php:1309
+#: modules/pricing/widgets/pricing-table.php:221
+#: modules/pricing/widgets/pricing-table.php:226
+#: modules/pricing/widgets/pricing-table.php:867
+#: modules/pricing/widgets/pricing-table.php:1351
 #: modules/random-image/widgets/random-image.php:258
 #: modules/team-member/widgets/team-member-carousel.php:197
 #: modules/team-member/widgets/team-member.php:255
 #: modules/wpforms/widgets/wpforms.php:103
 #: modules/wpforms/widgets/wpforms.php:133
-#: modules/wpforms/widgets/wpforms.php:321
+#: modules/wpforms/widgets/wpforms.php:294
 msgid "Title"
 msgstr ""
 
@@ -1733,7 +1738,10 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:948
 #: modules/buttons/widgets/buttons.php:159
 #: modules/buttons/widgets/buttons.php:176
-#: modules/buttons/widgets/buttons.php:891
+#: modules/buttons/widgets/buttons.php:908
+#: modules/content-reveal/widgets/content-reveal.php:357
+#: modules/content-reveal/widgets/content-reveal.php:389
+#: modules/content-reveal/widgets/content-reveal.php:885
 #: modules/content-ticker/widgets/content-ticker.php:1032
 #: modules/counter/widgets/counter.php:253
 #: modules/counter/widgets/counter.php:272
@@ -1772,13 +1780,13 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:142
 #: modules/info-table/widgets/info-table.php:353
 #: modules/instafeed/widgets/instafeed.php:1828
-#: modules/pricing/widgets/pricing-table.php:163
-#: modules/pricing/widgets/pricing-table.php:178
-#: modules/pricing/widgets/pricing-table.php:421
-#: modules/pricing/widgets/pricing-table.php:622
-#: modules/pricing/widgets/pricing-table.php:634
-#: modules/pricing/widgets/pricing-table.php:1152
-#: modules/pricing/widgets/pricing-table.php:1853
+#: modules/pricing/widgets/pricing-table.php:164
+#: modules/pricing/widgets/pricing-table.php:179
+#: modules/pricing/widgets/pricing-table.php:463
+#: modules/pricing/widgets/pricing-table.php:664
+#: modules/pricing/widgets/pricing-table.php:676
+#: modules/pricing/widgets/pricing-table.php:1194
+#: modules/pricing/widgets/pricing-table.php:1895
 #: modules/promo-box/widgets/promo-box.php:249
 #: modules/promo-box/widgets/promo-box.php:272
 #: modules/promo-box/widgets/promo-box.php:284
@@ -1789,6 +1797,7 @@ msgid "Icon"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:176
+#: modules/content-reveal/widgets/content-reveal.php:119
 #: modules/posts/skins/skin-base.php:785
 msgid "Content Type"
 msgstr ""
@@ -1797,6 +1806,9 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:193
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1012
 #: modules/buttons/widgets/buttons.php:129
+#: modules/content-reveal/widgets/content-reveal.php:112
+#: modules/content-reveal/widgets/content-reveal.php:123
+#: modules/content-reveal/widgets/content-reveal.php:464
 #: modules/content-ticker/widgets/content-ticker.php:501
 #: modules/content-ticker/widgets/content-ticker.php:1411
 #: modules/image-accordion/widgets/image-accordion.php:131
@@ -1850,9 +1862,9 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:158
 #: modules/posts/skins/skin-base.php:540 modules/posts/skins/skin-base.php:1888
 #: modules/pricing/widgets/price-menu.php:188
-#: modules/pricing/widgets/price-menu.php:880
-#: modules/pricing/widgets/pricing-table.php:167
-#: modules/pricing/widgets/pricing-table.php:194
+#: modules/pricing/widgets/price-menu.php:900
+#: modules/pricing/widgets/pricing-table.php:168
+#: modules/pricing/widgets/pricing-table.php:195
 #: modules/promo-box/widgets/promo-box.php:273
 #: modules/promo-box/widgets/promo-box.php:301
 #: modules/promo-box/widgets/promo-box.php:1006
@@ -1925,6 +1937,7 @@ msgid "Choose Section"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:288
+#: modules/content-reveal/widgets/content-reveal.php:146
 msgid "Choose Template"
 msgstr ""
 
@@ -1951,9 +1964,9 @@ msgid "Toggle Icon"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:352
-#: modules/caldera-forms/widgets/caldera-forms.php:178
-#: modules/caldera-forms/widgets/caldera-forms.php:191
-#: modules/caldera-forms/widgets/caldera-forms.php:219
+#: modules/caldera-forms/widgets/caldera-forms.php:177
+#: modules/caldera-forms/widgets/caldera-forms.php:190
+#: modules/caldera-forms/widgets/caldera-forms.php:218
 #: modules/contact-form-seven/widgets/contact-form-7.php:183
 #: modules/contact-form-seven/widgets/contact-form-7.php:211
 #: modules/contact-form-seven/widgets/contact-form-7.php:231
@@ -1970,12 +1983,12 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:184
 #: modules/formidable-forms/widgets/formidable-forms.php:197
 #: modules/formidable-forms/widgets/formidable-forms.php:227
-#: modules/gravity-forms/widgets/gravity-forms.php:174
-#: modules/gravity-forms/widgets/gravity-forms.php:189
-#: modules/gravity-forms/widgets/gravity-forms.php:229
-#: modules/gravity-forms/widgets/gravity-forms.php:241
-#: modules/gravity-forms/widgets/gravity-forms.php:281
-#: modules/gravity-forms/widgets/gravity-forms.php:301
+#: modules/gravity-forms/widgets/gravity-forms.php:173
+#: modules/gravity-forms/widgets/gravity-forms.php:188
+#: modules/gravity-forms/widgets/gravity-forms.php:228
+#: modules/gravity-forms/widgets/gravity-forms.php:240
+#: modules/gravity-forms/widgets/gravity-forms.php:280
+#: modules/gravity-forms/widgets/gravity-forms.php:300
 #: modules/hotspots/widgets/hotspots.php:319
 #: modules/image-comparison/widgets/image-comparison.php:285
 #: modules/info-box/widgets/info-box-carousel.php:742
@@ -2007,9 +2020,9 @@ msgid "Show"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:353
-#: modules/caldera-forms/widgets/caldera-forms.php:179
-#: modules/caldera-forms/widgets/caldera-forms.php:192
-#: modules/caldera-forms/widgets/caldera-forms.php:220
+#: modules/caldera-forms/widgets/caldera-forms.php:178
+#: modules/caldera-forms/widgets/caldera-forms.php:191
+#: modules/caldera-forms/widgets/caldera-forms.php:219
 #: modules/contact-form-seven/widgets/contact-form-7.php:184
 #: modules/contact-form-seven/widgets/contact-form-7.php:212
 #: modules/contact-form-seven/widgets/contact-form-7.php:232
@@ -2026,12 +2039,12 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:185
 #: modules/formidable-forms/widgets/formidable-forms.php:198
 #: modules/formidable-forms/widgets/formidable-forms.php:228
-#: modules/gravity-forms/widgets/gravity-forms.php:175
-#: modules/gravity-forms/widgets/gravity-forms.php:190
-#: modules/gravity-forms/widgets/gravity-forms.php:230
-#: modules/gravity-forms/widgets/gravity-forms.php:242
-#: modules/gravity-forms/widgets/gravity-forms.php:282
-#: modules/gravity-forms/widgets/gravity-forms.php:302
+#: modules/gravity-forms/widgets/gravity-forms.php:174
+#: modules/gravity-forms/widgets/gravity-forms.php:189
+#: modules/gravity-forms/widgets/gravity-forms.php:229
+#: modules/gravity-forms/widgets/gravity-forms.php:241
+#: modules/gravity-forms/widgets/gravity-forms.php:281
+#: modules/gravity-forms/widgets/gravity-forms.php:301
 #: modules/hotspots/widgets/hotspots.php:320
 #: modules/image-comparison/widgets/image-comparison.php:286
 #: modules/info-box/widgets/info-box-carousel.php:743
@@ -2071,6 +2084,7 @@ msgid "Active Icon"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:453
+#: modules/content-reveal/widgets/content-reveal.php:173
 #: modules/flipbox/widgets/flipbox.php:494
 #: modules/image-accordion/widgets/image-accordion.php:318
 #: modules/image-comparison/widgets/image-comparison.php:232
@@ -2100,19 +2114,20 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:216
 #: modules/logos/widgets/logo-carousel.php:223
 #: modules/logos/widgets/logo-grid.php:262
+#: modules/pricing/widgets/pricing-table.php:234
 msgid "Title HTML Tag"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:517
 #: modules/business-hours/widgets/business-hours.php:529
-#: modules/caldera-forms/widgets/caldera-forms.php:248
+#: modules/caldera-forms/widgets/caldera-forms.php:247
 #: modules/content-ticker/widgets/content-ticker.php:1241
 #: modules/counter/widgets/counter.php:497
 #: modules/divider/widgets/divider.php:302
 #: modules/flipbox/widgets/flipbox.php:598
 #: modules/fluent-forms/widgets/fluent-forms.php:217
 #: modules/formidable-forms/widgets/formidable-forms.php:257
-#: modules/gravity-forms/widgets/gravity-forms.php:332
+#: modules/gravity-forms/widgets/gravity-forms.php:331
 #: modules/headings/widgets/dual-heading.php:247
 #: modules/headings/widgets/fancy-heading.php:218
 #: modules/hotspots/widgets/hotspots.php:707
@@ -2129,7 +2144,7 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:444
 #: modules/posts/skins/skin-base.php:1564
 #: modules/pricing/widgets/price-menu.php:347
-#: modules/pricing/widgets/pricing-table.php:1027
+#: modules/pricing/widgets/pricing-table.php:1069
 #: modules/promo-box/widgets/promo-box.php:418
 #: modules/random-image/widgets/random-image.php:346
 #: modules/scroll-image/widgets/scroll-image.php:290
@@ -2158,15 +2173,16 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1152
 #: modules/business-hours/widgets/business-hours.php:572
 #: modules/business-hours/widgets/business-hours.php:885
-#: modules/buttons/widgets/buttons.php:400
-#: modules/buttons/widgets/buttons.php:763
-#: modules/buttons/widgets/buttons.php:966
-#: modules/caldera-forms/widgets/caldera-forms.php:554
-#: modules/caldera-forms/widgets/caldera-forms.php:948
-#: modules/caldera-forms/widgets/caldera-forms.php:1178
+#: modules/buttons/widgets/buttons.php:408
+#: modules/buttons/widgets/buttons.php:780
+#: modules/buttons/widgets/buttons.php:983
+#: modules/caldera-forms/widgets/caldera-forms.php:553
+#: modules/caldera-forms/widgets/caldera-forms.php:947
+#: modules/caldera-forms/widgets/caldera-forms.php:1177
 #: modules/contact-form-seven/widgets/contact-form-7.php:397
 #: modules/contact-form-seven/widgets/contact-form-7.php:790
 #: modules/contact-form-seven/widgets/contact-form-7.php:1022
+#: modules/content-reveal/widgets/content-reveal.php:670
 #: modules/content-ticker/widgets/content-ticker.php:1430
 #: modules/content-ticker/widgets/content-ticker.php:1809
 #: modules/flipbox/widgets/flipbox.php:1395
@@ -2176,10 +2192,10 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:542
 #: modules/formidable-forms/widgets/formidable-forms.php:956
 #: modules/formidable-forms/widgets/formidable-forms.php:1191
-#: modules/gravity-forms/widgets/gravity-forms.php:599
-#: modules/gravity-forms/widgets/gravity-forms.php:1165
-#: modules/gravity-forms/widgets/gravity-forms.php:1401
-#: modules/gravity-forms/widgets/gravity-forms.php:1616
+#: modules/gravity-forms/widgets/gravity-forms.php:598
+#: modules/gravity-forms/widgets/gravity-forms.php:1164
+#: modules/gravity-forms/widgets/gravity-forms.php:1400
+#: modules/gravity-forms/widgets/gravity-forms.php:1615
 #: modules/icon-list/widgets/icon-list.php:558
 #: modules/icon-list/widgets/icon-list.php:749
 #: modules/image-accordion/widgets/image-accordion.php:506
@@ -2220,8 +2236,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2966
 #: modules/posts/skins/skin-base.php:3186
 #: modules/posts/skins/skin-base.php:3417
-#: modules/pricing/widgets/pricing-table.php:323
-#: modules/pricing/widgets/pricing-table.php:2403
+#: modules/pricing/widgets/pricing-table.php:364
+#: modules/pricing/widgets/pricing-table.php:2445
 #: modules/promo-box/widgets/promo-box.php:781
 #: modules/promo-box/widgets/promo-box.php:1485
 #: modules/random-image/module.php:92
@@ -2234,17 +2250,17 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2049
 #: modules/team-member/widgets/team-member-carousel.php:2248
 #: modules/team-member/widgets/team-member.php:1573
-#: modules/wpforms/widgets/wpforms.php:497
-#: modules/wpforms/widgets/wpforms.php:875
-#: modules/wpforms/widgets/wpforms.php:1105
+#: modules/wpforms/widgets/wpforms.php:470
+#: modules/wpforms/widgets/wpforms.php:848
+#: modules/wpforms/widgets/wpforms.php:1078
 msgid "Normal"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:586
-#: modules/gravity-forms/widgets/gravity-forms.php:964
+#: modules/gravity-forms/widgets/gravity-forms.php:963
 #: modules/info-box/widgets/info-box-carousel.php:1379
 #: modules/info-box/widgets/info-box.php:1322
-#: modules/pricing/widgets/price-menu.php:574
+#: modules/pricing/widgets/price-menu.php:594
 #: modules/promo-box/widgets/promo-box.php:1029
 #: modules/promo-box/widgets/promo-box.php:1262
 msgid "Border Type"
@@ -2253,13 +2269,13 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:590
 #: modules/business-hours/widgets/business-hours.php:814
 #: modules/buttons/widgets/buttons.php:155
-#: modules/buttons/widgets/buttons.php:715
+#: modules/buttons/widgets/buttons.php:723
 #: modules/content-ticker/widgets/content-ticker.php:165
 #: modules/counter/widgets/counter.php:268
 #: modules/flipbox/widgets/flipbox.php:146
 #: modules/flipbox/widgets/flipbox.php:285
 #: modules/flipbox/widgets/flipbox.php:410
-#: modules/gravity-forms/widgets/gravity-forms.php:968
+#: modules/gravity-forms/widgets/gravity-forms.php:967
 #: modules/icon-list/widgets/icon-list.php:165
 #: modules/image-accordion/widgets/image-accordion.php:416
 #: modules/info-box/widgets/info-box-carousel.php:202
@@ -2276,10 +2292,10 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:255
 #: modules/posts/skins/skin-base.php:654 modules/posts/skins/skin-base.php:1208
 #: modules/posts/widgets/posts-base.php:369
-#: modules/pricing/widgets/price-menu.php:578
-#: modules/pricing/widgets/pricing-table.php:159
-#: modules/pricing/widgets/pricing-table.php:264
-#: modules/pricing/widgets/pricing-table.php:965
+#: modules/pricing/widgets/price-menu.php:598
+#: modules/pricing/widgets/pricing-table.php:160
+#: modules/pricing/widgets/pricing-table.php:305
+#: modules/pricing/widgets/pricing-table.php:1007
 #: modules/random-image/widgets/random-image.php:257
 #: modules/random-image/widgets/random-image.php:288
 #: modules/random-image/widgets/random-image.php:855
@@ -2295,14 +2311,14 @@ msgstr ""
 #: modules/counter/widgets/counter.php:731
 #: modules/counter/widgets/counter.php:931
 #: modules/divider/widgets/divider.php:388
-#: modules/gravity-forms/widgets/gravity-forms.php:969
+#: modules/gravity-forms/widgets/gravity-forms.php:968
 #: modules/icon-list/widgets/icon-list.php:422
 #: modules/info-box/widgets/info-box-carousel.php:1384
 #: modules/info-box/widgets/info-box.php:1327
 #: modules/info-list/widgets/info-list.php:570
 #: modules/instafeed/widgets/instafeed.php:1395
-#: modules/pricing/widgets/price-menu.php:579
-#: modules/pricing/widgets/price-menu.php:1064
+#: modules/pricing/widgets/price-menu.php:599
+#: modules/pricing/widgets/price-menu.php:1084
 #: modules/promo-box/widgets/promo-box.php:1033
 #: modules/promo-box/widgets/promo-box.php:1266
 #: modules/team-member/widgets/team-member-carousel.php:1233
@@ -2318,13 +2334,13 @@ msgstr ""
 #: modules/counter/widgets/counter.php:732
 #: modules/counter/widgets/counter.php:932
 #: modules/divider/widgets/divider.php:391
-#: modules/gravity-forms/widgets/gravity-forms.php:970
+#: modules/gravity-forms/widgets/gravity-forms.php:969
 #: modules/icon-list/widgets/icon-list.php:423
 #: modules/info-box/widgets/info-box-carousel.php:1385
 #: modules/info-box/widgets/info-box.php:1328
 #: modules/info-list/widgets/info-list.php:571
-#: modules/pricing/widgets/price-menu.php:580
-#: modules/pricing/widgets/price-menu.php:1067
+#: modules/pricing/widgets/price-menu.php:600
+#: modules/pricing/widgets/price-menu.php:1087
 #: modules/promo-box/widgets/promo-box.php:1034
 #: modules/promo-box/widgets/promo-box.php:1267
 #: modules/team-member/widgets/team-member-carousel.php:1236
@@ -2341,13 +2357,13 @@ msgstr ""
 #: modules/counter/widgets/counter.php:733
 #: modules/counter/widgets/counter.php:933
 #: modules/divider/widgets/divider.php:390
-#: modules/gravity-forms/widgets/gravity-forms.php:971
+#: modules/gravity-forms/widgets/gravity-forms.php:970
 #: modules/icon-list/widgets/icon-list.php:424
 #: modules/info-box/widgets/info-box-carousel.php:1386
 #: modules/info-box/widgets/info-box.php:1329
 #: modules/info-list/widgets/info-list.php:572
-#: modules/pricing/widgets/price-menu.php:581
-#: modules/pricing/widgets/price-menu.php:1066
+#: modules/pricing/widgets/price-menu.php:601
+#: modules/pricing/widgets/price-menu.php:1086
 #: modules/promo-box/widgets/promo-box.php:1035
 #: modules/promo-box/widgets/promo-box.php:1268
 #: modules/team-member/widgets/team-member-carousel.php:1234
@@ -2360,17 +2376,17 @@ msgid "Dotted"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:604
-#: modules/caldera-forms/widgets/caldera-forms.php:973
+#: modules/caldera-forms/widgets/caldera-forms.php:972
 #: modules/contact-form-seven/widgets/contact-form-7.php:815
 #: modules/fluent-forms/widgets/fluent-forms.php:944
 #: modules/formidable-forms/widgets/formidable-forms.php:981
-#: modules/gravity-forms/widgets/gravity-forms.php:1190
+#: modules/gravity-forms/widgets/gravity-forms.php:1189
 #: modules/info-box/widgets/info-box-carousel.php:1401
 #: modules/info-box/widgets/info-box.php:1344
 #: modules/logos/widgets/logo-grid.php:210
 #: modules/ninja-forms/widgets/ninja-forms.php:940
-#: modules/pricing/widgets/price-menu.php:621
-#: modules/wpforms/widgets/wpforms.php:900
+#: modules/pricing/widgets/price-menu.php:641
+#: modules/wpforms/widgets/wpforms.php:873
 msgid "Border Width"
 msgstr ""
 
@@ -2381,12 +2397,13 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:932
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1267
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1326
-#: modules/buttons/widgets/buttons.php:510
-#: modules/buttons/widgets/buttons.php:856
-#: modules/caldera-forms/widgets/caldera-forms.php:995
-#: modules/caldera-forms/widgets/caldera-forms.php:1315
+#: modules/buttons/widgets/buttons.php:518
+#: modules/buttons/widgets/buttons.php:873
+#: modules/caldera-forms/widgets/caldera-forms.php:994
+#: modules/caldera-forms/widgets/caldera-forms.php:1314
 #: modules/contact-form-seven/widgets/contact-form-7.php:837
 #: modules/contact-form-seven/widgets/contact-form-7.php:1159
+#: modules/content-reveal/widgets/content-reveal.php:855
 #: modules/content-ticker/widgets/content-ticker.php:1602
 #: modules/content-ticker/widgets/content-ticker.php:1896
 #: modules/flipbox/widgets/flipbox.php:1581
@@ -2394,10 +2411,10 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:1313
 #: modules/formidable-forms/widgets/formidable-forms.php:1003
 #: modules/formidable-forms/widgets/formidable-forms.php:1329
-#: modules/gravity-forms/widgets/gravity-forms.php:1009
-#: modules/gravity-forms/widgets/gravity-forms.php:1212
-#: modules/gravity-forms/widgets/gravity-forms.php:1541
-#: modules/gravity-forms/widgets/gravity-forms.php:1754
+#: modules/gravity-forms/widgets/gravity-forms.php:1008
+#: modules/gravity-forms/widgets/gravity-forms.php:1211
+#: modules/gravity-forms/widgets/gravity-forms.php:1540
+#: modules/gravity-forms/widgets/gravity-forms.php:1753
 #: modules/hotspots/widgets/hotspots.php:415
 #: modules/icon-list/widgets/icon-list.php:704
 #: modules/image-accordion/widgets/image-accordion.php:576
@@ -2433,7 +2450,7 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3341
 #: modules/posts/skins/skin-base.php:3562
 #: modules/posts/skins/skin-base.php:3633
-#: modules/pricing/widgets/price-menu.php:647
+#: modules/pricing/widgets/price-menu.php:667
 #: modules/promo-box/widgets/promo-box.php:1107
 #: modules/promo-box/widgets/promo-box.php:1340
 #: modules/promo-box/widgets/promo-box.php:1601
@@ -2444,24 +2461,25 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2374
 #: modules/team-member/widgets/team-member.php:1676
 #: modules/twitter/widgets/twitter-timeline.php:189
-#: modules/wpforms/widgets/wpforms.php:922
-#: modules/wpforms/widgets/wpforms.php:1243
+#: modules/wpforms/widgets/wpforms.php:895
+#: modules/wpforms/widgets/wpforms.php:1216
 msgid "Border Color"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:645
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1203
-#: modules/buttons/widgets/buttons.php:452
-#: modules/buttons/widgets/buttons.php:806
-#: modules/buttons/widgets/buttons.php:1105
-#: modules/caldera-forms/widgets/caldera-forms.php:597
-#: modules/caldera-forms/widgets/caldera-forms.php:1021
-#: modules/caldera-forms/widgets/caldera-forms.php:1047
-#: modules/caldera-forms/widgets/caldera-forms.php:1220
+#: modules/buttons/widgets/buttons.php:460
+#: modules/buttons/widgets/buttons.php:823
+#: modules/buttons/widgets/buttons.php:1122
+#: modules/caldera-forms/widgets/caldera-forms.php:596
+#: modules/caldera-forms/widgets/caldera-forms.php:1020
+#: modules/caldera-forms/widgets/caldera-forms.php:1046
+#: modules/caldera-forms/widgets/caldera-forms.php:1219
 #: modules/contact-form-seven/widgets/contact-form-7.php:537
 #: modules/contact-form-seven/widgets/contact-form-7.php:863
 #: modules/contact-form-seven/widgets/contact-form-7.php:889
 #: modules/contact-form-seven/widgets/contact-form-7.php:1063
+#: modules/content-reveal/widgets/content-reveal.php:758
 #: modules/content-ticker/widgets/content-ticker.php:1458
 #: modules/content-ticker/widgets/content-ticker.php:1677
 #: modules/content-ticker/widgets/content-ticker.php:1851
@@ -2480,13 +2498,13 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1233
 #: modules/formidable-forms/widgets/formidable-forms.php:1449
 #: modules/formidable-forms/widgets/formidable-forms.php:1552
-#: modules/gravity-forms/widgets/gravity-forms.php:781
-#: modules/gravity-forms/widgets/gravity-forms.php:1239
-#: modules/gravity-forms/widgets/gravity-forms.php:1266
-#: modules/gravity-forms/widgets/gravity-forms.php:1445
-#: modules/gravity-forms/widgets/gravity-forms.php:1658
-#: modules/gravity-forms/widgets/gravity-forms.php:1839
-#: modules/gravity-forms/widgets/gravity-forms.php:2215
+#: modules/gravity-forms/widgets/gravity-forms.php:780
+#: modules/gravity-forms/widgets/gravity-forms.php:1238
+#: modules/gravity-forms/widgets/gravity-forms.php:1265
+#: modules/gravity-forms/widgets/gravity-forms.php:1444
+#: modules/gravity-forms/widgets/gravity-forms.php:1657
+#: modules/gravity-forms/widgets/gravity-forms.php:1838
+#: modules/gravity-forms/widgets/gravity-forms.php:2214
 #: modules/headings/widgets/dual-heading.php:336
 #: modules/headings/widgets/dual-heading.php:441
 #: modules/hotspots/widgets/hotspots.php:806
@@ -2538,11 +2556,11 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3228
 #: modules/posts/skins/skin-base.php:3474
 #: modules/pricing/widgets/price-menu.php:442
-#: modules/pricing/widgets/price-menu.php:963
-#: modules/pricing/widgets/pricing-table.php:1294
-#: modules/pricing/widgets/pricing-table.php:1464
-#: modules/pricing/widgets/pricing-table.php:2186
-#: modules/pricing/widgets/pricing-table.php:2489
+#: modules/pricing/widgets/price-menu.php:983
+#: modules/pricing/widgets/pricing-table.php:1336
+#: modules/pricing/widgets/pricing-table.php:1506
+#: modules/pricing/widgets/pricing-table.php:2228
+#: modules/pricing/widgets/pricing-table.php:2531
 #: modules/promo-box/widgets/promo-box.php:500
 #: modules/promo-box/widgets/promo-box.php:657
 #: modules/promo-box/widgets/promo-box.php:840
@@ -2558,11 +2576,11 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2306
 #: modules/team-member/widgets/team-member.php:827
 #: modules/team-member/widgets/team-member.php:1617
-#: modules/wpforms/widgets/wpforms.php:540
-#: modules/wpforms/widgets/wpforms.php:948
-#: modules/wpforms/widgets/wpforms.php:974
-#: modules/wpforms/widgets/wpforms.php:1147
-#: modules/wpforms/widgets/wpforms.php:1391
+#: modules/wpforms/widgets/wpforms.php:513
+#: modules/wpforms/widgets/wpforms.php:921
+#: modules/wpforms/widgets/wpforms.php:947
+#: modules/wpforms/widgets/wpforms.php:1120
+#: modules/wpforms/widgets/wpforms.php:1364
 msgid "Border Radius"
 msgstr ""
 
@@ -2571,18 +2589,19 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1229
 #: modules/business-hours/widgets/business-hours.php:593
 #: modules/business-hours/widgets/business-hours.php:1008
-#: modules/buttons/widgets/buttons.php:464
-#: modules/buttons/widgets/buttons.php:827
-#: modules/buttons/widgets/buttons.php:987
-#: modules/caldera-forms/widgets/caldera-forms.php:1284
+#: modules/buttons/widgets/buttons.php:472
+#: modules/buttons/widgets/buttons.php:844
+#: modules/buttons/widgets/buttons.php:1004
+#: modules/caldera-forms/widgets/caldera-forms.php:1283
 #: modules/contact-form-seven/widgets/contact-form-7.php:1128
+#: modules/content-reveal/widgets/content-reveal.php:780
 #: modules/content-ticker/widgets/content-ticker.php:1585
 #: modules/content-ticker/widgets/content-ticker.php:1865
 #: modules/flipbox/widgets/flipbox.php:1541
 #: modules/fluent-forms/widgets/fluent-forms.php:1282
 #: modules/formidable-forms/widgets/formidable-forms.php:1298
-#: modules/gravity-forms/widgets/gravity-forms.php:1510
-#: modules/gravity-forms/widgets/gravity-forms.php:1723
+#: modules/gravity-forms/widgets/gravity-forms.php:1509
+#: modules/gravity-forms/widgets/gravity-forms.php:1722
 #: modules/hotspots/widgets/hotspots.php:494
 #: modules/icon-list/widgets/icon-list.php:672
 #: modules/icon-list/widgets/icon-list.php:796
@@ -2621,8 +2640,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3042
 #: modules/posts/skins/skin-base.php:3314
 #: modules/posts/skins/skin-base.php:3520
-#: modules/pricing/widgets/pricing-table.php:533
-#: modules/pricing/widgets/pricing-table.php:2517
+#: modules/pricing/widgets/pricing-table.php:575
+#: modules/pricing/widgets/pricing-table.php:2559
 #: modules/promo-box/widgets/promo-box.php:872
 #: modules/promo-box/widgets/promo-box.php:1570
 #: modules/random-image/widgets/random-image.php:552
@@ -2633,7 +2652,7 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2106
 #: modules/team-member/widgets/team-member-carousel.php:2347
 #: modules/team-member/widgets/team-member.php:1644
-#: modules/wpforms/widgets/wpforms.php:1212
+#: modules/wpforms/widgets/wpforms.php:1185
 msgid "Hover"
 msgstr ""
 
@@ -2652,12 +2671,14 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1215
 #: modules/business-hours/widgets/business-hours.php:716
 #: modules/buttons/widgets/buttons.php:347
-#: modules/buttons/widgets/buttons.php:727
-#: modules/buttons/widgets/buttons.php:1117
-#: modules/caldera-forms/widgets/caldera-forms.php:710
-#: modules/caldera-forms/widgets/caldera-forms.php:1232
+#: modules/buttons/widgets/buttons.php:735
+#: modules/buttons/widgets/buttons.php:1134
+#: modules/caldera-forms/widgets/caldera-forms.php:709
+#: modules/caldera-forms/widgets/caldera-forms.php:1231
 #: modules/contact-form-seven/widgets/contact-form-7.php:451
 #: modules/contact-form-seven/widgets/contact-form-7.php:1075
+#: modules/content-reveal/widgets/content-reveal.php:532
+#: modules/content-reveal/widgets/content-reveal.php:869
 #: modules/content-ticker/widgets/content-ticker.php:1310
 #: modules/content-ticker/widgets/content-ticker.php:1419
 #: modules/content-ticker/widgets/content-ticker.php:1933
@@ -2670,11 +2691,11 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:1240
 #: modules/formidable-forms/widgets/formidable-forms.php:698
 #: modules/formidable-forms/widgets/formidable-forms.php:1245
-#: modules/gravity-forms/widgets/gravity-forms.php:649
-#: modules/gravity-forms/widgets/gravity-forms.php:1457
-#: modules/gravity-forms/widgets/gravity-forms.php:1670
-#: modules/gravity-forms/widgets/gravity-forms.php:1851
-#: modules/gravity-forms/widgets/gravity-forms.php:2227
+#: modules/gravity-forms/widgets/gravity-forms.php:648
+#: modules/gravity-forms/widgets/gravity-forms.php:1456
+#: modules/gravity-forms/widgets/gravity-forms.php:1669
+#: modules/gravity-forms/widgets/gravity-forms.php:1850
+#: modules/gravity-forms/widgets/gravity-forms.php:2226
 #: modules/headings/widgets/dual-heading.php:348
 #: modules/headings/widgets/dual-heading.php:482
 #: modules/hotspots/widgets/hotspots.php:919
@@ -2716,16 +2737,16 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3490
 #: modules/pricing/widgets/price-menu.php:419
 #: modules/pricing/widgets/price-menu.php:481
-#: modules/pricing/widgets/price-menu.php:940
-#: modules/pricing/widgets/pricing-table.php:1140
-#: modules/pricing/widgets/pricing-table.php:1265
-#: modules/pricing/widgets/pricing-table.php:1512
-#: modules/pricing/widgets/pricing-table.php:1803
-#: modules/pricing/widgets/pricing-table.php:1961
-#: modules/pricing/widgets/pricing-table.php:2201
-#: modules/pricing/widgets/pricing-table.php:2474
-#: modules/pricing/widgets/pricing-table.php:2613
-#: modules/pricing/widgets/pricing-table.php:2705
+#: modules/pricing/widgets/price-menu.php:960
+#: modules/pricing/widgets/pricing-table.php:1182
+#: modules/pricing/widgets/pricing-table.php:1307
+#: modules/pricing/widgets/pricing-table.php:1554
+#: modules/pricing/widgets/pricing-table.php:1845
+#: modules/pricing/widgets/pricing-table.php:2003
+#: modules/pricing/widgets/pricing-table.php:2243
+#: modules/pricing/widgets/pricing-table.php:2516
+#: modules/pricing/widgets/pricing-table.php:2655
+#: modules/pricing/widgets/pricing-table.php:2747
 #: modules/promo-box/widgets/promo-box.php:512
 #: modules/promo-box/widgets/promo-box.php:694
 #: modules/promo-box/widgets/promo-box.php:817
@@ -2737,8 +2758,8 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2153
 #: modules/team-member/widgets/team-member.php:703
 #: modules/team-member/widgets/team-member.php:1629
-#: modules/wpforms/widgets/wpforms.php:653
-#: modules/wpforms/widgets/wpforms.php:1159
+#: modules/wpforms/widgets/wpforms.php:626
+#: modules/wpforms/widgets/wpforms.php:1132
 msgid "Padding"
 msgstr ""
 
@@ -2760,19 +2781,19 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:655
 #: modules/business-hours/widgets/business-hours.php:697
 #: modules/business-hours/widgets/business-hours.php:789
-#: modules/buttons/widgets/buttons.php:419
-#: modules/buttons/widgets/buttons.php:485
-#: modules/buttons/widgets/buttons.php:785
-#: modules/buttons/widgets/buttons.php:845
-#: modules/caldera-forms/widgets/caldera-forms.php:363
-#: modules/caldera-forms/widgets/caldera-forms.php:424
-#: modules/caldera-forms/widgets/caldera-forms.php:490
-#: modules/caldera-forms/widgets/caldera-forms.php:573
-#: modules/caldera-forms/widgets/caldera-forms.php:821
-#: modules/caldera-forms/widgets/caldera-forms.php:879
-#: modules/caldera-forms/widgets/caldera-forms.php:1197
-#: modules/caldera-forms/widgets/caldera-forms.php:1303
-#: modules/caldera-forms/widgets/caldera-forms.php:1357
+#: modules/buttons/widgets/buttons.php:427
+#: modules/buttons/widgets/buttons.php:493
+#: modules/buttons/widgets/buttons.php:802
+#: modules/buttons/widgets/buttons.php:862
+#: modules/caldera-forms/widgets/caldera-forms.php:362
+#: modules/caldera-forms/widgets/caldera-forms.php:423
+#: modules/caldera-forms/widgets/caldera-forms.php:489
+#: modules/caldera-forms/widgets/caldera-forms.php:572
+#: modules/caldera-forms/widgets/caldera-forms.php:820
+#: modules/caldera-forms/widgets/caldera-forms.php:878
+#: modules/caldera-forms/widgets/caldera-forms.php:1196
+#: modules/caldera-forms/widgets/caldera-forms.php:1302
+#: modules/caldera-forms/widgets/caldera-forms.php:1356
 #: modules/contact-form-seven/widgets/contact-form-7.php:326
 #: modules/contact-form-seven/widgets/contact-form-7.php:357
 #: modules/contact-form-seven/widgets/contact-form-7.php:416
@@ -2783,6 +2804,8 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:1213
 #: modules/contact-form-seven/widgets/contact-form-7.php:1290
 #: modules/contact-form-seven/widgets/contact-form-7.php:1350
+#: modules/content-reveal/widgets/content-reveal.php:677
+#: modules/content-reveal/widgets/content-reveal.php:787
 #: modules/content-ticker/widgets/content-ticker.php:1338
 #: modules/content-ticker/widgets/content-ticker.php:1479
 #: modules/content-ticker/widgets/content-ticker.php:1532
@@ -2813,21 +2836,21 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1366
 #: modules/formidable-forms/widgets/formidable-forms.php:1405
 #: modules/formidable-forms/widgets/formidable-forms.php:1517
-#: modules/gravity-forms/widgets/gravity-forms.php:435
-#: modules/gravity-forms/widgets/gravity-forms.php:466
-#: modules/gravity-forms/widgets/gravity-forms.php:507
-#: modules/gravity-forms/widgets/gravity-forms.php:618
-#: modules/gravity-forms/widgets/gravity-forms.php:834
-#: modules/gravity-forms/widgets/gravity-forms.php:886
-#: modules/gravity-forms/widgets/gravity-forms.php:941
-#: modules/gravity-forms/widgets/gravity-forms.php:1096
-#: modules/gravity-forms/widgets/gravity-forms.php:1421
-#: modules/gravity-forms/widgets/gravity-forms.php:1529
-#: modules/gravity-forms/widgets/gravity-forms.php:1635
-#: modules/gravity-forms/widgets/gravity-forms.php:1742
-#: modules/gravity-forms/widgets/gravity-forms.php:1807
-#: modules/gravity-forms/widgets/gravity-forms.php:1980
-#: modules/gravity-forms/widgets/gravity-forms.php:2170
+#: modules/gravity-forms/widgets/gravity-forms.php:434
+#: modules/gravity-forms/widgets/gravity-forms.php:465
+#: modules/gravity-forms/widgets/gravity-forms.php:506
+#: modules/gravity-forms/widgets/gravity-forms.php:617
+#: modules/gravity-forms/widgets/gravity-forms.php:833
+#: modules/gravity-forms/widgets/gravity-forms.php:885
+#: modules/gravity-forms/widgets/gravity-forms.php:940
+#: modules/gravity-forms/widgets/gravity-forms.php:1095
+#: modules/gravity-forms/widgets/gravity-forms.php:1420
+#: modules/gravity-forms/widgets/gravity-forms.php:1528
+#: modules/gravity-forms/widgets/gravity-forms.php:1634
+#: modules/gravity-forms/widgets/gravity-forms.php:1741
+#: modules/gravity-forms/widgets/gravity-forms.php:1806
+#: modules/gravity-forms/widgets/gravity-forms.php:1979
+#: modules/gravity-forms/widgets/gravity-forms.php:2169
 #: modules/headings/widgets/dual-heading.php:288
 #: modules/headings/widgets/dual-heading.php:393
 #: modules/headings/widgets/fancy-heading.php:305
@@ -2868,18 +2891,18 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2485
 #: modules/posts/skins/skin-base.php:2671
 #: modules/posts/skins/skin-base.php:2817
-#: modules/pricing/widgets/price-menu.php:706
-#: modules/pricing/widgets/pricing-table.php:451
-#: modules/pricing/widgets/pricing-table.php:1639
-#: modules/pricing/widgets/pricing-table.php:1695
-#: modules/pricing/widgets/pricing-table.php:1787
-#: modules/pricing/widgets/pricing-table.php:2003
+#: modules/pricing/widgets/price-menu.php:726
+#: modules/pricing/widgets/pricing-table.php:493
+#: modules/pricing/widgets/pricing-table.php:1681
+#: modules/pricing/widgets/pricing-table.php:1737
+#: modules/pricing/widgets/pricing-table.php:1829
 #: modules/pricing/widgets/pricing-table.php:2045
-#: modules/pricing/widgets/pricing-table.php:2125
-#: modules/pricing/widgets/pricing-table.php:2308
-#: modules/pricing/widgets/pricing-table.php:2432
-#: modules/pricing/widgets/pricing-table.php:2542
-#: modules/pricing/widgets/pricing-table.php:2645
+#: modules/pricing/widgets/pricing-table.php:2087
+#: modules/pricing/widgets/pricing-table.php:2167
+#: modules/pricing/widgets/pricing-table.php:2350
+#: modules/pricing/widgets/pricing-table.php:2474
+#: modules/pricing/widgets/pricing-table.php:2584
+#: modules/pricing/widgets/pricing-table.php:2687
 #: modules/promo-box/widgets/promo-box.php:1504
 #: modules/promo-box/widgets/promo-box.php:1589
 #: modules/random-image/widgets/random-image.php:898
@@ -2891,16 +2914,16 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:867
 #: modules/team-member/widgets/team-member.php:1079
 #: modules/team-member/widgets/team-member.php:1299
-#: modules/wpforms/widgets/wpforms.php:330
-#: modules/wpforms/widgets/wpforms.php:379
-#: modules/wpforms/widgets/wpforms.php:434
-#: modules/wpforms/widgets/wpforms.php:516
-#: modules/wpforms/widgets/wpforms.php:752
-#: modules/wpforms/widgets/wpforms.php:808
-#: modules/wpforms/widgets/wpforms.php:1124
-#: modules/wpforms/widgets/wpforms.php:1231
-#: modules/wpforms/widgets/wpforms.php:1276
-#: modules/wpforms/widgets/wpforms.php:1356
+#: modules/wpforms/widgets/wpforms.php:303
+#: modules/wpforms/widgets/wpforms.php:352
+#: modules/wpforms/widgets/wpforms.php:407
+#: modules/wpforms/widgets/wpforms.php:489
+#: modules/wpforms/widgets/wpforms.php:725
+#: modules/wpforms/widgets/wpforms.php:781
+#: modules/wpforms/widgets/wpforms.php:1097
+#: modules/wpforms/widgets/wpforms.php:1204
+#: modules/wpforms/widgets/wpforms.php:1249
+#: modules/wpforms/widgets/wpforms.php:1329
 msgid "Text Color"
 msgstr ""
 
@@ -2918,23 +2941,26 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:640
 #: modules/business-hours/widgets/business-hours.php:682
 #: modules/business-hours/widgets/business-hours.php:765
-#: modules/buttons/widgets/buttons.php:408
-#: modules/buttons/widgets/buttons.php:473
-#: modules/buttons/widgets/buttons.php:770
-#: modules/buttons/widgets/buttons.php:834
-#: modules/buttons/widgets/buttons.php:1067
-#: modules/caldera-forms/widgets/caldera-forms.php:561
-#: modules/caldera-forms/widgets/caldera-forms.php:769
-#: modules/caldera-forms/widgets/caldera-forms.php:1185
-#: modules/caldera-forms/widgets/caldera-forms.php:1291
-#: modules/caldera-forms/widgets/caldera-forms.php:1346
-#: modules/caldera-forms/widgets/caldera-forms.php:1424
+#: modules/buttons/widgets/buttons.php:416
+#: modules/buttons/widgets/buttons.php:481
+#: modules/buttons/widgets/buttons.php:787
+#: modules/buttons/widgets/buttons.php:851
+#: modules/buttons/widgets/buttons.php:1084
+#: modules/caldera-forms/widgets/caldera-forms.php:560
+#: modules/caldera-forms/widgets/caldera-forms.php:768
+#: modules/caldera-forms/widgets/caldera-forms.php:1184
+#: modules/caldera-forms/widgets/caldera-forms.php:1290
+#: modules/caldera-forms/widgets/caldera-forms.php:1345
+#: modules/caldera-forms/widgets/caldera-forms.php:1423
 #: modules/contact-form-seven/widgets/contact-form-7.php:404
 #: modules/contact-form-seven/widgets/contact-form-7.php:578
 #: modules/contact-form-seven/widgets/contact-form-7.php:1029
 #: modules/contact-form-seven/widgets/contact-form-7.php:1135
 #: modules/contact-form-seven/widgets/contact-form-7.php:1275
 #: modules/contact-form-seven/widgets/contact-form-7.php:1335
+#: modules/content-reveal/widgets/content-reveal.php:513
+#: modules/content-reveal/widgets/content-reveal.php:731
+#: modules/content-reveal/widgets/content-reveal.php:840
 #: modules/content-ticker/widgets/content-ticker.php:1322
 #: modules/content-ticker/widgets/content-ticker.php:1435
 #: modules/content-ticker/widgets/content-ticker.php:1590
@@ -2954,14 +2980,14 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1305
 #: modules/formidable-forms/widgets/formidable-forms.php:1420
 #: modules/formidable-forms/widgets/formidable-forms.php:1529
-#: modules/gravity-forms/widgets/gravity-forms.php:606
-#: modules/gravity-forms/widgets/gravity-forms.php:822
-#: modules/gravity-forms/widgets/gravity-forms.php:1408
-#: modules/gravity-forms/widgets/gravity-forms.php:1517
-#: modules/gravity-forms/widgets/gravity-forms.php:1623
-#: modules/gravity-forms/widgets/gravity-forms.php:1730
-#: modules/gravity-forms/widgets/gravity-forms.php:1795
-#: modules/gravity-forms/widgets/gravity-forms.php:2182
+#: modules/gravity-forms/widgets/gravity-forms.php:605
+#: modules/gravity-forms/widgets/gravity-forms.php:821
+#: modules/gravity-forms/widgets/gravity-forms.php:1407
+#: modules/gravity-forms/widgets/gravity-forms.php:1516
+#: modules/gravity-forms/widgets/gravity-forms.php:1622
+#: modules/gravity-forms/widgets/gravity-forms.php:1729
+#: modules/gravity-forms/widgets/gravity-forms.php:1794
+#: modules/gravity-forms/widgets/gravity-forms.php:2181
 #: modules/hotspots/widgets/hotspots.php:403
 #: modules/hotspots/widgets/hotspots.php:884
 #: modules/hotspots/widgets/hotspots.php:955
@@ -3023,21 +3049,21 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3531
 #: modules/posts/skins/skin-base.php:3602
 #: modules/pricing/widgets/price-menu.php:388
-#: modules/pricing/widgets/price-menu.php:721
-#: modules/pricing/widgets/price-menu.php:888
-#: modules/pricing/widgets/pricing-table.php:464
-#: modules/pricing/widgets/pricing-table.php:1110
-#: modules/pricing/widgets/pricing-table.php:1218
-#: modules/pricing/widgets/pricing-table.php:1441
-#: modules/pricing/widgets/pricing-table.php:1775
-#: modules/pricing/widgets/pricing-table.php:1988
+#: modules/pricing/widgets/price-menu.php:741
+#: modules/pricing/widgets/price-menu.php:908
+#: modules/pricing/widgets/pricing-table.php:506
+#: modules/pricing/widgets/pricing-table.php:1152
+#: modules/pricing/widgets/pricing-table.php:1260
+#: modules/pricing/widgets/pricing-table.php:1483
+#: modules/pricing/widgets/pricing-table.php:1817
 #: modules/pricing/widgets/pricing-table.php:2030
-#: modules/pricing/widgets/pricing-table.php:2106
-#: modules/pricing/widgets/pricing-table.php:2295
-#: modules/pricing/widgets/pricing-table.php:2413
-#: modules/pricing/widgets/pricing-table.php:2527
-#: modules/pricing/widgets/pricing-table.php:2601
-#: modules/pricing/widgets/pricing-table.php:2664
+#: modules/pricing/widgets/pricing-table.php:2072
+#: modules/pricing/widgets/pricing-table.php:2148
+#: modules/pricing/widgets/pricing-table.php:2337
+#: modules/pricing/widgets/pricing-table.php:2455
+#: modules/pricing/widgets/pricing-table.php:2569
+#: modules/pricing/widgets/pricing-table.php:2643
+#: modules/pricing/widgets/pricing-table.php:2706
 #: modules/promo-box/widgets/promo-box.php:805
 #: modules/promo-box/widgets/promo-box.php:896
 #: modules/promo-box/widgets/promo-box.php:1492
@@ -3051,26 +3077,27 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2113
 #: modules/team-member/widgets/team-member.php:1593
 #: modules/team-member/widgets/team-member.php:1664
-#: modules/wpforms/widgets/wpforms.php:504
-#: modules/wpforms/widgets/wpforms.php:1112
-#: modules/wpforms/widgets/wpforms.php:1219
-#: modules/wpforms/widgets/wpforms.php:1368
+#: modules/wpforms/widgets/wpforms.php:477
+#: modules/wpforms/widgets/wpforms.php:1085
+#: modules/wpforms/widgets/wpforms.php:1192
+#: modules/wpforms/widgets/wpforms.php:1341
 msgid "Background Color"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:828
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1195
-#: modules/buttons/widgets/buttons.php:443
-#: modules/buttons/widgets/buttons.php:797
-#: modules/caldera-forms/widgets/caldera-forms.php:586
-#: modules/caldera-forms/widgets/caldera-forms.php:782
-#: modules/caldera-forms/widgets/caldera-forms.php:1210
-#: modules/caldera-forms/widgets/caldera-forms.php:1369
+#: modules/buttons/widgets/buttons.php:451
+#: modules/buttons/widgets/buttons.php:814
+#: modules/caldera-forms/widgets/caldera-forms.php:585
+#: modules/caldera-forms/widgets/caldera-forms.php:781
+#: modules/caldera-forms/widgets/caldera-forms.php:1209
+#: modules/caldera-forms/widgets/caldera-forms.php:1368
 #: modules/contact-form-seven/widgets/contact-form-7.php:526
 #: modules/contact-form-seven/widgets/contact-form-7.php:591
 #: modules/contact-form-seven/widgets/contact-form-7.php:1054
 #: modules/contact-form-seven/widgets/contact-form-7.php:1306
 #: modules/contact-form-seven/widgets/contact-form-7.php:1380
+#: modules/content-reveal/widgets/content-reveal.php:748
 #: modules/content-ticker/widgets/content-ticker.php:1355
 #: modules/content-ticker/widgets/content-ticker.php:1448
 #: modules/content-ticker/widgets/content-ticker.php:1667
@@ -3086,12 +3113,12 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1223
 #: modules/formidable-forms/widgets/formidable-forms.php:1436
 #: modules/formidable-forms/widgets/formidable-forms.php:1542
-#: modules/gravity-forms/widgets/gravity-forms.php:770
-#: modules/gravity-forms/widgets/gravity-forms.php:847
-#: modules/gravity-forms/widgets/gravity-forms.php:1435
-#: modules/gravity-forms/widgets/gravity-forms.php:1648
-#: modules/gravity-forms/widgets/gravity-forms.php:1829
-#: modules/gravity-forms/widgets/gravity-forms.php:2204
+#: modules/gravity-forms/widgets/gravity-forms.php:769
+#: modules/gravity-forms/widgets/gravity-forms.php:846
+#: modules/gravity-forms/widgets/gravity-forms.php:1434
+#: modules/gravity-forms/widgets/gravity-forms.php:1647
+#: modules/gravity-forms/widgets/gravity-forms.php:1828
+#: modules/gravity-forms/widgets/gravity-forms.php:2203
 #: modules/headings/widgets/dual-heading.php:326
 #: modules/headings/widgets/dual-heading.php:431
 #: modules/hotspots/widgets/hotspots.php:796
@@ -3139,13 +3166,13 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3214
 #: modules/posts/skins/skin-base.php:3460
 #: modules/pricing/widgets/price-menu.php:432
-#: modules/pricing/widgets/price-menu.php:953
-#: modules/pricing/widgets/pricing-table.php:1127
-#: modules/pricing/widgets/pricing-table.php:1281
-#: modules/pricing/widgets/pricing-table.php:1454
-#: modules/pricing/widgets/pricing-table.php:2173
-#: modules/pricing/widgets/pricing-table.php:2448
-#: modules/pricing/widgets/pricing-table.php:2558
+#: modules/pricing/widgets/price-menu.php:973
+#: modules/pricing/widgets/pricing-table.php:1169
+#: modules/pricing/widgets/pricing-table.php:1323
+#: modules/pricing/widgets/pricing-table.php:1496
+#: modules/pricing/widgets/pricing-table.php:2215
+#: modules/pricing/widgets/pricing-table.php:2490
+#: modules/pricing/widgets/pricing-table.php:2600
 #: modules/promo-box/widgets/promo-box.php:490
 #: modules/promo-box/widgets/promo-box.php:646
 #: modules/promo-box/widgets/promo-box.php:830
@@ -3162,15 +3189,15 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:671
 #: modules/team-member/widgets/team-member.php:817
 #: modules/team-member/widgets/team-member.php:1606
-#: modules/wpforms/widgets/wpforms.php:529
-#: modules/wpforms/widgets/wpforms.php:715
-#: modules/wpforms/widgets/wpforms.php:1137
-#: modules/wpforms/widgets/wpforms.php:1381
+#: modules/wpforms/widgets/wpforms.php:502
+#: modules/wpforms/widgets/wpforms.php:688
+#: modules/wpforms/widgets/wpforms.php:1110
+#: modules/wpforms/widgets/wpforms.php:1354
 msgid "Border"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:957
-#: modules/buttons/widgets/buttons.php:378
+#: modules/buttons/widgets/buttons.php:386
 #: modules/flipbox/widgets/flipbox.php:825
 #: modules/flipbox/widgets/flipbox.php:1179
 #: modules/info-box/widgets/info-box-carousel.php:965
@@ -3191,11 +3218,12 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1086
 #: modules/business-hours/widgets/business-hours.php:901
 #: modules/business-hours/widgets/business-hours.php:958
-#: modules/caldera-forms/widgets/caldera-forms.php:322
-#: modules/caldera-forms/widgets/caldera-forms.php:526
-#: modules/caldera-forms/widgets/caldera-forms.php:1109
+#: modules/caldera-forms/widgets/caldera-forms.php:321
+#: modules/caldera-forms/widgets/caldera-forms.php:525
+#: modules/caldera-forms/widgets/caldera-forms.php:1108
 #: modules/contact-form-seven/widgets/contact-form-7.php:291
 #: modules/contact-form-seven/widgets/contact-form-7.php:950
+#: modules/content-reveal/widgets/content-reveal.php:308
 #: modules/content-ticker/widgets/content-ticker.php:1286
 #: modules/counter/widgets/counter.php:457
 #: modules/divider/widgets/divider.php:255
@@ -3208,10 +3236,10 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:514
 #: modules/formidable-forms/widgets/formidable-forms.php:1119
 #: modules/formidable-forms/widgets/formidable-forms.php:1482
-#: modules/gravity-forms/widgets/gravity-forms.php:400
-#: modules/gravity-forms/widgets/gravity-forms.php:571
-#: modules/gravity-forms/widgets/gravity-forms.php:1328
-#: modules/gravity-forms/widgets/gravity-forms.php:2144
+#: modules/gravity-forms/widgets/gravity-forms.php:399
+#: modules/gravity-forms/widgets/gravity-forms.php:570
+#: modules/gravity-forms/widgets/gravity-forms.php:1327
+#: modules/gravity-forms/widgets/gravity-forms.php:2143
 #: modules/headings/widgets/dual-heading.php:205
 #: modules/headings/widgets/fancy-heading.php:172
 #: modules/hotspots/widgets/hotspots.php:768
@@ -3231,8 +3259,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1333
 #: modules/posts/skins/skin-base.php:1818
 #: modules/pricing/widgets/price-menu.php:274
-#: modules/pricing/widgets/pricing-table.php:1069
-#: modules/pricing/widgets/pricing-table.php:1748
+#: modules/pricing/widgets/pricing-table.php:1111
+#: modules/pricing/widgets/pricing-table.php:1790
 #: modules/promo-box/widgets/promo-box.php:580
 #: modules/random-image/widgets/random-image.php:228
 #: modules/team-member/widgets/team-member-carousel.php:803
@@ -3240,9 +3268,9 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:633
 #: modules/team-member/widgets/team-member.php:736
 #: modules/twitter/widgets/twitter-tweet.php:115
-#: modules/wpforms/widgets/wpforms.php:295
-#: modules/wpforms/widgets/wpforms.php:469
-#: modules/wpforms/widgets/wpforms.php:1033
+#: modules/wpforms/widgets/wpforms.php:268
+#: modules/wpforms/widgets/wpforms.php:442
+#: modules/wpforms/widgets/wpforms.php:1006
 msgid "Alignment"
 msgstr ""
 
@@ -3255,12 +3283,13 @@ msgid "End"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1106
-#: modules/buttons/widgets/buttons.php:942
-#: modules/caldera-forms/widgets/caldera-forms.php:722
-#: modules/caldera-forms/widgets/caldera-forms.php:841
+#: modules/buttons/widgets/buttons.php:959
+#: modules/caldera-forms/widgets/caldera-forms.php:721
+#: modules/caldera-forms/widgets/caldera-forms.php:840
 #: modules/contact-form-seven/widgets/contact-form-7.php:428
 #: modules/contact-form-seven/widgets/contact-form-7.php:646
 #: modules/contact-form-seven/widgets/contact-form-7.php:1241
+#: modules/content-reveal/widgets/content-reveal.php:944
 #: modules/content-ticker/widgets/content-ticker.php:1912
 #: modules/counter/widgets/counter.php:822
 #: modules/counter/widgets/counter.php:1042
@@ -3278,9 +3307,9 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:791
 #: modules/formidable-forms/widgets/formidable-forms.php:711
 #: modules/formidable-forms/widgets/formidable-forms.php:845
-#: modules/gravity-forms/widgets/gravity-forms.php:533
-#: modules/gravity-forms/widgets/gravity-forms.php:630
-#: modules/gravity-forms/widgets/gravity-forms.php:906
+#: modules/gravity-forms/widgets/gravity-forms.php:532
+#: modules/gravity-forms/widgets/gravity-forms.php:629
+#: modules/gravity-forms/widgets/gravity-forms.php:905
 #: modules/headings/widgets/dual-heading.php:453
 #: modules/icon-list/widgets/icon-list.php:615
 #: modules/image-accordion/widgets/image-accordion.php:802
@@ -3295,32 +3324,34 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1914
 #: modules/posts/skins/skin-base.php:2178
 #: modules/posts/skins/skin-base.php:3161
-#: modules/pricing/widgets/pricing-table.php:1380
-#: modules/pricing/widgets/pricing-table.php:1661
-#: modules/pricing/widgets/pricing-table.php:1894
-#: modules/pricing/widgets/pricing-table.php:1926
-#: modules/pricing/widgets/pricing-table.php:2374
+#: modules/pricing/widgets/pricing-table.php:1422
+#: modules/pricing/widgets/pricing-table.php:1703
+#: modules/pricing/widgets/pricing-table.php:1936
+#: modules/pricing/widgets/pricing-table.php:1968
+#: modules/pricing/widgets/pricing-table.php:2416
 #: modules/promo-box/widgets/promo-box.php:956
 #: modules/promo-box/widgets/promo-box.php:1123
 #: modules/promo-box/widgets/promo-box.php:1189
 #: modules/promo-box/widgets/promo-box.php:1356
 #: modules/promo-box/widgets/promo-box.php:1419
 #: modules/team-member/widgets/team-member-carousel.php:2223
-#: modules/wpforms/widgets/wpforms.php:666
-#: modules/wpforms/widgets/wpforms.php:772
+#: modules/wpforms/widgets/wpforms.php:639
+#: modules/wpforms/widgets/wpforms.php:745
 msgid "Spacing"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1124
-#: modules/buttons/widgets/buttons.php:922
-#: modules/caldera-forms/widgets/caldera-forms.php:920
+#: modules/buttons/widgets/buttons.php:939
+#: modules/caldera-forms/widgets/caldera-forms.php:919
 #: modules/contact-form-seven/widgets/contact-form-7.php:762
+#: modules/content-reveal/widgets/content-reveal.php:608
+#: modules/content-reveal/widgets/content-reveal.php:909
 #: modules/counter/widgets/counter.php:569
 #: modules/divider/widgets/divider.php:811
 #: modules/flipbox/widgets/flipbox.php:1351
 #: modules/fluent-forms/widgets/fluent-forms.php:870
 #: modules/formidable-forms/widgets/formidable-forms.php:928
-#: modules/gravity-forms/widgets/gravity-forms.php:1137
+#: modules/gravity-forms/widgets/gravity-forms.php:1136
 #: modules/hotspots/widgets/hotspots.php:507
 #: modules/hotspots/widgets/hotspots.php:842
 #: modules/icon-list/widgets/icon-list.php:594
@@ -3340,16 +3371,16 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2612
 #: modules/posts/skins/skin-base.php:3138
 #: modules/posts/skins/skin-base.php:3720
-#: modules/pricing/widgets/pricing-table.php:546
-#: modules/pricing/widgets/pricing-table.php:840
-#: modules/pricing/widgets/pricing-table.php:1164
-#: modules/pricing/widgets/pricing-table.php:1544
-#: modules/pricing/widgets/pricing-table.php:1875
-#: modules/pricing/widgets/pricing-table.php:2256
-#: modules/pricing/widgets/pricing-table.php:2355
+#: modules/pricing/widgets/pricing-table.php:588
+#: modules/pricing/widgets/pricing-table.php:882
+#: modules/pricing/widgets/pricing-table.php:1206
+#: modules/pricing/widgets/pricing-table.php:1586
+#: modules/pricing/widgets/pricing-table.php:1917
+#: modules/pricing/widgets/pricing-table.php:2298
+#: modules/pricing/widgets/pricing-table.php:2397
 #: modules/promo-box/widgets/promo-box.php:1464
 #: modules/team-member/widgets/team-member-carousel.php:2200
-#: modules/wpforms/widgets/wpforms.php:847
+#: modules/wpforms/widgets/wpforms.php:820
 msgid "Size"
 msgstr ""
 
@@ -3358,14 +3389,15 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1291
 #: modules/business-hours/widgets/business-hours.php:927
 #: modules/business-hours/widgets/business-hours.php:984
-#: modules/buttons/widgets/buttons.php:972
-#: modules/buttons/widgets/buttons.php:994
-#: modules/buttons/widgets/buttons.php:1083
-#: modules/caldera-forms/widgets/caldera-forms.php:958
-#: modules/caldera-forms/widgets/caldera-forms.php:1074
-#: modules/caldera-forms/widgets/caldera-forms.php:1467
+#: modules/buttons/widgets/buttons.php:989
+#: modules/buttons/widgets/buttons.php:1011
+#: modules/buttons/widgets/buttons.php:1100
+#: modules/caldera-forms/widgets/caldera-forms.php:957
+#: modules/caldera-forms/widgets/caldera-forms.php:1073
+#: modules/caldera-forms/widgets/caldera-forms.php:1466
 #: modules/contact-form-seven/widgets/contact-form-7.php:800
 #: modules/contact-form-seven/widgets/contact-form-7.php:916
+#: modules/content-reveal/widgets/content-reveal.php:502
 #: modules/content-ticker/widgets/content-ticker.php:1828
 #: modules/content-ticker/widgets/content-ticker.php:1884
 #: modules/counter/widgets/counter.php:549
@@ -3386,9 +3418,9 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:1058
 #: modules/formidable-forms/widgets/formidable-forms.php:966
 #: modules/formidable-forms/widgets/formidable-forms.php:1082
-#: modules/gravity-forms/widgets/gravity-forms.php:1175
-#: modules/gravity-forms/widgets/gravity-forms.php:1293
-#: modules/gravity-forms/widgets/gravity-forms.php:1932
+#: modules/gravity-forms/widgets/gravity-forms.php:1174
+#: modules/gravity-forms/widgets/gravity-forms.php:1292
+#: modules/gravity-forms/widgets/gravity-forms.php:1931
 #: modules/headings/widgets/fancy-heading.php:280
 #: modules/hotspots/widgets/hotspots.php:387
 #: modules/hotspots/widgets/hotspots.php:871
@@ -3443,16 +3475,16 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3547
 #: modules/posts/skins/skin-base.php:3618
 #: modules/posts/skins/skin-base.php:3705
-#: modules/pricing/widgets/price-menu.php:511
-#: modules/pricing/widgets/price-menu.php:736
-#: modules/pricing/widgets/price-menu.php:828
-#: modules/pricing/widgets/price-menu.php:1082
-#: modules/pricing/widgets/pricing-table.php:1233
-#: modules/pricing/widgets/pricing-table.php:1318
-#: modules/pricing/widgets/pricing-table.php:1352
-#: modules/pricing/widgets/pricing-table.php:1429
-#: modules/pricing/widgets/pricing-table.php:1862
-#: modules/pricing/widgets/pricing-table.php:2240
+#: modules/pricing/widgets/price-menu.php:531
+#: modules/pricing/widgets/price-menu.php:756
+#: modules/pricing/widgets/price-menu.php:848
+#: modules/pricing/widgets/price-menu.php:1102
+#: modules/pricing/widgets/pricing-table.php:1275
+#: modules/pricing/widgets/pricing-table.php:1360
+#: modules/pricing/widgets/pricing-table.php:1394
+#: modules/pricing/widgets/pricing-table.php:1471
+#: modules/pricing/widgets/pricing-table.php:1904
+#: modules/pricing/widgets/pricing-table.php:2282
 #: modules/promo-box/widgets/promo-box.php:553
 #: modules/promo-box/widgets/promo-box.php:935
 #: modules/promo-box/widgets/promo-box.php:1168
@@ -3463,8 +3495,8 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2358
 #: modules/team-member/widgets/team-member.php:1580
 #: modules/team-member/widgets/team-member.php:1651
-#: modules/wpforms/widgets/wpforms.php:885
-#: modules/wpforms/widgets/wpforms.php:1001
+#: modules/wpforms/widgets/wpforms.php:858
+#: modules/wpforms/widgets/wpforms.php:974
 msgid "Color"
 msgstr ""
 
@@ -3478,19 +3510,19 @@ msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:123
 #: modules/buttons/widgets/buttons.php:317
-#: modules/caldera-forms/widgets/caldera-forms.php:1141
+#: modules/caldera-forms/widgets/caldera-forms.php:1140
 #: modules/contact-form-seven/widgets/contact-form-7.php:985
 #: modules/content-ticker/widgets/content-ticker.php:152
 #: modules/content-ticker/widgets/content-ticker.php:858
 #: modules/fluent-forms/widgets/fluent-forms.php:1138
 #: modules/formidable-forms/widgets/formidable-forms.php:1154
-#: modules/gravity-forms/widgets/gravity-forms.php:1364
-#: modules/gravity-forms/widgets/gravity-forms.php:1579
+#: modules/gravity-forms/widgets/gravity-forms.php:1363
+#: modules/gravity-forms/widgets/gravity-forms.php:1578
 #: modules/ninja-forms/widgets/ninja-forms.php:1109
 #: modules/posts/skins/skin-base.php:656
 #: modules/posts/widgets/posts-base.php:394
-#: modules/pricing/widgets/pricing-table.php:282
-#: modules/wpforms/widgets/wpforms.php:1068
+#: modules/pricing/widgets/pricing-table.php:323
+#: modules/wpforms/widgets/wpforms.php:1041
 msgid "Custom"
 msgstr ""
 
@@ -3597,7 +3629,7 @@ msgid "Rows Style"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:615
-#: modules/pricing/widgets/pricing-table.php:1949
+#: modules/pricing/widgets/pricing-table.php:1991
 msgid "Striped Rows"
 msgstr ""
 
@@ -3621,10 +3653,10 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:631
 #: modules/info-table/widgets/info-table.php:701
 #: modules/info-table/widgets/info-table.php:1092
-#: modules/pricing/widgets/price-menu.php:537
-#: modules/pricing/widgets/price-menu.php:662
-#: modules/pricing/widgets/price-menu.php:854
-#: modules/pricing/widgets/pricing-table.php:1823
+#: modules/pricing/widgets/price-menu.php:557
+#: modules/pricing/widgets/price-menu.php:682
+#: modules/pricing/widgets/price-menu.php:874
+#: modules/pricing/widgets/pricing-table.php:1865
 #: modules/team-member/widgets/team-member-carousel.php:1105
 #: modules/team-member/widgets/team-member-carousel.php:1171
 #: modules/team-member/widgets/team-member-carousel.php:1309
@@ -3668,13 +3700,13 @@ msgstr ""
 #: modules/counter/widgets/counter.php:734
 #: modules/counter/widgets/counter.php:934
 #: modules/divider/widgets/divider.php:389
-#: modules/gravity-forms/widgets/gravity-forms.php:972
+#: modules/gravity-forms/widgets/gravity-forms.php:971
 #: modules/icon-list/widgets/icon-list.php:425
 #: modules/info-box/widgets/info-box-carousel.php:1387
 #: modules/info-box/widgets/info-box.php:1330
 #: modules/info-list/widgets/info-list.php:573
-#: modules/pricing/widgets/price-menu.php:582
-#: modules/pricing/widgets/price-menu.php:1065
+#: modules/pricing/widgets/price-menu.php:602
+#: modules/pricing/widgets/price-menu.php:1085
 #: modules/promo-box/widgets/promo-box.php:1036
 #: modules/promo-box/widgets/promo-box.php:1269
 #: modules/team-member/widgets/team-member-carousel.php:1235
@@ -3710,21 +3742,23 @@ msgid "Divider Color"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:845
-#: modules/pricing/widgets/price-menu.php:1102
+#: modules/pricing/widgets/price-menu.php:1122
 msgid "Divider Weight"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:905
 #: modules/business-hours/widgets/business-hours.php:962
-#: modules/buttons/widgets/buttons.php:648
-#: modules/buttons/widgets/buttons.php:676
-#: modules/buttons/widgets/buttons.php:1032
-#: modules/buttons/widgets/buttons.php:1046
-#: modules/caldera-forms/widgets/caldera-forms.php:326
-#: modules/caldera-forms/widgets/caldera-forms.php:530
-#: modules/caldera-forms/widgets/caldera-forms.php:1113
+#: modules/buttons/widgets/buttons.php:656
+#: modules/buttons/widgets/buttons.php:684
+#: modules/buttons/widgets/buttons.php:1049
+#: modules/buttons/widgets/buttons.php:1063
+#: modules/caldera-forms/widgets/caldera-forms.php:325
+#: modules/caldera-forms/widgets/caldera-forms.php:529
+#: modules/caldera-forms/widgets/caldera-forms.php:1112
 #: modules/contact-form-seven/widgets/contact-form-7.php:295
 #: modules/contact-form-seven/widgets/contact-form-7.php:955
+#: modules/content-reveal/widgets/content-reveal.php:313
+#: modules/content-reveal/widgets/content-reveal.php:476
 #: modules/content-ticker/widgets/content-ticker.php:1055
 #: modules/content-ticker/widgets/content-ticker.php:1290
 #: modules/counter/widgets/counter.php:461
@@ -3742,10 +3776,10 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:518
 #: modules/formidable-forms/widgets/formidable-forms.php:1123
 #: modules/formidable-forms/widgets/formidable-forms.php:1486
-#: modules/gravity-forms/widgets/gravity-forms.php:404
-#: modules/gravity-forms/widgets/gravity-forms.php:575
-#: modules/gravity-forms/widgets/gravity-forms.php:1332
-#: modules/gravity-forms/widgets/gravity-forms.php:2148
+#: modules/gravity-forms/widgets/gravity-forms.php:403
+#: modules/gravity-forms/widgets/gravity-forms.php:574
+#: modules/gravity-forms/widgets/gravity-forms.php:1331
+#: modules/gravity-forms/widgets/gravity-forms.php:2147
 #: modules/headings/widgets/dual-heading.php:210
 #: modules/headings/widgets/fancy-heading.php:177
 #: modules/hotspots/widgets/hotspots.php:335
@@ -3779,10 +3813,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:309 modules/posts/skins/skin-base.php:1337
 #: modules/posts/skins/skin-base.php:1823
 #: modules/pricing/widgets/price-menu.php:278
-#: modules/pricing/widgets/pricing-table.php:571
-#: modules/pricing/widgets/pricing-table.php:925
-#: modules/pricing/widgets/pricing-table.php:1074
-#: modules/pricing/widgets/pricing-table.php:1753
+#: modules/pricing/widgets/pricing-table.php:613
+#: modules/pricing/widgets/pricing-table.php:967
+#: modules/pricing/widgets/pricing-table.php:1116
+#: modules/pricing/widgets/pricing-table.php:1795
 #: modules/promo-box/widgets/promo-box.php:585
 #: modules/random-image/widgets/random-image.php:232
 #: modules/random-image/widgets/random-image.php:719
@@ -3793,22 +3827,24 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:637
 #: modules/team-member/widgets/team-member.php:740
 #: modules/twitter/widgets/twitter-tweet.php:119
-#: modules/wpforms/widgets/wpforms.php:299
-#: modules/wpforms/widgets/wpforms.php:473
-#: modules/wpforms/widgets/wpforms.php:1037
+#: modules/wpforms/widgets/wpforms.php:272
+#: modules/wpforms/widgets/wpforms.php:446
+#: modules/wpforms/widgets/wpforms.php:1010
 msgid "Left"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:909
 #: modules/business-hours/widgets/business-hours.php:966
-#: modules/buttons/widgets/buttons.php:652
-#: modules/buttons/widgets/buttons.php:680
-#: modules/buttons/widgets/buttons.php:1050
-#: modules/caldera-forms/widgets/caldera-forms.php:330
-#: modules/caldera-forms/widgets/caldera-forms.php:534
-#: modules/caldera-forms/widgets/caldera-forms.php:1117
+#: modules/buttons/widgets/buttons.php:660
+#: modules/buttons/widgets/buttons.php:688
+#: modules/buttons/widgets/buttons.php:1067
+#: modules/caldera-forms/widgets/caldera-forms.php:329
+#: modules/caldera-forms/widgets/caldera-forms.php:533
+#: modules/caldera-forms/widgets/caldera-forms.php:1116
 #: modules/contact-form-seven/widgets/contact-form-7.php:299
 #: modules/contact-form-seven/widgets/contact-form-7.php:959
+#: modules/content-reveal/widgets/content-reveal.php:317
+#: modules/content-reveal/widgets/content-reveal.php:480
 #: modules/content-ticker/widgets/content-ticker.php:1294
 #: modules/counter/widgets/counter.php:465
 #: modules/divider/widgets/divider.php:264
@@ -3825,10 +3861,10 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:522
 #: modules/formidable-forms/widgets/formidable-forms.php:1127
 #: modules/formidable-forms/widgets/formidable-forms.php:1490
-#: modules/gravity-forms/widgets/gravity-forms.php:408
-#: modules/gravity-forms/widgets/gravity-forms.php:579
-#: modules/gravity-forms/widgets/gravity-forms.php:1336
-#: modules/gravity-forms/widgets/gravity-forms.php:2152
+#: modules/gravity-forms/widgets/gravity-forms.php:407
+#: modules/gravity-forms/widgets/gravity-forms.php:578
+#: modules/gravity-forms/widgets/gravity-forms.php:1335
+#: modules/gravity-forms/widgets/gravity-forms.php:2151
 #: modules/headings/widgets/dual-heading.php:214
 #: modules/headings/widgets/fancy-heading.php:181
 #: modules/hotspots/widgets/hotspots.php:777
@@ -3860,9 +3896,9 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1341
 #: modules/posts/skins/skin-base.php:1827
 #: modules/pricing/widgets/price-menu.php:282
-#: modules/pricing/widgets/price-menu.php:1034
-#: modules/pricing/widgets/pricing-table.php:1078
-#: modules/pricing/widgets/pricing-table.php:1757
+#: modules/pricing/widgets/price-menu.php:1054
+#: modules/pricing/widgets/pricing-table.php:1120
+#: modules/pricing/widgets/pricing-table.php:1799
 #: modules/promo-box/widgets/promo-box.php:589
 #: modules/promo-box/widgets/promo-box.php:617
 #: modules/random-image/widgets/random-image.php:236
@@ -3874,23 +3910,25 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:641
 #: modules/team-member/widgets/team-member.php:744
 #: modules/twitter/widgets/twitter-tweet.php:120
-#: modules/wpforms/widgets/wpforms.php:303
-#: modules/wpforms/widgets/wpforms.php:477
-#: modules/wpforms/widgets/wpforms.php:1041
+#: modules/wpforms/widgets/wpforms.php:276
+#: modules/wpforms/widgets/wpforms.php:450
+#: modules/wpforms/widgets/wpforms.php:1014
 msgid "Center"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:913
 #: modules/business-hours/widgets/business-hours.php:970
-#: modules/buttons/widgets/buttons.php:656
-#: modules/buttons/widgets/buttons.php:684
-#: modules/buttons/widgets/buttons.php:1033
-#: modules/buttons/widgets/buttons.php:1054
-#: modules/caldera-forms/widgets/caldera-forms.php:334
-#: modules/caldera-forms/widgets/caldera-forms.php:538
-#: modules/caldera-forms/widgets/caldera-forms.php:1121
+#: modules/buttons/widgets/buttons.php:664
+#: modules/buttons/widgets/buttons.php:692
+#: modules/buttons/widgets/buttons.php:1050
+#: modules/buttons/widgets/buttons.php:1071
+#: modules/caldera-forms/widgets/caldera-forms.php:333
+#: modules/caldera-forms/widgets/caldera-forms.php:537
+#: modules/caldera-forms/widgets/caldera-forms.php:1120
 #: modules/contact-form-seven/widgets/contact-form-7.php:303
 #: modules/contact-form-seven/widgets/contact-form-7.php:963
+#: modules/content-reveal/widgets/content-reveal.php:321
+#: modules/content-reveal/widgets/content-reveal.php:484
 #: modules/content-ticker/widgets/content-ticker.php:1059
 #: modules/content-ticker/widgets/content-ticker.php:1298
 #: modules/counter/widgets/counter.php:469
@@ -3908,10 +3946,10 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:526
 #: modules/formidable-forms/widgets/formidable-forms.php:1131
 #: modules/formidable-forms/widgets/formidable-forms.php:1494
-#: modules/gravity-forms/widgets/gravity-forms.php:412
-#: modules/gravity-forms/widgets/gravity-forms.php:583
-#: modules/gravity-forms/widgets/gravity-forms.php:1340
-#: modules/gravity-forms/widgets/gravity-forms.php:2156
+#: modules/gravity-forms/widgets/gravity-forms.php:411
+#: modules/gravity-forms/widgets/gravity-forms.php:582
+#: modules/gravity-forms/widgets/gravity-forms.php:1339
+#: modules/gravity-forms/widgets/gravity-forms.php:2155
 #: modules/headings/widgets/dual-heading.php:218
 #: modules/headings/widgets/fancy-heading.php:185
 #: modules/hotspots/widgets/hotspots.php:336
@@ -3945,10 +3983,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:313 modules/posts/skins/skin-base.php:1345
 #: modules/posts/skins/skin-base.php:1831
 #: modules/pricing/widgets/price-menu.php:286
-#: modules/pricing/widgets/pricing-table.php:572
-#: modules/pricing/widgets/pricing-table.php:929
-#: modules/pricing/widgets/pricing-table.php:1082
-#: modules/pricing/widgets/pricing-table.php:1761
+#: modules/pricing/widgets/pricing-table.php:614
+#: modules/pricing/widgets/pricing-table.php:971
+#: modules/pricing/widgets/pricing-table.php:1124
+#: modules/pricing/widgets/pricing-table.php:1803
 #: modules/promo-box/widgets/promo-box.php:593
 #: modules/random-image/widgets/random-image.php:240
 #: modules/random-image/widgets/random-image.php:727
@@ -3959,24 +3997,24 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:645
 #: modules/team-member/widgets/team-member.php:748
 #: modules/twitter/widgets/twitter-tweet.php:121
-#: modules/wpforms/widgets/wpforms.php:307
-#: modules/wpforms/widgets/wpforms.php:481
-#: modules/wpforms/widgets/wpforms.php:1045
+#: modules/wpforms/widgets/wpforms.php:280
+#: modules/wpforms/widgets/wpforms.php:454
+#: modules/wpforms/widgets/wpforms.php:1018
 msgid "Right"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:940
 #: modules/business-hours/widgets/business-hours.php:997
-#: modules/buttons/widgets/buttons.php:753
-#: modules/buttons/widgets/buttons.php:900
-#: modules/caldera-forms/widgets/caldera-forms.php:379
-#: modules/caldera-forms/widgets/caldera-forms.php:440
-#: modules/caldera-forms/widgets/caldera-forms.php:502
-#: modules/caldera-forms/widgets/caldera-forms.php:742
-#: modules/caldera-forms/widgets/caldera-forms.php:833
-#: modules/caldera-forms/widgets/caldera-forms.php:1264
-#: modules/caldera-forms/widgets/caldera-forms.php:1380
-#: modules/caldera-forms/widgets/caldera-forms.php:1483
+#: modules/buttons/widgets/buttons.php:761
+#: modules/buttons/widgets/buttons.php:917
+#: modules/caldera-forms/widgets/caldera-forms.php:378
+#: modules/caldera-forms/widgets/caldera-forms.php:439
+#: modules/caldera-forms/widgets/caldera-forms.php:501
+#: modules/caldera-forms/widgets/caldera-forms.php:741
+#: modules/caldera-forms/widgets/caldera-forms.php:832
+#: modules/caldera-forms/widgets/caldera-forms.php:1263
+#: modules/caldera-forms/widgets/caldera-forms.php:1379
+#: modules/caldera-forms/widgets/caldera-forms.php:1482
 #: modules/contact-form-seven/widgets/contact-form-7.php:339
 #: modules/contact-form-seven/widgets/contact-form-7.php:370
 #: modules/contact-form-seven/widgets/contact-form-7.php:550
@@ -3985,6 +4023,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:1107
 #: modules/contact-form-seven/widgets/contact-form-7.php:1229
 #: modules/contact-form-seven/widgets/contact-form-7.php:1366
+#: modules/content-reveal/widgets/content-reveal.php:645
 #: modules/content-ticker/widgets/content-ticker.php:1369
 #: modules/content-ticker/widgets/content-ticker.php:1492
 #: modules/content-ticker/widgets/content-ticker.php:1550
@@ -4014,18 +4053,18 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1277
 #: modules/formidable-forms/widgets/formidable-forms.php:1394
 #: modules/formidable-forms/widgets/formidable-forms.php:1509
-#: modules/gravity-forms/widgets/gravity-forms.php:448
-#: modules/gravity-forms/widgets/gravity-forms.php:479
-#: modules/gravity-forms/widgets/gravity-forms.php:522
-#: modules/gravity-forms/widgets/gravity-forms.php:794
-#: modules/gravity-forms/widgets/gravity-forms.php:898
-#: modules/gravity-forms/widgets/gravity-forms.php:954
-#: modules/gravity-forms/widgets/gravity-forms.php:1489
-#: modules/gravity-forms/widgets/gravity-forms.php:1702
-#: modules/gravity-forms/widgets/gravity-forms.php:1820
-#: modules/gravity-forms/widgets/gravity-forms.php:1945
-#: modules/gravity-forms/widgets/gravity-forms.php:1996
-#: modules/gravity-forms/widgets/gravity-forms.php:2195
+#: modules/gravity-forms/widgets/gravity-forms.php:447
+#: modules/gravity-forms/widgets/gravity-forms.php:478
+#: modules/gravity-forms/widgets/gravity-forms.php:521
+#: modules/gravity-forms/widgets/gravity-forms.php:793
+#: modules/gravity-forms/widgets/gravity-forms.php:897
+#: modules/gravity-forms/widgets/gravity-forms.php:953
+#: modules/gravity-forms/widgets/gravity-forms.php:1488
+#: modules/gravity-forms/widgets/gravity-forms.php:1701
+#: modules/gravity-forms/widgets/gravity-forms.php:1819
+#: modules/gravity-forms/widgets/gravity-forms.php:1944
+#: modules/gravity-forms/widgets/gravity-forms.php:1995
+#: modules/gravity-forms/widgets/gravity-forms.php:2194
 #: modules/headings/widgets/dual-heading.php:315
 #: modules/headings/widgets/dual-heading.php:420
 #: modules/headings/widgets/fancy-heading.php:260
@@ -4078,17 +4117,17 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2430
 #: modules/posts/skins/skin-base.php:2531
 #: modules/posts/skins/skin-base.php:2632
-#: modules/pricing/widgets/price-menu.php:528
-#: modules/pricing/widgets/price-menu.php:756
-#: modules/pricing/widgets/price-menu.php:845
-#: modules/pricing/widgets/pricing-table.php:1331
-#: modules/pricing/widgets/pricing-table.php:1368
-#: modules/pricing/widgets/pricing-table.php:1419
-#: modules/pricing/widgets/pricing-table.php:1652
-#: modules/pricing/widgets/pricing-table.php:1843
-#: modules/pricing/widgets/pricing-table.php:2160
-#: modules/pricing/widgets/pricing-table.php:2462
-#: modules/pricing/widgets/pricing-table.php:2721
+#: modules/pricing/widgets/price-menu.php:548
+#: modules/pricing/widgets/price-menu.php:776
+#: modules/pricing/widgets/price-menu.php:865
+#: modules/pricing/widgets/pricing-table.php:1373
+#: modules/pricing/widgets/pricing-table.php:1410
+#: modules/pricing/widgets/pricing-table.php:1461
+#: modules/pricing/widgets/pricing-table.php:1694
+#: modules/pricing/widgets/pricing-table.php:1885
+#: modules/pricing/widgets/pricing-table.php:2202
+#: modules/pricing/widgets/pricing-table.php:2504
+#: modules/pricing/widgets/pricing-table.php:2763
 #: modules/promo-box/widgets/promo-box.php:948
 #: modules/promo-box/widgets/promo-box.php:1181
 #: modules/promo-box/widgets/promo-box.php:1411
@@ -4101,14 +4140,14 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:858
 #: modules/team-member/widgets/team-member.php:1070
 #: modules/team-member/widgets/team-member.php:1286
-#: modules/wpforms/widgets/wpforms.php:343
-#: modules/wpforms/widgets/wpforms.php:392
-#: modules/wpforms/widgets/wpforms.php:446
-#: modules/wpforms/widgets/wpforms.php:686
-#: modules/wpforms/widgets/wpforms.php:764
-#: modules/wpforms/widgets/wpforms.php:1191
-#: modules/wpforms/widgets/wpforms.php:1292
-#: modules/wpforms/widgets/wpforms.php:1348
+#: modules/wpforms/widgets/wpforms.php:316
+#: modules/wpforms/widgets/wpforms.php:365
+#: modules/wpforms/widgets/wpforms.php:419
+#: modules/wpforms/widgets/wpforms.php:659
+#: modules/wpforms/widgets/wpforms.php:737
+#: modules/wpforms/widgets/wpforms.php:1164
+#: modules/wpforms/widgets/wpforms.php:1265
+#: modules/wpforms/widgets/wpforms.php:1321
 msgid "Typography"
 msgstr ""
 
@@ -4138,14 +4177,14 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:189
 #: modules/info-table/widgets/info-table.php:131
 #: modules/link-effects/widgets/link-effects.php:112
-#: modules/pricing/widgets/pricing-table.php:384
-#: modules/pricing/widgets/pricing-table.php:621
+#: modules/pricing/widgets/pricing-table.php:425
+#: modules/pricing/widgets/pricing-table.php:663
 msgid "Text"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:138
 #: modules/buttons/widgets/buttons.php:139
-#: modules/buttons/widgets/buttons.php:533
+#: modules/buttons/widgets/buttons.php:541
 msgid "Button #1"
 msgstr ""
 
@@ -4156,7 +4195,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:160
 #: modules/info-list/widgets/info-list.php:172
 #: modules/info-table/widgets/info-table.php:114
-#: modules/pricing/widgets/pricing-table.php:154
+#: modules/pricing/widgets/pricing-table.php:155
 #: modules/promo-box/widgets/promo-box.php:268
 msgid "Icon Type"
 msgstr ""
@@ -4172,14 +4211,14 @@ msgid "Icon Text"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:236
-#: modules/pricing/widgets/pricing-table.php:517
+#: modules/pricing/widgets/pricing-table.php:559
 msgid "Enable Tooltip"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:247
 #: modules/hotspots/widgets/hotspots.php:353
 #: modules/hotspots/widgets/hotspots.php:355
-#: modules/pricing/widgets/pricing-table.php:409
+#: modules/pricing/widgets/pricing-table.php:451
 msgid "Tooltip Content"
 msgstr ""
 
@@ -4211,7 +4250,7 @@ msgid "Add your custom class WITHOUT the dot. e.g: my-class"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:300
-#: modules/buttons/widgets/buttons.php:571
+#: modules/buttons/widgets/buttons.php:579
 #: modules/counter/widgets/counter.php:423
 #: modules/counter/widgets/counter.php:429
 #: modules/icon-list/widgets/icon-list.php:123
@@ -4228,21 +4267,22 @@ msgid "Button Size"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:311
-#: modules/gravity-forms/widgets/gravity-forms.php:1788
+#: modules/gravity-forms/widgets/gravity-forms.php:1787
 #: modules/hotspots/widgets/hotspots.php:511
 #: modules/hotspots/widgets/hotspots.php:585
 #: modules/icon-list/widgets/icon-list.php:128
 #: modules/posts/skins/skin-base.php:655
-#: modules/pricing/widgets/pricing-table.php:550
-#: modules/pricing/widgets/pricing-table.php:670
-#: modules/pricing/widgets/pricing-table.php:812
+#: modules/pricing/widgets/pricing-table.php:592
+#: modules/pricing/widgets/pricing-table.php:712
+#: modules/pricing/widgets/pricing-table.php:854
 #: modules/random-image/widgets/random-image.php:318
 #: modules/random-image/widgets/random-image.php:494
 msgid "Default"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:312
-#: modules/buttons/widgets/buttons.php:582
+#: modules/buttons/widgets/buttons.php:590
+#: modules/content-reveal/widgets/content-reveal.php:612
 #: modules/flipbox/widgets/flipbox.php:1355
 #: modules/image-accordion/widgets/image-accordion.php:872
 #: modules/info-box/widgets/info-box-carousel.php:1631
@@ -4251,13 +4291,14 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1140
 #: modules/instafeed/widgets/instafeed.php:2458
 #: modules/posts/skins/skin-base.php:2616
-#: modules/pricing/widgets/pricing-table.php:2359
+#: modules/pricing/widgets/pricing-table.php:2401
 #: modules/promo-box/widgets/promo-box.php:1468
 msgid "Extra Small"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:313
-#: modules/buttons/widgets/buttons.php:583
+#: modules/buttons/widgets/buttons.php:591
+#: modules/content-reveal/widgets/content-reveal.php:613
 #: modules/flipbox/widgets/flipbox.php:1356
 #: modules/hotspots/widgets/hotspots.php:513
 #: modules/image-accordion/widgets/image-accordion.php:873
@@ -4267,14 +4308,15 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1141
 #: modules/instafeed/widgets/instafeed.php:2459
 #: modules/posts/skins/skin-base.php:2617
-#: modules/pricing/widgets/pricing-table.php:552
-#: modules/pricing/widgets/pricing-table.php:2360
+#: modules/pricing/widgets/pricing-table.php:594
+#: modules/pricing/widgets/pricing-table.php:2402
 #: modules/promo-box/widgets/promo-box.php:1469
 msgid "Small"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:314
-#: modules/buttons/widgets/buttons.php:584
+#: modules/buttons/widgets/buttons.php:592
+#: modules/content-reveal/widgets/content-reveal.php:614
 #: modules/flipbox/widgets/flipbox.php:1357
 #: modules/image-accordion/widgets/image-accordion.php:874
 #: modules/info-box/widgets/info-box-carousel.php:1633
@@ -4283,13 +4325,14 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1142
 #: modules/instafeed/widgets/instafeed.php:2460
 #: modules/posts/skins/skin-base.php:2618
-#: modules/pricing/widgets/pricing-table.php:2361
+#: modules/pricing/widgets/pricing-table.php:2403
 #: modules/promo-box/widgets/promo-box.php:1470
 msgid "Medium"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:315
-#: modules/buttons/widgets/buttons.php:585
+#: modules/buttons/widgets/buttons.php:593
+#: modules/content-reveal/widgets/content-reveal.php:615
 #: modules/flipbox/widgets/flipbox.php:1358
 #: modules/hotspots/widgets/hotspots.php:514
 #: modules/image-accordion/widgets/image-accordion.php:875
@@ -4299,14 +4342,15 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1143
 #: modules/instafeed/widgets/instafeed.php:2461
 #: modules/posts/skins/skin-base.php:2619
-#: modules/pricing/widgets/pricing-table.php:553
-#: modules/pricing/widgets/pricing-table.php:2362
+#: modules/pricing/widgets/pricing-table.php:595
+#: modules/pricing/widgets/pricing-table.php:2404
 #: modules/promo-box/widgets/promo-box.php:1471
 msgid "Large"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:316
-#: modules/buttons/widgets/buttons.php:586
+#: modules/buttons/widgets/buttons.php:594
+#: modules/content-reveal/widgets/content-reveal.php:616
 #: modules/flipbox/widgets/flipbox.php:1359
 #: modules/image-accordion/widgets/image-accordion.php:876
 #: modules/info-box/widgets/info-box-carousel.php:1635
@@ -4315,7 +4359,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1144
 #: modules/instafeed/widgets/instafeed.php:2462
 #: modules/posts/skins/skin-base.php:2620
-#: modules/pricing/widgets/pricing-table.php:2363
+#: modules/pricing/widgets/pricing-table.php:2405
 #: modules/promo-box/widgets/promo-box.php:1472
 msgid "Extra Large"
 msgstr ""
@@ -4331,8 +4375,8 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:567
 #: modules/instafeed/widgets/instafeed.php:1388
 #: modules/logos/widgets/logo-grid.php:162
-#: modules/pricing/widgets/price-menu.php:1060
-#: modules/pricing/widgets/pricing-table.php:808
+#: modules/pricing/widgets/price-menu.php:1080
+#: modules/pricing/widgets/pricing-table.php:850
 msgid "Style"
 msgstr ""
 
@@ -4340,8 +4384,10 @@ msgstr ""
 msgid "Button Typography"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:430
-#: modules/buttons/widgets/buttons.php:497
+#: modules/buttons/widgets/buttons.php:438
+#: modules/buttons/widgets/buttons.php:505
+#: modules/content-reveal/widgets/content-reveal.php:704
+#: modules/content-reveal/widgets/content-reveal.php:813
 #: modules/image-comparison/widgets/image-comparison.php:423
 #: modules/image-comparison/widgets/image-comparison.php:486
 #: modules/info-box/widgets/info-box-carousel.php:993
@@ -4350,36 +4396,36 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1062
 #: modules/info-table/widgets/info-table.php:857
 #: modules/info-table/widgets/info-table.php:963
-#: modules/pricing/widgets/pricing-table.php:435
+#: modules/pricing/widgets/pricing-table.php:477
 #: modules/promo-box/widgets/promo-box.php:788
 #: modules/promo-box/widgets/promo-box.php:879
 #: modules/scroll-image/widgets/scroll-image.php:353
 msgid "Icon Color"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:536
+#: modules/buttons/widgets/buttons.php:544
 msgid "Button #2"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:578
+#: modules/buttons/widgets/buttons.php:586
 msgid "Buttons Size"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:593
+#: modules/buttons/widgets/buttons.php:601
 msgid "Buttons Spacing"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:615
+#: modules/buttons/widgets/buttons.php:623
 #: modules/divider/widgets/divider.php:349
 #: modules/icon-list/widgets/icon-list.php:524
 #: modules/logos/widgets/logo-carousel.php:575
-#: modules/pricing/widgets/price-menu.php:1025
+#: modules/pricing/widgets/price-menu.php:1045
 #: modules/promo-box/widgets/promo-box.php:607
 msgid "Vertical Alignment"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:620
-#: modules/buttons/widgets/buttons.php:914
+#: modules/buttons/widgets/buttons.php:628
+#: modules/buttons/widgets/buttons.php:931
 #: modules/divider/widgets/divider.php:355
 #: modules/flipbox/widgets/flipbox.php:567
 #: modules/flipbox/widgets/flipbox.php:683
@@ -4398,29 +4444,29 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:343
 #: modules/posts/skins/skin-base.php:1244
 #: modules/posts/skins/skin-base.php:1246
-#: modules/pricing/widgets/price-menu.php:980
-#: modules/pricing/widgets/price-menu.php:1030
-#: modules/pricing/widgets/pricing-table.php:569
-#: modules/pricing/widgets/pricing-table.php:1589
+#: modules/pricing/widgets/price-menu.php:1000
+#: modules/pricing/widgets/price-menu.php:1050
+#: modules/pricing/widgets/pricing-table.php:611
+#: modules/pricing/widgets/pricing-table.php:1631
 #: modules/promo-box/widgets/promo-box.php:613
 #: modules/random-image/widgets/random-image.php:683
 msgid "Top"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:624
+#: modules/buttons/widgets/buttons.php:632
 #: modules/flipbox/widgets/flipbox.php:687
 #: modules/flipbox/widgets/flipbox.php:1041
 #: modules/image-accordion/widgets/image-accordion.php:655
 #: modules/image-comparison/widgets/image-comparison.php:603
 #: modules/info-box/widgets/info-box.php:344
 #: modules/instafeed/widgets/instafeed.php:1645
-#: modules/pricing/widgets/price-menu.php:984
-#: modules/pricing/widgets/pricing-table.php:1593
+#: modules/pricing/widgets/price-menu.php:1004
+#: modules/pricing/widgets/pricing-table.php:1635
 msgid "Middle"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:628
-#: modules/buttons/widgets/buttons.php:915
+#: modules/buttons/widgets/buttons.php:636
+#: modules/buttons/widgets/buttons.php:932
 #: modules/divider/widgets/divider.php:363
 #: modules/flipbox/widgets/flipbox.php:568
 #: modules/flipbox/widgets/flipbox.php:691
@@ -4438,59 +4484,59 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:351
 #: modules/posts/skins/skin-base.php:1245
 #: modules/posts/skins/skin-base.php:1246
-#: modules/pricing/widgets/price-menu.php:988
-#: modules/pricing/widgets/price-menu.php:1038
-#: modules/pricing/widgets/pricing-table.php:570
-#: modules/pricing/widgets/pricing-table.php:1597
+#: modules/pricing/widgets/price-menu.php:1008
+#: modules/pricing/widgets/price-menu.php:1058
+#: modules/pricing/widgets/pricing-table.php:612
+#: modules/pricing/widgets/pricing-table.php:1639
 #: modules/promo-box/widgets/promo-box.php:621
 #: modules/random-image/widgets/random-image.php:691
 msgid "Bottom"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:632
-#: modules/buttons/widgets/buttons.php:660
-#: modules/buttons/widgets/buttons.php:688
+#: modules/buttons/widgets/buttons.php:640
+#: modules/buttons/widgets/buttons.php:668
+#: modules/buttons/widgets/buttons.php:696
 msgid "Stretch"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:643
+#: modules/buttons/widgets/buttons.php:651
 #: modules/logos/widgets/logo-carousel.php:601
 msgid "Horizontal Alignment"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:671
+#: modules/buttons/widgets/buttons.php:679
 msgid "Content Alignment"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:710
+#: modules/buttons/widgets/buttons.php:718
 msgid "Stack on"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:713
+#: modules/buttons/widgets/buttons.php:721
 msgid "Choose a breakpoint where the buttons will stack."
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:716
+#: modules/buttons/widgets/buttons.php:724
 msgid "Desktop"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:717
+#: modules/buttons/widgets/buttons.php:725
 #: modules/image-accordion/widgets/image-accordion.php:414
 #: modules/info-list/widgets/info-list.php:521
 msgid "Tablet"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:718
+#: modules/buttons/widgets/buttons.php:726
 #: modules/image-accordion/widgets/image-accordion.php:415
 #: modules/info-list/widgets/info-list.php:522
 msgid "Mobile"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:745
+#: modules/buttons/widgets/buttons.php:753
 msgid "Styling"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:874
+#: modules/buttons/widgets/buttons.php:891
 #: modules/flipbox/widgets/flipbox.php:1596
 #: modules/hotspots/widgets/hotspots.php:570
 #: modules/icon-list/widgets/icon-list.php:720
@@ -4502,13 +4548,14 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1371
 #: modules/instafeed/widgets/instafeed.php:2690
 #: modules/posts/skins/skin-base.php:2847
-#: modules/pricing/widgets/pricing-table.php:600
-#: modules/pricing/widgets/pricing-table.php:2571
+#: modules/pricing/widgets/pricing-table.php:642
+#: modules/pricing/widgets/pricing-table.php:2613
 #: modules/promo-box/widgets/promo-box.php:1613
 msgid "Animation"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:908
+#: modules/buttons/widgets/buttons.php:925
+#: modules/content-reveal/widgets/content-reveal.php:406
 #: modules/content-ticker/widgets/content-ticker.php:1048
 #: modules/flipbox/widgets/flipbox.php:470
 #: modules/image-accordion/widgets/image-accordion.php:241
@@ -4522,7 +4569,8 @@ msgstr ""
 msgid "Icon Position"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:912
+#: modules/buttons/widgets/buttons.php:929
+#: modules/content-reveal/widgets/content-reveal.php:410
 #: modules/content-ticker/widgets/content-ticker.php:889
 #: modules/divider/widgets/divider.php:628
 #: modules/flipbox/widgets/flipbox.php:474
@@ -4535,11 +4583,12 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:369
 #: modules/posts/skins/skin-base.php:1167
 #: modules/posts/widgets/posts-base.php:425
-#: modules/pricing/widgets/pricing-table.php:1574
+#: modules/pricing/widgets/pricing-table.php:1616
 msgid "After"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:913
+#: modules/buttons/widgets/buttons.php:930
+#: modules/content-reveal/widgets/content-reveal.php:411
 #: modules/content-ticker/widgets/content-ticker.php:873
 #: modules/display-conditions/conditions/date-time-before.php:69
 #: modules/display-conditions/conditions/time.php:67
@@ -4554,61 +4603,62 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:370
 #: modules/posts/skins/skin-base.php:1166
 #: modules/posts/widgets/posts-base.php:409
-#: modules/pricing/widgets/pricing-table.php:1570
+#: modules/pricing/widgets/pricing-table.php:1612
 msgid "Before"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:1018
+#: modules/buttons/widgets/buttons.php:1035
 #: modules/hotspots/widgets/hotspots.php:311
 #: modules/hotspots/widgets/hotspots.php:316
 #: modules/hotspots/widgets/hotspots.php:947
-#: modules/pricing/widgets/pricing-table.php:510
-#: modules/pricing/widgets/pricing-table.php:2095
+#: modules/pricing/widgets/pricing-table.php:552
+#: modules/pricing/widgets/pricing-table.php:2137
 msgid "Tooltip"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:1026
+#: modules/buttons/widgets/buttons.php:1043
 #: modules/hotspots/widgets/hotspots.php:328
 msgid "Tooltip Position"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:1030
+#: modules/buttons/widgets/buttons.php:1047
 msgid "Above"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:1031
+#: modules/buttons/widgets/buttons.php:1048
 msgid "Below"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:1041
+#: modules/buttons/widgets/buttons.php:1058
+#: modules/content-reveal/widgets/content-reveal.php:472
 #: modules/image-accordion/widgets/image-accordion.php:711
 #: modules/instafeed/widgets/instafeed.php:1281
 #: modules/random-image/widgets/random-image.php:755
 msgid "Text Align"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:128
+#: modules/caldera-forms/widgets/caldera-forms.php:127
 #: modules/contact-form-seven/widgets/contact-form-7.php:115
 #: modules/contact-form-seven/widgets/contact-form-7.php:122
 #: modules/fluent-forms/widgets/fluent-forms.php:98
 #: modules/formidable-forms/widgets/formidable-forms.php:104
-#: modules/gravity-forms/widgets/gravity-forms.php:149
+#: modules/gravity-forms/widgets/gravity-forms.php:148
 #: modules/ninja-forms/widgets/ninja-forms.php:106
 #: modules/wpforms/widgets/wpforms.php:81
 msgid "Contact Form"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:139
+#: modules/caldera-forms/widgets/caldera-forms.php:138
 #: modules/fluent-forms/widgets/fluent-forms.php:109
 #: modules/formidable-forms/widgets/formidable-forms.php:115
-#: modules/gravity-forms/widgets/gravity-forms.php:160
+#: modules/gravity-forms/widgets/gravity-forms.php:159
 #: modules/ninja-forms/widgets/ninja-forms.php:117
 #: modules/wpforms/widgets/wpforms.php:92
 msgid "Custom Title & Description"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:163
-#: modules/caldera-forms/widgets/caldera-forms.php:412
+#: modules/caldera-forms/widgets/caldera-forms.php:162
+#: modules/caldera-forms/widgets/caldera-forms.php:411
 #: modules/contact-form-seven/widgets/contact-form-7.php:168
 #: modules/contact-form-seven/widgets/contact-form-7.php:348
 #: modules/flipbox/widgets/flipbox.php:236
@@ -4620,9 +4670,9 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:141
 #: modules/formidable-forms/widgets/formidable-forms.php:169
 #: modules/formidable-forms/widgets/formidable-forms.php:407
-#: modules/gravity-forms/widgets/gravity-forms.php:186
-#: modules/gravity-forms/widgets/gravity-forms.php:214
-#: modules/gravity-forms/widgets/gravity-forms.php:457
+#: modules/gravity-forms/widgets/gravity-forms.php:185
+#: modules/gravity-forms/widgets/gravity-forms.php:213
+#: modules/gravity-forms/widgets/gravity-forms.php:456
 #: modules/image-accordion/widgets/image-accordion.php:149
 #: modules/image-accordion/widgets/image-accordion.php:825
 #: modules/info-box/widgets/info-box-carousel.php:181
@@ -4636,7 +4686,7 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:157
 #: modules/ninja-forms/widgets/ninja-forms.php:378
 #: modules/pricing/widgets/price-menu.php:117
-#: modules/pricing/widgets/price-menu.php:820
+#: modules/pricing/widgets/price-menu.php:840
 #: modules/promo-box/widgets/promo-box.php:230
 #: modules/promo-box/widgets/promo-box.php:1390
 #: modules/random-image/widgets/random-image.php:260
@@ -4649,86 +4699,86 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:1273
 #: modules/wpforms/widgets/wpforms.php:118
 #: modules/wpforms/widgets/wpforms.php:146
-#: modules/wpforms/widgets/wpforms.php:370
+#: modules/wpforms/widgets/wpforms.php:343
 msgid "Description"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:175
-#: modules/caldera-forms/widgets/caldera-forms.php:482
+#: modules/caldera-forms/widgets/caldera-forms.php:174
+#: modules/caldera-forms/widgets/caldera-forms.php:481
 #: modules/contact-form-seven/widgets/contact-form-7.php:180
 #: modules/contact-form-seven/widgets/contact-form-7.php:621
 #: modules/fluent-forms/widgets/fluent-forms.php:145
 #: modules/fluent-forms/widgets/fluent-forms.php:422
 #: modules/formidable-forms/widgets/formidable-forms.php:181
 #: modules/formidable-forms/widgets/formidable-forms.php:467
-#: modules/gravity-forms/widgets/gravity-forms.php:226
-#: modules/gravity-forms/widgets/gravity-forms.php:496
+#: modules/gravity-forms/widgets/gravity-forms.php:225
+#: modules/gravity-forms/widgets/gravity-forms.php:495
 #: modules/ninja-forms/widgets/ninja-forms.php:169
 #: modules/ninja-forms/widgets/ninja-forms.php:436
 #: modules/wpforms/widgets/wpforms.php:158
-#: modules/wpforms/widgets/wpforms.php:426
+#: modules/wpforms/widgets/wpforms.php:399
 msgid "Labels"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:188
-#: modules/caldera-forms/widgets/caldera-forms.php:868
+#: modules/caldera-forms/widgets/caldera-forms.php:187
+#: modules/caldera-forms/widgets/caldera-forms.php:867
 #: modules/contact-form-seven/widgets/contact-form-7.php:688
 #: modules/fluent-forms/widgets/fluent-forms.php:158
 #: modules/fluent-forms/widgets/fluent-forms.php:818
 #: modules/formidable-forms/widgets/formidable-forms.php:194
 #: modules/formidable-forms/widgets/formidable-forms.php:874
-#: modules/gravity-forms/widgets/gravity-forms.php:238
-#: modules/gravity-forms/widgets/gravity-forms.php:1085
+#: modules/gravity-forms/widgets/gravity-forms.php:237
+#: modules/gravity-forms/widgets/gravity-forms.php:1084
 #: modules/ninja-forms/widgets/ninja-forms.php:182
 #: modules/ninja-forms/widgets/ninja-forms.php:832
 #: modules/wpforms/widgets/wpforms.php:171
-#: modules/wpforms/widgets/wpforms.php:797
+#: modules/wpforms/widgets/wpforms.php:770
 msgid "Placeholder"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:208
-#: modules/caldera-forms/widgets/caldera-forms.php:1396
+#: modules/caldera-forms/widgets/caldera-forms.php:207
+#: modules/caldera-forms/widgets/caldera-forms.php:1395
 #: modules/contact-form-seven/widgets/contact-form-7.php:200
 #: modules/contact-form-seven/widgets/contact-form-7.php:1182
 #: modules/fluent-forms/widgets/fluent-forms.php:178
 #: modules/fluent-forms/widgets/fluent-forms.php:1336
 #: modules/formidable-forms/widgets/formidable-forms.php:216
 #: modules/formidable-forms/widgets/formidable-forms.php:1355
-#: modules/gravity-forms/widgets/gravity-forms.php:270
-#: modules/gravity-forms/widgets/gravity-forms.php:1961
+#: modules/gravity-forms/widgets/gravity-forms.php:269
+#: modules/gravity-forms/widgets/gravity-forms.php:1960
 #: modules/ninja-forms/widgets/ninja-forms.php:202
 #: modules/ninja-forms/widgets/ninja-forms.php:1401
 #: modules/wpforms/widgets/wpforms.php:189
-#: modules/wpforms/widgets/wpforms.php:1265
+#: modules/wpforms/widgets/wpforms.php:1238
 msgid "Errors"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:215
-#: modules/caldera-forms/widgets/caldera-forms.php:1455
+#: modules/caldera-forms/widgets/caldera-forms.php:214
+#: modules/caldera-forms/widgets/caldera-forms.php:1454
 #: modules/contact-form-seven/widgets/contact-form-7.php:207
 #: modules/contact-form-seven/widgets/contact-form-7.php:1190
 #: modules/fluent-forms/widgets/fluent-forms.php:185
 #: modules/formidable-forms/widgets/formidable-forms.php:223
-#: modules/gravity-forms/widgets/gravity-forms.php:277
-#: modules/gravity-forms/widgets/gravity-forms.php:1969
+#: modules/gravity-forms/widgets/gravity-forms.php:276
+#: modules/gravity-forms/widgets/gravity-forms.php:1968
 #: modules/ninja-forms/widgets/ninja-forms.php:209
 #: modules/ninja-forms/widgets/ninja-forms.php:1409
 #: modules/wpforms/widgets/wpforms.php:196
 msgid "Error Messages"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:311
+#: modules/caldera-forms/widgets/caldera-forms.php:310
 #: modules/contact-form-seven/widgets/contact-form-7.php:283
 #: modules/fluent-forms/widgets/fluent-forms.php:251
 #: modules/formidable-forms/widgets/formidable-forms.php:324
-#: modules/gravity-forms/widgets/gravity-forms.php:392
+#: modules/gravity-forms/widgets/gravity-forms.php:391
 #: modules/ninja-forms/widgets/ninja-forms.php:295
-#: modules/wpforms/widgets/wpforms.php:287
+#: modules/wpforms/widgets/wpforms.php:260
 msgid "Title & Description"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:390
-#: modules/caldera-forms/widgets/caldera-forms.php:452
+#: modules/caldera-forms/widgets/caldera-forms.php:389
+#: modules/caldera-forms/widgets/caldera-forms.php:451
 #: modules/contact-form-seven/widgets/contact-form-7.php:1393
 #: modules/content-ticker/widgets/content-ticker.php:1708
 #: modules/counter/widgets/counter.php:693
@@ -4739,7 +4789,7 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:392
 #: modules/formidable-forms/widgets/formidable-forms.php:388
 #: modules/formidable-forms/widgets/formidable-forms.php:438
-#: modules/gravity-forms/widgets/gravity-forms.php:1024
+#: modules/gravity-forms/widgets/gravity-forms.php:1023
 #: modules/info-box/widgets/info-box-carousel.php:1083
 #: modules/info-box/widgets/info-box-carousel.php:1746
 #: modules/info-box/widgets/info-box-carousel.php:2223
@@ -4754,157 +4804,157 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:409
 #: modules/posts/skins/skin-base.php:2715
 #: modules/posts/skins/skin-base.php:3244
-#: modules/pricing/widgets/price-menu.php:928
-#: modules/pricing/widgets/pricing-table.php:1250
-#: modules/pricing/widgets/pricing-table.php:1500
+#: modules/pricing/widgets/price-menu.php:948
+#: modules/pricing/widgets/pricing-table.php:1292
+#: modules/pricing/widgets/pricing-table.php:1542
 #: modules/promo-box/widgets/promo-box.php:852
 #: modules/random-image/widgets/random-image.php:821
 #: modules/team-member/widgets/team-member-carousel.php:2322
 #: modules/team-member/widgets/team-member.php:690
-#: modules/wpforms/widgets/wpforms.php:351
-#: modules/wpforms/widgets/wpforms.php:401
+#: modules/wpforms/widgets/wpforms.php:324
+#: modules/wpforms/widgets/wpforms.php:374
 msgid "Margin"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:518
+#: modules/caldera-forms/widgets/caldera-forms.php:517
 #: modules/contact-form-seven/widgets/contact-form-7.php:387
 #: modules/fluent-forms/widgets/fluent-forms.php:459
 #: modules/formidable-forms/widgets/formidable-forms.php:506
-#: modules/gravity-forms/widgets/gravity-forms.php:563
+#: modules/gravity-forms/widgets/gravity-forms.php:562
 #: modules/ninja-forms/widgets/ninja-forms.php:481
-#: modules/wpforms/widgets/wpforms.php:461
+#: modules/wpforms/widgets/wpforms.php:434
 msgid "Input & Textarea"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:609
+#: modules/caldera-forms/widgets/caldera-forms.php:608
 #: modules/contact-form-seven/widgets/contact-form-7.php:463
 #: modules/fluent-forms/widgets/fluent-forms.php:567
 #: modules/formidable-forms/widgets/formidable-forms.php:597
-#: modules/gravity-forms/widgets/gravity-forms.php:669
+#: modules/gravity-forms/widgets/gravity-forms.php:668
 #: modules/ninja-forms/widgets/ninja-forms.php:572
-#: modules/wpforms/widgets/wpforms.php:552
+#: modules/wpforms/widgets/wpforms.php:525
 msgid "Text Indent"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:634
+#: modules/caldera-forms/widgets/caldera-forms.php:633
 #: modules/contact-form-seven/widgets/contact-form-7.php:487
 #: modules/fluent-forms/widgets/fluent-forms.php:592
 #: modules/formidable-forms/widgets/formidable-forms.php:622
-#: modules/gravity-forms/widgets/gravity-forms.php:693
+#: modules/gravity-forms/widgets/gravity-forms.php:692
 #: modules/ninja-forms/widgets/ninja-forms.php:597
-#: modules/wpforms/widgets/wpforms.php:577
+#: modules/wpforms/widgets/wpforms.php:550
 msgid "Input Width"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:653
+#: modules/caldera-forms/widgets/caldera-forms.php:652
 #: modules/fluent-forms/widgets/fluent-forms.php:611
 #: modules/formidable-forms/widgets/formidable-forms.php:641
-#: modules/gravity-forms/widgets/gravity-forms.php:712
+#: modules/gravity-forms/widgets/gravity-forms.php:711
 #: modules/ninja-forms/widgets/ninja-forms.php:617
-#: modules/wpforms/widgets/wpforms.php:596
+#: modules/wpforms/widgets/wpforms.php:569
 msgid "Input Height"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:672
+#: modules/caldera-forms/widgets/caldera-forms.php:671
 #: modules/contact-form-seven/widgets/contact-form-7.php:506
 #: modules/fluent-forms/widgets/fluent-forms.php:630
 #: modules/formidable-forms/widgets/formidable-forms.php:660
-#: modules/gravity-forms/widgets/gravity-forms.php:731
+#: modules/gravity-forms/widgets/gravity-forms.php:730
 #: modules/ninja-forms/widgets/ninja-forms.php:636
-#: modules/wpforms/widgets/wpforms.php:615
+#: modules/wpforms/widgets/wpforms.php:588
 msgid "Textarea Width"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:691
+#: modules/caldera-forms/widgets/caldera-forms.php:690
 #: modules/fluent-forms/widgets/fluent-forms.php:649
 #: modules/formidable-forms/widgets/formidable-forms.php:679
-#: modules/gravity-forms/widgets/gravity-forms.php:750
+#: modules/gravity-forms/widgets/gravity-forms.php:749
 #: modules/ninja-forms/widgets/ninja-forms.php:655
-#: modules/wpforms/widgets/wpforms.php:634
+#: modules/wpforms/widgets/wpforms.php:607
 msgid "Textarea Height"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:762
+#: modules/caldera-forms/widgets/caldera-forms.php:761
 #: modules/contact-form-seven/widgets/contact-form-7.php:571
 #: modules/fluent-forms/widgets/fluent-forms.php:702
 #: modules/formidable-forms/widgets/formidable-forms.php:752
-#: modules/gravity-forms/widgets/gravity-forms.php:815
+#: modules/gravity-forms/widgets/gravity-forms.php:814
 #: modules/ninja-forms/widgets/ninja-forms.php:727
-#: modules/wpforms/widgets/wpforms.php:707
+#: modules/wpforms/widgets/wpforms.php:680
 msgid "Focus"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:813
+#: modules/caldera-forms/widgets/caldera-forms.php:812
 #: modules/fluent-forms/widgets/fluent-forms.php:763
 #: modules/formidable-forms/widgets/formidable-forms.php:817
-#: modules/gravity-forms/widgets/gravity-forms.php:878
+#: modules/gravity-forms/widgets/gravity-forms.php:877
 #: modules/ninja-forms/widgets/ninja-forms.php:777
-#: modules/wpforms/widgets/wpforms.php:744
+#: modules/wpforms/widgets/wpforms.php:717
 msgid "Field Description"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:901
+#: modules/caldera-forms/widgets/caldera-forms.php:900
 #: modules/contact-form-seven/widgets/contact-form-7.php:743
 #: modules/fluent-forms/widgets/fluent-forms.php:851
 #: modules/formidable-forms/widgets/formidable-forms.php:909
-#: modules/gravity-forms/widgets/gravity-forms.php:1118
+#: modules/gravity-forms/widgets/gravity-forms.php:1117
 #: modules/ninja-forms/widgets/ninja-forms.php:868
-#: modules/wpforms/widgets/wpforms.php:828
+#: modules/wpforms/widgets/wpforms.php:801
 msgid "Radio & Checkbox"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:909
+#: modules/caldera-forms/widgets/caldera-forms.php:908
 #: modules/contact-form-seven/widgets/contact-form-7.php:751
 #: modules/fluent-forms/widgets/fluent-forms.php:859
 #: modules/formidable-forms/widgets/formidable-forms.php:917
-#: modules/gravity-forms/widgets/gravity-forms.php:1126
+#: modules/gravity-forms/widgets/gravity-forms.php:1125
 #: modules/ninja-forms/widgets/ninja-forms.php:876
-#: modules/wpforms/widgets/wpforms.php:836
+#: modules/wpforms/widgets/wpforms.php:809
 msgid "Custom Styles"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1010
+#: modules/caldera-forms/widgets/caldera-forms.php:1009
 #: modules/contact-form-seven/widgets/contact-form-7.php:852
 #: modules/fluent-forms/widgets/fluent-forms.php:992
 #: modules/formidable-forms/widgets/formidable-forms.php:1018
-#: modules/gravity-forms/widgets/gravity-forms.php:1227
+#: modules/gravity-forms/widgets/gravity-forms.php:1226
 #: modules/ninja-forms/widgets/ninja-forms.php:977
-#: modules/wpforms/widgets/wpforms.php:937
+#: modules/wpforms/widgets/wpforms.php:910
 msgid "Checkbox"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1036
+#: modules/caldera-forms/widgets/caldera-forms.php:1035
 #: modules/contact-form-seven/widgets/contact-form-7.php:878
 #: modules/fluent-forms/widgets/fluent-forms.php:1019
 #: modules/formidable-forms/widgets/formidable-forms.php:1044
-#: modules/gravity-forms/widgets/gravity-forms.php:1254
+#: modules/gravity-forms/widgets/gravity-forms.php:1253
 #: modules/ninja-forms/widgets/ninja-forms.php:1003
-#: modules/wpforms/widgets/wpforms.php:963
+#: modules/wpforms/widgets/wpforms.php:936
 msgid "Radio Buttons"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1064
+#: modules/caldera-forms/widgets/caldera-forms.php:1063
 #: modules/contact-form-seven/widgets/contact-form-7.php:906
 #: modules/fluent-forms/widgets/fluent-forms.php:1048
 #: modules/formidable-forms/widgets/formidable-forms.php:1072
-#: modules/gravity-forms/widgets/gravity-forms.php:1283
+#: modules/gravity-forms/widgets/gravity-forms.php:1282
 #: modules/ninja-forms/widgets/ninja-forms.php:1031
-#: modules/wpforms/widgets/wpforms.php:991
+#: modules/wpforms/widgets/wpforms.php:964
 msgid "Checked"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1101
+#: modules/caldera-forms/widgets/caldera-forms.php:1100
 #: modules/contact-form-seven/widgets/contact-form-7.php:942
 #: modules/fluent-forms/widgets/fluent-forms.php:1095
 #: modules/formidable-forms/widgets/formidable-forms.php:1111
-#: modules/gravity-forms/widgets/gravity-forms.php:1320
+#: modules/gravity-forms/widgets/gravity-forms.php:1319
 #: modules/ninja-forms/widgets/ninja-forms.php:1067
-#: modules/wpforms/widgets/wpforms.php:1025
+#: modules/wpforms/widgets/wpforms.php:998
 msgid "Submit Button"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1136
-#: modules/caldera-forms/widgets/caldera-forms.php:1150
+#: modules/caldera-forms/widgets/caldera-forms.php:1135
+#: modules/caldera-forms/widgets/caldera-forms.php:1149
 #: modules/contact-form-seven/widgets/contact-form-7.php:980
 #: modules/contact-form-seven/widgets/contact-form-7.php:994
 #: modules/content-ticker/widgets/content-ticker.php:1377
@@ -4917,10 +4967,10 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:1133
 #: modules/formidable-forms/widgets/formidable-forms.php:1149
 #: modules/formidable-forms/widgets/formidable-forms.php:1163
-#: modules/gravity-forms/widgets/gravity-forms.php:1358
-#: modules/gravity-forms/widgets/gravity-forms.php:1373
-#: modules/gravity-forms/widgets/gravity-forms.php:1573
-#: modules/gravity-forms/widgets/gravity-forms.php:1588
+#: modules/gravity-forms/widgets/gravity-forms.php:1357
+#: modules/gravity-forms/widgets/gravity-forms.php:1372
+#: modules/gravity-forms/widgets/gravity-forms.php:1572
+#: modules/gravity-forms/widgets/gravity-forms.php:1587
 #: modules/hotspots/widgets/hotspots.php:744
 #: modules/hotspots/widgets/hotspots.php:983
 #: modules/image-accordion/widgets/image-accordion.php:737
@@ -4932,10 +4982,10 @@ msgstr ""
 #: modules/link-effects/widgets/link-effects.php:279
 #: modules/ninja-forms/widgets/ninja-forms.php:1104
 #: modules/ninja-forms/widgets/ninja-forms.php:1118
-#: modules/pricing/widgets/price-menu.php:900
-#: modules/pricing/widgets/pricing-table.php:1191
-#: modules/pricing/widgets/pricing-table.php:1476
-#: modules/pricing/widgets/pricing-table.php:2140
+#: modules/pricing/widgets/price-menu.php:920
+#: modules/pricing/widgets/pricing-table.php:1233
+#: modules/pricing/widgets/pricing-table.php:1518
+#: modules/pricing/widgets/pricing-table.php:2182
 #: modules/promo-box/widgets/promo-box.php:669
 #: modules/promo-box/widgets/promo-box.php:751
 #: modules/promo-box/widgets/promo-box.php:1051
@@ -4944,61 +4994,61 @@ msgstr ""
 #: modules/twitter/widgets/twitter-grid.php:102
 #: modules/twitter/widgets/twitter-timeline.php:132
 #: modules/twitter/widgets/twitter-tweet.php:129
-#: modules/wpforms/widgets/wpforms.php:1063
-#: modules/wpforms/widgets/wpforms.php:1077
+#: modules/wpforms/widgets/wpforms.php:1036
+#: modules/wpforms/widgets/wpforms.php:1050
 msgid "Width"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1140
+#: modules/caldera-forms/widgets/caldera-forms.php:1139
 #: modules/contact-form-seven/widgets/contact-form-7.php:984
 #: modules/fluent-forms/widgets/fluent-forms.php:1137
 #: modules/formidable-forms/widgets/formidable-forms.php:1153
-#: modules/gravity-forms/widgets/gravity-forms.php:1363
-#: modules/gravity-forms/widgets/gravity-forms.php:1578
+#: modules/gravity-forms/widgets/gravity-forms.php:1362
+#: modules/gravity-forms/widgets/gravity-forms.php:1577
 #: modules/ninja-forms/widgets/ninja-forms.php:1108
-#: modules/wpforms/widgets/wpforms.php:1067
+#: modules/wpforms/widgets/wpforms.php:1040
 msgid "Full Width"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1244
+#: modules/caldera-forms/widgets/caldera-forms.php:1243
 #: modules/contact-form-seven/widgets/contact-form-7.php:1087
 #: modules/fluent-forms/widgets/fluent-forms.php:1252
 #: modules/formidable-forms/widgets/formidable-forms.php:1257
-#: modules/gravity-forms/widgets/gravity-forms.php:1469
-#: modules/gravity-forms/widgets/gravity-forms.php:1682
+#: modules/gravity-forms/widgets/gravity-forms.php:1468
+#: modules/gravity-forms/widgets/gravity-forms.php:1681
 #: modules/logos/widgets/logo-carousel.php:736
 #: modules/logos/widgets/logo-grid.php:691
 #: modules/ninja-forms/widgets/ninja-forms.php:1212
-#: modules/pricing/widgets/pricing-table.php:2679
-#: modules/wpforms/widgets/wpforms.php:1171
+#: modules/pricing/widgets/pricing-table.php:2721
+#: modules/wpforms/widgets/wpforms.php:1144
 msgid "Margin Top"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1338
+#: modules/caldera-forms/widgets/caldera-forms.php:1337
 #: modules/ninja-forms/widgets/ninja-forms.php:1308
 msgid "Success Message"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1404
+#: modules/caldera-forms/widgets/caldera-forms.php:1403
 msgid "Error Fields"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1412
+#: modules/caldera-forms/widgets/caldera-forms.php:1411
 #: modules/fluent-forms/widgets/fluent-forms.php:923
 msgid "Label Color"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1437
+#: modules/caldera-forms/widgets/caldera-forms.php:1436
 msgid "Input Border"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1550
+#: modules/caldera-forms/widgets/caldera-forms.php:1549
 #: modules/contact-form-seven/widgets/contact-form-7.php:1460
 #: modules/fluent-forms/widgets/fluent-forms.php:1530
 #: modules/formidable-forms/widgets/formidable-forms.php:1623
-#: modules/gravity-forms/widgets/gravity-forms.php:2314
+#: modules/gravity-forms/widgets/gravity-forms.php:2313
 #: modules/ninja-forms/widgets/ninja-forms.php:1561
-#: modules/wpforms/widgets/wpforms.php:1457
+#: modules/wpforms/widgets/wpforms.php:1430
 msgid "No Contact Form Selected!"
 msgstr ""
 
@@ -5017,8 +5067,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:171
 #: modules/pricing/widgets/price-menu.php:145
 #: modules/pricing/widgets/price-menu.php:178
-#: modules/pricing/widgets/price-menu.php:777
-#: modules/pricing/widgets/pricing-table.php:334
+#: modules/pricing/widgets/price-menu.php:797
+#: modules/pricing/widgets/pricing-table.php:375
 #: modules/promo-box/widgets/promo-box.php:170
 #: modules/promo-box/widgets/promo-box.php:218
 #: modules/promo-box/widgets/promo-box.php:362
@@ -5037,8 +5087,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:172
 #: modules/pricing/widgets/price-menu.php:146
 #: modules/pricing/widgets/price-menu.php:179
-#: modules/pricing/widgets/price-menu.php:778
-#: modules/pricing/widgets/pricing-table.php:335
+#: modules/pricing/widgets/price-menu.php:798
+#: modules/pricing/widgets/pricing-table.php:376
 #: modules/promo-box/widgets/promo-box.php:171
 #: modules/promo-box/widgets/promo-box.php:219
 #: modules/promo-box/widgets/promo-box.php:363
@@ -5052,8 +5102,8 @@ msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:227
 #: modules/contact-form-seven/widgets/contact-form-7.php:1323
-#: modules/gravity-forms/widgets/gravity-forms.php:297
-#: modules/gravity-forms/widgets/gravity-forms.php:2004
+#: modules/gravity-forms/widgets/gravity-forms.php:296
+#: modules/gravity-forms/widgets/gravity-forms.php:2003
 #: modules/ninja-forms/widgets/ninja-forms.php:229
 #: modules/ninja-forms/widgets/ninja-forms.php:1471
 msgid "Validation Errors"
@@ -5069,6 +5119,130 @@ msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:1265
 msgid "Fields"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:124
+msgid "Template"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:136
+msgid ""
+"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+"Lorem Ipsum has been the industry's standard dummy text ever since the "
+"1500s, when an unknown printer took a galley of type and scrambled it to "
+"make a type specimen book. It has survived not only five centuries, but "
+"also the leap into electronic typesetting, remaining essentially unchanged. "
+"It was popularised in the 1960s with the release of Letraset sheets "
+"containing Lorem Ipsum passages, and more recently with desktop publishing "
+"software like Aldus PageMaker including versions of Lorem Ipsum."
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:160
+msgid "Show Separator"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:180
+msgid "Transition Speed"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:200
+msgid "Content Visibility By"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:204
+msgid "Lines"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:205
+msgid "Pixels"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:217
+msgid "Visible Amount (px)"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:265
+msgid "Visible Amount (lines)"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:288
+msgid "Make sure your WYSIWYG content is valid HTML."
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:301
+#: modules/content-reveal/widgets/content-reveal.php:600
+#: modules/flipbox/widgets/flipbox.php:412
+#: modules/flipbox/widgets/flipbox.php:1340
+#: modules/image-accordion/widgets/image-accordion.php:860
+#: modules/info-box/widgets/info-box-carousel.php:286
+#: modules/info-box/widgets/info-box-carousel.php:1619
+#: modules/info-box/widgets/info-box.php:513
+#: modules/info-box/widgets/info-box.php:558
+#: modules/info-box/widgets/info-box.php:595
+#: modules/info-box/widgets/info-box.php:1587
+#: modules/info-list/widgets/info-list.php:251
+#: modules/info-list/widgets/info-list.php:1056
+#: modules/info-table/widgets/info-table.php:320
+#: modules/info-table/widgets/info-table.php:353
+#: modules/info-table/widgets/info-table.php:1124
+#: modules/pricing/widgets/pricing-table.php:994
+#: modules/pricing/widgets/pricing-table.php:2386
+#: modules/promo-box/widgets/promo-box.php:352
+#: modules/promo-box/widgets/promo-box.php:359
+#: modules/promo-box/widgets/promo-box.php:1453
+msgid "Button"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:340
+msgid "Content Unreveal"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:347
+#: modules/content-reveal/widgets/content-reveal.php:379
+#: modules/gravity-forms/widgets/gravity-forms.php:1922
+#: modules/image-comparison/widgets/image-comparison.php:159
+#: modules/image-comparison/widgets/image-comparison.php:199
+#: modules/image-comparison/widgets/image-comparison.php:585
+msgid "Label"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:350
+#: modules/posts/skins/skin-base.php:1140
+msgid "Read More"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:382
+msgid "Read Less"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:488
+#: modules/random-image/widgets/random-image.php:731
+msgid "Justify"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:549
+#: modules/counter/widgets/counter.php:237
+#: modules/posts/skins/skin-base.php:2090
+msgid "Separator"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:560
+#: modules/counter/widgets/counter.php:749
+#: modules/counter/widgets/counter.php:954
+#: modules/divider/widgets/divider.php:402
+#: modules/divider/widgets/divider.php:457
+#: modules/flipbox/widgets/flipbox.php:501
+#: modules/gravity-forms/widgets/gravity-forms.php:1890
+#: modules/image-accordion/widgets/image-accordion.php:325
+#: modules/promo-box/widgets/promo-box.php:469
+#: modules/random-image/widgets/random-image.php:457
+#: modules/twitter/widgets/twitter-timeline.php:150
+msgid "Height"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:624
+#: modules/image-accordion/widgets/image-accordion.php:884
+msgid "Button Spacing"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:142
@@ -5122,6 +5296,9 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:227
 #: modules/logos/widgets/logo-grid.php:266
 #: modules/posts/skins/skin-base.php:725
+#: modules/pricing/widgets/price-menu.php:515
+#: modules/pricing/widgets/pricing-table.php:238
+#: modules/pricing/widgets/pricing-table.php:271
 #: modules/promo-box/widgets/promo-box.php:151
 #: modules/promo-box/widgets/promo-box.php:199
 #: modules/team-member/widgets/team-member-carousel.php:426
@@ -5150,6 +5327,9 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:228
 #: modules/logos/widgets/logo-grid.php:267
 #: modules/posts/skins/skin-base.php:726
+#: modules/pricing/widgets/price-menu.php:516
+#: modules/pricing/widgets/pricing-table.php:239
+#: modules/pricing/widgets/pricing-table.php:272
 #: modules/promo-box/widgets/promo-box.php:152
 #: modules/promo-box/widgets/promo-box.php:200
 #: modules/team-member/widgets/team-member-carousel.php:427
@@ -5178,6 +5358,9 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:229
 #: modules/logos/widgets/logo-grid.php:268
 #: modules/posts/skins/skin-base.php:727
+#: modules/pricing/widgets/price-menu.php:517
+#: modules/pricing/widgets/pricing-table.php:240
+#: modules/pricing/widgets/pricing-table.php:273
 #: modules/promo-box/widgets/promo-box.php:153
 #: modules/promo-box/widgets/promo-box.php:201
 #: modules/team-member/widgets/team-member-carousel.php:428
@@ -5206,6 +5389,9 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:230
 #: modules/logos/widgets/logo-grid.php:269
 #: modules/posts/skins/skin-base.php:728
+#: modules/pricing/widgets/price-menu.php:518
+#: modules/pricing/widgets/pricing-table.php:241
+#: modules/pricing/widgets/pricing-table.php:274
 #: modules/promo-box/widgets/promo-box.php:154
 #: modules/promo-box/widgets/promo-box.php:202
 #: modules/team-member/widgets/team-member-carousel.php:429
@@ -5234,6 +5420,9 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:231
 #: modules/logos/widgets/logo-grid.php:270
 #: modules/posts/skins/skin-base.php:729
+#: modules/pricing/widgets/price-menu.php:519
+#: modules/pricing/widgets/pricing-table.php:242
+#: modules/pricing/widgets/pricing-table.php:275
 #: modules/promo-box/widgets/promo-box.php:155
 #: modules/promo-box/widgets/promo-box.php:203
 #: modules/team-member/widgets/team-member-carousel.php:430
@@ -5262,6 +5451,9 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:232
 #: modules/logos/widgets/logo-grid.php:271
 #: modules/posts/skins/skin-base.php:730
+#: modules/pricing/widgets/price-menu.php:520
+#: modules/pricing/widgets/pricing-table.php:243
+#: modules/pricing/widgets/pricing-table.php:276
 #: modules/promo-box/widgets/promo-box.php:156
 #: modules/promo-box/widgets/promo-box.php:204
 #: modules/team-member/widgets/team-member-carousel.php:431
@@ -5290,6 +5482,9 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:233
 #: modules/logos/widgets/logo-grid.php:272
 #: modules/posts/skins/skin-base.php:731
+#: modules/pricing/widgets/price-menu.php:521
+#: modules/pricing/widgets/pricing-table.php:244
+#: modules/pricing/widgets/pricing-table.php:277
 #: modules/promo-box/widgets/promo-box.php:157
 #: modules/promo-box/widgets/promo-box.php:205
 #: modules/team-member/widgets/team-member-carousel.php:432
@@ -5318,6 +5513,9 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:234
 #: modules/logos/widgets/logo-grid.php:273
 #: modules/posts/skins/skin-base.php:732
+#: modules/pricing/widgets/price-menu.php:522
+#: modules/pricing/widgets/pricing-table.php:245
+#: modules/pricing/widgets/pricing-table.php:278
 #: modules/promo-box/widgets/promo-box.php:158
 #: modules/promo-box/widgets/promo-box.php:206
 #: modules/team-member/widgets/team-member-carousel.php:433
@@ -5346,6 +5544,9 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:235
 #: modules/logos/widgets/logo-grid.php:274
 #: modules/posts/skins/skin-base.php:733
+#: modules/pricing/widgets/price-menu.php:523
+#: modules/pricing/widgets/pricing-table.php:246
+#: modules/pricing/widgets/pricing-table.php:279
 #: modules/promo-box/widgets/promo-box.php:159
 #: modules/promo-box/widgets/promo-box.php:207
 #: modules/team-member/widgets/team-member-carousel.php:434
@@ -5614,8 +5815,8 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1001
 #: modules/content-ticker/widgets/content-ticker.php:1275
-#: modules/pricing/widgets/pricing-table.php:147
-#: modules/pricing/widgets/pricing-table.php:1102
+#: modules/pricing/widgets/pricing-table.php:148
+#: modules/pricing/widgets/pricing-table.php:1144
 msgid "Header"
 msgstr ""
 
@@ -5659,7 +5860,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:572
 #: modules/logos/widgets/logo-carousel.php:274
 #: modules/logos/widgets/logo-grid.php:605
-#: modules/pricing/widgets/pricing-table.php:607
+#: modules/pricing/widgets/pricing-table.php:649
 msgid "Slide"
 msgstr ""
 
@@ -5668,7 +5869,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:574
 #: modules/info-box/widgets/info-box-carousel.php:573
 #: modules/logos/widgets/logo-carousel.php:275
-#: modules/pricing/widgets/pricing-table.php:604
+#: modules/pricing/widgets/pricing-table.php:646
 msgid "Fade"
 msgstr ""
 
@@ -5826,11 +6027,6 @@ msgstr ""
 msgid "Thousand Separator"
 msgstr ""
 
-#: modules/counter/widgets/counter.php:237
-#: modules/posts/skins/skin-base.php:2090
-msgid "Separator"
-msgstr ""
-
 #: modules/counter/widgets/counter.php:329
 #: modules/counter/widgets/counter.php:714
 msgid "Icon Divider"
@@ -5848,8 +6044,8 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:411
 #: modules/info-table/widgets/info-table.php:235
 #: modules/info-table/widgets/info-table.php:237
-#: modules/pricing/widgets/pricing-table.php:233
-#: modules/pricing/widgets/pricing-table.php:238
+#: modules/pricing/widgets/pricing-table.php:254
+#: modules/pricing/widgets/pricing-table.php:259
 msgid "Subtitle"
 msgstr ""
 
@@ -5857,6 +6053,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:519
 #: modules/info-box/widgets/info-box.php:462
 #: modules/info-table/widgets/info-table.php:243
+#: modules/pricing/widgets/pricing-table.php:267
 msgid "Subtitle HTML Tag"
 msgstr ""
 
@@ -5880,7 +6077,7 @@ msgid "%1$s Widget Overview %2$s"
 msgstr ""
 
 #: modules/counter/widgets/counter.php:537
-#: modules/gravity-forms/widgets/gravity-forms.php:1881
+#: modules/gravity-forms/widgets/gravity-forms.php:1880
 #: modules/headings/widgets/dual-heading.php:305
 #: modules/headings/widgets/dual-heading.php:410
 #: modules/headings/widgets/fancy-heading.php:281
@@ -5914,19 +6111,6 @@ msgstr ""
 #: modules/promo-box/widgets/promo-box.php:1001
 #: modules/promo-box/widgets/promo-box.php:1234
 msgid "Divider Type"
-msgstr ""
-
-#: modules/counter/widgets/counter.php:749
-#: modules/counter/widgets/counter.php:954
-#: modules/divider/widgets/divider.php:402
-#: modules/divider/widgets/divider.php:457
-#: modules/flipbox/widgets/flipbox.php:501
-#: modules/gravity-forms/widgets/gravity-forms.php:1891
-#: modules/image-accordion/widgets/image-accordion.php:325
-#: modules/promo-box/widgets/promo-box.php:469
-#: modules/random-image/widgets/random-image.php:457
-#: modules/twitter/widgets/twitter-timeline.php:150
-msgid "Height"
 msgstr ""
 
 #: modules/counter/widgets/counter.php:857
@@ -6204,6 +6388,7 @@ msgstr ""
 #: modules/headings/widgets/dual-heading.php:166
 #: modules/headings/widgets/fancy-heading.php:151
 #: modules/posts/skins/skin-base.php:721
+#: modules/pricing/widgets/price-menu.php:511
 msgid "HTML Tag"
 msgstr ""
 
@@ -6219,9 +6404,9 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:1635
 #: modules/instafeed/widgets/instafeed.php:2103
 #: modules/logos/widgets/logo-carousel.php:1014
-#: modules/pricing/widgets/pricing-table.php:565
-#: modules/pricing/widgets/pricing-table.php:919
-#: modules/pricing/widgets/pricing-table.php:1564
+#: modules/pricing/widgets/pricing-table.php:607
+#: modules/pricing/widgets/pricing-table.php:961
+#: modules/pricing/widgets/pricing-table.php:1606
 #: modules/team-member/widgets/team-member-carousel.php:153
 #: modules/team-member/widgets/team-member-carousel.php:1344
 #: modules/team-member/widgets/team-member-carousel.php:2183
@@ -6263,28 +6448,6 @@ msgstr ""
 msgid "Flipbox Image"
 msgstr ""
 
-#: modules/flipbox/widgets/flipbox.php:412
-#: modules/flipbox/widgets/flipbox.php:1340
-#: modules/image-accordion/widgets/image-accordion.php:860
-#: modules/info-box/widgets/info-box-carousel.php:286
-#: modules/info-box/widgets/info-box-carousel.php:1619
-#: modules/info-box/widgets/info-box.php:513
-#: modules/info-box/widgets/info-box.php:558
-#: modules/info-box/widgets/info-box.php:595
-#: modules/info-box/widgets/info-box.php:1587
-#: modules/info-list/widgets/info-list.php:251
-#: modules/info-list/widgets/info-list.php:1056
-#: modules/info-table/widgets/info-table.php:320
-#: modules/info-table/widgets/info-table.php:353
-#: modules/info-table/widgets/info-table.php:1124
-#: modules/pricing/widgets/pricing-table.php:952
-#: modules/pricing/widgets/pricing-table.php:2344
-#: modules/promo-box/widgets/promo-box.php:352
-#: modules/promo-box/widgets/promo-box.php:359
-#: modules/promo-box/widgets/promo-box.php:1453
-msgid "Button"
-msgstr ""
-
 #: modules/flipbox/widgets/flipbox.php:413
 #: modules/info-box/widgets/info-box-carousel.php:283
 #: modules/info-box/widgets/info-box.php:510
@@ -6300,7 +6463,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:260
 #: modules/info-table/widgets/info-table.php:341
 #: modules/posts/skins/skin-base.php:1135
-#: modules/pricing/widgets/pricing-table.php:973
+#: modules/pricing/widgets/pricing-table.php:1015
 #: modules/promo-box/widgets/promo-box.php:371
 msgid "Button Text"
 msgstr ""
@@ -6311,7 +6474,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:563
 #: modules/info-list/widgets/info-list.php:265
 #: modules/info-table/widgets/info-table.php:343
-#: modules/pricing/widgets/pricing-table.php:978
+#: modules/pricing/widgets/pricing-table.php:1020
 #: modules/promo-box/widgets/promo-box.php:376
 msgid "Get Started"
 msgstr ""
@@ -6359,8 +6522,8 @@ msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:678
 #: modules/flipbox/widgets/flipbox.php:1032
-#: modules/pricing/widgets/price-menu.php:975
-#: modules/pricing/widgets/pricing-table.php:1584
+#: modules/pricing/widgets/price-menu.php:995
+#: modules/pricing/widgets/pricing-table.php:1626
 msgid "Vertical Position"
 msgstr ""
 
@@ -6400,21 +6563,21 @@ msgid "Custom Width"
 msgstr ""
 
 #: modules/fluent-forms/widgets/fluent-forms.php:1371
-#: modules/gravity-forms/widgets/gravity-forms.php:2095
+#: modules/gravity-forms/widgets/gravity-forms.php:2094
 #: modules/ninja-forms/widgets/ninja-forms.php:1456
-#: modules/wpforms/widgets/wpforms.php:1300
+#: modules/wpforms/widgets/wpforms.php:1273
 msgid "Error Field Input Border Color"
 msgstr ""
 
 #: modules/fluent-forms/widgets/fluent-forms.php:1383
-#: modules/gravity-forms/widgets/gravity-forms.php:2110
-#: modules/wpforms/widgets/wpforms.php:1315
+#: modules/gravity-forms/widgets/gravity-forms.php:2109
+#: modules/wpforms/widgets/wpforms.php:1288
 msgid "Error Field Input Border Width"
 msgstr ""
 
 #: modules/fluent-forms/widgets/fluent-forms.php:1406
 #: modules/formidable-forms/widgets/formidable-forms.php:1474
-#: modules/wpforms/widgets/wpforms.php:1339
+#: modules/wpforms/widgets/wpforms.php:1312
 msgid "Confirmation Message"
 msgstr ""
 
@@ -6422,48 +6585,48 @@ msgstr ""
 msgid "Error Message"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:250
+#: modules/gravity-forms/widgets/gravity-forms.php:249
 msgid "Use Ajax"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:252
+#: modules/gravity-forms/widgets/gravity-forms.php:251
 msgid "Use ajax to submit the form"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:933
+#: modules/gravity-forms/widgets/gravity-forms.php:932
 msgid "Section Field"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:984
+#: modules/gravity-forms/widgets/gravity-forms.php:983
 #: modules/info-box/widgets/info-box-carousel.php:1431
 #: modules/info-box/widgets/info-box.php:1374
-#: modules/pricing/widgets/price-menu.php:596
+#: modules/pricing/widgets/price-menu.php:616
 msgid "Border Height"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1045
+#: modules/gravity-forms/widgets/gravity-forms.php:1044
 #: modules/pricing/widgets/price-menu.php:130
-#: modules/pricing/widgets/price-menu.php:686
-#: modules/pricing/widgets/pricing-table.php:306
+#: modules/pricing/widgets/price-menu.php:706
+#: modules/pricing/widgets/pricing-table.php:347
 msgid "Price"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1053
+#: modules/gravity-forms/widgets/gravity-forms.php:1052
 msgid "Price Label Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1065
+#: modules/gravity-forms/widgets/gravity-forms.php:1064
 msgid "Price Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1362
-#: modules/gravity-forms/widgets/gravity-forms.php:1577
+#: modules/gravity-forms/widgets/gravity-forms.php:1361
+#: modules/gravity-forms/widgets/gravity-forms.php:1576
 #: modules/info-box/widgets/info-box-carousel.php:804
 #: modules/team-member/widgets/team-member-carousel.php:743
 msgid "Auto"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1565
+#: modules/gravity-forms/widgets/gravity-forms.php:1564
 #: modules/info-box/widgets/info-box-carousel.php:772
 #: modules/instafeed/widgets/instafeed.php:812
 #: modules/posts/skins/skin-base.php:1194
@@ -6474,48 +6637,41 @@ msgstr ""
 msgid "Pagination"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1778
+#: modules/gravity-forms/widgets/gravity-forms.php:1777
 msgid "Progress Bar"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1873
+#: modules/gravity-forms/widgets/gravity-forms.php:1872
 msgid "Progress"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1923
-#: modules/image-comparison/widgets/image-comparison.php:159
-#: modules/image-comparison/widgets/image-comparison.php:199
-#: modules/image-comparison/widgets/image-comparison.php:585
-msgid "Label"
-msgstr ""
-
-#: modules/gravity-forms/widgets/gravity-forms.php:2016
+#: modules/gravity-forms/widgets/gravity-forms.php:2015
 #: modules/ninja-forms/widgets/ninja-forms.php:1483
 msgid "Error Description Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2032
+#: modules/gravity-forms/widgets/gravity-forms.php:2031
 #: modules/ninja-forms/widgets/ninja-forms.php:1499
 msgid "Error Description Typography"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2040
+#: modules/gravity-forms/widgets/gravity-forms.php:2039
 msgid "Error Border Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2056
+#: modules/gravity-forms/widgets/gravity-forms.php:2055
 msgid "Error Field Background Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2071
+#: modules/gravity-forms/widgets/gravity-forms.php:2070
 msgid "Error Field Label Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2087
+#: modules/gravity-forms/widgets/gravity-forms.php:2086
 msgid "Error Field Label Typography"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2136
+#: modules/gravity-forms/widgets/gravity-forms.php:2135
 msgid "Thank You Message"
 msgstr ""
 
@@ -6611,18 +6767,18 @@ msgid "Always Open?"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:490
-#: modules/pricing/widgets/pricing-table.php:529
+#: modules/pricing/widgets/pricing-table.php:571
 #: modules/scroll-image/widgets/scroll-image.php:226
 msgid "Trigger"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:495
-#: modules/pricing/widgets/pricing-table.php:534
+#: modules/pricing/widgets/pricing-table.php:576
 msgid "Click"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:512
-#: modules/pricing/widgets/pricing-table.php:551
+#: modules/pricing/widgets/pricing-table.php:593
 msgid "Tiny"
 msgstr ""
 
@@ -6631,8 +6787,8 @@ msgid "Global Position"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:538
-#: modules/pricing/widgets/pricing-table.php:650
-#: modules/pricing/widgets/pricing-table.php:898
+#: modules/pricing/widgets/pricing-table.php:692
+#: modules/pricing/widgets/pricing-table.php:940
 msgid "Distance"
 msgstr ""
 
@@ -6641,359 +6797,359 @@ msgid "The distance between the hotspot and the tooltip."
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:557
-#: modules/pricing/widgets/pricing-table.php:583
+#: modules/pricing/widgets/pricing-table.php:625
 msgid "Show Arrow"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:575
-#: modules/pricing/widgets/pricing-table.php:605
+#: modules/pricing/widgets/pricing-table.php:647
 msgid "Fall"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:576
-#: modules/pricing/widgets/pricing-table.php:606
+#: modules/pricing/widgets/pricing-table.php:648
 msgid "Grow"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:578
 #: modules/hotspots/widgets/hotspots.php:591
-#: modules/pricing/widgets/pricing-table.php:608
-#: modules/pricing/widgets/pricing-table.php:676
+#: modules/pricing/widgets/pricing-table.php:650
+#: modules/pricing/widgets/pricing-table.php:718
 msgid "Swing"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:586
-#: modules/pricing/widgets/pricing-table.php:671
+#: modules/pricing/widgets/pricing-table.php:713
 msgid "Bounce"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:587
-#: modules/pricing/widgets/pricing-table.php:672
+#: modules/pricing/widgets/pricing-table.php:714
 msgid "Flash"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:588
-#: modules/pricing/widgets/pricing-table.php:673
+#: modules/pricing/widgets/pricing-table.php:715
 msgid "Pulse"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:589
-#: modules/pricing/widgets/pricing-table.php:674
+#: modules/pricing/widgets/pricing-table.php:716
 msgid "rubberBand"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:590
-#: modules/pricing/widgets/pricing-table.php:675
+#: modules/pricing/widgets/pricing-table.php:717
 msgid "Shake"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:592
-#: modules/pricing/widgets/pricing-table.php:677
+#: modules/pricing/widgets/pricing-table.php:719
 msgid "Tada"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:593
-#: modules/pricing/widgets/pricing-table.php:678
+#: modules/pricing/widgets/pricing-table.php:720
 msgid "Wobble"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:594
-#: modules/pricing/widgets/pricing-table.php:679
+#: modules/pricing/widgets/pricing-table.php:721
 msgid "bounceIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:595
-#: modules/pricing/widgets/pricing-table.php:680
+#: modules/pricing/widgets/pricing-table.php:722
 msgid "bounceInDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:596
-#: modules/pricing/widgets/pricing-table.php:681
+#: modules/pricing/widgets/pricing-table.php:723
 msgid "bounceInLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:597
-#: modules/pricing/widgets/pricing-table.php:682
+#: modules/pricing/widgets/pricing-table.php:724
 msgid "bounceInRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:598
-#: modules/pricing/widgets/pricing-table.php:683
+#: modules/pricing/widgets/pricing-table.php:725
 msgid "bounceInUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:599
-#: modules/pricing/widgets/pricing-table.php:684
+#: modules/pricing/widgets/pricing-table.php:726
 msgid "bounceOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:600
-#: modules/pricing/widgets/pricing-table.php:685
+#: modules/pricing/widgets/pricing-table.php:727
 msgid "bounceOutDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:601
-#: modules/pricing/widgets/pricing-table.php:686
+#: modules/pricing/widgets/pricing-table.php:728
 msgid "bounceOutLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:602
-#: modules/pricing/widgets/pricing-table.php:687
+#: modules/pricing/widgets/pricing-table.php:729
 msgid "bounceOutRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:603
-#: modules/pricing/widgets/pricing-table.php:688
+#: modules/pricing/widgets/pricing-table.php:730
 msgid "bounceOutUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:604
-#: modules/pricing/widgets/pricing-table.php:689
+#: modules/pricing/widgets/pricing-table.php:731
 msgid "fadeIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:605
-#: modules/pricing/widgets/pricing-table.php:690
+#: modules/pricing/widgets/pricing-table.php:732
 msgid "fadeInDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:606
-#: modules/pricing/widgets/pricing-table.php:691
+#: modules/pricing/widgets/pricing-table.php:733
 msgid "fadeInDownBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:607
-#: modules/pricing/widgets/pricing-table.php:692
+#: modules/pricing/widgets/pricing-table.php:734
 msgid "fadeInLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:608
-#: modules/pricing/widgets/pricing-table.php:693
+#: modules/pricing/widgets/pricing-table.php:735
 msgid "fadeInLeftBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:609
-#: modules/pricing/widgets/pricing-table.php:694
+#: modules/pricing/widgets/pricing-table.php:736
 msgid "fadeInRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:610
-#: modules/pricing/widgets/pricing-table.php:695
+#: modules/pricing/widgets/pricing-table.php:737
 msgid "fadeInRightBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:611
-#: modules/pricing/widgets/pricing-table.php:696
+#: modules/pricing/widgets/pricing-table.php:738
 msgid "fadeInUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:612
-#: modules/pricing/widgets/pricing-table.php:697
+#: modules/pricing/widgets/pricing-table.php:739
 msgid "fadeInUpBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:613
-#: modules/pricing/widgets/pricing-table.php:698
+#: modules/pricing/widgets/pricing-table.php:740
 msgid "fadeOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:614
-#: modules/pricing/widgets/pricing-table.php:699
+#: modules/pricing/widgets/pricing-table.php:741
 msgid "fadeOutDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:615
-#: modules/pricing/widgets/pricing-table.php:700
+#: modules/pricing/widgets/pricing-table.php:742
 msgid "fadeOutDownBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:616
-#: modules/pricing/widgets/pricing-table.php:701
+#: modules/pricing/widgets/pricing-table.php:743
 msgid "fadeOutLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:617
-#: modules/pricing/widgets/pricing-table.php:702
+#: modules/pricing/widgets/pricing-table.php:744
 msgid "fadeOutLeftBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:618
-#: modules/pricing/widgets/pricing-table.php:703
+#: modules/pricing/widgets/pricing-table.php:745
 msgid "fadeOutRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:619
-#: modules/pricing/widgets/pricing-table.php:704
+#: modules/pricing/widgets/pricing-table.php:746
 msgid "fadeOutRightBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:620
-#: modules/pricing/widgets/pricing-table.php:705
+#: modules/pricing/widgets/pricing-table.php:747
 msgid "fadeOutUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:621
-#: modules/pricing/widgets/pricing-table.php:706
+#: modules/pricing/widgets/pricing-table.php:748
 msgid "fadeOutUpBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:622
-#: modules/pricing/widgets/pricing-table.php:707
+#: modules/pricing/widgets/pricing-table.php:749
 msgid "flip"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:623
-#: modules/pricing/widgets/pricing-table.php:708
+#: modules/pricing/widgets/pricing-table.php:750
 msgid "flipInX"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:624
-#: modules/pricing/widgets/pricing-table.php:709
+#: modules/pricing/widgets/pricing-table.php:751
 msgid "flipInY"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:625
-#: modules/pricing/widgets/pricing-table.php:710
+#: modules/pricing/widgets/pricing-table.php:752
 msgid "flipOutX"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:626
-#: modules/pricing/widgets/pricing-table.php:711
+#: modules/pricing/widgets/pricing-table.php:753
 msgid "flipOutY"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:627
-#: modules/pricing/widgets/pricing-table.php:712
+#: modules/pricing/widgets/pricing-table.php:754
 msgid "lightSpeedIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:628
-#: modules/pricing/widgets/pricing-table.php:713
+#: modules/pricing/widgets/pricing-table.php:755
 msgid "lightSpeedOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:629
-#: modules/pricing/widgets/pricing-table.php:714
+#: modules/pricing/widgets/pricing-table.php:756
 msgid "rotateIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:630
-#: modules/pricing/widgets/pricing-table.php:715
+#: modules/pricing/widgets/pricing-table.php:757
 msgid "rotateInDownLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:631
-#: modules/pricing/widgets/pricing-table.php:716
+#: modules/pricing/widgets/pricing-table.php:758
 msgid "rotateInDownRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:632
-#: modules/pricing/widgets/pricing-table.php:717
+#: modules/pricing/widgets/pricing-table.php:759
 msgid "rotateInUpLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:633
-#: modules/pricing/widgets/pricing-table.php:718
+#: modules/pricing/widgets/pricing-table.php:760
 msgid "rotateInUpRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:634
-#: modules/pricing/widgets/pricing-table.php:719
+#: modules/pricing/widgets/pricing-table.php:761
 msgid "rotateOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:635
-#: modules/pricing/widgets/pricing-table.php:720
+#: modules/pricing/widgets/pricing-table.php:762
 msgid "rotateOutDownLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:636
-#: modules/pricing/widgets/pricing-table.php:721
+#: modules/pricing/widgets/pricing-table.php:763
 msgid "rotateOutDownRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:637
-#: modules/pricing/widgets/pricing-table.php:722
+#: modules/pricing/widgets/pricing-table.php:764
 msgid "rotateOutUpLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:638
-#: modules/pricing/widgets/pricing-table.php:723
+#: modules/pricing/widgets/pricing-table.php:765
 msgid "rotateOutUpRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:639
-#: modules/pricing/widgets/pricing-table.php:724
+#: modules/pricing/widgets/pricing-table.php:766
 msgid "Hinge"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:640
-#: modules/pricing/widgets/pricing-table.php:725
+#: modules/pricing/widgets/pricing-table.php:767
 msgid "rollIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:641
-#: modules/pricing/widgets/pricing-table.php:726
+#: modules/pricing/widgets/pricing-table.php:768
 msgid "rollOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:642
-#: modules/pricing/widgets/pricing-table.php:727
+#: modules/pricing/widgets/pricing-table.php:769
 msgid "zoomIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:643
-#: modules/pricing/widgets/pricing-table.php:728
+#: modules/pricing/widgets/pricing-table.php:770
 msgid "zoomInDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:644
-#: modules/pricing/widgets/pricing-table.php:729
+#: modules/pricing/widgets/pricing-table.php:771
 msgid "zoomInLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:645
-#: modules/pricing/widgets/pricing-table.php:730
+#: modules/pricing/widgets/pricing-table.php:772
 msgid "zoomInRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:646
-#: modules/pricing/widgets/pricing-table.php:731
+#: modules/pricing/widgets/pricing-table.php:773
 msgid "zoomInUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:647
-#: modules/pricing/widgets/pricing-table.php:732
+#: modules/pricing/widgets/pricing-table.php:774
 msgid "zoomOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:648
-#: modules/pricing/widgets/pricing-table.php:733
+#: modules/pricing/widgets/pricing-table.php:775
 msgid "zoomOutDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:649
-#: modules/pricing/widgets/pricing-table.php:734
+#: modules/pricing/widgets/pricing-table.php:776
 msgid "zoomOutLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:650
-#: modules/pricing/widgets/pricing-table.php:735
+#: modules/pricing/widgets/pricing-table.php:777
 msgid "zoomOutRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:651
-#: modules/pricing/widgets/pricing-table.php:736
+#: modules/pricing/widgets/pricing-table.php:778
 msgid "zoomOutUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:679
-#: modules/pricing/widgets/pricing-table.php:768
+#: modules/pricing/widgets/pricing-table.php:810
 msgid "Z-Index"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:680
-#: modules/pricing/widgets/pricing-table.php:769
+#: modules/pricing/widgets/pricing-table.php:811
 msgid ""
 "Increase the z-index value if you are unable to see the tooltip. For "
 "example: 99, 999, 9999 "
@@ -7122,10 +7278,6 @@ msgstr ""
 msgid "Horizontal Align"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:884
-msgid "Button Spacing"
-msgstr ""
-
 #: modules/image-comparison/widgets/image-comparison.php:152
 msgid "Before Image"
 msgstr ""
@@ -7195,7 +7347,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1311
 #: modules/posts/skins/skin-base.php:744
 #: modules/pricing/widgets/price-menu.php:322
-#: modules/pricing/widgets/price-menu.php:563
+#: modules/pricing/widgets/price-menu.php:583
 msgid "Title Separator"
 msgstr ""
 
@@ -7292,7 +7444,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:1298
 #: modules/info-box/widgets/info-box.php:1209
 #: modules/info-table/widgets/info-table.php:657
-#: modules/pricing/widgets/pricing-table.php:1340
+#: modules/pricing/widgets/pricing-table.php:1382
 msgid "Sub Title"
 msgstr ""
 
@@ -7830,7 +7982,7 @@ msgid "Text Fill"
 msgstr ""
 
 #: modules/link-effects/widgets/link-effects.php:169
-#: modules/pricing/widgets/pricing-table.php:813
+#: modules/pricing/widgets/pricing-table.php:855
 msgid "Circle"
 msgstr ""
 
@@ -8178,10 +8330,6 @@ msgstr ""
 msgid "Read More Button"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1140
-msgid "Read More"
-msgstr ""
-
 #: modules/posts/skins/skin-base.php:1179
 msgid "Open in a New Tab"
 msgstr ""
@@ -8365,7 +8513,7 @@ msgid "Include By"
 msgstr ""
 
 #: modules/posts/widgets/posts-base.php:332
-#: modules/pricing/widgets/pricing-table.php:397
+#: modules/pricing/widgets/pricing-table.php:439
 msgid "Exclude"
 msgstr ""
 
@@ -8440,14 +8588,14 @@ msgid ""
 msgstr ""
 
 #: modules/pricing/widgets/price-menu.php:142
-#: modules/pricing/widgets/pricing-table.php:331
+#: modules/pricing/widgets/pricing-table.php:372
 msgid "Discount"
 msgstr ""
 
 #: modules/pricing/widgets/price-menu.php:154
-#: modules/pricing/widgets/price-menu.php:765
-#: modules/pricing/widgets/pricing-table.php:343
-#: modules/pricing/widgets/pricing-table.php:1683
+#: modules/pricing/widgets/price-menu.php:785
+#: modules/pricing/widgets/pricing-table.php:384
+#: modules/pricing/widgets/pricing-table.php:1725
 msgid "Original Price"
 msgstr ""
 
@@ -8488,7 +8636,7 @@ msgid "Style 4"
 msgstr ""
 
 #: modules/pricing/widgets/price-menu.php:307
-#: modules/pricing/widgets/price-menu.php:1013
+#: modules/pricing/widgets/price-menu.php:1033
 msgid "Title-Price Connector"
 msgstr ""
 
@@ -8496,235 +8644,235 @@ msgstr ""
 msgid "Menu Items"
 msgstr ""
 
-#: modules/pricing/widgets/price-menu.php:694
+#: modules/pricing/widgets/price-menu.php:714
 msgid "Price Badge"
 msgstr ""
 
-#: modules/pricing/widgets/price-menu.php:774
+#: modules/pricing/widgets/price-menu.php:794
 msgid "Strikethrough"
 msgstr ""
 
-#: modules/pricing/widgets/price-menu.php:789
+#: modules/pricing/widgets/price-menu.php:809
 msgid "Original Price Color"
 msgstr ""
 
-#: modules/pricing/widgets/price-menu.php:806
+#: modules/pricing/widgets/price-menu.php:826
 msgid "Original Price Typography"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:226
+#: modules/pricing/widgets/pricing-table.php:227
 msgid "Enter table title"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:239
+#: modules/pricing/widgets/pricing-table.php:260
 msgid "Enter table subtitle"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:254
-#: modules/pricing/widgets/pricing-table.php:1410
+#: modules/pricing/widgets/pricing-table.php:295
+#: modules/pricing/widgets/pricing-table.php:1452
 msgid "Pricing"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:261
-#: modules/pricing/widgets/pricing-table.php:1532
+#: modules/pricing/widgets/pricing-table.php:302
+#: modules/pricing/widgets/pricing-table.php:1574
 msgid "Currency Symbol"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:265
+#: modules/pricing/widgets/pricing-table.php:306
 msgid "Dollar"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:266
+#: modules/pricing/widgets/pricing-table.php:307
 msgid "Euro"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:267
+#: modules/pricing/widgets/pricing-table.php:308
 msgid "Baht"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:268
+#: modules/pricing/widgets/pricing-table.php:309
 msgid "Franc"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:269
+#: modules/pricing/widgets/pricing-table.php:310
 msgid "Guilder"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:270
+#: modules/pricing/widgets/pricing-table.php:311
 msgid "Krona"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:271
+#: modules/pricing/widgets/pricing-table.php:312
 msgid "Lira"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:272
+#: modules/pricing/widgets/pricing-table.php:313
 msgid "Peseta"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:273
+#: modules/pricing/widgets/pricing-table.php:314
 msgid "Peso"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:274
+#: modules/pricing/widgets/pricing-table.php:315
 msgid "Pound Sterling"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:275
+#: modules/pricing/widgets/pricing-table.php:316
 msgid "Real"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:276
+#: modules/pricing/widgets/pricing-table.php:317
 msgid "Ruble"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:277
+#: modules/pricing/widgets/pricing-table.php:318
 msgid "Rupee"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:278
+#: modules/pricing/widgets/pricing-table.php:319
 msgid "Rupee (Indian)"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:279
+#: modules/pricing/widgets/pricing-table.php:320
 msgid "Shekel"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:280
+#: modules/pricing/widgets/pricing-table.php:321
 msgid "Yen/Yuan"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:281
+#: modules/pricing/widgets/pricing-table.php:322
 msgid "Won"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:291
+#: modules/pricing/widgets/pricing-table.php:332
 msgid "Custom Symbol"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:318
+#: modules/pricing/widgets/pricing-table.php:359
 msgid "Currency Format"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:322
+#: modules/pricing/widgets/pricing-table.php:363
 msgid "Raised"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:358
-#: modules/pricing/widgets/pricing-table.php:1616
+#: modules/pricing/widgets/pricing-table.php:399
+#: modules/pricing/widgets/pricing-table.php:1658
 msgid "Duration"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:360
+#: modules/pricing/widgets/pricing-table.php:401
 msgid "per month"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:375
-#: modules/pricing/widgets/pricing-table.php:1740
+#: modules/pricing/widgets/pricing-table.php:416
+#: modules/pricing/widgets/pricing-table.php:1782
 msgid "Features"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:389
-#: modules/pricing/widgets/pricing-table.php:390
+#: modules/pricing/widgets/pricing-table.php:431
+#: modules/pricing/widgets/pricing-table.php:432
 msgid "Feature"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:411
+#: modules/pricing/widgets/pricing-table.php:453
 msgid "This is a tooltip"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:480
+#: modules/pricing/widgets/pricing-table.php:522
 msgid "Feature #1"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:484
+#: modules/pricing/widgets/pricing-table.php:526
 msgid "Feature #2"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:488
+#: modules/pricing/widgets/pricing-table.php:530
 msgid "Feature #3"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:617
+#: modules/pricing/widgets/pricing-table.php:659
 msgid "Display On"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:651
+#: modules/pricing/widgets/pricing-table.php:693
 msgid "The distance between the text/icon and the tooltip."
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:789
-#: modules/pricing/widgets/pricing-table.php:2287
+#: modules/pricing/widgets/pricing-table.php:831
+#: modules/pricing/widgets/pricing-table.php:2329
 msgid "Ribbon"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:796
+#: modules/pricing/widgets/pricing-table.php:838
 msgid "Show Ribbon"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:814
+#: modules/pricing/widgets/pricing-table.php:856
 msgid "Flag"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:870
+#: modules/pricing/widgets/pricing-table.php:912
 msgid "Distance from Top"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:959
+#: modules/pricing/widgets/pricing-table.php:1001
 msgid "Button Position"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:963
+#: modules/pricing/widgets/pricing-table.php:1005
 msgid "Above Features"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:964
+#: modules/pricing/widgets/pricing-table.php:1006
 msgid "Below Features"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1001
-#: modules/pricing/widgets/pricing-table.php:1007
-#: modules/pricing/widgets/pricing-table.php:2633
+#: modules/pricing/widgets/pricing-table.php:1043
+#: modules/pricing/widgets/pricing-table.php:1049
+#: modules/pricing/widgets/pricing-table.php:2675
 msgid "Additional Info"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1006
+#: modules/pricing/widgets/pricing-table.php:1048
 msgid "Enter additional info here"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1625
+#: modules/pricing/widgets/pricing-table.php:1667
 msgid "Duration Position"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1629
+#: modules/pricing/widgets/pricing-table.php:1671
 msgid "Same Line"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1630
+#: modules/pricing/widgets/pricing-table.php:1672
 msgid "Next Line"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1710
+#: modules/pricing/widgets/pricing-table.php:1752
 msgid "Font Size"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1917
+#: modules/pricing/widgets/pricing-table.php:1959
 msgid "Rows"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1978
+#: modules/pricing/widgets/pricing-table.php:2020
 msgid "Even"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2020
+#: modules/pricing/widgets/pricing-table.php:2062
 msgid "Odd"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2227
+#: modules/pricing/widgets/pricing-table.php:2269
 msgid "Tooltip Icon"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2593
+#: modules/pricing/widgets/pricing-table.php:2635
 msgid "Footer"
 msgstr ""
 
@@ -8967,10 +9115,6 @@ msgstr ""
 
 #: modules/random-image/widgets/random-image.php:602
 msgid "Hover Animation"
-msgstr ""
-
-#: modules/random-image/widgets/random-image.php:731
-msgid "Justify"
 msgstr ""
 
 #: modules/random-image/widgets/random-image.php:851

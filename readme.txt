@@ -217,6 +217,14 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.5.0 - July 21, 2021 =
+* 	New: Content Reveal Widget
+* 	Added: Pricing Table - Options to change HTML tag for title and subtitle
+* 	Added: Price Menu - Option to change HTML tag for title
+* 	Added: Buttons - Text shadow option
+* 	Enhancement: Pricing Table - Updated Feature Text field with Textarea field
+* 	Gravity Forms, Caldera Forms, WP Forms - Removed duplicate upgrade pro notice
+
 = 2.4.2 - July 15, 2021 =
 * 	Fixed: Team Member - HTML error when link is applied to title
 * 	Fixed: Advanced Accordion - Border radius was not working when background is applied to title and content
