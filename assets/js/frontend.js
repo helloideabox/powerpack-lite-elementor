@@ -486,6 +486,45 @@
 			});
         });
 	};
+    
+	var ContentReveal = function ($scope, $) {
+		var elementSettings 	= getElementSettings($scope),
+			contentWrapper      = $scope.find('.pp-content-reveal-content-wrapper'),
+			$content 			= $scope.find('.pp-content-reveal-content'),
+			$saparator 			= $scope.find('.pp-content-reveal-saparator'),
+			$button				= $scope.find('.pp-content-reveal-button-inner'),
+			contentOuterHeight 	= $content.outerHeight(),
+			contentVisibility   = contentWrapper.data('visibility'),
+			contentHeightCustom = contentWrapper.data('content-height'),
+			speedUnreveal       = contentWrapper.data('speed') * 1000,
+			contentHeightLines  = contentWrapper.data('lines'),
+			contentLineHeight   = $scope.find('.pp-content-reveal-content p').css('line-height'),
+			contentPaddingTop 	= $content.css('padding-top');
+
+        if ( contentVisibility == 'lines' ) {
+            if ( contentHeightLines == '0' ) {
+                var contentWrapperHeight = contentWrapper.outerHeight();
+            } else {
+                var contentWrapperHeight = (parseInt(contentLineHeight, 10) * contentHeightLines) + parseInt(contentPaddingTop, 10);
+                contentWrapper.css( 'height', (contentWrapperHeight + 'px') );
+            }
+        } else {
+            contentWrapper.css( 'height', (contentHeightCustom + 'px') );
+            contentWrapperHeight = contentHeightCustom;
+        }
+
+		$button.on('click', function () {
+			$saparator.slideToggle(speedUnreveal);
+			$(this).toggleClass('pp-content-revealed');
+			$(this).find('.pp-content-reveal-button-open').slideToggle(speedUnreveal);
+			$(this).find('.pp-content-reveal-button-closed').slideToggle(speedUnreveal);
+			if ( $button.hasClass('pp-content-revealed') ) {
+				contentWrapper.animate({ height: ( contentOuterHeight + 'px') }, speedUnreveal);
+			} else {
+				contentWrapper.animate({ height: ( contentWrapperHeight + 'px') }, speedUnreveal);
+			}
+		});
+    };
 
 	var WrapperLinkHandler = function( $scope ) {
 		if ( $scope.data( 'pp-wrapper-link' ) ) {
@@ -537,6 +576,7 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-image-accordion.default', ImageAccordionHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-gravity-forms.default', GFormsHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-pricing-table.default', PricingTableHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/pp-content-reveal.default', ContentReveal);
 
 		elementorFrontend.hooks.addAction( 'frontend/element_ready/global', WrapperLinkHandler );
 		

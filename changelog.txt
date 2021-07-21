@@ -1,5 +1,6 @@
-== 2.4.3 ==
-Release date: July 22, 2021
+== 2.5.0 ==
+Release date: July 21, 2021
+* New: Content Reveal Widget
 * Gravity Forms, Caldera Forms, WP Forms - Removed duplicate upgrade pro notice
 
 == 2.4.2 ==

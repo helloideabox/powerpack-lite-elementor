@@ -18,6 +18,7 @@ class Modules_Manager {
 			'buttons',
 			'contact-form-seven',
 			'caldera-forms',
+			'content-reveal',
 			'content-ticker',
 			'flipbox',
 			'formidable-forms',

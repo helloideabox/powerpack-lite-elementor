@@ -3241,6 +3241,58 @@ div[class*=' pa-'] {
   height: 100%;
   width: 100%; }
 
+.pp-content-reveal-container .pp-content-reveal-content-wrapper {
+  overflow: hidden;
+  position: relative; }
+  .pp-content-reveal-container .pp-content-reveal-content-wrapper .pp-content-reveal-content p {
+    margin-bottom: 0; }
+  .pp-content-reveal-container .pp-content-reveal-content-wrapper .pp-content-reveal-saparator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+    height: 50px; }
+
+.pp-content-reveal-container .pp-content-reveal-buttons-wrapper {
+  display: flex; }
+
+.pp-content-reveal-container .pp-content-reveal-button-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 12px 24px;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out; }
+
+.pp-content-reveal-container .pp-content-reveal-button {
+  min-width: 100%; }
+  .pp-content-reveal-container .pp-content-reveal-button.pp-content-reveal-button-open {
+    display: none; }
+  .pp-content-reveal-container .pp-content-reveal-button p {
+    margin-bottom: 0; }
+  .pp-content-reveal-container .pp-content-reveal-button .pp-button-icon {
+    transition: all 0.4s ease-in-out; }
+
+.pp-content-reveal-container .pp-content-reveal-button-content {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center; }
+
+.pp-content-reveal-container .pp-button-icon-after .pp-content-reveal-button-content {
+  flex-direction: row-reverse; }
+
 .pp-media-content .pp-gallery-image-caption {
   color: #fff;
   padding: 5px 10px; }

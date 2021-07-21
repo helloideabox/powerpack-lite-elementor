@@ -76,6 +76,13 @@ class PP_Config {
 					'keywords'   => array( 'powerpack', 'contact', 'form' ),
 					'icon'       => 'ppicon-contact-form power-pack-admin-icon',
 				),
+				'Content_Reveal'       => array(
+					'name'       => 'pp-content-reveal',
+					'title'      => __( 'Content Reveal', 'powerpack' ),
+					'categories' => array( 'powerpack-elements' ),
+					'keywords'   => array( 'powerpack' ),
+					'icon'       => 'ppicon-content-reveal power-pack-admin-icon',
+				),
 				'Content_Ticker'       => array(
 					'name'       => 'pp-content-ticker',
 					'title'      => __( 'Content Ticker', 'powerpack' ),

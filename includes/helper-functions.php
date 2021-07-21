@@ -407,6 +407,7 @@ function pp_elements_lite_get_modules() {
 		'pp-twitter-tweet'          => esc_html__( 'Twitter Tweet', 'powerpack' ),
 		'pp-fancy-heading'          => esc_html__( 'Fancy Heading', 'powerpack' ),
 		'pp-posts'                  => esc_html__( 'Posts', 'powerpack' ),
+		'pp-content-reveal'         => __( 'Content Reveal', 'powerpack' ),
 		'pp-random-image'           => esc_html__( 'Random Image', 'powerpack' ),
 	);
 
