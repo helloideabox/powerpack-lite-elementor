@@ -77,7 +77,8 @@ PowerPack Addon for Elementor comes from our team of experts, who always deliver
 33. [Scroll Image](https://powerpackelements.com/demo/image-scroll/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Vertical and Horizontal scroll effect on image.
 34. [Twitter](https://powerpackelements.com/demo/twitter-widget/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Embed Twitter tweet and follow buttons, embedded grid and timeline. 
 35. [Fancy Headings](https://powerpackelements.com/elementor-widgets/fancy-heading?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Setup stylish headings on your Elementor website with gradient fill and background clipping options.
-36. [Posts](https://powerpackelements.com/elementor-widgets/posts/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display blog posts beautifully on your Elementor websites. 
+36. [Posts](https://powerpackelements.com/elementor-widgets/posts/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display blog posts beautifully on your Elementor websites.
+37. [Content Reveal](https://powerpackelements.com/elementor-widgets/content-reveal/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Organize the layout of your page by displaying more content in less area. Content Reveal widget allows you to display the extra information with a simple click of button.
 
 ### SEE, WHAT OUR USERS HAVE GOT TO SAY ABOUT POWERPACK FOR ELEMENTOR
 **Here are some testimonials from our Happy Customers and Elementor experts**
