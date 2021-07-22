@@ -218,6 +218,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.5.2 - July 22, 2021 =
+* 	Fixed: Price Menu - PHP error
+
 = 2.5.1 - July 21, 2021 =
 * 	Fixed: PHP error in Buttons widget
 

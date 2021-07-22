@@ -3,6 +3,7 @@ namespace PowerpackElementsLite\Modules\Pricing\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
 use PowerpackElementsLite\Classes\PP_Config;
+use PowerpackElementsLite\Classes\PP_Helper;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -1282,42 +1283,41 @@ class Price_Menu extends Powerpack_Widget {
 		<?php
 	}
 
-	protected function price_template() {
-		?>
-		<# if ( item.menu_price != '' ) { #>
-			<span class="pp-restaurant-menu-price">
-				<#
-					if ( item.discount == 'yes' ) {
-						var original_price = item.original_price;
-
-						view.addRenderAttribute( 'menu_items.' + ($i - 1) + '.original_price', 'class', 'pp-restaurant-menu-price-original' );
-
-						view.addInlineEditingAttributes( 'menu_items.' + ($i - 1) + '.original_price' );
-
-						var original_price_html = '<span' + ' ' + view.getRenderAttributeString( 'menu_items.' + ($i - 1) + '.original_price' ) + '>' + original_price + '</span>';
-
-						print( original_price_html );
-					}
-
-					var menu_price = item.menu_price;
-
-					view.addRenderAttribute( 'menu_items.' + ($i - 1) + '.menu_price', 'class', 'pp-restaurant-menu-price-discount' );
-
-					view.addInlineEditingAttributes( 'menu_items.' + ($i - 1) + '.menu_price' );
-
-					var menu_price_html = '<span' + ' ' + view.getRenderAttributeString( 'menu_items.' + ($i - 1) + '.menu_price' ) + '>' + menu_price + '</span>';
-
-					print( menu_price_html );
-				#>
-			</span>
-		<# } #>
-		<?php
-	}
-
 	protected function content_template() {
 		?>
 		<#
 			var $i = 1;
+
+			function price_template( item ) {
+				if ( item.menu_price != '' ) { #>
+					<span class="pp-restaurant-menu-price">
+						<#
+							if ( item.discount == 'yes' ) {
+								var original_price = item.original_price;
+
+								view.addRenderAttribute( 'menu_items.' + ($i - 1) + '.original_price', 'class', 'pp-restaurant-menu-price-original' );
+
+								view.addInlineEditingAttributes( 'menu_items.' + ($i - 1) + '.original_price' );
+
+								var original_price_html = '<span' + ' ' + view.getRenderAttributeString( 'menu_items.' + ($i - 1) + '.original_price' ) + '>' + original_price + '</span>';
+
+								print( original_price_html );
+							}
+
+							var menu_price = item.menu_price;
+
+							view.addRenderAttribute( 'menu_items.' + ($i - 1) + '.menu_price', 'class', 'pp-restaurant-menu-price-discount' );
+
+							view.addInlineEditingAttributes( 'menu_items.' + ($i - 1) + '.menu_price' );
+
+							var menu_price_html = '<span' + ' ' + view.getRenderAttributeString( 'menu_items.' + ($i - 1) + '.menu_price' ) + '>' + menu_price + '</span>';
+
+							print( menu_price_html );
+						#>
+					</span>
+					<#
+				}
+			}
 
 			function title_template( item ) {
 				var title = item.menu_title;
@@ -1373,7 +1373,7 @@ class Price_Menu extends Powerpack_Widget {
 									<# } #>
 
 									<# if ( settings.menu_style == 'style-1' ) { #>
-										<?php $this->price_template(); ?>
+										<# price_template( item ) #>
 									<# } #>
 								</div>
 
@@ -1381,9 +1381,8 @@ class Price_Menu extends Powerpack_Widget {
 									<div class="pp-price-menu-divider-wrap">
 										<div class="pp-price-menu-divider"></div>
 									</div>
-								<# } #>
+								<# }
 
-								<#
 								if ( item.menu_description != '' ) {
 									var description = item.menu_description;
 
@@ -1395,11 +1394,10 @@ class Price_Menu extends Powerpack_Widget {
 
 									print( description_html );
 								}
-								#>
 
-								<# if ( settings.menu_style != 'style-1' ) { #>
-									<?php $this->price_template(); ?>
-								<# } #>
+								if ( settings.menu_style != 'style-1' ) {
+									price_template( item )
+								} #>
 							</div>
 						</div>
 					</div>
