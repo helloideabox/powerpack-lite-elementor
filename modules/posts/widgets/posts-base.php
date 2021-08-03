@@ -611,7 +611,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		);
 
 		if ( ! $posts_count ) {
-			$posts_per_page = ( $posts_count_var ) ? $settings[ $posts_count_var ] : $settings['posts_per_page'];
+			$posts_per_page = ( $posts_count_var ) ? $settings[ $posts_count_var ] : ( isset( $settings['posts_per_page'] ) ? $settings['posts_per_page'] : '' );
 		} else {
 			$posts_per_page = $posts_count;
 		}
@@ -629,11 +629,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 			$query_args['post_type'] = get_post_type();
 
 			if ( ! empty( $settings['related_include_by'] ) ) {
-				if ( in_array( 'authors', $settings['related_include_by'] ) ) {
+				if ( in_array( 'authors', $settings['related_include_by'], true ) ) {
 					$query_args['author'] = get_the_author_meta( 'ID' );
 				}
 
-				if ( in_array( 'terms', $settings['related_include_by'] ) ) {
+				if ( in_array( 'terms', $settings['related_include_by'], true ) ) {
 					if ( ! empty( $related_terms ) && ! is_wp_error( $related_terms ) ) {
 
 						foreach ( $related_terms as $index => $tax ) {
@@ -650,11 +650,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 			}
 
 			if ( ! empty( $settings['related_exclude_by'] ) ) {
-				if ( in_array( 'current_post', $settings['related_exclude_by'] ) ) {
+				if ( in_array( 'current_post', $settings['related_exclude_by'], true ) ) {
 					$query_args['post__not_in'] = array( get_the_ID() );
 				}
 
-				if ( in_array( 'authors', $settings['related_exclude_by'] ) ) {
+				if ( in_array( 'authors', $settings['related_exclude_by'], true ) ) {
 					$query_args['author'] = '-' . get_the_author_meta( 'ID' );
 				}
 			}
@@ -703,6 +703,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 			// Taxonomy Filter.
 			$taxonomy = PP_Posts_Helper::get_post_taxonomies( $post_type );
 
+			$tax_cat_in     = '';
+			$tax_cat_not_in = '';
+			$tax_tag_in     = '';
+			$tax_tag_not_in = '';
+
 			if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
 
 				foreach ( $taxonomy as $index => $tax ) {
@@ -710,10 +715,10 @@ abstract class Posts_Base extends Powerpack_Widget {
 					$tax_control_key = $index . '_' . $post_type;
 
 					if ( 'yes' === $old_code ) {
-						if ( $post_type == 'post' ) {
-							if ( $index == 'post_tag' ) {
+						if ( 'post' === $post_type ) {
+							if ( 'post_tag' === $index ) {
 								$tax_control_key = 'tags';
-							} elseif ( $index == 'category' ) {
+							} elseif ( 'category' === $index ) {
 								$tax_control_key = 'categories';
 							}
 						}
@@ -729,15 +734,105 @@ abstract class Posts_Base extends Powerpack_Widget {
 							'terms'    => $settings[ $tax_control_key ],
 							'operator' => $operator,
 						);
+
+						switch ( $index ) {
+							case 'category':
+								if ( 'IN' === $operator ) {
+									$tax_cat_in = $settings[ $tax_control_key ];
+								} elseif ( 'NOT IN' === $operator ) {
+									$tax_cat_not_in = $settings[ $tax_control_key ];
+								}
+								break;
+
+							case 'post_tag':
+								if ( 'IN' === $operator ) {
+									$tax_tag_in = $settings[ $tax_control_key ];
+								} elseif ( 'NOT IN' === $operator ) {
+									$tax_tag_not_in = $settings[ $tax_control_key ];
+								}
+								break;
+						}
 					}
 				}
 			}
 
 			if ( '' !== $filter && '*' !== $filter ) {
+				// Taxonomy Filter.
+				$taxonomy = PP_Posts_Helper::get_post_taxonomies( $post_type );
+
+				$tax_cat_in     = '';
+				$tax_cat_not_in = '';
+				$tax_tag_in     = '';
+				$tax_tag_not_in = '';
+
+				if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
+
+					foreach ( $taxonomy as $index => $tax ) {
+
+						$tax_control_key = $index . '_' . $post_type;
+
+						if ( 'yes' === $old_code ) {
+							if ( 'post' === $post_type ) {
+								if ( 'post_tag' === $index ) {
+									$tax_control_key = 'tags';
+								} elseif ( 'category' === $index ) {
+									$tax_control_key = 'categories';
+								}
+							}
+						}
+
+						if ( ! empty( $settings[ $tax_control_key ] ) ) {
+
+							$operator = $settings[ $index . '_' . $post_type . '_filter_type' ];
+
+							$query_args['tax_query'][] = array(
+								'taxonomy' => $index,
+								'field'    => 'term_id',
+								'terms'    => $settings[ $tax_control_key ],
+								'operator' => $operator,
+							);
+
+							switch ( $index ) {
+								case 'category':
+									if ( 'IN' === $operator ) {
+										$tax_cat_in = $settings[ $tax_control_key ];
+									} elseif ( 'NOT IN' === $operator ) {
+										$tax_cat_not_in = $settings[ $tax_control_key ];
+									}
+									break;
+
+								case 'post_tag':
+									if ( 'IN' === $operator ) {
+										$tax_tag_in = $settings[ $tax_control_key ];
+									} elseif ( 'NOT IN' === $operator ) {
+										$tax_tag_not_in = $settings[ $tax_control_key ];
+									}
+									break;
+							}
+						}
+					}
+				}
+
 				$query_args['tax_query'][ $tax_count ]['taxonomy'] = $taxonomy_filter;
 				$query_args['tax_query'][ $tax_count ]['field']    = 'slug';
 				$query_args['tax_query'][ $tax_count ]['terms']    = $filter;
 				$query_args['tax_query'][ $tax_count ]['operator'] = 'IN';
+
+				/* if ( ! empty( $tax_cat_in ) ) {
+					$query_args['category__in'] = $tax_cat_in;
+				}
+
+				if ( ! empty( $tax_cat_not_in ) ) {
+					$query_args['category__not_in'] = $tax_cat_not_in;
+				}
+
+				if ( ! empty( $tax_tag_in ) ) {
+					$query_args['tag__in'] = $tax_tag_in;
+				}
+
+				if ( ! empty( $tax_tag_not_in ) ) {
+					$query_args['tag__not_in'] = $tax_tag_not_in;
+				} */
 			}
 
 			if ( '' !== $search ) {
@@ -779,12 +874,15 @@ abstract class Posts_Base extends Powerpack_Widget {
 		if ( 'yes' === $settings['sticky_posts'] && 'yes' === $settings['all_sticky_posts'] ) {
 			$post__in = get_option( 'sticky_posts' );
 
+			$query_args['ignore_sticky_posts'] = 1;
 			$query_args['post__in'] = $post__in;
 		}
 
 		// Exclude current post.
 		if ( 'yes' === $settings['exclude_current'] ) {
-			$query_args['post__not_in'] = array( get_the_ID() );
+			if ( is_singular() ) {
+				$query_args['post__not_in'] = array( get_queried_object_id() );
+			}
 		}
 
 		return apply_filters( "ppe_{$widget_type}_query_args", $query_args, $settings );
@@ -810,21 +908,33 @@ abstract class Posts_Base extends Powerpack_Widget {
 		 *
 		 * @param \WP_Query     $wp_query
 		 */
-		do_action_deprecated( "pp_query_{$query_id}", [ $wp_query ], '2.3.6', "powerpack/query/{$query_id}" );
+		do_action_deprecated( "pp_query_{$query_id}", [ $wp_query ], '2.3.7', "powerpack/query/{$query_id}" );
 		do_action( "powerpack/query/{$query_id}", $wp_query );
 
 	}
 
-	public function query_posts( $filter = '', $taxonomy = '', $search = '' ) {
+	public function query_posts( $filter = '', $taxonomy = '', $search = '', $all_posts = '', $paged_args = '', $widget_type = 'posts', $old_code = '', $posts_count_var = '', $posts_count = '' ) {
 		$settings = $this->get_settings_for_display();
 		$query_id = $settings['query_id'];
 
 		if ( ! empty( $query_id ) ) {
 			add_action( 'pre_get_posts', array( $this, 'pre_get_posts_query_filter' ) );
 		}
-		$query_args  = $this->query_posts_args( $filter, $taxonomy, $search, '', 'yes' );
+		$query_args = $this->query_posts_args( $filter, $taxonomy, $search, '', 'yes', $widget_type, $old_code, $posts_count_var, $posts_count );
+
+		$post_type = $settings['post_type'];
+		$offset_control = $settings['offset'];
+
+		if ( 'related' !== $post_type && 0 < $offset_control ) {
+			add_action( 'pre_get_posts', [ $this, 'fix_query_offset' ], 1 );
+			add_filter( 'found_posts', [ $this, 'fix_query_found_posts' ], 1, 2 );
+		}
+
 		$this->query = new \WP_Query( $query_args );
+
 		remove_action( 'pre_get_posts', array( $this, 'pre_get_posts_query_filter' ) );
+		remove_action( 'pre_get_posts', [ $this, 'fix_query_offset' ], 1 );
+		remove_filter( 'found_posts', [ $this, 'fix_query_found_posts' ], 1 );
 	}
 
 	public function query_filters_posts( $filter = '', $taxonomy = '', $search = '' ) {
@@ -872,9 +982,14 @@ abstract class Posts_Base extends Powerpack_Widget {
 
 		global $wp_the_query, $paged;
 
-		$skin_id         = $settings['_skin'];
-		$pagination_ajax = $settings[ $skin_id . '_pagination_ajax' ];
-		$pagination_type = $settings[ $skin_id . '_pagination_type' ];
+		if ( isset( $settings['_skin'] ) ) {
+			$skin_id         = $settings['_skin'];
+			$pagination_ajax = $settings[ $skin_id . '_pagination_ajax' ];
+			$pagination_type = $settings[ $skin_id . '_pagination_type' ];
+		} else {
+			$pagination_ajax = '';
+			$pagination_type = '';
+		}
 
 		if ( 'yes' === $pagination_ajax || 'load_more' === $pagination_type || 'infinite' === $pagination_type ) {
 			if ( isset( $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'pp-posts-widget-nonce' ) ) {
@@ -954,7 +1069,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$url        = get_permalink();
 
 		if ( $i > 1 ) {
-			if ( '' === get_option( 'permalink_structure' ) || in_array( $post->post_status, array( 'draft', 'pending' ) ) ) {
+			if ( '' === get_option( 'permalink_structure' ) || in_array( $post->post_status, array( 'draft', 'pending' ), true ) ) {
 				$url = add_query_arg( 'page', $i, $url );
 			} elseif ( get_option( 'show_on_front' ) === 'page' && (int) get_option( 'page_on_front' ) === $post->ID ) {
 				$url = trailingslashit( $url ) . user_trailingslashit( "$wp_rewrite->pagination_base/" . $i, 'single_paged' );
@@ -964,14 +1079,49 @@ abstract class Posts_Base extends Powerpack_Widget {
 		}
 
 		if ( is_preview() ) {
-			if ( ( 'draft' !== $post->post_status ) && isset( $_GET['preview_id'], $_GET['preview_nonce'] ) ) {
-				$query_args['preview_id']    = wp_unslash( $_GET['preview_id'] );
-				$query_args['preview_nonce'] = wp_unslash( $_GET['preview_nonce'] );
+			if ( ( 'draft' !== $post->post_status ) && isset( $_GET['preview_id'], $_GET['preview_nonce'] ) ) { //phpcs:ignore
+				$query_args['preview_id']    = wp_unslash( $_GET['preview_id'] ); //phpcs:ignore
+				$query_args['preview_nonce'] = wp_unslash( $_GET['preview_nonce'] ); //phpcs:ignore
 			}
 
 			$url = get_preview_post_link( $post, $query_args, $url );
 		}
 
 		return $url;
+	}
+
+	/**
+	 * @param \WP_Query $query
+	 *
+	 * @since 2.3.6
+	 */
+	public function fix_query_offset( &$query ) {
+		$settings = $this->get_settings_for_display();
+		$offset = $settings['offset'];
+
+		if ( $offset && $query->is_paged ) {
+			$query->query_vars['offset'] = $offset + ( ( $query->query_vars['paged'] - 1 ) * $query->query_vars['posts_per_page'] );
+		} else {
+			$query->query_vars['offset'] = $offset;
+		}
+	}
+
+	/**
+	 * @param int       $found_posts
+	 * @param \WP_Query $query
+	 *
+	 * @since 2.3.6
+	 *
+	 * @return int
+	 */
+	public function fix_query_found_posts( $found_posts, $query ) {
+		$settings = $this->get_settings_for_display();
+		$offset = $settings['offset'];
+
+		if ( $offset ) {
+			$found_posts -= $offset;
+		}
+
+		return $found_posts;
 	}
 }
