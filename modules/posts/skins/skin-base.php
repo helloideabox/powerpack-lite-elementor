@@ -3809,7 +3809,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access public
 	 */
 	public function get_masonry_classes() {
-
 		$settings = $this->parent->get_settings_for_display();
 
 		$post_type = $settings['post_type'];
@@ -3843,6 +3842,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	protected function render_terms() {
 		$settings   = $this->parent->get_settings_for_display();
 		$post_terms = $this->get_instance_value( 'post_terms' );
+		$query_type = $settings['query_type'];
 
 		if ( 'yes' !== $post_terms ) {
 			return;
@@ -3850,7 +3850,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		$post_type = $settings['post_type'];
 
-		if ( 'related' === $settings['post_type'] ) {
+		if ( 'related' === $settings['post_type'] || 'main' === $query_type ) {
 			$post_type = get_post_type();
 		}
 
@@ -3873,7 +3873,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		$max_terms = $this->get_instance_value( 'max_terms' );
 
-		if ( '' !== $max_terms ) {
+		if ( $max_terms ) {
 			$terms = array_slice( $terms, 0, $max_terms );
 		}
 
@@ -3892,9 +3892,10 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			<span class="pp-post-terms">
 				<?php
 				foreach ( $terms as $term ) {
-					printf( $format, $term->name, get_term_link( (int) $term->term_id ) );
+					printf( wp_kses_post( $format ), esc_attr( $term->name ), esc_url( get_term_link( (int) $term->term_id ) ) );
 				}
-					do_action( 'ppe_single_post_terms', get_the_ID(), $settings );
+
+				do_action( 'ppe_single_post_terms', get_the_ID(), $settings );
 				?>
 			</span>
 		</div>
@@ -3910,6 +3911,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access protected
 	 */
 	protected function render_meta_item( $item_type = '' ) {
+		$skin     = $this->get_id();
 		$settings = $this->parent->get_settings_for_display();
 
 		if ( '' === $item_type ) {
@@ -3918,31 +3920,38 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		$show_item   = $this->get_instance_value( 'show_' . $item_type );
 		$item_link   = $this->get_instance_value( $item_type . '_link' );
-		$item_icon   = $this->get_instance_value( $item_type . '_icon' );
 		$item_prefix = $this->get_instance_value( $item_type . '_prefix' );
 
 		if ( 'yes' !== $show_item ) {
 			return;
 		}
+
+		$item_icon        = $this->get_instance_value( $item_type . '_icon' );
+		$select_item_icon = $this->get_instance_value( 'select_' . $item_type . '_icon' );
+
+		$migrated = isset( $settings['__fa4_migrated'][ $skin . '_select_' . $item_type . '_icon' ] );
+		$is_new   = empty( $settings[ $skin . '_' . $item_type . '_icon' ] ) && Icons_Manager::is_migration_allowed();
 		?>
 		<?php do_action( 'ppe_before_single_post_' . $item_type, get_the_ID(), $settings ); ?>
 		<span class="pp-post-<?php echo esc_attr( $item_type ); ?>">
 			<?php
-			if ( '' !== $item_icon ) {
-				?>
-					<span class="pp-meta-icon <?php echo esc_attr( $item_icon ); ?>">
-					</span>
+			if ( $item_icon || $select_item_icon ) {
+				if ( $is_new || $migrated ) {
+					Icons_Manager::render_icon( $select_item_icon, array( 'class' => 'pp-meta-icon', 'aria-hidden' => 'true' ) );
+				} else { ?>
+					<span class="pp-meta-icon <?php echo esc_attr( $item_icon ); ?>" aria-hidden="true"></span>
 					<?php
+				}
 			}
 
-			if ( '' !== $item_prefix ) {
+			if ( $item_prefix ) {
 				?>
-					<span class="pp-meta-prefix">
-					<?php
-						echo esc_html( $item_prefix );
-					?>
-					</span>
-					<?php
+				<span class="pp-meta-prefix">
+				<?php
+					echo esc_attr( $item_prefix );
+				?>
+				</span>
+				<?php
 			}
 			?>
 			<span class="pp-meta-text">
@@ -3950,12 +3959,16 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				if ( 'author' === $item_type ) {
 					echo wp_kses_post( $this->get_post_author( $item_link ) );
 				} elseif ( 'date' === $item_type ) {
-					if ( 'yes' === $item_link ) {
-						?>
-						<a href="<?php echo esc_url( get_permalink() ); ?>"> <?php echo esc_attr( $this->get_post_date() ); ?></a>
-						<?php
+					if ( PP_Helper::is_tribe_events_post( get_the_ID() ) && function_exists( 'tribe_get_start_date' ) ) {
+						$post_date = tribe_get_start_time( get_the_ID(), 'F d, Y' );
 					} else {
-						echo wp_kses_post( $this->get_post_date() );
+						$post_date = $this->get_post_date();
+					}
+
+					if ( 'yes' === $item_link ) {
+						echo '<a href="' . esc_url( get_permalink() ) . '">' . wp_kses_post( $post_date ) . '</a>';
+					} else {
+						echo wp_kses_post( $post_date );
 					}
 				} elseif ( 'comments' === $item_type ) {
 					echo wp_kses_post( $this->get_post_comments() );
@@ -3974,7 +3987,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access protected
 	 */
 	protected function get_post_author( $author_link = '' ) {
-		if ( $author_link == 'yes' ) {
+		if ( 'yes' === $author_link ) {
 			return get_the_author_posts_link();
 		} else {
 			return get_the_author();
@@ -4007,27 +4020,30 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access protected
 	 */
 	protected function get_post_date( $date_link = '' ) {
-		$date_format = $this->get_instance_value( 'date_format' );
-		$date        = '';
+		$date_type = $this->get_instance_value( 'date_format' );
+		$date_format = $this->get_instance_value( 'date_format_select' );
+		$date_custom_format = $this->get_instance_value( 'date_custom_format' );
+		$date = '';
 
-		if ( $date_format == 'ago' ) {
+		if ( 'custom' === $date_format && $date_custom_format ) {
+			$date_format = $date_custom_format;
+		}
+
+		if ( 'ago' === $date_type ) {
 			$date = sprintf( _x( '%s ago', '%s = human-readable time difference', 'powerpack' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
-		} elseif ( $date_format == 'modified' ) {
-			$date = get_the_modified_date( '', get_the_ID() );
-		} elseif ( $date_format == 'custom' ) {
-			$date_custom_format = $this->get_instance_value( 'date_custom_format' );
-			$date               = ( $date_custom_format ) ? get_the_date( $date_custom_format ) : get_the_date();
-		} elseif ( $date_format == 'key' ) {
+		} elseif ( 'modified' === $date_type ) {
+			$date = get_the_modified_date( $date_format, get_the_ID() );
+		} elseif ( 'key' === $date_type ) {
 			$date_meta_key = $this->get_instance_value( 'date_meta_key' );
 			if ( $date_meta_key ) {
 				$date = get_post_meta( get_the_ID(), $date_meta_key, 'true' );
 			}
 		} else {
-			$date = get_the_date();
+			$date = get_the_date( $date_format );
 		}
 
-		if ( $date == '' ) {
-			$date = get_the_date();
+		if ( '' === $date ) {
+			$date = get_the_date( $date_format );
 		}
 
 		return apply_filters( 'ppe_posts_date', $date, get_the_ID() );
@@ -4041,13 +4057,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access protected
 	 */
 	protected function get_post_thumbnail() {
-
 		$settings              = $this->parent->get_settings_for_display();
 		$image                 = $this->get_instance_value( 'show_thumbnail' );
 		$fallback_image        = $this->get_instance_value( 'fallback_image' );
 		$fallback_image_custom = $this->get_instance_value( 'fallback_image_custom' );
 
-		if ( $image !== 'yes' ) {
+		if ( 'yes' !== $image ) {
 			return;
 		}
 
@@ -4061,12 +4076,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			);
 			$thumbnail_html           = Group_Control_Image_Size::get_attachment_image_html( $settings, $setting_key );
 
-		} elseif ( $fallback_image == 'default' ) {
+		} elseif ( 'default' === $fallback_image ) {
 
 			$thumbnail_url  = Utils::get_placeholder_image_src();
 			$thumbnail_html = '<img src="' . $thumbnail_url . '"/>';
 
-		} elseif ( $fallback_image == 'custom' ) {
+		} elseif ( 'custom' === $fallback_image ) {
 
 			$custom_image_id          = $fallback_image_custom['id'];
 			$setting_key              = $this->get_control_id( 'thumbnail' );

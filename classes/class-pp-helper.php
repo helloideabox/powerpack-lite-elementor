@@ -458,4 +458,8 @@ class PP_Helper {
 			return in_array( strtolower( $tag ), self::ALLOWED_HTML_WRAPPER_TAGS, true ) ? $tag : 'div';
 		}
 	}
+
+	public static function is_tribe_events_post( $post_id ) {
+		return ( class_exists( 'Tribe__Events__Main' ) && 'tribe_events' === get_post_type( $post_id ) );
+	}
 }

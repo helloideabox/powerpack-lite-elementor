@@ -2,6 +2,8 @@
 Release date: August 4, 2021
 * Added: Posts – Link target option for title and thumbnail
 * Added: Posts – Center Mode option for Carousel layout
+* Added: Posts – Integration for The Events Calendar plugin
+* Fixed: Posts - Non-Ajax Pagination was not working
 
 == 2.5.2 ==
 Release date: July 22, 2021
