@@ -2528,14 +2528,4 @@ class Content_Ticker extends Powerpack_Widget {
 
 		return $args;
 	}
-
-	/**
-	 * Render content ticker widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @access protected
-	 */
-	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-	}
 }

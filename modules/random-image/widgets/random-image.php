@@ -1269,7 +1269,4 @@ class Random_Image extends Powerpack_Widget {
 
 		return '<div ' . $this->get_render_attribute_string( $pp_overlay_key ) . '></div>';
 	}
-
-	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-	}
 }

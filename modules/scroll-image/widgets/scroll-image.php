@@ -563,7 +563,7 @@ class Scroll_Image extends Powerpack_Widget {
 		<?php
 	}
 
-	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function content_template() {
 		?>
 		<#
 			var direction = settings.direction_type,

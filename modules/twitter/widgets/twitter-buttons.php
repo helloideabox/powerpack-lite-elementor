@@ -309,7 +309,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function content_template() {
 		?>
 		<#
 			var text = ( settings.default_text ) ? '&text='+settings.default_text : '';

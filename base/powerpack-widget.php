@@ -233,7 +233,7 @@ abstract class Powerpack_Widget extends Widget_Base {
 
 
 	/**
-	 * Get swiper slider settings for _content_template function
+	 * Get swiper slider settings for content_template function
 	 *
 	 * @access public
 	 * @since 2.3.2

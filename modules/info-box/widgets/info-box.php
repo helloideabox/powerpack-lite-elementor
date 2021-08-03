@@ -2255,18 +2255,4 @@ class Info_Box extends Powerpack_Widget {
 		</{{{pp_if_html_tag}}}>
 		<?php
 	}
-
-	/**
-	 * Render info box widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * Remove this after Elementor v3.3.0
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 */
-	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-		$this->content_template();
-	}
 }

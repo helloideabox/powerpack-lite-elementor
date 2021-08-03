@@ -195,7 +195,7 @@ class Twitter_Grid extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function content_template() {
 		?>
 		<#
 			view.addRenderAttribute( 'atts', {
