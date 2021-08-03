@@ -79,6 +79,12 @@ PowerPack Addon for Elementor comes from our team of experts, who always deliver
 35. [Fancy Headings](https://powerpackelements.com/elementor-widgets/fancy-heading?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Setup stylish headings on your Elementor website with gradient fill and background clipping options.
 36. [Posts](https://powerpackelements.com/elementor-widgets/posts/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display blog posts beautifully on your Elementor websites.
 37. [Content Reveal](https://powerpackelements.com/elementor-widgets/content-reveal/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Organize the layout of your page by displaying more content in less area. Content Reveal widget allows you to display the extra information with a simple click of button.
+38. [Random Image] (https://powerpackelements.com/elementor-widgets/random-image/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display Random Images from a set of the images on your webpage.
+
+## CREATIVE EXTENSIONS - FREE
+
+1. [Custom Cursor] (https://powerpackelements.com/elementor-widgets/custom-cursor/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Change default mouse cursor and display icon, image, or text cursor styles on a section or a page of your website.
+2. [Wrapper Link] (https://powerpackelements.com/elementor-widgets/wrapper-link/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Add links to any widget, column, or section of your elementor page easily with the Wrapper Link extension.
 
 ### SEE, WHAT OUR USERS HAVE GOT TO SAY ABOUT POWERPACK FOR ELEMENTOR
 **Here are some testimonials from our Happy Customers and Elementor experts**
