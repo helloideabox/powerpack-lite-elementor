@@ -4,6 +4,7 @@ Release date: August 4, 2021
 * Added: Posts – Center Mode option for Carousel layout
 * Added: Posts – Integration for The Events Calendar plugin
 * Fixed: Posts - Non-Ajax Pagination was not working
+* Fixed: JS file was not loading through wrapper link extension
 
 == 2.5.2 ==
 Release date: July 22, 2021

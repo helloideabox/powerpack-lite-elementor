@@ -38,9 +38,13 @@ class Extension_Wrapper_Link extends Extension_Base {
 	 * @since 2.4.0
 	 **/
 	public function get_script_depends() {
-		return array(
-			'pp-frontend',
-		);
+		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+			return array(
+				'powerpack-frontend',
+			);
+		}
+
+		return [];
 	}
 
 	/**
@@ -190,6 +194,10 @@ class Extension_Wrapper_Link extends Extension_Base {
 			$link = $settings['pp_wrapper_link'];
 
 			if ( 'yes' === $settings['pp_wrapper_link_enable'] && $link['url'] ) {
+				if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() || ! \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+					wp_enqueue_script( 'powerpack-frontend' );
+				}
+
 				$link_attributes = array(
 					'url'         => esc_url( $link['url'] ),
 					'is_external' => esc_attr( $link['is_external'] ),
