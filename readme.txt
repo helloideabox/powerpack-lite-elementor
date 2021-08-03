@@ -83,7 +83,7 @@ PowerPack Addon for Elementor comes from our team of experts, who always deliver
 
 ## CREATIVE EXTENSIONS - FREE
 
-1. [Custom Cursor] (https://powerpackelements.com/elementor-widgets/custom-cursor/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Change default mouse cursor and display icon, image, or text cursor styles on a section or a page of your website.
+1. [Display Conditions] (https://powerpackelements.com/elementor-widgets/display-conditions/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Use Elementor to display timed-content, content for logged in users, special content based on user's browser. Also, display content based on page, post, archive rules, and much more.
 2. [Wrapper Link] (https://powerpackelements.com/elementor-widgets/wrapper-link/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Add links to any widget, column, or section of your elementor page easily with the Wrapper Link extension.
 
 ### SEE, WHAT OUR USERS HAVE GOT TO SAY ABOUT POWERPACK FOR ELEMENTOR
@@ -157,7 +157,7 @@ https://www.youtube.com/watch?v=IoSvG1-0f4M&t=1s
 ### CREATIVE EXTENSIONS
 
  - **ADVANCED DISPLAY CONDITIONS FUNCTIONALITY**
-Use Elementor for advanced cases like timed-content, content for logged in users, special content based on user's browser, display content based on page, post, archive rules, and much more. The most UNIQUE solution for Elementor widgets and sections. 
+ Our Advanced Display Conditions have in-built support for Advanced Custom Fields which allows you to display content from custom fields based on user's browser, operating system, date, time, login status, and much more. The most UNIQUE solution for Elementor widgets and sections. 
 
 https://www.youtube.com/watch?v=blCGxZujnJg
 
@@ -176,6 +176,9 @@ https://www.youtube.com/watch?v=-VPXg2L1sew&feature=youtu.be
 
 - **[BACKGROUND EFFECTS](https://powerpackelements.com/elementor-widgets/background-effects/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)** 
 Add stylish & animated backgrounds on your website.
+
+- **[CUSTOM CURSOR] (https://powerpackelements.com/elementor-widgets/custom-cursor/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)**
+Change default mouse cursor and display icon, image, or text cursor styles on a section or a page of your website.
 
 ### LEARN FROM EXTENSIVE DOCUMENTATION 
 We have [Extensive Documentation](https://powerpackelements.com/docs/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) which includes all types of docs that support users to understand [PowerPack for Elementor](https://powerpackelements.com/docs/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) better. 
