@@ -227,6 +227,13 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.5.3 - August 4, 2021 =
+* 	Added: Posts – Link target option for title and thumbnail
+* 	Added: Posts – Center Mode option for Carousel layout
+* 	Added: Posts – Integration for The Events Calendar plugin
+* 	Fixed: Posts - Non-Ajax Pagination was not working
+* 	Fixed: JS file was not loading through wrapper link extension
+
 = 2.5.2 - July 22, 2021 =
 * 	Fixed: Price Menu - PHP error
 
