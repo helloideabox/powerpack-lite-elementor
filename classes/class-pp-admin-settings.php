@@ -47,6 +47,8 @@ final class PP_Admin_Settings {
 			self::save();
 			self::reset_settings();
 		}
+
+		add_action( 'admin_init', __CLASS__ . '::refresh_instagram_access_token' );
 	}
 
 	/**
@@ -364,6 +366,57 @@ final class PP_Admin_Settings {
 			delete_site_option( 'pp_elementor_extensions' );
 			self::$errors[] = esc_html__( 'Extension settings updated!', 'powerpack' );
 		}
+	}
+
+	/**
+	* Refresh instagram token after 30 days.
+	*
+	* @since x.x.x
+	*/
+	function refresh_instagram_access_token() {
+		$access_token         = trim( \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'instagram_access_token' ) );
+		$updated_access_token = 'ppe_updated_instagram_access_token';
+	
+		if ( empty( $access_token ) ) {
+			return;
+		}
+	
+		$updated = get_transient( $updated_access_token );
+	
+		if ( ! empty( $updated ) ) {
+			return;
+		}
+	
+		$endpoint_url = add_query_arg(
+			[
+				'access_token' => $access_token,
+				'grant_type'   => 'ig_refresh_token',
+			],
+			'https://graph.instagram.com/refresh_access_token'
+		);
+	
+		$response = wp_remote_get( $endpoint_url );
+	
+		if ( ! $response || 200 !== wp_remote_retrieve_response_code( $response ) || is_wp_error( $response ) ) {
+			set_transient( $updated_access_token, 'error', DAY_IN_SECONDS );
+			return;
+		}
+	
+		$body = wp_remote_retrieve_body( $response );
+	
+		if ( ! $body ) {
+			set_transient( $updated_access_token, 'error', DAY_IN_SECONDS );
+			return;
+		}
+	
+		$body = json_decode( $body, true );
+	
+		if ( empty( $body['access_token'] ) || empty( $body['expires_in'] ) ) {
+			set_transient( $updated_access_token, 'error', DAY_IN_SECONDS );
+			return;
+		}
+	
+		set_transient( $updated_access_token, 'updated', 30 * DAY_IN_SECONDS );
 	}
 }
 
