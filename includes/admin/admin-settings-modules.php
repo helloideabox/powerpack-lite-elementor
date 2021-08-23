@@ -1,8 +1,6 @@
 <?php
 $modules            = pp_elements_lite_get_modules();
-$extensions         = pp_elements_lite_get_extensions();
 $enabled_modules    = pp_elements_lite_get_enabled_modules();
-$enabled_extensions = pp_elements_lite_get_enabled_extensions();
 $usage_tracking     = false;
 ?>
 <?php if ( $usage_tracking ) { ?>
@@ -33,45 +31,6 @@ $usage_tracking     = false;
 </div>
 <?php } ?>
 
-<div class="pp-settings-section">
-	<div class="pp-settings-section-header">
-		<h3 class="pp-settings-section-title"><?php _e( 'Extensions', 'powerpack' ); ?></h3>
-	</div>
-	<div class="pp-settings-section-content">
-		<table class="form-table pp-settings-elements-grid">
-			<?php
-			foreach ( $extensions as $extension_name => $extension_title ) :
-				if ( ! is_array( $enabled_extensions ) && 'disabled' !== $enabled_extensions ) {
-					$extension_enabled = true;
-				} elseif ( ! is_array( $enabled_extensions ) && 'disabled' === $enabled_extensions ) {
-					$extension_enabled = false;
-				} else {
-					$extension_enabled = in_array( $extension_name, $enabled_extensions ) || isset( $enabled_extensions[ $extension_name ] );
-				}
-				?>
-			<tr valign="top">
-				<th scope="row" valign="top">
-					<label for="<?php echo $extension_name; ?>">
-						<?php echo $extension_title; ?>
-					</label>
-				</th>
-				<td>
-					<label class="pp-admin-field-toggle">
-						<input
-							id="<?php echo $extension_name; ?>"
-							name="pp_enabled_extensions[]"
-							type="checkbox"
-							value="<?php echo $extension_name; ?>"
-							<?php echo $extension_enabled ? ' checked="checked"' : ''; ?>
-						/>
-						<span class="pp-admin-field-toggle-slider" aria-hidden="true"></span>
-					</label>
-				</td>
-			</tr>
-			<?php endforeach; ?>
-		</table>
-	</div>
-</div>
 <div class="pp-settings-section">
 	<div class="pp-settings-section-header">
 		<h3 class="pp-settings-section-title"><?php _e( 'Widgets', 'powerpack' ); ?></h3>

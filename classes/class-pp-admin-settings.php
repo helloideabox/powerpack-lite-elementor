@@ -168,6 +168,13 @@ final class PP_Admin_Settings {
 				'file'      => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-modules.php',
 				'priority'  => 150,
 			),
+			'extensions'   => array(
+				'title'     => esc_html__( 'Extensions', 'powerpack' ),
+				'show'      => true,
+				'cap'       => 'edit_posts',
+				'file'      => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-extensions.php',
+				'priority'  => 200,
+			),
 			'integration'   => array(
 				'title'         => esc_html__( 'Integration', 'powerpack' ),
 				'show'          => true,
@@ -324,27 +331,48 @@ final class PP_Admin_Settings {
 			return;
 		}
 
-		if ( ! isset( $_POST['pp-modules-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-modules-settings-nonce'], 'pp-modules-settings' ) ) {
-			return;
-		}
-
 		self::save_modules();
+		self::save_extensions();
+		self::save_integration();
 		self::save_tracking();
 
 		do_action( 'pp_admin_after_settings_saved' );
 	}
 
+	/**
+	 * Saves integrations.
+	 *
+	 * @since x.x.x
+	 * @access private
+	 * @return void
+	 */
+	private static function save_integration() {
+		if ( isset( $_POST['pp_instagram_access_token'] ) ) {
+			self::update_option( 'pp_instagram_access_token', trim( $_POST['pp_instagram_access_token'] ), false );
+		}
+	}
+
 	private static function save_modules() {
+		if ( ! isset( $_POST['pp-modules-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-modules-settings-nonce'], 'pp-modules-settings' ) ) {
+			return;
+		}
+
 		if ( isset( $_POST['pp_enabled_modules'] ) ) {
 			update_site_option( 'pp_elementor_modules', $_POST['pp_enabled_modules'] );
 		} else {
 			update_site_option( 'pp_elementor_modules', 'disabled' );
 		}
+	}
+
+	public static function save_extensions() {
+		if ( ! isset( $_POST['pp-extensions-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-extensions-settings-nonce'], 'pp-extensions-settings' ) ) {
+			return;
+		}
 
 		if ( isset( $_POST['pp_enabled_extensions'] ) ) {
-			update_site_option( 'pp_elementor_extensions', $_POST['pp_enabled_extensions'] );
+			update_option( 'pp_elementor_extensions', $_POST['pp_enabled_extensions'] );
 		} else {
-			update_site_option( 'pp_elementor_extensions', 'disabled' );
+			update_option( 'pp_elementor_extensions', 'disabled' );
 		}
 	}
 
@@ -373,7 +401,7 @@ final class PP_Admin_Settings {
 	*
 	* @since x.x.x
 	*/
-	function refresh_instagram_access_token() {
+	public static function refresh_instagram_access_token() {
 		$access_token         = trim( \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'instagram_access_token' ) );
 		$updated_access_token = 'ppe_updated_instagram_access_token';
 	

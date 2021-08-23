@@ -1,3 +1,9 @@
+== 2.5.4 ==
+Release date: August 23, 2021
+* Fixed: PHP error in dashboard
+* Fixed: Instagram Access Token	option was not saving anything
+* Enhancement: Added separate tab to manage extensions in PowerPack settings
+
 == 2.5.3 ==
 Release date: August 4, 2021
 * Added: Posts – Link target option for title and thumbnail
