@@ -227,6 +227,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.5.4 - August 23, 2021 =
+* Fixed: PHP error in dashboard
+* Fixed: Instagram Access Token	option was not saving anything
+* Enhancement: Added separate tab to manage extensions in PowerPack settings
+
 = 2.5.3 - August 4, 2021 =
 * 	Added: Posts – Link target option for title and thumbnail
 * 	Added: Posts – Center Mode option for Carousel layout

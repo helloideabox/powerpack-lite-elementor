@@ -342,7 +342,7 @@ final class PP_Admin_Settings {
 	/**
 	 * Saves integrations.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.4
 	 * @access private
 	 * @return void
 	 */
@@ -399,7 +399,7 @@ final class PP_Admin_Settings {
 	/**
 	* Refresh instagram token after 30 days.
 	*
-	* @since x.x.x
+	* @since 2.5.4
 	*/
 	public static function refresh_instagram_access_token() {
 		$access_token         = trim( \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'instagram_access_token' ) );
