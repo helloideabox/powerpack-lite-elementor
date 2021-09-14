@@ -266,15 +266,15 @@ class Counter extends Powerpack_Widget {
 				'options'               => [
 					'none'        => [
 						'title'   => esc_html__( 'None', 'powerpack' ),
-						'icon'    => 'fa fa-ban',
+						'icon'    => 'eicon-ban',
 					],
 					'icon'        => [
 						'title'   => esc_html__( 'Icon', 'powerpack' ),
-						'icon'    => 'fa fa-star',
+						'icon'    => 'eicon-star',
 					],
 					'image'       => [
 						'title'   => esc_html__( 'Image', 'powerpack' ),
-						'icon'    => 'fa fa-picture-o',
+						'icon'    => 'eicon-image-bold',
 					],
 				],
 				'default'               => 'none',
@@ -485,30 +485,39 @@ class Counter extends Powerpack_Widget {
 	}
 
 	protected function register_content_help_docs_controls() {
-		/**
-		 * Content Tab: Docs Links
-		 *
-		 * @since 1.4.8
-		 * @access protected
-		 */
-		$this->start_controls_section(
-			'section_help_docs',
-			array(
-				'label' => __( 'Help Docs', 'powerpack' ),
-			)
-		);
 
-		$this->add_control(
-			'help_doc_1',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Widget Overview %2$s', 'powerpack' ), '<a href="https://powerpackelements.com/docs/powerpack/widgets/counter/counter-widget-overview/?utm_source=widget&utm_medium=panel&utm_campaign=userkb" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+		$help_docs = PP_Config::get_widget_help_links( 'Counter' );
 
-		$this->end_controls_section();
+		if ( ! empty( $help_docs ) ) {
+			/**
+			 * Content Tab: Docs Links
+			 *
+			 * @since 1.4.8
+			 * @access protected
+			 */
+			$this->start_controls_section(
+				'section_help_docs',
+				[
+					'label' => __( 'Help Docs', 'powerpack' ),
+				]
+			);
+
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					[
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					]
+				);
+
+				$hd_counter++;
+			}
+
+			$this->end_controls_section();
+		}
 	}
 
 	/*-----------------------------------------------------------------------------------*/

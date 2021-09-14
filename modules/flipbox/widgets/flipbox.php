@@ -142,22 +142,22 @@ class Flipbox extends Powerpack_Widget {
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
-					'none' => [
-						'title'   => __( 'None', 'powerpack' ),
-						'icon'    => 'fa fa-ban',
+					'none'  => [
+						'title' => esc_html__( 'None', 'powerpack' ),
+						'icon'  => 'eicon-ban',
+					],
+					'icon'  => [
+						'title' => esc_html__( 'Icon', 'powerpack' ),
+						'icon'  => 'eicon-star',
 					],
 					'image' => [
-						'title'   => __( 'Image', 'powerpack' ),
-						'icon'    => 'fa fa-picture-o',
+						'title' => esc_html__( 'Image', 'powerpack' ),
+						'icon'  => 'eicon-image-bold',
 					],
-					'icon' => [
-						'title'   => __( 'Icon', 'powerpack' ),
-						'icon'    => 'fa fa-star',
-					],
-					'text'  => array(
+					'text'  => [
 						'title' => esc_html__( 'Text', 'powerpack' ),
-						'icon'  => 'fa fa-font',
-					),
+						'icon'  => 'eicon-font',
+					],
 				],
 				'default'               => 'icon',
 			]
@@ -281,22 +281,22 @@ class Flipbox extends Powerpack_Widget {
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
-					'none' => [
-						'title'   => __( 'None', 'powerpack' ),
-						'icon'    => 'fa fa-ban',
+					'none'  => [
+						'title' => esc_html__( 'None', 'powerpack' ),
+						'icon'  => 'eicon-ban',
+					],
+					'icon'  => [
+						'title' => esc_html__( 'Icon', 'powerpack' ),
+						'icon'  => 'eicon-star',
 					],
 					'image' => [
-						'title'   => __( 'Image', 'powerpack' ),
-						'icon'    => 'fa fa-picture-o',
+						'title' => esc_html__( 'Image', 'powerpack' ),
+						'icon'  => 'eicon-image-bold',
 					],
-					'icon' => [
-						'title'   => __( 'Icon', 'powerpack' ),
-						'icon'    => 'fa fa-star',
-					],
-					'text'  => array(
+					'text'  => [
 						'title' => esc_html__( 'Text', 'powerpack' ),
-						'icon'  => 'fa fa-font',
-					),
+						'icon'  => 'eicon-font',
+					],
 				],
 				'default'               => 'icon',
 			]

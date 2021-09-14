@@ -115,21 +115,21 @@ class Info_Table extends Powerpack_Widget {
 				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options'     => [
-					'none' => [
+					'none'  => [
 						'title' => esc_html__( 'None', 'powerpack' ),
-						'icon'  => 'fa fa-ban',
+						'icon'  => 'eicon-ban',
 					],
-					'icon' => [
+					'icon'  => [
 						'title' => esc_html__( 'Icon', 'powerpack' ),
-						'icon'  => 'fa fa-gear',
+						'icon'  => 'eicon-star',
 					],
 					'image' => [
 						'title' => esc_html__( 'Image', 'powerpack' ),
-						'icon'  => 'fa fa-picture-o',
+						'icon'  => 'eicon-image-bold',
 					],
-					'text' => [
+					'text'  => [
 						'title' => esc_html__( 'Text', 'powerpack' ),
-						'icon'  => 'fa fa-font',
+						'icon'  => 'eicon-font',
 					],
 				],
 				'default'     => 'icon',
@@ -390,20 +390,20 @@ class Info_Table extends Powerpack_Widget {
 			 */
 			$this->start_controls_section(
 				'section_help_docs',
-				array(
+				[
 					'label' => __( 'Help Docs', 'powerpack' ),
-				)
+				]
 			);
 
 			$hd_counter = 1;
 			foreach ( $help_docs as $hd_title => $hd_link ) {
 				$this->add_control(
 					'help_doc_' . $hd_counter,
-					array(
+					[
 						'type'            => Controls_Manager::RAW_HTML,
 						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
 						'content_classes' => 'pp-editor-doc-links',
-					)
+					]
 				);
 
 				$hd_counter++;

@@ -175,19 +175,19 @@ class Info_List extends Powerpack_Widget {
 				'options'     => array(
 					'none'  => array(
 						'title' => esc_html__( 'None', 'powerpack' ),
-						'icon'  => 'fa fa-ban',
+						'icon'  => 'eicon-ban',
 					),
 					'icon'  => array(
 						'title' => esc_html__( 'Icon', 'powerpack' ),
-						'icon'  => 'fa fa-gear',
+						'icon'  => 'eicon-star',
 					),
 					'image' => array(
 						'title' => esc_html__( 'Image', 'powerpack' ),
-						'icon'  => 'fa fa-picture-o',
+						'icon'  => 'eicon-image-bold',
 					),
 					'text'  => array(
 						'title' => esc_html__( 'Text', 'powerpack' ),
-						'icon'  => 'fa fa-hashtag',
+						'icon'  => 'eicon-font',
 					),
 				),
 				'default'     => 'icon',
@@ -1360,7 +1360,7 @@ class Info_List extends Powerpack_Widget {
 									<?php
 								}
 								?>
-								<?php if ( '' !== $item['link']['url'] && 'button' === $item['link_type'] ) { ?>
+								<?php if ( 'button' === $item['link_type'] && ! empty( $settings['link']['url'] ) ) { ?>
 									<div <?php echo wp_kses_post( $this->get_render_attribute_string( $button_key ) ); ?>>
 										<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
 											<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-list-button' ) ); ?>>
@@ -1376,7 +1376,7 @@ class Info_List extends Powerpack_Widget {
 									</div>
 								<?php } ?>
 								<?php
-								if ( '' !== $item['link']['url'] && 'box' === $item['link_type'] ) { ?>
+								if ( ! empty( $item['link']['url'] ) && 'box' === $item['link_type'] ) { ?>
 									</a>
 									<?php
 								}

@@ -198,21 +198,21 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'type'                  => Controls_Manager::CHOOSE,
 					'label_block'           => false,
 					'options'               => [
-						'none' => [
+						'none'  => [
 							'title' => esc_html__( 'None', 'powerpack' ),
-							'icon' => 'fa fa-ban',
+							'icon'  => 'eicon-ban',
 						],
-						'icon' => [
+						'icon'  => [
 							'title' => esc_html__( 'Icon', 'powerpack' ),
-							'icon' => 'fa fa-gear',
+							'icon'  => 'eicon-star',
 						],
 						'image' => [
 							'title' => esc_html__( 'Image', 'powerpack' ),
-							'icon' => 'fa fa-picture-o',
+							'icon'  => 'eicon-image-bold',
 						],
-						'text' => [
+						'text'  => [
 							'title' => esc_html__( 'Text', 'powerpack' ),
-							'icon' => 'fa fa-font',
+							'icon'  => 'eicon-font',
 						],
 					],
 					'default'               => 'icon',

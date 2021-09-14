@@ -142,19 +142,19 @@ class Info_Box extends Powerpack_Widget {
 				'options'     => array(
 					'none'  => array(
 						'title' => esc_html__( 'None', 'powerpack' ),
-						'icon'  => 'fa fa-ban',
+						'icon'  => 'eicon-ban',
 					),
 					'icon'  => array(
 						'title' => esc_html__( 'Icon', 'powerpack' ),
-						'icon'  => 'fa fa-star',
+						'icon'  => 'eicon-star',
 					),
 					'image' => array(
 						'title' => esc_html__( 'Image', 'powerpack' ),
-						'icon'  => 'fa fa-picture-o',
+						'icon'  => 'eicon-image-bold',
 					),
 					'text'  => array(
 						'title' => esc_html__( 'Text', 'powerpack' ),
-						'icon'  => 'fa fa-font',
+						'icon'  => 'eicon-font',
 					),
 				),
 				'default'     => 'icon',
