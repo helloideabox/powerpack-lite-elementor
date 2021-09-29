@@ -5,7 +5,7 @@ Release date: September 15, 2021
 == 2.5.4 ==
 Release date: August 23, 2021
 * Fixed: PHP error in dashboard
-* Fixed: Instagram Access Token	option was not saving anything
+* Fixed: Instagram Access Token option was not saving anything
 * Enhancement: Added separate tab to manage extensions in PowerPack settings
 
 == 2.5.3 ==
