@@ -1,6 +1,7 @@
-== 2.5.5 ==
-Release date: September 15, 2021
-* Fixed: Updated icons for Icon Type option in all the widgets
+== 2.6.0 ==
+Release date: October 7, 2021
+* New: Animated Gradient Background extension
+* Enhancement: Updated icons for Icon Type option in all the widgets
 
 == 2.5.4 ==
 Release date: August 23, 2021

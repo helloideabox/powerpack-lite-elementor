@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.5.3\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.6.0\n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2021-08-04 07:56:07+00:00\n"
+"https://wordpress.org/support/plugin/powerpack-lite-elementor\n"
+"POT-Creation-Date: 2021-10-07 11:12:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -111,32 +111,37 @@ msgstr ""
 msgid "This is a placeholder for this widget and is visible only in the editor."
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:116
+#: classes/class-pp-admin-settings.php:118
 msgid "Settings updated!"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:163
+#: classes/class-pp-admin-settings.php:165
 msgid "Elements"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:170
-#: includes/admin/admin-settings-integration.php:54
+#: classes/class-pp-admin-settings.php:172
+#: includes/admin/admin-settings-extensions.php:7
+msgid "Extensions"
+msgstr ""
+
+#: classes/class-pp-admin-settings.php:179
+#: includes/admin/admin-settings-integration.php:7
 msgid "Integration"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:207
+#: classes/class-pp-admin-settings.php:216
 msgid "Setting page file could not be located."
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:229
+#: classes/class-pp-admin-settings.php:238
 msgid "You do not have permission to view this setting."
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:360
+#: classes/class-pp-admin-settings.php:390
 msgid "Modules settings updated!"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:365
+#: classes/class-pp-admin-settings.php:395
 msgid "Extension settings updated!"
 msgstr ""
 
@@ -1241,24 +1246,21 @@ msgstr ""
 msgid "Team Member - Social Link"
 msgstr ""
 
-#: extensions/display-conditions.php:55
+#: extensions/animated-gradient-background.php:57
 msgid ""
-"Adds display conditions to widgets and sections allowing you to show them "
-"depending on authentication, roles, date and time of day."
+"Add Animated Gradient Background to sections allowing you to show gradient "
+"Animated background for sections."
 msgstr ""
 
-#: extensions/upgrade-pro.php:48
-msgid "Adds upgrade PowerPack notice to all widgets of PowerPack."
+#: extensions/animated-gradient-background.php:98
+msgid "PowerPack Background"
 msgstr ""
 
-#: extensions/wrapper-link.php:56
-msgid "Adds link around sections, columns and widgets."
+#: extensions/animated-gradient-background.php:138
+msgid "Enable Animated Gradient Background"
 msgstr ""
 
-#: extensions/wrapper-link.php:137 includes/helper-functions.php:457
-msgid "Wrapper Link"
-msgstr ""
-
+#: extensions/animated-gradient-background.php:140
 #: extensions/wrapper-link.php:140
 #: modules/business-hours/widgets/business-hours.php:208
 #: modules/business-hours/widgets/business-hours.php:265
@@ -1373,6 +1375,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
+#: extensions/animated-gradient-background.php:141
 #: extensions/wrapper-link.php:141
 #: modules/business-hours/widgets/business-hours.php:207
 #: modules/business-hours/widgets/business-hours.php:266
@@ -1487,6 +1490,150 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+#: extensions/animated-gradient-background.php:151
+#: modules/instafeed/widgets/instafeed.php:1888
+msgid "Angle"
+msgstr ""
+
+#: extensions/animated-gradient-background.php:179
+msgid "Add Color"
+msgstr ""
+
+#: extensions/animated-gradient-background.php:187
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1159
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1236
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1291
+#: modules/business-hours/widgets/business-hours.php:927
+#: modules/business-hours/widgets/business-hours.php:984
+#: modules/buttons/widgets/buttons.php:990
+#: modules/buttons/widgets/buttons.php:1012
+#: modules/buttons/widgets/buttons.php:1101
+#: modules/caldera-forms/widgets/caldera-forms.php:957
+#: modules/caldera-forms/widgets/caldera-forms.php:1073
+#: modules/caldera-forms/widgets/caldera-forms.php:1466
+#: modules/contact-form-seven/widgets/contact-form-7.php:800
+#: modules/contact-form-seven/widgets/contact-form-7.php:916
+#: modules/content-reveal/widgets/content-reveal.php:502
+#: modules/content-ticker/widgets/content-ticker.php:1828
+#: modules/content-ticker/widgets/content-ticker.php:1884
+#: modules/counter/widgets/counter.php:558
+#: modules/counter/widgets/counter.php:815
+#: modules/counter/widgets/counter.php:874
+#: modules/counter/widgets/counter.php:1030
+#: modules/counter/widgets/counter.php:1102
+#: modules/counter/widgets/counter.php:1151
+#: modules/divider/widgets/divider.php:697
+#: modules/divider/widgets/divider.php:795
+#: modules/flipbox/widgets/flipbox.php:809
+#: modules/flipbox/widgets/flipbox.php:894
+#: modules/flipbox/widgets/flipbox.php:952
+#: modules/flipbox/widgets/flipbox.php:1163
+#: modules/flipbox/widgets/flipbox.php:1248
+#: modules/flipbox/widgets/flipbox.php:1306
+#: modules/fluent-forms/widgets/fluent-forms.php:908
+#: modules/fluent-forms/widgets/fluent-forms.php:1058
+#: modules/formidable-forms/widgets/formidable-forms.php:966
+#: modules/formidable-forms/widgets/formidable-forms.php:1082
+#: modules/gravity-forms/widgets/gravity-forms.php:1174
+#: modules/gravity-forms/widgets/gravity-forms.php:1292
+#: modules/gravity-forms/widgets/gravity-forms.php:1931
+#: modules/headings/widgets/fancy-heading.php:280
+#: modules/hotspots/widgets/hotspots.php:387
+#: modules/hotspots/widgets/hotspots.php:871
+#: modules/icon-list/widgets/icon-list.php:467
+#: modules/icon-list/widgets/icon-list.php:565
+#: modules/icon-list/widgets/icon-list.php:679
+#: modules/image-accordion/widgets/image-accordion.php:782
+#: modules/image-accordion/widgets/image-accordion.php:834
+#: modules/image-comparison/widgets/image-comparison.php:539
+#: modules/info-box/widgets/info-box-carousel.php:1245
+#: modules/info-box/widgets/info-box-carousel.php:1307
+#: modules/info-box/widgets/info-box-carousel.php:1546
+#: modules/info-box/widgets/info-box-carousel.php:1967
+#: modules/info-box/widgets/info-box-carousel.php:2023
+#: modules/info-box/widgets/info-box-carousel.php:2160
+#: modules/info-box/widgets/info-box-carousel.php:2259
+#: modules/info-box/widgets/info-box.php:1141
+#: modules/info-box/widgets/info-box.php:1221
+#: modules/info-box/widgets/info-box.php:1497
+#: modules/info-list/widgets/info-list.php:552
+#: modules/info-list/widgets/info-list.php:715
+#: modules/info-list/widgets/info-list.php:857
+#: modules/info-list/widgets/info-list.php:987
+#: modules/info-list/widgets/info-list.php:1022
+#: modules/info-table/widgets/info-table.php:595
+#: modules/info-table/widgets/info-table.php:669
+#: modules/info-table/widgets/info-table.php:1048
+#: modules/info-table/widgets/info-table.php:1433
+#: modules/instafeed/widgets/instafeed.php:1143
+#: modules/instafeed/widgets/instafeed.php:1495
+#: modules/instafeed/widgets/instafeed.php:1986
+#: modules/instafeed/widgets/instafeed.php:2042
+#: modules/instafeed/widgets/instafeed.php:2184
+#: modules/instafeed/widgets/instafeed.php:2289
+#: modules/logos/widgets/logo-carousel.php:724
+#: modules/logos/widgets/logo-carousel.php:898
+#: modules/logos/widgets/logo-carousel.php:954
+#: modules/logos/widgets/logo-carousel.php:1090
+#: modules/logos/widgets/logo-carousel.php:1189
+#: modules/logos/widgets/logo-grid.php:679
+#: modules/ninja-forms/widgets/ninja-forms.php:925
+#: modules/ninja-forms/widgets/ninja-forms.php:1041
+#: modules/ninja-forms/widgets/ninja-forms.php:1352
+#: modules/posts/skins/skin-base.php:2054
+#: modules/posts/skins/skin-base.php:2449
+#: modules/posts/skins/skin-base.php:3031
+#: modules/posts/skins/skin-base.php:3107
+#: modules/posts/skins/skin-base.php:3235
+#: modules/posts/skins/skin-base.php:3318
+#: modules/posts/skins/skin-base.php:3363
+#: modules/posts/skins/skin-base.php:3482
+#: modules/posts/skins/skin-base.php:3585
+#: modules/posts/skins/skin-base.php:3656
+#: modules/posts/skins/skin-base.php:3743
+#: modules/pricing/widgets/price-menu.php:532
+#: modules/pricing/widgets/price-menu.php:757
+#: modules/pricing/widgets/price-menu.php:849
+#: modules/pricing/widgets/price-menu.php:1103
+#: modules/pricing/widgets/pricing-table.php:1275
+#: modules/pricing/widgets/pricing-table.php:1360
+#: modules/pricing/widgets/pricing-table.php:1394
+#: modules/pricing/widgets/pricing-table.php:1471
+#: modules/pricing/widgets/pricing-table.php:1904
+#: modules/pricing/widgets/pricing-table.php:2282
+#: modules/promo-box/widgets/promo-box.php:553
+#: modules/promo-box/widgets/promo-box.php:935
+#: modules/promo-box/widgets/promo-box.php:1168
+#: modules/promo-box/widgets/promo-box.php:1398
+#: modules/team-member/widgets/team-member-carousel.php:2068
+#: modules/team-member/widgets/team-member-carousel.php:2125
+#: modules/team-member/widgets/team-member-carousel.php:2259
+#: modules/team-member/widgets/team-member-carousel.php:2358
+#: modules/team-member/widgets/team-member.php:1580
+#: modules/team-member/widgets/team-member.php:1651
+#: modules/wpforms/widgets/wpforms.php:858
+#: modules/wpforms/widgets/wpforms.php:974
+msgid "Color"
+msgstr ""
+
+#: extensions/display-conditions.php:55
+msgid ""
+"Adds display conditions to widgets and sections allowing you to show them "
+"depending on authentication, roles, date and time of day."
+msgstr ""
+
+#: extensions/upgrade-pro.php:48
+msgid "Adds upgrade PowerPack notice to all widgets of PowerPack."
+msgstr ""
+
+#: extensions/wrapper-link.php:56
+msgid "Adds link around sections, columns and widgets."
+msgstr ""
+
+#: extensions/wrapper-link.php:137 includes/helper-functions.php:457
+msgid "Wrapper Link"
+msgstr ""
+
 #: extensions/wrapper-link.php:150 modules/buttons/widgets/buttons.php:262
 #: modules/content-ticker/widgets/content-ticker.php:516
 #: modules/flipbox/widgets/flipbox.php:421
@@ -1515,33 +1662,29 @@ msgstr ""
 msgid "Link"
 msgstr ""
 
-#: includes/admin/admin-settings-integration.php:59
+#: includes/admin/admin-settings-integration.php:12
 msgid "Instagram Access Token"
 msgstr ""
 
-#: includes/admin/admin-settings-integration.php:65
+#: includes/admin/admin-settings-integration.php:18
 #. translators: %s: Google API document
 msgid ""
 "To get your Instagram Access Token, read <a href=\"%s\" "
 "target=\"_blank\">this document</a>"
 msgstr ""
 
-#: includes/admin/admin-settings-modules.php:14
+#: includes/admin/admin-settings-modules.php:12
 msgid "Allow usage tracking?"
 msgstr ""
 
-#: includes/admin/admin-settings-modules.php:29
+#: includes/admin/admin-settings-modules.php:27
 msgid ""
 "Allow PowerPack to anonymously track how this plugin is used and help us "
 "make the plugin better. Opt-in to tracking and our newsletter. No sensitive "
 "data is tracked."
 msgstr ""
 
-#: includes/admin/admin-settings-modules.php:38
-msgid "Extensions"
-msgstr ""
-
-#: includes/admin/admin-settings-modules.php:77
+#: includes/admin/admin-settings-modules.php:36
 msgid "Widgets"
 msgstr ""
 
@@ -1655,6 +1798,10 @@ msgstr ""
 msgid "Display Conditions"
 msgstr ""
 
+#: includes/helper-functions.php:458
+msgid "Animated Gradient Background"
+msgstr ""
+
 #: modules/advanced-accordion/widgets/advanced-accordion.php:144
 #: modules/advanced-accordion/widgets/advanced-accordion.php:465
 msgid "Accordion"
@@ -1672,8 +1819,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1470
 #: modules/counter/widgets/counter.php:345
 #: modules/counter/widgets/counter.php:354
-#: modules/counter/widgets/counter.php:1180
-#: modules/counter/widgets/counter.php:1206
+#: modules/counter/widgets/counter.php:1189
+#: modules/counter/widgets/counter.php:1215
 #: modules/flipbox/widgets/flipbox.php:226
 #: modules/flipbox/widgets/flipbox.php:365
 #: modules/flipbox/widgets/flipbox.php:411
@@ -1748,13 +1895,13 @@ msgstr ""
 #: modules/counter/widgets/counter.php:253
 #: modules/counter/widgets/counter.php:272
 #: modules/counter/widgets/counter.php:287
-#: modules/counter/widgets/counter.php:525
+#: modules/counter/widgets/counter.php:534
 #: modules/divider/widgets/divider.php:141
 #: modules/divider/widgets/divider.php:187
 #: modules/divider/widgets/divider.php:760
-#: modules/flipbox/widgets/flipbox.php:154
+#: modules/flipbox/widgets/flipbox.php:150
 #: modules/flipbox/widgets/flipbox.php:183
-#: modules/flipbox/widgets/flipbox.php:293
+#: modules/flipbox/widgets/flipbox.php:289
 #: modules/flipbox/widgets/flipbox.php:322
 #: modules/flipbox/widgets/flipbox.php:797
 #: modules/flipbox/widgets/flipbox.php:1151
@@ -1843,8 +1990,8 @@ msgstr ""
 #: modules/divider/widgets/divider.php:145
 #: modules/divider/widgets/divider.php:226
 #: modules/divider/widgets/divider.php:891
-#: modules/flipbox/widgets/flipbox.php:150
-#: modules/flipbox/widgets/flipbox.php:289
+#: modules/flipbox/widgets/flipbox.php:154
+#: modules/flipbox/widgets/flipbox.php:293
 #: modules/flipbox/widgets/flipbox.php:748
 #: modules/flipbox/widgets/flipbox.php:1102
 #: modules/hotspots/widgets/hotspots.php:136
@@ -2124,7 +2271,7 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:529
 #: modules/caldera-forms/widgets/caldera-forms.php:247
 #: modules/content-ticker/widgets/content-ticker.php:1241
-#: modules/counter/widgets/counter.php:497
+#: modules/counter/widgets/counter.php:501
 #: modules/divider/widgets/divider.php:302
 #: modules/flipbox/widgets/flipbox.php:598
 #: modules/fluent-forms/widgets/fluent-forms.php:217
@@ -2310,8 +2457,8 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:591
 #: modules/business-hours/widgets/business-hours.php:815
-#: modules/counter/widgets/counter.php:731
-#: modules/counter/widgets/counter.php:931
+#: modules/counter/widgets/counter.php:740
+#: modules/counter/widgets/counter.php:940
 #: modules/divider/widgets/divider.php:388
 #: modules/gravity-forms/widgets/gravity-forms.php:968
 #: modules/icon-list/widgets/icon-list.php:422
@@ -2333,8 +2480,8 @@ msgid "Solid"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:592
-#: modules/counter/widgets/counter.php:732
-#: modules/counter/widgets/counter.php:932
+#: modules/counter/widgets/counter.php:741
+#: modules/counter/widgets/counter.php:941
 #: modules/divider/widgets/divider.php:391
 #: modules/gravity-forms/widgets/gravity-forms.php:969
 #: modules/icon-list/widgets/icon-list.php:423
@@ -2356,8 +2503,8 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:593
 #: modules/business-hours/widgets/business-hours.php:817
-#: modules/counter/widgets/counter.php:733
-#: modules/counter/widgets/counter.php:933
+#: modules/counter/widgets/counter.php:742
+#: modules/counter/widgets/counter.php:942
 #: modules/divider/widgets/divider.php:390
 #: modules/gravity-forms/widgets/gravity-forms.php:970
 #: modules/icon-list/widgets/icon-list.php:424
@@ -2485,7 +2632,7 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1458
 #: modules/content-ticker/widgets/content-ticker.php:1677
 #: modules/content-ticker/widgets/content-ticker.php:1851
-#: modules/counter/widgets/counter.php:657
+#: modules/counter/widgets/counter.php:666
 #: modules/divider/widgets/divider.php:956
 #: modules/flipbox/widgets/flipbox.php:523
 #: modules/flipbox/widgets/flipbox.php:1450
@@ -2684,8 +2831,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1310
 #: modules/content-ticker/widgets/content-ticker.php:1419
 #: modules/content-ticker/widgets/content-ticker.php:1933
-#: modules/counter/widgets/counter.php:672
-#: modules/counter/widgets/counter.php:1316
+#: modules/counter/widgets/counter.php:681
+#: modules/counter/widgets/counter.php:1325
 #: modules/flipbox/widgets/flipbox.php:639
 #: modules/flipbox/widgets/flipbox.php:993
 #: modules/flipbox/widgets/flipbox.php:1478
@@ -2811,8 +2958,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1338
 #: modules/content-ticker/widgets/content-ticker.php:1479
 #: modules/content-ticker/widgets/content-ticker.php:1532
-#: modules/counter/widgets/counter.php:1218
-#: modules/counter/widgets/counter.php:1262
+#: modules/counter/widgets/counter.php:1227
+#: modules/counter/widgets/counter.php:1271
 #: modules/flipbox/widgets/flipbox.php:1420
 #: modules/flipbox/widgets/flipbox.php:1566
 #: modules/fluent-forms/widgets/fluent-forms.php:303
@@ -2968,7 +3115,7 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1590
 #: modules/content-ticker/widgets/content-ticker.php:1816
 #: modules/content-ticker/widgets/content-ticker.php:1872
-#: modules/counter/widgets/counter.php:1191
+#: modules/counter/widgets/counter.php:1200
 #: modules/flipbox/widgets/flipbox.php:1405
 #: modules/flipbox/widgets/flipbox.php:1551
 #: modules/fluent-forms/widgets/fluent-forms.php:502
@@ -3104,7 +3251,7 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1448
 #: modules/content-ticker/widgets/content-ticker.php:1667
 #: modules/content-ticker/widgets/content-ticker.php:1841
-#: modules/counter/widgets/counter.php:644
+#: modules/counter/widgets/counter.php:653
 #: modules/flipbox/widgets/flipbox.php:1437
 #: modules/fluent-forms/widgets/fluent-forms.php:537
 #: modules/fluent-forms/widgets/fluent-forms.php:734
@@ -3293,8 +3440,8 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:1241
 #: modules/content-reveal/widgets/content-reveal.php:944
 #: modules/content-ticker/widgets/content-ticker.php:1912
-#: modules/counter/widgets/counter.php:822
-#: modules/counter/widgets/counter.php:1042
+#: modules/counter/widgets/counter.php:831
+#: modules/counter/widgets/counter.php:1051
 #: modules/divider/widgets/divider.php:733
 #: modules/divider/widgets/divider.php:864
 #: modules/divider/widgets/divider.php:971
@@ -3348,7 +3495,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:762
 #: modules/content-reveal/widgets/content-reveal.php:608
 #: modules/content-reveal/widgets/content-reveal.php:909
-#: modules/counter/widgets/counter.php:569
+#: modules/counter/widgets/counter.php:578
 #: modules/divider/widgets/divider.php:811
 #: modules/flipbox/widgets/flipbox.php:1351
 #: modules/fluent-forms/widgets/fluent-forms.php:870
@@ -3384,122 +3531,6 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2200
 #: modules/wpforms/widgets/wpforms.php:820
 msgid "Size"
-msgstr ""
-
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1159
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1236
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1291
-#: modules/business-hours/widgets/business-hours.php:927
-#: modules/business-hours/widgets/business-hours.php:984
-#: modules/buttons/widgets/buttons.php:990
-#: modules/buttons/widgets/buttons.php:1012
-#: modules/buttons/widgets/buttons.php:1101
-#: modules/caldera-forms/widgets/caldera-forms.php:957
-#: modules/caldera-forms/widgets/caldera-forms.php:1073
-#: modules/caldera-forms/widgets/caldera-forms.php:1466
-#: modules/contact-form-seven/widgets/contact-form-7.php:800
-#: modules/contact-form-seven/widgets/contact-form-7.php:916
-#: modules/content-reveal/widgets/content-reveal.php:502
-#: modules/content-ticker/widgets/content-ticker.php:1828
-#: modules/content-ticker/widgets/content-ticker.php:1884
-#: modules/counter/widgets/counter.php:549
-#: modules/counter/widgets/counter.php:806
-#: modules/counter/widgets/counter.php:865
-#: modules/counter/widgets/counter.php:1021
-#: modules/counter/widgets/counter.php:1093
-#: modules/counter/widgets/counter.php:1142
-#: modules/divider/widgets/divider.php:697
-#: modules/divider/widgets/divider.php:795
-#: modules/flipbox/widgets/flipbox.php:809
-#: modules/flipbox/widgets/flipbox.php:894
-#: modules/flipbox/widgets/flipbox.php:952
-#: modules/flipbox/widgets/flipbox.php:1163
-#: modules/flipbox/widgets/flipbox.php:1248
-#: modules/flipbox/widgets/flipbox.php:1306
-#: modules/fluent-forms/widgets/fluent-forms.php:908
-#: modules/fluent-forms/widgets/fluent-forms.php:1058
-#: modules/formidable-forms/widgets/formidable-forms.php:966
-#: modules/formidable-forms/widgets/formidable-forms.php:1082
-#: modules/gravity-forms/widgets/gravity-forms.php:1174
-#: modules/gravity-forms/widgets/gravity-forms.php:1292
-#: modules/gravity-forms/widgets/gravity-forms.php:1931
-#: modules/headings/widgets/fancy-heading.php:280
-#: modules/hotspots/widgets/hotspots.php:387
-#: modules/hotspots/widgets/hotspots.php:871
-#: modules/icon-list/widgets/icon-list.php:467
-#: modules/icon-list/widgets/icon-list.php:565
-#: modules/icon-list/widgets/icon-list.php:679
-#: modules/image-accordion/widgets/image-accordion.php:782
-#: modules/image-accordion/widgets/image-accordion.php:834
-#: modules/image-comparison/widgets/image-comparison.php:539
-#: modules/info-box/widgets/info-box-carousel.php:1245
-#: modules/info-box/widgets/info-box-carousel.php:1307
-#: modules/info-box/widgets/info-box-carousel.php:1546
-#: modules/info-box/widgets/info-box-carousel.php:1967
-#: modules/info-box/widgets/info-box-carousel.php:2023
-#: modules/info-box/widgets/info-box-carousel.php:2160
-#: modules/info-box/widgets/info-box-carousel.php:2259
-#: modules/info-box/widgets/info-box.php:1141
-#: modules/info-box/widgets/info-box.php:1221
-#: modules/info-box/widgets/info-box.php:1497
-#: modules/info-list/widgets/info-list.php:552
-#: modules/info-list/widgets/info-list.php:715
-#: modules/info-list/widgets/info-list.php:857
-#: modules/info-list/widgets/info-list.php:987
-#: modules/info-list/widgets/info-list.php:1022
-#: modules/info-table/widgets/info-table.php:595
-#: modules/info-table/widgets/info-table.php:669
-#: modules/info-table/widgets/info-table.php:1048
-#: modules/info-table/widgets/info-table.php:1433
-#: modules/instafeed/widgets/instafeed.php:1143
-#: modules/instafeed/widgets/instafeed.php:1495
-#: modules/instafeed/widgets/instafeed.php:1986
-#: modules/instafeed/widgets/instafeed.php:2042
-#: modules/instafeed/widgets/instafeed.php:2184
-#: modules/instafeed/widgets/instafeed.php:2289
-#: modules/logos/widgets/logo-carousel.php:724
-#: modules/logos/widgets/logo-carousel.php:898
-#: modules/logos/widgets/logo-carousel.php:954
-#: modules/logos/widgets/logo-carousel.php:1090
-#: modules/logos/widgets/logo-carousel.php:1189
-#: modules/logos/widgets/logo-grid.php:679
-#: modules/ninja-forms/widgets/ninja-forms.php:925
-#: modules/ninja-forms/widgets/ninja-forms.php:1041
-#: modules/ninja-forms/widgets/ninja-forms.php:1352
-#: modules/posts/skins/skin-base.php:2054
-#: modules/posts/skins/skin-base.php:2449
-#: modules/posts/skins/skin-base.php:3031
-#: modules/posts/skins/skin-base.php:3107
-#: modules/posts/skins/skin-base.php:3235
-#: modules/posts/skins/skin-base.php:3318
-#: modules/posts/skins/skin-base.php:3363
-#: modules/posts/skins/skin-base.php:3482
-#: modules/posts/skins/skin-base.php:3585
-#: modules/posts/skins/skin-base.php:3656
-#: modules/posts/skins/skin-base.php:3743
-#: modules/pricing/widgets/price-menu.php:532
-#: modules/pricing/widgets/price-menu.php:757
-#: modules/pricing/widgets/price-menu.php:849
-#: modules/pricing/widgets/price-menu.php:1103
-#: modules/pricing/widgets/pricing-table.php:1275
-#: modules/pricing/widgets/pricing-table.php:1360
-#: modules/pricing/widgets/pricing-table.php:1394
-#: modules/pricing/widgets/pricing-table.php:1471
-#: modules/pricing/widgets/pricing-table.php:1904
-#: modules/pricing/widgets/pricing-table.php:2282
-#: modules/promo-box/widgets/promo-box.php:553
-#: modules/promo-box/widgets/promo-box.php:935
-#: modules/promo-box/widgets/promo-box.php:1168
-#: modules/promo-box/widgets/promo-box.php:1398
-#: modules/team-member/widgets/team-member-carousel.php:2068
-#: modules/team-member/widgets/team-member-carousel.php:2125
-#: modules/team-member/widgets/team-member-carousel.php:2259
-#: modules/team-member/widgets/team-member-carousel.php:2358
-#: modules/team-member/widgets/team-member.php:1580
-#: modules/team-member/widgets/team-member.php:1651
-#: modules/wpforms/widgets/wpforms.php:858
-#: modules/wpforms/widgets/wpforms.php:974
-msgid "Color"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:118
@@ -3699,8 +3730,8 @@ msgid "Divider Style"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:816
-#: modules/counter/widgets/counter.php:734
-#: modules/counter/widgets/counter.php:934
+#: modules/counter/widgets/counter.php:743
+#: modules/counter/widgets/counter.php:943
 #: modules/divider/widgets/divider.php:389
 #: modules/gravity-forms/widgets/gravity-forms.php:971
 #: modules/icon-list/widgets/icon-list.php:425
@@ -4029,11 +4060,11 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1369
 #: modules/content-ticker/widgets/content-ticker.php:1492
 #: modules/content-ticker/widgets/content-ticker.php:1550
-#: modules/counter/widgets/counter.php:882
-#: modules/counter/widgets/counter.php:1113
-#: modules/counter/widgets/counter.php:1162
-#: modules/counter/widgets/counter.php:1238
-#: modules/counter/widgets/counter.php:1282
+#: modules/counter/widgets/counter.php:891
+#: modules/counter/widgets/counter.php:1122
+#: modules/counter/widgets/counter.php:1171
+#: modules/counter/widgets/counter.php:1247
+#: modules/counter/widgets/counter.php:1291
 #: modules/divider/widgets/divider.php:713
 #: modules/flipbox/widgets/flipbox.php:850
 #: modules/flipbox/widgets/flipbox.php:1204
@@ -4171,6 +4202,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:198
 #: modules/hotspots/widgets/hotspots.php:231
 #: modules/icon-list/widgets/icon-list.php:147
+#: modules/icon-list/widgets/icon-list.php:177
 #: modules/icon-list/widgets/icon-list.php:739
 #: modules/info-box/widgets/info-box-carousel.php:214
 #: modules/info-box/widgets/info-box-carousel.php:242
@@ -4783,9 +4815,9 @@ msgstr ""
 #: modules/caldera-forms/widgets/caldera-forms.php:451
 #: modules/contact-form-seven/widgets/contact-form-7.php:1393
 #: modules/content-ticker/widgets/content-ticker.php:1708
-#: modules/counter/widgets/counter.php:693
-#: modules/counter/widgets/counter.php:891
-#: modules/counter/widgets/counter.php:1294
+#: modules/counter/widgets/counter.php:702
+#: modules/counter/widgets/counter.php:900
+#: modules/counter/widgets/counter.php:1303
 #: modules/flipbox/widgets/flipbox.php:1517
 #: modules/fluent-forms/widgets/fluent-forms.php:330
 #: modules/fluent-forms/widgets/fluent-forms.php:392
@@ -4961,8 +4993,8 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:994
 #: modules/content-ticker/widgets/content-ticker.php:1377
 #: modules/content-ticker/widgets/content-ticker.php:1689
-#: modules/counter/widgets/counter.php:775
-#: modules/counter/widgets/counter.php:985
+#: modules/counter/widgets/counter.php:784
+#: modules/counter/widgets/counter.php:994
 #: modules/divider/widgets/divider.php:495
 #: modules/divider/widgets/divider.php:550
 #: modules/divider/widgets/divider.php:926
@@ -5229,8 +5261,8 @@ msgid "Separator"
 msgstr ""
 
 #: modules/content-reveal/widgets/content-reveal.php:560
-#: modules/counter/widgets/counter.php:749
-#: modules/counter/widgets/counter.php:954
+#: modules/counter/widgets/counter.php:758
+#: modules/counter/widgets/counter.php:963
 #: modules/divider/widgets/divider.php:402
 #: modules/divider/widgets/divider.php:457
 #: modules/flipbox/widgets/flipbox.php:501
@@ -6021,7 +6053,7 @@ msgid "Number Suffix"
 msgstr ""
 
 #: modules/counter/widgets/counter.php:206
-#: modules/counter/widgets/counter.php:909
+#: modules/counter/widgets/counter.php:918
 msgid "Number Divider"
 msgstr ""
 
@@ -6030,7 +6062,7 @@ msgid "Thousand Separator"
 msgstr ""
 
 #: modules/counter/widgets/counter.php:329
-#: modules/counter/widgets/counter.php:714
+#: modules/counter/widgets/counter.php:723
 msgid "Icon Divider"
 msgstr ""
 
@@ -6039,7 +6071,7 @@ msgid "Counter Title"
 msgstr ""
 
 #: modules/counter/widgets/counter.php:389
-#: modules/counter/widgets/counter.php:1250
+#: modules/counter/widgets/counter.php:1259
 #: modules/info-box/widgets/info-box-carousel.php:169
 #: modules/info-box/widgets/info-box-carousel.php:174
 #: modules/info-box/widgets/info-box.php:406
@@ -6073,12 +6105,7 @@ msgstr ""
 msgid "Justified"
 msgstr ""
 
-#: modules/counter/widgets/counter.php:506
-#. translators: %1$s doc link
-msgid "%1$s Widget Overview %2$s"
-msgstr ""
-
-#: modules/counter/widgets/counter.php:537
+#: modules/counter/widgets/counter.php:546
 #: modules/gravity-forms/widgets/gravity-forms.php:1880
 #: modules/headings/widgets/dual-heading.php:305
 #: modules/headings/widgets/dual-heading.php:410
@@ -6096,7 +6123,7 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: modules/counter/widgets/counter.php:595
+#: modules/counter/widgets/counter.php:604
 #: modules/info-table/widgets/info-table.php:810
 #: modules/logos/widgets/logo-grid.php:410
 #: modules/team-member/widgets/team-member-carousel.php:1059
@@ -6104,28 +6131,27 @@ msgstr ""
 msgid "Image Width"
 msgstr ""
 
-#: modules/counter/widgets/counter.php:621
+#: modules/counter/widgets/counter.php:630
 msgid "Rotation"
 msgstr ""
 
-#: modules/counter/widgets/counter.php:727
-#: modules/counter/widgets/counter.php:927
+#: modules/counter/widgets/counter.php:736
+#: modules/counter/widgets/counter.php:936
 #: modules/promo-box/widgets/promo-box.php:1001
 #: modules/promo-box/widgets/promo-box.php:1234
 msgid "Divider Type"
 msgstr ""
 
-#: modules/counter/widgets/counter.php:857
-#: modules/icon-list/widgets/icon-list.php:177
+#: modules/counter/widgets/counter.php:866
 msgid "Number"
 msgstr ""
 
-#: modules/counter/widgets/counter.php:1082
+#: modules/counter/widgets/counter.php:1091
 #: modules/posts/skins/skin-base.php:969 modules/posts/skins/skin-base.php:1096
 msgid "Prefix"
 msgstr ""
 
-#: modules/counter/widgets/counter.php:1131
+#: modules/counter/widgets/counter.php:1140
 msgid "Suffix"
 msgstr ""
 
@@ -7869,10 +7895,6 @@ msgstr ""
 msgid "Feed Title"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1888
-msgid "Angle"
-msgstr ""
-
 #: modules/instafeed/widgets/instafeed.php:1889
 msgid "Double Angle"
 msgstr ""
@@ -9589,7 +9611,7 @@ msgstr ""
 msgid "Expanded"
 msgstr ""
 
-#: plugin.php:421
+#: plugin.php:432
 msgid "PowerPack Elements"
 msgstr ""
 
