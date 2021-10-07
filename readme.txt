@@ -85,6 +85,7 @@ PowerPack Addon for Elementor comes from our team of experts, who always deliver
 
 1. [Display Conditions](https://powerpackelements.com/elementor-widgets/display-conditions/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Use Elementor to display timed-content, content for logged in users, special content based on user's browser. Also, display content based on page, post, archive rules, and much more.
 2. [Wrapper Link](https://powerpackelements.com/elementor-widgets/wrapper-link/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Add links to any widget, column, or section of your elementor page easily with the Wrapper Link extension.
+3. [Animated Gradient Background](https://powerpackelements.com/elementor-widgets/animated-gradient-background/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create amazing gradient background animations for your sections and columns with Animated Gradient Background extension.
 
 ### SEE, WHAT OUR USERS HAVE GOT TO SAY ABOUT POWERPACK FOR ELEMENTOR
 **Here are some testimonials from our Happy Customers and Elementor experts**
