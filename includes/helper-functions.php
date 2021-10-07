@@ -453,8 +453,9 @@ function pp_elements_lite_get_modules() {
 
 function pp_elements_lite_get_extensions() {
 	$extensions = array(
-		'pp-display-conditions' => __( 'Display Conditions', 'powerpack' ),
-		'pp-wrapper-link'       => __( 'Wrapper Link', 'powerpack' ),
+		'pp-display-conditions'           => __( 'Display Conditions', 'powerpack' ),
+		'pp-wrapper-link'                 => __( 'Wrapper Link', 'powerpack' ),
+		'pp-animated-gradient-background' => __( 'Animated Gradient Background', 'powerpack' ),
 	);
 
 	return $extensions;

@@ -135,7 +135,7 @@ class PowerpackLitePlugin {
 
 		wp_enqueue_style(
 			'powerpack-frontend',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/css/frontend.css',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend' . $suffix . '.css',
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
@@ -185,7 +185,8 @@ class PowerpackLitePlugin {
 	 */
 	public function enqueue_frontend_scripts() {
 		$settings = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_settings();
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		$suffix = ( PP_Helper::is_script_debug() ) ? '' : '.min';
+		$path = ( PP_Helper::is_script_debug() ) ? 'assets/js/' : 'assets/js/min/';
 
 		wp_register_script(
 			'isotope',
@@ -249,7 +250,7 @@ class PowerpackLitePlugin {
 
 		wp_register_script(
 			'twitter-widgets',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/twitter-widgets.js',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'twitter-widgets' . $suffix . '.js',
 			[
 				'jquery',
 			],
@@ -269,7 +270,7 @@ class PowerpackLitePlugin {
 
 		wp_register_script(
 			'powerpack-pp-posts',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/pp-posts.js',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-posts' . $suffix . '.js',
 			[
 				'jquery',
 			],
@@ -298,11 +299,21 @@ class PowerpackLitePlugin {
 
 		wp_register_script(
 			'powerpack-frontend',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/frontend.js',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend' . $suffix . '.js',
 			[
 				'jquery',
 			],
 			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-animated-gradient-bg',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-gradient-bg-animation' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			'1.0.0',
 			true
 		);
 

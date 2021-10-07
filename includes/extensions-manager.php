@@ -7,9 +7,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Extensions_Manager {
 
-	const DISPLAY_CONDITIONS = 'display-conditions';
-	const WRAPPER_LINK       = 'wrapper-link';
-	const UPGRADE_PRO        = 'upgrade-pro';
+	const DISPLAY_CONDITIONS           = 'display-conditions';
+	const WRAPPER_LINK                 = 'wrapper-link';
+	const UPGRADE_PRO                  = 'upgrade-pro';
+	const ANIMATED_GRADIENT_BACKGROUND = 'animated-gradient-background';
 
 	private $_extensions = null;
 
@@ -17,6 +18,7 @@ class Extensions_Manager {
 		self::DISPLAY_CONDITIONS,
 		self::WRAPPER_LINK,
 		self::UPGRADE_PRO,
+		self::ANIMATED_GRADIENT_BACKGROUND,
 	];
 
 	/**

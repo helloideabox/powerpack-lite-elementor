@@ -106,6 +106,36 @@ div[class*=' pa-'] {
 .pp-wrapper-link {
   cursor: pointer; }
 
+.elementor-section.pp-animated-gradient-bg-yes,
+.elementor-section.pp-animated-gradient-bg-yes .pp-animated-gradient-bg {
+  background-size: 400% 400% !important;
+  animation: AnimatedGradientBg 15s ease-in-out infinite;
+  -webkit-animation: AnimatedGradientBg 15s ease-in-out infinite;
+  -moz-animation: AnimatedGradientBg 15s ease-in-out infinite; }
+
+.pp-animated-gradient-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; }
+
+@keyframes AnimatedGradientBg {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+
+@-webkit-keyframes AnimatedGradientBg {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+
 .pp-elementor-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1541,11 +1571,9 @@ div[class*=' pa-'] {
     float: left;
     position: relative; }
     .pp-instagram-feed .pp-feed-item img {
-      -webkit-filter: none;
       filter: none;
       vertical-align: middle; }
     .pp-instagram-feed .pp-feed-item:hover img {
-      -webkit-filter: none;
       filter: none; }
   .pp-instagram-feed-gallery .pp-feed-item {
     width: 20%; }
@@ -1578,17 +1606,11 @@ div[class*=' pa-'] {
     display: block;
     position: relative; }
   .pp-instagram-feed-gray .pp-feed-item img {
-    -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    transition: -webkit-filter 0.25s linear 0s;
-    transition: filter 0.25s linear 0s;
-    transition: filter 0.25s linear 0s, -webkit-filter 0.25s linear 0s; }
+    transition: filter 0.25s linear 0s; }
   .pp-instagram-feed-hover-gray .pp-feed-item:hover img {
-    -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    transition: -webkit-filter 0.25s linear 0s;
-    transition: filter 0.25s linear 0s;
-    transition: filter 0.25s linear 0s, -webkit-filter 0.25s linear 0s; }
+    transition: filter 0.25s linear 0s; }
   .pp-instagram-feed .pp-overlay-container {
     color: #fff;
     display: flex;
@@ -1951,15 +1973,12 @@ div[class*=' pa-'] {
     position: static; }
 
 .pp-logo-carousel.grayscale-normal img {
-  -webkit-filter: grayscale(100%);
   filter: grayscale(100%); }
 
 .pp-logo-carousel.grayscale-normal .swiper-slide:hover img {
-  -webkit-filter: none;
   filter: none; }
 
 .pp-logo-carousel.grayscale-hover .swiper-slide:hover img {
-  -webkit-filter: grayscale(100%);
   filter: grayscale(100%); }
 
 .pp-logo-carousel.swiper-container .swiper-slide {
@@ -1986,13 +2005,10 @@ div[class*=' pa-'] {
   .pp-logo-grid .pp-logo-grid-title a {
     color: inherit; }
   .pp-logo-grid.grayscale-normal img {
-    -webkit-filter: grayscale(100%);
     filter: grayscale(100%); }
   .pp-logo-grid.grayscale-normal .pp-grid-item:hover img {
-    -webkit-filter: none;
     filter: none; }
   .pp-logo-grid.grayscale-hover .pp-grid-item:hover img {
-    -webkit-filter: grayscale(100%);
     filter: grayscale(100%); }
 
 .pp-google-map-container {
@@ -3169,10 +3185,6 @@ div[class*=' pa-'] {
     font-family: inherit;
     opacity: 0.6; }
   .pp-search-form .pp-search-form-input::-moz-placeholder {
-    color: inherit;
-    font-family: inherit;
-    opacity: 0.6; }
-  .pp-search-form .pp-search-form-input::-ms-input-placeholder {
     color: inherit;
     font-family: inherit;
     opacity: 0.6; }
