@@ -334,15 +334,15 @@ class Formidable_Forms extends Powerpack_Widget {
 				'options'   => array(
 					'left'   => array(
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 				),
 				'default'   => '',
@@ -516,15 +516,15 @@ class Formidable_Forms extends Powerpack_Widget {
 				'options'   => array(
 					'left'   => array(
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 				),
 				'default'   => '',
@@ -1484,15 +1484,15 @@ class Formidable_Forms extends Powerpack_Widget {
 				'options'   => array(
 					'left'   => array(
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 				),
 				'default'   => '',

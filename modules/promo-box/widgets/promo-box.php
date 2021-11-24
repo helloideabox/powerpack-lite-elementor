@@ -79,6 +79,8 @@ class Promo_Box extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
+	 * Remove this after Elementor v3.8.0
+	 *
 	 * @access protected
 	 */
 	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
@@ -583,15 +585,15 @@ class Promo_Box extends Powerpack_Widget {
 				'options'               => [
 					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default'               => '',
@@ -1791,7 +1793,7 @@ class Promo_Box extends Powerpack_Widget {
 
 						if ( '' !== $settings['content'] ) { ?>
 							<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'content' ) ); ?>>
-								<?php echo $this->parse_text_editor( $settings['content'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> ?>
+								<?php echo $this->parse_text_editor( $settings['content'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							</div>
 							<?php
 						}
@@ -1819,6 +1821,7 @@ class Promo_Box extends Powerpack_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
+	 * @since 2.3.2
 	 * @access protected
 	 */
 	protected function content_template() {

@@ -1060,17 +1060,17 @@ class Buttons extends Powerpack_Widget {
 					'type'      => Controls_Manager::CHOOSE,
 					'default'   => ' center',
 					'options'   => [
-						'left'  => [
-							'title'     => __( 'Left', 'powerpack' ),
-							'icon'      => 'fa fa-align-left',
+						'left'      => [
+							'title' => __( 'Left', 'powerpack' ),
+							'icon'  => 'eicon-text-align-left',
 						],
 						'center'    => [
 							'title' => __( 'Center', 'powerpack' ),
-							'icon'  => 'fa fa-align-center',
+							'icon'  => 'eicon-text-align-center',
 						],
 						'right'     => [
 							'title' => __( 'Right', 'powerpack' ),
-							'icon'  => 'fa fa-align-right',
+							'icon'  => 'eicon-text-align-right',
 						],
 					],
 					'selectors' => [
@@ -1195,13 +1195,13 @@ class Buttons extends Powerpack_Widget {
 
 				// Icon Position
 				$icon_position = '';
-				if ( $settings['icon_position'] ) {
+				if ( isset( $settings['icon_position'] ) && $settings['icon_position'] ) {
 					$icon_position = 'pp-icon-' . $settings['icon_position'];
 				}
-				if ( $settings['icon_position_tablet'] ) {
+				if ( isset( $settings['icon_position_tablet'] ) && $settings['icon_position_tablet'] ) {
 					$icon_position .= ' pp-icon-' . $settings['icon_position_tablet'] . '-tablet';
 				}
-				if ( $settings['icon_position_mobile'] ) {
+				if ( isset( $settings['icon_position_mobile'] ) && $settings['icon_position_mobile'] ) {
 					$icon_position .= ' pp-icon-' . $settings['icon_position_mobile'] . '-mobile';
 				}
 
@@ -1237,13 +1237,13 @@ class Buttons extends Powerpack_Widget {
 						)
 					);
 
-					if ( $settings['tooltips_position_tablet'] ) {
+					if ( isset( $settings['tooltips_position_tablet'] ) && $settings['tooltips_position_tablet'] ) {
 						$ttip_tablet = $ttip_position_tablet;
 					} else {
 						$ttip_tablet = $ttip_position;
 					};
 
-					if ( $settings['tooltips_position_mobile'] ) {
+					if ( isset( $settings['tooltips_position_mobile'] ) && $settings['tooltips_position_mobile'] ) {
 						$ttip_mobile = $ttip_position_mobile;
 					} else {
 						$ttip_mobile = $ttip_position;

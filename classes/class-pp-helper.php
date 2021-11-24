@@ -467,7 +467,7 @@ class PP_Helper {
 	/**
 	 * Render swiper slider arrows
 	 *
-	 * @since x.x.x
+	 * @since 2.6.1
 	 * @param object $widget
 	 */
 	public static function render_arrows( $widget ) {

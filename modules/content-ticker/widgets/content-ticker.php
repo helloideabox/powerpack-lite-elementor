@@ -1288,15 +1288,15 @@ class Content_Ticker extends Powerpack_Widget {
 				'options'   => array(
 					'left'   => array(
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-lign-left',
 					),
 					'center' => array(
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-lign-center',
 					),
 					'right'  => array(
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-lign-right',
 					),
 				),
 				'default'   => 'left',

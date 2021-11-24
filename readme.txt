@@ -228,6 +228,21 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.1 - November 24, 2021 =
+* 	Added: Display Conditions - Option to show Display conditions on columns
+* 	Added: Display Conditions - Output HTML option for sections
+* 	Added: Logo Grid - Option to apply custom styles to logo image or logo container
+* 	Added: Logo Carousel - Background and padding options for logo title
+* 	Fixed: Logo Carousel - Choose Arrow option was not working in the editor
+* 	Fixed: Logo Carousel - Issue with Additional Custom Breakpoints
+* 	Fixed: Gravity Forms - Empty validation error field was showing below file upload field
+* 	Fixed: Info Box Carousel - Issue with Additional Custom Breakpoints
+* 	Added: Info Box - Text shadow option for title, subtitle and description
+* 	Added: Info Box - Content padding option
+* 	Enhancement: Info Box - Rearranged options
+* 	Enhancement: Logo Grid - Updated grid CSS code
+* 	Enhancement: Posts - Updated carousel arrow control
+
 = 2.6.0 - October 7, 2021 =
 * 	New: Animated Gradient Background extension
 * 	Enhancement: Updated icons for Icon Type option in all the widgets

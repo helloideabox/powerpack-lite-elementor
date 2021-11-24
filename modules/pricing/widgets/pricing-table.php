@@ -87,10 +87,22 @@ class Pricing_Table extends Powerpack_Widget {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return array(
-			'pp-tooltipster',
-			'powerpack-frontend',
-		);
+
+		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+			return array(
+				'pp-tooltipster',
+				'powerpack-frontend',
+			);
+		}
+
+		$settings = $this->get_settings_for_display();
+		$scripts = [];
+
+		if ( 'yes' === $settings['show_tooltip'] ) {
+			array_push( $scripts, 'pp-tooltipster', 'powerpack-frontend' );
+		}
+
+		return $scripts;
 	}
 
 	/**
@@ -1114,15 +1126,15 @@ class Pricing_Table extends Powerpack_Widget {
 				'options'               => [
 					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default'               => '',
@@ -1793,15 +1805,15 @@ class Pricing_Table extends Powerpack_Widget {
 				'options'               => [
 					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default'               => '',

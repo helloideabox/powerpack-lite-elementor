@@ -319,7 +319,7 @@ class Module extends Module_Base {
 	/**
 	 * Render content based on conditions
 	 *
-	 * @since x.x.x
+	 * @since 2.6.1
 	 *
 	 * @param bool  $should_render return boolean value.
 	 * @param array $element return controls.

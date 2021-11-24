@@ -277,19 +277,19 @@ class Price_Menu extends Powerpack_Widget {
 				'options'   => array(
 					'left'    => array(
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center'  => array(
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'right'   => array(
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 					'justify' => array(
 						'title' => __( 'Justified', 'powerpack' ),
-						'icon'  => 'fa fa-align-justify',
+						'icon'  => 'eicon-text-align-justify',
 					),
 				),
 				'default'   => '',
@@ -1315,8 +1315,7 @@ class Price_Menu extends Powerpack_Widget {
 							print( menu_price_html );
 						#>
 					</span>
-					<#
-				}
+				<# }
 			}
 
 			function title_template( item ) {
@@ -1366,15 +1365,15 @@ class Price_Menu extends Powerpack_Widget {
 												<# title_template( item ) #>
 											<# } #>
 										</{{settings.title_html_tag}}>
-									<# } #>
+									<# }
 
-									<# if ( settings.title_price_connector == 'yes' ) { #>
+									if ( settings.title_price_connector == 'yes' ) { #>
 										<span class="pp-price-title-connector"></span>
-									<# } #>
+									<# }
 
-									<# if ( settings.menu_style == 'style-1' ) { #>
-										<# price_template( item ) #>
-									<# } #>
+									if ( settings.menu_style == 'style-1' ) {
+										price_template( item );
+									} #>
 								</div>
 
 								<# if ( settings.title_separator == 'yes' ) { #>
@@ -1396,7 +1395,7 @@ class Price_Menu extends Powerpack_Widget {
 								}
 
 								if ( settings.menu_style != 'style-1' ) {
-									price_template( item )
+									price_template( item );
 								} #>
 							</div>
 						</div>

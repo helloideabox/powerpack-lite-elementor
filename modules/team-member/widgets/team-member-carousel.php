@@ -805,15 +805,15 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'options'   => array(
 					'left'   => array(
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 				),
 				'default'   => 'center',
@@ -986,15 +986,15 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'options'   => array(
 					'left'   => array(
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 				),
 				'default'   => '',
@@ -2593,28 +2593,20 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 		$this->add_render_attribute( $member_key, 'class', 'pp-tm-name' );
 
-		if ( 'title' === $item['link_type'] && $item['link']['url'] ) {
-			if ( ! empty( $item['link']['url'] ) ) {
-				$this->add_link_attributes( $link_key, $item['link'] );
-			}
-			$name_html_tag = PP_Helper::validate_html_tag( $settings['name_html_tag'] );
-			?>
-			<<?php echo esc_html( $name_html_tag ); ?> class="pp-tm-name">
-				<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
-					<?php echo esc_html( $item['team_member_name'] ); ?>
-				</a>
-			</<?php echo esc_html( $name_html_tag ); ?>>
-			<?php
+		$member_name = $item['team_member_name'];
 
-		} else {
-			$name_html_tag = PP_Helper::validate_html_tag( $settings['name_html_tag'] );
-			?>
-			<<?php echo esc_html( $name_html_tag ); ?> class="pp-tm-name">
-					<?php echo esc_html( $item['team_member_name'] ); ?>
-			</<?php echo esc_html( $name_html_tag ); ?>>
-			<?php
+		if ( 'title' === $item['link_type'] && ! empty( $item['link']['url'] ) ) {
+			$this->add_link_attributes( $link_key, $item['link'] );
+
+			$member_name = '<a ' . $this->get_render_attribute_string( $link_key ) . '>' . $member_name . '</a>';
 		}
+
+		$name_html_tag = PP_Helper::validate_html_tag( $settings['name_html_tag'] );
 		?>
+		<<?php echo esc_html( $name_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $member_key ) ); ?>>
+			<?php echo wp_kses_post( $member_name ); ?>
+		</<?php echo esc_html( $name_html_tag ); ?>>
+
 		<?php if ( 'yes' === $settings['member_title_divider'] ) { ?>
 			<div class="pp-tm-title-divider-wrap">
 				<div class="pp-tm-divider pp-tm-title-divider"></div>
@@ -2630,7 +2622,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			$position_html_tag = PP_Helper::validate_html_tag( $settings['position_html_tag'] );
 			?>
 			<<?php echo esc_html( $position_html_tag ); ?> class="pp-tm-position">
-				<?php echo esc_html( $item['team_member_position'] ); ?>
+				<?php echo wp_kses_post( $item['team_member_position'] ); ?>
 			</<?php echo esc_html( $position_html_tag ); ?>>
 			<?php
 		}
@@ -2742,52 +2734,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 	 * @access protected
 	 */
 	protected function render_arrows() {
-		$settings = $this->get_settings_for_display();
-
-		$migration_allowed = Icons_Manager::is_migration_allowed();
-
-		if ( ! isset( $settings['arrow'] ) && ! Icons_Manager::is_migration_allowed() ) {
-			// add old default.
-			$settings['arrow'] = 'fa fa-angle-right';
-		}
-
-		$has_icon = ! empty( $settings['arrow'] );
-
-		if ( ! $has_icon && ! empty( $settings['select_arrow']['value'] ) ) {
-			$has_icon = true;
-		}
-
-		$migrated = isset( $settings['__fa4_migrated']['select_arrow'] );
-		$is_new = ! isset( $settings['arrow'] ) && $migration_allowed;
-
-		if ( 'yes' === $settings['arrows'] ) {
-			?>
-			<?php
-			if ( $has_icon ) {
-				if ( $is_new || $migrated ) {
-					$next_arrow = str_replace( 'left', 'right', $settings['select_arrow']['value'] );
-					$prev_arrow = str_replace( 'right', 'left', $settings['select_arrow']['value'] );
-				} else {
-					$next_arrow = $settings['arrow'];
-					$prev_arrow = str_replace( 'right', 'left', $settings['arrow'] );
-				}
-			} else {
-				$next_arrow = 'fa fa-angle-right';
-				$prev_arrow = 'fa fa-angle-left';
-			}
-			?>
-
-			<?php if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
-				<!-- Add Arrows -->
-				<div class="swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
-					<i aria-hidden="true" class="<?php echo esc_attr( $prev_arrow ); ?>"></i>
-				</div>
-				<div class="swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
-					<i aria-hidden="true" class="<?php echo esc_attr( $next_arrow ); ?>"></i>
-				</div>
-			<?php } ?>
-			<?php
-		}
+		PP_Helper::render_arrows( $this );
 	}
 
 	/**
