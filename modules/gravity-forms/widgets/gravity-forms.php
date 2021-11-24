@@ -285,7 +285,7 @@ class Gravity_Forms extends Powerpack_Widget {
 					'hide' => 'none',
 				),
 				'selectors'            => array(
-					'{{WRAPPER}} .pp-gravity-form .validation_message' => 'display: {{VALUE}} !important;',
+					'{{WRAPPER}} .pp-gravity-form .validation_message:not(.validation_message--hidden-on-empty)' => 'display: {{VALUE}} !important;',
 				),
 			)
 		);
@@ -350,36 +350,6 @@ class Gravity_Forms extends Powerpack_Widget {
 		}
 	}
 
-	protected function register_content_upgrade_pro_controls() {
-		if ( ! is_pp_elements_active() ) {
-			/**
-			 * Content Tab: Upgrade PowerPack
-			 *
-			 * @since 1.2.9.4
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_upgrade_powerpack',
-				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
-					'tab'   => Controls_Manager::TAB_CONTENT,
-				)
-			);
-
-			$this->add_control(
-				'upgrade_powerpack_notice',
-				array(
-					'label'           => '',
-					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
-					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				)
-			);
-
-			$this->end_controls_section();
-		}
-	}
-
 	protected function register_style_title_controls() {
 		/**
 		 * Style Tab: Title and Description
@@ -401,15 +371,15 @@ class Gravity_Forms extends Powerpack_Widget {
 				'options'   => array(
 					'left'   => array(
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 				),
 				'default'   => '',
@@ -572,15 +542,15 @@ class Gravity_Forms extends Powerpack_Widget {
 				'options'   => array(
 					'left'   => array(
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 				),
 				'default'   => '',
@@ -637,7 +607,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gfield' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper.gravity-theme .gform_fields' => 'grid-row-gap: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -2145,15 +2115,15 @@ class Gravity_Forms extends Powerpack_Widget {
 				'options'   => array(
 					'left'   => array(
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 				),
 				'default'   => '',

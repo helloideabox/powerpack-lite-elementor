@@ -300,6 +300,7 @@ class Logo_Carousel extends Powerpack_Widget {
 					'carousel_effect'   => 'slide',
 				],
 				'separator'             => 'before',
+				'frontend_available' => true,
 			]
 		);
 
@@ -322,6 +323,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'condition'             => [
 					'carousel_effect'   => 'slide',
 				],
+				'frontend_available' => true,
 			]
 		);
 
@@ -718,15 +720,36 @@ class Logo_Carousel extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'                  => 'title_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'selector'              => '{{WRAPPER}} .pp-logo-carousel-title',
+			]
+		);
+
 		$this->add_control(
 			'title_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-logo-carousel-title' => 'color: {{VALUE}}',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'                  => 'logo_title_bg',
+				'label'                 => __( 'Background', 'powerpack' ),
+				'types'                 => [ 'classic', 'gradient' ],
+				'exclude'               => [ 'image' ],
+				'selector'              => '{{WRAPPER}} .pp-logo-carousel-title',
 			]
 		);
 
@@ -748,13 +771,15 @@ class Logo_Carousel extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
+		$this->add_responsive_control(
+			'title_padding',
 			[
-				'name'                  => 'title_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'              => '{{WRAPPER}} .pp-logo-carousel-title',
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-logo-carousel-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -1280,12 +1305,12 @@ class Logo_Carousel extends Powerpack_Widget {
 	public function slider_settings() {
 		$settings = $this->get_settings();
 
-		$slides_per_view = ( $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
-		$slides_per_view_tablet = ( $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2;
-		$slides_per_view_mobile = ( $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1;
-		$margin = ( $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
-		$margin_tablet = ( $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
-		$margin_mobile = ( $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
+		$slides_per_view        = ( isset( $settings['items']['size'] ) && $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
+		$slides_per_view_tablet = ( isset( $settings['items_tablet']['size'] ) && $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2;
+		$slides_per_view_mobile = ( isset( $settings['items_mobile']['size'] ) && $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1;
+		$margin                 = ( isset( $settings['margin']['size'] ) && $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
+		$margin_tablet          = isset( $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
+		$margin_mobile          = isset( $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
 
 		if ( 'fade' === $settings['carousel_effect'] || 'cube' === $settings['carousel_effect'] || 'flip' === $settings['carousel_effect'] ) {
 			$slides_per_view = 1;
@@ -1519,51 +1544,7 @@ class Logo_Carousel extends Powerpack_Widget {
 	 * @access protected
 	 */
 	protected function render_arrows() {
-		$settings = $this->get_settings_for_display();
-
-		$migration_allowed = Icons_Manager::is_migration_allowed();
-
-		if ( ! isset( $settings['arrow'] ) && ! Icons_Manager::is_migration_allowed() ) {
-			// add old default.
-			$settings['arrow'] = 'fa fa-angle-right';
-		}
-
-		$has_icon = ! empty( $settings['arrow'] );
-
-		if ( ! $has_icon && ! empty( $settings['select_arrow']['value'] ) ) {
-			$has_icon = true;
-		}
-
-		$migrated = isset( $settings['__fa4_migrated']['select_arrow'] );
-		$is_new = ! isset( $settings['arrow'] ) && $migration_allowed;
-
-		if ( 'yes' === $settings['arrows'] ) {
-			?>
-			<?php
-			if ( $has_icon ) {
-				if ( $is_new || $migrated ) {
-					$next_arrow = str_replace( 'left', 'right', $settings['select_arrow']['value'] );
-					$prev_arrow = str_replace( 'right', 'left', $settings['select_arrow']['value'] );
-				} else {
-					$next_arrow = $settings['arrow'];
-					$prev_arrow = str_replace( 'right', 'left', $settings['arrow'] );
-				}
-			} else {
-				$next_arrow = 'fa fa-angle-right';
-				$prev_arrow = 'fa fa-angle-left';
-			}
-			?>
-
-			<?php if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
-				<div class="swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
-					<i aria-hidden="true" class="<?php echo esc_attr( $prev_arrow ); ?>"></i>
-				</div>
-				<div class="swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
-					<i aria-hidden="true" class="<?php echo esc_attr( $next_arrow ); ?>"></i>
-				</div>
-			<?php } ?>
-			<?php
-		}
+		PP_Helper::render_arrows( $this );
 	}
 
 	/**
@@ -1595,9 +1576,14 @@ class Logo_Carousel extends Powerpack_Widget {
 
 		function arrows_template() {
 			if ( settings.arrows == 'yes' ) {
-				if ( settings.arrow ) {
-					var next_arrow = settings.arrow;
-					var prev_arrow = next_arrow.replace('right', "left");
+				if ( settings.arrow || settings.select_arrow.value ) {
+					if ( settings.select_arrow.value ) {
+						var next_arrow = settings.select_arrow.value;
+						var prev_arrow = next_arrow.replace('right', "left");
+					} else {
+						var next_arrow = settings.arrow;
+						var prev_arrow = next_arrow.replace('right', "left");
+					}
 				}
 				else {
 					var next_arrow = 'fa fa-angle-right';

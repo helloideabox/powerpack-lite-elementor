@@ -105,7 +105,7 @@ class Module extends Module_Base {
 	}
 
 	/**
-	 * @since 0.1.0
+	 * @since 1.2.7
 	 */
 	public function register_conditions() {
 
@@ -194,20 +194,21 @@ class Module extends Module_Base {
 	 * @return void
 	 */
 	protected function set_conditions( $id, $conditions = [] ) {
-		if ( ! $conditions )
+		if ( ! $conditions ) {
 			return;
+		}
 
 		foreach ( $conditions as $index => $condition ) {
 
-			$key  = $condition['pp_condition_key'];
-			$name = null;
+			$key        = $condition['pp_condition_key'];
+			$name       = null;
 
-			if ( array_key_exists( 'pp_condition_' . $key . '_name' , $condition ) ) {
-				$name = $condition['pp_condition_' . $key . '_name'];
+			if ( array_key_exists( 'pp_condition_' . $key . '_name', $condition ) ) {
+				$name = $condition[ 'pp_condition_' . $key . '_name' ];
 			}
 
-			$operator = $condition['pp_condition_operator'];
-			$value    = $condition['pp_condition_' . $key . '_value'];
+			$operator   = $condition['pp_condition_operator'];
+			$value      = $condition[ 'pp_condition_' . $key . '_value' ];
 
 			$_condition = $this->get_conditions( $key );
 
@@ -228,7 +229,7 @@ class Module extends Module_Base {
 	 *
 	 * Get the name of the module
 	 *
-	 * @since  2.2.0
+	 * @since  1.2.7
 	 * @return string
 	 */
 	public function get_name() {
@@ -248,33 +249,42 @@ class Module extends Module_Base {
 			$this->add_controls( $element, $args );
 		}, 10, 2 );
 
+		// Activate controls for columns
+		add_action( 'elementor/element/column/section_powerpack_elements_advanced/before_section_end', function( $element, $args ) {
+			$this->add_controls( $element, $args );
+		}, 10, 2 );
+
+		// Activate controls for sections
 		add_action( 'elementor/element/section/section_powerpack_elements_advanced/before_section_end', function( $element, $args ) {
 			$this->add_controls( $element, $args );
 		}, 10, 2 );
 
 		// Conditions for widgets
-		add_action( 'elementor/widget/render_content', function( $widget_content, $element ) {
-			$settings = $element->get_settings();
-			if ( ! empty( $settings['pp_display_conditions_enable'] ) && 'yes' === $settings['pp_display_conditions_enable'] ) {
-				// Set the conditions
-				$this->set_conditions( $element->get_id(), $settings['pp_display_conditions'] );
+		add_filter( 'elementor/frontend/widget/should_render', array( $this, 'render_content' ), 10, 2 );
 
-				if ( ! $this->is_visible( $element->get_id(), $settings['pp_display_conditions_relation'] ) ) { // Check the conditions
-					if ( 'yes' !== $settings['pp_display_conditions_output'] ) {
-						return; // And on frontend we stop the rendering of the widget
-					}
-				}
-			}
-
-			return $widget_content;
-
-		}, 10, 2 );
-
-		// Conditions for widgets
 		add_action( 'elementor/frontend/widget/before_render', function( $element ) {
 			$settings = $element->get_settings();
 
 			if ( ! empty( $settings['pp_display_conditions_enable'] ) && 'yes' === $settings['pp_display_conditions_enable'] ) {
+
+				// Set the conditions
+				$this->set_conditions( $element->get_id(), $settings['pp_display_conditions'] );
+
+				if ( ! $this->is_visible( $element->get_id(), $settings['pp_display_conditions_relation'] ) ) { // Check the conditions
+					$element->add_render_attribute( '_wrapper', 'class', 'pp-visibility-hidden' );
+				}
+			}
+
+		}, 10, 1 );
+
+		// Conditions for columns
+		add_filter( 'elementor/frontend/column/should_render', array( $this, 'render_content' ), 10, 2 );
+
+		add_action( 'elementor/frontend/column/before_render', function( $element ) {
+			$settings = $element->get_settings();
+
+			if ( ! empty( $settings['pp_display_conditions_enable'] ) && 'yes' === $settings['pp_display_conditions_enable'] ) {
+
 				// Set the conditions
 				$this->set_conditions( $element->get_id(), $settings['pp_display_conditions'] );
 
@@ -286,10 +296,13 @@ class Module extends Module_Base {
 		}, 10, 1 );
 
 		// Conditions for sections
+		add_filter( 'elementor/frontend/section/should_render', array( $this, 'render_content' ), 10, 2 );
+
 		add_action( 'elementor/frontend/section/before_render', function( $element ) {
 			$settings = $element->get_settings();
 
 			if ( ! empty( $settings['pp_display_conditions_enable'] ) && 'yes' === $settings['pp_display_conditions_enable'] ) {
+
 				// Set the conditions
 				$this->set_conditions( $element->get_id(), $settings['pp_display_conditions'] );
 
@@ -299,6 +312,37 @@ class Module extends Module_Base {
 			}
 
 		}, 10, 1 );
+	}
+
+	/**
+	 * Render content based on conditions
+	 *
+	 * @since x.x.x
+	 *
+	 * @param bool  $should_render return boolean value.
+	 * @param array $element return controls.
+	 *
+	 * @return bool
+	 */
+	public function render_content( $should_render, $element ) {
+		$settings = $element->get_settings();
+
+		if ( ! empty( $settings['pp_display_conditions_enable'] ) && 'yes' === $settings['pp_display_conditions_enable'] ) {
+			$id = $element->get_id();
+
+			// Set the conditions
+			$this->set_conditions( $id, $settings['pp_display_conditions'] );
+
+			if ( ! $this->is_visible( $id, $settings['pp_display_conditions_relation'] ) ) { // Check the conditions
+				if ( 'yes' === $settings['pp_display_conditions_output'] ) {
+					$should_render = true;
+				} else {
+					$should_render = false;
+				}
+			}
+		}
+
+		return $should_render;
 	}
 
 	/**
@@ -325,24 +369,22 @@ class Module extends Module_Base {
 			]
 		);
 
-		if ( 'widget' === $element_type ) {
-			$element->add_control(
-				'pp_display_conditions_output',
-				[
-					'label'                 => __( 'Output HTML', 'powerpack' ),
-					'description'           => sprintf( __( 'If enabled, the HTML code will exist on the page but the %s will be hidden using CSS.', 'powerpack' ), $element_type ),
-					'default'               => '',
-					'type'                  => Controls_Manager::SWITCHER,
-					'label_on'              => __( 'Yes', 'powerpack' ),
-					'label_off'             => __( 'No', 'powerpack' ),
-					'return_value'          => 'yes',
-					'frontend_available'    => true,
-					'condition'             => [
-						'pp_display_conditions_enable' => 'yes',
-					],
-				]
-			);
-		}
+		$element->add_control(
+			'pp_display_conditions_output',
+			[
+				'label'                 => __( 'Output HTML', 'powerpack' ),
+				'description'           => sprintf( __( 'If enabled, the HTML code will exist on the page but the %s will be hidden using CSS.', 'powerpack' ), $element_type ),
+				'default'               => '',
+				'type'                  => Controls_Manager::SWITCHER,
+				'label_on'              => __( 'Yes', 'powerpack' ),
+				'label_off'             => __( 'No', 'powerpack' ),
+				'return_value'          => 'yes',
+				'frontend_available'    => true,
+				'condition'             => [
+					'pp_display_conditions_enable' => 'yes',
+				],
+			]
+		);
 
 		$element->add_control(
 			'pp_display_conditions_relation',
@@ -432,16 +474,16 @@ class Module extends Module_Base {
 				continue;
 			}
 
-			$condition_name   = $_condition->get_name();
-			$control_key      = 'pp_condition_' . $condition_name . '_name';
-			$control_settings = $_condition->get_name_control();
+			$condition_name     = $_condition->get_name();
+			$control_key        = 'pp_condition_' . $condition_name . '_name';
+			$control_settings   = $_condition->get_name_control();
 
 			// Show this only if the user select this specific condition
 			$control_settings['condition'] = [
 				'pp_condition_key' => $condition_name,
 			];
 
-			// 
+			//
 			$this->_conditions_repeater->add_control( $control_key, $control_settings );
 		}
 	}
@@ -452,27 +494,28 @@ class Module extends Module_Base {
 	 * Loops through conditions and adds the controls
 	 * which select the value to check
 	 *
-	 * @since 1.2.7
+	 * @since 1.4.13
 	 *
 	 * @access private
 	 * @return void
 	 */
 	private function add_value_controls() {
-		if ( ! $this->_conditions )
+		if ( ! $this->_conditions ) {
 			return;
+		}
 
 		foreach ( $this->_conditions as $_condition ) {
 
-			$condition_name   = $_condition->get_name();
-			$control_key      = 'pp_condition_' . $condition_name . '_value';
-			$control_settings = $_condition->get_value_control();
+			$condition_name     = $_condition->get_name();
+			$control_key        = 'pp_condition_' . $condition_name . '_value';
+			$control_settings   = $_condition->get_value_control();
 
 			// Show this only if the user select this specific condition
 			$control_settings['condition'] = [
 				'pp_condition_key' => $condition_name,
 			];
 
-			// 
+			//
 			$this->_conditions_repeater->add_control( $control_key, $control_settings );
 		}
 	}
@@ -517,11 +560,13 @@ class Module extends Module_Base {
 
 		if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
 			if ( 'any' === $relation ) {
-				if ( ! in_array( true, $this->conditions[ $id ] ) )
+				if ( ! in_array( true, $this->conditions[ $id ] ) ) {
 					return false;
+				}
 			} else {
-				if ( in_array( false, $this->conditions[ $id ] ) )
+				if ( in_array( false, $this->conditions[ $id ] ) ) {
 					return false;
+				}
 			}
 		}
 
