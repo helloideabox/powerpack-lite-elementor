@@ -1,8 +1,9 @@
 .pp-logo-grid {
-    display: flex;
-    flex-wrap: wrap;
     position: relative;
     .pp-grid-item {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
         @include transition();
         width: 100%;
     }
@@ -11,9 +12,10 @@
         float: left;
         flex-wrap: wrap;
         text-align: center;
-        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
     .pp-logo-grid-title {
+        margin-bottom: 0;
         a {
             color: inherit;
         }

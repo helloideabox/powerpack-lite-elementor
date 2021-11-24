@@ -138,6 +138,48 @@ class Logo_Carousel extends Powerpack_Widget {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'logo_carousel_slide',
+			[
+				'label'             => __( 'Upload Logo Image', 'powerpack' ),
+				'type'              => Controls_Manager::MEDIA,
+				'dynamic'           => [
+					'active'   => true,
+				],
+				'default'           => [
+					'url' => Utils::get_placeholder_image_src(),
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'logo_title',
+			[
+				'label'             => __( 'Title', 'powerpack' ),
+				'type'              => Controls_Manager::TEXT,
+				'dynamic'           => [
+					'active'   => true,
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'link',
+			[
+				'label'             => __( 'Link', 'powerpack' ),
+				'type'              => Controls_Manager::URL,
+				'dynamic'           => [
+					'active'   => true,
+				],
+				'placeholder'       => 'https://www.your-link.com',
+				'default'           => [
+					'url' => '',
+				],
+			]
+		);
+
 		$this->add_control(
 			'carousel_slides',
 			[
@@ -170,39 +212,7 @@ class Logo_Carousel extends Powerpack_Widget {
 						],
 					],
 				],
-				'fields'                => [
-					[
-						'name'        => 'logo_carousel_slide',
-						'label'       => __( 'Upload Logo Image', 'powerpack' ),
-						'type'        => Controls_Manager::MEDIA,
-						'dynamic'     => [
-							'active'   => true,
-						],
-						'default'     => [
-							'url' => Utils::get_placeholder_image_src(),
-						],
-					],
-					[
-						'name'        => 'logo_title',
-						'label'       => __( 'Title', 'powerpack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [
-							'active'   => true,
-						],
-					],
-					[
-						'name'        => 'link',
-						'label'       => __( 'Link', 'powerpack' ),
-						'type'        => Controls_Manager::URL,
-						'dynamic'     => [
-							'active'   => true,
-						],
-						'placeholder' => 'https://www.your-link.com',
-						'default'     => [
-							'url' => '',
-						],
-					],
-				],
+				'fields'                => $repeater->get_controls(),
 				'title_field'           => __( 'Logo Image', 'powerpack' ),
 			]
 		);
@@ -1701,16 +1711,26 @@ class Logo_Carousel extends Powerpack_Widget {
 											<# if ( item.link && item.link.url ) { #>
 												<a href="{{ item.link.url }}">
 											<# } #>
-
 											<#
-											var image = {
-												id: item.logo_carousel_slide.id,
-												url: item.logo_carousel_slide.url,
-												size: settings.thumbnail_size,
-												dimension: settings.thumbnail_custom_dimension,
-												model: view.getEditModel()
-											};
-											var image_url = elementor.imagesManager.getImageUrl( image );
+											if ( item.logo_carousel_slide && item.logo_carousel_slide.id ) {
+
+												var image = {
+													id: item.logo_carousel_slide.id,
+													url: item.logo_carousel_slide.url,
+													size: settings.image_size,
+													dimension: settings.image_custom_dimension,
+													model: view.getEditModel()
+												};
+
+												var image_url = elementor.imagesManager.getImageUrl( image );
+
+												if ( ! image_url ) {
+													return;
+												}
+											} else {
+
+												var image_url = item.logo_carousel_slide.url;
+											}
 											#>
 											<img src="{{{ image_url }}}" />
 

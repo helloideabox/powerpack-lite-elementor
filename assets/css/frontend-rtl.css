@@ -1988,10 +1988,11 @@ div[class*=' pa-'] {
   color: inherit; }
 
 .pp-logo-grid {
-  display: flex;
-  flex-wrap: wrap;
   position: relative; }
   .pp-logo-grid .pp-grid-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     transition: all 0.25s linear 0s;
     width: 100%; }
   .pp-logo-grid .pp-grid-item-wrap {
@@ -1999,9 +2000,11 @@ div[class*=' pa-'] {
     float: right;
     flex-wrap: wrap;
     text-align: center;
-    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1); }
-  .pp-logo-grid .pp-logo-grid-title a {
-    color: inherit; }
+    transition: background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1); }
+  .pp-logo-grid .pp-logo-grid-title {
+    margin-bottom: 0; }
+    .pp-logo-grid .pp-logo-grid-title a {
+      color: inherit; }
   .pp-logo-grid.grayscale-normal img {
     filter: grayscale(100%); }
   .pp-logo-grid.grayscale-normal .pp-grid-item:hover img {
