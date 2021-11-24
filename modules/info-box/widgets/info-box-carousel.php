@@ -599,6 +599,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'carousel_effect'   => 'slide',
 				],
 				'separator'             => 'before',
+				'frontend_available'    => true,
 			]
 		);
 
@@ -622,6 +623,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'condition'             => [
 					'carousel_effect'   => 'slide',
 				],
+				'frontend_available'    => true,
 			]
 		);
 
@@ -874,19 +876,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'options'               => [
 					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 					'justify'   => [
 						'title' => __( 'Justified', 'powerpack' ),
-						'icon'  => 'fa fa-align-justify',
+						'icon'  => 'eicon-text-align-justify',
 					],
 				],
 				'default'               => '',
@@ -1473,15 +1475,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'options'               => [
 					'left'      => [
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default'               => '',
@@ -2346,7 +2348,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 	 * Get swiper slider settings
 	 *
 	 * @access public
-	 * @since 2.1.4
+	 * @since 2.1.0
 	 */
 	public function get_slider_settings() {
 		$settings = $this->get_settings_for_display();
@@ -2355,12 +2357,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$effect = ( $settings['carousel_effect'] ) ? $settings['carousel_effect'] : 'slide';
 
 		if ( 'slide' === $effect ) {
-			$items = ( $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
-			$items_tablet = ( $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 3;
-			$items_mobile = ( $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 3;
-			$margin = ( $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
-			$margin_tablet = ( $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
-			$margin_mobile = ( $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
+			$items         = ( isset( $settings['items']['size'] ) && $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
+			$items_tablet  = ( isset( $settings['items_tablet']['size'] ) && $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 3;
+			$items_mobile  = ( isset( $settings['items_mobile']['size'] ) && $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 3;
+			$margin        = ( isset( $settings['margin']['size'] ) && $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
+			$margin_tablet = ( isset( $settings['margin_tablet']['size'] ) && $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
+			$margin_mobile = ( isset( $settings['margin_mobile']['size'] ) && $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
 		} elseif ( 'coverflow' === $effect ) {
 			$items  = 3;
 			$items_tablet  = 2;
@@ -2737,51 +2739,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 	 * @access protected
 	 */
 	protected function render_arrows() {
-		$settings = $this->get_settings_for_display();
-
-		$migration_allowed = Icons_Manager::is_migration_allowed();
-
-		if ( ! isset( $settings['arrow'] ) && ! Icons_Manager::is_migration_allowed() ) {
-			// add old default.
-			$settings['arrow'] = 'fa fa-angle-right';
-		}
-
-		$has_icon = ! empty( $settings['arrow'] );
-
-		if ( ! $has_icon && ! empty( $settings['select_arrow']['value'] ) ) {
-			$has_icon = true;
-		}
-
-		$migrated = isset( $settings['__fa4_migrated']['select_arrow'] );
-		$is_new = ! isset( $settings['arrow'] ) && $migration_allowed;
-
-		if ( 'yes' === $settings['arrows'] ) {
-			?>
-			<?php
-			if ( $has_icon ) {
-				if ( $is_new || $migrated ) {
-					$next_arrow = str_replace( 'left', 'right', $settings['select_arrow']['value'] );
-					$prev_arrow = str_replace( 'right', 'left', $settings['select_arrow']['value'] );
-				} else {
-					$next_arrow = $settings['arrow'];
-					$prev_arrow = str_replace( 'right', 'left', $settings['arrow'] );
-				}
-			} else {
-				$next_arrow = 'fa fa-angle-right';
-				$prev_arrow = 'fa fa-angle-left';
-			}
-			?>
-
-			<?php if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
-				<div class="swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
-					<i aria-hidden="true" class="<?php echo esc_attr( $prev_arrow ); ?>"></i>
-				</div>
-				<div class="swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
-					<i aria-hidden="true" class="<?php echo esc_attr( $next_arrow ); ?>"></i>
-				</div>
-			<?php } ?>
-			<?php
-		}
+		PP_Helper::render_arrows( $this );
 	}
 
 	protected function content_template() {

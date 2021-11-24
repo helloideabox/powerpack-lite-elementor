@@ -6,7 +6,11 @@ Release date: November 24, 2021
 * Added: Logo Carousel - Background and padding options for logo title
 * Fixed: Logo Carousel - Choose Arrow option was not working in the editor
 * Fixed: Logo Carousel - Issue with Additional Custom Breakpoints
+* Added: Info Box - Text shadow option for title, subtitle and description
+* Added: Info Box - Content padding option
+* Fixed: Info Box Carousel - Issue with Additional Custom Breakpoints
 * Fixed: Gravity Forms - Empty validation error field was showing below file upload field
+* Enhancement: Logo Grid - Updated grid CSS code
 
 == 2.6.0 ==
 Release date: October 7, 2021

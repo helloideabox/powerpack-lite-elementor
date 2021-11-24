@@ -20,6 +20,7 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Core\Schemes\Typography as Scheme_Typography;
 use Elementor\Core\Schemes\Color as Scheme_Color;
@@ -110,9 +111,7 @@ class Info_Box extends Powerpack_Widget {
 		/* Style Tab */
 		$this->register_style_info_box_controls();
 		$this->register_style_icon_controls();
-		$this->register_style_title_controls();
-		$this->register_style_title_divider_controls();
-		$this->register_style_description_controls();
+		$this->register_style_content_controls();
 		$this->register_style_button_controls();
 	}
 
@@ -237,7 +236,7 @@ class Info_Box extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px', 'em' ),
+				'size_units' => array( 'px', 'em', 'rem' ),
 				'condition'  => array(
 					'icon_type' => 'icon',
 				),
@@ -290,7 +289,7 @@ class Info_Box extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', 'em', 'rem', '%' ),
 				'selectors'  => array(
 					'{{WRAPPER}}.pp-info-box-top .pp-info-box-icon img, {{WRAPPER}}.pp-info-box-left .pp-info-box-icon-wrap, {{WRAPPER}}.pp-info-box-right .pp-info-box-icon-wrap' => 'width: {{SIZE}}{{UNIT}}',
 				),
@@ -734,37 +733,43 @@ class Info_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_info_box_style',
 			array(
-				'label' => __( 'Info Box', 'powerpack' ),
+				'label' => __( 'Box', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
 
 		$this->add_responsive_control(
-			'align',
+			'info_box_min_height',
 			array(
-				'label'     => __( 'Alignment', 'powerpack' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'left'    => array(
-						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+				'label'      => __( 'Min Height', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => array(
+					'px' => array(
+						'min'  => 50,
+						'max'  => 1000,
+						'step' => 1,
 					),
-					'center'  => array(
-						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
-					),
-					'right'   => array(
-						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
-					),
-					'justify' => array(
-						'title' => __( 'Justified', 'powerpack' ),
-						'icon'  => 'fa fa-align-justify',
+					'vh' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
 					),
 				),
-				'default'   => 'center',
-				'selectors' => array(
-					'{{WRAPPER}} .pp-info-box' => 'text-align: {{VALUE}};',
+				'size_units' => array( 'px', 'vh' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-info-box-container' => 'min-height: {{SIZE}}{{UNIT}}',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'info_box_padding',
+			array(
+				'label'      => __( 'Padding', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-info-box-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -872,43 +877,6 @@ class Info_Box extends Powerpack_Widget {
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
-
-		$this->add_responsive_control(
-			'info_box_padding',
-			array(
-				'label'      => __( 'Padding', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'separator'  => 'before',
-				'selectors'  => array(
-					'{{WRAPPER}} .pp-info-box-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
-		);
-
-		$this->add_responsive_control(
-			'info_box_min_height',
-			array(
-				'label'      => __( 'Min Height', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
-						'min'  => 50,
-						'max'  => 1000,
-						'step' => 1,
-					),
-					'vh' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', 'vh' ),
-				'selectors'  => array(
-					'{{WRAPPER}} .pp-info-box-container' => 'min-height: {{SIZE}}{{UNIT}}',
-				),
-			)
-		);
 
 		$this->end_controls_section();
 	}
@@ -1018,6 +986,18 @@ class Info_Box extends Powerpack_Widget {
 		);
 
 		$this->add_responsive_control(
+			'icon_margin',
+			array(
+				'label'       => __( 'Margin', 'powerpack' ),
+				'type'        => Controls_Manager::DIMENSIONS,
+				'size_units'  => array( 'px', '%' ),
+				'selectors'   => array(
+					'{{WRAPPER}} .pp-info-box-icon-wrap' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
 			'icon_padding',
 			array(
 				'label'      => __( 'Padding', 'powerpack' ),
@@ -1025,24 +1005,6 @@ class Info_Box extends Powerpack_Widget {
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-box-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
-		);
-
-		$this->add_responsive_control(
-			'icon_margin',
-			array(
-				'label'       => __( 'Margin', 'powerpack' ),
-				'type'        => Controls_Manager::DIMENSIONS,
-				'size_units'  => array( 'px', '%' ),
-				'placeholder' => array(
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => '',
-				),
-				'selectors'   => array(
-					'{{WRAPPER}} .pp-info-box-icon-wrap' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
 				),
 			)
 		);
@@ -1122,16 +1084,70 @@ class Info_Box extends Powerpack_Widget {
 	 *
 	 * @return void
 	 */
-	protected function register_style_title_controls() {
+	protected function register_style_content_controls() {
 		/**
 		 * Style Tab: Title
 		 * -------------------------------------------------
 		 */
 		$this->start_controls_section(
-			'section_info_box_title_style',
+			'section_info_box_content_style',
 			array(
-				'label' => __( 'Title', 'powerpack' ),
+				'label' => __( 'Content', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_responsive_control(
+			'align',
+			array(
+				'label'     => __( 'Alignment', 'powerpack' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => array(
+					'left'    => array(
+						'title' => __( 'Left', 'powerpack' ),
+						'icon'  => 'eicon-text-align-left',
+					),
+					'center'  => array(
+						'title' => __( 'Center', 'powerpack' ),
+						'icon'  => 'eicon-text-align-center',
+					),
+					'right'   => array(
+						'title' => __( 'Right', 'powerpack' ),
+						'icon'  => 'eicon-text-align-right',
+					),
+					'justify' => array(
+						'title' => __( 'Justified', 'powerpack' ),
+						'icon'  => 'eicon-text-align-justify',
+					),
+				),
+				'default'   => 'center',
+				'selectors' => array(
+					'{{WRAPPER}} .pp-info-box' => 'text-align: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'content_padding',
+			array(
+				'label'      => __( 'Padding', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-info-box-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'title_style_heading',
+			array(
+				'label'     => __( 'Title', 'powerpack' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => array(
+					'heading!' => '',
+				),
 			)
 		);
 
@@ -1147,6 +1163,9 @@ class Info_Box extends Powerpack_Widget {
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-info-box-title' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'heading!' => '',
 				),
 			)
 		);
@@ -1169,17 +1188,32 @@ class Info_Box extends Powerpack_Widget {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			array(
-				'name'     => 'title_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .pp-info-box-title',
+				'name'      => 'title_typography',
+				'label'     => __( 'Typography', 'powerpack' ),
+				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .pp-info-box-title',
+				'condition' => array(
+					'heading!' => '',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			array(
+				'name'      => 'title_text_shadow',
+				'label'     => __( 'Text Shadow', 'powerpack' ),
+				'selector'  => '{{WRAPPER}} .pp-info-box-title',
+				'condition' => array(
+					'heading!' => '',
+				),
 			)
 		);
 
 		$this->add_responsive_control(
 			'title_margin',
 			array(
-				'label'      => __( 'Margin Bottom', 'powerpack' ),
+				'label'      => __( 'Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array(
 					'size' => 20,
@@ -1262,10 +1296,22 @@ class Info_Box extends Powerpack_Widget {
 			)
 		);
 
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			array(
+				'name'      => 'subtitle_text_shadow',
+				'label'     => __( 'Text Shadow', 'powerpack' ),
+				'selector'  => '{{WRAPPER}} .pp-info-box-subtitle',
+				'condition' => array(
+					'sub_heading!' => '',
+				),
+			)
+		);
+
 		$this->add_responsive_control(
 			'subtitle_margin',
 			array(
-				'label'      => __( 'Margin Bottom', 'powerpack' ),
+				'label'      => __( 'Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array(
 					'size' => 20,
@@ -1292,24 +1338,12 @@ class Info_Box extends Powerpack_Widget {
 			)
 		);
 
-		$this->end_controls_section();
-	}
-
-	/**
-	 * Register Title Separator Controls in Style tab
-	 *
-	 * @return void
-	 */
-	protected function register_style_title_divider_controls() {
-		/**
-		 * Style Tab: Title Separator
-		 * -------------------------------------------------
-		 */
-		$this->start_controls_section(
-			'section_title_divider_style',
+		$this->add_control(
+			'divider_title_style_heading',
 			array(
 				'label'     => __( 'Title Separator', 'powerpack' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
 				'condition' => array(
 					'divider_title_switch' => 'yes',
 				),
@@ -1364,6 +1398,7 @@ class Info_Box extends Powerpack_Widget {
 				),
 				'condition'  => array(
 					'divider_title_switch' => 'yes',
+					'divider_title_border_type!' => 'none',
 				),
 			)
 		);
@@ -1389,6 +1424,7 @@ class Info_Box extends Powerpack_Widget {
 				),
 				'condition'  => array(
 					'divider_title_switch' => 'yes',
+					'divider_title_border_type!' => 'none',
 				),
 			)
 		);
@@ -1404,6 +1440,7 @@ class Info_Box extends Powerpack_Widget {
 				),
 				'condition' => array(
 					'divider_title_switch' => 'yes',
+					'divider_title_border_type!' => 'none',
 				),
 			)
 		);
@@ -1416,15 +1453,15 @@ class Info_Box extends Powerpack_Widget {
 				'options'   => array(
 					'flex-start' => array(
 						'title' => __( 'Left', 'powerpack' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center'     => array(
 						'title' => __( 'Center', 'powerpack' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'flex-end'   => array(
 						'title' => __( 'Right', 'powerpack' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 				),
 				'default'   => '',
@@ -1433,6 +1470,7 @@ class Info_Box extends Powerpack_Widget {
 				),
 				'condition' => array(
 					'divider_title_switch' => 'yes',
+					'divider_title_border_type!' => 'none',
 				),
 			)
 		);
@@ -1440,7 +1478,7 @@ class Info_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_title_margin',
 			array(
-				'label'      => __( 'Margin Bottom', 'powerpack' ),
+				'label'      => __( 'Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array(
 					'size' => 20,
@@ -1463,28 +1501,17 @@ class Info_Box extends Powerpack_Widget {
 				),
 				'condition'  => array(
 					'divider_title_switch' => 'yes',
+					'divider_title_border_type!' => 'none',
 				),
 			)
 		);
 
-		$this->end_controls_section();
-	}
-
-	/**
-	 * Register Description Controls in Style tab
-	 *
-	 * @return void
-	 */
-	protected function register_style_description_controls() {
-		/**
-		 * Style Tab: Description
-		 * -------------------------------------------------
-		 */
-		$this->start_controls_section(
-			'section_info_description_style',
+		$this->add_control(
+			'description_style_heading',
 			array(
 				'label'     => __( 'Description', 'powerpack' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
 				'condition' => array(
 					'description!' => '',
 				),
@@ -1538,10 +1565,22 @@ class Info_Box extends Powerpack_Widget {
 			)
 		);
 
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			array(
+				'name'      => 'description_text_shadow',
+				'label'     => __( 'Text Shadow', 'powerpack' ),
+				'selector'  => '{{WRAPPER}} .pp-info-box-description',
+				'condition' => array(
+					'description!' => '',
+				),
+			)
+		);
+
 		$this->add_responsive_control(
 			'description_margin',
 			array(
-				'label'      => __( 'Margin Bottom', 'powerpack' ),
+				'label'      => __( 'Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array(
 					'size' => 20,
