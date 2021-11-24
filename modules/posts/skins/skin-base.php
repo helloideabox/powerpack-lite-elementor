@@ -2921,26 +2921,39 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		$this->add_control(
-			'arrow',
+			'select_arrow',
 			array(
-				'label'              => __( 'Choose Arrow', 'powerpack' ),
-				'type'               => Controls_Manager::ICON,
-				'include'            => array(
-					'fa fa-angle-right',
-					'fa fa-angle-double-right',
-					'fa fa-chevron-right',
-					'fa fa-chevron-circle-right',
-					'fa fa-arrow-right',
-					'fa fa-long-arrow-right',
-					'fa fa-caret-right',
-					'fa fa-caret-square-o-right',
-					'fa fa-arrow-circle-right',
-					'fa fa-arrow-circle-o-right',
-					'fa fa-toggle-right',
-					'fa fa-hand-o-right',
+				'label'                  => __( 'Choose Arrow', 'powerpack' ),
+				'type'                   => Controls_Manager::ICONS,
+				'fa4compatibility'       => 'arrow',
+				'label_block'            => false,
+				'default'                => array(
+					'value'   => 'fas fa-angle-right',
+					'library' => 'fa-solid',
 				),
-				'default'            => 'fa fa-angle-right',
-				'frontend_available' => true,
+				'skin'                   => 'inline',
+				'exclude_inline_options' => 'svg',
+				'recommended'            => array(
+					'fa-regular' => array(
+						'arrow-alt-circle-right',
+						'caret-square-right',
+						'hand-point-right',
+					),
+					'fa-solid'   => array(
+						'angle-right',
+						'angle-double-right',
+						'chevron-right',
+						'chevron-circle-right',
+						'arrow-right',
+						'long-arrow-alt-right',
+						'caret-right',
+						'caret-square-right',
+						'arrow-circle-right',
+						'arrow-alt-circle-right',
+						'toggle-right',
+						'hand-point-right',
+					),
+				),
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 					$this->get_control_id( 'arrows' ) => 'yes',
