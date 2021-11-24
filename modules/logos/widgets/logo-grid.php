@@ -175,13 +175,29 @@ class Logo_Grid extends Powerpack_Widget {
 			);
 
 			$repeater->add_control(
+				'custom_style_target',
+				[
+					'label'                => __( 'Apply Styles To', 'powerpack' ),
+					'type'                 => Controls_Manager::SELECT,
+					'default'              => 'container',
+					'options'              => [
+						'logo'      => __( 'Logo Image', 'powerpack' ),
+						'container' => __( 'Logo Container', 'powerpack' ),
+					],
+					'condition'          => [
+						'custom_style' => 'yes',
+					],
+				]
+			);
+
+			$repeater->add_control(
 				'custom_logo_wrapper_bg',
 				[
 					'label'              => __( 'Background Color', 'powerpack' ),
 					'type'               => Controls_Manager::COLOR,
 					'default'            => '',
 					'selectors'          => [
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-logo-grid-item-custom' => 'background-color: {{VALUE}}',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-logo-grid-item-custom, {{WRAPPER}} {{CURRENT_ITEM}} .pp-logo-grid-item-custom' => 'background-color: {{VALUE}}',
 					],
 					'condition'          => [
 						'custom_style'   => 'yes',
@@ -190,13 +206,21 @@ class Logo_Grid extends Powerpack_Widget {
 			);
 
 			$repeater->add_control(
-				'custom_logo_wrapper_border_color',
+				'custom_logo_wrapper_border_type',
 				[
-					'label'              => __( 'Border Color', 'powerpack' ),
-					'type'               => Controls_Manager::COLOR,
-					'default'            => '',
-					'selectors'          => [
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-logo-grid-item-custom' => 'border-color: {{VALUE}}',
+					'label'                => __( 'Border Type', 'powerpack' ),
+					'type'                 => Controls_Manager::SELECT,
+					'default'              => '',
+					'options'              => [
+						''       => __( 'None', 'powerpack' ),
+						'solid'  => __( 'Solid', 'powerpack' ),
+						'double' => __( 'Double', 'powerpack' ),
+						'dotted' => __( 'Dotted', 'powerpack' ),
+						'dashed' => __( 'Dashed', 'powerpack' ),
+						'groove' => __( 'Groove', 'powerpack' ),
+					],
+					'selectors'             => [
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-logo-grid-item-custom, {{WRAPPER}} {{CURRENT_ITEM}} .pp-logo-grid-item-custom' => 'border-style: {{VALUE}};',
 					],
 					'condition'          => [
 						'custom_style'   => 'yes',
@@ -217,10 +241,27 @@ class Logo_Grid extends Powerpack_Widget {
 						],
 					],
 					'selectors'             => [
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-logo-grid-item-custom' => 'border-width: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-logo-grid-item-custom, {{WRAPPER}} {{CURRENT_ITEM}} .pp-logo-grid-item-custom' => 'border-width: {{SIZE}}{{UNIT}};',
 					],
 					'condition'          => [
 						'custom_style'   => 'yes',
+						'custom_logo_wrapper_border_type!' => '',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'custom_logo_wrapper_border_color',
+				[
+					'label'              => __( 'Border Color', 'powerpack' ),
+					'type'               => Controls_Manager::COLOR,
+					'default'            => '',
+					'selectors'          => [
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-logo-grid-item-custom, {{WRAPPER}} {{CURRENT_ITEM}} .pp-logo-grid-item-custom' => 'border-color: {{VALUE}}',
+					],
+					'condition'          => [
+						'custom_style' => 'yes',
+						'custom_logo_wrapper_border_type!' => '',
 					],
 				]
 			);
@@ -289,6 +330,9 @@ class Logo_Grid extends Powerpack_Widget {
 			]
 		);
 
+		$logo_columns = range( 1, 12 );
+		$logo_columns = array_combine( $logo_columns, $logo_columns );
+
 		$this->add_responsive_control(
 			'columns',
 			[
@@ -297,14 +341,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'default'               => '3',
 				'tablet_default'        => '2',
 				'mobile_default'        => '1',
-				'options'               => [
-					'1' => '1',
-					'2' => '2',
-					'3' => '3',
-					'4' => '4',
-					'5' => '5',
-					'6' => '6',
-				],
+				'options'               => $logo_columns,
 				'prefix_class'          => 'elementor-grid%s-',
 				'frontend_available'    => true,
 			]
@@ -324,9 +361,7 @@ class Logo_Grid extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'(desktop){{WRAPPER}} .pp-grid-item-wrap'       => 'width: calc( ( 100% - (({{columns.SIZE}} - 1) * {{SIZE}}{{UNIT}}) ) / {{columns.SIZE}} ); margin-right: {{SIZE}}{{UNIT}}; margin-bottom: {{SIZE}}{{UNIT}};',
-					'(tablet){{WRAPPER}} .pp-grid-item-wrap'        => 'width: calc( ( 100% - (({{columns_tablet.SIZE}} - 1) * {{SIZE}}{{UNIT}}) ) / {{columns_tablet.SIZE}} ); margin-right: {{SIZE}}{{UNIT}}; margin-bottom: {{SIZE}}{{UNIT}};',
-					'(mobile){{WRAPPER}} .pp-grid-item-wrap'        => 'width: calc( ( 100% - (({{columns_mobile.SIZE}} - 1) * {{SIZE}}{{UNIT}}) ) / {{columns_mobile.SIZE}} ); margin-right: {{SIZE}}{{UNIT}}; margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}' => '--grid-column-gap: {{SIZE}}{{UNIT}}; --grid-row-gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -726,7 +761,7 @@ class Logo_Grid extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		$this->add_render_attribute( 'logo-grid', 'class', 'pp-logo-grid pp-elementor-grid clearfix' );
+		$this->add_render_attribute( 'logo-grid', 'class', 'pp-logo-grid elementor-grid clearfix' );
 
 		if ( 'yes' === $settings['grayscale_normal'] ) {
 			$this->add_render_attribute( 'logo-grid', 'class', 'grayscale-normal' );
@@ -747,19 +782,27 @@ class Logo_Grid extends Powerpack_Widget {
 			foreach ( $logos as $index => $item ) :
 				if ( ! empty( $item['logo_image']['url'] ) ) {
 					$item_wrap_setting_key = $this->get_repeater_setting_key( 'item_wrap', 'logos', $index );
+					$item_setting_key = $this->get_repeater_setting_key( 'item', 'logos', $index );
 					$link_setting_key = $this->get_repeater_setting_key( 'link', 'logos', $index );
 
 					$this->add_render_attribute( $item_wrap_setting_key, 'class', [
 						'pp-grid-item-wrap',
+						'elementor-grid-item',
 						'elementor-repeater-item-' . esc_attr( $item['_id'] ),
 					] );
 
+					$this->add_render_attribute( $item_setting_key, 'class', 'pp-grid-item' );
+
 					if ( 'yes' === $item['custom_style'] ) {
-						$this->add_render_attribute( $item_wrap_setting_key, 'class', 'pp-logo-grid-item-custom' );
+						if ( 'logo' === $item['custom_style_target'] ) {
+							$this->add_render_attribute( $item_setting_key, 'class', 'pp-logo-grid-item-custom' );
+						} else {
+							$this->add_render_attribute( $item_wrap_setting_key, 'class', 'pp-logo-grid-item-custom' );
+						}
 					}
 					?>
 					<div <?php echo wp_kses_post( $this->get_render_attribute_string( $item_wrap_setting_key ) ); ?>>
-						<div class="pp-grid-item">
+						<div <?php echo wp_kses_post( $this->get_render_attribute_string( $item_setting_key ) ); ?>>
 						<?php
 						if ( '' !== $item['link']['url'] ) {
 							$this->add_link_attributes( $link_setting_key, $item['link'] );
@@ -846,7 +889,7 @@ class Logo_Grid extends Powerpack_Widget {
 			var i = 1;
 
 			view.addRenderAttribute( 'logo-grid', {
-				'class': 'pp-logo-grid pp-elementor-grid clearfix',
+				'class': 'pp-logo-grid elementor-grid clearfix',
 			});
 
 			if ( settings.grayscale_normal == 'yes' ) {
@@ -865,15 +908,19 @@ class Logo_Grid extends Powerpack_Widget {
 			<# _.each( settings.pp_logos, function( item ) { #>
 				<# if ( item.logo_image.url != '' ) { #>
 					<#
+						var item_wrap_custom_style_class = '',
+							item_custom_style_class = '';
+
 						if ( item.custom_style == 'yes' ) {
-							var custom_style_class = 'pp-logo-grid-item-custom';
-						}
-						else {
-							var custom_style_class = '';
+							if ( item.custom_style_target == 'logo' ) {
+								var item_custom_style_class = 'pp-logo-grid-item-custom';
+							} else {
+								var item_wrap_custom_style_class = 'pp-logo-grid-item-custom';
+							}
 						}
 					#>
-					<div class="pp-grid-item-wrap elementor-repeater-item-{{ item._id }} {{ custom_style_class }}">
-						<div class="pp-grid-item">
+					<div class="pp-grid-item-wrap elementor-grid-item elementor-repeater-item-{{ item._id }} {{ item_wrap_custom_style_class }}">
+						<div class="pp-grid-item {{ item_custom_style_class }}">
 							<# if ( item.link && item.link.url ) { #>
 								<a href="{{ item.link.url }}">
 							<# } #>

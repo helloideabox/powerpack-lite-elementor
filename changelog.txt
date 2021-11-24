@@ -2,6 +2,7 @@
 Release date: November 24, 2021
 * Added: Display Conditions - display conditions support for columns
 * Added: Display Conditions - Output HTML option for sections
+* Added: Logo Grid - Option to apply custom styles to logo image or logo container
 * Added: Logo Carousel - Background and padding options for logo title
 * Fixed: Logo Carousel - Choose Arrow option was not working in the editor
 * Fixed: Logo Carousel - Issue with Additional Custom Breakpoints
