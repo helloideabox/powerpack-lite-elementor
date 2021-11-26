@@ -11,7 +11,7 @@ A collection of 30+ Free Elementor addons widgets. Take Elementor to the next le
 
 == Description ==
 
-Extend Elementor with 60+ Creative Elementor Widgets and extensions with [PowerPack Elementor addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - The fastest-growing Elementor addon. Get 30+ Free Elementor widgets with PowerPack Lite. These Elementor widgets are designed with a focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever!  
+Extend Elementor with 60+ Creative Elementor Widgets and extensions with [PowerPack Addons for Elementor](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - The fastest-growing Elementor addon. Get 30+ Free Elementor widgets with PowerPack Lite. These Elementor widgets are designed with a focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever!  
 
 PowerPack Elementor addon is built by [IdeaBox Creations](https://ideabox.io/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link).
 
