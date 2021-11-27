@@ -761,7 +761,7 @@ class Logo_Grid extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		$this->add_render_attribute( 'logo-grid', 'class', 'pp-logo-grid elementor-grid clearfix' );
+		$this->add_render_attribute( 'logo-grid', 'class', 'pp-logo-grid elementor-grid' );
 
 		if ( 'yes' === $settings['grayscale_normal'] ) {
 			$this->add_render_attribute( 'logo-grid', 'class', 'grayscale-normal' );
@@ -889,7 +889,7 @@ class Logo_Grid extends Powerpack_Widget {
 			var i = 1;
 
 			view.addRenderAttribute( 'logo-grid', {
-				'class': 'pp-logo-grid elementor-grid clearfix',
+				'class': 'pp-logo-grid elementor-grid',
 			});
 
 			if ( settings.grayscale_normal == 'yes' ) {
