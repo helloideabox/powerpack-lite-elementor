@@ -1,7 +1,8 @@
 <?php
+use PowerpackElements\Classes\PP_Admin_Settings;
 
-$current_tab  = isset( $_REQUEST['tab'] ) ? $_REQUEST['tab'] : 'modules';
-$settings     = self::get_settings();
+$current_tab  = isset( $_REQUEST['tab'] ) ? esc_attr( $_REQUEST['tab'] ) : 'general';
+$settings     = PP_Admin_Settings::get_settings();
 
 ?>
 

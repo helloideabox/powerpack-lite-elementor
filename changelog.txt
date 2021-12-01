@@ -1,3 +1,7 @@
+== 2.6.2 ==
+Release date: December 1, 2021
+* Fixed: Settings panel navigation issue in PowerPack admin
+
 == 2.6.1 ==
 Release date: November 24, 2021
 * Added: Display Conditions - Option to show Display conditions on columns

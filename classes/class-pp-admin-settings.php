@@ -202,7 +202,7 @@ final class PP_Admin_Settings {
 					continue;
 				}
 				?>
-				<a href="<?php echo esc_attr( self::get_form_action( '&tab=' . $data['key'] ) ); ?>" class="nav-tab<?php echo ( $current_tab == $data['key'] ? ' nav-tab-active' : '' ); ?>"><span><?php echo esc_html( $data['title'] ); ?></span></a>
+				<a href="<?php echo self::get_form_action( '&tab=' . esc_attr( $data['key'] ) ); ?>" class="nav-tab<?php echo ( $current_tab == $data['key'] ? ' nav-tab-active' : '' ); ?>"><span><?php echo $data['title']; ?></span></a>
 				<?php
 			}
 		}

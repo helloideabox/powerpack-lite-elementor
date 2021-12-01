@@ -228,6 +228,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.2 - December 1, 2021 =
+* 	Fixed: Settings panel navigation issue in PowerPack admin
+
 = 2.6.1 - November 24, 2021 =
 * 	Added: Display Conditions - Option to show Display conditions on columns
 * 	Added: Display Conditions - Output HTML option for sections
