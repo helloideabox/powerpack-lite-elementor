@@ -1063,9 +1063,9 @@ class Hotspots extends Powerpack_Widget {
 		?>
 		<div class="pp-image-hotspots">
 			<div class="pp-hot-spot-image">
+				<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings ) ); ?>
 				<?php
 				foreach ( $settings['hot_spots'] as $index => $item ) :
-
 					$hotspot_tag         = 'span';
 					$hotspot_key         = $this->get_repeater_setting_key( 'hotspot', 'hot_spots', $index );
 					$tooltip_content_key = $this->get_repeater_setting_key( 'tooltip_content', 'hot_spots', $index );
@@ -1138,7 +1138,6 @@ class Hotspots extends Powerpack_Widget {
 
 						}
 					}
-
 					?>
 					<<?php echo esc_html( $hotspot_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $hotspot_key ) ); ?>>
 						<span <?php echo wp_kses_post( $this->get_render_attribute_string( $hotspot_inner_key ) ); ?>>
@@ -1180,8 +1179,6 @@ class Hotspots extends Powerpack_Widget {
 						</div>
 					<?php } ?>
 				<?php endforeach; ?>
-
-				<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings ) ); ?>
 			</div>
 		</div>
 		<?php

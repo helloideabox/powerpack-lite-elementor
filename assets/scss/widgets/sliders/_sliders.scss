@@ -27,6 +27,17 @@
 .pp-arrow-prev {
     left: 20px;
 }
+.slick-list {
+    position: relative;
+    overflow: hidden;
+}
+.slick-slide {
+    float: left;
+    display: none;
+}
+.slick-initialized .slick-slide {
+    display: block;
+}
 [dir="rtl"] .pp-slick-slider .pp-arrow-next {
     left: 20px;
     right: auto;
@@ -86,6 +97,7 @@
 			&:focus {
 				background: transparent;
 				border: 0;
+				outline: 0;
 			}
         }
     }

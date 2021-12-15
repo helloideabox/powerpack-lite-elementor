@@ -1,3 +1,9 @@
+
+== 2.6.3 ==
+Release date: December 15, 2021
+* Fixed: Slick slider issue with Elementor 3.5
+* Fixed: Hotspots - Hotspots were not appearing in Safari
+
 == 2.6.2 ==
 Release date: December 1, 2021
 * Fixed: Settings panel navigation issue in PowerPack admin
