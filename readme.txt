@@ -228,6 +228,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.3 - December 15, 2021 =
+* 	Fixed: Slick slider issue with Elementor 3.5
+* 	Fixed: Hotspots - Hotspots were not appearing in Safari
+
 = 2.6.2 - December 1, 2021 =
 * 	Fixed: Settings panel navigation issue in PowerPack admin
 

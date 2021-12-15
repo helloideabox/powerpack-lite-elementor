@@ -1,4 +1,3 @@
-
 == 2.6.3 ==
 Release date: December 15, 2021
 * Fixed: Slick slider issue with Elementor 3.5
