@@ -1,3 +1,9 @@
+== 2.6.4 ==
+Release date: December 20, 2021
+* Fixed: Advanced Posts - Issue with equal height option of carousel layout
+* Added: Icon List - Apply Link On option
+* Enhancement: Advanced Accordion - Added ability to open tabs by URL
+
 == 2.6.3 ==
 Release date: December 15, 2021
 * Fixed: Slick slider issue with Elementor 3.5

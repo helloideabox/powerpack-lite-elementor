@@ -228,6 +228,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.4 - December 20, 2021 =
+* 	Fixed: Advanced Posts - Issue with equal height option of carousel layout
+* 	Added: Icon List - Apply Link On option
+* 	Enhancement: Advanced Accordion - Added ability to open tabs by URL
+
 = 2.6.3 - December 15, 2021 =
 * 	Fixed: Slick slider issue with Elementor 3.5
 * 	Fixed: Hotspots - Hotspots were not appearing in Safari
