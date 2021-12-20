@@ -279,6 +279,20 @@ class Icon_List extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_control(
+			'link_click',
+			array(
+				'label'        => esc_html__( 'Apply Link On', 'powerpack' ),
+				'type'         => Controls_Manager::SELECT,
+				'options'      => array(
+					'full_width' => esc_html__( 'Full Width', 'powerpack' ),
+					'inline'     => esc_html__( 'Inline', 'powerpack' ),
+				),
+				'default'      => 'inline',
+				'prefix_class' => 'elementor-list-item-link-',
+			)
+		);
+
 		$this->end_controls_section();
 	}
 
