@@ -126,7 +126,6 @@ class Advanced_Accordion extends Powerpack_Widget {
 		$this->register_style_toggle_icon_controls();
 	}
 
-
 	/*-----------------------------------------------------------------------------------*/
 	/*	CONTENT TAB
 	/*-----------------------------------------------------------------------------------*/
@@ -495,6 +494,18 @@ class Advanced_Accordion extends Powerpack_Widget {
 					'div' => 'div',
 				],
 				'default'               => 'div',
+			]
+		);
+
+		$this->add_control(
+			'custom_id_prefix',
+			[
+				'label'       => __( 'Custom ID Prefix', 'powerpack' ),
+				'description' => __( 'A prefix that will be applied to ID attribute of tabs\'s in HTML. For example, prefix "mytab" will be applied as "mytab-1", "mytab-2" in ID attribute of Tab 1 and Tab 2 respectively. It should only contain dashes, underscores, letters or numbers. No spaces.', 'powerpack' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'default'     => '',
+				'placeholder' => __( 'mytab', 'powerpack' ),
 			]
 		);
 
@@ -1418,8 +1429,14 @@ class Advanced_Accordion extends Powerpack_Widget {
 					$tab_content_class[]    = 'pp-accordion-tab-active-default';
 				}
 
+				if ( $settings['custom_id_prefix'] ) {
+					$tab_id = $settings['custom_id_prefix'] . '-' . $tab_count;
+				} else {
+					$tab_id = 'pp-accordion-tab-title-' . $id_int . $tab_count;
+				}
+
 				$this->add_render_attribute( $tab_title_setting_key, [
-					'id'                => 'pp-accordion-tab-title-' . $id_int . $tab_count,
+					'id'                => $tab_id,
 					'class'             => $tab_title_class,
 					'tabindex'          => $id_int . $tab_count,
 					'data-tab'          => $tab_count,
@@ -1432,7 +1449,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 					'class'             => $tab_content_class,
 					'data-tab'          => $tab_count,
 					'role'              => 'tabpanel',
-					'aria-labelledby'   => 'pp-accordion-tab-title-' . $id_int . $tab_count,
+					'aria-labelledby'   => $tab_id,
 				] );
 
 				if ( 'content' === $tab['content_type'] ) {

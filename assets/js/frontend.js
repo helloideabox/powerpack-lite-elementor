@@ -345,7 +345,32 @@
                 }
 			}
         });
+
+		// Trigger filter by hash parameter in URL.
+		advanced_accordion_hashchange();
+
+		// Trigger filter on hash change in URL.
+		$( window ).on( 'hashchange', function() {
+			advanced_accordion_hashchange();
+		} );
     };
+
+	function advanced_accordion_hashchange() {
+		if ( location.hash && $(location.hash).length > 0 ) {
+			var element = $(location.hash + '.pp-accordion-tab-title');
+
+			if ( element && element.length > 0 ) {
+				location.href = '#';
+				$('html, body').animate({
+					scrollTop: ( element.parents('.pp-accordion-item').offset().top - 50 ) + 'px'
+				}, 500, function() {
+					if ( ! element.parents('.pp-accordion-item').hasClass('pp-accordion-item-active') ) {
+						element.trigger('click');
+					}
+				});
+			}
+		}
+	}
 
 	var PPButtonHandler = function ( $scope ) {
 		var id = $scope.data('id'),
