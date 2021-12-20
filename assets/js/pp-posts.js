@@ -6,19 +6,48 @@
 	var total = 0;
 	
 	function equalHeight( slider_wrapper ) {
-		var slickSlider = slider_wrapper.find('.pp-posts-carousel'),
+		var slickSlider = slider_wrapper.find( '.pp-posts-carousel' ),
+			postWrap = slider_wrapper.find( '.pp-post-wrap' ),
+			postActive = slider_wrapper.find( '.slick-active' ),
+			maxHeight = -1,
+			postActiveHeight = -1,
             equalHeight = slickSlider.data( 'equal-height' );
-		
+
 		if ( 'yes' != equalHeight ) {
         	return;
         }
-		
-		slickSlider.find('.slick-slide').height('auto');
 
-		var slickTrack = slickSlider.find('.slick-track'),
-			slickTrackHeight = $(slickTrack).height();
+		postActive.each( function() {
+            var $this = $( this ),
+                post = $this.find( '.pp-post' ),
+                postHeight = post.outerHeight();
 
-		slickSlider.find('.slick-slide').css('height', slickTrackHeight + 'px');
+            if ( maxHeight < postHeight ) {
+                maxHeight = postHeight;
+                postActiveHeight = maxHeight + 10;
+            }
+        });
+
+		postActive.each( function() {
+            var selector = $( this ).find( '.pp-post' );
+            selector.animate({ height: maxHeight }, { duration: 200, easing: 'linear' });
+        });
+
+		slider_wrapper.find('.slick-list.draggable').animate({ height: postActiveHeight }, { duration: 200, easing: 'linear' });
+
+		maxHeight = -1;
+
+        postWrap.each(function() {
+            var $this = jQuery( this ),
+                selector = $this.find( '.pp-post' ),
+                postHeight = selector.outerHeight();
+
+            if ( $this.hasClass('slick-active') ) {
+                return true;
+            }
+
+            selector.css( 'height', postHeight );
+        });
 	}
 	
 	var PostsHandler = function( $scope, $ ) {

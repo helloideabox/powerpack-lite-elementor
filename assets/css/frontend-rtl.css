@@ -2080,6 +2080,7 @@ div[class*=' pa-'] {
 .pp-gravity-form .gform_page_footer input[type="button"] {
   background: #428bca;
   border: none;
+  color: #fff;
   display: inline-block;
   padding: 10px 15px; }
 
@@ -2097,6 +2098,7 @@ div[class*=' pa-'] {
 .pp-gravity-form .gform_wrapper select {
   border-radius: 0;
   height: auto;
+  display: inline-block;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; }
@@ -2228,6 +2230,25 @@ div[class*=' pa-'] {
 .pp-arrow-prev {
   right: 20px; }
 
+.slick-list {
+  position: relative;
+  overflow: hidden; }
+
+.slick-track {
+  position: relative;
+  top: 0;
+  right: 0;
+  display: block;
+  margin-right: auto;
+  margin-left: auto; }
+
+.slick-slide {
+  float: right;
+  display: none; }
+
+.slick-initialized .slick-slide {
+  display: block; }
+
 [dir="rtl"] .pp-slick-slider .pp-arrow-next {
   right: 20px;
   left: auto; }
@@ -2277,7 +2298,8 @@ div[class*=' pa-'] {
     transition: 0.3s; }
     .pp-slick-slider li button:hover, .pp-slick-slider li button:focus {
       background: transparent;
-      border: 0; }
+      border: 0;
+      outline: 0; }
 
 .pp-slick-slider-dots-inside .slick-dots {
   position: absolute;

@@ -31,6 +31,14 @@
     position: relative;
     overflow: hidden;
 }
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .slick-slide {
     float: left;
     display: none;
