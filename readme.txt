@@ -228,6 +228,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.5 - December 21, 2021 =
+* 	Fixed: PHP error on PowerPack settings page
+
 = 2.6.4 - December 20, 2021 =
 * 	Fixed: Advanced Posts - Issue with equal height option of carousel layout
 * 	Added: Icon List - Apply Link On option

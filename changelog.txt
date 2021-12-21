@@ -1,3 +1,7 @@
+== 2.6.5 ==
+Release date: December 21, 2021
+* Fixed: PHP error on PowerPack settings page
+
 == 2.6.4 ==
 Release date: December 20, 2021
 * Fixed: Advanced Posts - Issue with equal height option of carousel layout

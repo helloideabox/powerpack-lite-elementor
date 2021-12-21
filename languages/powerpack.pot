@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.6.4\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.6.5\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-elementor\n"
-"POT-Creation-Date: 2021-12-20 11:21:52+00:00\n"
+"POT-Creation-Date: 2021-12-21 05:48:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1684,61 +1684,61 @@ msgstr ""
 msgid "Widgets"
 msgstr ""
 
-#: includes/admin/admin-settings.php:241
+#: includes/admin/admin-settings.php:240
 msgid "%s Settings"
 msgstr ""
 
-#: includes/admin/admin-settings.php:249
+#: includes/admin/admin-settings.php:248
 msgid "Version %s"
 msgstr ""
 
-#: includes/admin/admin-settings.php:264
+#: includes/admin/admin-settings.php:263
 msgid "Get access to more premium widgets and features."
 msgstr ""
 
-#: includes/admin/admin-settings.php:265
+#: includes/admin/admin-settings.php:264
 msgid "Upgrade to <strong>PowerPack Pro</strong> and get"
 msgstr ""
 
-#: includes/admin/admin-settings.php:267
+#: includes/admin/admin-settings.php:266
 msgid "More Widgets"
 msgstr ""
 
-#: includes/admin/admin-settings.php:268
+#: includes/admin/admin-settings.php:267
 msgid "WooCommerce Widgets"
 msgstr ""
 
-#: includes/admin/admin-settings.php:269
+#: includes/admin/admin-settings.php:268
 msgid "White Label Branding"
 msgstr ""
 
-#: includes/admin/admin-settings.php:270
+#: includes/admin/admin-settings.php:269
 msgid "Expert Support"
 msgstr ""
 
-#: includes/admin/admin-settings.php:271
+#: includes/admin/admin-settings.php:270
 msgid "Lifetime package available"
 msgstr ""
 
-#: includes/admin/admin-settings.php:273
+#: includes/admin/admin-settings.php:272
 msgid "Upgrade to PowerPack Pro"
 msgstr ""
 
-#: includes/admin/admin-settings.php:273
+#: includes/admin/admin-settings.php:272
 msgid "Upgrade Now"
 msgstr ""
 
-#: includes/admin/admin-settings.php:279
+#: includes/admin/admin-settings.php:278
 msgid "Support"
 msgstr ""
 
-#: includes/admin/admin-settings.php:283
+#: includes/admin/admin-settings.php:282
 msgid ""
 "For submitting any support queries, feedback, bug reports or feature "
 "requests, please visit"
 msgstr ""
 
-#: includes/admin/admin-settings.php:283
+#: includes/admin/admin-settings.php:282
 msgid "this link"
 msgstr ""
 
