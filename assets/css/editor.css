@@ -15,7 +15,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
     padding: 0.2em 0.5em;
 }
 #elementor-panel-elements-wrapper .elementor-element:hover .power-pack-admin-icon:after {
