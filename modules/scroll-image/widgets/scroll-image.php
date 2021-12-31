@@ -39,7 +39,7 @@ class Scroll_Image extends Powerpack_Widget {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'pp-scroll-image';
+		return parent::get_widget_name( 'Scroll_Image' );
 	}
 
 	/**
@@ -50,20 +50,7 @@ class Scroll_Image extends Powerpack_Widget {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Scroll Image', 'powerpack' );
-	}
-
-	/**
-	 * Retrieve the list of categories the showcase widget belongs to.
-	 *
-	 * Used to determine where to display the widget in the editor.
-	 *
-	 * @access public
-	 *
-	 * @return array Widget categories.
-	 */
-	public function get_categories() {
-		return array( 'power-pack' );
+		return parent::get_widget_title( 'Scroll_Image' );
 	}
 
 	/**
@@ -74,7 +61,7 @@ class Scroll_Image extends Powerpack_Widget {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'ppicon-scroll-image power-pack-admin-icon';
+		return parent::get_widget_icon( 'Scroll_Image' );
 	}
 
 	/**
