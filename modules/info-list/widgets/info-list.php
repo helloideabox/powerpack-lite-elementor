@@ -1410,7 +1410,7 @@ class Info_List extends Powerpack_Widget {
 		}
 
 		$migrated = isset( $item['__fa4_migrated']['icon'] );
-		$is_new = ! isset( $item['button_icon'] ) && $migration_allowed;
+		$is_new = empty( $item['button_icon'] ) && $migration_allowed;
 
 		if ( ! empty( $item['button_icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) ) {
 			?>
@@ -1450,7 +1450,7 @@ class Info_List extends Powerpack_Widget {
 		}
 
 		$migrated = isset( $item['__fa4_migrated']['icon'] );
-		$is_new = ! isset( $item['list_icon'] ) && $migration_allowed;
+		$is_new = empty( $item['list_icon'] ) && $migration_allowed;
 
 		if ( 'none' !== $item['pp_icon_type'] ) {
 			$icon_wrap_key = $this->get_repeater_setting_key( 'icon_wrap', 'list_items', $i );
