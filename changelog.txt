@@ -1,6 +1,7 @@
 == 2.6.6 ==
 Release date: January 3, 2022
 * Fixed: Scroll Image widget was not showing in the editor
+* Fixed: Gravity Forms - Styles for multi step forms were not loading in the editor
 * Fixed: PP prefix text overlapping with the search bar in the editor
 
 == 2.6.5 ==

@@ -161,7 +161,7 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_VER
 		);
 
-		if ( class_exists( 'GFCommon' && \Elementor\Plugin::$instance->preview->is_preview_mode() && PP_Helper::is_widget_active( 'Gravity_Forms' ) ) ) {
+		if ( class_exists( 'GFCommon' ) && \Elementor\Plugin::$instance->preview->is_preview_mode() && PP_Helper::is_widget_active( 'Gravity_Forms' ) ) {
 			$gf_forms = \RGFormsModel::get_forms( null, 'title' );
 			foreach ( $gf_forms as $form ) {
 				if ( '0' !== $form->id ) {
