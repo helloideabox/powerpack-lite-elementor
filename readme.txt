@@ -229,6 +229,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.6 - January 3, 2022 =
+* 	Fixed: Scroll Image widget was not showing in the editor
+* 	Fixed: Gravity Forms - Styles for multi step forms were not loading in the editor
+* 	Fixed: PP prefix text overlapping with the search bar in the editor
+* 	Enhancement: Instagram Feed - Removed custom access token option from widget settings
+
 = 2.6.5 - December 21, 2021 =
 * 	Fixed: PHP error on PowerPack settings page
 

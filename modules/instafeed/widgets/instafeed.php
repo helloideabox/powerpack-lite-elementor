@@ -209,9 +209,9 @@ class Instafeed extends Powerpack_Widget {
 				[
 					'type'            => Controls_Manager::RAW_HTML,
 					'raw'             => sprintf(
-						__( 'The global Instagram access token is missing. You can add it %1$shere%2$s or use a custom one below.', 'powerpack' ),
-						'<a target="_blank" href="' . admin_url( 'admin.php?page=powerpack-settings&tab=integration' ) . '">',
-						'</a>'
+						__( 'Your Instagram Access Token is missing, %1$sclick here%2$s to configure.', 'powerpack' ),
+						'<a href="' . admin_url( 'admin.php?page=powerpack-settings&tab=integration' ) . '"><strong>',
+						'</strong></a>'
 					),
 					'content_classes' => 'pp-editor-info',
 					'condition'       => [
@@ -220,19 +220,6 @@ class Instafeed extends Powerpack_Widget {
 				]
 			);
 		}
-
-		$this->add_control(
-			'access_token',
-			[
-				'label'                 => __( 'Custom Access Token', 'powerpack' ),
-				'description'           => __( 'Overrides global Instagram access token', 'powerpack' ),
-				'label_block'           => true,
-				'type'                  => Controls_Manager::TEXT,
-				'condition'             => [
-					'insta_display' => 'feed',
-				],
-			]
-		);
 
 		$this->add_control(
 			'insta_hashtag',
@@ -2721,7 +2708,7 @@ class Instafeed extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 
 		if ( ! $this->insta_access_token ) {
-			$custom_access_token = $settings['access_token'];
+			$custom_access_token = isset( $settings['access_token'] ) ? $settings['access_token'] : '';
 
 			if ( '' !== trim( $custom_access_token ) ) {
 				$this->insta_access_token = $custom_access_token;
@@ -3326,17 +3313,6 @@ class Instafeed extends Powerpack_Widget {
 			$this->add_link_attributes( 'instagram-profile-link', $settings['insta_profile_url'] );
 		}
 
-		$pp_widget_options = [
-			'user_id'           => '',
-			'access_token'      => ! empty( $settings['access_token'] ) ? $settings['access_token'] : '',
-			//'sort_by'           => ! empty( $settings['sort_by'] ) ? $settings['sort_by'] : '',
-			'images_count'      => ! empty( $settings['images_count']['size'] ) ? $settings['images_count']['size'] : 5,
-			'target'            => 'pp-instafeed-' . esc_attr( $this->get_id() ),
-			'resolution'        => ! empty( $settings['resolution'] ) ? $settings['resolution'] : '',
-			'popup'             => ( 'yes' === $settings['insta_image_popup'] ) ? '1' : '0',
-			'img_link'          => ( 'yes' !== $settings['insta_image_popup'] && 'yes' === $settings['insta_image_link'] ) ? '1' : '0',
-		];
-
 		$this->render_api_images();
 	}
 
@@ -3354,9 +3330,14 @@ class Instafeed extends Powerpack_Widget {
 		$gallery = $this->get_insta_posts( $settings );
 
 		if ( empty( $gallery ) || is_wp_error( $gallery ) ) {
-			$message = is_wp_error( $gallery ) ? $gallery->get_error_message() : esc_html__( 'No Posts Found', 'powerpack' );
+			$placeholder = sprintf( 'Click here to edit the "%1$s" settings and change the source of photos.', esc_attr( $this->get_title() ) );
 
-			echo wp_kses_post( $message );
+			echo esc_attr( $this->render_editor_placeholder(
+				[
+					'title' => __( 'No Posts Found!', 'powerpack' ),
+					'body' => $placeholder,
+				]
+			) );
 
 			return;
 		}
