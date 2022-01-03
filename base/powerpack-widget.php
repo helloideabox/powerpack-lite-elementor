@@ -238,8 +238,6 @@ abstract class Powerpack_Widget extends Widget_Base {
 		return $slider_options;
 	}
 
-
-
 	/**
 	 * Get swiper slider settings for content_template function
 	 *
