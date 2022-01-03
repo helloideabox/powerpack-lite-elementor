@@ -166,14 +166,14 @@ abstract class Powerpack_Widget extends Widget_Base {
 		$effect = ( isset( $settings['carousel_effect'] ) && ( $settings['carousel_effect'] ) ) ? $settings['carousel_effect'] : 'slide';
 
 		$slider_options = [
-			'direction'         => 'horizontal',
-			'effect'            => $effect,
-			'speed'             => ( '' !== $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
-			'slidesPerView'     => ( '' !== $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3,
-			'spaceBetween'      => ( '' !== $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10,
-			'grabCursor'        => ( 'yes' === $settings['grab_cursor'] ),
-			'autoHeight'        => true,
-			'loop'              => ( 'yes' === $settings['infinite_loop'] ),
+			'direction'     => 'horizontal',
+			'effect'        => $effect,
+			'speed'         => ( '' !== $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
+			'slidesPerView' => ( '' !== $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3,
+			'spaceBetween'  => ( '' !== $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10,
+			'grabCursor'    => ( 'yes' === $settings['grab_cursor'] ),
+			'autoHeight'    => true,
+			'loop'          => ( 'yes' === $settings['infinite_loop'] ),
 		];
 
 		$autoplay_speed = 999999;
@@ -187,22 +187,22 @@ abstract class Powerpack_Widget extends Widget_Base {
 		}
 
 		$slider_options['autoplay'] = [
-			'delay'                  => $autoplay_speed,
-			'disableOnInteraction'   => ( 'yes' === $settings['pause_on_interaction'] ),
+			'delay'                => $autoplay_speed,
+			'disableOnInteraction' => ( 'yes' === $settings['pause_on_interaction'] ),
 		];
 
 		if ( 'yes' === $pagination ) {
 			$slider_options['pagination'] = [
-				'el'                 => '.swiper-pagination-' . esc_attr( $this->get_id() ),
-				'type'               => $settings['pagination_type'],
-				'clickable'          => true,
+				'el'        => '.swiper-pagination-' . esc_attr( $this->get_id() ),
+				'type'      => $settings['pagination_type'],
+				'clickable' => true,
 			];
 		}
 
 		if ( 'yes' === $settings['arrows'] ) {
 			$slider_options['navigation'] = [
-				'nextEl'             => '.swiper-button-next-' . esc_attr( $this->get_id() ),
-				'prevEl'             => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
+				'nextEl' => '.swiper-button-next-' . esc_attr( $this->get_id() ),
+				'prevEl' => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
 			];
 		}
 
@@ -212,18 +212,26 @@ abstract class Powerpack_Widget extends Widget_Base {
 		$bp_tablet       = ! empty( $elementor_bp_md ) ? $elementor_bp_md : 768;
 		$bp_mobile       = 320;
 
+		$items        = ( isset( $settings['items']['size'] ) && '' !== $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
+		$items_tablet = ( isset( $settings['items_tablet']['size'] ) && '' !== $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2;
+		$items_mobile = ( isset( $settings['items_mobile']['size'] ) && '' !== $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1;
+
+		$margin        = ( isset( $settings['margin']['size'] ) && '' !== $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
+		$margin_tablet = ( isset( $settings['margin_tablet']['size'] ) && '' !== $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
+		$margin_mobile = ( isset( $settings['margin_mobile']['size'] ) && '' !== $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
+
 		$slider_options['breakpoints'] = [
-			$bp_desktop   => [
-				'slidesPerView'      => ( '' !== $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3,
-				'spaceBetween'       => ( '' !== $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10,
+			$bp_desktop => [
+				'slidesPerView' => $items,
+				'spaceBetween'  => $margin,
 			],
-			$bp_tablet   => [
-				'slidesPerView'      => ( '' !== $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2,
-				'spaceBetween'       => ( '' !== $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10,
+			$bp_tablet  => [
+				'slidesPerView' => $items_tablet,
+				'spaceBetween'  => $margin_tablet,
 			],
-			$bp_mobile   => [
-				'slidesPerView'      => ( '' !== $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1,
-				'spaceBetween'       => ( '' !== $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10,
+			$bp_mobile  => [
+				'slidesPerView' => $items_mobile,
+				'spaceBetween'  => $margin_mobile,
 			],
 		];
 
