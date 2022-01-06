@@ -424,16 +424,6 @@ class PowerpackLitePlugin {
 	public function elementor_init() {
 		$this->modules_manager = new Modules_Manager();
 		$this->_extensions_manager = new Extensions_Manager();
-
-		// Add element category in panel
-		\Elementor\Plugin::instance()->elements_manager->add_category(
-			'powerpack-elements', // This is the name of your addon's category and will be used to group your widgets/elements in the Edit sidebar pane!
-			[
-				'title' => __( 'PowerPack Elements', 'powerpack' ), // The title of your modules category - keep it simple and short!
-				'icon' => 'font',
-			],
-			1
-		);
 	}
 
 	public function get_promotion_widgets( $config ) {
@@ -457,8 +447,29 @@ class PowerpackLitePlugin {
 		return $config;
 	}
 
+	/**
+	 * Register Elementor widget category
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @param ElementorElements_Manager $manager Elements manager.
+	 */
+	public function register_category( $manager ) {
+		// Add element category in panel
+		$manager->add_category(
+			'powerpack-elements', // This is the name of your addon's category and will be used to group your widgets/elements in the Edit sidebar pane!
+			[
+				'title' => __( 'PowerPack Elements', 'powerpack' ), // The title of your modules category - keep it simple and short!
+				'icon' => 'font',
+			],
+			1
+		);
+	}
+
 	protected function add_actions() {
 		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
+		add_action( 'elementor/elements/categories_registered', [ $this, 'register_category' ] );
 
 		add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
 		add_action( 'elementor/controls/controls_registered', [ $this, 'include_group_controls' ] );
