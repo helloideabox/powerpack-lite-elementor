@@ -1,3 +1,7 @@
+== 2.6.7 ==
+Release date: January 21, 2022
+* Added: Display Conditions - Request Parameter option
+
 == 2.6.6 ==
 Release date: January 3, 2022
 * Fixed: Scroll Image widget was not showing in the editor

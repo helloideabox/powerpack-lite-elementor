@@ -150,6 +150,7 @@ class Module extends Module_Base {
 			'os',
 			'browser',
 			'search_bot',
+			'request_parameter',
 		];
 
 		foreach ( $available_conditions as $condition_name ) {
