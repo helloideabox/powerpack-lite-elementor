@@ -547,6 +547,10 @@
 				contentWrapper.animate({ height: ( contentOuterHeight + 'px') }, speedUnreveal);
 			} else {
 				contentWrapper.animate({ height: ( contentWrapperHeight + 'px') }, speedUnreveal);
+
+				$('html, body').animate({
+					scrollTop: ( contentWrapper.offset().top - 50 ) + 'px'
+				});
 			}
 		});
     };

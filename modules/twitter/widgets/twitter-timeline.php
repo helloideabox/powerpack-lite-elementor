@@ -166,11 +166,12 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'tweet_limit',
 			array(
-				'label'   => __( 'Tweet Limit', 'powerpack' ),
-				'type'    => Controls_Manager::NUMBER,
-				'min'     => 1,
-				'step'    => 1,
-				'default' => '',
+				'label'       => __( 'Tweet Limit', 'powerpack' ),
+				'type'        => Controls_Manager::NUMBER,
+				'label_block' => false,
+				'min'         => 1,
+				'step'        => 1,
+				'default'     => 3,
 			)
 		);
 
@@ -266,10 +267,9 @@ class Twitter_Timeline extends Powerpack_Widget {
 
 			$attr .= ' ';
 		}
-
 		?>
 		<div class="pp-twitter-timeline" <?php echo wp_kses_post( $attr ); ?>>
-			<a class="twitter-timeline" href="https://twitter.com/<?php echo esc_attr( $user ); ?>" <?php echo wp_kses_post( $attr ); ?>>Tweets by <?php echo esc_attr( $user ); ?></a>
+			<a class="twitter-timeline" href="https://twitter.com/<?php echo esc_attr( $user ); ?>" <?php echo wp_kses_post( $attr ); ?>><?php esc_html_e( 'Tweets by', 'powerpack' ); ?> <?php echo esc_html( $user ); ?></a>
 		</div>
 		<?php
 	}

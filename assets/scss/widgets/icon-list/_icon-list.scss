@@ -1,10 +1,9 @@
 .pp-list-container {
     .pp-icon-wrapper {
+        display: inline-flex;
+        flex-shrink: 0;
         line-height: 1;
         @include transition($target: all, $time: 0.25s, $timing-function: linear);
-        &.icon-right {
-            order: 2;
-        }
     }
     .pp-icon-list-icon {
         display: inline-block;
@@ -29,6 +28,10 @@
                 position: absolute;
                 margin-bottom: -5px;
             }
+
+            .pp-icon-list-text {
+                transition: color 0.2s ease-in-out;
+            }
         }
         .fa {
             text-align: center;
@@ -52,4 +55,15 @@
             margin-right: 8px;
         }
     }
+}
+.pp-icon-right {
+	.pp-list-items {
+		li {
+			justify-content: flex-end;
+			text-align: right;
+		}
+	}
+	.pp-icon-wrapper {
+		order: 2;
+	}
 }

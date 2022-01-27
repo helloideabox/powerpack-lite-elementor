@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * \Extensions\Conditions\Request_Parameter
  *
- * @since  x.x.x
+ * @since  2.6.7
  */
 class Request_Parameter extends Condition {
 
@@ -23,7 +23,7 @@ class Request_Parameter extends Condition {
 	 *
 	 * Get the group of the condition
 	 *
-	 * @since  x.x.x
+	 * @since  2.6.7
 	 * @return string
 	 */
 	public function get_group() {
@@ -35,7 +35,7 @@ class Request_Parameter extends Condition {
 	 *
 	 * Get the name of the module
 	 *
-	 * @since  x.x.x
+	 * @since  2.6.7
 	 * @return string
 	 */
 	public function get_name() {
@@ -47,7 +47,7 @@ class Request_Parameter extends Condition {
 	 *
 	 * Get the title of the module
 	 *
-	 * @since  x.x.x
+	 * @since  2.6.7
 	 * @return string
 	 */
 	public function get_title() {
@@ -59,7 +59,7 @@ class Request_Parameter extends Condition {
 	 *
 	 * Get the settings for the value control
 	 *
-	 * @since  x.x.x
+	 * @since  2.6.7
 	 * @return string
 	 */
 	public function get_value_control() {
@@ -74,7 +74,7 @@ class Request_Parameter extends Condition {
 	/**
 	 * Check condition
 	 *
-	 * @since x.x.x
+	 * @since 2.6.7
 	 *
 	 * @access public
 	 *

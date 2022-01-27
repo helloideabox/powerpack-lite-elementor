@@ -476,7 +476,18 @@ class Gravity_Forms extends Powerpack_Widget {
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gfield label' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-gravity-form .gfield_label,
+					{{WRAPPER}} .pp-gravity-form .gfield_checkbox li label,
+					{{WRAPPER}} .pp-gravity-form .ginput_container_consent label,
+					{{WRAPPER}} .pp-gravity-form .gfield_radio li label,
+					{{WRAPPER}} .pp-gravity-form .gsection_title,
+					{{WRAPPER}} .pp-gravity-form .gfield_html,
+					{{WRAPPER}} .pp-gravity-form .ginput_product_price,
+					{{WRAPPER}} .pp-gravity-form .ginput_product_price_label,
+					{{WRAPPER}} .pp-gravity-form .gf_progressbar_title,
+					{{WRAPPER}} .pp-gravity-form .gf_page_steps,
+					{{WRAPPER}} .pp-gravity-form .gfield_checkbox div label,
+					{{WRAPPER}} .pp-gravity-form .gfield_radio div label' => 'color: {{VALUE}}',
 				),
 				'condition' => array(
 					'labels_switch' => 'yes',
@@ -489,7 +500,18 @@ class Gravity_Forms extends Powerpack_Widget {
 			array(
 				'name'      => 'typography_label',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'selector'  => '{{WRAPPER}} .pp-gravity-form .gfield label',
+				'selector'  => '{{WRAPPER}} .pp-gravity-form .gfield_label,
+				{{WRAPPER}} .pp-gravity-form .gfield_checkbox li label,
+				{{WRAPPER}} .pp-gravity-form .ginput_container_consent label,
+				{{WRAPPER}} .pp-gravity-form .gfield_radio li label,
+				{{WRAPPER}} .pp-gravity-form .gsection_title,
+				{{WRAPPER}} .pp-gravity-form .gfield_html,
+				{{WRAPPER}} .pp-gravity-form .ginput_product_price,
+				{{WRAPPER}} .pp-gravity-form .ginput_product_price_label,
+				{{WRAPPER}} .pp-gravity-form .gf_progressbar_title,
+				{{WRAPPER}} .pp-gravity-form .gf_page_steps,
+				{{WRAPPER}} .pp-gravity-form .gfield_checkbox div label,
+				{{WRAPPER}} .pp-gravity-form .gfield_radio div label',
 				'condition' => array(
 					'labels_switch' => 'yes',
 				),
@@ -510,7 +532,10 @@ class Gravity_Forms extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gfield label' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .pp-gravity-form .gfield_label,
+					{{WRAPPER}} .pp-gravity-form .gsection_title,
+					{{WRAPPER}} .pp-gravity-form .gf_progressbar_title,
+					{{WRAPPER}} .pp-gravity-form .gf_page_steps' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				),
 				'condition'  => array(
 					'labels_switch' => 'yes',
@@ -855,7 +880,20 @@ class Gravity_Forms extends Powerpack_Widget {
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gfield .gfield_description' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-gravity-form .gfield .gfield_description,
+					{{WRAPPER}} .pp-gravity-form .ginput_container .gfield_post_tags_hint,
+					{{WRAPPER}} .pp-gravity-form .ginput_container .gform_fileupload_rules,
+					{{WRAPPER}} .pp-gravity-form .ginput_container_name input + label,
+					{{WRAPPER}} .pp-gravity-form .ginput_container_creditcard input + span + label,
+					{{WRAPPER}} .pp-gravity-form .ginput_container input + label,
+					{{WRAPPER}} .pp-gravity-form .ginput_container select + label,
+					{{WRAPPER}} .pp-gravity-form .ginput_container .chosen-single + label,
+					{{WRAPPER}} .pp-gravity-form .gfield_time_hour label,
+					{{WRAPPER}} .pp-gravity-form .gfield_time_minute label,
+					{{WRAPPER}} .pp-gravity-form .ginput_container_address label,
+					{{WRAPPER}} .pp-gravity-form .ginput_container_total span,
+					{{WRAPPER}} .pp-gravity-form .ginput_shipping_price,
+					{{WRAPPER}} .pp-gravity-form .gsection_description' => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -865,7 +903,20 @@ class Gravity_Forms extends Powerpack_Widget {
 			array(
 				'name'     => 'field_description_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'selector' => '{{WRAPPER}} .pp-gravity-form .gfield .gfield_description',
+				'selector' => '{{WRAPPER}} .pp-gravity-form .gfield .gfield_description,
+				{{WRAPPER}} .pp-gravity-form .ginput_container .gfield_post_tags_hint,
+				{{WRAPPER}} .pp-gravity-form .ginput_container .gform_fileupload_rules,
+				{{WRAPPER}} .pp-gravity-form .ginput_container_name input + label,
+				{{WRAPPER}} .pp-gravity-form .ginput_container_creditcard input + span + label,
+				{{WRAPPER}} .pp-gravity-form .ginput_container input + label,
+				{{WRAPPER}} .pp-gravity-form .ginput_container select + label,
+				{{WRAPPER}} .pp-gravity-form .ginput_container .chosen-single + label,
+				{{WRAPPER}} .pp-gravity-form .gfield_time_hour label,
+				{{WRAPPER}} .pp-gravity-form .gfield_time_minute label,
+				{{WRAPPER}} .pp-gravity-form .ginput_container_address label,
+				{{WRAPPER}} .pp-gravity-form .ginput_container_total span,
+				{{WRAPPER}} .pp-gravity-form .ginput_shipping_price,
+				{{WRAPPER}} .pp-gravity-form .gsection_description',
 			)
 		);
 
@@ -883,7 +934,8 @@ class Gravity_Forms extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gfield .gfield_description' => 'padding-top: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .pp-gravity-form .gfield .gfield_description,
+					{{WRAPPER}} .pp-gravity-form .ginput_container_name input + label' => 'padding-top: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);

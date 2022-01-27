@@ -402,7 +402,7 @@ final class PP_Admin_Settings {
 	* @since 2.5.4
 	*/
 	public static function refresh_instagram_access_token() {
-		$access_token         = trim( \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'instagram_access_token' ) );
+		$access_token         = trim( \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'pp_instagram_access_token' ) );
 		$updated_access_token = 'ppe_updated_instagram_access_token';
 	
 		if ( empty( $access_token ) ) {

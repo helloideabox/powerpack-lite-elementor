@@ -118,15 +118,18 @@ class Twitter_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'tweet_limit',
 			array(
-				'label'   => __( 'Tweet Limit', 'powerpack' ),
-				'type'    => Controls_Manager::TEXT,
-				'default' => '',
+				'label'       => __( 'Tweet Limit', 'powerpack' ),
+				'type'        => Controls_Manager::NUMBER,
+				'label_block' => false,
+				'min'         => 1,
+				'step'        => 1,
+				'default'     => 3,
 			)
 		);
 
 		$this->end_controls_section();
 
-		$help_docs = PP_Config::get_widget_help_links( 'Twitter_Widget' );
+		$help_docs = PP_Config::get_widget_help_links( 'Twitter_Grid' );
 		if ( ! empty( $help_docs ) ) {
 			/**
 			 * Content Tab: Docs Links
@@ -180,10 +183,9 @@ class Twitter_Grid extends Powerpack_Widget {
 
 			$attr .= ' ';
 		}
-
 		?>
-		<div class="pp-twitter-grid" <?php echo esc_attr( $attr ); ?>>
-			<a class="twitter-grid" href="<?php echo esc_url( $url ); ?>?ref_src=twsrc%5Etfw" <?php echo esc_attr( $attr ); ?>></a>
+		<div class="pp-twitter-grid" <?php echo wp_kses_post( $attr ); ?>>
+			<a class="twitter-grid" href="<?php echo esc_url( $url ); ?>?ref_src=twsrc%5Etfw" <?php echo wp_kses_post( $attr ); ?>></a>
 		</div>
 		<?php
 	}

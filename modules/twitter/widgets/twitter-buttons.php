@@ -274,29 +274,18 @@ class Twitter_Buttons extends Powerpack_Widget {
 
 			$attr .= ' ';
 		}
-
 		?>
 		<div class="pp-twitter-buttons">
 			<?php if ( 'share' === $type ) { ?>
-				<a href="https://twitter.com/share" class="twitter-share-button" <?php echo esc_attr( $attr ); ?>>
-					<?php esc_attr_e( 'Share', 'powerpack' ); ?>
-				</a>
+				<a href="https://twitter.com/share" class="twitter-share-button" <?php echo wp_kses_post( $attr ); ?>><?php esc_html_e( 'Share', 'powerpack' ); ?></a>
 			<?php } elseif ( 'follow' === $type ) { ?>
-				<a href="https://twitter.com/<?php echo esc_attr( $profile ); ?>" class="twitter-follow-button" <?php echo esc_attr( $attr ); ?>>
-					<?php esc_attr_e( 'Follow', 'powerpack' ); ?>
-				</a>
+				<a href="https://twitter.com/<?php echo esc_attr( $profile ); ?>" class="twitter-follow-button" <?php echo wp_kses_post( $attr ); ?>><?php esc_html_e( 'Follow', 'powerpack' ); ?></a>
 			<?php } elseif ( 'mention' === $type ) { ?>
-				<a href="https://twitter.com/intent/tweet?screen_name=<?php echo esc_attr( $profile ); ?>" class="twitter-mention-button" <?php echo esc_attr( $attr ); ?>>
-					<?php esc_attr_e( 'Mention', 'powerpack' ); ?>
-				</a>
+				<a href="https://twitter.com/intent/tweet?screen_name=<?php echo esc_url( $profile ); ?>" class="twitter-mention-button" <?php echo wp_kses_post( $attr ); ?>><?php esc_html_e( 'Mention', 'powerpack' ); ?></a>
 			<?php } elseif ( 'hashtag' === $type ) { ?>
-				<a href="https://twitter.com/intent/tweet?button_hashtag=<?php echo esc_attr( $hashtag ); ?>" class="twitter-hashtag-button" <?php echo esc_attr( $attr ); ?>>
-					<?php esc_attr_e( 'Hashtag', 'powerpack' ); ?>
-				</a>
+				<a href="https://twitter.com/intent/tweet?button_hashtag=<?php echo esc_url( $hashtag ); ?>" class="twitter-hashtag-button" <?php echo wp_kses_post( $attr ); ?>><?php esc_html_e( 'Hashtag', 'powerpack' ); ?></a>
 			<?php } else { ?>
-				<a href="https://twitter.com/messages/compose?recipient_id=<?php echo esc_attr( $recipient_id ); ?><?php echo ! empty( $default_text ) ? '&text=' . esc_attr( $default_text ) : ''; ?>" class="twitter-dm-button" <?php echo esc_attr( $attr ); ?>>
-					<?php esc_attr_e( 'Message', 'powerpack' ); ?>
-				</a>
+				<a href="https://twitter.com/messages/compose?recipient_id=<?php echo esc_url( $recipient_id ); ?><?php echo ! empty( $default_text ) ? '&text=' . esc_url( $default_text ) : ''; ?>" class="twitter-dm-button" <?php echo wp_kses_post( $attr ); ?>><?php esc_html_e( 'Message', 'powerpack' ); ?></a>
 			<?php } ?>
 		</div>
 		<?php

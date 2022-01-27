@@ -229,6 +229,16 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.7 - January 27, 2022 =
+* 	Added: Display Conditions - Request Parameter option
+* 	Added: Team Member Carousel - Pause on hover option
+* 	Fixed: Instagram Feed - Issue with token expiry
+* 	Fixed: Core - PowerPack widgets category conflict with other plugins
+* 	Fixed: Gravity Forms - Updated labels and field description selectors
+* 	Enhancement: Content Reveal, Team Member Carousel - Added support for Inline font icons
+* 	Enhancement: Content Reveal - Added logic to scroll page to top when Read Less button is clicked
+* 	Enhancement: Twitter Grid, Twitter Timeline - Converted Tweet Limit text fields to number fields
+
 = 2.6.6 - January 3, 2022 =
 * 	Fixed: Scroll Image widget was not showing in the editor
 * 	Fixed: Gravity Forms - Styles for multi step forms were not loading in the editor

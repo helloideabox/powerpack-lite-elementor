@@ -346,10 +346,10 @@ div[class*=' pa-'] {
   text-align: right; }
 
 .pp-list-container .pp-icon-wrapper {
+  display: inline-flex;
+  flex-shrink: 0;
   line-height: 1;
   transition: all 0.25s linear 0s; }
-  .pp-list-container .pp-icon-wrapper.icon-right {
-    order: 2; }
 
 .pp-list-container .pp-icon-list-icon {
   display: inline-block;
@@ -370,6 +370,8 @@ div[class*=' pa-'] {
       display: block;
       position: absolute;
       margin-bottom: -5px; }
+    .pp-list-container .pp-list-items li .pp-icon-list-text {
+      transition: color 0.2s ease-in-out; }
   .pp-list-container .pp-list-items .fa {
     text-align: center; }
   .pp-list-container .pp-list-items a {
@@ -381,6 +383,13 @@ div[class*=' pa-'] {
   flex-wrap: wrap; }
   .pp-list-items.pp-inline-items li:not(:last-child) {
     margin-right: 8px; }
+
+.pp-icon-right .pp-list-items li {
+  justify-content: flex-end;
+  text-align: right; }
+
+.pp-icon-right .pp-icon-wrapper {
+  order: 2; }
 
 .pp-info-box-container {
   display: block;
@@ -2541,6 +2550,7 @@ div[class*=' pa-'] {
     justify-content: flex-end; }
 
 .pp-accordion-toggle-icon {
+  display: inline-flex;
   transition: none;
   z-index: 10; }
 

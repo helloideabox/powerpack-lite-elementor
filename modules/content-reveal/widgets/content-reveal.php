@@ -705,7 +705,7 @@ class Content_Reveal extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-button-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-button-icon' => 'fill: {{VALUE}}; color: {{VALUE}};',
 				],
 				'conditions'            => [
 					'relation' => 'or',
@@ -815,6 +815,7 @@ class Content_Reveal extends Powerpack_Widget {
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner:hover .pp-button-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-content-reveal-button-inner:hover .pp-button-icon svg' => 'fill: {{VALUE}};',
 				],
 				'conditions'            => [
 					'relation' => 'or',
@@ -1046,7 +1047,7 @@ class Content_Reveal extends Powerpack_Widget {
 					<span class="pp-content-reveal-button pp-content-reveal-button-open">
 						<span class="pp-content-reveal-button-content">
 							<?php if ( $settings['button_icon_open']['value'] ) { ?>
-								<span class="pp-button-icon"><?php Icons_Manager::render_icon( $settings['button_icon_open'] ); ?></span>
+								<span class="pp-button-icon pp-icon"><?php Icons_Manager::render_icon( $settings['button_icon_open'] ); ?></span>
 							<?php } ?>
 							<?php if ( $settings['button_text_open'] ) { ?>
 								<span class="pp-content-reveal-button-text">
@@ -1058,7 +1059,7 @@ class Content_Reveal extends Powerpack_Widget {
 					<span class="pp-content-reveal-button pp-content-reveal-button-closed">
 						<span class="pp-content-reveal-button-content">
 							<?php if ( $settings['button_icon_closed']['value'] ) { ?>
-								<span class="pp-button-icon"><?php Icons_Manager::render_icon( $settings['button_icon_closed'] ); ?></span>
+								<span class="pp-button-icon pp-icon"><?php Icons_Manager::render_icon( $settings['button_icon_closed'] ); ?></span>
 							<?php } ?>
 							<?php if ( $settings['button_text_closed'] ) { ?>
 								<span class="pp-content-reveal-button-text">
