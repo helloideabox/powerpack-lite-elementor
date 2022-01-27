@@ -1,5 +1,5 @@
 == 2.6.7 ==
-Release date: January 21, 2022
+Release date: January 27, 2022
 * Added: Display Conditions - Request Parameter option
 * Added: Team Member Carousel - Pause on hover option
 * Fixed: Instagram Feed - Issue with token expiry
