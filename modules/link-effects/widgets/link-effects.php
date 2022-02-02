@@ -75,17 +75,6 @@ class Link_Effects extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @access protected
-	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-		$this->register_controls();
-	}
-
-	/**
-	 * Register link effects widget controls.
-	 *
-	 * Adds different input fields to allow the user to change and customize the widget settings.
-	 *
 	 * @since 2.3.2
 	 * @access protected
 	 */
@@ -175,7 +164,7 @@ class Link_Effects extends Powerpack_Widget {
 					'effect-18' => __( 'Cross', 'powerpack' ),
 					'effect-19' => __( '3D Side', 'powerpack' ),
 					'effect-20' => __( 'Unfold', 'powerpack' ),
-					'effect-21' => __( 'Borders Slight Yranslate', 'powerpack' ),
+					'effect-21' => __( 'Borders Slight Translate', 'powerpack' ),
 				],
 				'default'               => 'effect-1',
 			]

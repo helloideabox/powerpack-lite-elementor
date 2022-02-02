@@ -176,7 +176,7 @@ class Random_Image extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function register_controls() {
 
 		/* Content Tab */
 		$this->register_content_gallery_controls();

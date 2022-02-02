@@ -76,19 +76,6 @@ class Icon_List extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * Remove this after Elementor v3.4.0
-	 *
-	 * @access protected
-	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-		$this->register_controls();
-	}
-
-	/**
-	 * Register icon list widget controls.
-	 *
-	 * Adds different input fields to allow the user to change and customize the widget settings.
-	 *
 	 * @since 2.3.2
 	 * @access protected
 	 */

@@ -158,7 +158,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function register_controls() {
 
 		/*-----------------------------------------------------------------------------------*/
 		/* CONTENT TAB
@@ -2824,7 +2824,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 	 * @since 2.4.1
 	 * @access protected
 	 */
-	protected function content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function content_template() {
 		$elementor_bp_tablet = get_option( 'elementor_viewport_lg' );
 		$elementor_bp_mobile = get_option( 'elementor_viewport_md' );
 		$elementor_bp_lg     = get_option( 'elementor_viewport_lg' );

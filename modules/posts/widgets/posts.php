@@ -73,7 +73,7 @@ class Posts extends Posts_Base {
 	 *
 	 * @access protected
 	 */
-	protected function _register_skins() {
+	protected function register_skins() {
 		$this->add_skin( new Skins\Skin_Classic( $this ) );
 		$this->add_skin( new Skins\Skin_Card( $this ) );
 		$this->add_skin( new Skins\Skin_Checkerboard( $this ) );
@@ -90,7 +90,7 @@ class Posts extends Posts_Base {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore 
+	protected function register_controls() {
 		$this->start_controls_section(
 			'section_skin_field',
 			array(

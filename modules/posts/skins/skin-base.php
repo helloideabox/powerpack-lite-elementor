@@ -2976,7 +2976,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-slider-arrow' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-slider-arrow' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
 				),
 				'condition'  => array(
 					$this->get_control_id( 'layout' ) => 'carousel',

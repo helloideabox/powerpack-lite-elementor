@@ -110,17 +110,6 @@ class Pricing_Table extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @access protected
-	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-		$this->register_controls();
-	}
-
-	/**
-	 * Register pricing table widget controls.
-	 *
-	 * Adds different input fields to allow the user to change and customize the widget settings.
-	 *
 	 * @since 2.2.5
 	 * @access protected
 	 */

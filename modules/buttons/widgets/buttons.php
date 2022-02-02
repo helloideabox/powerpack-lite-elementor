@@ -72,7 +72,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of scripts the advanced menu widget depended on.
+	 * Retrieve the list of scripts the buttons widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
@@ -85,16 +85,6 @@ class Buttons extends Powerpack_Widget {
 			'pp-tooltipster',
 			'powerpack-frontend',
 		];
-	}
-	/**
-	 * Register buttons widget controls.
-	 *
-	 * Adds different input fields to allow the user to change and customize the widget settings.
-	 *
-	 * @access protected
-	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-		$this->register_controls();
 	}
 
 	/**

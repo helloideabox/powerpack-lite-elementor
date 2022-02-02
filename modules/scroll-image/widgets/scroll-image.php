@@ -80,7 +80,7 @@ class Scroll_Image extends Powerpack_Widget {
 		);
 	}
 
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function register_controls() {
 
 		/**
 		 * Content Tab: Image

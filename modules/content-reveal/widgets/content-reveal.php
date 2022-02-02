@@ -85,15 +85,6 @@ class Content_Reveal extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register widget controls
-	 *
-	 * @access protected
-	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-		$this->register_controls();
-	}
-
-	/**
 	 * Register Content Reveal widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.

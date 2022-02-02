@@ -103,16 +103,17 @@
     
     var ImageHotspotHandler = function ($scope, $) {
 		var id              = $scope.data('id'),
-			elementSettings = getElementSettings( $scope ),
+			hotspotsWrap    = $scope.find('.pp-image-hotspots'),
+			tooltipOptions  = JSON.parse( hotspotsWrap.attr('data-tooltip-options') ),
 			ppclass         = 'pp-tooltip' + ' pp-tooltip-' + id,
-        	ttArrow         = elementSettings.tooltip_arrow,
-        	ttAlwaysOpen    = elementSettings.tooltip_always_open,
-			ttTrigger       = elementSettings.tooltip_trigger,
-			ttDistance      = elementSettings.distance.size,
-			animation       = elementSettings.tooltip_animation,
-			minWidth        = elementSettings.tooltip_width.size,
-			tooltipSize     = elementSettings.tooltip_size,
-			tooltipZindex   = elementSettings.tooltip_zindex;
+        	ttArrow         = tooltipOptions.arrow,
+        	ttAlwaysOpen    = tooltipOptions.always_open,
+			ttTrigger       = tooltipOptions.trigger,
+			ttDistance      = tooltipOptions.distance,
+			animation       = tooltipOptions.animation,
+			tooltipWidth    = tooltipOptions.width,
+			tooltipSize     = tooltipOptions.size,
+			tooltipZindex   = tooltipOptions.zindex;
 
 		if ( '' !== tooltipSize && undefined !== tooltipSize ) {
 			ppclass += ' pp-tooltip-size-' + tooltipSize;
@@ -122,16 +123,17 @@
 			var ttPosition   = $(this).data('tooltip-position');
 
 			$( this ).pptooltipster({
-				trigger : ttTrigger,
-				animation : animation,
-	        	minWidth: minWidth,
-				ppclass : ppclass,
-				side : ttPosition,
-	        	arrow : ( 'yes' === ttArrow ),
-	        	distance : ttDistance,
-	        	interactive : true,
-	        	positionTracker : true,
-	        	zIndex : tooltipZindex,
+				trigger:         ttTrigger,
+				animation:       animation,
+	        	minWidth:        tooltipWidth,
+	        	maxWidth:        tooltipWidth,
+				ppclass:         ppclass,
+				position:        ttPosition,
+	        	arrow:           ( 'yes' === ttArrow ),
+	        	distance:        ttDistance,
+	        	interactive:     true,
+	        	positionTracker: true,
+	        	zIndex:          tooltipZindex,
 			});
 
 			if ( ttAlwaysOpen === 'yes' ) {

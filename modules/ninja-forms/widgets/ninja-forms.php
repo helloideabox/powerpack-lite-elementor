@@ -49,10 +49,6 @@ class Ninja_Forms extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Ninja_Forms' );
 	}
 
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-		$this->register_controls();
-	}
-
 	/**
 	 * Register ninja forms widget controls.
 	 *

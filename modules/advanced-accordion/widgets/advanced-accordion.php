@@ -101,17 +101,6 @@ class Advanced_Accordion extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-		$this->register_controls();
-	}
-
-	/**
-	 * Register advanced accordion widget controls.
-	 *
-	 * Adds different input fields to allow the user to change and customize the widget settings.
-	 *
-	 * @access protected
-	 */
 	protected function register_controls() {
 		/* Content Tab */
 		$this->register_content_accordion_controls();

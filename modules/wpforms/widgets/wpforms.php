@@ -50,10 +50,6 @@ class WPforms extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'WP_Forms' );
 	}
 
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-		$this->register_controls();
-	}
-
 	/**
 	 * Register wpforms widget controls.
 	 *

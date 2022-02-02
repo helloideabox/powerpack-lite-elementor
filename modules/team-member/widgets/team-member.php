@@ -75,17 +75,6 @@ class Team_Member extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register widget controls
-	 *
-	 * @access public
-	 *
-	 * @return array Widget scripts dependencies.
-	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-		$this->register_controls();
-	}
-
-	/**
 	 * Register team member widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
@@ -1949,7 +1938,7 @@ class Team_Member extends Powerpack_Widget {
 	 * @since 2.4.2
 	 * @access protected
 	 */
-	protected function content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function content_template() {
 		?>
 		<#
 			function member_image() {

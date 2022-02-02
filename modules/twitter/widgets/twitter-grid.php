@@ -67,7 +67,7 @@ class Twitter_Grid extends Powerpack_Widget {
 		);
 	}
 
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function register_controls() {
 		$this->start_controls_section(
 			'section_grid',
 			array(

@@ -67,7 +67,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 		);
 	}
 
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function register_controls() {
 		$this->start_controls_section(
 			'section_tweet',
 			array(
