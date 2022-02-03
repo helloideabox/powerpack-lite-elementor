@@ -2,7 +2,7 @@
 Contributors: ideaboxcreations, simrandeep, puneetsahalot, ibachal, jainnidhi, prash17, nirbhay18, wpamitkumar
 Tags: elementor, addons, elementor addon, elementor widgets, elements, powerpack elementor addon, essential addons
 Requires at least: 5.0
-Tested up to: 5.8
+Tested up to: 5.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -228,6 +228,15 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 
 == Changelog ==
+
+= 2.6.8 - February 3, 2022 =
+* 	Added: Posts - Option to hide empty comments
+* 	Fixed: Image Hotspots - JS error
+* 	Fixed: Info List - Button was not showing on published page
+* 	Fixed: Link Effects - Spelling mistake in effect setting
+* 	Enhancement: Posts - Replaced slick slider with swiper slider
+* 	Enhancement: Removed deprecated _register_controls function from all the widgets
+* 	Set the minimum Elementor version required to 3.1.0
 
 = 2.6.7 - January 27, 2022 =
 * 	Added: Display Conditions - Request Parameter option

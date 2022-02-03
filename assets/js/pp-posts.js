@@ -5,50 +5,69 @@
 	var loader = '';
 	var total = 0;
 	
-	function equalHeight( slider_wrapper ) {
-		var slickSlider = slider_wrapper.find( '.pp-posts-carousel' ),
-			postWrap = slider_wrapper.find( '.pp-post-wrap' ),
-			postActive = slider_wrapper.find( '.slick-active' ),
-			maxHeight = -1,
-			postActiveHeight = -1,
-            equalHeight = slickSlider.data( 'equal-height' );
+	function equalHeight( $scope ) {
+		var activeSlide = $scope.find( '.swiper-slide-visible' ),
+			maxHeight   = -1;
 
-		if ( 'yes' != equalHeight ) {
-        	return;
-        }
-
-		postActive.each( function() {
-            var $this = $( this ),
-                post = $this.find( '.pp-post' ),
+		activeSlide.each( function() {
+            var $this      = $( this ),
+                post       = $this.find( '.pp-post' ),
                 postHeight = post.outerHeight();
 
             if ( maxHeight < postHeight ) {
                 maxHeight = postHeight;
-                postActiveHeight = maxHeight + 10;
             }
         });
 
-		postActive.each( function() {
+		activeSlide.each( function() {
             var selector = $( this ).find( '.pp-post' );
+
             selector.animate({ height: maxHeight }, { duration: 200, easing: 'linear' });
         });
-
-		slider_wrapper.find('.slick-list.draggable').animate({ height: postActiveHeight }, { duration: 200, easing: 'linear' });
-
-		maxHeight = -1;
-
-        postWrap.each(function() {
-            var $this = jQuery( this ),
-                selector = $this.find( '.pp-post' ),
-                postHeight = selector.outerHeight();
-
-            if ( $this.hasClass('slick-active') ) {
-                return true;
-            }
-
-            selector.css( 'height', postHeight );
-        });
 	}
+
+	var ppSwiperSliderAfterinit = function ( $scope, carousel, carouselWrap, elementSettings, mySwiper ) {
+		equalHeight( $scope );
+
+		mySwiper.on('slideChange', function () {
+			equalHeight( $scope );
+		});
+
+		if ( true === elementSettings.autoplay.pauseOnHover ) {
+			carousel.on( 'mouseover', function() {
+				mySwiper.autoplay.stop();
+			});
+
+			carousel.on( 'mouseout', function() {
+				mySwiper.autoplay.start();
+			});
+		}
+
+		if ( isEditMode ) {
+			carouselWrap.resize( function() {
+				mySwiper.update();
+			});
+		}
+
+		var $triggers = [
+			'ppe-tabs-switched',
+			'ppe-toggle-switched',
+			'ppe-accordion-switched',
+			'ppe-popup-opened',
+		];
+
+		$triggers.forEach(function(trigger) {
+			if ( 'undefined' !== typeof trigger ) {
+				$(document).on(trigger, function(e, wrap) {
+					if ( wrap.find( '.pp-swiper-slider' ).length > 0 ) {
+						setTimeout(function() {
+							slider.update();
+						}, 100);
+					}
+				});
+			}
+		});
+    };
 	
 	var PostsHandler = function( $scope, $ ) {
 		
@@ -70,18 +89,27 @@
 		}
 		
 		if ( 'carousel' == layout ) {
-			var $carousel		= $scope.find( '.pp-posts-carousel' ).eq( 0 ),
-				$slider_options	= JSON.parse( $carousel.attr('data-slider-settings') );
+			var carouselWrap  = $scope.find( '.swiper-container-wrap' ).eq( 0 ),
+				carousel      = $scope.find( '.pp-posts-carousel' ).eq( 0 ),
+				sliderOptions = JSON.parse( carousel.attr('data-slider-settings') );
 
-			if ( $carousel.length > 0 ) {
-				$scope.imagesLoaded( function() {
-					$carousel.slick($slider_options);
-				});
-			}
-
-			$($carousel).on('setPosition', function () {
+			/* $($carousel).on('setPosition', function () {
 				equalHeight($scope);
-			});
+			}); */
+
+			if ( carousel.length > 0 ) {
+				if ( 'undefined' === typeof Swiper ) {
+					var asyncSwiper = elementorFrontend.utils.swiper;
+		
+					new asyncSwiper( carousel, sliderOptions ).then( function( newSwiperInstance ) {
+						var mySwiper = newSwiperInstance;
+						ppSwiperSliderAfterinit( $scope, carousel, carouselWrap, sliderOptions, mySwiper );
+					} );
+				} else {
+					var mySwiper = new Swiper(carousel, sliderOptions);
+					ppSwiperSliderAfterinit( $scope, carousel, carouselWrap, sliderOptions, mySwiper );
+				}
+			}
 		}
 	}
 

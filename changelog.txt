@@ -1,7 +1,12 @@
 == 2.6.8 ==
-Release date: February 9, 2022
+Release date: February 3, 2022
+* Added: Posts - Option to hide empty comments
 * Fixed: Image Hotspots - JS error
+* Fixed: Info List - Button was not showing on published page
 * Fixed: Link Effects - Spelling mistake in effect setting
+* Enhancement: Posts - Replaced slick slider with swiper slider
+* Enhancement: Removed deprecated _register_controls function from all the widgets
+* Set the minimum Elementor version required to 3.1.0
 
 == 2.6.7 ==
 Release date: January 27, 2022

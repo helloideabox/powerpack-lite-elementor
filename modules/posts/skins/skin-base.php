@@ -1131,6 +1131,22 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		$this->add_control(
+			'hide_empty_comments',
+			array(
+				'label'        => __( 'Hide if Empty', 'powerpack' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '',
+				'label_on'     => __( 'Yes', 'powerpack' ),
+				'label_off'    => __( 'No', 'powerpack' ),
+				'return_value' => 'yes',
+				'condition'    => array(
+					$this->get_control_id( 'post_meta' ) => 'yes',
+					$this->get_control_id( 'show_comments' ) => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
 			'comments_icon',
 			array(
 				'label'     => __( 'Comments Icon', 'powerpack' ),
@@ -3183,6 +3199,23 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			)
 		);
 
+		$this->add_control(
+			'dots_position',
+			[
+				'label'                 => __( 'Position', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'options'               => [
+					'inside'     => __( 'Inside', 'powerpack' ),
+					'outside'    => __( 'Outside', 'powerpack' ),
+				],
+				'default'               => 'outside',
+				'condition' => array(
+					$this->get_control_id( 'layout' ) => 'carousel',
+					$this->get_control_id( 'dots' )   => 'yes',
+				),
+			]
+		);
+
 		$this->add_responsive_control(
 			'dots_size',
 			array(
@@ -3197,7 +3230,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'size_units' => '',
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-slick-slider .slick-dots li button' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				),
 				'condition'  => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -3220,7 +3253,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'size_units' => '',
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-slick-slider .slick-dots li' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
 				),
 				'condition'  => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -3249,7 +3282,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-slick-slider .slick-dots li' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'background: {{VALUE}};',
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -3265,7 +3298,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'       => __( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-slick-slider .slick-dots li',
+				'selector'    => '{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet',
 				'condition'   => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 					$this->get_control_id( 'dots' )   => 'yes',
@@ -3280,7 +3313,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-slick-slider .slick-dots li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 				'condition'  => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -3303,7 +3336,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					'left'   => 'auto',
 				),
 				'selectors'          => array(
-					'{{WRAPPER}} .pp-slick-slider .slick-dots' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullets' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -3332,7 +3365,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-slick-slider .slick-dots li.slick-active' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet.swiper-pagination-bullet-active' => 'background: {{VALUE}};',
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -3348,7 +3381,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-slick-slider .slick-dots li.slick-active' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet.swiper-pagination-bullet-active' => 'border-color: {{VALUE}};',
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -3377,7 +3410,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-slick-slider .slick-dots li:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet:hover' => 'background: {{VALUE}};',
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -3393,7 +3426,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-slick-slider .slick-dots li:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet:hover' => 'border-color: {{VALUE}};',
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -3931,11 +3964,16 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			return;
 		}
 
-		$show_item   = $this->get_instance_value( 'show_' . $item_type );
-		$item_link   = $this->get_instance_value( $item_type . '_link' );
-		$item_prefix = $this->get_instance_value( $item_type . '_prefix' );
+		$show_item           = $this->get_instance_value( 'show_' . $item_type );
+		$item_link           = $this->get_instance_value( $item_type . '_link' );
+		$item_prefix         = $this->get_instance_value( $item_type . '_prefix' );
+		$hide_empty_comments = $this->get_instance_value( 'hide_empty_comments' );
 
 		if ( 'yes' !== $show_item ) {
+			return;
+		}
+
+		if ( 'comments' === $item_type && 'yes' === $hide_empty_comments && '0' === get_comments_number() ) {
 			return;
 		}
 
@@ -3973,7 +4011,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					echo wp_kses_post( $this->get_post_author( $item_link ) );
 				} elseif ( 'date' === $item_type ) {
 					if ( PP_Helper::is_tribe_events_post( get_the_ID() ) && function_exists( 'tribe_get_start_date' ) ) {
-						$post_date = tribe_get_start_time( get_the_ID(), 'F d, Y' );
+						$date_format = $this->get_instance_value( 'date_format_select' );
+						$date_custom_format = $this->get_instance_value( 'date_custom_format' );
+
+						if ( 'custom' === $date_format && $date_custom_format ) {
+							$date_format = $date_custom_format;
+						}
+
+						$post_date = tribe_get_start_time( get_the_ID(), $date_format );
 					} else {
 						$post_date = $this->get_post_date();
 					}
@@ -4074,14 +4119,19 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$image                 = $this->get_instance_value( 'show_thumbnail' );
 		$fallback_image        = $this->get_instance_value( 'fallback_image' );
 		$fallback_image_custom = $this->get_instance_value( 'fallback_image_custom' );
+		$post_type_name        = $settings['post_type'];
 
 		if ( 'yes' !== $image ) {
 			return;
 		}
 
-		if ( has_post_thumbnail() ) {
+		if ( has_post_thumbnail() || 'attachment' === $post_type_name ) {
 
-			$image_id = get_post_thumbnail_id( get_the_ID() );
+			if ( 'attachment' === $post_type_name ) {
+				$image_id = get_the_ID();
+			} else {
+				$image_id = get_post_thumbnail_id( get_the_ID() );
+			}
 
 			$setting_key              = $this->get_control_id( 'thumbnail' );
 			$settings[ $setting_key ] = array(
@@ -4552,11 +4602,21 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	}
 
 	public function get_posts_outer_wrap_classes() {
+		$layout          = $this->get_instance_value( 'layout' );
 		$pagination_type = $this->get_instance_value( 'pagination_type' );
+		$dots_position   = $this->get_instance_value( 'dots_position' );
 
 		$classes = array(
 			'pp-posts-container',
 		);
+
+		if ( 'carousel' === $layout ) {
+			$classes[] = 'swiper-container-wrap';
+
+			if ( $dots_position ) {
+				$classes[] = 'swiper-container-wrap-dots-' . $dots_position;
+			}
+		}
 
 		if ( 'infinite' === $pagination_type ) {
 			$classes[] = 'pp-posts-infinite-scroll';
@@ -4575,7 +4635,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		if ( 'carousel' === $layout ) {
 			$classes[] = 'pp-posts-carousel';
-			$classes[] = 'pp-slick-slider';
+			$classes[] = 'pp-swiper-slider';
+			$classes[] = 'swiper-container';
 		} else {
 			$classes[] = 'pp-elementor-grid';
 			$classes[] = 'pp-posts-grid';
@@ -4590,7 +4651,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$classes = array( 'pp-post-wrap' );
 
 		if ( 'carousel' === $layout ) {
-			$classes[] = 'pp-carousel-item-wrap';
+			$classes[] = 'pp-carousel-item-wrap swiper-slide';
 		} else {
 			$classes[] = 'pp-grid-item-wrap';
 		}
@@ -4775,6 +4836,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 */
 	public function slider_settings() {
 		$skin            = $this->get_id();
+		$center_mode     = $this->get_instance_value( 'center_mode' );
 		$autoplay        = $this->get_instance_value( 'autoplay' );
 		$autoplay_speed  = $this->get_instance_value( 'autoplay_speed' );
 		$arrows          = $this->get_instance_value( 'arrows' );
@@ -4794,79 +4856,74 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$slides_to_scroll_tablet = ( $this->get_instance_value( 'slides_to_scroll_tablet' ) !== '' ) ? absint( $this->get_instance_value( 'slides_to_scroll_tablet' ) ) : 1;
 		$slides_to_scroll_mobile = ( $this->get_instance_value( 'slides_to_scroll_mobile' ) !== '' ) ? absint( $this->get_instance_value( 'slides_to_scroll_mobile' ) ) : 1;
 
-		$slider_options = array(
-			'slidesToShow'   => $slides_to_show,
-			'slidesToScroll' => $slides_to_scroll,
-			'autoplay'       => ( 'yes' === $autoplay ),
-			'autoplaySpeed'  => ( $autoplay_speed ) ? $autoplay_speed : 3000,
-			'arrows'         => ( 'yes' === $arrows ),
-			'dots'           => ( 'yes' === $dots ),
-			'speed'          => ( $animation_speed ) ? $animation_speed : 600,
-			'infinite'       => ( 'yes' === $infinite_loop ),
-			'pauseOnHover'   => ( 'yes' === $pause_on_hover ),
-			'adaptiveHeight' => ( 'yes' === $adaptive_height ),
-		);
-
-		if ( 'right' === $direction ) {
+		/* if ( 'right' === $direction ) {
 			$slider_options['rtl'] = true;
+		} */
+
+		$slider_options = [
+			'direction'             => 'horizontal',
+			'speed'                 => ( $animation_speed ) ? absint( $animation_speed ) : 600,
+			'slidesPerView'         => $slides_to_show,
+			'autoHeight'            => true,
+			'watchSlidesVisibility' => true,
+			'centeredSlides'        => ( 'yes' === $center_mode ),
+			'loop'                  => ( 'yes' === $infinite_loop ),
+		];
+
+		if ( 'yes' === $autoplay ) {
+			$autoplay_speed = ( $autoplay_speed ) ? $autoplay_speed : 999999;
+		} else {
+			$autoplay_speed = 999999;
+		}
+
+		$slider_options['autoplay'] = [
+			'delay'                => $autoplay_speed,
+			'pauseOnHover'         => ( 'yes' === $pause_on_hover ),
+			'disableOnInteraction' => ( 'yes' === $pause_on_hover ),
+		];
+
+		if ( 'yes' === $dots ) {
+			$slider_options['pagination'] = [
+				'el'                 => '.swiper-pagination-' . esc_attr( $this->parent->get_id() ),
+				'clickable'          => true,
+			];
 		}
 
 		if ( 'yes' === $arrows ) {
-			if ( ! isset( $settings[ $skin . '_arrow' ] ) && ! Icons_Manager::is_migration_allowed() ) {
-				// add old default.
-				$settings[ $skin . '_arrow' ] = 'fa fa-angle-right';
-			}
-
-			$has_icon = ! empty( $settings[ $skin . '_arrow' ] );
-
-			if ( ! $has_icon && ! empty( $select_arrow['value'] ) ) {
-				$has_icon = true;
-			}
-			$migrated = isset( $settings['__fa4_migrated'][ $skin . '_select_arrow' ] );
-			$is_new   = ! isset( $settings[ $skin . '_arrow' ] ) && Icons_Manager::is_migration_allowed();
-
-			if ( $is_new || $migrated ) {
-				$arrow = $select_arrow['value'];
-			}
-
-			if ( $arrow ) {
-				$pa_next_arrow = $arrow;
-				$pa_prev_arrow = str_replace( 'right', 'left', $arrow );
-			} else {
-				$pa_next_arrow = 'fa fa-angle-right';
-				$pa_prev_arrow = 'fa fa-angle-left';
-			}
-
-			$slider_options['prevArrow'] = '<div class="pp-slider-arrow pp-arrow pp-arrow-prev"><i class="' . $pa_prev_arrow . '"></i></div>';
-			$slider_options['nextArrow'] = '<div class="pp-slider-arrow pp-arrow pp-arrow-next"><i class="' . $pa_next_arrow . '"></i></div>';
+			$slider_options['navigation'] = [
+				'nextEl'             => '.swiper-button-next-' . esc_attr( $this->parent->get_id() ),
+				'prevEl'             => '.swiper-button-prev-' . esc_attr( $this->parent->get_id() ),
+			];
 		}
 
-		if ( 'yes' === $this->get_instance_value( 'center_mode' ) ) {
-			$center_mode = true;
+		$elementor_bp_lg = get_option( 'elementor_viewport_lg' );
+		$elementor_bp_md = get_option( 'elementor_viewport_md' );
+		$bp_desktop      = ! empty( $elementor_bp_lg ) ? $elementor_bp_lg : 1025;
+		$bp_tablet       = ! empty( $elementor_bp_md ) ? $elementor_bp_md : 768;
+		$bp_mobile       = 320;
 
-			$slider_options['centerMode'] = $center_mode;
-		} else {
-			$center_mode = false;
-		}
+		$items        = ( isset( $settings['items']['size'] ) && '' !== $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
+		$items_tablet = ( isset( $settings['items_tablet']['size'] ) && '' !== $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2;
+		$items_mobile = ( isset( $settings['items_mobile']['size'] ) && '' !== $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1;
 
-		$slider_options['responsive'] = array(
-			array(
-				'breakpoint' => 1024,
-				'settings'   => array(
-					'slidesToShow'   => $slides_to_show_tablet,
-					'slidesToScroll' => $slides_to_scroll_tablet,
-					'centerMode'     => $center_mode,
-				),
-			),
-			array(
-				'breakpoint' => 768,
-				'settings'   => array(
-					'slidesToShow'   => $slides_to_show_mobile,
-					'slidesToScroll' => $slides_to_scroll_mobile,
-					'centerMode'     => $center_mode,
-				),
-			),
-		);
+		$margin        = ( isset( $settings['margin']['size'] ) && '' !== $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
+		$margin_tablet = ( isset( $settings['margin_tablet']['size'] ) && '' !== $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
+		$margin_mobile = ( isset( $settings['margin_mobile']['size'] ) && '' !== $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
+
+		$slider_options['breakpoints'] = [
+			$bp_desktop => [
+				'slidesPerView' => $slides_to_show,
+				//'spaceBetween'  => $margin,
+			],
+			$bp_tablet  => [
+				'slidesPerView' => $slides_to_show_tablet,
+				//'spaceBetween'  => $margin_tablet,
+			],
+			$bp_mobile  => [
+				'slidesPerView' => $slides_to_show_mobile,
+				//'spaceBetween'  => $margin_mobile,
+			],
+		];
 
 		$this->parent->add_render_attribute(
 			'posts-wrap',
@@ -4874,6 +4931,92 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'data-slider-settings' => wp_json_encode( $slider_options ),
 			)
 		);
+	}
+
+	/**
+	 * Render team member carousel dots output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render_dots() {
+		$dots = $this->get_instance_value( 'dots' );
+
+		if ( 'yes' === $dots ) {
+			?>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination swiper-pagination-<?php echo esc_attr( $this->parent->get_id() ); ?>"></div>
+			<?php
+		}
+	}
+
+	/**
+	 * Render team member carousel arrows output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render_arrows() {
+		$settings = $this->parent->get_settings_for_display();
+		$skin            = $this->get_id();
+		$arrows          = $this->get_instance_value( 'arrows' );
+		$arrow           = $this->get_instance_value( 'arrow' );
+		$select_arrow    = $this->get_instance_value( 'select_arrow' );
+
+		$migration_allowed = Icons_Manager::is_migration_allowed();
+
+		if ( ! isset( $settings[ $skin . '_arrow' ] ) && ! Icons_Manager::is_migration_allowed() ) {
+			// add old default.
+			$settings[ $skin . '_arrow' ] = 'fa fa-angle-right';
+		}
+
+		$has_icon = ! empty( $settings[ $skin . '_arrow' ] );
+
+		if ( ! $has_icon && ! empty( $select_arrow['value'] ) ) {
+			$has_icon = true;
+		}
+
+		if ( ! empty( $settings['arrow'] ) ) {
+			$this->parent->add_render_attribute( 'arrow-icon', 'class', $settings[ $skin . '_arrow' ] );
+			$this->parent->add_render_attribute( 'arrow-icon', 'aria-hidden', 'true' );
+		}
+
+		$migrated = isset( $settings['__fa4_migrated'][ $skin . '_select_arrow' ] );
+		$is_new   = ! isset( $settings[ $skin . '_arrow' ] ) && Icons_Manager::is_migration_allowed();
+
+		if ( 'yes' === $arrows ) {
+			if ( $has_icon ) {
+				if ( $is_new || $migrated ) {
+					$next_arrow = $select_arrow;
+					$prev_arrow = str_replace( 'right', 'left', $select_arrow );
+				} else {
+					$next_arrow = $settings['arrow'];
+					$prev_arrow = str_replace( 'right', 'left', $arrow );
+				}
+			} else {
+				$next_arrow = 'fa fa-angle-right';
+				$prev_arrow = 'fa fa-angle-left';
+			}
+
+			if ( ! empty( $arrow ) || ( ! empty( $select_arrow['value'] ) && $is_new ) ) { ?>
+				<div class="pp-slider-arrow swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->parent->get_id() ); ?>">
+					<?php if ( $is_new || $migrated ) :
+						Icons_Manager::render_icon( $prev_arrow, [ 'aria-hidden' => 'true' ] );
+					else : ?>
+						<i <?php $this->parent->print_render_attribute_string( 'arrow-icon' ); ?>></i>
+					<?php endif; ?>
+				</div>
+				<div class="pp-slider-arrow swiper-button-next swiper-button-next-<?php echo esc_attr( $this->parent->get_id() ); ?>">
+					<?php if ( $is_new || $migrated ) :
+						Icons_Manager::render_icon( $next_arrow, [ 'aria-hidden' => 'true' ] );
+					else : ?>
+						<i <?php $this->parent->print_render_attribute_string( 'arrow-icon' ); ?>></i>
+					<?php endif; ?>
+				</div>
+			<?php }
+		}
 	}
 
 	/**
@@ -4968,22 +5111,29 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			<?php } ?>
 
 			<div <?php echo wp_kses_post( $this->parent->get_render_attribute_string( 'posts-wrap' ) ); ?>>
-				<?php
-				$i = 1;
+				<?php if ( 'carousel' === $layout ) { ?><div class="swiper-wrapper"><?php } ?>
+					<?php
+					$i = 1;
 
-				if ( $query->have_posts() ) :
-					while ( $query->have_posts() ) :
-						$query->the_post();
+					if ( $query->have_posts() ) :
+						while ( $query->have_posts() ) :
+							$query->the_post();
 
-						$this->render_post_body();
+							$this->render_post_body();
 
-						$i++;
+							$i++;
 
-					endwhile;
-				endif;
-				wp_reset_postdata();
-				?>
+						endwhile;
+					endif;
+					wp_reset_postdata();
+					?>
+				<?php if ( 'carousel' === $layout ) { ?></div><?php } ?>
 			</div>
+			<?php
+				$this->render_dots();
+
+				$this->render_arrows();
+			?>
 
 			<?php do_action( 'ppe_after_posts_wrap', $settings ); ?>
 
