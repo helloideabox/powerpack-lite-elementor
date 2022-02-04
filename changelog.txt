@@ -1,4 +1,8 @@
 == 2.6.8 ==
+Release date: February 4, 2022
+Fixed: Posts - Arrows were appearing in Grid layout
+
+== 2.6.8 ==
 Release date: February 3, 2022
 * Added: Posts - Option to hide empty comments
 * Fixed: Image Hotspots - JS error

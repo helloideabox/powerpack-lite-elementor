@@ -4941,7 +4941,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access protected
 	 */
 	protected function render_dots() {
-		$dots = $this->get_instance_value( 'dots' );
+		$dots   = $this->get_instance_value( 'dots' );
+		$layout = $this->get_instance_value( 'layout' );
+
+		if ( 'carousel' !== $layout ) {
+			return;
+		}
 
 		if ( 'yes' === $dots ) {
 			?>
@@ -4959,11 +4964,16 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access protected
 	 */
 	protected function render_arrows() {
-		$settings = $this->parent->get_settings_for_display();
+		$settings        = $this->parent->get_settings_for_display();
 		$skin            = $this->get_id();
+		$layout          = $this->get_instance_value( 'layout' );
 		$arrows          = $this->get_instance_value( 'arrows' );
 		$arrow           = $this->get_instance_value( 'arrow' );
 		$select_arrow    = $this->get_instance_value( 'select_arrow' );
+
+		if ( 'carousel' !== $layout ) {
+			return;
+		}
 
 		$migration_allowed = Icons_Manager::is_migration_allowed();
 
