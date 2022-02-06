@@ -4,6 +4,7 @@
 	var count = 1;
 	var loader = '';
 	var total = 0;
+	var isEditMode = false;
 	
 	function equalHeight( $scope ) {
 		var activeSlide = $scope.find( '.swiper-slide-visible' ),
@@ -212,6 +213,9 @@
 	}
 
 	$( window ).on( 'elementor/frontend/init', function () {
+        if ( elementorFrontend.isEditMode() ) {
+			isEditMode = true;
+		}
 
 		elementorFrontend.hooks.addAction( 'frontend/element_ready/pp-posts.classic', PostsHandler );
 		
