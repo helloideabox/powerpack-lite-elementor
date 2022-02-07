@@ -229,6 +229,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.9 - February 7, 2022 =
+* 	Fixed: Posts - Arrows were appearing in Grid layout
+* 	Fixed: Posts - JS error in pp-posts.js file
+
 = 2.6.8 - February 3, 2022 =
 * 	Added: Posts - Option to hide empty comments
 * 	Fixed: Image Hotspots - JS error
