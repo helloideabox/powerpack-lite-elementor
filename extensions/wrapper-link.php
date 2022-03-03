@@ -80,40 +80,21 @@ class Extension_Wrapper_Link extends Extension_Base {
 	protected function add_common_sections_actions() {
 
 		// Activate sections for sections
-		add_action( 'elementor/element/section/section_custom_css/after_section_end', function( $element, $args ) {
+		add_action( 'elementor/element/section/section_advanced/after_section_end', function( $element, $args ) {
 
 			$this->add_common_sections( $element, $args );
 
 		}, 10, 2 );
 
 		// Activate sections for columns
-		add_action( 'elementor/element/column/section_custom_css/after_section_end', function( $element, $args ) {
+		add_action( 'elementor/element/column/section_advanced/after_section_end', function( $element, $args ) {
 
 			$this->add_common_sections( $element, $args );
 
 		}, 10, 2 );
 
 		// Activate sections for widgets
-		add_action( 'elementor/element/common/section_custom_css/after_section_end', function( $element, $args ) {
-
-			$this->add_common_sections( $element, $args );
-
-		}, 10, 2 );
-
-		// Activate sections for sections if elementor pro
-		add_action( 'elementor/element/section/section_custom_css_pro/after_section_end', function( $element, $args ) {
-			$this->add_common_sections( $element, $args );
-		}, 10, 2 );
-
-		// Activate sections for columns if elementor pro
-		add_action( 'elementor/element/column/section_custom_css_pro/after_section_end', function( $element, $args ) {
-
-			$this->add_common_sections( $element, $args );
-
-		}, 10, 2 );
-
-		// Activate sections for widgets if elementor pro
-		add_action( 'elementor/element/common/section_custom_css_pro/after_section_end', function( $element, $args ) {
+		add_action( 'elementor/element/common/_section_style/after_section_end', function( $element, $args ) {
 
 			$this->add_common_sections( $element, $args );
 

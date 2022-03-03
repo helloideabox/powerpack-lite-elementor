@@ -241,6 +241,8 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	Enhancement: Info List - Added spacing option for button
 * 	Enhancement: Icon List - Added icon size option for individual icons
 * 	Enhancement: Link Effects - Added HTML tag option
+* 	Enhancement: Moved PowerPack extensions settings tab below Advanced section for easy accessibility
+* 	Fixed: Dual Heading - Fixed minor CSS glitch
 
 = 2.6.9 - February 7, 2022 =
 * 	Fixed: Posts - Arrows were appearing in Grid layout
