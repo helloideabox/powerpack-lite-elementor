@@ -401,16 +401,23 @@ final class PP_Admin_Settings {
 	*
 	* @since 2.5.4
 	*/
-	public static function refresh_instagram_access_token() {
-		$access_token         = trim( \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'pp_instagram_access_token' ) );
-		$updated_access_token = 'ppe_updated_instagram_access_token';
-	
+	public static function refresh_instagram_access_token( $access_token = '', $widget_id = '' ) {
+		if ( empty( $access_token ) ) {
+			$access_token = trim( \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'pp_instagram_access_token' ) );
+		}
+
+		$updated_access_token = "ppe_updated_instagram_access_token";
+		
+		if ( ! empty( $widget_id ) ) {
+			$updated_access_token = "ppe_updated_instagram_access_token_widget_$widget_id";
+		}
+
 		if ( empty( $access_token ) ) {
 			return;
 		}
 	
 		$updated = get_transient( $updated_access_token );
-	
+
 		if ( ! empty( $updated ) ) {
 			return;
 		}

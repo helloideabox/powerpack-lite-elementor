@@ -209,6 +209,19 @@ class Instafeed extends Powerpack_Widget {
 		}
 
 		$this->add_control(
+			'access_token',
+			[
+				'label'                 => __( 'Custom Access Token', 'powerpack' ),
+				'description'           => __( 'Overrides global Instagram access token', 'powerpack' ),
+				'label_block'           => true,
+				'type'                  => Controls_Manager::TEXT,
+				'condition'             => [
+					'insta_display' => 'feed',
+				],
+			]
+		);
+
+		$this->add_control(
 			'insta_hashtag',
 			[
 				'label'                 => __( 'Hashtag', 'powerpack' ),
@@ -700,16 +713,34 @@ class Instafeed extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'pause_on_hover',
+			array(
+				'label'                 => __( 'Pause on Hover', 'powerpack' ),
+				'description'           => '',
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => '',
+				'label_on'              => __( 'Yes', 'powerpack' ),
+				'label_off'             => __( 'No', 'powerpack' ),
+				'return_value'          => 'yes',
+				'frontend_available'    => true,
+				'condition'             => array(
+					'autoplay'      => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
 			'pause_on_interaction',
 			array(
-				'label'        => __( 'Pause on Interaction', 'powerpack' ),
-				'description'  => __( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
-				'return_value' => 'yes',
-				'condition'    => array(
+				'label'              => __( 'Pause on Interaction', 'powerpack' ),
+				'description'        => __( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
+				'type'               => Controls_Manager::SWITCHER,
+				'default'            => '',
+				'label_on'           => __( 'Yes', 'powerpack' ),
+				'label_off'          => __( 'No', 'powerpack' ),
+				'return_value'       => 'yes',
+				'frontend_available' => true,
+				'condition'          => array(
 					'autoplay'    => 'yes',
 					'feed_layout' => 'carousel',
 				),
@@ -3175,7 +3206,7 @@ class Instafeed extends Powerpack_Widget {
 
 		$data = get_transient( $transient_key );
 
-		if ( ! empty( $data ) && 1 !== $settings['cache_timeout'] && array_key_exists( 'thumbnail_resources', $data[0] ) ) {
+		if ( ! empty( $data ) && 'none' !== $settings['cache_timeout'] ) {
 			return $data;
 		}
 
@@ -3212,6 +3243,15 @@ class Instafeed extends Powerpack_Widget {
 	 */
 	protected function render() {
 		$settings = $this->get_settings();
+
+		if ( '' !== $settings['access_token'] ) {
+			if ( $this->get_insta_global_access_token() !== $settings['access_token'] ) {
+				$access_token = $this->get_insta_access_token();
+				$widget_id    = $this->get_ID();
+
+				\PowerpackElementsLite\Classes\PP_Admin_Settings::refresh_instagram_access_token( $access_token, $widget_id );
+			}
+		}
 
 		if ( 'carousel' === $settings['feed_layout'] ) {
 			$layout = 'carousel';
