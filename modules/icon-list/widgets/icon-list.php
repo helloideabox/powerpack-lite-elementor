@@ -61,7 +61,7 @@ class Icon_List extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the widget belongs to.
+	 * Retrieve the list of keywords the icon list widget belongs to.
 	 *
 	 * @access public
 	 *
@@ -102,7 +102,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_list',
 			[
-				'label'                 => __( 'List', 'powerpack' ),
+				'label'                 => __( 'Icon List', 'powerpack' ),
 			]
 		);
 
@@ -129,6 +129,10 @@ class Icon_List extends Powerpack_Widget {
 		);
 
 		$repeater = new Repeater();
+
+		$repeater->start_controls_tabs( 'items_repeater' );
+
+		$repeater->start_controls_tab( 'tab_content', [ 'label' => __( 'Content', 'powerpack' ) ] );
 
 		$repeater->add_control(
 			'text',
@@ -232,10 +236,36 @@ class Icon_List extends Powerpack_Widget {
 			)
 		);
 
+		$repeater->end_controls_tab();
+
+		$repeater->start_controls_tab( 'tab_icon', [ 'label' => __( 'Style', 'powerpack' ) ] );
+
+		$repeater->add_responsive_control(
+			'single_icon_size',
+			[
+				'label'                 => __( 'Icon Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min' => 6,
+						'max' => 100,
+					],
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-list-items {{CURRENT_ITEM}} .pp-icon-list-icon' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-list-items {{CURRENT_ITEM}} .pp-icon-list-image img' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$repeater->end_controls_tab();
+
+		$repeater->end_controls_tabs();
+
 		$this->add_control(
 			'list_items',
 			array(
-				'label'       => '',
+				'label'       => __( 'Items', 'powerpack' ),
 				'type'        => Controls_Manager::REPEATER,
 				'default'     => array(
 					array(
@@ -868,7 +898,10 @@ class Icon_List extends Powerpack_Widget {
 
 							$this->add_render_attribute( [
 								$item_key => [
-									'class' => 'pp-icon-list-item',
+									'class' => [
+										'pp-icon-list-item',
+										'elementor-repeater-item-' . $item['_id'],
+									],
 								],
 								$text_key => [
 									'class' => 'pp-icon-list-text',
@@ -1014,7 +1047,10 @@ class Icon_List extends Powerpack_Widget {
 						textKey = view.getRepeaterSettingKey( 'text', 'list_items', index );
 				   
 					view.addRenderAttribute( itemKey, {
-						'class': 'pp-icon-list-item'
+						'class': [
+							'pp-icon-list-item',
+							'elementor-repeater-item-' + item._id,
+						]
 					});
 					view.addRenderAttribute( textKey, {
 						'class': 'pp-icon-list-text'

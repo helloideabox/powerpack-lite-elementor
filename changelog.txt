@@ -9,6 +9,7 @@ Release date: March 3, 2022
 * Enhancement: Info List - Added content separator option
 * Enhancement: Info List - Added Text Shadow and Spacing options for title
 * Enhancement: Info List - Added spacing option for button
+* Enhancement: Icon List - Added icon size option for individual icons
 
 == 2.6.9 ==
 Release date: February 7, 2022
