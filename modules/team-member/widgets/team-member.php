@@ -427,6 +427,37 @@ class Team_Member extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_control(
+			'social_links_style',
+			[
+				'label'   => __( 'Links Style', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'icon',
+				'options' => [
+					'icon'   => __( 'Icon', 'powerpack' ),
+					'button' => __( 'Button', 'powerpack' ),
+				],
+			]
+		);
+
+		$this->add_control(
+			'shape',
+			[
+				'label'        => esc_html__( 'Shape', 'powerpack' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'rounded',
+				'options'      => [
+					'rounded' => esc_html__( 'Rounded', 'powerpack' ),
+					'square'  => esc_html__( 'Square', 'powerpack' ),
+					'circle'  => esc_html__( 'Circle', 'powerpack' ),
+				],
+				'prefix_class' => 'elementor-shape-',
+				'condition'    => [
+					'social_links_style' => 'button',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -1549,7 +1580,23 @@ class Team_Member extends Powerpack_Widget {
 					'unit' => 'px',
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'member_icon_color',
+			[
+				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'default',
+				'options'   => [
+					'default' => esc_html__( 'Official Color', 'powerpack' ),
+					'custom'  => esc_html__( 'Custom', 'powerpack' ),
+				],
+				'condition' => [
+					'social_links_style' => 'button',
 				],
 			]
 		);
@@ -1559,32 +1606,107 @@ class Team_Member extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_links_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'      => __( 'Normal', 'powerpack' ),
+				'conditions' => array(
+					'relation' => 'or',
+					'terms'    => array(
+						array(
+							'name'     => 'social_links_style',
+							'operator' => '===',
+							'value'    => 'icon',
+						),
+						array(
+							'relation' => 'and',
+							'terms'    => array(
+								array(
+									'name'     => 'social_links_style',
+									'operator' => '===',
+									'value'    => 'button',
+								),
+								array(
+									'name'     => 'member_icon_color',
+									'operator' => '==',
+									'value'    => 'custom',
+								),
+							),
+						),
+					),
+				),
 			]
 		);
 
 		$this->add_control(
 			'member_links_icons_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
-				'selectors'             => [
+				'label'      => __( 'Color', 'powerpack' ),
+				'type'       => Controls_Manager::COLOR,
+				'default'    => '',
+				'selectors'  => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap svg' => 'fill: {{VALUE}};',
 				],
+				'conditions' => array(
+					'relation' => 'or',
+					'terms'    => array(
+						array(
+							'name'     => 'social_links_style',
+							'operator' => '===',
+							'value'    => 'icon',
+						),
+						array(
+							'relation' => 'and',
+							'terms'    => array(
+								array(
+									'name'     => 'social_links_style',
+									'operator' => '===',
+									'value'    => 'button',
+								),
+								array(
+									'name'     => 'member_icon_color',
+									'operator' => '==',
+									'value'    => 'custom',
+								),
+							),
+						),
+					),
+				),
 			]
 		);
 
 		$this->add_control(
 			'member_links_bg_color',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
-				'selectors'             => [
+				'label'      => __( 'Background Color', 'powerpack' ),
+				'type'       => Controls_Manager::COLOR,
+				'default'    => '',
+				'selectors'  => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'background-color: {{VALUE}};',
 				],
+				'conditions' => array(
+					'relation' => 'or',
+					'terms'    => array(
+						array(
+							'name'     => 'social_links_style',
+							'operator' => '===',
+							'value'    => 'icon',
+						),
+						array(
+							'relation' => 'and',
+							'terms'    => array(
+								array(
+									'name'     => 'social_links_style',
+									'operator' => '===',
+									'value'    => 'button',
+								),
+								array(
+									'name'     => 'member_icon_color',
+									'operator' => '==',
+									'value'    => 'custom',
+								),
+							),
+						),
+					),
+				),
 			]
 		);
 
@@ -1630,44 +1752,144 @@ class Team_Member extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_links_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'      => __( 'Hover', 'powerpack' ),
+				'conditions' => array(
+					'relation' => 'or',
+					'terms'    => array(
+						array(
+							'name'     => 'social_links_style',
+							'operator' => '===',
+							'value'    => 'icon',
+						),
+						array(
+							'relation' => 'and',
+							'terms'    => array(
+								array(
+									'name'     => 'social_links_style',
+									'operator' => '===',
+									'value'    => 'button',
+								),
+								array(
+									'name'     => 'member_icon_color',
+									'operator' => '==',
+									'value'    => 'custom',
+								),
+							),
+						),
+					),
+				),
 			]
 		);
 
 		$this->add_control(
 			'member_links_icons_color_hover',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
-				'selectors'             => [
+				'label'      => __( 'Color', 'powerpack' ),
+				'type'       => Controls_Manager::COLOR,
+				'default'    => '',
+				'selectors'  => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover svg' => 'fill: {{VALUE}};',
 				],
+				'conditions' => array(
+					'relation' => 'or',
+					'terms'    => array(
+						array(
+							'name'     => 'social_links_style',
+							'operator' => '===',
+							'value'    => 'icon',
+						),
+						array(
+							'relation' => 'and',
+							'terms'    => array(
+								array(
+									'name'     => 'social_links_style',
+									'operator' => '===',
+									'value'    => 'button',
+								),
+								array(
+									'name'     => 'member_icon_color',
+									'operator' => '==',
+									'value'    => 'custom',
+								),
+							),
+						),
+					),
+				),
 			]
 		);
 
 		$this->add_control(
 			'member_links_bg_color_hover',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
-				'selectors'             => [
+				'label'      => __( 'Background Color', 'powerpack' ),
+				'type'       => Controls_Manager::COLOR,
+				'default'    => '',
+				'selectors'  => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover' => 'background-color: {{VALUE}};',
 				],
+				'conditions' => array(
+					'relation' => 'or',
+					'terms'    => array(
+						array(
+							'name'     => 'social_links_style',
+							'operator' => '===',
+							'value'    => 'icon',
+						),
+						array(
+							'relation' => 'and',
+							'terms'    => array(
+								array(
+									'name'     => 'social_links_style',
+									'operator' => '===',
+									'value'    => 'button',
+								),
+								array(
+									'name'     => 'member_icon_color',
+									'operator' => '==',
+									'value'    => 'custom',
+								),
+							),
+						),
+					),
+				),
 			]
 		);
 
 		$this->add_control(
 			'member_links_border_color_hover',
 			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
-				'selectors'             => [
+				'label'      => __( 'Border Color', 'powerpack' ),
+				'type'       => Controls_Manager::COLOR,
+				'default'    => '',
+				'selectors'  => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover' => 'border-color: {{VALUE}};',
 				],
+				'conditions' => array(
+					'relation' => 'or',
+					'terms'    => array(
+						array(
+							'name'     => 'social_links_style',
+							'operator' => '===',
+							'value'    => 'icon',
+						),
+						array(
+							'relation' => 'and',
+							'terms'    => array(
+								array(
+									'name'     => 'social_links_style',
+									'operator' => '===',
+									'value'    => 'button',
+								),
+								array(
+									'name'     => 'member_icon_color',
+									'operator' => '==',
+									'value'    => 'custom',
+								),
+							),
+						),
+					),
+				),
 			]
 		);
 
@@ -1824,15 +2046,27 @@ class Team_Member extends Powerpack_Widget {
 						$social = '';
 					}
 
-					$this->add_render_attribute( 'social-link', 'class', 'pp-tm-social-link' );
-					$social_link_key = 'social-link' . $i;
+					$social_link_key = 'social_link' . $i;
+					$icon_wrap_key   = 'icon_wrap' . $i;
+
+					$this->add_render_attribute( $social_link_key, 'class', 'pp-tm-social-link' );
+					$this->add_render_attribute( $icon_wrap_key, 'class', 'pp-tm-social-icon-wrap' );
+
+					if ( 'button' === $settings['social_links_style'] ) {
+						$this->add_render_attribute( $icon_wrap_key, 'class', [
+							'elementor-icon',
+							'elementor-social-icon',
+							'elementor-social-icon-' . $social,
+						] );
+					}
+
 					if ( ! empty( $item['social_link']['url'] ) ) {
 						$this->add_link_attributes( $social_link_key, $item['social_link'] );
 					}
 					?>
 					<li>
 						<a <?php echo wp_kses_post( $this->get_render_attribute_string( $social_link_key ) ); ?>>
-							<span class="pp-tm-social-icon-wrap">
+							<span <?php echo wp_kses_post( $this->get_render_attribute_string( $icon_wrap_key ) ); ?>>
 								<span class="elementor-screen-only"><?php echo esc_html( ucwords( $social ) ); ?></span>
 								<span class="pp-tm-social-icon pp-icon">
 								<?php
@@ -2045,15 +2279,30 @@ class Team_Member extends Powerpack_Widget {
 				<div class="pp-tm-social-links-wrap">
 					<ul class="pp-tm-social-links">
 						<# _.each( settings.team_member_social, function( item, index ) {
-							var migrated = elementor.helpers.isIconMigrated( item, 'select_social_icon' );
+							var link = item.social_link ? item.social_link.url : '',
+								migrated = elementor.helpers.isIconMigrated( item, 'select_social_icon' );
 								social = elementor.helpers.getSocialNetworkNameFromIcon( item.select_social_icon, item.social_icon, false, migrated );
+
+								var socialLinkKey = view.getRepeaterSettingKey( 'text', 'social_link', index );
+								var iconWrapKey = view.getRepeaterSettingKey( 'text', 'icon_wrap', index );
+
+								view.addRenderAttribute( socialLinkKey, 'class', 'pp-tm-social-link' );
+								view.addRenderAttribute( iconWrapKey, 'class', 'pp-tm-social-icon-wrap' );
+
+								if ( 'button' == settings.social_links_style ) {
+									view.addRenderAttribute( iconWrapKey, 'class', [
+										'elementor-icon',
+										'elementor-social-icon',
+										'elementor-social-icon-' + social,
+									] );
+								}
+
+								view.addRenderAttribute( socialLinkKey, 'href', link );
 							#>
 							<li>
 								<# if ( item.social_icon || item.select_social_icon ) { #>
-									<# if ( item.social_link && item.social_link.url ) { #>
-										<a class="pp-tm-social-link" href="{{ item.social_link.url }}">
-									<# } #>
-										<span class="pp-tm-social-icon-wrap">
+									<a {{{ view.getRenderAttributeString( socialLinkKey ) }}}>
+										<span {{{ view.getRenderAttributeString( iconWrapKey ) }}}>
 											<span class="pp-tm-social-icon pp-icon">
 												<span class="elementor-screen-only">{{{ social }}}</span>
 												<#
@@ -2066,9 +2315,7 @@ class Team_Member extends Powerpack_Widget {
 												#>
 											</span>
 										</span>
-									<# if ( item.social_link && item.social_link.url ) { #>
-										</a>
-									<# } #>
+									</a>
 								<# } #>
 							</li>
 						<# } ); #>

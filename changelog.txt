@@ -1,3 +1,8 @@
+== 2.6.10 ==
+Release date: March 3, 2022
+* Enhancement: Team Member, Team Member Carousel - Added button style option for social links
+* Enhancement: Team Member Carousel - Add links for Flickr, Tumblr, Github and Vimeo
+
 == 2.6.9 ==
 Release date: February 7, 2022
 * Fixed: Posts - Arrows were appearing in Grid layout
