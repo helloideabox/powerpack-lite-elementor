@@ -241,6 +241,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 * 	Enhancement: Info List - Added spacing option for button
 * 	Enhancement: Icon List - Added icon size option for individual icons
 * 	Enhancement: Link Effects - Added HTML tag option
+* 	Enhancement: Display Conditions - Added support for adding multiple parameters
 * 	Enhancement: Moved PowerPack extensions settings tab below Advanced section for easy accessibility
 * 	Fixed: Dual Heading - Fixed minor CSS glitch
 

@@ -64,10 +64,10 @@ class Request_Parameter extends Condition {
 	 */
 	public function get_value_control() {
 		return [
-			'type'          => Controls_Manager::TEXTAREA,
-			'default'       => '',
-			'placeholder'   => __( 'utm_source=facebook&utm_medium=paid_social&utm_campaign=christmas_sale&utm_term=social_media&utm_content=video_ad', 'powerpack' ),
-			'description'   => __( 'Enter the query string that needs to the condition to apply.', 'powerpack' ),
+			'type'        => Controls_Manager::TEXTAREA,
+			'default'     => '',
+			'placeholder' => '',
+			'description' => __( 'Enter each request parameter on a new line as pairs of param=value or param1=value1&amp;param2=value2.', 'powerpack' ),
 		];
 	}
 
@@ -85,13 +85,28 @@ class Request_Parameter extends Condition {
 	public function check( $name, $operator, $value ) {
 		$show = false;
 
-		if ( ! empty( $_SERVER['QUERY_STRING'] ) && ! empty( $value ) ) {
-			parse_str( $_SERVER['QUERY_STRING'], $server_qs_array );
-			parse_str( $value, $value_qs_array );
+		if ( ! isset( $_SERVER['REQUEST_URI'] ) || empty( $_SERVER['REQUEST_URI'] ) ) {
+			$show = false;
+		}
 
-			$result = array_diff_assoc( $server_qs_array, $value_qs_array );
-			if ( empty( $result ) ) {
-				$show = true;
+		$url = wp_parse_url( filter_var( wp_unslash( $_SERVER['REQUEST_URI'] ), FILTER_SANITIZE_STRING ) );
+
+		if ( $url && isset( $url['query'] ) && ! empty( $url['query'] ) ) {
+			$query_params = explode( '&', $url['query'] );
+
+			$value = str_replace( '&', "\n", $value );
+			$value = explode( "\n", sanitize_textarea_field( $value ) );
+
+			if ( ! empty( $value ) ) {
+				foreach ( $value as $index => $param ) {
+					if ( ! empty( $param ) ) {
+						$is_strict = strpos( $param, '=' );
+						if ( ! $is_strict ) {
+							$value[ $index ] = $value[ $index ] . '=' . rawurlencode( $_GET[ $param ] );
+						}
+					}
+				}
+				$show = ! empty( array_intersect( $value, $query_params ) ) ? true : false;
 			}
 		}
 
