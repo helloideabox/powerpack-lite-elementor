@@ -287,10 +287,6 @@ div[class*=' pa-'] {
   flex: 0 1 auto;
   margin: 0 20px; }
 
-.pp-dual-heading .pp-first-text,
-.pp-dual-heading .pp-second-text {
-  display: inline-block; }
-
 .pp-counter {
   display: inline-block; }
   .pp-counter-icon-wrap, .pp-counter-icon, .pp-counter-icon-divider, .pp-counter-num-divider {
