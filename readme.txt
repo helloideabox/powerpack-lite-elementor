@@ -229,6 +229,19 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.10 - March 3, 2022 =
+* 	Enhancement: Team Member, Team Member Carousel - Added button style option for social links
+* 	Enhancement: Team Member Carousel - Add links for Flickr, Tumblr, Github and Vimeo
+* 	Enhancement: Flip Box - Added dynamic tags support for title, description and icon image options
+* 	Enhancement: Instagram Feed - Added option again to the widget for adding custom access token
+* 	Enhancement: Instagram Feed - Added pause on hover option in swiper slider widgets
+* 	Enhancement: Info List - Added content padding option
+* 	Enhancement: Info List - Added content separator option
+* 	Enhancement: Info List - Added Text Shadow and Spacing options for title
+* 	Enhancement: Info List - Added spacing option for button
+* 	Enhancement: Icon List - Added icon size option for individual icons
+* 	Enhancement: Link Effects - Added HTML tag option
+
 = 2.6.9 - February 7, 2022 =
 * 	Fixed: Posts - Arrows were appearing in Grid layout
 * 	Fixed: Posts - JS error in pp-posts.js file

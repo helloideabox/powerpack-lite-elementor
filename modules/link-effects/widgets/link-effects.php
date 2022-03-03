@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\LinkEffects\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
@@ -168,6 +169,26 @@ class Link_Effects extends Powerpack_Widget {
 				],
 				'default'               => 'effect-1',
 			]
+		);
+
+		$this->add_control(
+			'html_tag',
+			array(
+				'label'   => __( 'HTML Tag', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'div',
+				'options' => array(
+					'h1'   => __( 'H1', 'powerpack' ),
+					'h2'   => __( 'H2', 'powerpack' ),
+					'h3'   => __( 'H3', 'powerpack' ),
+					'h4'   => __( 'H4', 'powerpack' ),
+					'h5'   => __( 'H5', 'powerpack' ),
+					'h6'   => __( 'H6', 'powerpack' ),
+					'div'  => __( 'div', 'powerpack' ),
+					'span' => __( 'span', 'powerpack' ),
+					'p'    => __( 'p', 'powerpack' ),
+				),
+			)
 		);
 
 		$this->add_responsive_control(
@@ -432,15 +453,19 @@ class Link_Effects extends Powerpack_Widget {
 				$this->add_render_attribute( 'pp-link-text-2', 'data-hover', wp_strip_all_tags( $link_text ) );
 				break;
 		}
+
+		$title_tag = PP_Helper::validate_html_tag( $settings['html_tag'] );
 		?>
-		<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'pp-link-text-2' ) ); ?>>
-			<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'pp-link-text' ) ); ?>>
-				<?php echo wp_kses_post( $link_text ); ?>
-			</span>
-			<?php if ( 'effect-9' === $settings['effect'] ) { ?>
-				<span><?php echo wp_kses_post( $link_secondary_text ); ?></span>
-			<?php } ?>
-		</a>
+		<<?php echo esc_html( $title_tag ); ?> class="pp-link-container">
+			<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'pp-link-text-2' ) ); ?>>
+				<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'pp-link-text' ) ); ?>>
+					<?php echo wp_kses_post( $link_text ); ?>
+				</span>
+				<?php if ( 'effect-9' === $settings['effect'] ) { ?>
+					<span><?php echo wp_kses_post( $link_secondary_text ); ?></span>
+				<?php } ?>
+			</a>
+		</<?php echo esc_html( $title_tag ); ?>>
 		<?php
 	}
 
@@ -477,14 +502,16 @@ class Link_Effects extends Powerpack_Widget {
 				break;
 		}
 		#>
-		<a {{{ view.getRenderAttributeString( 'link' ) }}} {{{ link }}}>
-			<span {{{ view.getRenderAttributeString( 'pp-link-text' ) }}}>
-				{{{ settings.text }}}
-			</span>
-			<# if ( 'effect-9' === settings.effect ) { #>
-				<span>{{{ settings.secondary_text }}}</span>
-			<# } #>
-		</a>
+		<{{settings.html_tag}} class="pp-link-container">
+			<a {{{ view.getRenderAttributeString( 'link' ) }}} {{{ link }}}>
+				<span {{{ view.getRenderAttributeString( 'pp-link-text' ) }}}>
+					{{{ settings.text }}}
+				</span>
+				<# if ( 'effect-9' === settings.effect ) { #>
+					<span>{{{ settings.secondary_text }}}</span>
+				<# } #>
+			</a>
+		</{{settings.html_tag}}>
 		<?php
 	}
 }
