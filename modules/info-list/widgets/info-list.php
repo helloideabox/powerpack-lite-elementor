@@ -8,13 +8,14 @@ use PowerpackElementsLite\Classes\PP_Config;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Control_Media;
-use Elementor\Repeater;
 use Elementor\Utils;
+use Elementor\Repeater;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Core\Schemes\Typography as Scheme_Typography;
 use Elementor\Core\Schemes\Color as Scheme_Color;
@@ -77,7 +78,7 @@ class Info_List extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of scripts the instagram feed widget depended on.
+	 * Retrieve the list of scripts the info list widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
@@ -961,6 +962,95 @@ class Info_List extends Powerpack_Widget {
 			)
 		);
 
+		$this->add_responsive_control(
+			'content_padding',
+			array(
+				'label'      => __( 'Padding', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', 'em', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-infolist-content-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'show_separator',
+			[
+				'label'     => esc_html__( 'Separator', 'powerpack' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_off' => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'  => esc_html__( 'Show', 'powerpack' ),
+				'default'   => '',
+				'separator' => 'before',
+				'condition' => [
+					'icon_position!' => 'top',
+				],
+			]
+		);
+
+		$this->add_control(
+			'separator_color',
+			[
+				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#e1e8ed',
+				'selectors' => [
+					'{{WRAPPER}} .pp-info-list-item:not(:last-child) .pp-infolist-content-wrapper' => 'border-bottom-color: {{VALUE}}',
+				],
+				'condition' => [
+					'icon_position!'  => 'top',
+					'show_separator!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'separator_style',
+			array(
+				'label'     => __( 'Style', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => array(
+					'solid'  => __( 'Solid', 'powerpack' ),
+					'double' => __( 'Double', 'powerpack' ),
+					'dotted' => __( 'Dotted', 'powerpack' ),
+					'dashed' => __( 'Dashed', 'powerpack' ),
+				),
+				'default'   => 'solid',
+				'condition' => array(
+					'icon_position!'  => 'top',
+					'show_separator!' => '',
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .pp-info-list-item:not(:last-child) .pp-infolist-content-wrapper' => 'border-bottom-style: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'separator_size',
+			[
+				'label'     => esc_html__( 'Size', 'powerpack' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => array(
+					'size' => 1,
+				),
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 20,
+					],
+				],
+				'condition' => [
+					'icon_position!'  => 'top',
+					'show_separator!' => '',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .pp-info-list-item:not(:last-child) .pp-infolist-content-wrapper' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
 		$this->add_control(
 			'title_heading',
 			array(
@@ -993,6 +1083,39 @@ class Info_List extends Powerpack_Widget {
 				'label'    => __( 'Typography', 'powerpack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .pp-info-list-title',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			array(
+				'name'      => 'title_text_shadow',
+				'label'     => __( 'Text Shadow', 'powerpack' ),
+				'selector'  => '{{WRAPPER}} .pp-info-list-title',
+			)
+		);
+
+		$this->add_responsive_control(
+			'title_margin',
+			array(
+				'label'      => __( 'Spacing', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+					'%'  => array(
+						'min'  => 0,
+						'max'  => 30,
+						'step' => 1,
+					),
+				),
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-info-list-title' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+				),
 			)
 		);
 
@@ -1059,6 +1182,30 @@ class Info_List extends Powerpack_Widget {
 					'md' => __( 'Medium', 'powerpack' ),
 					'lg' => __( 'Large', 'powerpack' ),
 					'xl' => __( 'Extra Large', 'powerpack' ),
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'button_margin',
+			array(
+				'label'      => __( 'Spacing', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+					'%'  => array(
+						'min'  => 0,
+						'max'  => 30,
+						'step' => 1,
+					),
+				),
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-info-list-button' => 'margin-top: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);

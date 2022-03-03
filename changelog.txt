@@ -5,6 +5,10 @@ Release date: March 3, 2022
 * Enhancement: Flip Box - Added dynamic tags support for title, description and icon image options
 * Enhancement: Instagram Feed - Added option again to the widget for adding custom access token
 * Enhancement: Instagram Feed - Added pause on hover option in swiper slider widgets
+* Enhancement: Info List - Added content padding option
+* Enhancement: Info List - Added content separator option
+* Enhancement: Info List - Added Text Shadow and Spacing options for title
+* Enhancement: Info List - Added spacing option for button
 
 == 2.6.9 ==
 Release date: February 7, 2022
