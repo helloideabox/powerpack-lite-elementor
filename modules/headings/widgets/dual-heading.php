@@ -176,10 +176,10 @@ class Dual_Heading extends Powerpack_Widget {
 				'label'                 => __( 'Second Part Display', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => false,
-				'default'               => 'inline-block',
+				'default'               => 'inline',
 				'options'               => [
-					'inline-block'  => __( 'Inline', 'powerpack' ),
-					'block'         => __( 'Block', 'powerpack' ),
+					'inline' => __( 'Inline', 'powerpack' ),
+					'block'  => __( 'Block', 'powerpack' ),
 				],
 				'prefix_class'          => 'pp-dual-heading-',
 				'selectors'             => [
@@ -458,7 +458,7 @@ class Dual_Heading extends Powerpack_Widget {
 					'unit' => 'px',
 				],
 				'selectors'             => [
-					'{{WRAPPER}}.pp-dual-heading-inline-block .pp-second-text' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.pp-dual-heading-inline .pp-second-text' => 'margin-left: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}}.pp-dual-heading-block .pp-second-text' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 				'separator'             => 'before',
