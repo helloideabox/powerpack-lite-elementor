@@ -3192,6 +3192,31 @@ class Instafeed extends Powerpack_Widget {
 		<?php }
 	}
 
+	protected function get_cache_duration() {
+		$settings = $this->get_settings();
+		$cache_duration = $settings['cache_timeout'];
+		$duration = 0;
+
+		switch ( $cache_duration ) {
+			case 'minute':
+				$duration = MINUTE_IN_SECONDS;
+				break;
+			case 'hour':
+				$duration = HOUR_IN_SECONDS;
+				break;
+			case 'day':
+				$duration = DAY_IN_SECONDS;
+				break;
+			case 'week':
+				$duration = WEEK_IN_SECONDS;
+				break;
+			default:
+				break;
+		}
+
+		return $duration;
+	}
+
 	/**
 	 * Retrieve Instagram posts.
 	 *
@@ -3229,7 +3254,7 @@ class Instafeed extends Powerpack_Widget {
 			return array();
 		}
 
-		set_transient( $transient_key, $data, $settings['cache_timeout'] );
+		set_transient( $transient_key, $data, $this->get_cache_duration() );
 
 		return $data;
 	}

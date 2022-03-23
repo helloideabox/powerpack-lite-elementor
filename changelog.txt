@@ -4,6 +4,7 @@ Release date: March 23, 2022
 * Set the minimum required Elementor version to 3.2.0
 * Enhancement: Info Box Carousel - Added grid layout option
 * Enhancement: Info Box Carousel - Renamed widget to Info Grid & Carousel
+* Fixed: Instagram Feed - Cache Timeout option
 * Fixed: Icon List - Icon Type text field is not showing
 
 == 2.6.10 ==
