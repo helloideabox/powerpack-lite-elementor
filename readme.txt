@@ -229,6 +229,17 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.11 - March 23, 2022 =
+* 	Hotfix: Compatibility issues with Elementor 3.6.0
+* 	Set the minimum required Elementor version to 3.2.0
+* 	Enhancement: Twitter Tweet - Added dynamic tags support to Tweet URL field
+* 	Enhancement: Info Box Carousel - Added grid layout option
+* 	Enhancement: Info Box Carousel - Renamed widget to Info Grid & Carousel
+* 	Fixed: Dual Heading - Issue with long text
+* 	Fixed: Instagram Feed - Cache Timeout option
+* 	Fixed: Icon List - Icon Type text field is not showing
+* 	Fixed: Advanced Posts - Global typography settings for links was overriding post meta typography when post meta link is enabled
+
 = 2.6.10 - March 3, 2022 =
 * 	Enhancement: Team Member, Team Member Carousel - Added button style option for social links
 * 	Enhancement: Team Member Carousel - Add links for Flickr, Tumblr, Github and Vimeo
