@@ -78,9 +78,13 @@ class Twitter_Tweet extends Powerpack_Widget {
 		$this->add_control(
 			'tweet_url',
 			array(
-				'label'   => __( 'Tweet URL', 'powerpack' ),
-				'type'    => Controls_Manager::TEXT,
-				'default' => '',
+				'label'       => __( 'Tweet URL', 'powerpack' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'dynamic'     => [
+					'active' => true,
+				],
+				'default'     => '',
 			)
 		);
 
@@ -188,7 +192,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 	}
 
 	protected function render() {
-		$settings = $this->get_settings();
+		$settings = $this->get_settings_for_display();
 
 		$attrs = array();
 		$attr  = ' ';

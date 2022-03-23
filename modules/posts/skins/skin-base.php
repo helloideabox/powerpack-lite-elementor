@@ -2583,7 +2583,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'name'      => 'meta_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'selector'  => '{{WRAPPER}} .pp-post-meta',
+				'selector'  => '{{WRAPPER}} .pp-post-meta, {{WRAPPER}} .pp-post-meta a',
 				'condition' => array(
 					$this->get_control_id( 'post_meta' ) => 'yes',
 				),
