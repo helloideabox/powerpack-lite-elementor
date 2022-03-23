@@ -418,7 +418,13 @@ class PowerpackLitePlugin {
 		require POWERPACK_ELEMENTS_LITE_PATH . 'includes/controls/query.php';
 
 		// Register Controls
-		\Elementor\Plugin::instance()->controls_manager->register_control( 'pp-query', new Control_Query() );
+		//\Elementor\Plugin::instance()->controls_manager->register_control( 'pp-query', new Control_Query() );
+
+		if ( version_compare( ELEMENTOR_VERSION, '3.5.0', '>=' ) ) {
+			\Elementor\Plugin::instance()->controls_manager->register( new Control_Query() );
+		} else {
+			\Elementor\Plugin::instance()->controls_manager->register_control( 'pp-query', new Control_Query() );
+		}
 	}
 
 	public function elementor_init() {
@@ -471,7 +477,12 @@ class PowerpackLitePlugin {
 		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
 		add_action( 'elementor/elements/categories_registered', array( $this, 'register_category' ) );
 
-		add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
+		//add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
+		if ( version_compare( ELEMENTOR_VERSION, '3.5.0', '>=' ) ) {
+		    add_action( 'elementor/controls/register', array( $this, 'register_controls' ) );
+	    } else {
+		    add_action('elementor/controls/controls_registered', array( $this, 'register_controls' ) );
+	    }
 		add_action( 'elementor/controls/controls_registered', [ $this, 'include_group_controls' ] );
 
 		add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
