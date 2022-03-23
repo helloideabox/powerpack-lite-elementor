@@ -213,12 +213,12 @@ class Icon_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'icon_text',
 			array(
-				'label'       => __( 'Number/Text', 'powerpack' ),
+				'label'       => __( 'Text', 'powerpack' ),
 				'label_block' => false,
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'condition'   => array(
-					'pp_icon_type' => 'number',
+					'pp_icon_type' => 'text',
 				),
 			)
 		);

@@ -61,7 +61,7 @@ class Dual_Heading extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the widget belongs to.
+	 * Retrieve the list of keywords the dual heading widget belongs to.
 	 *
 	 * @access public
 	 *
