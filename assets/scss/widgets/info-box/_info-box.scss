@@ -1,8 +1,8 @@
 .pp-info-box-container {
-    display: block;
     @include transition($target: all, $time: 0.25s, $timing-function: linear);
 }
 .pp-info-box {
+    overflow: hidden;
     .pp-info-box-icon {
         display: inline-block;
         line-height: 1;

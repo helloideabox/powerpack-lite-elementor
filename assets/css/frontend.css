@@ -388,27 +388,25 @@ div[class*=' pa-'] {
   order: 2; }
 
 .pp-info-box-container {
-  display: block;
   transition: all 0.25s linear 0s; }
 
-.pp-info-box .pp-info-box-icon {
-  display: inline-block;
-  line-height: 1;
-  max-width: 100%; }
-  .pp-info-box .pp-info-box-icon .fa {
-    transition: all 0.25s linear 0s;
-    width: 1em;
-    height: 1em; }
-
-.pp-info-box .pp-info-box-content {
-  flex-grow: 1; }
-
-.pp-info-box-divider-wrap {
-  font-size: 0;
-  line-height: 0; }
-
-.pp-info-box-divider {
-  display: inline-block; }
+.pp-info-box {
+  overflow: hidden; }
+  .pp-info-box .pp-info-box-icon {
+    display: inline-block;
+    line-height: 1;
+    max-width: 100%; }
+    .pp-info-box .pp-info-box-icon .fa {
+      transition: all 0.25s linear 0s;
+      width: 1em;
+      height: 1em; }
+  .pp-info-box .pp-info-box-content {
+    flex-grow: 1; }
+  .pp-info-box-divider-wrap {
+    font-size: 0;
+    line-height: 0; }
+  .pp-info-box-divider {
+    display: inline-block; }
 
 .pp-info-box-left .pp-info-box {
   display: flex;

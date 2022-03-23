@@ -1,3 +1,10 @@
+== 2.7.0 ==
+Release date: March 23, 2022
+* Hotfix: Compatibility issues with Elementor 3.6.0
+* Set the minimum required Elementor version to 3.2.0
+* Enhancement: Info Box Carousel - Added grid layout option
+* Enhancement: Info Box Carousel - Renamed widget to Info Grid & Carousel
+
 == 2.6.10 ==
 Release date: March 3, 2022
 * Enhancement: Team Member, Team Member Carousel - Added button style option for social links

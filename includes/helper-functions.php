@@ -381,7 +381,7 @@ function pp_elements_lite_get_modules() {
 		'pp-flipbox'                => esc_html__( 'Flipbox', 'powerpack' ),
 		'pp-image-accordion'        => esc_html__( 'Image Accordion', 'powerpack' ),
 		'pp-info-box'               => esc_html__( 'Info Box', 'powerpack' ),
-		'pp-info-box-carousel'      => esc_html__( 'Info Box Carousel', 'powerpack' ),
+		'pp-info-box-carousel'      => esc_html__( 'Info Grid & Carousel', 'powerpack' ),
 		'pp-info-list'              => esc_html__( 'Info List', 'powerpack' ),
 		'pp-info-table'             => esc_html__( 'Info Table', 'powerpack' ),
 		'pp-pricing-table'          => esc_html__( 'Pricing Table', 'powerpack' ),

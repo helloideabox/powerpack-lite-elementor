@@ -183,7 +183,7 @@ class PP_Config {
 				),
 				'Info_Box_Carousel'    => array(
 					'name'       => 'pp-info-box-carousel',
-					'title'      => __( 'Info Box Carousel', 'powerpack' ),
+					'title'      => __( 'Info Grid & Carousel', 'powerpack' ),
 					'categories' => array( 'powerpack-elements' ),
 					'keywords'   => array( 'powerpack', 'info' ),
 					'icon'       => 'ppicon-info-box-carousel power-pack-admin-icon',
