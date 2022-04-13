@@ -229,6 +229,16 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.12 - April 13, 2022 =
+* 	Enhancement: Team Member - Added: Margin option for image
+* 	Enhancement: Advanced Accordion - Added border radius option for title
+* 	Enhancement: Twitter Tweet - Added support for URL dynamic tags
+*	 Fixed: Posts - Align Arrows option was not working
+* 	Fixed: Info Box - Minor CSS glitch
+* 	Fixed: Display Conditions - Current Date option was not working for single day
+* 	Enhancement: Image Comparison - Added classes to before and after images
+* 	Enhancement: Image Comparison - Added Image Size option
+
 = 2.6.11 - March 23, 2022 =
 * 	Hotfix: Compatibility issues with Elementor 3.6.0
 * 	Set the minimum required Elementor version to 3.2.0
