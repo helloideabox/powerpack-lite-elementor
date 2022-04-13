@@ -1,5 +1,8 @@
 .pp-info-box-container {
     @include transition($target: all, $time: 0.25s, $timing-function: linear);
+    &:not(.pp-elementor-grid) {
+        display: block;
+    }
 }
 .pp-info-box {
     overflow: hidden;

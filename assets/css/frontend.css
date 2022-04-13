@@ -389,6 +389,8 @@ div[class*=' pa-'] {
 
 .pp-info-box-container {
   transition: all 0.25s linear 0s; }
+  .pp-info-box-container:not(.pp-elementor-grid) {
+    display: block; }
 
 .pp-info-box {
   overflow: hidden; }
