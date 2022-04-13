@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * \Modules\DisplayConditions\Conditions\Date
+ * \Extensions\Conditions\Date
  *
  * @since  1.2.7
  */
@@ -119,13 +119,18 @@ class Date extends Condition {
 			$today->setTimeZone( $timezone );
 		}
 
-		// Get tijmestamps for comparison
+		// Get timestamps for comparison
 		$start_ts = $start->format( 'U' );
 		$end_ts   = $end->format( 'U' );
 		$today_ts = $today->format( 'U' ) + $today->getOffset(); // Adding the offset
 
+		// Convert date into 'Y-m-d' format.
+		$start_date = gmdate( 'Y-m-d', $start_ts );
+		$end_date   = gmdate( 'Y-m-d', $end_ts );
+		$today_date = gmdate( 'Y-m-d', $today_ts );
+
 		// Check that user date is between start & end
-		$show = ( ( $today_ts >= $start_ts ) && ( $today_ts <= $end_ts ) );
+		$show = ( ( $today_date >= $start_date ) && ( $today_date <= $end_date ) );
 
 		return $this->compare( $show, true, $operator );
 	}
