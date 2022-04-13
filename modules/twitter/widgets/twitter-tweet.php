@@ -14,6 +14,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Core\Schemes\Typography as Scheme_Typography;
 use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -82,7 +83,11 @@ class Twitter_Tweet extends Powerpack_Widget {
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'dynamic'     => [
-					'active' => true,
+					'active'     => true,
+					'categories' => [
+						TagsModule::POST_META_CATEGORY,
+						TagsModule::URL_CATEGORY,
+					],
 				],
 				'default'     => '',
 			)
