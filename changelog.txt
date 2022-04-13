@@ -5,6 +5,8 @@ Release date: April 13, 2022
 * Enhancement: Twitter Tweet - Added support for URL dynamic tags
 * Fixed: Info Box - Minor CSS glitch
 * Fixed: Display Conditions - Current Date option was not working for single day
+* Enhancement: Image Comparison - Added classes to before and after images
+* Enhancement: Image Comparison - Added Image Size option
 
 == 2.6.11 ==
 Release date: March 23, 2022

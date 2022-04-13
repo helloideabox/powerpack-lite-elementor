@@ -82,27 +82,27 @@ class Image_Comparison extends Powerpack_Widget {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return array(
+		return [
 			'jquery-event-move',
-			'pp-twentytwenty',
+			'twentytwenty',
 			'imagesloaded',
 			'powerpack-frontend',
-		);
+		];
 	}
 
 	/**
 	 * Retrieve the list of styles the image comparison widget depended on.
 	 *
-	 * Used to set style dependencies required to run the widget.
+	 * Used to set styles dependencies required to run the widget.
 	 *
 	 * @access public
 	 *
-	 * @return array Widget scripts dependencies.
+	 * @return array Widget styles dependencies.
 	 */
 	public function get_style_depends() {
-		return array(
+		return [
 			'pp-twentytwenty',
-		);
+		];
 	}
 
 	/**
@@ -137,35 +137,41 @@ class Image_Comparison extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_before_image',
-			array(
-				'label' => __( 'Before Image', 'powerpack' ),
-			)
+			[
+				'label'             => __( 'Before Image', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'before_label',
-			array(
-				'label'   => __( 'Label', 'powerpack' ),
-				'type'    => Controls_Manager::TEXT,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => __( 'Before', 'powerpack' ),
-			)
+			[
+				'label'             => __( 'Label', 'powerpack' ),
+				'type'              => Controls_Manager::TEXT,
+				'default'           => __( 'Before', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'before_image',
-			array(
-				'label'   => __( 'Image', 'powerpack' ),
-				'type'    => Controls_Manager::MEDIA,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => array(
+			[
+				'label'             => __( 'Image', 'powerpack' ),
+				'type'              => Controls_Manager::MEDIA,
+				'dynamic'           => [
+					'active'   => true,
+				],
+				'default'           => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-			)
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'              => 'before_image',
+				'default'           => 'full',
+				'separator'         => 'none',
+			]
 		);
 
 		$this->end_controls_section();
@@ -177,35 +183,41 @@ class Image_Comparison extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_after_image',
-			array(
-				'label' => __( 'After Image', 'powerpack' ),
-			)
+			[
+				'label'             => __( 'After Image', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'after_label',
-			array(
-				'label'   => __( 'Label', 'powerpack' ),
-				'type'    => Controls_Manager::TEXT,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => __( 'After', 'powerpack' ),
-			)
+			[
+				'label'             => __( 'Label', 'powerpack' ),
+				'type'              => Controls_Manager::TEXT,
+				'default'           => __( 'After', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'after_image',
-			array(
-				'label'   => __( 'Image', 'powerpack' ),
-				'type'    => Controls_Manager::MEDIA,
-				'dynamic' => array(
-					'active' => true,
-				),
-				'default' => array(
+			[
+				'label'             => __( 'Image', 'powerpack' ),
+				'type'              => Controls_Manager::MEDIA,
+				'dynamic'           => [
+					'active'   => true,
+				],
+				'default'           => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-			)
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'              => 'after_image',
+				'default'           => 'full',
+				'separator'         => 'none',
+			]
 		);
 
 		$this->end_controls_section();
@@ -216,65 +228,65 @@ class Image_Comparison extends Powerpack_Widget {
 		 * Content Tab: Settings
 		 */
 		$this->start_controls_section(
-			'section_member_box_settings',
-			array(
-				'label' => __( 'Settings', 'powerpack' ),
-			)
+			'section_settings',
+			[
+				'label'             => __( 'Settings', 'powerpack' ),
+			]
 		);
 
 		$this->add_control(
 			'visible_ratio',
-			array(
-				'label'      => __( 'Visible Ratio', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 1,
-						'step' => 0.1,
-					),
-				),
-				'size_units' => '',
-			)
+			[
+				'label'                 => __( 'Visible Ratio', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 1,
+						'step'  => 0.1,
+					],
+				],
+				'size_units'            => '',
+			]
 		);
 
 		$this->add_control(
 			'orientation',
-			array(
-				'label'   => __( 'Orientation', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'horizontal',
-				'options' => array(
-					'vertical'   => __( 'Vertical', 'powerpack' ),
-					'horizontal' => __( 'Horizontal', 'powerpack' ),
-				),
-			)
+			[
+				'label'                 => __( 'Orientation', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'horizontal',
+				'options'               => [
+					'vertical'      => __( 'Vertical', 'powerpack' ),
+					'horizontal'    => __( 'Horizontal', 'powerpack' ),
+				],
+			]
 		);
 
 		$this->add_control(
 			'move_slider',
-			array(
-				'label'   => __( 'Move Slider', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'drag',
-				'options' => array(
-					'drag'        => __( 'Drag', 'powerpack' ),
-					'mouse_move'  => __( 'Mouse Move', 'powerpack' ),
-					'mouse_click' => __( 'Mouse Click', 'powerpack' ),
-				),
-			)
+			[
+				'label'                 => __( 'Move Slider', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'drag',
+				'options'               => [
+					'drag'          => __( 'Drag', 'powerpack' ),
+					'mouse_move'    => __( 'Mouse Move', 'powerpack' ),
+					'mouse_click'   => __( 'Mouse Click', 'powerpack' ),
+				],
+			]
 		);
 
 		$this->add_control(
 			'overlay',
-			array(
-				'label'        => __( 'Overlay', 'powerpack' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'yes',
-				'label_on'     => __( 'Show', 'powerpack' ),
-				'label_off'    => __( 'Hide', 'powerpack' ),
-				'return_value' => 'yes',
-			)
+			[
+				'label'             => __( 'Overlay', 'powerpack' ),
+				'type'              => Controls_Manager::SWITCHER,
+				'default'           => 'yes',
+				'label_on'          => __( 'Show', 'powerpack' ),
+				'label_off'         => __( 'Hide', 'powerpack' ),
+				'return_value'      => 'yes',
+			]
 		);
 
 		$this->end_controls_section();
@@ -833,24 +845,26 @@ class Image_Comparison extends Powerpack_Widget {
 		?>
 		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'image-comparison' ) ); ?>>
 			<?php
-			if ( '' !== $settings['before_image']['url'] ) :
+			if ( ! empty( $settings['before_image']['url'] ) ) :
 
-				$this->add_render_attribute( 'before-image', 'src', $settings['before_image']['url'] );
+				$this->add_render_attribute( 'before-image', 'src', Group_Control_Image_Size::get_attachment_image_src( $settings['before_image']['id'], 'before_image', $settings ) );
 				$this->add_render_attribute( 'before-image', 'alt', Control_Media::get_image_alt( $settings['before_image'] ) );
 				$this->add_render_attribute( 'before-image', 'title', Control_Media::get_image_title( $settings['before_image'] ) );
-				?>
-				<img <?php echo wp_kses_post( $this->get_render_attribute_string( 'before-image' ) ); ?> />
-				<?php
+				$this->add_render_attribute( 'before-image', 'class', 'pp-before-img' );
+
+				printf( '<img %s />', $this->get_render_attribute_string( 'before-image' ) );
+
 				endif;
 
-			if ( '' !== $settings['after_image']['url'] ) :
+			if ( ! empty( $settings['after_image']['url'] ) ) :
 
-				$this->add_render_attribute( 'after-image', 'src', $settings['after_image']['url'] );
+				$this->add_render_attribute( 'after-image', 'src', Group_Control_Image_Size::get_attachment_image_src( $settings['after_image']['id'], 'after_image', $settings ) );
 				$this->add_render_attribute( 'after-image', 'alt', Control_Media::get_image_alt( $settings['after_image'] ) );
 				$this->add_render_attribute( 'after-image', 'title', Control_Media::get_image_title( $settings['after_image'] ) );
-				?>
-				<img <?php echo wp_kses_post( $this->get_render_attribute_string( 'after-image' ) ); ?> />
-				<?php
+				$this->add_render_attribute( 'after-image', 'class', 'pp-after-img' );
+
+				printf( '<img %s />', $this->get_render_attribute_string( 'after-image' ) );
+
 				endif;
 			?>
 		</div>
@@ -876,11 +890,31 @@ class Image_Comparison extends Powerpack_Widget {
 		#>
 		<div class="pp-image-comparison" data-settings='{ "visible_ratio":{{ visible_ratio }},"orientation":"{{ settings.orientation }}","before_label":"{{ settings.before_label }}","after_label":"{{ settings.after_label }}","slider_on_hover":{{ slider_on_hover }},"slider_with_handle":{{ slider_with_handle }},"slider_with_click":{{ slider_with_click }},"no_overlay":{{ no_overlay }} }'>
 			<# if ( settings.before_image.url != '' ) { #>
-				<img src="{{ settings.before_image.url }}">
+				<#
+				var before_image = {
+					id: settings.before_image.id,
+					url: settings.before_image.url,
+					size: settings.before_image_size,
+					dimension: settings.before_image_custom_dimension,
+					model: view.getEditModel()
+				};
+				var before_image_url = elementor.imagesManager.getImageUrl( before_image );
+				#>
+				<img src="{{{ before_image_url }}}" class="pp-before-img">
 			<# } #>
 
 			<# if ( settings.after_image.url != '' ) { #>
-				<img src="{{ settings.after_image.url }}">
+				<#
+				var after_image = {
+					id: settings.after_image.id,
+					url: settings.after_image.url,
+					size: settings.after_image_size,
+					dimension: settings.after_image_custom_dimension,
+					model: view.getEditModel()
+				};
+				var after_image_url = elementor.imagesManager.getImageUrl( after_image );
+				#>
+				<img src="{{{ after_image_url }}}" class="pp-after-img">
 			<# } #>
 		</div>
 		<?php
