@@ -11,7 +11,7 @@ use PowerpackElementsLite\Base\Powerpack_Widget;
 use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 
-// Elementor Classes.
+// Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Control_Media;
 use Elementor\Utils;
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Advanced_Accordion extends Powerpack_Widget {
 
 	/**
-	 * Retrieve advanced accordion widget name.
+	 * Retrieve Advanced Accordion widget name.
 	 *
 	 * @access public
 	 *
@@ -45,7 +45,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve advanced accordion widget title.
+	 * Retrieve Advanced Accordion widget title.
 	 *
 	 * @access public
 	 *
@@ -56,7 +56,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve advanced accordion widget icon.
+	 * Retrieve Advanced Accordion widget icon.
 	 *
 	 * @access public
 	 *
@@ -80,7 +80,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of scripts the advanced accordion widget depended on.
+	 * Retrieve the list of scripts the Advanced Accordion widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
@@ -95,7 +95,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register advanced accordion widget controls.
+	 * Register Advanced Accordion widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
@@ -831,6 +831,18 @@ class Advanced_Accordion extends Powerpack_Widget {
 		);
 
 		$this->add_responsive_control(
+			'tab_title_border_radius',
+			[
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
 			'tab_title_padding',
 			[
 				'label'                 => esc_html__( 'Padding', 'powerpack' ),
@@ -1397,9 +1409,10 @@ class Advanced_Accordion extends Powerpack_Widget {
 		$id_int     = substr( $this->get_id_int(), 0, 3 );
 
 		$this->add_render_attribute( 'accordion', [
-			'class'                 => [ 'pp-advanced-accordion', 'pp-toggle-icon-align-' . $settings['toggle_icon_align'] ],
-			'id'                    => 'pp-advanced-accordion-' . esc_attr( $this->get_id() ),
-			'data-accordion-id'     => esc_attr( $this->get_id() ),
+			'class'             => [ 'pp-advanced-accordion', 'pp-toggle-icon-align-' . $settings['toggle_icon_align'] ],
+			'id'                => 'pp-advanced-accordion-' . esc_attr( $this->get_id() ),
+			'data-accordion-id' => esc_attr( $this->get_id() ),
+			'role'              => 'tablist',
 		] );
 		?>
 		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'accordion' ) ); ?>>
@@ -1410,12 +1423,12 @@ class Advanced_Accordion extends Powerpack_Widget {
 				$tab_title_setting_key = $this->get_repeater_setting_key( 'tab_title', 'tabs', $index );
 				$tab_content_setting_key = $this->get_repeater_setting_key( 'accordion_content', 'tabs', $index );
 
-				$tab_title_class    = [ 'pp-accordion-tab-title' ];
-				$tab_content_class  = [ 'pp-accordion-tab-content' ];
+				$tab_title_class   = [ 'pp-accordion-tab-title' ];
+				$tab_content_class = [ 'pp-accordion-tab-content' ];
 
 				if ( 'yes' === $tab['accordion_tab_default_active'] ) {
-					$tab_title_class[]      = 'pp-accordion-tab-active-default';
-					$tab_content_class[]    = 'pp-accordion-tab-active-default';
+					$tab_title_class[]   = 'pp-accordion-tab-active-default';
+					$tab_content_class[] = 'pp-accordion-tab-active-default';
 				}
 
 				if ( $settings['custom_id_prefix'] ) {
@@ -1425,20 +1438,21 @@ class Advanced_Accordion extends Powerpack_Widget {
 				}
 
 				$this->add_render_attribute( $tab_title_setting_key, [
-					'id'                => $tab_id,
-					'class'             => $tab_title_class,
-					'tabindex'          => $id_int . $tab_count,
-					'data-tab'          => $tab_count,
-					'role'              => 'tab',
-					'aria-controls'     => 'pp-accordion-tab-content-' . $id_int . $tab_count,
+					'id'            => $tab_id,
+					'class'         => $tab_title_class,
+					'tabindex'      => '0',
+					'data-tab'      => $tab_count,
+					'role'          => 'tab',
+					'aria-controls' => 'pp-accordion-tab-content-' . $id_int . $tab_count,
+					'aria-expanded' => ( 'yes' === $tab['accordion_tab_default_active'] ) ? 'true' : 'false',
 				]);
 
 				$this->add_render_attribute( $tab_content_setting_key, [
-					'id'                => 'pp-accordion-tab-content-' . $id_int . $tab_count,
-					'class'             => $tab_content_class,
-					'data-tab'          => $tab_count,
-					'role'              => 'tabpanel',
-					'aria-labelledby'   => $tab_id,
+					'id'              => 'pp-accordion-tab-content-' . $id_int . $tab_count,
+					'class'           => $tab_content_class,
+					'data-tab'        => $tab_count,
+					'role'            => 'tabpanel',
+					'aria-labelledby' => $tab_id,
 				] );
 
 				if ( 'content' === $tab['content_type'] ) {
