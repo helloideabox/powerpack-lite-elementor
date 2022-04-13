@@ -1,3 +1,7 @@
+== 2.6.12 ==
+Release date: April 13, 2022
+* Enhancement: Team Member - Added: Margin option for image
+
 == 2.6.11 ==
 Release date: March 23, 2022
 * Hotfix: Compatibility issues with Elementor 3.6.0

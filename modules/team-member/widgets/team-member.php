@@ -853,6 +853,18 @@ class Team_Member extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_responsive_control(
+			'member_image_margin',
+			[
+				'label'                 => __( 'Margin', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%', 'rem' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-tm-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -1739,7 +1751,7 @@ class Team_Member extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', 'em', '%', 'rem' ],
 				'separator'             => 'before',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
