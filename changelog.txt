@@ -1,3 +1,7 @@
+== 2.6.13 ==
+Release date: April 15, 2022
+* Fixed: Image Comparison - JS error preventing the widget from working
+
 == 2.6.12 ==
 Release date: April 13, 2022
 * Enhancement: Team Member - Added: Margin option for image

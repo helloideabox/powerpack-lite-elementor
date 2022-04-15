@@ -229,6 +229,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.13 - April 15, 2022 =
+* 	Fixed: Image Comparison - JS error preventing the widget from working
+
 = 2.6.12 - April 13, 2022 =
 * 	Enhancement: Team Member - Added: Margin option for image
 * 	Enhancement: Advanced Accordion - Added border radius option for title

@@ -199,7 +199,7 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
-			'pp-twentytwenty',
+			'twentytwenty',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/jquery.twentytwenty.js',
 			[
 				'jquery',
