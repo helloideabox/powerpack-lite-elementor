@@ -149,7 +149,7 @@ class PowerpackLitePlugin {
 
 		wp_register_style(
 			'pp-twentytwenty',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/twentytwenty.css',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/twentytwenty' . $suffix . '.css',
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
@@ -200,7 +200,7 @@ class PowerpackLitePlugin {
 
 		wp_register_script(
 			'twentytwenty',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/jquery.twentytwenty.js',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/jquery.twentytwenty' . $suffix . '.js',
 			[
 				'jquery',
 			],
