@@ -99,6 +99,13 @@ class Extension_Display_Conditions extends Extension_Base {
 
 		}, 10, 2 );
 
+		// Activate sections for containers
+		add_action( 'elementor/element/container/section_layout/after_section_end', function( $element, $args ) {
+
+			$this->add_common_sections( $element, $args );
+
+		}, 10, 2 );
+
 	}
 
 	/**

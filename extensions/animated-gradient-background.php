@@ -111,9 +111,19 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 	 * @access protected
 	 */
 	protected function add_common_sections_actions() {
-		// Activate sections for sections
+		// Activate animated gradient background for sections
 		add_action(
 			'elementor/element/section/section_background/after_section_end',
+			function( $element, $args ) {
+				$this->add_gradient_background_animation_sections( $element, $args );
+			},
+			10,
+			2
+		);
+
+		// Activate animated gradient background for containers
+		add_action(
+			'elementor/element/container/section_background/after_section_end',
 			function( $element, $args ) {
 				$this->add_gradient_background_animation_sections( $element, $args );
 			},
@@ -232,72 +242,89 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 			2
 		);
 
-		// Conditions for sections
+		// Activate controls for containers
 		add_action(
-			'elementor/frontend/section/before_render',
-			function( $element ) {
-				$settings  = $element->get_settings();
-
-				if ( 'yes' === $settings['pp_animated_gradient_bg_enable'] ) {
-					if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() || ! \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
-						wp_enqueue_script( 'pp-animated-gradient-bg' );
-					}
-				}
-			},
-			10,
-			1
-		);
-
-		// Conditions for sections
-		add_action(
-			'elementor/frontend/section/before_render',
-			function( $element ) {
-				$settings  = $element->get_settings();
-				if ( 'yes' === $settings['pp_animated_gradient_bg_enable'] ) {
-					$angle = $settings['pp_animated_gradient_bg_angle']['size'];
-					$element->add_render_attribute( '_wrapper', 'data-angle', $angle . 'deg' );
-					$gradient_color_list = $settings['pp_animated_gradient_bg_color_list'];
-					foreach ( $gradient_color_list as $gradient_color ) {
-						$color[] = $gradient_color['pp_animated_gradient_bg_color'];
-					};
-					$colors = implode( ',', $color );
-					$element->add_render_attribute( '_wrapper', 'data-color', $colors );
-				}
-			},
-			10,
-			1
-		);
-
-		add_action(
-			'elementor/section/print_template',
-			function( $template, $widget ) {
-
-				if ( ! $template ) {
-					return;
-				}
-				ob_start();
-				$old_template = $template;
-				?>
-				<#
-					color_list = settings.pp_animated_gradient_bg_color_list;
-					angle = settings.pp_animated_gradient_bg_angle.size;
-					var color = [];
-					var i = 0;
-					_.each(color_list , function(color_list){
-							color[i] = color_list.pp_animated_gradient_bg_color;
-							i = i+1;
-					});
-					view.addRenderAttribute('_wrapper', 'data-color', color);
-				#>
-				<div class="pp-animated-gradient-bg" data-angle="{{{ angle }}}deg" data-color="{{{ color }}}"></div>
-				<?php
-				$slider_content = ob_get_contents();
-				ob_end_clean();
-				$template = $slider_content . $old_template;
-				return $template;
+			'elementor/element/container/section_powerpack_elements_background_effects/before_section_end',
+			function( $element, $args ) {
+				$this->add_controls( $element, $args );
 			},
 			10,
 			2
 		);
+
+		add_action( 'elementor/frontend/section/before_render', array( $this, 'before_render' ), 10, 1 );
+		add_action( 'elementor/frontend/container/before_render', array( $this, 'before_render' ), 10, 1 );
+
+		add_action( 'elementor/section/print_template', array( $this, 'print_template' ), 10, 2 );
+		add_action( 'elementor/container/print_template', array( $this, 'print_template' ), 10, 2 );
+	}
+
+	/**
+	 * Render Animated Gradient Background output on the frontend.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 * @param object $element for current element.
+	 */
+	public function before_render( $element ) {
+		$settings  = $element->get_settings();
+
+		if ( 'yes' === $settings['pp_animated_gradient_bg_enable'] ) {
+			if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() || ! \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+				wp_enqueue_script( 'pp-animated-gradient-bg' );
+			}
+		}
+
+		if ( 'yes' === $settings['pp_animated_gradient_bg_enable'] ) {
+			$angle = $settings['pp_animated_gradient_bg_angle']['size'];
+			$element->add_render_attribute( '_wrapper', 'data-angle', $angle . 'deg' );
+			$gradient_color_list = $settings['pp_animated_gradient_bg_color_list'];
+			foreach ( $gradient_color_list as $gradient_color ) {
+				$color[] = $gradient_color['pp_animated_gradient_bg_color'];
+			};
+			$colors = implode( ',', $color );
+			$element->add_render_attribute( '_wrapper', 'data-color', $colors );
+		}
+	}
+
+	/**
+	 * Render Animated Gradient Background output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 * @param object $template for current template.
+	 * @param object $widget for current widget.
+	 */
+	public function print_template( $template, $widget ) {
+		if ( ! $template ) {
+			return;
+		}
+		ob_start();
+		$old_template = $template;
+		?>
+		<# if ( 'yes' === settings.pp_animated_gradient_bg_enable ) {
+
+			color_list = settings.pp_animated_gradient_bg_color_list;
+			angle = settings.pp_animated_gradient_bg_angle.size + 'deg';
+			var color = [];
+			var i = 0;
+			_.each(color_list , function(color_list){
+					color[i] = color_list.pp_animated_gradient_bg_color;
+					i = i+1;
+			});
+			view.addRenderAttribute('_wrapper', 'data-color', color);
+			var gradientColorEditor = 'linear-gradient( ' + angle + ',' + color + ' )';
+			#>
+			<div class="pp-animated-gradient-bg" data-angle="{{{ angle }}}deg" data-color="{{{ color }}}" style="background-image : {{{ gradientColorEditor }}}"></div>
+		<# } #>
+		<?php
+		$animated_gradient_content = ob_get_contents();
+		ob_end_clean();
+		$template = $animated_gradient_content . $old_template;
+		return $template;
 	}
 }

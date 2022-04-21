@@ -4,7 +4,9 @@ namespace PowerpackElementsLite\Base;
 
 use Elementor\Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Extension
@@ -197,7 +199,7 @@ class Extension_Base {
 				'tab' 	=> Controls_Manager::TAB_ADVANCED,
 				'label' => __( 'PowerPack', 'powerpack' ),
 			]
-		);	
+		);
 
 		$element->end_controls_section();
 
@@ -229,13 +231,14 @@ class Extension_Base {
 	 * @access private
 	 */
 	protected function remove_controls( $element, $controls = null ) {
-		if ( empty( $controls ) )
+		if ( empty( $controls ) ) {
 			return;
+		}
 
 		if ( is_array( $controls ) ) {
 			$control_id = $controls;
 
-			foreach( $controls as $control_id ) {
+			foreach ( $controls as $control_id ) {
 				$element->remove_control( $control_id );
 			}
 		} else {

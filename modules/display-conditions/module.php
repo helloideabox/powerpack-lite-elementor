@@ -262,59 +262,26 @@ class Module extends Module_Base {
 			$this->add_controls( $element, $args );
 		}, 10, 2 );
 
+		// Activate controls for containers
+		add_action( 'elementor/element/container/section_powerpack_elements_advanced/before_section_end', function( $element, $args ) {
+			$this->add_controls( $element, $args );
+		}, 10, 2 );
+
 		// Conditions for widgets
 		add_filter( 'elementor/frontend/widget/should_render', array( $this, 'render_content' ), 10, 2 );
-
-		add_action( 'elementor/frontend/widget/before_render', function( $element ) {
-			$settings = $element->get_settings();
-
-			if ( ! empty( $settings['pp_display_conditions_enable'] ) && 'yes' === $settings['pp_display_conditions_enable'] ) {
-
-				// Set the conditions
-				$this->set_conditions( $element->get_id(), $settings['pp_display_conditions'] );
-
-				if ( ! $this->is_visible( $element->get_id(), $settings['pp_display_conditions_relation'] ) ) { // Check the conditions
-					$element->add_render_attribute( '_wrapper', 'class', 'pp-visibility-hidden' );
-				}
-			}
-
-		}, 10, 1 );
+		add_action( 'elementor/frontend/widget/before_render', array( $this, 'before_render' ), 10, 1 );
 
 		// Conditions for columns
 		add_filter( 'elementor/frontend/column/should_render', array( $this, 'render_content' ), 10, 2 );
-
-		add_action( 'elementor/frontend/column/before_render', function( $element ) {
-			$settings = $element->get_settings();
-
-			if ( ! empty( $settings['pp_display_conditions_enable'] ) && 'yes' === $settings['pp_display_conditions_enable'] ) {
-
-				// Set the conditions
-				$this->set_conditions( $element->get_id(), $settings['pp_display_conditions'] );
-
-				if ( ! $this->is_visible( $element->get_id(), $settings['pp_display_conditions_relation'] ) ) { // Check the conditions
-					$element->add_render_attribute( '_wrapper', 'class', 'pp-visibility-hidden' );
-				}
-			}
-
-		}, 10, 1 );
+		add_action( 'elementor/frontend/column/before_render', array( $this, 'before_render' ), 10, 1 );
 
 		// Conditions for sections
 		add_filter( 'elementor/frontend/section/should_render', array( $this, 'render_content' ), 10, 2 );
+		add_action( 'elementor/frontend/section/before_render', array( $this, 'before_render' ), 10, 1 );
 
-		add_action( 'elementor/frontend/section/before_render', function( $element ) {
-			$settings = $element->get_settings();
-
-			if ( ! empty( $settings['pp_display_conditions_enable'] ) && 'yes' === $settings['pp_display_conditions_enable'] ) {
-
-				// Set the conditions
-				$this->set_conditions( $element->get_id(), $settings['pp_display_conditions'] );
-
-				if ( ! $this->is_visible( $element->get_id(), $settings['pp_display_conditions_relation'] ) ) { // Check the conditions
-					$element->add_render_attribute( '_wrapper', 'class', 'pp-visibility-hidden' );
-				}
-			}
-
-		}, 10, 1 );
+		// Conditions for containers
+		add_filter( 'elementor/frontend/container/should_render', array( $this, 'render_content' ), 10, 2 );
+		add_action( 'elementor/frontend/container/before_render', array( $this, 'before_render' ), 10, 1 );
 	}
 
 	/**
@@ -346,6 +313,29 @@ class Module extends Module_Base {
 		}
 
 		return $should_render;
+	}
+
+	/**
+	 * Render Display Conditions output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 * @param object $element for current element.
+	 */
+	public function before_render( $element ) {
+		$settings = $element->get_settings();
+
+		if ( ! empty( $settings['pp_display_conditions_enable'] ) && 'yes' === $settings['pp_display_conditions_enable'] ) {
+
+			// Set the conditions
+			$this->set_conditions( $element->get_id(), $settings['pp_display_conditions'] );
+
+			if ( ! $this->is_visible( $element->get_id(), $settings['pp_display_conditions_relation'] ) ) { // Check the conditions
+				$element->add_render_attribute( '_wrapper', 'class', 'pp-visibility-hidden' );
+			}
+		}
 	}
 
 	/**
