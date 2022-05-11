@@ -120,12 +120,12 @@
 		}
 
 		$('.pp-hot-spot-wrap[data-tooltip]').each(function () {
-			var ttPosition   = $(this).data('tooltip-position');
+			var ttPosition = $(this).data('tooltip-position');
 
 			$( this ).pptooltipster({
 				trigger:         ttTrigger,
 				animation:       animation,
-	        	minWidth:        tooltipWidth,
+	        	minWidth:        0,
 	        	maxWidth:        tooltipWidth,
 				ppclass:         ppclass,
 				position:        ttPosition,

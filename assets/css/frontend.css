@@ -1468,25 +1468,25 @@ div[class*=' pa-'] {
 .pp-hot-spot-wrap {
   cursor: pointer;
   position: absolute;
-  width: 14px;
-  height: 14px;
-  background: #000;
+  left: 30%;
+  top: 30%;
   border-radius: 50%;
-  font-size: 14px;
-  display: inline-flex;
-  padding: 15px;
-  align-items: center;
-  justify-content: center; }
+  display: block; }
 
 .pp-hot-spot-image {
   position: relative; }
 
 .pp-hot-spot-inner {
   cursor: pointer;
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center; }
+  text-align: center;
+  padding: 10px;
+  width: 14px;
+  height: 14px;
+  box-sizing: content-box; }
   .pp-hot-spot-inner.hotspot-animation:before {
     content: '';
     display: block;
@@ -1509,7 +1509,6 @@ div[class*=' pa-'] {
   border-radius: 50%;
   color: #fff;
   height: 100%;
-  position: absolute;
   width: 100%; }
 
 .pp-hotspot-icon {

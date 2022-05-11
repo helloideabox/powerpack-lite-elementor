@@ -66,7 +66,7 @@ class Hotspots extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the widget belongs to.
+	 * Retrieve the list of keywords the image hotspots widget belongs to.
 	 *
 	 * @access public
 	 *
@@ -231,10 +231,10 @@ class Hotspots extends Powerpack_Widget {
 				)
 			);
 
-			$repeater->add_control(
+			$repeater->add_responsive_control(
 				'left_position',
 				array(
-					'label'     => __( 'Left Position (%)', 'powerpack' ),
+					'label'     => __( 'Horizontal Position (%)', 'powerpack' ),
 					'type'      => Controls_Manager::SLIDER,
 					'range'     => array(
 						'px' => array(
@@ -254,10 +254,10 @@ class Hotspots extends Powerpack_Widget {
 				)
 			);
 
-			$repeater->add_control(
+			$repeater->add_responsive_control(
 				'top_position',
 				array(
-					'label'     => __( 'Top Position (%)', 'powerpack' ),
+					'label'     => __( 'Vertical Position (%)', 'powerpack' ),
 					'type'      => Controls_Manager::SLIDER,
 					'range'     => array(
 						'px' => array(
@@ -825,13 +825,13 @@ class Hotspots extends Powerpack_Widget {
 				'range'      => array(
 					'px' => array(
 						'min'  => 6,
-						'max'  => 40,
+						'max'  => 100,
 						'step' => 1,
 					),
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-hot-spot-wrap' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-hot-spot-inner' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; font-size: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -841,7 +841,7 @@ class Hotspots extends Powerpack_Widget {
 			array(
 				'name'      => 'hotspots_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'selector'  => '{{WRAPPER}} .pp-hot-spot-wrap',
+				'selector'  => '{{WRAPPER}} .pp-hot-spot-inner',
 			)
 		);
 
@@ -852,7 +852,7 @@ class Hotspots extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-hot-spot-wrap, {{WRAPPER}} .pp-hot-spot-inner, {{WRAPPER}} .pp-hot-spot-inner:before' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-hot-spot-inner, {{WRAPPER}} .pp-hot-spot-inner:before' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .pp-hot-spot-wrap .pp-icon svg' => 'fill: {{VALUE}}',
 				),
 			)
@@ -865,7 +865,7 @@ class Hotspots extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-hot-spot-wrap, {{WRAPPER}} .pp-hot-spot-inner, {{WRAPPER}} .pp-hot-spot-inner:before, {{WRAPPER}} .pp-hotspot-icon-wrap' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-hot-spot-inner, {{WRAPPER}} .pp-hot-spot-inner:before, {{WRAPPER}} .pp-hotspot-icon-wrap' => 'background-color: {{VALUE}}',
 				),
 			)
 		);
@@ -877,7 +877,7 @@ class Hotspots extends Powerpack_Widget {
 				'label'       => __( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-hot-spot-wrap',
+				'selector'    => '{{WRAPPER}} .pp-hot-spot-inner',
 			)
 		);
 
@@ -888,7 +888,7 @@ class Hotspots extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-hot-spot-wrap, {{WRAPPER}} .pp-hot-spot-inner, {{WRAPPER}} .pp-hot-spot-inner:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-hot-spot-inner, {{WRAPPER}} .pp-hot-spot-inner:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -900,7 +900,7 @@ class Hotspots extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-hot-spot-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-hot-spot-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -909,7 +909,7 @@ class Hotspots extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name'      => 'icon_box_shadow',
-				'selector'  => '{{WRAPPER}} .pp-hot-spot-wrap',
+				'selector'  => '{{WRAPPER}} .pp-hot-spot-inner',
 				'separator' => 'before',
 			)
 		);

@@ -4,6 +4,7 @@ Release date: May 11, 2022
 * Enhancement: Advanced Accordion - Rearranged the repeater content inside tabs
 * Enhancement: Flip Box - Added content background and padding options
 * Fixed: Animated Gradient Background - Background overlay was overriding the gradient effect in editor
+* Fixed: Hotspots - Tooltip position issue
 
 == 2.6.13 ==
 Release date: April 15, 2022
