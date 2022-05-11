@@ -1,3 +1,9 @@
+== 2.6.14 ==
+Release date: May 11, 2022
+* Enhancement: Advanced Accordion - Added Custom CSS ID option
+* Enhancement: Advanced Accordion - Rearranged the repeater content inside tabs
+Enhancement: Flip Box - Added content background and padding options
+
 == 2.6.13 ==
 Release date: April 15, 2022
 * Fixed: Image Comparison - JS error preventing the widget from working

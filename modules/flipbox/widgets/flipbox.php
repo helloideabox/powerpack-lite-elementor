@@ -750,6 +750,39 @@ class Flipbox extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'content_front_heading',
+			[
+				'label'                 => esc_html__( 'Content', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
+		);
+
+		$this->add_control(
+			'content_background_color_front',
+			[
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-front .pp-flipbox-inner' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'content_padding_front',
+			[
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-front .pp-flipbox-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
 			'image_style_heading_front',
 			[
 				'label'                 => esc_html__( 'Image', 'powerpack' ),
@@ -1100,6 +1133,39 @@ class Flipbox extends Powerpack_Widget {
 				'types'                 => [ 'classic', 'gradient' ],
 				'exclude'               => [ 'image' ],
 				'selector'              => '{{WRAPPER}} .pp-flipbox-back .pp-flipbox-overlay',
+			]
+		);
+
+		$this->add_control(
+			'content_back_heading',
+			[
+				'label'                 => esc_html__( 'Content', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
+		);
+
+		$this->add_control(
+			'content_background_color_back',
+			[
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-back .pp-flipbox-inner' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'content_padding_back',
+			[
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-back .pp-flipbox-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
