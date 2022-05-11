@@ -230,6 +230,15 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.14 - May 11, 2022 =
+* 	Enhancement: Advanced Accordion - Added Custom CSS ID option
+* 	Enhancement: Advanced Accordion - Rearranged the repeater content inside tabs
+* 	Enhancement: Flip Box - Added content background and padding options
+* 	Fixed: Animated Gradient Background - Background overlay was overriding the gradient effect in editor
+* 	Fixed: Hotspots - Tooltip position issue
+* 	Enhancement: Core - Added support for Elementor Containers in Saved Section option
+* 	Enhancement: Core - Added support for Elementor Containers to PowerPack extensions
+
 = 2.6.13 - April 15, 2022 =
 * 	Fixed: Image Comparison - JS error preventing the widget from working
 
