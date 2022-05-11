@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.6.12\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.6.14\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2022-04-13 11:12:13+00:00\n"
+"POT-Creation-Date: 2022-05-11 06:22:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -65,7 +65,7 @@ msgstr ""
 msgid "1977"
 msgstr ""
 
-#: base/extension-base.php:198
+#: base/extension-base.php:200
 msgid "PowerPack"
 msgstr ""
 
@@ -449,7 +449,7 @@ msgid "Timeline"
 msgstr ""
 
 #: classes/class-pp-config.php:531
-#: modules/advanced-accordion/widgets/advanced-accordion.php:454
+#: modules/advanced-accordion/widgets/advanced-accordion.php:496
 #: modules/instafeed/widgets/instafeed.php:1905
 msgid "Toggle"
 msgstr ""
@@ -1257,12 +1257,12 @@ msgstr ""
 msgid "PowerPack Background"
 msgstr ""
 
-#: extensions/animated-gradient-background.php:138
+#: extensions/animated-gradient-background.php:148
 msgid "Enable Animated Gradient Background"
 msgstr ""
 
-#: extensions/animated-gradient-background.php:140
-#: extensions/wrapper-link.php:121
+#: extensions/animated-gradient-background.php:150
+#: extensions/wrapper-link.php:128
 #: modules/business-hours/widgets/business-hours.php:197
 #: modules/business-hours/widgets/business-hours.php:254
 #: modules/business-hours/widgets/business-hours.php:350
@@ -1284,8 +1284,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1172
 #: modules/content-ticker/widgets/content-ticker.php:1186
 #: modules/content-ticker/widgets/content-ticker.php:1208
-#: modules/display-conditions/module.php:368
-#: modules/display-conditions/module.php:382
+#: modules/display-conditions/module.php:358
+#: modules/display-conditions/module.php:372
 #: modules/fluent-forms/widgets/fluent-forms.php:107
 #: modules/fluent-forms/widgets/fluent-forms.php:857
 #: modules/formidable-forms/widgets/formidable-forms.php:113
@@ -1379,8 +1379,8 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: extensions/animated-gradient-background.php:141
-#: extensions/wrapper-link.php:122
+#: extensions/animated-gradient-background.php:151
+#: extensions/wrapper-link.php:129
 #: modules/business-hours/widgets/business-hours.php:196
 #: modules/business-hours/widgets/business-hours.php:255
 #: modules/business-hours/widgets/business-hours.php:349
@@ -1402,8 +1402,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1173
 #: modules/content-ticker/widgets/content-ticker.php:1187
 #: modules/content-ticker/widgets/content-ticker.php:1209
-#: modules/display-conditions/module.php:369
-#: modules/display-conditions/module.php:383
+#: modules/display-conditions/module.php:359
+#: modules/display-conditions/module.php:373
 #: modules/fluent-forms/widgets/fluent-forms.php:108
 #: modules/fluent-forms/widgets/fluent-forms.php:858
 #: modules/formidable-forms/widgets/formidable-forms.php:114
@@ -1497,19 +1497,19 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: extensions/animated-gradient-background.php:151
+#: extensions/animated-gradient-background.php:161
 #: modules/instafeed/widgets/instafeed.php:1895
 msgid "Angle"
 msgstr ""
 
-#: extensions/animated-gradient-background.php:179
+#: extensions/animated-gradient-background.php:189
 msgid "Add Color"
 msgstr ""
 
-#: extensions/animated-gradient-background.php:187
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1171
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1248
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1303
+#: extensions/animated-gradient-background.php:197
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1213
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1290
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1345
 #: modules/business-hours/widgets/business-hours.php:916
 #: modules/business-hours/widgets/business-hours.php:973
 #: modules/buttons/widgets/buttons.php:980
@@ -1531,12 +1531,12 @@ msgstr ""
 #: modules/counter/widgets/counter.php:1140
 #: modules/divider/widgets/divider.php:686
 #: modules/divider/widgets/divider.php:784
-#: modules/flipbox/widgets/flipbox.php:816
-#: modules/flipbox/widgets/flipbox.php:901
-#: modules/flipbox/widgets/flipbox.php:959
-#: modules/flipbox/widgets/flipbox.php:1170
-#: modules/flipbox/widgets/flipbox.php:1255
-#: modules/flipbox/widgets/flipbox.php:1313
+#: modules/flipbox/widgets/flipbox.php:849
+#: modules/flipbox/widgets/flipbox.php:934
+#: modules/flipbox/widgets/flipbox.php:992
+#: modules/flipbox/widgets/flipbox.php:1236
+#: modules/flipbox/widgets/flipbox.php:1321
+#: modules/flipbox/widgets/flipbox.php:1379
 #: modules/fluent-forms/widgets/fluent-forms.php:904
 #: modules/fluent-forms/widgets/fluent-forms.php:1054
 #: modules/formidable-forms/widgets/formidable-forms.php:962
@@ -1625,10 +1625,14 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: extensions/display-conditions.php:55
+#: extensions/display-conditions.php:57
 msgid ""
 "Adds display conditions to widgets and sections allowing you to show them "
 "depending on authentication, roles, date and time of day."
+msgstr ""
+
+#: extensions/display-conditions.php:126
+msgid "This widget is displayed conditionally."
 msgstr ""
 
 #: extensions/upgrade-pro.php:48
@@ -1639,11 +1643,11 @@ msgstr ""
 msgid "Adds link around sections, columns and widgets."
 msgstr ""
 
-#: extensions/wrapper-link.php:118 includes/helper-functions.php:457
+#: extensions/wrapper-link.php:125 includes/helper-functions.php:457
 msgid "Wrapper Link"
 msgstr ""
 
-#: extensions/wrapper-link.php:131 modules/buttons/widgets/buttons.php:252
+#: extensions/wrapper-link.php:138 modules/buttons/widgets/buttons.php:252
 #: modules/content-ticker/widgets/content-ticker.php:505
 #: modules/flipbox/widgets/flipbox.php:428
 #: modules/headings/widgets/dual-heading.php:138
@@ -1803,7 +1807,7 @@ msgstr ""
 msgid "WPForms"
 msgstr ""
 
-#: includes/helper-functions.php:456 modules/display-conditions/module.php:365
+#: includes/helper-functions.php:456 modules/display-conditions/module.php:355
 msgid "Display Conditions"
 msgstr ""
 
@@ -1812,12 +1816,44 @@ msgid "Animated Gradient Background"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:132
-#: modules/advanced-accordion/widgets/advanced-accordion.php:453
+#: modules/advanced-accordion/widgets/advanced-accordion.php:495
 msgid "Accordion"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:141
-#: modules/advanced-accordion/widgets/advanced-accordion.php:755
+#: modules/advanced-accordion/widgets/advanced-accordion.php:143
+#: modules/advanced-accordion/widgets/advanced-accordion.php:167
+#: modules/advanced-accordion/widgets/advanced-accordion.php:180
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1066
+#: modules/buttons/widgets/buttons.php:120
+#: modules/content-reveal/widgets/content-reveal.php:103
+#: modules/content-reveal/widgets/content-reveal.php:114
+#: modules/content-reveal/widgets/content-reveal.php:455
+#: modules/content-ticker/widgets/content-ticker.php:490
+#: modules/content-ticker/widgets/content-ticker.php:1400
+#: modules/flipbox/widgets/flipbox.php:755
+#: modules/flipbox/widgets/flipbox.php:1142
+#: modules/icon-list/widgets/icon-list.php:135
+#: modules/image-accordion/widgets/image-accordion.php:120
+#: modules/image-accordion/widgets/image-accordion.php:593
+#: modules/info-box/widgets/info-box-carousel.php:142
+#: modules/info-box/widgets/info-box.php:375
+#: modules/info-box/widgets/info-box.php:1084
+#: modules/info-list/widgets/info-list.php:930
+#: modules/info-table/widgets/info-table.php:191
+#: modules/instafeed/widgets/instafeed.php:1093
+#: modules/logos/widgets/logo-grid.php:107
+#: modules/posts/skins/skin-base.php:804 modules/posts/skins/skin-base.php:2454
+#: modules/pricing/widgets/price-menu.php:467
+#: modules/promo-box/widgets/promo-box.php:116
+#: modules/promo-box/widgets/promo-box.php:561
+#: modules/team-member/widgets/team-member-carousel.php:182
+#: modules/team-member/widgets/team-member-carousel.php:1057
+#: modules/team-member/widgets/team-member.php:645
+msgid "Content"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:150
+#: modules/advanced-accordion/widgets/advanced-accordion.php:797
 #: modules/caldera-forms/widgets/caldera-forms.php:138
 #: modules/caldera-forms/widgets/caldera-forms.php:339
 #: modules/contact-form-seven/widgets/contact-form-7.php:133
@@ -1833,8 +1869,8 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:218
 #: modules/flipbox/widgets/flipbox.php:366
 #: modules/flipbox/widgets/flipbox.php:418
-#: modules/flipbox/widgets/flipbox.php:889
-#: modules/flipbox/widgets/flipbox.php:1243
+#: modules/flipbox/widgets/flipbox.php:922
+#: modules/flipbox/widgets/flipbox.php:1309
 #: modules/fluent-forms/widgets/fluent-forms.php:116
 #: modules/fluent-forms/widgets/fluent-forms.php:287
 #: modules/formidable-forms/widgets/formidable-forms.php:122
@@ -1887,13 +1923,136 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:144
+#: modules/advanced-accordion/widgets/advanced-accordion.php:153
 #: modules/image-accordion/widgets/image-accordion.php:128
 msgid "Accordion Title"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:154
-#: modules/advanced-accordion/widgets/advanced-accordion.php:960
+#: modules/advanced-accordion/widgets/advanced-accordion.php:163
+#: modules/content-reveal/widgets/content-reveal.php:110
+#: modules/posts/skins/skin-base.php:823
+msgid "Content Type"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:168
+#: modules/advanced-accordion/widgets/advanced-accordion.php:193
+#: modules/buttons/widgets/buttons.php:154
+#: modules/buttons/widgets/buttons.php:183
+#: modules/content-ticker/widgets/content-ticker.php:156
+#: modules/content-ticker/widgets/content-ticker.php:523
+#: modules/content-ticker/widgets/content-ticker.php:1647
+#: modules/counter/widgets/counter.php:265
+#: modules/counter/widgets/counter.php:292
+#: modules/divider/widgets/divider.php:134
+#: modules/divider/widgets/divider.php:215
+#: modules/divider/widgets/divider.php:880
+#: modules/flipbox/widgets/flipbox.php:143
+#: modules/flipbox/widgets/flipbox.php:291
+#: modules/flipbox/widgets/flipbox.php:788
+#: modules/flipbox/widgets/flipbox.php:1175
+#: modules/hotspots/widgets/hotspots.php:123
+#: modules/hotspots/widgets/hotspots.php:716
+#: modules/icon-list/widgets/icon-list.php:166
+#: modules/icon-list/widgets/icon-list.php:198
+#: modules/image-accordion/widgets/image-accordion.php:150
+#: modules/image-comparison/widgets/image-comparison.php:157
+#: modules/image-comparison/widgets/image-comparison.php:203
+#: modules/info-box/widgets/info-box-carousel.php:200
+#: modules/info-box/widgets/info-box-carousel.php:247
+#: modules/info-box/widgets/info-box.php:140
+#: modules/info-box/widgets/info-box.php:186
+#: modules/info-list/widgets/info-list.php:175
+#: modules/info-list/widgets/info-list.php:207
+#: modules/info-table/widgets/info-table.php:116
+#: modules/info-table/widgets/info-table.php:147
+#: modules/posts/skins/skin-base.php:554 modules/posts/skins/skin-base.php:1942
+#: modules/pricing/widgets/price-menu.php:185
+#: modules/pricing/widgets/price-menu.php:897
+#: modules/pricing/widgets/pricing-table.php:169
+#: modules/pricing/widgets/pricing-table.php:196
+#: modules/promo-box/widgets/promo-box.php:262
+#: modules/promo-box/widgets/promo-box.php:290
+#: modules/promo-box/widgets/promo-box.php:995
+#: modules/promo-box/widgets/promo-box.php:1006
+#: modules/promo-box/widgets/promo-box.php:1228
+#: modules/promo-box/widgets/promo-box.php:1239
+#: modules/random-image/widgets/random-image.php:379
+#: modules/scroll-image/widgets/scroll-image.php:91
+#: modules/scroll-image/widgets/scroll-image.php:98
+#: modules/scroll-image/widgets/scroll-image.php:332
+#: modules/team-member/widgets/team-member-carousel.php:223
+#: modules/team-member/widgets/team-member-carousel.php:242
+#: modules/team-member/widgets/team-member-carousel.php:1205
+#: modules/team-member/widgets/team-member.php:113
+#: modules/team-member/widgets/team-member.php:120
+#: modules/team-member/widgets/team-member.php:243
+#: modules/team-member/widgets/team-member.php:828
+msgid "Image"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:169
+msgid "Saved Section"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:170
+msgid "Saved Widget"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:171
+msgid "Saved Page Template"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:182
+#: modules/image-accordion/widgets/image-accordion.php:141
+#: modules/image-accordion/widgets/image-accordion.php:256
+#: modules/image-accordion/widgets/image-accordion.php:263
+#: modules/image-accordion/widgets/image-accordion.php:270
+#: modules/image-accordion/widgets/image-accordion.php:277
+msgid ""
+"Click edit button to change this text. Lorem ipsum dolor sit amet, "
+"consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, "
+"pulvinar dapibus leo."
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:217
+#: modules/buttons/widgets/buttons.php:201
+#: modules/content-ticker/widgets/content-ticker.php:194
+#: modules/hotspots/widgets/hotspots.php:142
+#: modules/icon-list/widgets/icon-list.php:293
+#: modules/image-accordion/widgets/image-accordion.php:359
+#: modules/info-box/widgets/info-box-carousel.php:508
+#: modules/info-list/widgets/info-list.php:340
+#: modules/logos/widgets/logo-carousel.php:213
+#: modules/logos/widgets/logo-grid.php:426
+#: modules/posts/skins/skin-base.php:648
+#: modules/pricing/widgets/price-menu.php:246
+#: modules/random-image/widgets/random-image.php:220
+#: modules/scroll-image/widgets/scroll-image.php:112
+#: modules/team-member/widgets/team-member-carousel.php:520
+#: modules/team-member/widgets/team-member.php:135
+msgid "Image Size"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:235
+msgid "Choose Widget"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:255
+msgid "Choose Section"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:275
+#: modules/content-reveal/widgets/content-reveal.php:137
+msgid "Choose Template"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:295
+msgid "Active as Default"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:307
+#: modules/advanced-accordion/widgets/advanced-accordion.php:314
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1002
 #: modules/buttons/widgets/buttons.php:150
 #: modules/buttons/widgets/buttons.php:167
 #: modules/buttons/widgets/buttons.php:899
@@ -1912,8 +2071,8 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:175
 #: modules/flipbox/widgets/flipbox.php:287
 #: modules/flipbox/widgets/flipbox.php:323
-#: modules/flipbox/widgets/flipbox.php:804
-#: modules/flipbox/widgets/flipbox.php:1158
+#: modules/flipbox/widgets/flipbox.php:837
+#: modules/flipbox/widgets/flipbox.php:1224
 #: modules/hotspots/widgets/hotspots.php:184
 #: modules/hotspots/widgets/hotspots.php:194
 #: modules/icon-list/widgets/icon-list.php:162
@@ -1956,176 +2115,40 @@ msgstr ""
 msgid "Icon"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:164
-#: modules/content-reveal/widgets/content-reveal.php:110
-#: modules/posts/skins/skin-base.php:823
-msgid "Content Type"
+#: modules/advanced-accordion/widgets/advanced-accordion.php:326
+msgid "Advanced"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:168
-#: modules/advanced-accordion/widgets/advanced-accordion.php:181
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1024
-#: modules/buttons/widgets/buttons.php:120
-#: modules/content-reveal/widgets/content-reveal.php:103
-#: modules/content-reveal/widgets/content-reveal.php:114
-#: modules/content-reveal/widgets/content-reveal.php:455
-#: modules/content-ticker/widgets/content-ticker.php:490
-#: modules/content-ticker/widgets/content-ticker.php:1400
-#: modules/icon-list/widgets/icon-list.php:135
-#: modules/image-accordion/widgets/image-accordion.php:120
-#: modules/image-accordion/widgets/image-accordion.php:593
-#: modules/info-box/widgets/info-box-carousel.php:142
-#: modules/info-box/widgets/info-box.php:375
-#: modules/info-box/widgets/info-box.php:1084
-#: modules/info-list/widgets/info-list.php:930
-#: modules/info-table/widgets/info-table.php:191
-#: modules/instafeed/widgets/instafeed.php:1093
-#: modules/logos/widgets/logo-grid.php:107
-#: modules/posts/skins/skin-base.php:804 modules/posts/skins/skin-base.php:2454
-#: modules/pricing/widgets/price-menu.php:467
-#: modules/promo-box/widgets/promo-box.php:116
-#: modules/promo-box/widgets/promo-box.php:561
-#: modules/team-member/widgets/team-member-carousel.php:182
-#: modules/team-member/widgets/team-member-carousel.php:1057
-#: modules/team-member/widgets/team-member.php:645
-msgid "Content"
+#: modules/advanced-accordion/widgets/advanced-accordion.php:333
+msgid "Custom CSS ID"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:169
-#: modules/advanced-accordion/widgets/advanced-accordion.php:194
-#: modules/buttons/widgets/buttons.php:154
-#: modules/buttons/widgets/buttons.php:183
-#: modules/content-ticker/widgets/content-ticker.php:156
-#: modules/content-ticker/widgets/content-ticker.php:523
-#: modules/content-ticker/widgets/content-ticker.php:1647
-#: modules/counter/widgets/counter.php:265
-#: modules/counter/widgets/counter.php:292
-#: modules/divider/widgets/divider.php:134
-#: modules/divider/widgets/divider.php:215
-#: modules/divider/widgets/divider.php:880
-#: modules/flipbox/widgets/flipbox.php:143
-#: modules/flipbox/widgets/flipbox.php:291
-#: modules/flipbox/widgets/flipbox.php:755
-#: modules/flipbox/widgets/flipbox.php:1109
-#: modules/hotspots/widgets/hotspots.php:123
-#: modules/hotspots/widgets/hotspots.php:716
-#: modules/icon-list/widgets/icon-list.php:166
-#: modules/icon-list/widgets/icon-list.php:198
-#: modules/image-accordion/widgets/image-accordion.php:150
-#: modules/image-comparison/widgets/image-comparison.php:157
-#: modules/image-comparison/widgets/image-comparison.php:203
-#: modules/info-box/widgets/info-box-carousel.php:200
-#: modules/info-box/widgets/info-box-carousel.php:247
-#: modules/info-box/widgets/info-box.php:140
-#: modules/info-box/widgets/info-box.php:186
-#: modules/info-list/widgets/info-list.php:175
-#: modules/info-list/widgets/info-list.php:207
-#: modules/info-table/widgets/info-table.php:116
-#: modules/info-table/widgets/info-table.php:147
-#: modules/posts/skins/skin-base.php:554 modules/posts/skins/skin-base.php:1942
-#: modules/pricing/widgets/price-menu.php:185
-#: modules/pricing/widgets/price-menu.php:897
-#: modules/pricing/widgets/pricing-table.php:169
-#: modules/pricing/widgets/pricing-table.php:196
-#: modules/promo-box/widgets/promo-box.php:262
-#: modules/promo-box/widgets/promo-box.php:290
-#: modules/promo-box/widgets/promo-box.php:995
-#: modules/promo-box/widgets/promo-box.php:1006
-#: modules/promo-box/widgets/promo-box.php:1228
-#: modules/promo-box/widgets/promo-box.php:1239
-#: modules/random-image/widgets/random-image.php:379
-#: modules/scroll-image/widgets/scroll-image.php:91
-#: modules/scroll-image/widgets/scroll-image.php:98
-#: modules/scroll-image/widgets/scroll-image.php:332
-#: modules/team-member/widgets/team-member-carousel.php:223
-#: modules/team-member/widgets/team-member-carousel.php:242
-#: modules/team-member/widgets/team-member-carousel.php:1205
-#: modules/team-member/widgets/team-member.php:113
-#: modules/team-member/widgets/team-member.php:120
-#: modules/team-member/widgets/team-member.php:243
-#: modules/team-member/widgets/team-member.php:828
-msgid "Image"
-msgstr ""
-
-#: modules/advanced-accordion/widgets/advanced-accordion.php:170
-msgid "Saved Section"
-msgstr ""
-
-#: modules/advanced-accordion/widgets/advanced-accordion.php:171
-msgid "Saved Widget"
-msgstr ""
-
-#: modules/advanced-accordion/widgets/advanced-accordion.php:172
-msgid "Saved Page Template"
-msgstr ""
-
-#: modules/advanced-accordion/widgets/advanced-accordion.php:183
-#: modules/image-accordion/widgets/image-accordion.php:141
-#: modules/image-accordion/widgets/image-accordion.php:256
-#: modules/image-accordion/widgets/image-accordion.php:263
-#: modules/image-accordion/widgets/image-accordion.php:270
-#: modules/image-accordion/widgets/image-accordion.php:277
+#: modules/advanced-accordion/widgets/advanced-accordion.php:334
 msgid ""
-"Click edit button to change this text. Lorem ipsum dolor sit amet, "
-"consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, "
-"pulvinar dapibus leo."
+"This CSS ID will be applied to ID attribute of this tab in HTML. It should "
+"only contain dashes, underscores, letters or numbers. No spaces. Also make "
+"sure to use different ID for each tab."
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:218
-#: modules/buttons/widgets/buttons.php:201
-#: modules/content-ticker/widgets/content-ticker.php:194
-#: modules/hotspots/widgets/hotspots.php:142
-#: modules/icon-list/widgets/icon-list.php:293
-#: modules/image-accordion/widgets/image-accordion.php:359
-#: modules/info-box/widgets/info-box-carousel.php:508
-#: modules/info-list/widgets/info-list.php:340
-#: modules/logos/widgets/logo-carousel.php:213
-#: modules/logos/widgets/logo-grid.php:426
-#: modules/posts/skins/skin-base.php:648
-#: modules/pricing/widgets/price-menu.php:246
-#: modules/random-image/widgets/random-image.php:220
-#: modules/scroll-image/widgets/scroll-image.php:112
-#: modules/team-member/widgets/team-member-carousel.php:520
-#: modules/team-member/widgets/team-member.php:135
-msgid "Image Size"
-msgstr ""
-
-#: modules/advanced-accordion/widgets/advanced-accordion.php:236
-msgid "Choose Widget"
-msgstr ""
-
-#: modules/advanced-accordion/widgets/advanced-accordion.php:256
-msgid "Choose Section"
-msgstr ""
-
-#: modules/advanced-accordion/widgets/advanced-accordion.php:276
-#: modules/content-reveal/widgets/content-reveal.php:137
-msgid "Choose Template"
-msgstr ""
-
-#: modules/advanced-accordion/widgets/advanced-accordion.php:296
-msgid "Active as Default"
-msgstr ""
-
-#: modules/advanced-accordion/widgets/advanced-accordion.php:308
+#: modules/advanced-accordion/widgets/advanced-accordion.php:350
 msgid "Accordion Tab Title 1"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:309
+#: modules/advanced-accordion/widgets/advanced-accordion.php:351
 msgid "Accordion Tab Title 2"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:310
+#: modules/advanced-accordion/widgets/advanced-accordion.php:352
 msgid "Accordion Tab Title 3"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:330
-#: modules/advanced-accordion/widgets/advanced-accordion.php:337
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1087
+#: modules/advanced-accordion/widgets/advanced-accordion.php:372
+#: modules/advanced-accordion/widgets/advanced-accordion.php:379
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1129
 msgid "Toggle Icon"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:340
+#: modules/advanced-accordion/widgets/advanced-accordion.php:382
 #: modules/caldera-forms/widgets/caldera-forms.php:166
 #: modules/caldera-forms/widgets/caldera-forms.php:179
 #: modules/caldera-forms/widgets/caldera-forms.php:207
@@ -2182,7 +2205,7 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:341
+#: modules/advanced-accordion/widgets/advanced-accordion.php:383
 #: modules/caldera-forms/widgets/caldera-forms.php:167
 #: modules/caldera-forms/widgets/caldera-forms.php:180
 #: modules/caldera-forms/widgets/caldera-forms.php:208
@@ -2239,15 +2262,15 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:349
+#: modules/advanced-accordion/widgets/advanced-accordion.php:391
 msgid "Normal Icon"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:391
+#: modules/advanced-accordion/widgets/advanced-accordion.php:433
 msgid "Active Icon"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:441
+#: modules/advanced-accordion/widgets/advanced-accordion.php:483
 #: modules/content-reveal/widgets/content-reveal.php:164
 #: modules/flipbox/widgets/flipbox.php:501
 #: modules/image-accordion/widgets/image-accordion.php:307
@@ -2258,15 +2281,15 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:448
+#: modules/advanced-accordion/widgets/advanced-accordion.php:490
 msgid "Accordion Type"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:463
+#: modules/advanced-accordion/widgets/advanced-accordion.php:505
 msgid "Toggle Speed (ms)"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:474
+#: modules/advanced-accordion/widgets/advanced-accordion.php:516
 #: modules/content-ticker/widgets/content-ticker.php:206
 #: modules/counter/widgets/counter.php:355
 #: modules/flipbox/widgets/flipbox.php:244
@@ -2282,23 +2305,23 @@ msgstr ""
 msgid "Title HTML Tag"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:492
+#: modules/advanced-accordion/widgets/advanced-accordion.php:534
 msgid "Custom ID Prefix"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:493
+#: modules/advanced-accordion/widgets/advanced-accordion.php:535
 msgid ""
-"A prefix that will be applied to ID attribute of tabs's in HTML. For "
-"example, prefix \"mytab\" will be applied as \"mytab-1\", \"mytab-2\" in ID "
+"A prefix that will be applied to ID attribute of tabs in HTML. For example, "
+"prefix \"mytab\" will be applied as \"mytab-1\", \"mytab-2\" in ID "
 "attribute of Tab 1 and Tab 2 respectively. It should only contain dashes, "
 "underscores, letters or numbers. No spaces."
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:497
+#: modules/advanced-accordion/widgets/advanced-accordion.php:539
 msgid "mytab"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:517
+#: modules/advanced-accordion/widgets/advanced-accordion.php:559
 #: modules/business-hours/widgets/business-hours.php:518
 #: modules/caldera-forms/widgets/caldera-forms.php:236
 #: modules/content-ticker/widgets/content-ticker.php:1230
@@ -2338,20 +2361,20 @@ msgstr ""
 msgid "Help Docs"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:549
+#: modules/advanced-accordion/widgets/advanced-accordion.php:591
 #: modules/icon-list/widgets/icon-list.php:268
 #: modules/image-accordion/widgets/image-accordion.php:112
 #: modules/image-accordion/widgets/image-accordion.php:459
 msgid "Items"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:557
+#: modules/advanced-accordion/widgets/advanced-accordion.php:599
 msgid "Items Gaps"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:579
-#: modules/advanced-accordion/widgets/advanced-accordion.php:782
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1164
+#: modules/advanced-accordion/widgets/advanced-accordion.php:621
+#: modules/advanced-accordion/widgets/advanced-accordion.php:824
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1206
 #: modules/business-hours/widgets/business-hours.php:561
 #: modules/business-hours/widgets/business-hours.php:874
 #: modules/buttons/widgets/buttons.php:399
@@ -2366,7 +2389,7 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:661
 #: modules/content-ticker/widgets/content-ticker.php:1419
 #: modules/content-ticker/widgets/content-ticker.php:1798
-#: modules/flipbox/widgets/flipbox.php:1402
+#: modules/flipbox/widgets/flipbox.php:1468
 #: modules/fluent-forms/widgets/fluent-forms.php:491
 #: modules/fluent-forms/widgets/fluent-forms.php:894
 #: modules/fluent-forms/widgets/fluent-forms.php:1171
@@ -2437,7 +2460,7 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:586
+#: modules/advanced-accordion/widgets/advanced-accordion.php:628
 #: modules/gravity-forms/widgets/gravity-forms.php:974
 #: modules/info-box/widgets/info-box-carousel.php:1530
 #: modules/info-box/widgets/info-box.php:1345
@@ -2448,7 +2471,7 @@ msgstr ""
 msgid "Border Type"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:590
+#: modules/advanced-accordion/widgets/advanced-accordion.php:632
 #: modules/business-hours/widgets/business-hours.php:803
 #: modules/buttons/widgets/buttons.php:146
 #: modules/buttons/widgets/buttons.php:714
@@ -2489,7 +2512,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:591
+#: modules/advanced-accordion/widgets/advanced-accordion.php:633
 #: modules/business-hours/widgets/business-hours.php:804
 #: modules/counter/widgets/counter.php:729
 #: modules/counter/widgets/counter.php:929
@@ -2515,7 +2538,7 @@ msgstr ""
 msgid "Solid"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:592
+#: modules/advanced-accordion/widgets/advanced-accordion.php:634
 #: modules/counter/widgets/counter.php:730
 #: modules/counter/widgets/counter.php:930
 #: modules/divider/widgets/divider.php:380
@@ -2539,7 +2562,7 @@ msgstr ""
 msgid "Double"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:593
+#: modules/advanced-accordion/widgets/advanced-accordion.php:635
 #: modules/business-hours/widgets/business-hours.php:806
 #: modules/counter/widgets/counter.php:731
 #: modules/counter/widgets/counter.php:931
@@ -2564,7 +2587,7 @@ msgstr ""
 msgid "Dotted"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:604
+#: modules/advanced-accordion/widgets/advanced-accordion.php:646
 #: modules/caldera-forms/widgets/caldera-forms.php:961
 #: modules/contact-form-seven/widgets/contact-form-7.php:804
 #: modules/fluent-forms/widgets/fluent-forms.php:940
@@ -2579,13 +2602,13 @@ msgstr ""
 msgid "Border Width"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:626
-#: modules/advanced-accordion/widgets/advanced-accordion.php:674
-#: modules/advanced-accordion/widgets/advanced-accordion.php:706
-#: modules/advanced-accordion/widgets/advanced-accordion.php:894
-#: modules/advanced-accordion/widgets/advanced-accordion.php:944
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1279
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1338
+#: modules/advanced-accordion/widgets/advanced-accordion.php:668
+#: modules/advanced-accordion/widgets/advanced-accordion.php:716
+#: modules/advanced-accordion/widgets/advanced-accordion.php:748
+#: modules/advanced-accordion/widgets/advanced-accordion.php:936
+#: modules/advanced-accordion/widgets/advanced-accordion.php:986
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1321
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1380
 #: modules/buttons/widgets/buttons.php:509
 #: modules/buttons/widgets/buttons.php:864
 #: modules/caldera-forms/widgets/caldera-forms.php:983
@@ -2595,7 +2618,7 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:847
 #: modules/content-ticker/widgets/content-ticker.php:1591
 #: modules/content-ticker/widgets/content-ticker.php:1885
-#: modules/flipbox/widgets/flipbox.php:1588
+#: modules/flipbox/widgets/flipbox.php:1654
 #: modules/fluent-forms/widgets/fluent-forms.php:962
 #: modules/fluent-forms/widgets/fluent-forms.php:1309
 #: modules/formidable-forms/widgets/formidable-forms.php:999
@@ -2655,9 +2678,9 @@ msgstr ""
 msgid "Border Color"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:645
-#: modules/advanced-accordion/widgets/advanced-accordion.php:836
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1215
+#: modules/advanced-accordion/widgets/advanced-accordion.php:687
+#: modules/advanced-accordion/widgets/advanced-accordion.php:878
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1257
 #: modules/buttons/widgets/buttons.php:451
 #: modules/buttons/widgets/buttons.php:814
 #: modules/buttons/widgets/buttons.php:1113
@@ -2676,7 +2699,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:655
 #: modules/divider/widgets/divider.php:945
 #: modules/flipbox/widgets/flipbox.php:530
-#: modules/flipbox/widgets/flipbox.php:1457
+#: modules/flipbox/widgets/flipbox.php:1523
 #: modules/fluent-forms/widgets/fluent-forms.php:543
 #: modules/fluent-forms/widgets/fluent-forms.php:1000
 #: modules/fluent-forms/widgets/fluent-forms.php:1027
@@ -2774,9 +2797,9 @@ msgstr ""
 msgid "Border Radius"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:667
-#: modules/advanced-accordion/widgets/advanced-accordion.php:862
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1241
+#: modules/advanced-accordion/widgets/advanced-accordion.php:709
+#: modules/advanced-accordion/widgets/advanced-accordion.php:904
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1283
 #: modules/business-hours/widgets/business-hours.php:582
 #: modules/business-hours/widgets/business-hours.php:997
 #: modules/buttons/widgets/buttons.php:463
@@ -2787,7 +2810,7 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:771
 #: modules/content-ticker/widgets/content-ticker.php:1574
 #: modules/content-ticker/widgets/content-ticker.php:1854
-#: modules/flipbox/widgets/flipbox.php:1548
+#: modules/flipbox/widgets/flipbox.php:1614
 #: modules/fluent-forms/widgets/fluent-forms.php:1278
 #: modules/formidable-forms/widgets/formidable-forms.php:1294
 #: modules/gravity-forms/widgets/gravity-forms.php:1520
@@ -2846,19 +2869,19 @@ msgstr ""
 msgid "Hover"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:699
-#: modules/advanced-accordion/widgets/advanced-accordion.php:908
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1296
+#: modules/advanced-accordion/widgets/advanced-accordion.php:741
+#: modules/advanced-accordion/widgets/advanced-accordion.php:950
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1338
 #: modules/posts/skins/skin-base.php:3353
 #: modules/posts/skins/skin-base.php:3675
 #: modules/team-member/widgets/team-member-carousel.php:1029
 msgid "Active"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:732
-#: modules/advanced-accordion/widgets/advanced-accordion.php:848
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1065
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1227
+#: modules/advanced-accordion/widgets/advanced-accordion.php:774
+#: modules/advanced-accordion/widgets/advanced-accordion.php:890
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1107
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1269
 #: modules/business-hours/widgets/business-hours.php:705
 #: modules/buttons/widgets/buttons.php:338
 #: modules/buttons/widgets/buttons.php:726
@@ -2875,8 +2898,10 @@ msgstr ""
 #: modules/counter/widgets/counter.php:670
 #: modules/counter/widgets/counter.php:1314
 #: modules/flipbox/widgets/flipbox.php:646
-#: modules/flipbox/widgets/flipbox.php:1000
-#: modules/flipbox/widgets/flipbox.php:1485
+#: modules/flipbox/widgets/flipbox.php:776
+#: modules/flipbox/widgets/flipbox.php:1033
+#: modules/flipbox/widgets/flipbox.php:1163
+#: modules/flipbox/widgets/flipbox.php:1551
 #: modules/fluent-forms/widgets/fluent-forms.php:664
 #: modules/fluent-forms/widgets/fluent-forms.php:1236
 #: modules/formidable-forms/widgets/formidable-forms.php:694
@@ -2956,7 +2981,7 @@ msgstr ""
 msgid "Padding"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:763
+#: modules/advanced-accordion/widgets/advanced-accordion.php:805
 #: modules/content-ticker/widgets/content-ticker.php:1489
 #: modules/posts/skins/skin-base.php:2119
 #: modules/posts/skins/skin-base.php:2288
@@ -2965,10 +2990,10 @@ msgstr ""
 msgid "Bottom Spacing"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:789
-#: modules/advanced-accordion/widgets/advanced-accordion.php:869
-#: modules/advanced-accordion/widgets/advanced-accordion.php:915
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1044
+#: modules/advanced-accordion/widgets/advanced-accordion.php:831
+#: modules/advanced-accordion/widgets/advanced-accordion.php:911
+#: modules/advanced-accordion/widgets/advanced-accordion.php:957
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1086
 #: modules/business-hours/widgets/business-hours.php:278
 #: modules/business-hours/widgets/business-hours.php:417
 #: modules/business-hours/widgets/business-hours.php:644
@@ -3004,8 +3029,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1521
 #: modules/counter/widgets/counter.php:1216
 #: modules/counter/widgets/counter.php:1260
-#: modules/flipbox/widgets/flipbox.php:1427
-#: modules/flipbox/widgets/flipbox.php:1573
+#: modules/flipbox/widgets/flipbox.php:1493
+#: modules/flipbox/widgets/flipbox.php:1639
 #: modules/fluent-forms/widgets/fluent-forms.php:299
 #: modules/fluent-forms/widgets/fluent-forms.php:360
 #: modules/fluent-forms/widgets/fluent-forms.php:426
@@ -3121,13 +3146,13 @@ msgstr ""
 msgid "Text Color"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:806
-#: modules/advanced-accordion/widgets/advanced-accordion.php:882
-#: modules/advanced-accordion/widgets/advanced-accordion.php:932
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1032
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1191
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1264
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1323
+#: modules/advanced-accordion/widgets/advanced-accordion.php:848
+#: modules/advanced-accordion/widgets/advanced-accordion.php:924
+#: modules/advanced-accordion/widgets/advanced-accordion.php:974
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1074
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1233
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1306
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1365
 #: modules/business-hours/widgets/business-hours.php:263
 #: modules/business-hours/widgets/business-hours.php:402
 #: modules/business-hours/widgets/business-hours.php:568
@@ -3161,8 +3186,10 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1805
 #: modules/content-ticker/widgets/content-ticker.php:1861
 #: modules/counter/widgets/counter.php:1189
-#: modules/flipbox/widgets/flipbox.php:1412
-#: modules/flipbox/widgets/flipbox.php:1558
+#: modules/flipbox/widgets/flipbox.php:764
+#: modules/flipbox/widgets/flipbox.php:1151
+#: modules/flipbox/widgets/flipbox.php:1478
+#: modules/flipbox/widgets/flipbox.php:1624
 #: modules/fluent-forms/widgets/fluent-forms.php:498
 #: modules/fluent-forms/widgets/fluent-forms.php:705
 #: modules/fluent-forms/widgets/fluent-forms.php:1190
@@ -3278,8 +3305,8 @@ msgstr ""
 msgid "Background Color"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:828
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1207
+#: modules/advanced-accordion/widgets/advanced-accordion.php:870
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1249
 #: modules/buttons/widgets/buttons.php:442
 #: modules/buttons/widgets/buttons.php:805
 #: modules/caldera-forms/widgets/caldera-forms.php:574
@@ -3297,7 +3324,7 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1656
 #: modules/content-ticker/widgets/content-ticker.php:1830
 #: modules/counter/widgets/counter.php:642
-#: modules/flipbox/widgets/flipbox.php:1444
+#: modules/flipbox/widgets/flipbox.php:1510
 #: modules/fluent-forms/widgets/fluent-forms.php:533
 #: modules/fluent-forms/widgets/fluent-forms.php:730
 #: modules/fluent-forms/widgets/fluent-forms.php:1214
@@ -3390,10 +3417,10 @@ msgstr ""
 msgid "Border"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:969
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1011
 #: modules/buttons/widgets/buttons.php:377
-#: modules/flipbox/widgets/flipbox.php:832
-#: modules/flipbox/widgets/flipbox.php:1186
+#: modules/flipbox/widgets/flipbox.php:865
+#: modules/flipbox/widgets/flipbox.php:1252
 #: modules/icon-list/widgets/icon-list.php:246
 #: modules/info-box/widgets/info-box-carousel.php:1116
 #: modules/info-table/widgets/info-table.php:757
@@ -3404,13 +3431,13 @@ msgstr ""
 msgid "Icon Size"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:991
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1033
 #: modules/image-accordion/widgets/image-accordion.php:1057
 #: modules/posts/skins/skin-base.php:2823
 msgid "Icon Spacing"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1098
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1140
 #: modules/business-hours/widgets/business-hours.php:890
 #: modules/business-hours/widgets/business-hours.php:947
 #: modules/caldera-forms/widgets/caldera-forms.php:310
@@ -3423,7 +3450,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:446
 #: modules/divider/widgets/divider.php:244
 #: modules/flipbox/widgets/flipbox.php:658
-#: modules/flipbox/widgets/flipbox.php:1012
+#: modules/flipbox/widgets/flipbox.php:1045
 #: modules/fluent-forms/widgets/fluent-forms.php:258
 #: modules/fluent-forms/widgets/fluent-forms.php:463
 #: modules/fluent-forms/widgets/fluent-forms.php:1099
@@ -3469,15 +3496,15 @@ msgstr ""
 msgid "Alignment"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1102
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1144
 msgid "Start"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1106
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1148
 msgid "End"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1118
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1160
 #: modules/buttons/widgets/buttons.php:950
 #: modules/caldera-forms/widgets/caldera-forms.php:710
 #: modules/caldera-forms/widgets/caldera-forms.php:829
@@ -3491,13 +3518,13 @@ msgstr ""
 #: modules/divider/widgets/divider.php:722
 #: modules/divider/widgets/divider.php:853
 #: modules/divider/widgets/divider.php:960
-#: modules/flipbox/widgets/flipbox.php:767
-#: modules/flipbox/widgets/flipbox.php:869
-#: modules/flipbox/widgets/flipbox.php:927
-#: modules/flipbox/widgets/flipbox.php:1121
-#: modules/flipbox/widgets/flipbox.php:1223
-#: modules/flipbox/widgets/flipbox.php:1281
-#: modules/flipbox/widgets/flipbox.php:1377
+#: modules/flipbox/widgets/flipbox.php:800
+#: modules/flipbox/widgets/flipbox.php:902
+#: modules/flipbox/widgets/flipbox.php:960
+#: modules/flipbox/widgets/flipbox.php:1187
+#: modules/flipbox/widgets/flipbox.php:1289
+#: modules/flipbox/widgets/flipbox.php:1347
+#: modules/flipbox/widgets/flipbox.php:1443
 #: modules/fluent-forms/widgets/fluent-forms.php:677
 #: modules/fluent-forms/widgets/fluent-forms.php:787
 #: modules/formidable-forms/widgets/formidable-forms.php:707
@@ -3541,7 +3568,7 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1136
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1178
 #: modules/buttons/widgets/buttons.php:930
 #: modules/caldera-forms/widgets/caldera-forms.php:908
 #: modules/contact-form-seven/widgets/contact-form-7.php:751
@@ -3549,7 +3576,7 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:901
 #: modules/counter/widgets/counter.php:567
 #: modules/divider/widgets/divider.php:800
-#: modules/flipbox/widgets/flipbox.php:1358
+#: modules/flipbox/widgets/flipbox.php:1424
 #: modules/fluent-forms/widgets/fluent-forms.php:866
 #: modules/formidable-forms/widgets/formidable-forms.php:924
 #: modules/gravity-forms/widgets/gravity-forms.php:1147
@@ -3863,7 +3890,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:895
 #: modules/flipbox/widgets/flipbox.php:572
 #: modules/flipbox/widgets/flipbox.php:663
-#: modules/flipbox/widgets/flipbox.php:1017
+#: modules/flipbox/widgets/flipbox.php:1050
 #: modules/fluent-forms/widgets/fluent-forms.php:262
 #: modules/fluent-forms/widgets/fluent-forms.php:467
 #: modules/fluent-forms/widgets/fluent-forms.php:1103
@@ -3948,7 +3975,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:768
 #: modules/divider/widgets/divider.php:899
 #: modules/flipbox/widgets/flipbox.php:667
-#: modules/flipbox/widgets/flipbox.php:1021
+#: modules/flipbox/widgets/flipbox.php:1054
 #: modules/fluent-forms/widgets/fluent-forms.php:266
 #: modules/fluent-forms/widgets/fluent-forms.php:471
 #: modules/fluent-forms/widgets/fluent-forms.php:1107
@@ -4033,7 +4060,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:903
 #: modules/flipbox/widgets/flipbox.php:573
 #: modules/flipbox/widgets/flipbox.php:671
-#: modules/flipbox/widgets/flipbox.php:1025
+#: modules/flipbox/widgets/flipbox.php:1058
 #: modules/fluent-forms/widgets/fluent-forms.php:270
 #: modules/fluent-forms/widgets/fluent-forms.php:475
 #: modules/fluent-forms/widgets/fluent-forms.php:1111
@@ -4128,9 +4155,9 @@ msgstr ""
 #: modules/counter/widgets/counter.php:1236
 #: modules/counter/widgets/counter.php:1280
 #: modules/divider/widgets/divider.php:702
-#: modules/flipbox/widgets/flipbox.php:857
-#: modules/flipbox/widgets/flipbox.php:1211
-#: modules/flipbox/widgets/flipbox.php:1473
+#: modules/flipbox/widgets/flipbox.php:890
+#: modules/flipbox/widgets/flipbox.php:1277
+#: modules/flipbox/widgets/flipbox.php:1539
 #: modules/fluent-forms/widgets/fluent-forms.php:315
 #: modules/fluent-forms/widgets/fluent-forms.php:376
 #: modules/fluent-forms/widgets/fluent-forms.php:438
@@ -4382,7 +4409,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:303
 #: modules/buttons/widgets/buttons.php:581
 #: modules/content-reveal/widgets/content-reveal.php:603
-#: modules/flipbox/widgets/flipbox.php:1362
+#: modules/flipbox/widgets/flipbox.php:1428
 #: modules/image-accordion/widgets/image-accordion.php:861
 #: modules/info-box/widgets/info-box-carousel.php:1782
 #: modules/info-box/widgets/info-box.php:1630
@@ -4398,7 +4425,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:304
 #: modules/buttons/widgets/buttons.php:582
 #: modules/content-reveal/widgets/content-reveal.php:604
-#: modules/flipbox/widgets/flipbox.php:1363
+#: modules/flipbox/widgets/flipbox.php:1429
 #: modules/hotspots/widgets/hotspots.php:498
 #: modules/image-accordion/widgets/image-accordion.php:862
 #: modules/info-box/widgets/info-box-carousel.php:1783
@@ -4416,7 +4443,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:305
 #: modules/buttons/widgets/buttons.php:583
 #: modules/content-reveal/widgets/content-reveal.php:605
-#: modules/flipbox/widgets/flipbox.php:1364
+#: modules/flipbox/widgets/flipbox.php:1430
 #: modules/image-accordion/widgets/image-accordion.php:863
 #: modules/info-box/widgets/info-box-carousel.php:1784
 #: modules/info-box/widgets/info-box.php:1632
@@ -4432,7 +4459,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:306
 #: modules/buttons/widgets/buttons.php:584
 #: modules/content-reveal/widgets/content-reveal.php:606
-#: modules/flipbox/widgets/flipbox.php:1365
+#: modules/flipbox/widgets/flipbox.php:1431
 #: modules/hotspots/widgets/hotspots.php:499
 #: modules/image-accordion/widgets/image-accordion.php:864
 #: modules/info-box/widgets/info-box-carousel.php:1785
@@ -4450,7 +4477,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:307
 #: modules/buttons/widgets/buttons.php:585
 #: modules/content-reveal/widgets/content-reveal.php:607
-#: modules/flipbox/widgets/flipbox.php:1366
+#: modules/flipbox/widgets/flipbox.php:1432
 #: modules/image-accordion/widgets/image-accordion.php:865
 #: modules/info-box/widgets/info-box-carousel.php:1786
 #: modules/info-box/widgets/info-box.php:1634
@@ -4530,7 +4557,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:344
 #: modules/flipbox/widgets/flipbox.php:574
 #: modules/flipbox/widgets/flipbox.php:690
-#: modules/flipbox/widgets/flipbox.php:1044
+#: modules/flipbox/widgets/flipbox.php:1077
 #: modules/hotspots/widgets/hotspots.php:320
 #: modules/hotspots/widgets/hotspots.php:511
 #: modules/icon-list/widgets/icon-list.php:563
@@ -4556,7 +4583,7 @@ msgstr ""
 
 #: modules/buttons/widgets/buttons.php:623
 #: modules/flipbox/widgets/flipbox.php:694
-#: modules/flipbox/widgets/flipbox.php:1048
+#: modules/flipbox/widgets/flipbox.php:1081
 #: modules/image-accordion/widgets/image-accordion.php:644
 #: modules/image-comparison/widgets/image-comparison.php:604
 #: modules/info-box/widgets/info-box.php:332
@@ -4571,7 +4598,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:352
 #: modules/flipbox/widgets/flipbox.php:575
 #: modules/flipbox/widgets/flipbox.php:698
-#: modules/flipbox/widgets/flipbox.php:1052
+#: modules/flipbox/widgets/flipbox.php:1085
 #: modules/hotspots/widgets/hotspots.php:321
 #: modules/hotspots/widgets/hotspots.php:512
 #: modules/icon-list/widgets/icon-list.php:571
@@ -4638,7 +4665,7 @@ msgid "Styling"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:882
-#: modules/flipbox/widgets/flipbox.php:1603
+#: modules/flipbox/widgets/flipbox.php:1669
 #: modules/hotspots/widgets/hotspots.php:552
 #: modules/icon-list/widgets/icon-list.php:753
 #: modules/image-accordion/widgets/image-accordion.php:1029
@@ -4764,8 +4791,8 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:337
 #: modules/flipbox/widgets/flipbox.php:231
 #: modules/flipbox/widgets/flipbox.php:380
-#: modules/flipbox/widgets/flipbox.php:947
-#: modules/flipbox/widgets/flipbox.php:1301
+#: modules/flipbox/widgets/flipbox.php:980
+#: modules/flipbox/widgets/flipbox.php:1367
 #: modules/fluent-forms/widgets/fluent-forms.php:129
 #: modules/fluent-forms/widgets/fluent-forms.php:348
 #: modules/formidable-forms/widgets/formidable-forms.php:137
@@ -4885,7 +4912,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:691
 #: modules/counter/widgets/counter.php:889
 #: modules/counter/widgets/counter.php:1292
-#: modules/flipbox/widgets/flipbox.php:1524
+#: modules/flipbox/widgets/flipbox.php:1590
 #: modules/fluent-forms/widgets/fluent-forms.php:326
 #: modules/fluent-forms/widgets/fluent-forms.php:388
 #: modules/formidable-forms/widgets/formidable-forms.php:384
@@ -5275,7 +5302,7 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:292
 #: modules/content-reveal/widgets/content-reveal.php:591
 #: modules/flipbox/widgets/flipbox.php:419
-#: modules/flipbox/widgets/flipbox.php:1347
+#: modules/flipbox/widgets/flipbox.php:1413
 #: modules/image-accordion/widgets/image-accordion.php:849
 #: modules/info-box/widgets/info-box-carousel.php:276
 #: modules/info-box/widgets/info-box-carousel.php:1770
@@ -6432,37 +6459,37 @@ msgstr ""
 msgid "Misc"
 msgstr ""
 
-#: modules/display-conditions/module.php:378
+#: modules/display-conditions/module.php:368
 msgid "Output HTML"
 msgstr ""
 
-#: modules/display-conditions/module.php:379
+#: modules/display-conditions/module.php:369
 msgid ""
 "If enabled, the HTML code will exist on the page but the %s will be hidden "
 "using CSS."
 msgstr ""
 
-#: modules/display-conditions/module.php:395
+#: modules/display-conditions/module.php:385
 msgid "Display on"
 msgstr ""
 
-#: modules/display-conditions/module.php:399
+#: modules/display-conditions/module.php:389
 msgid "All conditions met"
 msgstr ""
 
-#: modules/display-conditions/module.php:400
+#: modules/display-conditions/module.php:390
 msgid "Any condition met"
 msgstr ""
 
-#: modules/display-conditions/module.php:429
+#: modules/display-conditions/module.php:419
 msgid "Is"
 msgstr ""
 
-#: modules/display-conditions/module.php:430
+#: modules/display-conditions/module.php:420
 msgid "Is not"
 msgstr ""
 
-#: modules/display-conditions/module.php:440
+#: modules/display-conditions/module.php:430
 msgid "Conditions"
 msgstr ""
 
@@ -6562,7 +6589,7 @@ msgid ""
 msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:271
-#: modules/flipbox/widgets/flipbox.php:992
+#: modules/flipbox/widgets/flipbox.php:1025
 msgid "Back"
 msgstr ""
 
@@ -6604,7 +6631,7 @@ msgid "Get Started"
 msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:465
-#: modules/flipbox/widgets/flipbox.php:1511
+#: modules/flipbox/widgets/flipbox.php:1577
 #: modules/image-accordion/widgets/image-accordion.php:218
 #: modules/info-box/widgets/info-box-carousel.php:354
 #: modules/info-box/widgets/info-box-carousel.php:1885
@@ -6645,19 +6672,19 @@ msgid "Flip Direction"
 msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:685
-#: modules/flipbox/widgets/flipbox.php:1039
+#: modules/flipbox/widgets/flipbox.php:1072
 #: modules/pricing/widgets/price-menu.php:992
 #: modules/pricing/widgets/pricing-table.php:1627
 msgid "Vertical Position"
 msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:727
-#: modules/flipbox/widgets/flipbox.php:1081
+#: modules/flipbox/widgets/flipbox.php:1114
 msgid "Border Style"
 msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:736
-#: modules/flipbox/widgets/flipbox.php:1090
+#: modules/flipbox/widgets/flipbox.php:1123
 #: modules/image-comparison/widgets/image-comparison.php:283
 #: modules/image-comparison/widgets/image-comparison.php:343
 #: modules/instafeed/widgets/instafeed.php:1483
@@ -6673,8 +6700,8 @@ msgstr ""
 msgid "Overlay"
 msgstr ""
 
-#: modules/flipbox/widgets/flipbox.php:787
-#: modules/flipbox/widgets/flipbox.php:1141
+#: modules/flipbox/widgets/flipbox.php:820
+#: modules/flipbox/widgets/flipbox.php:1207
 msgid "Size (%)"
 msgstr ""
 
@@ -6860,11 +6887,11 @@ msgid "Blank"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:237
-msgid "Left Position (%)"
+msgid "Horizontal Position (%)"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:260
-msgid "Top Position (%)"
+msgid "Vertical Position (%)"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:283

@@ -320,7 +320,7 @@ class Module extends Module_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.14
 	 * @access public
 	 * @param object $element for current element.
 	 */

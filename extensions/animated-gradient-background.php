@@ -264,7 +264,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.14
 	 * @access public
 	 * @param object $element for current element.
 	 */
@@ -294,7 +294,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.14
 	 * @access public
 	 * @param object $template for current template.
 	 * @param object $widget for current widget.
