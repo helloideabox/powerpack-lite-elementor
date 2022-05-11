@@ -2,7 +2,8 @@
 Release date: May 11, 2022
 * Enhancement: Advanced Accordion - Added Custom CSS ID option
 * Enhancement: Advanced Accordion - Rearranged the repeater content inside tabs
-Enhancement: Flip Box - Added content background and padding options
+* Enhancement: Flip Box - Added content background and padding options
+* Fixed: Animated Gradient Background - Background overlay was overriding the gradient effect in editor
 
 == 2.6.13 ==
 Release date: April 15, 2022
