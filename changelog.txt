@@ -5,6 +5,7 @@ Release date: May 11, 2022
 * Enhancement: Flip Box - Added content background and padding options
 * Fixed: Animated Gradient Background - Background overlay was overriding the gradient effect in editor
 * Fixed: Hotspots - Tooltip position issue
+* Enhancement: Core - Added support for containers in Saved Section option
 
 == 2.6.13 ==
 Release date: April 15, 2022

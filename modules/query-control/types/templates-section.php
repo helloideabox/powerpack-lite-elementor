@@ -7,7 +7,9 @@ use PowerpackElementsLite\Modules\QueryControl\Types\Type_Base;
 use Elementor\Core\Base\Document;
 use Elementor\TemplateLibrary\Source_Local;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * \Modules\QueryControl\Types\Templates_Section
@@ -18,7 +20,7 @@ class Templates_Section extends Type_Base {
 
 	/**
 	 * Get Name
-	 * 
+	 *
 	 * Get the name of the module
 	 *
 	 * @since  1.2.9
@@ -42,14 +44,14 @@ class Templates_Section extends Type_Base {
 		] );
 
 		$query_params = [
-			's' 				=> $data['q'],
-			'post_type' 		=> Source_Local::CPT,
-			'posts_per_page' 	=> -1,
+			's'                 => $data['q'],
+			'post_type'         => Source_Local::CPT,
+			'posts_per_page'    => -1,
 			'tax_query' => [
 				[
-					'taxonomy' 	=> Source_Local::TAXONOMY_TYPE_SLUG,
-					'field' 	=> 'slug',
-					'terms' 	=> 'section',
+					'taxonomy'  => Source_Local::TAXONOMY_TYPE_SLUG,
+					'field'     => 'slug',
+					'terms'     => [ 'section', 'container' ],
 				],
 			],
 		];
@@ -58,12 +60,13 @@ class Templates_Section extends Type_Base {
 
 		foreach ( $query->posts as $post ) {
 			$document = pp_lite_get_elementor()->documents->get( $post->ID );
-			if ( ! $document )
+			if ( ! $document ) {
 				continue;
+			}
 
 			$results[] = [
-				'id' 	=> $post->ID,
-				'text' 	=> $post->post_title . ' (' . ucfirst($document->get_name()) . ')',
+				'id'    => $post->ID,
+				'text'  => $post->post_title . ' (' . ucfirst( $document->get_name() ) . ')',
 			];
 		}
 
@@ -80,15 +83,16 @@ class Templates_Section extends Type_Base {
 		$ids = (array) $request['id'];
 
 		$query = new \WP_Query( [
-			'post_type' 		=> Source_Local::CPT,
-			'post__in' 			=> $ids,
-			'posts_per_page' 	=> -1,
+			'post_type'         => Source_Local::CPT,
+			'post__in'          => $ids,
+			'posts_per_page'    => -1,
 		]);
 
 		foreach ( $query->posts as $post ) {
 			$document = pp_lite_get_elementor()->documents->get( $post->ID );
-			if ( ! $document )
+			if ( ! $document ) {
 				continue;
+			}
 
 			$results[ $post->ID ] = $post->post_title . ' (' . $document->get_post_type_title() . ')';
 		}
