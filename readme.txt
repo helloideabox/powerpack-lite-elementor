@@ -230,6 +230,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.15 - June 9, 2022 =
+* 	Enhancement: Team Member Carousel - Added support for Tiktok social icon
+* 	Enhancement: WPForms - Added compatibility for Modern style dropdown fields
+* 	Enhancement: Info Box Carousel - Added compatibility for Elementor containers
+
 = 2.6.14 - May 11, 2022 =
 * 	Enhancement: Advanced Accordion - Added Custom CSS ID option
 * 	Enhancement: Advanced Accordion - Rearranged the repeater content inside tabs
