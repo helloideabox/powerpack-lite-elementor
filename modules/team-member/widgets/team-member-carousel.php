@@ -409,6 +409,21 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			);
 
 			$repeater->add_control(
+				'tiktok_url',
+				array(
+					'label'       => __( 'Tiktok', 'powerpack' ),
+					'type'        => Controls_Manager::TEXT,
+					'dynamic'     => array(
+						'active'     => true,
+						'categories' => array(
+							TagsModule::POST_META_CATEGORY,
+						),
+					),
+					'description' => __( 'Enter Tiktok profile URL of team member', 'powerpack' ),
+				)
+			);
+
+			$repeater->add_control(
 				'github_url',
 				array(
 					'label'       => __( 'Github', 'powerpack' ),
@@ -3023,6 +3038,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		( $item['dribbble_url'] ) ? $social_links['dribbble']   = $item['dribbble_url'] : '';
 		( $item['flickr_url'] ) ? $social_links['flickr']       = $item['flickr_url'] : '';
 		( $item['tumblr_url'] ) ? $social_links['tumblr']       = $item['tumblr_url'] : '';
+		( $item['tiktok_url'] ) ? $social_links['tiktok']       = $item['tiktok_url'] : '';
 		( $item['github_url'] ) ? $social_links['github']       = $item['github_url'] : '';
 		( $item['vimeo_url'] ) ? $social_links['vimeo']         = $item['vimeo_url'] : '';
 		( $item['email'] ) ? $social_links['envelope']          = $item['email'] : '';
@@ -3203,6 +3219,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							'dribbble',
 							'flickr',
 							'tumblr',
+							'tiktok',
 							'github',
 							'vimeo',
 							'email',

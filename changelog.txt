@@ -1,5 +1,6 @@
 == 2.6.15 ==
 Release date: June 9, 2022
+* Enhancement: Team Member Carousel - Added support for Tiktok social icon
 * Enhancement: WPForms - Added compatibility for Modern style dropdown fields
 
 == 2.6.14 ==
