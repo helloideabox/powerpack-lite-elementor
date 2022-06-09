@@ -24,6 +24,10 @@
     var isEditMode		= false;
     
     var ppSwiperSliderinit = function (carousel, carouselWrap, elementSettings, sliderOptions) {
+
+		$(carousel).closest('.elementor-widget-wrap').addClass('e-swiper-container');
+		$(carousel).closest('.elementor-widget').addClass('e-widget-swiper');
+
 		if ( 'undefined' === typeof Swiper ) {
 			var asyncSwiper = elementorFrontend.utils.swiper;
 
