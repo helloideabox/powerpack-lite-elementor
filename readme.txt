@@ -230,6 +230,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.16 - July 6, 2022 =
+* 	Enhancement: Pricing Table - Added Icon Spacing option for tooltip icons
+* 	Enhancement: Posts - Added Avoid Duplicates option
+* 	Enhancement: Advanced Accordion - Added ability to open accordions using keypress
+* 	Enhancement: WP Forms - Added styling options for Section Divider
+
 = 2.6.15 - June 9, 2022 =
 * 	Enhancement: Team Member Carousel - Added support for Tiktok social icon
 * 	Enhancement: WPForms - Added compatibility for Modern style dropdown fields
