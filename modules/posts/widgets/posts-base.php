@@ -539,6 +539,19 @@ abstract class Posts_Base extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'avoid_duplicates',
+			[
+				'label'       => esc_html__( 'Avoid Duplicates', 'powerpack' ),
+				'type'        => Controls_Manager::SWITCHER,
+				'default'     => '',
+				'description' => esc_html__( 'Set to Yes to avoid duplicate posts from showing up on the page. This only affects the frontend.', 'powerpack' ),
+				'condition'   => array(
+					'query_type' => 'custom',
+				),
+			]
+		);
+
+		$this->add_control(
 			'query_id',
 			array(
 				'label'       => __( 'Query ID', 'powerpack' ),
@@ -883,6 +896,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 			if ( is_singular() ) {
 				$query_args['post__not_in'] = array( get_queried_object_id() );
 			}
+		}
+
+		if ( 'yes' === $settings['avoid_duplicates'] ) {
+			$post__not_in = array_merge( $post__not_in, Module::$displayed_ids );
+			$query_args['post__not_in'] = $post__not_in;
 		}
 
 		return apply_filters( "ppe_{$widget_type}_query_args", $query_args, $settings );
