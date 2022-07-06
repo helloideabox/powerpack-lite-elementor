@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.6.14\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.6.16\n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/powerpack-lite-elementor\n"
-"POT-Creation-Date: 2022-06-09 16:18:23+00:00\n"
+"https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
+"POT-Creation-Date: 2022-07-06 06:42:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -188,8 +188,8 @@ msgstr ""
 #: modules/divider/widgets/divider.php:330
 #: modules/icon-list/widgets/icon-list.php:441
 #: modules/image-comparison/widgets/image-comparison.php:532
-#: modules/pricing/widgets/pricing-table.php:2107
-#: modules/pricing/widgets/pricing-table.php:2117
+#: modules/pricing/widgets/pricing-table.php:2144
+#: modules/pricing/widgets/pricing-table.php:2154
 #: modules/team-member/widgets/team-member-carousel.php:1367
 #: modules/team-member/widgets/team-member-carousel.php:1574
 #: modules/team-member/widgets/team-member-carousel.php:1781
@@ -427,7 +427,7 @@ msgid "Showcase"
 msgstr ""
 
 #: classes/class-pp-config.php:496
-#: modules/pricing/widgets/pricing-table.php:1104
+#: modules/pricing/widgets/pricing-table.php:1141
 msgid "Table"
 msgstr ""
 
@@ -563,7 +563,7 @@ msgid "Sync Templates"
 msgstr ""
 
 #: classes/class-pp-templates-lib.php:425
-#: modules/pricing/widgets/pricing-table.php:873
+#: modules/pricing/widgets/pricing-table.php:910
 msgid "New"
 msgstr ""
 
@@ -1350,14 +1350,14 @@ msgstr ""
 #: modules/posts/widgets/posts-base.php:484
 #: modules/posts/widgets/posts-base.php:500
 #: modules/posts/widgets/posts-base.php:530
-#: modules/posts/widgets/posts-base.php:577
+#: modules/posts/widgets/posts-base.php:590
 #: modules/pricing/widgets/price-menu.php:307
 #: modules/pricing/widgets/price-menu.php:322
-#: modules/pricing/widgets/pricing-table.php:443
-#: modules/pricing/widgets/pricing-table.php:563
-#: modules/pricing/widgets/pricing-table.php:630
-#: modules/pricing/widgets/pricing-table.php:842
-#: modules/pricing/widgets/pricing-table.php:1995
+#: modules/pricing/widgets/pricing-table.php:452
+#: modules/pricing/widgets/pricing-table.php:594
+#: modules/pricing/widgets/pricing-table.php:661
+#: modules/pricing/widgets/pricing-table.php:879
+#: modules/pricing/widgets/pricing-table.php:2032
 #: modules/promo-box/widgets/promo-box.php:248
 #: modules/random-image/widgets/random-image.php:319
 #: modules/team-member/widgets/team-member-carousel.php:587
@@ -1374,8 +1374,8 @@ msgstr ""
 #: modules/twitter/widgets/twitter-grid.php:92
 #: modules/twitter/widgets/twitter-timeline.php:105
 #: modules/twitter/widgets/twitter-tweet.php:114
-#: modules/wpforms/widgets/wpforms.php:90
-#: modules/wpforms/widgets/wpforms.php:807
+#: modules/wpforms/widgets/wpforms.php:92
+#: modules/wpforms/widgets/wpforms.php:933
 msgid "Yes"
 msgstr ""
 
@@ -1468,14 +1468,14 @@ msgstr ""
 #: modules/posts/widgets/posts-base.php:485
 #: modules/posts/widgets/posts-base.php:501
 #: modules/posts/widgets/posts-base.php:531
-#: modules/posts/widgets/posts-base.php:578
+#: modules/posts/widgets/posts-base.php:591
 #: modules/pricing/widgets/price-menu.php:308
 #: modules/pricing/widgets/price-menu.php:323
-#: modules/pricing/widgets/pricing-table.php:444
-#: modules/pricing/widgets/pricing-table.php:564
-#: modules/pricing/widgets/pricing-table.php:631
-#: modules/pricing/widgets/pricing-table.php:843
-#: modules/pricing/widgets/pricing-table.php:1996
+#: modules/pricing/widgets/pricing-table.php:453
+#: modules/pricing/widgets/pricing-table.php:595
+#: modules/pricing/widgets/pricing-table.php:662
+#: modules/pricing/widgets/pricing-table.php:880
+#: modules/pricing/widgets/pricing-table.php:2033
 #: modules/promo-box/widgets/promo-box.php:249
 #: modules/random-image/widgets/random-image.php:320
 #: modules/team-member/widgets/team-member-carousel.php:588
@@ -1492,8 +1492,8 @@ msgstr ""
 #: modules/twitter/widgets/twitter-grid.php:93
 #: modules/twitter/widgets/twitter-timeline.php:106
 #: modules/twitter/widgets/twitter-tweet.php:115
-#: modules/wpforms/widgets/wpforms.php:91
-#: modules/wpforms/widgets/wpforms.php:808
+#: modules/wpforms/widgets/wpforms.php:93
+#: modules/wpforms/widgets/wpforms.php:934
 msgid "No"
 msgstr ""
 
@@ -1602,12 +1602,12 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:753
 #: modules/pricing/widgets/price-menu.php:845
 #: modules/pricing/widgets/price-menu.php:1099
-#: modules/pricing/widgets/pricing-table.php:1276
-#: modules/pricing/widgets/pricing-table.php:1361
-#: modules/pricing/widgets/pricing-table.php:1395
-#: modules/pricing/widgets/pricing-table.php:1472
-#: modules/pricing/widgets/pricing-table.php:1905
-#: modules/pricing/widgets/pricing-table.php:2283
+#: modules/pricing/widgets/pricing-table.php:1313
+#: modules/pricing/widgets/pricing-table.php:1398
+#: modules/pricing/widgets/pricing-table.php:1432
+#: modules/pricing/widgets/pricing-table.php:1509
+#: modules/pricing/widgets/pricing-table.php:1942
+#: modules/pricing/widgets/pricing-table.php:2320
 #: modules/promo-box/widgets/promo-box.php:542
 #: modules/promo-box/widgets/promo-box.php:924
 #: modules/promo-box/widgets/promo-box.php:1157
@@ -1620,8 +1620,8 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:1603
 #: modules/team-member/widgets/team-member.php:1653
 #: modules/team-member/widgets/team-member.php:1799
-#: modules/wpforms/widgets/wpforms.php:854
-#: modules/wpforms/widgets/wpforms.php:970
+#: modules/wpforms/widgets/wpforms.php:980
+#: modules/wpforms/widgets/wpforms.php:1096
 msgid "Color"
 msgstr ""
 
@@ -1667,7 +1667,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:160
 #: modules/logos/widgets/logo-grid.php:137
 #: modules/pricing/widgets/price-menu.php:209
-#: modules/pricing/widgets/pricing-table.php:1028
+#: modules/pricing/widgets/pricing-table.php:1065
 #: modules/promo-box/widgets/promo-box.php:375
 #: modules/random-image/widgets/random-image.php:298
 #: modules/team-member/widgets/team-member-carousel.php:251
@@ -1803,7 +1803,7 @@ msgstr ""
 msgid "Businsess Hours"
 msgstr ""
 
-#: includes/helper-functions.php:436 modules/wpforms/widgets/wpforms.php:70
+#: includes/helper-functions.php:436 modules/wpforms/widgets/wpforms.php:72
 msgid "WPForms"
 msgstr ""
 
@@ -1844,6 +1844,7 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:107
 #: modules/posts/skins/skin-base.php:804 modules/posts/skins/skin-base.php:2454
 #: modules/pricing/widgets/price-menu.php:467
+#: modules/pricing/widgets/pricing-table.php:428
 #: modules/promo-box/widgets/promo-box.php:116
 #: modules/promo-box/widgets/promo-box.php:561
 #: modules/team-member/widgets/team-member-carousel.php:182
@@ -1912,14 +1913,14 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:500
 #: modules/pricing/widgets/pricing-table.php:222
 #: modules/pricing/widgets/pricing-table.php:227
-#: modules/pricing/widgets/pricing-table.php:868
-#: modules/pricing/widgets/pricing-table.php:1352
+#: modules/pricing/widgets/pricing-table.php:905
+#: modules/pricing/widgets/pricing-table.php:1389
 #: modules/random-image/widgets/random-image.php:258
 #: modules/team-member/widgets/team-member-carousel.php:243
 #: modules/team-member/widgets/team-member.php:244
-#: modules/wpforms/widgets/wpforms.php:99
-#: modules/wpforms/widgets/wpforms.php:129
-#: modules/wpforms/widgets/wpforms.php:290
+#: modules/wpforms/widgets/wpforms.php:101
+#: modules/wpforms/widgets/wpforms.php:131
+#: modules/wpforms/widgets/wpforms.php:292
 msgid "Title"
 msgstr ""
 
@@ -2099,11 +2100,11 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:1835
 #: modules/pricing/widgets/pricing-table.php:165
 #: modules/pricing/widgets/pricing-table.php:180
-#: modules/pricing/widgets/pricing-table.php:464
-#: modules/pricing/widgets/pricing-table.php:665
-#: modules/pricing/widgets/pricing-table.php:677
-#: modules/pricing/widgets/pricing-table.php:1195
-#: modules/pricing/widgets/pricing-table.php:1896
+#: modules/pricing/widgets/pricing-table.php:461
+#: modules/pricing/widgets/pricing-table.php:699
+#: modules/pricing/widgets/pricing-table.php:711
+#: modules/pricing/widgets/pricing-table.php:1232
+#: modules/pricing/widgets/pricing-table.php:1933
 #: modules/promo-box/widgets/promo-box.php:238
 #: modules/promo-box/widgets/promo-box.php:261
 #: modules/promo-box/widgets/promo-box.php:273
@@ -2197,11 +2198,11 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:556
 #: modules/team-member/widgets/team-member.php:568
 #: modules/team-member/widgets/team-member.php:583
-#: modules/wpforms/widgets/wpforms.php:102
-#: modules/wpforms/widgets/wpforms.php:117
-#: modules/wpforms/widgets/wpforms.php:157
-#: modules/wpforms/widgets/wpforms.php:170
-#: modules/wpforms/widgets/wpforms.php:196
+#: modules/wpforms/widgets/wpforms.php:104
+#: modules/wpforms/widgets/wpforms.php:119
+#: modules/wpforms/widgets/wpforms.php:159
+#: modules/wpforms/widgets/wpforms.php:172
+#: modules/wpforms/widgets/wpforms.php:198
 msgid "Show"
 msgstr ""
 
@@ -2254,11 +2255,11 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:557
 #: modules/team-member/widgets/team-member.php:569
 #: modules/team-member/widgets/team-member.php:584
-#: modules/wpforms/widgets/wpforms.php:103
-#: modules/wpforms/widgets/wpforms.php:118
-#: modules/wpforms/widgets/wpforms.php:158
-#: modules/wpforms/widgets/wpforms.php:171
-#: modules/wpforms/widgets/wpforms.php:197
+#: modules/wpforms/widgets/wpforms.php:105
+#: modules/wpforms/widgets/wpforms.php:120
+#: modules/wpforms/widgets/wpforms.php:160
+#: modules/wpforms/widgets/wpforms.php:173
+#: modules/wpforms/widgets/wpforms.php:199
 msgid "Hide"
 msgstr ""
 
@@ -2347,7 +2348,7 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:468
 #: modules/posts/skins/skin-base.php:1618
 #: modules/pricing/widgets/price-menu.php:344
-#: modules/pricing/widgets/pricing-table.php:1070
+#: modules/pricing/widgets/pricing-table.php:1107
 #: modules/promo-box/widgets/promo-box.php:407
 #: modules/random-image/widgets/random-image.php:346
 #: modules/scroll-image/widgets/scroll-image.php:277
@@ -2357,7 +2358,7 @@ msgstr ""
 #: modules/twitter/widgets/twitter-grid.php:143
 #: modules/twitter/widgets/twitter-timeline.php:209
 #: modules/twitter/widgets/twitter-tweet.php:176
-#: modules/wpforms/widgets/wpforms.php:224
+#: modules/wpforms/widgets/wpforms.php:226
 msgid "Help Docs"
 msgstr ""
 
@@ -2441,7 +2442,7 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3270
 #: modules/posts/skins/skin-base.php:3501
 #: modules/pricing/widgets/pricing-table.php:365
-#: modules/pricing/widgets/pricing-table.php:2446
+#: modules/pricing/widgets/pricing-table.php:2505
 #: modules/promo-box/widgets/promo-box.php:770
 #: modules/promo-box/widgets/promo-box.php:1474
 #: modules/random-image/module.php:92
@@ -2454,9 +2455,9 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2409
 #: modules/team-member/widgets/team-member-carousel.php:2608
 #: modules/team-member/widgets/team-member.php:1621
-#: modules/wpforms/widgets/wpforms.php:466
-#: modules/wpforms/widgets/wpforms.php:844
-#: modules/wpforms/widgets/wpforms.php:1074
+#: modules/wpforms/widgets/wpforms.php:468
+#: modules/wpforms/widgets/wpforms.php:970
+#: modules/wpforms/widgets/wpforms.php:1200
 msgid "Normal"
 msgstr ""
 
@@ -2501,7 +2502,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:595
 #: modules/pricing/widgets/pricing-table.php:161
 #: modules/pricing/widgets/pricing-table.php:306
-#: modules/pricing/widgets/pricing-table.php:1008
+#: modules/pricing/widgets/pricing-table.php:1045
 #: modules/random-image/widgets/random-image.php:257
 #: modules/random-image/widgets/random-image.php:288
 #: modules/random-image/widgets/random-image.php:855
@@ -2598,7 +2599,7 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:223
 #: modules/ninja-forms/widgets/ninja-forms.php:936
 #: modules/pricing/widgets/price-menu.php:638
-#: modules/wpforms/widgets/wpforms.php:869
+#: modules/wpforms/widgets/wpforms.php:995
 msgid "Border Width"
 msgstr ""
 
@@ -2673,8 +2674,8 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2734
 #: modules/team-member/widgets/team-member.php:1874
 #: modules/twitter/widgets/twitter-timeline.php:190
-#: modules/wpforms/widgets/wpforms.php:891
-#: modules/wpforms/widgets/wpforms.php:1212
+#: modules/wpforms/widgets/wpforms.php:1017
+#: modules/wpforms/widgets/wpforms.php:1338
 msgid "Border Color"
 msgstr ""
 
@@ -2770,10 +2771,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3558
 #: modules/pricing/widgets/price-menu.php:439
 #: modules/pricing/widgets/price-menu.php:980
-#: modules/pricing/widgets/pricing-table.php:1337
-#: modules/pricing/widgets/pricing-table.php:1507
-#: modules/pricing/widgets/pricing-table.php:2229
-#: modules/pricing/widgets/pricing-table.php:2532
+#: modules/pricing/widgets/pricing-table.php:1374
+#: modules/pricing/widgets/pricing-table.php:1544
+#: modules/pricing/widgets/pricing-table.php:2266
+#: modules/pricing/widgets/pricing-table.php:2591
 #: modules/promo-box/widgets/promo-box.php:489
 #: modules/promo-box/widgets/promo-box.php:646
 #: modules/promo-box/widgets/promo-box.php:829
@@ -2789,11 +2790,12 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2666
 #: modules/team-member/widgets/team-member.php:847
 #: modules/team-member/widgets/team-member.php:1740
-#: modules/wpforms/widgets/wpforms.php:509
-#: modules/wpforms/widgets/wpforms.php:917
-#: modules/wpforms/widgets/wpforms.php:943
-#: modules/wpforms/widgets/wpforms.php:1116
-#: modules/wpforms/widgets/wpforms.php:1360
+#: modules/wpforms/widgets/wpforms.php:511
+#: modules/wpforms/widgets/wpforms.php:866
+#: modules/wpforms/widgets/wpforms.php:1043
+#: modules/wpforms/widgets/wpforms.php:1069
+#: modules/wpforms/widgets/wpforms.php:1242
+#: modules/wpforms/widgets/wpforms.php:1486
 msgid "Border Radius"
 msgstr ""
 
@@ -2853,8 +2855,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3109
 #: modules/posts/skins/skin-base.php:3398
 #: modules/posts/skins/skin-base.php:3604
-#: modules/pricing/widgets/pricing-table.php:576
-#: modules/pricing/widgets/pricing-table.php:2560
+#: modules/pricing/widgets/pricing-table.php:607
+#: modules/pricing/widgets/pricing-table.php:2619
 #: modules/promo-box/widgets/promo-box.php:861
 #: modules/promo-box/widgets/promo-box.php:1559
 #: modules/random-image/widgets/random-image.php:552
@@ -2865,7 +2867,7 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2466
 #: modules/team-member/widgets/team-member-carousel.php:2707
 #: modules/team-member/widgets/team-member.php:1767
-#: modules/wpforms/widgets/wpforms.php:1181
+#: modules/wpforms/widgets/wpforms.php:1307
 msgid "Hover"
 msgstr ""
 
@@ -2956,15 +2958,15 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:416
 #: modules/pricing/widgets/price-menu.php:478
 #: modules/pricing/widgets/price-menu.php:957
-#: modules/pricing/widgets/pricing-table.php:1183
-#: modules/pricing/widgets/pricing-table.php:1308
-#: modules/pricing/widgets/pricing-table.php:1555
-#: modules/pricing/widgets/pricing-table.php:1846
-#: modules/pricing/widgets/pricing-table.php:2004
-#: modules/pricing/widgets/pricing-table.php:2244
-#: modules/pricing/widgets/pricing-table.php:2517
-#: modules/pricing/widgets/pricing-table.php:2656
-#: modules/pricing/widgets/pricing-table.php:2748
+#: modules/pricing/widgets/pricing-table.php:1220
+#: modules/pricing/widgets/pricing-table.php:1345
+#: modules/pricing/widgets/pricing-table.php:1592
+#: modules/pricing/widgets/pricing-table.php:1883
+#: modules/pricing/widgets/pricing-table.php:2041
+#: modules/pricing/widgets/pricing-table.php:2281
+#: modules/pricing/widgets/pricing-table.php:2576
+#: modules/pricing/widgets/pricing-table.php:2715
+#: modules/pricing/widgets/pricing-table.php:2807
 #: modules/promo-box/widgets/promo-box.php:501
 #: modules/promo-box/widgets/promo-box.php:683
 #: modules/promo-box/widgets/promo-box.php:806
@@ -2976,8 +2978,9 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2513
 #: modules/team-member/widgets/team-member.php:723
 #: modules/team-member/widgets/team-member.php:1752
-#: modules/wpforms/widgets/wpforms.php:622
-#: modules/wpforms/widgets/wpforms.php:1128
+#: modules/wpforms/widgets/wpforms.php:624
+#: modules/wpforms/widgets/wpforms.php:878
+#: modules/wpforms/widgets/wpforms.php:1254
 msgid "Padding"
 msgstr ""
 
@@ -3111,17 +3114,17 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2725
 #: modules/posts/skins/skin-base.php:2871
 #: modules/pricing/widgets/price-menu.php:723
-#: modules/pricing/widgets/pricing-table.php:494
-#: modules/pricing/widgets/pricing-table.php:1682
-#: modules/pricing/widgets/pricing-table.php:1738
-#: modules/pricing/widgets/pricing-table.php:1830
-#: modules/pricing/widgets/pricing-table.php:2046
-#: modules/pricing/widgets/pricing-table.php:2088
-#: modules/pricing/widgets/pricing-table.php:2168
-#: modules/pricing/widgets/pricing-table.php:2351
-#: modules/pricing/widgets/pricing-table.php:2475
-#: modules/pricing/widgets/pricing-table.php:2585
-#: modules/pricing/widgets/pricing-table.php:2688
+#: modules/pricing/widgets/pricing-table.php:521
+#: modules/pricing/widgets/pricing-table.php:1719
+#: modules/pricing/widgets/pricing-table.php:1775
+#: modules/pricing/widgets/pricing-table.php:1867
+#: modules/pricing/widgets/pricing-table.php:2083
+#: modules/pricing/widgets/pricing-table.php:2125
+#: modules/pricing/widgets/pricing-table.php:2205
+#: modules/pricing/widgets/pricing-table.php:2410
+#: modules/pricing/widgets/pricing-table.php:2534
+#: modules/pricing/widgets/pricing-table.php:2644
+#: modules/pricing/widgets/pricing-table.php:2747
 #: modules/promo-box/widgets/promo-box.php:1493
 #: modules/promo-box/widgets/promo-box.php:1578
 #: modules/random-image/widgets/random-image.php:898
@@ -3133,16 +3136,17 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:899
 #: modules/team-member/widgets/team-member.php:1111
 #: modules/team-member/widgets/team-member.php:1331
-#: modules/wpforms/widgets/wpforms.php:299
-#: modules/wpforms/widgets/wpforms.php:348
-#: modules/wpforms/widgets/wpforms.php:403
-#: modules/wpforms/widgets/wpforms.php:485
-#: modules/wpforms/widgets/wpforms.php:721
-#: modules/wpforms/widgets/wpforms.php:777
-#: modules/wpforms/widgets/wpforms.php:1093
-#: modules/wpforms/widgets/wpforms.php:1200
-#: modules/wpforms/widgets/wpforms.php:1245
-#: modules/wpforms/widgets/wpforms.php:1325
+#: modules/wpforms/widgets/wpforms.php:301
+#: modules/wpforms/widgets/wpforms.php:350
+#: modules/wpforms/widgets/wpforms.php:405
+#: modules/wpforms/widgets/wpforms.php:487
+#: modules/wpforms/widgets/wpforms.php:723
+#: modules/wpforms/widgets/wpforms.php:779
+#: modules/wpforms/widgets/wpforms.php:819
+#: modules/wpforms/widgets/wpforms.php:1219
+#: modules/wpforms/widgets/wpforms.php:1326
+#: modules/wpforms/widgets/wpforms.php:1371
+#: modules/wpforms/widgets/wpforms.php:1451
 msgid "Text Color"
 msgstr ""
 
@@ -3272,19 +3276,19 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:385
 #: modules/pricing/widgets/price-menu.php:738
 #: modules/pricing/widgets/price-menu.php:905
-#: modules/pricing/widgets/pricing-table.php:507
-#: modules/pricing/widgets/pricing-table.php:1153
-#: modules/pricing/widgets/pricing-table.php:1261
-#: modules/pricing/widgets/pricing-table.php:1484
-#: modules/pricing/widgets/pricing-table.php:1818
-#: modules/pricing/widgets/pricing-table.php:2031
-#: modules/pricing/widgets/pricing-table.php:2073
-#: modules/pricing/widgets/pricing-table.php:2149
-#: modules/pricing/widgets/pricing-table.php:2338
-#: modules/pricing/widgets/pricing-table.php:2456
-#: modules/pricing/widgets/pricing-table.php:2570
-#: modules/pricing/widgets/pricing-table.php:2644
-#: modules/pricing/widgets/pricing-table.php:2707
+#: modules/pricing/widgets/pricing-table.php:534
+#: modules/pricing/widgets/pricing-table.php:1190
+#: modules/pricing/widgets/pricing-table.php:1298
+#: modules/pricing/widgets/pricing-table.php:1521
+#: modules/pricing/widgets/pricing-table.php:1855
+#: modules/pricing/widgets/pricing-table.php:2068
+#: modules/pricing/widgets/pricing-table.php:2110
+#: modules/pricing/widgets/pricing-table.php:2186
+#: modules/pricing/widgets/pricing-table.php:2397
+#: modules/pricing/widgets/pricing-table.php:2515
+#: modules/pricing/widgets/pricing-table.php:2629
+#: modules/pricing/widgets/pricing-table.php:2703
+#: modules/pricing/widgets/pricing-table.php:2766
 #: modules/promo-box/widgets/promo-box.php:794
 #: modules/promo-box/widgets/promo-box.php:885
 #: modules/promo-box/widgets/promo-box.php:1481
@@ -3298,10 +3302,11 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:2473
 #: modules/team-member/widgets/team-member.php:1691
 #: modules/team-member/widgets/team-member.php:1837
-#: modules/wpforms/widgets/wpforms.php:473
-#: modules/wpforms/widgets/wpforms.php:1081
-#: modules/wpforms/widgets/wpforms.php:1188
-#: modules/wpforms/widgets/wpforms.php:1337
+#: modules/wpforms/widgets/wpforms.php:475
+#: modules/wpforms/widgets/wpforms.php:807
+#: modules/wpforms/widgets/wpforms.php:1207
+#: modules/wpforms/widgets/wpforms.php:1314
+#: modules/wpforms/widgets/wpforms.php:1463
 msgid "Background Color"
 msgstr ""
 
@@ -3388,12 +3393,12 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3544
 #: modules/pricing/widgets/price-menu.php:429
 #: modules/pricing/widgets/price-menu.php:970
-#: modules/pricing/widgets/pricing-table.php:1170
-#: modules/pricing/widgets/pricing-table.php:1324
-#: modules/pricing/widgets/pricing-table.php:1497
-#: modules/pricing/widgets/pricing-table.php:2216
-#: modules/pricing/widgets/pricing-table.php:2491
-#: modules/pricing/widgets/pricing-table.php:2601
+#: modules/pricing/widgets/pricing-table.php:1207
+#: modules/pricing/widgets/pricing-table.php:1361
+#: modules/pricing/widgets/pricing-table.php:1534
+#: modules/pricing/widgets/pricing-table.php:2253
+#: modules/pricing/widgets/pricing-table.php:2550
+#: modules/pricing/widgets/pricing-table.php:2660
 #: modules/promo-box/widgets/promo-box.php:479
 #: modules/promo-box/widgets/promo-box.php:635
 #: modules/promo-box/widgets/promo-box.php:819
@@ -3410,10 +3415,11 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:691
 #: modules/team-member/widgets/team-member.php:837
 #: modules/team-member/widgets/team-member.php:1729
-#: modules/wpforms/widgets/wpforms.php:498
-#: modules/wpforms/widgets/wpforms.php:684
-#: modules/wpforms/widgets/wpforms.php:1106
-#: modules/wpforms/widgets/wpforms.php:1350
+#: modules/wpforms/widgets/wpforms.php:500
+#: modules/wpforms/widgets/wpforms.php:686
+#: modules/wpforms/widgets/wpforms.php:856
+#: modules/wpforms/widgets/wpforms.php:1232
+#: modules/wpforms/widgets/wpforms.php:1476
 msgid "Border"
 msgstr ""
 
@@ -3434,6 +3440,7 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1033
 #: modules/image-accordion/widgets/image-accordion.php:1057
 #: modules/posts/skins/skin-base.php:2823
+#: modules/pricing/widgets/pricing-table.php:2359
 msgid "Icon Spacing"
 msgstr ""
 
@@ -3481,8 +3488,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1387
 #: modules/posts/skins/skin-base.php:1872
 #: modules/pricing/widgets/price-menu.php:271
-#: modules/pricing/widgets/pricing-table.php:1112
-#: modules/pricing/widgets/pricing-table.php:1791
+#: modules/pricing/widgets/pricing-table.php:1149
+#: modules/pricing/widgets/pricing-table.php:1828
 #: modules/promo-box/widgets/promo-box.php:569
 #: modules/random-image/widgets/random-image.php:228
 #: modules/team-member/widgets/team-member-carousel.php:972
@@ -3490,9 +3497,9 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:653
 #: modules/team-member/widgets/team-member.php:756
 #: modules/twitter/widgets/twitter-tweet.php:124
-#: modules/wpforms/widgets/wpforms.php:264
-#: modules/wpforms/widgets/wpforms.php:438
-#: modules/wpforms/widgets/wpforms.php:1002
+#: modules/wpforms/widgets/wpforms.php:266
+#: modules/wpforms/widgets/wpforms.php:440
+#: modules/wpforms/widgets/wpforms.php:1128
 msgid "Alignment"
 msgstr ""
 
@@ -3552,19 +3559,20 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1968
 #: modules/posts/skins/skin-base.php:2232
 #: modules/posts/skins/skin-base.php:3245
-#: modules/pricing/widgets/pricing-table.php:1423
-#: modules/pricing/widgets/pricing-table.php:1704
-#: modules/pricing/widgets/pricing-table.php:1937
-#: modules/pricing/widgets/pricing-table.php:1969
-#: modules/pricing/widgets/pricing-table.php:2417
+#: modules/pricing/widgets/pricing-table.php:1460
+#: modules/pricing/widgets/pricing-table.php:1741
+#: modules/pricing/widgets/pricing-table.php:1974
+#: modules/pricing/widgets/pricing-table.php:2006
+#: modules/pricing/widgets/pricing-table.php:2476
 #: modules/promo-box/widgets/promo-box.php:945
 #: modules/promo-box/widgets/promo-box.php:1112
 #: modules/promo-box/widgets/promo-box.php:1178
 #: modules/promo-box/widgets/promo-box.php:1345
 #: modules/promo-box/widgets/promo-box.php:1408
 #: modules/team-member/widgets/team-member-carousel.php:2583
-#: modules/wpforms/widgets/wpforms.php:635
-#: modules/wpforms/widgets/wpforms.php:741
+#: modules/wpforms/widgets/wpforms.php:637
+#: modules/wpforms/widgets/wpforms.php:743
+#: modules/wpforms/widgets/wpforms.php:898
 msgid "Spacing"
 msgstr ""
 
@@ -3600,16 +3608,16 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2666
 #: modules/posts/skins/skin-base.php:3222
 #: modules/posts/skins/skin-base.php:3804
-#: modules/pricing/widgets/pricing-table.php:589
-#: modules/pricing/widgets/pricing-table.php:883
-#: modules/pricing/widgets/pricing-table.php:1207
-#: modules/pricing/widgets/pricing-table.php:1587
-#: modules/pricing/widgets/pricing-table.php:1918
-#: modules/pricing/widgets/pricing-table.php:2299
-#: modules/pricing/widgets/pricing-table.php:2398
+#: modules/pricing/widgets/pricing-table.php:620
+#: modules/pricing/widgets/pricing-table.php:920
+#: modules/pricing/widgets/pricing-table.php:1244
+#: modules/pricing/widgets/pricing-table.php:1624
+#: modules/pricing/widgets/pricing-table.php:1955
+#: modules/pricing/widgets/pricing-table.php:2336
+#: modules/pricing/widgets/pricing-table.php:2457
 #: modules/promo-box/widgets/promo-box.php:1453
 #: modules/team-member/widgets/team-member-carousel.php:2560
-#: modules/wpforms/widgets/wpforms.php:816
+#: modules/wpforms/widgets/wpforms.php:942
 msgid "Size"
 msgstr ""
 
@@ -3637,7 +3645,7 @@ msgstr ""
 #: modules/pricing/widgets/pricing-table.php:324
 #: modules/team-member/widgets/team-member-carousel.php:1991
 #: modules/team-member/widgets/team-member.php:1608
-#: modules/wpforms/widgets/wpforms.php:1037
+#: modules/wpforms/widgets/wpforms.php:1163
 msgid "Custom"
 msgstr ""
 
@@ -3752,7 +3760,7 @@ msgid "Rows Style"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:604
-#: modules/pricing/widgets/pricing-table.php:1992
+#: modules/pricing/widgets/pricing-table.php:2029
 msgid "Striped Rows"
 msgstr ""
 
@@ -3775,7 +3783,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:554
 #: modules/pricing/widgets/price-menu.php:679
 #: modules/pricing/widgets/price-menu.php:871
-#: modules/pricing/widgets/pricing-table.php:1866
+#: modules/pricing/widgets/pricing-table.php:1903
 #: modules/team-member/widgets/team-member-carousel.php:1274
 #: modules/team-member/widgets/team-member-carousel.php:1340
 #: modules/team-member/widgets/team-member-carousel.php:1478
@@ -3935,10 +3943,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:323 modules/posts/skins/skin-base.php:1391
 #: modules/posts/skins/skin-base.php:1877
 #: modules/pricing/widgets/price-menu.php:275
-#: modules/pricing/widgets/pricing-table.php:614
-#: modules/pricing/widgets/pricing-table.php:968
-#: modules/pricing/widgets/pricing-table.php:1117
-#: modules/pricing/widgets/pricing-table.php:1796
+#: modules/pricing/widgets/pricing-table.php:645
+#: modules/pricing/widgets/pricing-table.php:1005
+#: modules/pricing/widgets/pricing-table.php:1154
+#: modules/pricing/widgets/pricing-table.php:1833
 #: modules/promo-box/widgets/promo-box.php:574
 #: modules/random-image/widgets/random-image.php:232
 #: modules/random-image/widgets/random-image.php:719
@@ -3949,9 +3957,9 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:657
 #: modules/team-member/widgets/team-member.php:760
 #: modules/twitter/widgets/twitter-tweet.php:128
-#: modules/wpforms/widgets/wpforms.php:268
-#: modules/wpforms/widgets/wpforms.php:442
-#: modules/wpforms/widgets/wpforms.php:1006
+#: modules/wpforms/widgets/wpforms.php:270
+#: modules/wpforms/widgets/wpforms.php:444
+#: modules/wpforms/widgets/wpforms.php:1132
 msgid "Left"
 msgstr ""
 
@@ -4019,8 +4027,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1881
 #: modules/pricing/widgets/price-menu.php:279
 #: modules/pricing/widgets/price-menu.php:1051
-#: modules/pricing/widgets/pricing-table.php:1121
-#: modules/pricing/widgets/pricing-table.php:1800
+#: modules/pricing/widgets/pricing-table.php:1158
+#: modules/pricing/widgets/pricing-table.php:1837
 #: modules/promo-box/widgets/promo-box.php:578
 #: modules/promo-box/widgets/promo-box.php:606
 #: modules/random-image/widgets/random-image.php:236
@@ -4032,9 +4040,9 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:661
 #: modules/team-member/widgets/team-member.php:764
 #: modules/twitter/widgets/twitter-tweet.php:129
-#: modules/wpforms/widgets/wpforms.php:272
-#: modules/wpforms/widgets/wpforms.php:446
-#: modules/wpforms/widgets/wpforms.php:1010
+#: modules/wpforms/widgets/wpforms.php:274
+#: modules/wpforms/widgets/wpforms.php:448
+#: modules/wpforms/widgets/wpforms.php:1136
 msgid "Center"
 msgstr ""
 
@@ -4105,10 +4113,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:327 modules/posts/skins/skin-base.php:1399
 #: modules/posts/skins/skin-base.php:1885
 #: modules/pricing/widgets/price-menu.php:283
-#: modules/pricing/widgets/pricing-table.php:615
-#: modules/pricing/widgets/pricing-table.php:972
-#: modules/pricing/widgets/pricing-table.php:1125
-#: modules/pricing/widgets/pricing-table.php:1804
+#: modules/pricing/widgets/pricing-table.php:646
+#: modules/pricing/widgets/pricing-table.php:1009
+#: modules/pricing/widgets/pricing-table.php:1162
+#: modules/pricing/widgets/pricing-table.php:1841
 #: modules/promo-box/widgets/promo-box.php:582
 #: modules/random-image/widgets/random-image.php:240
 #: modules/random-image/widgets/random-image.php:727
@@ -4119,9 +4127,9 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:665
 #: modules/team-member/widgets/team-member.php:768
 #: modules/twitter/widgets/twitter-tweet.php:130
-#: modules/wpforms/widgets/wpforms.php:276
-#: modules/wpforms/widgets/wpforms.php:450
-#: modules/wpforms/widgets/wpforms.php:1014
+#: modules/wpforms/widgets/wpforms.php:278
+#: modules/wpforms/widgets/wpforms.php:452
+#: modules/wpforms/widgets/wpforms.php:1140
 msgid "Right"
 msgstr ""
 
@@ -4242,14 +4250,14 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:545
 #: modules/pricing/widgets/price-menu.php:773
 #: modules/pricing/widgets/price-menu.php:862
-#: modules/pricing/widgets/pricing-table.php:1374
 #: modules/pricing/widgets/pricing-table.php:1411
-#: modules/pricing/widgets/pricing-table.php:1462
-#: modules/pricing/widgets/pricing-table.php:1695
-#: modules/pricing/widgets/pricing-table.php:1886
-#: modules/pricing/widgets/pricing-table.php:2203
-#: modules/pricing/widgets/pricing-table.php:2505
-#: modules/pricing/widgets/pricing-table.php:2764
+#: modules/pricing/widgets/pricing-table.php:1448
+#: modules/pricing/widgets/pricing-table.php:1499
+#: modules/pricing/widgets/pricing-table.php:1732
+#: modules/pricing/widgets/pricing-table.php:1923
+#: modules/pricing/widgets/pricing-table.php:2240
+#: modules/pricing/widgets/pricing-table.php:2564
+#: modules/pricing/widgets/pricing-table.php:2823
 #: modules/promo-box/widgets/promo-box.php:937
 #: modules/promo-box/widgets/promo-box.php:1170
 #: modules/promo-box/widgets/promo-box.php:1400
@@ -4262,14 +4270,15 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:890
 #: modules/team-member/widgets/team-member.php:1102
 #: modules/team-member/widgets/team-member.php:1318
-#: modules/wpforms/widgets/wpforms.php:312
-#: modules/wpforms/widgets/wpforms.php:361
-#: modules/wpforms/widgets/wpforms.php:415
-#: modules/wpforms/widgets/wpforms.php:655
-#: modules/wpforms/widgets/wpforms.php:733
-#: modules/wpforms/widgets/wpforms.php:1160
-#: modules/wpforms/widgets/wpforms.php:1261
-#: modules/wpforms/widgets/wpforms.php:1317
+#: modules/wpforms/widgets/wpforms.php:314
+#: modules/wpforms/widgets/wpforms.php:363
+#: modules/wpforms/widgets/wpforms.php:417
+#: modules/wpforms/widgets/wpforms.php:657
+#: modules/wpforms/widgets/wpforms.php:735
+#: modules/wpforms/widgets/wpforms.php:831
+#: modules/wpforms/widgets/wpforms.php:1286
+#: modules/wpforms/widgets/wpforms.php:1387
+#: modules/wpforms/widgets/wpforms.php:1443
 msgid "Typography"
 msgstr ""
 
@@ -4301,8 +4310,8 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:179
 #: modules/info-table/widgets/info-table.php:120
 #: modules/link-effects/widgets/link-effects.php:102
-#: modules/pricing/widgets/pricing-table.php:426
-#: modules/pricing/widgets/pricing-table.php:664
+#: modules/pricing/widgets/pricing-table.php:435
+#: modules/pricing/widgets/pricing-table.php:698
 msgid "Text"
 msgstr ""
 
@@ -4335,14 +4344,14 @@ msgid "Icon Text"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:227
-#: modules/pricing/widgets/pricing-table.php:560
+#: modules/pricing/widgets/pricing-table.php:591
 msgid "Enable Tooltip"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:238
 #: modules/hotspots/widgets/hotspots.php:340
 #: modules/hotspots/widgets/hotspots.php:342
-#: modules/pricing/widgets/pricing-table.php:452
+#: modules/pricing/widgets/pricing-table.php:484
 msgid "Tooltip Content"
 msgstr ""
 
@@ -4398,9 +4407,9 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:566
 #: modules/icon-list/widgets/icon-list.php:117
 #: modules/posts/skins/skin-base.php:681
-#: modules/pricing/widgets/pricing-table.php:593
-#: modules/pricing/widgets/pricing-table.php:713
-#: modules/pricing/widgets/pricing-table.php:855
+#: modules/pricing/widgets/pricing-table.php:624
+#: modules/pricing/widgets/pricing-table.php:747
+#: modules/pricing/widgets/pricing-table.php:892
 #: modules/random-image/widgets/random-image.php:318
 #: modules/random-image/widgets/random-image.php:494
 msgid "Default"
@@ -4417,7 +4426,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1129
 #: modules/instafeed/widgets/instafeed.php:2465
 #: modules/posts/skins/skin-base.php:2670
-#: modules/pricing/widgets/pricing-table.php:2402
+#: modules/pricing/widgets/pricing-table.php:2461
 #: modules/promo-box/widgets/promo-box.php:1457
 msgid "Extra Small"
 msgstr ""
@@ -4434,8 +4443,8 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1130
 #: modules/instafeed/widgets/instafeed.php:2466
 #: modules/posts/skins/skin-base.php:2671
-#: modules/pricing/widgets/pricing-table.php:595
-#: modules/pricing/widgets/pricing-table.php:2403
+#: modules/pricing/widgets/pricing-table.php:626
+#: modules/pricing/widgets/pricing-table.php:2462
 #: modules/promo-box/widgets/promo-box.php:1458
 msgid "Small"
 msgstr ""
@@ -4451,7 +4460,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1131
 #: modules/instafeed/widgets/instafeed.php:2467
 #: modules/posts/skins/skin-base.php:2672
-#: modules/pricing/widgets/pricing-table.php:2404
+#: modules/pricing/widgets/pricing-table.php:2463
 #: modules/promo-box/widgets/promo-box.php:1459
 msgid "Medium"
 msgstr ""
@@ -4468,8 +4477,8 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1132
 #: modules/instafeed/widgets/instafeed.php:2468
 #: modules/posts/skins/skin-base.php:2673
-#: modules/pricing/widgets/pricing-table.php:596
-#: modules/pricing/widgets/pricing-table.php:2405
+#: modules/pricing/widgets/pricing-table.php:627
+#: modules/pricing/widgets/pricing-table.php:2464
 #: modules/promo-box/widgets/promo-box.php:1460
 msgid "Large"
 msgstr ""
@@ -4485,7 +4494,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1133
 #: modules/instafeed/widgets/instafeed.php:2469
 #: modules/posts/skins/skin-base.php:2674
-#: modules/pricing/widgets/pricing-table.php:2406
+#: modules/pricing/widgets/pricing-table.php:2465
 #: modules/promo-box/widgets/promo-box.php:1461
 msgid "Extra Large"
 msgstr ""
@@ -4504,7 +4513,8 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:1395
 #: modules/logos/widgets/logo-grid.php:151
 #: modules/pricing/widgets/price-menu.php:1077
-#: modules/pricing/widgets/pricing-table.php:851
+#: modules/pricing/widgets/pricing-table.php:498
+#: modules/pricing/widgets/pricing-table.php:888
 msgid "Style"
 msgstr ""
 
@@ -4524,7 +4534,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1013
 #: modules/info-table/widgets/info-table.php:846
 #: modules/info-table/widgets/info-table.php:952
-#: modules/pricing/widgets/pricing-table.php:478
+#: modules/pricing/widgets/pricing-table.php:505
 #: modules/promo-box/widgets/promo-box.php:777
 #: modules/promo-box/widgets/promo-box.php:868
 #: modules/scroll-image/widgets/scroll-image.php:340
@@ -4574,8 +4584,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1300
 #: modules/pricing/widgets/price-menu.php:997
 #: modules/pricing/widgets/price-menu.php:1047
-#: modules/pricing/widgets/pricing-table.php:612
-#: modules/pricing/widgets/pricing-table.php:1632
+#: modules/pricing/widgets/pricing-table.php:643
+#: modules/pricing/widgets/pricing-table.php:1669
 #: modules/promo-box/widgets/promo-box.php:602
 #: modules/random-image/widgets/random-image.php:683
 msgid "Top"
@@ -4589,7 +4599,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:332
 #: modules/instafeed/widgets/instafeed.php:1652
 #: modules/pricing/widgets/price-menu.php:1001
-#: modules/pricing/widgets/pricing-table.php:1636
+#: modules/pricing/widgets/pricing-table.php:1673
 msgid "Middle"
 msgstr ""
 
@@ -4614,8 +4624,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1300
 #: modules/pricing/widgets/price-menu.php:1005
 #: modules/pricing/widgets/price-menu.php:1055
-#: modules/pricing/widgets/pricing-table.php:613
-#: modules/pricing/widgets/pricing-table.php:1640
+#: modules/pricing/widgets/pricing-table.php:644
+#: modules/pricing/widgets/pricing-table.php:1677
 #: modules/promo-box/widgets/promo-box.php:610
 #: modules/random-image/widgets/random-image.php:691
 msgid "Bottom"
@@ -4676,8 +4686,8 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1360
 #: modules/instafeed/widgets/instafeed.php:2697
 #: modules/posts/skins/skin-base.php:2901
-#: modules/pricing/widgets/pricing-table.php:643
-#: modules/pricing/widgets/pricing-table.php:2614
+#: modules/pricing/widgets/pricing-table.php:674
+#: modules/pricing/widgets/pricing-table.php:2673
 #: modules/promo-box/widgets/promo-box.php:1602
 msgid "Animation"
 msgstr ""
@@ -4711,7 +4721,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:358
 #: modules/posts/skins/skin-base.php:1221
 #: modules/posts/widgets/posts-base.php:425
-#: modules/pricing/widgets/pricing-table.php:1617
+#: modules/pricing/widgets/pricing-table.php:1654
 msgid "After"
 msgstr ""
 
@@ -4731,7 +4741,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:359
 #: modules/posts/skins/skin-base.php:1220
 #: modules/posts/widgets/posts-base.php:409
-#: modules/pricing/widgets/pricing-table.php:1613
+#: modules/pricing/widgets/pricing-table.php:1650
 msgid "Before"
 msgstr ""
 
@@ -4739,8 +4749,9 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:298
 #: modules/hotspots/widgets/hotspots.php:303
 #: modules/hotspots/widgets/hotspots.php:927
-#: modules/pricing/widgets/pricing-table.php:553
-#: modules/pricing/widgets/pricing-table.php:2138
+#: modules/pricing/widgets/pricing-table.php:477
+#: modules/pricing/widgets/pricing-table.php:584
+#: modules/pricing/widgets/pricing-table.php:2175
 msgid "Tooltip"
 msgstr ""
 
@@ -4772,7 +4783,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:100
 #: modules/gravity-forms/widgets/gravity-forms.php:137
 #: modules/ninja-forms/widgets/ninja-forms.php:102
-#: modules/wpforms/widgets/wpforms.php:77
+#: modules/wpforms/widgets/wpforms.php:79
 msgid "Contact Form"
 msgstr ""
 
@@ -4781,7 +4792,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:111
 #: modules/gravity-forms/widgets/gravity-forms.php:148
 #: modules/ninja-forms/widgets/ninja-forms.php:113
-#: modules/wpforms/widgets/wpforms.php:88
+#: modules/wpforms/widgets/wpforms.php:90
 msgid "Custom Title & Description"
 msgstr ""
 
@@ -4825,9 +4836,9 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:223
 #: modules/team-member/widgets/team-member.php:544
 #: modules/team-member/widgets/team-member.php:1305
-#: modules/wpforms/widgets/wpforms.php:114
-#: modules/wpforms/widgets/wpforms.php:142
-#: modules/wpforms/widgets/wpforms.php:339
+#: modules/wpforms/widgets/wpforms.php:116
+#: modules/wpforms/widgets/wpforms.php:144
+#: modules/wpforms/widgets/wpforms.php:341
 msgid "Description"
 msgstr ""
 
@@ -4843,8 +4854,8 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:454
 #: modules/ninja-forms/widgets/ninja-forms.php:165
 #: modules/ninja-forms/widgets/ninja-forms.php:432
-#: modules/wpforms/widgets/wpforms.php:154
-#: modules/wpforms/widgets/wpforms.php:395
+#: modules/wpforms/widgets/wpforms.php:156
+#: modules/wpforms/widgets/wpforms.php:397
 msgid "Labels"
 msgstr ""
 
@@ -4859,8 +4870,8 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1095
 #: modules/ninja-forms/widgets/ninja-forms.php:178
 #: modules/ninja-forms/widgets/ninja-forms.php:828
-#: modules/wpforms/widgets/wpforms.php:167
-#: modules/wpforms/widgets/wpforms.php:766
+#: modules/wpforms/widgets/wpforms.php:169
+#: modules/wpforms/widgets/wpforms.php:768
 msgid "Placeholder"
 msgstr ""
 
@@ -4876,8 +4887,8 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1971
 #: modules/ninja-forms/widgets/ninja-forms.php:198
 #: modules/ninja-forms/widgets/ninja-forms.php:1397
-#: modules/wpforms/widgets/wpforms.php:185
-#: modules/wpforms/widgets/wpforms.php:1234
+#: modules/wpforms/widgets/wpforms.php:187
+#: modules/wpforms/widgets/wpforms.php:1360
 msgid "Errors"
 msgstr ""
 
@@ -4891,7 +4902,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1979
 #: modules/ninja-forms/widgets/ninja-forms.php:205
 #: modules/ninja-forms/widgets/ninja-forms.php:1405
-#: modules/wpforms/widgets/wpforms.php:192
+#: modules/wpforms/widgets/wpforms.php:194
 msgid "Error Messages"
 msgstr ""
 
@@ -4901,7 +4912,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:320
 #: modules/gravity-forms/widgets/gravity-forms.php:350
 #: modules/ninja-forms/widgets/ninja-forms.php:291
-#: modules/wpforms/widgets/wpforms.php:256
+#: modules/wpforms/widgets/wpforms.php:258
 msgid "Title & Description"
 msgstr ""
 
@@ -4933,15 +4944,15 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2769
 #: modules/posts/skins/skin-base.php:3328
 #: modules/pricing/widgets/price-menu.php:945
-#: modules/pricing/widgets/pricing-table.php:1293
-#: modules/pricing/widgets/pricing-table.php:1543
+#: modules/pricing/widgets/pricing-table.php:1330
+#: modules/pricing/widgets/pricing-table.php:1580
 #: modules/promo-box/widgets/promo-box.php:841
 #: modules/random-image/widgets/random-image.php:821
 #: modules/team-member/widgets/team-member-carousel.php:2682
 #: modules/team-member/widgets/team-member.php:710
 #: modules/team-member/widgets/team-member.php:859
-#: modules/wpforms/widgets/wpforms.php:320
-#: modules/wpforms/widgets/wpforms.php:370
+#: modules/wpforms/widgets/wpforms.php:322
+#: modules/wpforms/widgets/wpforms.php:372
 msgid "Margin"
 msgstr ""
 
@@ -4951,7 +4962,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:502
 #: modules/gravity-forms/widgets/gravity-forms.php:546
 #: modules/ninja-forms/widgets/ninja-forms.php:477
-#: modules/wpforms/widgets/wpforms.php:430
+#: modules/wpforms/widgets/wpforms.php:432
 msgid "Input & Textarea"
 msgstr ""
 
@@ -4961,7 +4972,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:593
 #: modules/gravity-forms/widgets/gravity-forms.php:652
 #: modules/ninja-forms/widgets/ninja-forms.php:568
-#: modules/wpforms/widgets/wpforms.php:521
+#: modules/wpforms/widgets/wpforms.php:523
 msgid "Text Indent"
 msgstr ""
 
@@ -4971,7 +4982,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:618
 #: modules/gravity-forms/widgets/gravity-forms.php:676
 #: modules/ninja-forms/widgets/ninja-forms.php:593
-#: modules/wpforms/widgets/wpforms.php:546
+#: modules/wpforms/widgets/wpforms.php:548
 msgid "Input Width"
 msgstr ""
 
@@ -4980,7 +4991,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:637
 #: modules/gravity-forms/widgets/gravity-forms.php:695
 #: modules/ninja-forms/widgets/ninja-forms.php:613
-#: modules/wpforms/widgets/wpforms.php:565
+#: modules/wpforms/widgets/wpforms.php:567
 msgid "Input Height"
 msgstr ""
 
@@ -4990,7 +5001,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:656
 #: modules/gravity-forms/widgets/gravity-forms.php:714
 #: modules/ninja-forms/widgets/ninja-forms.php:632
-#: modules/wpforms/widgets/wpforms.php:584
+#: modules/wpforms/widgets/wpforms.php:586
 msgid "Textarea Width"
 msgstr ""
 
@@ -4999,7 +5010,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:675
 #: modules/gravity-forms/widgets/gravity-forms.php:733
 #: modules/ninja-forms/widgets/ninja-forms.php:651
-#: modules/wpforms/widgets/wpforms.php:603
+#: modules/wpforms/widgets/wpforms.php:605
 msgid "Textarea Height"
 msgstr ""
 
@@ -5009,7 +5020,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:748
 #: modules/gravity-forms/widgets/gravity-forms.php:798
 #: modules/ninja-forms/widgets/ninja-forms.php:723
-#: modules/wpforms/widgets/wpforms.php:676
+#: modules/wpforms/widgets/wpforms.php:678
 msgid "Focus"
 msgstr ""
 
@@ -5018,7 +5029,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:813
 #: modules/gravity-forms/widgets/gravity-forms.php:861
 #: modules/ninja-forms/widgets/ninja-forms.php:773
-#: modules/wpforms/widgets/wpforms.php:713
+#: modules/wpforms/widgets/wpforms.php:715
 msgid "Field Description"
 msgstr ""
 
@@ -5028,7 +5039,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:905
 #: modules/gravity-forms/widgets/gravity-forms.php:1128
 #: modules/ninja-forms/widgets/ninja-forms.php:864
-#: modules/wpforms/widgets/wpforms.php:797
+#: modules/wpforms/widgets/wpforms.php:923
 msgid "Radio & Checkbox"
 msgstr ""
 
@@ -5038,7 +5049,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:913
 #: modules/gravity-forms/widgets/gravity-forms.php:1136
 #: modules/ninja-forms/widgets/ninja-forms.php:872
-#: modules/wpforms/widgets/wpforms.php:805
+#: modules/wpforms/widgets/wpforms.php:931
 msgid "Custom Styles"
 msgstr ""
 
@@ -5048,7 +5059,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1014
 #: modules/gravity-forms/widgets/gravity-forms.php:1237
 #: modules/ninja-forms/widgets/ninja-forms.php:973
-#: modules/wpforms/widgets/wpforms.php:906
+#: modules/wpforms/widgets/wpforms.php:1032
 msgid "Checkbox"
 msgstr ""
 
@@ -5058,7 +5069,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1040
 #: modules/gravity-forms/widgets/gravity-forms.php:1264
 #: modules/ninja-forms/widgets/ninja-forms.php:999
-#: modules/wpforms/widgets/wpforms.php:932
+#: modules/wpforms/widgets/wpforms.php:1058
 msgid "Radio Buttons"
 msgstr ""
 
@@ -5068,7 +5079,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1068
 #: modules/gravity-forms/widgets/gravity-forms.php:1293
 #: modules/ninja-forms/widgets/ninja-forms.php:1027
-#: modules/wpforms/widgets/wpforms.php:960
+#: modules/wpforms/widgets/wpforms.php:1086
 msgid "Checked"
 msgstr ""
 
@@ -5078,7 +5089,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1107
 #: modules/gravity-forms/widgets/gravity-forms.php:1330
 #: modules/ninja-forms/widgets/ninja-forms.php:1063
-#: modules/wpforms/widgets/wpforms.php:994
+#: modules/wpforms/widgets/wpforms.php:1120
 msgid "Submit Button"
 msgstr ""
 
@@ -5112,9 +5123,9 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:1100
 #: modules/ninja-forms/widgets/ninja-forms.php:1114
 #: modules/pricing/widgets/price-menu.php:917
-#: modules/pricing/widgets/pricing-table.php:1234
-#: modules/pricing/widgets/pricing-table.php:1519
-#: modules/pricing/widgets/pricing-table.php:2183
+#: modules/pricing/widgets/pricing-table.php:1271
+#: modules/pricing/widgets/pricing-table.php:1556
+#: modules/pricing/widgets/pricing-table.php:2220
 #: modules/promo-box/widgets/promo-box.php:658
 #: modules/promo-box/widgets/promo-box.php:740
 #: modules/promo-box/widgets/promo-box.php:1040
@@ -5123,8 +5134,8 @@ msgstr ""
 #: modules/twitter/widgets/twitter-grid.php:102
 #: modules/twitter/widgets/twitter-timeline.php:132
 #: modules/twitter/widgets/twitter-tweet.php:138
-#: modules/wpforms/widgets/wpforms.php:1032
-#: modules/wpforms/widgets/wpforms.php:1046
+#: modules/wpforms/widgets/wpforms.php:1158
+#: modules/wpforms/widgets/wpforms.php:1172
 msgid "Width"
 msgstr ""
 
@@ -5136,7 +5147,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1588
 #: modules/icon-list/widgets/icon-list.php:305
 #: modules/ninja-forms/widgets/ninja-forms.php:1104
-#: modules/wpforms/widgets/wpforms.php:1036
+#: modules/wpforms/widgets/wpforms.php:1162
 msgid "Full Width"
 msgstr ""
 
@@ -5149,8 +5160,8 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:758
 #: modules/logos/widgets/logo-grid.php:715
 #: modules/ninja-forms/widgets/ninja-forms.php:1208
-#: modules/pricing/widgets/pricing-table.php:2722
-#: modules/wpforms/widgets/wpforms.php:1140
+#: modules/pricing/widgets/pricing-table.php:2781
+#: modules/wpforms/widgets/wpforms.php:1266
 msgid "Margin Top"
 msgstr ""
 
@@ -5178,7 +5189,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1619
 #: modules/gravity-forms/widgets/gravity-forms.php:2324
 #: modules/ninja-forms/widgets/ninja-forms.php:1557
-#: modules/wpforms/widgets/wpforms.php:1426
+#: modules/wpforms/widgets/wpforms.php:1552
 msgid "No Contact Form Selected!"
 msgstr ""
 
@@ -5315,8 +5326,8 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:309
 #: modules/info-table/widgets/info-table.php:342
 #: modules/info-table/widgets/info-table.php:1113
-#: modules/pricing/widgets/pricing-table.php:995
-#: modules/pricing/widgets/pricing-table.php:2387
+#: modules/pricing/widgets/pricing-table.php:1032
+#: modules/pricing/widgets/pricing-table.php:2446
 #: modules/promo-box/widgets/promo-box.php:341
 #: modules/promo-box/widgets/promo-box.php:348
 #: modules/promo-box/widgets/promo-box.php:1442
@@ -5958,7 +5969,7 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:990
 #: modules/content-ticker/widgets/content-ticker.php:1264
 #: modules/pricing/widgets/pricing-table.php:149
-#: modules/pricing/widgets/pricing-table.php:1145
+#: modules/pricing/widgets/pricing-table.php:1182
 msgid "Header"
 msgstr ""
 
@@ -6002,7 +6013,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:604
 #: modules/logos/widgets/logo-carousel.php:273
 #: modules/logos/widgets/logo-grid.php:629
-#: modules/pricing/widgets/pricing-table.php:650
+#: modules/pricing/widgets/pricing-table.php:681
 msgid "Slide"
 msgstr ""
 
@@ -6011,7 +6022,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:556
 #: modules/info-box/widgets/info-box-carousel.php:605
 #: modules/logos/widgets/logo-carousel.php:274
-#: modules/pricing/widgets/pricing-table.php:647
+#: modules/pricing/widgets/pricing-table.php:678
 msgid "Fade"
 msgstr ""
 
@@ -6553,9 +6564,9 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:2110
 #: modules/logos/widgets/logo-carousel.php:1038
 #: modules/posts/skins/skin-base.php:3205
-#: modules/pricing/widgets/pricing-table.php:608
-#: modules/pricing/widgets/pricing-table.php:962
-#: modules/pricing/widgets/pricing-table.php:1607
+#: modules/pricing/widgets/pricing-table.php:639
+#: modules/pricing/widgets/pricing-table.php:999
+#: modules/pricing/widgets/pricing-table.php:1644
 #: modules/team-member/widgets/team-member-carousel.php:199
 #: modules/team-member/widgets/team-member-carousel.php:1513
 #: modules/team-member/widgets/team-member-carousel.php:2543
@@ -6614,7 +6625,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:250
 #: modules/info-table/widgets/info-table.php:330
 #: modules/posts/skins/skin-base.php:1189
-#: modules/pricing/widgets/pricing-table.php:1016
+#: modules/pricing/widgets/pricing-table.php:1053
 #: modules/promo-box/widgets/promo-box.php:360
 msgid "Button Text"
 msgstr ""
@@ -6625,7 +6636,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:551
 #: modules/info-list/widgets/info-list.php:255
 #: modules/info-table/widgets/info-table.php:332
-#: modules/pricing/widgets/pricing-table.php:1021
+#: modules/pricing/widgets/pricing-table.php:1058
 #: modules/promo-box/widgets/promo-box.php:365
 msgid "Get Started"
 msgstr ""
@@ -6674,7 +6685,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:685
 #: modules/flipbox/widgets/flipbox.php:1072
 #: modules/pricing/widgets/price-menu.php:992
-#: modules/pricing/widgets/pricing-table.php:1627
+#: modules/pricing/widgets/pricing-table.php:1664
 msgid "Vertical Position"
 msgstr ""
 
@@ -6716,19 +6727,19 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:1367
 #: modules/gravity-forms/widgets/gravity-forms.php:2105
 #: modules/ninja-forms/widgets/ninja-forms.php:1452
-#: modules/wpforms/widgets/wpforms.php:1269
+#: modules/wpforms/widgets/wpforms.php:1395
 msgid "Error Field Input Border Color"
 msgstr ""
 
 #: modules/fluent-forms/widgets/fluent-forms.php:1379
 #: modules/gravity-forms/widgets/gravity-forms.php:2120
-#: modules/wpforms/widgets/wpforms.php:1284
+#: modules/wpforms/widgets/wpforms.php:1410
 msgid "Error Field Input Border Width"
 msgstr ""
 
 #: modules/fluent-forms/widgets/fluent-forms.php:1402
 #: modules/formidable-forms/widgets/formidable-forms.php:1470
-#: modules/wpforms/widgets/wpforms.php:1308
+#: modules/wpforms/widgets/wpforms.php:1434
 msgid "Confirmation Message"
 msgstr ""
 
@@ -6919,18 +6930,18 @@ msgid "Always Open?"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:476
-#: modules/pricing/widgets/pricing-table.php:572
+#: modules/pricing/widgets/pricing-table.php:603
 #: modules/scroll-image/widgets/scroll-image.php:213
 msgid "Trigger"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:481
-#: modules/pricing/widgets/pricing-table.php:577
+#: modules/pricing/widgets/pricing-table.php:608
 msgid "Click"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:497
-#: modules/pricing/widgets/pricing-table.php:594
+#: modules/pricing/widgets/pricing-table.php:625
 msgid "Tiny"
 msgstr ""
 
@@ -6939,8 +6950,8 @@ msgid "Global Position"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:522
-#: modules/pricing/widgets/pricing-table.php:693
-#: modules/pricing/widgets/pricing-table.php:941
+#: modules/pricing/widgets/pricing-table.php:727
+#: modules/pricing/widgets/pricing-table.php:978
 msgid "Distance"
 msgstr ""
 
@@ -6949,359 +6960,359 @@ msgid "The distance between the hotspot and the tooltip."
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:540
-#: modules/pricing/widgets/pricing-table.php:626
+#: modules/pricing/widgets/pricing-table.php:657
 msgid "Show Arrow"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:557
-#: modules/pricing/widgets/pricing-table.php:648
+#: modules/pricing/widgets/pricing-table.php:679
 msgid "Fall"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:558
-#: modules/pricing/widgets/pricing-table.php:649
+#: modules/pricing/widgets/pricing-table.php:680
 msgid "Grow"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:560
 #: modules/hotspots/widgets/hotspots.php:572
-#: modules/pricing/widgets/pricing-table.php:651
-#: modules/pricing/widgets/pricing-table.php:719
+#: modules/pricing/widgets/pricing-table.php:682
+#: modules/pricing/widgets/pricing-table.php:753
 msgid "Swing"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:567
-#: modules/pricing/widgets/pricing-table.php:714
+#: modules/pricing/widgets/pricing-table.php:748
 msgid "Bounce"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:568
-#: modules/pricing/widgets/pricing-table.php:715
+#: modules/pricing/widgets/pricing-table.php:749
 msgid "Flash"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:569
-#: modules/pricing/widgets/pricing-table.php:716
+#: modules/pricing/widgets/pricing-table.php:750
 msgid "Pulse"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:570
-#: modules/pricing/widgets/pricing-table.php:717
+#: modules/pricing/widgets/pricing-table.php:751
 msgid "rubberBand"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:571
-#: modules/pricing/widgets/pricing-table.php:718
+#: modules/pricing/widgets/pricing-table.php:752
 msgid "Shake"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:573
-#: modules/pricing/widgets/pricing-table.php:720
+#: modules/pricing/widgets/pricing-table.php:754
 msgid "Tada"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:574
-#: modules/pricing/widgets/pricing-table.php:721
+#: modules/pricing/widgets/pricing-table.php:755
 msgid "Wobble"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:575
-#: modules/pricing/widgets/pricing-table.php:722
+#: modules/pricing/widgets/pricing-table.php:756
 msgid "bounceIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:576
-#: modules/pricing/widgets/pricing-table.php:723
+#: modules/pricing/widgets/pricing-table.php:757
 msgid "bounceInDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:577
-#: modules/pricing/widgets/pricing-table.php:724
+#: modules/pricing/widgets/pricing-table.php:758
 msgid "bounceInLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:578
-#: modules/pricing/widgets/pricing-table.php:725
+#: modules/pricing/widgets/pricing-table.php:759
 msgid "bounceInRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:579
-#: modules/pricing/widgets/pricing-table.php:726
+#: modules/pricing/widgets/pricing-table.php:760
 msgid "bounceInUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:580
-#: modules/pricing/widgets/pricing-table.php:727
+#: modules/pricing/widgets/pricing-table.php:761
 msgid "bounceOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:581
-#: modules/pricing/widgets/pricing-table.php:728
+#: modules/pricing/widgets/pricing-table.php:762
 msgid "bounceOutDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:582
-#: modules/pricing/widgets/pricing-table.php:729
+#: modules/pricing/widgets/pricing-table.php:763
 msgid "bounceOutLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:583
-#: modules/pricing/widgets/pricing-table.php:730
+#: modules/pricing/widgets/pricing-table.php:764
 msgid "bounceOutRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:584
-#: modules/pricing/widgets/pricing-table.php:731
+#: modules/pricing/widgets/pricing-table.php:765
 msgid "bounceOutUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:585
-#: modules/pricing/widgets/pricing-table.php:732
+#: modules/pricing/widgets/pricing-table.php:766
 msgid "fadeIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:586
-#: modules/pricing/widgets/pricing-table.php:733
+#: modules/pricing/widgets/pricing-table.php:767
 msgid "fadeInDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:587
-#: modules/pricing/widgets/pricing-table.php:734
+#: modules/pricing/widgets/pricing-table.php:768
 msgid "fadeInDownBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:588
-#: modules/pricing/widgets/pricing-table.php:735
+#: modules/pricing/widgets/pricing-table.php:769
 msgid "fadeInLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:589
-#: modules/pricing/widgets/pricing-table.php:736
+#: modules/pricing/widgets/pricing-table.php:770
 msgid "fadeInLeftBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:590
-#: modules/pricing/widgets/pricing-table.php:737
+#: modules/pricing/widgets/pricing-table.php:771
 msgid "fadeInRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:591
-#: modules/pricing/widgets/pricing-table.php:738
+#: modules/pricing/widgets/pricing-table.php:772
 msgid "fadeInRightBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:592
-#: modules/pricing/widgets/pricing-table.php:739
+#: modules/pricing/widgets/pricing-table.php:773
 msgid "fadeInUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:593
-#: modules/pricing/widgets/pricing-table.php:740
+#: modules/pricing/widgets/pricing-table.php:774
 msgid "fadeInUpBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:594
-#: modules/pricing/widgets/pricing-table.php:741
+#: modules/pricing/widgets/pricing-table.php:775
 msgid "fadeOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:595
-#: modules/pricing/widgets/pricing-table.php:742
+#: modules/pricing/widgets/pricing-table.php:776
 msgid "fadeOutDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:596
-#: modules/pricing/widgets/pricing-table.php:743
+#: modules/pricing/widgets/pricing-table.php:777
 msgid "fadeOutDownBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:597
-#: modules/pricing/widgets/pricing-table.php:744
+#: modules/pricing/widgets/pricing-table.php:778
 msgid "fadeOutLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:598
-#: modules/pricing/widgets/pricing-table.php:745
+#: modules/pricing/widgets/pricing-table.php:779
 msgid "fadeOutLeftBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:599
-#: modules/pricing/widgets/pricing-table.php:746
+#: modules/pricing/widgets/pricing-table.php:780
 msgid "fadeOutRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:600
-#: modules/pricing/widgets/pricing-table.php:747
+#: modules/pricing/widgets/pricing-table.php:781
 msgid "fadeOutRightBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:601
-#: modules/pricing/widgets/pricing-table.php:748
+#: modules/pricing/widgets/pricing-table.php:782
 msgid "fadeOutUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:602
-#: modules/pricing/widgets/pricing-table.php:749
+#: modules/pricing/widgets/pricing-table.php:783
 msgid "fadeOutUpBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:603
-#: modules/pricing/widgets/pricing-table.php:750
+#: modules/pricing/widgets/pricing-table.php:784
 msgid "flip"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:604
-#: modules/pricing/widgets/pricing-table.php:751
+#: modules/pricing/widgets/pricing-table.php:785
 msgid "flipInX"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:605
-#: modules/pricing/widgets/pricing-table.php:752
+#: modules/pricing/widgets/pricing-table.php:786
 msgid "flipInY"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:606
-#: modules/pricing/widgets/pricing-table.php:753
+#: modules/pricing/widgets/pricing-table.php:787
 msgid "flipOutX"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:607
-#: modules/pricing/widgets/pricing-table.php:754
+#: modules/pricing/widgets/pricing-table.php:788
 msgid "flipOutY"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:608
-#: modules/pricing/widgets/pricing-table.php:755
+#: modules/pricing/widgets/pricing-table.php:789
 msgid "lightSpeedIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:609
-#: modules/pricing/widgets/pricing-table.php:756
+#: modules/pricing/widgets/pricing-table.php:790
 msgid "lightSpeedOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:610
-#: modules/pricing/widgets/pricing-table.php:757
+#: modules/pricing/widgets/pricing-table.php:791
 msgid "rotateIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:611
-#: modules/pricing/widgets/pricing-table.php:758
+#: modules/pricing/widgets/pricing-table.php:792
 msgid "rotateInDownLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:612
-#: modules/pricing/widgets/pricing-table.php:759
+#: modules/pricing/widgets/pricing-table.php:793
 msgid "rotateInDownRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:613
-#: modules/pricing/widgets/pricing-table.php:760
+#: modules/pricing/widgets/pricing-table.php:794
 msgid "rotateInUpLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:614
-#: modules/pricing/widgets/pricing-table.php:761
+#: modules/pricing/widgets/pricing-table.php:795
 msgid "rotateInUpRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:615
-#: modules/pricing/widgets/pricing-table.php:762
+#: modules/pricing/widgets/pricing-table.php:796
 msgid "rotateOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:616
-#: modules/pricing/widgets/pricing-table.php:763
+#: modules/pricing/widgets/pricing-table.php:797
 msgid "rotateOutDownLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:617
-#: modules/pricing/widgets/pricing-table.php:764
+#: modules/pricing/widgets/pricing-table.php:798
 msgid "rotateOutDownRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:618
-#: modules/pricing/widgets/pricing-table.php:765
+#: modules/pricing/widgets/pricing-table.php:799
 msgid "rotateOutUpLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:619
-#: modules/pricing/widgets/pricing-table.php:766
+#: modules/pricing/widgets/pricing-table.php:800
 msgid "rotateOutUpRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:620
-#: modules/pricing/widgets/pricing-table.php:767
+#: modules/pricing/widgets/pricing-table.php:801
 msgid "Hinge"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:621
-#: modules/pricing/widgets/pricing-table.php:768
+#: modules/pricing/widgets/pricing-table.php:802
 msgid "rollIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:622
-#: modules/pricing/widgets/pricing-table.php:769
+#: modules/pricing/widgets/pricing-table.php:803
 msgid "rollOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:623
-#: modules/pricing/widgets/pricing-table.php:770
+#: modules/pricing/widgets/pricing-table.php:804
 msgid "zoomIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:624
-#: modules/pricing/widgets/pricing-table.php:771
+#: modules/pricing/widgets/pricing-table.php:805
 msgid "zoomInDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:625
-#: modules/pricing/widgets/pricing-table.php:772
+#: modules/pricing/widgets/pricing-table.php:806
 msgid "zoomInLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:626
-#: modules/pricing/widgets/pricing-table.php:773
+#: modules/pricing/widgets/pricing-table.php:807
 msgid "zoomInRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:627
-#: modules/pricing/widgets/pricing-table.php:774
+#: modules/pricing/widgets/pricing-table.php:808
 msgid "zoomInUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:628
-#: modules/pricing/widgets/pricing-table.php:775
+#: modules/pricing/widgets/pricing-table.php:809
 msgid "zoomOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:629
-#: modules/pricing/widgets/pricing-table.php:776
+#: modules/pricing/widgets/pricing-table.php:810
 msgid "zoomOutDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:630
-#: modules/pricing/widgets/pricing-table.php:777
+#: modules/pricing/widgets/pricing-table.php:811
 msgid "zoomOutLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:631
-#: modules/pricing/widgets/pricing-table.php:778
+#: modules/pricing/widgets/pricing-table.php:812
 msgid "zoomOutRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:632
-#: modules/pricing/widgets/pricing-table.php:779
+#: modules/pricing/widgets/pricing-table.php:813
 msgid "zoomOutUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:660
-#: modules/pricing/widgets/pricing-table.php:811
+#: modules/pricing/widgets/pricing-table.php:845
 msgid "Z-Index"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:661
-#: modules/pricing/widgets/pricing-table.php:812
+#: modules/pricing/widgets/pricing-table.php:846
 msgid ""
 "Increase the z-index value if you are unable to see the tooltip. For "
 "example: 99, 999, 9999 "
@@ -7625,7 +7636,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:1449
 #: modules/info-box/widgets/info-box.php:1232
 #: modules/info-table/widgets/info-table.php:646
-#: modules/pricing/widgets/pricing-table.php:1383
+#: modules/pricing/widgets/pricing-table.php:1420
 msgid "Sub Title"
 msgstr ""
 
@@ -8149,7 +8160,7 @@ msgid "Text Fill"
 msgstr ""
 
 #: modules/link-effects/widgets/link-effects.php:159
-#: modules/pricing/widgets/pricing-table.php:856
+#: modules/pricing/widgets/pricing-table.php:893
 #: modules/team-member/widgets/team-member-carousel.php:636
 #: modules/team-member/widgets/team-member.php:452
 msgid "Circle"
@@ -8328,7 +8339,7 @@ msgid "Search Form"
 msgstr ""
 
 #: modules/posts/skins/skin-base.php:411
-#: modules/posts/widgets/posts-base.php:575
+#: modules/posts/widgets/posts-base.php:588
 msgid "Show Search Form"
 msgstr ""
 
@@ -8693,7 +8704,7 @@ msgid "Include By"
 msgstr ""
 
 #: modules/posts/widgets/posts-base.php:332
-#: modules/pricing/widgets/pricing-table.php:440
+#: modules/pricing/widgets/pricing-table.php:449
 msgid "Exclude"
 msgstr ""
 
@@ -8734,22 +8745,32 @@ msgid "Enable this option to remove current post from the query."
 msgstr ""
 
 #: modules/posts/widgets/posts-base.php:544
+msgid "Avoid Duplicates"
+msgstr ""
+
+#: modules/posts/widgets/posts-base.php:547
+msgid ""
+"Set to Yes to avoid duplicate posts from showing up on the page. This only "
+"affects the frontend."
+msgstr ""
+
+#: modules/posts/widgets/posts-base.php:557
 msgid "Query ID"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:545
+#: modules/posts/widgets/posts-base.php:558
 msgid "Give your Query a custom unique id to allow server side filtering"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:556
+#: modules/posts/widgets/posts-base.php:569
 msgid "If Nothing Found!"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:565
+#: modules/posts/widgets/posts-base.php:578
 msgid "Nothing Found Message"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:568
+#: modules/posts/widgets/posts-base.php:581
 msgid "It seems we can't find what you're looking for."
 msgstr ""
 
@@ -8775,7 +8796,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:151
 #: modules/pricing/widgets/price-menu.php:782
 #: modules/pricing/widgets/pricing-table.php:385
-#: modules/pricing/widgets/pricing-table.php:1726
+#: modules/pricing/widgets/pricing-table.php:1763
 msgid "Original Price"
 msgstr ""
 
@@ -8849,12 +8870,12 @@ msgid "Enter table subtitle"
 msgstr ""
 
 #: modules/pricing/widgets/pricing-table.php:296
-#: modules/pricing/widgets/pricing-table.php:1453
+#: modules/pricing/widgets/pricing-table.php:1490
 msgid "Pricing"
 msgstr ""
 
 #: modules/pricing/widgets/pricing-table.php:303
-#: modules/pricing/widgets/pricing-table.php:1575
+#: modules/pricing/widgets/pricing-table.php:1612
 msgid "Currency Symbol"
 msgstr ""
 
@@ -8939,7 +8960,7 @@ msgid "Raised"
 msgstr ""
 
 #: modules/pricing/widgets/pricing-table.php:400
-#: modules/pricing/widgets/pricing-table.php:1659
+#: modules/pricing/widgets/pricing-table.php:1696
 msgid "Duration"
 msgstr ""
 
@@ -8948,111 +8969,111 @@ msgid "per month"
 msgstr ""
 
 #: modules/pricing/widgets/pricing-table.php:417
-#: modules/pricing/widgets/pricing-table.php:1783
+#: modules/pricing/widgets/pricing-table.php:1820
 msgid "Features"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:432
-#: modules/pricing/widgets/pricing-table.php:433
+#: modules/pricing/widgets/pricing-table.php:441
+#: modules/pricing/widgets/pricing-table.php:442
 msgid "Feature"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:454
+#: modules/pricing/widgets/pricing-table.php:486
 msgid "This is a tooltip"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:523
+#: modules/pricing/widgets/pricing-table.php:554
 msgid "Feature #1"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:527
+#: modules/pricing/widgets/pricing-table.php:558
 msgid "Feature #2"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:531
+#: modules/pricing/widgets/pricing-table.php:562
 msgid "Feature #3"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:660
+#: modules/pricing/widgets/pricing-table.php:694
 msgid "Display On"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:694
+#: modules/pricing/widgets/pricing-table.php:728
 msgid "The distance between the text/icon and the tooltip."
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:832
-#: modules/pricing/widgets/pricing-table.php:2330
+#: modules/pricing/widgets/pricing-table.php:869
+#: modules/pricing/widgets/pricing-table.php:2389
 msgid "Ribbon"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:839
+#: modules/pricing/widgets/pricing-table.php:876
 msgid "Show Ribbon"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:857
+#: modules/pricing/widgets/pricing-table.php:894
 msgid "Flag"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:913
+#: modules/pricing/widgets/pricing-table.php:950
 msgid "Distance from Top"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1002
+#: modules/pricing/widgets/pricing-table.php:1039
 msgid "Button Position"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1006
+#: modules/pricing/widgets/pricing-table.php:1043
 msgid "Above Features"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1007
+#: modules/pricing/widgets/pricing-table.php:1044
 msgid "Below Features"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1044
-#: modules/pricing/widgets/pricing-table.php:1050
-#: modules/pricing/widgets/pricing-table.php:2676
+#: modules/pricing/widgets/pricing-table.php:1081
+#: modules/pricing/widgets/pricing-table.php:1087
+#: modules/pricing/widgets/pricing-table.php:2735
 msgid "Additional Info"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1049
+#: modules/pricing/widgets/pricing-table.php:1086
 msgid "Enter additional info here"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1668
+#: modules/pricing/widgets/pricing-table.php:1705
 msgid "Duration Position"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1672
+#: modules/pricing/widgets/pricing-table.php:1709
 msgid "Same Line"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1673
+#: modules/pricing/widgets/pricing-table.php:1710
 msgid "Next Line"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1753
+#: modules/pricing/widgets/pricing-table.php:1790
 msgid "Font Size"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1960
+#: modules/pricing/widgets/pricing-table.php:1997
 msgid "Rows"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2021
+#: modules/pricing/widgets/pricing-table.php:2058
 msgid "Even"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2063
+#: modules/pricing/widgets/pricing-table.php:2100
 msgid "Odd"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2270
+#: modules/pricing/widgets/pricing-table.php:2307
 msgid "Tooltip Icon"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2636
+#: modules/pricing/widgets/pricing-table.php:2695
 msgid "Footer"
 msgstr ""
 
@@ -9826,6 +9847,10 @@ msgstr ""
 
 #: modules/twitter/widgets/twitter-tweet.php:112
 msgid "Expanded"
+msgstr ""
+
+#: modules/wpforms/widgets/wpforms.php:799
+msgid "Section Divider"
 msgstr ""
 
 #: plugin.php:448
