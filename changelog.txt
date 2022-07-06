@@ -1,5 +1,6 @@
 == 2.6.16 ==
 Release date: 6 July 2022
+* Enhancement: Advanced Accordion - Added ability to open accordions using keypress
 * Enhancement: WP Forms - Added styling options for Section Divider
 
 == 2.6.15 ==

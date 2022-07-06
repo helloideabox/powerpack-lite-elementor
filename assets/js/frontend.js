@@ -318,8 +318,14 @@
         // Remove multiple click event for nested accordion
         accordionTitle.unbind('click');
 
-        accordionTitle.click(function(e) {
+        accordionTitle.on( 'click keypress', function(e) {
             e.preventDefault();
+			
+			var validClick = (e.which == 1 || e.which == 13 || e.which == 32 || e.which == undefined) ? true : false;
+
+			if ( ! validClick ) {
+				return;
+			}
 
             var $this = $(this),
 				$item = $this.parent();
@@ -330,6 +336,7 @@
                 if ( $this.hasClass('pp-accordion-tab-show') ) {
                     $this.closest('.pp-accordion-item').removeClass('pp-accordion-item-active');
                     $this.removeClass('pp-accordion-tab-show pp-accordion-tab-active');
+					$this.attr('aria-expanded', 'false');
                     $this.next().slideUp(accordionSpeed);
                 } else {
                     $this.closest('.pp-advanced-accordion').find('.pp-accordion-item').removeClass('pp-accordion-item-active');
@@ -337,7 +344,11 @@
                     $this.closest('.pp-advanced-accordion').find('.pp-accordion-tab-title').removeClass('pp-accordion-tab-active-default');
                     $this.closest('.pp-advanced-accordion').find('.pp-accordion-tab-content').slideUp(accordionSpeed);
                     $this.toggleClass('pp-accordion-tab-show pp-accordion-tab-active');
+					$this.closest('.pp-advanced-accordion').find('.pp-accordion-tab-title').attr('aria-expanded', 'false');
                     $this.closest('.pp-accordion-item').toggleClass('pp-accordion-item-active');
+					if ( $this.hasClass('pp-accordion-tab-title') ) {
+						$this.attr('aria-expanded', 'true');
+					}
                     $this.next().slideToggle(accordionSpeed);
                 }
             } else {
