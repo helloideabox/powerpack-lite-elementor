@@ -1,3 +1,7 @@
+== 2.6.16 ==
+Release date: 6 July 2022
+* Enhancement: WP Forms - Added styling options for Section Divider
+
 == 2.6.15 ==
 Release date: June 9, 2022
 * Enhancement: Team Member Carousel - Added support for Tiktok social icon

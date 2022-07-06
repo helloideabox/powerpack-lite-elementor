@@ -13,6 +13,8 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Text_Stroke;
+use Elementor\Group_Control_Text_Shadow;
 use Elementor\Core\Schemes\Typography as Scheme_Typography;
 use Elementor\Core\Schemes\Color as Scheme_Color;
 
@@ -781,6 +783,130 @@ class WPforms extends Powerpack_Widget {
 				],
 				'condition'             => [
 					'placeholder_switch'   => 'yes',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		/**
+		 * Style Tab: Section Divider
+		 * -------------------------------------------------
+		 */
+		$this->start_controls_section(
+			'section_section_divider_style',
+			[
+				'label'                 => __( 'Section Divider', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'section_divider_bg_color',
+			[
+				'label'             => __( 'Background Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-field-divider' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'section_divider_text_color',
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'selectors'             => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-field-divider h3' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'                  => 'section_divider_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'selector'              => '{{WRAPPER}} .pp-wpforms .wpforms-field-divider h3',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => 'section_divider_text_stroke',
+				'selector' => '{{WRAPPER}} .pp-wpforms .wpforms-field-divider h3',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'section_divider_text_shadow',
+				'selector' => '{{WRAPPER}} .pp-wpforms .wpforms-field-divider h3',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'              => 'section_divider_border',
+				'label'             => __( 'Border', 'powerpack' ),
+				'placeholder'       => '1px',
+				'default'           => '1px',
+				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-field-divider',
+			]
+		);
+
+		$this->add_control(
+			'section_divider_border_radius',
+			[
+				'label'             => __( 'Border Radius', 'powerpack' ),
+				'type'              => Controls_Manager::DIMENSIONS,
+				'size_units'        => [ 'px', 'em', '%' ],
+				'selectors'         => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-field-divider' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'section_divider_padding',
+			[
+				'label'             => __( 'Padding', 'powerpack' ),
+				'type'              => Controls_Manager::DIMENSIONS,
+				'size_units'        => [ 'px', 'em', '%' ],
+				'selectors'         => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-field-divider' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'              => 'section_divider_box_shadow',
+				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-field-divider',
+			]
+		);
+
+		$this->add_responsive_control(
+			'section_divider_spacing',
+			[
+				'label'                 => __( 'Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'range'                 => [
+					'px'        => [
+						'min'   => 0,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-field-divider' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
