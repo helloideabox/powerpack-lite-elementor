@@ -210,14 +210,36 @@
 		var elementSettings = getElementSettings( $scope ),
 			carouselWrap    = $scope.find('.swiper-container-wrap'),
             carousel        = $scope.find('.pp-info-box-carousel'),
-            sliderOptions   = JSON.parse( carousel.attr('data-slider-settings') ),
+			sliderOptions   = ( carousel.attr('data-slider-settings') !== undefined ) ? JSON.parse( carousel.attr('data-slider-settings') ) : '',
             equalHeight	    = elementSettings.equal_height_boxes;
 
-		ppSwiperSliderinit(carousel, carouselWrap, elementSettings, sliderOptions);
-		
-		if ( equalHeight === 'yes' ) {
-			IbEqualHeight($scope, $);
-			$(window).resize(IbEqualHeight($scope, $));
+		$(carousel).closest('.elementor-widget-wrap').addClass('e-swiper-container');
+		$(carousel).closest('.elementor-widget').addClass('e-widget-swiper');
+
+		if ( 'undefined' === typeof Swiper ) {
+			var asyncSwiper = elementorFrontend.utils.swiper;
+
+			new asyncSwiper( carousel, sliderOptions ).then( function( newSwiperInstance ) {
+				var mySwiper = newSwiperInstance;
+
+				if ( equalHeight === 'yes' ) {
+					mySwiper.on('slideChange', function () {
+						infoBoxEqualHeight($scope, $);
+					});
+					//$(window).resize(infoBoxEqualHeight($scope, $));
+				}
+
+				ppSwiperSliderAfterinit( carousel, carouselWrap, elementSettings, mySwiper );
+			} );
+		} else {
+			var mySwiper = new Swiper(carousel, sliderOptions);
+
+			if ( equalHeight === 'yes' ) {
+				infoBoxEqualHeight($scope, $);
+				//$(window).resize(infoBoxEqualHeight($scope, $));
+			}
+
+			ppSwiperSliderAfterinit( carousel, carouselWrap, elementSettings, mySwiper );
 		}
     };
     

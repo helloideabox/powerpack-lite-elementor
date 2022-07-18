@@ -1,3 +1,7 @@
+== 2.6.17 ==
+Release date: 
+* Fixed: Info Grid & Carousel - JS error when grid layout is selected
+
 == 2.6.16 ==
 Release date: July 6, 2022
 * Enhancement: Pricing Table - Added Icon Spacing option for tooltip icons
