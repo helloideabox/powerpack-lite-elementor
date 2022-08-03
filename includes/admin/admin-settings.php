@@ -92,6 +92,9 @@ $settings     = PP_Admin_Settings::get_settings();
 	border-bottom: 1px solid #eee;
 	padding-bottom: 15px;
 }
+.pp-settings-section .pp-modules-manager-filters {
+	float: right;
+}
 .pp-settings-section .pp-settings-elements-grid > tbody {
 	display: flex;
 	align-items: center;

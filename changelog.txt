@@ -1,5 +1,6 @@
 == 2.6.17 ==
 Release date: 
+* Enhancement: Added option to filter used and unused widgets in PowerPack settings
 * Fixed: Info Grid & Carousel - JS error when grid layout is selected
 
 == 2.6.16 ==
