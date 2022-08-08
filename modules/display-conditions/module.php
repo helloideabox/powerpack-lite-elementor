@@ -116,6 +116,7 @@ class Module extends Module_Base {
 			'authentication',
 			'user',
 			'role',
+			'visitor_type',
 
 			// Singular
 			'page',
