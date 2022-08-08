@@ -5,6 +5,7 @@ Release date:
 * Fixed: Instagram Feed - Removed the option "Likes" as Instagram Basic Display API does not support it
 * Fixed: Instagram Feed - Removed the option "Comments" as Instagram Basic Display API does not support it
 * Fixed: Instagram Feed - Removed the option "Feed by Hashtag" as Instagram Basic Display API does not support it
+* Fixed: Icon List - Spacing issue with RTL layout
 
 == 2.6.16 ==
 Release date: July 6, 2022

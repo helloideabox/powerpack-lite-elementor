@@ -388,7 +388,8 @@ class Icon_List extends Powerpack_Widget {
 				'separator'             => 'before',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-list-items:not(.pp-inline-items) li:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .pp-list-items.pp-inline-items li:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'body:not(.rtl) {{WRAPPER}} .pp-list-items.pp-inline-items li:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'body.rtl {{WRAPPER}} .pp-list-items.pp-inline-items li:not(:last-child)' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -656,7 +657,8 @@ class Icon_List extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}}.pp-icon-left .pp-list-items .pp-icon-wrapper' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'body:not(.rtl) {{WRAPPER}}.pp-icon-left .pp-list-items .pp-icon-wrapper' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'body.rtl {{WRAPPER}}.pp-icon-left .pp-list-items .pp-icon-wrapper' => 'margin-left: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}}.pp-icon-right .pp-list-items .pp-icon-wrapper' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
