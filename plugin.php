@@ -420,7 +420,7 @@ class PowerpackLitePlugin {
 		// Register Controls
 		//\Elementor\Plugin::instance()->controls_manager->register_control( 'pp-query', new Control_Query() );
 
-		if ( version_compare( ELEMENTOR_VERSION, '3.5.0', '>=' ) ) {
+		if ( defined( 'ELEMENTOR_VERSION' ) && version_compare( ELEMENTOR_VERSION, '3.5.0', '>=' ) ) {
 			\Elementor\Plugin::instance()->controls_manager->register( new Control_Query() );
 		} else {
 			\Elementor\Plugin::instance()->controls_manager->register_control( 'pp-query', new Control_Query() );

@@ -1997,6 +1997,17 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'     => 'image_box_shadow',
+				'selector' => '{{WRAPPER}} .pp-post-thumbnail img',
+				'condition' => array(
+					$this->get_control_id( 'show_thumbnail' ) => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
 			array(
 				'name'      => 'thumbnail_filters',
@@ -2025,6 +2036,17 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'hover',
 			array(
 				'label'     => __( 'Hover', 'powerpack' ),
+				'condition' => array(
+					$this->get_control_id( 'show_thumbnail' ) => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'     => 'image_box_shadow_hover',
+				'selector' => '{{WRAPPER}} .pp-post-thumbnail img',
 				'condition' => array(
 					$this->get_control_id( 'show_thumbnail' ) => 'yes',
 				),

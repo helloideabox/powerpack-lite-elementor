@@ -3099,23 +3099,19 @@ div[class*=' pa-'] {
   margin-left: 0;
   width: 100%; }
 
-.pp-post {
-  overflow: hidden; }
-  .pp-post .pp-post-title {
-    font-size: 26px; }
-    .pp-post .pp-post-title a {
-      color: inherit;
-      font-family: inherit;
-      font-size: inherit;
-      font-style: inherit;
-      font-weight: inherit;
-      line-height: inherit; }
+.pp-post .pp-post-title {
+  font-size: 26px; }
+  .pp-post .pp-post-title a {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit; }
 
-.pp-post-thumbnail {
-  overflow: hidden; }
-  .pp-post-thumbnail img {
-    width: 100%;
-    transition: all .25s linear; }
+.pp-post-thumbnail img {
+  width: 100%;
+  transition: all .25s linear; }
 
 .pp-posts-thumbnail-ratio .pp-post-thumbnail-wrap {
   position: relative; }
