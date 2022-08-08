@@ -900,6 +900,9 @@ abstract class Posts_Base extends Powerpack_Widget {
 
 		if ( 'yes' === $settings['avoid_duplicates'] ) {
 			$post__not_in = array_merge( $post__not_in, Module::$displayed_ids );
+		}
+
+		if ( ! empty( $post__not_in ) ) {
 			$query_args['post__not_in'] = $post__not_in;
 		}
 
