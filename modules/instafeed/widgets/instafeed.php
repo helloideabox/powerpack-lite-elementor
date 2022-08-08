@@ -177,7 +177,7 @@ class Instafeed extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		/* $this->add_control(
 			'insta_display',
 			[
 				'label'     => __( 'Display', 'powerpack' ),
@@ -188,7 +188,7 @@ class Instafeed extends Powerpack_Widget {
 					'tags'  => __( 'Tagged Photos', 'powerpack' ),
 				],
 			]
-		);
+		); */
 
 		if ( ! $this->get_insta_global_access_token() ) {
 			$this->add_control(
@@ -201,9 +201,6 @@ class Instafeed extends Powerpack_Widget {
 						'</strong></a>'
 					),
 					'content_classes' => 'pp-editor-info',
-					'condition'       => [
-						'insta_display' => 'feed',
-					],
 				]
 			);
 		}
@@ -211,26 +208,10 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'access_token',
 			[
-				'label'                 => __( 'Custom Access Token', 'powerpack' ),
-				'description'           => __( 'Overrides global Instagram access token', 'powerpack' ),
-				'label_block'           => true,
-				'type'                  => Controls_Manager::TEXT,
-				'condition'             => [
-					'insta_display' => 'feed',
-				],
-			]
-		);
-
-		$this->add_control(
-			'insta_hashtag',
-			[
-				'label'                 => __( 'Hashtag', 'powerpack' ),
-				'description'           => __( 'Enter without the # symbol', 'powerpack' ),
-				'label_block'           => false,
-				'type'                  => Controls_Manager::TEXT,
-				'condition'             => [
-					'insta_display' => 'tags',
-				],
+				'label'       => __( 'Custom Access Token', 'powerpack' ),
+				'description' => __( 'Overrides global Instagram access token', 'powerpack' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::TEXT,
 			]
 		);
 
@@ -388,7 +369,7 @@ class Instafeed extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		/* $this->add_control(
 			'insta_likes',
 			array(
 				'label'              => __( 'Likes', 'powerpack' ),
@@ -413,7 +394,7 @@ class Instafeed extends Powerpack_Widget {
 				'return_value'       => 'yes',
 				'frontend_available' => true,
 			)
-		);
+		); */
 
 		$this->add_control(
 			'insta_caption',
@@ -430,13 +411,13 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'insta_caption_length',
 			array(
-				'label'   => __( 'Caption Length', 'powerpack' ),
-				'type'    => Controls_Manager::NUMBER,
-				'dynamic' => array(
+				'label'     => __( 'Caption Length', 'powerpack' ),
+				'type'      => Controls_Manager::NUMBER,
+				'dynamic'   => array(
 					'active' => true,
 				),
-				'default' => 30,
-				'condition'             => [
+				'default'   => 30,
+				'condition' => [
 					'insta_caption' => 'yes',
 				],
 			)
@@ -445,28 +426,16 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'content_visibility',
 			array(
-				'label'      => __( 'Content Visibility', 'powerpack' ),
-				'type'       => Controls_Manager::SELECT,
-				'default'    => 'always',
-				'options'    => array(
+				'label'     => __( 'Content Visibility', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'always',
+				'options'   => array(
 					'always' => __( 'Always', 'powerpack' ),
 					'hover'  => __( 'On Hover', 'powerpack' ),
 				),
-				'conditions' => array(
-					'relation' => 'or',
-					'terms'    => array(
-						array(
-							'name'     => 'insta_likes',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_comments',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-					),
-				),
+				'condition' => [
+					'insta_caption' => 'yes',
+				],
 			)
 		);
 
@@ -1090,27 +1059,10 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_content_style',
 			array(
-				'label'      => __( 'Content', 'powerpack' ),
-				'tab'        => Controls_Manager::TAB_STYLE,
-				'conditions' => array(
-					'relation' => 'or',
-					'terms'    => array(
-						array(
-							'name'     => 'insta_likes',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_comments',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_caption',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-					),
+				'label'     => __( 'Content', 'powerpack' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => array(
+					'insta_caption' => 'yes',
 				),
 			)
 		);
@@ -1118,28 +1070,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			array(
-				'name'       => 'content_typography',
-				'label'      => __( 'Typography', 'powerpack' ),
-				'selector'   => '{{WRAPPER}} .pp-feed-item .pp-overlay-container',
-				'conditions' => array(
-					'relation' => 'or',
-					'terms'    => array(
-						array(
-							'name'     => 'insta_likes',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_comments',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_caption',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-					),
+				'name'      => 'content_typography',
+				'label'     => __( 'Typography', 'powerpack' ),
+				'selector'  => '{{WRAPPER}} .pp-feed-item .pp-overlay-container',
+				'condition' => array(
+					'insta_caption' => 'yes',
 				),
 			)
 		);
@@ -1147,31 +1082,14 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'likes_comments_color',
 			array(
-				'label'      => __( 'Color', 'powerpack' ),
-				'type'       => Controls_Manager::COLOR,
-				'default'    => '',
-				'selectors'  => array(
+				'label'     => __( 'Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
 					'{{WRAPPER}} .pp-feed-item .pp-overlay-container' => 'color: {{VALUE}};',
 				),
-				'conditions' => array(
-					'relation' => 'or',
-					'terms'    => array(
-						array(
-							'name'     => 'insta_likes',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_comments',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_caption',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-					),
+				'condition' => array(
+					'insta_caption' => 'yes',
 				),
 			)
 		);
@@ -1206,25 +1124,8 @@ class Instafeed extends Powerpack_Widget {
 				'selectors'            => array(
 					'{{WRAPPER}} .pp-overlay-container' => 'justify-content: {{VALUE}};',
 				),
-				'conditions'           => array(
-					'relation' => 'or',
-					'terms'    => array(
-						array(
-							'name'     => 'insta_likes',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_comments',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_caption',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-					),
+				'condition'            => array(
+					'insta_caption' => 'yes',
 				),
 			)
 		);
@@ -1259,25 +1160,8 @@ class Instafeed extends Powerpack_Widget {
 				'selectors'            => array(
 					'{{WRAPPER}} .pp-overlay-container' => 'align-items: {{VALUE}};',
 				),
-				'conditions'           => array(
-					'relation' => 'or',
-					'terms'    => array(
-						array(
-							'name'     => 'insta_likes',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_comments',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_caption',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-					),
+				'condition'            => array(
+					'insta_caption' => 'yes',
 				),
 			)
 		);
@@ -1305,25 +1189,8 @@ class Instafeed extends Powerpack_Widget {
 				'selectors' => array(
 					'{{WRAPPER}} .pp-overlay-container' => 'text-align: {{VALUE}};',
 				),
-				'conditions'           => array(
-					'relation' => 'or',
-					'terms'    => array(
-						array(
-							'name'     => 'insta_likes',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_comments',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_caption',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-					),
+				'condition' => array(
+					'insta_caption' => 'yes',
 				),
 			)
 		);
@@ -1337,135 +1204,8 @@ class Instafeed extends Powerpack_Widget {
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-overlay-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
-				'conditions' => array(
-					'relation' => 'or',
-					'terms'    => array(
-						array(
-							'name'     => 'insta_likes',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_comments',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_caption',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-					),
-				),
-			)
-		);
-
-		$this->add_control(
-			'icons_heading',
-			array(
-				'label'      => __( 'Icons', 'powerpack' ),
-				'type'       => Controls_Manager::HEADING,
-				'separator'  => 'before',
-				'conditions' => array(
-					'relation' => 'or',
-					'terms'    => array(
-						array(
-							'name'     => 'insta_likes',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_comments',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_caption',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-					),
-				),
-			)
-		);
-
-		$this->add_control(
-			'icons_style',
-			array(
-				'label'              => __( 'Style', 'powerpack' ),
-				'type'               => Controls_Manager::CHOOSE,
-				'label_block'        => false,
-				'toggle'             => false,
-				'default'            => 'solid',
-				'options'            => array(
-					'solid'   => array(
-						'title' => __( 'Solid', 'powerpack' ),
-						'icon'  => 'fa fa-comment',
-					),
-					'outline' => array(
-						'title' => __( 'Outline', 'powerpack' ),
-						'icon'  => 'fa fa-comment-o',
-					),
-				),
-				'frontend_available' => true,
-				'conditions'         => array(
-					'relation' => 'or',
-					'terms'    => array(
-						array(
-							'name'     => 'insta_likes',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_comments',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_caption',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-					),
-				),
-			)
-		);
-
-		$this->add_responsive_control(
-			'icon_size',
-			array(
-				'label'      => __( 'Size', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 2.5,
-						'step' => 0.1,
-					),
-				),
-				'size_units' => array( 'px' ),
-				'selectors'  => array(
-					'{{WRAPPER}} .pp-feed-item .pp-if-icon' => 'font-size: {{SIZE}}em;',
-				),
-				'conditions' => array(
-					'relation' => 'or',
-					'terms'    => array(
-						array(
-							'name'     => 'insta_likes',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_comments',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-						array(
-							'name'     => 'insta_caption',
-							'operator' => '==',
-							'value'    => 'yes',
-						),
-					),
+				'condition'  => array(
+					'insta_caption' => 'yes',
 				),
 			)
 		);
@@ -2836,17 +2576,11 @@ class Instafeed extends Powerpack_Widget {
 	public function get_fetch_url() {
 		$settings = $this->get_settings();
 
-		if ( 'tags' === $settings['insta_display'] ) {
-			$url = sprintf( $this->get_tags_endpoint(), $settings['insta_hashtag'] );
-			$url = add_query_arg( array( '__a' => 1 ), $url );
-
-		} elseif ( 'feed' === $settings['insta_display'] ) {
-			$url = $this->get_feed_endpoint();
-			$url = add_query_arg( [
-				'fields'       => 'id,media_type,media_url,thumbnail_url,permalink,caption,likes_count,likes',
-				'access_token' => $this->get_insta_access_token(),
-			], $url );
-		}
+		$url = $this->get_feed_endpoint();
+		$url = add_query_arg( [
+			'fields'       => 'id,media_type,media_url,thumbnail_url,permalink,caption,likes_count,likes',
+			'access_token' => $this->get_insta_access_token(),
+		], $url );
 
 		return $url;
 	}
@@ -3091,7 +2825,7 @@ class Instafeed extends Powerpack_Widget {
 	public function sanitize_endpoint() {
 		$settings = $this->get_settings();
 
-		return in_array( $settings['insta_display'], array( 'feed', 'tags' ) ) ? $settings['insta_display'] : 'tags';
+		return 'feed';
 	}
 
 	/**
@@ -3104,7 +2838,7 @@ class Instafeed extends Powerpack_Widget {
 		$settings = $this->get_settings();
 
 		$endpoint = $this->sanitize_endpoint();
-		$target = ( 'tags' === $endpoint ) ? sanitize_text_field( $settings['insta_hashtag'] ) : 'users';
+		$target = 'users';
 		$insta_caption_length = ( $settings['insta_caption_length'] ) ? $settings['insta_caption_length'] : 30;
 		$images_count = $settings['images_count']['size'];
 
@@ -3248,7 +2982,7 @@ class Instafeed extends Powerpack_Widget {
 			return $response;
 		}
 
-		$data = ( 'tags' === $settings['insta_display'] ) ? $this->get_insta_tags_response_data( $response ) : $this->get_insta_feed_response_data( $response );
+		$data = $this->get_insta_feed_response_data( $response );
 
 		if ( empty( $data ) ) {
 			return array();
@@ -3482,7 +3216,7 @@ class Instafeed extends Powerpack_Widget {
 		if ( 'yes' === $settings['insta_caption'] ) {
 			$image_html .= '<div class="pp-insta-caption">' . $thumbnail_alt . '</div>';
 		}
-		if ( 'yes' === $settings['insta_comments'] || 'yes' === $settings['insta_likes'] ) {
+		/* if ( 'yes' === $settings['insta_comments'] || 'yes' === $settings['insta_likes'] ) {
 			$image_html .= '<div class="pp-insta-icons">';
 			if ( 'yes' === $settings['insta_comments'] ) {
 				$image_html .= '<span class="comments"><i class="pp-if-icon fa fa-comment"></i> ' . $comments . '</span>';
@@ -3491,7 +3225,7 @@ class Instafeed extends Powerpack_Widget {
 				$image_html .= '<span class="likes"><i class="pp-if-icon fa fa-heart"></i> ' . $likes . '</span>';
 			}
 			$image_html .= '</div>';
-		}
+		} */
 		$image_html .= '</div>';
 		$image_html .= '<img ' . $this->get_render_attribute_string( $image_key ) . '/>';
 		$image_html .= '</div>';
