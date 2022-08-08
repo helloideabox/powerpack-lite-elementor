@@ -92,6 +92,10 @@
     .pp-pricing-table-price-duration {
         align-self: flex-end;
     }
+    .pp-pricing-table-price-original .pp-pricing-table-price-prefix {
+        font-size: 1em;
+        margin: 0;
+    }
     &-price-duration-wrap {
         .pp-pricing-table-price {
             flex-wrap: wrap;

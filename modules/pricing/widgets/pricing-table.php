@@ -2833,6 +2833,16 @@ class Pricing_Table extends Powerpack_Widget {
 
 	}
 
+	private function render_currency_symbol( $symbol, $location ) {
+		$currency_position = $this->get_settings( 'currency_position' );
+		$location_setting = ! empty( $currency_position ) ? $currency_position : 'before';
+		if ( ! empty( $symbol ) && $location === $location_setting ) {
+			$symbol = apply_filters( 'ppe_pricing_table_currency', $symbol, $this->get_id() );
+
+			echo '<span class="pp-pricing-table-price-prefix">' . $symbol . '</span>';
+		}
+	}
+
 	private function get_currency_symbol( $symbol_name ) {
 		$symbols = [
 			'dollar'         => '&#36;',
@@ -3043,22 +3053,19 @@ class Pricing_Table extends Powerpack_Widget {
 						<?php if ( 'yes' === $settings['discount'] && $settings['table_original_price'] ) { ?>
 							<span class="pp-pricing-table-price-original">
 								<?php
-								if ( $symbol && 'after' === $settings['currency_position'] ) {
-									echo wp_kses_post( $settings['table_original_price'] ) . esc_attr( $symbol );
-								} else {
-									echo esc_attr( $symbol ) . wp_kses_post( $settings['table_original_price'] );
-								}
+									$this->render_currency_symbol( $symbol, 'before' );
+									$this->print_unescaped_setting( 'table_original_price' );
+									$this->render_currency_symbol( $symbol, 'after' );
 								?>
 							</span>
 						<?php } ?>
-						<?php if ( $symbol && ( 'before' === $settings['currency_position'] || '' === $settings['currency_position'] ) ) { ?>
-							<span class="pp-pricing-table-price-prefix">
-								<?php echo esc_attr( $symbol ); ?>
-							</span>
-						<?php } ?>
+						<?php $this->render_currency_symbol( $symbol, 'before' ); ?>
 						<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_price' ) ); ?>>
 							<span class="pp-pricing-table-integer-part">
-								<?php echo wp_kses_post( $intvalue ); ?>
+								<?php
+									// PHPCS - the main text of a widget should not be escaped.
+									echo $intvalue; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								?>
 							</span>
 							<?php if ( $fraction ) { ?>
 								<span class="pp-pricing-table-after-part">
@@ -3066,11 +3073,7 @@ class Pricing_Table extends Powerpack_Widget {
 								</span>
 							<?php } ?>
 						</span>
-						<?php if ( $symbol && 'after' === $settings['currency_position'] ) { ?>
-							<span class="pp-pricing-table-price-prefix">
-								<?php echo esc_attr( $symbol ); ?>
-							</span>
-						<?php } ?>
+						<?php $this->render_currency_symbol( $symbol, 'after' ); ?>
 						<?php if ( $settings['table_duration'] ) { ?>
 							<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_duration' ) ); ?>>
 								<?php echo wp_kses_post( $settings['table_duration'] ); ?>
