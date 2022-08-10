@@ -4,6 +4,8 @@ Release date:
 * Enhancement: Added option to filter used and unused widgets in PowerPack settings
 * Enhancement: Advanced Posts - Added Image Box Shadow option
 * Enhancement: Content Reveal – Added option to enable or disable the scroll top effect
+* Enhancement: Added EM unit to Border radius controls in all widgets
+* Enhancement: Logo Carousel - Added Pause on Hover option
 * Fixed: Info Grid & Carousel - JS error when grid layout is selected
 * Fixed: Instagram Feed - Removed the option "Likes" as Instagram Basic Display API does not support it
 * Fixed: Instagram Feed - Removed the option "Comments" as Instagram Basic Display API does not support it

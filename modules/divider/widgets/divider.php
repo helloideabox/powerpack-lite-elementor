@@ -63,7 +63,7 @@ class Divider extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the widget belongs to.
+	 * Retrieve the list of keywords the divider widget belongs to.
 	 *
 	 * @access public
 	 *
@@ -944,7 +944,7 @@ class Divider extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'condition'             => [
 					'divider_type'    => 'image',
 				],

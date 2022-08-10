@@ -26,12 +26,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Gallery Slider Widget
+ * Random Image Widget
  */
 class Random_Image extends Powerpack_Widget {
 
 	/**
-	 * Retrieve gallery slider widget name.
+	 * Retrieve Random Image widget name.
 	 *
 	 * @access public
 	 *
@@ -42,7 +42,7 @@ class Random_Image extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve gallery slider widget title.
+	 * Retrieve Random Image widget title.
 	 *
 	 * @access public
 	 *
@@ -53,7 +53,7 @@ class Random_Image extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of categories the gallery slider widget belongs to.
+	 * Retrieve the list of categories the Random Image widget belongs to.
 	 *
 	 * Used to determine where to display the widget in the editor.
 	 *
@@ -66,7 +66,7 @@ class Random_Image extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve gallery slider widget icon.
+	 * Retrieve Random Image widget icon.
 	 *
 	 * @access public
 	 *
@@ -90,7 +90,7 @@ class Random_Image extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of scripts the gallery slider widget depended on.
+	 * Retrieve the list of scripts the Random Image widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
@@ -170,7 +170,7 @@ class Random_Image extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register gallery slider widget controls.
+	 * Register Random Image widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
@@ -306,6 +306,19 @@ class Random_Image extends Powerpack_Widget {
 				],
 				'show_label' => false,
 			]
+		);
+
+		$this->add_control(
+			'important_note',
+			array(
+				'label'           => '',
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => __( 'To add a different link to each image, add custom link in the media uploader.', 'powerpack' ),
+				'content_classes' => 'pp-editor-info',
+				'condition'       => array(
+					'link_to' => 'custom',
+				),
+			)
 		);
 
 		$this->add_control(
@@ -622,7 +635,7 @@ class Random_Image extends Powerpack_Widget {
 			[
 				'label' => __( 'Border Radius', 'powerpack' ),
 				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
 					'{{WRAPPER}} .pp-random-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -941,7 +954,7 @@ class Random_Image extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-random-image-caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1149,7 +1162,12 @@ class Random_Image extends Powerpack_Widget {
 
 				$this->add_render_attribute( 'link', 'href', $link['url'] );
 			} elseif ( 'custom' === $settings['link_to'] ) {
-				$link = $settings['link'];
+				$link        = $settings['link'];
+				$link_custom = get_post_meta( $id, 'pp-custom-link', true );
+
+				if ( '' !== $link_custom ) {
+					$link['url'] = $link_custom;
+				}
 
 				$this->add_link_attributes( 'link', $link );
 			}

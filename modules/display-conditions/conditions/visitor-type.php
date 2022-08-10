@@ -1,8 +1,8 @@
 <?php
-namespace PowerpackElements\Modules\DisplayConditions\Conditions;
+namespace PowerpackElementsLite\Modules\DisplayConditions\Conditions;
 
 // Powerpack Elements Classes
-use PowerpackElements\Base\Condition;
+use PowerpackElementsLite\Base\Condition;
 
 // Elementor Classes
 use Elementor\Controls_Manager;

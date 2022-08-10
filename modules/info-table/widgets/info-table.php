@@ -476,7 +476,7 @@ class Info_Table extends Powerpack_Widget {
 				[
 					'label'      => __( 'Border Radius', 'powerpack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', '%' ],
+					'size_units' => [ 'px', '%', 'em' ],
 					'selectors'  => [
 						'{{WRAPPER}} .pp-info-table-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -524,7 +524,7 @@ class Info_Table extends Powerpack_Widget {
 				[
 					'label'      => __( 'Border Radius', 'powerpack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', '%' ],
+					'size_units' => [ 'px', '%', 'em' ],
 					'selectors'  => [
 						'{{WRAPPER}} .pp-info-table-container:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -891,7 +891,7 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px', '%', 'em' ],
 				'condition'  => [
 					'icon_type!' => 'none',
 				],
@@ -1205,7 +1205,7 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1517,12 +1517,17 @@ class Info_Table extends Powerpack_Widget {
 				'type'       => Controls_Manager::SLIDER,
 				'range'      => [
 					'%' => [
-						'min'  => 0,
+						'min'  => -10,
+						'max'  => 100,
+						'step' => 1,
+					],
+					'px' => [
+						'min'  => -20,
 						'max'  => 100,
 						'step' => 1,
 					],
 				],
-				'size_units' => [ '%', '' ],
+				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-sale-badge' => 'top: {{SIZE}}%',
 				],
@@ -1536,7 +1541,7 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-sale-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1566,20 +1571,8 @@ class Info_Table extends Powerpack_Widget {
 			$settings['icon'] = 'fa fa-star';
 		}
 
-		$has_icon = ! empty( $settings['icon'] );
-
-		if ( $has_icon ) {
-			$this->add_render_attribute( 'i', 'class', $settings['icon'] );
-			$this->add_render_attribute( 'i', 'aria-hidden', 'true' );
-		}
-
-		$icon_attributes = $this->get_render_attribute_string( 'icon' );
-
-		if ( ! $has_icon && ! empty( $settings['selected_icon']['value'] ) ) {
-			$has_icon = true;
-		}
 		$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
-		$is_new = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
+		$is_new = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 		?>
 		<?php if ( 'none' !== $settings['icon_type'] ) { ?>
 			<div class="pp-info-table-icon-container">

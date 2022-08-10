@@ -291,7 +291,7 @@ class Info_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_position',
 			array(
-				'label'              => __( 'Icon', 'powerpack' ) . ' ' . __( 'Position', 'powerpack' ),
+				'label'              => __( 'Icon Position', 'powerpack' ),
 				'type'               => Controls_Manager::CHOOSE,
 				'default'            => 'top',
 				'options'            => array(
@@ -798,7 +798,7 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-box-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -848,7 +848,7 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-box-container:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -964,7 +964,7 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'condition'  => array(
 					'icon_type!' => 'none',
 				),
@@ -1223,6 +1223,9 @@ class Info_Box extends Powerpack_Widget {
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-box-title' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				),
+				'condition' => array(
+					'heading!' => '',
+				),
 			)
 		);
 
@@ -1423,6 +1426,10 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-info-box-divider' => 'border-bottom-color: {{VALUE}}',
@@ -1705,7 +1712,7 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-box-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),

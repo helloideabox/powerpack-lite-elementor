@@ -977,7 +977,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'          => __( 'Columns Gap', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => array(
-					'size' => 10,
+					'size' => 20,
 					'unit' => 'px',
 				),
 				'size_units'     => array( 'px', '%' ),
@@ -993,8 +993,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'unit' => 'px',
 				),
 				'selectors'      => array(
-					'{{WRAPPER}} .pp-info-box-container .pp-grid-item-wrap' => 'padding-left: calc({{SIZE}}{{UNIT}}/2); padding-right: calc({{SIZE}}{{UNIT}}/2);',
-					'{{WRAPPER}} .pp-info-box-container' => 'margin-left: calc(-{{SIZE}}{{UNIT}}/2); margin-right: calc(-{{SIZE}}{{UNIT}}/2);',
+					'{{WRAPPER}}' => '--grid-column-gap: {{SIZE}}{{UNIT}}',
 				),
 				'condition'      => array(
 					'layout' => 'grid',
@@ -1024,7 +1023,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'unit' => 'px',
 				),
 				'selectors'      => array(
-					'{{WRAPPER}} .pp-info-box-container .pp-grid-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}' => '--grid-row-gap: {{SIZE}}{{UNIT}}',
 				),
 				'condition'      => array(
 					'layout' => 'grid',
@@ -1074,7 +1073,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1183,7 +1182,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-icon, {{WRAPPER}} .pp-info-box-icon img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1842,7 +1841,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -2140,7 +2139,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -2357,7 +2356,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -2621,8 +2620,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		if ( 'grid' === $settings['layout'] ) {
 
-			$this->add_render_attribute( 'container', 'class', 'pp-elementor-grid' );
-			$this->add_render_attribute( 'info-box-wrap', 'class', 'pp-grid-item-wrap' );
+			$this->add_render_attribute( 'container', 'class', 'elementor-grid' );
+			$this->add_render_attribute( 'info-box-wrap', 'class', 'pp-grid-item-wrap elementor-grid-item' );
 			$this->add_render_attribute( 'info-box', 'class', 'pp-grid-item' );
 
 		} else {
@@ -3061,8 +3060,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
             if ( settings.layout == 'grid' ) {
 
-				view.addRenderAttribute( 'container', 'class', 'pp-elementor-grid' );
-				view.addRenderAttribute( 'info-box-wrap', 'class', 'pp-grid-item-wrap' );
+				view.addRenderAttribute( 'container', 'class', 'elementor-grid' );
+				view.addRenderAttribute( 'info-box-wrap', 'class', 'pp-grid-item-wrap elementor-grid-item' );
 				view.addRenderAttribute( 'info-box', 'class', 'pp-grid-item' );
 
 			} else {

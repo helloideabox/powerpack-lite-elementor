@@ -457,7 +457,7 @@ class Image_Comparison extends Powerpack_Widget {
 			[
 				'label'             => __( 'Border Radius', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', '%' ],
+				'size_units'        => [ 'px', '%', 'em' ],
 				'selectors'         => [
 					'{{WRAPPER}} .twentytwenty-handle' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -721,7 +721,7 @@ class Image_Comparison extends Powerpack_Widget {
 			[
 				'label'             => __( 'Border Radius', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', '%' ],
+				'size_units'        => [ 'px', '%', 'em' ],
 				'selectors'         => [
 					'{{WRAPPER}} .twentytwenty-before-label:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -777,7 +777,7 @@ class Image_Comparison extends Powerpack_Widget {
 			[
 				'label'             => __( 'Border Radius', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', '%' ],
+				'size_units'        => [ 'px', '%', 'em' ],
 				'selectors'         => [
 					'{{WRAPPER}} .twentytwenty-after-label:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],

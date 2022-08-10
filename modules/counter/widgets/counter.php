@@ -64,7 +64,7 @@ class Counter extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the widget belongs to.
+	 * Retrieve the list of keywords the Counter widget belongs to.
 	 *
 	 * @access public
 	 *
@@ -194,7 +194,7 @@ class Counter extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Number Divider', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
-				'default'               => 'no',
+				'default'               => '',
 				'label_on'              => __( 'On', 'powerpack' ),
 				'label_off'             => __( 'Off', 'powerpack' ),
 				'return_value'          => 'yes',
@@ -654,7 +654,7 @@ class Counter extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-counter-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
