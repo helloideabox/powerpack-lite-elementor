@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Buttons extends Powerpack_Widget {
 
 	/**
-	 * Retrieve buttons widget name.
+	 * Retrieve Buttons widget name.
 	 *
 	 * @access public
 	 *
@@ -37,7 +37,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve buttons widget title.
+	 * Retrieve Buttons widget title.
 	 *
 	 * @access public
 	 *
@@ -48,7 +48,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve buttons widget icon.
+	 * Retrieve Buttons widget icon.
 	 *
 	 * @access public
 	 *
@@ -61,7 +61,7 @@ class Buttons extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the widget belongs to.
+	 * Retrieve the list of keywords the Buttons widget belongs to.
 	 *
 	 * @access public
 	 *
@@ -72,7 +72,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of scripts the buttons widget depended on.
+	 * Retrieve the list of scripts the advanced menu widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
@@ -88,7 +88,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register buttons widget controls.
+	 * Register Buttons widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
@@ -450,7 +450,7 @@ class Buttons extends Powerpack_Widget {
 				[
 					'label'                 => __( 'Border Radius', 'powerpack' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
-					'size_units'            => [ 'px', '%' ],
+					'size_units'            => [ 'px', '%', 'em' ],
 					'selectors'             => [
 						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -591,11 +591,13 @@ class Buttons extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Buttons Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => array( 'px', 'em', 'rem' ),
 				'default'               => [
 					'size' => 10,
 				],
 				'range'                 => [
 					'px' => [
+						'min' => 1,
 						'max' => 100,
 					],
 				],
@@ -813,7 +815,7 @@ class Buttons extends Powerpack_Widget {
 				[
 					'label'                 => __( 'Border Radius', 'powerpack' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
-					'size_units'            => [ 'px', '%' ],
+					'size_units'            => [ 'px', '%', 'em' ],
 					'selectors'             => [
 						'{{WRAPPER}} .pp-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -1112,7 +1114,7 @@ class Buttons extends Powerpack_Widget {
 				[
 					'label'      => __( 'Border Radius', 'powerpack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', '%' ],
+					'size_units' => [ 'px', '%', 'em' ],
 					'selectors'  => [
 						'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -1144,7 +1146,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Render buttons widget output on the frontend.
+	 * Render Buttons widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
@@ -1360,7 +1362,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Render buttons widget output in the editor.
+	 * Render Buttons widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *

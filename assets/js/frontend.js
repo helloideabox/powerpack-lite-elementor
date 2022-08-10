@@ -558,6 +558,7 @@
 			$saparator 			= $scope.find('.pp-content-reveal-saparator'),
 			$button				= $scope.find('.pp-content-reveal-button-inner'),
 			contentOuterHeight 	= $content.outerHeight(),
+			scrollTop           = contentWrapper.data('scroll-top'),
 			contentVisibility   = contentWrapper.data('visibility'),
 			contentHeightCustom = contentWrapper.data('content-height'),
 			speedUnreveal       = contentWrapper.data('speed') * 1000,
@@ -587,9 +588,11 @@
 			} else {
 				contentWrapper.animate({ height: ( contentWrapperHeight + 'px') }, speedUnreveal);
 
-				$('html, body').animate({
-					scrollTop: ( contentWrapper.offset().top - 50 ) + 'px'
-				});
+				if ( scrollTop == 'yes' ) {
+					$('html, body').animate({
+						scrollTop: ( contentWrapper.offset().top - 50 ) + 'px'
+					});
+				}
 			}
 		});
     };

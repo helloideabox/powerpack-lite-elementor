@@ -59,7 +59,7 @@ class Content_Reveal extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the widget belongs to.
+	 * Retrieve the list of keywords the Content Reveal widget belongs to.
 	 *
 	 * @access public
 	 *
@@ -166,6 +166,17 @@ class Content_Reveal extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'scroll_top',
+			[
+				'label'                 => __( 'Scroll Top', 'powerpack' ),
+				'description'           => __( 'Enable this option to scroll to top of content when Read Less button is clicked', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'yes',
+				'return_value'          => 'yes',
+			]
+		);
+
+		$this->add_control(
 			'speed_unreveal',
 			[
 				'label'                 => __( 'Transition Speed', 'powerpack' ),
@@ -181,7 +192,6 @@ class Content_Reveal extends Powerpack_Widget {
 						'step' => 0.1,
 					],
 				],
-				'frontend_available' => true,
 			]
 		);
 
@@ -195,7 +205,6 @@ class Content_Reveal extends Powerpack_Widget {
 					'lines'  => __( 'Lines', 'powerpack' ),
 					'pixels' => __( 'Pixels', 'powerpack' ),
 				],
-				'frontend_available'    => 'true',
 				'condition'             => [
 					'content_type' => 'content',
 				],
@@ -217,7 +226,6 @@ class Content_Reveal extends Powerpack_Widget {
 						'min' => 10,
 					],
 				],
-				'frontend_available'    => true,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-content-wrapper' => 'height: {{SIZE}}{{UNIT}}',
 				],
@@ -268,7 +276,6 @@ class Content_Reveal extends Powerpack_Widget {
 				'condition'             => [
 					'visible_type' => 'lines',
 				],
-				'frontend_available'    => true,
 			]
 		);
 
@@ -748,7 +755,7 @@ class Content_Reveal extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1011,6 +1018,10 @@ class Content_Reveal extends Powerpack_Widget {
 				],
 			],
 		] );
+
+		if ( 'yes' === $settings['scroll_top'] ) {
+			$this->add_render_attribute( 'wrapper', 'data-scroll-top', 'yes' );
+		}
 
 		if ( ( 'content' === $settings['content_type'] && 'pixels' === $settings['visible_type'] && $settings['visible_amount']['size'] ) || ( 'template' === $settings['content_type'] && $settings['visible_amount']['size'] ) ) {
 			$this->add_render_attribute( 'wrapper', 'data-content-height', $settings['visible_amount']['size'] );

@@ -3,6 +3,7 @@ Release date:
 * New: Display Conditions - Condition to check new or returning visitor
 * Enhancement: Added option to filter used and unused widgets in PowerPack settings
 * Enhancement: Advanced Posts - Added Image Box Shadow option
+* Enhancement: Content Reveal – Added option to enable or disable the scroll top effect
 * Fixed: Info Grid & Carousel - JS error when grid layout is selected
 * Fixed: Instagram Feed - Removed the option "Likes" as Instagram Basic Display API does not support it
 * Fixed: Instagram Feed - Removed the option "Comments" as Instagram Basic Display API does not support it
