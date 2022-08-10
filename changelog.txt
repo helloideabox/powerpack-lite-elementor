@@ -13,6 +13,7 @@ Release date:
 * Fixed: Icon List - Spacing issue with RTL layout
 * Fixed: Advanced Posts - Exclude posts option
 * Enhancement: Pricing Table - Added ppe_pricing_table_currency filter hook
+* Fixed: PowerPack template library was not working with Elementor 3.7.0
 
 == 2.6.16 ==
 Release date: July 6, 2022
