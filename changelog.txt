@@ -1,5 +1,5 @@
 == 2.6.17 ==
-Release date: 
+Release date: August 10, 2022
 * New: Display Conditions - Condition to check new or returning visitor
 * Enhancement: Added option to filter used and unused widgets in PowerPack settings
 * Enhancement: Advanced Posts - Added Image Box Shadow option

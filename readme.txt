@@ -230,6 +230,22 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.17 - August 10, 2022 =
+* 	New: Display Conditions - Condition to check new or returning visitor
+* 	Enhancement: Added option to filter used and unused widgets in PowerPack settings
+* 	Enhancement: Advanced Posts - Added Image Box Shadow option
+* 	Enhancement: Content Reveal – Added option to enable or disable the scroll top effect
+* 	Enhancement: Added EM unit to Border radius controls in all widgets
+* 	Enhancement: Logo Carousel - Added Pause on Hover option
+* 	Fixed: Info Grid & Carousel - JS error when grid layout is selected
+* 	Fixed: Instagram Feed - Removed the option "Likes" as Instagram Basic Display API does not support it
+* 	Fixed: Instagram Feed - Removed the option "Comments" as Instagram Basic Display API does not support it
+* 	Fixed: Instagram Feed - Removed the option "Feed by Hashtag" as Instagram Basic Display API does not support it
+* 	Fixed: Icon List - Spacing issue with RTL layout
+* 	Fixed: Advanced Posts - Exclude posts option
+* 	Enhancement: Pricing Table - Added ppe_pricing_table_currency filter hook
+* 	Fixed: PowerPack template library was not working with Elementor 3.7.0
+
 = 2.6.16 - July 6, 2022 =
 * 	Enhancement: Pricing Table - Added Icon Spacing option for tooltip icons
 * 	Enhancement: Posts - Added Avoid Duplicates option
