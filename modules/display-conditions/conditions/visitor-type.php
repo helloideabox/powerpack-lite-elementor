@@ -18,7 +18,7 @@ class Visitor_Type extends Condition {
 	 *
 	 * Get the group of the condition
 	 *
-	 * @since  x.x.x
+	 * @since  2.6.17
 	 * @return string
 	 */
 	public function get_group() {
@@ -30,7 +30,7 @@ class Visitor_Type extends Condition {
 	 *
 	 * Get the name of the module
 	 *
-	 * @since  x.x.x
+	 * @since  2.6.17
 	 * @return string
 	 */
 	public function get_name() {
@@ -42,7 +42,7 @@ class Visitor_Type extends Condition {
 	 *
 	 * Get the title of the module
 	 *
-	 * @since  x.x.x
+	 * @since  2.6.17
 	 * @return string
 	 */
 	public function get_title() {
@@ -54,7 +54,7 @@ class Visitor_Type extends Condition {
 	 *
 	 * Get the settings for the value control
 	 *
-	 * @since  x.x.x
+	 * @since  2.6.17
 	 * @return string
 	 */
 	public function get_value_control() {
@@ -73,7 +73,7 @@ class Visitor_Type extends Condition {
 	/**
 	 * Check condition
 	 *
-	 * @since x.x.x
+	 * @since 2.6.17
 	 *
 	 * @access public
 	 *
