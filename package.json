@@ -10,6 +10,7 @@
 		"build": "grunt",
 		"build-watch": "grunt watch",
 		"makepot": "grunt makepot",
+		"css": "grunt css",
 		"release": "grunt release",
 		"copy": "grunt copy",
 		"ver-bump": "grunt version-bump --ver"
