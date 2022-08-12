@@ -1,3 +1,7 @@
+== 2.6.18 ==
+Release date: 
+* Enhancement: Set the minimum Elementor version required to 3.5.0
+
 == 2.6.17 ==
 Release date: August 10, 2022
 * New: Display Conditions - Condition to check new or returning visitor
