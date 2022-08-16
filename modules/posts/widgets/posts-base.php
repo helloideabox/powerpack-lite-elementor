@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\Posts\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Modules\Posts\Module;
 use PowerpackElementsLite\Classes\PP_Posts_Helper;
 
 use Elementor\Controls_Manager;
@@ -609,6 +610,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$settings  = $this->get_settings_for_display();
 		$paged     = ( 'yes' === $paged_args ) ? $this->get_paged() : '';
 		$tax_count = 0;
+		$post__not_in = array();
 
 		if ( 'main' === $settings['query_type'] ) {
 			$current_query_vars = $GLOBALS['wp_query']->query_vars;
@@ -664,7 +666,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 
 			if ( ! empty( $settings['related_exclude_by'] ) ) {
 				if ( in_array( 'current_post', $settings['related_exclude_by'], true ) ) {
-					$query_args['post__not_in'] = array( get_the_ID() );
+					$post__not_in = array( get_the_ID() );
 				}
 
 				if ( in_array( 'authors', $settings['related_exclude_by'], true ) ) {
@@ -710,7 +712,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 			$post_type = $settings['post_type'];
 
 			if ( ! empty( $settings[ $post_type . '_filter' ] ) ) {
-				$query_args[ $settings[ $post_type . '_filter_type' ] ] = $settings[ $post_type . '_filter' ];
+				if ( 'post__not_in' === $settings[ $post_type . '_filter_type' ] ) {
+					$post__not_in = $settings[ $post_type . '_filter' ];
+				} else {
+					$query_args[ $settings[ $post_type . '_filter_type' ] ] = $settings[ $post_type . '_filter' ];
+				}
 			}
 
 			// Taxonomy Filter.
@@ -956,6 +962,8 @@ abstract class Posts_Base extends Powerpack_Widget {
 		remove_action( 'pre_get_posts', array( $this, 'pre_get_posts_query_filter' ) );
 		remove_action( 'pre_get_posts', [ $this, 'fix_query_offset' ], 1 );
 		remove_filter( 'found_posts', [ $this, 'fix_query_found_posts' ], 1 );
+
+		Module::add_to_avoid_list( wp_list_pluck( $this->query->posts, 'ID' ) );
 	}
 
 	public function query_filters_posts( $filter = '', $taxonomy = '', $search = '' ) {

@@ -7,6 +7,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Module extends Module_Base {
 
+	public static $displayed_ids = [];
+
 	public function get_name() {
 		return 'pp-posts';
 	}
@@ -33,6 +35,14 @@ class Module extends Module_Base {
 
 		add_action( 'wp_ajax_pp_get_post', array( $this, 'get_post_data' ) );
 		add_action( 'wp_ajax_nopriv_pp_get_post', array( $this, 'get_post_data' ) );
+	}
+
+	public static function add_to_avoid_list( $ids ) {
+		self::$displayed_ids = array_unique( array_merge( self::$displayed_ids, $ids ) );
+	}
+
+	public static function get_avoid_list_ids() {
+		return self::$displayed_ids;
 	}
 
 	/**

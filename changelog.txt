@@ -1,5 +1,6 @@
 == 2.6.18 ==
 Release date: 
+* Fixed: Posts - PHP error when Avoid Duplicates option is enabled
 * Fixed: Icon List - Icon Vertical Alignment was not working when link is added
 * Enhancement: Set the minimum Elementor version required to 3.5.0
 
