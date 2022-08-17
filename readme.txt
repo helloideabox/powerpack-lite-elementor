@@ -230,6 +230,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.18 - August 17, 2022 =
+* 	Fixed: Posts - PHP error when Avoid Duplicates option is enabled
+* 	Fixed: Icon List - Icon Vertical Alignment was not working when link is added
+* 	Enhancement: Set the minimum Elementor version required to 3.5.0
+
 = 2.6.17 - August 10, 2022 =
 * 	New: Display Conditions - Condition to check new or returning visitor
 * 	Enhancement: Added option to filter used and unused widgets in PowerPack settings
