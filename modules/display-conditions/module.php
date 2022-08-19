@@ -440,7 +440,7 @@ class Module extends Module_Base {
 				'condition'     => [
 					'pp_display_conditions_enable' => 'yes',
 				],
-				'fields'        => $this->_conditions_repeater->get_controls(),
+				'fields'        => array_values( $this->_conditions_repeater->get_controls() ),
 				'title_field'   => 'Condition',
 			]
 		);

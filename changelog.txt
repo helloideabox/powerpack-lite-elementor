@@ -1,3 +1,7 @@
+== 2.6.19 ==
+Release date: August 19, 2022
+* Fixed: Copy and paste styling of element prevents the page from saving after Elementor 3.7.0
+
 == 2.6.18 ==
 Release date: August 17, 2022
 * Fixed: Posts - PHP error when Avoid Duplicates option is enabled

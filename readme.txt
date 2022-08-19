@@ -230,6 +230,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.19 - August 19, 2022 =
+* 	Fixed: Copy and paste styling of element prevents the page from saving after Elementor 3.7.0
+
 = 2.6.18 - August 17, 2022 =
 * 	Fixed: Posts - PHP error when Avoid Duplicates option is enabled
 * 	Fixed: Icon List - Icon Vertical Alignment was not working when link is added
