@@ -59,7 +59,7 @@ class Gravity_Forms extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the widget belongs to.
+	 * Retrieve the list of keywords the gravity forms widget belongs to.
 	 *
 	 * @access public
 	 *
@@ -1167,6 +1167,29 @@ class Gravity_Forms extends Powerpack_Widget {
 			)
 		);
 
+		$this->add_responsive_control(
+			'radio_checkbox_label_spacing',
+			array(
+				'label'      => __( 'Labels Spacing', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 40,
+						'step' => 1,
+					),
+				),
+				'size_units' => array( 'px', 'em' ),
+				'selectors'  => array(
+					'body:not(.rtl) {{WRAPPER}} .pp-custom-radio-checkbox .gchoice label' => 'margin-left: {{SIZE}}{{UNIT}}',
+					'body.rtl {{WRAPPER}} .pp-custom-radio-checkbox .gchoice label' => 'margin-right: {{SIZE}}{{UNIT}}',
+				),
+				'condition'  => array(
+					'custom_radio_checkbox' => 'yes',
+				),
+			)
+		);
+
 		$this->start_controls_tabs( 'tabs_radio_checkbox_style' );
 
 		$this->start_controls_tab(
@@ -1848,7 +1871,7 @@ class Gravity_Forms extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gf_progressbar, {{WRAPPER}} .pp-gravity-form .gform_wrapper .gf_progressbar_percentage, {{WRAPPER}} .pp-gravity-form .gform_wrapper .gf_progressbar:after' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2308,11 +2331,12 @@ class Gravity_Forms extends Powerpack_Widget {
 					<?php } ?>
 					<?php
 					$form_id          = $settings['contact_form_list'];
-					$form_title       = $settings['form_title'];
-					$form_description = $settings['form_description'];
+					$form_title       = ( 'yes' == $settings['form_title'] ) ? 'true' : 'false';
+					$form_description = ( 'yes' == $settings['form_description'] ) ? 'true' : 'false';
 					$form_ajax        = $settings['form_ajax'];
+					$shortcode_attrs  = apply_filters( 'pp_gf_shortcode_atts', '', absint( $settings['contact_form_list'] ) );
 
-					gravity_form( $form_id, $form_title, $form_description, $display_inactive = false, $field_values = null, $form_ajax, '', $echo = true );
+					echo do_shortcode( '[gravityform id="' . absint( $form_id ) . '" title="' . $form_title . '" description="' . $form_description . '" ajax="' . $form_ajax . '"' . ' ' . $shortcode_attrs . ']' );
 					?>
 				</div>
 				<?php
