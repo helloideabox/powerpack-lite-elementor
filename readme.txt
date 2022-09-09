@@ -230,6 +230,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.6.20 - September 9, 2022 =
+* 	Enhancement: Gravity Forms - Added option to add spacing between labels and custom radio & checkboxes
+* 	Enhancement: Gravity Forms - Added pp_gf_shortcode_atts filter hook
+* 	Fixed: Info Box Carousel - JS error with Equal Height option
+* 	Fixed: Advanced Accordion - Box shadow was not working for item set as active by default
+
 = 2.6.19 - August 19, 2022 =
 * 	Fixed: Copy and paste styling of element prevents the page from saving after Elementor 3.7.0
 

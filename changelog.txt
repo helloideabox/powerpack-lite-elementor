@@ -3,6 +3,7 @@ Release date: September 9, 2022
 * Enhancement: Gravity Forms - Added option to add spacing between labels and custom radio & checkboxes
 * Enhancement: Gravity Forms - Added pp_gf_shortcode_atts filter hook
 * Fixed: Info Box Carousel - JS error with Equal Height option
+* Fixed: Advanced Accordion - Box shadow was not working for item set as active by default
 
 == 2.6.19 ==
 Release date: August 19, 2022

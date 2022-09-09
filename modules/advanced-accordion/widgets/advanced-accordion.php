@@ -1462,13 +1462,16 @@ class Advanced_Accordion extends Powerpack_Widget {
 			foreach ( $settings['tabs'] as $index => $tab ) :
 
 				$tab_count = $index + 1;
+				$tab_setting_key = $this->get_repeater_setting_key( 'item', 'tabs', $index );
 				$tab_title_setting_key = $this->get_repeater_setting_key( 'tab_title', 'tabs', $index );
 				$tab_content_setting_key = $this->get_repeater_setting_key( 'accordion_content', 'tabs', $index );
 
+				$tab_class         = [ 'pp-accordion-item' ];
 				$tab_title_class   = [ 'pp-accordion-tab-title' ];
 				$tab_content_class = [ 'pp-accordion-tab-content' ];
 
 				if ( 'yes' === $tab['accordion_tab_default_active'] ) {
+					$tab_class[]   = 'pp-accordion-item-active';
 					$tab_title_class[]   = 'pp-accordion-tab-active-default';
 					$tab_content_class[] = 'pp-accordion-tab-active-default';
 				}
@@ -1480,6 +1483,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 				} else {
 					$tab_id = 'pp-accordion-tab-title-' . $id_int . $tab_count;
 				}
+
+				$this->add_render_attribute( $tab_setting_key, 'class', $tab_class );
 
 				$this->add_render_attribute( $tab_title_setting_key, [
 					'id'            => $tab_id,
@@ -1551,7 +1556,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 				$migrated = isset( $settings['__fa4_migrated']['select_toggle_icon_active'] );
 				$is_new = ! isset( $settings['toggle_icon_active'] ) && $migration_allowed;
 				?>
-				<div class="pp-accordion-item">
+				<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tab_setting_key ) ); ?>>
 					<?php $title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] ); ?>
 					<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $tab_title_setting_key ) ); ?>>
 						<span class="pp-accordion-title-icon">
