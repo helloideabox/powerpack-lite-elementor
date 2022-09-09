@@ -195,8 +195,8 @@
 			);
 		}
 	};
-	
-	var IbEqualHeight = function($scope, $) {
+
+	var infoBoxEqualHeight = function($scope, $) {
 		var maxHeight = 0;
 		$scope.find('.swiper-slide').each( function() {
 			if($(this).height() > maxHeight){
@@ -205,7 +205,7 @@
 		});
 		$scope.find('.pp-info-box-content-wrap').css('min-height',maxHeight);
 	};
-    
+
     var InfoBoxCarouselHandler = function ($scope, $) {
 		var elementSettings = getElementSettings( $scope ),
 			carouselWrap    = $scope.find('.swiper-container-wrap'),
