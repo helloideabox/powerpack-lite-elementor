@@ -4008,13 +4008,17 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		<?php do_action( 'ppe_before_single_post_' . $item_type, get_the_ID(), $settings ); ?>
 		<span class="pp-post-<?php echo esc_attr( $item_type ); ?>">
 			<?php
-			if ( $item_icon || $select_item_icon ) {
+			if ( $item_icon || $select_item_icon ) { ?>
+				<span class="pp-icon">
+				<?php
 				if ( $is_new || $migrated ) {
 					Icons_Manager::render_icon( $select_item_icon, array( 'class' => 'pp-meta-icon', 'aria-hidden' => 'true' ) );
 				} else { ?>
 					<span class="pp-meta-icon <?php echo esc_attr( $item_icon ); ?>" aria-hidden="true"></span>
 					<?php
-				}
+				} ?>
+				</span>
+				<?php
 			}
 
 			if ( $item_prefix ) {
