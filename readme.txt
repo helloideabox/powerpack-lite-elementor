@@ -141,15 +141,40 @@ https://www.youtube.com/watch?v=IoSvG1-0f4M&t=1s
 ### WOOCOMMERCE ELEMENTOR WIDGETS - PRO 
 **Get Special WooCommerce Elementor widgets with PowerPack Pro**
 
-1. [Woo Products](https://powerpackelements.com/woocommerce-elementor-widgets/product-grid/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Multiple layout and styling options to create WooCommerce Product Grid and Carousel layouts on your Elementor website 
-2. [Woo Categories](https://powerpackelements.com/woocommerce-elementor-widgets/categories-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display a grid or carousel for WooCommerce Product Categories
-3. [Add to Cart Button](https://powerpackelements.com/woocommerce-elementor-widgets/add-to-cart-button/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Easily add a special "add to cart" button for any product on any page with extensive styling options. 
-4. [Woo Cart](https://powerpackelements.com/woocommerce-elementor-widgets/cart-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Customize WooCommerce Cart page with free version of Elementor. Style almost every aspect of the product table, buttons, input fields, etc. [Checkout the video](https://www.youtube.com/watch?v=bMZd3aC4b9E)
-5. [Woo Checkout](https://powerpackelements.com/woocommerce-elementor-widgets/checkout-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Another unique solution for WooCommerce to create beautiful Checkout page with Elementor free version. Create a single column or two column layout for checkout page. Styling options for input fields, form, sections, labels, buttons, etc. [Check out the video](https://www.youtube.com/watch?v=XFE04Mzk_p0)
-6. [Woo Mini Cart](https://powerpackelements.com/woocommerce-elementor-widgets/mini-cart-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Add a sleek, mini cart icon to your website's header/menu with Elementor and PowerPack Elementor addons. [Check out the video](https://www.youtube.com/watch?v=jkfzj3qXwGM)
-7. [Woo Off-canvas Cart](https://powerpackelements.com/woocommerce-elementor-widgets/off-canvas-cart-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Add a stunning off-canvas cart panel to your WooCommerce website. [Check out the video](https://www.youtube.com/watch?v=u1Wh5z6vpo4)
-8. [Woo My Account](https://powerpackelements.com/woocommerce-elementor-widgets/my-account-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Easily customize My Account area of your WooCommerce websites.
+1. [WooCommerce Products](https://powerpackelements.com/woocommerce-elementor-widgets/product-grid/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Multiple layout and styling options to create WooCommerce Product Grid and Carousel layouts on your Elementor website 
+2. [WooCommerce Categories](https://powerpackelements.com/woocommerce-elementor-widgets/categories-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display a grid or carousel for WooCommerce Product Categories
+3. [WooCommerce Add to Cart Button](https://powerpackelements.com/woocommerce-elementor-widgets/add-to-cart-button/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Easily add a special "add to cart" button for any product on any page with extensive styling options. 
+4. [WooCommerce Cart](https://powerpackelements.com/woocommerce-elementor-widgets/cart-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Customize WooCommerce Cart page with free version of Elementor. Style almost every aspect of the product table, buttons, input fields, etc. [Checkout the video](https://www.youtube.com/watch?v=bMZd3aC4b9E)
+5. [WooCommerce Checkout](https://powerpackelements.com/woocommerce-elementor-widgets/checkout-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Another unique solution for WooCommerce to create beautiful Checkout page with Elementor free version. Create a single column or two column layout for checkout page. Styling options for input fields, form, sections, labels, buttons, etc. [Check out the video](https://www.youtube.com/watch?v=XFE04Mzk_p0)
+6. [WooCommerce Mini Cart](https://powerpackelements.com/woocommerce-elementor-widgets/mini-cart-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Add a sleek, mini cart icon to your website's header/menu with Elementor and PowerPack Elementor addons. [Check out the video](https://www.youtube.com/watch?v=jkfzj3qXwGM)
+7. [WooCommerce Off-canvas Cart](https://powerpackelements.com/woocommerce-elementor-widgets/off-canvas-cart-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Add a stunning off-canvas cart panel to your WooCommerce website. [Check out the video](https://www.youtube.com/watch?v=u1Wh5z6vpo4)
+8. [WooCommerce My Account](https://powerpackelements.com/woocommerce-elementor-widgets/my-account-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Easily customize My Account area of your WooCommerce websites.
+9. [WooCommerce Single Product] (https://powerpackelements.com/woocommerce-elementor-widgets/single-product/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Customize single WooCommerce products and showcase them in creative layouts to quickly garb your visitors' attention.
 
+## WooCommerce Builder For Elementor
+
+Designing WooCommerce **Single Product** and **Archive Page** templates is now super easy with [PowerPack WooCommerce Builder for Elementor.](https://powerpackelements.com/woocommerce-builder/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)
+
+PowerPack offers a wide range of powerful widgets that gives you complete customization control over your online e-commerce stores built with Elementor and WooCommerce.
+
+Using these widgets, you can create a fully functional custom layout for the single product pages or archive pages of the WooCommerce builder without touching a single line of code.
+
+ https://www.youtube.com/watch?v=-VPXg2L1sew
+
+1. **Woo Products Tabs** - This widget lets you add custom product tabs on the individual WooCommerce product pages
+2. **Woo Product Title** - Define product title and get complete control over the title styling properties such as typography, color, size, and more.
+3. **Woo Product Meta** - This widget lets you display product metadata and other required information on the product page.
+4. **Woo Product Price** - As the name says, you can showcase product prices in your single-page template using this widget.
+5. **Woo Product Rating** - With this widget, you can add product ratings and entice your visitors to make a purchase.
+6. **Woo Product Stock** - Using this widget, you can display your products' stock and the availability of your products.
+7. **Woo Product Short Description** - Add a short product description to guide users.
+8. **Woo Product Content** - This content widget allows you to add necessary details related to your product. 
+9. **Woo Product Images** - This widget lets you add product images so your visitors know exactly what they are looking for.
+10. **Woo Product Upsell** - With this widget, you can present additional products to your consumers to encourage them to purchase.
+11. **Woo Product Reviews** - This widget lets you add product reviews for your prospective visitors.
+12. **Woo Add to Cart Notifications** - Display cart notifications on your product page.
+13. **Woo Archive Description** - With this widget, you can add a detailed description to your archive pages.
+ 
 
 ### NEW SCHEMA WIDGETS - PRO
  **Boost your Search Engine Rankings with new, unique, Schema markup widgets for Elementor.**   
