@@ -317,6 +317,16 @@ class PowerpackLitePlugin {
 			true
 		);
 
+		wp_register_script(
+			'pp-custom-cursor',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-custom-cursor' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
 		$pp_localize = apply_filters(
 			'pp_elements_lite_js_localize',
 			array(

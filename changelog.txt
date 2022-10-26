@@ -1,5 +1,6 @@
-== 2.6.21 ==
+== 2.7.0 ==
 Release date: 
+* New: Custom Cursor extension
 * Fixed: Info Box Carousel - Fade effect slides overlapping issue
 
 == 2.6.20 ==
