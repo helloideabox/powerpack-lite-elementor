@@ -2550,6 +2550,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			}
 		}
 
+		if ( 'fade' === $effect ) {
+			$slider_options['fadeEffect'] = array(
+				'crossFade' => true,
+			);
+		}
+
 		$slider_options['autoplay'] = [
 			'delay'                => $autoplay_speed,
 			'disableOnInteraction' => ( 'yes' === $settings['pause_on_interaction'] ),
@@ -2928,44 +2934,53 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		?>
 		<#
 			function get_slider_settings( settings ) {
+				var crossFade = false;
+
 				if ( settings.carousel_effect !== 'undefined' ) {
 					var $effect = settings.carousel_effect;
 				} else {
 					var $effect = 'slide';
 				}
 
-				var $items          = ( settings.items.size !== '' || settings.items.size !== undefined ) ? settings.items.size : 3,
-					$items_tablet   = ( settings.items_tablet.size !== '' || settings.items_tablet.size !== undefined ) ? settings.items_tablet.size : 2,
-					$items_mobile   = ( settings.items_mobile.size !== '' || settings.items_mobile.size !== undefined ) ? settings.items_mobile.size : 1,
-					$margin         = ( settings.margin.size !== '' || settings.margin.size !== undefined ) ? settings.margin.size : 10,
-					$margin_tablet  = ( settings.margin_tablet.size !== '' || settings.margin_tablet.size !== undefined ) ? settings.margin_tablet.size : 10,
-					$margin_mobile  = ( settings.margin_mobile.size !== '' || settings.margin_mobile.size !== undefined ) ? settings.margin_mobile.size : 10;
+				var $items         = ( settings.items.size !== '' || settings.items.size !== undefined ) ? settings.items.size : 3,
+					$items_tablet  = ( settings.items_tablet.size !== '' || settings.items_tablet.size !== undefined ) ? settings.items_tablet.size : 2,
+					$items_mobile  = ( settings.items_mobile.size !== '' || settings.items_mobile.size !== undefined ) ? settings.items_mobile.size : 1,
+					$margin        = ( settings.margin.size !== '' || settings.margin.size !== undefined ) ? settings.margin.size : 10,
+					$margin_tablet = ( settings.margin_tablet.size !== '' || settings.margin_tablet.size !== undefined ) ? settings.margin_tablet.size : 10,
+					$margin_mobile = ( settings.margin_mobile.size !== '' || settings.margin_mobile.size !== undefined ) ? settings.margin_mobile.size : 10;
 
 				if ( $effect == 'coverflow' ) {
-					$items          = 3,
-					$items_tablet   = 2,
-					$items_mobile   = 1;
+					$items         = 3,
+					$items_tablet  = 2,
+					$items_mobile  = 1;
 				} else if ( $effect == 'fade' || $effect == 'cube' || $effect == 'flip' ) {
-					$items          = 1,
-					$items_tablet   = 1,
-					$items_mobile   = 1,
-					$margin         = 10,
-					$margin_tablet  = 10,
-					$margin_mobile  = 10;
+					$items         = 1,
+					$items_tablet  = 1,
+					$items_mobile  = 1,
+					$margin        = 10,
+					$margin_tablet = 10,
+					$margin_mobile = 10;
+				}
+
+				if ( $effect == 'fade' ) {
+					crossFade = true;
 				}
 
 				var $autoplay = ( settings.autoplay == 'yes' && settings.autoplay_speed.size != '' ) ? settings.autoplay_speed.size : 999999;
 
 				return {
-					direction:              "horizontal",
-					speed:                  ( settings.slider_speed.size !== '' || settings.slider_speed.size !== undefined ) ? settings.slider_speed.size : 400,
-					effect:                 $effect,
-					slidesPerView:          $items,
-					spaceBetween:           $margin,
-					centeredSlides:         ( settings.centered_slides === 'yes' ) ? true : false,
-					grabCursor:             ( settings.grab_cursor === 'yes' ) ? true : false,
-					autoHeight:             true,
-					loop:                   ( settings.infinite_loop === 'yes' ),
+					direction: "horizontal",
+					speed: ( settings.slider_speed.size !== '' || settings.slider_speed.size !== undefined ) ? settings.slider_speed.size : 400,
+					effect: $effect,
+					fadeEffect: {
+						crossFade: true,
+					},
+					slidesPerView: $items,
+					spaceBetween: $margin,
+					centeredSlides: ( settings.centered_slides === 'yes' ) ? true : false,
+					grabCursor: ( settings.grab_cursor === 'yes' ) ? true : false,
+					autoHeight: true,
+					loop: ( settings.infinite_loop === 'yes' ),
 					autoplay: {
 						delay: $autoplay,
 						disableOnInteraction: ( settings.disableOnInteraction === 'yes' ),
@@ -2981,16 +2996,16 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					},
 					breakpoints: {
 						<?php echo esc_attr( $bp_desktop ); ?>: {
-							slidesPerView:  $items,
-							spaceBetween:   $margin
+							slidesPerView: $items,
+							spaceBetween:  $margin
 						},
 						<?php echo esc_attr( $bp_tablet ); ?>: {
-							slidesPerView:  $items_tablet,
-							spaceBetween:   $margin_tablet
+							slidesPerView: $items_tablet,
+							spaceBetween:  $margin_tablet
 						},
 						<?php echo esc_attr( $bp_mobile ); ?>: {
-							slidesPerView:  $items_mobile,
-							spaceBetween:   $margin_mobile
+							slidesPerView: $items_mobile,
+							spaceBetween:  $margin_mobile
 						}
 					}
 				};

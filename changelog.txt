@@ -1,3 +1,7 @@
+== 2.6.21 ==
+Release date: 
+* Fixed: Info Box Carousel - Fade effect slides overlapping issue
+
 == 2.6.20 ==
 Release date: September 9, 2022
 * Enhancement: Gravity Forms - Added option to add spacing between labels and custom radio & checkboxes
