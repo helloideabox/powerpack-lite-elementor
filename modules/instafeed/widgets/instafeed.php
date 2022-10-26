@@ -2576,10 +2576,13 @@ class Instafeed extends Powerpack_Widget {
 	public function get_fetch_url() {
 		$settings = $this->get_settings();
 
+		$images_count = ! empty( $settings['images_count']['size'] ) ? $settings['images_count']['size'] : 5;
+
 		$url = $this->get_feed_endpoint();
 		$url = add_query_arg( [
 			'fields'       => 'id,media_type,media_url,thumbnail_url,permalink,caption,likes_count,likes',
 			'access_token' => $this->get_insta_access_token(),
+			'limit'        => $images_count,
 		], $url );
 
 		return $url;

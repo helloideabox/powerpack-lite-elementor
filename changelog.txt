@@ -2,6 +2,7 @@
 Release date: 
 * New: Custom Cursor extension
 * Fixed: Info Box Carousel - Fade effect slides overlapping issue
+* Fixed: Instagram Feed - Widget was fetching maximum 25 images
 
 == 2.6.20 ==
 Release date: September 9, 2022
