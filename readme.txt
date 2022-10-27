@@ -230,6 +230,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.0 - October 27, 2022 =
+* 	New: Custom Cursor extension
+* 	Fixed: Info Box Carousel - Fade effect slides overlapping issue
+* 	Fixed: Instagram Feed - Widget was fetching maximum 25 images
+
 = 2.6.20 - September 9, 2022 =
 * 	Enhancement: Gravity Forms - Added option to add spacing between labels and custom radio & checkboxes
 * 	Enhancement: Gravity Forms - Added pp_gf_shortcode_atts filter hook
