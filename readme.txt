@@ -1,6 +1,6 @@
 === PowerPack Addons for Elementor (Free Widgets, Extensions and Templates) ===
 Contributors: ideaboxcreations, simrandeep, puneetsahalot, ibachal, jainnidhi, prash17, nirbhay18, wpamitkumar
-Tags: elementor, addons, elementor addon, elementor addons, elementor widgets, elements, powerpack elementor templates, essential addons
+Tags: elementor, addons, elementor addon, elementor addons, elementor widgets
 Requires at least: 5.0
 Tested up to: 6.1
 Stable tag: trunk
@@ -53,7 +53,7 @@ PowerPack Addon for Elementor comes from our team of experts, who always deliver
 9. [Info Box Carousel](https://powerpackelements.com/elementor-widgets/info-box-carousel/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – A creative widget that allows you to create a slider of your infobox content.
 10. [Info List](https://powerpackelements.com/elementor-widgets/info-list/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Another content widget that allows you to showcase product features and services with icon and description
 11. [Info Table](https://powerpackelements.com/elementor-widgets/info-table/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Create beautiful info boxes with **icon, heading, description**, and **call-to-action** button/link.
-12. [Instagram Feed](https://powerpackelements.com/elementor-widgets/instagram-feed/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – A creative widget that allows you to display Instagram Gallery on your website with various impressive options.
+12. [Instagram Feed](https://powerpackelements.com/elementor-widgets/instagram-feed/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – A creative widget that allows you to display Instagram feed on your website with various impressive options.
 13. [Link Effects](https://powerpackelements.com/elementor-widgets/link-effects/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – With this wonderful widget you can create stylish and attractive links with various hover effects.
 14. [Logo Grid](https://powerpackelements.com/elementor-widgets/logo-grid/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – A widget to create grid of clients or partner logos.
 15. [Logo Carousel](https://powerpackelements.com/elementor-widgets/logo-carousel/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Create a slider of clients or partner logos.
