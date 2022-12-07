@@ -1116,6 +1116,11 @@ class Random_Image extends Powerpack_Widget {
 		$link        = '';
 		$attachment  = get_post( $id );
 
+		$image = array(
+			'id'  => $id,
+			'url' => Group_Control_Image_Size::get_attachment_image_src( $id, 'image', $settings ),
+		);
+
 		$this->add_render_attribute( [
 			'wrapper' => [
 				'class' => 'pp-random-image-wrap',
@@ -1130,7 +1135,7 @@ class Random_Image extends Powerpack_Widget {
 			'image' => [
 				'class' => 'elementor-image pp-random-image',
 				'src' => Group_Control_Image_Size::get_attachment_image_src( $id, 'image', $settings ),
-				'alt' => esc_attr( Control_Media::get_image_alt( $id ) ),
+				'alt' => esc_attr( Control_Media::get_image_alt( $image ) ),
 			],
 			'caption' => [
 				'class' => [

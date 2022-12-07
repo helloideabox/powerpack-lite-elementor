@@ -1,6 +1,7 @@
 == 2.7.1 ==
 Release date: 
 * Fixed: Gravity Forms - Use Ajax was not working
+* Fixed: Random Image - Image alt was not printing on the page
 
 == 2.7.0 ==
 Release date: October 27, 2022
