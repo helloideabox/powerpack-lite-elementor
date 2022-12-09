@@ -2710,10 +2710,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						}
 						?>
 						<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-wrap' ) ); ?>>
+							<?php if ( 'box' === $item['link_type'] ) { ?>
+								<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+							<?php } ?>
 							<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box' ) ); ?>>
-								<?php if ( 'box' === $item['link_type'] ) { ?>
-									<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
-								<?php } ?>
 								<?php if ( 'none' !== $item['icon_type'] ) { ?>
 									<div class="pp-info-box-icon-wrap">
 										<?php if ( 'icon' === $item['link_type'] ) { ?>
@@ -2763,7 +2763,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 									<?php } ?>
 									<?php if ( 'button' === $item['link_type'] || ( 'box' === $item['link_type'] && 'yes' === $item['button_visible'] ) ) { ?>
 										<div class="pp-info-box-footer">
-											<<?php echo esc_html( $button_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-button' ) ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+											<<?php echo esc_html( $button_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-button' ) ); ?> <?php if ( 'button' === $item['link_type'] ) { echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); } ?>>
 												<?php
 												if ( 'before' === $item['button_icon_position'] ) {
 													$this->render_infobox_button_icon( $item );
@@ -2782,11 +2782,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 											</<?php echo esc_html( $button_html_tag ); ?>>
 										</div>
 									<?php } ?>
-									<?php if ( 'box' === $item['link_type'] ) { ?>
-										</a>
-									<?php } ?>
 								</div>
 							</div>
+							<?php if ( 'box' === $item['link_type'] ) { ?>
+								</a>
+							<?php } ?>
 						</div>
 						<?php $i++;
 					endforeach; ?>
@@ -3174,10 +3174,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						}
 					#>
 					<div {{{ view.getRenderAttributeString( 'info-box-wrap' ) }}}>
+						<# if ( item.link_type == 'box' ) { #>
+							<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+						<# } #>
 						<div {{{ view.getRenderAttributeString( 'info-box' ) }}}>
-							<# if ( item.link_type == 'box' ) { #>
-								<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
-							<# } #>
 							<# if ( item.icon_type != 'none' ) { #>
 								<div class="pp-info-box-icon-wrap">
 									<# if ( item.link_type == 'icon' ) { #>
@@ -3254,7 +3254,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 								<# } #>
 								<# if ( item.link_type == 'button' || ( item.link_type == 'box' && item.button_visible == 'yes' ) ) { #>
 									<div class="pp-info-box-footer">
-										<{{{ $button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' ) }}} {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+										<{{{ $button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' ) }}}>
 											<# if ( item.button_icon_position == 'before' ) { #>
 												<# button_icon_template( item, index ); #>
 											<# } #>
@@ -3269,11 +3269,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 										</{{{ $button_html_tag }}}>
 									</div>
 								<# } #>
-								<# if ( item.link_type == 'box' ) { #>
-									</a>
-								<# } #>
 							</div>
 						</div>
+						<# if ( item.link_type == 'box' ) { #>
+							</a>
+						<# } #>
 					</div>
 				<# i++ } ); #>
 				<# if ( settings.layout == 'carousel' ) { #></div><# } #>
