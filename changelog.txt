@@ -1,5 +1,6 @@
 == 2.7.1 ==
-Release date: 
+Release date: December 9, 2022
+* Enhancement: Updated Elementor compatibility tags
 * Fixed: Gravity Forms - Use Ajax was not working
 * Fixed: Random Image - Image alt was not printing on the page
 
