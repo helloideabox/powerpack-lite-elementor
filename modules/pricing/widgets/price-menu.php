@@ -1202,14 +1202,14 @@ class Price_Menu extends Powerpack_Widget {
 												?>
 												<a <?php echo wp_kses_post( $this->get_render_attribute_string( $title_link_key ) ); ?>>
 													<span <?php echo wp_kses_post( $this->get_render_attribute_string( $title_key ) ); ?>>
-														<?php echo esc_attr( $item['menu_title'] ); ?>
+														<?php $this->print_unescaped_setting( 'menu_title', 'menu_items', $index ); ?>
 													</span>
 												</a>
 												<?php
 											} else {
 												?>
 												<span <?php echo wp_kses_post( $this->get_render_attribute_string( $title_key ) ); ?>>
-													<?php echo esc_attr( $item['menu_title'] ); ?>
+													<?php $this->print_unescaped_setting( 'menu_title', 'menu_items', $index ); ?>
 												</span>
 												<?php
 											}
@@ -1228,11 +1228,11 @@ class Price_Menu extends Powerpack_Widget {
 											<span class="pp-restaurant-menu-price">
 												<?php if ( 'yes' === $item['discount'] ) { ?>
 													<span <?php echo wp_kses_post( $this->get_render_attribute_string( $original_price_key ) ); ?>>
-														<?php echo esc_attr( $item['original_price'] ); ?>
+														<?php $this->print_unescaped_setting( 'original_price', 'menu_items', $index ); ?>
 													</span>
 												<?php } ?>
 												<span <?php echo wp_kses_post( $this->get_render_attribute_string( $discount_price_key ) ); ?>>
-													<?php echo esc_attr( $item['menu_price'] ); ?>
+													<?php $this->print_unescaped_setting( 'menu_price', 'menu_items', $index ); ?>
 												</span>
 											</span>
 										<?php } ?>
@@ -1249,7 +1249,7 @@ class Price_Menu extends Powerpack_Widget {
 								if ( '' !== $item['menu_description'] ) {
 									?>
 									<div <?php echo wp_kses_post( $this->get_render_attribute_string( $description_key ) ); ?>>
-										<?php echo wp_kses_post( $this->parse_text_editor( $item['menu_description'] ) ); ?>
+										<?php $this->print_unescaped_setting( 'menu_description', 'menu_items', $index ); ?>
 									</div>
 									<?php
 								}
@@ -1260,11 +1260,11 @@ class Price_Menu extends Powerpack_Widget {
 										<span class="pp-restaurant-menu-price">
 											<?php if ( 'yes' === $item['discount'] ) { ?>
 												<span <?php echo wp_kses_post( $this->get_render_attribute_string( $original_price_key ) ); ?>>
-													<?php echo esc_attr( $item['original_price'] ); ?>
+													<?php $this->print_unescaped_setting( 'original_price', 'menu_items', $index ); ?>
 												</span>
 											<?php } ?>
 											<span <?php echo wp_kses_post( $this->get_render_attribute_string( $discount_price_key ) ); ?>>
-												<?php echo esc_attr( $item['menu_price'] ); ?>
+												<?php $this->print_unescaped_setting( 'menu_price', 'menu_items', $index ); ?>
 											</span>
 										</span>
 									<?php } ?>
