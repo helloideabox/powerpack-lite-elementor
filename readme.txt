@@ -230,6 +230,13 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.1 - December 9, 2022 =
+* 	Enhancement: Updated Elementor compatibility tags
+* 	Enhancement: Price Menu - Updated sanitization functions
+* 	Enhancement: Info Box Carousel - Box link structure
+* 	Fixed: Gravity Forms - Use Ajax was not working
+* 	Fixed: Random Image - Image alt was not printing on the page
+
 = 2.7.0 - October 27, 2022 =
 * 	New: Custom Cursor extension
 * 	Fixed: Info Box Carousel - Fade effect slides overlapping issue
