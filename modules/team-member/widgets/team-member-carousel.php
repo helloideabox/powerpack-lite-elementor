@@ -644,6 +644,22 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'links_target',
+			[
+				'label'     => __( 'Links Target', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => '_self',
+				'options'   => [
+					'_self'  => __( 'Same Window', 'powerpack' ),
+					'_blank' => __( 'New Window', 'powerpack' ),
+				],
+				'condition' => array(
+					'member_social_links' => 'yes',
+				),
+			]
+		);
+
+		$this->add_control(
 			'overlay_content',
 			array(
 				'label'     => __( 'Overlay Content', 'powerpack' ),
@@ -3070,9 +3086,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						} elseif ( 'phone' === $icon_id ) {
 							$social_link_url = "tel:" . esc_attr( $icon_url );
 						}
+
+						$link_target = $settings['links_target'];
 						?>
 						<li>
-							<a href="<?php echo $social_link_url; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+							<a href="<?php echo $social_link_url; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" target="<?php echo esc_attr( $link_target ); ?>">
 								<span <?php echo wp_kses_post( $this->get_render_attribute_string( $icon_wrap_key ) ); ?>>
 									<?php self::render_share_icon( $network_name ); ?>
 								</span>

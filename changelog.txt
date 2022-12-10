@@ -1,3 +1,7 @@
+== 2.7.2 ==
+Release date: 
+* Enhancement: Team Member Carousel - Added Links Target option
+
 == 2.7.1 ==
 Release date: December 9, 2022
 * Enhancement: Updated Elementor compatibility tags
