@@ -1,5 +1,5 @@
 === PowerPack Addons for Elementor (Free Widgets, Extensions and Templates) ===
-Contributors: ideaboxcreations, simrandeep, puneetsahalot, ibachal, jainnidhi, prash17, nirbhay18, wpamitkumar
+Contributors: ideaboxcreations, simrandeep, puneetsahalot, ibachal, jainnidhi, nirbhay18, wpamitkumar
 Tags: elementor, addons, elementor addon, elementor addons, elementor widgets
 Requires at least: 5.0
 Tested up to: 6.1
