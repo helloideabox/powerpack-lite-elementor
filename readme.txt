@@ -230,6 +230,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.2 - January 18, 2023 =
+* 	Fixed: Compatibility issues with Elementor 3.10.0
+* 	Enhancement: Team Member Carousel - Added Links Target option
+
 = 2.7.1 - December 9, 2022 =
 * 	Enhancement: Updated Elementor compatibility tags
 * 	Enhancement: Price Menu - Updated sanitization functions

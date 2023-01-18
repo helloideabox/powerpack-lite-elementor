@@ -1,5 +1,5 @@
 == 2.7.2 ==
-Release date: January 17, 2023
+Release date: January 18, 2023
 * Fixed: Compatibility issues with Elementor 3.10.0
 * Enhancement: Team Member Carousel - Added Links Target option
 
