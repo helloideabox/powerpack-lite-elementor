@@ -202,7 +202,7 @@ class Logo_Carousel extends Powerpack_Widget {
 					],
 				],
 				'fields'                => $repeater->get_controls(),
-				'title_field'           => __( 'Logo Image', 'powerpack' ),
+				'title_field'           => '{{logo_title}}',
 			]
 		);
 
@@ -484,6 +484,21 @@ class Logo_Carousel extends Powerpack_Widget {
 				'condition'             => [
 					'dots'          => 'yes',
 				],
+			]
+		);
+
+		$this->add_control(
+			'direction',
+			[
+				'label'                 => __( 'Direction', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'left',
+				'options'               => array(
+					'auto'  => __( 'Auto', 'powerpack' ),
+					'left'  => __( 'Left', 'powerpack' ),
+					'right' => __( 'Right', 'powerpack' ),
+				),
+				'separator'             => 'before',
 			]
 		);
 
@@ -1434,6 +1449,10 @@ class Logo_Carousel extends Powerpack_Widget {
 		);
 
 		$this->slider_settings();
+
+		if ( 'right' === $settings['direction'] || ( 'auto' === $settings['direction'] && is_rtl() ) ) {
+			$this->add_render_attribute( 'logo-carousel', 'dir', 'rtl' );
+		}
 
 		if ( $settings['dots_position'] ) {
 			$this->add_render_attribute( 'logo-carousel-wrap', 'class', 'swiper-container-wrap-dots-' . $settings['dots_position'] );
