@@ -454,6 +454,21 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			);
 
 			$repeater->add_control(
+				'xing_url',
+				array(
+					'label'       => __( 'Xing', 'powerpack' ),
+					'type'        => Controls_Manager::TEXT,
+					'dynamic'     => array(
+						'active'     => true,
+						'categories' => array(
+							TagsModule::POST_META_CATEGORY,
+						),
+					),
+					'description' => __( 'Enter Xing profile URL of team member', 'powerpack' ),
+				)
+			);
+
+			$repeater->add_control(
 				'email',
 				array(
 					'label'       => __( 'Email', 'powerpack' ),
@@ -3057,6 +3072,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		( $item['tiktok_url'] ) ? $social_links['tiktok']       = $item['tiktok_url'] : '';
 		( $item['github_url'] ) ? $social_links['github']       = $item['github_url'] : '';
 		( $item['vimeo_url'] ) ? $social_links['vimeo']         = $item['vimeo_url'] : '';
+		( $item['xing_url'] ) ? $social_links['xing']           = $item['xing_url'] : '';
 		( $item['email'] ) ? $social_links['envelope']          = $item['email'] : '';
 		( $item['phone'] ) ? $social_links['phone']             = $item['phone'] : '';
 		?>
@@ -3240,6 +3256,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							'tiktok',
 							'github',
 							'vimeo',
+							'xing',
 							'email',
 							'phone',
 						];

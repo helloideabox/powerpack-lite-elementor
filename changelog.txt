@@ -2,6 +2,7 @@
 Release date: February 8, 2023
 * Enhancement: Logo Carousel - Added direction option
 * Enhancement: Logo Carousel - Repeater items now show logo title instead of Logo Image text
+* Enhancement: Team Member Carousel - Added support for Xing icon
 * Fixed: Twitter Tweet - Widget stopped working after Twitter API update
 * Fixed: Twitter Timeline - Widget stopped working after Twitter API update
 
