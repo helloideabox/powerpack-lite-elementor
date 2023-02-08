@@ -1,3 +1,8 @@
+== 2.7.3 ==
+Release date: February 8, 2023
+* Fixed: Twitter Tweet - Widget stopped working after Twitter API update
+* Fixed: Twitter Timeline - Widget stopped working after Twitter API update
+
 == 2.7.2 ==
 Release date: January 18, 2023
 * Fixed: Compatibility issues with Elementor 3.10.0
