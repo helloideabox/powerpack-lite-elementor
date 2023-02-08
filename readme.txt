@@ -230,6 +230,13 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.3 - February 8, 2023 =
+* 	Enhancement: Logo Carousel - Added direction option
+* 	Enhancement: Logo Carousel - Repeater items now show logo title instead of Logo Image text
+* 	Enhancement: Team Member Carousel - Added support for Xing icon
+* 	Fixed: Twitter Tweet - Widget stopped working after Twitter API update
+* 	Fixed: Twitter Timeline - Widget stopped working after Twitter API update
+
 = 2.7.2 - January 18, 2023 =
 * 	Fixed: Compatibility issues with Elementor 3.10.0
 * 	Enhancement: Team Member Carousel - Added Links Target option
