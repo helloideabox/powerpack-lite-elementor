@@ -1,3 +1,7 @@
+== 2.7.4 ==
+Release date: 
+* Fixed: Info Grid & Carousel - Columns issue in Grid layout
+
 == 2.7.3 ==
 Release date: February 8, 2023
 * Enhancement: Logo Carousel - Added direction option

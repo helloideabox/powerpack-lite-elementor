@@ -1,6 +1,6 @@
 .pp-info-box-container {
     @include transition($target: all, $time: 0.25s, $timing-function: linear);
-    &:not(.pp-elementor-grid) {
+    &:not(.elementor-grid) {
         display: block;
     }
 }
