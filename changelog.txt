@@ -2,6 +2,7 @@
 Release date: March 29, 2023
 * Enhancement: Advanced Posts - Added option to automatically align buttons
 * Enhancement: Added compatibility for Swiper v8.45
+* Enhancement: Updated Elementor compatibility tags
 * Fixed: Info Grid & Carousel - Columns issue in Grid layout
 
 == 2.7.3 ==
