@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.7.3\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.7.4\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-elementor\n"
-"POT-Creation-Date: 2023-02-08 03:56:02+00:00\n"
+"POT-Creation-Date: 2023-03-29 10:38:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -80,7 +80,7 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:441
 #: modules/formidable-forms/widgets/formidable-forms.php:287
 #: modules/ninja-forms/widgets/ninja-forms.php:260
-#: modules/posts/skins/skin-base.php:1651
+#: modules/posts/skins/skin-base.php:1667
 #: modules/scroll-image/widgets/scroll-image.php:302
 msgid "Get PowerPack Pro"
 msgstr ""
@@ -93,8 +93,8 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:297
 #: modules/ninja-forms/widgets/ninja-forms.php:270
 #: modules/posts/skins/skin-base.php:377 modules/posts/skins/skin-base.php:429
-#: modules/posts/skins/skin-base.php:1279
-#: modules/posts/skins/skin-base.php:1661 modules/posts/widgets/posts.php:106
+#: modules/posts/skins/skin-base.php:1295
+#: modules/posts/skins/skin-base.php:1677 modules/posts/widgets/posts.php:106
 #: modules/scroll-image/widgets/scroll-image.php:312
 msgid ""
 "Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and "
@@ -1348,6 +1348,7 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1124
 #: modules/posts/skins/skin-base.php:1139
 #: modules/posts/skins/skin-base.php:1180
+#: modules/posts/skins/skin-base.php:1235
 #: modules/posts/widgets/posts-base.php:485
 #: modules/posts/widgets/posts-base.php:501
 #: modules/posts/widgets/posts-base.php:531
@@ -1467,6 +1468,7 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1125
 #: modules/posts/skins/skin-base.php:1140
 #: modules/posts/skins/skin-base.php:1181
+#: modules/posts/skins/skin-base.php:1236
 #: modules/posts/widgets/posts-base.php:486
 #: modules/posts/widgets/posts-base.php:502
 #: modules/posts/widgets/posts-base.php:532
@@ -1590,17 +1592,17 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:921
 #: modules/ninja-forms/widgets/ninja-forms.php:1037
 #: modules/ninja-forms/widgets/ninja-forms.php:1348
-#: modules/posts/skins/skin-base.php:2092
-#: modules/posts/skins/skin-base.php:2487
-#: modules/posts/skins/skin-base.php:3082
-#: modules/posts/skins/skin-base.php:3158
-#: modules/posts/skins/skin-base.php:3303
-#: modules/posts/skins/skin-base.php:3386
-#: modules/posts/skins/skin-base.php:3431
-#: modules/posts/skins/skin-base.php:3550
-#: modules/posts/skins/skin-base.php:3653
-#: modules/posts/skins/skin-base.php:3724
-#: modules/posts/skins/skin-base.php:3811
+#: modules/posts/skins/skin-base.php:2108
+#: modules/posts/skins/skin-base.php:2503
+#: modules/posts/skins/skin-base.php:3098
+#: modules/posts/skins/skin-base.php:3174
+#: modules/posts/skins/skin-base.php:3319
+#: modules/posts/skins/skin-base.php:3402
+#: modules/posts/skins/skin-base.php:3447
+#: modules/posts/skins/skin-base.php:3566
+#: modules/posts/skins/skin-base.php:3669
+#: modules/posts/skins/skin-base.php:3740
+#: modules/posts/skins/skin-base.php:3827
 #: modules/pricing/widgets/price-menu.php:528
 #: modules/pricing/widgets/price-menu.php:753
 #: modules/pricing/widgets/price-menu.php:845
@@ -1684,7 +1686,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:207
 #: modules/info-table/widgets/info-table.php:116
 #: modules/info-table/widgets/info-table.php:147
-#: modules/posts/skins/skin-base.php:554 modules/posts/skins/skin-base.php:1942
+#: modules/posts/skins/skin-base.php:554 modules/posts/skins/skin-base.php:1958
 #: modules/pricing/widgets/price-menu.php:185
 #: modules/pricing/widgets/price-menu.php:897
 #: modules/pricing/widgets/pricing-table.php:169
@@ -1843,11 +1845,11 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:1324
 #: modules/ninja-forms/widgets/ninja-forms.php:1380
 #: modules/ninja-forms/widgets/ninja-forms.php:1432
-#: modules/posts/skins/skin-base.php:2130
-#: modules/posts/skins/skin-base.php:2299
-#: modules/posts/skins/skin-base.php:2506
-#: modules/posts/skins/skin-base.php:2607
-#: modules/posts/skins/skin-base.php:2708
+#: modules/posts/skins/skin-base.php:2146
+#: modules/posts/skins/skin-base.php:2315
+#: modules/posts/skins/skin-base.php:2522
+#: modules/posts/skins/skin-base.php:2623
+#: modules/posts/skins/skin-base.php:2724
 #: modules/pricing/widgets/price-menu.php:545
 #: modules/pricing/widgets/price-menu.php:773
 #: modules/pricing/widgets/price-menu.php:862
@@ -1979,11 +1981,11 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:545
 #: modules/ninja-forms/widgets/ninja-forms.php:743
 #: modules/ninja-forms/widgets/ninja-forms.php:1174
-#: modules/posts/skins/skin-base.php:1771
-#: modules/posts/skins/skin-base.php:2763
-#: modules/posts/skins/skin-base.php:3099
-#: modules/posts/skins/skin-base.php:3320
-#: modules/posts/skins/skin-base.php:3566
+#: modules/posts/skins/skin-base.php:1787
+#: modules/posts/skins/skin-base.php:2779
+#: modules/posts/skins/skin-base.php:3115
+#: modules/posts/skins/skin-base.php:3336
+#: modules/posts/skins/skin-base.php:3582
 #: modules/pricing/widgets/price-menu.php:429
 #: modules/pricing/widgets/price-menu.php:970
 #: modules/pricing/widgets/pricing-table.php:1207
@@ -2099,14 +2101,14 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:984
 #: modules/ninja-forms/widgets/ninja-forms.php:1010
 #: modules/ninja-forms/widgets/ninja-forms.php:1184
-#: modules/posts/skins/skin-base.php:1781
-#: modules/posts/skins/skin-base.php:1911
-#: modules/posts/skins/skin-base.php:1953
-#: modules/posts/skins/skin-base.php:2398
-#: modules/posts/skins/skin-base.php:2776
-#: modules/posts/skins/skin-base.php:3113
-#: modules/posts/skins/skin-base.php:3334
-#: modules/posts/skins/skin-base.php:3580
+#: modules/posts/skins/skin-base.php:1797
+#: modules/posts/skins/skin-base.php:1927
+#: modules/posts/skins/skin-base.php:1969
+#: modules/posts/skins/skin-base.php:2414
+#: modules/posts/skins/skin-base.php:2792
+#: modules/posts/skins/skin-base.php:3129
+#: modules/posts/skins/skin-base.php:3350
+#: modules/posts/skins/skin-base.php:3596
 #: modules/pricing/widgets/price-menu.php:439
 #: modules/pricing/widgets/price-menu.php:980
 #: modules/pricing/widgets/pricing-table.php:1374
@@ -2207,12 +2209,12 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:548
 #: modules/ninja-forms/widgets/ninja-forms.php:670
 #: modules/ninja-forms/widgets/ninja-forms.php:1196
-#: modules/posts/skins/skin-base.php:1793
-#: modules/posts/skins/skin-base.php:1923
-#: modules/posts/skins/skin-base.php:2413
-#: modules/posts/skins/skin-base.php:2806
-#: modules/posts/skins/skin-base.php:3194
-#: modules/posts/skins/skin-base.php:3596
+#: modules/posts/skins/skin-base.php:1809
+#: modules/posts/skins/skin-base.php:1939
+#: modules/posts/skins/skin-base.php:2429
+#: modules/posts/skins/skin-base.php:2822
+#: modules/posts/skins/skin-base.php:3210
+#: modules/posts/skins/skin-base.php:3612
 #: modules/pricing/widgets/price-menu.php:416
 #: modules/pricing/widgets/price-menu.php:478
 #: modules/pricing/widgets/price-menu.php:957
@@ -2475,7 +2477,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:191
 #: modules/instafeed/widgets/instafeed.php:1062
 #: modules/logos/widgets/logo-grid.php:107
-#: modules/posts/skins/skin-base.php:804 modules/posts/skins/skin-base.php:2476
+#: modules/posts/skins/skin-base.php:804 modules/posts/skins/skin-base.php:2492
 #: modules/pricing/widgets/price-menu.php:467
 #: modules/pricing/widgets/pricing-table.php:428
 #: modules/promo-box/widgets/promo-box.php:116
@@ -2537,8 +2539,8 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:124
 #: modules/ninja-forms/widgets/ninja-forms.php:140
 #: modules/ninja-forms/widgets/ninja-forms.php:325
-#: modules/posts/skins/skin-base.php:713 modules/posts/skins/skin-base.php:1477
-#: modules/posts/skins/skin-base.php:2081
+#: modules/posts/skins/skin-base.php:713 modules/posts/skins/skin-base.php:1493
+#: modules/posts/skins/skin-base.php:2097
 #: modules/posts/widgets/posts-base.php:466
 #: modules/pricing/widgets/price-menu.php:100
 #: modules/pricing/widgets/price-menu.php:106
@@ -2918,7 +2920,7 @@ msgstr ""
 #: modules/link-effects/widgets/link-effects.php:239
 #: modules/logos/widgets/logo-carousel.php:523
 #: modules/logos/widgets/logo-grid.php:468
-#: modules/posts/skins/skin-base.php:1618
+#: modules/posts/skins/skin-base.php:1634
 #: modules/pricing/widgets/price-menu.php:344
 #: modules/pricing/widgets/pricing-table.php:1107
 #: modules/promo-box/widgets/promo-box.php:407
@@ -3006,13 +3008,13 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:513
 #: modules/ninja-forms/widgets/ninja-forms.php:911
 #: modules/ninja-forms/widgets/ninja-forms.php:1142
-#: modules/posts/skins/skin-base.php:1751
-#: modules/posts/skins/skin-base.php:1992
-#: modules/posts/skins/skin-base.php:2362
-#: modules/posts/skins/skin-base.php:2722
-#: modules/posts/skins/skin-base.php:3055
-#: modules/posts/skins/skin-base.php:3292
-#: modules/posts/skins/skin-base.php:3523
+#: modules/posts/skins/skin-base.php:1767
+#: modules/posts/skins/skin-base.php:2008
+#: modules/posts/skins/skin-base.php:2378
+#: modules/posts/skins/skin-base.php:2738
+#: modules/posts/skins/skin-base.php:3071
+#: modules/posts/skins/skin-base.php:3308
+#: modules/posts/skins/skin-base.php:3539
 #: modules/pricing/widgets/pricing-table.php:365
 #: modules/pricing/widgets/pricing-table.php:2505
 #: modules/promo-box/widgets/promo-box.php:770
@@ -3069,7 +3071,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:306
 #: modules/instafeed/widgets/instafeed.php:225
 #: modules/logos/widgets/logo-grid.php:204
-#: modules/posts/skins/skin-base.php:680 modules/posts/skins/skin-base.php:1262
+#: modules/posts/skins/skin-base.php:680 modules/posts/skins/skin-base.php:1278
 #: modules/posts/widgets/posts-base.php:370
 #: modules/pricing/widgets/price-menu.php:595
 #: modules/pricing/widgets/pricing-table.php:161
@@ -3227,13 +3229,13 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:245
 #: modules/ninja-forms/widgets/ninja-forms.php:958
 #: modules/ninja-forms/widgets/ninja-forms.php:1260
-#: modules/posts/skins/skin-base.php:1834
-#: modules/posts/skins/skin-base.php:2908
-#: modules/posts/skins/skin-base.php:3174
-#: modules/posts/skins/skin-base.php:3402
-#: modules/posts/skins/skin-base.php:3447
-#: modules/posts/skins/skin-base.php:3668
-#: modules/posts/skins/skin-base.php:3739
+#: modules/posts/skins/skin-base.php:1850
+#: modules/posts/skins/skin-base.php:2924
+#: modules/posts/skins/skin-base.php:3190
+#: modules/posts/skins/skin-base.php:3418
+#: modules/posts/skins/skin-base.php:3463
+#: modules/posts/skins/skin-base.php:3684
+#: modules/posts/skins/skin-base.php:3755
 #: modules/pricing/widgets/price-menu.php:664
 #: modules/promo-box/widgets/promo-box.php:1096
 #: modules/promo-box/widgets/promo-box.php:1329
@@ -3299,13 +3301,13 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:1235
 #: modules/logos/widgets/logo-grid.php:601
 #: modules/ninja-forms/widgets/ninja-forms.php:1229
-#: modules/posts/skins/skin-base.php:1815
-#: modules/posts/skins/skin-base.php:2038
-#: modules/posts/skins/skin-base.php:2430
-#: modules/posts/skins/skin-base.php:2868
-#: modules/posts/skins/skin-base.php:3131
-#: modules/posts/skins/skin-base.php:3420
-#: modules/posts/skins/skin-base.php:3626
+#: modules/posts/skins/skin-base.php:1831
+#: modules/posts/skins/skin-base.php:2054
+#: modules/posts/skins/skin-base.php:2446
+#: modules/posts/skins/skin-base.php:2884
+#: modules/posts/skins/skin-base.php:3147
+#: modules/posts/skins/skin-base.php:3436
+#: modules/posts/skins/skin-base.php:3642
 #: modules/pricing/widgets/pricing-table.php:607
 #: modules/pricing/widgets/pricing-table.php:2619
 #: modules/promo-box/widgets/promo-box.php:861
@@ -3325,18 +3327,18 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:741
 #: modules/advanced-accordion/widgets/advanced-accordion.php:950
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1338
-#: modules/posts/skins/skin-base.php:3375
-#: modules/posts/skins/skin-base.php:3697
+#: modules/posts/skins/skin-base.php:3391
+#: modules/posts/skins/skin-base.php:3713
 #: modules/team-member/widgets/team-member-carousel.php:1075
 msgid "Active"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:805
 #: modules/content-ticker/widgets/content-ticker.php:1489
-#: modules/posts/skins/skin-base.php:2141
-#: modules/posts/skins/skin-base.php:2310
-#: modules/posts/skins/skin-base.php:2517
-#: modules/posts/skins/skin-base.php:2643
+#: modules/posts/skins/skin-base.php:2157
+#: modules/posts/skins/skin-base.php:2326
+#: modules/posts/skins/skin-base.php:2533
+#: modules/posts/skins/skin-base.php:2659
 msgid "Bottom Spacing"
 msgstr ""
 
@@ -3455,11 +3457,11 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:1248
 #: modules/ninja-forms/widgets/ninja-forms.php:1312
 #: modules/ninja-forms/widgets/ninja-forms.php:1416
-#: modules/posts/skins/skin-base.php:2383
-#: modules/posts/skins/skin-base.php:2451
-#: modules/posts/skins/skin-base.php:2561
-#: modules/posts/skins/skin-base.php:2747
-#: modules/posts/skins/skin-base.php:2893
+#: modules/posts/skins/skin-base.php:2399
+#: modules/posts/skins/skin-base.php:2467
+#: modules/posts/skins/skin-base.php:2577
+#: modules/posts/skins/skin-base.php:2763
+#: modules/posts/skins/skin-base.php:2909
 #: modules/pricing/widgets/price-menu.php:723
 #: modules/pricing/widgets/pricing-table.php:521
 #: modules/pricing/widgets/pricing-table.php:1719
@@ -3608,18 +3610,18 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:730
 #: modules/ninja-forms/widgets/ninja-forms.php:1149
 #: modules/ninja-forms/widgets/ninja-forms.php:1236
-#: modules/posts/skins/skin-base.php:1758
-#: modules/posts/skins/skin-base.php:1822
-#: modules/posts/skins/skin-base.php:1899
-#: modules/posts/skins/skin-base.php:2369
-#: modules/posts/skins/skin-base.php:2437
-#: modules/posts/skins/skin-base.php:2732
-#: modules/posts/skins/skin-base.php:2878
-#: modules/posts/skins/skin-base.php:3066
-#: modules/posts/skins/skin-base.php:3142
-#: modules/posts/skins/skin-base.php:3534
-#: modules/posts/skins/skin-base.php:3637
-#: modules/posts/skins/skin-base.php:3708
+#: modules/posts/skins/skin-base.php:1774
+#: modules/posts/skins/skin-base.php:1838
+#: modules/posts/skins/skin-base.php:1915
+#: modules/posts/skins/skin-base.php:2385
+#: modules/posts/skins/skin-base.php:2453
+#: modules/posts/skins/skin-base.php:2748
+#: modules/posts/skins/skin-base.php:2894
+#: modules/posts/skins/skin-base.php:3082
+#: modules/posts/skins/skin-base.php:3158
+#: modules/posts/skins/skin-base.php:3550
+#: modules/posts/skins/skin-base.php:3653
+#: modules/posts/skins/skin-base.php:3724
 #: modules/pricing/widgets/price-menu.php:385
 #: modules/pricing/widgets/price-menu.php:738
 #: modules/pricing/widgets/price-menu.php:905
@@ -3673,7 +3675,7 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1033
 #: modules/image-accordion/widgets/image-accordion.php:1057
-#: modules/posts/skins/skin-base.php:2845
+#: modules/posts/skins/skin-base.php:2861
 #: modules/pricing/widgets/pricing-table.php:2359
 msgid "Icon Spacing"
 msgstr ""
@@ -3719,8 +3721,8 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:299
 #: modules/ninja-forms/widgets/ninja-forms.php:485
 #: modules/ninja-forms/widgets/ninja-forms.php:1071
-#: modules/posts/skins/skin-base.php:1387
-#: modules/posts/skins/skin-base.php:1872
+#: modules/posts/skins/skin-base.php:1403
+#: modules/posts/skins/skin-base.php:1888
 #: modules/pricing/widgets/price-menu.php:271
 #: modules/pricing/widgets/pricing-table.php:1149
 #: modules/pricing/widgets/pricing-table.php:1828
@@ -3790,9 +3792,9 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:683
 #: modules/ninja-forms/widgets/ninja-forms.php:801
 #: modules/ninja-forms/widgets/ninja-forms.php:1360
-#: modules/posts/skins/skin-base.php:1968
-#: modules/posts/skins/skin-base.php:2254
-#: modules/posts/skins/skin-base.php:3267
+#: modules/posts/skins/skin-base.php:1984
+#: modules/posts/skins/skin-base.php:2270
+#: modules/posts/skins/skin-base.php:3283
 #: modules/pricing/widgets/pricing-table.php:1460
 #: modules/pricing/widgets/pricing-table.php:1741
 #: modules/pricing/widgets/pricing-table.php:1974
@@ -3838,9 +3840,9 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:2201
 #: modules/logos/widgets/logo-carousel.php:1088
 #: modules/ninja-forms/widgets/ninja-forms.php:883
-#: modules/posts/skins/skin-base.php:2688
-#: modules/posts/skins/skin-base.php:3244
-#: modules/posts/skins/skin-base.php:3826
+#: modules/posts/skins/skin-base.php:2704
+#: modules/posts/skins/skin-base.php:3260
+#: modules/posts/skins/skin-base.php:3842
 #: modules/pricing/widgets/pricing-table.php:620
 #: modules/pricing/widgets/pricing-table.php:920
 #: modules/pricing/widgets/pricing-table.php:1244
@@ -4174,8 +4176,8 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:303
 #: modules/ninja-forms/widgets/ninja-forms.php:489
 #: modules/ninja-forms/widgets/ninja-forms.php:1075
-#: modules/posts/skins/skin-base.php:323 modules/posts/skins/skin-base.php:1391
-#: modules/posts/skins/skin-base.php:1877
+#: modules/posts/skins/skin-base.php:323 modules/posts/skins/skin-base.php:1407
+#: modules/posts/skins/skin-base.php:1893
 #: modules/pricing/widgets/price-menu.php:275
 #: modules/pricing/widgets/pricing-table.php:645
 #: modules/pricing/widgets/pricing-table.php:1005
@@ -4257,8 +4259,8 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:307
 #: modules/ninja-forms/widgets/ninja-forms.php:493
 #: modules/ninja-forms/widgets/ninja-forms.php:1079
-#: modules/posts/skins/skin-base.php:1395
-#: modules/posts/skins/skin-base.php:1881
+#: modules/posts/skins/skin-base.php:1411
+#: modules/posts/skins/skin-base.php:1897
 #: modules/pricing/widgets/price-menu.php:279
 #: modules/pricing/widgets/price-menu.php:1051
 #: modules/pricing/widgets/pricing-table.php:1158
@@ -4345,8 +4347,8 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:311
 #: modules/ninja-forms/widgets/ninja-forms.php:497
 #: modules/ninja-forms/widgets/ninja-forms.php:1083
-#: modules/posts/skins/skin-base.php:327 modules/posts/skins/skin-base.php:1399
-#: modules/posts/skins/skin-base.php:1885
+#: modules/posts/skins/skin-base.php:327 modules/posts/skins/skin-base.php:1415
+#: modules/posts/skins/skin-base.php:1901
 #: modules/pricing/widgets/price-menu.php:283
 #: modules/pricing/widgets/pricing-table.php:646
 #: modules/pricing/widgets/pricing-table.php:1009
@@ -4477,7 +4479,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:939
 #: modules/instafeed/widgets/instafeed.php:316
 #: modules/instafeed/widgets/instafeed.php:887
-#: modules/posts/skins/skin-base.php:91 modules/posts/skins/skin-base.php:1682
+#: modules/posts/skins/skin-base.php:91 modules/posts/skins/skin-base.php:1698
 #: modules/posts/widgets/posts.php:97
 #: modules/twitter/widgets/twitter-timeline.php:115
 msgid "Layout"
@@ -4511,7 +4513,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1180
 #: modules/info-table/widgets/info-table.php:1129
 #: modules/instafeed/widgets/instafeed.php:2205
-#: modules/posts/skins/skin-base.php:2692
+#: modules/posts/skins/skin-base.php:2708
 #: modules/pricing/widgets/pricing-table.php:2461
 #: modules/promo-box/widgets/promo-box.php:1457
 msgid "Extra Small"
@@ -4528,7 +4530,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1181
 #: modules/info-table/widgets/info-table.php:1130
 #: modules/instafeed/widgets/instafeed.php:2206
-#: modules/posts/skins/skin-base.php:2693
+#: modules/posts/skins/skin-base.php:2709
 #: modules/pricing/widgets/pricing-table.php:626
 #: modules/pricing/widgets/pricing-table.php:2462
 #: modules/promo-box/widgets/promo-box.php:1458
@@ -4545,7 +4547,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1182
 #: modules/info-table/widgets/info-table.php:1131
 #: modules/instafeed/widgets/instafeed.php:2207
-#: modules/posts/skins/skin-base.php:2694
+#: modules/posts/skins/skin-base.php:2710
 #: modules/pricing/widgets/pricing-table.php:2463
 #: modules/promo-box/widgets/promo-box.php:1459
 msgid "Medium"
@@ -4562,7 +4564,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1183
 #: modules/info-table/widgets/info-table.php:1132
 #: modules/instafeed/widgets/instafeed.php:2208
-#: modules/posts/skins/skin-base.php:2695
+#: modules/posts/skins/skin-base.php:2711
 #: modules/pricing/widgets/pricing-table.php:627
 #: modules/pricing/widgets/pricing-table.php:2464
 #: modules/promo-box/widgets/promo-box.php:1460
@@ -4579,7 +4581,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1184
 #: modules/info-table/widgets/info-table.php:1133
 #: modules/instafeed/widgets/instafeed.php:2209
-#: modules/posts/skins/skin-base.php:2696
+#: modules/posts/skins/skin-base.php:2712
 #: modules/pricing/widgets/pricing-table.php:2465
 #: modules/promo-box/widgets/promo-box.php:1461
 msgid "Extra Large"
@@ -4665,8 +4667,8 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:1388
 #: modules/logos/widgets/logo-carousel.php:613
 #: modules/logos/widgets/logo-grid.php:367
-#: modules/posts/skins/skin-base.php:1298
-#: modules/posts/skins/skin-base.php:1300
+#: modules/posts/skins/skin-base.php:1314
+#: modules/posts/skins/skin-base.php:1316
 #: modules/pricing/widgets/price-menu.php:997
 #: modules/pricing/widgets/price-menu.php:1047
 #: modules/pricing/widgets/pricing-table.php:643
@@ -4705,8 +4707,8 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:1396
 #: modules/logos/widgets/logo-carousel.php:621
 #: modules/logos/widgets/logo-grid.php:375
-#: modules/posts/skins/skin-base.php:1299
-#: modules/posts/skins/skin-base.php:1300
+#: modules/posts/skins/skin-base.php:1315
+#: modules/posts/skins/skin-base.php:1316
 #: modules/pricing/widgets/price-menu.php:1005
 #: modules/pricing/widgets/price-menu.php:1055
 #: modules/pricing/widgets/pricing-table.php:644
@@ -4770,7 +4772,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1379
 #: modules/info-table/widgets/info-table.php:1360
 #: modules/instafeed/widgets/instafeed.php:2437
-#: modules/posts/skins/skin-base.php:2923
+#: modules/posts/skins/skin-base.php:2939
 #: modules/pricing/widgets/pricing-table.php:674
 #: modules/pricing/widgets/pricing-table.php:2673
 #: modules/promo-box/widgets/promo-box.php:1602
@@ -5027,8 +5029,8 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:2353
 #: modules/ninja-forms/widgets/ninja-forms.php:355
 #: modules/ninja-forms/widgets/ninja-forms.php:405
-#: modules/posts/skins/skin-base.php:2791
-#: modules/posts/skins/skin-base.php:3350
+#: modules/posts/skins/skin-base.php:2807
+#: modules/posts/skins/skin-base.php:3366
 #: modules/pricing/widgets/price-menu.php:945
 #: modules/pricing/widgets/pricing-table.php:1330
 #: modules/pricing/widgets/pricing-table.php:1580
@@ -5462,7 +5464,7 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:547
 #: modules/counter/widgets/counter.php:226
 #: modules/info-list/widgets/info-list.php:980
-#: modules/posts/skins/skin-base.php:2166
+#: modules/posts/skins/skin-base.php:2182
 msgid "Separator"
 msgstr ""
 
@@ -5808,7 +5810,7 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:238
 #: modules/content-ticker/widgets/content-ticker.php:248
 #: modules/content-ticker/widgets/content-ticker.php:1508
-#: modules/posts/skins/skin-base.php:886 modules/posts/skins/skin-base.php:1537
+#: modules/posts/skins/skin-base.php:886 modules/posts/skins/skin-base.php:1553
 msgid "Post Meta"
 msgstr ""
 
@@ -5816,7 +5818,7 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:838
 #: modules/content-ticker/widgets/content-ticker.php:914
 #: modules/display-conditions/conditions/date-archive.php:54
-#: modules/posts/skins/skin-base.php:1565
+#: modules/posts/skins/skin-base.php:1581
 #: modules/posts/widgets/posts-base.php:386
 #: modules/posts/widgets/posts-base.php:462
 #. translators: %s Label
@@ -5833,7 +5835,7 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:369
 #: modules/display-conditions/conditions/author-archive.php:55
-#: modules/posts/skins/skin-base.php:1549
+#: modules/posts/skins/skin-base.php:1565
 #: modules/posts/widgets/posts-base.php:302
 #: modules/posts/widgets/posts-base.php:351
 msgid "Author"
@@ -5995,7 +5997,7 @@ msgid ""
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:894
-#: modules/posts/skins/skin-base.php:1431
+#: modules/posts/skins/skin-base.php:1447
 #: modules/posts/widgets/posts-base.php:442
 msgid "Order"
 msgstr ""
@@ -6212,7 +6214,7 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:1618
 #: modules/logos/widgets/logo-carousel.php:453
 #: modules/logos/widgets/logo-carousel.php:828
-#: modules/posts/skins/skin-base.php:193 modules/posts/skins/skin-base.php:2952
+#: modules/posts/skins/skin-base.php:193 modules/posts/skins/skin-base.php:2968
 #: modules/team-member/widgets/team-member-carousel.php:904
 #: modules/team-member/widgets/team-member-carousel.php:2332
 msgid "Arrows"
@@ -6237,7 +6239,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:2001
 #: modules/instafeed/widgets/instafeed.php:1630
 #: modules/logos/widgets/logo-carousel.php:839
-#: modules/posts/skins/skin-base.php:2964
+#: modules/posts/skins/skin-base.php:2980
 #: modules/team-member/widgets/team-member-carousel.php:2343
 msgid "Choose Arrow"
 msgstr ""
@@ -6246,7 +6248,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:2038
 #: modules/instafeed/widgets/instafeed.php:1654
 #: modules/logos/widgets/logo-carousel.php:876
-#: modules/posts/skins/skin-base.php:3005
+#: modules/posts/skins/skin-base.php:3021
 #: modules/team-member/widgets/team-member-carousel.php:2380
 msgid "Arrows Size"
 msgstr ""
@@ -6653,7 +6655,7 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:1382
 #: modules/instafeed/widgets/instafeed.php:1850
 #: modules/logos/widgets/logo-carousel.php:1071
-#: modules/posts/skins/skin-base.php:3227
+#: modules/posts/skins/skin-base.php:3243
 #: modules/pricing/widgets/pricing-table.php:639
 #: modules/pricing/widgets/pricing-table.php:999
 #: modules/pricing/widgets/pricing-table.php:1644
@@ -6705,7 +6707,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:725
 #: modules/info-list/widgets/info-list.php:239
 #: modules/info-table/widgets/info-table.php:307
-#: modules/posts/skins/skin-base.php:1741
+#: modules/posts/skins/skin-base.php:1757
 msgid "Box"
 msgstr ""
 
@@ -6742,7 +6744,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1263
 #: modules/instafeed/widgets/instafeed.php:2339
 #: modules/posts/skins/skin-base.php:1204
-#: modules/posts/skins/skin-base.php:2832
+#: modules/posts/skins/skin-base.php:2848
 msgid "Button Icon"
 msgstr ""
 
@@ -6886,10 +6888,10 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1598
 #: modules/info-box/widgets/info-box-carousel.php:838
 #: modules/instafeed/widgets/instafeed.php:788
-#: modules/posts/skins/skin-base.php:1248
-#: modules/posts/skins/skin-base.php:1258
-#: modules/posts/skins/skin-base.php:3471
-#: modules/posts/skins/skin-base.php:4623
+#: modules/posts/skins/skin-base.php:1264
+#: modules/posts/skins/skin-base.php:1274
+#: modules/posts/skins/skin-base.php:3487
+#: modules/posts/skins/skin-base.php:4639
 #: modules/team-member/widgets/team-member-carousel.php:916
 msgid "Pagination"
 msgstr ""
@@ -7696,7 +7698,7 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:807
 #: modules/logos/widgets/logo-carousel.php:465
 #: modules/logos/widgets/logo-carousel.php:481
-#: modules/posts/skins/skin-base.php:209 modules/posts/skins/skin-base.php:3215
+#: modules/posts/skins/skin-base.php:209 modules/posts/skins/skin-base.php:3231
 #: modules/team-member/widgets/team-member-carousel.php:932
 msgid "Dots"
 msgstr ""
@@ -7760,7 +7762,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:2237
 #: modules/instafeed/widgets/instafeed.php:1853
 #: modules/logos/widgets/logo-carousel.php:1074
-#: modules/posts/skins/skin-base.php:3230
+#: modules/posts/skins/skin-base.php:3246
 #: modules/team-member/widgets/team-member-carousel.php:2577
 msgid "Inside"
 msgstr ""
@@ -7768,7 +7770,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:2238
 #: modules/instafeed/widgets/instafeed.php:1854
 #: modules/logos/widgets/logo-carousel.php:1075
-#: modules/posts/skins/skin-base.php:3231
+#: modules/posts/skins/skin-base.php:3247
 #: modules/team-member/widgets/team-member-carousel.php:2578
 msgid "Outside"
 msgstr ""
@@ -7814,7 +7816,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1165
 #: modules/info-box/widgets/info-box.php:1266
 #: modules/info-box/widgets/info-box.php:1539
-#: modules/posts/skins/skin-base.php:2110
+#: modules/posts/skins/skin-base.php:2126
 msgid "Hover Color"
 msgstr ""
 
@@ -8143,7 +8145,7 @@ msgid "Hand"
 msgstr ""
 
 #: modules/instafeed/widgets/instafeed.php:2135
-#: modules/posts/skins/skin-base.php:1265
+#: modules/posts/skins/skin-base.php:1281
 msgid "Load More Button"
 msgstr ""
 
@@ -8399,7 +8401,7 @@ msgstr ""
 msgid "Show Search Form"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:448 modules/posts/skins/skin-base.php:2287
+#: modules/posts/skins/skin-base.php:448 modules/posts/skins/skin-base.php:2303
 msgid "Post Terms"
 msgstr ""
 
@@ -8429,7 +8431,7 @@ msgid "Link to Post"
 msgstr ""
 
 #: modules/posts/skins/skin-base.php:588 modules/posts/skins/skin-base.php:747
-#: modules/posts/skins/skin-base.php:1233
+#: modules/posts/skins/skin-base.php:1249
 msgid "Open in a New Tab"
 msgstr ""
 
@@ -8476,7 +8478,7 @@ msgstr ""
 msgid "Show Content"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:827 modules/posts/skins/skin-base.php:1507
+#: modules/posts/skins/skin-base.php:827 modules/posts/skins/skin-base.php:1523
 msgid "Excerpt"
 msgstr ""
 
@@ -8504,8 +8506,8 @@ msgstr ""
 msgid "Number of words to be displayed from the post content"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:879 modules/posts/skins/skin-base.php:1492
-#: modules/posts/skins/skin-base.php:2550
+#: modules/posts/skins/skin-base.php:879 modules/posts/skins/skin-base.php:1508
+#: modules/posts/skins/skin-base.php:2566
 msgid "Meta"
 msgstr ""
 
@@ -8580,125 +8582,129 @@ msgid "Comments Icon"
 msgstr ""
 
 #: modules/posts/skins/skin-base.php:1170
-#: modules/posts/skins/skin-base.php:1522
-#: modules/posts/skins/skin-base.php:2677
+#: modules/posts/skins/skin-base.php:1538
+#: modules/posts/skins/skin-base.php:2693
 msgid "Read More Button"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1263
-#: modules/posts/skins/skin-base.php:1264
-msgid "Numbers"
-msgstr ""
-
-#: modules/posts/skins/skin-base.php:1264
-msgid "Previous/Next"
-msgstr ""
-
-#: modules/posts/skins/skin-base.php:1266
-msgid "Infinite"
+#: modules/posts/skins/skin-base.php:1233
+msgid "Automatically Align Buttons"
 msgstr ""
 
 #: modules/posts/skins/skin-base.php:1279
+#: modules/posts/skins/skin-base.php:1280
+msgid "Numbers"
+msgstr ""
+
+#: modules/posts/skins/skin-base.php:1280
+msgid "Previous/Next"
+msgstr ""
+
+#: modules/posts/skins/skin-base.php:1282
+msgid "Infinite"
+msgstr ""
+
+#: modules/posts/skins/skin-base.php:1295
 msgid "This pagination option is available in PowerPack Pro."
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1294
+#: modules/posts/skins/skin-base.php:1310
 msgid "Pagination Position"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1315
+#: modules/posts/skins/skin-base.php:1331
 msgid "Ajax Pagination"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1331
+#: modules/posts/skins/skin-base.php:1347
 msgid "Page Limit"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1347
+#: modules/posts/skins/skin-base.php:1363
 msgid "Shorten"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1363
+#: modules/posts/skins/skin-base.php:1379
 msgid "Previous Label"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1364
+#: modules/posts/skins/skin-base.php:1380
 msgid "&laquo; Previous"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1375
+#: modules/posts/skins/skin-base.php:1391
 msgid "Next Label"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1376
+#: modules/posts/skins/skin-base.php:1392
 msgid "Next &raquo;"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1438
+#: modules/posts/skins/skin-base.php:1454
 msgid "Content Parts"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1446
+#: modules/posts/skins/skin-base.php:1462
 msgid "Thumbnail"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1462
+#: modules/posts/skins/skin-base.php:1478
 msgid "Terms"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1581
+#: modules/posts/skins/skin-base.php:1597
 msgid "Comments"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1690
+#: modules/posts/skins/skin-base.php:1706
 msgid "Column Spacing"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1711
+#: modules/posts/skins/skin-base.php:1727
 msgid "Row Spacing"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1864
+#: modules/posts/skins/skin-base.php:1880
 msgid "Content Container"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2195
+#: modules/posts/skins/skin-base.php:2211
 msgid "Separator Height"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2222
+#: modules/posts/skins/skin-base.php:2238
 msgid "Separator Width"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2335
+#: modules/posts/skins/skin-base.php:2351
 msgid "Terms Gap"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2576
+#: modules/posts/skins/skin-base.php:2592
 msgid "Links Color"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2591
+#: modules/posts/skins/skin-base.php:2607
 msgid "Links Hover Color"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2618
+#: modules/posts/skins/skin-base.php:2634
 msgid "Meta Items Spacing"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:3029
+#: modules/posts/skins/skin-base.php:3045
 msgid "Align Arrows"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:3483
+#: modules/posts/skins/skin-base.php:3499
 msgid "Gap between Posts & Pagination"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:3770
+#: modules/posts/skins/skin-base.php:3786
 msgid "Space Between"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:3798
+#: modules/posts/skins/skin-base.php:3814
 msgid "Loader"
 msgstr ""
 
@@ -10023,7 +10029,7 @@ msgctxt "Transition Control"
 msgid "Transition"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:4117
+#: modules/posts/skins/skin-base.php:4133
 msgctxt "%s = human-readable time difference"
 msgid "%s ago"
 msgstr ""
