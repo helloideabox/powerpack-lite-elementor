@@ -2836,7 +2836,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 		$this->add_render_attribute( 'team-member-carousel-wrap', 'class', [
 			'swiper-container-wrap',
-			'pp-team-member-carousel-wrap',
+			'swiper',
 		] );
 
 		if ( $settings['dots_position'] ) {
@@ -3396,7 +3396,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 			view.addRenderAttribute( 'container', 'data-slider-settings', JSON.stringify( slider_options ) );
 		#>
-		<div class="swiper-container-wrap pp-team-member-carousel-wrap swiper-container-wrap-dots-{{ settings.dots_position }}">
+		<div class="swiper-container-wrap swiper swiper-container-wrap-dots-{{ settings.dots_position }}">
 			<div {{{ view.getRenderAttributeString( 'container' ) }}}>
 				<div class="swiper-wrapper">
 					<# _.each( settings.team_member_details, function( item ) { #>

@@ -509,14 +509,14 @@ class PP_Helper {
 			}
 
 			if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
-				<div class="pp-slider-arrow swiper-button-prev swiper-button-prev-<?php echo esc_attr( $widget->get_id() ); ?>">
+				<div class="pp-slider-arrow elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $widget->get_id() ); ?>">
 					<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $prev_arrow, [ 'aria-hidden' => 'true' ] );
 					else : ?>
 						<i <?php $widget->print_render_attribute_string( 'arrow-icon' ); ?>></i>
 					<?php endif; ?>
 				</div>
-				<div class="pp-slider-arrow swiper-button-next swiper-button-next-<?php echo esc_attr( $widget->get_id() ); ?>">
+				<div class="pp-slider-arrow elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $widget->get_id() ); ?>">
 					<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $next_arrow, [ 'aria-hidden' => 'true' ] );
 					else : ?>

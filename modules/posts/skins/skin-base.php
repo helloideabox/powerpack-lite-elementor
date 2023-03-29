@@ -4637,7 +4637,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		if ( 'carousel' === $layout ) {
-			$classes[] = 'swiper-container-wrap';
+			$classes[] = 'swiper-container-wrap swiper';
 
 			if ( $dots_position ) {
 				$classes[] = 'swiper-container-wrap-dots-' . $dots_position;
@@ -5037,14 +5037,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			}
 
 			if ( ! empty( $arrow ) || ( ! empty( $select_arrow['value'] ) && $is_new ) ) { ?>
-				<div class="pp-slider-arrow pp-arrow-prev swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->parent->get_id() ); ?>">
+				<div class="pp-slider-arrow pp-arrow-prev elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->parent->get_id() ); ?>">
 					<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $prev_arrow, [ 'aria-hidden' => 'true' ] );
 					else : ?>
 						<i <?php $this->parent->print_render_attribute_string( 'arrow-icon' ); ?>></i>
 					<?php endif; ?>
 				</div>
-				<div class="pp-slider-arrow pp-arrow-next swiper-button-next swiper-button-next-<?php echo esc_attr( $this->parent->get_id() ); ?>">
+				<div class="pp-slider-arrow pp-arrow-next elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $this->parent->get_id() ); ?>">
 					<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $next_arrow, [ 'aria-hidden' => 'true' ] );
 					else : ?>

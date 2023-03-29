@@ -2047,7 +2047,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => [ 'px' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-slider-arrow' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -2066,7 +2066,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => [ 'px' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -2085,7 +2085,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => [ 'px' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -2106,7 +2106,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-slider-arrow' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2118,7 +2118,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-slider-arrow' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -2130,7 +2130,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev',
+				'selector'              => '{{WRAPPER}} .pp-slider-arrow',
 			]
 		);
 
@@ -2141,7 +2141,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-slider-arrow' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2162,7 +2162,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-slider-arrow:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2174,7 +2174,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-slider-arrow:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -2186,7 +2186,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-slider-arrow:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2202,7 +2202,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-slider-arrow' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator'             => 'before',
 			]
@@ -2259,7 +2259,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2282,7 +2282,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2311,7 +2311,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'background: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2327,7 +2327,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet-active' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'background: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2343,7 +2343,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet',
+				'selector'              => '{{WRAPPER}} .swiper-pagination-bullet',
 				'condition'             => [
 					'dots'              => 'yes',
 					'pagination_type'   => 'bullets',
@@ -2358,7 +2358,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2381,7 +2381,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'left'     => 'auto',
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullets' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .swiper-pagination-bullets' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2410,7 +2410,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'background: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2426,7 +2426,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'border-color: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2613,7 +2613,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_render_attribute(
 			[
 				'wrapper'   => [
-					'class' => 'pp-info-box-carousel-wrap',
+					'class' => [ 'pp-info-box-carousel-wrap' ],
 				],
 				'container' => [
 					'class' => 'pp-info-box-container',
@@ -2632,7 +2632,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		} else {
 
-			$this->add_render_attribute( 'wrapper', 'class', 'swiper-container-wrap' );
+			$this->add_render_attribute( 'wrapper', 'class', [ 'swiper-container-wrap', 'swiper' ] );
 
 			if ( $settings['dots_position'] ) {
 				$this->add_render_attribute( 'wrapper', 'class', 'swiper-container-wrap-dots-' . $settings['dots_position'] );
@@ -2991,7 +2991,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						clickable: true,
 					},
 					navigation: {
-						nextEl: '.swiper-button-next',
+						nextEl: '.elementor-swiper-button elementor-swiper-button-next',
 						prevEl: '.swiper-button-prev',
 					},
 					breakpoints: {
@@ -3037,7 +3037,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 							var prev_arrow = 'fa fa-angle-left';
 						}
 						#>
-						<div class="swiper-button-next">
+						<div class="elementor-swiper-button elementor-swiper-button-next">
 							<i class="{{ next_arrow }}"></i>
 						</div>
 						<div class="swiper-button-prev">
@@ -3067,7 +3067,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				}
 			}
 
-			view.addRenderAttribute( 'wrapper', 'class', 'pp-info-box-carousel-wrap' );
+			view.addRenderAttribute( 'wrapper', 'class', 'pp-info-box-carousel-wrap swiper' );
 
 			view.addRenderAttribute( 'container', 'class', 'pp-info-box-container' );
 
@@ -3107,7 +3107,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
                     {
                         'class': [ 'pp-info-box-carousel', 'swiper-container', 'pp-swiper-slider' ],
                         'data-pagination': 'swiper-pagination',
-                        'data-arrow-next': 'swiper-button-next',
+                        'data-arrow-next': 'elementor-swiper-button elementor-swiper-button-next',
                         'data-arrow-prev': 'swiper-button-prev',
                         'data-slider-settings': JSON.stringify( slider_options )
                     }

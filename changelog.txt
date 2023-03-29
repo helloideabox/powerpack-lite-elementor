@@ -1,5 +1,6 @@
 == 2.7.4 ==
 Release date: 
+* Enhancement: Added compatibility for Swiper v8.45
 * Fixed: Info Grid & Carousel - Columns issue in Grid layout
 
 == 2.7.3 ==

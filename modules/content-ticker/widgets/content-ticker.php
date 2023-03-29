@@ -1785,7 +1785,7 @@ class Content_Ticker extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button' => 'font-size: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -1806,7 +1806,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1818,7 +1818,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -1830,7 +1830,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'label'       => __( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev',
+				'selector'    => '{{WRAPPER}} .elementor-swiper-button',
 			)
 		);
 
@@ -1841,7 +1841,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1862,7 +1862,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next:hover, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button:hover' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1874,7 +1874,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next:hover, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button:hover' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -1886,7 +1886,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next:hover, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button:hover' => 'border-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1910,7 +1910,7 @@ class Content_Ticker extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-prev' => 'margin-right: {{SIZE}}{{UNIT}};',
 				),
 				'separator'  => 'before',
 			)
@@ -1923,7 +1923,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -2127,10 +2127,10 @@ class Content_Ticker extends Powerpack_Widget {
 
 			<?php if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
 				<!-- Add Arrows -->
-				<div class="swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
+				<div class="elementor-swiper-button elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
 					<i aria-hidden="true" class="<?php echo esc_attr( $prev_arrow ); ?>"></i>
 				</div>
-				<div class="swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
+				<div class="elementor-swiper-button elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
 					<i aria-hidden="true" class="<?php echo esc_attr( $next_arrow ); ?>"></i>
 				</div>
 			<?php } ?>
