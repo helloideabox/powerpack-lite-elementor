@@ -230,6 +230,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.4 - March 29, 2023 =
+* 	Enhancement: Advanced Posts - Added option to automatically align buttons
+* 	Enhancement: Added compatibility for Swiper v8.45
+* 	Enhancement: Updated Elementor compatibility tags
+* 	Fixed: Info Grid & Carousel - Columns issue in Grid layout
+
 = 2.7.3 - February 8, 2023 =
 * 	Enhancement: Logo Carousel - Added direction option
 * 	Enhancement: Logo Carousel - Repeater items now show logo title instead of Logo Image text
