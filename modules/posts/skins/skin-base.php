@@ -1228,6 +1228,22 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		$this->add_control(
+			'button_alignment',
+			[
+				'label'       => esc_html__( 'Automatically Align Buttons', 'powerpack' ),
+				'type'        => Controls_Manager::SWITCHER,
+				'label_on'    => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'   => esc_html__( 'No', 'powerpack' ),
+				'default'     => '',
+				'render_type' => 'template',
+				'condition'   => [
+					$this->get_control_id( 'layout!' ) => 'masonry',
+					$this->get_control_id( 'show_button' ) => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
 			'button_link_target',
 			array(
 				'label'     => __( 'Open in a New Tab', 'powerpack' ),
@@ -4659,6 +4675,10 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'pp-posts-skin-' . $this->get_id(),
 		);
 
+		if ( 'yes' === $this->get_instance_value( 'button_alignment' ) ) {
+			$classes[] = 'pp-posts-align-buttons';
+		}
+
 		if ( 'carousel' === $layout ) {
 			$classes[] = 'pp-posts-carousel';
 			$classes[] = 'pp-swiper-slider';
@@ -4790,37 +4810,40 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 				<?php do_action( 'ppe_before_single_post_content', get_the_ID(), $settings ); ?>
 
-				<div class="pp-post-content">
-					<?php
-						$content_parts = $this->get_ordered_items( Module::get_post_parts() );
+				<div class="pp-post-content-wrap">
+					<div class="pp-post-content">
+						<?php
+							$content_parts = $this->get_ordered_items( Module::get_post_parts() );
 
-					foreach ( $content_parts as $part => $index ) {
-						if ( 'thumbnail' === $part ) {
-							if ( 'inside' === $thumbnail_location ) {
-								$this->render_post_thumbnail();
+						foreach ( $content_parts as $part => $index ) {
+							if ( 'thumbnail' === $part ) {
+								if ( 'inside' === $thumbnail_location ) {
+									$this->render_post_thumbnail();
+								}
+							}
+
+							if ( 'terms' === $part ) {
+								$this->render_terms();
+							}
+
+							if ( 'title' === $part ) {
+								$this->render_post_title();
+							}
+
+							if ( 'meta' === $part ) {
+								$this->render_post_meta();
+							}
+
+							if ( 'excerpt' === $part ) {
+								$this->render_excerpt();
 							}
 						}
-
-						if ( 'terms' === $part ) {
-							$this->render_terms();
-						}
-
-						if ( 'title' === $part ) {
-							$this->render_post_title();
-						}
-
-						if ( 'meta' === $part ) {
-							$this->render_post_meta();
-						}
-
-						if ( 'excerpt' === $part ) {
-							$this->render_excerpt();
-						}
-
+						?>
+					</div>
+					<?php
 						if ( 'button' === $part ) {
 							$this->render_button();
 						}
-					}
 					?>
 				</div>
 

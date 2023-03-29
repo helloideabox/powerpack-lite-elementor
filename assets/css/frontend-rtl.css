@@ -3125,6 +3125,23 @@ div[class*=' pa-'] {
     right: 0;
     height: 100%; }
 
+.pp-posts-align-buttons .pp-post {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+
+.pp-posts-align-buttons .pp-post-content-wrap {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline; }
+
+.pp-posts-align-buttons .pp-post-content {
+  flex-grow: 1; }
+
+.pp-posts-align-buttons.pp-posts-skin-event .pp-posts-button {
+  align-self: center; }
+
 .pp-post-separator-wrap {
   margin-bottom: 15px; }
 
