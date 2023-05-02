@@ -230,6 +230,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.5 - May 2, 2023 =
+* 	Enhancement: Added compatibility for Swiper v8.45
+* 	Fixed: Info Grid & Carousel - Equal height option
+* 	Fixed: Content Reveal - Compatibility with WPML
+* 	Fixed: Editor - PowerPack add template button icon issue
+
 = 2.7.4 - March 29, 2023 =
 * 	Enhancement: Advanced Posts - Added option to automatically align buttons
 * 	Enhancement: Added compatibility for Swiper v8.45

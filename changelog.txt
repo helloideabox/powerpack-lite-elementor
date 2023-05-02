@@ -1,5 +1,5 @@
 == 2.7.5 ==
-Release date: 
+Release date: May 2, 2023
 * Enhancement: Added compatibility for Swiper v8.45
 * Fixed: Info Grid & Carousel - Equal height option
 * Fixed: Content Reveal - Compatibility with WPML
