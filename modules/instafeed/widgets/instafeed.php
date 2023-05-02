@@ -3058,14 +3058,15 @@ class Instafeed extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_render_attribute( 'insta-feed-inner', 'class', 'pp-insta-feed-inner' );
+		$this->add_render_attribute( 'container-wrap', 'class', 'pp-insta-feed-inner' );
 
 		if ( 'carousel' === $settings['feed_layout'] ) {
 			$this->add_render_attribute(
 				array(
-					'insta-feed-inner'     => array(
+					'container-wrap'     => array(
 						'class' => array(
 							'swiper-container-wrap',
+							'swiper',
 							'pp-insta-feed-carousel-wrap',
 						),
 					),
@@ -3132,7 +3133,7 @@ class Instafeed extends Powerpack_Widget {
 		}
 		?>
 		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'insta-feed-wrap' ) ); ?>>
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'insta-feed-inner' ) ); ?>>
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container-wrap' ) ); ?>>
 				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'insta-feed-container' ) ); ?>>
 					<?php $this->get_insta_profile_link(); ?>
 					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'insta-feed' ) ); ?>>

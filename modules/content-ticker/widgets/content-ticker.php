@@ -2005,6 +2005,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_render_attribute( 'content-ticker-wrap', 'class', array(
 			'pp-content-ticker-wrap',
 			'swiper-container-wrap',
+			'swiper'
 		) );
 
 		if ( ! isset( $settings['heading_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
@@ -2105,6 +2106,11 @@ class Content_Ticker extends Powerpack_Widget {
 			$has_icon = true;
 		}
 
+		if ( ! empty( $settings['arrow'] ) ) {
+			$this->add_render_attribute( 'arrow-icon', 'class', $settings['arrow'] );
+			$this->add_render_attribute( 'arrow-icon', 'aria-hidden', 'true' );
+		}
+
 		$migrated = isset( $settings['__fa4_migrated']['select_arrow'] );
 		$is_new = ! isset( $settings['arrow'] ) && $migration_allowed;
 
@@ -2113,28 +2119,33 @@ class Content_Ticker extends Powerpack_Widget {
 			<?php
 			if ( $has_icon ) {
 				if ( $is_new || $migrated ) {
-					$next_arrow = str_replace( 'left', 'right', $settings['select_arrow']['value'] );
-					$prev_arrow = str_replace( 'right', 'left', $settings['select_arrow']['value'] );
+					$next_arrow = $settings['select_arrow'];
+					$prev_arrow = str_replace( 'right', 'left', $settings['select_arrow'] );
 				} else {
-					$next_arrow = $settings['arrow'];
-					$prev_arrow = str_replace( 'right', 'left', $settings['arrow'] );
+					$pa_next_arrow = $settings['arrow'];
+					$pa_prev_arrow = str_replace( 'right', 'left', $settings['arrow'] );
 				}
 			} else {
-				$next_arrow = 'fa fa-angle-right';
-				$prev_arrow = 'fa fa-angle-left';
+				$pa_next_arrow = 'fa fa-angle-right';
+				$pa_prev_arrow = 'fa fa-angle-left';
 			}
-			?>
 
-			<?php if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
-				<!-- Add Arrows -->
-				<div class="elementor-swiper-button elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
-					<i aria-hidden="true" class="<?php echo esc_attr( $prev_arrow ); ?>"></i>
+			if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
+				<div class="elementor-icon elementor-swiper-button elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
+					<?php if ( $is_new || $migrated ) :
+						Icons_Manager::render_icon( $prev_arrow, [ 'aria-hidden' => 'true' ] );
+					else : ?>
+						<i <?php $this->print_render_attribute_string( 'arrow-icon' ); ?>></i>
+					<?php endif; ?>
 				</div>
-				<div class="elementor-swiper-button elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
-					<i aria-hidden="true" class="<?php echo esc_attr( $next_arrow ); ?>"></i>
+				<div class="elementor-icon elementor-swiper-button elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
+					<?php if ( $is_new || $migrated ) :
+						Icons_Manager::render_icon( $next_arrow, [ 'aria-hidden' => 'true' ] );
+					else : ?>
+						<i <?php $this->print_render_attribute_string( 'arrow-icon' ); ?>></i>
+					<?php endif; ?>
 				</div>
-			<?php } ?>
-			<?php
+			<?php }
 		}
 	}
 

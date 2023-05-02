@@ -1734,7 +1734,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Margin Bottom', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
-					'size'  => 20,
+					'size'  => 0,
 				],
 				'range'                 => [
 					'px' => [
@@ -2537,6 +2537,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			'grabCursor'            => ( 'yes' === $settings['grab_cursor'] ),
 			'autoHeight'            => true,
 			'watchSlidesVisibility' => true,
+			'watchSlidesProgress'   => true,
 			'loop'                  => ( 'yes' === $settings['infinite_loop'] ),
 		];
 
@@ -2629,6 +2630,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			$this->add_render_attribute( 'container', 'class', 'elementor-grid' );
 			$this->add_render_attribute( 'info-box-wrap', 'class', 'pp-grid-item-wrap elementor-grid-item' );
 			$this->add_render_attribute( 'info-box', 'class', 'pp-grid-item' );
+
+			if ( 'yes' === $settings['equal_height_boxes'] ) {
+	
+				$this->add_render_attribute( 'container', 'class', 'pp-info-box-equal-height' );
+			}
 
 		} else {
 

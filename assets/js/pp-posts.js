@@ -46,7 +46,7 @@
 
 		if ( isEditMode ) {
 			carouselWrap.resize( function() {
-				mySwiper.update();
+				//mySwiper.update();
 			});
 		}
 

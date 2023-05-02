@@ -1,5 +1,6 @@
 == 2.7.5 ==
 Release date: 
+* Enhancement: Added compatibility for Swiper v8.45
 * Fixed: Content Reveal - Compatibility with WPML
 
 == 2.7.4 ==

@@ -1436,15 +1436,24 @@ class Logo_Carousel extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		$this->add_render_attribute( 'logo-carousel-wrap', 'class', 'swiper-container-wrap pp-logo-carousel-wrap' );
-
 		$this->add_render_attribute(
-			'logo-carousel',
 			[
-				'class'             => [ 'pp-logo-carousel', 'pp-swiper-slider', 'swiper-container' ],
-				'data-pagination'   => '.swiper-pagination-' . esc_attr( $this->get_id() ),
-				'data-arrow-next'   => '.swiper-button-next-' . esc_attr( $this->get_id() ),
-				'data-arrow-prev'   => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
+				'logo-carousel-wrap' => [
+					'class' => [
+						'swiper-container-wrap',
+						'swiper'
+					]
+				],
+				'logo-carousel' => [
+					'class'           => [
+						'pp-logo-carousel',
+						'pp-swiper-slider',
+						'swiper-container'
+					],
+					'data-pagination' => '.swiper-pagination-' . esc_attr( $this->get_id() ),
+					'data-arrow-next' => '.swiper-button-next-' . esc_attr( $this->get_id() ),
+					'data-arrow-prev' => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
+				]
 			]
 		);
 
@@ -1717,7 +1726,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		view.addRenderAttribute(
 			'wrapper',
 			{
-				'class': [ "swiper-container-wrap", "pp-logo-carousel-wrap", "swiper-container-wrap-dots-" + settings.dots_position ],
+				'class': [ "swiper-container-wrap", "swiper", "swiper-container-wrap-dots-" + settings.dots_position ],
 			}
 		);
 
