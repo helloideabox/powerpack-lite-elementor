@@ -95,7 +95,7 @@ class PP_Templates_Lib {
 		);
 
 		wp_localize_script( 'powerpack-templates-lib', 'pp_templates_lib', array(
-			'logoUrl'	=> POWERPACK_ELEMENTS_LITE_URL . 'assets/images/pp-logo-sm.png',
+			'logoUrl'	=> POWERPACK_ELEMENTS_LITE_URL . 'assets/images/pp-logo-sm.svg',
 		) );
 	}
 
@@ -401,7 +401,7 @@ class PP_Templates_Lib {
 		</script>
 		<script type="text/template" id="tmpl-elementor-templates-modal__header__logo_pp">
 			<span class="elementor-templates-modal__header__logo__icon-wrapper">
-				<img src="<?php echo esc_url( POWERPACK_ELEMENTS_LITE_URL . 'assets/images/pp-logo-sm.png' ); ?>" style="height: 30px;" />
+				<img src="<?php echo esc_url( POWERPACK_ELEMENTS_LITE_URL . 'assets/images/pp-logo-sm.svg' ); ?>" style="height: 30px;" />
 			</span>
 			<span class="elementor-templates-modal__header__logo__title">{{{ title }}}</span>
 		</script>

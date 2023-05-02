@@ -860,7 +860,7 @@
 
 		$templateLibBtnStyle.html( btnStyle );
 
-		$previewContents.find('head').append( $templateLibBtnStyle );
+		//$previewContents.find('head').append( $templateLibBtnStyle );
 
 		var $templateLibBtn = $('<div />');
 		

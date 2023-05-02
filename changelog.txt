@@ -1,7 +1,9 @@
 == 2.7.5 ==
 Release date: 
 * Enhancement: Added compatibility for Swiper v8.45
+* Fixed: Info Grid & Carousel - Equal height option
 * Fixed: Content Reveal - Compatibility with WPML
+* Fixed: Editor - PowerPack add template button icon issue
 
 == 2.7.4 ==
 Release date: March 29, 2023
