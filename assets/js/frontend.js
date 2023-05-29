@@ -552,11 +552,12 @@
 	};
     
 	var ContentReveal = function ($scope, $) {
-		var elementSettings 	= getElementSettings($scope),
+		var elementSettings     = getElementSettings($scope),
 			contentWrapper      = $scope.find('.pp-content-reveal-content-wrapper'),
 			$content 			= $scope.find('.pp-content-reveal-content'),
 			$saparator 			= $scope.find('.pp-content-reveal-saparator'),
 			$button				= $scope.find('.pp-content-reveal-button-inner'),
+			buttonWrapper       = $scope.find('.pp-content-reveal-buttons-wrapper'),
 			contentOuterHeight 	= $content.outerHeight(),
 			scrollTop           = contentWrapper.data('scroll-top'),
 			contentVisibility   = contentWrapper.data('visibility'),
@@ -564,25 +565,93 @@
 			speedUnreveal       = contentWrapper.data('speed') * 1000,
 			contentHeightLines  = contentWrapper.data('lines'),
 			contentLineHeight   = $scope.find('.pp-content-reveal-content p').css('line-height'),
-			contentPaddingTop 	= $content.css('padding-top');
+			contentPaddingTop 	= $content.css('padding-top'),
+			contentWrapperHeight;
 
-        if ( contentVisibility == 'lines' ) {
-            if ( contentHeightLines == '0' ) {
-                var contentWrapperHeight = contentWrapper.outerHeight();
-            } else {
-                var contentWrapperHeight = (parseInt(contentLineHeight, 10) * contentHeightLines) + parseInt(contentPaddingTop, 10);
-                contentWrapper.css( 'height', (contentWrapperHeight + 'px') );
-            }
-        } else {
-            contentWrapper.css( 'height', (contentHeightCustom + 'px') );
-            contentWrapperHeight = contentHeightCustom;
-        }
+		if ( 'reveal' === elementSettings.default_content_state ) {
+			$saparator.hide();
+		}
+
+		if ( contentVisibility == 'lines' ) {
+			if ( contentHeightLines == '0' ) {
+				contentWrapperHeight = contentWrapper.outerHeight();
+			} else {
+				contentWrapperHeight = (parseInt(contentLineHeight, 10) * contentHeightLines) + parseInt(contentPaddingTop, 10);
+
+				if ( 'unreveal' === elementSettings.default_content_state ) {
+					contentWrapper.css( 'height', (contentWrapperHeight + 'px') );
+				}
+			}
+
+			var $elems  = $content.find( "> *" ),
+				counter = 0,
+				_mHeight = 0;
+
+				var getLineHeight = function( element ) {
+					var style = window.getComputedStyle( element ),
+					lineHeight = null,
+					placeholder = document.createElement( element.nodeName );
+
+					placeholder.setAttribute("style","margin:0px;padding:0px;font-family:" + style.fontFamily + ";font-size:" + style.fontSize);
+					placeholder.innerHTML = "test";
+					placeholder = element.parentNode.appendChild( placeholder );
+
+					lineHeight = placeholder.clientHeight;
+
+					placeholder.parentNode.removeChild( placeholder );
+
+					return lineHeight;
+				};
+
+			$elems.each( function( index ) {
+				if ( counter < contentHeightLines ) {
+
+					var lineHeight 	= getLineHeight( this ),
+						lines 		= $(this).outerHeight() / lineHeight,
+						style 		= window.getComputedStyle( this );
+
+					if ( lines > 1 && isFinite( lines ) ) {
+						var lineCounter = 0,
+							i = 1;
+
+						for( i = 1; i <= lines; i++ ) { 
+
+
+							if ( counter < contentHeightLines ) {
+								_mHeight += lineHeight;
+
+								counter++;
+								lineCounter++;
+							}
+						}
+
+						if ( lineCounter === lines ) {
+							_mHeight += parseInt( style.marginTop ) + parseInt( style.marginBottom );
+						}
+
+					} else {
+						_mHeight += $(this).outerHeight( true );
+						counter++;
+					}
+				}
+			});
+
+			if ( $content.outerHeight( true ) - 1 <= _mHeight ) {
+				buttonWrapper.hide();
+				$saparator.hide();
+			}
+		} else {
+			if ( 'unreveal' === elementSettings.default_content_state ) {
+				contentWrapper.css( 'height', (contentHeightCustom + 'px') );
+			}
+
+			contentWrapperHeight = contentHeightCustom;
+		}
 
 		$button.on('click', function () {
 			$saparator.slideToggle(speedUnreveal);
 			$(this).toggleClass('pp-content-revealed');
-			$(this).find('.pp-content-reveal-button-open').slideToggle(speedUnreveal);
-			$(this).find('.pp-content-reveal-button-closed').slideToggle(speedUnreveal);
+
 			if ( $button.hasClass('pp-content-revealed') ) {
 				contentWrapper.animate({ height: ( contentOuterHeight + 'px') }, speedUnreveal);
 			} else {
