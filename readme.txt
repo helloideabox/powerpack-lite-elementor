@@ -230,6 +230,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.6 - May 29, 2023 =
+* 	Enhancement: Content Reveal - Added Default State option to show revealed content on page load
+* 	Enhancement: Content Reveal - Reveal button hides when number of lines of content is less than the visible lines set in the settings
+* 	Enhancement: Image Accordion - Added option to disable body click action
+* 	Fixed: Logo Carousel - Arrows style options were not working
+
 = 2.7.5 - May 2, 2023 =
 * 	Enhancement: Added compatibility for Swiper v8.45
 * 	Fixed: Info Grid & Carousel - Equal height option
