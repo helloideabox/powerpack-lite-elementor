@@ -445,12 +445,13 @@
 	};
     
     var ImageAccordionHandler = function ($scope, $) {
-		var $image_accordion            = $scope.find('.pp-image-accordion').eq(0),
-            elementSettings             = getElementSettings( $scope ),
-            $action                     = elementSettings.accordion_action,
-		    $id                         = $image_accordion.attr( 'id' ),
-		    $item                       = $('#'+ $id +' .pp-image-accordion-item');
-		   
+		var imageAccordion   = $scope.find('.pp-image-accordion').eq(0),
+        	elementSettings  = getElementSettings( $scope ),
+    		$action          = elementSettings.accordion_action,
+        	DisableBodyClick = elementSettings.disable_body_click,
+		    $id              = imageAccordion.attr( 'id' ),
+		    $item            = $('#'+ $id +' .pp-image-accordion-item');
+
 		if ( 'on-hover' === $action ) {
             $item.hover(
                 function ImageAccordionHover() {
@@ -483,11 +484,13 @@
                 e.stopPropagation(); // when you click within the content area, it stops the page from seeing it as clicking the body too
             });
 
-            $('body').click( function() {
-                $item.css('flex', '1');
-				$item.find('.pp-image-accordion-content-wrap').removeClass('pp-image-accordion-content-active');
-				$item.removeClass('pp-image-accordion-active');
-            });
+			if ( 'yes' !== DisableBodyClick ) {
+				$('body').click( function() {
+					$item.css('flex', '1');
+					$item.find('.pp-image-accordion-content-wrap').removeClass('pp-image-accordion-content-active');
+					$item.removeClass('pp-image-accordion-active');
+				});
+			}
 		}
     };
 

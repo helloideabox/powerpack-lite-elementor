@@ -412,6 +412,22 @@ class Image_Accordion extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_control(
+			'disable_body_click',
+			[
+				'label'                 => esc_html__( 'Disable Body Click', 'powerpack' ),
+				'description'           => esc_html__( 'Don\'t collapse accordion on body click', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'no',
+				'label_block'           => false,
+				'options'               => [
+					'yes' => esc_html__( 'Yes', 'powerpack' ),
+					'no'  => esc_html__( 'No', 'powerpack' ),
+				],
+				'frontend_available'    => true,
+			]
+		);
+
 		$this->end_controls_section();
 
 		$help_docs = PP_Config::get_widget_help_links( 'Image_Accordion' );
@@ -522,7 +538,7 @@ class Image_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-image-accordion-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -940,7 +956,7 @@ class Image_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-image-accordion-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
