@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.7.5\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.7.6\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-elementor\n"
-"POT-Creation-Date: 2023-05-02 11:06:25+00:00\n"
+"POT-Creation-Date: 2023-05-29 09:52:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,7 +77,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:546
 #: modules/caldera-forms/widgets/caldera-forms.php:268
 #: modules/contact-form-seven/widgets/contact-form-7.php:241
-#: modules/content-reveal/widgets/content-reveal.php:441
+#: modules/content-reveal/widgets/content-reveal.php:456
 #: modules/formidable-forms/widgets/formidable-forms.php:287
 #: modules/ninja-forms/widgets/ninja-forms.php:260
 #: modules/posts/skins/skin-base.php:1667
@@ -89,7 +89,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:556
 #: modules/caldera-forms/widgets/caldera-forms.php:278
 #: modules/contact-form-seven/widgets/contact-form-7.php:251
-#: modules/content-reveal/widgets/content-reveal.php:451
+#: modules/content-reveal/widgets/content-reveal.php:466
 #: modules/formidable-forms/widgets/formidable-forms.php:297
 #: modules/ninja-forms/widgets/ninja-forms.php:270
 #: modules/posts/skins/skin-base.php:377 modules/posts/skins/skin-base.php:429
@@ -170,7 +170,7 @@ msgid "Contact Form 7"
 msgstr ""
 
 #: classes/class-pp-config.php:81 includes/helper-functions.php:410
-#: modules/content-reveal/widgets/content-reveal.php:370
+#: modules/content-reveal/widgets/content-reveal.php:385
 msgid "Content Reveal"
 msgstr ""
 
@@ -1309,6 +1309,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:467
 #: modules/hotspots/widgets/hotspots.php:543
 #: modules/image-accordion/widgets/image-accordion.php:177
+#: modules/image-accordion/widgets/image-accordion.php:424
 #: modules/info-box/widgets/info-box-carousel.php:305
 #: modules/info-box/widgets/info-box-carousel.php:697
 #: modules/info-box/widgets/info-box-carousel.php:714
@@ -1429,6 +1430,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:468
 #: modules/hotspots/widgets/hotspots.php:544
 #: modules/image-accordion/widgets/image-accordion.php:178
+#: modules/image-accordion/widgets/image-accordion.php:425
 #: modules/info-box/widgets/info-box-carousel.php:306
 #: modules/info-box/widgets/info-box-carousel.php:698
 #: modules/info-box/widgets/info-box-carousel.php:715
@@ -1537,7 +1539,7 @@ msgstr ""
 #: modules/caldera-forms/widgets/caldera-forms.php:1455
 #: modules/contact-form-seven/widgets/contact-form-7.php:789
 #: modules/contact-form-seven/widgets/contact-form-7.php:905
-#: modules/content-reveal/widgets/content-reveal.php:500
+#: modules/content-reveal/widgets/content-reveal.php:515
 #: modules/content-ticker/widgets/content-ticker.php:1817
 #: modules/content-ticker/widgets/content-ticker.php:1873
 #: modules/counter/widgets/counter.php:547
@@ -1567,8 +1569,8 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:501
 #: modules/icon-list/widgets/icon-list.php:599
 #: modules/icon-list/widgets/icon-list.php:714
-#: modules/image-accordion/widgets/image-accordion.php:771
-#: modules/image-accordion/widgets/image-accordion.php:823
+#: modules/image-accordion/widgets/image-accordion.php:787
+#: modules/image-accordion/widgets/image-accordion.php:839
 #: modules/image-comparison/widgets/image-comparison.php:540
 #: modules/info-box/widgets/info-box-carousel.php:1395
 #: modules/info-box/widgets/info-box-carousel.php:1457
@@ -1768,7 +1770,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:1096
 #: modules/contact-form-seven/widgets/contact-form-7.php:1218
 #: modules/contact-form-seven/widgets/contact-form-7.php:1355
-#: modules/content-reveal/widgets/content-reveal.php:643
+#: modules/content-reveal/widgets/content-reveal.php:658
 #: modules/content-ticker/widgets/content-ticker.php:1358
 #: modules/content-ticker/widgets/content-ticker.php:1481
 #: modules/content-ticker/widgets/content-ticker.php:1539
@@ -1817,7 +1819,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:843
 #: modules/hotspots/widgets/hotspots.php:979
 #: modules/icon-list/widgets/icon-list.php:820
-#: modules/image-accordion/widgets/image-accordion.php:954
+#: modules/image-accordion/widgets/image-accordion.php:970
 #: modules/image-comparison/widgets/image-comparison.php:795
 #: modules/info-box/widgets/info-box-carousel.php:1370
 #: modules/info-box/widgets/info-box-carousel.php:1412
@@ -1930,7 +1932,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:1043
 #: modules/contact-form-seven/widgets/contact-form-7.php:1295
 #: modules/contact-form-seven/widgets/contact-form-7.php:1369
-#: modules/content-reveal/widgets/content-reveal.php:746
+#: modules/content-reveal/widgets/content-reveal.php:761
 #: modules/content-ticker/widgets/content-ticker.php:1344
 #: modules/content-ticker/widgets/content-ticker.php:1437
 #: modules/content-ticker/widgets/content-ticker.php:1656
@@ -1958,9 +1960,9 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:877
 #: modules/hotspots/widgets/hotspots.php:989
 #: modules/icon-list/widgets/icon-list.php:671
-#: modules/image-accordion/widgets/image-accordion.php:515
-#: modules/image-accordion/widgets/image-accordion.php:614
-#: modules/image-accordion/widgets/image-accordion.php:931
+#: modules/image-accordion/widgets/image-accordion.php:531
+#: modules/image-accordion/widgets/image-accordion.php:630
+#: modules/image-accordion/widgets/image-accordion.php:947
 #: modules/image-comparison/widgets/image-comparison.php:447
 #: modules/image-comparison/widgets/image-comparison.php:712
 #: modules/image-comparison/widgets/image-comparison.php:768
@@ -2045,7 +2047,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:852
 #: modules/contact-form-seven/widgets/contact-form-7.php:878
 #: modules/contact-form-seven/widgets/contact-form-7.php:1052
-#: modules/content-reveal/widgets/content-reveal.php:756
+#: modules/content-reveal/widgets/content-reveal.php:771
 #: modules/content-ticker/widgets/content-ticker.php:1447
 #: modules/content-ticker/widgets/content-ticker.php:1666
 #: modules/content-ticker/widgets/content-ticker.php:1840
@@ -2077,9 +2079,9 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:887
 #: modules/hotspots/widgets/hotspots.php:999
 #: modules/icon-list/widgets/icon-list.php:681
-#: modules/image-accordion/widgets/image-accordion.php:523
-#: modules/image-accordion/widgets/image-accordion.php:623
-#: modules/image-accordion/widgets/image-accordion.php:941
+#: modules/image-accordion/widgets/image-accordion.php:539
+#: modules/image-accordion/widgets/image-accordion.php:639
+#: modules/image-accordion/widgets/image-accordion.php:957
 #: modules/image-comparison/widgets/image-comparison.php:458
 #: modules/image-comparison/widgets/image-comparison.php:722
 #: modules/image-comparison/widgets/image-comparison.php:778
@@ -2164,8 +2166,8 @@ msgstr ""
 #: modules/caldera-forms/widgets/caldera-forms.php:1220
 #: modules/contact-form-seven/widgets/contact-form-7.php:440
 #: modules/contact-form-seven/widgets/contact-form-7.php:1064
-#: modules/content-reveal/widgets/content-reveal.php:530
-#: modules/content-reveal/widgets/content-reveal.php:868
+#: modules/content-reveal/widgets/content-reveal.php:545
+#: modules/content-reveal/widgets/content-reveal.php:883
 #: modules/content-ticker/widgets/content-ticker.php:1299
 #: modules/content-ticker/widgets/content-ticker.php:1408
 #: modules/content-ticker/widgets/content-ticker.php:1922
@@ -2191,8 +2193,8 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:1011
 #: modules/icon-list/widgets/icon-list.php:400
 #: modules/icon-list/widgets/icon-list.php:693
-#: modules/image-accordion/widgets/image-accordion.php:750
-#: modules/image-accordion/widgets/image-accordion.php:963
+#: modules/image-accordion/widgets/image-accordion.php:766
+#: modules/image-accordion/widgets/image-accordion.php:979
 #: modules/image-comparison/widgets/image-comparison.php:805
 #: modules/info-box/widgets/info-box-carousel.php:1086
 #: modules/info-box/widgets/info-box-carousel.php:1214
@@ -2474,14 +2476,14 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:120
 #: modules/content-reveal/widgets/content-reveal.php:103
 #: modules/content-reveal/widgets/content-reveal.php:114
-#: modules/content-reveal/widgets/content-reveal.php:462
+#: modules/content-reveal/widgets/content-reveal.php:477
 #: modules/content-ticker/widgets/content-ticker.php:490
 #: modules/content-ticker/widgets/content-ticker.php:1400
 #: modules/flipbox/widgets/flipbox.php:755
 #: modules/flipbox/widgets/flipbox.php:1142
 #: modules/icon-list/widgets/icon-list.php:135
 #: modules/image-accordion/widgets/image-accordion.php:120
-#: modules/image-accordion/widgets/image-accordion.php:593
+#: modules/image-accordion/widgets/image-accordion.php:609
 #: modules/info-box/widgets/info-box-carousel.php:142
 #: modules/info-box/widgets/info-box.php:375
 #: modules/info-box/widgets/info-box.php:1084
@@ -2528,7 +2530,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:189
 #: modules/gravity-forms/widgets/gravity-forms.php:384
 #: modules/image-accordion/widgets/image-accordion.php:125
-#: modules/image-accordion/widgets/image-accordion.php:762
+#: modules/image-accordion/widgets/image-accordion.php:778
 #: modules/info-box/widgets/info-box-carousel.php:147
 #: modules/info-box/widgets/info-box-carousel.php:152
 #: modules/info-box/widgets/info-box-carousel.php:275
@@ -2648,9 +2650,9 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:150
 #: modules/buttons/widgets/buttons.php:167
 #: modules/buttons/widgets/buttons.php:901
-#: modules/content-reveal/widgets/content-reveal.php:355
-#: modules/content-reveal/widgets/content-reveal.php:387
-#: modules/content-reveal/widgets/content-reveal.php:884
+#: modules/content-reveal/widgets/content-reveal.php:370
+#: modules/content-reveal/widgets/content-reveal.php:402
+#: modules/content-reveal/widgets/content-reveal.php:899
 #: modules/content-ticker/widgets/content-ticker.php:1021
 #: modules/counter/widgets/counter.php:242
 #: modules/counter/widgets/counter.php:261
@@ -2670,7 +2672,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:162
 #: modules/icon-list/widgets/icon-list.php:181
 #: modules/icon-list/widgets/icon-list.php:528
-#: modules/image-accordion/widgets/image-accordion.php:1048
+#: modules/image-accordion/widgets/image-accordion.php:1064
 #: modules/info-box/widgets/info-box-carousel.php:182
 #: modules/info-box/widgets/info-box-carousel.php:196
 #: modules/info-box/widgets/info-box-carousel.php:215
@@ -2922,7 +2924,7 @@ msgstr ""
 #: modules/headings/widgets/fancy-heading.php:207
 #: modules/hotspots/widgets/hotspots.php:687
 #: modules/icon-list/widgets/icon-list.php:330
-#: modules/image-accordion/widgets/image-accordion.php:428
+#: modules/image-accordion/widgets/image-accordion.php:444
 #: modules/image-comparison/widgets/image-comparison.php:310
 #: modules/info-box/widgets/info-box-carousel.php:903
 #: modules/info-box/widgets/info-box.php:690
@@ -2951,7 +2953,7 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:591
 #: modules/icon-list/widgets/icon-list.php:268
 #: modules/image-accordion/widgets/image-accordion.php:112
-#: modules/image-accordion/widgets/image-accordion.php:459
+#: modules/image-accordion/widgets/image-accordion.php:475
 msgid "Items"
 msgstr ""
 
@@ -2973,7 +2975,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:386
 #: modules/contact-form-seven/widgets/contact-form-7.php:779
 #: modules/contact-form-seven/widgets/contact-form-7.php:1011
-#: modules/content-reveal/widgets/content-reveal.php:668
+#: modules/content-reveal/widgets/content-reveal.php:683
 #: modules/content-ticker/widgets/content-ticker.php:1419
 #: modules/content-ticker/widgets/content-ticker.php:1798
 #: modules/flipbox/widgets/flipbox.php:1468
@@ -2989,8 +2991,8 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1649
 #: modules/icon-list/widgets/icon-list.php:592
 #: modules/icon-list/widgets/icon-list.php:784
-#: modules/image-accordion/widgets/image-accordion.php:495
-#: modules/image-accordion/widgets/image-accordion.php:898
+#: modules/image-accordion/widgets/image-accordion.php:511
+#: modules/image-accordion/widgets/image-accordion.php:914
 #: modules/image-comparison/widgets/image-comparison.php:356
 #: modules/image-comparison/widgets/image-comparison.php:417
 #: modules/info-box/widgets/info-box-carousel.php:1136
@@ -3201,7 +3203,7 @@ msgstr ""
 #: modules/caldera-forms/widgets/caldera-forms.php:1303
 #: modules/contact-form-seven/widgets/contact-form-7.php:826
 #: modules/contact-form-seven/widgets/contact-form-7.php:1148
-#: modules/content-reveal/widgets/content-reveal.php:854
+#: modules/content-reveal/widgets/content-reveal.php:869
 #: modules/content-ticker/widgets/content-ticker.php:1591
 #: modules/content-ticker/widgets/content-ticker.php:1885
 #: modules/flipbox/widgets/flipbox.php:1654
@@ -3215,8 +3217,8 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1787
 #: modules/hotspots/widgets/hotspots.php:402
 #: modules/icon-list/widgets/icon-list.php:739
-#: modules/image-accordion/widgets/image-accordion.php:565
-#: modules/image-accordion/widgets/image-accordion.php:1017
+#: modules/image-accordion/widgets/image-accordion.php:581
+#: modules/image-accordion/widgets/image-accordion.php:1033
 #: modules/image-comparison/widgets/image-comparison.php:509
 #: modules/info-box/widgets/info-box-carousel.php:1285
 #: modules/info-box/widgets/info-box-carousel.php:1606
@@ -3274,7 +3276,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:997
 #: modules/caldera-forms/widgets/caldera-forms.php:1272
 #: modules/contact-form-seven/widgets/contact-form-7.php:1117
-#: modules/content-reveal/widgets/content-reveal.php:778
+#: modules/content-reveal/widgets/content-reveal.php:793
 #: modules/content-ticker/widgets/content-ticker.php:1574
 #: modules/content-ticker/widgets/content-ticker.php:1854
 #: modules/flipbox/widgets/flipbox.php:1614
@@ -3285,8 +3287,8 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:480
 #: modules/icon-list/widgets/icon-list.php:707
 #: modules/icon-list/widgets/icon-list.php:831
-#: modules/image-accordion/widgets/image-accordion.php:545
-#: modules/image-accordion/widgets/image-accordion.php:985
+#: modules/image-accordion/widgets/image-accordion.php:561
+#: modules/image-accordion/widgets/image-accordion.php:1001
 #: modules/image-comparison/widgets/image-comparison.php:377
 #: modules/image-comparison/widgets/image-comparison.php:480
 #: modules/info-box/widgets/info-box-carousel.php:1253
@@ -3386,8 +3388,8 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:1202
 #: modules/contact-form-seven/widgets/contact-form-7.php:1279
 #: modules/contact-form-seven/widgets/contact-form-7.php:1339
-#: modules/content-reveal/widgets/content-reveal.php:675
-#: modules/content-reveal/widgets/content-reveal.php:785
+#: modules/content-reveal/widgets/content-reveal.php:690
+#: modules/content-reveal/widgets/content-reveal.php:800
 #: modules/content-ticker/widgets/content-ticker.php:1327
 #: modules/content-ticker/widgets/content-ticker.php:1468
 #: modules/content-ticker/widgets/content-ticker.php:1521
@@ -3439,8 +3441,8 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:951
 #: modules/icon-list/widgets/icon-list.php:791
 #: modules/icon-list/widgets/icon-list.php:838
-#: modules/image-accordion/widgets/image-accordion.php:917
-#: modules/image-accordion/widgets/image-accordion.php:1004
+#: modules/image-accordion/widgets/image-accordion.php:933
+#: modules/image-accordion/widgets/image-accordion.php:1020
 #: modules/image-comparison/widgets/image-comparison.php:687
 #: modules/image-comparison/widgets/image-comparison.php:743
 #: modules/info-box/widgets/info-box-carousel.php:1802
@@ -3542,9 +3544,9 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:1124
 #: modules/contact-form-seven/widgets/contact-form-7.php:1264
 #: modules/contact-form-seven/widgets/contact-form-7.php:1324
-#: modules/content-reveal/widgets/content-reveal.php:511
-#: modules/content-reveal/widgets/content-reveal.php:729
-#: modules/content-reveal/widgets/content-reveal.php:839
+#: modules/content-reveal/widgets/content-reveal.php:526
+#: modules/content-reveal/widgets/content-reveal.php:744
+#: modules/content-reveal/widgets/content-reveal.php:854
 #: modules/content-ticker/widgets/content-ticker.php:1311
 #: modules/content-ticker/widgets/content-ticker.php:1424
 #: modules/content-ticker/widgets/content-ticker.php:1579
@@ -3581,9 +3583,9 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:727
 #: modules/icon-list/widgets/icon-list.php:807
 #: modules/icon-list/widgets/icon-list.php:850
-#: modules/image-accordion/widgets/image-accordion.php:601
-#: modules/image-accordion/widgets/image-accordion.php:905
-#: modules/image-accordion/widgets/image-accordion.php:992
+#: modules/image-accordion/widgets/image-accordion.php:617
+#: modules/image-accordion/widgets/image-accordion.php:921
+#: modules/image-accordion/widgets/image-accordion.php:1008
 #: modules/image-comparison/widgets/image-comparison.php:699
 #: modules/image-comparison/widgets/image-comparison.php:755
 #: modules/info-box/widgets/info-box-carousel.php:1160
@@ -3686,7 +3688,7 @@ msgid "Icon Size"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1033
-#: modules/image-accordion/widgets/image-accordion.php:1057
+#: modules/image-accordion/widgets/image-accordion.php:1073
 #: modules/posts/skins/skin-base.php:2861
 #: modules/pricing/widgets/pricing-table.php:2359
 msgid "Icon Spacing"
@@ -3700,7 +3702,7 @@ msgstr ""
 #: modules/caldera-forms/widgets/caldera-forms.php:1097
 #: modules/contact-form-seven/widgets/contact-form-7.php:280
 #: modules/contact-form-seven/widgets/contact-form-7.php:939
-#: modules/content-reveal/widgets/content-reveal.php:306
+#: modules/content-reveal/widgets/content-reveal.php:321
 #: modules/content-ticker/widgets/content-ticker.php:1275
 #: modules/counter/widgets/counter.php:446
 #: modules/divider/widgets/divider.php:244
@@ -3766,7 +3768,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:417
 #: modules/contact-form-seven/widgets/contact-form-7.php:635
 #: modules/contact-form-seven/widgets/contact-form-7.php:1230
-#: modules/content-reveal/widgets/content-reveal.php:943
+#: modules/content-reveal/widgets/content-reveal.php:958
 #: modules/content-ticker/widgets/content-ticker.php:1901
 #: modules/counter/widgets/counter.php:820
 #: modules/counter/widgets/counter.php:1040
@@ -3789,7 +3791,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:915
 #: modules/headings/widgets/dual-heading.php:442
 #: modules/icon-list/widgets/icon-list.php:649
-#: modules/image-accordion/widgets/image-accordion.php:791
+#: modules/image-accordion/widgets/image-accordion.php:807
 #: modules/info-box/widgets/info-box-carousel.php:2274
 #: modules/info-box/widgets/info-box.php:1205
 #: modules/info-box/widgets/info-box.php:1306
@@ -3828,8 +3830,8 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:932
 #: modules/caldera-forms/widgets/caldera-forms.php:908
 #: modules/contact-form-seven/widgets/contact-form-7.php:751
-#: modules/content-reveal/widgets/content-reveal.php:606
-#: modules/content-reveal/widgets/content-reveal.php:908
+#: modules/content-reveal/widgets/content-reveal.php:621
+#: modules/content-reveal/widgets/content-reveal.php:923
 #: modules/counter/widgets/counter.php:567
 #: modules/divider/widgets/divider.php:800
 #: modules/flipbox/widgets/flipbox.php:1424
@@ -3839,7 +3841,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:492
 #: modules/hotspots/widgets/hotspots.php:822
 #: modules/icon-list/widgets/icon-list.php:628
-#: modules/image-accordion/widgets/image-accordion.php:857
+#: modules/image-accordion/widgets/image-accordion.php:873
 #: modules/info-box/widgets/info-box-carousel.php:1777
 #: modules/info-box/widgets/info-box-carousel.php:2251
 #: modules/info-box/widgets/info-box.php:215
@@ -4134,8 +4136,8 @@ msgstr ""
 #: modules/caldera-forms/widgets/caldera-forms.php:1101
 #: modules/contact-form-seven/widgets/contact-form-7.php:284
 #: modules/contact-form-seven/widgets/contact-form-7.php:944
-#: modules/content-reveal/widgets/content-reveal.php:311
-#: modules/content-reveal/widgets/content-reveal.php:474
+#: modules/content-reveal/widgets/content-reveal.php:326
+#: modules/content-reveal/widgets/content-reveal.php:489
 #: modules/content-ticker/widgets/content-ticker.php:1044
 #: modules/content-ticker/widgets/content-ticker.php:1279
 #: modules/counter/widgets/counter.php:450
@@ -4164,8 +4166,8 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:753
 #: modules/icon-list/widgets/icon-list.php:416
 #: modules/icon-list/widgets/icon-list.php:543
-#: modules/image-accordion/widgets/image-accordion.php:672
-#: modules/image-accordion/widgets/image-accordion.php:705
+#: modules/image-accordion/widgets/image-accordion.php:688
+#: modules/image-accordion/widgets/image-accordion.php:721
 #: modules/image-comparison/widgets/image-comparison.php:627
 #: modules/info-box/widgets/info-box-carousel.php:875
 #: modules/info-box/widgets/info-box-carousel.php:951
@@ -4221,8 +4223,8 @@ msgstr ""
 #: modules/caldera-forms/widgets/caldera-forms.php:1105
 #: modules/contact-form-seven/widgets/contact-form-7.php:288
 #: modules/contact-form-seven/widgets/contact-form-7.php:948
-#: modules/content-reveal/widgets/content-reveal.php:315
-#: modules/content-reveal/widgets/content-reveal.php:478
+#: modules/content-reveal/widgets/content-reveal.php:330
+#: modules/content-reveal/widgets/content-reveal.php:493
 #: modules/content-ticker/widgets/content-ticker.php:1283
 #: modules/counter/widgets/counter.php:454
 #: modules/divider/widgets/divider.php:253
@@ -4248,8 +4250,8 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:757
 #: modules/icon-list/widgets/icon-list.php:420
 #: modules/icon-list/widgets/icon-list.php:568
-#: modules/image-accordion/widgets/image-accordion.php:676
-#: modules/image-accordion/widgets/image-accordion.php:709
+#: modules/image-accordion/widgets/image-accordion.php:692
+#: modules/image-accordion/widgets/image-accordion.php:725
 #: modules/image-comparison/widgets/image-comparison.php:631
 #: modules/info-box/widgets/info-box-carousel.php:955
 #: modules/info-box/widgets/info-box-carousel.php:1629
@@ -4305,8 +4307,8 @@ msgstr ""
 #: modules/caldera-forms/widgets/caldera-forms.php:1109
 #: modules/contact-form-seven/widgets/contact-form-7.php:292
 #: modules/contact-form-seven/widgets/contact-form-7.php:952
-#: modules/content-reveal/widgets/content-reveal.php:319
-#: modules/content-reveal/widgets/content-reveal.php:482
+#: modules/content-reveal/widgets/content-reveal.php:334
+#: modules/content-reveal/widgets/content-reveal.php:497
 #: modules/content-ticker/widgets/content-ticker.php:1048
 #: modules/content-ticker/widgets/content-ticker.php:1287
 #: modules/counter/widgets/counter.php:458
@@ -4335,8 +4337,8 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:761
 #: modules/icon-list/widgets/icon-list.php:424
 #: modules/icon-list/widgets/icon-list.php:547
-#: modules/image-accordion/widgets/image-accordion.php:680
-#: modules/image-accordion/widgets/image-accordion.php:713
+#: modules/image-accordion/widgets/image-accordion.php:696
+#: modules/image-accordion/widgets/image-accordion.php:729
 #: modules/image-comparison/widgets/image-comparison.php:635
 #: modules/info-box/widgets/info-box-carousel.php:876
 #: modules/info-box/widgets/info-box-carousel.php:959
@@ -4517,9 +4519,9 @@ msgstr ""
 
 #: modules/buttons/widgets/buttons.php:303
 #: modules/buttons/widgets/buttons.php:581
-#: modules/content-reveal/widgets/content-reveal.php:610
+#: modules/content-reveal/widgets/content-reveal.php:625
 #: modules/flipbox/widgets/flipbox.php:1428
-#: modules/image-accordion/widgets/image-accordion.php:861
+#: modules/image-accordion/widgets/image-accordion.php:877
 #: modules/info-box/widgets/info-box-carousel.php:1781
 #: modules/info-box/widgets/info-box.php:1637
 #: modules/info-list/widgets/info-list.php:1180
@@ -4533,10 +4535,10 @@ msgstr ""
 
 #: modules/buttons/widgets/buttons.php:304
 #: modules/buttons/widgets/buttons.php:582
-#: modules/content-reveal/widgets/content-reveal.php:611
+#: modules/content-reveal/widgets/content-reveal.php:626
 #: modules/flipbox/widgets/flipbox.php:1429
 #: modules/hotspots/widgets/hotspots.php:498
-#: modules/image-accordion/widgets/image-accordion.php:862
+#: modules/image-accordion/widgets/image-accordion.php:878
 #: modules/info-box/widgets/info-box-carousel.php:1782
 #: modules/info-box/widgets/info-box.php:1638
 #: modules/info-list/widgets/info-list.php:1181
@@ -4551,9 +4553,9 @@ msgstr ""
 
 #: modules/buttons/widgets/buttons.php:305
 #: modules/buttons/widgets/buttons.php:583
-#: modules/content-reveal/widgets/content-reveal.php:612
+#: modules/content-reveal/widgets/content-reveal.php:627
 #: modules/flipbox/widgets/flipbox.php:1430
-#: modules/image-accordion/widgets/image-accordion.php:863
+#: modules/image-accordion/widgets/image-accordion.php:879
 #: modules/info-box/widgets/info-box-carousel.php:1783
 #: modules/info-box/widgets/info-box.php:1639
 #: modules/info-list/widgets/info-list.php:1182
@@ -4567,10 +4569,10 @@ msgstr ""
 
 #: modules/buttons/widgets/buttons.php:306
 #: modules/buttons/widgets/buttons.php:584
-#: modules/content-reveal/widgets/content-reveal.php:613
+#: modules/content-reveal/widgets/content-reveal.php:628
 #: modules/flipbox/widgets/flipbox.php:1431
 #: modules/hotspots/widgets/hotspots.php:499
-#: modules/image-accordion/widgets/image-accordion.php:864
+#: modules/image-accordion/widgets/image-accordion.php:880
 #: modules/info-box/widgets/info-box-carousel.php:1784
 #: modules/info-box/widgets/info-box.php:1640
 #: modules/info-list/widgets/info-list.php:1183
@@ -4585,9 +4587,9 @@ msgstr ""
 
 #: modules/buttons/widgets/buttons.php:307
 #: modules/buttons/widgets/buttons.php:585
-#: modules/content-reveal/widgets/content-reveal.php:614
+#: modules/content-reveal/widgets/content-reveal.php:629
 #: modules/flipbox/widgets/flipbox.php:1432
-#: modules/image-accordion/widgets/image-accordion.php:865
+#: modules/image-accordion/widgets/image-accordion.php:881
 #: modules/info-box/widgets/info-box-carousel.php:1785
 #: modules/info-box/widgets/info-box.php:1641
 #: modules/info-list/widgets/info-list.php:1184
@@ -4623,8 +4625,8 @@ msgstr ""
 
 #: modules/buttons/widgets/buttons.php:429
 #: modules/buttons/widgets/buttons.php:496
-#: modules/content-reveal/widgets/content-reveal.php:702
-#: modules/content-reveal/widgets/content-reveal.php:811
+#: modules/content-reveal/widgets/content-reveal.php:717
+#: modules/content-reveal/widgets/content-reveal.php:826
 #: modules/image-comparison/widgets/image-comparison.php:424
 #: modules/image-comparison/widgets/image-comparison.php:487
 #: modules/info-box/widgets/info-box-carousel.php:1143
@@ -4670,7 +4672,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:320
 #: modules/hotspots/widgets/hotspots.php:511
 #: modules/icon-list/widgets/icon-list.php:564
-#: modules/image-accordion/widgets/image-accordion.php:640
+#: modules/image-accordion/widgets/image-accordion.php:656
 #: modules/image-comparison/widgets/image-comparison.php:600
 #: modules/info-box/widgets/info-box.php:328
 #: modules/info-list/widgets/info-list.php:490
@@ -4693,7 +4695,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:625
 #: modules/flipbox/widgets/flipbox.php:694
 #: modules/flipbox/widgets/flipbox.php:1081
-#: modules/image-accordion/widgets/image-accordion.php:644
+#: modules/image-accordion/widgets/image-accordion.php:660
 #: modules/image-comparison/widgets/image-comparison.php:604
 #: modules/info-box/widgets/info-box.php:332
 #: modules/instafeed/widgets/instafeed.php:1392
@@ -4711,7 +4713,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:321
 #: modules/hotspots/widgets/hotspots.php:512
 #: modules/icon-list/widgets/icon-list.php:572
-#: modules/image-accordion/widgets/image-accordion.php:648
+#: modules/image-accordion/widgets/image-accordion.php:664
 #: modules/image-comparison/widgets/image-comparison.php:608
 #: modules/info-box/widgets/info-box.php:336
 #: modules/info-list/widgets/info-list.php:643
@@ -4777,7 +4779,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1669
 #: modules/hotspots/widgets/hotspots.php:552
 #: modules/icon-list/widgets/icon-list.php:755
-#: modules/image-accordion/widgets/image-accordion.php:1029
+#: modules/image-accordion/widgets/image-accordion.php:1045
 #: modules/info-box/widgets/info-box-carousel.php:1963
 #: modules/info-box/widgets/info-box.php:1860
 #: modules/info-list/widgets/info-list.php:892
@@ -4792,7 +4794,7 @@ msgid "Animation"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:918
-#: modules/content-reveal/widgets/content-reveal.php:404
+#: modules/content-reveal/widgets/content-reveal.php:419
 #: modules/content-ticker/widgets/content-ticker.php:1037
 #: modules/flipbox/widgets/flipbox.php:477
 #: modules/image-accordion/widgets/image-accordion.php:230
@@ -4808,7 +4810,7 @@ msgid "Icon Position"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:922
-#: modules/content-reveal/widgets/content-reveal.php:408
+#: modules/content-reveal/widgets/content-reveal.php:423
 #: modules/content-ticker/widgets/content-ticker.php:878
 #: modules/divider/widgets/divider.php:617
 #: modules/flipbox/widgets/flipbox.php:481
@@ -4826,7 +4828,7 @@ msgid "After"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:923
-#: modules/content-reveal/widgets/content-reveal.php:409
+#: modules/content-reveal/widgets/content-reveal.php:424
 #: modules/content-ticker/widgets/content-ticker.php:862
 #: modules/display-conditions/conditions/date-time-before.php:69
 #: modules/display-conditions/conditions/time.php:67
@@ -4869,8 +4871,8 @@ msgid "Below"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:1051
-#: modules/content-reveal/widgets/content-reveal.php:470
-#: modules/image-accordion/widgets/image-accordion.php:700
+#: modules/content-reveal/widgets/content-reveal.php:485
+#: modules/image-accordion/widgets/image-accordion.php:716
 #: modules/instafeed/widgets/instafeed.php:1172
 #: modules/random-image/widgets/random-image.php:768
 msgid "Text Align"
@@ -4913,7 +4915,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:202
 #: modules/gravity-forms/widgets/gravity-forms.php:415
 #: modules/image-accordion/widgets/image-accordion.php:138
-#: modules/image-accordion/widgets/image-accordion.php:814
+#: modules/image-accordion/widgets/image-accordion.php:830
 #: modules/info-box/widgets/info-box-carousel.php:171
 #: modules/info-box/widgets/info-box-carousel.php:1688
 #: modules/info-box/widgets/info-box.php:406
@@ -5213,7 +5215,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1621
 #: modules/hotspots/widgets/hotspots.php:724
 #: modules/hotspots/widgets/hotspots.php:963
-#: modules/image-accordion/widgets/image-accordion.php:726
+#: modules/image-accordion/widgets/image-accordion.php:742
 #: modules/image-comparison/widgets/image-comparison.php:552
 #: modules/info-box/widgets/info-box-carousel.php:1337
 #: modules/info-box/widgets/info-box.php:263
@@ -5383,48 +5385,60 @@ msgid "Show Separator"
 msgstr ""
 
 #: modules/content-reveal/widgets/content-reveal.php:171
+msgid "Default State"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:175
+msgid "Reveal"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:176
+msgid "Unreveal"
+msgstr ""
+
+#: modules/content-reveal/widgets/content-reveal.php:186
 msgid "Scroll Top"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:172
+#: modules/content-reveal/widgets/content-reveal.php:187
 msgid ""
 "Enable this option to scroll to top of content when Read Less button is "
 "clicked"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:182
+#: modules/content-reveal/widgets/content-reveal.php:197
 msgid "Transition Speed"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:201
+#: modules/content-reveal/widgets/content-reveal.php:216
 msgid "Content Visibility By"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:205
+#: modules/content-reveal/widgets/content-reveal.php:220
 msgid "Lines"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:206
+#: modules/content-reveal/widgets/content-reveal.php:221
 msgid "Pixels"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:217
+#: modules/content-reveal/widgets/content-reveal.php:232
 msgid "Visible Amount (px)"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:264
+#: modules/content-reveal/widgets/content-reveal.php:279
 msgid "Visible Amount (lines)"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:286
+#: modules/content-reveal/widgets/content-reveal.php:301
 msgid "Make sure your WYSIWYG content is valid HTML."
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:299
-#: modules/content-reveal/widgets/content-reveal.php:598
+#: modules/content-reveal/widgets/content-reveal.php:314
+#: modules/content-reveal/widgets/content-reveal.php:613
 #: modules/flipbox/widgets/flipbox.php:419
 #: modules/flipbox/widgets/flipbox.php:1413
-#: modules/image-accordion/widgets/image-accordion.php:849
+#: modules/image-accordion/widgets/image-accordion.php:865
 #: modules/info-box/widgets/info-box-carousel.php:276
 #: modules/info-box/widgets/info-box-carousel.php:1769
 #: modules/info-box/widgets/info-box.php:501
@@ -5446,12 +5460,12 @@ msgstr ""
 msgid "Button"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:338
+#: modules/content-reveal/widgets/content-reveal.php:353
 msgid "Content Unreveal"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:345
-#: modules/content-reveal/widgets/content-reveal.php:377
+#: modules/content-reveal/widgets/content-reveal.php:360
+#: modules/content-reveal/widgets/content-reveal.php:392
 #: modules/gravity-forms/widgets/gravity-forms.php:1956
 #: modules/image-comparison/widgets/image-comparison.php:148
 #: modules/image-comparison/widgets/image-comparison.php:194
@@ -5459,28 +5473,28 @@ msgstr ""
 msgid "Label"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:348
+#: modules/content-reveal/widgets/content-reveal.php:363
 #: modules/posts/skins/skin-base.php:1194
 msgid "Read More"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:380
+#: modules/content-reveal/widgets/content-reveal.php:395
 msgid "Read Less"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:486
+#: modules/content-reveal/widgets/content-reveal.php:501
 #: modules/random-image/widgets/random-image.php:744
 msgid "Justify"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:547
+#: modules/content-reveal/widgets/content-reveal.php:562
 #: modules/counter/widgets/counter.php:226
 #: modules/info-list/widgets/info-list.php:980
 #: modules/posts/skins/skin-base.php:2182
 msgid "Separator"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:558
+#: modules/content-reveal/widgets/content-reveal.php:573
 #: modules/counter/widgets/counter.php:747
 #: modules/counter/widgets/counter.php:952
 #: modules/divider/widgets/divider.php:391
@@ -5494,8 +5508,8 @@ msgstr ""
 msgid "Height"
 msgstr ""
 
-#: modules/content-reveal/widgets/content-reveal.php:622
-#: modules/image-accordion/widgets/image-accordion.php:873
+#: modules/content-reveal/widgets/content-reveal.php:637
+#: modules/image-accordion/widgets/image-accordion.php:889
 msgid "Button Spacing"
 msgstr ""
 
@@ -6233,7 +6247,7 @@ msgid "Arrows"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1551
-#: modules/image-accordion/widgets/image-accordion.php:467
+#: modules/image-accordion/widgets/image-accordion.php:483
 #: modules/info-list/widgets/info-list.php:452
 #: modules/pricing/widgets/price-menu.php:397
 msgid "Items Spacing"
@@ -7527,12 +7541,20 @@ msgstr ""
 msgid "Stack On"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:502
-#: modules/image-accordion/widgets/image-accordion.php:552
+#: modules/image-accordion/widgets/image-accordion.php:418
+msgid "Disable Body Click"
+msgstr ""
+
+#: modules/image-accordion/widgets/image-accordion.php:419
+msgid "Don't collapse accordion on body click"
+msgstr ""
+
+#: modules/image-accordion/widgets/image-accordion.php:518
+#: modules/image-accordion/widgets/image-accordion.php:568
 msgid "Overlay Color"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:635
+#: modules/image-accordion/widgets/image-accordion.php:651
 #: modules/info-box/widgets/info-box.php:322
 #: modules/info-list/widgets/info-list.php:628
 #: modules/instafeed/widgets/instafeed.php:1100
@@ -7541,7 +7563,7 @@ msgstr ""
 msgid "Vertical Align"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:667
+#: modules/image-accordion/widgets/image-accordion.php:683
 #: modules/info-list/widgets/info-list.php:662
 #: modules/instafeed/widgets/instafeed.php:1136
 #: modules/logos/widgets/logo-grid.php:393
