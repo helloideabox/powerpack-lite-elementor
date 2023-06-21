@@ -90,9 +90,7 @@
 					}
 					if ( wrap.find( selector ).length > 0 ) {
 						setTimeout(function() {
-							if ( 'slick' === type ) {
-								slider.slick( 'setPosition' );
-							} else if ( 'swiper' === type ) {
+							if ( 'swiper' === type ) {
 								slider.update();
 							} else if ( 'gallery' === type ) {
 								var $gallery = wrap.find('.pp-image-gallery').eq(0);

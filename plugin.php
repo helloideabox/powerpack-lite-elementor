@@ -259,16 +259,6 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
-			'pp-slick',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/slick/slick' . $suffix . '.js',
-			[
-				'jquery',
-			],
-			POWERPACK_ELEMENTS_LITE_VER,
-			true
-		);
-
-		wp_register_script(
 			'powerpack-pp-posts',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-posts' . $suffix . '.js',
 			[
