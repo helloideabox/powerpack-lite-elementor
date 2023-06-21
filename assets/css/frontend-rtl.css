@@ -2827,8 +2827,8 @@ div[class*=' pa-'] {
   align-items: center;
   padding-right: 10px;
   padding-left: 10px; }
-  .pp-content-ticker-navigation .swiper-button-next,
-  .pp-content-ticker-navigation .swiper-button-prev {
+  .pp-content-ticker-navigation .elementor-swiper-button-next,
+  .pp-content-ticker-navigation .elementor-swiper-button-prev {
     background: transparent;
     font-size: 18px;
     line-height: 1.2;
@@ -2837,8 +2837,9 @@ div[class*=' pa-'] {
     padding: 0 6px;
     position: static;
     text-align: center;
+    transform: none;
     width: auto; }
-  .pp-content-ticker-navigation .swiper-button-prev {
+  .pp-content-ticker-navigation .elementor-swiper-button-prev {
     margin-left: 6px; }
 
 .pp-image-scroll-wrap,

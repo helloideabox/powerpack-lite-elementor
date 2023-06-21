@@ -3,6 +3,7 @@ Release date: June 21, 2023
 * Enhancement: WP Forms - Added page break style options
 * Enhancement: Disabled AI support for irrelevant controls
 * Fixed: Compatibility issues with Elementor 3.14.0
+* Fixed: Content Ticker - Position of arrows
 
 == 2.7.6 ==
 Release date: May 29, 2023
