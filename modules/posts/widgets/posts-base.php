@@ -559,6 +559,9 @@ abstract class Posts_Base extends Powerpack_Widget {
 				'description' => __( 'Give your Query a custom unique id to allow server side filtering', 'powerpack' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
+				'ai'          => [
+					'active' => false,
+				],
 				'separator'   => 'before',
 			)
 		);

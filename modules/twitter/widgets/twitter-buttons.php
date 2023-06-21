@@ -50,7 +50,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of scripts the logo carousel widget depended on.
+	 * Retrieve the list of scripts the Twitter Buttons widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
@@ -97,6 +97,9 @@ class Twitter_Buttons extends Powerpack_Widget {
 				'label'     => __( 'Profile URL or Username', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'button_type' => array( 'follow', 'mention', 'message' ),
 				),
@@ -109,6 +112,9 @@ class Twitter_Buttons extends Powerpack_Widget {
 				'label'     => __( 'Recipient ID', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'button_type' => 'message',
 				),
@@ -133,6 +139,9 @@ class Twitter_Buttons extends Powerpack_Widget {
 				'label'     => __( 'Hashtag URL or #hashtag', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'button_type' => 'hashtag',
 				),
@@ -145,6 +154,9 @@ class Twitter_Buttons extends Powerpack_Widget {
 				'label'     => __( 'Via (twitter handler)', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'button_type' => array( 'share', 'mention', 'hashtag' ),
 				),
@@ -169,6 +181,9 @@ class Twitter_Buttons extends Powerpack_Widget {
 				'label'     => __( 'Custom Share URL', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'button_type' => array( 'share', 'mention', 'hashtag' ),
 				),

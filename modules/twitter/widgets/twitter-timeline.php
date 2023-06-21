@@ -81,6 +81,9 @@ class Twitter_Timeline extends Powerpack_Widget {
 				'label'   => __( 'User Name', 'powerpack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '',
+				'ai'      => [
+					'active' => false,
+				],
 			)
 		);
 

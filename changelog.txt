@@ -1,5 +1,6 @@
 == 2.7.7 ==
 Release date: June 21, 2023
+* Enhancement: Disabled AI support for irrelevant controls
 * Fixed: Compatibility issues with Elementor 3.14.0
 
 == 2.7.6 ==

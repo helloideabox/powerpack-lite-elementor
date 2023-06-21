@@ -161,6 +161,9 @@ class Extension_Custom_Cursor extends Extension_Base {
 				'label'              => __( 'CSS Selector', 'powerpack' ),
 				'type'               => Controls_Manager::TEXT,
 				'frontend_available' => true,
+				'ai'                 => [
+					'active' => false,
+				],
 				'condition'          => array(
 					'pp_custom_cursor_enable' => 'yes',
 					'pp_custom_cursor_target' => 'css-selector',
@@ -225,6 +228,10 @@ class Extension_Custom_Cursor extends Extension_Base {
 						'step'  => 1,
 					],
 				],
+				'default'            => [
+					'size'  => 0,
+					'unit'  => 'px',
+				],
 				'size_units'         => '',
 				'condition'          => [
 					'pp_custom_cursor_enable' => 'yes',
@@ -244,6 +251,10 @@ class Extension_Custom_Cursor extends Extension_Base {
 						'max'   => 100,
 						'step'  => 1,
 					],
+				],
+				'default'            => [
+					'size'  => 0,
+					'unit'  => 'px',
 				],
 				'size_units'         => '',
 				'condition'          => [

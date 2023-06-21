@@ -81,6 +81,9 @@ class Twitter_Grid extends Powerpack_Widget {
 				'label'   => __( 'Collection URL', 'powerpack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '',
+				'ai'      => [
+					'active' => false,
+				],
 			)
 		);
 

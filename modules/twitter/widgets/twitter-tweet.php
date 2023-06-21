@@ -89,6 +89,9 @@ class Twitter_Tweet extends Powerpack_Widget {
 						TagsModule::URL_CATEGORY,
 					],
 				],
+				'ai'          => [
+					'active' => false,
+				],
 				'default'     => '',
 			)
 		);
