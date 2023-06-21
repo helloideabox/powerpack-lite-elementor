@@ -230,6 +230,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.7 - June 21, 2023 =
+* 	Enhancement: WP Forms - Added page break style options
+* 	Enhancement: Disabled AI support for irrelevant controls
+* 	Fixed: Compatibility issues with Elementor 3.14.0
+* 	Fixed: Content Ticker - Position of arrows
+
 = 2.7.6 - May 29, 2023 =
 * 	Enhancement: Content Reveal - Added Default State option to show revealed content on page load
 * 	Enhancement: Content Reveal - Reveal button hides when number of lines of content is less than the visible lines set in the settings
