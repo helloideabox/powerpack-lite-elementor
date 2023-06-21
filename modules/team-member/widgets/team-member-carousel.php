@@ -283,6 +283,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Facebook page or profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -299,6 +302,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Twitter profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -314,6 +320,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Instagram profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -329,6 +338,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Linkedin profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -344,6 +356,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter YouTube profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -359,6 +374,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Pinterest profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -374,6 +392,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Dribbble profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -389,6 +410,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Flickr profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -404,6 +428,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Tumblr profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -419,6 +446,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Tiktok profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -434,6 +464,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Github profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -449,6 +482,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Vimeo profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -464,6 +500,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Xing profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -479,6 +518,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter email ID of team member', 'powerpack' ),
 				)
 			);
@@ -494,6 +536,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter contact number of team member', 'powerpack' ),
 				)
 			);
@@ -2836,7 +2881,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 		$this->add_render_attribute( 'team-member-carousel-wrap', 'class', [
 			'swiper-container-wrap',
-			'swiper',
+			//'swiper',
 		] );
 
 		if ( $settings['dots_position'] ) {

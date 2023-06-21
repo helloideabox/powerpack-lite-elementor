@@ -2005,7 +2005,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_render_attribute( 'content-ticker-wrap', 'class', array(
 			'pp-content-ticker-wrap',
 			'swiper-container-wrap',
-			'swiper'
+			//'swiper'
 		) );
 
 		if ( ! isset( $settings['heading_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {

@@ -212,6 +212,9 @@ class Instafeed extends Powerpack_Widget {
 				'description' => __( 'Overrides global Instagram access token', 'powerpack' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::TEXT,
+				'ai'          => [
+					'active' => false,
+				],
 			]
 		);
 
@@ -723,6 +726,9 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::TEXT,
 				'default'   => 3000,
 				'title'     => __( 'Enter carousel speed', 'powerpack' ),
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'autoplay'    => 'yes',
 					'feed_layout' => 'carousel',
@@ -2580,7 +2586,7 @@ class Instafeed extends Powerpack_Widget {
 
 		$url = $this->get_feed_endpoint();
 		$url = add_query_arg( [
-			'fields'       => 'id,media_type,media_url,thumbnail_url,permalink,caption,likes_count,likes',
+			'fields'       => 'id,media_type,media_url,thumbnail_url,permalink,caption',
 			'access_token' => $this->get_insta_access_token(),
 			'limit'        => $images_count,
 		], $url );
@@ -2663,8 +2669,8 @@ class Instafeed extends Powerpack_Widget {
 			$_post['link']      = $post['permalink'];
 			$_post['caption']   = '';
 			$_post['image']     = 'VIDEO' === $post['media_type'] ? $post['thumbnail_url'] : $post['media_url'];
-			$_post['comments']  = ! empty( $post['comments_count'] ) ? $post['comments_count'] : 0;
-			$_post['likes']     = ! empty( $post['likes_count'] ) ? $post['likes_count'] : 0;
+			//$_post['comments']  = ! empty( $post['comments_count'] ) ? $post['comments_count'] : 0;
+			//$_post['likes']     = ! empty( $post['likes_count'] ) ? $post['likes_count'] : 0;
 
 			$_post['thumbnail'] = $this->get_insta_feed_thumbnail_data( $post );
 
@@ -2705,8 +2711,8 @@ class Instafeed extends Powerpack_Widget {
 
 			$_post['link']      = sprintf( $this->insta_api_url . 'p/%s/', $post['node']['shortcode'] );
 			$_post['caption']   = '';
-			$_post['comments']  = $post['node']['edge_media_to_comment']['count'];
-			$_post['likes']     = $post['node']['edge_liked_by']['count'];
+			//$_post['comments']  = $post['node']['edge_media_to_comment']['count'];
+			//$_post['likes']     = $post['node']['edge_liked_by']['count'];
 			$_post['thumbnail'] = $this->get_insta_tags_thumbnail_data( $post );
 
 			if ( isset( $post['node']['edge_media_to_caption']['edges'][0]['node']['text'] ) ) {
@@ -3066,7 +3072,7 @@ class Instafeed extends Powerpack_Widget {
 					'container-wrap'     => array(
 						'class' => array(
 							'swiper-container-wrap',
-							'swiper',
+							//'swiper',
 							'pp-insta-feed-carousel-wrap',
 						),
 					),
@@ -3177,8 +3183,8 @@ class Instafeed extends Powerpack_Widget {
 		$thumbnail_url   = $this->get_insta_image_url( $item, $this->get_insta_image_size() );
 		$thumbnail_alt   = $item['caption'];
 		$thumbnail_title = $item['caption'];
-		$likes           = $item['likes'];
-		$comments        = $item['comments'];
+		//$likes           = $item['likes'];
+		//$comments        = $item['comments'];
 		$image_key       = $this->get_repeater_setting_key( 'image', 'insta', $index );
 		$link_key        = $this->get_repeater_setting_key( 'link', 'image', $index );
 		$item_link       = '';

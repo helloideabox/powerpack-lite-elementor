@@ -1,3 +1,7 @@
+== 2.7.7 ==
+Release date: June 21, 2023
+* Fixed: Compatibility issues with Elementor 3.14.0
+
 == 2.7.6 ==
 Release date: May 29, 2023
 * Enhancement: Content Reveal - Added Default State option to show revealed content on page load

@@ -1441,7 +1441,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'logo-carousel-wrap' => [
 					'class' => [
 						'swiper-container-wrap',
-						'swiper'
+						//'swiper'
 					]
 				],
 				'logo-carousel' => [

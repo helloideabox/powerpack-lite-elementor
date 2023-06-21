@@ -634,7 +634,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'carousel_effect'   => 'slide',
 				],
 				'separator'             => 'before',
-				'frontend_available'    => true,
 				'condition'             => [
 					'layout' => 'carousel',
 				],
@@ -662,7 +661,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'layout'          => 'carousel',
 					'carousel_effect' => 'slide',
 				],
-				'frontend_available'    => true,
 			]
 		);
 
@@ -2506,8 +2504,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		if ( 'slide' === $effect ) {
 			$items         = ( isset( $settings['items']['size'] ) && $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
-			$items_tablet  = ( isset( $settings['items_tablet']['size'] ) && $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 3;
-			$items_mobile  = ( isset( $settings['items_mobile']['size'] ) && $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 3;
+			$items_tablet  = ( isset( $settings['items_tablet']['size'] ) && $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2;
+			$items_mobile  = ( isset( $settings['items_mobile']['size'] ) && $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1;
 			$margin        = ( isset( $settings['margin']['size'] ) && $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
 			$margin_tablet = ( isset( $settings['margin_tablet']['size'] ) && $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
 			$margin_mobile = ( isset( $settings['margin_mobile']['size'] ) && $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
@@ -2638,7 +2636,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		} else {
 
-			$this->add_render_attribute( 'wrapper', 'class', [ 'swiper-container-wrap', 'swiper' ] );
+			$this->add_render_attribute( 'wrapper', 'class', [
+				'swiper-container-wrap',
+				//'swiper'
+			] );
 
 			if ( $settings['dots_position'] ) {
 				$this->add_render_attribute( 'wrapper', 'class', 'swiper-container-wrap-dots-' . $settings['dots_position'] );
@@ -2655,10 +2656,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			$this->add_render_attribute(
 				'container',
 				[
-					'class'                => [ 'pp-info-box-carousel', 'pp-swiper-slider', 'swiper-container', 'swiper-container-' . esc_attr( $this->get_id() ) ],
-					'data-pagination'      => '.swiper-pagination-' . esc_attr( $this->get_id() ),
-					'data-arrow-next'      => '.swiper-button-next-' . esc_attr( $this->get_id() ),
-					'data-arrow-prev'      => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
+					'class'                => [ 'pp-info-box-carousel', 'pp-swiper-slider', 'swiper-container' ],
 					'data-slider-settings' => wp_json_encode( $slider_options ),
 				]
 			);
