@@ -1111,6 +1111,208 @@ class WPforms extends Powerpack_Widget {
 		$this->end_controls_section();
 
 		/**
+		 * Style Tab: Page Break
+		 * -------------------------------------------------
+		 */
+		$this->start_controls_section(
+			'section_page_break_style',
+			[
+				'label' => __( 'Page Break', 'powerpack' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'progress_bar_heading',
+			[
+				'label' => __( 'Progress Bar', 'powerpack' ),
+				'type'  => Controls_Manager::HEADING,
+			]
+		);
+
+		$this->add_control(
+			'progress_bar_bg_color',
+			[
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .wpforms-page-indicator.progress .wpforms-page-indicator-page-progress-wrap' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'progress_bar_text_color',
+			[
+				'label'     => __( 'Steps Text Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-page-indicator-steps' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'progress_bar_typography',
+				'label'    => __( 'Steps Typography', 'powerpack' ),
+				'selector' => '{{WRAPPER}} .pp-wpforms .wpforms-page-indicator-steps',
+			]
+		);
+
+		$this->add_control(
+			'page_break_buttons_heading',
+			[
+				'label'     => __( 'Buttons', 'powerpack' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'      => 'page_break_buttons_typography',
+				'label'     => __( 'Typography', 'powerpack' ),
+				'selector'  => '{{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button',
+			]
+		);
+
+		$this->start_controls_tabs( 'tabs_page_break_buttons_style' );
+
+		$this->start_controls_tab(
+			'tab_page_break_buttons_normal',
+			[
+				'label' => __( 'Normal', 'powerpack' ),
+			]
+		);
+
+		$this->add_control(
+			'page_break_buttons_text_color',
+			[
+				'label'     => __( 'Text Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'           => 'page_break_buttons_background',
+				'types'          => [ 'classic', 'gradient' ],
+				'exclude'        => [ 'image' ],
+				'selector'       => '{{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button',
+				'fields_options' => [
+					'background' => [
+						'default' => 'classic',
+					],
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'      => 'page_break_buttons_border_normal',
+				'selector'  => '{{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button',
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'page_break_buttons_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'      => 'page_break_buttons_box_shadow',
+				'selector'  => '{{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button',
+			]
+		);
+
+		$this->add_responsive_control(
+			'page_break_buttons_padding',
+			[
+				'label'      => __( 'Padding', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'separator'  => 'before',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_page_break_buttons_hover',
+			[
+				'label' => __( 'Hover', 'powerpack' ),
+			]
+		);
+
+		$this->add_control(
+			'page_break_buttons_text_color_hover',
+			[
+				'label'     => __( 'Text Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'           => 'page_break_buttons_background_hover',
+				'types'          => [ 'classic', 'gradient' ],
+				'exclude'        => [ 'image' ],
+				'selector'       => '{{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button:hover, {{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button:focus',
+				'fields_options' => [
+					'background' => [
+						'default' => 'classic',
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'page_break_buttons_border_color_hover',
+			[
+				'label'     => __( 'Border Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button:hover' => 'border-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+		/**
 		 * Style Tab: Submit Button
 		 * -------------------------------------------------
 		 */
@@ -1192,6 +1394,15 @@ class WPforms extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'button_typography',
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'selector' => '{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit',
+			]
+		);
+
 		$this->start_controls_tabs( 'tabs_button_style' );
 
 		$this->start_controls_tab(
@@ -1202,25 +1413,25 @@ class WPforms extends Powerpack_Widget {
 		);
 
 		$this->add_control(
-			'button_bg_color_normal',
+			'button_text_color_normal',
 			[
-				'label'             => __( 'Background Color', 'powerpack' ),
-				'type'              => Controls_Manager::COLOR,
-				'default'           => '',
-				'selectors'         => [
-					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit' => 'background-color: {{VALUE}}',
+				'label'     => __( 'Text Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit' => 'color: {{VALUE}}',
 				],
 			]
 		);
 
 		$this->add_control(
-			'button_text_color_normal',
+			'button_bg_color_normal',
 			[
-				'label'             => __( 'Text Color', 'powerpack' ),
-				'type'              => Controls_Manager::COLOR,
-				'default'           => '',
-				'selectors'         => [
-					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit' => 'color: {{VALUE}}',
+				'label'     => __( 'Background Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -1228,74 +1439,61 @@ class WPforms extends Powerpack_Widget {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'              => 'button_border_normal',
-				'label'             => __( 'Border', 'powerpack' ),
-				'placeholder'       => '1px',
-				'default'           => '1px',
-				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit',
+				'name'      => 'button_border_normal',
+				'selector'  => '{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit',
+				'separator' => 'before',
 			]
 		);
 
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'             => __( 'Border Radius', 'powerpack' ),
-				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', 'em', '%' ],
-				'selectors'         => [
+				'label'      => __( 'Border Radius', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'button_padding',
-			[
-				'label'             => __( 'Padding', 'powerpack' ),
-				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', 'em', '%' ],
-				'selectors'         => [
-					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'button_margin',
-			[
-				'label'                 => __( 'Margin Top', 'powerpack' ),
-				'type'                  => Controls_Manager::SLIDER,
-				'range'                 => [
-					'px'        => [
-						'min'   => 0,
-						'max'   => 100,
-						'step'  => 1,
-					],
-				],
-				'size_units'            => [ 'px', 'em', '%' ],
-				'selectors'             => [
-					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container' => 'margin-top: {{SIZE}}{{UNIT}}',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'              => 'button_typography',
-				'label'             => __( 'Typography', 'powerpack' ),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit',
-				'separator'         => 'before',
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'              => 'button_box_shadow',
-				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit',
-				'separator'         => 'before',
+				'name'      => 'button_box_shadow',
+				'selector'  => '{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit',
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_padding',
+			[
+				'label'      => __( 'Padding', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_margin',
+			[
+				'label'      => __( 'Margin Top', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => [
+					'px' => [
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					],
+				],
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container' => 'margin-top: {{SIZE}}{{UNIT}}',
+				],
 			]
 		);
 
@@ -1309,18 +1507,6 @@ class WPforms extends Powerpack_Widget {
 		);
 
 		$this->add_control(
-			'button_bg_color_hover',
-			[
-				'label'             => __( 'Background Color', 'powerpack' ),
-				'type'              => Controls_Manager::COLOR,
-				'default'           => '',
-				'selectors'         => [
-					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit:hover' => 'background-color: {{VALUE}}',
-				],
-			]
-		);
-
-		$this->add_control(
 			'button_text_color_hover',
 			[
 				'label'             => __( 'Text Color', 'powerpack' ),
@@ -1328,6 +1514,18 @@ class WPforms extends Powerpack_Widget {
 				'default'           => '',
 				'selectors'         => [
 					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'button_bg_color_hover',
+			[
+				'label'             => __( 'Background Color', 'powerpack' ),
+				'type'              => Controls_Manager::COLOR,
+				'default'           => '',
+				'selectors'         => [
+					'{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit:hover' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -1517,7 +1715,7 @@ class WPforms extends Powerpack_Widget {
 
 		if ( function_exists( 'wpforms' ) ) {
 			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
-				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'contact-form' ) ); ?>>
+				<div <?php $this->print_render_attribute_string( 'contact-form' ); ?>>
 					<?php if ( 'yes' === $settings['custom_title_description'] ) { ?>
 						<div class="pp-wpforms-heading">
 							<?php if ( $settings['form_title_custom'] ) { ?>
