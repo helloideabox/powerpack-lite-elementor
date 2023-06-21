@@ -460,6 +460,17 @@ class PP_Helper {
 		}
 	}
 
+	/**
+	 * Safe print a validated HTML tag.
+	 *
+	 * @since 2.7.7
+	 * @param string $tag
+	 */
+	public static function print_validated_html_tag( $tag ) {
+		// PHPCS - the method validate_html_tag is safe.
+		echo self::validate_html_tag( $tag ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+
 	public static function is_tribe_events_post( $post_id ) {
 		return ( class_exists( 'Tribe__Events__Main' ) && 'tribe_events' === get_post_type( $post_id ) );
 	}
