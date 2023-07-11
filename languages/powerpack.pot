@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.7.7\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.7.8\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-elementor\n"
-"POT-Creation-Date: 2023-06-21 17:29:57+00:00\n"
+"POT-Creation-Date: 2023-07-11 06:36:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1602,7 +1602,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:955
 #: modules/logos/widgets/logo-carousel.php:1011
 #: modules/logos/widgets/logo-carousel.php:1147
-#: modules/logos/widgets/logo-carousel.php:1246
+#: modules/logos/widgets/logo-carousel.php:1223
 #: modules/logos/widgets/logo-grid.php:703
 #: modules/ninja-forms/widgets/ninja-forms.php:921
 #: modules/ninja-forms/widgets/ninja-forms.php:1037
@@ -1849,7 +1849,7 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:2304
 #: modules/link-effects/widgets/link-effects.php:280
 #: modules/logos/widgets/logo-carousel.php:759
-#: modules/logos/widgets/logo-carousel.php:1319
+#: modules/logos/widgets/logo-carousel.php:1332
 #: modules/logos/widgets/logo-grid.php:734
 #: modules/ninja-forms/widgets/ninja-forms.php:347
 #: modules/ninja-forms/widgets/ninja-forms.php:396
@@ -2220,7 +2220,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:597
 #: modules/logos/widgets/logo-carousel.php:809
 #: modules/logos/widgets/logo-carousel.php:1039
-#: modules/logos/widgets/logo-carousel.php:1210
+#: modules/logos/widgets/logo-carousel.php:1272
 #: modules/logos/widgets/logo-grid.php:548
 #: modules/ninja-forms/widgets/ninja-forms.php:670
 #: modules/ninja-forms/widgets/ninja-forms.php:1196
@@ -3242,7 +3242,7 @@ msgstr ""
 #: modules/link-effects/widgets/link-effects.php:348
 #: modules/link-effects/widgets/link-effects.php:397
 #: modules/logos/widgets/logo-carousel.php:1023
-#: modules/logos/widgets/logo-carousel.php:1262
+#: modules/logos/widgets/logo-carousel.php:1239
 #: modules/logos/widgets/logo-grid.php:245
 #: modules/ninja-forms/widgets/ninja-forms.php:958
 #: modules/ninja-forms/widgets/ninja-forms.php:1260
@@ -3316,7 +3316,7 @@ msgstr ""
 #: modules/link-effects/widgets/link-effects.php:366
 #: modules/logos/widgets/logo-carousel.php:702
 #: modules/logos/widgets/logo-carousel.php:992
-#: modules/logos/widgets/logo-carousel.php:1235
+#: modules/logos/widgets/logo-carousel.php:1212
 #: modules/logos/widgets/logo-grid.php:601
 #: modules/ninja-forms/widgets/ninja-forms.php:1229
 #: modules/posts/skins/skin-base.php:1831
@@ -3465,7 +3465,7 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:2256
 #: modules/instafeed/widgets/instafeed.php:2411
 #: modules/logos/widgets/logo-carousel.php:768
-#: modules/logos/widgets/logo-carousel.php:1302
+#: modules/logos/widgets/logo-carousel.php:1315
 #: modules/ninja-forms/widgets/ninja-forms.php:334
 #: modules/ninja-forms/widgets/ninja-forms.php:383
 #: modules/ninja-forms/widgets/ninja-forms.php:443
@@ -7827,7 +7827,7 @@ msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2451
 #: modules/instafeed/widgets/instafeed.php:2088
-#: modules/logos/widgets/logo-carousel.php:1290
+#: modules/logos/widgets/logo-carousel.php:1303
 #: modules/team-member/widgets/team-member-carousel.php:2836
 msgid "Pagination: Fraction"
 msgstr ""
@@ -8352,6 +8352,10 @@ msgstr ""
 #: modules/team-member/widgets/team-member-carousel.php:1270
 #: modules/team-member/widgets/team-member.php:797
 msgid "Opacity"
+msgstr ""
+
+#: modules/logos/widgets/logo-carousel.php:1259
+msgid "Pagination Container"
 msgstr ""
 
 #: modules/logos/widgets/logo-grid.php:156
@@ -10005,7 +10009,7 @@ msgstr ""
 msgid "Steps Typography"
 msgstr ""
 
-#: plugin.php:458
+#: plugin.php:448
 msgid "PowerPack Elements"
 msgstr ""
 
