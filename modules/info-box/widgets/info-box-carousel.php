@@ -2653,10 +2653,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 			$slider_options = $this->get_slider_settings();
 
+			$swiper_class = \Elementor\Plugin::$instance->experiments->is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
+
 			$this->add_render_attribute(
 				'container',
 				[
-					'class'                => [ 'pp-info-box-carousel', 'pp-swiper-slider', 'swiper-container' ],
+					'class'                => [ 'pp-info-box-carousel', 'pp-swiper-slider', $swiper_class ],
 					'data-slider-settings' => wp_json_encode( $slider_options ),
 				]
 			);
@@ -2665,7 +2667,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		}
 
-		$if_html_tag         = 'div';
 		$title_container_tag = 'div';
 		$button_html_tag     = 'div';
 
@@ -2995,8 +2996,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						clickable: true,
 					},
 					navigation: {
-						nextEl: '.elementor-swiper-button elementor-swiper-button-next',
-						prevEl: '.swiper-button-prev',
+						nextEl: '.elementor-swiper-button-next',
+						prevEl: '.elementor-swiper-button-prev',
 					},
 					breakpoints: {
 						<?php echo esc_attr( $bp_desktop ); ?>: {
@@ -3041,10 +3042,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 							var prev_arrow = 'fa fa-angle-left';
 						}
 						#>
-						<div class="elementor-swiper-button elementor-swiper-button-next">
+						<div class="pp-slider-arrow elementor-swiper-button-next">
 							<i class="{{ next_arrow }}"></i>
 						</div>
-						<div class="swiper-button-prev">
+						<div class="pp-slider-arrow elementor-swiper-button-prev">
 							<i class="{{ prev_arrow }}"></i>
 						</div>
 						<#
@@ -3071,7 +3072,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				}
 			}
 
-			view.addRenderAttribute( 'wrapper', 'class', 'pp-info-box-carousel-wrap swiper' );
+			view.addRenderAttribute( 'wrapper', 'class', 'pp-info-box-carousel-wrap' );
 
 			view.addRenderAttribute( 'container', 'class', 'pp-info-box-container' );
 
@@ -3093,11 +3094,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 );
 
                 if ( settings.direction == 'auto' ) {
-                    #>
-                    <?php if ( is_rtl() ) { ?>
-                        <# view.addRenderAttribute( 'container', 'dir', 'rtl' ); #>
-                    <?php } ?>
-                    <#
+					var direction = elementorFrontend.config.is_rtl ? 'rtl' : 'ltr';
+
+					view.addRenderAttribute( 'container', 'dir', direction );
                 } else {
                     if ( settings.direction == 'right' ) {
                         view.addRenderAttribute( 'container', 'dir', 'rtl' );
@@ -3109,10 +3108,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 view.addRenderAttribute(
                     'container',
                     {
-                        'class': [ 'pp-info-box-carousel', 'swiper-container', 'pp-swiper-slider' ],
-                        'data-pagination': 'swiper-pagination',
-                        'data-arrow-next': 'elementor-swiper-button elementor-swiper-button-next',
-                        'data-arrow-prev': 'swiper-button-prev',
+                        'class': [ 'pp-info-box-carousel', 'pp-swiper-slider', elementorFrontend.config.swiperClass ],
                         'data-slider-settings': JSON.stringify( slider_options )
                     }
                 );
@@ -3120,8 +3116,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				view.addRenderAttribute( 'info-box-wrap', 'class', 'swiper-slide' );
             }
 
-			var $if_html_tag = 'div',
-				$title_container_tag = 'div',
+			var $title_container_tag = 'div',
 				$button_html_tag = 'div';
 
 			view.addRenderAttribute( 'info-box-button', 'class', [
