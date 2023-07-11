@@ -230,6 +230,14 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.8 - July 11, 2023 =
+* 	Enhancement: WP Forms - Updated labels text color selector
+* 	Enhancement: Removed CSS & JS related to slick slider
+* 	Fixed: Team Member Carousel - Images were not appearing in the editor
+* 	Fixed: Team Member Carousel - Arrow style options were not working
+* 	Fixed: Info Box Carousel - Images were not appearing in the editor
+* 	Fixed: Logo Carousel - Pagination dots styling options were not working
+
 = 2.7.7 - June 21, 2023 =
 * 	Enhancement: WP Forms - Added page break style options
 * 	Enhancement: Disabled AI support for irrelevant controls
