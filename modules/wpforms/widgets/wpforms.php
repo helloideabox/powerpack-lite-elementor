@@ -405,7 +405,7 @@ class WPforms extends Powerpack_Widget {
 				'label'             => __( 'Text Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'selectors'         => [
-					'{{WRAPPER}} .pp-wpforms .wpforms-field label' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-wpforms .wpforms-field-label' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -416,7 +416,7 @@ class WPforms extends Powerpack_Widget {
 				'name'              => 'typography_label',
 				'label'             => __( 'Typography', 'powerpack' ),
 				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-field label',
+				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-field-label',
 			]
 		);
 
