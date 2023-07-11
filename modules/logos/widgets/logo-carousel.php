@@ -885,7 +885,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => [ 'px' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .elementor-swiper-button-next, {{WRAPPER}} .swiper .elementor-swiper-button-prev' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -904,7 +904,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => [ 'px' ],
 				'selectors'         => [
-					'{{WRAPPER}} .swiper .elementor-swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -923,7 +923,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => [ 'px' ],
 				'selectors'         => [
-					'{{WRAPPER}} .swiper .elementor-swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -944,7 +944,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .elementor-swiper-button-next, {{WRAPPER}} .swiper .elementor-swiper-button-prev' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -956,7 +956,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .elementor-swiper-button-next, {{WRAPPER}} .swiper .elementor-swiper-button-prev' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -968,7 +968,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .swiper .elementor-swiper-button-next, {{WRAPPER}} .swiper .elementor-swiper-button-prev',
+				'selector'              => '{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev',
 			]
 		);
 
@@ -979,7 +979,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .elementor-swiper-button-next, {{WRAPPER}} .swiper .elementor-swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1000,7 +1000,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .elementor-swiper-button-next:hover, {{WRAPPER}} .swiper .elementor-swiper-button-prev:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button-next:hover, {{WRAPPER}} .elementor-swiper-button-prev:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1012,7 +1012,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .elementor-swiper-button-next:hover, {{WRAPPER}} .swiper .elementor-swiper-button-prev:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button-next:hover, {{WRAPPER}} .elementor-swiper-button-prev:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1024,7 +1024,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .elementor-swiper-button-next:hover, {{WRAPPER}} .swiper .elementor-swiper-button-prev:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button-next:hover, {{WRAPPER}} .elementor-swiper-button-prev:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1040,7 +1040,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .elementor-swiper-button-next, {{WRAPPER}} .swiper .elementor-swiper-button-prev' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator'             => 'before',
 			]
@@ -1096,7 +1096,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -1119,7 +1119,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .swiper-pagination-bullet' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -1148,7 +1148,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .swiper-pagination-bullet' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'background: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -1164,7 +1164,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .swiper-pagination-bullet-active' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'background: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -1180,7 +1180,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .swiper .swiper-pagination-bullet',
+				'selector'              => '{{WRAPPER}} .swiper-pagination-bullet',
 				'condition'             => [
 					'dots'              => 'yes',
 					'pagination_type'   => 'bullets',
@@ -1195,30 +1195,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-				'condition'             => [
-					'dots'              => 'yes',
-					'pagination_type'   => 'bullets',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'dots_padding',
-			[
-				'label'                 => __( 'Padding', 'powerpack' ),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
-				'allowed_dimensions'    => 'vertical',
-				'placeholder'           => [
-					'top'      => '',
-					'right'    => 'auto',
-					'bottom'   => '',
-					'left'     => 'auto',
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .swiper .swiper-pagination-bullets' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -1247,7 +1224,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .swiper-pagination-bullet:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'background: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -1263,7 +1240,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper .swiper-pagination-bullet:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'border-color: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -1275,6 +1252,42 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
+
+		$this->add_control(
+			'pagination_container_heading',
+			[
+				'label'                 => __( 'Pagination Container', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+				'condition'             => [
+					'dots'              => 'yes',
+					'pagination_type'   => 'bullets',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'dots_padding',
+			[
+				'label'                 => __( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'allowed_dimensions'    => 'vertical',
+				'placeholder'           => [
+					'top'      => '',
+					'right'    => 'auto',
+					'bottom'   => '',
+					'left'     => 'auto',
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .swiper-pagination-bullets' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition'             => [
+					'dots'              => 'yes',
+					'pagination_type'   => 'bullets',
+				],
+			]
+		);
 
 		$this->end_controls_section();
 	}
@@ -1434,21 +1447,21 @@ class Logo_Carousel extends Powerpack_Widget {
 	 * @access protected
 	 */
 	protected function render() {
-		$settings = $this->get_settings_for_display();
+		$settings     = $this->get_settings_for_display();
+		$swiper_class = \Elementor\Plugin::$instance->experiments->is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
 
 		$this->add_render_attribute(
 			[
 				'logo-carousel-wrap' => [
 					'class' => [
 						'swiper-container-wrap',
-						//'swiper'
 					]
 				],
 				'logo-carousel' => [
 					'class'           => [
 						'pp-logo-carousel',
 						'pp-swiper-slider',
-						'swiper-container'
+						$swiper_class
 					],
 					'data-pagination' => '.swiper-pagination-' . esc_attr( $this->get_id() ),
 					'data-arrow-next' => '.swiper-button-next-' . esc_attr( $this->get_id() ),
@@ -1707,7 +1720,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		view.addRenderAttribute(
 			'container',
 			{
-				'class': [ 'pp-logo-carousel', 'pp-swiper-slider', 'swiper-container' ],
+				'class': [ 'pp-logo-carousel', 'pp-swiper-slider', elementorFrontend.config.swiperClass ],
 			}
 		);
 
@@ -1726,7 +1739,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		view.addRenderAttribute(
 			'wrapper',
 			{
-				'class': [ "swiper-container-wrap", "swiper", "swiper-container-wrap-dots-" + settings.dots_position ],
+				'class': [ "swiper-container-wrap", "swiper-container-wrap-dots-" + settings.dots_position ],
 			}
 		);
 
