@@ -2,6 +2,8 @@
 Release date: July 11, 2023
 * Enhancement: WP Forms - Updated labels text color selector
 * Enhancement: Removed CSS & JS related to slick slider
+* Fixed: Team Member Carousel - Images were not appearing in the editor
+* Fixed: Team Member Carousel - Arrow style options were not working
 
 == 2.7.7 ==
 Release date: June 21, 2023
