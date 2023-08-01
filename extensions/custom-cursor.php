@@ -9,7 +9,6 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

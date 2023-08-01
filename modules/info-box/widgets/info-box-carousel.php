@@ -16,9 +16,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -1140,9 +1139,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Icon Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1366,7 +1364,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'icon_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-info-box-icon',
 			]
 		);
@@ -1392,9 +1392,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1408,7 +1407,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'title_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-info-box-title',
 			]
 		);
@@ -1454,9 +1455,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+				'global'                => [
+					'default' => Global_Colors:: COLOR_SECONDARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1470,7 +1470,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'subtitle_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_2,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-info-box-subtitle',
 			]
 		);
@@ -1693,9 +1695,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors:: COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1709,7 +1710,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'description_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-info-box-description',
 			]
 		);
@@ -1812,9 +1815,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+				'global'                => [
+					'default' => Global_Colors:: COLOR_ACCENT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1851,7 +1853,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'button_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-info-box-button',
 			]
 		);
@@ -2478,7 +2482,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'fraction_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .swiper-pagination-fraction',
 				'condition'             => [
 					'dots'              => 'yes',

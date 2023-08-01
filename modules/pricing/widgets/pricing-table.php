@@ -10,15 +10,12 @@ use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Repeater;
 use Elementor\Icons_Manager;
-use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -1190,9 +1187,8 @@ class Pricing_Table extends Powerpack_Widget {
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_2,
+				'global'                => [
+					'default' => Global_Colors:: COLOR_SECONDARY,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-head' => 'background-color: {{VALUE}}',
@@ -1409,7 +1405,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'table_title_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-pricing-table-title',
 			]
 		);
@@ -1446,7 +1444,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'table_subtitle_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_2,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'condition'             => [
 					'table_subtitle!' => '',
 				],
@@ -1497,7 +1497,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'table_pricing_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-pricing-table-price',
 				'separator'             => 'before',
 			]
@@ -1730,7 +1732,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'duration_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_2,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-pricing-table-price-duration',
 			]
 		);
@@ -1866,9 +1870,8 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors:: COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1921,7 +1924,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'table_features_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-pricing-table-features',
 				'separator'             => 'before',
 			]
@@ -2238,7 +2243,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'      => 'tooltip_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
 				'condition' => [
 					'show_tooltip' => 'yes',
@@ -2514,10 +2521,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
-				),
+				'global'                => [
+					'default' => Global_Colors:: COLOR_ACCENT,
+				],
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-button' => 'background-color: {{VALUE}}',
@@ -2562,7 +2568,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'button_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'condition'             => [
 					'table_button_text!' => '',
 				],
@@ -2746,9 +2754,8 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors:: COLOR_TEXT,
 				],
 				'default'               => '',
 				'condition'             => [
@@ -2821,7 +2828,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'additional_info_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'condition'             => [
 					'table_additional_info!' => '',
 				],

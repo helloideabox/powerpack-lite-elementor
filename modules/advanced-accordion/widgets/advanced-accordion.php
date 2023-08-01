@@ -18,11 +18,11 @@ use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -335,6 +335,9 @@ class Advanced_Accordion extends Powerpack_Widget {
 						'type'                  => Controls_Manager::TEXT,
 						'label_block'           => true,
 						'default'               => '',
+						'ai'                    => [
+							'active' => false,
+						],
 					]
 				);
 
@@ -536,6 +539,9 @@ class Advanced_Accordion extends Powerpack_Widget {
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default'     => '',
+				'ai'          => [
+					'active' => false,
+				],
 				'placeholder' => __( 'mytab', 'powerpack' ),
 			]
 		);
@@ -667,9 +673,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '#d4d4d4',
 				'selectors'             => [
@@ -830,9 +835,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -859,7 +863,9 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'name'                  => 'tab_title_typography',
 				'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title',
-				'scheme'                => Schemes\Typography::TYPOGRAPHY_1,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 			]
 		);
 
@@ -956,9 +962,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_4,
+				'global'                => [
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1097,7 +1102,9 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'name'                  => 'tab_content_typography',
 				'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content',
-				'scheme'                => Schemes\Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -1212,9 +1219,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors' => [
@@ -1344,9 +1350,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_4,
+				'global'                => [
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'default'               => '',
 				'selectors' => [
@@ -1457,7 +1462,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 			'role'              => 'tablist',
 		] );
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'accordion' ) ); ?>>
+		<div <?php $this->print_render_attribute_string( 'accordion' ); ?>>
 			<?php
 			foreach ( $settings['tabs'] as $index => $tab ) :
 
@@ -1556,9 +1561,9 @@ class Advanced_Accordion extends Powerpack_Widget {
 				$migrated = isset( $settings['__fa4_migrated']['select_toggle_icon_active'] );
 				$is_new = ! isset( $settings['toggle_icon_active'] ) && $migration_allowed;
 				?>
-				<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tab_setting_key ) ); ?>>
+				<div <?php $this->print_render_attribute_string( $tab_setting_key ); ?>>
 					<?php $title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] ); ?>
-					<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $tab_title_setting_key ) ); ?>>
+					<<?php echo esc_html( $title_tag ); ?> <?php $this->print_render_attribute_string( $tab_title_setting_key ); ?>>
 						<span class="pp-accordion-title-icon">
 							<?php if ( ! empty( $tab['accordion_tab_title_icon'] ) || ( ! empty( $tab['tab_title_icon']['value'] ) && $is_new_title_icon ) ) { ?>
 								<span class="pp-accordion-tab-icon pp-icon">
@@ -1582,7 +1587,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 										if ( $is_new_normal || $migrated_normal ) {
 											Icons_Manager::render_icon( $settings['select_toggle_icon'], [ 'aria-hidden' => 'true' ] );
 										} elseif ( ! empty( $settings['toggle_icon_normal'] ) ) {
-											?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'toggle-icon' ) ); ?>></i><?php
+											?><i <?php $this->print_render_attribute_string( 'toggle-icon' ); ?>></i><?php
 										}
 										?>
 									</span>
@@ -1593,7 +1598,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 										if ( $is_new_normal || $migrated_normal ) {
 											Icons_Manager::render_icon( $settings['select_toggle_icon_active'], [ 'aria-hidden' => 'true' ] );
 										} elseif ( ! empty( $settings['toggle_icon_active'] ) ) {
-											?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'toggle-icon' ) ); ?>></i><?php
+											?><i <?php $this->print_render_attribute_string( 'toggle-icon' ); ?>></i><?php
 										}
 										?>
 									</span>
@@ -1602,7 +1607,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 						<?php } ?>
 					</<?php echo esc_html( $title_tag ); ?>>
 
-					<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tab_content_setting_key ) ); ?>>
+					<div <?php $this->print_render_attribute_string( $tab_content_setting_key ); ?>>
 						<?php echo $this->get_accordion_content( $tab ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
 				</div>

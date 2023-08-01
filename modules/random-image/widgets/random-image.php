@@ -7,19 +7,13 @@ use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
-use Elementor\Utils;
-use Elementor\Icons_Manager;
-use Elementor\Repeater;
 use Elementor\Control_Media;
-use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -1234,62 +1228,5 @@ class Random_Image extends Powerpack_Widget {
 		$html = ob_get_contents();
 		ob_end_clean();
 		return $html;
-	}
-
-	protected function render_link_icon() {
-		$settings = $this->get_settings_for_display();
-
-		if ( ! isset( $settings['link_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
-			// add old default
-			$settings['link_icon'] = '';
-		}
-
-		$has_link_icon = ! empty( $settings['link_icon'] );
-
-		if ( $has_link_icon ) {
-			$this->add_render_attribute( 'i', 'class', $settings['link_icon'] );
-			$this->add_render_attribute( 'i', 'aria-hidden', 'true' );
-		}
-
-		if ( ! $has_link_icon && ! empty( $settings['select_link_icon']['value'] ) ) {
-			$has_link_icon = true;
-		}
-		$migrated_link_icon = isset( $settings['__fa4_migrated']['select_link_icon'] );
-		$is_new_link_icon = ! isset( $settings['link_icon'] ) && Icons_Manager::is_migration_allowed();
-
-		if ( ! $has_link_icon ) {
-			return '';
-		}
-
-		ob_start();
-		?>
-		<?php if ( $has_link_icon ) { ?>
-		<div class="pp-gallery-image-icon-wrap pp-media-content">
-			<span class="pp-gallery-image-icon pp-icon">
-				<?php
-				if ( $is_new_link_icon || $migrated_link_icon ) {
-					Icons_Manager::render_icon( $settings['select_link_icon'], [ 'aria-hidden' => 'true' ] );
-				} elseif ( ! empty( $settings['link_icon'] ) ) {
-					?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i><?php
-				}
-				?>
-			</span>
-		</div>
-			<?php
-		}
-		$html = ob_get_contents();
-		ob_end_clean();
-		return $html;
-	}
-
-	protected function render_image_overlay( $count ) {
-		$pp_overlay_key = $this->get_repeater_setting_key( 'overlay', 'gallery_images', $count );
-
-		$this->add_render_attribute( $pp_overlay_key, 'class', [
-			'pp-image-overlay',
-			'pp-media-overlay',
-		] );
-
-		return '<div ' . $this->get_render_attribute_string( $pp_overlay_key ) . '></div>';
 	}
 }

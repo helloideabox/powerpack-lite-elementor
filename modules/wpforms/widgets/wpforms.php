@@ -7,16 +7,13 @@ use PowerpackElementsLite\Classes\PP_Helper;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
-use Elementor\Utils;
-use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -361,7 +358,9 @@ class WPforms extends Powerpack_Widget {
 			[
 				'name'                  => 'form_description_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-contact-form-description, {{WRAPPER}} .wpforms-description',
 			]
 		);
@@ -415,7 +414,9 @@ class WPforms extends Powerpack_Widget {
 			[
 				'name'              => 'typography_label',
 				'label'             => __( 'Typography', 'powerpack' ),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'global'            => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-field-label',
 			]
 		);
@@ -655,7 +656,9 @@ class WPforms extends Powerpack_Widget {
 			[
 				'name'              => 'field_typography',
 				'label'             => __( 'Typography', 'powerpack' ),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'global'            => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-field input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-wpforms .wpforms-container .wpforms-form .choices__inner, {{WRAPPER}} .pp-wpforms .wpforms-field textarea, {{WRAPPER}} .pp-wpforms .wpforms-field select',
 				'separator'         => 'before',
 			]
@@ -1398,7 +1401,9 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'button_typography',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector' => '{{WRAPPER}} .pp-wpforms .wpforms-submit-container .wpforms-submit',
 			]
 		);

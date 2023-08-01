@@ -9,14 +9,10 @@ use PowerpackElementsLite\Classes\PP_Config;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -700,7 +696,9 @@ class Divider extends Powerpack_Widget {
 			[
 				'name'                  => 'typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-divider-text',
 				'condition'             => [
 					'divider_type' => 'text',

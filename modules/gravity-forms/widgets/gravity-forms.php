@@ -11,8 +11,7 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -404,7 +403,9 @@ class Gravity_Forms extends Powerpack_Widget {
 			array(
 				'name'     => 'title_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector' => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_title, {{WRAPPER}} .pp-gravity-form .pp-gravity-form-title',
 			)
 		);
@@ -435,7 +436,9 @@ class Gravity_Forms extends Powerpack_Widget {
 			array(
 				'name'     => 'description_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector' => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_description, {{WRAPPER}} .pp-gravity-form .pp-gravity-form-description',
 			)
 		);
@@ -775,7 +778,9 @@ class Gravity_Forms extends Powerpack_Widget {
 			array(
 				'name'      => 'field_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-gravity-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-gravity-form .gfield textarea, {{WRAPPER}} .pp-gravity-form .gfield select',
 				'separator' => 'before',
 			)
@@ -962,7 +967,9 @@ class Gravity_Forms extends Powerpack_Widget {
 			array(
 				'name'      => 'section_field_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-gravity-form .gfield.gsection .gsection_title',
 				'separator' => 'before',
 			)
@@ -1520,7 +1527,9 @@ class Gravity_Forms extends Powerpack_Widget {
 			array(
 				'name'      => 'button_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]',
 				'separator' => 'before',
 			)
@@ -1733,7 +1742,9 @@ class Gravity_Forms extends Powerpack_Widget {
 			array(
 				'name'      => 'pagination_buttons_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]',
 				'separator' => 'before',
 			)

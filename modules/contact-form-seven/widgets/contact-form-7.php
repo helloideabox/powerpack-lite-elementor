@@ -9,8 +9,7 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -326,7 +325,9 @@ class Contact_Form_7 extends Powerpack_Widget {
 			[
 				'name'                  => 'title_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .pp-contact-form-7-title',
 			]
 		);
@@ -357,7 +358,9 @@ class Contact_Form_7 extends Powerpack_Widget {
 			[
 				'name'                  => 'description_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .pp-contact-form-7-description',
 			]
 		);
@@ -537,7 +540,9 @@ class Contact_Form_7 extends Powerpack_Widget {
 			[
 				'name'                  => 'field_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .pp-contact-form-7 .wpcf7-form-control.wpcf7-textarea, {{WRAPPER}} .pp-contact-form-7 .wpcf7-form-control.wpcf7-select',
 				'separator'             => 'before',
 			]
@@ -656,7 +661,9 @@ class Contact_Form_7 extends Powerpack_Widget {
 			[
 				'name'                  => 'typography_label',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .wpcf7-form label',
 				'condition'             => [
 					'labels_switch'   => 'yes',
@@ -710,7 +717,9 @@ class Contact_Form_7 extends Powerpack_Widget {
 			[
 				'name'                  => 'typography_placeholder',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .wpcf7-form-control::-webkit-input-placeholder',
 				'condition'             => [
 					'placeholder_switch'   => 'yes',
@@ -1094,7 +1103,9 @@ class Contact_Form_7 extends Powerpack_Widget {
 			[
 				'name'                  => 'button_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .wpcf7-form input[type="submit"]',
 				'separator'             => 'before',
 			]
@@ -1216,7 +1227,9 @@ class Contact_Form_7 extends Powerpack_Widget {
 			[
 				'name'                  => 'error_alert_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .wpcf7-not-valid-tip',
 				'condition'             => [
 					'error_messages' => 'show',
@@ -1353,7 +1366,9 @@ class Contact_Form_7 extends Powerpack_Widget {
 			[
 				'name'                  => 'validation_errors_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .wpcf7-validation-errors',
 				'separator'             => 'before',
 				'condition'             => [

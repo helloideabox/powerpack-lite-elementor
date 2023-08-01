@@ -20,8 +20,8 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Css_Filter;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -2107,10 +2107,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				),
+				'global'    => [
+					'default' => Global_Colors:: COLOR_SECONDARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-post-title, {{WRAPPER}} .pp-post-title a' => 'color: {{VALUE}}',
 				),
@@ -2125,10 +2124,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'     => __( 'Hover Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				),
+				'global'    => [
+					'default' => Global_Colors:: COLOR_SECONDARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-post-title a:hover' => 'color: {{VALUE}}',
 				),
@@ -2502,10 +2500,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				),
+				'global'    => [
+					'default' => Global_Colors:: COLOR_SECONDARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-post-excerpt' => 'color: {{VALUE}}',
 				),
@@ -2722,7 +2719,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'name'      => 'button_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-posts-button',
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
@@ -3523,7 +3522,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'name'      => 'pagination_typography',
 				'selector'  => '{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a',
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
 					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),

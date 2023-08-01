@@ -16,8 +16,8 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -1389,7 +1389,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'name'     => 'member_name_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector' => '{{WRAPPER}} .pp-tm-name',
 			)
 		);
@@ -1399,9 +1401,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'   => '',
 				'selectors' => array(
@@ -1455,10 +1456,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'label'     => __( 'Divider Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				),
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-title-divider' => 'border-bottom-color: {{VALUE}}',
 				),
@@ -1596,7 +1596,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'name'     => 'member_position_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .pp-tm-position',
 			)
 		);
@@ -1606,9 +1608,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+				'global'    => [
+					'default' => Global_Colors:: COLOR_SECONDARY,
 				],
 				'default'   => '',
 				'selectors' => array(
@@ -1662,10 +1663,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'label'     => __( 'Divider Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				),
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-position-divider' => 'border-bottom-color: {{VALUE}}',
 				),
@@ -1803,7 +1803,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'name'     => 'member_description_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .pp-tm-description',
 			)
 		);
@@ -1813,9 +1815,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'    => [
+					'default' => Global_Colors:: COLOR_TEXT,
 				],
 				'default'   => '',
 				'selectors' => array(
@@ -1869,10 +1870,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'label'     => __( 'Divider Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				),
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-description-divider' => 'border-bottom-color: {{VALUE}}',
 				),
@@ -2863,7 +2863,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'name'      => 'fraction_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .swiper-pagination-fraction',
 				'condition' => array(
 					'dots'            => 'yes',

@@ -7,9 +7,8 @@ use PowerpackElementsLite\Classes\PP_Config;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
-use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -927,7 +926,9 @@ class Business_Hours extends Powerpack_Widget {
 			[
 				'name'              => 'title_typography',
 				'label'             => __( 'Typography', 'powerpack' ),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'global'            => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'          => '{{WRAPPER}} .pp-business-hours .pp-business-day',
 			]
 		);
@@ -984,7 +985,9 @@ class Business_Hours extends Powerpack_Widget {
 			[
 				'name'              => 'hours_typography',
 				'label'             => __( 'Typography', 'powerpack' ),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'global'            => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'          => '{{WRAPPER}} .pp-business-hours .pp-business-timing',
 			]
 		);

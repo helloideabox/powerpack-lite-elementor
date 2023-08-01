@@ -13,8 +13,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -358,7 +358,9 @@ class Buttons extends Powerpack_Widget {
 				[
 					'name'                  => 'single_title_typography',
 					'label'                 => __( 'Button Typography', 'powerpack' ),
-					'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+					'global'                => [
+						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+					],
 					'selector'              => '{{WRAPPER}} {{CURRENT_ITEM}}.pp-button .pp-button-title',
 				]
 			);
@@ -752,7 +754,9 @@ class Buttons extends Powerpack_Widget {
 			[
 				'name'                  => 'button_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-button',
 			]
 		);
@@ -779,9 +783,8 @@ class Buttons extends Powerpack_Widget {
 				[
 					'label'                 => __( 'Background Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
-					'scheme'    => [
-						'type'  => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_4,
+					'global'                => [
+						'default' => Global_Colors::COLOR_ACCENT,
 					],
 					'default'               => '',
 					'selectors'             => [
@@ -908,7 +911,9 @@ class Buttons extends Powerpack_Widget {
 			[
 				'name'      => 'icon_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-button-icon-number',
 			]
 		);
@@ -1103,7 +1108,9 @@ class Buttons extends Powerpack_Widget {
 				Group_Control_Typography::get_type(),
 				[
 					'name'      => 'tooltips_typography',
-					'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
+					'global'    => [
+						'default' => Global_Typography::TYPOGRAPHY_TEXT,
+					],
 					'separator' => 'after',
 					'selector'  => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
 				]

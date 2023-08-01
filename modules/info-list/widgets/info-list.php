@@ -11,15 +11,13 @@ use Elementor\Control_Media;
 use Elementor\Utils;
 use Elementor\Repeater;
 use Elementor\Icons_Manager;
-use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -709,10 +707,9 @@ class Info_List extends Powerpack_Widget {
 					'{{WRAPPER}} .pp-list-items .pp-info-list-icon' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-list-items .pp-info-list-icon svg' => 'fill: {{VALUE}};',
 				),
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				),
+				'global'    => [
+					'default' => Global_Colors:: COLOR_SECONDARY,
+				],
 			)
 		);
 
@@ -851,10 +848,9 @@ class Info_List extends Powerpack_Widget {
 					'{{WRAPPER}} .pp-list-items .pp-infolist-icon-wrapper:hover .pp-info-list-icon' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-list-items .pp-infolist-icon-wrapper:hover .pp-info-list-icon svg' => 'fill: {{VALUE}};',
 				),
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				),
+				'global'    => [
+					'default' => Global_Colors:: COLOR_SECONDARY,
+				],
 			)
 		);
 
@@ -879,10 +875,9 @@ class Info_List extends Powerpack_Widget {
 				'selectors' => array(
 					'{{WRAPPER}} .pp-list-items .pp-infolist-icon-wrapper:hover' => 'border-color: {{VALUE}};',
 				),
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				),
+				'global'    => [
+					'default' => Global_Colors:: COLOR_SECONDARY,
+				],
 			)
 		);
 
@@ -912,7 +907,9 @@ class Info_List extends Powerpack_Widget {
 			array(
 				'name'     => 'icon_number_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector' => '{{WRAPPER}} .pp-list-items .pp-info-list-number',
 			)
 		);
@@ -1069,10 +1066,9 @@ class Info_List extends Powerpack_Widget {
 				'selectors' => array(
 					'{{WRAPPER}} .pp-info-list-title' => 'color: {{VALUE}};',
 				),
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				),
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
 			)
 		);
 
@@ -1081,7 +1077,9 @@ class Info_List extends Powerpack_Widget {
 			array(
 				'name'     => 'title_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector' => '{{WRAPPER}} .pp-info-list-title',
 			)
 		);
@@ -1137,10 +1135,9 @@ class Info_List extends Powerpack_Widget {
 				'selectors' => array(
 					'{{WRAPPER}} .pp-info-list-description' => 'color: {{VALUE}};',
 				),
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				),
+				'global'    => [
+					'default' => Global_Colors:: COLOR_TEXT,
+				],
 			)
 		);
 
@@ -1149,7 +1146,9 @@ class Info_List extends Powerpack_Widget {
 			array(
 				'name'     => 'description_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector' => '{{WRAPPER}} .pp-info-list-description',
 			)
 		);
@@ -1224,10 +1223,9 @@ class Info_List extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
-				),
+				'global'    => [
+					'default' => Global_Colors:: COLOR_ACCENT,
+				],
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-info-list-button' => 'background-color: {{VALUE}}',
@@ -1276,7 +1274,9 @@ class Info_List extends Powerpack_Widget {
 			array(
 				'name'     => 'button_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector' => '{{WRAPPER}} .pp-info-list-button',
 			)
 		);

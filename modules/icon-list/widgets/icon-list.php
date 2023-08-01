@@ -14,7 +14,8 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -501,9 +502,8 @@ class Icon_List extends Powerpack_Widget {
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#ddd',
-				'scheme'                => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'condition'             => [
 					'divider'  => 'yes',
@@ -603,9 +603,8 @@ class Icon_List extends Powerpack_Widget {
 					'{{WRAPPER}} .pp-list-items .pp-icon-list-icon' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-list-items .pp-icon-list-icon svg' => 'fill: {{VALUE}};',
 				],
-				'scheme'                => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 			]
 		);
@@ -742,9 +741,8 @@ class Icon_List extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-icon-list-item:hover .pp-icon-wrapper' => 'border-color: {{VALUE}};',
 				],
-				'scheme'                => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_2,
+				'global'                => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 			]
 		);
@@ -794,9 +792,8 @@ class Icon_List extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-icon-list-text' => 'color: {{VALUE}};',
 				],
-				'scheme' => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_2,
+				'global'                => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 			]
 		);
@@ -818,7 +815,9 @@ class Icon_List extends Powerpack_Widget {
 			[
 				'name'                  => 'text_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Schemes\Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-icon-list-text',
 			]
 		);

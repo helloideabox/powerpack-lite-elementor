@@ -10,15 +10,12 @@ use Elementor\Controls_Manager;
 use Elementor\Control_Media;
 use Elementor\Utils;
 use Elementor\Repeater;
-use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -527,9 +524,8 @@ class Price_Menu extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -543,7 +539,9 @@ class Price_Menu extends Powerpack_Widget {
 			[
 				'name'                  => 'title_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-restaurant-menu .pp-restaurant-menu-title',
 			]
 		);
@@ -752,9 +750,8 @@ class Price_Menu extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -771,7 +768,9 @@ class Price_Menu extends Powerpack_Widget {
 			[
 				'name'                  => 'price_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-restaurant-menu .pp-restaurant-menu-price-discount',
 			]
 		);
@@ -805,9 +804,8 @@ class Price_Menu extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Original Price Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors:: COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -821,7 +819,9 @@ class Price_Menu extends Powerpack_Widget {
 			[
 				'name'                  => 'original_price_typography',
 				'label'                 => __( 'Original Price Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-restaurant-menu .pp-restaurant-menu-price-original',
 			]
 		);
@@ -844,9 +844,8 @@ class Price_Menu extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors:: COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -860,7 +859,9 @@ class Price_Menu extends Powerpack_Widget {
 			[
 				'name'                  => 'description_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-restaurant-menu-description',
 			]
 		);
@@ -1098,9 +1099,8 @@ class Price_Menu extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+				'global'                => [
+					'default' => Global_Colors:: COLOR_SECONDARY,
 				],
 				'default'               => '',
 				'selectors'             => [
