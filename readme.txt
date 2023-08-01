@@ -1,8 +1,9 @@
 === PowerPack Addons for Elementor (Free Widgets, Extensions and Templates) ===
 Contributors: ideaboxcreations, simrandeep, puneetsahalot, ibachal, jainnidhi, nirbhay18, wpamitkumar
 Tags: elementor, addons, elementor addon, elementor addons, elementor widgets
-Requires at least: 5.0
-Tested up to: 6.1
+Requires at least: 5.9
+Tested up to: 6.3
+Requires PHP: 7.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -229,6 +230,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 
 == Changelog ==
+
+= 2.7.9 - August 1, 2023 =
+* 	Fixed: Compatibility issues with Elementor 3.15.0
 
 = 2.7.8 - July 11, 2023 =
 * 	Enhancement: WP Forms - Updated labels text color selector
