@@ -744,7 +744,7 @@ class Content_Reveal extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'global'                => [
-					'default' => Global_Colors:: COLOR_ACCENT,
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner' => 'background-color: {{VALUE}};',
@@ -852,7 +852,7 @@ class Content_Reveal extends Powerpack_Widget {
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_ACCENT,
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner:hover' => 'background-color: {{VALUE}};',

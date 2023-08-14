@@ -2108,7 +2108,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
-					'default' => Global_Colors:: COLOR_SECONDARY,
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-post-title, {{WRAPPER}} .pp-post-title a' => 'color: {{VALUE}}',
@@ -2125,7 +2125,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'     => __( 'Hover Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
-					'default' => Global_Colors:: COLOR_SECONDARY,
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-post-title a:hover' => 'color: {{VALUE}}',
@@ -2501,7 +2501,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
-					'default' => Global_Colors:: COLOR_SECONDARY,
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-post-excerpt' => 'color: {{VALUE}}',

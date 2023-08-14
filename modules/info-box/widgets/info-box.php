@@ -1248,7 +1248,7 @@ class Info_Box extends Powerpack_Widget {
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
-					'default' => Global_Colors:: COLOR_SECONDARY,
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'   => '',
 				'condition' => array(
@@ -1521,7 +1521,7 @@ class Info_Box extends Powerpack_Widget {
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
-					'default' => Global_Colors:: COLOR_TEXT,
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'   => '',
 				'selectors' => array(
@@ -1682,7 +1682,7 @@ class Info_Box extends Powerpack_Widget {
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
-					'default' => Global_Colors:: COLOR_ACCENT,
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'default'   => '',
 				'selectors' => array(

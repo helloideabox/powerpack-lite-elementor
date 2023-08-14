@@ -805,7 +805,7 @@ class Price_Menu extends Powerpack_Widget {
 				'label'                 => __( 'Original Price Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_TEXT,
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -845,7 +845,7 @@ class Price_Menu extends Powerpack_Widget {
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_TEXT,
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1100,7 +1100,7 @@ class Price_Menu extends Powerpack_Widget {
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_SECONDARY,
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'               => '',
 				'selectors'             => [

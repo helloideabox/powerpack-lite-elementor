@@ -956,7 +956,7 @@ class Team_Member extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'global'                => [
-					'default' => Global_Colors:: COLOR_PRIMARY,
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-title-divider' => 'border-bottom-color: {{VALUE}}',
@@ -1113,7 +1113,7 @@ class Team_Member extends Powerpack_Widget {
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_SECONDARY,
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1168,7 +1168,7 @@ class Team_Member extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'global'                => [
-					'default' => Global_Colors:: COLOR_ACCENT,
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-position-divider' => 'border-bottom-color: {{VALUE}}',
@@ -1333,7 +1333,7 @@ class Team_Member extends Powerpack_Widget {
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_TEXT,
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1398,7 +1398,7 @@ class Team_Member extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'global'                => [
-					'default' => Global_Colors:: COLOR_PRIMARY,
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-description-divider' => 'border-bottom-color: {{VALUE}}',

@@ -1188,7 +1188,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'global'                => [
-					'default' => Global_Colors:: COLOR_SECONDARY,
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-head' => 'background-color: {{VALUE}}',
@@ -1871,7 +1871,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_TEXT,
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -2522,7 +2522,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_ACCENT,
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -2755,7 +2755,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_TEXT,
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '',
 				'condition'             => [

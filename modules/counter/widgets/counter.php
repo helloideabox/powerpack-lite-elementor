@@ -1211,7 +1211,7 @@ class Counter extends Powerpack_Widget {
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_SECONDARY,
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1256,7 +1256,7 @@ class Counter extends Powerpack_Widget {
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_TEXT,
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
