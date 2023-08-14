@@ -1456,7 +1456,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_SECONDARY,
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1696,7 +1696,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_TEXT,
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1816,7 +1816,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors:: COLOR_ACCENT,
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -3254,7 +3254,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 								<# if ( item.description ) { #>
 									<div class="pp-info-box-description">
-										{{ item.description }}
+										{{{ item.description }}}
 									</div>
 								<# } #>
 								<# if ( item.link_type == 'button' || ( item.link_type == 'box' && item.button_visible == 'yes' ) ) { #>
