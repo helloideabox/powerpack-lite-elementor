@@ -629,12 +629,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					],
 				],
 				'size_units'            => '',
-				'condition'             => [
-					'carousel_effect'   => 'slide',
-				],
 				'separator'             => 'before',
 				'condition'             => [
-					'layout' => 'carousel',
+					'layout'          => 'carousel',
+					'carousel_effect' => 'slide',
 				],
 			]
 		);
