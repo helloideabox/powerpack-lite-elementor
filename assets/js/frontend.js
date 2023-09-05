@@ -552,7 +552,6 @@
 			$saparator 			= $scope.find('.pp-content-reveal-saparator'),
 			$button				= $scope.find('.pp-content-reveal-button-inner'),
 			buttonWrapper       = $scope.find('.pp-content-reveal-buttons-wrapper'),
-			contentOuterHeight 	= $content.outerHeight(),
 			scrollTop           = contentWrapper.data('scroll-top'),
 			contentVisibility   = contentWrapper.data('visibility'),
 			contentHeightCustom = contentWrapper.data('content-height'),
@@ -647,7 +646,7 @@
 			$(this).toggleClass('pp-content-revealed');
 
 			if ( $button.hasClass('pp-content-revealed') ) {
-				contentWrapper.animate({ height: ( contentOuterHeight + 'px') }, speedUnreveal);
+				contentWrapper.animate({ height: ( $content.outerHeight() + 'px') }, speedUnreveal);
 			} else {
 				contentWrapper.animate({ height: ( contentWrapperHeight + 'px') }, speedUnreveal);
 
