@@ -1,5 +1,6 @@
 == 2.7.10 ==
 Release date: 
+* Enhancement: Instagram Feed - Added conditional loading of scripts
 * Fixed: Info Grid & Carousel - Visible Items option was not working in Elementor editor
 * Fixed: Info Grid & Carousel - JS error was showing when grid layout is selected
 * Fixed: Advanced Accordion - Issue with toggle icon when item is set as active by default

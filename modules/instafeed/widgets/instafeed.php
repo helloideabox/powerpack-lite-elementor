@@ -102,13 +102,28 @@ class Instafeed extends Powerpack_Widget {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return array(
-			'isotope',
-			'imagesloaded',
-			'pp-magnific-popup',
-			'swiper',
-			'powerpack-frontend',
-		);
+
+		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+			return [
+				'isotope',
+				'imagesloaded',
+				'swiper',
+				'powerpack-frontend',
+			];
+		}
+
+		$settings = $this->get_settings_for_display();
+		$scripts = [];
+
+		if ( 'masonry' === $settings['feed_layout'] ) {
+			array_push( $scripts, 'isotope', 'imagesloaded', 'powerpack-frontend' );
+		}
+
+		if ( 'carousel' === $settings['feed_layout'] ) {
+			array_push( $scripts, 'swiper', 'powerpack-frontend' );
+		}
+
+		return $scripts;
 	}
 
 	/**
@@ -3070,20 +3085,20 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_render_attribute( 'container-wrap', 'class', 'pp-insta-feed-inner' );
 
 		if ( 'carousel' === $settings['feed_layout'] ) {
+			$swiper_class = \Elementor\Plugin::$instance->experiments->is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
+
 			$this->add_render_attribute(
 				array(
 					'container-wrap'     => array(
 						'class' => array(
 							'swiper-container-wrap',
-							//'swiper',
 							'pp-insta-feed-carousel-wrap',
 						),
 					),
 					'insta-feed-container' => array(
 						'class' => array(
 							'pp-swiper-slider',
-							'swiper-container',
-							'swiper-container-' . esc_attr( $this->get_id() ),
+							$swiper_class
 						),
 					),
 					'insta-feed'           => array(
@@ -3351,7 +3366,4 @@ class Instafeed extends Powerpack_Widget {
 			<?php
 		}
 	}
-
-	protected function content_template() {}
-
 }
