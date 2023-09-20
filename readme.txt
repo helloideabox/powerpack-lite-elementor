@@ -231,6 +231,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.10 - September 20, 2023 =
+* 	Enhancement: Instagram Feed - Added conditional loading of scripts
+* 	Fixed: Info Grid & Carousel - Visible Items option was not working in Elementor editor
+* 	Fixed: Info Grid & Carousel - JS error was showing when grid layout is selected
+* 	Fixed: Advanced Accordion - Issue with toggle icon when item is set as active by default
+
 = 2.7.9 - August 1, 2023 =
 * 	Fixed: Compatibility issues with Elementor 3.15.0
 
