@@ -2,6 +2,7 @@
 Release date: 
 * Fixed: Info Grid & Carousel - Visible Items option was not working in Elementor editor
 * Fixed: Info Grid & Carousel - JS error was showing when grid layout is selected
+* Fixed: Advanced Accordion - Issue with toggle icon when item is set as active by default
 
 == 2.7.9 ==
 Release date: August 1, 2023

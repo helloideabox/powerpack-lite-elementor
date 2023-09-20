@@ -315,66 +315,74 @@
     };
     
     var AdvancedAccordionHandler = function ($scope, $) {
-    	var accordionTitle  = $scope.find('.pp-accordion-tab-title'),
-            elementSettings = getElementSettings( $scope ),
-        	accordionType   = elementSettings.accordion_type,
-        	accordionSpeed  = elementSettings.toggle_speed;
-	
-        // Open default actived tab
-        accordionTitle.each(function(){
-            if ( $(this).hasClass('pp-accordion-tab-active-default') ) {
-                $(this).addClass('pp-accordion-tab-show pp-accordion-tab-active');
-                $(this).next().slideDown(accordionSpeed);
-            }
-        });
+		var accordionTitle  = $scope.find('.pp-accordion-tab-title'),
+			elementSettings = getElementSettings( $scope ),
+			accordionType   = elementSettings.accordion_type,
+			accordionSpeed  = elementSettings.toggle_speed;
 
-        // Remove multiple click event for nested accordion
-        accordionTitle.unbind('click');
+		// Open default actived tab
+		accordionTitle.each(function(){
+			if ( $(this).hasClass('pp-accordion-tab-active-default') ) {
+				$(this).addClass('pp-accordion-tab-show pp-accordion-tab-active');
+				$(this).next().slideDown(accordionSpeed);
+			}
+		});
 
-        accordionTitle.on( 'click keypress', function(e) {
-            e.preventDefault();
-			
-			var validClick = (e.which == 1 || e.which == 13 || e.which == 32 || e.which == undefined) ? true : false;
+		// Remove multiple click event for nested accordion
+		accordionTitle.unbind('click');
+
+		accordionTitle.on( 'click keypress', function(e) {
+			e.preventDefault();
+
+			var validClick = ( e.which == 1 || e.which == 13 || e.which == 32 || e.which == undefined ) ? true : false;
 
 			if ( ! validClick ) {
 				return;
 			}
 
-            var $this = $(this),
-				$item = $this.parent();
-			
+			var $this     = $(this),
+				$item     = $this.parent(),
+				container = $this.closest('.pp-advanced-accordion'),
+				item      = $this.closest('.pp-accordion-item'),
+				title     = container.find('.pp-accordion-tab-title'),
+				content   = container.find('.pp-accordion-tab-content');
+
 			$(document).trigger('ppe-accordion-switched', [ $item ]);
 
-            if ( accordionType === 'accordion' ) {
-                if ( $this.hasClass('pp-accordion-tab-show') ) {
-                    $this.closest('.pp-accordion-item').removeClass('pp-accordion-item-active');
-                    $this.removeClass('pp-accordion-tab-show pp-accordion-tab-active');
+			if ( accordionType === 'accordion' ) {
+				title.removeClass('pp-accordion-tab-active-default');
+				content.removeClass('pp-accordion-tab-active-default');
+
+				if ( $this.hasClass('pp-accordion-tab-show') ) {
+					item.removeClass('pp-accordion-item-active');
+					$this.removeClass('pp-accordion-tab-show pp-accordion-tab-active');
 					$this.attr('aria-expanded', 'false');
-                    $this.next().slideUp(accordionSpeed);
-                } else {
-                    $this.closest('.pp-advanced-accordion').find('.pp-accordion-item').removeClass('pp-accordion-item-active');
-                    $this.closest('.pp-advanced-accordion').find('.pp-accordion-tab-title').removeClass('pp-accordion-tab-show pp-accordion-tab-active');
-                    $this.closest('.pp-advanced-accordion').find('.pp-accordion-tab-title').removeClass('pp-accordion-tab-active-default');
-                    $this.closest('.pp-advanced-accordion').find('.pp-accordion-tab-content').slideUp(accordionSpeed);
-                    $this.toggleClass('pp-accordion-tab-show pp-accordion-tab-active');
-					$this.closest('.pp-advanced-accordion').find('.pp-accordion-tab-title').attr('aria-expanded', 'false');
-                    $this.closest('.pp-accordion-item').toggleClass('pp-accordion-item-active');
+					$this.next().slideUp(accordionSpeed);
+				} else {
+					container.find('.pp-accordion-item').removeClass('pp-accordion-item-active');
+					title.removeClass('pp-accordion-tab-show pp-accordion-tab-active');
+					content.slideUp(accordionSpeed);
+					$this.toggleClass('pp-accordion-tab-show pp-accordion-tab-active');
+					title.attr('aria-expanded', 'false');
+					item.toggleClass('pp-accordion-item-active');
+
 					if ( $this.hasClass('pp-accordion-tab-title') ) {
 						$this.attr('aria-expanded', 'true');
 					}
-                    $this.next().slideToggle(accordionSpeed);
-                }
-            } else {
-                // For acccordion type 'toggle'
-                if ( $this.hasClass('pp-accordion-tab-show') ) {
-                    $this.removeClass('pp-accordion-tab-show pp-accordion-tab-active');
-                    $this.next().slideUp(accordionSpeed);
-                } else {
-                    $this.addClass('pp-accordion-tab-show pp-accordion-tab-active');
-                    $this.next().slideDown(accordionSpeed);
-                }
+
+					$this.next().slideToggle(accordionSpeed);
+				}
+			} else {
+				// For acccordion type 'toggle'
+				if ( $this.hasClass('pp-accordion-tab-show') ) {
+					$this.removeClass('pp-accordion-tab-show pp-accordion-tab-active');
+					$this.next().slideUp(accordionSpeed);
+				} else {
+					$this.addClass('pp-accordion-tab-show pp-accordion-tab-active');
+					$this.next().slideDown(accordionSpeed);
+				}
 			}
-        });
+		});
 
 		// Trigger filter by hash parameter in URL.
 		advanced_accordion_hashchange();
@@ -383,7 +391,7 @@
 		$( window ).on( 'hashchange', function() {
 			advanced_accordion_hashchange();
 		} );
-    };
+	};
 
 	function advanced_accordion_hashchange() {
 		if ( location.hash && $(location.hash).length > 0 ) {
