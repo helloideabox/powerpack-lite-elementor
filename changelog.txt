@@ -1,5 +1,5 @@
 == 2.7.10 ==
-Release date: 
+Release date: September 20, 2023
 * Enhancement: Instagram Feed - Added conditional loading of scripts
 * Fixed: Info Grid & Carousel - Visible Items option was not working in Elementor editor
 * Fixed: Info Grid & Carousel - JS error was showing when grid layout is selected
