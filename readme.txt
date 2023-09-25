@@ -157,6 +157,9 @@ https://www.youtube.com/watch?v=IoSvG1-0f4M&t=1s
  
 ### CREATIVE EXTENSIONS
 
+- **[WooCommerce Display Conditions For Elementor](https://powerpackelements.com/woocommerce-display-conditions/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)**
+With PowerPack Display Conditions, you can control how your Elementor content appears. These conditions give you complete flexibility when and where to show or hide stuff on your website. You can tweak things based on various WooCommerce factors, like the Product Category, the number of items in the Shopping Cart, the Categories the purchased items belong to, and many other cool options.
+
  - **ADVANCED DISPLAY CONDITIONS FUNCTIONALITY**
  Our Advanced Display Conditions have in-built support for Advanced Custom Fields which allows you to display content from custom fields based on user's browser, operating system, date, time, login status, and much more. The most UNIQUE solution for Elementor widgets and sections. 
 
