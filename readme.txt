@@ -63,13 +63,12 @@ PowerPack Addon for Elementor comes from our team of experts, who always deliver
 18. [Promo Box](https://powerpackelements.com/elementor-widgets/promo-box/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Design stylish and attractive promo banners.
 19. [Team Member](https://powerpackelements.com/elementor-widgets/team-member/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Show off your team of experts with this widget.
 20. [Team Member Carousel](https://powerpackelements.com/elementor-widgets/team-member-carousel/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create beautiful carousel of team members.
-21. [Contact Form 7](https://powerpackelements.com/elementor-widgets/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Style your Contact Form 7 in Elementor with numerous customization options.
-22. [Gravity Forms Styler](https://powerpackelements.com/elementor-widgets/gravity-forms/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Style your Gravity Forms in the builder with numerous customization options.
-23. [Caldera Forms Styler](https://powerpackelements.com/elementor-widgets/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Style Caldera Forms with numerous customization options.
-24. [Ninja Forms Styler](https://powerpackelements.com/elementor-widgets/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Style Ninja Forms with numerous customization options.
-25. [WPForms Styler](https://powerpackelements.com/elementor-widgets/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Style WPForms with numerous customization options.
-26. [Fluent Forms](https://powerpackelements.com/elementor-widgets/wp-fluent-forms/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Style WP Fluent forms with numerous customization options.
-27. [Formidable Forms](https://powerpackelements.com/elementor-widgets/formidable-forms/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Style Formidable Forms with numerous customization options.
+21. [Contact Form 7](https://powerpackelements.com/elementor-widgets/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Style your Contact Form 7 through Elementor with numerous customization options.
+22. [Gravity Forms Styler](https://powerpackelements.com/elementor-widgets/gravity-forms/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Style your Gravity Forms through Elementor with numerous customization options.
+24. [Ninja Forms Styler](https://powerpackelements.com/elementor-widgets/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Style Ninja Forms through Elementor with numerous customization options.
+25. [WPForms Styler](https://powerpackelements.com/elementor-widgets/contact-form/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Style WPForms through Elementor with numerous customization options.
+26. [Fluent Forms](https://powerpackelements.com/elementor-widgets/wp-fluent-forms/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Style WP Fluent forms through Elementor with numerous customization options.
+27. [Formidable Forms](https://powerpackelements.com/elementor-widgets/formidable-forms/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Style Formidable Forms through Elementor with numerous customization options.
 28. [Advanced Accordion](https://powerpackelements.com/elementor-widgets/advanced-accordion/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Gives the flexibility to toggle between displaying and hiding a large amount of content.
 29. [Image Accordion](https://powerpackelements.com/elementor-widgets/image-accordion/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Gives the flexibility to toggle between image panels.
 30. [Flip Box](https://powerpackelements.com/elementor-widgets/flip-box/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Add dual side content on information boxes with flip animations.
@@ -159,6 +158,9 @@ https://www.youtube.com/watch?v=IoSvG1-0f4M&t=1s
  2. [How-to Schema Markup Widget](https://powerpackelements.com/elementor-widgets/how-to/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) – Easily create stylish How-to Guides, Tutorials, and walk-throughs.
  
 ### CREATIVE EXTENSIONS
+
+- **[WooCommerce Display Conditions For Elementor](https://powerpackelements.com/woocommerce-display-conditions/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link)**
+With PowerPack Display Conditions, you can control how your Elementor content appears. These conditions give you complete flexibility when and where to show or hide stuff on your website. You can tweak things based on various WooCommerce factors, like the Product Category, the number of items in the Shopping Cart, the Categories the purchased items belong to, and many other cool options.
 
  - **ADVANCED DISPLAY CONDITIONS FUNCTIONALITY**
  Our Advanced Display Conditions have in-built support for Advanced Custom Fields which allows you to display content from custom fields based on user's browser, operating system, date, time, login status, and much more. The most UNIQUE solution for widgets and sections. 
