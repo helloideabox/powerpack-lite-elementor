@@ -14,7 +14,8 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -388,7 +389,8 @@ class Icon_List extends Powerpack_Widget {
 				'separator'             => 'before',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-list-items:not(.pp-inline-items) li:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .pp-list-items.pp-inline-items li:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'body:not(.rtl) {{WRAPPER}} .pp-list-items.pp-inline-items li:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'body.rtl {{WRAPPER}} .pp-list-items.pp-inline-items li:not(:last-child)' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -500,9 +502,8 @@ class Icon_List extends Powerpack_Widget {
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#ddd',
-				'scheme'                => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'condition'             => [
 					'divider'  => 'yes',
@@ -602,9 +603,8 @@ class Icon_List extends Powerpack_Widget {
 					'{{WRAPPER}} .pp-list-items .pp-icon-list-icon' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-list-items .pp-icon-list-icon svg' => 'fill: {{VALUE}};',
 				],
-				'scheme'                => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 			]
 		);
@@ -656,7 +656,8 @@ class Icon_List extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}}.pp-icon-left .pp-list-items .pp-icon-wrapper' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'body:not(.rtl) {{WRAPPER}}.pp-icon-left .pp-list-items .pp-icon-wrapper' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'body.rtl {{WRAPPER}}.pp-icon-left .pp-list-items .pp-icon-wrapper' => 'margin-left: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}}.pp-icon-right .pp-list-items .pp-icon-wrapper' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -678,7 +679,7 @@ class Icon_List extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-list-items .pp-icon-wrapper, {{WRAPPER}} .pp-list-items .pp-icon-list-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -740,9 +741,8 @@ class Icon_List extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-icon-list-item:hover .pp-icon-wrapper' => 'border-color: {{VALUE}};',
 				],
-				'scheme'                => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_2,
+				'global'                => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 			]
 		);
@@ -792,9 +792,8 @@ class Icon_List extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-icon-list-text' => 'color: {{VALUE}};',
 				],
-				'scheme' => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_2,
+				'global'                => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 			]
 		);
@@ -816,7 +815,9 @@ class Icon_List extends Powerpack_Widget {
 			[
 				'name'                  => 'text_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Schemes\Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-icon-list-text',
 			]
 		);

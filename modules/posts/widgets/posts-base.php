@@ -2,17 +2,10 @@
 namespace PowerpackElementsLite\Modules\Posts\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Modules\Posts\Module;
 use PowerpackElementsLite\Classes\PP_Posts_Helper;
 
 use Elementor\Controls_Manager;
-use Elementor\Utils;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -539,12 +532,28 @@ abstract class Posts_Base extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'avoid_duplicates',
+			[
+				'label'       => esc_html__( 'Avoid Duplicates', 'powerpack' ),
+				'type'        => Controls_Manager::SWITCHER,
+				'default'     => '',
+				'description' => esc_html__( 'Set to Yes to avoid duplicate posts from showing up on the page. This only affects the frontend.', 'powerpack' ),
+				'condition'   => array(
+					'query_type' => 'custom',
+				),
+			]
+		);
+
+		$this->add_control(
 			'query_id',
 			array(
 				'label'       => __( 'Query ID', 'powerpack' ),
 				'description' => __( 'Give your Query a custom unique id to allow server side filtering', 'powerpack' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
+				'ai'          => [
+					'active' => false,
+				],
 				'separator'   => 'before',
 			)
 		);
@@ -596,6 +605,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$settings  = $this->get_settings_for_display();
 		$paged     = ( 'yes' === $paged_args ) ? $this->get_paged() : '';
 		$tax_count = 0;
+		$post__not_in = array();
 
 		if ( 'main' === $settings['query_type'] ) {
 			$current_query_vars = $GLOBALS['wp_query']->query_vars;
@@ -651,7 +661,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 
 			if ( ! empty( $settings['related_exclude_by'] ) ) {
 				if ( in_array( 'current_post', $settings['related_exclude_by'], true ) ) {
-					$query_args['post__not_in'] = array( get_the_ID() );
+					$post__not_in = array( get_the_ID() );
 				}
 
 				if ( in_array( 'authors', $settings['related_exclude_by'], true ) ) {
@@ -697,7 +707,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 			$post_type = $settings['post_type'];
 
 			if ( ! empty( $settings[ $post_type . '_filter' ] ) ) {
-				$query_args[ $settings[ $post_type . '_filter_type' ] ] = $settings[ $post_type . '_filter' ];
+				if ( 'post__not_in' === $settings[ $post_type . '_filter_type' ] ) {
+					$post__not_in = $settings[ $post_type . '_filter' ];
+				} else {
+					$query_args[ $settings[ $post_type . '_filter_type' ] ] = $settings[ $post_type . '_filter' ];
+				}
 			}
 
 			// Taxonomy Filter.
@@ -885,6 +899,14 @@ abstract class Posts_Base extends Powerpack_Widget {
 			}
 		}
 
+		if ( 'yes' === $settings['avoid_duplicates'] ) {
+			$post__not_in = array_merge( $post__not_in, Module::$displayed_ids );
+		}
+
+		if ( ! empty( $post__not_in ) ) {
+			$query_args['post__not_in'] = $post__not_in;
+		}
+
 		return apply_filters( "ppe_{$widget_type}_query_args", $query_args, $settings );
 	}
 
@@ -935,6 +957,8 @@ abstract class Posts_Base extends Powerpack_Widget {
 		remove_action( 'pre_get_posts', array( $this, 'pre_get_posts_query_filter' ) );
 		remove_action( 'pre_get_posts', [ $this, 'fix_query_offset' ], 1 );
 		remove_filter( 'found_posts', [ $this, 'fix_query_found_posts' ], 1 );
+
+		Module::add_to_avoid_list( wp_list_pluck( $this->query->posts, 'ID' ) );
 	}
 
 	public function query_filters_posts( $filter = '', $taxonomy = '', $search = '' ) {

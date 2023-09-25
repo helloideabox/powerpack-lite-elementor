@@ -7,14 +7,10 @@ use PowerpackElementsLite\Classes\PP_Helper;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
-use Elementor\Utils;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -374,7 +370,9 @@ class Fluent_Forms extends Powerpack_Widget {
 			[
 				'name'                  => 'form_description_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-contact-form .pp-contact-form-description',
 				'condition'             => [
 					'custom_title_description'   => 'yes',
@@ -436,7 +434,9 @@ class Fluent_Forms extends Powerpack_Widget {
 			[
 				'name'              => 'typography_label',
 				'label'             => __( 'Typography', 'powerpack' ),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'global'            => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'          => '{{WRAPPER}} .pp-fluent-forms .ff-el-input--label label',
 			]
 		);
@@ -521,7 +521,9 @@ class Fluent_Forms extends Powerpack_Widget {
 			[
 				'name'              => 'field_typography',
 				'label'             => __( 'Typography', 'powerpack' ),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'global'            => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'          => '{{WRAPPER}} .pp-fluent-forms .ff-el-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-fluent-forms .ff-el-group textarea, {{WRAPPER}} .pp-fluent-forms .ff-el-group select',
 			]
 		);
@@ -929,7 +931,9 @@ class Fluent_Forms extends Powerpack_Widget {
 			[
 				'name'              => 'radio_checkbox_typography_label',
 				'label'             => __( 'Typography', 'powerpack' ),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'global'            => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'          => '{{WRAPPER}} .pp-fluent-forms .ff-el-group .ff-el-form-check-label',
 			]
 		);
@@ -1201,7 +1205,9 @@ class Fluent_Forms extends Powerpack_Widget {
 			[
 				'name'              => 'button_typography',
 				'label'             => __( 'Typography', 'powerpack' ),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'global'            => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'          => '{{WRAPPER}} .pp-fluent-forms .ff-el-group .ff-btn-submit',
 				'separator'         => 'before',
 			]

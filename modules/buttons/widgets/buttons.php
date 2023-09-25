@@ -13,8 +13,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Buttons extends Powerpack_Widget {
 
 	/**
-	 * Retrieve buttons widget name.
+	 * Retrieve Buttons widget name.
 	 *
 	 * @access public
 	 *
@@ -37,7 +37,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve buttons widget title.
+	 * Retrieve Buttons widget title.
 	 *
 	 * @access public
 	 *
@@ -48,7 +48,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve buttons widget icon.
+	 * Retrieve Buttons widget icon.
 	 *
 	 * @access public
 	 *
@@ -61,7 +61,7 @@ class Buttons extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the widget belongs to.
+	 * Retrieve the list of keywords the Buttons widget belongs to.
 	 *
 	 * @access public
 	 *
@@ -72,7 +72,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of scripts the buttons widget depended on.
+	 * Retrieve the list of scripts the advanced menu widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
@@ -88,7 +88,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register buttons widget controls.
+	 * Register Buttons widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
@@ -358,7 +358,9 @@ class Buttons extends Powerpack_Widget {
 				[
 					'name'                  => 'single_title_typography',
 					'label'                 => __( 'Button Typography', 'powerpack' ),
-					'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+					'global'                => [
+						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+					],
 					'selector'              => '{{WRAPPER}} {{CURRENT_ITEM}}.pp-button .pp-button-title',
 				]
 			);
@@ -450,7 +452,7 @@ class Buttons extends Powerpack_Widget {
 				[
 					'label'                 => __( 'Border Radius', 'powerpack' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
-					'size_units'            => [ 'px', '%' ],
+					'size_units'            => [ 'px', '%', 'em' ],
 					'selectors'             => [
 						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -591,11 +593,13 @@ class Buttons extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Buttons Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => array( 'px', 'em', 'rem' ),
 				'default'               => [
 					'size' => 10,
 				],
 				'range'                 => [
 					'px' => [
+						'min' => 1,
 						'max' => 100,
 					],
 				],
@@ -750,7 +754,9 @@ class Buttons extends Powerpack_Widget {
 			[
 				'name'                  => 'button_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-button',
 			]
 		);
@@ -777,9 +783,8 @@ class Buttons extends Powerpack_Widget {
 				[
 					'label'                 => __( 'Background Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
-					'scheme'    => [
-						'type'  => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_4,
+					'global'                => [
+						'default' => Global_Colors::COLOR_ACCENT,
 					],
 					'default'               => '',
 					'selectors'             => [
@@ -813,7 +818,7 @@ class Buttons extends Powerpack_Widget {
 				[
 					'label'                 => __( 'Border Radius', 'powerpack' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
-					'size_units'            => [ 'px', '%' ],
+					'size_units'            => [ 'px', '%', 'em' ],
 					'selectors'             => [
 						'{{WRAPPER}} .pp-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -906,7 +911,9 @@ class Buttons extends Powerpack_Widget {
 			[
 				'name'      => 'icon_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-button-icon-number',
 			]
 		);
@@ -1101,7 +1108,9 @@ class Buttons extends Powerpack_Widget {
 				Group_Control_Typography::get_type(),
 				[
 					'name'      => 'tooltips_typography',
-					'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
+					'global'    => [
+						'default' => Global_Typography::TYPOGRAPHY_TEXT,
+					],
 					'separator' => 'after',
 					'selector'  => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
 				]
@@ -1112,7 +1121,7 @@ class Buttons extends Powerpack_Widget {
 				[
 					'label'      => __( 'Border Radius', 'powerpack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', '%' ],
+					'size_units' => [ 'px', '%', 'em' ],
 					'selectors'  => [
 						'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -1144,7 +1153,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Render buttons widget output on the frontend.
+	 * Render Buttons widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
@@ -1360,7 +1369,7 @@ class Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Render buttons widget output in the editor.
+	 * Render Buttons widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *

@@ -99,6 +99,13 @@ class Extension_Wrapper_Link extends Extension_Base {
 			$this->add_common_sections( $element, $args );
 
 		}, 10, 2 );
+
+		// Activate sections for containers
+		add_action( 'elementor/element/container/section_layout/after_section_end', function( $element, $args ) {
+
+			$this->add_common_sections( $element, $args );
+
+		}, 10, 2 );
 	}
 
 	/**
@@ -166,6 +173,11 @@ class Extension_Wrapper_Link extends Extension_Base {
 
 		// Activate controls for widgets
 		add_action( 'elementor/element/common/section_powerpack_elements_advanced/before_section_end', function( $element, $args ) {
+			$this->add_controls( $element, $args );
+		}, 10, 2 );
+
+		// Activate controls for containers
+		add_action( 'elementor/element/container/section_powerpack_elements_advanced/before_section_end', function( $element, $args ) {
 			$this->add_controls( $element, $args );
 		}, 10, 2 );
 

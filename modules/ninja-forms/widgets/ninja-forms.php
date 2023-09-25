@@ -6,14 +6,10 @@ use PowerpackElementsLite\Classes\PP_Helper;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
-use Elementor\Utils;
-use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -394,7 +390,9 @@ class Ninja_Forms extends Powerpack_Widget {
 			[
 				'name'                  => 'form_description_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-ninja-form .pp-contact-form-description',
 			]
 		);
@@ -1275,7 +1273,9 @@ class Ninja_Forms extends Powerpack_Widget {
 			[
 				'name'                  => 'button_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-ninja-form .submit-container input[type="button"]',
 				'separator'             => 'before',
 			]
@@ -1378,7 +1378,9 @@ class Ninja_Forms extends Powerpack_Widget {
 			[
 				'name'                  => 'required_notice_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-ninja-form .nf-form-fields-required',
 			]
 		);

@@ -8,17 +8,12 @@ use PowerpackElementsLite\Classes\PP_Posts_Helper;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
-use Elementor\Control_Media;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -1446,7 +1441,7 @@ class Content_Ticker extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-content-ticker-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1665,7 +1660,7 @@ class Content_Ticker extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-content-ticker-image, {{WRAPPER}} .pp-content-ticker-image:after, {{WRAPPER}} .pp-content-ticker-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1785,7 +1780,7 @@ class Content_Ticker extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button' => 'font-size: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -1806,7 +1801,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1818,7 +1813,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -1830,7 +1825,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'label'       => __( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev',
+				'selector'    => '{{WRAPPER}} .elementor-swiper-button',
 			)
 		);
 
@@ -1839,9 +1834,9 @@ class Content_Ticker extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1862,7 +1857,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next:hover, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button:hover' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1874,7 +1869,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next:hover, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button:hover' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -1886,7 +1881,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next:hover, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button:hover' => 'border-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1910,7 +1905,7 @@ class Content_Ticker extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-prev' => 'margin-right: {{SIZE}}{{UNIT}};',
 				),
 				'separator'  => 'before',
 			)
@@ -1923,7 +1918,7 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-content-ticker-navigation .swiper-button-next, {{WRAPPER}} .pp-content-ticker-navigation .swiper-button-prev' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -2005,6 +2000,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_render_attribute( 'content-ticker-wrap', 'class', array(
 			'pp-content-ticker-wrap',
 			'swiper-container-wrap',
+			//'swiper'
 		) );
 
 		if ( ! isset( $settings['heading_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
@@ -2105,6 +2101,11 @@ class Content_Ticker extends Powerpack_Widget {
 			$has_icon = true;
 		}
 
+		if ( ! empty( $settings['arrow'] ) ) {
+			$this->add_render_attribute( 'arrow-icon', 'class', $settings['arrow'] );
+			$this->add_render_attribute( 'arrow-icon', 'aria-hidden', 'true' );
+		}
+
 		$migrated = isset( $settings['__fa4_migrated']['select_arrow'] );
 		$is_new = ! isset( $settings['arrow'] ) && $migration_allowed;
 
@@ -2113,28 +2114,33 @@ class Content_Ticker extends Powerpack_Widget {
 			<?php
 			if ( $has_icon ) {
 				if ( $is_new || $migrated ) {
-					$next_arrow = str_replace( 'left', 'right', $settings['select_arrow']['value'] );
-					$prev_arrow = str_replace( 'right', 'left', $settings['select_arrow']['value'] );
+					$next_arrow = $settings['select_arrow'];
+					$prev_arrow = str_replace( 'right', 'left', $settings['select_arrow'] );
 				} else {
-					$next_arrow = $settings['arrow'];
-					$prev_arrow = str_replace( 'right', 'left', $settings['arrow'] );
+					$pa_next_arrow = $settings['arrow'];
+					$pa_prev_arrow = str_replace( 'right', 'left', $settings['arrow'] );
 				}
 			} else {
-				$next_arrow = 'fa fa-angle-right';
-				$prev_arrow = 'fa fa-angle-left';
+				$pa_next_arrow = 'fa fa-angle-right';
+				$pa_prev_arrow = 'fa fa-angle-left';
 			}
-			?>
 
-			<?php if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
-				<!-- Add Arrows -->
-				<div class="swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
-					<i aria-hidden="true" class="<?php echo esc_attr( $prev_arrow ); ?>"></i>
+			if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
+				<div class="elementor-icon elementor-swiper-button elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
+					<?php if ( $is_new || $migrated ) :
+						Icons_Manager::render_icon( $prev_arrow, [ 'aria-hidden' => 'true' ] );
+					else : ?>
+						<i <?php $this->print_render_attribute_string( 'arrow-icon' ); ?>></i>
+					<?php endif; ?>
 				</div>
-				<div class="swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
-					<i aria-hidden="true" class="<?php echo esc_attr( $next_arrow ); ?>"></i>
+				<div class="elementor-icon elementor-swiper-button elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
+					<?php if ( $is_new || $migrated ) :
+						Icons_Manager::render_icon( $next_arrow, [ 'aria-hidden' => 'true' ] );
+					else : ?>
+						<i <?php $this->print_render_attribute_string( 'arrow-icon' ); ?>></i>
+					<?php endif; ?>
 				</div>
-			<?php } ?>
-			<?php
+			<?php }
 		}
 	}
 

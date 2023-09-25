@@ -6,14 +6,6 @@ use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
-use Elementor\Utils;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -81,6 +73,9 @@ class Twitter_Timeline extends Powerpack_Widget {
 				'label'   => __( 'User Name', 'powerpack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '',
+				'ai'      => [
+					'active' => false,
+				],
 			)
 		);
 

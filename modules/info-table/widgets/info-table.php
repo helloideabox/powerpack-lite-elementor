@@ -14,9 +14,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -476,7 +475,7 @@ class Info_Table extends Powerpack_Widget {
 				[
 					'label'      => __( 'Border Radius', 'powerpack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', '%' ],
+					'size_units' => [ 'px', '%', 'em' ],
 					'selectors'  => [
 						'{{WRAPPER}} .pp-info-table-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -524,7 +523,7 @@ class Info_Table extends Powerpack_Widget {
 				[
 					'label'      => __( 'Border Radius', 'powerpack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', '%' ],
+					'size_units' => [ 'px', '%', 'em' ],
 					'selectors'  => [
 						'{{WRAPPER}} .pp-info-table-container:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -583,9 +582,8 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -599,7 +597,9 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'name'     => 'title_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector' => '{{WRAPPER}} .pp-info-table-title',
 			]
 		);
@@ -657,9 +657,8 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+				'global'    => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'   => '',
 				'condition' => [
@@ -676,7 +675,9 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'name'      => 'subtitle_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'condition' => [
 					'sub_heading!' => '',
 				],
@@ -824,7 +825,9 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'name'      => 'icon_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'condition' => [
 					'icon_type' => 'text',
 				],
@@ -845,9 +848,8 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'label'     => __( 'Icon Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -891,7 +893,7 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px', '%', 'em' ],
 				'condition'  => [
 					'icon_type!' => 'none',
 				],
@@ -1036,9 +1038,8 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'    => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -1055,7 +1056,9 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'name'      => 'description_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-info-table-description',
 				'condition' => [
 					'description!' => '',
@@ -1205,7 +1208,7 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1221,7 +1224,9 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'name'      => 'button_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-info-table-button',
 				'condition' => [
 					'link_type'    => 'button',
@@ -1401,9 +1406,8 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+				'global'    => [
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'default'   => '',
 				'selectors' => [
@@ -1436,7 +1440,9 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'name'      => 'sale_badge_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-info-table-sale-badge',
 				'condition' => [
 					'sale_badge' => 'show',
@@ -1517,12 +1523,17 @@ class Info_Table extends Powerpack_Widget {
 				'type'       => Controls_Manager::SLIDER,
 				'range'      => [
 					'%' => [
-						'min'  => 0,
+						'min'  => -10,
+						'max'  => 100,
+						'step' => 1,
+					],
+					'px' => [
+						'min'  => -20,
 						'max'  => 100,
 						'step' => 1,
 					],
 				],
-				'size_units' => [ '%', '' ],
+				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-sale-badge' => 'top: {{SIZE}}%',
 				],
@@ -1536,7 +1547,7 @@ class Info_Table extends Powerpack_Widget {
 			[
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
 					'{{WRAPPER}} .pp-info-table-sale-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1566,20 +1577,8 @@ class Info_Table extends Powerpack_Widget {
 			$settings['icon'] = 'fa fa-star';
 		}
 
-		$has_icon = ! empty( $settings['icon'] );
-
-		if ( $has_icon ) {
-			$this->add_render_attribute( 'i', 'class', $settings['icon'] );
-			$this->add_render_attribute( 'i', 'aria-hidden', 'true' );
-		}
-
-		$icon_attributes = $this->get_render_attribute_string( 'icon' );
-
-		if ( ! $has_icon && ! empty( $settings['selected_icon']['value'] ) ) {
-			$has_icon = true;
-		}
 		$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
-		$is_new = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
+		$is_new = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 		?>
 		<?php if ( 'none' !== $settings['icon_type'] ) { ?>
 			<div class="pp-info-table-icon-container">

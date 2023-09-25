@@ -13,7 +13,6 @@ use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes.
 use Elementor\Controls_Manager;
-use Elementor\Control_Media;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
@@ -22,8 +21,8 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -291,7 +290,7 @@ class Info_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_position',
 			array(
-				'label'              => __( 'Icon', 'powerpack' ) . ' ' . __( 'Position', 'powerpack' ),
+				'label'              => __( 'Icon Position', 'powerpack' ),
 				'type'               => Controls_Manager::CHOOSE,
 				'default'            => 'top',
 				'options'            => array(
@@ -798,7 +797,7 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-box-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -848,7 +847,7 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-box-container:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -896,7 +895,9 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'name'      => 'icon_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'condition' => array(
 					'icon_type' => 'text',
 				),
@@ -918,9 +919,8 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Icon Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'   => '',
 				'selectors' => array(
@@ -964,7 +964,7 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'condition'  => array(
 					'icon_type!' => 'none',
 				),
@@ -1145,9 +1145,8 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'   => '',
 				'selectors' => array(
@@ -1179,7 +1178,9 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'name'      => 'title_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector'  => '{{WRAPPER}} .pp-info-box-title',
 				'condition' => array(
 					'heading!' => '',
@@ -1223,6 +1224,9 @@ class Info_Box extends Powerpack_Widget {
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-box-title' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				),
+				'condition' => array(
+					'heading!' => '',
+				),
 			)
 		);
 
@@ -1243,9 +1247,8 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+				'global'    => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'   => '',
 				'condition' => array(
@@ -1277,7 +1280,9 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'name'      => 'subtitle_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'condition' => array(
 					'sub_heading!' => '',
 				),
@@ -1423,6 +1428,9 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .pp-info-box-divider' => 'border-bottom-color: {{VALUE}}',
@@ -1512,9 +1520,8 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'    => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'   => '',
 				'selectors' => array(
@@ -1546,7 +1553,9 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'name'      => 'description_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-info-box-description',
 				'condition' => array(
 					'description!' => '',
@@ -1672,9 +1681,8 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+				'global'    => [
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'default'   => '',
 				'selectors' => array(
@@ -1705,7 +1713,7 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-box-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1720,7 +1728,9 @@ class Info_Box extends Powerpack_Widget {
 			array(
 				'name'      => 'button_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-info-box-button',
 				'condition' => array(
 					'link_type' => 'button',
@@ -1912,14 +1922,14 @@ class Info_Box extends Powerpack_Widget {
 		$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
 		$is_new   = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 		?>
-		<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
+		<span <?php $this->print_render_attribute_string( 'icon' ); ?>>
 			<?php if ( 'icon' === $settings['icon_type'] && $has_icon ) { ?>
 				<?php
 				if ( $is_new || $migrated ) {
 					Icons_Manager::render_icon( $settings['selected_icon'], array( 'aria-hidden' => 'true' ) );
 				} elseif ( ! empty( $settings['icon'] ) ) {
 					?>
-					<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i>
+					<i <?php $this->print_render_attribute_string( 'i' ); ?>></i>
 					<?php
 				}
 				?>
@@ -1994,7 +2004,7 @@ class Info_Box extends Powerpack_Widget {
 			?>
 			<?php if ( '' !== $settings['button_text'] || $has_icon ) { ?>
 				<div class="pp-info-box-footer">
-					<<?php echo esc_html( $button_html_tag ) . ' ' . wp_kses_post( $this->get_render_attribute_string( 'info-box-button' ) ) . wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>>
+					<<?php PP_Helper::print_validated_html_tag( $button_html_tag ); ?> <?php $this->print_render_attribute_string( 'info-box-button' ) ?>>
 						<?php if ( 'before' === $settings['button_icon_position'] && $has_icon ) { ?>
 							<span class='pp-button-icon pp-icon'>
 								<?php
@@ -2002,14 +2012,14 @@ class Info_Box extends Powerpack_Widget {
 									Icons_Manager::render_icon( $settings['select_button_icon'], array( 'aria-hidden' => 'true' ) );
 								} elseif ( ! empty( $settings['button_icon'] ) ) {
 									?>
-									<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'button-icon' ) ); ?>></i>
+									<i <?php $this->print_render_attribute_string( 'button-icon' ); ?>></i>
 									<?php
 								}
 								?>
 							</span>
 						<?php } ?>
 						<?php if ( ! empty( $settings['button_text'] ) ) { ?>
-							<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'button_text' ) ); ?>>
+							<span <?php $this->print_render_attribute_string( 'button_text' ); ?>>
 								<?php echo wp_kses_post( $settings['button_text'] ); ?>
 							</span>
 						<?php } ?>
@@ -2020,13 +2030,13 @@ class Info_Box extends Powerpack_Widget {
 									Icons_Manager::render_icon( $settings['select_button_icon'], array( 'aria-hidden' => 'true' ) );
 								} elseif ( ! empty( $settings['button_icon'] ) ) {
 									?>
-									<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'button-icon' ) ); ?>></i>
+									<i <?php $this->print_render_attribute_string( 'button-icon' ); ?>></i>
 									<?php
 								}
 								?>
 							</span>
 						<?php } ?>
-					</<?php echo esc_html( $button_html_tag ); ?>>
+					</<?php PP_Helper::print_validated_html_tag( $button_html_tag ); ?>>
 				</div>
 			<?php } ?>
 			<?php
@@ -2075,75 +2085,79 @@ class Info_Box extends Powerpack_Widget {
 
 		if ( 'none' !== $settings['link_type'] ) {
 			if ( ! empty( $settings['link']['url'] ) ) {
-				$this->add_link_attributes( 'link', $settings['link'] );
-
 				if ( 'box' === $settings['link_type'] ) {
 					$if_html_tag = 'a';
+					$this->add_link_attributes( 'info-box-container', $settings['link'] );
+				} elseif ( 'icon' === $settings['link_type'] ) {
+					$this->add_link_attributes( 'link', $settings['link'] );
 				} elseif ( 'title' === $settings['link_type'] ) {
 					$title_container_tag = 'a';
+					$this->add_link_attributes( 'title-container', $settings['link'] );
+				} elseif ( 'button' === $settings['link_type'] ) {
+					$this->add_link_attributes( 'info-box-button', $settings['link'] );
 				}
 			}
 		}
 		?>
-		<<?php echo esc_html( $if_html_tag ) . ' ' . wp_kses_post( $this->get_render_attribute_string( 'info-box-container' ) ) . wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box' ) ); ?>>
-			<?php if ( 'none' !== $settings['icon_type'] ) { ?>
-				<div class="pp-info-box-icon-wrap">
-					<?php if ( 'icon' === $settings['link_type'] ) { ?>
-						<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>>
-					<?php } ?>
-					<?php
-						// Icon.
-						$this->render_infobox_icon();
-					?>
-					<?php if ( 'icon' === $settings['link_type'] ) { ?>
-						</a>
-					<?php } ?>
-				</div>
-			<?php } ?>
-			<div class="pp-info-box-content">
-				<div class="pp-info-box-title-wrap">
-					<?php
-					if ( ! empty( $settings['heading'] ) ) {
-						$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
-						?>
-						<<?php echo esc_html( $title_container_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'title-container' ) ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>>
-							<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'heading' ) ); ?>>
-								<?php echo wp_kses_post( $settings['heading'] ); ?>
-							</<?php echo esc_html( $title_tag ); ?>>
-						</<?php echo esc_html( $title_container_tag ); ?>>
+		<<?php PP_Helper::print_validated_html_tag( $if_html_tag ); ?> <?php $this->print_render_attribute_string( 'info-box-container' ); ?>>
+			<div <?php $this->print_render_attribute_string( 'info-box' ); ?>>
+				<?php if ( 'none' !== $settings['icon_type'] ) { ?>
+					<div class="pp-info-box-icon-wrap">
+						<?php if ( 'icon' === $settings['link_type'] ) { ?>
+							<a <?php $this->print_render_attribute_string( 'link' ); ?>>
+						<?php } ?>
 						<?php
-					}
-
-					if ( '' !== $settings['sub_heading'] ) {
-						$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
+							// Icon.
+							$this->render_infobox_icon();
 						?>
-						<<?php echo esc_html( $subtitle_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'sub_heading' ) ); ?>>
-							<?php echo wp_kses_post( $settings['sub_heading'] ); ?>
-						</<?php echo esc_html( $subtitle_tag ); ?>>
-						<?php
-					}
-					?>
-				</div>
-
-				<?php if ( 'yes' === $settings['divider_title_switch'] ) { ?>
-					<div class="pp-info-box-divider-wrap">
-						<div class="pp-info-box-divider"></div>
+						<?php if ( 'icon' === $settings['link_type'] ) { ?>
+							</a>
+						<?php } ?>
 					</div>
 				<?php } ?>
+				<div class="pp-info-box-content">
+					<div class="pp-info-box-title-wrap">
+						<?php
+						if ( ! empty( $settings['heading'] ) ) {
+							$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+							?>
+							<<?php PP_Helper::print_validated_html_tag( $title_container_tag ); ?> <?php $this->print_render_attribute_string( 'title-container' ); ?>>
+								<<?php PP_Helper::print_validated_html_tag( $title_tag ); ?> <?php $this->print_render_attribute_string( 'heading' ); ?>>
+									<?php echo wp_kses_post( $settings['heading'] ); ?>
+								</<?php PP_Helper::print_validated_html_tag( $title_tag ); ?>>
+							</<?php PP_Helper::print_validated_html_tag( $title_container_tag ); ?>>
+							<?php
+						}
 
-				<?php if ( ! empty( $settings['description'] ) ) { ?>
-					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'description' ) ); ?>>
-						<?php echo $this->parse_text_editor( $settings['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						if ( '' !== $settings['sub_heading'] ) {
+							$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
+							?>
+							<<?php PP_Helper::print_validated_html_tag( $subtitle_tag ); ?> <?php $this->print_render_attribute_string( 'sub_heading' ); ?>>
+								<?php echo wp_kses_post( $settings['sub_heading'] ); ?>
+							</<?php PP_Helper::print_validated_html_tag( $subtitle_tag ); ?>>
+							<?php
+						}
+						?>
 					</div>
-				<?php } ?>
-				<?php
-					// Button.
-					$this->render_infobox_button();
-				?>
+
+					<?php if ( 'yes' === $settings['divider_title_switch'] ) { ?>
+						<div class="pp-info-box-divider-wrap">
+							<div class="pp-info-box-divider"></div>
+						</div>
+					<?php } ?>
+
+					<?php if ( ! empty( $settings['description'] ) ) { ?>
+						<div <?php $this->print_render_attribute_string( 'description' ); ?>>
+							<?php echo $this->parse_text_editor( $settings['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</div>
+					<?php } ?>
+					<?php
+						// Button.
+						$this->render_infobox_button();
+					?>
+				</div>
 			</div>
-		</div>
-		</<?php echo esc_attr( $if_html_tag ); ?>>
+		</<?php PP_Helper::print_validated_html_tag( $if_html_tag ); ?>>
 		<?php
 	}
 

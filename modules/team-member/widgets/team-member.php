@@ -15,8 +15,8 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -846,7 +846,7 @@ class Team_Member extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-image img, {{WRAPPER}} .pp-tm-overlay-content-wrap:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -888,7 +888,9 @@ class Team_Member extends Powerpack_Widget {
 			[
 				'name'                  => 'member_name_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-tm-name',
 			]
 		);
@@ -898,9 +900,8 @@ class Team_Member extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -954,9 +955,8 @@ class Team_Member extends Powerpack_Widget {
 				'label'                 => __( 'Divider Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-title-divider' => 'border-bottom-color: {{VALUE}}',
@@ -1100,7 +1100,9 @@ class Team_Member extends Powerpack_Widget {
 			[
 				'name'                  => 'member_position_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_2,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-tm-position',
 			]
 		);
@@ -1110,9 +1112,8 @@ class Team_Member extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+				'global'                => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1166,9 +1167,8 @@ class Team_Member extends Powerpack_Widget {
 				'label'                 => __( 'Divider Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_4,
+				'global'                => [
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-position-divider' => 'border-bottom-color: {{VALUE}}',
@@ -1316,7 +1316,9 @@ class Team_Member extends Powerpack_Widget {
 			[
 				'name'                  => 'member_description_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-tm-description',
 				'condition'             => [
 					'team_member_description_switch' => 'yes',
@@ -1330,9 +1332,8 @@ class Team_Member extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1396,9 +1397,8 @@ class Team_Member extends Powerpack_Widget {
 				'label'                 => __( 'Divider Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-description-divider' => 'border-bottom-color: {{VALUE}}',
@@ -1739,7 +1739,7 @@ class Team_Member extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],

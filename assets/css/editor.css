@@ -1,9 +1,6 @@
 #elementor-panel-category-power-pack .icon {
     max-height: 43px;
 }
-.elementor-element {
-    position: relative;
-}
 .elementor-element [class*="power-pack-"]:after {
     background: transparent;
     border-width: 0 1px 1px 0;
@@ -41,6 +38,7 @@
     border-bottom: 0;
     border-radius: 0;
     box-sizing: border-box;
+    flex: auto;
     font-size: 25px;
     padding: 7px 0;
     width: 33.33333%;
@@ -115,4 +113,20 @@
 /* Template Library */
 #elementor-template-library-templates[data-template-source="powerpack"] #elementor-template-library-templates-container {
 	margin: 10px -15px 0;
+}
+
+/* Flip Box Widget */
+.elementor-widget-pp-flipbox.pp-flip-box--flipped .elementor-widget-container .pp-flipbox-front {
+	display: none;
+}
+
+.elementor-widget-pp-flipbox.pp-flip-box--flipped .elementor-widget-container .pp-flipbox-back {
+	transform: none !important;
+	transition: unset !important;
+	opacity: 1;
+}
+
+.elementor-widget-pp-flipbox.pp-flip-box--flipped .elementor-widget-container .pp-flipbox-flip-card {
+	transition: unset !important;
+	transform: none !important;
 }

@@ -18,11 +18,11 @@ use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -135,170 +135,215 @@ class Advanced_Accordion extends Powerpack_Widget {
 
 		$repeater = new Repeater();
 
-		$repeater->add_control(
-			'tab_title',
-			[
-				'label'                 => __( 'Title', 'powerpack' ),
-				'type'                  => Controls_Manager::TEXT,
-				'label_block'           => true,
-				'default'               => __( 'Accordion Title', 'powerpack' ),
-				'dynamic'               => [
-					'active'   => true,
-				],
-			]
-		);
+		$repeater->start_controls_tabs( 'accordion_tabs_content_tabs' );
 
-		$repeater->add_control(
-			'tab_title_icon',
-			[
-				'label'                 => __( 'Icon', 'powerpack' ),
-				'type'                  => Controls_Manager::ICONS,
-				'label_block'           => true,
-				'fa4compatibility'      => 'accordion_tab_title_icon',
-			]
-		);
+			$repeater->start_controls_tab(
+				'accordion_tabs_content_tab',
+				[
+					'label' => __( 'Content', 'powerpack' ),
+				]
+			);
 
-		$repeater->add_control(
-			'content_type',
-			[
-				'label'                 => esc_html__( 'Content Type', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'label_block'           => false,
-				'options'               => [
-					'content'   => __( 'Content', 'powerpack' ),
-					'image'     => __( 'Image', 'powerpack' ),
-					'section'   => __( 'Saved Section', 'powerpack' ),
-					'widget'    => __( 'Saved Widget', 'powerpack' ),
-					'template'  => __( 'Saved Page Template', 'powerpack' ),
-				],
-				'default'               => 'content',
-			]
-		);
-
-		$repeater->add_control(
-			'accordion_content',
-			[
-				'label'                 => esc_html__( 'Content', 'powerpack' ),
-				'type'                  => Controls_Manager::WYSIWYG,
-				'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
-				'dynamic'               => [ 'active' => true ],
-				'condition'             => [
-					'content_type'  => 'content',
-				],
-			]
-		);
-
-		$repeater->add_control(
-			'image',
-			[
-				'label'                 => __( 'Image', 'powerpack' ),
-				'type'                  => Controls_Manager::MEDIA,
-				'dynamic'               => [
-					'active'   => true,
-				],
-				'default'               => [
-					'url' => Utils::get_placeholder_image_src(),
-				],
-				'conditions'            => [
-					'terms' => [
-						[
-							'name'      => 'content_type',
-							'operator'  => '==',
-							'value'     => 'image',
+				$repeater->add_control(
+					'tab_title',
+					[
+						'label'                 => __( 'Title', 'powerpack' ),
+						'type'                  => Controls_Manager::TEXT,
+						'label_block'           => true,
+						'default'               => __( 'Accordion Title', 'powerpack' ),
+						'dynamic'               => [
+							'active'   => true,
 						],
-					],
-				],
-			]
-		);
+					]
+				);
 
-		$repeater->add_group_control(
-			Group_Control_Image_Size::get_type(),
-			[
-				'name'                  => 'image',
-				'label'                 => __( 'Image Size', 'powerpack' ),
-				'default'               => 'large',
-				'exclude'               => [ 'custom' ],
-				'conditions'            => [
-					'terms' => [
-						[
-							'name'      => 'content_type',
-							'operator'  => '==',
-							'value'     => 'image',
+				$repeater->add_control(
+					'content_type',
+					[
+						'label'                 => esc_html__( 'Content Type', 'powerpack' ),
+						'type'                  => Controls_Manager::SELECT,
+						'label_block'           => false,
+						'options'               => [
+							'content'   => __( 'Content', 'powerpack' ),
+							'image'     => __( 'Image', 'powerpack' ),
+							'section'   => __( 'Saved Section', 'powerpack' ),
+							'widget'    => __( 'Saved Widget', 'powerpack' ),
+							'template'  => __( 'Saved Page Template', 'powerpack' ),
 						],
-					],
-				],
-			]
-		);
+						'default'               => 'content',
+					]
+				);
 
-		$repeater->add_control(
-			'saved_widget',
-			[
-				'label'                 => __( 'Choose Widget', 'powerpack' ),
-				'type'                  => 'pp-query',
-				'label_block'           => false,
-				'multiple'              => false,
-				'query_type'            => 'templates-widget',
-				'conditions'        => [
-					'terms' => [
-						[
-							'name'      => 'content_type',
-							'operator'  => '==',
-							'value'     => 'widget',
+				$repeater->add_control(
+					'accordion_content',
+					[
+						'label'                 => esc_html__( 'Content', 'powerpack' ),
+						'type'                  => Controls_Manager::WYSIWYG,
+						'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
+						'dynamic'               => [ 'active' => true ],
+						'condition'             => [
+							'content_type'  => 'content',
 						],
-					],
-				],
-			]
-		);
+					]
+				);
 
-		$repeater->add_control(
-			'saved_section',
-			[
-				'label'                 => __( 'Choose Section', 'powerpack' ),
-				'type'                  => 'pp-query',
-				'label_block'           => false,
-				'multiple'              => false,
-				'query_type'            => 'templates-section',
-				'conditions'        => [
-					'terms' => [
-						[
-							'name'      => 'content_type',
-							'operator'  => '==',
-							'value'     => 'section',
+				$repeater->add_control(
+					'image',
+					[
+						'label'                 => __( 'Image', 'powerpack' ),
+						'type'                  => Controls_Manager::MEDIA,
+						'dynamic'               => [
+							'active'   => true,
 						],
-					],
-				],
-			]
-		);
-
-		$repeater->add_control(
-			'templates',
-			[
-				'label'                 => __( 'Choose Template', 'powerpack' ),
-				'type'                  => 'pp-query',
-				'label_block'           => false,
-				'multiple'              => false,
-				'query_type'            => 'templates-page',
-				'conditions'        => [
-					'terms' => [
-						[
-							'name'      => 'content_type',
-							'operator'  => '==',
-							'value'     => 'template',
+						'default'               => [
+							'url' => Utils::get_placeholder_image_src(),
 						],
-					],
-				],
-			]
-		);
+						'conditions'            => [
+							'terms' => [
+								[
+									'name'      => 'content_type',
+									'operator'  => '==',
+									'value'     => 'image',
+								],
+							],
+						],
+					]
+				);
 
-		$repeater->add_control(
-			'accordion_tab_default_active',
-			[
-				'label'                 => esc_html__( 'Active as Default', 'powerpack' ),
-				'type'                  => Controls_Manager::SWITCHER,
-				'default'               => 'no',
-				'return_value'          => 'yes',
-			]
-		);
+				$repeater->add_group_control(
+					Group_Control_Image_Size::get_type(),
+					[
+						'name'                  => 'image',
+						'label'                 => __( 'Image Size', 'powerpack' ),
+						'default'               => 'large',
+						'exclude'               => [ 'custom' ],
+						'conditions'            => [
+							'terms' => [
+								[
+									'name'      => 'content_type',
+									'operator'  => '==',
+									'value'     => 'image',
+								],
+							],
+						],
+					]
+				);
+
+				$repeater->add_control(
+					'saved_widget',
+					[
+						'label'                 => __( 'Choose Widget', 'powerpack' ),
+						'type'                  => 'pp-query',
+						'label_block'           => false,
+						'multiple'              => false,
+						'query_type'            => 'templates-widget',
+						'conditions'        => [
+							'terms' => [
+								[
+									'name'      => 'content_type',
+									'operator'  => '==',
+									'value'     => 'widget',
+								],
+							],
+						],
+					]
+				);
+
+				$repeater->add_control(
+					'saved_section',
+					[
+						'label'                 => __( 'Choose Section', 'powerpack' ),
+						'type'                  => 'pp-query',
+						'label_block'           => false,
+						'multiple'              => false,
+						'query_type'            => 'templates-section',
+						'conditions'        => [
+							'terms' => [
+								[
+									'name'      => 'content_type',
+									'operator'  => '==',
+									'value'     => 'section',
+								],
+							],
+						],
+					]
+				);
+
+				$repeater->add_control(
+					'templates',
+					[
+						'label'                 => __( 'Choose Template', 'powerpack' ),
+						'type'                  => 'pp-query',
+						'label_block'           => false,
+						'multiple'              => false,
+						'query_type'            => 'templates-page',
+						'conditions'        => [
+							'terms' => [
+								[
+									'name'      => 'content_type',
+									'operator'  => '==',
+									'value'     => 'template',
+								],
+							],
+						],
+					]
+				);
+
+				$repeater->add_control(
+					'accordion_tab_default_active',
+					[
+						'label'                 => esc_html__( 'Active as Default', 'powerpack' ),
+						'type'                  => Controls_Manager::SWITCHER,
+						'default'               => 'no',
+						'return_value'          => 'yes',
+					]
+				);
+
+			$repeater->end_controls_tab();
+
+			$repeater->start_controls_tab(
+				'accordion_tabs_icon_tab',
+				[
+					'label' => __( 'Icon', 'powerpack' ),
+				]
+			);
+
+				$repeater->add_control(
+					'tab_title_icon',
+					[
+						'label'                 => __( 'Icon', 'powerpack' ),
+						'type'                  => Controls_Manager::ICONS,
+						'label_block'           => true,
+						'fa4compatibility'      => 'accordion_tab_title_icon',
+					]
+				);
+
+			$repeater->end_controls_tab();
+
+			$repeater->start_controls_tab(
+				'accordion_tabs_advanced_tab',
+				[
+					'label' => __( 'Advanced', 'powerpack' ),
+				]
+			);
+
+				$repeater->add_control(
+					'accordion_tab_id',
+					[
+						'label'                 => __( 'Custom CSS ID', 'powerpack' ),
+						'description'           => __( 'This CSS ID will be applied to ID attribute of this tab in HTML. It should only contain dashes, underscores, letters or numbers. No spaces. Also make sure to use different ID for each tab.', 'powerpack' ),
+						'type'                  => Controls_Manager::TEXT,
+						'label_block'           => true,
+						'default'               => '',
+						'ai'                    => [
+							'active' => false,
+						],
+					]
+				);
+
+			$repeater->end_controls_tab();
+
+		$repeater->end_controls_tabs();
 
 		$this->add_control(
 			'tabs',
@@ -490,10 +535,13 @@ class Advanced_Accordion extends Powerpack_Widget {
 			'custom_id_prefix',
 			[
 				'label'       => __( 'Custom ID Prefix', 'powerpack' ),
-				'description' => __( 'A prefix that will be applied to ID attribute of tabs\'s in HTML. For example, prefix "mytab" will be applied as "mytab-1", "mytab-2" in ID attribute of Tab 1 and Tab 2 respectively. It should only contain dashes, underscores, letters or numbers. No spaces.', 'powerpack' ),
+				'description' => __( 'A prefix that will be applied to ID attribute of tabs in HTML. For example, prefix "mytab" will be applied as "mytab-1", "mytab-2" in ID attribute of Tab 1 and Tab 2 respectively. It should only contain dashes, underscores, letters or numbers. No spaces.', 'powerpack' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default'     => '',
+				'ai'          => [
+					'active' => false,
+				],
 				'placeholder' => __( 'mytab', 'powerpack' ),
 			]
 		);
@@ -625,9 +673,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '#d4d4d4',
 				'selectors'             => [
@@ -788,9 +835,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -817,7 +863,9 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'name'                  => 'tab_title_typography',
 				'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-tab-title',
-				'scheme'                => Schemes\Typography::TYPOGRAPHY_1,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 			]
 		);
 
@@ -914,9 +962,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_4,
+				'global'                => [
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1055,7 +1102,9 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'name'                  => 'tab_content_typography',
 				'selector'              => '{{WRAPPER}} .pp-advanced-accordion .pp-accordion-item .pp-accordion-tab-content',
-				'scheme'                => Schemes\Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -1170,9 +1219,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors' => [
@@ -1302,9 +1350,8 @@ class Advanced_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_4,
+				'global'                => [
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'default'               => '',
 				'selectors' => [
@@ -1415,27 +1462,34 @@ class Advanced_Accordion extends Powerpack_Widget {
 			'role'              => 'tablist',
 		] );
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'accordion' ) ); ?>>
+		<div <?php $this->print_render_attribute_string( 'accordion' ); ?>>
 			<?php
 			foreach ( $settings['tabs'] as $index => $tab ) :
 
 				$tab_count = $index + 1;
+				$tab_setting_key = $this->get_repeater_setting_key( 'item', 'tabs', $index );
 				$tab_title_setting_key = $this->get_repeater_setting_key( 'tab_title', 'tabs', $index );
 				$tab_content_setting_key = $this->get_repeater_setting_key( 'accordion_content', 'tabs', $index );
 
+				$tab_class         = [ 'pp-accordion-item' ];
 				$tab_title_class   = [ 'pp-accordion-tab-title' ];
 				$tab_content_class = [ 'pp-accordion-tab-content' ];
 
 				if ( 'yes' === $tab['accordion_tab_default_active'] ) {
+					$tab_class[]   = 'pp-accordion-item-active';
 					$tab_title_class[]   = 'pp-accordion-tab-active-default';
 					$tab_content_class[] = 'pp-accordion-tab-active-default';
 				}
 
-				if ( $settings['custom_id_prefix'] ) {
+				if ( $tab['accordion_tab_id'] ) {
+					$tab_id = $tab['accordion_tab_id'];
+				} elseif ( $settings['custom_id_prefix'] ) {
 					$tab_id = $settings['custom_id_prefix'] . '-' . $tab_count;
 				} else {
 					$tab_id = 'pp-accordion-tab-title-' . $id_int . $tab_count;
 				}
+
+				$this->add_render_attribute( $tab_setting_key, 'class', $tab_class );
 
 				$this->add_render_attribute( $tab_title_setting_key, [
 					'id'            => $tab_id,
@@ -1507,9 +1561,9 @@ class Advanced_Accordion extends Powerpack_Widget {
 				$migrated = isset( $settings['__fa4_migrated']['select_toggle_icon_active'] );
 				$is_new = ! isset( $settings['toggle_icon_active'] ) && $migration_allowed;
 				?>
-				<div class="pp-accordion-item">
+				<div <?php $this->print_render_attribute_string( $tab_setting_key ); ?>>
 					<?php $title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] ); ?>
-					<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $tab_title_setting_key ) ); ?>>
+					<<?php echo esc_html( $title_tag ); ?> <?php $this->print_render_attribute_string( $tab_title_setting_key ); ?>>
 						<span class="pp-accordion-title-icon">
 							<?php if ( ! empty( $tab['accordion_tab_title_icon'] ) || ( ! empty( $tab['tab_title_icon']['value'] ) && $is_new_title_icon ) ) { ?>
 								<span class="pp-accordion-tab-icon pp-icon">
@@ -1533,7 +1587,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 										if ( $is_new_normal || $migrated_normal ) {
 											Icons_Manager::render_icon( $settings['select_toggle_icon'], [ 'aria-hidden' => 'true' ] );
 										} elseif ( ! empty( $settings['toggle_icon_normal'] ) ) {
-											?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'toggle-icon' ) ); ?>></i><?php
+											?><i <?php $this->print_render_attribute_string( 'toggle-icon' ); ?>></i><?php
 										}
 										?>
 									</span>
@@ -1544,7 +1598,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 										if ( $is_new_normal || $migrated_normal ) {
 											Icons_Manager::render_icon( $settings['select_toggle_icon_active'], [ 'aria-hidden' => 'true' ] );
 										} elseif ( ! empty( $settings['toggle_icon_active'] ) ) {
-											?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'toggle-icon' ) ); ?>></i><?php
+											?><i <?php $this->print_render_attribute_string( 'toggle-icon' ); ?>></i><?php
 										}
 										?>
 									</span>
@@ -1553,7 +1607,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 						<?php } ?>
 					</<?php echo esc_html( $title_tag ); ?>>
 
-					<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tab_content_setting_key ) ); ?>>
+					<div <?php $this->print_render_attribute_string( $tab_content_setting_key ); ?>>
 						<?php echo $this->get_accordion_content( $tab ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
 				</div>

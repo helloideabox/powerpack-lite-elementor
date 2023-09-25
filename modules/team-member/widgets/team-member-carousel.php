@@ -16,8 +16,8 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -283,6 +283,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Facebook page or profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -299,6 +302,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Twitter profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -314,6 +320,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Instagram profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -329,6 +338,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Linkedin profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -344,6 +356,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter YouTube profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -359,6 +374,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Pinterest profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -374,6 +392,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Dribbble profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -389,6 +410,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Flickr profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -404,7 +428,28 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Tumblr profile URL of team member', 'powerpack' ),
+				)
+			);
+
+			$repeater->add_control(
+				'tiktok_url',
+				array(
+					'label'       => __( 'Tiktok', 'powerpack' ),
+					'type'        => Controls_Manager::TEXT,
+					'dynamic'     => array(
+						'active'     => true,
+						'categories' => array(
+							TagsModule::POST_META_CATEGORY,
+						),
+					),
+					'ai'          => [
+						'active' => false,
+					],
+					'description' => __( 'Enter Tiktok profile URL of team member', 'powerpack' ),
 				)
 			);
 
@@ -419,6 +464,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Github profile URL of team member', 'powerpack' ),
 				)
 			);
@@ -434,7 +482,28 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter Vimeo profile URL of team member', 'powerpack' ),
+				)
+			);
+
+			$repeater->add_control(
+				'xing_url',
+				array(
+					'label'       => __( 'Xing', 'powerpack' ),
+					'type'        => Controls_Manager::TEXT,
+					'dynamic'     => array(
+						'active'     => true,
+						'categories' => array(
+							TagsModule::POST_META_CATEGORY,
+						),
+					),
+					'ai'          => [
+						'active' => false,
+					],
+					'description' => __( 'Enter Xing profile URL of team member', 'powerpack' ),
 				)
 			);
 
@@ -449,6 +518,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter email ID of team member', 'powerpack' ),
 				)
 			);
@@ -464,6 +536,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							TagsModule::POST_META_CATEGORY,
 						),
 					),
+					'ai'          => [
+						'active' => false,
+					],
 					'description' => __( 'Enter contact number of team member', 'powerpack' ),
 				)
 			);
@@ -625,6 +700,22 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'member_social_links' => 'yes',
 					'social_links_style'  => 'button',
 				],
+			]
+		);
+
+		$this->add_control(
+			'links_target',
+			[
+				'label'     => __( 'Links Target', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => '_self',
+				'options'   => [
+					'_self'  => __( 'Same Window', 'powerpack' ),
+					'_blank' => __( 'New Window', 'powerpack' ),
+				],
+				'condition' => array(
+					'member_social_links' => 'yes',
+				),
 			]
 		);
 
@@ -1002,7 +1093,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-tm' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1088,7 +1179,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-tm-content-normal' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1246,7 +1337,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-tm-image img, {{WRAPPER}} .pp-tm-overlay-content-wrap:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1298,7 +1389,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'name'     => 'member_name_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector' => '{{WRAPPER}} .pp-tm-name',
 			)
 		);
@@ -1308,9 +1401,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'   => '',
 				'selectors' => array(
@@ -1364,10 +1456,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'label'     => __( 'Divider Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				),
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-title-divider' => 'border-bottom-color: {{VALUE}}',
 				),
@@ -1505,7 +1596,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'name'     => 'member_position_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .pp-tm-position',
 			)
 		);
@@ -1515,9 +1608,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+				'global'    => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'   => '',
 				'selectors' => array(
@@ -1571,10 +1663,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'label'     => __( 'Divider Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				),
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-position-divider' => 'border-bottom-color: {{VALUE}}',
 				),
@@ -1712,7 +1803,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'name'     => 'member_description_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .pp-tm-description',
 			)
 		);
@@ -1722,9 +1815,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'    => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'   => '',
 				'selectors' => array(
@@ -1778,10 +1870,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'label'     => __( 'Divider Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				),
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-description-divider' => 'border-bottom-color: {{VALUE}}',
 				),
@@ -2106,7 +2197,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2343,7 +2434,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'font-size: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -2362,7 +2453,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -2381,7 +2472,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -2402,7 +2493,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -2414,7 +2505,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -2426,7 +2517,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'label'       => __( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev',
+				'selector'    => '{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev',
 				'separator'   => 'before',
 			)
 		);
@@ -2436,9 +2527,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -2459,7 +2550,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button-next:hover, {{WRAPPER}} .elementor-swiper-button-prev:hover' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -2471,7 +2562,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button-next:hover, {{WRAPPER}} .elementor-swiper-button-prev:hover' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -2483,7 +2574,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-swiper-button-next:hover, {{WRAPPER}} .elementor-swiper-button-prev:hover' => 'border-color: {{VALUE}};',
 				),
 			)
 		);
@@ -2499,7 +2590,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 				'separator'  => 'before',
 			)
@@ -2650,7 +2741,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2772,7 +2863,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'name'      => 'fraction_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .swiper-pagination-fraction',
 				'condition' => array(
 					'dots'            => 'yes',
@@ -2788,19 +2881,18 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 		$image    = $this->get_settings( 'member_image' );
 
-		$this->add_render_attribute( 'team-member-carousel-wrap', 'class', [
-			'swiper-container-wrap',
-			'pp-team-member-carousel-wrap',
-		] );
+		$this->add_render_attribute( 'team-member-carousel-wrap', 'class', 'swiper-container-wrap' );
 
 		if ( $settings['dots_position'] ) {
 			$this->add_render_attribute( 'team-member-carousel-wrap', 'class', 'swiper-container-wrap-dots-' . $settings['dots_position'] );
 		}
 
+		$swiper_class = \Elementor\Plugin::$instance->experiments->is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
+
 		$this->add_render_attribute(
 			'team-member-carousel',
 			array(
-				'class' => array( 'pp-tm-wrapper', 'pp-tm-carousel', 'pp-swiper-slider', 'swiper-container' ),
+				'class' => array( 'pp-tm-wrapper', 'pp-tm-carousel', 'pp-swiper-slider', $swiper_class ),
 				'id'    => 'swiper-container-' . esc_attr( $this->get_id() ),
 			)
 		);
@@ -3023,8 +3115,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		( $item['dribbble_url'] ) ? $social_links['dribbble']   = $item['dribbble_url'] : '';
 		( $item['flickr_url'] ) ? $social_links['flickr']       = $item['flickr_url'] : '';
 		( $item['tumblr_url'] ) ? $social_links['tumblr']       = $item['tumblr_url'] : '';
+		( $item['tiktok_url'] ) ? $social_links['tiktok']       = $item['tiktok_url'] : '';
 		( $item['github_url'] ) ? $social_links['github']       = $item['github_url'] : '';
 		( $item['vimeo_url'] ) ? $social_links['vimeo']         = $item['vimeo_url'] : '';
+		( $item['xing_url'] ) ? $social_links['xing']           = $item['xing_url'] : '';
 		( $item['email'] ) ? $social_links['envelope']          = $item['email'] : '';
 		( $item['phone'] ) ? $social_links['phone']             = $item['phone'] : '';
 		?>
@@ -3054,9 +3148,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						} elseif ( 'phone' === $icon_id ) {
 							$social_link_url = "tel:" . esc_attr( $icon_url );
 						}
+
+						$link_target = $settings['links_target'];
 						?>
 						<li>
-							<a href="<?php echo $social_link_url; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+							<a href="<?php echo $social_link_url; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" target="<?php echo esc_attr( $link_target ); ?>">
 								<span <?php echo wp_kses_post( $this->get_render_attribute_string( $icon_wrap_key ) ); ?>>
 									<?php self::render_share_icon( $network_name ); ?>
 								</span>
@@ -3203,8 +3299,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							'dribbble',
 							'flickr',
 							'tumblr',
+							'tiktok',
 							'github',
 							'vimeo',
+							'xing',
 							'email',
 							'phone',
 						];
@@ -3310,10 +3408,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							var pp_prev_arrow = 'fa fa-angle-left';
 						}
 						#>
-						<div class="pp-slider-arrow swiper-button-next">
+						<div class="pp-slider-arrow elementor-swiper-button-next">
 							<i class="{{ pp_next_arrow }}"></i>
 						</div>
-						<div class="pp-slider-arrow swiper-button-prev">
+						<div class="pp-slider-arrow elementor-swiper-button-prev">
 							<i class="{{ pp_prev_arrow }}"></i>
 						</div>
 						<#
@@ -3324,16 +3422,19 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			view.addRenderAttribute(
 				'container',
 				{
-					'class': [ 'swiper-container', 'pp-tm-wrapper', 'pp-tm-carousel', 'pp-swiper-slider' ],
+					'class': [
+						'pp-tm-wrapper',
+						'pp-tm-carousel',
+						'pp-swiper-slider',
+						elementorFrontend.config.swiperClass
+					],
 				}
 			);
 
 			if ( settings.direction == 'auto' ) {
-				#>
-				<?php if ( is_rtl() ) { ?>
-					<# view.addRenderAttribute( 'container', 'dir', 'rtl' ); #>
-				<?php } ?>
-				<#
+				var direction = elementorFrontend.config.is_rtl ? 'rtl' : 'ltr';
+
+				view.addRenderAttribute( 'container', 'dir', direction );
 			} else {
 				if ( settings.direction == 'right' ) {
 					view.addRenderAttribute( 'container', 'dir', 'rtl' );
@@ -3344,7 +3445,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 			view.addRenderAttribute( 'container', 'data-slider-settings', JSON.stringify( slider_options ) );
 		#>
-		<div class="swiper-container-wrap pp-team-member-carousel-wrap swiper-container-wrap-dots-{{ settings.dots_position }}">
+		<div class="swiper-container-wrap swiper-container-wrap-dots-{{ settings.dots_position }}">
 			<div {{{ view.getRenderAttributeString( 'container' ) }}}>
 				<div class="swiper-wrapper">
 					<# _.each( settings.team_member_details, function( item ) { #>

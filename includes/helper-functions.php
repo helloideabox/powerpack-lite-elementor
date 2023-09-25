@@ -456,6 +456,7 @@ function pp_elements_lite_get_extensions() {
 		'pp-display-conditions'           => __( 'Display Conditions', 'powerpack' ),
 		'pp-wrapper-link'                 => __( 'Wrapper Link', 'powerpack' ),
 		'pp-animated-gradient-background' => __( 'Animated Gradient Background', 'powerpack' ),
+		'pp-custom-cursor'                => __( 'Custom Cursor', 'powerpack' ),
 	);
 
 	return $extensions;
@@ -469,6 +470,85 @@ function pp_elements_lite_get_enabled_modules() {
 	} else {
 		return $enabled_modules;
 	}
+}
+
+function pp_elements_lite_get_filter_modules( $staus = '' ) {
+	global $wpdb;
+
+	$modules          = [];
+	$get_used_widgets = [];
+	$all_widget_list  = pp_elements_lite_get_modules();
+
+	$post_ids = $wpdb->get_col(
+		'SELECT `post_id` FROM `' . $wpdb->postmeta . '`
+				WHERE `meta_key` = \'_elementor_version\';'
+	);
+
+	if ( ! empty( $post_ids ) ) {
+		foreach ( $post_ids as $post_id ) {
+			if ( 'revision' === get_post_type( $post_id ) ) {
+				continue;
+			}
+
+			$get_used_widgets[] = pp_elements_lite_check_widget_used_status( $all_widget_list, $post_id );
+		}
+	}
+
+	if ( empty( $get_used_widgets ) ) {
+		return $modules;
+	}
+
+	foreach ( $get_used_widgets as $get_used_widget ) {
+		if ( ! empty( $get_used_widget ) ) {
+			foreach ( $get_used_widget as $key => $value ) {
+				if ( ! array_key_exists( $value, $modules ) ) {
+					if ( isset( $all_widget_list[ $value ] ) ) {
+						$modules[ $value ] = $all_widget_list[ $value ];
+					}
+				}
+			}
+		}
+	}
+	asort( $modules );
+	update_option( 'pp_elementor_used_modules', $modules );
+
+	$notused_modules = array_diff_key( $all_widget_list, $modules );
+	asort( $notused_modules );
+	update_option( 'pp_elementor_notused_modules', $notused_modules );
+
+	if ( 'notused' === $staus ) {
+		$modules = $notused_modules;
+	}
+
+	return $modules;
+}
+
+function pp_elements_lite_check_widget_used_status( $all_widget_list, $post_id = '' ) {
+	$widget_data = [];
+	if ( ! current_user_can( 'install_plugins' ) ) {
+		$widget_data;
+	}
+
+	if ( ! empty( $post_id ) ) {
+		$meta_data = \Elementor\Plugin::$instance->documents->get( $post_id );
+
+		if ( is_object( $meta_data ) ) {
+			$meta_data = $meta_data->get_elements_data();
+
+			if ( empty( $meta_data ) ) {
+				$widget_data;
+			}
+
+			\Elementor\Plugin::$instance->db->iterate_data( $meta_data, function( $element ) use ( $all_widget_list, &$widget_data ) {
+				if ( ! empty( $element['widgetType'] ) ) {
+					if ( substr( $element['widgetType'], 0, 3 ) === 'pp-' ) {
+						$widget_data[] = $element['widgetType'];
+					}
+				}
+			} );
+		}
+	}
+	return $widget_data;
 }
 
 function pp_elements_lite_get_enabled_extensions() {

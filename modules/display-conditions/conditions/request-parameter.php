@@ -68,6 +68,9 @@ class Request_Parameter extends Condition {
 			'default'     => '',
 			'placeholder' => '',
 			'description' => __( 'Enter each request parameter on a new line as pairs of param=value or param1=value1&amp;param2=value2.', 'powerpack' ),
+			'ai'          => [
+				'active' => false,
+			],
 		];
 	}
 

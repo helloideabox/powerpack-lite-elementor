@@ -419,6 +419,7 @@
 	});
 
 	var Component = function(ComponentModal) {
+		var self;
 		Component.prototype = Object.create(ComponentModal && ComponentModal.prototype, {
 			constructor: {
 				value: Component,
@@ -433,6 +434,7 @@
 		var parent = Object.getPrototypeOf( Component.prototype );
 		Component.prototype.__construct = function(args) {
 			parent.__construct.call( this, args );
+			self = this;
 			elementor.on( 'document:loaded', this.onDocumentLoaded.bind( this ) );
 		};
 		Component.prototype.getNamespace = function() {
@@ -513,16 +515,15 @@
 			return true;
 		};
 		Component.prototype.show = function( args ) {
-			this.manager.modalConfig = args;
+			self.manager.modalConfig = args;
 	
 			if ( args.toDefault || ! $e.routes.restoreState( 'powerpack' ) ) {
-				$e.route( this.getDefaultRoute() );
+				$e.route( self.getDefaultRoute() );
 			}
 		};
 		Component.prototype.insertTemplate = function( args ) {
 			var autoImportSettings = false,
-				model = args.model,
-				self = this;
+				model = args.model;
 	
 			var withPageSettings = args.withPageSettings || null;
 	
@@ -531,16 +532,16 @@
 			}
 	
 			if ( null === withPageSettings && model.get( 'hasPageSettings' ) ) {
-				var insertTemplateHandler = this.getImportSettingsDialog();
+				var insertTemplateHandler = self.getImportSettingsDialog();
 	
 				insertTemplateHandler.showImportDialog( model );
 	
 				return;
 			}
 	
-			this.manager.layout.showLoadingView();
+			self.manager.layout.showLoadingView();
 	
-			this.manager.requestTemplateContent( model.get( 'source' ), model.get( 'template_id' ), {
+			self.manager.requestTemplateContent( model.get( 'source' ), model.get( 'template_id' ), {
 				data: {
 					with_page_settings: withPageSettings,
 				},
@@ -631,7 +632,7 @@
 		};
 
 		return Component;
-	}(elementorModules.common.ComponentModal);
+	}($e.modules.ComponentModalBase);
 
 
 	var TemplateLibraryManager = function TemplateLibraryManager() {
@@ -859,7 +860,7 @@
 
 		$templateLibBtnStyle.html( btnStyle );
 
-		$previewContents.find('head').append( $templateLibBtnStyle );
+		//$previewContents.find('head').append( $templateLibBtnStyle );
 
 		var $templateLibBtn = $('<div />');
 		

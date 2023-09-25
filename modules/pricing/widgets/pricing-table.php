@@ -10,15 +10,12 @@ use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Repeater;
 use Elementor\Icons_Manager;
-use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -110,7 +107,7 @@ class Pricing_Table extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since 2.2.5
+	 * @since 2.0.3
 	 * @access protected
 	 */
 	protected function register_controls() {
@@ -420,6 +417,15 @@ class Pricing_Table extends Powerpack_Widget {
 
 		$repeater = new Repeater();
 
+		$repeater->start_controls_tabs( 'tabs_features_content' );
+
+		$repeater->start_controls_tab(
+			'tab_features_content',
+			[
+				'label' => __( 'Content', 'powerpack' ),
+			]
+		);
+
 		$repeater->add_control(
 			'feature_text',
 			array(
@@ -447,18 +453,6 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$repeater->add_control(
-			'tooltip_content',
-			array(
-				'label'       => __( 'Tooltip Content', 'powerpack' ),
-				'type'        => Controls_Manager::WYSIWYG,
-				'default'     => __( 'This is a tooltip', 'powerpack' ),
-				'dynamic'     => array(
-					'active' => true,
-				),
-			)
-		);
-
-		$repeater->add_control(
 			'select_feature_icon',
 			array(
 				'label'            => __( 'Icon', 'powerpack' ),
@@ -470,6 +464,36 @@ class Pricing_Table extends Powerpack_Widget {
 				),
 				'fa4compatibility' => 'feature_icon',
 			)
+		);
+
+		$repeater->end_controls_tab();
+
+		$repeater->start_controls_tab(
+			'tab_features_tooltip',
+			[
+				'label' => __( 'Tooltip', 'powerpack' ),
+			]
+		);
+
+		$repeater->add_control(
+			'tooltip_content',
+			array(
+				'label'       => __( 'Tooltip Content', 'powerpack' ),
+				'type'        => Controls_Manager::WYSIWYG,
+				'default'     => __( 'This is a tooltip', 'powerpack' ),
+				'dynamic'     => array(
+					'active' => true,
+				),
+			)
+		);
+
+		$repeater->end_controls_tab();
+
+		$repeater->start_controls_tab(
+			'tab_features_style',
+			[
+				'label' => __( 'Style', 'powerpack' ),
+			]
 		);
 
 		$repeater->add_control(
@@ -512,6 +536,10 @@ class Pricing_Table extends Powerpack_Widget {
 				),
 			)
 		);
+
+		$repeater->end_controls_tab();
+
+		$repeater->end_controls_tabs();
 
 		$this->add_control(
 			'table_features',
@@ -577,7 +605,7 @@ class Pricing_Table extends Powerpack_Widget {
 					'click' => __( 'Click', 'powerpack' ),
 				),
 				'frontend_available' => true,
-				'condition' => [
+				'condition'          => [
 					'show_tooltip' => 'yes',
 				],
 			]
@@ -651,6 +679,9 @@ class Pricing_Table extends Powerpack_Widget {
 					'swing' => __( 'Swing', 'powerpack' ),
 				),
 				'frontend_available' => true,
+				'condition' => [
+					'show_tooltip' => 'yes',
+				],
 			)
 		);
 
@@ -815,6 +846,9 @@ class Pricing_Table extends Powerpack_Widget {
 				'min'                => -9999999,
 				'step'               => 1,
 				'frontend_available' => true,
+				'condition'          => [
+					'show_tooltip' => 'yes',
+				],
 			)
 		);
 
@@ -1153,9 +1187,8 @@ class Pricing_Table extends Powerpack_Widget {
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_2,
+				'global'                => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-head' => 'background-color: {{VALUE}}',
@@ -1246,8 +1279,8 @@ class Pricing_Table extends Powerpack_Widget {
 				],
 				'size_units'            => [ 'px', '%' ],
 				'condition'             => [
-					'icon_type'   => 'image',
-					'icon_image!' => '',
+					'icon_type'        => 'image',
+					'icon_image[url]!' => '',
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-icon' => 'width: {{SIZE}}{{UNIT}}',
@@ -1336,7 +1369,7 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'condition'             => [
 					'icon_type!' => 'none',
 				],
@@ -1372,7 +1405,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'table_title_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-pricing-table-title',
 			]
 		);
@@ -1409,7 +1444,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'table_subtitle_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_2,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'condition'             => [
 					'table_subtitle!' => '',
 				],
@@ -1460,7 +1497,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'table_pricing_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-pricing-table-price',
 				'separator'             => 'before',
 			]
@@ -1506,7 +1545,7 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-price' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1693,7 +1732,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'duration_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_2,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-pricing-table-price-duration',
 			]
 		);
@@ -1829,9 +1870,8 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1884,7 +1924,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'table_features_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-pricing-table-features',
 				'separator'             => 'before',
 			]
@@ -2201,7 +2243,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'      => 'tooltip_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '.pp-tooltip.pp-tooltip-{{ID}} .pp-tooltip-content',
 				'condition' => [
 					'show_tooltip' => 'yes',
@@ -2228,7 +2272,7 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
 					'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -2314,6 +2358,28 @@ class Pricing_Table extends Powerpack_Widget {
 					'tooltip_display_on' => 'icon',
 				],
 			]
+		);
+
+		$this->add_responsive_control(
+			'tooltip_icon_spacing',
+			array(
+				'label'      => __( 'Icon Spacing', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 1,
+						'max' => 100,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-table-cell .pp-table-tooltip-icon' => 'margin-left: {{SIZE}}px;',
+				),
+				'condition'  => [
+					'show_tooltip'       => 'yes',
+					'tooltip_display_on' => 'icon',
+				],
+			)
 		);
 
 		$this->end_controls_section();
@@ -2455,10 +2521,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
-				),
+				'global'                => [
+					'default' => Global_Colors::COLOR_ACCENT,
+				],
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-pricing-table-button' => 'background-color: {{VALUE}}',
@@ -2503,7 +2568,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'button_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'condition'             => [
 					'table_button_text!' => '',
 				],
@@ -2531,7 +2598,7 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'condition'             => [
 					'table_button_text!' => '',
 				],
@@ -2687,9 +2754,8 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'     => Scheme_Color::get_type(),
-					'value'    => Scheme_Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '',
 				'condition'             => [
@@ -2762,7 +2828,9 @@ class Pricing_Table extends Powerpack_Widget {
 			[
 				'name'                  => 'additional_info_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'condition'             => [
 					'table_additional_info!' => '',
 				],
@@ -2772,6 +2840,16 @@ class Pricing_Table extends Powerpack_Widget {
 
 		$this->end_controls_section();
 
+	}
+
+	private function render_currency_symbol( $symbol, $location ) {
+		$currency_position = $this->get_settings( 'currency_position' );
+		$location_setting = ! empty( $currency_position ) ? $currency_position : 'before';
+		if ( ! empty( $symbol ) && $location === $location_setting ) {
+			$symbol = apply_filters( 'ppe_pricing_table_currency', $symbol, $this->get_id() );
+
+			echo '<span class="pp-pricing-table-price-prefix">' . $symbol . '</span>';
+		}
 	}
 
 	private function get_currency_symbol( $symbol_name ) {
@@ -2984,22 +3062,19 @@ class Pricing_Table extends Powerpack_Widget {
 						<?php if ( 'yes' === $settings['discount'] && $settings['table_original_price'] ) { ?>
 							<span class="pp-pricing-table-price-original">
 								<?php
-								if ( $symbol && 'after' === $settings['currency_position'] ) {
-									echo wp_kses_post( $settings['table_original_price'] ) . esc_attr( $symbol );
-								} else {
-									echo esc_attr( $symbol ) . wp_kses_post( $settings['table_original_price'] );
-								}
+									$this->render_currency_symbol( $symbol, 'before' );
+									$this->print_unescaped_setting( 'table_original_price' );
+									$this->render_currency_symbol( $symbol, 'after' );
 								?>
 							</span>
 						<?php } ?>
-						<?php if ( $symbol && ( 'before' === $settings['currency_position'] || '' === $settings['currency_position'] ) ) { ?>
-							<span class="pp-pricing-table-price-prefix">
-								<?php echo esc_attr( $symbol ); ?>
-							</span>
-						<?php } ?>
+						<?php $this->render_currency_symbol( $symbol, 'before' ); ?>
 						<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_price' ) ); ?>>
 							<span class="pp-pricing-table-integer-part">
-								<?php echo wp_kses_post( $intvalue ); ?>
+								<?php
+									// PHPCS - the main text of a widget should not be escaped.
+									echo $intvalue; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								?>
 							</span>
 							<?php if ( $fraction ) { ?>
 								<span class="pp-pricing-table-after-part">
@@ -3007,11 +3082,7 @@ class Pricing_Table extends Powerpack_Widget {
 								</span>
 							<?php } ?>
 						</span>
-						<?php if ( $symbol && 'after' === $settings['currency_position'] ) { ?>
-							<span class="pp-pricing-table-price-prefix">
-								<?php echo esc_attr( $symbol ); ?>
-							</span>
-						<?php } ?>
+						<?php $this->render_currency_symbol( $symbol, 'after' ); ?>
 						<?php if ( $settings['table_duration'] ) { ?>
 							<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_duration' ) ); ?>>
 								<?php echo wp_kses_post( $settings['table_duration'] ); ?>
@@ -3054,7 +3125,7 @@ class Pricing_Table extends Powerpack_Widget {
 						$this->add_render_attribute( $feature_content_key, 'class', 'pp-pricing-table-feature-content' );
 
 						$tooltip_icon_key = $this->get_repeater_setting_key( 'tooltip_icon_key', 'table_features', $index );
-						$this->add_render_attribute( $tooltip_icon_key, 'class', 'pp-pricing-table-tooltip-icon' );
+						$this->add_render_attribute( $tooltip_icon_key, 'class', ['pp-pricing-table-tooltip-icon', 'pp-icon'] );
 
 						$tooltip_content_key = $this->get_repeater_setting_key( 'tooltip_content_key', 'table_features', $index );
 
@@ -3083,7 +3154,7 @@ class Pricing_Table extends Powerpack_Widget {
 						<li <?php echo wp_kses_post( $this->get_render_attribute_string( $feature_list_key ) ); ?>>
 							<div <?php echo wp_kses_post( $this->get_render_attribute_string( $feature_content_key ) ); ?>>
 								<?php
-								if ( ! empty( $item['select_feature_icon'] ) || ( ! empty( $item['feature_icon']['value'] ) && $is_new ) ) : ?>
+								if ( ! empty( $item['feature_icon'] ) || ( ! empty( $item['select_feature_icon']['value'] ) && $is_new ) ) : ?>
 									<span class="pp-pricing-table-fature-icon pp-icon">
 										<?php
 										if ( $is_new || $migrated ) {
@@ -3367,7 +3438,7 @@ class Pricing_Table extends Powerpack_Widget {
 						} #>
 						<li class="elementor-repeater-item-{{ item._id }} <# if ( item.exclude == 'yes' ) { #> excluded <# } #>">
 							<div {{{ view.getRenderAttributeString( featureContentKey ) }}}>
-								<# if ( item.select_feature_icon || item.feature_icon.value ) { #>
+								<# if ( item.feature_icon || item.select_feature_icon.value ) { #>
 									<span class="pp-pricing-table-fature-icon pp-icon">
 									<#
 										iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.select_feature_icon, { 'aria-hidden': true }, 'i', 'object' );

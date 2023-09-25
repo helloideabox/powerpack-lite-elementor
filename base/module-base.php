@@ -72,19 +72,20 @@ abstract class Module_Base {
 	public function __construct() {
 		$this->reflection = new \ReflectionClass( $this );
 
-		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
+		add_action( 'elementor/widgets/register', array( $this, 'init_widgets' ) );
 	}
 
 	public function init_widgets() {
-		$widget_manager = \Elementor\Plugin::instance()->widgets_manager;
+		$widgets_manager = \Elementor\Plugin::instance()->widgets_manager;
 
 		foreach ( $this->get_widgets() as $widget ) {
-			$widget_name = strtolower( $widget );
+			$widget_name     = strtolower( $widget );
 			$widget_filename = 'pp-' . str_replace( '_', '-', $widget_name );
 
 			if ( $this->is_widget_active( $widget_filename ) ) {
 				$class_name = $this->reflection->getNamespaceName() . '\Widgets\\' . $widget;
-				$widget_manager->register_widget_type( new $class_name() );
+
+				$widgets_manager->register( new $class_name() );
 			}
 		}
 	}

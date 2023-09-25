@@ -1,11 +1,10 @@
 .pp-info-box-container {
     @include transition($target: all, $time: 0.25s, $timing-function: linear);
-    &:not(.pp-elementor-grid) {
+    &:not(.elementor-grid) {
         display: block;
     }
 }
 .pp-info-box {
-    overflow: hidden;
     .pp-info-box-icon {
         display: inline-block;
         line-height: 1;
@@ -25,6 +24,9 @@
     }
     &-divider {
         display: inline-block;
+    }
+    .pp-info-box-equal-height & {
+        height: 100%;
     }
 }
 .pp-info-box-left {

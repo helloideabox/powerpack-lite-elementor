@@ -3,18 +3,10 @@ namespace PowerpackElementsLite\Extensions;
 
 // Powerpack Elements classes
 use PowerpackElementsLite\Base\Extension_Base;
-use PowerpackElementsLite\Classes\PP_Posts_Helper;
 
-// Elementor classes
-use Elementor\Controls_Manager;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Repeater;
-
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Conditions Extension
@@ -49,7 +41,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	/**
 	 * The description of the current extension
 	 *
-	 * @since 2.-.0
+	 * @since 1.2.7
 	 **/
 	public static function get_description() {
 		return __( 'Adds display conditions to widgets and sections allowing you to show them depending on authentication, roles, date and time of day.', 'powerpack' );
@@ -99,6 +91,13 @@ class Extension_Display_Conditions extends Extension_Base {
 
 		}, 10, 2 );
 
+		// Activate sections for containers
+		add_action( 'elementor/element/container/section_layout/after_section_end', function( $element, $args ) {
+
+			$this->add_common_sections( $element, $args );
+
+		}, 10, 2 );
+
 	}
 
 	/**
@@ -109,14 +108,12 @@ class Extension_Display_Conditions extends Extension_Base {
 	 * @access protected
 	 */
 	protected function add_actions() {
-
 		$module = \PowerpackElementsLite\PowerpackLitePlugin::instance()->modules_manager->get_modules( 'display-conditions' );
 		$module->add_actions();
-
 	}
 
 	protected function render_editor_notice( $settings ) {
-		?><span>This widget is displayed conditionally.</span>
+		?><span><?php _e( 'This widget is displayed conditionally.', 'powerpack' ); ?></span>
 		<?php
 	}
 }

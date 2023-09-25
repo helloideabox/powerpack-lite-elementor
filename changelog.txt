@@ -1,3 +1,135 @@
+== 2.7.10 ==
+Release date: September 20, 2023
+* Enhancement: Instagram Feed - Added conditional loading of scripts
+* Fixed: Info Grid & Carousel - Visible Items option was not working in Elementor editor
+* Fixed: Info Grid & Carousel - JS error was showing when grid layout is selected
+* Fixed: Advanced Accordion - Issue with toggle icon when item is set as active by default
+
+== 2.7.9 ==
+Release date: August 1, 2023
+* Fixed: Compatibility issues with Elementor 3.15.0
+
+== 2.7.8 ==
+Release date: July 11, 2023
+* Enhancement: WP Forms - Updated labels text color selector
+* Enhancement: Removed CSS & JS related to slick slider
+* Fixed: Team Member Carousel - Images were not appearing in the editor
+* Fixed: Team Member Carousel - Arrow style options were not working
+* Fixed: Info Box Carousel - Images were not appearing in the editor
+* Fixed: Logo Carousel - Pagination dots styling options were not working
+
+== 2.7.7 ==
+Release date: June 21, 2023
+* Enhancement: WP Forms - Added page break style options
+* Enhancement: Disabled AI support for irrelevant controls
+* Fixed: Compatibility issues with Elementor 3.14.0
+* Fixed: Content Ticker - Position of arrows
+
+== 2.7.6 ==
+Release date: May 29, 2023
+* Enhancement: Content Reveal - Added Default State option to show revealed content on page load
+* Enhancement: Content Reveal - Reveal button hides when number of lines of content is less than the visible lines set in the settings
+* Enhancement: Image Accordion - Added option to disable body click action
+* Fixed: Logo Carousel - Arrows style options were not working
+
+== 2.7.5 ==
+Release date: May 2, 2023
+* Enhancement: Added compatibility for Swiper v8.45
+* Fixed: Info Grid & Carousel - Equal height option
+* Fixed: Content Reveal - Compatibility with WPML
+* Fixed: Editor - PowerPack add template button icon issue
+
+== 2.7.4 ==
+Release date: March 29, 2023
+* Enhancement: Advanced Posts - Added option to automatically align buttons
+* Enhancement: Added compatibility for Swiper v8.45
+* Enhancement: Updated Elementor compatibility tags
+* Fixed: Info Grid & Carousel - Columns issue in Grid layout
+
+== 2.7.3 ==
+Release date: February 8, 2023
+* Enhancement: Logo Carousel - Added direction option
+* Enhancement: Logo Carousel - Repeater items now show logo title instead of Logo Image text
+* Enhancement: Team Member Carousel - Added support for Xing icon
+* Fixed: Twitter Tweet - Widget stopped working after Twitter API update
+* Fixed: Twitter Timeline - Widget stopped working after Twitter API update
+
+== 2.7.2 ==
+Release date: January 18, 2023
+* Fixed: Compatibility issues with Elementor 3.10.0
+* Enhancement: Team Member Carousel - Added Links Target option
+
+== 2.7.1 ==
+Release date: December 9, 2022
+* Enhancement: Updated Elementor compatibility tags
+* Enhancement: Price Menu - Updated sanitization functions
+* Enhancement: Info Box Carousel - Box link structure
+* Fixed: Gravity Forms - Use Ajax was not working
+* Fixed: Random Image - Image alt was not printing on the page
+
+== 2.7.0 ==
+Release date: October 27, 2022
+* New: Custom Cursor extension
+* Fixed: Info Box Carousel - Fade effect slides overlapping issue
+* Fixed: Instagram Feed - Widget was fetching maximum 25 images
+
+== 2.6.20 ==
+Release date: September 9, 2022
+* Enhancement: Gravity Forms - Added option to add spacing between labels and custom radio & checkboxes
+* Enhancement: Gravity Forms - Added pp_gf_shortcode_atts filter hook
+* Fixed: Info Box Carousel - JS error with Equal Height option
+* Fixed: Advanced Accordion - Box shadow was not working for item set as active by default
+
+== 2.6.19 ==
+Release date: August 19, 2022
+* Fixed: Copy and paste styling of element prevents the page from saving after Elementor 3.7.0
+
+== 2.6.18 ==
+Release date: August 17, 2022
+* Fixed: Posts - PHP error when Avoid Duplicates option is enabled
+* Fixed: Icon List - Icon Vertical Alignment was not working when link is added
+* Enhancement: Set the minimum Elementor version required to 3.5.0
+
+== 2.6.17 ==
+Release date: August 10, 2022
+* New: Display Conditions - Condition to check new or returning visitor
+* Enhancement: Added option to filter used and unused widgets in PowerPack settings
+* Enhancement: Advanced Posts - Added Image Box Shadow option
+* Enhancement: Content Reveal – Added option to enable or disable the scroll top effect
+* Enhancement: Added EM unit to Border radius controls in all widgets
+* Enhancement: Logo Carousel - Added Pause on Hover option
+* Fixed: Info Grid & Carousel - JS error when grid layout is selected
+* Fixed: Instagram Feed - Removed the option "Likes" as Instagram Basic Display API does not support it
+* Fixed: Instagram Feed - Removed the option "Comments" as Instagram Basic Display API does not support it
+* Fixed: Instagram Feed - Removed the option "Feed by Hashtag" as Instagram Basic Display API does not support it
+* Fixed: Icon List - Spacing issue with RTL layout
+* Fixed: Advanced Posts - Exclude posts option
+* Enhancement: Pricing Table - Added ppe_pricing_table_currency filter hook
+* Fixed: PowerPack template library was not working with Elementor 3.7.0
+
+== 2.6.16 ==
+Release date: July 6, 2022
+* Enhancement: Pricing Table - Added Icon Spacing option for tooltip icons
+* Enhancement: Posts - Added Avoid Duplicates option
+* Enhancement: Advanced Accordion - Added ability to open accordions using keypress
+* Enhancement: WP Forms - Added styling options for Section Divider
+
+== 2.6.15 ==
+Release date: June 9, 2022
+* Enhancement: Team Member Carousel - Added support for Tiktok social icon
+* Enhancement: WPForms - Added compatibility for Modern style dropdown fields
+* Enhancement: Info Box Carousel - Added compatibility for Elementor containers
+
+== 2.6.14 ==
+Release date: May 11, 2022
+* Enhancement: Advanced Accordion - Added Custom CSS ID option
+* Enhancement: Advanced Accordion - Rearranged the repeater content inside tabs
+* Enhancement: Flip Box - Added content background and padding options
+* Fixed: Animated Gradient Background - Background overlay was overriding the gradient effect in editor
+* Fixed: Hotspots - Tooltip position issue
+* Enhancement: Core - Added support for Elementor Containers in Saved Section option
+* Enhancement: Core - Added support for Elementor Containers to PowerPack extensions
+
 == 2.6.13 ==
 Release date: April 15, 2022
 * Fixed: Image Comparison - JS error preventing the widget from working

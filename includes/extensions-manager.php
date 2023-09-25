@@ -11,6 +11,7 @@ class Extensions_Manager {
 	const WRAPPER_LINK                 = 'wrapper-link';
 	const UPGRADE_PRO                  = 'upgrade-pro';
 	const ANIMATED_GRADIENT_BACKGROUND = 'animated-gradient-background';
+	const CUSTOM_CURSOR                = 'custom-cursor';
 
 	private $_extensions = null;
 
@@ -19,6 +20,7 @@ class Extensions_Manager {
 		self::WRAPPER_LINK,
 		self::UPGRADE_PRO,
 		self::ANIMATED_GRADIENT_BACKGROUND,
+		self::CUSTOM_CURSOR,
 	];
 
 	/**

@@ -460,6 +460,17 @@ class PP_Helper {
 		}
 	}
 
+	/**
+	 * Safe print a validated HTML tag.
+	 *
+	 * @since 2.7.7
+	 * @param string $tag
+	 */
+	public static function print_validated_html_tag( $tag ) {
+		// PHPCS - the method validate_html_tag is safe.
+		echo self::validate_html_tag( $tag ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+
 	public static function is_tribe_events_post( $post_id ) {
 		return ( class_exists( 'Tribe__Events__Main' ) && 'tribe_events' === get_post_type( $post_id ) );
 	}
@@ -509,14 +520,14 @@ class PP_Helper {
 			}
 
 			if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
-				<div class="pp-slider-arrow swiper-button-prev swiper-button-prev-<?php echo esc_attr( $widget->get_id() ); ?>">
+				<div class="pp-slider-arrow elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $widget->get_id() ); ?>">
 					<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $prev_arrow, [ 'aria-hidden' => 'true' ] );
 					else : ?>
 						<i <?php $widget->print_render_attribute_string( 'arrow-icon' ); ?>></i>
 					<?php endif; ?>
 				</div>
-				<div class="pp-slider-arrow swiper-button-next swiper-button-next-<?php echo esc_attr( $widget->get_id() ); ?>">
+				<div class="pp-slider-arrow elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $widget->get_id() ); ?>">
 					<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $next_arrow, [ 'aria-hidden' => 'true' ] );
 					else : ?>

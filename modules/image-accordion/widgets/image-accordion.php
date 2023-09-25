@@ -7,7 +7,6 @@ use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
-use Elementor\Control_Media;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Repeater;
@@ -15,8 +14,7 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -409,6 +407,22 @@ class Image_Accordion extends Powerpack_Widget {
 				'condition'             => [
 					'orientation'   => 'vertical',
 				],
+			]
+		);
+
+		$this->add_control(
+			'disable_body_click',
+			[
+				'label'                 => esc_html__( 'Disable Body Click', 'powerpack' ),
+				'description'           => esc_html__( 'Don\'t collapse accordion on body click', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'no',
+				'label_block'           => false,
+				'options'               => [
+					'yes' => esc_html__( 'Yes', 'powerpack' ),
+					'no'  => esc_html__( 'No', 'powerpack' ),
+				],
+				'frontend_available'    => true,
 			]
 		);
 
@@ -940,7 +954,7 @@ class Image_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-image-accordion-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -952,7 +966,9 @@ class Image_Accordion extends Powerpack_Widget {
 			[
 				'name'                  => 'button_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-image-accordion-button',
 			]
 		);

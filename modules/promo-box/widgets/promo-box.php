@@ -11,12 +11,9 @@ use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -488,7 +485,7 @@ class Promo_Box extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box, {{WRAPPER}} .pp-promo-box-wrap, {{WRAPPER}} .pp-promo-box .pp-promo-box-banner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -645,7 +642,7 @@ class Promo_Box extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -828,7 +825,7 @@ class Promo_Box extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-icon, {{WRAPPER}} .pp-promo-box-icon img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1515,7 +1512,7 @@ class Promo_Box extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],

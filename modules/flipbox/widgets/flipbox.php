@@ -11,11 +11,10 @@ use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -529,7 +528,7 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'range'                 => [
 					'px' => [
 						'min' => 0,
@@ -750,6 +749,39 @@ class Flipbox extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'content_front_heading',
+			[
+				'label'                 => esc_html__( 'Content', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
+		);
+
+		$this->add_control(
+			'content_background_color_front',
+			[
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-front .pp-flipbox-inner' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'content_padding_front',
+			[
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-front .pp-flipbox-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
 			'image_style_heading_front',
 			[
 				'label'                 => esc_html__( 'Image', 'powerpack' ),
@@ -855,7 +887,9 @@ class Flipbox extends Powerpack_Widget {
 			array(
 				'name'      => 'icon_typography_front',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-flipbox-icon-image .pp-icon-text',
 				'condition' => array(
 					'icon_type' => 'text',
@@ -1104,6 +1138,39 @@ class Flipbox extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'content_back_heading',
+			[
+				'label'                 => esc_html__( 'Content', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
+		);
+
+		$this->add_control(
+			'content_background_color_back',
+			[
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-back .pp-flipbox-inner' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'content_padding_back',
+			[
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-flipbox-back .pp-flipbox-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
 			'image_style_heading_back',
 			[
 				'label'                 => esc_html__( 'Image', 'powerpack' ),
@@ -1209,7 +1276,9 @@ class Flipbox extends Powerpack_Widget {
 			array(
 				'name'      => 'icon_typography_back',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-flipbox-icon-image-back .pp-icon-text',
 				'condition' => array(
 					'icon_type' => 'text',
@@ -1456,7 +1525,7 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1471,7 +1540,9 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'name'                  => 'button_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-flipbox-button',
 				'condition'             => [
 					'link_type'    => 'button',

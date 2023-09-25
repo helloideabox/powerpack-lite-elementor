@@ -16,9 +16,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -630,13 +629,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					],
 				],
 				'size_units'            => '',
-				'condition'             => [
-					'carousel_effect'   => 'slide',
-				],
 				'separator'             => 'before',
-				'frontend_available'    => true,
 				'condition'             => [
-					'layout' => 'carousel',
+					'layout'          => 'carousel',
+					'carousel_effect' => 'slide',
 				],
 			]
 		);
@@ -662,7 +658,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'layout'          => 'carousel',
 					'carousel_effect' => 'slide',
 				],
-				'frontend_available'    => true,
 			]
 		);
 
@@ -977,7 +972,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'          => __( 'Columns Gap', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => array(
-					'size' => 10,
+					'size' => 20,
 					'unit' => 'px',
 				),
 				'size_units'     => array( 'px', '%' ),
@@ -993,8 +988,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'unit' => 'px',
 				),
 				'selectors'      => array(
-					'{{WRAPPER}} .pp-info-box-container .pp-grid-item-wrap' => 'padding-left: calc({{SIZE}}{{UNIT}}/2); padding-right: calc({{SIZE}}{{UNIT}}/2);',
-					'{{WRAPPER}} .pp-info-box-container' => 'margin-left: calc(-{{SIZE}}{{UNIT}}/2); margin-right: calc(-{{SIZE}}{{UNIT}}/2);',
+					'{{WRAPPER}}' => '--grid-column-gap: {{SIZE}}{{UNIT}}',
 				),
 				'condition'      => array(
 					'layout' => 'grid',
@@ -1024,7 +1018,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'unit' => 'px',
 				),
 				'selectors'      => array(
-					'{{WRAPPER}} .pp-info-box-container .pp-grid-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}' => '--grid-row-gap: {{SIZE}}{{UNIT}}',
 				),
 				'condition'      => array(
 					'layout' => 'grid',
@@ -1074,7 +1068,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1143,9 +1137,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Icon Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1183,7 +1176,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-icon, {{WRAPPER}} .pp-info-box-icon img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1369,7 +1362,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'icon_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-info-box-icon',
 			]
 		);
@@ -1395,9 +1390,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'                => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1411,7 +1405,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'title_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_1,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-info-box-title',
 			]
 		);
@@ -1457,9 +1453,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+				'global'                => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1473,7 +1468,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'subtitle_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_2,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector'              => '{{WRAPPER}} .pp-info-box-subtitle',
 			]
 		);
@@ -1696,9 +1693,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'                => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1712,7 +1708,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'description_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_3,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-info-box-description',
 			]
 		);
@@ -1735,7 +1733,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Margin Bottom', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
-					'size'  => 20,
+					'size'  => 0,
 				],
 				'range'                 => [
 					'px' => [
@@ -1815,9 +1813,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+				'global'                => [
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -1842,7 +1839,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1854,7 +1851,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'button_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .pp-info-box-button',
 			]
 		);
@@ -2048,7 +2047,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => [ 'px' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-slider-arrow' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -2067,7 +2066,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => [ 'px' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -2086,7 +2085,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => [ 'px' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -2107,7 +2106,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-slider-arrow' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2119,7 +2118,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-slider-arrow' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -2131,7 +2130,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev',
+				'selector'              => '{{WRAPPER}} .pp-slider-arrow',
 			]
 		);
 
@@ -2140,9 +2139,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-slider-arrow' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2163,7 +2162,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-slider-arrow:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2175,7 +2174,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-slider-arrow:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -2187,7 +2186,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-slider-arrow:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2203,7 +2202,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-slider-arrow' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator'             => 'before',
 			]
@@ -2260,7 +2259,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2283,7 +2282,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				],
 				'size_units'            => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2312,7 +2311,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'background: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2328,7 +2327,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet-active' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'background: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2344,7 +2343,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet',
+				'selector'              => '{{WRAPPER}} .swiper-pagination-bullet',
 				'condition'             => [
 					'dots'              => 'yes',
 					'pagination_type'   => 'bullets',
@@ -2357,9 +2356,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2382,7 +2381,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'left'     => 'auto',
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullets' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .swiper-pagination-bullets' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2411,7 +2410,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'background: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2427,7 +2426,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .swiper-pagination-bullet:hover' => 'border-color: {{VALUE}};',
 				],
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2481,7 +2480,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'name'                  => 'fraction_typography',
 				'label'                 => __( 'Typography', 'powerpack' ),
-				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+				'global'                => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'              => '{{WRAPPER}} .swiper-pagination-fraction',
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2507,8 +2508,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		if ( 'slide' === $effect ) {
 			$items         = ( isset( $settings['items']['size'] ) && $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
-			$items_tablet  = ( isset( $settings['items_tablet']['size'] ) && $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 3;
-			$items_mobile  = ( isset( $settings['items_mobile']['size'] ) && $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 3;
+			$items_tablet  = ( isset( $settings['items_tablet']['size'] ) && $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2;
+			$items_mobile  = ( isset( $settings['items_mobile']['size'] ) && $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1;
 			$margin        = ( isset( $settings['margin']['size'] ) && $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
 			$margin_tablet = ( isset( $settings['margin_tablet']['size'] ) && $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
 			$margin_mobile = ( isset( $settings['margin_mobile']['size'] ) && $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
@@ -2538,6 +2539,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			'grabCursor'            => ( 'yes' === $settings['grab_cursor'] ),
 			'autoHeight'            => true,
 			'watchSlidesVisibility' => true,
+			'watchSlidesProgress'   => true,
 			'loop'                  => ( 'yes' === $settings['infinite_loop'] ),
 		];
 
@@ -2549,6 +2551,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			} elseif ( $settings['autoplay_speed'] ) {
 				$autoplay_speed = $settings['autoplay_speed'];
 			}
+		}
+
+		if ( 'fade' === $effect ) {
+			$slider_options['fadeEffect'] = array(
+				'crossFade' => true,
+			);
 		}
 
 		$slider_options['autoplay'] = [
@@ -2608,7 +2616,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_render_attribute(
 			[
 				'wrapper'   => [
-					'class' => 'pp-info-box-carousel-wrap',
+					'class' => [ 'pp-info-box-carousel-wrap' ],
 				],
 				'container' => [
 					'class' => 'pp-info-box-container',
@@ -2621,13 +2629,21 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		if ( 'grid' === $settings['layout'] ) {
 
-			$this->add_render_attribute( 'container', 'class', 'pp-elementor-grid' );
-			$this->add_render_attribute( 'info-box-wrap', 'class', 'pp-grid-item-wrap' );
+			$this->add_render_attribute( 'container', 'class', 'elementor-grid' );
+			$this->add_render_attribute( 'info-box-wrap', 'class', 'pp-grid-item-wrap elementor-grid-item' );
 			$this->add_render_attribute( 'info-box', 'class', 'pp-grid-item' );
+
+			if ( 'yes' === $settings['equal_height_boxes'] ) {
+	
+				$this->add_render_attribute( 'container', 'class', 'pp-info-box-equal-height' );
+			}
 
 		} else {
 
-			$this->add_render_attribute( 'wrapper', 'class', 'swiper-container-wrap' );
+			$this->add_render_attribute( 'wrapper', 'class', [
+				'swiper-container-wrap',
+				//'swiper'
+			] );
 
 			if ( $settings['dots_position'] ) {
 				$this->add_render_attribute( 'wrapper', 'class', 'swiper-container-wrap-dots-' . $settings['dots_position'] );
@@ -2641,13 +2657,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 			$slider_options = $this->get_slider_settings();
 
+			$swiper_class = \Elementor\Plugin::$instance->experiments->is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
+
 			$this->add_render_attribute(
 				'container',
 				[
-					'class'                => [ 'pp-info-box-carousel', 'pp-swiper-slider', 'swiper-container', 'swiper-container-' . esc_attr( $this->get_id() ) ],
-					'data-pagination'      => '.swiper-pagination-' . esc_attr( $this->get_id() ),
-					'data-arrow-next'      => '.swiper-button-next-' . esc_attr( $this->get_id() ),
-					'data-arrow-prev'      => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
+					'class'                => [ 'pp-info-box-carousel', 'pp-swiper-slider', $swiper_class ],
 					'data-slider-settings' => wp_json_encode( $slider_options ),
 				]
 			);
@@ -2656,7 +2671,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		}
 
-		$if_html_tag         = 'div';
 		$title_container_tag = 'div';
 		$button_html_tag     = 'div';
 
@@ -2705,10 +2719,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						}
 						?>
 						<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-wrap' ) ); ?>>
+							<?php if ( 'box' === $item['link_type'] ) { ?>
+								<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+							<?php } ?>
 							<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box' ) ); ?>>
-								<?php if ( 'box' === $item['link_type'] ) { ?>
-									<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
-								<?php } ?>
 								<?php if ( 'none' !== $item['icon_type'] ) { ?>
 									<div class="pp-info-box-icon-wrap">
 										<?php if ( 'icon' === $item['link_type'] ) { ?>
@@ -2758,7 +2772,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 									<?php } ?>
 									<?php if ( 'button' === $item['link_type'] || ( 'box' === $item['link_type'] && 'yes' === $item['button_visible'] ) ) { ?>
 										<div class="pp-info-box-footer">
-											<<?php echo esc_html( $button_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-button' ) ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+											<<?php echo esc_html( $button_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-button' ) ); ?> <?php if ( 'button' === $item['link_type'] ) { echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); } ?>>
 												<?php
 												if ( 'before' === $item['button_icon_position'] ) {
 													$this->render_infobox_button_icon( $item );
@@ -2777,11 +2791,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 											</<?php echo esc_html( $button_html_tag ); ?>>
 										</div>
 									<?php } ?>
-									<?php if ( 'box' === $item['link_type'] ) { ?>
-										</a>
-									<?php } ?>
 								</div>
 							</div>
+							<?php if ( 'box' === $item['link_type'] ) { ?>
+								</a>
+							<?php } ?>
 						</div>
 						<?php $i++;
 					endforeach; ?>
@@ -2929,44 +2943,53 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		?>
 		<#
 			function get_slider_settings( settings ) {
+				var crossFade = false;
+
 				if ( settings.carousel_effect !== 'undefined' ) {
 					var $effect = settings.carousel_effect;
 				} else {
 					var $effect = 'slide';
 				}
 
-				var $items          = ( settings.items.size !== '' || settings.items.size !== undefined ) ? settings.items.size : 3,
-					$items_tablet   = ( settings.items_tablet.size !== '' || settings.items_tablet.size !== undefined ) ? settings.items_tablet.size : 2,
-					$items_mobile   = ( settings.items_mobile.size !== '' || settings.items_mobile.size !== undefined ) ? settings.items_mobile.size : 1,
-					$margin         = ( settings.margin.size !== '' || settings.margin.size !== undefined ) ? settings.margin.size : 10,
-					$margin_tablet  = ( settings.margin_tablet.size !== '' || settings.margin_tablet.size !== undefined ) ? settings.margin_tablet.size : 10,
-					$margin_mobile  = ( settings.margin_mobile.size !== '' || settings.margin_mobile.size !== undefined ) ? settings.margin_mobile.size : 10;
+				var $items         = ( settings.items.size !== '' || settings.items.size !== undefined ) ? settings.items.size : 3,
+					$items_tablet  = ( settings.items_tablet.size !== '' || settings.items_tablet.size !== undefined ) ? settings.items_tablet.size : 2,
+					$items_mobile  = ( settings.items_mobile.size !== '' || settings.items_mobile.size !== undefined ) ? settings.items_mobile.size : 1,
+					$margin        = ( settings.margin.size !== '' || settings.margin.size !== undefined ) ? settings.margin.size : 10,
+					$margin_tablet = ( settings.margin_tablet.size !== '' || settings.margin_tablet.size !== undefined ) ? settings.margin_tablet.size : 10,
+					$margin_mobile = ( settings.margin_mobile.size !== '' || settings.margin_mobile.size !== undefined ) ? settings.margin_mobile.size : 10;
 
 				if ( $effect == 'coverflow' ) {
-					$items          = 3,
-					$items_tablet   = 2,
-					$items_mobile   = 1;
+					$items         = 3,
+					$items_tablet  = 2,
+					$items_mobile  = 1;
 				} else if ( $effect == 'fade' || $effect == 'cube' || $effect == 'flip' ) {
-					$items          = 1,
-					$items_tablet   = 1,
-					$items_mobile   = 1,
-					$margin         = 10,
-					$margin_tablet  = 10,
-					$margin_mobile  = 10;
+					$items         = 1,
+					$items_tablet  = 1,
+					$items_mobile  = 1,
+					$margin        = 10,
+					$margin_tablet = 10,
+					$margin_mobile = 10;
+				}
+
+				if ( $effect == 'fade' ) {
+					crossFade = true;
 				}
 
 				var $autoplay = ( settings.autoplay == 'yes' && settings.autoplay_speed.size != '' ) ? settings.autoplay_speed.size : 999999;
 
 				return {
-					direction:              "horizontal",
-					speed:                  ( settings.slider_speed.size !== '' || settings.slider_speed.size !== undefined ) ? settings.slider_speed.size : 400,
-					effect:                 $effect,
-					slidesPerView:          $items,
-					spaceBetween:           $margin,
-					centeredSlides:         ( settings.centered_slides === 'yes' ) ? true : false,
-					grabCursor:             ( settings.grab_cursor === 'yes' ) ? true : false,
-					autoHeight:             true,
-					loop:                   ( settings.infinite_loop === 'yes' ),
+					direction: "horizontal",
+					speed: ( settings.slider_speed.size !== '' || settings.slider_speed.size !== undefined ) ? settings.slider_speed.size : 400,
+					effect: $effect,
+					fadeEffect: {
+						crossFade: true,
+					},
+					slidesPerView: $items,
+					spaceBetween: $margin,
+					centeredSlides: ( settings.centered_slides === 'yes' ) ? true : false,
+					grabCursor: ( settings.grab_cursor === 'yes' ) ? true : false,
+					autoHeight: true,
+					loop: ( settings.infinite_loop === 'yes' ),
 					autoplay: {
 						delay: $autoplay,
 						disableOnInteraction: ( settings.disableOnInteraction === 'yes' ),
@@ -2977,21 +3000,21 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						clickable: true,
 					},
 					navigation: {
-						nextEl: '.swiper-button-next',
-						prevEl: '.swiper-button-prev',
+						nextEl: '.elementor-swiper-button-next',
+						prevEl: '.elementor-swiper-button-prev',
 					},
 					breakpoints: {
 						<?php echo esc_attr( $bp_desktop ); ?>: {
-							slidesPerView:  $items,
-							spaceBetween:   $margin
+							slidesPerView: $items,
+							spaceBetween:  $margin
 						},
 						<?php echo esc_attr( $bp_tablet ); ?>: {
-							slidesPerView:  $items_tablet,
-							spaceBetween:   $margin_tablet
+							slidesPerView: $items_tablet,
+							spaceBetween:  $margin_tablet
 						},
 						<?php echo esc_attr( $bp_mobile ); ?>: {
-							slidesPerView:  $items_mobile,
-							spaceBetween:   $margin_mobile
+							slidesPerView: $items_mobile,
+							spaceBetween:  $margin_mobile
 						}
 					}
 				};
@@ -3023,10 +3046,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 							var prev_arrow = 'fa fa-angle-left';
 						}
 						#>
-						<div class="swiper-button-next">
+						<div class="pp-slider-arrow elementor-swiper-button-next">
 							<i class="{{ next_arrow }}"></i>
 						</div>
-						<div class="swiper-button-prev">
+						<div class="pp-slider-arrow elementor-swiper-button-prev">
 							<i class="{{ prev_arrow }}"></i>
 						</div>
 						<#
@@ -3061,8 +3084,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
             if ( settings.layout == 'grid' ) {
 
-				view.addRenderAttribute( 'container', 'class', 'pp-elementor-grid' );
-				view.addRenderAttribute( 'info-box-wrap', 'class', 'pp-grid-item-wrap' );
+				view.addRenderAttribute( 'container', 'class', 'elementor-grid' );
+				view.addRenderAttribute( 'info-box-wrap', 'class', 'pp-grid-item-wrap elementor-grid-item' );
 				view.addRenderAttribute( 'info-box', 'class', 'pp-grid-item' );
 
 			} else {
@@ -3075,11 +3098,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 );
 
                 if ( settings.direction == 'auto' ) {
-                    #>
-                    <?php if ( is_rtl() ) { ?>
-                        <# view.addRenderAttribute( 'container', 'dir', 'rtl' ); #>
-                    <?php } ?>
-                    <#
+					var direction = elementorFrontend.config.is_rtl ? 'rtl' : 'ltr';
+
+					view.addRenderAttribute( 'container', 'dir', direction );
                 } else {
                     if ( settings.direction == 'right' ) {
                         view.addRenderAttribute( 'container', 'dir', 'rtl' );
@@ -3091,10 +3112,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 view.addRenderAttribute(
                     'container',
                     {
-                        'class': [ 'pp-info-box-carousel', 'swiper-container', 'pp-swiper-slider' ],
-                        'data-pagination': 'swiper-pagination',
-                        'data-arrow-next': 'swiper-button-next',
-                        'data-arrow-prev': 'swiper-button-prev',
+                        'class': [ 'pp-info-box-carousel', 'pp-swiper-slider', elementorFrontend.config.swiperClass ],
                         'data-slider-settings': JSON.stringify( slider_options )
                     }
                 );
@@ -3102,8 +3120,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				view.addRenderAttribute( 'info-box-wrap', 'class', 'swiper-slide' );
             }
 
-			var $if_html_tag = 'div',
-				$title_container_tag = 'div',
+			var $title_container_tag = 'div',
 				$button_html_tag = 'div';
 
 			view.addRenderAttribute( 'info-box-button', 'class', [
@@ -3160,10 +3177,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						}
 					#>
 					<div {{{ view.getRenderAttributeString( 'info-box-wrap' ) }}}>
+						<# if ( item.link_type == 'box' ) { #>
+							<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+						<# } #>
 						<div {{{ view.getRenderAttributeString( 'info-box' ) }}}>
-							<# if ( item.link_type == 'box' ) { #>
-								<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
-							<# } #>
 							<# if ( item.icon_type != 'none' ) { #>
 								<div class="pp-info-box-icon-wrap">
 									<# if ( item.link_type == 'icon' ) { #>
@@ -3235,12 +3252,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 								<# if ( item.description ) { #>
 									<div class="pp-info-box-description">
-										{{ item.description }}
+										{{{ item.description }}}
 									</div>
 								<# } #>
 								<# if ( item.link_type == 'button' || ( item.link_type == 'box' && item.button_visible == 'yes' ) ) { #>
 									<div class="pp-info-box-footer">
-										<{{{ $button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' ) }}} {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+										<{{{ $button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' ) }}}>
 											<# if ( item.button_icon_position == 'before' ) { #>
 												<# button_icon_template( item, index ); #>
 											<# } #>
@@ -3255,11 +3272,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 										</{{{ $button_html_tag }}}>
 									</div>
 								<# } #>
-								<# if ( item.link_type == 'box' ) { #>
-									</a>
-								<# } #>
 							</div>
 						</div>
+						<# if ( item.link_type == 'box' ) { #>
+							</a>
+						<# } #>
 					</div>
 				<# i++ } ); #>
 				<# if ( settings.layout == 'carousel' ) { #></div><# } #>

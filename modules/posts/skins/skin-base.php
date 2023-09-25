@@ -20,8 +20,8 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Css_Filter;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -1228,6 +1228,22 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		$this->add_control(
+			'button_alignment',
+			[
+				'label'       => esc_html__( 'Automatically Align Buttons', 'powerpack' ),
+				'type'        => Controls_Manager::SWITCHER,
+				'label_on'    => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'   => esc_html__( 'No', 'powerpack' ),
+				'default'     => '',
+				'render_type' => 'template',
+				'condition'   => [
+					$this->get_control_id( 'layout!' ) => 'masonry',
+					$this->get_control_id( 'show_button' ) => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
 			'button_link_target',
 			array(
 				'label'     => __( 'Open in a New Tab', 'powerpack' ),
@@ -1780,7 +1796,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-post' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1910,7 +1926,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-post-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1952,7 +1968,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-post-thumbnail, {{WRAPPER}} .pp-post-thumbnail img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1997,6 +2013,17 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'     => 'image_box_shadow',
+				'selector' => '{{WRAPPER}} .pp-post-thumbnail img',
+				'condition' => array(
+					$this->get_control_id( 'show_thumbnail' ) => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
 			array(
 				'name'      => 'thumbnail_filters',
@@ -2025,6 +2052,17 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'hover',
 			array(
 				'label'     => __( 'Hover', 'powerpack' ),
+				'condition' => array(
+					$this->get_control_id( 'show_thumbnail' ) => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'     => 'image_box_shadow_hover',
+				'selector' => '{{WRAPPER}} .pp-post-thumbnail img',
 				'condition' => array(
 					$this->get_control_id( 'show_thumbnail' ) => 'yes',
 				),
@@ -2069,10 +2107,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				),
+				'global'    => [
+					'default' => Global_Colors::COLOR_SECONDARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-post-title, {{WRAPPER}} .pp-post-title a' => 'color: {{VALUE}}',
 				),
@@ -2087,10 +2124,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'     => __( 'Hover Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				),
+				'global'    => [
+					'default' => Global_Colors::COLOR_SECONDARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-post-title a:hover' => 'color: {{VALUE}}',
 				),
@@ -2375,7 +2411,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-post-terms' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2464,10 +2500,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'     => __( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				),
+				'global'    => [
+					'default' => Global_Colors::COLOR_SECONDARY,
+				],
 				'selectors' => array(
 					'{{WRAPPER}} .pp-post-excerpt' => 'color: {{VALUE}}',
 				),
@@ -2684,7 +2719,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'name'      => 'button_typography',
 				'label'     => __( 'Typography', 'powerpack' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'selector'  => '{{WRAPPER}} .pp-posts-button',
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
@@ -2753,7 +2790,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-posts-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -3090,7 +3127,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-slider-arrow' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -3311,7 +3348,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -3485,7 +3522,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'name'      => 'pagination_typography',
 				'selector'  => '{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a',
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
 					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
@@ -3557,7 +3596,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -3986,13 +4025,17 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		<?php do_action( 'ppe_before_single_post_' . $item_type, get_the_ID(), $settings ); ?>
 		<span class="pp-post-<?php echo esc_attr( $item_type ); ?>">
 			<?php
-			if ( $item_icon || $select_item_icon ) {
+			if ( $item_icon || $select_item_icon ) { ?>
+				<span class="pp-icon">
+				<?php
 				if ( $is_new || $migrated ) {
 					Icons_Manager::render_icon( $select_item_icon, array( 'class' => 'pp-meta-icon', 'aria-hidden' => 'true' ) );
 				} else { ?>
 					<span class="pp-meta-icon <?php echo esc_attr( $item_icon ); ?>" aria-hidden="true"></span>
 					<?php
-				}
+				} ?>
+				</span>
+				<?php
 			}
 
 			if ( $item_prefix ) {
@@ -4611,7 +4654,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		if ( 'carousel' === $layout ) {
-			$classes[] = 'swiper-container-wrap';
+			$classes[] = 'swiper-container-wrap swiper';
 
 			if ( $dots_position ) {
 				$classes[] = 'swiper-container-wrap-dots-' . $dots_position;
@@ -4632,6 +4675,10 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'pp-posts',
 			'pp-posts-skin-' . $this->get_id(),
 		);
+
+		if ( 'yes' === $this->get_instance_value( 'button_alignment' ) ) {
+			$classes[] = 'pp-posts-align-buttons';
+		}
 
 		if ( 'carousel' === $layout ) {
 			$classes[] = 'pp-posts-carousel';
@@ -4764,37 +4811,40 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 				<?php do_action( 'ppe_before_single_post_content', get_the_ID(), $settings ); ?>
 
-				<div class="pp-post-content">
-					<?php
-						$content_parts = $this->get_ordered_items( Module::get_post_parts() );
+				<div class="pp-post-content-wrap">
+					<div class="pp-post-content">
+						<?php
+							$content_parts = $this->get_ordered_items( Module::get_post_parts() );
 
-					foreach ( $content_parts as $part => $index ) {
-						if ( 'thumbnail' === $part ) {
-							if ( 'inside' === $thumbnail_location ) {
-								$this->render_post_thumbnail();
+						foreach ( $content_parts as $part => $index ) {
+							if ( 'thumbnail' === $part ) {
+								if ( 'inside' === $thumbnail_location ) {
+									$this->render_post_thumbnail();
+								}
+							}
+
+							if ( 'terms' === $part ) {
+								$this->render_terms();
+							}
+
+							if ( 'title' === $part ) {
+								$this->render_post_title();
+							}
+
+							if ( 'meta' === $part ) {
+								$this->render_post_meta();
+							}
+
+							if ( 'excerpt' === $part ) {
+								$this->render_excerpt();
 							}
 						}
-
-						if ( 'terms' === $part ) {
-							$this->render_terms();
-						}
-
-						if ( 'title' === $part ) {
-							$this->render_post_title();
-						}
-
-						if ( 'meta' === $part ) {
-							$this->render_post_meta();
-						}
-
-						if ( 'excerpt' === $part ) {
-							$this->render_excerpt();
-						}
-
+						?>
+					</div>
+					<?php
 						if ( 'button' === $part ) {
 							$this->render_button();
 						}
-					}
 					?>
 				</div>
 
@@ -5011,14 +5061,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			}
 
 			if ( ! empty( $arrow ) || ( ! empty( $select_arrow['value'] ) && $is_new ) ) { ?>
-				<div class="pp-slider-arrow pp-arrow-prev swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->parent->get_id() ); ?>">
+				<div class="pp-slider-arrow pp-arrow-prev elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->parent->get_id() ); ?>">
 					<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $prev_arrow, [ 'aria-hidden' => 'true' ] );
 					else : ?>
 						<i <?php $this->parent->print_render_attribute_string( 'arrow-icon' ); ?>></i>
 					<?php endif; ?>
 				</div>
-				<div class="pp-slider-arrow pp-arrow-next swiper-button-next swiper-button-next-<?php echo esc_attr( $this->parent->get_id() ); ?>">
+				<div class="pp-slider-arrow pp-arrow-next elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $this->parent->get_id() ); ?>">
 					<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $next_arrow, [ 'aria-hidden' => 'true' ] );
 					else : ?>

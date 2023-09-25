@@ -11,8 +11,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
-use Elementor\Core\Schemes\Color as Scheme_Color;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -59,7 +58,7 @@ class Content_Reveal extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the widget belongs to.
+	 * Retrieve the list of keywords the Content Reveal widget belongs to.
 	 *
 	 * @access public
 	 *
@@ -166,6 +165,32 @@ class Content_Reveal extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'default_content_state',
+			[
+				'label'                 => esc_html__( 'Default State', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'label_block'           => false,
+				'options'               => [
+					'reveal'   => __( 'Reveal', 'powerpack' ),
+					'unreveal' => __( 'Unreveal', 'powerpack' ),
+				],
+				'default'               => 'unreveal',
+				'frontend_available'    => true,
+			]
+		);
+
+		$this->add_control(
+			'scroll_top',
+			[
+				'label'                 => __( 'Scroll Top', 'powerpack' ),
+				'description'           => __( 'Enable this option to scroll to top of content when Read Less button is clicked', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'yes',
+				'return_value'          => 'yes',
+			]
+		);
+
+		$this->add_control(
 			'speed_unreveal',
 			[
 				'label'                 => __( 'Transition Speed', 'powerpack' ),
@@ -181,7 +206,6 @@ class Content_Reveal extends Powerpack_Widget {
 						'step' => 0.1,
 					],
 				],
-				'frontend_available' => true,
 			]
 		);
 
@@ -195,7 +219,6 @@ class Content_Reveal extends Powerpack_Widget {
 					'lines'  => __( 'Lines', 'powerpack' ),
 					'pixels' => __( 'Pixels', 'powerpack' ),
 				],
-				'frontend_available'    => 'true',
 				'condition'             => [
 					'content_type' => 'content',
 				],
@@ -217,9 +240,8 @@ class Content_Reveal extends Powerpack_Widget {
 						'min' => 10,
 					],
 				],
-				'frontend_available'    => true,
 				'selectors'             => [
-					'{{WRAPPER}} .pp-content-reveal-content-wrapper' => 'height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .pp-content-reveal-content-wrapper:not(.pp-content-revealed-wrapper)' => 'height: {{SIZE}}{{UNIT}}',
 				],
 				'render_type'           => 'template',
 				'conditions'            => [
@@ -268,7 +290,6 @@ class Content_Reveal extends Powerpack_Widget {
 				'condition'             => [
 					'visible_type' => 'lines',
 				],
-				'frontend_available'    => true,
 			]
 		);
 
@@ -722,9 +743,8 @@ class Content_Reveal extends Powerpack_Widget {
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+				'global'                => [
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner' => 'background-color: {{VALUE}};',
@@ -748,7 +768,7 @@ class Content_Reveal extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -831,9 +851,8 @@ class Content_Reveal extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
-				'scheme'                => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+				'global'                => [
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner:hover' => 'background-color: {{VALUE}};',
@@ -1012,6 +1031,14 @@ class Content_Reveal extends Powerpack_Widget {
 			],
 		] );
 
+		if ( 'reveal' === $settings['default_content_state'] ) {
+			$this->add_render_attribute( 'wrapper', 'class', 'pp-content-revealed-wrapper' );
+		}
+
+		if ( 'yes' === $settings['scroll_top'] ) {
+			$this->add_render_attribute( 'wrapper', 'data-scroll-top', 'yes' );
+		}
+
 		if ( ( 'content' === $settings['content_type'] && 'pixels' === $settings['visible_type'] && $settings['visible_amount']['size'] ) || ( 'template' === $settings['content_type'] && $settings['visible_amount']['size'] ) ) {
 			$this->add_render_attribute( 'wrapper', 'data-content-height', $settings['visible_amount']['size'] );
 		}
@@ -1023,43 +1050,45 @@ class Content_Reveal extends Powerpack_Widget {
 		if ( $settings['button_icon_open'] || $settings['button_icon_closed'] ) {
 			$this->add_render_attribute( 'button', 'class', 'pp-button-icon-' . $settings['button_icon_position'] );
 		}
+
+		if ( 'reveal' === $settings['default_content_state'] ) {
+			$this->add_render_attribute( 'button', 'class', 'pp-content-revealed' );
+		}
 		?>
-		<div class="pp-content-reveal-container">
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
-				<div class="pp-content-reveal-content">
-					<?php echo $this->get_content_type(); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				</div>
-				<?php if ( 'yes' === $settings['separator'] ) { ?>
-					<div class="pp-content-reveal-saparator"></div>
-				<?php } ?>
+		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
+			<div class="pp-content-reveal-content">
+				<?php echo $this->get_content_type(); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
-			<div class="pp-content-reveal-buttons-wrapper">
-				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'button' ) ); ?>>
-					<span class="pp-content-reveal-button pp-content-reveal-button-open">
-						<span class="pp-content-reveal-button-content">
-							<?php if ( $settings['button_icon_open']['value'] ) { ?>
-								<span class="pp-button-icon pp-icon"><?php Icons_Manager::render_icon( $settings['button_icon_open'] ); ?></span>
-							<?php } ?>
-							<?php if ( $settings['button_text_open'] ) { ?>
-								<span class="pp-content-reveal-button-text">
-									<?php echo wp_kses_post( $settings['button_text_open'] ); ?>
-								</span>
-							<?php } ?>
-						</span>
+			<?php if ( 'yes' === $settings['separator'] ) { ?>
+				<div class="pp-content-reveal-saparator"></div>
+			<?php } ?>
+		</div>
+		<div class="pp-content-reveal-buttons-wrapper">
+			<div <?php $this->print_render_attribute_string( 'button' ); ?>>
+				<span class="pp-content-reveal-button pp-content-reveal-button-open">
+					<span class="pp-content-reveal-button-content">
+						<?php if ( $settings['button_icon_open']['value'] ) { ?>
+							<span class="pp-button-icon pp-icon"><?php Icons_Manager::render_icon( $settings['button_icon_open'] ); ?></span>
+						<?php } ?>
+						<?php if ( $settings['button_text_open'] ) { ?>
+							<span class="pp-content-reveal-button-text">
+								<?php $this->print_unescaped_setting( 'button_text_open' ); ?>
+							</span>
+						<?php } ?>
 					</span>
-					<span class="pp-content-reveal-button pp-content-reveal-button-closed">
-						<span class="pp-content-reveal-button-content">
-							<?php if ( $settings['button_icon_closed']['value'] ) { ?>
-								<span class="pp-button-icon pp-icon"><?php Icons_Manager::render_icon( $settings['button_icon_closed'] ); ?></span>
-							<?php } ?>
-							<?php if ( $settings['button_text_closed'] ) { ?>
-								<span class="pp-content-reveal-button-text">
-									<?php echo wp_kses_post( $settings['button_text_closed'] ); ?>
-								</span>
-							<?php } ?>
-						</span>
+				</span>
+				<span class="pp-content-reveal-button pp-content-reveal-button-closed">
+					<span class="pp-content-reveal-button-content">
+						<?php if ( $settings['button_icon_closed']['value'] ) { ?>
+							<span class="pp-button-icon pp-icon"><?php Icons_Manager::render_icon( $settings['button_icon_closed'] ); ?></span>
+						<?php } ?>
+						<?php if ( $settings['button_text_closed'] ) { ?>
+							<span class="pp-content-reveal-button-text">
+								<?php $this->print_unescaped_setting( 'button_text_closed' ); ?>
+							</span>
+						<?php } ?>
 					</span>
-				</div>
+				</span>
 			</div>
 		</div>
 		<?php

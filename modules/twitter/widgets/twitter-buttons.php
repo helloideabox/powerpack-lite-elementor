@@ -6,14 +6,6 @@ use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
-use Elementor\Utils;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography as Scheme_Typography;
-use Elementor\Core\Schemes\Color as Scheme_Color;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -50,7 +42,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of scripts the logo carousel widget depended on.
+	 * Retrieve the list of scripts the Twitter Buttons widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
@@ -97,6 +89,9 @@ class Twitter_Buttons extends Powerpack_Widget {
 				'label'     => __( 'Profile URL or Username', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'button_type' => array( 'follow', 'mention', 'message' ),
 				),
@@ -109,6 +104,9 @@ class Twitter_Buttons extends Powerpack_Widget {
 				'label'     => __( 'Recipient ID', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'button_type' => 'message',
 				),
@@ -133,6 +131,9 @@ class Twitter_Buttons extends Powerpack_Widget {
 				'label'     => __( 'Hashtag URL or #hashtag', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'button_type' => 'hashtag',
 				),
@@ -145,6 +146,9 @@ class Twitter_Buttons extends Powerpack_Widget {
 				'label'     => __( 'Via (twitter handler)', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'button_type' => array( 'share', 'mention', 'hashtag' ),
 				),
@@ -169,6 +173,9 @@ class Twitter_Buttons extends Powerpack_Widget {
 				'label'     => __( 'Custom Share URL', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'button_type' => array( 'share', 'mention', 'hashtag' ),
 				),

@@ -65,6 +65,26 @@ class PP_Elements_WPML {
 			],
 			'integration-class' => 'WPML_PP_Content_Ticker',
 		];
+		$widgets['pp-content-reveal']       = [
+			'conditions' => [ $this->type => 'pp-content-reveal' ],
+			'fields'     => [
+				[
+					'field'       => 'content',
+					'type'        => __( 'Content Reveal - Content Type = Content', 'powerpack' ),
+					'editor_type' => 'VISUAL',
+				],
+				[
+					'field'       => 'button_text_closed',
+					'type'        => __( 'Content Reveal - Content Unreveal Label', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'button_text_open',
+					'type'        => __( 'Content Reveal - Content Reveal Label', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+			],
+		];
 		$widgets[ 'pp-counter' ]              = [
 			'conditions' => [ $this->type => 'pp-counter' ],
 			'fields'     => [

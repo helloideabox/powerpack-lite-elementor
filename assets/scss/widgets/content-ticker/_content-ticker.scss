@@ -93,8 +93,8 @@
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
-    .swiper-button-next,
-    .swiper-button-prev {
+    .elementor-swiper-button-next,
+    .elementor-swiper-button-prev {
         background: transparent;
         font-size: 18px;
         line-height: 1.2;
@@ -103,9 +103,10 @@
         padding: 0 6px;
         position: static;
         text-align: center;
+        transform: none;
         width: auto;
     }
-    .swiper-button-prev {
+    .elementor-swiper-button-prev {
         margin-right: 6px;
     }
 }

@@ -259,16 +259,6 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
-			'pp-slick',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/slick/slick' . $suffix . '.js',
-			[
-				'jquery',
-			],
-			POWERPACK_ELEMENTS_LITE_VER,
-			true
-		);
-
-		wp_register_script(
 			'powerpack-pp-posts',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-posts' . $suffix . '.js',
 			[
@@ -314,6 +304,16 @@ class PowerpackLitePlugin {
 				'jquery',
 			),
 			'1.0.0',
+			true
+		);
+
+		wp_register_script(
+			'pp-custom-cursor',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-custom-cursor' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
 
@@ -420,7 +420,7 @@ class PowerpackLitePlugin {
 		// Register Controls
 		//\Elementor\Plugin::instance()->controls_manager->register_control( 'pp-query', new Control_Query() );
 
-		if ( version_compare( ELEMENTOR_VERSION, '3.5.0', '>=' ) ) {
+		if ( defined( 'ELEMENTOR_VERSION' ) && version_compare( ELEMENTOR_VERSION, '3.5.0', '>=' ) ) {
 			\Elementor\Plugin::instance()->controls_manager->register( new Control_Query() );
 		} else {
 			\Elementor\Plugin::instance()->controls_manager->register_control( 'pp-query', new Control_Query() );
@@ -477,13 +477,8 @@ class PowerpackLitePlugin {
 		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
 		add_action( 'elementor/elements/categories_registered', array( $this, 'register_category' ) );
 
-		//add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
-		if ( version_compare( ELEMENTOR_VERSION, '3.5.0', '>=' ) ) {
-		    add_action( 'elementor/controls/register', array( $this, 'register_controls' ) );
-	    } else {
-		    add_action('elementor/controls/controls_registered', array( $this, 'register_controls' ) );
-	    }
-		add_action( 'elementor/controls/controls_registered', [ $this, 'include_group_controls' ] );
+		add_action( 'elementor/controls/register', array( $this, 'register_controls' ) );
+		add_action( 'elementor/controls/register', array( $this, 'include_group_controls' ) );
 
 		add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
 		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );

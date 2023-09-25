@@ -46,7 +46,7 @@
 
 		if ( isEditMode ) {
 			carouselWrap.resize( function() {
-				mySwiper.update();
+				//mySwiper.update();
 			});
 		}
 
@@ -62,7 +62,7 @@
 				$(document).on(trigger, function(e, wrap) {
 					if ( wrap.find( '.pp-swiper-slider' ).length > 0 ) {
 						setTimeout(function() {
-							slider.update();
+							mySwiper.update();
 						}, 100);
 					}
 				});
