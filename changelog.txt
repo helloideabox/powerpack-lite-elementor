@@ -1,5 +1,6 @@
 == 2.7.11 ==
 Release date: October 17, 2023
+* Fixed: Advanced Posts - Excerpt length option was not working in the Elementor editor
 * Fixed: Animated Gradient Background - Animation was not working with flex containers
 
 == 2.7.10 ==

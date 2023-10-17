@@ -4322,6 +4322,28 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	}
 
 	/**
+	 * Get post excerpt with limited words.
+	 *
+	 * Returns the excerpt with limit.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function pp_post_excerpt() {
+		$limit = $this->pp_excerpt_length_filter();
+		$excerpt = explode( ' ', get_the_excerpt(), $limit + 1 );
+		$excerpt_more = apply_filters( 'excerpt_more', 20 );
+		if ( count( $excerpt ) >= $limit ) {
+			array_pop( $excerpt );
+			$excerpt = implode( ' ', $excerpt ) . $excerpt_more;
+		} else {
+			$excerpt = implode( ' ', $excerpt );
+		}
+		$excerpt = preg_replace( '`\[[^\]]*\]`', '', $excerpt );
+		return $excerpt;
+	}
+
+	/**
 	 * Get post excerpt end text.
 	 *
 	 * Returns the string to append to post excerpt.
@@ -4369,7 +4391,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			} else {
 				add_filter( 'excerpt_length', array( $this, 'pp_excerpt_length_filter' ), 20 );
 				add_filter( 'excerpt_more', array( $this, 'pp_excerpt_more_filter' ), 20 );
-				the_excerpt();
+				if ( \Elementor\Plugin::instance()->editor->is_edit_mode() ) {
+					echo $this->pp_post_excerpt();
+				} else {
+					the_excerpt();
+				}
 				remove_filter( 'excerpt_length', array( $this, 'pp_excerpt_length_filter' ), 20 );
 				remove_filter( 'excerpt_more', array( $this, 'pp_excerpt_more_filter' ), 20 );
 			}
