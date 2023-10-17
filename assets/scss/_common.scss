@@ -91,7 +91,9 @@
 	cursor: pointer;
 }
 .elementor-section.pp-animated-gradient-bg-yes,
-.elementor-section.pp-animated-gradient-bg-yes .pp-animated-gradient-bg {
+.elementor-element.pp-animated-gradient-bg-yes,
+.elementor-section.pp-animated-gradient-bg-yes .pp-animated-gradient-bg,
+.elementor-element.pp-animated-gradient-bg-yes .pp-animated-gradient-bg {
 	background-size: 400% 400% !important;
 	animation: AnimatedGradientBg 15s ease-in-out infinite;
 	-webkit-animation: AnimatedGradientBg 15s ease-in-out infinite;
