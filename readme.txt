@@ -233,6 +233,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.11 - October 17, 2023 =
+* 	Fixed: Advanced Posts - Excerpt length option was not working in the Elementor editor
+* 	Fixed: Animated Gradient Background - Animation was not working with flex containers
+
 = 2.7.10 - September 20, 2023 =
 * 	Enhancement: Instagram Feed - Added conditional loading of scripts
 * 	Fixed: Info Grid & Carousel - Visible Items option was not working in Elementor editor
