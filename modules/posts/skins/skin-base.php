@@ -4326,7 +4326,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 *
 	 * Returns the excerpt with limit.
 	 *
-	 * @since x.x.x
+	 * @since 2.7.11
 	 * @access public
 	 */
 	public function pp_post_excerpt() {
