@@ -1,3 +1,7 @@
+== 2.7.12 ==
+Release date: 
+* Fixed: Instagram Feed - Carousel was not working when Upgrade Swiper Library experiment is set to active
+
 == 2.7.11 ==
 Release date: October 17, 2023
 * Fixed: Advanced Posts - Excerpt length option was not working in the Elementor editor

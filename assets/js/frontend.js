@@ -23,22 +23,21 @@
 
     var isEditMode		= false;
     
-    var ppSwiperSliderinit = function (carousel, carouselWrap, elementSettings, sliderOptions) {
-
+    var ppSwiperSliderinit = function (carousel, elementSettings, sliderOptions) {
 		$(carousel).closest('.elementor-widget-wrap').addClass('e-swiper-container');
 		$(carousel).closest('.elementor-widget').addClass('e-widget-swiper');
 
-		if ( 'undefined' === typeof Swiper ) {
+		//if ( 'undefined' === typeof Swiper ) {
 			var asyncSwiper = elementorFrontend.utils.swiper;
 
 			new asyncSwiper( carousel, sliderOptions ).then( function( newSwiperInstance ) {
 				var mySwiper = newSwiperInstance;
-				ppSwiperSliderAfterinit( carousel, carouselWrap, elementSettings, mySwiper );
+				ppSwiperSliderAfterinit( carousel, elementSettings, mySwiper );
 			} );
-		} else {
+		/* } else {
 			var mySwiper = new Swiper(carousel, sliderOptions);
-			ppSwiperSliderAfterinit( carousel, carouselWrap, elementSettings, mySwiper );
-		}
+			ppSwiperSliderAfterinit( carousel, elementSettings, mySwiper );
+		} */
     };
 
 	var ppSwiperSliderAfterinit = function (carousel, carouselWrap, elementSettings, mySwiper) {
@@ -63,11 +62,10 @@
 	
     var ppSwiperSliderHandler = function ($scope, $) {
 		var elementSettings = getElementSettings( $scope ),
-			carouselWrap    = $scope.find('.swiper-container-wrap'),
-            carousel        = $scope.find('.pp-swiper-slider'),
-            sliderOptions   = JSON.parse( carousel.attr('data-slider-settings') );
+			carousel        = $scope.find('.pp-swiper-slider'),
+			sliderOptions   = ( carousel.attr('data-slider-settings') !== undefined ) ? JSON.parse( carousel.attr('data-slider-settings') ) : '';
 
-		ppSwiperSliderinit(carousel, carouselWrap, elementSettings, sliderOptions);
+		ppSwiperSliderinit(carousel, elementSettings, sliderOptions);
 	};
     
     var ppWidgetUpdate = function (slider, selector, type) {
@@ -234,22 +232,26 @@
 		} );
     };
     
-    var InstaFeedPopupHandler = function ($scope, $) {
+    var InstaFeedHandler = function ($scope, $) {
         var widgetId		= $scope.data('id'),
 			elementSettings = getElementSettings( $scope ),
+			feed            = $scope.find('.pp-instagram-feed').eq(0),
             layout          = elementSettings.feed_layout;
 
+		if ( ! feed.length ) {
+			return;
+		}
+
 		if ( layout === 'carousel' ) {
-			var carouselWrap  = $scope.find('.swiper-container-wrap'),
-				carousel      = $scope.find('.swiper-container').eq(0),
+			var carousel      = $scope.find('.pp-swiper-slider').eq(0),
 				sliderOptions = JSON.parse( carousel.attr('data-slider-settings') );
 
-			ppSwiperSliderinit(carousel, carouselWrap, elementSettings, sliderOptions);
+			ppSwiperSliderinit(carousel, elementSettings, sliderOptions);
 		} else if (layout === 'masonry') {
 			var grid = $('#pp-instafeed-' + widgetId).imagesLoaded( function() {
 				grid.masonry({
-					itemSelector: '.pp-feed-item',
-					percentPosition: true
+					itemSelector    : '.pp-feed-item',
+					percentPosition : true
 				});
 			});
 		}
@@ -707,7 +709,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-counter.default', CounterHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-logo-carousel.default', ppSwiperSliderHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-info-box-carousel.default', InfoBoxCarouselHandler);
-        elementorFrontend.hooks.addAction('frontend/element_ready/pp-instafeed.default', InstaFeedPopupHandler);
+        elementorFrontend.hooks.addAction('frontend/element_ready/pp-instafeed.default', InstaFeedHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-team-member-carousel.default', ppSwiperSliderHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/pp-scroll-image.default', ImageScrollHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/pp-advanced-accordion.default', AdvancedAccordionHandler);
