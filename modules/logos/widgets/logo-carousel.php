@@ -215,6 +215,18 @@ class Logo_Carousel extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'show_title',
+			[
+				'label'                 => __( 'Show Title', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'yes',
+				'label_on'              => __( 'Yes', 'powerpack' ),
+				'label_off'             => __( 'No', 'powerpack' ),
+				'return_value'          => 'yes',
+			]
+		);
+
+		$this->add_control(
 			'title_html_tag',
 			[
 				'label'                => __( 'Title HTML Tag', 'powerpack' ),
@@ -230,6 +242,9 @@ class Logo_Carousel extends Powerpack_Widget {
 					'div'    => __( 'div', 'powerpack' ),
 					'span'   => __( 'span', 'powerpack' ),
 					'p'      => __( 'p', 'powerpack' ),
+				],
+				'condition'             => [
+					'show_title'   => 'yes',
 				],
 			]
 		);
@@ -747,6 +762,9 @@ class Logo_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Title', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
+				'condition'             => [
+					'show_title'   => 'yes',
+				],
 			]
 		);
 
@@ -759,6 +777,9 @@ class Logo_Carousel extends Powerpack_Widget {
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
 				'selector'              => '{{WRAPPER}} .pp-logo-carousel-title',
+				'condition'             => [
+					'show_title'   => 'yes',
+				],
 			]
 		);
 
@@ -771,6 +792,9 @@ class Logo_Carousel extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-logo-carousel-title' => 'color: {{VALUE}}',
 				],
+				'condition'             => [
+					'show_title'   => 'yes',
+				],
 			]
 		);
 
@@ -782,6 +806,9 @@ class Logo_Carousel extends Powerpack_Widget {
 				'types'                 => [ 'classic', 'gradient' ],
 				'exclude'               => [ 'image' ],
 				'selector'              => '{{WRAPPER}} .pp-logo-carousel-title',
+				'condition'             => [
+					'show_title'   => 'yes',
+				],
 			]
 		);
 
@@ -800,6 +827,9 @@ class Logo_Carousel extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-logo-carousel-title' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
+				'condition'             => [
+					'show_title'   => 'yes',
+				],
 			]
 		);
 
@@ -811,6 +841,9 @@ class Logo_Carousel extends Powerpack_Widget {
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-logo-carousel-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition'             => [
+					'show_title'   => 'yes',
 				],
 			]
 		);
@@ -1352,6 +1385,7 @@ class Logo_Carousel extends Powerpack_Widget {
 	public function slider_settings() {
 		$settings = $this->get_settings();
 
+		$effect                 = ( $settings['carousel_effect'] ) ? $settings['carousel_effect'] : 'slide';
 		$slides_per_view        = ( isset( $settings['items']['size'] ) && $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
 		$slides_per_view_tablet = ( isset( $settings['items_tablet']['size'] ) && $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2;
 		$slides_per_view_mobile = ( isset( $settings['items_mobile']['size'] ) && $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1;
@@ -1359,14 +1393,14 @@ class Logo_Carousel extends Powerpack_Widget {
 		$margin_tablet          = isset( $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
 		$margin_mobile          = isset( $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
 
-		if ( 'fade' === $settings['carousel_effect'] || 'cube' === $settings['carousel_effect'] || 'flip' === $settings['carousel_effect'] ) {
+		if ( 'fade' === $effect || 'cube' === $effect || 'flip' === $effect ) {
 			$slides_per_view = 1;
 			$slides_per_view_tablet = 1;
 			$slides_per_view_mobile = 1;
 			$margin = 10;
 			$margin_tablet = 10;
 			$margin_mobile = 10;
-		} elseif ( 'coverflow' === $settings['carousel_effect'] ) {
+		} elseif ( 'coverflow' === $effect ) {
 			$slides_per_view = 3;
 			$slides_per_view_tablet = 2;
 			$slides_per_view_mobile = 1;
@@ -1378,7 +1412,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$slider_options = [
 			'direction'              => 'horizontal',
 			'speed'                  => ( '' !== $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
-			'effect'                 => ( $settings['carousel_effect'] ) ? $settings['carousel_effect'] : 'slide',
+			'effect'                 => ( $effect ) ? $effect : 'slide',
 			'slidesPerView'          => $slides_per_view,
 			'spaceBetween'           => $margin,
 			'grabCursor'             => ( 'yes' === $settings['grab_cursor'] ),
@@ -1544,24 +1578,26 @@ class Logo_Carousel extends Powerpack_Widget {
 										?>
 									</div>
 									<?php
-									if ( '' !== $item['logo_title'] ) {
-										$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
-										?>
-										<<?php echo esc_html( $title_tag ); ?> class="pp-logo-carousel-title">
-										<?php
-										if ( ! empty( $item['link']['url'] ) ) {
+									if ( 'yes' == $settings['show_title'] ) {
+										if ( '' !== $item['logo_title'] ) {
+											$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
 											?>
-											<a <?php echo wp_kses_post( $this->get_render_attribute_string( $logo_link_setting_key ) ); ?>>
+											<<?php echo esc_html( $title_tag ); ?> class="pp-logo-carousel-title">
+											<?php
+											if ( ! empty( $item['link']['url'] ) ) {
+												?>
+												<a <?php echo wp_kses_post( $this->get_render_attribute_string( $logo_link_setting_key ) ); ?>>
+												<?php
+											}
+											echo wp_kses_post( $item['logo_title'] );
+											if ( '' !== $item['link']['url'] ) { ?>
+												</a>
+												<?php
+											}
+											?>
+											</<?php echo esc_html( $title_tag ); ?>>
 											<?php
 										}
-										echo wp_kses_post( $item['logo_title'] );
-										if ( '' !== $item['link']['url'] ) { ?>
-											</a>
-											<?php
-										}
-										?>
-										</<?php echo esc_html( $title_tag ); ?>>
-										<?php
 									}
 									?>
 								</div>
@@ -1789,16 +1825,18 @@ class Logo_Carousel extends Powerpack_Widget {
 											<# } #>
 										<# } #>
 									</div>
-									<# if ( item.title ) { #>
-										<{{ settings.title_html_tag }} class="pp-logo-grid-title">
-											<# if ( item.link && item.link.url ) { #>
-												<a href="{{ item.link.url }}">
-											<# } #>
-												{{ item.title }}
-											<# if ( item.link && item.link.url ) { #>
-												</a>
-											<# } #>
-										</{{ settings.title_html_tag }}>
+									<# if ( 'yes' == settings.show_title ) { #>
+										<# if ( item.logo_title ) { #>
+											<{{ settings.title_html_tag }} class="pp-logo-grid-title">
+												<# if ( item.link && item.link.url ) { #>
+													<a href="{{ item.link.url }}">
+												<# } #>
+													{{ item.logo_title }}
+												<# if ( item.link && item.link.url ) { #>
+													</a>
+												<# } #>
+											</{{ settings.title_html_tag }}>
+										<# } #>
 									<# } #>
 								</div>
 							</div>

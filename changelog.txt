@@ -2,6 +2,7 @@
 Release date: 
 * Enhancement: Info List - Link type Box option now also links the Info List icon
 * Enhancement: Buttons - Updated Buttons Spacing option to add row spacing when button stack
+* Enhancement: Logo Carousel - Added option to show or hide logo title
 * Fixed: Instagram Feed - Carousel was not working when Upgrade Swiper Library experiment is set to active
 
 == 2.7.11 ==
