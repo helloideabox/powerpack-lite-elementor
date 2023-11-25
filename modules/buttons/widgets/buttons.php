@@ -266,7 +266,10 @@ class Buttons extends Powerpack_Widget {
 					'label_block' => false,
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => [
-						'active'  => true,
+						'active' => true,
+					],
+					'ai'          => [
+						'active' => false,
 					],
 				]
 			);
@@ -278,7 +281,10 @@ class Buttons extends Powerpack_Widget {
 					'label_block' => false,
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => [
-						'active'  => true,
+						'active' => true,
+					],
+					'ai'          => [
+						'active' => false,
 					],
 				]
 			);
@@ -432,8 +438,8 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button .pp-buttons-icon-wrapper span' => 'color: {{VALUE}};',
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button .pp-buttons-icon-wrapper .pp-icon svg' => 'fill: {{VALUE}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button .pp-icon' => 'color: {{VALUE}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button .pp-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -499,8 +505,8 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover .pp-buttons-icon-wrapper span' => 'color: {{VALUE}};',
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover .pp-buttons-icon-wrapper .pp-icon svg' => 'fill: {{VALUE}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover .pp-icon' => 'color: {{VALUE}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover .pp-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -604,10 +610,7 @@ class Buttons extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-buttons-group .pp-button:not(:last-child)'  => 'margin-right: {{SIZE}}{{UNIT}};',
-					'(desktop){{WRAPPER}}.pp-buttons-stack-desktop .pp-buttons-group .pp-button:not(:last-child)'  => 'margin-bottom: {{SIZE}}{{UNIT}};',
-					'(tablet){{WRAPPER}}.pp-buttons-stack-tablet .pp-buttons-group .pp-button:not(:last-child)'  => 'margin-bottom: {{SIZE}}{{UNIT}};',
-					'(mobile){{WRAPPER}}.pp-buttons-stack-mobile .pp-buttons-group .pp-button:not(:last-child)'  => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-buttons-group'  => 'column-gap: {{SIZE}}{{UNIT}}; row-gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -909,12 +912,12 @@ class Buttons extends Powerpack_Widget {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'      => 'icon_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
-				'global'    => [
+				'name'                  => 'icon_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
-				'selector'  => '{{WRAPPER}} .pp-button-icon-number',
+				'selector'              => '{{WRAPPER}} .pp-button-icon-number',
 			]
 		);
 		$this->add_responsive_control(
@@ -965,10 +968,10 @@ class Buttons extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-icon-before .pp-buttons-icon-wrapper' => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .pp-icon-after .pp-buttons-icon-wrapper' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .pp-icon-top .pp-buttons-icon-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .pp-icon-bottom .pp-buttons-icon-wrapper' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-icon-before .pp-button-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-icon-after .pp-button-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-icon-top .pp-button-icon' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-icon-bottom .pp-button-icon' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -988,8 +991,8 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} .pp-buttons-icon-wrapper span' => 'color: {{VALUE}};',
-						'{{WRAPPER}} .pp-buttons-icon-wrapper .pp-icon svg' => 'fill: {{VALUE}};',
+						'{{WRAPPER}} .pp-icon' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -1010,8 +1013,8 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} .pp-button:hover .pp-buttons-icon-wrapper .pp-button-icon' => 'color: {{VALUE}};',
-						'{{WRAPPER}} .pp-button:hover .pp-buttons-icon-wrapper .pp-icon svg' => 'fill: {{VALUE}};',
+						'{{WRAPPER}} .pp-button:hover .pp-icon' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-button:hover .pp-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -1224,9 +1227,15 @@ class Buttons extends Powerpack_Widget {
 
 				// ToolTip
 				if ( 'yes' === $item['has_tooltip'] && ! empty( $item['tooltip_content'] ) ) {
-					$ttip_position = $this->get_tooltip_position( $settings['tooltips_position'] );
-					$ttip_position_tablet = $this->get_tooltip_position( $settings['tooltips_position_tablet'] );
-					$ttip_position_mobile = $this->get_tooltip_position( $settings['tooltips_position_mobile'] );
+					if ( isset( $settings['tooltips_position'] ) && $settings['tooltips_position'] ) {
+						$ttip_position = $this->get_tooltip_position( $settings['tooltips_position'] );
+					}
+					if ( isset( $settings['tooltips_position_tablet'] ) && $settings['tooltips_position_tablet'] ) {
+						$ttip_position_tablet = $this->get_tooltip_position( $settings['tooltips_position_tablet'] );
+					}
+					if ( isset( $settings['tooltips_position_mobile'] ) && $settings['tooltips_position_mobile'] ) {
+						$ttip_position_mobile = $this->get_tooltip_position( $settings['tooltips_position_mobile'] );
+					}
 
 					$this->add_render_attribute(
 						$tooltip_content_key,
@@ -1265,66 +1274,58 @@ class Buttons extends Powerpack_Widget {
 					$icon_position,
 				] );
 				?>
-				<a <?php echo wp_kses_post( $this->get_render_attribute_string( $button_key ) ); ?>>
+				<a <?php $this->print_render_attribute_string( $button_key ); ?>>
 					<div class="pp-button-content-wrapper">
-						<span <?php echo wp_kses_post( $this->get_render_attribute_string( $content_inner_key ) ); ?>>
+						<span <?php $this->print_render_attribute_string( $content_inner_key ); ?>>
 							<?php
 							if ( 'none' !== $item['pp_icon_type'] ) {
-								$icon_key = 'icon_' . $i;
-								$icon_wrap = 'pp-buttons-icon-wrapper';
-								$this->add_render_attribute( $icon_key, 'class', $icon_wrap );
 								$migration_allowed = Icons_Manager::is_migration_allowed();
-								?>
-								<span <?php echo wp_kses_post( $this->get_render_attribute_string( $icon_key ) ); ?>>
-									<?php
-									if ( 'icon' === $item['pp_icon_type'] ) {
-										// add old default
-										if ( ! isset( $item['icon'] ) && ! $migration_allowed ) {
-											$item['icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-check';
-										}
 
-										$migrated = isset( $item['__fa4_migrated']['selected_icon'] );
-										$is_new = ! isset( $item['icon'] ) && $migration_allowed;
+								if ( 'icon' === $item['pp_icon_type'] ) {
+									// add old default
+									if ( ! isset( $item['icon'] ) && ! $migration_allowed ) {
+										$item['icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-check';
+									}
 
-										if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) ) { ?>
-											<span class="pp-button-icon pp-icon">
-												<?php
-												if ( $is_new || $migrated ) {
-													Icons_Manager::render_icon( $item['selected_icon'], [
-														'class' => 'pp-button-icon',
-														'aria-hidden' => 'true',
-													] );
-												} else { ?>
-													<i class="pp-button-icon <?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
-													<?php
-												}
-												?>
-											</span>
+									$migrated = isset( $item['__fa4_migrated']['selected_icon'] );
+									$is_new = ! isset( $item['icon'] ) && $migration_allowed;
+
+									if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) ) { ?>
+										<span class="pp-button-icon pp-icon">
 											<?php
-										}
-									} elseif ( 'image' === $item['pp_icon_type'] ) { ?>
-										<span class="pp-button-icon-image">
-											<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $item, 'icon_img', 'icon_img' ) ); ?>
-										</span>
-										<?php
-									} elseif ( 'text' === $item['pp_icon_type'] ) { ?>
-										<span class="pp-button-icon pp-button-icon-number">
-											<?php echo esc_attr( $item['icon_text'] ); ?>
+											if ( $is_new || $migrated ) {
+												Icons_Manager::render_icon( $item['selected_icon'], [
+													'class' => 'pp-button-icon',
+													'aria-hidden' => 'true',
+												] );
+											} else { ?>
+												<i class="pp-button-icon <?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
+												<?php
+											}
+											?>
 										</span>
 										<?php
 									}
-									?>
-								</span>
-								<?php
+								} elseif ( 'image' === $item['pp_icon_type'] ) { ?>
+									<span class="pp-button-icon pp-button-icon-image">
+										<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $item, 'icon_img', 'icon_img' ) ); ?>
+									</span>
+									<?php
+								} elseif ( 'text' === $item['pp_icon_type'] ) { ?>
+									<span class="pp-button-icon pp-button-icon-number">
+										<?php echo esc_attr( $item['icon_text'] ); ?>
+									</span>
+									<?php
+								}
 							}
-							if ( $item['text'] ) { ?>
-								<?php
+
+							if ( $item['text'] ) {
 								$text_key = $this->get_repeater_setting_key( 'text', 'buttons', $index );
 								$this->add_render_attribute( $text_key, 'class', 'pp-button-title' );
 								$this->add_inline_editing_attributes( $text_key, 'none' ); ?>
 
-								<span <?php echo wp_kses_post( $this->get_render_attribute_string( $text_key ) ); ?>>
-									<?php echo wp_kses_post( $item['text'] ); ?>
+								<span <?php $this->print_render_attribute_string( $text_key ); ?>>
+									<?php $this->print_unescaped_setting( 'text', 'buttons', $index ); ?>
 								</span>
 							<?php } ?>
 						</span>
@@ -1332,7 +1333,7 @@ class Buttons extends Powerpack_Widget {
 				</a>
 				<?php if ( 'yes' === $item['has_tooltip'] && $item['tooltip_content'] ) { ?>
 					<div class="pp-tooltip-container">
-						<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tooltip_content_key ) ); ?>>
+						<div <?php $this->print_render_attribute_string( $tooltip_content_key ); ?>>
 							<?php echo wp_kses_post( $item['tooltip_content'] ); ?>
 						</div>
 					</div>
@@ -1514,46 +1515,39 @@ class Buttons extends Powerpack_Widget {
 					<div class="pp-button-content-wrapper">
 						<span {{{ view.getRenderAttributeString( content_inner_key ) }}}>
 							<# if ( item.pp_icon_type != 'none' ) { #>
-								<#
-									var icon_key = 'icon_' + i;
-							   
-									view.addRenderAttribute( icon_key, 'class', 'pp-buttons-icon-wrapper' );
-								#>
-								<span {{{ view.getRenderAttributeString( icon_key ) }}}>
-									<# if ( item.pp_icon_type == 'icon' ) { #>
-										<# if ( item.button_icon || item.selected_icon.value ) { #>
-											<span class="pp-button-icon pp-icon">
-											<#
-												iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
-												migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
-												if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.button_icon || migrated[ index ] ) ) { #>
-													{{{ iconsHTML[ index ].value }}}
-												<# } else { #>
-													<i class="{{ item.button_icon }}" aria-hidden="true"></i>
-												<# }
-											#>
-											</span>
-										<# } #>
-									<# } else if ( item.pp_icon_type == 'image' ) { #>
-										<span class="pp-button-icon-image">
-											<#
-											var image = {
-												id: item.icon_img.id,
-												url: item.icon_img.url,
-												size: item.icon_img_size,
-												dimension: item.icon_img_custom_dimension,
-												model: view.getEditModel()
-											};
-											var image_url = elementor.imagesManager.getImageUrl( image );
-											#>
-											<img src="{{{ image_url }}}">
-										</span>
-									<# } else if ( item.pp_icon_type == 'text' ) { #>
-										<span class="pp-button-icon pp-button-icon-number">
-											{{{ item.icon_text }}}
+								<# if ( item.pp_icon_type == 'icon' ) { #>
+									<# if ( item.button_icon || item.selected_icon.value ) { #>
+										<span class="pp-button-icon pp-icon">
+										<#
+											iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
+											migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
+											if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.button_icon || migrated[ index ] ) ) { #>
+												{{{ iconsHTML[ index ].value }}}
+											<# } else { #>
+												<i class="{{ item.button_icon }}" aria-hidden="true"></i>
+											<# }
+										#>
 										</span>
 									<# } #>
-								</span>
+								<# } else if ( item.pp_icon_type == 'image' ) { #>
+									<span class="pp-button-icon pp-button-icon-image">
+										<#
+										var image = {
+											id: item.icon_img.id,
+											url: item.icon_img.url,
+											size: item.icon_img_size,
+											dimension: item.icon_img_custom_dimension,
+											model: view.getEditModel()
+										};
+										var image_url = elementor.imagesManager.getImageUrl( image );
+										#>
+										<img src="{{{ image_url }}}">
+									</span>
+								<# } else if ( item.pp_icon_type == 'text' ) { #>
+									<span class="pp-button-icon pp-button-icon-number">
+										{{{ item.icon_text }}}
+									</span>
+								<# } #>
 							<# } #>
 
 							<# if ( item.text != '' ) { #>
