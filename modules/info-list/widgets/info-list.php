@@ -16,8 +16,8 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -1450,7 +1450,6 @@ class Info_List extends Powerpack_Widget {
 				<?php foreach ( $settings['list_items'] as $index => $item ) : ?>
 					<?php if ( $item['text'] || $item['description'] ) { ?>
 						<li <?php echo wp_kses_post( $this->get_render_attribute_string( 'list-item' ) ); ?>>
-							<div class="pp-info-list-item-inner">
 							<?php
 								$text_key = $this->get_repeater_setting_key( 'text', 'list_items', $index );
 								$this->add_render_attribute( $text_key, 'class', 'pp-info-list-title' );
@@ -1468,60 +1467,56 @@ class Info_List extends Powerpack_Widget {
 
 									$this->add_link_attributes( $link_key, $item['link'] );
 								}
-
-								$this->render_infolist_icon( $item, $i );
 							?>
-							<div class="pp-infolist-content-wrapper">
-								<?php if ( ! empty( $item['link']['url'] ) && 'box' === $item['link_type'] ) { ?>
-									<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
-								<?php } ?>
-								<?php
-								if ( $item['text'] ) {
-									$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
-									?>
-									<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $text_key ) ); ?>>
-									<?php if ( ! empty( $item['link']['url'] ) && 'title' === $item['link_type'] ) { ?>
-										<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
-									<?php } ?>
-										<?php echo wp_kses_post( $item['text'] ); ?>
-									<?php if ( ! empty( $item['link']['url'] ) && 'title' === $item['link_type'] ) { ?>
-										</a>
-									<?php } ?>
-									</<?php echo esc_html( $title_tag ); ?>>
-								<?php } ?>
-								<?php
-								if ( $item['description'] ) {
-									?>
-									<div <?php echo wp_kses_post( $this->get_render_attribute_string( $description_key ) ); ?>>
-										<?php echo $this->parse_text_editor( $item['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-									</div>
-									<?php
-								}
-								?>
-								<?php if ( 'button' === $item['link_type'] && ! empty( $item['link']['url'] ) ) { ?>
-									<div <?php echo wp_kses_post( $this->get_render_attribute_string( $button_key ) ); ?>>
-										<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
-											<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-list-button' ) ); ?>>
-												<?php $this->render_infolist_button_icon( $item ); ?>
-
-												<?php if ( ! empty( $item['button_text'] ) ) { ?>
-													<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'button_text' ) ); ?>>
-														<?php echo wp_kses_post( $item['button_text'] ); ?>
-													</span>
-												<?php } ?>
+							<?php if ( ! empty( $item['link']['url'] ) && 'box' === $item['link_type'] ) { ?>
+								<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
+							<?php }  ?>
+								<div class="pp-info-list-item-inner">
+									<?php $this->render_infolist_icon( $item, $i ); ?>
+									<div class="pp-infolist-content-wrapper">
+										<?php
+										if ( $item['text'] ) {
+											$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+											?>
+											<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $text_key ) ); ?>>
+											<?php if ( ! empty( $item['link']['url'] ) && 'title' === $item['link_type'] ) { ?>
+												<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
+											<?php } ?>
+												<?php echo wp_kses_post( $item['text'] ); ?>
+											<?php if ( ! empty( $item['link']['url'] ) && 'title' === $item['link_type'] ) { ?>
+												</a>
+											<?php } ?>
+											</<?php echo esc_html( $title_tag ); ?>>
+										<?php } ?>
+										<?php
+										if ( $item['description'] ) {
+											?>
+											<div <?php echo wp_kses_post( $this->get_render_attribute_string( $description_key ) ); ?>>
+												<?php echo $this->parse_text_editor( $item['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 											</div>
-										</a>
+											<?php
+										}
+										?>
+										<?php if ( 'button' === $item['link_type'] && ! empty( $item['link']['url'] ) ) { ?>
+											<div <?php echo wp_kses_post( $this->get_render_attribute_string( $button_key ) ); ?>>
+												<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
+													<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-list-button' ) ); ?>>
+														<?php $this->render_infolist_button_icon( $item ); ?>
+
+														<?php if ( ! empty( $item['button_text'] ) ) { ?>
+															<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'button_text' ) ); ?>>
+																<?php echo wp_kses_post( $item['button_text'] ); ?>
+															</span>
+														<?php } ?>
+													</div>
+												</a>
+											</div>
+										<?php } ?>
 									</div>
-								<?php } ?>
-								<?php
-								if ( ! empty( $item['link']['url'] ) && 'box' === $item['link_type'] ) {
-									?>
-									</a>
-									<?php
-								}
-								?>
-							</div>
-							</div>
+								</div>
+							<?php if ( ! empty( $item['link']['url'] ) && 'box' === $item['link_type'] ) { ?>
+								</a>
+							<?php } ?>
 						</li>
 					<?php } ?>
 					<?php
@@ -1704,48 +1699,48 @@ class Info_List extends Powerpack_Widget {
 					#>
 					<# if ( item.text || item.description ) { #>
 						<li class="pp-info-list-item">
-							<div class="pp-info-list-item-inner">
-								<# if ( item.pp_icon_type != 'none' ) { #>
-									<div class="pp-infolist-icon-wrapper">
-										<# if ( item.pp_icon_type == 'icon' ) { #>
-											<# if ( item.list_icon || item.icon.value ) { #>
-												<span class="pp-info-list-icon pp-icon elementor-animation-{{ settings.icon_hover_animation }}" aria-hidden="true">
-												<#
-													iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.icon, { 'aria-hidden': true }, 'i', 'object' );
-													migrated[ index ] = elementor.helpers.isIconMigrated( item, 'icon' );
-													if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.list_icon || migrated[ index ] ) ) { #>
-														{{{ iconsHTML[ index ].value }}}
-													<# } else { #>
-														<i class="{{ item.list_icon }}" aria-hidden="true"></i>
-													<# }
-												#>
+							<# if ( item.link.url != '' && item.link_type == 'box' ) { #>
+								<a href="{{ item.link.url }}">
+							<# } #>
+								<div class="pp-info-list-item-inner">
+									<# if ( item.pp_icon_type != 'none' ) { #>
+										<div class="pp-infolist-icon-wrapper">
+											<# if ( item.pp_icon_type == 'icon' ) { #>
+												<# if ( item.list_icon || item.icon.value ) { #>
+													<span class="pp-info-list-icon pp-icon elementor-animation-{{ settings.icon_hover_animation }}" aria-hidden="true">
+													<#
+														iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.icon, { 'aria-hidden': true }, 'i', 'object' );
+														migrated[ index ] = elementor.helpers.isIconMigrated( item, 'icon' );
+														if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.list_icon || migrated[ index ] ) ) { #>
+															{{{ iconsHTML[ index ].value }}}
+														<# } else { #>
+															<i class="{{ item.list_icon }}" aria-hidden="true"></i>
+														<# }
+													#>
+													</span>
+												<# } #>
+											<# } else if ( item.pp_icon_type == 'image' ) { #>
+												<span class="pp-info-list-image elementor-animation-{{ settings.icon_hover_animation }}">
+													<#
+													var image = {
+														id: item.list_image.id,
+														url: item.list_image.url,
+														size: settings.thumbnail_size,
+														dimension: settings.thumbnail_custom_dimension,
+														model: view.getEditModel()
+													};
+													var image_url = elementor.imagesManager.getImageUrl( image );
+													#>
+													<img src="{{{ image_url }}}" />
+												</span>
+											<# } else if ( item.pp_icon_type == 'text' ) { #>
+												<span class="pp-info-list-icon pp-info-list-number elementor-animation-{{ settings.icon_hover_animation }}">
+													{{ item.icon_text }}
 												</span>
 											<# } #>
-										<# } else if ( item.pp_icon_type == 'image' ) { #>
-											<span class="pp-info-list-image elementor-animation-{{ settings.icon_hover_animation }}">
-												<#
-												var image = {
-													id: item.list_image.id,
-													url: item.list_image.url,
-													size: settings.thumbnail_size,
-													dimension: settings.thumbnail_custom_dimension,
-													model: view.getEditModel()
-												};
-												var image_url = elementor.imagesManager.getImageUrl( image );
-												#>
-												<img src="{{{ image_url }}}" />
-											</span>
-										<# } else if ( item.pp_icon_type == 'text' ) { #>
-											<span class="pp-info-list-icon pp-info-list-number elementor-animation-{{ settings.icon_hover_animation }}">
-												{{ item.icon_text }}
-											</span>
-										<# } #>
-									</div>
-								<# } #>
-								<div class="pp-infolist-content-wrapper">
-									<# if ( item.link.url != '' && item.link_type == 'box' ) { #>
-										<a href="{{ item.link.url }}">
+										</div>
 									<# } #>
+									<div class="pp-infolist-content-wrapper">
 										<# if ( item.text ) { #>
 										<{{settings.title_html_tag}} class="pp-info-list-title">
 											<# if ( item.link.url != '' && item.link_type == 'title' ) { #>
@@ -1791,11 +1786,11 @@ class Info_List extends Powerpack_Widget {
 												</a>
 											</div>
 										<# } #>
-									<# if ( item.link_type == 'box' ) { #>
-										</a>
-									<# } #>
+									</div>
 								</div>
-							</div>
+							<# if ( item.link_type == 'box' ) { #>
+								</a>
+							<# } #>
 						</li>
 					<# } #>
 				<# i++ } ); #>

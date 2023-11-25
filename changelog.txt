@@ -1,5 +1,6 @@
 == 2.7.12 ==
 Release date: 
+* Enhancement: Info List - Link type Box option now also links the Info List icon
 * Enhancement: Buttons - Updated Buttons Spacing option to add row spacing when button stack
 * Fixed: Instagram Feed - Carousel was not working when Upgrade Swiper Library experiment is set to active
 
