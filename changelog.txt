@@ -6,6 +6,7 @@ Release date:
 * Enhancement: Logo Grid - Added option to show or hide logo title
 * Enhancement: Logo Grid - Repeater items now show logo title instead of Logo Image text
 * Fixed: Instagram Feed - Carousel was not working when Upgrade Swiper Library experiment is set to active
+* Fixed: Gravity Forms - Submit Button alignment option was not working
 
 == 2.7.11 ==
 Release date: October 17, 2023

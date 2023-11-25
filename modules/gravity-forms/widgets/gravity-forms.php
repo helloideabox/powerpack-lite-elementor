@@ -1382,9 +1382,14 @@ class Gravity_Forms extends Powerpack_Widget {
 					),
 				),
 				'default'   => '',
+				'selectors_dictionary' => array(
+					'left'    => 'flex-start',
+					'center'  => 'center',
+					'right'   => 'flex-end',
+				),
 				'selectors' => array(
 					'{{WRAPPER}} .pp-gravity-form .gform_footer,
-                    {{WRAPPER}} .pp-gravity-form .gform_page_footer'   => 'text-align: {{VALUE}};',
+                    {{WRAPPER}} .pp-gravity-form .gform_page_footer'   => 'justify-content: {{VALUE}};',
 				),
 				'condition' => array(
 					'button_width_type!' => 'full-width',
