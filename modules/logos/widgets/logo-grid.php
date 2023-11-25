@@ -281,7 +281,20 @@ class Logo_Grid extends Powerpack_Widget {
 					],
 				],
 				'fields'        => $repeater->get_controls(),
-				'title_field'   => __( 'Logo Image', 'powerpack' ),
+				'title_field'   => '{{title}}',
+			]
+		);
+
+		$this->add_control(
+			'show_title',
+			[
+				'label'                 => __( 'Show Title', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'default'               => 'yes',
+				'label_on'              => __( 'Yes', 'powerpack' ),
+				'label_off'             => __( 'No', 'powerpack' ),
+				'return_value'          => 'yes',
+				'separator'             => 'before',
 			]
 		);
 
@@ -302,7 +315,9 @@ class Logo_Grid extends Powerpack_Widget {
 					'span'   => __( 'span', 'powerpack' ),
 					'p'      => __( 'p', 'powerpack' ),
 				],
-				'separator'             => 'before',
+				'condition'             => [
+					'show_title'   => 'yes',
+				],
 			]
 		);
 
@@ -693,6 +708,9 @@ class Logo_Grid extends Powerpack_Widget {
 			[
 				'label'                 => __( 'Title', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
+				'condition'             => [
+					'show_title'   => 'yes',
+				],
 			]
 		);
 
@@ -704,6 +722,9 @@ class Logo_Grid extends Powerpack_Widget {
 				'default'            => '',
 				'selectors'          => [
 					'{{WRAPPER}} .pp-logo-grid-title' => 'color: {{VALUE}}',
+				],
+				'condition'          => [
+					'show_title'   => 'yes',
 				],
 			]
 		);
@@ -723,6 +744,9 @@ class Logo_Grid extends Powerpack_Widget {
 				'selectors'             => [
 					'{{WRAPPER}} .pp-logo-grid-title' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
+				'condition'             => [
+					'show_title'   => 'yes',
+				],
 			]
 		);
 
@@ -735,6 +759,9 @@ class Logo_Grid extends Powerpack_Widget {
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
 				'selector'              => '{{WRAPPER}} .pp-logo-grid-title',
+				'condition'             => [
+					'show_title'   => 'yes',
+				],
 			]
 		);
 
@@ -813,25 +840,27 @@ class Logo_Grid extends Powerpack_Widget {
 						?>
 						</div>
 						<?php
-						if ( '' !== $item['title'] ) {
-							$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
-							?>
-							<<?php echo esc_html( $title_tag ); ?> class="pp-logo-grid-title">
-							<?php
-							if ( '' !== $item['link']['url'] ) { ?>
-								<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+						if ( 'yes' == $settings['show_title'] ) {
+							if ( '' !== $item['title'] ) {
+								$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+								?>
+								<<?php echo esc_html( $title_tag ); ?> class="pp-logo-grid-title">
+								<?php
+								if ( '' !== $item['link']['url'] ) { ?>
+									<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+									<?php
+								}
+
+								echo wp_kses_post( $item['title'] );
+
+								if ( '' !== $item['link']['url'] ) { ?>
+									</a>
+									<?php
+								}
+								?>
+								</<?php echo esc_html( $title_tag ); ?>>
 								<?php
 							}
-
-							echo wp_kses_post( $item['title'] );
-
-							if ( '' !== $item['link']['url'] ) { ?>
-								</a>
-								<?php
-							}
-							?>
-							</<?php echo esc_html( $title_tag ); ?>>
-							<?php
 						}
 						?>
 					</div>
@@ -942,18 +971,20 @@ class Logo_Grid extends Powerpack_Widget {
 							<# } #>
 						</div>
 						<#
-							if ( item.title != '' ) {
-								var title = item.title;
+							if ( 'yes' == settings.show_title ) {
+								if ( item.title != '' ) {
+									var title = item.title;
 
-								view.addRenderAttribute( 'title' + i, 'class', 'pp-logo-grid-title' );
+									view.addRenderAttribute( 'title' + i, 'class', 'pp-logo-grid-title' );
 
-								if ( item.link && item.link.url ) {
-									title = '<a href="' + item.link.url + '">' + item.title + '</a>';
+									if ( item.link && item.link.url ) {
+										title = '<a href="' + item.link.url + '">' + item.title + '</a>';
+									}
+
+									var title_html = '<' + settings.title_html_tag  + ' ' + view.getRenderAttributeString( 'title' + i ) + '>' + title + '</' + settings.title_html_tag + '>';
+
+									print( title_html );
 								}
-
-								var title_html = '<' + settings.title_html_tag  + ' ' + view.getRenderAttributeString( 'title' + i ) + '>' + title + '</' + settings.title_html_tag + '>';
-
-								print( title_html );
 							}
 						#>
 					</div>
