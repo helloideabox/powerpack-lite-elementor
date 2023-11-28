@@ -1,5 +1,5 @@
 == 2.7.12 ==
-Release date: 
+Release date: November 28, 2023
 * Enhancement: Info List - Link type Box option now also links the Info List icon
 * Enhancement: Buttons - Updated Buttons Spacing option to add row spacing when button stack
 * Enhancement: Logo Carousel - Added option to show or hide logo title

@@ -233,6 +233,15 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.12 - November 28, 2023 =
+* 	Enhancement: Info List - Link type Box option now also links the Info List icon
+* 	Enhancement: Buttons - Updated Buttons Spacing option to add row spacing when button stack
+* 	Enhancement: Logo Carousel - Added option to show or hide logo title
+* 	Enhancement: Logo Grid - Added option to show or hide logo title
+* 	Enhancement: Logo Grid - Repeater items now show logo title instead of Logo Image text
+* 	Fixed: Instagram Feed - Carousel was not working when Upgrade Swiper Library experiment is set to active
+* 	Fixed: Gravity Forms - Submit Button alignment option was not working
+
 = 2.7.11 - October 17, 2023 =
 * 	Fixed: Advanced Posts - Excerpt length option was not working in the Elementor editor
 * 	Fixed: Animated Gradient Background - Animation was not working with flex containers
