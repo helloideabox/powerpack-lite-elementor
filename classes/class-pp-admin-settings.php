@@ -137,19 +137,14 @@ final class PP_Admin_Settings {
 	 * @return void
 	 */
 	public static function menu() {
-		if ( is_main_site() || ! is_multisite() ) {
+		$admin_label = self::get_admin_label();
+		$title       = $admin_label;
+		$cap         = 'manage_options';
+		$slug        = 'powerpack-settings';
+		$func        = __CLASS__ . '::render';
 
-			$admin_label = self::get_admin_label();
-
-			if ( current_user_can( 'delete_users' ) ) {
-
-				$title = $admin_label;
-				$cap   = 'delete_users';
-				$slug  = 'powerpack-settings';
-				$func  = __CLASS__ . '::render';
-
-				add_submenu_page( 'elementor', $title, $title, $cap, $slug, $func );
-			}
+		if ( current_user_can( 'manage_options' ) ) {
+			add_submenu_page( 'elementor', $title, $title, $cap, $slug, $func );
 		}
 	}
 
