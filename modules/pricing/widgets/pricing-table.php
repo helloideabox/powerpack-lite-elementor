@@ -14,8 +14,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -2365,7 +2365,7 @@ class Pricing_Table extends Powerpack_Widget {
 			array(
 				'label'      => __( 'Icon Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px' ),
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
 				'range'      => array(
 					'px' => array(
 						'min' => 1,
@@ -2373,7 +2373,7 @@ class Pricing_Table extends Powerpack_Widget {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-table-cell .pp-table-tooltip-icon' => 'margin-left: {{SIZE}}px;',
+					'{{WRAPPER}} .pp-pricing-table-tooltip-icon' => 'margin-left: {{SIZE}}px;',
 				),
 				'condition'  => [
 					'show_tooltip'       => 'yes',

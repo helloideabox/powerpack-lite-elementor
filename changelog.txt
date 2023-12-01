@@ -1,6 +1,8 @@
 == 2.7.13 ==
 Release date: 
+* Enhancement: Pricing Table - Added more units for Tooltip Icon Spacing option
 * Enhancement: Logo Grid - Added more units support for logo title spacing option
+* Fixed: Pricing Table - Tooltip Icon Spacing option
 * Fixed: Logo Grid - Logos styles were applying to logo container instead of logo images
 * Fixed: PowerPack settings were not showing on WordPress multisite
 
