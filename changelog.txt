@@ -1,5 +1,7 @@
 == 2.7.13 ==
 Release date: 
+* Enhancement: Logo Grid - Added more units support for logo title spacing option
+* Fixed: Logo Grid - Logos styles were applying to logo container instead of logo images
 * Fixed: PowerPack settings were not showing on WordPress multisite
 
 == 2.7.12 ==
