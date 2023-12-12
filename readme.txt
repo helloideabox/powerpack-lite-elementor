@@ -233,6 +233,15 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.13 - December 12, 2023 =
+* 	Enhancement: Pricing Table - Added more units for Tooltip Icon Spacing option
+* 	Enhancement: Logo Grid - Added more units support for logo title spacing option
+* 	Enhancement: Hotspots - Added hotspot size option for single hotspots
+* 	Enhancement: Hotspots - Added CSS ID and CSS Classes options for hotspots
+* 	Fixed: Pricing Table - Tooltip Icon Spacing option
+* 	Fixed: Logo Grid - Logos styles were applying to logo container instead of logo images
+* 	Fixed: PowerPack settings were not showing on WordPress multisite
+
 = 2.7.12 - November 28, 2023 =
 * 	Enhancement: Info List - Link type Box option now also links the Info List icon
 * 	Enhancement: Buttons - Updated Buttons Spacing option to add row spacing when button stack
