@@ -427,6 +427,30 @@ class Hotspots extends Powerpack_Widget {
 				)
 			);
 
+			$repeater->add_control(
+				'hotspot_css_id',
+				array(
+					'label'   => __( 'CSS ID', 'powerpack' ),
+					'type'    => Controls_Manager::TEXT,
+					'default' => '',
+					'ai'      => [
+						'active' => false,
+					],
+				)
+			);
+	
+			$repeater->add_control(
+				'hotspot_css_classes',
+				array(
+					'label'   => __( 'CSS Classes', 'powerpack' ),
+					'type'    => Controls_Manager::TEXT,
+					'default' => '',
+					'ai'      => [
+						'active' => false,
+					],
+				)
+			);
+
 		$repeater->end_controls_tab();
 
 		$repeater->end_controls_tabs();
@@ -1126,6 +1150,14 @@ class Hotspots extends Powerpack_Widget {
 								'data-tooltip-content'  => '#pp-tooltip-content-' . $tooltip_content_id,
 							)
 						);
+					}
+
+					if ( $item['hotspot_css_id'] ) {
+						$this->add_render_attribute( $hotspot_key, 'id', $item['hotspot_css_id'] );
+					}
+
+					if ( $item['hotspot_css_classes'] ) {
+						$this->add_render_attribute( $hotspot_key, 'class', $item['hotspot_css_classes'] );
 					}
 
 					$this->add_render_attribute( $hotspot_inner_key, 'class', 'pp-hot-spot-inner' );
