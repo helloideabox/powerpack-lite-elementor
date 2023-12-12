@@ -2,6 +2,7 @@
 Release date: December 12, 2023
 * Enhancement: Pricing Table - Added more units for Tooltip Icon Spacing option
 * Enhancement: Logo Grid - Added more units support for logo title spacing option
+* Enhancement: Hotspots - Added hotspot size option for single hotspots
 * Fixed: Pricing Table - Tooltip Icon Spacing option
 * Fixed: Logo Grid - Logos styles were applying to logo container instead of logo images
 

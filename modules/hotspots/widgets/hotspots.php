@@ -169,7 +169,7 @@ class Hotspots extends Powerpack_Widget {
 				array(
 					'label'       => __( 'Admin Label', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
-					'label_block' => false,
+					'label_block' => true,
 					'default'     => '',
 				)
 			);
@@ -361,7 +361,7 @@ class Hotspots extends Powerpack_Widget {
 				array(
 					'name'      => 'hotspot_typography',
 					'label'     => __( 'Typography', 'powerpack' ),
-					'selector'  => '{{WRAPPER}} {{CURRENT_ITEM}}.pp-hot-spot-wrap',
+					'selector'  => '{{WRAPPER}} {{CURRENT_ITEM}} .pp-hot-spot-inner',
 					'condition' => array(
 						'hotspot_type' => 'text',
 					),
@@ -404,6 +404,25 @@ class Hotspots extends Powerpack_Widget {
 					'default'   => '',
 					'selectors' => array(
 						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-hot-spot-wrap' => 'border-color: {{VALUE}}',
+					),
+				)
+			);
+
+			$repeater->add_responsive_control(
+				'hotspot_icon_size_single',
+				array(
+					'label'      => __( 'Size', 'powerpack' ),
+					'type'       => Controls_Manager::SLIDER,
+					'range'      => array(
+						'px' => array(
+							'min'  => 6,
+							'max'  => 100,
+							'step' => 1,
+						),
+					),
+					'size_units' => array( 'px' ),
+					'selectors'  => array(
+						'{{WRAPPER}} {{CURRENT_ITEM}} .pp-hot-spot-inner' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; font-size: {{SIZE}}{{UNIT}};',
 					),
 				)
 			);
