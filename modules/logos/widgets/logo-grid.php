@@ -528,8 +528,9 @@ class Logo_Grid extends Powerpack_Widget {
 			[
 				'name'                  => 'logo_bg',
 				'label'                 => __( 'Background', 'powerpack' ),
-				'types'                 => [ 'none', 'classic', 'gradient' ],
-				'selector'              => '{{WRAPPER}} .pp-grid-item-wrap',
+				'types'                 => [ 'classic', 'gradient' ],
+				'exclude'               => array( 'image' ),
+				'selector'              => '{{WRAPPER}} .pp-grid-item',
 			]
 		);
 
@@ -540,7 +541,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .pp-grid-item-wrap',
+				'selector'              => '{{WRAPPER}} .pp-grid-item',
 			]
 		);
 
@@ -551,7 +552,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-grid-item-wrap, {{WRAPPER}} .pp-grid-item img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-grid-item, {{WRAPPER}} .pp-grid-item img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -563,7 +564,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-grid-item-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-grid-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -602,7 +603,7 @@ class Logo_Grid extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'pp_logo_box_shadow_normal',
-				'selector'              => '{{WRAPPER}} .pp-grid-item-wrap',
+				'selector'              => '{{WRAPPER}} .pp-grid-item',
 				'separator'             => 'before',
 			]
 		);
@@ -621,8 +622,9 @@ class Logo_Grid extends Powerpack_Widget {
 			[
 				'name'                  => 'logos_bg_hover',
 				'label'                 => __( 'Background', 'powerpack' ),
-				'types'                 => [ 'none', 'classic', 'gradient' ],
-				'selector'              => '{{WRAPPER}} .pp-grid-item-wrap:hover',
+				'types'                 => [ 'classic', 'gradient' ],
+				'exclude'               => array( 'image' ),
+				'selector'              => '{{WRAPPER}} .pp-grid-item:hover',
 			]
 		);
 
@@ -633,7 +635,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .pp-grid-item-wrap:hover',
+				'selector'              => '{{WRAPPER}} .pp-grid-item:hover',
 			]
 		);
 
@@ -690,7 +692,7 @@ class Logo_Grid extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'pp_logo_box_shadow_hover',
-				'selector'              => '{{WRAPPER}} .pp-grid-item-wrap:hover',
+				'selector'              => '{{WRAPPER}} .pp-grid-item:hover',
 				'separator'             => 'before',
 			]
 		);
@@ -729,27 +731,6 @@ class Logo_Grid extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_control(
-			'title_spacing',
-			[
-				'label'                 => __( 'Margin Top', 'powerpack' ),
-				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ 'px' ],
-				'range'                 => [
-					'px' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .pp-logo-grid-title' => 'margin-top: {{SIZE}}{{UNIT}};',
-				],
-				'condition'             => [
-					'show_title'   => 'yes',
-				],
-			]
-		);
-
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -759,6 +740,27 @@ class Logo_Grid extends Powerpack_Widget {
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
 				'selector'              => '{{WRAPPER}} .pp-logo-grid-title',
+				'condition'             => [
+					'show_title'   => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'title_spacing',
+			[
+				'label'                 => __( 'Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
+				'range'                 => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-logo-grid-title' => 'margin-top: {{SIZE}}{{UNIT}};',
+				],
 				'condition'             => [
 					'show_title'   => 'yes',
 				],

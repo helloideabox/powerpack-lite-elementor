@@ -1,3 +1,8 @@
+== 2.7.13 ==
+Release date: December 12, 2023
+* Enhancement: Logo Grid - Added more units support for logo title spacing option
+* Fixed: Logo Grid - Logos styles were applying to logo container instead of logo images
+
 == 2.7.12 ==
 Release date: November 28, 2023
 * Enhancement: Info List - Link type Box option now also links the Info List icon
