@@ -6,6 +6,7 @@ Release date: December 12, 2023
 * Enhancement: Hotspots - Added CSS ID and CSS Classes options for hotspots
 * Fixed: Pricing Table - Tooltip Icon Spacing option
 * Fixed: Logo Grid - Logos styles were applying to logo container instead of logo images
+* Fixed: PowerPack settings were not showing on WordPress multisite
 
 == 2.7.12 ==
 Release date: November 28, 2023
