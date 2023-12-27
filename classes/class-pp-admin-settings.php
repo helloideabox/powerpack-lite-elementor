@@ -42,10 +42,12 @@ final class PP_Admin_Settings {
 
 		add_action( 'admin_menu', __CLASS__ . '::menu', 601 );
 
-		if ( isset( $_REQUEST['page'] ) && 'powerpack-settings' == $_REQUEST['page'] ) {
-			//add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
-			self::save();
-			self::reset_settings();
+		if ( current_user_can( 'manage_options' ) ) {
+			if ( isset( $_REQUEST['page'] ) && 'powerpack-settings' == $_REQUEST['page'] ) {
+				//add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
+				self::save();
+				self::reset_settings();
+			}
 		}
 
 		add_action( 'admin_init', __CLASS__ . '::refresh_instagram_access_token' );
@@ -322,9 +324,9 @@ final class PP_Admin_Settings {
 
 	public static function save() {
 		// Only admins can save settings.
-		if ( ! current_user_can( 'manage_options' ) ) {
+		/* if ( ! current_user_can( 'manage_options' ) ) {
 			return;
-		}
+		} */
 
 		self::save_modules();
 		self::save_extensions();
