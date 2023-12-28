@@ -46,7 +46,6 @@ final class PP_Admin_Settings {
 			if ( isset( $_REQUEST['page'] ) && 'powerpack-settings' == $_REQUEST['page'] ) {
 				//add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 				self::save();
-				self::reset_settings();
 			}
 		}
 
@@ -378,18 +377,6 @@ final class PP_Admin_Settings {
 			self::update_option( 'pp_allowed_tracking', sanitize_text_field( $_POST['pp_allowed_tracking'] ), true );
 		} else {
 			self::delete_option( 'pp_allowed_tracking' );
-		}
-	}
-
-	public static function reset_settings() {
-		if ( isset( $_GET['reset_modules'] ) ) {
-			delete_site_option( 'pp_elementor_modules' );
-			self::$errors[] = esc_html__( 'Modules settings updated!', 'powerpack' );
-		}
-
-		if ( isset( $_GET['reset_extensions'] ) ) {
-			delete_site_option( 'pp_elementor_extensions' );
-			self::$errors[] = esc_html__( 'Extension settings updated!', 'powerpack' );
 		}
 	}
 
