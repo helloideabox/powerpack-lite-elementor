@@ -99,17 +99,17 @@
 			}); */
 
 			if ( carousel.length > 0 ) {
-				if ( 'undefined' === typeof Swiper ) {
+				//if ( 'undefined' === typeof Swiper ) {
 					var asyncSwiper = elementorFrontend.utils.swiper;
 		
 					new asyncSwiper( carousel, sliderOptions ).then( function( newSwiperInstance ) {
 						var mySwiper = newSwiperInstance;
 						ppSwiperSliderAfterinit( $scope, carousel, carouselWrap, sliderOptions, mySwiper );
 					} );
-				} else {
+				/* } else {
 					var mySwiper = new Swiper(carousel, sliderOptions);
 					ppSwiperSliderAfterinit( $scope, carousel, carouselWrap, sliderOptions, mySwiper );
-				}
+				} */
 			}
 		}
 	}
