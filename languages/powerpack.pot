@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.7.13\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.7.14\n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/powerpack-lite-elementor\n"
-"POT-Creation-Date: 2023-12-12 17:03:42+00:00\n"
+"https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
+"POT-Creation-Date: 2023-12-29 10:31:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -109,38 +109,30 @@ msgstr ""
 msgid "This is a placeholder for this widget and is visible only in the editor."
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:118
+#: classes/class-pp-admin-settings.php:119
 msgid "Settings updated!"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:160
+#: classes/class-pp-admin-settings.php:161
 msgid "Elements"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:167
+#: classes/class-pp-admin-settings.php:168
 #: includes/admin/admin-settings-extensions.php:7
 msgid "Extensions"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:174
+#: classes/class-pp-admin-settings.php:175
 #: includes/admin/admin-settings-integration.php:7
 msgid "Integration"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:211
+#: classes/class-pp-admin-settings.php:212
 msgid "Setting page file could not be located."
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:233
+#: classes/class-pp-admin-settings.php:234
 msgid "You do not have permission to view this setting."
-msgstr ""
-
-#: classes/class-pp-admin-settings.php:385
-msgid "Modules settings updated!"
-msgstr ""
-
-#: classes/class-pp-admin-settings.php:390
-msgid "Extension settings updated!"
 msgstr ""
 
 #: classes/class-pp-config.php:46 includes/helper-functions.php:378
