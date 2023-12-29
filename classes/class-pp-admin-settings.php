@@ -343,6 +343,10 @@ final class PP_Admin_Settings {
 	 * @return void
 	 */
 	private static function save_integration() {
+		if ( ! isset( $_POST['pp-integration-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-integration-settings-nonce'], 'pp-integration-settings' ) ) {
+			return;
+		}
+
 		if ( isset( $_POST['pp_instagram_access_token'] ) ) {
 			self::update_option( 'pp_instagram_access_token', trim( $_POST['pp_instagram_access_token'] ), false );
 		}
@@ -373,6 +377,9 @@ final class PP_Admin_Settings {
 	}
 
 	private static function save_tracking() {
+		if ( ! isset( $_POST['pp-modules-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-modules-settings-nonce'], 'pp-modules-settings' ) ) {
+			return;
+		}
 		if ( isset( $_POST['pp_allowed_tracking'] ) ) {
 			self::update_option( 'pp_allowed_tracking', sanitize_text_field( $_POST['pp_allowed_tracking'] ), true );
 		} else {

@@ -20,3 +20,5 @@ $settings   = PP_Admin_Settings::get_settings();
 		</td>
 	</tr>
 </table>
+
+<?php wp_nonce_field( 'pp-integration-settings', 'pp-integration-settings-nonce' ); ?>
