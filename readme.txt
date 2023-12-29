@@ -233,6 +233,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.14 - December 29, 2023 =
+* 	Fixed: Advanced Posts - Carousel layout was not working in the Elementor editor
+* 	Security Fix: Improved code security on PowerPack settings page
+
 = 2.7.13 - December 12, 2023 =
 * 	Enhancement: Pricing Table - Added more units for Tooltip Icon Spacing option
 * 	Enhancement: Logo Grid - Added more units support for logo title spacing option
