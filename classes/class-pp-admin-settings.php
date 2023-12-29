@@ -42,10 +42,11 @@ final class PP_Admin_Settings {
 
 		add_action( 'admin_menu', __CLASS__ . '::menu', 601 );
 
-		if ( isset( $_REQUEST['page'] ) && 'powerpack-settings' == $_REQUEST['page'] ) {
-			//add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
-			self::save();
-			self::reset_settings();
+		if ( current_user_can( 'manage_options' ) ) {
+			if ( isset( $_REQUEST['page'] ) && 'powerpack-settings' == $_REQUEST['page'] ) {
+				//add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
+				self::save();
+			}
 		}
 
 		add_action( 'admin_init', __CLASS__ . '::refresh_instagram_access_token' );
@@ -322,9 +323,9 @@ final class PP_Admin_Settings {
 
 	public static function save() {
 		// Only admins can save settings.
-		if ( ! current_user_can( 'manage_options' ) ) {
+		/* if ( ! current_user_can( 'manage_options' ) ) {
 			return;
-		}
+		} */
 
 		self::save_modules();
 		self::save_extensions();
@@ -342,6 +343,10 @@ final class PP_Admin_Settings {
 	 * @return void
 	 */
 	private static function save_integration() {
+		if ( ! isset( $_POST['pp-integration-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-integration-settings-nonce'], 'pp-integration-settings' ) ) {
+			return;
+		}
+
 		if ( isset( $_POST['pp_instagram_access_token'] ) ) {
 			self::update_option( 'pp_instagram_access_token', trim( $_POST['pp_instagram_access_token'] ), false );
 		}
@@ -372,22 +377,13 @@ final class PP_Admin_Settings {
 	}
 
 	private static function save_tracking() {
+		if ( ! isset( $_POST['pp-modules-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-modules-settings-nonce'], 'pp-modules-settings' ) ) {
+			return;
+		}
 		if ( isset( $_POST['pp_allowed_tracking'] ) ) {
 			self::update_option( 'pp_allowed_tracking', sanitize_text_field( $_POST['pp_allowed_tracking'] ), true );
 		} else {
 			self::delete_option( 'pp_allowed_tracking' );
-		}
-	}
-
-	public static function reset_settings() {
-		if ( isset( $_GET['reset_modules'] ) ) {
-			delete_site_option( 'pp_elementor_modules' );
-			self::$errors[] = esc_html__( 'Modules settings updated!', 'powerpack' );
-		}
-
-		if ( isset( $_GET['reset_extensions'] ) ) {
-			delete_site_option( 'pp_elementor_extensions' );
-			self::$errors[] = esc_html__( 'Extension settings updated!', 'powerpack' );
 		}
 	}
 
