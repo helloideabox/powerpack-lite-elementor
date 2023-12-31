@@ -1,3 +1,8 @@
+== 2.7.15 ==
+Release date: 
+* Fixed: Compatibility issues with WPML and PHP 8
+
+
 == 2.7.14 ==
 Release date: December 29, 2023
 * Fixed: Advanced Posts - Carousel layout was not working in the Elementor editor

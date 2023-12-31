@@ -2,30 +2,28 @@
 namespace PowerpackElementsLite\Classes;
 
 class PP_Elements_WPML {
-    public function __construct()
-    {
+    public function __construct() {
 		add_filter( 'wpml_elementor_widgets_to_translate', array( $this, 'translate_fields' ) );
-		$this->type = 'widgetType';
 	}
-	
+
 	public function translate_fields ( $widgets ) {
 		$widgets['pp-advanced-accordion']   = [
-			'conditions'        => [ $this->type => 'pp-advanced-accordion' ],
+			'conditions'        => [ 'widgetType' => 'pp-advanced-accordion' ],
 			'fields'            => [],
 			'integration-class' => 'WPML_PP_Advanced_Accordion',
 		];
 		$widgets[ 'pp-business-hours' ]       = [
-			'conditions' => [ $this->type => 'pp-business-hours' ],
+			'conditions' => [ 'widgetType' => 'pp-business-hours' ],
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Business_Hours'
 		];
 		$widgets['pp-buttons']              = [
-			'conditions'        => [ $this->type => 'pp-buttons' ],
+			'conditions'        => [ 'widgetType' => 'pp-buttons' ],
 			'fields'            => [],
 			'integration-class' => 'WPML_PP_Buttons',
 		];
 		$widgets[ 'pp-caldera-forms' ]        = [
-			'conditions' => [ $this->type => 'pp-caldera-forms' ],
+			'conditions' => [ 'widgetType' => 'pp-caldera-forms' ],
 			'fields'     => [
 				[
 					'field'       => 'form_title_custom',
@@ -40,7 +38,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-contact-form-7' ]       = [
-			'conditions' => [ $this->type => 'pp-contact-form-7' ],
+			'conditions' => [ 'widgetType' => 'pp-contact-form-7' ],
 			'fields'     => [
 				[
 					'field'       => 'form_title_text',
@@ -55,7 +53,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets['pp-content-ticker']       = [
-			'conditions'        => [ $this->type => 'pp-content-ticker' ],
+			'conditions'        => [ 'widgetType' => 'pp-content-ticker' ],
 			'fields'            => [
 				[
 					'field'       => 'heading',
@@ -66,7 +64,7 @@ class PP_Elements_WPML {
 			'integration-class' => 'WPML_PP_Content_Ticker',
 		];
 		$widgets['pp-content-reveal']       = [
-			'conditions' => [ $this->type => 'pp-content-reveal' ],
+			'conditions' => [ 'widgetType' => 'pp-content-reveal' ],
 			'fields'     => [
 				[
 					'field'       => 'content',
@@ -86,7 +84,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-counter' ]              = [
-			'conditions' => [ $this->type => 'pp-counter' ],
+			'conditions' => [ 'widgetType' => 'pp-counter' ],
 			'fields'     => [
 				[
 					'field'       => 'starting_number',
@@ -121,7 +119,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-divider' ]              = [
-			'conditions' => [ $this->type => 'pp-divider' ],
+			'conditions' => [ 'widgetType' => 'pp-divider' ],
 			'fields'     => [
 				[
 					'field'       => 'divider_text',
@@ -131,7 +129,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-dual-heading' ]         = [
-			'conditions' => [ $this->type => 'pp-dual-heading' ],
+			'conditions' => [ 'widgetType' => 'pp-dual-heading' ],
 			'fields'     => [
 				[
 					'field'       => 'first_text',
@@ -151,7 +149,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets['pp-fancy-heading']        = [
-			'conditions' => [ $this->type => 'pp-fancy-heading' ],
+			'conditions' => [ 'widgetType' => 'pp-fancy-heading' ],
 			'fields'     => [
 				[
 					'field'       => 'heading_text',
@@ -166,7 +164,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets['pp-flipbox']              = [
-			'conditions' => [ $this->type => 'pp-flipbox' ],
+			'conditions' => [ 'widgetType' => 'pp-flipbox' ],
 			'fields'     => [
 				[
 					'field'       => 'title_front',
@@ -201,7 +199,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets['pp-fluent-forms']         = [
-			'conditions' => [ $this->type => 'pp-fluent-forms' ],
+			'conditions' => [ 'widgetType' => 'pp-fluent-forms' ],
 			'fields'     => [
 				[
 					'field'       => 'form_title_custom',
@@ -216,7 +214,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets['pp-formidable-forms']     = [
-			'conditions' => [ $this->type => 'pp-formidable-forms' ],
+			'conditions' => [ 'widgetType' => 'pp-formidable-forms' ],
 			'fields'     => [
 				[
 					'field'       => 'form_title_custom',
@@ -231,7 +229,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-gravity-forms' ]        = [
-			'conditions' => [ $this->type => 'pp-gravity-forms' ],
+			'conditions' => [ 'widgetType' => 'pp-gravity-forms' ],
 			'fields'     => [
 				[
 					'field'       => 'form_title_custom',
@@ -246,22 +244,22 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-image-hotspots' ]       = [
-			'conditions' => [ $this->type => 'pp-image-hotspots' ],
+			'conditions' => [ 'widgetType' => 'pp-image-hotspots' ],
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Image_Hotspots'
 		];
 		$widgets[ 'pp-icon-list' ]            = [
-			'conditions' => [ $this->type => 'pp-icon-list' ],
+			'conditions' => [ 'widgetType' => 'pp-icon-list' ],
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Icon_List'
 		];
 		$widgets['pp-image-accordion']      = [
-			'conditions'        => [ $this->type => 'pp-image-accordion' ],
+			'conditions'        => [ 'widgetType' => 'pp-image-accordion' ],
 			'fields'            => [],
 			'integration-class' => 'WPML_PP_Image_Accordion',
 		];
 		$widgets[ 'pp-image-comparison' ]     = [
-			'conditions' => [ $this->type => 'pp-image-comparison' ],
+			'conditions' => [ 'widgetType' => 'pp-image-comparison' ],
 			'fields'     => [
 				[
 					'field'       => 'before_label',
@@ -277,7 +275,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-info-box' ]             = [
-			'conditions' => [ $this->type => 'pp-info-box' ],
+			'conditions' => [ 'widgetType' => 'pp-info-box' ],
 			'fields'     => [
 				[
 					'field'       => 'icon_text',
@@ -313,17 +311,17 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-info-box-carousel' ]    = [
-			'conditions' => [ $this->type => 'pp-info-box-carousel' ],
+			'conditions' => [ 'widgetType' => 'pp-info-box-carousel' ],
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Info_Box_Carousel'
 		];
 		$widgets[ 'pp-info-list' ]            = [
-			'conditions' => [ $this->type => 'pp-info-list' ],
+			'conditions' => [ 'widgetType' => 'pp-info-list' ],
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Info_List'
 		];
 		$widgets[ 'pp-info-table' ]           = [
-			'conditions' => [ $this->type => 'pp-info-table' ],
+			'conditions' => [ 'widgetType' => 'pp-info-table' ],
 			'fields'     => [
 				[
 					'field'       => 'icon_text',
@@ -364,7 +362,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-instafeed' ]            = [
-			'conditions' => [ $this->type => 'pp-instafeed' ],
+			'conditions' => [ 'widgetType' => 'pp-instafeed' ],
 			'fields'     => [
 				[
 					'field'       => 'insta_link_title',
@@ -384,7 +382,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pa-link-effects' ]         = [
-			'conditions' => [ $this->type => 'pa-link-effects' ],
+			'conditions' => [ 'widgetType' => 'pa-link-effects' ],
 			'fields'     => [
 				[
 					'field'       => 'text',
@@ -404,17 +402,17 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-logo-carousel' ]        = [
-			'conditions' => [ $this->type => 'pp-logo-carousel' ],
+			'conditions' => [ 'widgetType' => 'pp-logo-carousel' ],
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Logo_Carousel'
 		];
 		$widgets[ 'pp-logo-grid' ]            = [
-			'conditions' => [ $this->type => 'pp-logo-grid' ],
+			'conditions' => [ 'widgetType' => 'pp-logo-grid' ],
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Logo_Grid'
 		];
 		$widgets[ 'pp-ninja-forms' ]          = [
-			'conditions' => [ $this->type => 'pp-ninja-forms' ],
+			'conditions' => [ 'widgetType' => 'pp-ninja-forms' ],
 			'fields'     => [
 				[
 					'field'       => 'form_title_custom',
@@ -429,12 +427,12 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-price-menu' ]           = [
-			'conditions' => [ $this->type => 'pp-price-menu' ],
+			'conditions' => [ 'widgetType' => 'pp-price-menu' ],
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Price_Menu'
 		];
 		$widgets[ 'pp-pricing-table' ]        = [
-			'conditions' => [ $this->type => 'pp-pricing-table' ],
+			'conditions' => [ 'widgetType' => 'pp-pricing-table' ],
 			'fields'     => [
 				[
 					'field'       => 'table_title',
@@ -485,7 +483,7 @@ class PP_Elements_WPML {
 			'integration-class' => 'WPML_PP_Pricing_Table'
 		];
 		$widgets[ 'pp-promo-box' ]            = [
-			'conditions' => [ $this->type => 'pp-promo-box' ],
+			'conditions' => [ 'widgetType' => 'pp-promo-box' ],
 			'fields'     => [
 				[
 					'field'       => 'heading',
@@ -515,7 +513,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets['pp-scroll-image']         = [
-			'conditions' => [ $this->type => 'pp-scroll-image' ],
+			'conditions' => [ 'widgetType' => 'pp-scroll-image' ],
 			'fields'     => [
 				'link' => [
 					'field'       => 'url',
@@ -525,7 +523,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-team-member' ]          = [
-			'conditions' => [ $this->type => 'pp-team-member' ],
+			'conditions' => [ 'widgetType' => 'pp-team-member' ],
 			'fields'     => [
 				[
 					'field'       => 'team_member_name',
@@ -551,12 +549,12 @@ class PP_Elements_WPML {
 			'integration-class' => 'WPML_PP_Team_Member'
 		];
 		$widgets[ 'pp-team-member-carousel' ] = [
-			'conditions' => [ $this->type => 'pp-team-member-carousel' ],
+			'conditions' => [ 'widgetType' => 'pp-team-member-carousel' ],
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Team_Member_Carousel'
 		];
 		$widgets['pp-twitter-buttons']      = [
-			'conditions' => [ $this->type => 'pp-twitter-buttons' ],
+			'conditions' => [ 'widgetType' => 'pp-twitter-buttons' ],
 			'fields'     => [
 				[
 					'field'       => 'profile',
@@ -596,7 +594,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets['pp-twitter-grid']         = [
-			'conditions' => [ $this->type => 'pp-twitter-grid' ],
+			'conditions' => [ 'widgetType' => 'pp-twitter-grid' ],
 			'fields'     => [
 				[
 					'field'       => 'url',
@@ -611,7 +609,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets['pp-twitter-timeline']     = [
-			'conditions' => [ $this->type => 'pp-twitter-timeline' ],
+			'conditions' => [ 'widgetType' => 'pp-twitter-timeline' ],
 			'fields'     => [
 				[
 					'field'       => 'username',
@@ -626,7 +624,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets['pp-twitter-tweet']        = [
-			'conditions' => [ $this->type => 'pp-twitter-tweet' ],
+			'conditions' => [ 'widgetType' => 'pp-twitter-tweet' ],
 			'fields'     => [
 				[
 					'field'       => 'tweet_url',
@@ -636,7 +634,7 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets[ 'pp-wpforms' ]              = [
-			'conditions' => [ $this->type => 'pp-wpforms' ],
+			'conditions' => [ 'widgetType' => 'pp-wpforms' ],
 			'fields'     => [
 				[
 					'field'       => 'form_title_custom',
