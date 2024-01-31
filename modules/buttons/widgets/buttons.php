@@ -1541,7 +1541,7 @@ class Buttons extends Powerpack_Widget {
 										};
 										var image_url = elementor.imagesManager.getImageUrl( image );
 										#>
-										<img src="{{{ image_url }}}">
+										<img src="{{ image_url }}">
 									</span>
 								<# } else if ( item.pp_icon_type == 'text' ) { #>
 									<span class="pp-button-icon pp-button-icon-number">
