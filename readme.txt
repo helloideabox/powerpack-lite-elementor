@@ -233,6 +233,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.15 - February 2, 2024 =
+* 	Fixed: Compatibility issues with WPML and PHP 8
+* 	Security Fix: Improved code security in PowerPack widgets
+
 = 2.7.14 - December 29, 2023 =
 * 	Fixed: Advanced Posts - Carousel layout was not working in the Elementor editor
 * 	Security Fix: Improved code security on PowerPack settings page

@@ -1,5 +1,5 @@
 == 2.7.15 ==
-Release date: 
+Release date: February 2, 2024
 * Fixed: Compatibility issues with WPML and PHP 8
 * Security Fix: Improved code security in PowerPack widgets
 
