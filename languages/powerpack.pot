@@ -1,15 +1,15 @@
-# Copyright (C) 2023 IdeaBox Creations
+# Copyright (C) 2024 IdeaBox Creations
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.7.14\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.7.15\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2023-12-29 10:31:56+00:00\n"
+"POT-Creation-Date: 2024-02-02 09:34:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -674,355 +674,355 @@ msgstr ""
 msgid "I'm not interested"
 msgstr ""
 
-#: classes/class-pp-wpml.php:32
+#: classes/class-pp-wpml.php:30
 msgid "Caldera Forms - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:37
+#: classes/class-pp-wpml.php:35
 msgid "Caldera Forms - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:47
+#: classes/class-pp-wpml.php:45
 msgid "Contact Form 7 - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:52
+#: classes/class-pp-wpml.php:50
 msgid "Contact Form 7 - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:62
+#: classes/class-pp-wpml.php:60
 msgid "Content Ticker - Heading Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:73
+#: classes/class-pp-wpml.php:71
 msgid "Content Reveal - Content Type = Content"
 msgstr ""
 
-#: classes/class-pp-wpml.php:78
+#: classes/class-pp-wpml.php:76
 msgid "Content Reveal - Content Unreveal Label"
 msgstr ""
 
-#: classes/class-pp-wpml.php:83
+#: classes/class-pp-wpml.php:81
 msgid "Content Reveal - Content Reveal Label"
 msgstr ""
 
-#: classes/class-pp-wpml.php:93
+#: classes/class-pp-wpml.php:91
 msgid "Counter - Starting Number"
 msgstr ""
 
-#: classes/class-pp-wpml.php:98
+#: classes/class-pp-wpml.php:96
 msgid "Counter - Ending Number"
 msgstr ""
 
-#: classes/class-pp-wpml.php:103
+#: classes/class-pp-wpml.php:101
 msgid "Counter - Number Prefix"
 msgstr ""
 
-#: classes/class-pp-wpml.php:108
+#: classes/class-pp-wpml.php:106
 msgid "Counter - Number Suffix"
 msgstr ""
 
-#: classes/class-pp-wpml.php:113
+#: classes/class-pp-wpml.php:111
 msgid "Counter - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:118
+#: classes/class-pp-wpml.php:116
 msgid "Counter - Subtitle"
 msgstr ""
 
-#: classes/class-pp-wpml.php:128
+#: classes/class-pp-wpml.php:126
 msgid "Divider - Divider Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:138
+#: classes/class-pp-wpml.php:136
 msgid "Dual Heading - First Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:143
+#: classes/class-pp-wpml.php:141
 msgid "Dual Heading - Second Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:148
+#: classes/class-pp-wpml.php:146
 msgid "Dual Heading - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:158
+#: classes/class-pp-wpml.php:156
 msgid "Fancy Heading - Heading Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:163
+#: classes/class-pp-wpml.php:161
 msgid "Fancy Heading - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:173
+#: classes/class-pp-wpml.php:171
 msgid "Flip Box - Front Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:178
+#: classes/class-pp-wpml.php:176
 msgid "Flip Box - Front Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:183
+#: classes/class-pp-wpml.php:181
 msgid "Flip Box - Back Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:188
+#: classes/class-pp-wpml.php:186
 msgid "Flip Box - Back Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:193
+#: classes/class-pp-wpml.php:191
 msgid "Flip Box - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:198
+#: classes/class-pp-wpml.php:196
 msgid "Flip Box - Button Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:208
+#: classes/class-pp-wpml.php:206
 msgid "Fluent Forms - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:213
+#: classes/class-pp-wpml.php:211
 msgid "Fluent Forms - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:223
+#: classes/class-pp-wpml.php:221
 msgid "Formidable Forms - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:228
+#: classes/class-pp-wpml.php:226
 msgid "Formidable Forms - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:238
+#: classes/class-pp-wpml.php:236
 msgid "Gravity Forms - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:243
+#: classes/class-pp-wpml.php:241
 msgid "Gravity Forms - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:268
+#: classes/class-pp-wpml.php:266
 msgid "Image Comparision - Before Label"
 msgstr ""
 
-#: classes/class-pp-wpml.php:273
+#: classes/class-pp-wpml.php:271
 msgid "Image Comparision - After Label"
 msgstr ""
 
-#: classes/class-pp-wpml.php:284
+#: classes/class-pp-wpml.php:282
 msgid "Info Box - Icon Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:289
+#: classes/class-pp-wpml.php:287
 msgid "Info Box - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:294
+#: classes/class-pp-wpml.php:292
 msgid "Info Box - Subtitle"
 msgstr ""
 
-#: classes/class-pp-wpml.php:299
+#: classes/class-pp-wpml.php:297
 msgid "Info Box - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:304
+#: classes/class-pp-wpml.php:302
 msgid "Info Box - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:309
+#: classes/class-pp-wpml.php:307
 msgid "Info Box - Button Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:330
+#: classes/class-pp-wpml.php:328
 msgid "Info Table - Icon Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:335
+#: classes/class-pp-wpml.php:333
 msgid "Info Table - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:340
+#: classes/class-pp-wpml.php:338
 msgid "Info Table - Subtitle"
 msgstr ""
 
-#: classes/class-pp-wpml.php:345
+#: classes/class-pp-wpml.php:343
 msgid "Info Table - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:350
+#: classes/class-pp-wpml.php:348
 msgid "Info Table - Sale Badge Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:355
+#: classes/class-pp-wpml.php:353
 msgid "Info Table - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:360
+#: classes/class-pp-wpml.php:358
 msgid "Info Table - Button Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:371
+#: classes/class-pp-wpml.php:369
 msgid "Instafeed - Link Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:376
+#: classes/class-pp-wpml.php:374
 msgid "Instafeed - Instagram Profile URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:381
+#: classes/class-pp-wpml.php:379
 msgid "Instafeed - Load More Button Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:391
+#: classes/class-pp-wpml.php:389
 msgid "Link Effects - Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:396
+#: classes/class-pp-wpml.php:394
 msgid "Link Effects - Secondary Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:401
+#: classes/class-pp-wpml.php:399
 msgid "Link Effects - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:421
+#: classes/class-pp-wpml.php:419
 msgid "Ninja Forms - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:426
+#: classes/class-pp-wpml.php:424
 msgid "Ninja Forms - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:441
+#: classes/class-pp-wpml.php:439
 msgid "Pricing Table - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:446
+#: classes/class-pp-wpml.php:444
 msgid "Pricing Table - Subtitle"
 msgstr ""
 
-#: classes/class-pp-wpml.php:451
+#: classes/class-pp-wpml.php:449
 msgid "Pricing Table - Price"
 msgstr ""
 
-#: classes/class-pp-wpml.php:456
+#: classes/class-pp-wpml.php:454
 msgid "Pricing Table - Origibal Price"
 msgstr ""
 
-#: classes/class-pp-wpml.php:461
+#: classes/class-pp-wpml.php:459
 msgid "Pricing Table - Duration"
 msgstr ""
 
-#: classes/class-pp-wpml.php:466
+#: classes/class-pp-wpml.php:464
 msgid "Pricing Table - Ribbon Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:471
+#: classes/class-pp-wpml.php:469
 msgid "Pricing Table - Button Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:476
+#: classes/class-pp-wpml.php:474
 msgid "Pricing Table - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:481
+#: classes/class-pp-wpml.php:479
 msgid "Pricing Table - Additional Info"
 msgstr ""
 
-#: classes/class-pp-wpml.php:492
+#: classes/class-pp-wpml.php:490
 msgid "Promo Box - Heading"
 msgstr ""
 
-#: classes/class-pp-wpml.php:497
+#: classes/class-pp-wpml.php:495
 msgid "Promo Box - Sub Heading"
 msgstr ""
 
-#: classes/class-pp-wpml.php:502
+#: classes/class-pp-wpml.php:500
 msgid "Promo Box - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:507
+#: classes/class-pp-wpml.php:505
 msgid "Promo Box - Button Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:512
+#: classes/class-pp-wpml.php:510
 msgid "Promo Box - link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:522
+#: classes/class-pp-wpml.php:520
 msgid "Scroll Image - URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:532
+#: classes/class-pp-wpml.php:530
 msgid "Team Member - Name"
 msgstr ""
 
-#: classes/class-pp-wpml.php:537
+#: classes/class-pp-wpml.php:535
 msgid "Team Member - Position"
 msgstr ""
 
-#: classes/class-pp-wpml.php:542
+#: classes/class-pp-wpml.php:540
 msgid "Team Member - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:547
+#: classes/class-pp-wpml.php:545
 msgid "Team Member - URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:563
+#: classes/class-pp-wpml.php:561
 msgid "Twitter Button - Profile URL or Username"
 msgstr ""
 
-#: classes/class-pp-wpml.php:568
+#: classes/class-pp-wpml.php:566
 msgid "Twitter Button - Recipient Id"
 msgstr ""
 
-#: classes/class-pp-wpml.php:573
+#: classes/class-pp-wpml.php:571
 msgid "Twitter Button - Default Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:578
+#: classes/class-pp-wpml.php:576
 msgid "Twitter Button - Hashtag URL or #hashtag"
 msgstr ""
 
-#: classes/class-pp-wpml.php:583
+#: classes/class-pp-wpml.php:581
 msgid "Twitter Button - Via (twitter handler)"
 msgstr ""
 
-#: classes/class-pp-wpml.php:588
+#: classes/class-pp-wpml.php:586
 msgid "Twitter Button - Custom Share Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:593
+#: classes/class-pp-wpml.php:591
 msgid "Twitter Button - Custom Share URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:603
+#: classes/class-pp-wpml.php:601
 msgid "Twitter Grid - Collection URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:608
+#: classes/class-pp-wpml.php:606
 msgid "Twitter Grid - Tweet Limit"
 msgstr ""
 
-#: classes/class-pp-wpml.php:618
+#: classes/class-pp-wpml.php:616
 msgid "Twitter Timeline - Username"
 msgstr ""
 
-#: classes/class-pp-wpml.php:623
+#: classes/class-pp-wpml.php:621
 msgid "Twitter Timeline - Tweet Limit"
 msgstr ""
 
-#: classes/class-pp-wpml.php:633
+#: classes/class-pp-wpml.php:631
 msgid "Twitter Tweet - Tweet URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:643
+#: classes/class-pp-wpml.php:641
 msgid "WPForms - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:648
+#: classes/class-pp-wpml.php:646
 msgid "WPForms - Description"
 msgstr ""
 
