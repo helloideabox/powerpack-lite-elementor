@@ -1700,7 +1700,7 @@ class Info_List extends Powerpack_Widget {
 					<# if ( item.text || item.description ) { #>
 						<li class="pp-info-list-item">
 							<# if ( item.link.url != '' && item.link_type == 'box' ) { #>
-								<a href="{{ item.link.url }}">
+								<a href="{{ _.escape( item.link.url ) }}">
 							<# } #>
 								<div class="pp-info-list-item-inner">
 									<# if ( item.pp_icon_type != 'none' ) { #>
@@ -1731,7 +1731,7 @@ class Info_List extends Powerpack_Widget {
 													};
 													var image_url = elementor.imagesManager.getImageUrl( image );
 													#>
-													<img src="{{{ image_url }}}" />
+													<img src="{{ _.escape( image_url ) }}" />
 												</span>
 											<# } else if ( item.pp_icon_type == 'text' ) { #>
 												<span class="pp-info-list-icon pp-info-list-number elementor-animation-{{ settings.icon_hover_animation }}">
@@ -1744,7 +1744,7 @@ class Info_List extends Powerpack_Widget {
 										<# if ( item.text ) { #>
 										<{{settings.title_html_tag}} class="pp-info-list-title">
 											<# if ( item.link.url != '' && item.link_type == 'title' ) { #>
-												<a href="{{ item.link.url }}">
+												<a href="{{ _.escape( item.link.url ) }}">
 											<# } #>
 											<span {{{ view.getRenderAttributeString( 'list_items.' + (i - 1) + '.text' ) }}}>
 											{{{ item.text }}}
@@ -1761,7 +1761,7 @@ class Info_List extends Powerpack_Widget {
 										<# } #>
 										<# if ( item.link.url != '' && item.link_type == 'button' ) { #>
 											<div class="pp-info-list-button-wrapper pp-info-list-button-icon-{{ item.button_icon_position }}">
-												<a href="{{ item.link.url }}">
+												<a href="{{ _.escape( item.link.url ) }}">
 													<div class="pp-info-list-button elementor-button elementor-size-{{ settings.button_size }} elementor-animation-{{ settings.button_animation }}">
 														<#
 															buttonIconHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );

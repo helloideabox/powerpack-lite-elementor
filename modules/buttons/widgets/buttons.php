@@ -1306,11 +1306,13 @@ class Buttons extends Powerpack_Widget {
 										</span>
 										<?php
 									}
-								} elseif ( 'image' === $item['pp_icon_type'] ) { ?>
-									<span class="pp-button-icon pp-button-icon-image">
-										<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $item, 'icon_img', 'icon_img' ) ); ?>
-									</span>
-									<?php
+								} elseif ( 'image' === $item['pp_icon_type'] ) {
+									if ( ! empty( $item['icon_img']['url'] ) ) { ?>
+										<span class="pp-button-icon pp-button-icon-image">
+											<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $item, 'icon_img', 'icon_img' ) ); ?>
+										</span>
+										<?php
+									}
 								} elseif ( 'text' === $item['pp_icon_type'] ) { ?>
 									<span class="pp-button-icon pp-button-icon-number">
 										<?php echo esc_attr( $item['icon_text'] ); ?>
@@ -1518,31 +1520,35 @@ class Buttons extends Powerpack_Widget {
 								<# if ( item.pp_icon_type == 'icon' ) { #>
 									<# if ( item.button_icon || item.selected_icon.value ) { #>
 										<span class="pp-button-icon pp-icon">
-										<#
-											iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
-											migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
-											if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.button_icon || migrated[ index ] ) ) { #>
-												{{{ iconsHTML[ index ].value }}}
-											<# } else { #>
-												<i class="{{ item.button_icon }}" aria-hidden="true"></i>
-											<# }
-										#>
+											<#
+												iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
+												migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
+
+												if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.button_icon || migrated[ index ] ) ) { #>
+													{{{ iconsHTML[ index ].value }}}
+												<# } else { #>
+													<i class="{{ item.button_icon }}" aria-hidden="true"></i>
+												<# }
+											#>
 										</span>
 									<# } #>
 								<# } else if ( item.pp_icon_type == 'image' ) { #>
-									<span class="pp-button-icon pp-button-icon-image">
-										<#
-										var image = {
-											id: item.icon_img.id,
-											url: item.icon_img.url,
-											size: item.icon_img_size,
-											dimension: item.icon_img_custom_dimension,
-											model: view.getEditModel()
-										};
-										var image_url = elementor.imagesManager.getImageUrl( image );
-										#>
-										<img src="{{ image_url }}">
-									</span>
+									<# if ( item.icon_img.url != '' ) { #>
+										<span class="pp-button-icon pp-button-icon-image">
+											<#
+											var image = {
+												id: item.icon_img.id,
+												url: item.icon_img.url,
+												size: item.icon_img_size,
+												dimension: item.icon_img_custom_dimension,
+												model: view.getEditModel()
+											};
+
+											var imageUrl = elementor.imagesManager.getImageUrl( image );
+											#>
+											<img src="{{ _.escape( imageUrl ) }}">
+										</span>
+									<# } #>
 								<# } else if ( item.pp_icon_type == 'text' ) { #>
 									<span class="pp-button-icon pp-button-icon-number">
 										{{{ item.icon_text }}}

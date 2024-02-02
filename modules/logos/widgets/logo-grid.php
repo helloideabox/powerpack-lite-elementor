@@ -943,7 +943,7 @@ class Logo_Grid extends Powerpack_Widget {
 					<div class="pp-grid-item-wrap elementor-grid-item elementor-repeater-item-{{ item._id }} {{ item_wrap_custom_style_class }}">
 						<div class="pp-grid-item {{ item_custom_style_class }}">
 							<# if ( item.link && item.link.url ) { #>
-								<a href="{{ item.link.url }}">
+								<a href="{{ _.escape( item.link.url ) }}">
 							<# } #>
 							<#
 							if ( item.logo_image && item.logo_image.id ) {
@@ -966,7 +966,7 @@ class Logo_Grid extends Powerpack_Widget {
 								var image_url = item.logo_image.url;
 							}
 							#>
-							<img src="{{{ image_url }}}" alt="{{ item.title }}"/>
+							<img src="{{ _.escape( image_url ) }}" alt="{{ item.title }}" />
 
 							<# if ( item.link && item.link.url ) { #>
 								</a>
@@ -980,7 +980,7 @@ class Logo_Grid extends Powerpack_Widget {
 									view.addRenderAttribute( 'title' + i, 'class', 'pp-logo-grid-title' );
 
 									if ( item.link && item.link.url ) {
-										title = '<a href="' + item.link.url + '">' + item.title + '</a>';
+										title = '<a href="' + _.escape( item.link.url ) + '">' + item.title + '</a>';
 									}
 
 									var title_html = '<' + settings.title_html_tag  + ' ' + view.getRenderAttributeString( 'title' + i ) + '>' + title + '</' + settings.title_html_tag + '>';

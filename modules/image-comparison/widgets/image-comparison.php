@@ -901,7 +901,7 @@ class Image_Comparison extends Powerpack_Widget {
 				};
 				var before_image_url = elementor.imagesManager.getImageUrl( before_image );
 				#>
-				<img src="{{{ before_image_url }}}" class="pp-before-img">
+				<img src="{{ _.escape( before_image_url ) }}" class="pp-before-img">
 			<# } #>
 
 			<# if ( settings.after_image.url != '' ) { #>
@@ -915,7 +915,7 @@ class Image_Comparison extends Powerpack_Widget {
 				};
 				var after_image_url = elementor.imagesManager.getImageUrl( after_image );
 				#>
-				<img src="{{{ after_image_url }}}" class="pp-after-img">
+				<img src="{{ _.escape( after_image_url ) }}" class="pp-after-img">
 			<# } #>
 		</div>
 		<?php

@@ -3332,7 +3332,7 @@ class Pricing_Table extends Powerpack_Widget {
 										};
 										var image_url = elementor.imagesManager.getImageUrl( image );
 										#>
-										<img src="{{{ image_url }}}" />
+										<img src="{{ _.escape( image_url ) }}" />
 									<# } #>
 								</span>
 							<# } #>
@@ -3395,7 +3395,7 @@ class Pricing_Table extends Powerpack_Widget {
 
 						view.addInlineEditingAttributes( 'table_button_text' );
 
-						var button_text_html = '<a ' + 'href="' + settings.link.url + '"' + view.getRenderAttributeString( 'table_button_text' ) + '>' + button_text + '</a>';
+						var button_text_html = '<a ' + 'href="' + _.escape( settings.link.url ) + '"' + view.getRenderAttributeString( 'table_button_text' ) + '>' + button_text + '</a>';
 
 						print( button_text_html );
 						}
@@ -3493,7 +3493,7 @@ class Pricing_Table extends Powerpack_Widget {
 
 						view.addInlineEditingAttributes( 'table_button_text' );
 
-						var button_text_html = '<a ' + 'href="' + settings.link.url + '"' + view.getRenderAttributeString( 'table_button_text' ) + '>' + button_text + '</a>';
+						var button_text_html = '<a ' + 'href="' + _.escape( settings.link.url ) + '"' + view.getRenderAttributeString( 'table_button_text' ) + '>' + button_text + '</a>';
 
 						print( button_text_html );
 						}

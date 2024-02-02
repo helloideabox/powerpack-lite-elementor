@@ -1795,7 +1795,7 @@ class Logo_Carousel extends Powerpack_Widget {
 									<div class="pp-lc-logo">
 										<# if ( item.logo_carousel_slide.url != '' ) { #>
 											<# if ( item.link && item.link.url ) { #>
-												<a href="{{ item.link.url }}">
+												<a href="{{ _.escape( item.link.url ) }}">
 											<# } #>
 											<#
 											if ( item.logo_carousel_slide && item.logo_carousel_slide.id ) {
@@ -1818,7 +1818,7 @@ class Logo_Carousel extends Powerpack_Widget {
 												var image_url = item.logo_carousel_slide.url;
 											}
 											#>
-											<img src="{{{ image_url }}}" />
+											<img src="{{ _.escape( image_url ) }}" />
 
 											<# if ( item.link && item.link.url ) { #>
 												</a>
@@ -1829,7 +1829,7 @@ class Logo_Carousel extends Powerpack_Widget {
 										<# if ( item.logo_title ) { #>
 											<{{ settings.title_html_tag }} class="pp-logo-grid-title">
 												<# if ( item.link && item.link.url ) { #>
-													<a href="{{ item.link.url }}">
+													<a href="{{ _.escape( item.link.url ) }}">
 												<# } #>
 													{{ item.logo_title }}
 												<# if ( item.link && item.link.url ) { #>

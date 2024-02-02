@@ -2198,19 +2198,14 @@ class Team_Member extends Powerpack_Widget {
 					};
 
 					var image_url = elementor.imagesManager.getImageUrl( image );
-				}
-		   
-				if ( settings.image.url != '' ) {
+
+					var imageHtml = '<img src="' + _.escape( image_url ) + '" />';
+
 					if ( settings.link_type == 'image' && settings.link.url != '' ) {
-						var target = settings.link.is_external ? ' target="_blank"' : '';
-						var nofollow = settings.link.nofollow ? ' rel="nofollow"' : '';
-						#>
-						<a href="{{ settings.link.url }}"{{ target }}{{ nofollow }}>
-							<img src="{{ image_url }}" alt="">
-						</a>
-					<# } else { #>
-						<img src="{{ image_url }}" alt="">
-					<# }
+						imageHtml = '<a href="' + _.escape( settings.link.url ) + '">' + imageHtml + '</a>';
+					}
+
+					print( imageHtml );
 				}
 			}
 
@@ -2230,7 +2225,7 @@ class Team_Member extends Powerpack_Widget {
 					var target = settings.link.is_external ? ' target="_blank"' : '';
 					var nofollow = settings.link.nofollow ? ' rel="nofollow"' : '';
 					#>
-					<a href="{{ settings.link.url }}"{{ target }}{{ nofollow }}>
+					<a href="{{ _.escape( settings.link.url ) }}"{{ target }}{{ nofollow }}>
 						<# print( name_html ); #>
 					</a>
 				<# } else {

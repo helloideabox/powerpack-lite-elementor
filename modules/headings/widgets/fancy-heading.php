@@ -360,7 +360,7 @@ class Fancy_Heading extends Powerpack_Widget {
 	protected function content_template() {
 		?>
 		<{{{settings.heading_html_tag}}} class="pp-fancy-heading">
-			<# if ( settings.link.url ) { #><a href="{{settings.link.url}}"><# } #>
+			<# if ( settings.link.url ) { #><a href="{{ _.escape( settings.link.url ) }}"><# } #>
 				<#
 				if ( settings.heading_text != '' ) {
 					var heading_text = settings.heading_text;

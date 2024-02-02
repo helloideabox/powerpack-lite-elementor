@@ -1344,7 +1344,7 @@ class Price_Menu extends Powerpack_Widget {
 										};
 										var image_url = elementor.imagesManager.getImageUrl( image );
 										#>
-										<img src="{{{ image_url }}}" />
+										<img src="{{ _.escape( image_url ) }}" />
 									<# } #>
 								</div>
 							<# } #>
@@ -1354,7 +1354,7 @@ class Price_Menu extends Powerpack_Widget {
 									<# if ( item.menu_title != '' ) { #>
 										<{{settings.title_html_tag}} class="pp-restaurant-menu-title">
 											<# if ( item.link && item.link.url ) { #>
-												<a href="{{ item.link.url }}">
+												<a href="{{ _.escape( item.link.url ) }}">
 													<# title_template( item ) #>
 												</a>
 											<# } else { #>

@@ -1062,7 +1062,7 @@ class Icon_List extends Powerpack_Widget {
 					<# if ( item.text != '' ) { #>
 						<li {{{ view.getRenderAttributeString( itemKey ) }}}>
 							<# if ( item.link && item.link.url ) { #>
-								<a href="{{ item.link.url }}">
+								<a href="{{ _.escape( item.link.url ) }}">
 							<# } #>
 							<# if ( item.pp_icon_type != 'none' ) { #>
 								<#
@@ -1099,7 +1099,7 @@ class Icon_List extends Powerpack_Widget {
 											};
 											var image_url = elementor.imagesManager.getImageUrl( image );
 											#>
-											<img src="{{{ image_url }}}" />
+											<img src="{{ _.escape( image_url ) }}" />
 										</span>
 									<# } else if ( item.pp_icon_type == 'number' ) { #>
 										<#

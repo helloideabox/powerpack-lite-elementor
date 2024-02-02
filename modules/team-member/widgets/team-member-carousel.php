@@ -3326,7 +3326,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						var target = item.link.is_external ? ' target="_blank"' : '',
 							nofollow = item.link.nofollow ? ' rel="nofollow"' : '';
 				   
-						var name = '<a href="' + item.link.url + '" ' + target + '>' + name + '</a>';
+						var name = '<a href="' + _.escape( item.link.url ) + '" ' + target + '>' + name + '</a>';
 					}
 				   
 					var name_html = '<' + settings.name_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + settings.name_html_tag + '>';
@@ -3454,7 +3454,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
 								<div class="pp-tm-image">
 									<#
 										if ( item.team_member_image.url != '' ) {
-									   
 											var image = {
 												id: item.team_member_image.id,
 												url: item.team_member_image.url,
@@ -3464,21 +3463,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 											};
 
 											var image_url = elementor.imagesManager.getImageUrl( image );
-									   
+
+											var imageHtml = '<img src="' + _.escape( image_url ) + '" />';
+
 											if ( item.link_type == 'image' && item.link.url != '' ) {
-									   
-												var target = item.link.is_external ? ' target="_blank"' : '';
-												var nofollow = item.link.nofollow ? ' rel="nofollow"' : '';
-												#>
-												<a href="{{ item.link.url }}"{{ target }}{{ nofollow }}>
-													<img src="{{{ image_url }}}" />
-												</a>
-												<#
-											} else {
-												#>
-												<img src="{{{ image_url }}}" />
-												<#
+												imageHtml = '<a href="' + _.escape( settings.link.url ) + '">' + imageHtml + '</a>';
 											}
+
+											print( imageHtml );
 										}
 									#>
 

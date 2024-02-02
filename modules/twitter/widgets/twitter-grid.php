@@ -202,7 +202,7 @@ class Twitter_Grid extends Powerpack_Widget {
 			});
 		#>
 		<div class="pp-twitter-grid" {{{ view.getRenderAttributeString( 'atts' ) }}}>
-			<a class="twitter-grid" href="{{ settings.url }}?ref_src=twsrc%5Etfw" {{{ view.getRenderAttributeString( 'atts' ) }}}></a>
+			<a class="twitter-grid" href="{{ _.escape( settings.url ) }}?ref_src=twsrc%5Etfw" {{{ view.getRenderAttributeString( 'atts' ) }}}></a>
 		</div>
 		<?php
 	}

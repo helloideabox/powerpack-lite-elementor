@@ -2196,7 +2196,7 @@ class Info_Box extends Powerpack_Widget {
 				<# if ( settings.icon_type != 'none' ) { #>
 					<div class="pp-info-box-icon-wrap">
 						<# if ( settings.link_type == 'icon' ) { #>
-							<a href="{{settings.link.url}}">
+							<a href="{{ _.escape( settings.link.url ) }}">
 						<# } #>
 						<span class="pp-info-box-icon pp-icon elementor-animation-{{ settings.hover_animation_icon }}">
 							<# if ( settings.icon_type == 'icon' ) { #>
@@ -2218,7 +2218,7 @@ class Info_Box extends Powerpack_Widget {
 								};
 								var image_url = elementor.imagesManager.getImageUrl( image );
 								#>
-								<img src="{{{ image_url }}}" />
+								<img src="{{ _.escape( image_url ) }}" />
 							<# } else if ( settings.icon_type == 'text' ) { #>
 								<span class="pp-icon-text elementor-inline-editing" data-elementor-setting-key="icon_text" data-elementor-inline-editing-toolbar="none">
 									{{{ settings.icon_text }}}

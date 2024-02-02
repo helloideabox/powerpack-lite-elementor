@@ -1917,7 +1917,7 @@ class Info_Table extends Powerpack_Widget {
 										};
 										var image_url = elementor.imagesManager.getImageUrl( image );
 										#>
-										<img src="{{{ image_url }}}" />
+										<img src="{{ _.escape( image_url ) }}" />
 									<# } else if ( settings.icon_type == 'text' ) { #>
 										<span class="pp-icon-text">
 											{{{ settings.icon_text }}}

@@ -1098,6 +1098,22 @@ class Divider extends Powerpack_Widget {
 		<#
 		var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' ),
 			migrated = elementor.helpers.isIconMigrated( settings, 'icon' );   
+
+		var imageUrl = false;
+
+		if ( '' !== settings.divider_image.url ) {
+			var image = {
+				id: settings.divider_image.id,
+				url: settings.divider_image.url,
+				size: settings.image_size,
+				dimension: settings.image_custom_dimension,
+				model: view.getEditModel()
+			};
+
+			var imageUrl = elementor.imagesManager.getImageUrl( image );
+
+			var imageHtml = '<img src="' + _.escape( imageUrl ) + '" alt="divider" />';
+		}
 		#>
 		<div class="pp-divider-wrap">
 			<# if ( settings.divider_type == 'plain' ) { #>
@@ -1116,27 +1132,17 @@ class Divider extends Powerpack_Widget {
 							<# } else if ( settings.divider_type == 'icon' && settings.divider_icon != '' ) { #>
 								<span class="pp-divider-{{ settings.divider_type }} pp-icon">
 									<# if ( settings.divider_icon || settings.icon ) { #>
-									<# if ( iconHTML && iconHTML.rendered && ( ! settings.divider_icon || migrated ) ) { #>
-									{{{ iconHTML.value }}}
-									<# } else { #>
-										<i class="{{ settings.divider_icon }}" aria-hidden="true"></i>
-									<# } #>
+										<# if ( iconHTML && iconHTML.rendered && ( ! settings.divider_icon || migrated ) ) { #>
+											{{{ iconHTML.value }}}
+										<# } else { #>
+											<i class="{{ settings.divider_icon }}" aria-hidden="true"></i>
+										<# } #>
 									<# } #>
 								</span>
 							<# } else if ( settings.divider_type == 'image' ) { #>
-								<span class="pp-divider-{{ settings.divider_type }}">
-									<#
-									var image = {
-										id: settings.divider_image.id,
-										url: settings.divider_image.url,
-										size: settings.image_size,
-										dimension: settings.image_custom_dimension,
-										model: view.getEditModel()
-									};
-									var image_url = elementor.imagesManager.getImageUrl( image );
-									#>
-									<img src="{{{ image_url }}}" />
-								</span>
+								<# if ( imageUrl ) { #>
+									<span class="pp-divider-{{ settings.divider_type }}">{{{ imageHtml }}}</span>
+								<# } #>
 							<# } #>
 						</span>
 						<span class="pp-divider-border-wrap divider-border-right">

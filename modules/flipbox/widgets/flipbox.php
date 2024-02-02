@@ -2047,7 +2047,7 @@ class Flipbox extends Powerpack_Widget {
 									var flipbox_image_url = elementor.imagesManager.getImageUrl( flipbox_image );
 
 									if ( flipbox_image_url ) { #>
-										<img src="{{{ flipbox_image_url }}}" />
+										<img src="{{ _.escape( flipbox_image_url ) }}" />
 									<# }
 								} else if ( 'text' === settings.icon_type ) { #>
 									<span class="pp-icon-text">
@@ -2141,7 +2141,7 @@ class Flipbox extends Powerpack_Widget {
 										var flipbox_image_url = elementor.imagesManager.getImageUrl( flipbox_image );
 
 										if ( flipbox_image_url ) { #>
-											<img src="{{{ flipbox_image_url }}}" />
+											<img src="{{ _.escape( flipbox_image_url ) }}" />
 										<# }
 									} else if ( 'text' === settings.icon_type_back ) { #>
 										<span class="pp-icon-text">

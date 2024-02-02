@@ -1839,7 +1839,7 @@ class Promo_Box extends Powerpack_Widget {
 								};
 								var image_url = elementor.imagesManager.getImageUrl( image );
 								#>
-								<img src="{{{ image_url }}}" />
+								<img src="{{ _.escape( image_url ) }}" />
 							</span>
 						<# } #>
 					</span>
@@ -1878,7 +1878,7 @@ class Promo_Box extends Powerpack_Widget {
 								<div class="pp-promo-box-heading-divider">
 									<# if ( settings.divider_heading_type == 'image' ) { #>
 										<# if ( settings.divider_title_image.url != '' ) { #>
-											<img src="{{ settings.divider_title_image.url }}">
+											<img src="{{ _.escape( settings.divider_title_image.url ) }}">
 										<# } #>
 									<# } #>
 								</div>
@@ -1908,7 +1908,7 @@ class Promo_Box extends Powerpack_Widget {
 								<div class="pp-promo-box-subheading-divider">
 									<# if ( settings.divider_subheading_type == 'image' ) { #>
 										<# if ( settings.divider_subheading_image.url != '' ) { #>
-											<img src="{{ settings.divider_subheading_image.url }}">
+											<img src="{{ _.escape( settings.divider_subheading_image.url ) }}">
 										<# } #>
 									<# } #>
 								</div>
@@ -1937,7 +1937,7 @@ class Promo_Box extends Powerpack_Widget {
 
 										view.addInlineEditingAttributes( 'button_text' );
 
-										var button_html = '<a href="' + settings.link.url + '"' + ' ' + view.getRenderAttributeString( 'button_text' ) + '>' + button_text + '</a>';
+										var button_html = '<a href="' + _.escape( settings.link.url ) + '"' + ' ' + view.getRenderAttributeString( 'button_text' ) + '>' + button_text + '</a>';
 
 										print( button_html );
 									#>

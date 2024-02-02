@@ -1676,9 +1676,10 @@ class Counter extends Powerpack_Widget {
 									dimension: settings.image_custom_dimension,
 									model: view.getEditModel()
 								};
-								var image_url = elementor.imagesManager.getImageUrl( image );
+
+								var imageUrl = elementor.imagesManager.getImageUrl( image );
 								#>
-								<img src="{{{ image_url }}}" />
+								<img src="{{ _.escape( imageUrl ) }}" />
 							</span>
 						</span>
 						<#

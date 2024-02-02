@@ -3210,7 +3210,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 											};
 											var image_url = elementor.imagesManager.getImageUrl( image );
 											#>
-											<img src="{{{ image_url }}}" />
+											<img src="{{ _.escape( image_url ) }}" />
 										<# } else if ( item.icon_type == 'text' ) { #>
 											{{{ item.icon_text }}}
 										<# } #>

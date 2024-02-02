@@ -604,7 +604,7 @@ class Scroll_Image extends Powerpack_Widget {
 					};
 					var image_url = elementor.imagesManager.getImageUrl( image );
 					#>
-					<img src="{{{ image_url }}}" />
+					<img src="{{ _.escape( image_url ) }}" />
 				</div>
 			</div>
 		</div>

@@ -178,14 +178,14 @@ class PP_Config {
 					'name'       => 'pp-info-box',
 					'title'      => __( 'Info Box', 'powerpack' ),
 					'categories' => array( 'powerpack-elements' ),
-					'keywords'   => array( 'powerpack', 'info' ),
+					'keywords'   => array( 'powerpack', 'info box' ),
 					'icon'       => 'ppicon-info-box power-pack-admin-icon',
 				),
 				'Info_Box_Carousel'    => array(
 					'name'       => 'pp-info-box-carousel',
 					'title'      => __( 'Info Grid & Carousel', 'powerpack' ),
 					'categories' => array( 'powerpack-elements' ),
-					'keywords'   => array( 'powerpack', 'info' ),
+					'keywords'   => array( 'powerpack', 'info box', 'grid', 'slider' ),
 					'icon'       => 'ppicon-info-box-carousel power-pack-admin-icon',
 				),
 				'Info_List'            => array(

@@ -564,7 +564,7 @@ class Dual_Heading extends Powerpack_Widget {
 	protected function content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		?>
 		<{{{settings.heading_html_tag}}} class="pp-dual-heading">
-			<# if ( settings.link.url ) { #><a href="{{settings.link.url}}"><# } #>
+			<# if ( settings.link.url ) { #><a href="{{ _.escape( settings.link.url ) }}"><# } #>
 				<#
 				if ( settings.first_text != '' ) {
 					var first_text = settings.first_text;
