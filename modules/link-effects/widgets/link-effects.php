@@ -474,7 +474,7 @@ class Link_Effects extends Powerpack_Widget {
 	 * @since 2.4.0
 	 * @access protected
 	 */
-	protected function content_template() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function content_template() {
 		?>
 		<#
 		view.addRenderAttribute( 'link', 'class', ['pp-link', 'pp-link-' + settings.effect] );
