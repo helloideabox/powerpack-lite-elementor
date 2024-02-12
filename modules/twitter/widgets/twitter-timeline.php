@@ -263,8 +263,8 @@ class Twitter_Timeline extends Powerpack_Widget {
 			$attr .= ' ';
 		}
 		?>
-		<div class="pp-twitter-timeline" <?php echo wp_kses_post( $attr ); ?>>
-			<a class="twitter-timeline" href="https://twitter.com/<?php echo esc_attr( $user ); ?>" <?php echo wp_kses_post( $attr ); ?>><?php esc_html_e( 'Tweets by', 'powerpack' ); ?> <?php echo esc_html( $user ); ?></a>
+		<div class="pp-twitter-timeline" <?php echo esc_attr( $attr ); ?>>
+			<a class="twitter-timeline" href="https://twitter.com/<?php echo esc_attr( $user ); ?>" <?php echo esc_attr( $attr ); ?>><?php esc_html_e( 'Tweets by', 'powerpack' ); ?> <?php echo esc_html( $user ); ?></a>
 		</div>
 		<?php
 	}

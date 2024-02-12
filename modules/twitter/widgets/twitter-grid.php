@@ -179,8 +179,8 @@ class Twitter_Grid extends Powerpack_Widget {
 			$attr .= ' ';
 		}
 		?>
-		<div class="pp-twitter-grid" <?php echo wp_kses_post( $attr ); ?>>
-			<a class="twitter-grid" href="<?php echo esc_url( $url ); ?>?ref_src=twsrc%5Etfw" <?php echo wp_kses_post( $attr ); ?>></a>
+		<div class="pp-twitter-grid" <?php echo esc_attr( $attr ); ?>>
+			<a class="twitter-grid" href="<?php echo esc_url( $url ); ?>?ref_src=twsrc%5Etfw" <?php echo esc_attr( $attr ); ?>></a>
 		</div>
 		<?php
 	}

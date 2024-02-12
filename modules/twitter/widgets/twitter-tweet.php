@@ -224,8 +224,8 @@ class Twitter_Tweet extends Powerpack_Widget {
 			$attr .= ' ';
 		}
 		?>
-		<div class="pp-twitter-tweet" <?php echo wp_kses_post( $attr ); ?>>
-			<blockquote class="twitter-tweet" <?php echo wp_kses_post( $attr ); ?>><a href="<?php echo esc_url( $url ); ?>"></a></blockquote>
+		<div class="pp-twitter-tweet" <?php echo esc_attr( $attr ); ?>>
+			<blockquote class="twitter-tweet" <?php echo esc_attr( $attr ); ?>><a href="<?php echo esc_url( $url ); ?>"></a></blockquote>
 		</div>
 		<?php
 	}
