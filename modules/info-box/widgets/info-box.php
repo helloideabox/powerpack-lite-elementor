@@ -19,10 +19,11 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -514,7 +515,6 @@ class Info_Box extends Powerpack_Widget {
 						TagsModule::URL_CATEGORY,
 					),
 				),
-				'placeholder' => 'https://www.your-link.com',
 				'default'     => array(
 					'url' => '#',
 				),
@@ -1189,6 +1189,17 @@ class Info_Box extends Powerpack_Widget {
 		);
 
 		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name'      => 'title_text_stroke',
+				'selector'  => '{{WRAPPER}} .pp-info-box-title',
+				'condition' => array(
+					'heading!' => '',
+				),
+			]
+		);
+
+		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			array(
 				'name'      => 'title_text_shadow',
@@ -1288,6 +1299,17 @@ class Info_Box extends Powerpack_Widget {
 				),
 				'selector'  => '{{WRAPPER}} .pp-info-box-subtitle',
 			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name'      => 'subtitle_text_stroke',
+				'selector'  => '{{WRAPPER}} .pp-info-box-subtitle',
+				'condition' => array(
+					'sub_heading!' => '',
+				),
+			]
 		);
 
 		$this->add_group_control(
