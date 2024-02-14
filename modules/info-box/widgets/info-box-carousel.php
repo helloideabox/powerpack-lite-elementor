@@ -15,9 +15,11 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Text_Stroke;
+use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -285,7 +287,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'placeholder'           => 'https://www.your-link.com',
 				'default'               => [
 					'url' => '#',
 				],
@@ -1412,6 +1413,23 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name'                  => 'title_text_stroke',
+				'selector'              => '{{WRAPPER}} .pp-info-box-title',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			array(
+				'name'                  => 'title_text_shadow',
+				'label'                 => __( 'Text Shadow', 'powerpack' ),
+				'selector'              => '{{WRAPPER}} .pp-info-box-title',
+			)
+		);
+
 		$this->add_responsive_control(
 			'title_margin',
 			[
@@ -1473,6 +1491,23 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				],
 				'selector'              => '{{WRAPPER}} .pp-info-box-subtitle',
 			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name'                  => 'subtitle_text_stroke',
+				'selector'              => '{{WRAPPER}} .pp-info-box-subtitle',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			array(
+				'name'                  => 'subtitle_text_shadow',
+				'label'                 => __( 'Text Shadow', 'powerpack' ),
+				'selector'              => '{{WRAPPER}} .pp-info-box-subtitle',
+			)
 		);
 
 		$this->add_responsive_control(
