@@ -233,6 +233,15 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.16 - February 14, 2024 =
+
+* 	Enhancement: Dual Heading - Added Text Stroke option
+* 	Enhancement: Fancy Heading - Added Text Stroke option
+* 	Enhancement: Info Box - Added Text Stroke option for Title and Subtitle
+* 	Enhancement: Info Grid & Carousel - Added Text Stroke option for Title and Subtitle
+* 	Enhancement: Info Grid & Carousel - Added Text Shadow option for Title and Subtitle
+* 	Enhancement: Icon List - Added Adjust Vertical Position option
+
 = 2.7.15 - February 2, 2024 =
 * 	Fixed: Compatibility issues with WPML and PHP 8
 * 	Security Fix: Improved code security in PowerPack widgets
