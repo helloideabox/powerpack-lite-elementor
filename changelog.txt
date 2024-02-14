@@ -1,5 +1,5 @@
 == 2.7.16 ==
-Release date: 
+Release date: February 14, 2024
 * Enhancement: Dual Heading - Added Text Stroke option
 * Enhancement: Fancy Heading - Added Text Stroke option
 * Enhancement: Info Box - Added Text Stroke option for Title and Subtitle
