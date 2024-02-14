@@ -5,6 +5,7 @@ Release date:
 * Enhancement: Info Box - Added Text Stroke option for Title and Subtitle
 * Enhancement: Info Grid & Carousel - Added Text Stroke option for Title and Subtitle
 * Enhancement: Info Grid & Carousel - Added Text Shadow option for Title and Subtitle
+* Enhancement: Icon List - Added Adjust Vertical Position option
 
 == 2.7.15 ==
 Release date: February 2, 2024

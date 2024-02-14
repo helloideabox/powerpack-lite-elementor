@@ -663,6 +663,31 @@ class Icon_List extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_responsive_control(
+			'icon_vertical_offset',
+			[
+				'label'                 => esc_html__( 'Adjust Vertical Position', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
+				'default'               => [
+					'size' => 0,
+				],
+				'range'                 => [
+					'px' => [
+						'min' => -15,
+						'max' => 15,
+					],
+					'em' => [
+						'min' => -1,
+						'max' => 1,
+					],
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-icon-wrapper' => 'top: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
