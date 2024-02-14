@@ -1,6 +1,7 @@
 == 2.7.16 ==
 Release date: 
 * Enhancement: Dual Heading - Added Text Stroke option
+* Enhancement: Fancy Heading - Added Text Stroke option
 
 == 2.7.15 ==
 Release date: February 2, 2024

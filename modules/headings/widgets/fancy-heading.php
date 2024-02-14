@@ -8,6 +8,7 @@ use PowerpackElementsLite\Classes\PP_Config;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
@@ -128,7 +129,6 @@ class Fancy_Heading extends Powerpack_Widget {
 					],
 				],
 				'label_block'           => true,
-				'placeholder'           => 'https://www.your-link.com',
 			]
 		);
 
@@ -248,6 +248,14 @@ class Fancy_Heading extends Powerpack_Widget {
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
+				'selector'              => '{{WRAPPER}} .pp-heading-text',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name'                  => 'heading_text_stroke',
 				'selector'              => '{{WRAPPER}} .pp-heading-text',
 			]
 		);
