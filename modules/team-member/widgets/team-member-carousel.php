@@ -3328,12 +3328,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				   
 						var name = '<a href="' + _.escape( item.link.url ) + '" ' + target + '>' + name + '</a>';
 					}
-				   
+
 					var name_html = '<' + settings.name_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + settings.name_html_tag + '>';
 				   
 					print(name_html);
 				}
-						   
+
 				if ( settings.member_title_divider == 'yes' ) {
 					#>
 					<div class="pp-tm-title-divider-wrap">
@@ -3372,7 +3372,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 					print( description_html );
 				}
-		   
+
 				if ( settings.member_description_divider == 'yes' ) {
 					#>
 					<div class="pp-tm-description-divider-wrap">
@@ -3467,7 +3467,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 											var imageHtml = '<img src="' + _.escape( image_url ) + '" />';
 
 											if ( item.link_type == 'image' && item.link.url != '' ) {
-												imageHtml = '<a href="' + _.escape( settings.link.url ) + '">' + imageHtml + '</a>';
+												imageHtml = '<a href="' + _.escape( item.link.url ) + '">' + imageHtml + '</a>';
 											}
 
 											print( imageHtml );
@@ -3487,7 +3487,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 															}
 														}
 													}
-												   
+
 													if ( settings.overlay_content == 'content' || settings.overlay_content == 'all_content' ) {
 														description_template( item );
 													}
