@@ -1,6 +1,7 @@
 == 2.7.17 ==
 Release date: 
 * Fixed: Team Member Carousel - JS error in editor when link is added
+* Fixed: Display Conditions - JS error in editor when display condition used on a container
 
 == 2.7.16 ==
 Release date: February 14, 2024
