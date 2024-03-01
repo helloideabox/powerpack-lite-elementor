@@ -233,8 +233,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
-= 2.7.16 - February 14, 2024 =
+= 2.7.17 - March 1, 2024 =
+* Fixed: Team Member Carousel - JS error in editor when link is added
+* Fixed: Display Conditions - JS error in editor when display condition used on a container
 
+= 2.7.16 - February 14, 2024 =
 * 	Enhancement: Dual Heading - Added Text Stroke option
 * 	Enhancement: Fancy Heading - Added Text Stroke option
 * 	Enhancement: Info Box - Added Text Stroke option for Title and Subtitle
