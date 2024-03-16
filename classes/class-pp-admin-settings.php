@@ -256,7 +256,7 @@ final class PP_Admin_Settings {
 	 * @return void
 	 */
 	public static function get_form_action( $type = '' ) {
-		return admin_url( '/admin.php?page=powerpack-settings' . $type );
+		return esc_url( admin_url( '/admin.php?page=powerpack-settings' . $type ) );
 	}
 
 	/**
