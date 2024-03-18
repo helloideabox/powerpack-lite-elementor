@@ -1742,17 +1742,18 @@ class Info_List extends Powerpack_Widget {
 									<# } #>
 									<div class="pp-infolist-content-wrapper">
 										<# if ( item.text ) { #>
-										<{{settings.title_html_tag}} class="pp-info-list-title">
-											<# if ( item.link.url != '' && item.link_type == 'title' ) { #>
-												<a href="{{ _.escape( item.link.url ) }}">
-											<# } #>
-											<span {{{ view.getRenderAttributeString( 'list_items.' + (i - 1) + '.text' ) }}}>
-											{{{ item.text }}}
-											</span>
-											<# if ( item.link.url != '' && item.link_type == 'title' ) { #>
-												</a>
-											<# } #>
-										</{{settings.title_html_tag}}>
+											<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
+											<{{{ titleHTMLTag }}} class="pp-info-list-title">
+												<# if ( item.link.url != '' && item.link_type == 'title' ) { #>
+													<a href="{{ _.escape( item.link.url ) }}">
+												<# } #>
+												<span {{{ view.getRenderAttributeString( 'list_items.' + (i - 1) + '.text' ) }}}>
+												{{{ item.text }}}
+												</span>
+												<# if ( item.link.url != '' && item.link_type == 'title' ) { #>
+													</a>
+												<# } #>
+											</{{{ titleHTMLTag }}}>
 										<# } #>
 										<# if ( item.description ) { #>
 										<div {{{ view.getRenderAttributeString( description_key ) }}}>

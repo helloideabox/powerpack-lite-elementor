@@ -1352,7 +1352,8 @@ class Price_Menu extends Powerpack_Widget {
 							<div class="pp-restaurant-menu-content">
 								<div class="pp-restaurant-menu-header">
 									<# if ( item.menu_title != '' ) { #>
-										<{{settings.title_html_tag}} class="pp-restaurant-menu-title">
+										<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
+										<{{{ titleHTMLTag }}} class="pp-restaurant-menu-title">
 											<# if ( item.link && item.link.url ) { #>
 												<a href="{{ _.escape( item.link.url ) }}">
 													<# title_template( item ) #>
@@ -1360,7 +1361,7 @@ class Price_Menu extends Powerpack_Widget {
 											<# } else { #>
 												<# title_template( item ) #>
 											<# } #>
-										</{{settings.title_html_tag}}>
+										</{{{ titleHTMLTag }}}>
 									<# }
 
 									if ( settings.title_price_connector == 'yes' ) { #>

@@ -2217,9 +2217,10 @@ class Team_Member extends Powerpack_Widget {
 
 					view.addInlineEditingAttributes( 'team_member_name' );
 
-					var name_html = '<' + settings.name_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + settings.name_html_tag + '>';
+					var nameHTMLTag = elementor.helpers.validateHTMLTag( settings.name_html_tag ),
+						name_html = '<' + nameHTMLTag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + nameHTMLTag + '>';
 				}
-		   
+
 				if ( settings.link_type == 'title' && settings.link.url != '' ) { #>
 					<#
 					var target = settings.link.is_external ? ' target="_blank"' : '';
@@ -2231,7 +2232,7 @@ class Team_Member extends Powerpack_Widget {
 				<# } else {
 					print( name_html );
 				}
-				   
+
 				if ( settings.member_title_divider == 'yes' ) { #>
 					<div class="pp-tm-title-divider-wrap">
 						<div class="pp-tm-divider pp-tm-title-divider"></div>
@@ -2247,11 +2248,12 @@ class Team_Member extends Powerpack_Widget {
 
 					view.addInlineEditingAttributes( 'team_member_position' );
 
-					var position_html = '<' + settings.position_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_position' ) + '>' + position + '</' + settings.position_html_tag + '>';
+					var positionHTMLTag = elementor.helpers.validateHTMLTag( settings.position_html_tag ),
+						position_html = '<' + positionHTMLTag  + ' ' + view.getRenderAttributeString( 'team_member_position' ) + '>' + position + '</' + positionHTMLTag + '>';
 
 					print( position_html );
 				}
-		   
+
 				if ( settings.member_position_divider == 'yes' ) { #>
 					<div class="pp-tm-position-divider-wrap">
 						<div class="pp-tm-divider pp-tm-position-divider"></div>
@@ -2268,11 +2270,12 @@ class Team_Member extends Powerpack_Widget {
 
 						view.addInlineEditingAttributes( 'team_member_description', 'advanced' );
 
-						var description_html = '<' + settings.position_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_description' ) + '>' + description + '</' + settings.position_html_tag + '>';
+						var positionHTMLTag = elementor.helpers.validateHTMLTag( settings.position_html_tag ),
+							description_html = '<' + positionHTMLTag  + ' ' + view.getRenderAttributeString( 'team_member_description' ) + '>' + description + '</' + positionHTMLTag + '>';
 
 						print( description_html );
 					}
-		   
+
 					if ( settings.member_description_divider == 'yes' ) { #>
 						<div class="pp-tm-description-divider-wrap">
 							<div class="pp-tm-divider pp-tm-description-divider"></div>
@@ -2280,7 +2283,7 @@ class Team_Member extends Powerpack_Widget {
 					<# }
 				}
 			}
-					   
+
 			function member_social_links() { #>
 				<# var iconsHTML = {}; #>
 				<div class="pp-tm-social-links-wrap">

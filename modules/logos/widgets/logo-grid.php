@@ -983,7 +983,8 @@ class Logo_Grid extends Powerpack_Widget {
 										title = '<a href="' + _.escape( item.link.url ) + '">' + item.title + '</a>';
 									}
 
-									var title_html = '<' + settings.title_html_tag  + ' ' + view.getRenderAttributeString( 'title' + i ) + '>' + title + '</' + settings.title_html_tag + '>';
+									var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ),
+										title_html = '<' + titleHTMLTag  + ' ' + view.getRenderAttributeString( 'title' + i ) + '>' + title + '</' + titleHTMLTag + '>';
 
 									print( title_html );
 								}

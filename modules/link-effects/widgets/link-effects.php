@@ -499,7 +499,8 @@ class Link_Effects extends Powerpack_Widget {
 				break;
 		}
 		#>
-		<{{settings.html_tag}} class="pp-link-container">
+		<# var HTMLTag = elementor.helpers.validateHTMLTag( settings.html_tag ); #>
+		<{{{ HTMLTag }}} class="pp-link-container">
 			<a {{{ view.getRenderAttributeString( 'link' ) }}} {{{ link }}}>
 				<span {{{ view.getRenderAttributeString( 'pp-link-text' ) }}}>
 					{{{ settings.text }}}
@@ -508,7 +509,7 @@ class Link_Effects extends Powerpack_Widget {
 					<span>{{{ settings.secondary_text }}}</span>
 				<# } #>
 			</a>
-		</{{settings.html_tag}}>
+		</{{{ HTMLTag }}}>
 		<?php
 	}
 }

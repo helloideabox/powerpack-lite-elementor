@@ -3258,22 +3258,25 @@ class Info_Box_Carousel extends Powerpack_Widget {
 							<div class="pp-info-box-content">
 								<div class="pp-info-box-title-wrap">
 									<#
+										var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ),
+											subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.sub_title_html_tag );
+
 										if ( item.title ) {
 											#>
 											<{{{ $title_container_tag }}} {{{ view.getRenderAttributeString( 'title-container' + i ) }}}>
 
-											<{{{ settings.title_html_tag }}} class="pp-info-box-title">
+											<{{{ titleHTMLTag }}} class="pp-info-box-title">
 											{{ item.title }}
-											</{{{ settings.title_html_tag }}}>
+											</{{{ titleHTMLTag }}}>
 											</{{{ $title_container_tag }}}>
 											<#
 										}
 
 										if ( item.subtitle ) {
 											#>
-											<{{{ settings.sub_title_html_tag }}} class="pp-info-box-subtitle">
+											<{{{ subtitleHTMLTag }}} class="pp-info-box-subtitle">
 											{{ item.subtitle }}
-											</{{{ settings.sub_title_html_tag }}}>
+											</{{{ subtitleHTMLTag }}}>
 											<#
 										}
 									#>

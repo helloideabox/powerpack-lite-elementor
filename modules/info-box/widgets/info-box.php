@@ -2254,17 +2254,21 @@ class Info_Box extends Powerpack_Widget {
 				<# } #>
 				<div class="pp-info-box-content">
 					<div class="pp-info-box-title-wrap">
+						<#
+						var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ),
+							subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.sub_title_html_tag );
+						#>
 						<# if ( settings.heading ) { #>
 							<{{pp_title_html_tag}} class="pp-info-box-title-container" href="{{settings.link.url}}">
-								<{{settings.title_html_tag}} class="pp-info-box-title elementor-inline-editing" data-elementor-setting-key="heading" data-elementor-inline-editing-toolbar="none">
+								<{{{ titleHTMLTag }}} class="pp-info-box-title elementor-inline-editing" data-elementor-setting-key="heading" data-elementor-inline-editing-toolbar="none">
 									{{{ settings.heading }}}
-								</{{settings.title_html_tag}}>
+								</{{{ titleHTMLTag }}}>
 							</{{pp_title_html_tag}}>
 						<# } #>
 						<# if ( settings.sub_heading ) { #>
-							<{{settings.sub_title_html_tag}} class="pp-info-box-subtitle elementor-inline-editing" data-elementor-setting-key="sub_heading" data-elementor-inline-editing-toolbar="none">
+							<{{{ subtitleHTMLTag }}} class="pp-info-box-subtitle elementor-inline-editing" data-elementor-setting-key="sub_heading" data-elementor-inline-editing-toolbar="none">
 								{{{ settings.sub_heading }}}
-							</{{settings.sub_title_html_tag}}>
+							</{{{ subtitleHTMLTag }}}>
 						<# } #>
 					</div>
 

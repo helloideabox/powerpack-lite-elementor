@@ -1827,7 +1827,8 @@ class Logo_Carousel extends Powerpack_Widget {
 									</div>
 									<# if ( 'yes' == settings.show_title ) { #>
 										<# if ( item.logo_title ) { #>
-											<{{ settings.title_html_tag }} class="pp-logo-grid-title">
+											<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
+											<{{{ titleHTMLTag }}} class="pp-logo-grid-title">
 												<# if ( item.link && item.link.url ) { #>
 													<a href="{{ _.escape( item.link.url ) }}">
 												<# } #>
@@ -1835,7 +1836,7 @@ class Logo_Carousel extends Powerpack_Widget {
 												<# if ( item.link && item.link.url ) { #>
 													</a>
 												<# } #>
-											</{{ settings.title_html_tag }}>
+											</{{{ titleHTMLTag }}}>
 										<# } #>
 									<# } #>
 								</div>

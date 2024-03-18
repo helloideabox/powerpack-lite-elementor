@@ -1126,9 +1126,10 @@ class Divider extends Powerpack_Widget {
 						</span>
 						<span class="pp-divider-content">
 							<# if ( settings.divider_type == 'text' && settings.divider_text != '' ) { #>
-								<{{ settings.text_html_tag }} class="pp-divider-{{ settings.divider_type }} elementor-inline-editing" data-elementor-setting-key="divider_text" data-elementor-inline-editing-toolbar="none">
+								<# var textHTMLTag = elementor.helpers.validateHTMLTag( settings.text_html_tag ); #>
+								<{{ textHTMLTag }} class="pp-divider-{{ settings.divider_type }} elementor-inline-editing" data-elementor-setting-key="divider_text" data-elementor-inline-editing-toolbar="none">
 									{{ settings.divider_text }}
-								</{{ settings.text_html_tag }}>
+								</{{ textHTMLTag }}>
 							<# } else if ( settings.divider_type == 'icon' && settings.divider_icon != '' ) { #>
 								<span class="pp-divider-{{ settings.divider_type }} pp-icon">
 									<# if ( settings.divider_icon || settings.icon ) { #>

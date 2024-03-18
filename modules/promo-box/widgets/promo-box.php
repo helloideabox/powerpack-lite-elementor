@@ -1868,7 +1868,8 @@ class Promo_Box extends Powerpack_Widget {
 
 							view.addInlineEditingAttributes( 'heading' );
 
-							var heading_html = '<' + settings.heading_html_tag + ' ' + view.getRenderAttributeString( 'heading' ) + '>' + heading + '</' + settings.heading_html_tag + '>';
+							var headingHTMLTag = elementor.helpers.validateHTMLTag( settings.heading_html_tag ),
+								heading_html = '<' + headingHTMLTag + ' ' + view.getRenderAttributeString( 'heading' ) + '>' + heading + '</' + headingHTMLTag + '>';
 
 							print( heading_html );
 						}
@@ -1898,7 +1899,8 @@ class Promo_Box extends Powerpack_Widget {
 
 							view.addInlineEditingAttributes( 'sub_heading' );
 
-							var sub_heading_html = '<' + settings.sub_heading_html_tag + ' ' + view.getRenderAttributeString( 'sub_heading' ) + '>' + sub_heading + '</' + settings.sub_heading_html_tag + '>';
+							var subHeadingHTMLTag = elementor.helpers.validateHTMLTag( settings.sub_heading_html_tag ),
+								sub_heading_html = '<' + subHeadingHTMLTag + ' ' + view.getRenderAttributeString( 'sub_heading' ) + '>' + sub_heading + '</' + subHeadingHTMLTag + '>';
 
 							print( sub_heading_html );
 						} #>

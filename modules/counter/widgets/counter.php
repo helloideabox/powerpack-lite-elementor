@@ -1728,16 +1728,38 @@ class Counter extends Powerpack_Widget {
 			}
 
 			function title_template() {
-				if ( settings.counter_title != '' ) {
-					var title = settings.counter_title;
+				if ( settings.counter_title != '' || settings.counter_subtitle != '' ) {
+					#>
+					<div class="pp-counter-title-wrap">
+						<#
+						if ( settings.counter_title != '' ) {
+							var title = settings.counter_title;
 
-					view.addRenderAttribute( 'counter_title', 'class', 'pp-counter-title' );
+							view.addRenderAttribute( 'counter_title', 'class', 'pp-counter-title' );
 
-					view.addInlineEditingAttributes( 'counter_title' );
+							view.addInlineEditingAttributes( 'counter_title' );
 
-					var title_html = '<' + settings.title_html_tag  + ' ' + view.getRenderAttributeString( 'counter_title' ) + '>' + title + '</' + settings.title_html_tag + '>';
+							var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ),
+								title_html = '<' + titleHTMLTag  + ' ' + view.getRenderAttributeString( 'counter_title' ) + '>' + title + '</' + titleHTMLTag + '>';
 
-					print( title_html );
+							print( title_html );
+						}
+
+						if ( settings.counter_subtitle != '' ) {
+							var title = settings.counter_subtitle;
+
+							view.addRenderAttribute( 'counter_subtitle', 'class', 'pp-counter-subtitle' );
+
+							view.addInlineEditingAttributes( 'counter_subtitle' );
+
+							var subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.subtitle_html_tag ),
+								subtitle_html = '<' + subtitleHTMLTag  + ' ' + view.getRenderAttributeString( 'counter_subtitle' ) + '>' + title + '</' + subtitleHTMLTag + '>';
+
+							print( subtitle_html );
+						}
+						#>
+					</div>
+					<#
 				}
 			}
 		#>

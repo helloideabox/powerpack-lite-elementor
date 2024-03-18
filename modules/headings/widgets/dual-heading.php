@@ -579,7 +579,8 @@ class Dual_Heading extends Powerpack_Widget {
 	 */
 	protected function content_template() {
 		?>
-		<{{{settings.heading_html_tag}}} class="pp-dual-heading">
+		<# var headingHTMLTag = elementor.helpers.validateHTMLTag( settings.heading_html_tag ); #>
+		<{{{ headingHTMLTag }}} class="pp-dual-heading">
 			<# if ( settings.link.url ) { #><a href="{{ _.escape( settings.link.url ) }}"><# } #>
 				<#
 				if ( settings.first_text != '' ) {
@@ -607,7 +608,7 @@ class Dual_Heading extends Powerpack_Widget {
 				}
 				#>
 			<# if ( settings.link.url ) { #></a><# } #>
-		</{{{settings.heading_html_tag}}}>
+		</{{{ headingHTMLTag }}}>
 		<?php
 	}
 }

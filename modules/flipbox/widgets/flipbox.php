@@ -2056,9 +2056,11 @@ class Flipbox extends Powerpack_Widget {
 								<# } #>
 							</div>
 
-							<{{ settings.title_html_tag_front }} class="pp-flipbox-heading">
+							<# var titleFrontHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag_front ); #>
+
+							<{{{ titleFrontHTMLTag }}} class="pp-flipbox-heading">
 								{{{ settings.title_front }}}
-							</{{ settings.title_html_tag_front }}>
+							</{{{ titleFrontHTMLTag }}}>
 
 							<div class="pp-flipbox-content">
 								{{{ settings.description_front }}}
@@ -2070,7 +2072,7 @@ class Flipbox extends Powerpack_Widget {
 			}
 
 			function render_back() {
-				var pp_title_html_tag = settings.title_html_tag_back;
+				var titleBackHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag_back );
 
 				view.addRenderAttribute( 'title-container', 'class', 'pp-flipbox-heading' );
 
@@ -2087,7 +2089,7 @@ class Flipbox extends Powerpack_Widget {
 					if ( settings.link.url ) {
 						if ( 'title' === settings.link_type ) {
 
-							var pp_title_html_tag = 'a';
+							var titleBackHTMLTag = 'a';
 
 							view.addRenderAttribute( 'title-container', 'class', 'pp-flipbox-linked-title' );
 							view.addRenderAttribute( 'title-container', 'href', settings.link.url );
@@ -2151,9 +2153,9 @@ class Flipbox extends Powerpack_Widget {
 								</div>
 							<# } #>
 
-							<{{ pp_title_html_tag }} {{{ view.getRenderAttributeString( 'title-container' ) }}}>
+							<{{{ titleBackHTMLTag }}} {{{ view.getRenderAttributeString( 'title-container' ) }}}>
 								{{{ settings.title_back }}}
-							</{{ pp_title_html_tag }}>
+							</{{{ titleBackHTMLTag }}}>
 
 							<div class="pp-flipbox-content">
 								{{{ settings.description_back }}}

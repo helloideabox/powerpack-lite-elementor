@@ -3329,7 +3329,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						var name = '<a href="' + _.escape( item.link.url ) + '" ' + target + '>' + name + '</a>';
 					}
 
-					var name_html = '<' + settings.name_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + settings.name_html_tag + '>';
+					var nameHTMLTag = elementor.helpers.validateHTMLTag( settings.name_html_tag ),
+						name_html = '<' + nameHTMLTag  + ' ' + view.getRenderAttributeString( 'team_member_name' ) + '>' + name + '</' + nameHTMLTag + '>';
 				   
 					print(name_html);
 				}
@@ -3349,7 +3350,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 					view.addRenderAttribute( 'team_member_position', 'class', 'pp-tm-position' );
 
-					var position_html = '<' + settings.position_html_tag  + ' ' + view.getRenderAttributeString( 'team_member_position' ) + '>' + position + '</' + settings.position_html_tag + '>';
+					var positionHTMLTag = elementor.helpers.validateHTMLTag( settings.position_html_tag ),
+						position_html = '<' + positionHTMLTag  + ' ' + view.getRenderAttributeString( 'team_member_position' ) + '>' + position + '</' + positionHTMLTag + '>';
 
 					print( position_html );
 				}

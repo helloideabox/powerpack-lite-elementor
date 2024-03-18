@@ -1878,17 +1878,19 @@ class Info_Table extends Powerpack_Widget {
 				<div class="pp-info-table-title-wrap">
 				<#
 				if ( settings.heading != '' ) { #>
-					<{{{pp_title_html_tag}}} {{{view.getRenderAttributeString('title-container')}}}>
-						<{{{settings.title_html_tag}}} {{{view.getRenderAttributeString('heading')}}}>
+					<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
+					<{{{ pp_title_html_tag }}} {{{ view.getRenderAttributeString('title-container') }}}>
+						<{{{ titleHTMLTag }}} {{{ view.getRenderAttributeString('heading') }}}>
 							{{{ settings.heading }}}
-						</{{{settings.title_html_tag}}}>
-					</{{{pp_title_html_tag}}}>
+						</{{{ titleHTMLTag }}}>
+					</{{{ pp_title_html_tag }}}>
 					<#
 				}
 				if ( settings.sub_heading != '' ) { #>
-					<{{{settings.sub_title_html_tag}}} {{{view.getRenderAttributeString('sub_heading')}}}>
+					<# var subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.sub_title_html_tag ); #>
+					<{{{ subtitleHTMLTag }}} {{{ view.getRenderAttributeString('sub_heading') }}}>
 						{{{ settings.sub_heading }}}
-					</{{{settings.sub_title_html_tag}}}>
+					</{{{ subtitleHTMLTag }}}>
 					<#
 				}
 				#>

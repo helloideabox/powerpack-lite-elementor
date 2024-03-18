@@ -3340,14 +3340,16 @@ class Pricing_Table extends Powerpack_Widget {
 					<# } #>
 					<div class="pp-pricing-table-title-wrap">
 						<# if ( settings.table_title ) { #>
-							<{{settings.title_html_tag}} class="pp-pricing-table-title elementor-inline-editing" data-elementor-setting-key="table_title" data-elementor-inline-editing-toolbar="none">
+							<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
+							<{{{ titleHTMLTag }}} class="pp-pricing-table-title elementor-inline-editing" data-elementor-setting-key="table_title" data-elementor-inline-editing-toolbar="none">
 								{{{ settings.table_title }}}
-							</{{settings.title_html_tag}}>
+							</{{{ titleHTMLTag }}}>
 						<# } #>
 						<# if ( settings.table_subtitle ) { #>
-							<{{settings.subtitle_html_tag}} class="pp-pricing-table-subtitle elementor-inline-editing" data-elementor-setting-key="table_subtitle" data-elementor-inline-editing-toolbar="none">
+							<# var subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.subtitle_html_tag ); #>
+							<{{{ subtitleHTMLTag }}} class="pp-pricing-table-subtitle elementor-inline-editing" data-elementor-setting-key="table_subtitle" data-elementor-inline-editing-toolbar="none">
 								{{{ settings.table_subtitle }}}
-							</{{settings.subtitle_html_tag}}>
+							</{{{ subtitleHTMLTag }}}>
 						<# } #>
 					</div>
 				</div>
