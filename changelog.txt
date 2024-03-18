@@ -1,5 +1,5 @@
 == 2.7.18 ==
-Release date: 
+Release date: March 18, 2024
 * Fixed: Counter - Subtitle was not showing in editor
 * Fixed: Info Box - Image shrink issue with left and right alignment
 * Security Fix: Improved code security in PowerPack widgets
