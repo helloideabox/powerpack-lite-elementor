@@ -1111,7 +1111,7 @@ class Info_Box extends Powerpack_Widget {
 				),
 				'default'   => 'center',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-info-box' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .pp-info-box-container' => 'text-align: {{VALUE}};',
 				),
 			)
 		);

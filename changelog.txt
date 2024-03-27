@@ -1,3 +1,7 @@
+== 2.7.19 ==
+Release date: March 27, 2024
+
+
 == 2.7.18 ==
 Release date: March 18, 2024
 * Fixed: Counter - Subtitle was not showing in editor
