@@ -1,6 +1,7 @@
 == 2.7.19 ==
 Release date: March 27, 2024
 * Fixed: Info Box - Icon hover Border Color option was not working
+* Fixed: Fluent Forms - Submit button alignment was not working
 
 == 2.7.18 ==
 Release date: March 18, 2024

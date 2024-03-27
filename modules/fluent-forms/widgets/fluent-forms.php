@@ -36,7 +36,7 @@ class Fluent_Forms extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the widget belongs to.
+	 * Retrieve the list of keywords the Fluent Forms widget belongs to.
 	 *
 	 * @access public
 	 *
@@ -47,7 +47,7 @@ class Fluent_Forms extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register fluent forms widget controls.
+	 * Register Fluent Forms widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
@@ -1118,7 +1118,7 @@ class Fluent_Forms extends Powerpack_Widget {
 				],
 				'default'           => '',
 				'selectors'         => [
-					'{{WRAPPER}} .pp-fluent-forms .frm-fluent-form > .ff-el-group:last-child'   => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .pp-fluent-forms .frm-fluent-form .ff_submit_btn_wrapper' => 'text-align: {{VALUE}};',
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group .ff-btn-submit' => 'display:inline-block;',
 				],
 				'condition'             => [
