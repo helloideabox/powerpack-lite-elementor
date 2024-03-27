@@ -1048,7 +1048,7 @@ class Info_Box extends Powerpack_Widget {
 					'icon_type!' => 'none',
 				),
 				'selectors' => array(
-					'{{WRAPPER}} .pp-info-box-icon:hover .fa' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-info-box-icon:hover' => 'border-color: {{VALUE}}',
 				),
 			)
 		);
