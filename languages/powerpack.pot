@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.7.18\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.7.19\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2024-03-18 11:36:29+00:00\n"
+"POT-Creation-Date: 2024-03-27 13:42:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9870,27 +9870,27 @@ msgid "Description + Social Icons"
 msgstr ""
 
 #: modules/twitter/widgets/twitter-buttons.php:77
-#: modules/twitter/widgets/twitter-buttons.php:287
+#: modules/twitter/widgets/twitter-buttons.php:291
 msgid "Share"
 msgstr ""
 
 #: modules/twitter/widgets/twitter-buttons.php:78
-#: modules/twitter/widgets/twitter-buttons.php:289
+#: modules/twitter/widgets/twitter-buttons.php:297
 msgid "Follow"
 msgstr ""
 
 #: modules/twitter/widgets/twitter-buttons.php:79
-#: modules/twitter/widgets/twitter-buttons.php:291
+#: modules/twitter/widgets/twitter-buttons.php:303
 msgid "Mention"
 msgstr ""
 
 #: modules/twitter/widgets/twitter-buttons.php:80
-#: modules/twitter/widgets/twitter-buttons.php:293
+#: modules/twitter/widgets/twitter-buttons.php:309
 msgid "Hashtag"
 msgstr ""
 
 #: modules/twitter/widgets/twitter-buttons.php:81
-#: modules/twitter/widgets/twitter-buttons.php:295
+#: modules/twitter/widgets/twitter-buttons.php:315
 msgid "Message"
 msgstr ""
 
@@ -9986,7 +9986,7 @@ msgstr ""
 msgid "No Scroll Bar"
 msgstr ""
 
-#: modules/twitter/widgets/twitter-timeline.php:267
+#: modules/twitter/widgets/twitter-timeline.php:265
 msgid "Tweets by"
 msgstr ""
 
