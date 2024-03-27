@@ -233,6 +233,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.19 - March 27, 2024 =
+* 	Fixed: Info Box - Icon hover Border Color option was not working
+* 	Fixed: Fluent Forms - Submit button alignment was not working
+* 	Fixed: Fluent Forms - Option to hide the labels was not working
+
 = 2.7.18 - March 18, 2024 =
 * 	Fixed: Counter - Subtitle was not showing in editor
 * 	Fixed: Info Box - Image shrink issue with left and right alignment
