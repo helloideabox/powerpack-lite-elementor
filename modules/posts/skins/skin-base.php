@@ -4330,7 +4330,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access public
 	 */
 	public function pp_post_excerpt() {
-		$limit = $this->pp_excerpt_length_filter();
+		$limit = (int) $this->pp_excerpt_length_filter();
 		$excerpt = explode( ' ', get_the_excerpt(), $limit + 1 );
 		$excerpt_more = apply_filters( 'excerpt_more', 20 );
 		if ( count( $excerpt ) >= $limit ) {

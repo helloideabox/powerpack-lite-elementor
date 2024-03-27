@@ -194,39 +194,35 @@ class Twitter_Tweet extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		$attrs = array();
-		$attr  = ' ';
+		$this->add_render_attribute(
+			'tweet',
+			array(
+				'data-theme' => esc_attr( $settings['theme'] ),
+				'data-align' => esc_attr( $settings['alignment'] ),
+				'data-lang'  => get_locale(),
+			)
+		);
 
-		$url = esc_url( $settings['tweet_url'] );
-
-		$attrs['data-theme'] = $settings['theme'];
-		$attrs['data-align'] = $settings['alignment'];
-		$attrs['data-lang']  = get_locale();
-
-		if ( ! empty( $settings['width'] ) ) {
-			$attrs['data-width'] = $settings['width']['size'];
+		if ( ! empty( $settings['width']['size'] ) ) {
+			$this->add_render_attribute( 'tweet', 'data-width', intval( $settings['width']['size'] ) );
 		}
 
 		if ( '' === $settings['expanded'] ) {
-			$attrs['data-cards'] = 'hidden';
+			$this->add_render_attribute( 'tweet', 'data-cards', 'hidden' );
 		}
 
 		if ( isset( $settings['link_color'] ) && ! empty( $settings['link_color'] ) ) {
-			$attrs['data-link-color'] = $settings['link_color'];
+			$this->add_render_attribute( 'tweet', 'data-link-color', esc_attr( $settings['link_color'] ) );
 		}
 
-		foreach ( $attrs as $key => $value ) {
-			$attr .= $key;
-			if ( ! empty( $value ) ) {
-				$attr .= '="' . $value . '"';
-			}
+		$url = ( $settings['tweet_url'] ) ? $settings['tweet_url'] : '';
 
-			$attr .= ' ';
+		if ( $url ) {
+			?>
+			<div class="pp-twitter-tweet" <?php $this->print_render_attribute_string( 'tweet' ); ?>>
+				<blockquote class="twitter-tweet" <?php $this->print_render_attribute_string( 'tweet' ); ?>><a href="<?php echo esc_url( $url ); ?>"></a></blockquote>
+			</div>
+			<?php
 		}
-		?>
-		<div class="pp-twitter-tweet" <?php echo esc_attr( $attr ); ?>>
-			<blockquote class="twitter-tweet" <?php echo esc_attr( $attr ); ?>><a href="<?php echo esc_url( $url ); ?>"></a></blockquote>
-		</div>
-		<?php
 	}
 }

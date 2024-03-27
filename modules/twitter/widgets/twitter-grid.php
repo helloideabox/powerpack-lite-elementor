@@ -161,26 +161,19 @@ class Twitter_Grid extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$attrs = array();
-		$attr  = ' ';
+		$this->add_render_attribute(
+			'grid',
+			array(
+				'data-limit'  => ( ! empty( $settings['tweet_limit'] ) ) ? absint( $settings['tweet_limit'] ) : '',
+				'data-chrome' => ( 'yes' !== $settings['footer'] ) ? 'nofooter' : '',
+				'data-width'  => ( ! empty( $settings['width']['size'] ) ) ? intval( $settings['width']['size'] ) : '',
+			)
+		);
 
 		$url = esc_url( $settings['url'] );
-
-		$attrs['data-limit']  = ( ! empty( $settings['tweet_limit'] ) ) ? $settings['tweet_limit'] : '';
-		$attrs['data-chrome'] = ( 'yes' !== $settings['footer'] ) ? 'nofooter' : '';
-		$attrs['data-width']  = $settings['width']['size'];
-
-		foreach ( $attrs as $key => $value ) {
-			$attr .= $key;
-			if ( ! empty( $value ) ) {
-				$attr .= '="' . $value . '"';
-			}
-
-			$attr .= ' ';
-		}
 		?>
-		<div class="pp-twitter-grid" <?php echo esc_attr( $attr ); ?>>
-			<a class="twitter-grid" href="<?php echo esc_url( $url ); ?>?ref_src=twsrc%5Etfw" <?php echo esc_attr( $attr ); ?>></a>
+		<div class="pp-twitter-grid" <?php $this->print_render_attribute_string( 'grid' ); ?>>
+			<a class="twitter-grid" href="<?php echo esc_url( $url ); ?>?ref_src=twsrc%5Etfw" <?php $this->print_render_attribute_string( 'grid' ); ?>></a>
 		</div>
 		<?php
 	}

@@ -248,52 +248,75 @@ class Twitter_Buttons extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$attrs = array();
-		$attr  = ' ';
-
 		$type         = $settings['button_type'];
 		$profile      = $settings['profile'];
 		$hashtag      = $settings['hashtag_url'];
 		$recipient_id = $settings['recipient_id'];
 		$default_text = ( isset( $settings['default_text'] ) && ! empty( $settings['default_text'] ) ) ? rawurlencode( $settings['default_text'] ) : '';
 
-		$attrs['data-size'] = ( 'yes' === $settings['large_button'] ) ? 'large' : '';
+		$this->add_render_attribute(
+			'tweet',
+			array(
+				'data-size' => ( 'yes' === $settings['large_button'] ) ? 'large' : '',
+				'data-lang' => get_locale(),
+			)
+		);
+
 		if ( 'share' === $type || 'mention' === $type || 'hashtag' === $type ) {
-			$attrs['data-via']  = $settings['via'];
-			$attrs['data-text'] = $settings['share_text'];
-			$attrs['data-url']  = $settings['share_url'];
+			$this->add_render_attribute(
+				'tweet',
+				array(
+					'data-via'  => esc_attr( $settings['via'] ),
+					'data-text' => esc_attr( $settings['share_text'] ),
+					'data-url'  => esc_attr( $settings['share_url'] )
+				)
+			);
 		}
-		$attrs['data-lang'] = get_locale();
 
 		if ( 'follow' === $type ) {
-			$attrs['data-show-count'] = ( 'yes' === $settings['show_count'] ) ? 'true' : 'false';
+			$show_count = ( 'yes' === $settings['show_count'] ) ? 'true' : 'false';
+
+			$this->add_render_attribute( 'tweet', 'data-show-count', esc_attr( $show_count ) );
 		}
 
 		if ( 'message' === $type ) {
-			$attrs['data-screen-name'] = $profile;
-		}
-
-		foreach ( $attrs as $key => $value ) {
-			$attr .= $key;
-			if ( ! empty( $value ) ) {
-				$attr .= '="' . $value . '"';
-			}
-
-			$attr .= ' ';
+			$this->add_render_attribute( 'tweet', 'data-screen-name', esc_attr( $profile ) );
 		}
 		?>
 		<div class="pp-twitter-buttons">
-			<?php if ( 'share' === $type ) { ?>
-				<a href="https://twitter.com/share" class="twitter-share-button" <?php echo esc_attr( $attr ); ?>><?php esc_html_e( 'Share', 'powerpack' ); ?></a>
-			<?php } elseif ( 'follow' === $type ) { ?>
-				<a href="https://twitter.com/<?php echo esc_attr( $profile ); ?>" class="twitter-follow-button" <?php echo esc_attr( $attr ); ?>><?php esc_html_e( 'Follow', 'powerpack' ); ?></a>
-			<?php } elseif ( 'mention' === $type ) { ?>
-				<a href="https://twitter.com/intent/tweet?screen_name=<?php echo esc_url( $profile ); ?>" class="twitter-mention-button" <?php echo esc_attr( $attr ); ?>><?php esc_html_e( 'Mention', 'powerpack' ); ?></a>
-			<?php } elseif ( 'hashtag' === $type ) { ?>
-				<a href="https://twitter.com/intent/tweet?button_hashtag=<?php echo esc_url( $hashtag ); ?>" class="twitter-hashtag-button" <?php echo esc_attr( $attr ); ?>><?php esc_html_e( 'Hashtag', 'powerpack' ); ?></a>
-			<?php } else { ?>
-				<a href="https://twitter.com/messages/compose?recipient_id=<?php echo esc_url( $recipient_id ); ?><?php echo ! empty( $default_text ) ? '&text=' . esc_url( $default_text ) : ''; ?>" class="twitter-dm-button" <?php echo esc_attr( $attr ); ?>><?php esc_html_e( 'Message', 'powerpack' ); ?></a>
-			<?php } ?>
+			<?php
+				switch ( $type ) {
+					case 'share':
+						?>
+						<a href="https://twitter.com/share" class="twitter-share-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Share', 'powerpack' ); ?></a>
+						<?php
+						break;
+
+					case 'follow':
+						?>
+						<a href="https://twitter.com/<?php echo esc_attr( $profile ); ?>" class="twitter-follow-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Follow', 'powerpack' ); ?></a>
+						<?php
+						break;
+
+					case 'mention':
+						?>
+						<a href="https://twitter.com/intent/tweet?screen_name=<?php echo esc_attr( $profile ); ?>" class="twitter-mention-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Mention', 'powerpack' ); ?></a>
+						<?php
+						break;
+
+					case 'hashtag':
+						?>
+						<a href="https://twitter.com/intent/tweet?button_hashtag=<?php echo esc_attr( $hashtag ); ?>" class="twitter-hashtag-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Hashtag', 'powerpack' ); ?></a>
+						<?php
+						break;
+
+					case 'message':
+						?>
+						<a href="https://twitter.com/messages/compose?recipient_id=<?php echo esc_attr( $recipient_id ); ?><?php echo ! empty( $default_text ) ? '&text=' . esc_html( $default_text ) : ''; ?>" class="twitter-dm-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Message', 'powerpack' ); ?></a>
+						<?php
+						break;
+				}
+			?>
 		</div>
 		<?php
 	}

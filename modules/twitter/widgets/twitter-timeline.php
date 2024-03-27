@@ -227,44 +227,42 @@ class Twitter_Timeline extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$attrs = array();
-		$attr  = ' ';
+		$this->add_render_attribute(
+			'timeline',
+			array(
+				'data-theme'        => esc_attr( $settings['theme'] ),
+				'data-show-replies' => ( 'yes' === $settings['show_replies'] ) ? true : false,
+			)
+		);
+
+		if ( ! empty( $settings['width']['size'] ) ) {
+			$this->add_render_attribute( 'timeline', 'data-width', intval( $settings['width']['size'] ) );
+		}
+
+		if ( ! empty( $settings['height']['size'] ) ) {
+			$this->add_render_attribute( 'timeline', 'data-height', intval( $settings['height']['size'] ) );
+		}
+
+		if ( isset( $settings['layout'] ) && ! empty( $settings['layout'] ) ) {
+			$this->add_render_attribute( 'timeline', 'data-chrome', implode( ' ', $settings['layout'] ) );
+		}
+
+		if ( ! empty( $settings['tweet_limit'] ) && absint( $settings['tweet_limit'] ) ) {
+			$this->add_render_attribute( 'timeline', 'data-tweet-limit', absint( $settings['tweet_limit'] ) );
+		}
+
+		if ( ! empty( $settings['link_color'] ) ) {
+			$this->add_render_attribute( 'timeline', 'data-link-color', esc_attr( $settings['link_color'] ) );
+		}
+
+		if ( ! empty( $settings['border_color'] ) ) {
+			$this->add_render_attribute( 'timeline', 'data-border-color', esc_attr( $settings['border_color'] ) );
+		}
 
 		$user = $settings['username'];
-
-		$attrs['data-theme']        = $settings['theme'];
-		$attrs['data-show-replies'] = ( 'yes' === $settings['show_replies'] ) ? 'true' : 'false';
-
-		if ( ! empty( $settings['width'] ) ) {
-			$attrs['data-width'] = $settings['width']['size'];
-		}
-		if ( ! empty( $settings['height'] ) ) {
-			$attrs['data-height'] = $settings['height']['size'];
-		}
-		if ( isset( $settings['layout'] ) && ! empty( $settings['layout'] ) ) {
-			$attrs['data-chrome'] = implode( ' ', $settings['layout'] );
-		}
-		if ( ! empty( $settings['tweet_limit'] ) && absint( $settings['tweet_limit'] ) ) {
-			$attrs['data-tweet-limit'] = absint( $settings['tweet_limit'] );
-		}
-		if ( ! empty( $settings['link_color'] ) ) {
-			$attrs['data-link-color'] = $settings['link_color'];
-		}
-		if ( ! empty( $settings['border_color'] ) ) {
-			$attrs['data-border-color'] = $settings['border_color'];
-		}
-
-		foreach ( $attrs as $key => $value ) {
-			$attr .= $key;
-			if ( ! empty( $value ) ) {
-				$attr .= '="' . $value . '"';
-			}
-
-			$attr .= ' ';
-		}
 		?>
-		<div class="pp-twitter-timeline" <?php echo esc_attr( $attr ); ?>>
-			<a class="twitter-timeline" href="https://twitter.com/<?php echo esc_attr( $user ); ?>" <?php echo esc_attr( $attr ); ?>><?php esc_html_e( 'Tweets by', 'powerpack' ); ?> <?php echo esc_html( $user ); ?></a>
+		<div class="pp-twitter-timeline" <?php $this->print_render_attribute_string( 'timeline' ); ?>>
+			<a class="twitter-timeline" href="https://twitter.com/<?php echo esc_attr( $user ); ?>" <?php $this->print_render_attribute_string( 'timeline' ); ?>><?php esc_html_e( 'Tweets by', 'powerpack' ); ?> <?php echo esc_html( $user ); ?></a>
 		</div>
 		<?php
 	}
