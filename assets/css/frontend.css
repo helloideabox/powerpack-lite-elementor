@@ -402,6 +402,8 @@ div[class*=' pa-'] {
     transition: all 0.25s linear 0s;
     width: 1em;
     height: 1em; }
+  .pp-info-box .pp-info-box-icon img {
+    vertical-align: middle; }
 
 .pp-info-box-divider-wrap {
   font-size: 0;
