@@ -329,6 +329,17 @@ module.exports = function( grunt ) {
 				]
 			},
 
+			readme: {
+				src: ['readme.txt'],
+				overwrite: true,
+				replacements: [
+					{
+						from: /Stable tag: \d{1,1}\.\d{1,2}\.\d{1,2}/g,
+						to: 'Stable tag: <%= pkg.version %>\n'
+					},
+				]
+			},
+
 			comments: {
 				src: [
 					'*.php',
