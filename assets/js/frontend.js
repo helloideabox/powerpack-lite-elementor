@@ -1,13 +1,15 @@
 (function ($) {
-    "use strict";
-    
+    'use strict';
+
+    var isEditMode = false;
+
     var getElementSettings = function( $element ) {
 		var elementSettings = {},
 			modelCID 		= $element.data( 'model-cid' );
 
 		if ( isEditMode && modelCID ) {
-			var settings 		= elementorFrontend.config.elements.data[ modelCID ],
-				settingsKeys 	= elementorFrontend.config.elements.keys[ settings.attributes.widgetType || settings.attributes.elType ];
+			var settings     = elementorFrontend.config.elements.data[ modelCID ],
+				settingsKeys = elementorFrontend.config.elements.keys[ settings.attributes.widgetType || settings.attributes.elType ];
 
 			jQuery.each( settings.getActiveControls(), function( controlKey ) {
 				if ( -1 !== settingsKeys.indexOf( controlKey ) ) {
@@ -21,8 +23,6 @@
 		return elementSettings;
 	};
 
-    var isEditMode		= false;
-    
     var ppSwiperSliderinit = function (carousel, elementSettings, sliderOptions) {
 		$(carousel).closest('.elementor-widget-wrap').addClass('e-swiper-container');
 		$(carousel).closest('.elementor-widget').addClass('e-widget-swiper');
@@ -40,7 +40,7 @@
 		} */
     };
 
-	var ppSwiperSliderAfterinit = function (carousel, carouselWrap, elementSettings, mySwiper) {
+	var ppSwiperSliderAfterinit = function (carousel, elementSettings, mySwiper) {
 		if ( 'yes' === elementSettings.pause_on_hover ) {
 			carousel.on( 'mouseover', function() {
 				mySwiper.autoplay.stop();
@@ -51,15 +51,9 @@
 			});
 		}
 
-		if ( isEditMode ) {
-			carouselWrap.resize( function() {
-				//mySwiper.update();
-			});
-		}
-
 		ppWidgetUpdate( mySwiper, '.pp-swiper-slider', 'swiper' );
     };
-	
+
     var ppSwiperSliderHandler = function ($scope, $) {
 		var elementSettings = getElementSettings( $scope ),
 			carousel        = $scope.find('.pp-swiper-slider'),

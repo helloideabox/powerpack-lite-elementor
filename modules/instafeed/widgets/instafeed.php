@@ -3221,11 +3221,13 @@ class Instafeed extends Powerpack_Widget {
 
 			$item_link = $this->get_insta_image_url( $item, 'high' );
 
-			$this->add_render_attribute( $link_key, [
+			/* $this->add_render_attribute( $link_key, [
 				'data-elementor-open-lightbox'      => 'yes',
 				'data-elementor-lightbox-title'     => $thumbnail_alt,
 				'data-elementor-lightbox-slideshow' => 'pp-ig-' . $this->get_id(),
-			] );
+			] ); */
+
+			$this->add_lightbox_data_attributes( $link_key, '', $settings['insta_image_popup'], $this->get_id() );
 
 			/*if ( $this->_is_edit_mode ) {
 				$this->add_render_attribute( $link_key, 'class', 'elementor-clickable' );
