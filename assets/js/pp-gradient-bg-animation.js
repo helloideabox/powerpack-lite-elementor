@@ -15,7 +15,11 @@
 
 		if ( elementorFrontend.isEditMode() ) {
 			var bg_overlay       = $scope.find( '.elementor-element-overlay ~ .elementor-background-overlay' ),
-				animated_bg_wrap = $scope.find( '.pp-animated-gradient-bg' );
+				animated_bg_wrap = $scope.find( '.pp-animated-gradient-bg' ),
+				colorStr         = animated_bg_wrap.data('color'),
+				color            = ( undefined !== colorStr ) ? colorStr.replace(/[ ,]+/g, ",") : '',
+				angle            = animated_bg_wrap.data('angle'),
+				gradientColor    = 'linear-gradient( ' + angle + ',' + color + ' )';
 
 			if ( bg_overlay.next( '.pp-animated-gradient-bg' ).length == 0 ) {
 				bg_overlay.after( animated_bg_wrap );

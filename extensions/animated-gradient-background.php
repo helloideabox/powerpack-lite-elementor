@@ -308,18 +308,27 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		?>
 		<# if ( 'yes' === settings.pp_animated_gradient_bg_enable ) {
 
-			color_list = settings.pp_animated_gradient_bg_color_list;
-			angle = settings.pp_animated_gradient_bg_angle.size + 'deg';
+			<!-- var colorList = elementor.helpers.sanitize( settings.pp_animated_gradient_bg_color_list ); -->
+			var colorList = settings.pp_animated_gradient_bg_color_list;
+			var angle = settings.pp_animated_gradient_bg_angle.size + 'deg';
+
+			view.addRenderAttribute( 'animated_bg', 'class', 'pp-animated-gradient-bg' );
+			view.addRenderAttribute( 'animated_bg', 'data-angle', angle );
+
 			var color = [];
 			var i = 0;
-			_.each(color_list , function(color_list){
-					color[i] = color_list.pp_animated_gradient_bg_color;
-					i = i+1;
+
+			_.each( colorList, function( color_list ) {
+				color[i] = elementor.helpers.sanitize( color_list.pp_animated_gradient_bg_color );
+				i = i+1;
 			});
-			view.addRenderAttribute('_wrapper', 'data-color', color);
+
 			var gradientColorEditor = 'linear-gradient( ' + angle + ',' + color + ' )';
+
+			view.addRenderAttribute('animated_bg', 'data-color', _.escape( color ));
+			view.addRenderAttribute('animated_bg', 'style', "background-image: " + gradientColorEditor);
 			#>
-			<div class="pp-animated-gradient-bg" data-angle="{{{ angle }}}deg" data-color="{{{ color }}}" style="background-image : {{{ gradientColorEditor }}}"></div>
+			<div {{{ view.getRenderAttributeString( 'animated_bg' ) }}}></div>
 		<# } #>
 		<?php
 		$animated_gradient_content = ob_get_contents();
