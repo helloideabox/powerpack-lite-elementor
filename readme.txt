@@ -233,6 +233,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.20 - May 29, 2024 =
+* 	Fixed: Info Grid & Carousel - Pause on Hover option was not working
+* 	Security Fix: Animated Gradient Background - Improved code security
+
 = 2.7.19 - March 27, 2024 =
 * 	Fixed: Info Box - Icon hover Border Color option was not working
 * 	Fixed: Fluent Forms - Submit button alignment was not working
