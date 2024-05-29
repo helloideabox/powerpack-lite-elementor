@@ -308,7 +308,29 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		?>
 		<# if ( 'yes' === settings.pp_animated_gradient_bg_enable ) {
 
-			<!-- var colorList = elementor.helpers.sanitize( settings.pp_animated_gradient_bg_color_list ); -->
+			// Function to validate color input in hex, rgb, or rgba format
+			function isValidColor(color) {
+				// Regular expression for hex color format
+				const hexRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$/;
+
+				// Regular expression for RGB color format
+				const rgbRegex = /^rgb\(\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*,\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*,\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*\)$/;
+
+				// Regular expression for RGBA color format
+				const rgbaRegex = /^rgba\(\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*,\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*,\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*,\s*(0|1|0?\.\d+)\s*\)$/;
+
+				// Check if the color matches any of the formats
+				if ( hexRegex.test(color) ) {
+					return true;
+				} else if ( rgbRegex.test(color) ) {
+					return true;
+				} else if ( rgbaRegex.test(color) ) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
 			var colorList = settings.pp_animated_gradient_bg_color_list;
 			var angle = settings.pp_animated_gradient_bg_angle.size + 'deg';
 
@@ -319,7 +341,9 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 			var i = 0;
 
 			_.each( colorList, function( color_list ) {
-				color[i] = elementor.helpers.sanitize( color_list.pp_animated_gradient_bg_color );
+				if ( isValidColor( color_list.pp_animated_gradient_bg_color ) ) {
+					color[i] = elementor.helpers.sanitize( color_list.pp_animated_gradient_bg_color );
+				}
 				i = i+1;
 			});
 
