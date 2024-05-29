@@ -186,21 +186,50 @@
 		}
 	};
 
-	var infoBoxEqualHeight = function($scope, $) {
-		var maxHeight = 0;
-		$scope.find('.swiper-slide').each( function() {
-			if($(this).height() > maxHeight){
-				maxHeight = $(this).height();
-			}
-		});
-		$scope.find('.pp-info-box-content-wrap').css('min-height',maxHeight);
+	var infoBoxEqualHeight = function($scope, effect, $) {
+		if ( effect == 'coverflow' ) {
+			var slide     = $scope.find( '.swiper-slide' ),
+				maxHeight = -1;
+
+			slide.each( function() {
+				var infoBoxHeight = $(this).outerHeight();
+
+				if ( maxHeight < infoBoxHeight ) {
+					maxHeight = infoBoxHeight;
+				}
+			});
+
+			slide.each( function() {
+				$(this).css({ height: maxHeight } );
+			});
+		} else {
+			var activeSlide = $scope.find( '.swiper-slide-visible' ),
+				maxHeight   = -1;
+
+			activeSlide.each( function() {
+				var $this         = $( this ),
+					infoBox       = $this.find( '.pp-info-box' ),
+					infoBoxHeight = infoBox.outerHeight();
+
+				if ( maxHeight < infoBoxHeight ) {
+					maxHeight = infoBoxHeight;
+				}
+			});
+
+			activeSlide.each( function() {
+				var selector = $( this ).find( '.pp-info-box' );
+
+				selector.animate({ height: maxHeight }, { duration: 200, easing: 'linear' });
+			});
+		}
 	};
 
     var InfoBoxCarouselHandler = function ($scope, $) {
 		var elementSettings = getElementSettings( $scope ),
 			carousel        = $scope.find('.pp-info-box-carousel'),
 			sliderOptions   = ( carousel.attr('data-slider-settings') !== undefined ) ? JSON.parse( carousel.attr('data-slider-settings') ) : '',
-            equalHeight	    = elementSettings.equal_height_boxes;
+            equalHeight	    = elementSettings.equal_height_boxes,
+            effect          = sliderOptions.effect;
 
 		if ( ! carousel.length ) {
 			return;
@@ -215,10 +244,10 @@
 			var mySwiper = newSwiperInstance;
 
 			if ( equalHeight === 'yes' ) {
-				infoBoxEqualHeight($scope, $);
+				infoBoxEqualHeight($scope, effect, $);
 
 				mySwiper.on('slideChange', function () {
-					infoBoxEqualHeight($scope, $);
+					infoBoxEqualHeight($scope, effect, $);
 				});
 			}
 
