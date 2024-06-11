@@ -324,7 +324,6 @@ class Team_Member extends Powerpack_Widget {
 						'github',
 						'gitlab',
 						'globe',
-						'google-plus',
 						'houzz',
 						'instagram',
 						'jsfiddle',
@@ -351,6 +350,9 @@ class Team_Member extends Powerpack_Widget {
 						'tumblr',
 						'twitch',
 						'twitter',
+						'twitter-square',
+						'x-twitter',
+						'x-twitter-square',
 						'viber',
 						'vimeo',
 						'vk',
@@ -393,7 +395,7 @@ class Team_Member extends Powerpack_Widget {
 				'default'               => [
 					[
 						'select_social_icon' => [
-							'value' => 'fab fa-facebook',
+							'value'   => 'fab fa-facebook',
 							'library' => 'fa-brands',
 						],
 						'social_link' => [
@@ -402,7 +404,7 @@ class Team_Member extends Powerpack_Widget {
 					],
 					[
 						'select_social_icon' => [
-							'value' => 'fab fa-twitter',
+							'value'   => 'fab fa-x-twitter',
 							'library' => 'fa-brands',
 						],
 						'social_link' => [
@@ -411,7 +413,7 @@ class Team_Member extends Powerpack_Widget {
 					],
 					[
 						'select_social_icon' => [
-							'value' => 'fab fa-youtube',
+							'value'   => 'fab fa-instagram',
 							'library' => 'fa-brands',
 						],
 						'social_link' => [
@@ -2015,8 +2017,8 @@ class Team_Member extends Powerpack_Widget {
 
 		$fallback_defaults = [
 			'fa fa-facebook',
-			'fa fa-twitter',
-			'fa fa-google-plus',
+			'fa fa-x-twitter',
+			'fa fa-instagram',
 		];
 
 		$migration_allowed = Icons_Manager::is_migration_allowed();

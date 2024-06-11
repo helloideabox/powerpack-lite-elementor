@@ -1,5 +1,6 @@
 == 2.7.21 ==
 Release date: 
+* Enhancement: Team Member - Added X icons to recommended list
 * Security Fix: Link Effects - Improved code security
 
 == 2.7.20 ==
