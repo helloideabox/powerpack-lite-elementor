@@ -1401,7 +1401,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'                => [
+				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'   => '',
@@ -1608,7 +1608,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			array(
 				'label'     => __( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => [
+				'global'   => [
 					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'   => '',
@@ -1804,7 +1804,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'name'     => 'member_description_typography',
 				'label'    => __( 'Typography', 'powerpack' ),
 				'global'   => [
-					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				],
 				'selector' => '{{WRAPPER}} .pp-tm-description',
 			)
@@ -3107,7 +3107,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$social_links = array();
 
 		( $item['facebook_url'] ) ? $social_links['facebook']   = $item['facebook_url'] : '';
-		( $item['twitter_url'] ) ? $social_links['twitter']     = $item['twitter_url'] : '';
+		( $item['twitter_url'] ) ? $social_links['x-twitter']   = $item['twitter_url'] : '';
 		( $item['instagram_url'] ) ? $social_links['instagram'] = $item['instagram_url'] : '';
 		( $item['linkedin_url'] ) ? $social_links['linkedin']   = $item['linkedin_url'] : '';
 		( $item['youtube_url'] ) ? $social_links['youtube']     = $item['youtube_url'] : '';

@@ -1,6 +1,7 @@
 == 2.7.21 ==
 Release date: 
 * Enhancement: Team Member - Added X icons to recommended list
+* Enhancement: Team Member Carousel - Replaced Twitter icon with X icon
 * Security Fix: Link Effects - Improved code security
 
 == 2.7.20 ==
