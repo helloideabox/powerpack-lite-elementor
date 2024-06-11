@@ -479,14 +479,18 @@ class Link_Effects extends Powerpack_Widget {
 		<#
 		view.addRenderAttribute( 'link', 'class', ['pp-link', 'pp-link-' + settings.effect] );
 
-		var link = settings.link.url ? 'href="' + settings.link.url + '"' : '';
+		var hasLink = settings.link.url;
+
+		if ( hasLink ) {
+			view.addRenderAttribute( 'link', 'href', _.escape( settings.link.url ) );
+		}
 
 		switch ( settings.effect ) {
 			case 'effect-4':
 			case 'effect-5':
 			case 'effect-19':
 			case 'effect-20':
-				view.addRenderAttribute( 'pp-link-text', 'data-hover', settings.text );
+				view.addRenderAttribute( 'pp-link-text', 'data-hover', elementor.helpers.sanitize( settings.text ) );
 				break;
 
 			case 'effect-10':
@@ -495,21 +499,21 @@ class Link_Effects extends Powerpack_Widget {
 			case 'effect-16':
 			case 'effect-17':
 			case 'effect-18':
-				view.addRenderAttribute( 'link', 'data-hover', settings.text );
+				view.addRenderAttribute( 'link', 'data-hover', elementor.helpers.sanitize( settings.text ) );
 				break;
 		}
 		#>
-		<# var HTMLTag = elementor.helpers.validateHTMLTag( settings.html_tag ); #>
-		<{{{ HTMLTag }}} class="pp-link-container">
-			<a {{{ view.getRenderAttributeString( 'link' ) }}} {{{ link }}}>
+		<# var htmlTag = elementor.helpers.validateHTMLTag( settings.html_tag ); #>
+		<{{{ htmlTag }}} class="pp-link-container">
+			<a {{{ view.getRenderAttributeString( 'link' ) }}}>
 				<span {{{ view.getRenderAttributeString( 'pp-link-text' ) }}}>
-					{{{ settings.text }}}
+					{{{ elementor.helpers.sanitize( settings.text ) }}}
 				</span>
 				<# if ( 'effect-9' === settings.effect ) { #>
-					<span>{{{ settings.secondary_text }}}</span>
+					<span>{{{ elementor.helpers.sanitize( settings.secondary_text ) }}}</span>
 				<# } #>
 			</a>
-		</{{{ HTMLTag }}}>
+		</{{{ htmlTag }}}>
 		<?php
 	}
 }

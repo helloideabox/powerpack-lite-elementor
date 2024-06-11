@@ -1,3 +1,7 @@
+== 2.7.21 ==
+Release date: 
+* Security Fix: Link Effects - Improved code security
+
 == 2.7.20 ==
 Release date: May 29, 2024
 * Fixed: Info Grid & Carousel - Pause on Hover option was not working
