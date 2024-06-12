@@ -1,5 +1,5 @@
 == 2.7.21 ==
-Release date: 
+Release date: June 12, 2024
 * Enhancement: Team Member - Added X icons to recommended list
 * Enhancement: Team Member Carousel - Replaced Twitter icon with X icon
 * Security Fix: Link Effects - Improved code security

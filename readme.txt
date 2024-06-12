@@ -234,6 +234,11 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.21 - June 12, 2024 =
+* 	Enhancement: Team Member - Added X icons to recommended list
+* 	Enhancement: Team Member Carousel - Replaced Twitter icon with X icon
+* 	Security Fix: Link Effects - Improved code security
+
 = 2.7.20 - May 29, 2024 =
 * 	Fixed: Info Grid & Carousel - Pause on Hover option was not working
 * 	Fixed: Info Grid & Carousel - Equal Height option for Coverflow effect
