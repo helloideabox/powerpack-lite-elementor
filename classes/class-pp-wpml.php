@@ -522,6 +522,16 @@ class PP_Elements_WPML {
 				],
 			],
 		];
+		$widgets['pp-random-image']         = [
+			'conditions' => [ 'widgetType' => 'pp-random-image' ],
+			'fields'     => [
+				'link' => [
+					'field'       => 'url',
+					'type'        => __( 'Random Image - URL', 'powerpack' ),
+					'editor_type' => 'LINK',
+				],
+			],
+		];
 		$widgets[ 'pp-team-member' ]          = [
 			'conditions' => [ 'widgetType' => 'pp-team-member' ],
 			'fields'     => [

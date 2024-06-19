@@ -275,12 +275,12 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'link_to',
 			[
-				'label' => __( 'Link to', 'powerpack' ),
-				'type' => Controls_Manager::SELECT,
+				'label'   => __( 'Link to', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
 				'default' => 'none',
 				'options' => [
-					'none' => __( 'None', 'powerpack' ),
-					'file' => __( 'Media File', 'powerpack' ),
+					'none'   => __( 'None', 'powerpack' ),
+					'file'   => __( 'Media File', 'powerpack' ),
 					'custom' => __( 'Custom URL', 'powerpack' ),
 				],
 			]
@@ -289,16 +289,16 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'link',
 			[
-				'label' => __( 'Link', 'powerpack' ),
-				'type' => Controls_Manager::URL,
-				'dynamic' => [
+				'label'       => __( 'Link', 'powerpack' ),
+				'type'        => Controls_Manager::URL,
+				'dynamic'     => [
 					'active' => true,
 				],
 				'placeholder' => __( 'https://your-link.com', 'powerpack' ),
-				'condition' => [
+				'condition'   => [
 					'link_to' => 'custom',
 				],
-				'show_label' => false,
+				'show_label'  => false,
 			]
 		);
 
@@ -318,13 +318,13 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'open_lightbox',
 			[
-				'label' => __( 'Lightbox', 'powerpack' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'default',
-				'options' => [
+				'label'     => __( 'Lightbox', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'default',
+				'options'   => [
 					'default' => __( 'Default', 'powerpack' ),
-					'yes' => __( 'Yes', 'powerpack' ),
-					'no' => __( 'No', 'powerpack' ),
+					'yes'     => __( 'Yes', 'powerpack' ),
+					'no'      => __( 'No', 'powerpack' ),
 				],
 				'condition' => [
 					'link_to' => 'file',
