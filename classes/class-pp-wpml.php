@@ -152,6 +152,11 @@ class PP_Elements_WPML {
 			'conditions' => [ 'widgetType' => 'pp-flipbox' ],
 			'fields'     => [
 				[
+					'field'       => 'icon_text',
+					'type'        => __( 'Flip Box - Front Icon Text', 'powerpack' ),
+					'editor_type' => 'LINE'
+				],
+				[
 					'field'       => 'title_front',
 					'type'        => __( 'Flip Box - Front Title', 'powerpack' ),
 					'editor_type' => 'LINE',
@@ -160,6 +165,11 @@ class PP_Elements_WPML {
 					'field'       => 'description_front',
 					'type'        => __( 'Flip Box - Front Description', 'powerpack' ),
 					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'icon_text_back',
+					'type'        => __( 'Flip Box - Back Icon Text', 'powerpack' ),
+					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'title_back',
