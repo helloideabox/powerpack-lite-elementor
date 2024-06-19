@@ -234,6 +234,10 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.22 - June 19, 2024 =
+* 	Enhancement: Posts - Added support for WPML
+* 	Enhancement: Random Image - Added support for WPML
+
 = 2.7.21 - June 12, 2024 =
 * 	Enhancement: Team Member - Added X icons to recommended list
 * 	Enhancement: Team Member Carousel - Replaced Twitter icon with X icon

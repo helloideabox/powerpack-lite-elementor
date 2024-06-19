@@ -1,5 +1,5 @@
 == 2.7.22 ==
-Release date: 
+Release date: June 19, 2024
 * Enhancement: Posts - Added support for WPML
 * Enhancement: Random Image - Added support for WPML
 
