@@ -1,3 +1,8 @@
+== 2.7.22 ==
+Release date: 
+* Enhancement: Posts - Added support for WPML
+* Enhancement: Random Image - Added support for WPML
+
 == 2.7.21 ==
 Release date: June 12, 2024
 * Enhancement: Team Member - Added X icons to recommended list

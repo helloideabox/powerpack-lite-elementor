@@ -426,6 +426,56 @@ class PP_Elements_WPML {
 				],
 			],
 		];
+		$widgets['pp-posts']                = [
+			'conditions' => [ 'widgetType' => 'pp-posts' ],
+			'fields'     => [
+				[
+					'field'       => 'query_id',
+					'type'        => __( 'Posts - Query Id', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'nothing_found_message',
+					'type'        => __( 'Posts - Nothing Found Message', 'powerpack' ),
+					'editor_type' => 'AREA',
+				],
+				[
+					'field'       => 'classic_post_terms_separator',
+					'type'        => __( 'Posts: Classic - Terms Separator', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'classic_post_meta_separator',
+					'type'        => __( 'Posts: Classic - Post Meta Separator', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'classic_author_prefix',
+					'type'        => __( 'Posts: Classic - Author Prefix', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'classic_date_prefix',
+					'type'        => __( 'Posts: Classic - Date Prefix', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'classic_button_text',
+					'type'        => __( 'Posts: Classic - Read More Button Text', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'classic_pagination_prev_label',
+					'type'        => __( 'Posts: Classic - Pagination Prev Label', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'classic_pagination_next_label',
+					'type'        => __( 'Posts: Classic - Pagination Next Label', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+			],
+		];
 		$widgets[ 'pp-price-menu' ]           = [
 			'conditions' => [ 'widgetType' => 'pp-price-menu' ],
 			'fields'     => [],
