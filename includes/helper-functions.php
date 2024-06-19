@@ -111,32 +111,6 @@ function pp_elements_lite_get_ninja_forms() {
 	return $options;
 }
 
-// Get all forms of Caldera plugin
-function pp_elements_lite_get_caldera_forms() {
-	if ( class_exists( 'Caldera_Forms' ) ) {
-		$options = array();
-
-		$contact_forms = Caldera_Forms_Forms::get_forms( true, true );
-
-		if ( ! empty( $contact_forms ) && ! is_wp_error( $contact_forms ) ) {
-
-			$i = 0;
-
-			foreach ( $contact_forms as $form ) {
-				if ( $i == 0 ) {
-					$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
-				}
-				$options[ $form['ID'] ] = $form['name'];
-				$i++;
-			}
-		}
-	} else {
-		$options = array();
-	}
-
-	return $options;
-}
-
 // Get all forms of WPForms plugin
 function pp_elements_lite_get_wpforms_forms() {
 	if ( class_exists( 'WPForms' ) ) {
@@ -424,11 +398,6 @@ function pp_elements_lite_get_modules() {
 	// Ninja Forms
 	if ( class_exists( 'Ninja_Forms' ) ) {
 		$modules['pp-ninja-forms'] = esc_html__( 'Ninja Forms', 'powerpack' );
-	}
-
-	// Caldera Forms
-	if ( class_exists( 'Caldera_Forms' ) ) {
-		$modules['pp-caldera-forms'] = esc_html__( 'Caldera Forms', 'powerpack' );
 	}
 
 	// WPForms

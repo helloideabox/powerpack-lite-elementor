@@ -22,21 +22,6 @@ class PP_Elements_WPML {
 			'fields'            => [],
 			'integration-class' => 'WPML_PP_Buttons',
 		];
-		$widgets[ 'pp-caldera-forms' ]        = [
-			'conditions' => [ 'widgetType' => 'pp-caldera-forms' ],
-			'fields'     => [
-				[
-					'field'       => 'form_title_custom',
-					'type'        => __( 'Caldera Forms - Title', 'powerpack' ),
-					'editor_type' => 'LINE'
-				],
-				[
-					'field'       => 'form_description_custom',
-					'type'        => __( 'Caldera Forms - Description', 'powerpack' ),
-					'editor_type' => 'AREA'
-				],
-			],
-		];
 		$widgets[ 'pp-contact-form-7' ]       = [
 			'conditions' => [ 'widgetType' => 'pp-contact-form-7' ],
 			'fields'     => [

@@ -62,13 +62,6 @@ class PP_Config {
 					'keywords'   => array( 'powerpack', 'buttons' ),
 					'icon'       => 'ppicon-multi-buttons power-pack-admin-icon',
 				),
-				'Caldera_Forms'        => array(
-					'name'       => 'pp-caldera-forms',
-					'title'      => __( 'Caldera Forms', 'powerpack' ),
-					'categories' => array( 'powerpack-elements' ),
-					'keywords'   => array( 'powerpack', 'contact', 'form' ),
-					'icon'       => 'ppicon-contact-form power-pack-admin-icon',
-				),
 				'Contact_Form_7'       => array(
 					'name'       => 'pp-contact-form-7',
 					'title'      => __( 'Contact Form 7', 'powerpack' ),
@@ -624,10 +617,6 @@ class PP_Config {
 			'Counter'           => array(
 				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=g70UKxK_1dU&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
 				__( 'Widget Overview', 'powerpack' )      => 'https://powerpackelements.com/docs/powerpack/widgets/counter/counter-widget-overview/' . $utm_suffix,
-			),
-			// Caldera Forms.
-			'Caldera_Forms'      => array(
-				__( 'Watch Video Overview', 'powerpack' ) => 'https://www.youtube.com/watch?v=G1pqLXdyl08&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj',
 			),
 			// Content Ticker.
 			'Content_Ticker'     => array(

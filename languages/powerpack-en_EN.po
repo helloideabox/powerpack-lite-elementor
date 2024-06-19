@@ -44,7 +44,6 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:461
 #: modules/business-hours/widgets/business-hours.php:469
 #: modules/buttons/widgets/buttons.php:527
-#: modules/caldera-forms/widgets/caldera-forms.php:206
 #: modules/contact-form-seven/widgets/contact-form-7.php:223
 #: modules/content-ticker/widgets/content-ticker.php:1029
 #: modules/counter/widgets/counter.php:435
@@ -88,7 +87,6 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:472
 #: modules/business-hours/widgets/business-hours.php:479
 #: modules/buttons/widgets/buttons.php:537
-#: modules/caldera-forms/widgets/caldera-forms.php:216
 #: modules/contact-form-seven/widgets/contact-form-7.php:233
 #: modules/content-ticker/widgets/content-ticker.php:1039
 #: modules/counter/widgets/counter.php:445
@@ -156,11 +154,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:504
 #: modules/twitter/widgets/twitter-buttons.php:73
 msgid "Buttons"
-msgstr ""
-
-#: classes/class-pp-config.php:67 includes/helper-functions.php:428
-#: modules/caldera-forms/widgets/caldera-forms.php:91
-msgid "Caldera Forms"
 msgstr ""
 
 #: classes/class-pp-config.php:74 includes/helper-functions.php:413
@@ -592,14 +585,6 @@ msgstr ""
 
 #: classes/class-pp-tracking.php:562
 msgid "I'm not interested"
-msgstr ""
-
-#: classes/class-pp-wpml.php:32
-msgid "Caldera Forms - Title"
-msgstr ""
-
-#: classes/class-pp-wpml.php:37
-msgid "Caldera Forms - Description"
 msgstr ""
 
 #: classes/class-pp-wpml.php:47
@@ -1178,8 +1163,6 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:413
 #: modules/business-hours/widgets/business-hours.php:555
 #: modules/buttons/widgets/buttons.php:217
-#: modules/caldera-forms/widgets/caldera-forms.php:111
-#: modules/caldera-forms/widgets/caldera-forms.php:827
 #: modules/contact-form-seven/widgets/contact-form-7.php:665
 #: modules/contact-form-seven/widgets/contact-form-7.php:717
 #: modules/content-ticker/widgets/content-ticker.php:362
@@ -1262,8 +1245,6 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:414
 #: modules/business-hours/widgets/business-hours.php:556
 #: modules/buttons/widgets/buttons.php:218
-#: modules/caldera-forms/widgets/caldera-forms.php:112
-#: modules/caldera-forms/widgets/caldera-forms.php:828
 #: modules/contact-form-seven/widgets/contact-form-7.php:666
 #: modules/contact-form-seven/widgets/contact-form-7.php:718
 #: modules/content-ticker/widgets/content-ticker.php:363
@@ -1714,8 +1695,6 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:123
 #: modules/advanced-accordion/widgets/advanced-accordion.php:548
-#: modules/caldera-forms/widgets/caldera-forms.php:120
-#: modules/caldera-forms/widgets/caldera-forms.php:277
 #: modules/contact-form-seven/widgets/contact-form-7.php:119
 #: modules/contact-form-seven/widgets/contact-form-7.php:288
 #: modules/content-ticker/widgets/content-ticker.php:137
@@ -1997,9 +1976,6 @@ msgid "Toggle Icon"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:314
-#: modules/caldera-forms/widgets/caldera-forms.php:148
-#: modules/caldera-forms/widgets/caldera-forms.php:161
-#: modules/caldera-forms/widgets/caldera-forms.php:187
 #: modules/contact-form-seven/widgets/contact-form-7.php:158
 #: modules/contact-form-seven/widgets/contact-form-7.php:184
 #: modules/contact-form-seven/widgets/contact-form-7.php:204
@@ -2049,9 +2025,6 @@ msgid "Show"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:315
-#: modules/caldera-forms/widgets/caldera-forms.php:149
-#: modules/caldera-forms/widgets/caldera-forms.php:162
-#: modules/caldera-forms/widgets/caldera-forms.php:188
 #: modules/contact-form-seven/widgets/contact-form-7.php:159
 #: modules/contact-form-seven/widgets/contact-form-7.php:185
 #: modules/contact-form-seven/widgets/contact-form-7.php:205
@@ -2154,10 +2127,6 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:949
 #: modules/buttons/widgets/buttons.php:421
 #: modules/buttons/widgets/buttons.php:777
-#: modules/caldera-forms/widgets/caldera-forms.php:508
-#: modules/caldera-forms/widgets/caldera-forms.php:704
-#: modules/caldera-forms/widgets/caldera-forms.php:1124
-#: modules/caldera-forms/widgets/caldera-forms.php:1282
 #: modules/contact-form-seven/widgets/contact-form-7.php:495
 #: modules/contact-form-seven/widgets/contact-form-7.php:560
 #: modules/contact-form-seven/widgets/contact-form-7.php:1016
@@ -2258,10 +2227,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:430
 #: modules/buttons/widgets/buttons.php:786
 #: modules/buttons/widgets/buttons.php:1056
-#: modules/caldera-forms/widgets/caldera-forms.php:519
-#: modules/caldera-forms/widgets/caldera-forms.php:937
-#: modules/caldera-forms/widgets/caldera-forms.php:963
-#: modules/caldera-forms/widgets/caldera-forms.php:1134
 #: modules/contact-form-seven/widgets/contact-form-7.php:506
 #: modules/contact-form-seven/widgets/contact-form-7.php:827
 #: modules/contact-form-seven/widgets/contact-form-7.php:853
@@ -2364,9 +2329,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:378
 #: modules/buttons/widgets/buttons.php:743
 #: modules/buttons/widgets/buttons.php:946
-#: modules/caldera-forms/widgets/caldera-forms.php:476
-#: modules/caldera-forms/widgets/caldera-forms.php:864
-#: modules/caldera-forms/widgets/caldera-forms.php:1092
 #: modules/contact-form-seven/widgets/contact-form-7.php:366
 #: modules/contact-form-seven/widgets/contact-form-7.php:754
 #: modules/contact-form-seven/widgets/contact-form-7.php:984
@@ -2449,11 +2411,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:750
 #: modules/buttons/widgets/buttons.php:814
 #: modules/buttons/widgets/buttons.php:1076
-#: modules/caldera-forms/widgets/caldera-forms.php:483
-#: modules/caldera-forms/widgets/caldera-forms.php:691
-#: modules/caldera-forms/widgets/caldera-forms.php:1099
-#: modules/caldera-forms/widgets/caldera-forms.php:1205
-#: modules/caldera-forms/widgets/caldera-forms.php:1259
 #: modules/contact-form-seven/widgets/contact-form-7.php:373
 #: modules/contact-form-seven/widgets/contact-form-7.php:547
 #: modules/contact-form-seven/widgets/contact-form-7.php:991
@@ -2577,9 +2534,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:952
 #: modules/buttons/widgets/buttons.php:974
 #: modules/buttons/widgets/buttons.php:1091
-#: modules/caldera-forms/widgets/caldera-forms.php:874
-#: modules/caldera-forms/widgets/caldera-forms.php:990
-#: modules/caldera-forms/widgets/caldera-forms.php:1326
 #: modules/contact-form-seven/widgets/contact-form-7.php:764
 #: modules/contact-form-seven/widgets/contact-form-7.php:880
 #: modules/content-ticker/widgets/content-ticker.php:1542
@@ -2678,8 +2632,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:325
 #: modules/buttons/widgets/buttons.php:707
 #: modules/buttons/widgets/buttons.php:1045
-#: modules/caldera-forms/widgets/caldera-forms.php:632
-#: modules/caldera-forms/widgets/caldera-forms.php:1146
 #: modules/contact-form-seven/widgets/contact-form-7.php:420
 #: modules/contact-form-seven/widgets/contact-form-7.php:1037
 #: modules/content-ticker/widgets/content-ticker.php:1160
@@ -2762,7 +2714,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:442
 #: modules/buttons/widgets/buttons.php:807
 #: modules/buttons/widgets/buttons.php:967
-#: modules/caldera-forms/widgets/caldera-forms.php:1198
 #: modules/contact-form-seven/widgets/contact-form-7.php:1090
 #: modules/content-ticker/widgets/content-ticker.php:1326
 #: modules/content-ticker/widgets/content-ticker.php:1579
@@ -2820,8 +2771,6 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1021
 #: modules/buttons/widgets/buttons.php:488
 #: modules/buttons/widgets/buttons.php:836
-#: modules/caldera-forms/widgets/caldera-forms.php:911
-#: modules/caldera-forms/widgets/caldera-forms.php:1229
 #: modules/contact-form-seven/widgets/contact-form-7.php:801
 #: modules/contact-form-seven/widgets/contact-form-7.php:1121
 #: modules/content-ticker/widgets/content-ticker.php:1343
@@ -2909,15 +2858,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:463
 #: modules/buttons/widgets/buttons.php:765
 #: modules/buttons/widgets/buttons.php:825
-#: modules/caldera-forms/widgets/caldera-forms.php:289
-#: modules/caldera-forms/widgets/caldera-forms.php:350
-#: modules/caldera-forms/widgets/caldera-forms.php:414
-#: modules/caldera-forms/widgets/caldera-forms.php:495
-#: modules/caldera-forms/widgets/caldera-forms.php:741
-#: modules/caldera-forms/widgets/caldera-forms.php:797
-#: modules/caldera-forms/widgets/caldera-forms.php:1111
-#: modules/caldera-forms/widgets/caldera-forms.php:1217
-#: modules/caldera-forms/widgets/caldera-forms.php:1270
 #: modules/contact-form-seven/widgets/contact-form-7.php:297
 #: modules/contact-form-seven/widgets/contact-form-7.php:328
 #: modules/contact-form-seven/widgets/contact-form-7.php:385
@@ -3043,9 +2983,6 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:844
 #: modules/business-hours/widgets/business-hours.php:836
 #: modules/business-hours/widgets/business-hours.php:893
-#: modules/caldera-forms/widgets/caldera-forms.php:248
-#: modules/caldera-forms/widgets/caldera-forms.php:448
-#: modules/caldera-forms/widgets/caldera-forms.php:1023
 #: modules/contact-form-seven/widgets/contact-form-7.php:262
 #: modules/contact-form-seven/widgets/contact-form-7.php:912
 #: modules/counter/widgets/counter.php:473
@@ -3104,8 +3041,6 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:864
 #: modules/buttons/widgets/buttons.php:922
-#: modules/caldera-forms/widgets/caldera-forms.php:644
-#: modules/caldera-forms/widgets/caldera-forms.php:761
 #: modules/contact-form-seven/widgets/contact-form-7.php:397
 #: modules/contact-form-seven/widgets/contact-form-7.php:614
 #: modules/contact-form-seven/widgets/contact-form-7.php:1188
@@ -3155,7 +3090,6 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:882
 #: modules/buttons/widgets/buttons.php:902
-#: modules/caldera-forms/widgets/caldera-forms.php:836
 #: modules/contact-form-seven/widgets/contact-form-7.php:726
 #: modules/counter/widgets/counter.php:548
 #: modules/divider/widgets/divider.php:752
@@ -3204,7 +3138,6 @@ msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:95
 #: modules/buttons/widgets/buttons.php:295
-#: modules/caldera-forms/widgets/caldera-forms.php:1055
 #: modules/contact-form-seven/widgets/contact-form-7.php:947
 #: modules/content-ticker/widgets/content-ticker.php:123
 #: modules/content-ticker/widgets/content-ticker.php:686
@@ -3553,9 +3486,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:656
 #: modules/buttons/widgets/buttons.php:1012
 #: modules/buttons/widgets/buttons.php:1025
-#: modules/caldera-forms/widgets/caldera-forms.php:252
-#: modules/caldera-forms/widgets/caldera-forms.php:452
-#: modules/caldera-forms/widgets/caldera-forms.php:1027
 #: modules/contact-form-seven/widgets/contact-form-7.php:266
 #: modules/contact-form-seven/widgets/contact-form-7.php:917
 #: modules/content-ticker/widgets/content-ticker.php:876
@@ -3627,9 +3557,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:632
 #: modules/buttons/widgets/buttons.php:660
 #: modules/buttons/widgets/buttons.php:1029
-#: modules/caldera-forms/widgets/caldera-forms.php:256
-#: modules/caldera-forms/widgets/caldera-forms.php:456
-#: modules/caldera-forms/widgets/caldera-forms.php:1031
 #: modules/contact-form-seven/widgets/contact-form-7.php:270
 #: modules/contact-form-seven/widgets/contact-form-7.php:921
 #: modules/counter/widgets/counter.php:481
@@ -3699,9 +3626,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:664
 #: modules/buttons/widgets/buttons.php:1013
 #: modules/buttons/widgets/buttons.php:1033
-#: modules/caldera-forms/widgets/caldera-forms.php:260
-#: modules/caldera-forms/widgets/caldera-forms.php:460
-#: modules/caldera-forms/widgets/caldera-forms.php:1035
 #: modules/contact-form-seven/widgets/contact-form-7.php:274
 #: modules/contact-form-seven/widgets/contact-form-7.php:925
 #: modules/content-ticker/widgets/content-ticker.php:880
@@ -3772,13 +3696,6 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:932
 #: modules/buttons/widgets/buttons.php:733
 #: modules/buttons/widgets/buttons.php:880
-#: modules/caldera-forms/widgets/caldera-forms.php:305
-#: modules/caldera-forms/widgets/caldera-forms.php:366
-#: modules/caldera-forms/widgets/caldera-forms.php:426
-#: modules/caldera-forms/widgets/caldera-forms.php:664
-#: modules/caldera-forms/widgets/caldera-forms.php:753
-#: modules/caldera-forms/widgets/caldera-forms.php:1178
-#: modules/caldera-forms/widgets/caldera-forms.php:1293
 #: modules/contact-form-seven/widgets/contact-form-7.php:310
 #: modules/contact-form-seven/widgets/contact-form-7.php:341
 #: modules/contact-form-seven/widgets/contact-form-7.php:519
@@ -4345,7 +4262,6 @@ msgstr ""
 msgid "Text Align"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:98
 #: modules/contact-form-seven/widgets/contact-form-7.php:90
 #: modules/contact-form-seven/widgets/contact-form-7.php:97
 #: modules/fluent-forms/widgets/fluent-forms.php:69
@@ -4356,7 +4272,6 @@ msgstr ""
 msgid "Contact Form"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:109
 #: modules/fluent-forms/widgets/fluent-forms.php:80
 #: modules/formidable-forms/widgets/formidable-forms.php:78
 #: modules/gravity-forms/widgets/gravity-forms.php:150
@@ -4365,8 +4280,6 @@ msgstr ""
 msgid "Custom Title & Description"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:133
-#: modules/caldera-forms/widgets/caldera-forms.php:338
 #: modules/contact-form-seven/widgets/contact-form-7.php:143
 #: modules/contact-form-seven/widgets/contact-form-7.php:319
 #: modules/flipbox/widgets/flipbox.php:193
@@ -4409,8 +4322,6 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:145
-#: modules/caldera-forms/widgets/caldera-forms.php:406
 #: modules/contact-form-seven/widgets/contact-form-7.php:155
 #: modules/contact-form-seven/widgets/contact-form-7.php:589
 #: modules/fluent-forms/widgets/fluent-forms.php:116
@@ -4426,8 +4337,6 @@ msgstr ""
 msgid "Labels"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:158
-#: modules/caldera-forms/widgets/caldera-forms.php:786
 #: modules/contact-form-seven/widgets/contact-form-7.php:654
 #: modules/fluent-forms/widgets/fluent-forms.php:129
 #: modules/fluent-forms/widgets/fluent-forms.php:748
@@ -4442,8 +4351,6 @@ msgstr ""
 msgid "Placeholder"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:176
-#: modules/caldera-forms/widgets/caldera-forms.php:1307
 #: modules/contact-form-seven/widgets/contact-form-7.php:173
 #: modules/contact-form-seven/widgets/contact-form-7.php:1142
 #: modules/fluent-forms/widgets/fluent-forms.php:147
@@ -4459,8 +4366,6 @@ msgstr ""
 msgid "Errors"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:183
-#: modules/caldera-forms/widgets/caldera-forms.php:1315
 #: modules/contact-form-seven/widgets/contact-form-7.php:180
 #: modules/contact-form-seven/widgets/contact-form-7.php:1150
 #: modules/fluent-forms/widgets/fluent-forms.php:154
@@ -4473,7 +4378,6 @@ msgstr ""
 msgid "Error Messages"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:237
 #: modules/contact-form-seven/widgets/contact-form-7.php:254
 #: modules/fluent-forms/widgets/fluent-forms.php:208
 #: modules/formidable-forms/widgets/formidable-forms.php:277
@@ -4483,8 +4387,6 @@ msgstr ""
 msgid "Title & Description"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:316
-#: modules/caldera-forms/widgets/caldera-forms.php:378
 #: modules/contact-form-seven/widgets/contact-form-7.php:1342
 #: modules/content-ticker/widgets/content-ticker.php:1442
 #: modules/counter/widgets/counter.php:668
@@ -4519,7 +4421,6 @@ msgstr ""
 msgid "Margin"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:440
 #: modules/contact-form-seven/widgets/contact-form-7.php:356
 #: modules/fluent-forms/widgets/fluent-forms.php:412
 #: modules/formidable-forms/widgets/formidable-forms.php:451
@@ -4529,7 +4430,6 @@ msgstr ""
 msgid "Input & Textarea"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:531
 #: modules/contact-form-seven/widgets/contact-form-7.php:432
 #: modules/fluent-forms/widgets/fluent-forms.php:503
 #: modules/formidable-forms/widgets/formidable-forms.php:542
@@ -4539,7 +4439,6 @@ msgstr ""
 msgid "Text Indent"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:556
 #: modules/contact-form-seven/widgets/contact-form-7.php:456
 #: modules/fluent-forms/widgets/fluent-forms.php:528
 #: modules/formidable-forms/widgets/formidable-forms.php:567
@@ -4549,7 +4448,6 @@ msgstr ""
 msgid "Input Width"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:575
 #: modules/fluent-forms/widgets/fluent-forms.php:547
 #: modules/formidable-forms/widgets/formidable-forms.php:586
 #: modules/gravity-forms/widgets/gravity-forms.php:680
@@ -4558,7 +4456,6 @@ msgstr ""
 msgid "Input Height"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:594
 #: modules/contact-form-seven/widgets/contact-form-7.php:475
 #: modules/fluent-forms/widgets/fluent-forms.php:566
 #: modules/formidable-forms/widgets/formidable-forms.php:605
@@ -4568,7 +4465,6 @@ msgstr ""
 msgid "Textarea Width"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:613
 #: modules/fluent-forms/widgets/fluent-forms.php:585
 #: modules/formidable-forms/widgets/formidable-forms.php:624
 #: modules/gravity-forms/widgets/gravity-forms.php:718
@@ -4577,7 +4473,6 @@ msgstr ""
 msgid "Textarea Height"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:684
 #: modules/contact-form-seven/widgets/contact-form-7.php:540
 #: modules/fluent-forms/widgets/fluent-forms.php:658
 #: modules/formidable-forms/widgets/formidable-forms.php:697
@@ -4587,7 +4482,6 @@ msgstr ""
 msgid "Focus"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:733
 #: modules/fluent-forms/widgets/fluent-forms.php:695
 #: modules/formidable-forms/widgets/formidable-forms.php:758
 #: modules/gravity-forms/widgets/gravity-forms.php:846
@@ -4596,7 +4490,6 @@ msgstr ""
 msgid "Field Description"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:817
 #: modules/contact-form-seven/widgets/contact-form-7.php:707
 #: modules/fluent-forms/widgets/fluent-forms.php:779
 #: modules/formidable-forms/widgets/formidable-forms.php:842
@@ -4606,7 +4499,6 @@ msgstr ""
 msgid "Radio & Checkbox"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:825
 #: modules/contact-form-seven/widgets/contact-form-7.php:715
 #: modules/fluent-forms/widgets/fluent-forms.php:787
 #: modules/formidable-forms/widgets/formidable-forms.php:850
@@ -4616,7 +4508,6 @@ msgstr ""
 msgid "Custom Styles"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:889
 #: modules/contact-form-seven/widgets/contact-form-7.php:779
 #: modules/fluent-forms/widgets/fluent-forms.php:851
 #: modules/formidable-forms/widgets/formidable-forms.php:914
@@ -4630,7 +4521,6 @@ msgstr ""
 msgid "Border Width"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:926
 #: modules/contact-form-seven/widgets/contact-form-7.php:816
 #: modules/fluent-forms/widgets/fluent-forms.php:888
 #: modules/formidable-forms/widgets/formidable-forms.php:951
@@ -4640,7 +4530,6 @@ msgstr ""
 msgid "Checkbox"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:952
 #: modules/contact-form-seven/widgets/contact-form-7.php:842
 #: modules/fluent-forms/widgets/fluent-forms.php:914
 #: modules/formidable-forms/widgets/formidable-forms.php:977
@@ -4650,7 +4539,6 @@ msgstr ""
 msgid "Radio Buttons"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:980
 #: modules/contact-form-seven/widgets/contact-form-7.php:870
 #: modules/fluent-forms/widgets/fluent-forms.php:942
 #: modules/formidable-forms/widgets/formidable-forms.php:1005
@@ -4660,7 +4548,6 @@ msgstr ""
 msgid "Checked"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1015
 #: modules/contact-form-seven/widgets/contact-form-7.php:904
 #: modules/fluent-forms/widgets/fluent-forms.php:977
 #: modules/formidable-forms/widgets/formidable-forms.php:1040
@@ -4670,8 +4557,6 @@ msgstr ""
 msgid "Submit Button"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1050
-#: modules/caldera-forms/widgets/caldera-forms.php:1064
 #: modules/contact-form-seven/widgets/contact-form-7.php:942
 #: modules/contact-form-seven/widgets/contact-form-7.php:956
 #: modules/content-ticker/widgets/content-ticker.php:1125
@@ -4715,7 +4600,6 @@ msgstr ""
 msgid "Width"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1054
 #: modules/contact-form-seven/widgets/contact-form-7.php:946
 #: modules/fluent-forms/widgets/fluent-forms.php:1019
 #: modules/formidable-forms/widgets/formidable-forms.php:1082
@@ -4726,7 +4610,6 @@ msgstr ""
 msgid "Full Width"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1158
 #: modules/contact-form-seven/widgets/contact-form-7.php:1049
 #: modules/fluent-forms/widgets/fluent-forms.php:1123
 #: modules/formidable-forms/widgets/formidable-forms.php:1186
@@ -4740,21 +4623,8 @@ msgstr ""
 msgid "Margin Top"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:1251
 #: modules/ninja-forms/widgets/ninja-forms.php:1254
 msgid "Success Message"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1341
-msgid "Error Fields"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1350
-msgid "Label Color"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1363
-msgid "Input Border"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:108

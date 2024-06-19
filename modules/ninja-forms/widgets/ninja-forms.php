@@ -1531,14 +1531,14 @@ class Ninja_Forms extends Powerpack_Widget {
 			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
 				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'contact-form' ) ); ?>>
 					<?php if ( 'yes' === $settings['custom_title_description'] ) { ?>
-						<div class="pp-caldera-form-heading">
+						<div class="pp-ninja-forms-heading">
 							<?php if ( $settings['form_title_custom'] ) { ?>
-								<h3 class="pp-contact-form-title pp-caldera-form-title">
+								<h3 class="pp-contact-form-title pp-ninja-forms-title">
 									<?php echo esc_attr( $settings['form_title_custom'] ); ?>
 								</h3>
 							<?php } ?>
 							<?php if ( $settings['form_description_custom'] ) { ?>
-								<div class="pp-contact-form-description pp-caldera-form-description">
+								<div class="pp-contact-form-description pp-ninja-forms-description">
 									<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 								</div>
 							<?php } ?>

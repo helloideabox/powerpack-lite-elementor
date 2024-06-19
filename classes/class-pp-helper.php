@@ -289,17 +289,6 @@ class PP_Helper {
 		$options       = array();
 		$contact_forms = array();
 
-		// Caldera Forms
-		if ( 'Caldera_Forms' == $plugin && class_exists( 'Caldera_Forms' ) ) {
-			$caldera_forms = \Caldera_Forms_Forms::get_forms( true, true );
-
-			if ( ! empty( $caldera_forms ) && ! is_wp_error( $caldera_forms ) ) {
-				foreach ( $caldera_forms as $form ) {
-					$contact_forms[ $form['ID'] ] = $form['name'];
-				}
-			}
-		}
-
 		// Contact Form 7
 		if ( 'Contact_Form_7' == $plugin && function_exists( 'wpcf7' ) ) {
 			$args = array(

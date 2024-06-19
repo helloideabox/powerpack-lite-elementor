@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PowerPack Lite for Elementor 2.7.21\n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2024-06-12 08:55:03+00:00\n"
+"https://wordpress.org/support/plugin/powerpack-lite-elementor\n"
+"POT-Creation-Date: 2024-06-19 04:14:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,7 +75,6 @@ msgstr ""
 
 #: base/powerpack-widget.php:44 extensions/upgrade-pro.php:79
 #: modules/buttons/widgets/buttons.php:554
-#: modules/caldera-forms/widgets/caldera-forms.php:267
 #: modules/contact-form-seven/widgets/contact-form-7.php:240
 #: modules/content-reveal/widgets/content-reveal.php:455
 #: modules/formidable-forms/widgets/formidable-forms.php:283
@@ -87,7 +86,6 @@ msgstr ""
 
 #: base/powerpack-widget.php:50 extensions/upgrade-pro.php:89
 #: modules/buttons/widgets/buttons.php:564
-#: modules/caldera-forms/widgets/caldera-forms.php:277
 #: modules/contact-form-seven/widgets/contact-form-7.php:250
 #: modules/content-reveal/widgets/content-reveal.php:465
 #: modules/formidable-forms/widgets/formidable-forms.php:293
@@ -135,7 +133,7 @@ msgstr ""
 msgid "You do not have permission to view this setting."
 msgstr ""
 
-#: classes/class-pp-config.php:46 includes/helper-functions.php:378
+#: classes/class-pp-config.php:46 includes/helper-functions.php:352
 msgid "Advanced Accordion"
 msgstr ""
 
@@ -145,7 +143,7 @@ msgstr ""
 msgid "Business Hours"
 msgstr ""
 
-#: classes/class-pp-config.php:60 includes/helper-functions.php:403
+#: classes/class-pp-config.php:60 includes/helper-functions.php:377
 #: modules/buttons/widgets/buttons.php:110
 #: modules/buttons/widgets/buttons.php:533
 #: modules/twitter/widgets/twitter-buttons.php:66
@@ -153,30 +151,25 @@ msgstr ""
 msgid "Buttons"
 msgstr ""
 
-#: classes/class-pp-config.php:67 includes/helper-functions.php:431
-#: modules/caldera-forms/widgets/caldera-forms.php:108
-msgid "Caldera Forms"
-msgstr ""
-
-#: classes/class-pp-config.php:74 includes/helper-functions.php:416
+#: classes/class-pp-config.php:67 includes/helper-functions.php:390
 msgid "Contact Form 7"
 msgstr ""
 
-#: classes/class-pp-config.php:81 includes/helper-functions.php:410
+#: classes/class-pp-config.php:74 includes/helper-functions.php:384
 #: modules/content-reveal/widgets/content-reveal.php:384
 msgid "Content Reveal"
 msgstr ""
 
-#: classes/class-pp-config.php:88 includes/helper-functions.php:401
+#: classes/class-pp-config.php:81 includes/helper-functions.php:375
 msgid "Content Ticker"
 msgstr ""
 
-#: classes/class-pp-config.php:95 includes/helper-functions.php:392
+#: classes/class-pp-config.php:88 includes/helper-functions.php:366
 #: modules/counter/widgets/counter.php:139
 msgid "Counter"
 msgstr ""
 
-#: classes/class-pp-config.php:102 includes/helper-functions.php:380
+#: classes/class-pp-config.php:95 includes/helper-functions.php:354
 #: modules/divider/widgets/divider.php:106
 #: modules/divider/widgets/divider.php:326
 #: modules/icon-list/widgets/icon-list.php:443
@@ -192,349 +185,348 @@ msgstr ""
 msgid "Divider"
 msgstr ""
 
-#: classes/class-pp-config.php:109
+#: classes/class-pp-config.php:102
 msgid "Flip Box"
 msgstr ""
 
-#: classes/class-pp-config.php:116 includes/helper-functions.php:446
+#: classes/class-pp-config.php:109 includes/helper-functions.php:415
 msgid "Fluent Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:123 includes/helper-functions.php:441
+#: classes/class-pp-config.php:116 includes/helper-functions.php:410
 #: modules/formidable-forms/widgets/formidable-forms.php:89
 msgid "Formidable Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:130 includes/helper-functions.php:421
+#: classes/class-pp-config.php:123 includes/helper-functions.php:395
 #: modules/gravity-forms/widgets/gravity-forms.php:129
 msgid "Gravity Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:137 includes/helper-functions.php:395
+#: classes/class-pp-config.php:130 includes/helper-functions.php:369
 #: modules/headings/widgets/dual-heading.php:104
 msgid "Dual Heading"
 msgstr ""
 
-#: classes/class-pp-config.php:144 includes/helper-functions.php:408
+#: classes/class-pp-config.php:137 includes/helper-functions.php:382
 #: modules/headings/widgets/fancy-heading.php:101
 #: modules/headings/widgets/fancy-heading.php:238
 msgid "Fancy Heading"
 msgstr ""
 
-#: classes/class-pp-config.php:151 includes/helper-functions.php:393
+#: classes/class-pp-config.php:144 includes/helper-functions.php:367
 msgid "Image Hotspots"
 msgstr ""
 
-#: classes/class-pp-config.php:158 includes/helper-functions.php:394
+#: classes/class-pp-config.php:151 includes/helper-functions.php:368
 #: modules/icon-list/widgets/icon-list.php:106
 msgid "Icon List"
 msgstr ""
 
-#: classes/class-pp-config.php:165 includes/helper-functions.php:382
+#: classes/class-pp-config.php:158 includes/helper-functions.php:356
 msgid "Image Accordion"
 msgstr ""
 
-#: classes/class-pp-config.php:172 includes/helper-functions.php:399
+#: classes/class-pp-config.php:165 includes/helper-functions.php:373
 msgid "Image Comparison"
 msgstr ""
 
-#: classes/class-pp-config.php:179 includes/helper-functions.php:383
+#: classes/class-pp-config.php:172 includes/helper-functions.php:357
 msgid "Info Box"
 msgstr ""
 
-#: classes/class-pp-config.php:186 includes/helper-functions.php:384
+#: classes/class-pp-config.php:179 includes/helper-functions.php:358
 msgid "Info Grid & Carousel"
 msgstr ""
 
-#: classes/class-pp-config.php:193 includes/helper-functions.php:385
+#: classes/class-pp-config.php:186 includes/helper-functions.php:359
 msgid "Info List"
 msgstr ""
 
-#: classes/class-pp-config.php:200 includes/helper-functions.php:386
+#: classes/class-pp-config.php:193 includes/helper-functions.php:360
 #: modules/info-table/widgets/info-table.php:414
 msgid "Info Table"
 msgstr ""
 
-#: classes/class-pp-config.php:207 includes/helper-functions.php:400
+#: classes/class-pp-config.php:200 includes/helper-functions.php:374
 msgid "Instagram Feed"
 msgstr ""
 
-#: classes/class-pp-config.php:214 includes/helper-functions.php:379
+#: classes/class-pp-config.php:207 includes/helper-functions.php:353
 #: modules/link-effects/widgets/link-effects.php:90
 #: modules/link-effects/widgets/link-effects.php:266
 msgid "Link Effects"
 msgstr ""
 
-#: classes/class-pp-config.php:221 includes/helper-functions.php:397
+#: classes/class-pp-config.php:214 includes/helper-functions.php:371
 #: modules/logos/widgets/logo-carousel.php:124
 msgid "Logo Carousel"
 msgstr ""
 
-#: classes/class-pp-config.php:228 includes/helper-functions.php:398
+#: classes/class-pp-config.php:221 includes/helper-functions.php:372
 #: modules/logos/widgets/logo-grid.php:98
 msgid "Logo Grid"
 msgstr ""
 
-#: classes/class-pp-config.php:235 includes/helper-functions.php:426
+#: classes/class-pp-config.php:228 includes/helper-functions.php:400
 #: modules/ninja-forms/widgets/ninja-forms.php:91
 msgid "Ninja Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:242 includes/helper-functions.php:409
+#: classes/class-pp-config.php:235 includes/helper-functions.php:383
 #: modules/content-ticker/widgets/content-ticker.php:137
 msgid "Posts"
 msgstr ""
 
-#: classes/class-pp-config.php:249 includes/helper-functions.php:388
+#: classes/class-pp-config.php:242 includes/helper-functions.php:362
 #: modules/pricing/widgets/price-menu.php:88
 msgid "Price Menu"
 msgstr ""
 
-#: classes/class-pp-config.php:256 includes/helper-functions.php:387
+#: classes/class-pp-config.php:249 includes/helper-functions.php:361
 msgid "Pricing Table"
 msgstr ""
 
-#: classes/class-pp-config.php:263 includes/helper-functions.php:396
+#: classes/class-pp-config.php:256 includes/helper-functions.php:370
 #: modules/promo-box/widgets/promo-box.php:437
 msgid "Promo Box"
 msgstr ""
 
-#: classes/class-pp-config.php:270 includes/helper-functions.php:411
+#: classes/class-pp-config.php:263 includes/helper-functions.php:385
 msgid "Random Image"
 msgstr ""
 
-#: classes/class-pp-config.php:277 includes/helper-functions.php:402
+#: classes/class-pp-config.php:270 includes/helper-functions.php:376
 msgid "Scroll Image"
 msgstr ""
 
-#: classes/class-pp-config.php:284 includes/helper-functions.php:390
+#: classes/class-pp-config.php:277 includes/helper-functions.php:364
 msgid "Team Member"
 msgstr ""
 
-#: classes/class-pp-config.php:291 includes/helper-functions.php:391
+#: classes/class-pp-config.php:284 includes/helper-functions.php:365
 msgid "Team Member Carousel"
 msgstr ""
 
-#: classes/class-pp-config.php:298 includes/helper-functions.php:404
+#: classes/class-pp-config.php:291 includes/helper-functions.php:378
 msgid "Twitter Buttons"
 msgstr ""
 
-#: classes/class-pp-config.php:305 includes/helper-functions.php:405
+#: classes/class-pp-config.php:298 includes/helper-functions.php:379
 msgid "Twitter Grid"
 msgstr ""
 
-#: classes/class-pp-config.php:312 includes/helper-functions.php:406
+#: classes/class-pp-config.php:305 includes/helper-functions.php:380
 msgid "Twitter Timeline"
 msgstr ""
 
-#: classes/class-pp-config.php:319 includes/helper-functions.php:407
+#: classes/class-pp-config.php:312 includes/helper-functions.php:381
 msgid "Twitter Tweet"
 msgstr ""
 
-#: classes/class-pp-config.php:326
+#: classes/class-pp-config.php:319
 msgid "WP Forms"
 msgstr ""
 
-#: classes/class-pp-config.php:349
+#: classes/class-pp-config.php:342
 msgid "Advanced Menu"
 msgstr ""
 
-#: classes/class-pp-config.php:356
+#: classes/class-pp-config.php:349
 msgid "Advanced Tabs"
 msgstr ""
 
-#: classes/class-pp-config.php:363
+#: classes/class-pp-config.php:356
 msgid "Album"
 msgstr ""
 
-#: classes/class-pp-config.php:370
+#: classes/class-pp-config.php:363
 msgid "Breadcrumbs"
 msgstr ""
 
-#: classes/class-pp-config.php:377
+#: classes/class-pp-config.php:370
 msgid "Card Slider"
 msgstr ""
 
-#: classes/class-pp-config.php:384
+#: classes/class-pp-config.php:377
 msgid "Categories"
 msgstr ""
 
-#: classes/class-pp-config.php:391
+#: classes/class-pp-config.php:384
 msgid "Countdown Timer"
 msgstr ""
 
-#: classes/class-pp-config.php:398
+#: classes/class-pp-config.php:391
 msgid "Coupons"
 msgstr ""
 
-#: classes/class-pp-config.php:405
+#: classes/class-pp-config.php:398
 msgid "Devices"
 msgstr ""
 
-#: classes/class-pp-config.php:412
+#: classes/class-pp-config.php:405
 msgid "FAQ"
 msgstr ""
 
-#: classes/class-pp-config.php:419
+#: classes/class-pp-config.php:412
 msgid "Image Gallery"
 msgstr ""
 
-#: classes/class-pp-config.php:426
+#: classes/class-pp-config.php:419
 msgid "Image Slider"
 msgstr ""
 
-#: classes/class-pp-config.php:433
+#: classes/class-pp-config.php:426
 msgid "Google Maps"
 msgstr ""
 
-#: classes/class-pp-config.php:440
+#: classes/class-pp-config.php:433
 msgid "How To"
 msgstr ""
 
-#: classes/class-pp-config.php:447
+#: classes/class-pp-config.php:440
 msgid "Magazine Slider"
 msgstr ""
 
-#: classes/class-pp-config.php:454
+#: classes/class-pp-config.php:447
 msgid "Offcanvas Content"
 msgstr ""
 
-#: classes/class-pp-config.php:461
+#: classes/class-pp-config.php:454
 msgid "One Page Navigation"
 msgstr ""
 
-#: classes/class-pp-config.php:468
+#: classes/class-pp-config.php:461
 msgid "Popup Box"
 msgstr ""
 
-#: classes/class-pp-config.php:475
+#: classes/class-pp-config.php:468
 msgid "Recipe"
 msgstr ""
 
-#: classes/class-pp-config.php:482
+#: classes/class-pp-config.php:475
 msgid "Review Box"
 msgstr ""
 
-#: classes/class-pp-config.php:489
+#: classes/class-pp-config.php:482
 msgid "Showcase"
 msgstr ""
 
-#: classes/class-pp-config.php:496
+#: classes/class-pp-config.php:489
 #: modules/pricing/widgets/pricing-table.php:1138
 msgid "Table"
 msgstr ""
 
-#: classes/class-pp-config.php:503
+#: classes/class-pp-config.php:496
 msgid "Tabbed Gallery"
 msgstr ""
 
-#: classes/class-pp-config.php:510
+#: classes/class-pp-config.php:503
 msgid "Testimonials"
 msgstr ""
 
-#: classes/class-pp-config.php:517
+#: classes/class-pp-config.php:510
 msgid "Tiled Posts"
 msgstr ""
 
-#: classes/class-pp-config.php:524
+#: classes/class-pp-config.php:517
 #: modules/twitter/widgets/twitter-timeline.php:66
 msgid "Timeline"
 msgstr ""
 
-#: classes/class-pp-config.php:531
+#: classes/class-pp-config.php:524
 #: modules/advanced-accordion/widgets/advanced-accordion.php:499
 #: modules/instafeed/widgets/instafeed.php:1665
 msgid "Toggle"
 msgstr ""
 
-#: classes/class-pp-config.php:538
+#: classes/class-pp-config.php:531
 msgid "Video"
 msgstr ""
 
-#: classes/class-pp-config.php:545
+#: classes/class-pp-config.php:538
 msgid "Video Gallery"
 msgstr ""
 
-#: classes/class-pp-config.php:552
+#: classes/class-pp-config.php:545
 msgid "Woo - Add To Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:559
+#: classes/class-pp-config.php:552
 msgid "Woo - Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:566
+#: classes/class-pp-config.php:559
 msgid "Woo - Categories"
 msgstr ""
 
-#: classes/class-pp-config.php:573
+#: classes/class-pp-config.php:566
 msgid "Woo - Checkout"
 msgstr ""
 
-#: classes/class-pp-config.php:580
+#: classes/class-pp-config.php:573
 msgid "Woo - Mini Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:587
+#: classes/class-pp-config.php:580
 msgid "Woo - Off Canvas Cart"
 msgstr ""
 
-#: classes/class-pp-config.php:594
+#: classes/class-pp-config.php:587
 msgid "Woo - Products"
 msgstr ""
 
-#: classes/class-pp-config.php:617 classes/class-pp-config.php:621
-#: classes/class-pp-config.php:626 classes/class-pp-config.php:634
-#: classes/class-pp-config.php:639 classes/class-pp-config.php:643
-#: classes/class-pp-config.php:647 classes/class-pp-config.php:651
-#: classes/class-pp-config.php:656 classes/class-pp-config.php:668
-#: classes/class-pp-config.php:672 classes/class-pp-config.php:676
-#: classes/class-pp-config.php:680 classes/class-pp-config.php:684
-#: classes/class-pp-config.php:688 classes/class-pp-config.php:692
-#: classes/class-pp-config.php:696 classes/class-pp-config.php:701
-#: classes/class-pp-config.php:707 classes/class-pp-config.php:711
-#: classes/class-pp-config.php:715 classes/class-pp-config.php:729
-#: classes/class-pp-config.php:734 classes/class-pp-config.php:738
-#: classes/class-pp-config.php:742 classes/class-pp-config.php:750
-#: classes/class-pp-config.php:754 classes/class-pp-config.php:758
-#: classes/class-pp-config.php:763 classes/class-pp-config.php:766
+#: classes/class-pp-config.php:610 classes/class-pp-config.php:614
+#: classes/class-pp-config.php:619 classes/class-pp-config.php:623
+#: classes/class-pp-config.php:628 classes/class-pp-config.php:632
+#: classes/class-pp-config.php:636 classes/class-pp-config.php:640
+#: classes/class-pp-config.php:645 classes/class-pp-config.php:657
+#: classes/class-pp-config.php:661 classes/class-pp-config.php:665
+#: classes/class-pp-config.php:669 classes/class-pp-config.php:673
+#: classes/class-pp-config.php:677 classes/class-pp-config.php:681
+#: classes/class-pp-config.php:685 classes/class-pp-config.php:690
+#: classes/class-pp-config.php:696 classes/class-pp-config.php:700
+#: classes/class-pp-config.php:704 classes/class-pp-config.php:718
+#: classes/class-pp-config.php:723 classes/class-pp-config.php:727
+#: classes/class-pp-config.php:731 classes/class-pp-config.php:739
+#: classes/class-pp-config.php:743 classes/class-pp-config.php:747
+#: classes/class-pp-config.php:752 classes/class-pp-config.php:755
 msgid "Widget Overview"
 msgstr ""
 
-#: classes/class-pp-config.php:625 classes/class-pp-config.php:630
-#: classes/class-pp-config.php:638 classes/class-pp-config.php:652
-#: classes/class-pp-config.php:660 classes/class-pp-config.php:664
-#: classes/class-pp-config.php:700 classes/class-pp-config.php:719
-#: classes/class-pp-config.php:723 classes/class-pp-config.php:733
-#: classes/class-pp-config.php:746
+#: classes/class-pp-config.php:618 classes/class-pp-config.php:627
+#: classes/class-pp-config.php:641 classes/class-pp-config.php:649
+#: classes/class-pp-config.php:653 classes/class-pp-config.php:689
+#: classes/class-pp-config.php:708 classes/class-pp-config.php:712
+#: classes/class-pp-config.php:722 classes/class-pp-config.php:735
 msgid "Watch Video Overview"
 msgstr ""
 
-#: classes/class-pp-config.php:702
+#: classes/class-pp-config.php:691
 msgid "How to get Instagram Access Token?"
 msgstr ""
 
-#: classes/class-pp-config.php:703
+#: classes/class-pp-config.php:692
 msgid "How to set up Instagram Feed widget?"
 msgstr ""
 
-#: classes/class-pp-config.php:724
+#: classes/class-pp-config.php:713
 msgid "Action Hooks for Post Widget"
 msgstr ""
 
-#: classes/class-pp-config.php:725
+#: classes/class-pp-config.php:714
 msgid "How to Customize Query in Post Widget?"
 msgstr ""
 
-#: classes/class-pp-config.php:759
+#: classes/class-pp-config.php:748
 msgid "How to Create a Collection URL for Twitter Grid"
 msgstr ""
 
-#: classes/class-pp-helper.php:382 includes/helper-functions.php:207
+#: classes/class-pp-helper.php:371 includes/helper-functions.php:181
 msgid "Select a Contact Form"
 msgstr ""
 
-#: classes/class-pp-helper.php:389
+#: classes/class-pp-helper.php:378
 msgid "No contact forms found!"
 msgstr ""
 
@@ -589,7 +581,7 @@ msgstr ""
 msgid "Favorite"
 msgstr ""
 
-#: classes/class-pp-templates-lib.php:496 powerpack-lite-elementor.php:207
+#: classes/class-pp-templates-lib.php:496 powerpack-lite-elementor.php:203
 msgid "Go Pro"
 msgstr ""
 
@@ -675,354 +667,386 @@ msgid "I'm not interested"
 msgstr ""
 
 #: classes/class-pp-wpml.php:30
-msgid "Caldera Forms - Title"
-msgstr ""
-
-#: classes/class-pp-wpml.php:35
-msgid "Caldera Forms - Description"
-msgstr ""
-
-#: classes/class-pp-wpml.php:45
 msgid "Contact Form 7 - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:50
+#: classes/class-pp-wpml.php:35
 msgid "Contact Form 7 - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:60
+#: classes/class-pp-wpml.php:45
 msgid "Content Ticker - Heading Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:71
+#: classes/class-pp-wpml.php:56
 msgid "Content Reveal - Content Type = Content"
 msgstr ""
 
-#: classes/class-pp-wpml.php:76
+#: classes/class-pp-wpml.php:61
 msgid "Content Reveal - Content Unreveal Label"
 msgstr ""
 
-#: classes/class-pp-wpml.php:81
+#: classes/class-pp-wpml.php:66
 msgid "Content Reveal - Content Reveal Label"
 msgstr ""
 
-#: classes/class-pp-wpml.php:91
+#: classes/class-pp-wpml.php:76
 msgid "Counter - Starting Number"
 msgstr ""
 
-#: classes/class-pp-wpml.php:96
+#: classes/class-pp-wpml.php:81
 msgid "Counter - Ending Number"
 msgstr ""
 
-#: classes/class-pp-wpml.php:101
+#: classes/class-pp-wpml.php:86
 msgid "Counter - Number Prefix"
 msgstr ""
 
-#: classes/class-pp-wpml.php:106
+#: classes/class-pp-wpml.php:91
 msgid "Counter - Number Suffix"
 msgstr ""
 
-#: classes/class-pp-wpml.php:111
+#: classes/class-pp-wpml.php:96
 msgid "Counter - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:116
+#: classes/class-pp-wpml.php:101
 msgid "Counter - Subtitle"
 msgstr ""
 
-#: classes/class-pp-wpml.php:126
+#: classes/class-pp-wpml.php:111
 msgid "Divider - Divider Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:136
+#: classes/class-pp-wpml.php:121
 msgid "Dual Heading - First Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:141
+#: classes/class-pp-wpml.php:126
 msgid "Dual Heading - Second Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:146
+#: classes/class-pp-wpml.php:131
 msgid "Dual Heading - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:156
+#: classes/class-pp-wpml.php:141
 msgid "Fancy Heading - Heading Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:161
+#: classes/class-pp-wpml.php:146
 msgid "Fancy Heading - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:171
+#: classes/class-pp-wpml.php:156
 msgid "Flip Box - Front Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:176
+#: classes/class-pp-wpml.php:161
 msgid "Flip Box - Front Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:181
+#: classes/class-pp-wpml.php:166
 msgid "Flip Box - Back Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:186
+#: classes/class-pp-wpml.php:171
 msgid "Flip Box - Back Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:191
+#: classes/class-pp-wpml.php:176
 msgid "Flip Box - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:196
+#: classes/class-pp-wpml.php:181
 msgid "Flip Box - Button Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:206
+#: classes/class-pp-wpml.php:191
 msgid "Fluent Forms - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:211
+#: classes/class-pp-wpml.php:196
 msgid "Fluent Forms - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:221
+#: classes/class-pp-wpml.php:206
 msgid "Formidable Forms - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:226
+#: classes/class-pp-wpml.php:211
 msgid "Formidable Forms - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:236
+#: classes/class-pp-wpml.php:221
 msgid "Gravity Forms - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:241
+#: classes/class-pp-wpml.php:226
 msgid "Gravity Forms - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:266
+#: classes/class-pp-wpml.php:251
 msgid "Image Comparision - Before Label"
 msgstr ""
 
-#: classes/class-pp-wpml.php:271
+#: classes/class-pp-wpml.php:256
 msgid "Image Comparision - After Label"
 msgstr ""
 
-#: classes/class-pp-wpml.php:282
+#: classes/class-pp-wpml.php:267
 msgid "Info Box - Icon Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:287
+#: classes/class-pp-wpml.php:272
 msgid "Info Box - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:292
+#: classes/class-pp-wpml.php:277
 msgid "Info Box - Subtitle"
 msgstr ""
 
-#: classes/class-pp-wpml.php:297
+#: classes/class-pp-wpml.php:282
 msgid "Info Box - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:302
+#: classes/class-pp-wpml.php:287
 msgid "Info Box - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:307
+#: classes/class-pp-wpml.php:292
 msgid "Info Box - Button Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:328
+#: classes/class-pp-wpml.php:313
 msgid "Info Table - Icon Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:333
+#: classes/class-pp-wpml.php:318
 msgid "Info Table - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:338
+#: classes/class-pp-wpml.php:323
 msgid "Info Table - Subtitle"
 msgstr ""
 
-#: classes/class-pp-wpml.php:343
+#: classes/class-pp-wpml.php:328
 msgid "Info Table - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:348
+#: classes/class-pp-wpml.php:333
 msgid "Info Table - Sale Badge Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:353
+#: classes/class-pp-wpml.php:338
 msgid "Info Table - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:358
+#: classes/class-pp-wpml.php:343
 msgid "Info Table - Button Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:369
+#: classes/class-pp-wpml.php:354
 msgid "Instafeed - Link Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:374
+#: classes/class-pp-wpml.php:359
 msgid "Instafeed - Instagram Profile URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:379
+#: classes/class-pp-wpml.php:364
 msgid "Instafeed - Load More Button Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:389
+#: classes/class-pp-wpml.php:374
 msgid "Link Effects - Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:394
+#: classes/class-pp-wpml.php:379
 msgid "Link Effects - Secondary Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:399
+#: classes/class-pp-wpml.php:384
 msgid "Link Effects - Link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:419
+#: classes/class-pp-wpml.php:404
 msgid "Ninja Forms - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:424
+#: classes/class-pp-wpml.php:409
 msgid "Ninja Forms - Description"
 msgstr ""
 
+#: classes/class-pp-wpml.php:419
+msgid "Posts - Query Id"
+msgstr ""
+
+#: classes/class-pp-wpml.php:424
+msgid "Posts - Nothing Found Message"
+msgstr ""
+
+#: classes/class-pp-wpml.php:429
+msgid "Posts: Classic - Terms Separator"
+msgstr ""
+
+#: classes/class-pp-wpml.php:434
+msgid "Posts: Classic - Post Meta Separator"
+msgstr ""
+
 #: classes/class-pp-wpml.php:439
-msgid "Pricing Table - Title"
+msgid "Posts: Classic - Author Prefix"
 msgstr ""
 
 #: classes/class-pp-wpml.php:444
-msgid "Pricing Table - Subtitle"
+msgid "Posts: Classic - Date Prefix"
 msgstr ""
 
 #: classes/class-pp-wpml.php:449
-msgid "Pricing Table - Price"
+msgid "Posts: Classic - Read More Button Text"
 msgstr ""
 
 #: classes/class-pp-wpml.php:454
-msgid "Pricing Table - Origibal Price"
+msgid "Posts: Classic - Pagination Prev Label"
 msgstr ""
 
 #: classes/class-pp-wpml.php:459
-msgid "Pricing Table - Duration"
-msgstr ""
-
-#: classes/class-pp-wpml.php:464
-msgid "Pricing Table - Ribbon Title"
-msgstr ""
-
-#: classes/class-pp-wpml.php:469
-msgid "Pricing Table - Button Text"
+msgid "Posts: Classic - Pagination Next Label"
 msgstr ""
 
 #: classes/class-pp-wpml.php:474
-msgid "Pricing Table - Link"
+msgid "Pricing Table - Title"
 msgstr ""
 
 #: classes/class-pp-wpml.php:479
+msgid "Pricing Table - Subtitle"
+msgstr ""
+
+#: classes/class-pp-wpml.php:484
+msgid "Pricing Table - Price"
+msgstr ""
+
+#: classes/class-pp-wpml.php:489
+msgid "Pricing Table - Origibal Price"
+msgstr ""
+
+#: classes/class-pp-wpml.php:494
+msgid "Pricing Table - Duration"
+msgstr ""
+
+#: classes/class-pp-wpml.php:499
+msgid "Pricing Table - Ribbon Title"
+msgstr ""
+
+#: classes/class-pp-wpml.php:504
+msgid "Pricing Table - Button Text"
+msgstr ""
+
+#: classes/class-pp-wpml.php:509
+msgid "Pricing Table - Link"
+msgstr ""
+
+#: classes/class-pp-wpml.php:514
 msgid "Pricing Table - Additional Info"
 msgstr ""
 
-#: classes/class-pp-wpml.php:490
+#: classes/class-pp-wpml.php:525
 msgid "Promo Box - Heading"
 msgstr ""
 
-#: classes/class-pp-wpml.php:495
+#: classes/class-pp-wpml.php:530
 msgid "Promo Box - Sub Heading"
 msgstr ""
 
-#: classes/class-pp-wpml.php:500
+#: classes/class-pp-wpml.php:535
 msgid "Promo Box - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:505
+#: classes/class-pp-wpml.php:540
 msgid "Promo Box - Button Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:510
+#: classes/class-pp-wpml.php:545
 msgid "Promo Box - link"
 msgstr ""
 
-#: classes/class-pp-wpml.php:520
+#: classes/class-pp-wpml.php:555
 msgid "Scroll Image - URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:530
+#: classes/class-pp-wpml.php:565
+msgid "Random Image - URL"
+msgstr ""
+
+#: classes/class-pp-wpml.php:575
 msgid "Team Member - Name"
 msgstr ""
 
-#: classes/class-pp-wpml.php:535
+#: classes/class-pp-wpml.php:580
 msgid "Team Member - Position"
 msgstr ""
 
-#: classes/class-pp-wpml.php:540
+#: classes/class-pp-wpml.php:585
 msgid "Team Member - Description"
 msgstr ""
 
-#: classes/class-pp-wpml.php:545
+#: classes/class-pp-wpml.php:590
 msgid "Team Member - URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:561
+#: classes/class-pp-wpml.php:606
 msgid "Twitter Button - Profile URL or Username"
 msgstr ""
 
-#: classes/class-pp-wpml.php:566
+#: classes/class-pp-wpml.php:611
 msgid "Twitter Button - Recipient Id"
 msgstr ""
 
-#: classes/class-pp-wpml.php:571
+#: classes/class-pp-wpml.php:616
 msgid "Twitter Button - Default Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:576
+#: classes/class-pp-wpml.php:621
 msgid "Twitter Button - Hashtag URL or #hashtag"
 msgstr ""
 
-#: classes/class-pp-wpml.php:581
+#: classes/class-pp-wpml.php:626
 msgid "Twitter Button - Via (twitter handler)"
 msgstr ""
 
-#: classes/class-pp-wpml.php:586
+#: classes/class-pp-wpml.php:631
 msgid "Twitter Button - Custom Share Text"
 msgstr ""
 
-#: classes/class-pp-wpml.php:591
+#: classes/class-pp-wpml.php:636
 msgid "Twitter Button - Custom Share URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:601
+#: classes/class-pp-wpml.php:646
 msgid "Twitter Grid - Collection URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:606
+#: classes/class-pp-wpml.php:651
 msgid "Twitter Grid - Tweet Limit"
 msgstr ""
 
-#: classes/class-pp-wpml.php:616
+#: classes/class-pp-wpml.php:661
 msgid "Twitter Timeline - Username"
 msgstr ""
 
-#: classes/class-pp-wpml.php:621
+#: classes/class-pp-wpml.php:666
 msgid "Twitter Timeline - Tweet Limit"
 msgstr ""
 
-#: classes/class-pp-wpml.php:631
+#: classes/class-pp-wpml.php:676
 msgid "Twitter Tweet - Tweet URL"
 msgstr ""
 
-#: classes/class-pp-wpml.php:641
+#: classes/class-pp-wpml.php:686
 msgid "WPForms - Title"
 msgstr ""
 
-#: classes/class-pp-wpml.php:646
+#: classes/class-pp-wpml.php:691
 msgid "WPForms - Description"
 msgstr ""
 
@@ -1115,27 +1139,27 @@ msgid "Image Hotspot - Tooltip Content"
 msgstr ""
 
 #: classes/wpml/class-wpml-pp-info-box-carousel.php:26
-msgid "Info Box Carousel - Title"
+msgid "Info Grid & Carousel - Title"
 msgstr ""
 
 #: classes/wpml/class-wpml-pp-info-box-carousel.php:28
-msgid "Info Box Carousel - Subtitle"
+msgid "Info Grid & Carousel - Subtitle"
 msgstr ""
 
 #: classes/wpml/class-wpml-pp-info-box-carousel.php:30
-msgid "Info Box Carousel - Description"
+msgid "Info Grid & Carousel - Description"
 msgstr ""
 
 #: classes/wpml/class-wpml-pp-info-box-carousel.php:32
-msgid "Info Box Carousel - Icon Text"
+msgid "Info Grid & Carousel - Icon Text"
 msgstr ""
 
 #: classes/wpml/class-wpml-pp-info-box-carousel.php:34
-msgid "Info Box Carousel - Link"
+msgid "Info Grid & Carousel - Link"
 msgstr ""
 
 #: classes/wpml/class-wpml-pp-info-box-carousel.php:36
-msgid "Info Box Carousel - Button Text"
+msgid "Info Grid & Carousel - Button Text"
 msgstr ""
 
 #: classes/wpml/class-wpml-pp-info-list.php:25
@@ -1275,8 +1299,6 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:476
 #: modules/business-hours/widgets/business-hours.php:606
 #: modules/buttons/widgets/buttons.php:230
-#: modules/caldera-forms/widgets/caldera-forms.php:128
-#: modules/caldera-forms/widgets/caldera-forms.php:900
 #: modules/contact-form-seven/widgets/contact-form-7.php:695
 #: modules/contact-form-seven/widgets/contact-form-7.php:751
 #: modules/content-ticker/widgets/content-ticker.php:526
@@ -1398,8 +1420,6 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:477
 #: modules/business-hours/widgets/business-hours.php:607
 #: modules/buttons/widgets/buttons.php:231
-#: modules/caldera-forms/widgets/caldera-forms.php:129
-#: modules/caldera-forms/widgets/caldera-forms.php:901
 #: modules/contact-form-seven/widgets/contact-form-7.php:696
 #: modules/contact-form-seven/widgets/contact-form-7.php:752
 #: modules/content-ticker/widgets/content-ticker.php:527
@@ -1531,9 +1551,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:990
 #: modules/buttons/widgets/buttons.php:1012
 #: modules/buttons/widgets/buttons.php:1101
-#: modules/caldera-forms/widgets/caldera-forms.php:947
-#: modules/caldera-forms/widgets/caldera-forms.php:1063
-#: modules/caldera-forms/widgets/caldera-forms.php:1456
 #: modules/contact-form-seven/widgets/contact-form-7.php:798
 #: modules/contact-form-seven/widgets/contact-form-7.php:914
 #: modules/content-reveal/widgets/content-reveal.php:514
@@ -1645,7 +1662,7 @@ msgstr ""
 msgid "Adds custom mouse cursors on columns."
 msgstr ""
 
-#: extensions/custom-cursor.php:129 includes/helper-functions.php:459
+#: extensions/custom-cursor.php:129 includes/helper-functions.php:428
 msgid "Custom Cursor"
 msgstr ""
 
@@ -1751,14 +1768,6 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:987
 #: modules/buttons/widgets/buttons.php:759
 #: modules/buttons/widgets/buttons.php:916
-#: modules/caldera-forms/widgets/caldera-forms.php:366
-#: modules/caldera-forms/widgets/caldera-forms.php:427
-#: modules/caldera-forms/widgets/caldera-forms.php:491
-#: modules/caldera-forms/widgets/caldera-forms.php:731
-#: modules/caldera-forms/widgets/caldera-forms.php:822
-#: modules/caldera-forms/widgets/caldera-forms.php:1253
-#: modules/caldera-forms/widgets/caldera-forms.php:1369
-#: modules/caldera-forms/widgets/caldera-forms.php:1472
 #: modules/contact-form-seven/widgets/contact-form-7.php:327
 #: modules/contact-form-seven/widgets/contact-form-7.php:360
 #: modules/contact-form-seven/widgets/contact-form-7.php:542
@@ -1920,10 +1929,6 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1255
 #: modules/buttons/widgets/buttons.php:450
 #: modules/buttons/widgets/buttons.php:813
-#: modules/caldera-forms/widgets/caldera-forms.php:575
-#: modules/caldera-forms/widgets/caldera-forms.php:771
-#: modules/caldera-forms/widgets/caldera-forms.php:1199
-#: modules/caldera-forms/widgets/caldera-forms.php:1358
 #: modules/contact-form-seven/widgets/contact-form-7.php:518
 #: modules/contact-form-seven/widgets/contact-form-7.php:585
 #: modules/contact-form-seven/widgets/contact-form-7.php:1052
@@ -2035,10 +2040,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:459
 #: modules/buttons/widgets/buttons.php:822
 #: modules/buttons/widgets/buttons.php:1125
-#: modules/caldera-forms/widgets/caldera-forms.php:586
-#: modules/caldera-forms/widgets/caldera-forms.php:1010
-#: modules/caldera-forms/widgets/caldera-forms.php:1036
-#: modules/caldera-forms/widgets/caldera-forms.php:1209
 #: modules/contact-form-seven/widgets/contact-form-7.php:529
 #: modules/contact-form-seven/widgets/contact-form-7.php:861
 #: modules/contact-form-seven/widgets/contact-form-7.php:887
@@ -2159,8 +2160,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:344
 #: modules/buttons/widgets/buttons.php:733
 #: modules/buttons/widgets/buttons.php:1137
-#: modules/caldera-forms/widgets/caldera-forms.php:699
-#: modules/caldera-forms/widgets/caldera-forms.php:1221
 #: modules/contact-form-seven/widgets/contact-form-7.php:443
 #: modules/contact-form-seven/widgets/contact-form-7.php:1073
 #: modules/content-reveal/widgets/content-reveal.php:544
@@ -2274,7 +2273,7 @@ msgstr ""
 msgid "Adds link around sections, columns and widgets."
 msgstr ""
 
-#: extensions/wrapper-link.php:125 includes/helper-functions.php:457
+#: extensions/wrapper-link.php:125 includes/helper-functions.php:426
 msgid "Wrapper Link"
 msgstr ""
 
@@ -2433,32 +2432,32 @@ msgid "All"
 msgstr ""
 
 #: includes/helper-functions.php:49 includes/helper-functions.php:75
-#: includes/helper-functions.php:101 includes/helper-functions.php:127
-#: includes/helper-functions.php:158 includes/helper-functions.php:182
+#: includes/helper-functions.php:101 includes/helper-functions.php:132
+#: includes/helper-functions.php:156
 msgid "Select a Contact form"
 msgstr ""
 
-#: includes/helper-functions.php:212
+#: includes/helper-functions.php:186
 msgid "No forms found!"
 msgstr ""
 
-#: includes/helper-functions.php:381
+#: includes/helper-functions.php:355
 msgid "Flipbox"
 msgstr ""
 
-#: includes/helper-functions.php:389
+#: includes/helper-functions.php:363
 msgid "Businsess Hours"
 msgstr ""
 
-#: includes/helper-functions.php:436 modules/wpforms/widgets/wpforms.php:69
+#: includes/helper-functions.php:405 modules/wpforms/widgets/wpforms.php:69
 msgid "WPForms"
 msgstr ""
 
-#: includes/helper-functions.php:456 modules/display-conditions/module.php:356
+#: includes/helper-functions.php:425 modules/display-conditions/module.php:356
 msgid "Display Conditions"
 msgstr ""
 
-#: includes/helper-functions.php:458
+#: includes/helper-functions.php:427
 msgid "Animated Gradient Background"
 msgstr ""
 
@@ -2502,8 +2501,6 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:150
 #: modules/advanced-accordion/widgets/advanced-accordion.php:802
-#: modules/caldera-forms/widgets/caldera-forms.php:137
-#: modules/caldera-forms/widgets/caldera-forms.php:338
 #: modules/contact-form-seven/widgets/contact-form-7.php:132
 #: modules/contact-form-seven/widgets/contact-form-7.php:305
 #: modules/content-ticker/widgets/content-ticker.php:150
@@ -2740,9 +2737,6 @@ msgid "Toggle Icon"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:385
-#: modules/caldera-forms/widgets/caldera-forms.php:165
-#: modules/caldera-forms/widgets/caldera-forms.php:178
-#: modules/caldera-forms/widgets/caldera-forms.php:206
 #: modules/contact-form-seven/widgets/contact-form-7.php:171
 #: modules/contact-form-seven/widgets/contact-form-7.php:199
 #: modules/contact-form-seven/widgets/contact-form-7.php:219
@@ -2795,9 +2789,6 @@ msgid "Show"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:386
-#: modules/caldera-forms/widgets/caldera-forms.php:166
-#: modules/caldera-forms/widgets/caldera-forms.php:179
-#: modules/caldera-forms/widgets/caldera-forms.php:207
 #: modules/contact-form-seven/widgets/contact-form-7.php:172
 #: modules/contact-form-seven/widgets/contact-form-7.php:200
 #: modules/contact-form-seven/widgets/contact-form-7.php:220
@@ -2864,7 +2855,7 @@ msgstr ""
 #: modules/image-comparison/widgets/image-comparison.php:232
 #: modules/scroll-image/widgets/scroll-image.php:197
 #: modules/team-member/widgets/team-member.php:476
-#: powerpack-lite-elementor.php:196
+#: powerpack-lite-elementor.php:192
 msgid "Settings"
 msgstr ""
 
@@ -2910,7 +2901,6 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:565
 #: modules/business-hours/widgets/business-hours.php:517
-#: modules/caldera-forms/widgets/caldera-forms.php:235
 #: modules/content-ticker/widgets/content-ticker.php:1225
 #: modules/counter/widgets/counter.php:487
 #: modules/divider/widgets/divider.php:287
@@ -2967,9 +2957,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:407
 #: modules/buttons/widgets/buttons.php:780
 #: modules/buttons/widgets/buttons.php:984
-#: modules/caldera-forms/widgets/caldera-forms.php:543
-#: modules/caldera-forms/widgets/caldera-forms.php:937
-#: modules/caldera-forms/widgets/caldera-forms.php:1167
 #: modules/contact-form-seven/widgets/contact-form-7.php:389
 #: modules/contact-form-seven/widgets/contact-form-7.php:788
 #: modules/contact-form-seven/widgets/contact-form-7.php:1020
@@ -3175,7 +3162,6 @@ msgid "Dotted"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:652
-#: modules/caldera-forms/widgets/caldera-forms.php:962
 #: modules/contact-form-seven/widgets/contact-form-7.php:813
 #: modules/fluent-forms/widgets/fluent-forms.php:944
 #: modules/formidable-forms/widgets/formidable-forms.php:979
@@ -3198,8 +3184,6 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1385
 #: modules/buttons/widgets/buttons.php:517
 #: modules/buttons/widgets/buttons.php:872
-#: modules/caldera-forms/widgets/caldera-forms.php:984
-#: modules/caldera-forms/widgets/caldera-forms.php:1304
 #: modules/contact-form-seven/widgets/contact-form-7.php:835
 #: modules/contact-form-seven/widgets/contact-form-7.php:1159
 #: modules/content-reveal/widgets/content-reveal.php:866
@@ -3274,7 +3258,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:471
 #: modules/buttons/widgets/buttons.php:843
 #: modules/buttons/widgets/buttons.php:1005
-#: modules/caldera-forms/widgets/caldera-forms.php:1273
 #: modules/contact-form-seven/widgets/contact-form-7.php:1128
 #: modules/content-reveal/widgets/content-reveal.php:791
 #: modules/content-ticker/widgets/content-ticker.php:1569
@@ -3370,15 +3353,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:492
 #: modules/buttons/widgets/buttons.php:801
 #: modules/buttons/widgets/buttons.php:861
-#: modules/caldera-forms/widgets/caldera-forms.php:350
-#: modules/caldera-forms/widgets/caldera-forms.php:411
-#: modules/caldera-forms/widgets/caldera-forms.php:479
-#: modules/caldera-forms/widgets/caldera-forms.php:562
-#: modules/caldera-forms/widgets/caldera-forms.php:810
-#: modules/caldera-forms/widgets/caldera-forms.php:868
-#: modules/caldera-forms/widgets/caldera-forms.php:1186
-#: modules/caldera-forms/widgets/caldera-forms.php:1292
-#: modules/caldera-forms/widgets/caldera-forms.php:1346
 #: modules/contact-form-seven/widgets/contact-form-7.php:314
 #: modules/contact-form-seven/widgets/contact-form-7.php:347
 #: modules/contact-form-seven/widgets/contact-form-7.php:408
@@ -3535,12 +3509,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:787
 #: modules/buttons/widgets/buttons.php:850
 #: modules/buttons/widgets/buttons.php:1085
-#: modules/caldera-forms/widgets/caldera-forms.php:550
-#: modules/caldera-forms/widgets/caldera-forms.php:758
-#: modules/caldera-forms/widgets/caldera-forms.php:1174
-#: modules/caldera-forms/widgets/caldera-forms.php:1280
-#: modules/caldera-forms/widgets/caldera-forms.php:1335
-#: modules/caldera-forms/widgets/caldera-forms.php:1413
 #: modules/contact-form-seven/widgets/contact-form-7.php:396
 #: modules/contact-form-seven/widgets/contact-form-7.php:572
 #: modules/contact-form-seven/widgets/contact-form-7.php:1027
@@ -3701,9 +3669,6 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1147
 #: modules/business-hours/widgets/business-hours.php:889
 #: modules/business-hours/widgets/business-hours.php:948
-#: modules/caldera-forms/widgets/caldera-forms.php:309
-#: modules/caldera-forms/widgets/caldera-forms.php:515
-#: modules/caldera-forms/widgets/caldera-forms.php:1098
 #: modules/contact-form-seven/widgets/contact-form-7.php:279
 #: modules/contact-form-seven/widgets/contact-form-7.php:948
 #: modules/content-reveal/widgets/content-reveal.php:320
@@ -3767,8 +3732,6 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1167
 #: modules/buttons/widgets/buttons.php:960
-#: modules/caldera-forms/widgets/caldera-forms.php:711
-#: modules/caldera-forms/widgets/caldera-forms.php:830
 #: modules/contact-form-seven/widgets/contact-form-7.php:420
 #: modules/contact-form-seven/widgets/contact-form-7.php:640
 #: modules/contact-form-seven/widgets/contact-form-7.php:1243
@@ -3833,7 +3796,6 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1185
 #: modules/buttons/widgets/buttons.php:940
-#: modules/caldera-forms/widgets/caldera-forms.php:909
 #: modules/contact-form-seven/widgets/contact-form-7.php:760
 #: modules/content-reveal/widgets/content-reveal.php:620
 #: modules/content-reveal/widgets/content-reveal.php:920
@@ -3886,7 +3848,6 @@ msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:111
 #: modules/buttons/widgets/buttons.php:314
-#: modules/caldera-forms/widgets/caldera-forms.php:1130
 #: modules/contact-form-seven/widgets/contact-form-7.php:983
 #: modules/content-ticker/widgets/content-ticker.php:136
 #: modules/content-ticker/widgets/content-ticker.php:842
@@ -4137,9 +4098,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:682
 #: modules/buttons/widgets/buttons.php:1050
 #: modules/buttons/widgets/buttons.php:1064
-#: modules/caldera-forms/widgets/caldera-forms.php:313
-#: modules/caldera-forms/widgets/caldera-forms.php:519
-#: modules/caldera-forms/widgets/caldera-forms.php:1102
 #: modules/contact-form-seven/widgets/contact-form-7.php:283
 #: modules/contact-form-seven/widgets/contact-form-7.php:953
 #: modules/content-reveal/widgets/content-reveal.php:325
@@ -4224,9 +4182,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:658
 #: modules/buttons/widgets/buttons.php:686
 #: modules/buttons/widgets/buttons.php:1068
-#: modules/caldera-forms/widgets/caldera-forms.php:317
-#: modules/caldera-forms/widgets/caldera-forms.php:523
-#: modules/caldera-forms/widgets/caldera-forms.php:1106
 #: modules/contact-form-seven/widgets/contact-form-7.php:287
 #: modules/contact-form-seven/widgets/contact-form-7.php:957
 #: modules/content-reveal/widgets/content-reveal.php:329
@@ -4308,9 +4263,6 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:690
 #: modules/buttons/widgets/buttons.php:1051
 #: modules/buttons/widgets/buttons.php:1072
-#: modules/caldera-forms/widgets/caldera-forms.php:321
-#: modules/caldera-forms/widgets/caldera-forms.php:527
-#: modules/caldera-forms/widgets/caldera-forms.php:1110
 #: modules/contact-form-seven/widgets/contact-form-7.php:291
 #: modules/contact-form-seven/widgets/contact-form-7.php:961
 #: modules/content-reveal/widgets/content-reveal.php:333
@@ -4886,7 +4838,6 @@ msgstr ""
 msgid "Text Align"
 msgstr ""
 
-#: modules/caldera-forms/widgets/caldera-forms.php:115
 #: modules/contact-form-seven/widgets/contact-form-7.php:103
 #: modules/contact-form-seven/widgets/contact-form-7.php:110
 #: modules/fluent-forms/widgets/fluent-forms.php:90
@@ -4895,411 +4846,6 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:98
 #: modules/wpforms/widgets/wpforms.php:76
 msgid "Contact Form"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:126
-#: modules/fluent-forms/widgets/fluent-forms.php:101
-#: modules/formidable-forms/widgets/formidable-forms.php:107
-#: modules/gravity-forms/widgets/gravity-forms.php:147
-#: modules/ninja-forms/widgets/ninja-forms.php:109
-#: modules/wpforms/widgets/wpforms.php:87
-msgid "Custom Title & Description"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:150
-#: modules/caldera-forms/widgets/caldera-forms.php:399
-#: modules/contact-form-seven/widgets/contact-form-7.php:156
-#: modules/contact-form-seven/widgets/contact-form-7.php:338
-#: modules/flipbox/widgets/flipbox.php:230
-#: modules/flipbox/widgets/flipbox.php:379
-#: modules/flipbox/widgets/flipbox.php:981
-#: modules/flipbox/widgets/flipbox.php:1370
-#: modules/fluent-forms/widgets/fluent-forms.php:125
-#: modules/fluent-forms/widgets/fluent-forms.php:344
-#: modules/formidable-forms/widgets/formidable-forms.php:133
-#: modules/formidable-forms/widgets/formidable-forms.php:161
-#: modules/formidable-forms/widgets/formidable-forms.php:399
-#: modules/gravity-forms/widgets/gravity-forms.php:173
-#: modules/gravity-forms/widgets/gravity-forms.php:201
-#: modules/gravity-forms/widgets/gravity-forms.php:416
-#: modules/image-accordion/widgets/image-accordion.php:136
-#: modules/image-accordion/widgets/image-accordion.php:828
-#: modules/info-box/widgets/info-box-carousel.php:172
-#: modules/info-box/widgets/info-box-carousel.php:1721
-#: modules/info-box/widgets/info-box.php:406
-#: modules/info-box/widgets/info-box.php:1531
-#: modules/info-list/widgets/info-list.php:147
-#: modules/info-list/widgets/info-list.php:1123
-#: modules/info-table/widgets/info-table.php:253
-#: modules/info-table/widgets/info-table.php:1018
-#: modules/ninja-forms/widgets/ninja-forms.php:149
-#: modules/ninja-forms/widgets/ninja-forms.php:370
-#: modules/pricing/widgets/price-menu.php:111
-#: modules/pricing/widgets/price-menu.php:837
-#: modules/promo-box/widgets/promo-box.php:216
-#: modules/promo-box/widgets/promo-box.php:1376
-#: modules/random-image/widgets/random-image.php:254
-#: modules/team-member/widgets/team-member-carousel.php:211
-#: modules/team-member/widgets/team-member-carousel.php:731
-#: modules/team-member/widgets/team-member-carousel.php:732
-#: modules/team-member/widgets/team-member-carousel.php:1796
-#: modules/team-member/widgets/team-member.php:223
-#: modules/team-member/widgets/team-member.php:546
-#: modules/team-member/widgets/team-member.php:1307
-#: modules/wpforms/widgets/wpforms.php:113
-#: modules/wpforms/widgets/wpforms.php:141
-#: modules/wpforms/widgets/wpforms.php:338
-msgid "Description"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:162
-#: modules/caldera-forms/widgets/caldera-forms.php:471
-#: modules/contact-form-seven/widgets/contact-form-7.php:168
-#: modules/contact-form-seven/widgets/contact-form-7.php:615
-#: modules/fluent-forms/widgets/fluent-forms.php:137
-#: modules/fluent-forms/widgets/fluent-forms.php:416
-#: modules/formidable-forms/widgets/formidable-forms.php:173
-#: modules/formidable-forms/widgets/formidable-forms.php:461
-#: modules/gravity-forms/widgets/gravity-forms.php:213
-#: modules/gravity-forms/widgets/gravity-forms.php:457
-#: modules/ninja-forms/widgets/ninja-forms.php:161
-#: modules/ninja-forms/widgets/ninja-forms.php:430
-#: modules/wpforms/widgets/wpforms.php:153
-#: modules/wpforms/widgets/wpforms.php:396
-msgid "Labels"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:175
-#: modules/caldera-forms/widgets/caldera-forms.php:857
-#: modules/contact-form-seven/widgets/contact-form-7.php:684
-#: modules/fluent-forms/widgets/fluent-forms.php:150
-#: modules/fluent-forms/widgets/fluent-forms.php:816
-#: modules/formidable-forms/widgets/formidable-forms.php:186
-#: modules/formidable-forms/widgets/formidable-forms.php:872
-#: modules/gravity-forms/widgets/gravity-forms.php:225
-#: modules/gravity-forms/widgets/gravity-forms.php:1102
-#: modules/ninja-forms/widgets/ninja-forms.php:174
-#: modules/ninja-forms/widgets/ninja-forms.php:826
-#: modules/wpforms/widgets/wpforms.php:166
-#: modules/wpforms/widgets/wpforms.php:771
-msgid "Placeholder"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:195
-#: modules/caldera-forms/widgets/caldera-forms.php:1385
-#: modules/contact-form-seven/widgets/contact-form-7.php:188
-#: modules/contact-form-seven/widgets/contact-form-7.php:1182
-#: modules/fluent-forms/widgets/fluent-forms.php:170
-#: modules/fluent-forms/widgets/fluent-forms.php:1338
-#: modules/formidable-forms/widgets/formidable-forms.php:208
-#: modules/formidable-forms/widgets/formidable-forms.php:1355
-#: modules/gravity-forms/widgets/gravity-forms.php:257
-#: modules/gravity-forms/widgets/gravity-forms.php:2010
-#: modules/ninja-forms/widgets/ninja-forms.php:194
-#: modules/ninja-forms/widgets/ninja-forms.php:1399
-#: modules/wpforms/widgets/wpforms.php:184
-#: modules/wpforms/widgets/wpforms.php:1563
-msgid "Errors"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:202
-#: modules/caldera-forms/widgets/caldera-forms.php:1444
-#: modules/contact-form-seven/widgets/contact-form-7.php:195
-#: modules/contact-form-seven/widgets/contact-form-7.php:1190
-#: modules/fluent-forms/widgets/fluent-forms.php:177
-#: modules/formidable-forms/widgets/formidable-forms.php:215
-#: modules/gravity-forms/widgets/gravity-forms.php:264
-#: modules/gravity-forms/widgets/gravity-forms.php:2018
-#: modules/ninja-forms/widgets/ninja-forms.php:201
-#: modules/ninja-forms/widgets/ninja-forms.php:1407
-#: modules/wpforms/widgets/wpforms.php:191
-msgid "Error Messages"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:298
-#: modules/contact-form-seven/widgets/contact-form-7.php:271
-#: modules/fluent-forms/widgets/fluent-forms.php:243
-#: modules/formidable-forms/widgets/formidable-forms.php:316
-#: modules/gravity-forms/widgets/gravity-forms.php:349
-#: modules/ninja-forms/widgets/ninja-forms.php:287
-#: modules/wpforms/widgets/wpforms.php:255
-msgid "Title & Description"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:377
-#: modules/caldera-forms/widgets/caldera-forms.php:441
-#: modules/contact-form-seven/widgets/contact-form-7.php:1397
-#: modules/content-ticker/widgets/content-ticker.php:1692
-#: modules/counter/widgets/counter.php:687
-#: modules/counter/widgets/counter.php:886
-#: modules/counter/widgets/counter.php:1289
-#: modules/flipbox/widgets/flipbox.php:1595
-#: modules/fluent-forms/widgets/fluent-forms.php:322
-#: modules/fluent-forms/widgets/fluent-forms.php:386
-#: modules/formidable-forms/widgets/formidable-forms.php:380
-#: modules/formidable-forms/widgets/formidable-forms.php:432
-#: modules/gravity-forms/widgets/gravity-forms.php:1041
-#: modules/info-box/widgets/info-box-carousel.php:1228
-#: modules/info-box/widgets/info-box-carousel.php:1931
-#: modules/info-box/widgets/info-box-carousel.php:2408
-#: modules/info-box/widgets/info-box.php:980
-#: modules/info-box/widgets/info-box.php:1805
-#: modules/info-list/widgets/info-list.php:1316
-#: modules/info-table/widgets/info-table.php:1281
-#: modules/instafeed/widgets/instafeed.php:1300
-#: modules/instafeed/widgets/instafeed.php:2018
-#: modules/instafeed/widgets/instafeed.php:2377
-#: modules/ninja-forms/widgets/ninja-forms.php:351
-#: modules/ninja-forms/widgets/ninja-forms.php:403
-#: modules/posts/skins/skin-base.php:2806
-#: modules/posts/skins/skin-base.php:3365
-#: modules/pricing/widgets/price-menu.php:946
-#: modules/pricing/widgets/pricing-table.php:1326
-#: modules/pricing/widgets/pricing-table.php:1582
-#: modules/promo-box/widgets/promo-box.php:838
-#: modules/random-image/widgets/random-image.php:828
-#: modules/team-member/widgets/team-member-carousel.php:2758
-#: modules/team-member/widgets/team-member.php:712
-#: modules/team-member/widgets/team-member.php:861
-#: modules/wpforms/widgets/wpforms.php:319
-#: modules/wpforms/widgets/wpforms.php:371
-msgid "Margin"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:507
-#: modules/contact-form-seven/widgets/contact-form-7.php:379
-#: modules/fluent-forms/widgets/fluent-forms.php:455
-#: modules/formidable-forms/widgets/formidable-forms.php:502
-#: modules/gravity-forms/widgets/gravity-forms.php:549
-#: modules/ninja-forms/widgets/ninja-forms.php:475
-#: modules/wpforms/widgets/wpforms.php:433
-msgid "Input & Textarea"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:598
-#: modules/contact-form-seven/widgets/contact-form-7.php:455
-#: modules/fluent-forms/widgets/fluent-forms.php:565
-#: modules/formidable-forms/widgets/formidable-forms.php:593
-#: modules/gravity-forms/widgets/gravity-forms.php:655
-#: modules/ninja-forms/widgets/ninja-forms.php:566
-#: modules/wpforms/widgets/wpforms.php:524
-msgid "Text Indent"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:623
-#: modules/contact-form-seven/widgets/contact-form-7.php:479
-#: modules/fluent-forms/widgets/fluent-forms.php:590
-#: modules/formidable-forms/widgets/formidable-forms.php:618
-#: modules/gravity-forms/widgets/gravity-forms.php:679
-#: modules/ninja-forms/widgets/ninja-forms.php:591
-#: modules/wpforms/widgets/wpforms.php:549
-msgid "Input Width"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:642
-#: modules/fluent-forms/widgets/fluent-forms.php:609
-#: modules/formidable-forms/widgets/formidable-forms.php:637
-#: modules/gravity-forms/widgets/gravity-forms.php:698
-#: modules/ninja-forms/widgets/ninja-forms.php:611
-#: modules/wpforms/widgets/wpforms.php:568
-msgid "Input Height"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:661
-#: modules/contact-form-seven/widgets/contact-form-7.php:498
-#: modules/fluent-forms/widgets/fluent-forms.php:628
-#: modules/formidable-forms/widgets/formidable-forms.php:656
-#: modules/gravity-forms/widgets/gravity-forms.php:717
-#: modules/ninja-forms/widgets/ninja-forms.php:630
-#: modules/wpforms/widgets/wpforms.php:587
-msgid "Textarea Width"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:680
-#: modules/fluent-forms/widgets/fluent-forms.php:647
-#: modules/formidable-forms/widgets/formidable-forms.php:675
-#: modules/gravity-forms/widgets/gravity-forms.php:736
-#: modules/ninja-forms/widgets/ninja-forms.php:649
-#: modules/wpforms/widgets/wpforms.php:606
-msgid "Textarea Height"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:751
-#: modules/contact-form-seven/widgets/contact-form-7.php:565
-#: modules/fluent-forms/widgets/fluent-forms.php:700
-#: modules/formidable-forms/widgets/formidable-forms.php:750
-#: modules/gravity-forms/widgets/gravity-forms.php:803
-#: modules/ninja-forms/widgets/ninja-forms.php:721
-#: modules/wpforms/widgets/wpforms.php:681
-msgid "Focus"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:802
-#: modules/fluent-forms/widgets/fluent-forms.php:761
-#: modules/formidable-forms/widgets/formidable-forms.php:815
-#: modules/gravity-forms/widgets/gravity-forms.php:866
-#: modules/ninja-forms/widgets/ninja-forms.php:771
-#: modules/wpforms/widgets/wpforms.php:718
-msgid "Field Description"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:890
-#: modules/contact-form-seven/widgets/contact-form-7.php:741
-#: modules/fluent-forms/widgets/fluent-forms.php:849
-#: modules/formidable-forms/widgets/formidable-forms.php:907
-#: modules/gravity-forms/widgets/gravity-forms.php:1135
-#: modules/ninja-forms/widgets/ninja-forms.php:862
-#: modules/wpforms/widgets/wpforms.php:926
-msgid "Radio & Checkbox"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:898
-#: modules/contact-form-seven/widgets/contact-form-7.php:749
-#: modules/fluent-forms/widgets/fluent-forms.php:857
-#: modules/formidable-forms/widgets/formidable-forms.php:915
-#: modules/gravity-forms/widgets/gravity-forms.php:1143
-#: modules/ninja-forms/widgets/ninja-forms.php:870
-#: modules/wpforms/widgets/wpforms.php:934
-msgid "Custom Styles"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:999
-#: modules/contact-form-seven/widgets/contact-form-7.php:850
-#: modules/fluent-forms/widgets/fluent-forms.php:992
-#: modules/formidable-forms/widgets/formidable-forms.php:1016
-#: modules/gravity-forms/widgets/gravity-forms.php:1267
-#: modules/ninja-forms/widgets/ninja-forms.php:971
-#: modules/wpforms/widgets/wpforms.php:1035
-msgid "Checkbox"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1025
-#: modules/contact-form-seven/widgets/contact-form-7.php:876
-#: modules/fluent-forms/widgets/fluent-forms.php:1019
-#: modules/formidable-forms/widgets/formidable-forms.php:1042
-#: modules/gravity-forms/widgets/gravity-forms.php:1294
-#: modules/ninja-forms/widgets/ninja-forms.php:997
-#: modules/wpforms/widgets/wpforms.php:1061
-msgid "Radio Buttons"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1053
-#: modules/contact-form-seven/widgets/contact-form-7.php:904
-#: modules/fluent-forms/widgets/fluent-forms.php:1048
-#: modules/formidable-forms/widgets/formidable-forms.php:1070
-#: modules/gravity-forms/widgets/gravity-forms.php:1323
-#: modules/ninja-forms/widgets/ninja-forms.php:1025
-#: modules/wpforms/widgets/wpforms.php:1089
-msgid "Checked"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1090
-#: modules/contact-form-seven/widgets/contact-form-7.php:940
-#: modules/fluent-forms/widgets/fluent-forms.php:1095
-#: modules/formidable-forms/widgets/formidable-forms.php:1109
-#: modules/gravity-forms/widgets/gravity-forms.php:1360
-#: modules/ninja-forms/widgets/ninja-forms.php:1061
-#: modules/wpforms/widgets/wpforms.php:1325
-msgid "Submit Button"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1125
-#: modules/caldera-forms/widgets/caldera-forms.php:1139
-#: modules/contact-form-seven/widgets/contact-form-7.php:978
-#: modules/contact-form-seven/widgets/contact-form-7.php:992
-#: modules/content-ticker/widgets/content-ticker.php:1361
-#: modules/content-ticker/widgets/content-ticker.php:1673
-#: modules/counter/widgets/counter.php:769
-#: modules/counter/widgets/counter.php:980
-#: modules/divider/widgets/divider.php:480
-#: modules/divider/widgets/divider.php:535
-#: modules/divider/widgets/divider.php:913
-#: modules/fluent-forms/widgets/fluent-forms.php:1133
-#: modules/formidable-forms/widgets/formidable-forms.php:1147
-#: modules/formidable-forms/widgets/formidable-forms.php:1161
-#: modules/gravity-forms/widgets/gravity-forms.php:1403
-#: modules/gravity-forms/widgets/gravity-forms.php:1418
-#: modules/gravity-forms/widgets/gravity-forms.php:1620
-#: modules/gravity-forms/widgets/gravity-forms.php:1635
-#: modules/hotspots/widgets/hotspots.php:767
-#: modules/hotspots/widgets/hotspots.php:1006
-#: modules/image-accordion/widgets/image-accordion.php:740
-#: modules/image-comparison/widgets/image-comparison.php:551
-#: modules/info-box/widgets/info-box-carousel.php:1332
-#: modules/info-box/widgets/info-box.php:263
-#: modules/info-list/widgets/info-list.php:582
-#: modules/info-table/widgets/info-table.php:1478
-#: modules/link-effects/widgets/link-effects.php:286
-#: modules/ninja-forms/widgets/ninja-forms.php:1098
-#: modules/ninja-forms/widgets/ninja-forms.php:1112
-#: modules/pricing/widgets/price-menu.php:918
-#: modules/pricing/widgets/pricing-table.php:1267
-#: modules/pricing/widgets/pricing-table.php:1558
-#: modules/pricing/widgets/pricing-table.php:2225
-#: modules/promo-box/widgets/promo-box.php:655
-#: modules/promo-box/widgets/promo-box.php:737
-#: modules/promo-box/widgets/promo-box.php:1037
-#: modules/promo-box/widgets/promo-box.php:1270
-#: modules/random-image/widgets/random-image.php:394
-#: modules/twitter/widgets/twitter-grid.php:97
-#: modules/twitter/widgets/twitter-timeline.php:127
-#: modules/twitter/widgets/twitter-tweet.php:133
-#: modules/wpforms/widgets/wpforms.php:1363
-#: modules/wpforms/widgets/wpforms.php:1377
-msgid "Width"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1129
-#: modules/contact-form-seven/widgets/contact-form-7.php:982
-#: modules/fluent-forms/widgets/fluent-forms.php:1137
-#: modules/formidable-forms/widgets/formidable-forms.php:1151
-#: modules/gravity-forms/widgets/gravity-forms.php:1408
-#: modules/gravity-forms/widgets/gravity-forms.php:1625
-#: modules/icon-list/widgets/icon-list.php:306
-#: modules/ninja-forms/widgets/ninja-forms.php:1102
-#: modules/wpforms/widgets/wpforms.php:1367
-msgid "Full Width"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1233
-#: modules/contact-form-seven/widgets/contact-form-7.php:1085
-#: modules/fluent-forms/widgets/fluent-forms.php:1254
-#: modules/formidable-forms/widgets/formidable-forms.php:1255
-#: modules/gravity-forms/widgets/gravity-forms.php:1514
-#: modules/gravity-forms/widgets/gravity-forms.php:1729
-#: modules/logos/widgets/logo-carousel.php:818
-#: modules/ninja-forms/widgets/ninja-forms.php:1206
-#: modules/pricing/widgets/pricing-table.php:2788
-#: modules/wpforms/widgets/wpforms.php:1489
-msgid "Margin Top"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1327
-#: modules/ninja-forms/widgets/ninja-forms.php:1304
-msgid "Success Message"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1393
-msgid "Error Fields"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1401
-#: modules/fluent-forms/widgets/fluent-forms.php:921
-msgid "Label Color"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1426
-msgid "Input Border"
-msgstr ""
-
-#: modules/caldera-forms/widgets/caldera-forms.php:1539
-#: modules/contact-form-seven/widgets/contact-form-7.php:1464
-#: modules/fluent-forms/widgets/fluent-forms.php:1532
-#: modules/formidable-forms/widgets/formidable-forms.php:1623
-#: modules/gravity-forms/widgets/gravity-forms.php:2364
-#: modules/ninja-forms/widgets/ninja-forms.php:1559
-#: modules/wpforms/widgets/wpforms.php:1755
-msgid "No Contact Form Selected!"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:121
@@ -5350,6 +4896,92 @@ msgstr ""
 msgid "Form Description"
 msgstr ""
 
+#: modules/contact-form-seven/widgets/contact-form-7.php:156
+#: modules/contact-form-seven/widgets/contact-form-7.php:338
+#: modules/flipbox/widgets/flipbox.php:230
+#: modules/flipbox/widgets/flipbox.php:379
+#: modules/flipbox/widgets/flipbox.php:981
+#: modules/flipbox/widgets/flipbox.php:1370
+#: modules/fluent-forms/widgets/fluent-forms.php:125
+#: modules/fluent-forms/widgets/fluent-forms.php:344
+#: modules/formidable-forms/widgets/formidable-forms.php:133
+#: modules/formidable-forms/widgets/formidable-forms.php:161
+#: modules/formidable-forms/widgets/formidable-forms.php:399
+#: modules/gravity-forms/widgets/gravity-forms.php:173
+#: modules/gravity-forms/widgets/gravity-forms.php:201
+#: modules/gravity-forms/widgets/gravity-forms.php:416
+#: modules/image-accordion/widgets/image-accordion.php:136
+#: modules/image-accordion/widgets/image-accordion.php:828
+#: modules/info-box/widgets/info-box-carousel.php:172
+#: modules/info-box/widgets/info-box-carousel.php:1721
+#: modules/info-box/widgets/info-box.php:406
+#: modules/info-box/widgets/info-box.php:1531
+#: modules/info-list/widgets/info-list.php:147
+#: modules/info-list/widgets/info-list.php:1123
+#: modules/info-table/widgets/info-table.php:253
+#: modules/info-table/widgets/info-table.php:1018
+#: modules/ninja-forms/widgets/ninja-forms.php:149
+#: modules/ninja-forms/widgets/ninja-forms.php:370
+#: modules/pricing/widgets/price-menu.php:111
+#: modules/pricing/widgets/price-menu.php:837
+#: modules/promo-box/widgets/promo-box.php:216
+#: modules/promo-box/widgets/promo-box.php:1376
+#: modules/random-image/widgets/random-image.php:254
+#: modules/team-member/widgets/team-member-carousel.php:211
+#: modules/team-member/widgets/team-member-carousel.php:731
+#: modules/team-member/widgets/team-member-carousel.php:732
+#: modules/team-member/widgets/team-member-carousel.php:1796
+#: modules/team-member/widgets/team-member.php:223
+#: modules/team-member/widgets/team-member.php:546
+#: modules/team-member/widgets/team-member.php:1307
+#: modules/wpforms/widgets/wpforms.php:113
+#: modules/wpforms/widgets/wpforms.php:141
+#: modules/wpforms/widgets/wpforms.php:338
+msgid "Description"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:168
+#: modules/contact-form-seven/widgets/contact-form-7.php:615
+#: modules/fluent-forms/widgets/fluent-forms.php:137
+#: modules/fluent-forms/widgets/fluent-forms.php:416
+#: modules/formidable-forms/widgets/formidable-forms.php:173
+#: modules/formidable-forms/widgets/formidable-forms.php:461
+#: modules/gravity-forms/widgets/gravity-forms.php:213
+#: modules/gravity-forms/widgets/gravity-forms.php:457
+#: modules/ninja-forms/widgets/ninja-forms.php:161
+#: modules/ninja-forms/widgets/ninja-forms.php:430
+#: modules/wpforms/widgets/wpforms.php:153
+#: modules/wpforms/widgets/wpforms.php:396
+msgid "Labels"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:188
+#: modules/contact-form-seven/widgets/contact-form-7.php:1182
+#: modules/fluent-forms/widgets/fluent-forms.php:170
+#: modules/fluent-forms/widgets/fluent-forms.php:1338
+#: modules/formidable-forms/widgets/formidable-forms.php:208
+#: modules/formidable-forms/widgets/formidable-forms.php:1355
+#: modules/gravity-forms/widgets/gravity-forms.php:257
+#: modules/gravity-forms/widgets/gravity-forms.php:2010
+#: modules/ninja-forms/widgets/ninja-forms.php:194
+#: modules/ninja-forms/widgets/ninja-forms.php:1399
+#: modules/wpforms/widgets/wpforms.php:184
+#: modules/wpforms/widgets/wpforms.php:1563
+msgid "Errors"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:195
+#: modules/contact-form-seven/widgets/contact-form-7.php:1190
+#: modules/fluent-forms/widgets/fluent-forms.php:177
+#: modules/formidable-forms/widgets/formidable-forms.php:215
+#: modules/gravity-forms/widgets/gravity-forms.php:264
+#: modules/gravity-forms/widgets/gravity-forms.php:2018
+#: modules/ninja-forms/widgets/ninja-forms.php:201
+#: modules/ninja-forms/widgets/ninja-forms.php:1407
+#: modules/wpforms/widgets/wpforms.php:191
+msgid "Error Messages"
+msgstr ""
+
 #: modules/contact-form-seven/widgets/contact-form-7.php:215
 #: modules/contact-form-seven/widgets/contact-form-7.php:1325
 #: modules/gravity-forms/widgets/gravity-forms.php:284
@@ -5359,8 +4991,197 @@ msgstr ""
 msgid "Validation Errors"
 msgstr ""
 
+#: modules/contact-form-seven/widgets/contact-form-7.php:271
+#: modules/fluent-forms/widgets/fluent-forms.php:243
+#: modules/formidable-forms/widgets/formidable-forms.php:316
+#: modules/gravity-forms/widgets/gravity-forms.php:349
+#: modules/ninja-forms/widgets/ninja-forms.php:287
+#: modules/wpforms/widgets/wpforms.php:255
+msgid "Title & Description"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:379
+#: modules/fluent-forms/widgets/fluent-forms.php:455
+#: modules/formidable-forms/widgets/formidable-forms.php:502
+#: modules/gravity-forms/widgets/gravity-forms.php:549
+#: modules/ninja-forms/widgets/ninja-forms.php:475
+#: modules/wpforms/widgets/wpforms.php:433
+msgid "Input & Textarea"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:455
+#: modules/fluent-forms/widgets/fluent-forms.php:565
+#: modules/formidable-forms/widgets/formidable-forms.php:593
+#: modules/gravity-forms/widgets/gravity-forms.php:655
+#: modules/ninja-forms/widgets/ninja-forms.php:566
+#: modules/wpforms/widgets/wpforms.php:524
+msgid "Text Indent"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:479
+#: modules/fluent-forms/widgets/fluent-forms.php:590
+#: modules/formidable-forms/widgets/formidable-forms.php:618
+#: modules/gravity-forms/widgets/gravity-forms.php:679
+#: modules/ninja-forms/widgets/ninja-forms.php:591
+#: modules/wpforms/widgets/wpforms.php:549
+msgid "Input Width"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:498
+#: modules/fluent-forms/widgets/fluent-forms.php:628
+#: modules/formidable-forms/widgets/formidable-forms.php:656
+#: modules/gravity-forms/widgets/gravity-forms.php:717
+#: modules/ninja-forms/widgets/ninja-forms.php:630
+#: modules/wpforms/widgets/wpforms.php:587
+msgid "Textarea Width"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:565
+#: modules/fluent-forms/widgets/fluent-forms.php:700
+#: modules/formidable-forms/widgets/formidable-forms.php:750
+#: modules/gravity-forms/widgets/gravity-forms.php:803
+#: modules/ninja-forms/widgets/ninja-forms.php:721
+#: modules/wpforms/widgets/wpforms.php:681
+msgid "Focus"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:684
+#: modules/fluent-forms/widgets/fluent-forms.php:150
+#: modules/fluent-forms/widgets/fluent-forms.php:816
+#: modules/formidable-forms/widgets/formidable-forms.php:186
+#: modules/formidable-forms/widgets/formidable-forms.php:872
+#: modules/gravity-forms/widgets/gravity-forms.php:225
+#: modules/gravity-forms/widgets/gravity-forms.php:1102
+#: modules/ninja-forms/widgets/ninja-forms.php:174
+#: modules/ninja-forms/widgets/ninja-forms.php:826
+#: modules/wpforms/widgets/wpforms.php:166
+#: modules/wpforms/widgets/wpforms.php:771
+msgid "Placeholder"
+msgstr ""
+
 #: modules/contact-form-seven/widgets/contact-form-7.php:692
 msgid "Show Placeholder"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:741
+#: modules/fluent-forms/widgets/fluent-forms.php:849
+#: modules/formidable-forms/widgets/formidable-forms.php:907
+#: modules/gravity-forms/widgets/gravity-forms.php:1135
+#: modules/ninja-forms/widgets/ninja-forms.php:862
+#: modules/wpforms/widgets/wpforms.php:926
+msgid "Radio & Checkbox"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:749
+#: modules/fluent-forms/widgets/fluent-forms.php:857
+#: modules/formidable-forms/widgets/formidable-forms.php:915
+#: modules/gravity-forms/widgets/gravity-forms.php:1143
+#: modules/ninja-forms/widgets/ninja-forms.php:870
+#: modules/wpforms/widgets/wpforms.php:934
+msgid "Custom Styles"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:850
+#: modules/fluent-forms/widgets/fluent-forms.php:992
+#: modules/formidable-forms/widgets/formidable-forms.php:1016
+#: modules/gravity-forms/widgets/gravity-forms.php:1267
+#: modules/ninja-forms/widgets/ninja-forms.php:971
+#: modules/wpforms/widgets/wpforms.php:1035
+msgid "Checkbox"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:876
+#: modules/fluent-forms/widgets/fluent-forms.php:1019
+#: modules/formidable-forms/widgets/formidable-forms.php:1042
+#: modules/gravity-forms/widgets/gravity-forms.php:1294
+#: modules/ninja-forms/widgets/ninja-forms.php:997
+#: modules/wpforms/widgets/wpforms.php:1061
+msgid "Radio Buttons"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:904
+#: modules/fluent-forms/widgets/fluent-forms.php:1048
+#: modules/formidable-forms/widgets/formidable-forms.php:1070
+#: modules/gravity-forms/widgets/gravity-forms.php:1323
+#: modules/ninja-forms/widgets/ninja-forms.php:1025
+#: modules/wpforms/widgets/wpforms.php:1089
+msgid "Checked"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:940
+#: modules/fluent-forms/widgets/fluent-forms.php:1095
+#: modules/formidable-forms/widgets/formidable-forms.php:1109
+#: modules/gravity-forms/widgets/gravity-forms.php:1360
+#: modules/ninja-forms/widgets/ninja-forms.php:1061
+#: modules/wpforms/widgets/wpforms.php:1325
+msgid "Submit Button"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:978
+#: modules/contact-form-seven/widgets/contact-form-7.php:992
+#: modules/content-ticker/widgets/content-ticker.php:1361
+#: modules/content-ticker/widgets/content-ticker.php:1673
+#: modules/counter/widgets/counter.php:769
+#: modules/counter/widgets/counter.php:980
+#: modules/divider/widgets/divider.php:480
+#: modules/divider/widgets/divider.php:535
+#: modules/divider/widgets/divider.php:913
+#: modules/fluent-forms/widgets/fluent-forms.php:1133
+#: modules/formidable-forms/widgets/formidable-forms.php:1147
+#: modules/formidable-forms/widgets/formidable-forms.php:1161
+#: modules/gravity-forms/widgets/gravity-forms.php:1403
+#: modules/gravity-forms/widgets/gravity-forms.php:1418
+#: modules/gravity-forms/widgets/gravity-forms.php:1620
+#: modules/gravity-forms/widgets/gravity-forms.php:1635
+#: modules/hotspots/widgets/hotspots.php:767
+#: modules/hotspots/widgets/hotspots.php:1006
+#: modules/image-accordion/widgets/image-accordion.php:740
+#: modules/image-comparison/widgets/image-comparison.php:551
+#: modules/info-box/widgets/info-box-carousel.php:1332
+#: modules/info-box/widgets/info-box.php:263
+#: modules/info-list/widgets/info-list.php:582
+#: modules/info-table/widgets/info-table.php:1478
+#: modules/link-effects/widgets/link-effects.php:286
+#: modules/ninja-forms/widgets/ninja-forms.php:1098
+#: modules/ninja-forms/widgets/ninja-forms.php:1112
+#: modules/pricing/widgets/price-menu.php:918
+#: modules/pricing/widgets/pricing-table.php:1267
+#: modules/pricing/widgets/pricing-table.php:1558
+#: modules/pricing/widgets/pricing-table.php:2225
+#: modules/promo-box/widgets/promo-box.php:655
+#: modules/promo-box/widgets/promo-box.php:737
+#: modules/promo-box/widgets/promo-box.php:1037
+#: modules/promo-box/widgets/promo-box.php:1270
+#: modules/random-image/widgets/random-image.php:394
+#: modules/twitter/widgets/twitter-grid.php:97
+#: modules/twitter/widgets/twitter-timeline.php:127
+#: modules/twitter/widgets/twitter-tweet.php:133
+#: modules/wpforms/widgets/wpforms.php:1363
+#: modules/wpforms/widgets/wpforms.php:1377
+msgid "Width"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:982
+#: modules/fluent-forms/widgets/fluent-forms.php:1137
+#: modules/formidable-forms/widgets/formidable-forms.php:1151
+#: modules/gravity-forms/widgets/gravity-forms.php:1408
+#: modules/gravity-forms/widgets/gravity-forms.php:1625
+#: modules/icon-list/widgets/icon-list.php:306
+#: modules/ninja-forms/widgets/ninja-forms.php:1102
+#: modules/wpforms/widgets/wpforms.php:1367
+msgid "Full Width"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:1085
+#: modules/fluent-forms/widgets/fluent-forms.php:1254
+#: modules/formidable-forms/widgets/formidable-forms.php:1255
+#: modules/gravity-forms/widgets/gravity-forms.php:1514
+#: modules/gravity-forms/widgets/gravity-forms.php:1729
+#: modules/logos/widgets/logo-carousel.php:818
+#: modules/ninja-forms/widgets/ninja-forms.php:1206
+#: modules/pricing/widgets/pricing-table.php:2788
+#: modules/wpforms/widgets/wpforms.php:1489
+msgid "Margin Top"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:1203
@@ -5369,6 +5190,53 @@ msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:1267
 msgid "Fields"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:1397
+#: modules/content-ticker/widgets/content-ticker.php:1692
+#: modules/counter/widgets/counter.php:687
+#: modules/counter/widgets/counter.php:886
+#: modules/counter/widgets/counter.php:1289
+#: modules/flipbox/widgets/flipbox.php:1595
+#: modules/fluent-forms/widgets/fluent-forms.php:322
+#: modules/fluent-forms/widgets/fluent-forms.php:386
+#: modules/formidable-forms/widgets/formidable-forms.php:380
+#: modules/formidable-forms/widgets/formidable-forms.php:432
+#: modules/gravity-forms/widgets/gravity-forms.php:1041
+#: modules/info-box/widgets/info-box-carousel.php:1228
+#: modules/info-box/widgets/info-box-carousel.php:1931
+#: modules/info-box/widgets/info-box-carousel.php:2408
+#: modules/info-box/widgets/info-box.php:980
+#: modules/info-box/widgets/info-box.php:1805
+#: modules/info-list/widgets/info-list.php:1316
+#: modules/info-table/widgets/info-table.php:1281
+#: modules/instafeed/widgets/instafeed.php:1300
+#: modules/instafeed/widgets/instafeed.php:2018
+#: modules/instafeed/widgets/instafeed.php:2377
+#: modules/ninja-forms/widgets/ninja-forms.php:351
+#: modules/ninja-forms/widgets/ninja-forms.php:403
+#: modules/posts/skins/skin-base.php:2806
+#: modules/posts/skins/skin-base.php:3365
+#: modules/pricing/widgets/price-menu.php:946
+#: modules/pricing/widgets/pricing-table.php:1326
+#: modules/pricing/widgets/pricing-table.php:1582
+#: modules/promo-box/widgets/promo-box.php:838
+#: modules/random-image/widgets/random-image.php:828
+#: modules/team-member/widgets/team-member-carousel.php:2758
+#: modules/team-member/widgets/team-member.php:712
+#: modules/team-member/widgets/team-member.php:861
+#: modules/wpforms/widgets/wpforms.php:319
+#: modules/wpforms/widgets/wpforms.php:371
+msgid "Margin"
+msgstr ""
+
+#: modules/contact-form-seven/widgets/contact-form-7.php:1464
+#: modules/fluent-forms/widgets/fluent-forms.php:1532
+#: modules/formidable-forms/widgets/formidable-forms.php:1623
+#: modules/gravity-forms/widgets/gravity-forms.php:2364
+#: modules/ninja-forms/widgets/ninja-forms.php:1559
+#: modules/wpforms/widgets/wpforms.php:1755
+msgid "No Contact Form Selected!"
 msgstr ""
 
 #: modules/content-reveal/widgets/content-reveal.php:114
@@ -6843,6 +6711,42 @@ msgstr ""
 
 #: modules/fluent-forms/widgets/fluent-forms.php:83
 msgid "WP Fluent Forms"
+msgstr ""
+
+#: modules/fluent-forms/widgets/fluent-forms.php:101
+#: modules/formidable-forms/widgets/formidable-forms.php:107
+#: modules/gravity-forms/widgets/gravity-forms.php:147
+#: modules/ninja-forms/widgets/ninja-forms.php:109
+#: modules/wpforms/widgets/wpforms.php:87
+msgid "Custom Title & Description"
+msgstr ""
+
+#: modules/fluent-forms/widgets/fluent-forms.php:609
+#: modules/formidable-forms/widgets/formidable-forms.php:637
+#: modules/gravity-forms/widgets/gravity-forms.php:698
+#: modules/ninja-forms/widgets/ninja-forms.php:611
+#: modules/wpforms/widgets/wpforms.php:568
+msgid "Input Height"
+msgstr ""
+
+#: modules/fluent-forms/widgets/fluent-forms.php:647
+#: modules/formidable-forms/widgets/formidable-forms.php:675
+#: modules/gravity-forms/widgets/gravity-forms.php:736
+#: modules/ninja-forms/widgets/ninja-forms.php:649
+#: modules/wpforms/widgets/wpforms.php:606
+msgid "Textarea Height"
+msgstr ""
+
+#: modules/fluent-forms/widgets/fluent-forms.php:761
+#: modules/formidable-forms/widgets/formidable-forms.php:815
+#: modules/gravity-forms/widgets/gravity-forms.php:866
+#: modules/ninja-forms/widgets/ninja-forms.php:771
+#: modules/wpforms/widgets/wpforms.php:718
+msgid "Field Description"
+msgstr ""
+
+#: modules/fluent-forms/widgets/fluent-forms.php:921
+msgid "Label Color"
 msgstr ""
 
 #: modules/fluent-forms/widgets/fluent-forms.php:1147
@@ -8394,6 +8298,10 @@ msgstr ""
 
 #: modules/logos/widgets/logo-grid.php:356
 msgid "Logos Gap"
+msgstr ""
+
+#: modules/ninja-forms/widgets/ninja-forms.php:1304
+msgid "Success Message"
 msgstr ""
 
 #: modules/ninja-forms/widgets/ninja-forms.php:1340
@@ -10042,11 +9950,11 @@ msgstr ""
 msgid "Install Elementor"
 msgstr ""
 
-#: powerpack-lite-elementor.php:206
+#: powerpack-lite-elementor.php:202
 msgid "View PowerPack Documentation"
 msgstr ""
 
-#: powerpack-lite-elementor.php:206
+#: powerpack-lite-elementor.php:202
 msgid "Docs & FAQs"
 msgstr ""
 

@@ -138,10 +138,6 @@ function pp_elements_lite_load_plugin_textdomain() {
 add_action( 'plugins_loaded', 'pp_elements_lite_init' );
 
 function pp_elements_lite_init() {
-    if ( class_exists( 'Caldera_Forms' ) ) {
-        add_filter( 'caldera_forms_force_enqueue_styles_early', '__return_true' );
-    }
-
     // Notice if the Elementor is not active
 	if ( ! did_action( 'elementor/loaded' ) ) {
 		add_action( 'admin_notices', 'pp_elements_lite_fail_load' );
