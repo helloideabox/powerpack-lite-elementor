@@ -12,6 +12,7 @@ class WPML_PP_Pricing_Table extends WPML_Elementor_Module_With_Items {
 	public function get_fields() {
 		return array( 
 			'feature_text',
+			'tooltip_content',
 	 );
 	}
 
@@ -19,6 +20,8 @@ class WPML_PP_Pricing_Table extends WPML_Elementor_Module_With_Items {
 		switch( $field ) {
 			case 'feature_text':
 				return esc_html__( 'Price Table - Feature Text', 'powerpack' );
+			case 'tooltip_content':
+				return esc_html__( 'Price Table - Tooltip Content', 'powerpack' );
 			default:
 				return '';
 		}
@@ -28,6 +31,8 @@ class WPML_PP_Pricing_Table extends WPML_Elementor_Module_With_Items {
 		switch( $field ) {
 			case 'feature_text':
 				return 'LINE';
+			case 'tooltip_content':
+				return 'VISUAL';
 			default:
 				return '';
 		}
