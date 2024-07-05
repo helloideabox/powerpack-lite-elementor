@@ -267,7 +267,7 @@ class PP_Helper {
 	 *
 	 * @param string $feature Feature slug.
 	 * @return boolean
-	 * @since x.x.x
+	 * @since 2.7.23
 	 */
 	public static function is_feature_active( $feature = '' ) {
 		$is_active = false;
