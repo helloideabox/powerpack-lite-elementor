@@ -72,6 +72,10 @@ class Logo_Carousel extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Logo_Carousel' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the logo carousel widget depended on.
 	 *
@@ -84,7 +88,7 @@ class Logo_Carousel extends Powerpack_Widget {
 	public function get_script_depends() {
 		return array(
 			'swiper',
-			'powerpack-frontend',
+			'pp-carousel',
 		);
 	}
 
@@ -312,7 +316,6 @@ class Logo_Carousel extends Powerpack_Widget {
 					'carousel_effect'   => 'slide',
 				],
 				'separator'             => 'before',
-				'frontend_available' => true,
 			]
 		);
 
@@ -335,7 +338,6 @@ class Logo_Carousel extends Powerpack_Widget {
 				'condition'             => [
 					'carousel_effect'   => 'slide',
 				],
-				'frontend_available' => true,
 			]
 		);
 
@@ -776,7 +778,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
-				'selector'              => '{{WRAPPER}} .pp-logo-carousel-title',
+				'selector'              => '{{WRAPPER}} .pp-logo-title',
 				'condition'             => [
 					'show_title'   => 'yes',
 				],
@@ -790,7 +792,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-logo-carousel-title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-logo-title' => 'color: {{VALUE}}',
 				],
 				'condition'             => [
 					'show_title'   => 'yes',
@@ -805,7 +807,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'label'                 => __( 'Background', 'powerpack' ),
 				'types'                 => [ 'classic', 'gradient' ],
 				'exclude'               => [ 'image' ],
-				'selector'              => '{{WRAPPER}} .pp-logo-carousel-title',
+				'selector'              => '{{WRAPPER}} .pp-logo-title',
 				'condition'             => [
 					'show_title'   => 'yes',
 				],
@@ -825,7 +827,7 @@ class Logo_Carousel extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-logo-carousel-title' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-logo-title' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 				'condition'             => [
 					'show_title'   => 'yes',
@@ -840,7 +842,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-logo-carousel-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-logo-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition'             => [
 					'show_title'   => 'yes',
@@ -1385,87 +1387,93 @@ class Logo_Carousel extends Powerpack_Widget {
 	public function slider_settings() {
 		$settings = $this->get_settings();
 
-		$effect                 = ( $settings['carousel_effect'] ) ? $settings['carousel_effect'] : 'slide';
-		$slides_per_view        = ( isset( $settings['items']['size'] ) && $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
-		$slides_per_view_tablet = ( isset( $settings['items_tablet']['size'] ) && $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2;
-		$slides_per_view_mobile = ( isset( $settings['items_mobile']['size'] ) && $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1;
-		$margin                 = ( isset( $settings['margin']['size'] ) && $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
-		$margin_tablet          = isset( $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
-		$margin_mobile          = isset( $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
+		$effect        = ( $settings['carousel_effect'] ) ? $settings['carousel_effect'] : 'slide';
+		$items         = ( isset( $settings['items']['size'] ) && $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
+		$items_tablet  = ( isset( $settings['items_tablet']['size'] ) && $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2;
+		$items_mobile  = ( isset( $settings['items_mobile']['size'] ) && $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1;
+		$margin        = ( isset( $settings['margin']['size'] ) && $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
+		$margin_tablet = isset( $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
+		$margin_mobile = isset( $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
 
 		if ( 'fade' === $effect || 'cube' === $effect || 'flip' === $effect ) {
-			$slides_per_view = 1;
-			$slides_per_view_tablet = 1;
-			$slides_per_view_mobile = 1;
-			$margin = 10;
+			$items         = 1;
+			$items_tablet  = 1;
+			$items_mobile  = 1;
+			$margin        = 10;
 			$margin_tablet = 10;
 			$margin_mobile = 10;
 		} elseif ( 'coverflow' === $effect ) {
-			$slides_per_view = 3;
-			$slides_per_view_tablet = 2;
-			$slides_per_view_mobile = 1;
-			$margin = 10;
+			$items         = 3;
+			$items_tablet  = 2;
+			$items_mobile  = 1;
+			$margin        = 10;
 			$margin_tablet = 10;
 			$margin_mobile = 10;
 		}
 
 		$slider_options = [
-			'direction'              => 'horizontal',
-			'speed'                  => ( '' !== $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
-			'effect'                 => ( $effect ) ? $effect : 'slide',
-			'slidesPerView'          => $slides_per_view,
-			'spaceBetween'           => $margin,
-			'grabCursor'             => ( 'yes' === $settings['grab_cursor'] ),
-			'autoHeight'             => true,
-			'loop'                   => ( 'yes' === $settings['infinite_loop'] ),
+			'effect'          => $effect,
+			'speed'           => ( $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 500,
+			'slides_per_view' => $items,
+			'space_between'   => $margin,
+			'auto_height'     => true,
+			'loop'            => ( 'yes' === $settings['infinite_loop'] ) ? 'yes' : '',
 		];
 
-		if ( 'yes' === $settings['autoplay'] && ! empty( $settings['autoplay_speed']['size'] ) ) {
-			$autoplay_speed = $settings['autoplay_speed']['size'];
-		} else {
-			$autoplay_speed = 999999;
+		if ( 'yes' === $settings['grab_cursor'] ) {
+			$slider_options['grab_cursor'] = true;
 		}
 
-		$slider_options['autoplay'] = [
-			'delay'                  => $autoplay_speed,
-			'disableOnInteraction'   => ( 'yes' === $settings['pause_on_interaction'] ),
-		];
+		if ( 'yes' === $settings['autoplay'] ) {
+			$autoplay_speed = 999999;
+			$slider_options['autoplay'] = 'yes';
 
-		if ( 'yes' === $settings['dots'] ) {
-			$slider_options['pagination'] = [
-				'el'                 => '.swiper-pagination-' . esc_attr( $this->get_id() ),
-				'type'               => $settings['pagination_type'],
-				'clickable'          => true,
-			];
+			if ( isset( $settings['autoplay_speed']['size'] ) ) {
+				$autoplay_speed = $settings['autoplay_speed']['size'];
+			} elseif ( $settings['autoplay_speed'] ) {
+				$autoplay_speed = $settings['autoplay_speed'];
+			}
+
+			$slider_options['autoplay_speed'] = $autoplay_speed;
+			$slider_options['pause_on_interaction'] = ( 'yes' === $settings['pause_on_interaction'] ) ? 'yes' : '';
+		}
+
+		if ( 'yes' === $settings['dots'] && $settings['pagination_type'] ) {
+			$slider_options['pagination'] = $settings['pagination_type'];
 		}
 
 		if ( 'yes' === $settings['arrows'] ) {
-			$slider_options['navigation'] = [
-				'nextEl'             => '.swiper-button-next-' . esc_attr( $this->get_id() ),
-				'prevEl'             => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
-			];
+			$slider_options['show_arrows'] = true;
 		}
 
-		$elementor_bp_lg        = get_option( 'elementor_viewport_lg' );
-		$elementor_bp_md        = get_option( 'elementor_viewport_md' );
-		$bp_desktop             = ! empty( $elementor_bp_lg ) ? $elementor_bp_lg : 1025;
-		$bp_tablet              = ! empty( $elementor_bp_md ) ? $elementor_bp_md : 768;
-		$bp_mobile              = 320;
+		$breakpoints = pp_lite_get_elementor()->breakpoints->get_active_breakpoints();
 
-		$slider_options['breakpoints'] = [
-			$bp_desktop   => [
-				'slidesPerView'      => $slides_per_view,
-				'spaceBetween'       => $margin,
-			],
-			$bp_tablet   => [
-				'slidesPerView'      => $slides_per_view_tablet,
-				'spaceBetween'       => $margin_tablet,
-			],
-			$bp_mobile   => [
-				'slidesPerView'      => $slides_per_view_mobile,
-				'spaceBetween'       => $margin_mobile,
-			],
-		];
+		foreach ( $breakpoints as $device => $breakpoint ) {
+			if ( in_array( $device, [ 'mobile', 'tablet', 'desktop' ] ) ) {
+				switch ( $device ) {
+					case 'desktop':
+						$slider_options['slides_per_view'] = absint( $items );
+						$slider_options['space_between'] = absint( $margin );
+						break;
+					case 'tablet':
+						$slider_options['slides_per_view_tablet'] = absint( $items_tablet );
+						$slider_options['space_between_tablet'] = absint( $margin_tablet );
+						break;
+					case 'mobile':
+						$slider_options['slides_per_view_mobile'] = absint( $items_mobile );
+						$slider_options['space_between_mobile'] = absint( $margin_mobile );
+						break;
+				}
+			} else {
+				if ( isset( $settings['items_' . $device]['size'] ) && $settings['items_' . $device]['size'] ) {
+					$slider_options['slides_per_view_' . $device] = absint( $settings['items_' . $device]['size'] );
+				}
+
+				if ( isset( $settings['margin_' . $device]['size'] ) && $settings['margin_' . $device]['size'] ) {
+					$slider_options['space_between_' . $device] = absint( $settings['margin_' . $device]['size'] );
+				}
+			}
+		}
 
 		$this->add_render_attribute(
 			'logo-carousel',
@@ -1484,7 +1492,7 @@ class Logo_Carousel extends Powerpack_Widget {
 	 */
 	protected function render() {
 		$settings     = $this->get_settings_for_display();
-		$swiper_class = \Elementor\Plugin::$instance->experiments->is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
+		$swiper_class = PP_Helper::is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
 
 		$this->add_render_attribute(
 			[
@@ -1499,9 +1507,6 @@ class Logo_Carousel extends Powerpack_Widget {
 						'pp-swiper-slider',
 						$swiper_class
 					],
-					'data-pagination' => '.swiper-pagination-' . esc_attr( $this->get_id() ),
-					'data-arrow-next' => '.swiper-button-next-' . esc_attr( $this->get_id() ),
-					'data-arrow-prev' => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
 				]
 			]
 		);
@@ -1582,7 +1587,7 @@ class Logo_Carousel extends Powerpack_Widget {
 										if ( '' !== $item['logo_title'] ) {
 											$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
 											?>
-											<<?php echo esc_html( $title_tag ); ?> class="pp-logo-carousel-title">
+											<<?php echo esc_html( $title_tag ); ?> class="pp-logo-title">
 											<?php
 											if ( ! empty( $item['link']['url'] ) ) {
 												?>
@@ -1607,12 +1612,12 @@ class Logo_Carousel extends Powerpack_Widget {
 					endforeach;
 				?>
 				</div>
-			</div>
-			<?php
-				$this->render_dots();
+				<?php
+					$this->render_dots();
 
-				$this->render_arrows();
-			?>
+					$this->render_arrows();
+				?>
+			</div>
 		</div>
 		<?php
 	}
@@ -1716,43 +1721,56 @@ class Logo_Carousel extends Powerpack_Widget {
 				$items_mobile = 1;
 			}
 
-			return {
-				direction:              "horizontal",
-				speed:                  $speed,
-				effect:                 settings.carousel_effect,
-				slidesPerView:          $items,
-				spaceBetween:           $margin,
-				grabCursor:             ( settings.grab_cursor === 'yes' ) ? true : false,
-				autoHeight:             true,
-				loop:                   ( settings.infinite_loop === 'yes' ),
-				autoplay: {
-					delay: $autoplay,
-					disableOnInteraction: ( settings.pause_on_interaction === 'yes' ),
-				},
-				pagination: {
-					el: '.swiper-pagination',
-					type: settings.pagination_type,
-					clickable: true,
-				},
-				navigation: {
-					nextEl: '.elementor-swiper-button-next',
-					prevEl: '.elementor-swiper-button-prev',
-				},
-				breakpoints: {
-					<?php echo esc_attr( $bp_desktop ); ?>: {
-						slidesPerView:  $items,
-						spaceBetween:   $margin
-					},
-					<?php echo esc_attr( $bp_tablet ); ?>: {
-						slidesPerView:  $items_tablet,
-						spaceBetween:   $margin_tablet
-					},
-					<?php echo esc_attr( $bp_mobile ); ?>: {
-						slidesPerView:  $items_mobile,
-						spaceBetween:   $margin_mobile
-					}
-				}
+			var sliderOptions = {
+				effect:          settings.carousel_effect,
+				speed:           $speed,
+				slides_per_view: $items,
+				space_between:   $margin,
+				auto_height:     true,
+				loop:            ( 'yes' === settings.infinite_loop ) ? 'yes' : false,
+				grab_cursor:     ( 'yes' === settings.grab_cursor ) ? 'yes' : false,
 			};
+
+			if ( 'yes' === settings.autoplay ) {
+				var $autoplay = ( '' !== settings.autoplay_speed.size ) ? settings.autoplay_speed.size : 999999;
+
+				sliderOptions.autoplay = $autoplay;
+				sliderOptions.pause_on_interaction = ( 'yes' === settings.pause_on_interaction ) ? 'yes' : '';;
+			}
+
+			if ( 'yes' === settings.dots && settings.pagination_type ) {
+				sliderOptions.pagination = settings.pagination_type;
+			}
+
+			if ( 'yes' === settings.arrows ) {
+				sliderOptions.show_arrows = true;
+			}
+
+			breakpoints = elementorFrontend.config.responsive.activeBreakpoints;
+			Object.keys(breakpoints).forEach(breakpointName => {
+				if ( 'tablet' === breakpointName || 'mobile' === breakpointName ) {
+					switch(breakpointName) {
+						case 'tablet':
+							sliderOptions['slides_per_view_tablet'] = $items_tablet;
+							sliderOptions['space_between_tablet'] = $margin_tablet;
+							break;
+						case 'mobile':
+							sliderOptions['slides_per_view_mobile'] = $items_mobile;
+							sliderOptions['space_between_mobile'] = $margin_mobile;
+							break;
+					}
+				} else {
+						if ( settings['items_' + breakpointName].size !== '' || settings['items_' + breakpointName].size !== undefined ) {
+							sliderOptions['slides_per_view_' + breakpointName] = settings['items_' + breakpointName].size;
+						}
+
+						if ( settings['margin_' + breakpointName].size !== '' || settings['margin_' + breakpointName].size !== undefined ) {
+							sliderOptions['space_between_' + breakpointName] = settings['margin_' + breakpointName].size;
+						}
+				}
+			});
+
+			return sliderOptions;
 		};
 
 		view.addRenderAttribute(
@@ -1844,9 +1862,9 @@ class Logo_Carousel extends Powerpack_Widget {
 						<# } #>
 					<# i++ } ); #>
 				</div>
+				<# dots_template(); #>
+				<# arrows_template(); #>
 			</div>
-			<# dots_template(); #>
-			<# arrows_template(); #>
 		</div>
 		<?php
 	}

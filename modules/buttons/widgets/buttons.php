@@ -71,6 +71,10 @@ class Buttons extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Buttons' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the advanced menu widget depended on.
 	 *
@@ -83,7 +87,7 @@ class Buttons extends Powerpack_Widget {
 	public function get_script_depends() {
 		return [
 			'pp-tooltipster',
-			'powerpack-frontend',
+			'pp-buttons',
 		];
 	}
 
@@ -1227,16 +1231,6 @@ class Buttons extends Powerpack_Widget {
 
 				// ToolTip
 				if ( 'yes' === $item['has_tooltip'] && ! empty( $item['tooltip_content'] ) ) {
-					if ( isset( $settings['tooltips_position'] ) && $settings['tooltips_position'] ) {
-						$ttip_position = $this->get_tooltip_position( $settings['tooltips_position'] );
-					}
-					if ( isset( $settings['tooltips_position_tablet'] ) && $settings['tooltips_position_tablet'] ) {
-						$ttip_position_tablet = $this->get_tooltip_position( $settings['tooltips_position_tablet'] );
-					}
-					if ( isset( $settings['tooltips_position_mobile'] ) && $settings['tooltips_position_mobile'] ) {
-						$ttip_position_mobile = $this->get_tooltip_position( $settings['tooltips_position_mobile'] );
-					}
-
 					$this->add_render_attribute(
 						$tooltip_content_key,
 						array(
@@ -1245,26 +1239,57 @@ class Buttons extends Powerpack_Widget {
 						)
 					);
 
-					if ( isset( $settings['tooltips_position_tablet'] ) && $settings['tooltips_position_tablet'] ) {
-						$ttip_tablet = $ttip_position_tablet;
+					if ( isset( $settings['tooltips_position'] ) && $settings['tooltips_position'] ) {
+						$ttip_position = $this->get_tooltip_position( $settings['tooltips_position'] );
 					} else {
-						$ttip_tablet = $ttip_position;
+						$ttip_position = 'top';
+					}
+
+					if ( isset( $settings['tooltips_position_tablet'] ) && $settings['tooltips_position_tablet'] ) {
+						$ttip_position_tablet = $this->get_tooltip_position( $settings['tooltips_position_tablet'] );
+					} else {
+						$ttip_position_tablet = $ttip_position;
 					};
 
 					if ( isset( $settings['tooltips_position_mobile'] ) && $settings['tooltips_position_mobile'] ) {
-						$ttip_mobile = $ttip_position_mobile;
+						$ttip_position_mobile = $this->get_tooltip_position( $settings['tooltips_position_mobile'] );
 					} else {
-						$ttip_mobile = $ttip_position;
+						$ttip_position_mobile = $ttip_position;
 					};
+
+					$tooltip_options = array(
+						'show_tooltip' => 'yes',
+						'id' => $tooltip_content_id,
+						'position' => $ttip_position,
+					);
+
+					$breakpoints = pp_lite_get_elementor()->breakpoints->get_active_breakpoints();
+			
+					foreach ( $breakpoints as $device => $breakpoint ) {
+						if ( in_array( $device, [ 'mobile', 'tablet', 'desktop' ] ) ) {
+							switch ( $device ) {
+								case 'desktop':
+									$tooltip_options['position'] = esc_attr( $ttip_position );
+									break;
+								case 'tablet':
+									$tooltip_options['position_tablet'] = esc_attr( $ttip_position_tablet );
+									break;
+								case 'mobile':
+									$tooltip_options['position_mobile'] = esc_attr( $ttip_position_mobile );
+									break;
+							}
+						} else {
+							if ( isset( $settings['tooltips_position_' . $device] ) && $settings['tooltips_position_' . $device] ) {
+								$tooltip_options['position_' . $device] = esc_attr( $this->get_tooltip_position( $settings['tooltips_position_' . $device] ) );
+							}
+						}
+					}
 
 					$this->add_render_attribute(
 						$button_key,
 						[
-							'data-tooltip'                 => 'yes',
-							'data-tooltip-position'        => $ttip_position,
-							'data-tooltip-position-tablet' => $ttip_tablet,
-							'data-tooltip-position-mobile' => $ttip_mobile,
-							'data-tooltip-content'         => '#pp-tooltip-content-' . $tooltip_content_id,
+							'data-tooltip' => wp_json_encode( $tooltip_options ),
+							'data-tooltip-content' => '#pp-tooltip-content-' . $tooltip_content_id,
 						]
 					);
 				}

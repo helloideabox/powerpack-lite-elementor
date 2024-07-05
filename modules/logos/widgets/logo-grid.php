@@ -73,6 +73,10 @@ class Logo_Grid extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Logo_Grid' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register logo grid widget controls.
 	 *
@@ -346,7 +350,6 @@ class Logo_Grid extends Powerpack_Widget {
 				'mobile_default'        => '1',
 				'options'               => $logo_columns,
 				'prefix_class'          => 'elementor-grid%s-',
-				'frontend_available'    => true,
 			]
 		);
 
@@ -391,7 +394,7 @@ class Logo_Grid extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-logo-grid .pp-grid-item-wrap' => 'align-items: {{VALUE}};',
+					'{{WRAPPER}} .pp-logo-grid .elementor-grid-item' => 'align-items: {{VALUE}};',
 				],
 				'selectors_dictionary'  => [
 					'top'          => 'flex-start',
@@ -428,7 +431,7 @@ class Logo_Grid extends Powerpack_Widget {
 					'right'    => 'flex-end',
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-logo-grid .pp-grid-item-wrap, {{WRAPPER}} .pp-logo-grid .pp-grid-item' => 'justify-content: {{VALUE}};',
+					'{{WRAPPER}} .pp-logo-grid .elementor-grid-item, {{WRAPPER}} .pp-logo-grid .pp-logo-wrap' => 'justify-content: {{VALUE}};',
 				],
 			]
 		);
@@ -456,7 +459,7 @@ class Logo_Grid extends Powerpack_Widget {
 					],
 				],
 				'selectors'         => [
-					'{{WRAPPER}} .pp-grid-item img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-logo-wrap img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -530,7 +533,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'label'                 => __( 'Background', 'powerpack' ),
 				'types'                 => [ 'classic', 'gradient' ],
 				'exclude'               => array( 'image' ),
-				'selector'              => '{{WRAPPER}} .pp-grid-item',
+				'selector'              => '{{WRAPPER}} .pp-logo-wrap',
 			]
 		);
 
@@ -541,7 +544,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .pp-grid-item',
+				'selector'              => '{{WRAPPER}} .pp-logo-wrap',
 			]
 		);
 
@@ -552,7 +555,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em' ],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-grid-item, {{WRAPPER}} .pp-grid-item img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-logo-wrap, {{WRAPPER}} .pp-logo-wrap img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -564,7 +567,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-grid-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-logo-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -594,7 +597,7 @@ class Logo_Grid extends Powerpack_Widget {
 					],
 				],
 				'selectors'         => [
-					'{{WRAPPER}} .pp-grid-item img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .pp-logo-wrap img' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -603,7 +606,7 @@ class Logo_Grid extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'pp_logo_box_shadow_normal',
-				'selector'              => '{{WRAPPER}} .pp-grid-item',
+				'selector'              => '{{WRAPPER}} .pp-logo-wrap',
 				'separator'             => 'before',
 			]
 		);
@@ -624,7 +627,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'label'                 => __( 'Background', 'powerpack' ),
 				'types'                 => [ 'classic', 'gradient' ],
 				'exclude'               => array( 'image' ),
-				'selector'              => '{{WRAPPER}} .pp-grid-item:hover',
+				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover',
 			]
 		);
 
@@ -635,7 +638,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'label'                 => __( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .pp-grid-item:hover',
+				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover',
 			]
 		);
 
@@ -653,7 +656,7 @@ class Logo_Grid extends Powerpack_Widget {
 				],
 				'size_units'            => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-grid-item-wrap:hover' => 'transform:translateY({{SIZE}}{{UNIT}})',
+					'{{WRAPPER}} .elementor-grid-item:hover' => 'transform:translateY({{SIZE}}{{UNIT}})',
 				],
 			]
 		);
@@ -683,7 +686,7 @@ class Logo_Grid extends Powerpack_Widget {
 					],
 				],
 				'selectors'         => [
-					'{{WRAPPER}} .pp-grid-item:hover img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .pp-logo-wrap:hover img' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -692,7 +695,7 @@ class Logo_Grid extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'pp_logo_box_shadow_hover',
-				'selector'              => '{{WRAPPER}} .pp-grid-item:hover',
+				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover',
 				'separator'             => 'before',
 			]
 		);
@@ -723,7 +726,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'type'               => Controls_Manager::COLOR,
 				'default'            => '',
 				'selectors'          => [
-					'{{WRAPPER}} .pp-logo-grid-title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-logo-title' => 'color: {{VALUE}}',
 				],
 				'condition'          => [
 					'show_title'   => 'yes',
@@ -739,7 +742,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
-				'selector'              => '{{WRAPPER}} .pp-logo-grid-title',
+				'selector'              => '{{WRAPPER}} .pp-logo-title',
 				'condition'             => [
 					'show_title'   => 'yes',
 				],
@@ -759,7 +762,7 @@ class Logo_Grid extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-logo-grid-title' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-logo-title' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 				'condition'             => [
 					'show_title'   => 'yes',
@@ -805,12 +808,11 @@ class Logo_Grid extends Powerpack_Widget {
 					$link_setting_key = $this->get_repeater_setting_key( 'link', 'logos', $index );
 
 					$this->add_render_attribute( $item_wrap_setting_key, 'class', [
-						'pp-grid-item-wrap',
 						'elementor-grid-item',
 						'elementor-repeater-item-' . esc_attr( $item['_id'] ),
 					] );
 
-					$this->add_render_attribute( $item_setting_key, 'class', 'pp-grid-item' );
+					$this->add_render_attribute( $item_setting_key, 'class', 'pp-logo-wrap' );
 
 					if ( 'yes' === $item['custom_style'] ) {
 						if ( 'logo' === $item['custom_style_target'] ) {
@@ -846,7 +848,7 @@ class Logo_Grid extends Powerpack_Widget {
 							if ( '' !== $item['title'] ) {
 								$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
 								?>
-								<<?php echo esc_html( $title_tag ); ?> class="pp-logo-grid-title">
+								<<?php echo esc_html( $title_tag ); ?> class="pp-logo-title">
 								<?php
 								if ( '' !== $item['link']['url'] ) { ?>
 									<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
@@ -940,8 +942,8 @@ class Logo_Grid extends Powerpack_Widget {
 							}
 						}
 					#>
-					<div class="pp-grid-item-wrap elementor-grid-item elementor-repeater-item-{{ item._id }} {{ item_wrap_custom_style_class }}">
-						<div class="pp-grid-item {{ item_custom_style_class }}">
+					<div class="elementor-grid-item elementor-repeater-item-{{ item._id }} {{ item_wrap_custom_style_class }}">
+						<div class="pp-logo-wrap {{ item_custom_style_class }}">
 							<# if ( item.link && item.link.url ) { #>
 								<a href="{{ _.escape( item.link.url ) }}">
 							<# } #>

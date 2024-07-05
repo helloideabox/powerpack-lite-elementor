@@ -83,20 +83,8 @@ class Random_Image extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Random_Image' );
 	}
 
-	/**
-	 * Retrieve the list of scripts the Random Image widget depended on.
-	 *
-	 * Used to set scripts dependencies required to run the widget.
-	 *
-	 * @access public
-	 *
-	 * @return array Widget scripts dependencies.
-	 */
-	public function get_script_depends() {
-		return [
-			'jquery-fancybox',
-			'powerpack-frontend',
-		];
+	protected function is_dynamic_content(): bool {
+		return true;
 	}
 
 	/**

@@ -71,6 +71,10 @@ class Image_Comparison extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Image_Comparison' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the image comparison widget depended on.
 	 *
@@ -85,7 +89,7 @@ class Image_Comparison extends Powerpack_Widget {
 			'jquery-event-move',
 			'twentytwenty',
 			'imagesloaded',
-			'powerpack-frontend',
+			'pp-image-comparison',
 		];
 	}
 

@@ -75,19 +75,8 @@ class Info_List extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Info_List' );
 	}
 
-	/**
-	 * Retrieve the list of scripts the info list widget depended on.
-	 *
-	 * Used to set scripts dependencies required to run the widget.
-	 *
-	 * @access public
-	 *
-	 * @return array Widget scripts dependencies.
-	 */
-	public function get_script_depends() {
-		return array(
-			'powerpack-frontend',
-		);
+	protected function is_dynamic_content(): bool {
+		return false;
 	}
 
 	/**

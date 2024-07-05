@@ -72,6 +72,10 @@ class Icon_List extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Icon_List' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register icon list widget controls.
 	 *

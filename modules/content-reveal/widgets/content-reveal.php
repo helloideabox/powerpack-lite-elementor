@@ -68,6 +68,10 @@ class Content_Reveal extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Content_Reveal' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the Content Reveal widget depended on.
 	 *
@@ -79,7 +83,7 @@ class Content_Reveal extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return [
-			'powerpack-frontend',
+			'pp-content-reveal',
 		];
 	}
 

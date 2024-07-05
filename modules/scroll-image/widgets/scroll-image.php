@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Scroll_Image extends Powerpack_Widget {
 
 	/**
-	 * Retrieve showcase widget name.
+	 * Retrieve Scroll Image widget name.
 	 *
 	 * @access public
 	 *
@@ -34,7 +34,7 @@ class Scroll_Image extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve showcase widget title.
+	 * Retrieve Scroll Image widget title.
 	 *
 	 * @access public
 	 *
@@ -45,7 +45,7 @@ class Scroll_Image extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve showcase widget icon.
+	 * Retrieve Scroll Image widget icon.
 	 *
 	 * @access public
 	 *
@@ -55,8 +55,12 @@ class Scroll_Image extends Powerpack_Widget {
 		return parent::get_widget_icon( 'Scroll_Image' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
-	 * Retrieve the list of scripts the showcase widget depended on.
+	 * Retrieve the list of scripts the Scroll Image widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
@@ -67,7 +71,7 @@ class Scroll_Image extends Powerpack_Widget {
 	public function get_script_depends() {
 		return array(
 			'imagesloaded',
-			'powerpack-frontend',
+			'pp-scroll-image',
 		);
 	}
 
@@ -280,33 +284,6 @@ class Scroll_Image extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
-
-		if ( ! is_pp_elements_active() ) {
-			/**
-			 * Content Tab: Upgrade PowerPack
-			 *
-			 * @since 1.2.9.4
-			 */
-			$this->start_controls_section(
-				'section_upgrade_powerpack',
-				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
-					'tab'   => Controls_Manager::TAB_CONTENT,
-				)
-			);
-
-			$this->add_control(
-				'upgrade_powerpack_notice',
-				array(
-					'label'           => '',
-					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
-					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				)
-			);
-
-			$this->end_controls_section();
-		}
 
 		/*
 		-----------------------------------------------------------------------------------*/

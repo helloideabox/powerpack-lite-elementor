@@ -71,6 +71,10 @@ class Promo_Box extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Promo_Box' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register promo box widget controls.
 	 *

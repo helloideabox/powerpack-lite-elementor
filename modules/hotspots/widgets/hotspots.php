@@ -76,6 +76,10 @@ class Hotspots extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Hotspots' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the image hotspots widget depended on.
 	 *
@@ -88,7 +92,7 @@ class Hotspots extends Powerpack_Widget {
 	public function get_script_depends() {
 		return array(
 			'pp-tooltipster',
-			'powerpack-frontend',
+			'pp-hotspots',
 		);
 	}
 

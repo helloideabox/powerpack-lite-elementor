@@ -46,6 +46,10 @@ class Fluent_Forms extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Fluent_Forms' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register Fluent Forms widget controls.
 	 *

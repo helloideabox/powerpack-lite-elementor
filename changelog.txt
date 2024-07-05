@@ -1,3 +1,11 @@
+== 2.7.23 ==
+Release date: July 4, 2024
+* Enhancement: Added support for Elementor's Element Caching feature
+* Enhancement: Added support for Elementor custom breakpoints in all carousel/slider widgets
+* Enhancement: Counter - Replaced Odometer JS lib with jQuery Numerator JS lib as used by Elementor
+* Enhancement: Counter - Added Underline and Apostrophe separator options
+* Enhancement: Performance improvements
+
 == 2.7.22 ==
 Release date: June 19, 2024
 * Enhancement: Posts - Added support for WPML

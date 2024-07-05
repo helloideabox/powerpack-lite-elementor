@@ -77,6 +77,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Info_Box_Carousel' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the info box carousel widget depended on.
 	 *
@@ -89,7 +93,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 	public function get_script_depends() {
 		return [
 			'swiper',
-			'powerpack-frontend',
+			'pp-carousel',
 		];
 	}
 
@@ -494,7 +498,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					'8' => '8',
 				),
 				'prefix_class'       => 'elementor-grid%s-',
-				'frontend_available' => true,
 				'condition'          => array(
 					'layout' => 'grid',
 				),
@@ -665,10 +668,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'slider_speed',
 			[
-				'label'                 => __( 'Slider Speed', 'powerpack' ),
+				'label'                 => __( 'Transition Duration', 'powerpack' ),
 				'description'           => __( 'Duration of transition between slides (in ms)', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'default'               => [ 'size' => 600 ],
+				'default'               => [ 'size' => 500 ],
 				'range'                 => [
 					'px' => [
 						'min'   => 100,
@@ -2537,9 +2540,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 	 */
 	public function get_slider_settings() {
 		$settings = $this->get_settings_for_display();
-		$pagination = $settings['dots'];
-
-		$effect = ( $settings['carousel_effect'] ) ? $settings['carousel_effect'] : 'slide';
+		$effect   = $settings['carousel_effect'] ?? 'slide';
 
 		if ( 'slide' === $effect ) {
 			$items         = ( isset( $settings['items']['size'] ) && $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
@@ -2549,91 +2550,88 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			$margin_tablet = ( isset( $settings['margin_tablet']['size'] ) && $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
 			$margin_mobile = ( isset( $settings['margin_mobile']['size'] ) && $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
 		} elseif ( 'coverflow' === $effect ) {
-			$items  = 3;
+			$items         = 3;
 			$items_tablet  = 2;
 			$items_mobile  = 1;
-			$margin = 10;
+			$margin        = 10;
 			$margin_tablet = 10;
 			$margin_mobile = 10;
 		} else {
-			$items  = 1;
+			$items         = 1;
 			$items_tablet  = 1;
 			$items_mobile  = 1;
-			$margin = 10;
+			$margin        = 10;
 			$margin_tablet = 10;
 			$margin_mobile = 10;
 		}
 
 		$slider_options = [
-			'direction'             => 'horizontal',
-			'effect'                => $effect,
-			'speed'                 => ( $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
-			'slidesPerView'         => $items,
-			'spaceBetween'          => $margin,
-			'centeredSlides'        => ( 'yes' === $settings['centered_slides'] ),
-			'grabCursor'            => ( 'yes' === $settings['grab_cursor'] ),
-			'autoHeight'            => true,
-			'watchSlidesVisibility' => true,
-			'watchSlidesProgress'   => true,
-			'loop'                  => ( 'yes' === $settings['infinite_loop'] ),
+			'effect'          => $effect,
+			'speed'           => ( $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 500,
+			'slides_per_view' => $items,
+			'space_between'   => $margin,
+			'auto_height'     => true,
+			'loop'            => ( 'yes' === $settings['infinite_loop'] ) ? 'yes' : '',
 		];
 
-		$autoplay_speed = 999999;
+		if ( 'yes' === $settings['grab_cursor'] ) {
+			$slider_options['grab_cursor'] = true;
+		}
+
+		if ( 'yes' === $settings['centered_slides'] ) {
+			$slider_options['centered_slides'] = true;
+		}
 
 		if ( 'yes' === $settings['autoplay'] ) {
+			$autoplay_speed = 999999;
+			$slider_options['autoplay'] = 'yes';
+
 			if ( isset( $settings['autoplay_speed']['size'] ) ) {
 				$autoplay_speed = $settings['autoplay_speed']['size'];
 			} elseif ( $settings['autoplay_speed'] ) {
 				$autoplay_speed = $settings['autoplay_speed'];
 			}
+
+			$slider_options['autoplay_speed'] = $autoplay_speed;
+			$slider_options['pause_on_interaction'] = ( 'yes' === $settings['pause_on_interaction'] ) ? 'yes' : '';
 		}
 
-		if ( 'fade' === $effect ) {
-			$slider_options['fadeEffect'] = array(
-				'crossFade' => true,
-			);
-		}
-
-		$slider_options['autoplay'] = [
-			'delay'                => $autoplay_speed,
-			'disableOnInteraction' => ( 'yes' === $settings['pause_on_interaction'] ),
-		];
-
-		if ( 'yes' === $pagination ) {
-			$slider_options['pagination'] = [
-				'el'        => '.swiper-pagination-' . esc_attr( $this->get_id() ),
-				'type'      => $settings['pagination_type'],
-				'clickable' => true,
-			];
+		if ( 'yes' === $settings['dots'] && $settings['pagination_type'] ) {
+			$slider_options['pagination'] = $settings['pagination_type'];
 		}
 
 		if ( 'yes' === $settings['arrows'] ) {
-			$slider_options['navigation'] = [
-				'nextEl' => '.swiper-button-next-' . esc_attr( $this->get_id() ),
-				'prevEl' => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
-			];
+			$slider_options['show_arrows'] = true;
 		}
 
-		$elementor_bp_lg = get_option( 'elementor_viewport_lg' );
-		$elementor_bp_md = get_option( 'elementor_viewport_md' );
-		$bp_desktop      = ! empty( $elementor_bp_lg ) ? $elementor_bp_lg : 1025;
-		$bp_tablet       = ! empty( $elementor_bp_md ) ? $elementor_bp_md : 768;
-		$bp_mobile       = 320;
+		$breakpoints = pp_lite_get_elementor()->breakpoints->get_active_breakpoints();
 
-		$slider_options['breakpoints'] = [
-			$bp_desktop   => [
-				'slidesPerView' => $items,
-				'spaceBetween'  => $margin,
-			],
-			$bp_tablet   => [
-				'slidesPerView' => $items_tablet,
-				'spaceBetween'  => $margin_tablet,
-			],
-			$bp_mobile   => [
-				'slidesPerView' => $items_mobile,
-				'spaceBetween'  => $margin_mobile,
-			],
-		];
+		foreach ( $breakpoints as $device => $breakpoint ) {
+			if ( in_array( $device, [ 'mobile', 'tablet', 'desktop' ] ) ) {
+				switch ( $device ) {
+					case 'desktop':
+						$slider_options['slides_per_view'] = absint( $items );
+						$slider_options['space_between'] = absint( $margin );
+						break;
+					case 'tablet':
+						$slider_options['slides_per_view_tablet'] = absint( $items_tablet );
+						$slider_options['space_between_tablet'] = absint( $margin_tablet );
+						break;
+					case 'mobile':
+						$slider_options['slides_per_view_mobile'] = absint( $items_mobile );
+						$slider_options['space_between_mobile'] = absint( $margin_mobile );
+						break;
+				}
+			} else {
+				if ( isset( $settings['items_' . $device]['size'] ) && $settings['items_' . $device]['size'] ) {
+					$slider_options['slides_per_view_' . $device] = absint( $settings['items_' . $device]['size'] );
+				}
+
+				if ( isset( $settings['margin_' . $device]['size'] ) && $settings['margin_' . $device]['size'] ) {
+					$slider_options['space_between_' . $device] = absint( $settings['margin_' . $device]['size'] );
+				}
+			}
+		}
 
 		return $slider_options;
 	}
@@ -2650,9 +2648,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		$this->add_render_attribute(
 			[
-				'wrapper'   => [
-					'class' => [ 'pp-info-box-carousel-wrap' ],
-				],
 				'container' => [
 					'class' => 'pp-info-box-container',
 				],
@@ -2665,8 +2660,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		if ( 'grid' === $settings['layout'] ) {
 
 			$this->add_render_attribute( 'container', 'class', 'elementor-grid' );
-			$this->add_render_attribute( 'info-box-wrap', 'class', 'pp-grid-item-wrap elementor-grid-item' );
-			$this->add_render_attribute( 'info-box', 'class', 'pp-grid-item' );
+			$this->add_render_attribute( 'info-box', 'class', 'elementor-grid-item' );
 
 			if ( 'yes' === $settings['equal_height_boxes'] ) {
 	
@@ -2675,24 +2669,13 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		} else {
 
-			$this->add_render_attribute( 'wrapper', 'class', [
-				'swiper-container-wrap',
-				//'swiper'
-			] );
-
-			if ( $settings['dots_position'] ) {
-				$this->add_render_attribute( 'wrapper', 'class', 'swiper-container-wrap-dots-' . $settings['dots_position'] );
-			} elseif ( 'fraction' === $settings['pagination_type'] ) {
-				$this->add_render_attribute( 'wrapper', 'class', 'swiper-container-wrap-dots-outside' );
-			}
-
 			if ( 'right' === $settings['direction'] || is_rtl() ) {
 				$this->add_render_attribute( 'container', 'dir', 'rtl' );
 			}
 
 			$slider_options = $this->get_slider_settings();
 
-			$swiper_class = \Elementor\Plugin::$instance->experiments->is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
+			$swiper_class = PP_Helper::is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
 
 			$this->add_render_attribute(
 				'container',
@@ -2702,7 +2685,13 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				]
 			);
 
-			$this->add_render_attribute( 'info-box-wrap', 'class', 'swiper-slide' );
+			if ( $settings['dots_position'] ) {
+				$this->add_render_attribute( 'container', 'class', 'swiper-container-wrap-dots-' . $settings['dots_position'] );
+			} elseif ( 'fraction' === $settings['pagination_type'] ) {
+				$this->add_render_attribute( 'container', 'class', 'swiper-container-wrap-dots-outside' );
+			}
+
+			$this->add_render_attribute( 'info-box', 'class', 'swiper-slide' );
 
 		}
 
@@ -2725,123 +2714,119 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			$this->add_render_attribute( 'icon', 'class', 'elementor-animation-' . $settings['icon_animation'] );
 		}
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container' ) ); ?>>
-				<?php if ( 'carousel' === $settings['layout'] ) { ?><div class="swiper-wrapper"><?php } ?>
-					<?php
-					$i = 1;
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container' ) ); ?>>
+			<?php if ( 'carousel' === $settings['layout'] ) { ?><div class="swiper-wrapper"><?php } ?>
+				<?php
+				$i = 1;
 
-					foreach ( $settings['pp_info_boxes'] as $index => $item ) :
-						$title_container_setting_key = $this->get_repeater_setting_key( 'title_container', 'info_boxes', $index );
-						$link_setting_key = $this->get_repeater_setting_key( 'link', 'info_boxes', $index );
+				foreach ( $settings['pp_info_boxes'] as $index => $item ) :
+					$title_container_setting_key = $this->get_repeater_setting_key( 'title_container', 'info_boxes', $index );
+					$link_setting_key = $this->get_repeater_setting_key( 'link', 'info_boxes', $index );
 
-						$this->add_render_attribute( $title_container_setting_key, 'class', 'pp-info-box-title-container' );
+					$this->add_render_attribute( $title_container_setting_key, 'class', 'pp-info-box-title-container' );
 
-						if ( 'none' !== $item['link_type'] ) {
-							if ( ! empty( $item['link']['url'] ) ) {
+					if ( 'none' !== $item['link_type'] ) {
+						if ( ! empty( $item['link']['url'] ) ) {
 
-								$this->add_link_attributes( $link_setting_key, $item['link'] );
+							$this->add_link_attributes( $link_setting_key, $item['link'] );
 
-								if ( 'title' === $item['link_type'] ) {
-									$title_container_tag = 'a';
-									$this->add_link_attributes( $title_container_setting_key, $item['link'] );
-								} elseif ( 'button' === $item['link_type'] ) {
-									$button_html_tag = 'a';
-								} elseif ( 'box' === $item['link_type'] ) {
-									$button_html_tag = 'div';
-								}
+							if ( 'title' === $item['link_type'] ) {
+								$title_container_tag = 'a';
+								$this->add_link_attributes( $title_container_setting_key, $item['link'] );
+							} elseif ( 'button' === $item['link_type'] ) {
+								$button_html_tag = 'a';
+							} elseif ( 'box' === $item['link_type'] ) {
+								$button_html_tag = 'div';
 							}
 						}
-						?>
-						<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-wrap' ) ); ?>>
-							<?php if ( 'box' === $item['link_type'] ) { ?>
-								<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
-							<?php } ?>
-							<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box' ) ); ?>>
-								<?php if ( 'none' !== $item['icon_type'] ) { ?>
-									<div class="pp-info-box-icon-wrap">
-										<?php if ( 'icon' === $item['link_type'] ) { ?>
-											<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
-										<?php } ?>
-										<?php $this->render_infobox_icon( $item ); ?>
-										<?php if ( 'icon' === $item['link_type'] ) { ?>
-											</a>
-										<?php } ?>
-									</div>
-								<?php } ?>
-								<div class="pp-info-box-content">
-									<div class="pp-info-box-title-wrap">
-										<?php
-										if ( '' !== $item['title'] ) {
-											$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
-											?>
-											<<?php echo esc_html( $title_container_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $title_container_setting_key ) ); ?>>
-												<<?php echo esc_html( $title_tag ); ?> class="pp-info-box-title">
-													<?php echo wp_kses_post( $item['title'] ); ?>
-												</<?php echo esc_html( $title_tag ); ?>>
-											</<?php echo esc_html( $title_container_tag ); ?>>
-											<?php
-										}
-
-										if ( '' !== $item['subtitle'] ) {
-											$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
-											?>
-											<<?php echo esc_html( $subtitle_tag ); ?> class="pp-info-box-subtitle">
-												<?php echo wp_kses_post( $item['subtitle'] ); ?>
-											</<?php echo esc_html( $subtitle_tag ); ?>>
-											<?php
-										}
-										?>
-									</div>
-
-									<?php if ( 'yes' === $settings['divider_title_switch'] ) { ?>
-										<div class="pp-info-box-divider-wrap">
-											<div class="pp-info-box-divider"></div>
-										</div>
+					}
+					?>
+					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box' ) ); ?>>
+						<?php if ( 'box' === $item['link_type'] ) { ?>
+							<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+						<?php } ?>
+							<?php if ( 'none' !== $item['icon_type'] ) { ?>
+								<div class="pp-info-box-icon-wrap">
+									<?php if ( 'icon' === $item['link_type'] ) { ?>
+										<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
 									<?php } ?>
-
-									<?php if ( ! empty( $item['description'] ) ) { ?>
-										<div class="pp-info-box-description">
-											<?php echo $this->parse_text_editor( $item['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-										</div>
-									<?php } ?>
-									<?php if ( 'button' === $item['link_type'] || ( 'box' === $item['link_type'] && 'yes' === $item['button_visible'] ) ) { ?>
-										<div class="pp-info-box-footer">
-											<<?php echo esc_html( $button_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-button' ) ); ?> <?php if ( 'button' === $item['link_type'] ) { echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); } ?>>
-												<?php
-												if ( 'before' === $item['button_icon_position'] ) {
-													$this->render_infobox_button_icon( $item );
-												}
-												?>
-												<?php if ( ! empty( $item['button_text'] ) ) { ?>
-													<span class="pp-button-text">
-														<?php echo wp_kses_post( $item['button_text'] ); ?>
-													</span>
-												<?php } ?>
-												<?php
-												if ( 'after' === $item['button_icon_position'] ) {
-													$this->render_infobox_button_icon( $item );
-												}
-												?>
-											</<?php echo esc_html( $button_html_tag ); ?>>
-										</div>
+									<?php $this->render_infobox_icon( $item ); ?>
+									<?php if ( 'icon' === $item['link_type'] ) { ?>
+										</a>
 									<?php } ?>
 								</div>
-							</div>
-							<?php if ( 'box' === $item['link_type'] ) { ?>
-								</a>
 							<?php } ?>
-						</div>
-						<?php $i++;
-					endforeach; ?>
-				<?php if ( 'carousel' === $settings['layout'] ) { ?></div><?php } ?>
-			</div>
+							<div class="pp-info-box-content">
+								<div class="pp-info-box-title-wrap">
+									<?php
+									if ( '' !== $item['title'] ) {
+										$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+										?>
+										<<?php echo esc_html( $title_container_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $title_container_setting_key ) ); ?>>
+											<<?php echo esc_html( $title_tag ); ?> class="pp-info-box-title">
+												<?php echo wp_kses_post( $item['title'] ); ?>
+											</<?php echo esc_html( $title_tag ); ?>>
+										</<?php echo esc_html( $title_container_tag ); ?>>
+										<?php
+									}
+
+									if ( '' !== $item['subtitle'] ) {
+										$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
+										?>
+										<<?php echo esc_html( $subtitle_tag ); ?> class="pp-info-box-subtitle">
+											<?php echo wp_kses_post( $item['subtitle'] ); ?>
+										</<?php echo esc_html( $subtitle_tag ); ?>>
+										<?php
+									}
+									?>
+								</div>
+
+								<?php if ( 'yes' === $settings['divider_title_switch'] ) { ?>
+									<div class="pp-info-box-divider-wrap">
+										<div class="pp-info-box-divider"></div>
+									</div>
+								<?php } ?>
+
+								<?php if ( ! empty( $item['description'] ) ) { ?>
+									<div class="pp-info-box-description">
+										<?php echo $this->parse_text_editor( $item['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+									</div>
+								<?php } ?>
+								<?php if ( 'button' === $item['link_type'] || ( 'box' === $item['link_type'] && 'yes' === $item['button_visible'] ) ) { ?>
+									<div class="pp-info-box-footer">
+										<<?php echo esc_html( $button_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-button' ) ); ?> <?php if ( 'button' === $item['link_type'] ) { echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); } ?>>
+											<?php
+											if ( 'before' === $item['button_icon_position'] ) {
+												$this->render_infobox_button_icon( $item );
+											}
+											?>
+											<?php if ( ! empty( $item['button_text'] ) ) { ?>
+												<span class="pp-button-text">
+													<?php echo wp_kses_post( $item['button_text'] ); ?>
+												</span>
+											<?php } ?>
+											<?php
+											if ( 'after' === $item['button_icon_position'] ) {
+												$this->render_infobox_button_icon( $item );
+											}
+											?>
+										</<?php echo esc_html( $button_html_tag ); ?>>
+									</div>
+								<?php } ?>
+							</div>
+						<?php if ( 'box' === $item['link_type'] ) { ?>
+							</a>
+						<?php } ?>
+					</div>
+					<?php $i++;
+				endforeach; ?>
+			<?php if ( 'carousel' === $settings['layout'] ) { ?></div><?php } ?>
 			<?php
 			if ( 'carousel' === $settings['layout'] ) {
 				$this->render_dots();
 
 				$this->render_arrows();
-            }
+			}
 			?>
 		</div>
 		<?php
@@ -2978,7 +2963,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		?>
 		<#
 			function get_slider_settings( settings ) {
-				var crossFade = false;
 
 				if ( settings.carousel_effect !== 'undefined' ) {
 					var $effect = settings.carousel_effect;
@@ -3006,53 +2990,57 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					$margin_mobile = 10;
 				}
 
-				if ( $effect == 'fade' ) {
-					crossFade = true;
+				var sliderOptions = {
+					effect:          $effect,
+					speed:           ( settings.slider_speed.size !== '' || settings.slider_speed.size !== undefined ) ? settings.slider_speed.size : 500,
+					slides_per_view: $items,
+					space_between:   $margin,
+					auto_height:     true,
+					loop:            ( 'yes' === settings.infinite_loop ) ? 'yes' : false,
+					centered_slides: ( 'yes' === settings.centered_slides ) ? 'yes' : false,
+					grab_cursor:     ( 'yes' === settings.grab_cursor ) ? 'yes' : false,
 				}
 
-				var $autoplay = ( settings.autoplay == 'yes' && settings.autoplay_speed.size != '' ) ? settings.autoplay_speed.size : 999999;
+				if ( 'yes' === settings.autoplay ) {
+					var $autoplay = ( '' !== settings.autoplay_speed.size ) ? settings.autoplay_speed.size : 999999;
 
-				return {
-					direction: "horizontal",
-					speed: ( settings.slider_speed.size !== '' || settings.slider_speed.size !== undefined ) ? settings.slider_speed.size : 400,
-					effect: $effect,
-					fadeEffect: {
-						crossFade: true,
-					},
-					slidesPerView: $items,
-					spaceBetween: $margin,
-					centeredSlides: ( settings.centered_slides === 'yes' ) ? true : false,
-					grabCursor: ( settings.grab_cursor === 'yes' ) ? true : false,
-					autoHeight: true,
-					loop: ( settings.infinite_loop === 'yes' ),
-					autoplay: {
-						delay: $autoplay,
-						disableOnInteraction: ( settings.disableOnInteraction === 'yes' ),
-					},
-					pagination: {
-						el: '.swiper-pagination',
-						type: settings.pagination_type,
-						clickable: true,
-					},
-					navigation: {
-						nextEl: '.elementor-swiper-button-next',
-						prevEl: '.elementor-swiper-button-prev',
-					},
-					breakpoints: {
-						<?php echo esc_attr( $bp_desktop ); ?>: {
-							slidesPerView: $items,
-							spaceBetween:  $margin
-						},
-						<?php echo esc_attr( $bp_tablet ); ?>: {
-							slidesPerView: $items_tablet,
-							spaceBetween:  $margin_tablet
-						},
-						<?php echo esc_attr( $bp_mobile ); ?>: {
-							slidesPerView: $items_mobile,
-							spaceBetween:  $margin_mobile
+					sliderOptions.autoplay = $autoplay;
+					sliderOptions.pause_on_interaction = ( 'yes' === settings.pause_on_interaction ) ? 'yes' : '';;
+				}
+
+				if ( 'yes' === settings.dots && settings.pagination_type ) {
+					sliderOptions.pagination = settings.pagination_type;
+				}
+
+				if ( 'yes' === settings.arrows ) {
+					sliderOptions.show_arrows = true;
+				}
+
+				breakpoints = elementorFrontend.config.responsive.activeBreakpoints;
+				Object.keys(breakpoints).forEach(breakpointName => {
+					if ( 'tablet' === breakpointName || 'mobile' === breakpointName ) {
+						switch(breakpointName) {
+							case 'tablet':
+								sliderOptions['slides_per_view_tablet'] = $items_tablet;
+								sliderOptions['space_between_tablet'] = $margin_tablet;
+								break;
+							case 'mobile':
+								sliderOptions['slides_per_view_mobile'] = $items_mobile;
+								sliderOptions['space_between_mobile'] = $margin_mobile;
+								break;
+						}
+					} else {
+						if ( settings['items_' + breakpointName].size !== '' || settings['items_' + breakpointName].size !== undefined ) {
+							sliderOptions['slides_per_view_' + breakpointName] = settings['items_' + breakpointName].size;
+						}
+
+						if ( settings['margin_' + breakpointName].size !== '' || settings['margin_' + breakpointName].size !== undefined ) {
+							sliderOptions['space_between_' + breakpointName] = settings['margin_' + breakpointName].size;
 						}
 					}
-				};
+				});
+
+				return sliderOptions;
 			};
 
 			function dots_template() {
@@ -3111,8 +3099,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				}
 			}
 
-			view.addRenderAttribute( 'wrapper', 'class', 'pp-info-box-carousel-wrap' );
-
 			view.addRenderAttribute( 'container', 'class', 'pp-info-box-container' );
 
 			view.addRenderAttribute( 'info-box', 'class', 'pp-info-box' );
@@ -3120,17 +3106,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
             if ( settings.layout == 'grid' ) {
 
 				view.addRenderAttribute( 'container', 'class', 'elementor-grid' );
-				view.addRenderAttribute( 'info-box-wrap', 'class', 'pp-grid-item-wrap elementor-grid-item' );
-				view.addRenderAttribute( 'info-box', 'class', 'pp-grid-item' );
+				view.addRenderAttribute( 'info-box', 'class', 'elementor-grid-item' );
 
 			} else {
-
-                view.addRenderAttribute(
-                    'wrapper',
-                    {
-                        'class': [ 'swiper-container-wrap', 'swiper-container-wrap-dots-' + settings.dots_position ],
-                    }
-                );
 
                 if ( settings.direction == 'auto' ) {
 					var direction = elementorFrontend.config.is_rtl ? 'rtl' : 'ltr';
@@ -3147,12 +3125,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 view.addRenderAttribute(
                     'container',
                     {
-                        'class': [ 'pp-info-box-carousel', 'pp-swiper-slider', elementorFrontend.config.swiperClass ],
+                        'class': [ 'pp-info-box-carousel', 'pp-swiper-slider', elementorFrontend.config.swiperClass, 'swiper-container-wrap-dots-' + settings.dots_position ],
                         'data-slider-settings': JSON.stringify( slider_options )
                     }
                 );
 
-				view.addRenderAttribute( 'info-box-wrap', 'class', 'swiper-slide' );
+				view.addRenderAttribute( 'info-box', 'class', 'swiper-slide' );
             }
 
 			var $title_container_tag = 'div',
@@ -3178,147 +3156,143 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			var iconsHTML = {},
 				migrated = {};
 		#>
-		<div {{{ view.getRenderAttributeString( 'wrapper' ) }}}>
-			<div {{{ view.getRenderAttributeString( 'container' ) }}}>
-				<# if ( settings.layout == 'carousel' ) { #><div class="swiper-wrapper"><# } #>
-				<#
-					var i = 1;
+		<div {{{ view.getRenderAttributeString( 'container' ) }}}>
+			<# if ( settings.layout == 'carousel' ) { #><div class="swiper-wrapper"><# } #>
+			<#
+				var i = 1;
 
-					_.each( settings.pp_info_boxes, function( item, index ) {
-					   
-						view.addRenderAttribute( 'title-container' + i, 'class', 'pp-info-box-title-container' );
+				_.each( settings.pp_info_boxes, function( item, index ) {
+					
+					view.addRenderAttribute( 'title-container' + i, 'class', 'pp-info-box-title-container' );
 
-						if ( item.link_type != 'none' ) {
-							if ( item.link.url ) {
-				   
-								view.addRenderAttribute( 'link' + i, 'href', item.link.url );
+					if ( item.link_type != 'none' ) {
+						if ( item.link.url ) {
+				
+							view.addRenderAttribute( 'link' + i, 'href', item.link.url );
 
-								if ( item.link.is_external ) {
-									view.addRenderAttribute( 'link' + i, 'target', '_blank' );
-								}
+							if ( item.link.is_external ) {
+								view.addRenderAttribute( 'link' + i, 'target', '_blank' );
+							}
 
-								if ( item.link.nofollow ) {
-									view.addRenderAttribute( 'link' + i, 'rel', 'nofollow' );
-								}
+							if ( item.link.nofollow ) {
+								view.addRenderAttribute( 'link' + i, 'rel', 'nofollow' );
+							}
 
-								if ( item.link_type == 'title' ) {
-									$title_container_tag = 'a';
-									view.addRenderAttribute( 'title-container' + i, 'href', item.link.url );
-								}
-								else if ( item.link_type == 'button' ) {
-									$button_html_tag = 'a';
-								}
+							if ( item.link_type == 'title' ) {
+								$title_container_tag = 'a';
+								view.addRenderAttribute( 'title-container' + i, 'href', item.link.url );
+							}
+							else if ( item.link_type == 'button' ) {
+								$button_html_tag = 'a';
 							}
 						}
-					#>
-					<div {{{ view.getRenderAttributeString( 'info-box-wrap' ) }}}>
-						<# if ( item.link_type == 'box' ) { #>
-							<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
-						<# } #>
-						<div {{{ view.getRenderAttributeString( 'info-box' ) }}}>
-							<# if ( item.icon_type != 'none' ) { #>
-								<div class="pp-info-box-icon-wrap">
-									<# if ( item.link_type == 'icon' ) { #>
-										<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
-									<# } #>
-									<span {{{ view.getRenderAttributeString( 'icon' ) }}}>
-										<# if ( item.icon_type == 'icon' ) { #>
-											<# if ( item.icon || item.selected_icon.value ) { #>
-												<#
-													iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
-													migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
-													if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.icon || migrated[ index ] ) ) { #>
-														{{{ iconsHTML[ index ].value }}}
-													<# } else { #>
-														<i class="{{ item.icon }}" aria-hidden="true"></i>
-													<# }
-												#>
-											<# } #>
-										<# } else if ( item.icon_type == 'image' ) { #>
+					}
+				#>
+				<div {{{ view.getRenderAttributeString( 'info-box' ) }}}>
+					<# if ( item.link_type == 'box' ) { #>
+						<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+					<# } #>
+						<# if ( item.icon_type != 'none' ) { #>
+							<div class="pp-info-box-icon-wrap">
+								<# if ( item.link_type == 'icon' ) { #>
+									<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+								<# } #>
+								<span {{{ view.getRenderAttributeString( 'icon' ) }}}>
+									<# if ( item.icon_type == 'icon' ) { #>
+										<# if ( item.icon || item.selected_icon.value ) { #>
 											<#
-											var image = {
-												id: item.image.id,
-												url: item.image.url,
-												size: settings.thumbnail_size,
-												dimension: settings.thumbnail_custom_dimension,
-												model: view.getEditModel()
-											};
-											var image_url = elementor.imagesManager.getImageUrl( image );
+												iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
+												migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
+												if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.icon || migrated[ index ] ) ) { #>
+													{{{ iconsHTML[ index ].value }}}
+												<# } else { #>
+													<i class="{{ item.icon }}" aria-hidden="true"></i>
+												<# }
 											#>
-											<img src="{{ _.escape( image_url ) }}" />
-										<# } else if ( item.icon_type == 'text' ) { #>
-											{{{ item.icon_text }}}
 										<# } #>
-									</span>
-									<# if ( item.link_type == 'icon' ) { #>
-										</a>
+									<# } else if ( item.icon_type == 'image' ) { #>
+										<#
+										var image = {
+											id: item.image.id,
+											url: item.image.url,
+											size: settings.thumbnail_size,
+											dimension: settings.thumbnail_custom_dimension,
+											model: view.getEditModel()
+										};
+										var image_url = elementor.imagesManager.getImageUrl( image );
+										#>
+										<img src="{{{ image_url }}}" />
+									<# } else if ( item.icon_type == 'text' ) { #>
+										{{{ item.icon_text }}}
 									<# } #>
-								</div>
-							<# } #>
-							<div class="pp-info-box-content">
-								<div class="pp-info-box-title-wrap">
-									<#
-										var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ),
-											subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.sub_title_html_tag );
-
-										if ( item.title ) {
-											#>
-											<{{{ $title_container_tag }}} {{{ view.getRenderAttributeString( 'title-container' + i ) }}}>
-
-											<{{{ titleHTMLTag }}} class="pp-info-box-title">
-											{{ item.title }}
-											</{{{ titleHTMLTag }}}>
-											</{{{ $title_container_tag }}}>
-											<#
-										}
-
-										if ( item.subtitle ) {
-											#>
-											<{{{ subtitleHTMLTag }}} class="pp-info-box-subtitle">
-											{{ item.subtitle }}
-											</{{{ subtitleHTMLTag }}}>
-											<#
-										}
-									#>
-								</div>
-
-								<# if ( settings.divider_title_switch == 'yes' ) { #>
-									<div class="pp-info-box-divider-wrap">
-										<div class="pp-info-box-divider"></div>
-									</div>
-								<# } #>
-
-								<# if ( item.description ) { #>
-									<div class="pp-info-box-description">
-										{{{ item.description }}}
-									</div>
-								<# } #>
-								<# if ( item.link_type == 'button' || ( item.link_type == 'box' && item.button_visible == 'yes' ) ) { #>
-									<div class="pp-info-box-footer">
-										<{{{ $button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' ) }}}>
-											<# if ( item.button_icon_position == 'before' ) { #>
-												<# button_icon_template( item, index ); #>
-											<# } #>
-											<# if ( item.button_text ) { #>
-												<span class="pp-button-text">
-													{{ item.button_text }}
-												</span>
-											<# } #>
-											<# if ( item.button_icon_position == 'after' ) { #>
-												<# button_icon_template( item, index ); #>
-											<# } #>
-										</{{{ $button_html_tag }}}>
-									</div>
+								</span>
+								<# if ( item.link_type == 'icon' ) { #>
+									</a>
 								<# } #>
 							</div>
-						</div>
-						<# if ( item.link_type == 'box' ) { #>
-							</a>
 						<# } #>
-					</div>
-				<# i++ } ); #>
-				<# if ( settings.layout == 'carousel' ) { #></div><# } #>
-			</div>
+						<div class="pp-info-box-content">
+							<div class="pp-info-box-title-wrap">
+								<#
+									var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ),
+										subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.sub_title_html_tag );
+
+									if ( item.title ) {
+										#>
+										<{{{ $title_container_tag }}} {{{ view.getRenderAttributeString( 'title-container' + i ) }}}>
+
+										<{{{ titleHTMLTag }}} class="pp-info-box-title">
+										{{ item.title }}
+										</{{{ titleHTMLTag }}}>
+										</{{{ $title_container_tag }}}>
+										<#
+									}
+
+									if ( item.subtitle ) {
+										#>
+										<{{{ subtitleHTMLTag }}} class="pp-info-box-subtitle">
+										{{ item.subtitle }}
+										</{{{ subtitleHTMLTag }}}>
+										<#
+									}
+								#>
+							</div>
+
+							<# if ( settings.divider_title_switch == 'yes' ) { #>
+								<div class="pp-info-box-divider-wrap">
+									<div class="pp-info-box-divider"></div>
+								</div>
+							<# } #>
+
+							<# if ( item.description ) { #>
+								<div class="pp-info-box-description">
+									{{{ item.description }}}
+								</div>
+							<# } #>
+							<# if ( item.link_type == 'button' || ( item.link_type == 'box' && item.button_visible == 'yes' ) ) { #>
+								<div class="pp-info-box-footer">
+									<{{{ $button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' ) }}}>
+										<# if ( item.button_icon_position == 'before' ) { #>
+											<# button_icon_template( item, index ); #>
+										<# } #>
+										<# if ( item.button_text ) { #>
+											<span class="pp-button-text">
+												{{ item.button_text }}
+											</span>
+										<# } #>
+										<# if ( item.button_icon_position == 'after' ) { #>
+											<# button_icon_template( item, index ); #>
+										<# } #>
+									</{{{ $button_html_tag }}}>
+								</div>
+							<# } #>
+						</div>
+					<# if ( item.link_type == 'box' ) { #>
+						</a>
+					<# } #>
+				</div>
+			<# i++ } ); #>
+			<# if ( settings.layout == 'carousel' ) { #></div><# } #>
 			<#
 			if ( settings.layout == 'carousel' ) {
 				dots_template();

@@ -42,6 +42,10 @@ class Twitter_Tweet extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Twitter_Tweet' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the twitter tweet widget depended on.
 	 *
@@ -56,7 +60,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 			'pp-jquery-plugin',
 			'jquery-cookie',
 			'twitter-widgets',
-			'powerpack-frontend',
+			'pp-twiiter',
 		);
 	}
 

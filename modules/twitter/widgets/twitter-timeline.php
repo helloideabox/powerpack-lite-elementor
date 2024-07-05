@@ -41,6 +41,10 @@ class Twitter_Timeline extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Twitter_Timeline' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the twitter timeline widget depended on.
 	 *
@@ -55,7 +59,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 			'pp-jquery-plugin',
 			'jquery-cookie',
 			'twitter-widgets',
-			'powerpack-frontend',
+			'pp-twiiter',
 		);
 	}
 

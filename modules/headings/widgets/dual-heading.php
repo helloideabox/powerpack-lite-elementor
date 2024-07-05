@@ -72,6 +72,10 @@ class Dual_Heading extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Dual_Heading' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register dual heading widget controls.
 	 *

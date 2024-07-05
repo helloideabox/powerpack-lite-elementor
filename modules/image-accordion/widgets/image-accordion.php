@@ -71,6 +71,10 @@ class Image_Accordion extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Image_Accordion' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the image accordion widget depended on.
 	 *
@@ -82,7 +86,7 @@ class Image_Accordion extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return array(
-			'powerpack-frontend',
+			'pp-image-accordion',
 		);
 	}
 
@@ -385,7 +389,6 @@ class Image_Accordion extends Powerpack_Widget {
 					'vertical'      => esc_html__( 'Vertical', 'powerpack' ),
 					'horizontal'    => esc_html__( 'Horizontal', 'powerpack' ),
 				],
-				'frontend_available'    => true,
 				'prefix_class'          => 'pp-image-accordion-orientation-',
 			]
 		);
@@ -402,7 +405,6 @@ class Image_Accordion extends Powerpack_Widget {
 					'mobile'    => esc_html__( 'Mobile', 'powerpack' ),
 					'none'      => esc_html__( 'None', 'powerpack' ),
 				],
-				'frontend_available'    => true,
 				'prefix_class'          => 'pp-image-accordion-stack-on-',
 				'condition'             => [
 					'orientation'   => 'vertical',
@@ -423,6 +425,9 @@ class Image_Accordion extends Powerpack_Widget {
 					'no'  => esc_html__( 'No', 'powerpack' ),
 				],
 				'frontend_available'    => true,
+				'condition'             => [
+					'accordion_action' => 'on-click',
+				],
 			]
 		);
 

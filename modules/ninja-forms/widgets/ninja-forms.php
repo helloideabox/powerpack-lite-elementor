@@ -45,6 +45,10 @@ class Ninja_Forms extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Ninja_Forms' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register ninja forms widget controls.
 	 *

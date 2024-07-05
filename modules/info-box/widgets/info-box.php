@@ -82,6 +82,10 @@ class Info_Box extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Info_Box' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register info box widget controls.
 	 *
@@ -312,7 +316,6 @@ class Info_Box extends Powerpack_Widget {
 					'icon_type!' => 'none',
 				),
 				'prefix_class'       => 'pp-info-box%s-',
-				'frontend_available' => true,
 			)
 		);
 

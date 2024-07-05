@@ -79,6 +79,10 @@ class Advanced_Accordion extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Advanced_Accordion' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the Advanced Accordion widget depended on.
 	 *
@@ -90,7 +94,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return array(
-			'powerpack-frontend',
+			'pp-advanced-accordion',
 		);
 	}
 
@@ -1423,7 +1427,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 					$image_url = $tab['image']['url'];
 				}
 
-				$image_html = '<div class="pp-showcase-preview-image">';
+				$image_html = '<div class="pp-accordion-preview-image">';
 
 				$image_html .= '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( Control_Media::get_image_alt( $tab['image'] ) ) . '">';
 
@@ -1433,15 +1437,15 @@ class Advanced_Accordion extends Powerpack_Widget {
 				break;
 
 			case 'section':
-				$output = \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_section'] );
+				$output = PP_Helper::elementor()->frontend->get_builder_content_for_display( $tab['saved_section'] );
 				break;
 
 			case 'template':
-				$output = \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['templates'] );
+				$output = PP_Helper::elementor()->frontend->get_builder_content_for_display( $tab['templates'] );
 				break;
 
 			case 'widget':
-				$output = \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $tab['saved_widget'] );
+				$output = PP_Helper::elementor()->frontend->get_builder_content_for_display( $tab['saved_widget'] );
 				break;
 
 			default:

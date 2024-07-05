@@ -95,6 +95,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Team_Member_Carousel' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the team member carousel widget depended on.
 	 *
@@ -107,7 +111,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 	public function get_script_depends() {
 		return array(
 			'swiper',
-			'powerpack-frontend',
+			'pp-carousel',
 		);
 	}
 
@@ -881,7 +885,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'label_on'           => __( 'Yes', 'powerpack' ),
 				'label_off'          => __( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
-				'frontend_available' => true,
 				'condition'          => array(
 					'autoplay' => 'yes',
 				),
@@ -2887,7 +2890,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			$this->add_render_attribute( 'team-member-carousel-wrap', 'class', 'swiper-container-wrap-dots-' . $settings['dots_position'] );
 		}
 
-		$swiper_class = \Elementor\Plugin::$instance->experiments->is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
+		$swiper_class = PP_Helper::is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
 
 		$this->add_render_attribute(
 			'team-member-carousel',
@@ -3091,7 +3094,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 	private static function render_share_icon( $network_name ) {
 		$network_icon_data = self::get_network_icon_data( $network_name );
 
-		if ( \Elementor\Plugin::$instance->experiments->is_feature_active( 'e_font_icon_svg' ) ) {
+		if ( PP_Helper::is_feature_active( 'e_font_icon_svg' ) ) {
 			$icon = Icons_Manager::render_font_icon( $network_icon_data );
 		} else {
 			$icon = sprintf( '<i class="%s" aria-hidden="true"></i>', $network_icon_data['value'] );

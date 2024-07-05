@@ -92,6 +92,10 @@ class Instafeed extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Instafeed' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the instagram feed widget depended on.
 	 *
@@ -108,7 +112,7 @@ class Instafeed extends Powerpack_Widget {
 				'isotope',
 				'imagesloaded',
 				'swiper',
-				'powerpack-frontend',
+				'pp-instafeed',
 			];
 		}
 
@@ -116,11 +120,11 @@ class Instafeed extends Powerpack_Widget {
 		$scripts = [];
 
 		if ( 'masonry' === $settings['feed_layout'] ) {
-			array_push( $scripts, 'isotope', 'imagesloaded', 'powerpack-frontend' );
+			array_push( $scripts, 'isotope', 'imagesloaded', 'pp-instafeed' );
 		}
 
 		if ( 'carousel' === $settings['feed_layout'] ) {
-			array_push( $scripts, 'swiper', 'powerpack-frontend' );
+			array_push( $scripts, 'swiper', 'pp-instafeed' );
 		}
 
 		return $scripts;
@@ -3050,7 +3054,6 @@ class Instafeed extends Powerpack_Widget {
 			'class',
 			array(
 				'pp-instagram-feed',
-				'clearfix',
 				'pp-instagram-feed-' . $layout,
 				'pp-instagram-feed-' . $settings['content_visibility'],
 			)
@@ -3085,7 +3088,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_render_attribute( 'container-wrap', 'class', 'pp-insta-feed-inner' );
 
 		if ( 'carousel' === $settings['feed_layout'] ) {
-			$swiper_class = \Elementor\Plugin::$instance->experiments->is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
+			$swiper_class = PP_Helper::is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
 
 			$this->add_render_attribute(
 				array(
@@ -3221,13 +3224,11 @@ class Instafeed extends Powerpack_Widget {
 
 			$item_link = $this->get_insta_image_url( $item, 'high' );
 
-			/* $this->add_render_attribute( $link_key, [
+			$this->add_render_attribute( $link_key, [
 				'data-elementor-open-lightbox'      => 'yes',
 				'data-elementor-lightbox-title'     => $thumbnail_alt,
 				'data-elementor-lightbox-slideshow' => 'pp-ig-' . $this->get_id(),
-			] ); */
-
-			$this->add_lightbox_data_attributes( $link_key, '', $settings['insta_image_popup'], $this->get_id() );
+			] );
 
 			/*if ( $this->_is_edit_mode ) {
 				$this->add_render_attribute( $link_key, 'class', 'elementor-clickable' );
@@ -3348,24 +3349,7 @@ class Instafeed extends Powerpack_Widget {
 		$settings = $this->get_settings();
 
 		if ( 'carousel' === $settings['feed_layout'] && 'yes' === $settings['arrows'] ) {
-			?>
-			<?php
-			if ( $settings['arrow'] ) {
-				$next_arrow = $settings['arrow'];
-				$prev_arrow = str_replace( 'right', 'left', $settings['arrow'] );
-			} else {
-				$next_arrow = 'fa fa-angle-right';
-				$prev_arrow = 'fa fa-angle-left';
-			}
-			?>
-			<!-- Add Arrows -->
-			<div class="pp-swiper-button pp-swiper-button-prev pp-slider-arrow pp-arrow-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
-				<i class="<?php echo esc_attr( $prev_arrow ); ?>"></i>
-			</div>
-			<div class="pp-swiper-button pp-swiper-button-next pp-slider-arrow pp-arrow-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
-				<i class="<?php echo esc_attr( $next_arrow ); ?>"></i>
-			</div>
-			<?php
+			PP_Helper::render_arrows( $this );
 		}
 	}
 }

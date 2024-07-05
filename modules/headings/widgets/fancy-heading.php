@@ -70,6 +70,10 @@ class Fancy_Heading extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Fancy_Heading' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register fancy heading widget controls.
 	 *

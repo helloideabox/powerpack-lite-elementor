@@ -52,6 +52,10 @@ class Price_Menu extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Price_Menu' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register price menu widget controls.
 	 *

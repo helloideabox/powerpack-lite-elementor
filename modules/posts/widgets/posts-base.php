@@ -42,9 +42,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 			'isotope',
 			'imagesloaded',
 			'swiper',
-			'powerpack-frontend-posts',
 			'powerpack-pp-posts',
-			'powerpack-frontend',
 		);
 	}
 

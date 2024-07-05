@@ -82,7 +82,7 @@ class Content_Ticker extends Powerpack_Widget {
 	public function get_script_depends() {
 		return array(
 			'swiper',
-			'powerpack-frontend',
+			'pp-carousel',
 		);
 	}
 
@@ -1936,34 +1936,32 @@ class Content_Ticker extends Powerpack_Widget {
 		$settings = $this->get_settings();
 
 		$slider_options = array(
-			'direction'     => 'horizontal',
-			'speed'         => ( '' !== $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
-			'effect'        => ( $settings['ticker_effect'] ) ? $settings['ticker_effect'] : 'fade',
-			'slidesPerView' => 1,
-			'grabCursor'    => ( 'yes' === $settings['grab_cursor'] ),
-			'autoHeight'    => false,
-			'loop'          => ( 'yes' === $settings['loop'] ),
+			'direction'       => 'horizontal',
+			'speed'           => ( $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 400,
+			'effect'          => ( $settings['ticker_effect'] ) ? $settings['ticker_effect'] : 'fade',
+			'slides_per_view' => 1,
+			'auto_height'     => false,
+			'loop'            => ( 'yes' === $settings['loop'] ) ? 'yes' : '',
 		);
 
-		$slider_options['fadeEffect'] = array(
-			'crossFade' => true,
-		);
-
-		if ( 'yes' === $settings['autoplay'] && ! empty( $settings['autoplay_speed'] ) ) {
-			$autoplay_speed = $settings['autoplay_speed'];
-		} else {
-			$autoplay_speed = 999999;
+		if ( 'yes' === $settings['grab_cursor'] ) {
+			$slider_options['grab_cursor'] = true;
 		}
 
-		$slider_options['autoplay'] = array(
-			'delay' => $autoplay_speed,
-		);
+		if ( 'yes' === $settings['autoplay'] ) {
+			$autoplay_speed = 999999;
+			$slider_options['autoplay'] = 'yes';
+
+			if ( ! empty( $settings['autoplay_speed'] ) ) {
+				$autoplay_speed = $settings['autoplay_speed'];
+			}
+
+			$slider_options['autoplay_speed'] = $autoplay_speed;
+			$slider_options['pause_on_interaction'] = ( 'yes' === $settings['pause_on_interaction'] ) ? 'yes' : '';
+		}
 
 		if ( 'yes' === $settings['arrows'] ) {
-			$slider_options['navigation'] = array(
-				'nextEl' => '.swiper-button-next-' . esc_attr( $this->get_id() ),
-				'prevEl' => '.swiper-button-prev-' . esc_attr( $this->get_id() ),
-			);
+			$slider_options['show_arrows'] = true;
 		}
 
 		$this->add_render_attribute(
@@ -2126,14 +2124,14 @@ class Content_Ticker extends Powerpack_Widget {
 			}
 
 			if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
-				<div class="elementor-icon elementor-swiper-button elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
+				<div class="pp-slider-arrow elementor-icon elementor-swiper-button elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
 					<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $prev_arrow, [ 'aria-hidden' => 'true' ] );
 					else : ?>
 						<i <?php $this->print_render_attribute_string( 'arrow-icon' ); ?>></i>
 					<?php endif; ?>
 				</div>
-				<div class="elementor-icon elementor-swiper-button elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
+				<div class="pp-slider-arrow elementor-icon elementor-swiper-button elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
 					<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $next_arrow, [ 'aria-hidden' => 'true' ] );
 					else : ?>

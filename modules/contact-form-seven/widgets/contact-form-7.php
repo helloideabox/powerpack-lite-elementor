@@ -65,6 +65,10 @@ class Contact_Form_7 extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Contact_Form_7' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register contact form 7 widget controls.
 	 *

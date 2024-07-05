@@ -43,7 +43,6 @@ class Extension_Custom_Cursor extends Extension_Base {
 	public function get_script_depends() {
 		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
 			return array(
-				'powerpack-frontend',
 				'pp-custom-cursor',
 			);
 		}
@@ -397,7 +396,6 @@ class Extension_Custom_Cursor extends Extension_Base {
 
 			if ( 'yes' === $settings['pp_custom_cursor_enable'] ) {
 				if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() || ! \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
-					wp_enqueue_script( 'powerpack-frontend' );
 					wp_enqueue_script( 'pp-custom-cursor' );
 				}
 

@@ -73,6 +73,10 @@ class Pricing_Table extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Pricing_Table' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the pricing table widget depended on.
 	 *
@@ -88,7 +92,7 @@ class Pricing_Table extends Powerpack_Widget {
 		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
 			return array(
 				'pp-tooltipster',
-				'powerpack-frontend',
+				'pp-pricing-table',
 			);
 		}
 
@@ -96,7 +100,7 @@ class Pricing_Table extends Powerpack_Widget {
 		$scripts = [];
 
 		if ( 'yes' === $settings['show_tooltip'] ) {
-			array_push( $scripts, 'pp-tooltipster', 'powerpack-frontend' );
+			array_push( $scripts, 'pp-tooltipster', 'pp-pricing-table' );
 		}
 
 		return $scripts;

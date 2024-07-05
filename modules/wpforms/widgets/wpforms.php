@@ -49,6 +49,10 @@ class WPforms extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'WP_Forms' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register wpforms widget controls.
 	 *

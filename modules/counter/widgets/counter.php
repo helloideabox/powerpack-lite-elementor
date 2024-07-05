@@ -10,6 +10,8 @@ use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Text_Shadow;
+use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
@@ -71,6 +73,10 @@ class Counter extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Counter' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Retrieve the list of scripts the counter widget depended on.
 	 *
@@ -82,24 +88,8 @@ class Counter extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return array(
-			'elementor-waypoints',
-			'odometer',
-			'powerpack-frontend',
-		);
-	}
-
-	/**
-	 * Retrieve the list of styles the counter widget depended on.
-	 *
-	 * Used to set style dependencies required to run the widget.
-	 *
-	 * @access public
-	 *
-	 * @return array Widget scripts dependencies.
-	 */
-	public function get_style_depends() {
-		return array(
-			'odometer',
+			'jquery-numerator',
+			'pp-counter',
 		);
 	}
 
@@ -119,8 +109,7 @@ class Counter extends Powerpack_Widget {
 		/* Style Tab */
 		$this->register_style_counter_icon_controls();
 		$this->register_style_counter_number_controls();
-		$this->register_style_number_prefix_controls();
-		$this->register_style_number_suffix_controls();
+		$this->register_style_number_divider_controls();
 		$this->register_style_title_controls();
 	}
 
@@ -172,6 +161,9 @@ class Counter extends Powerpack_Widget {
 				'dynamic'               => [
 					'active'   => true,
 				],
+				'ai'                    => [
+					'active'   => false,
+				],
 			]
 		);
 
@@ -182,6 +174,9 @@ class Counter extends Powerpack_Widget {
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
+				],
+				'ai'                    => [
+					'active'   => false,
 				],
 			]
 		);
@@ -226,6 +221,8 @@ class Counter extends Powerpack_Widget {
 					''  => 'Default',
 					'.' => 'Dot',
 					' ' => 'Space',
+					'_' => 'Underline',
+					"'" => 'Apostrophe',
 				],
 				'condition' => [
 					'thousand_separator' => 'yes',
@@ -429,7 +426,7 @@ class Counter extends Powerpack_Widget {
 				'range'                 => [
 					'px' => [
 						'min'   => 100,
-						'max'   => 2000,
+						'max'   => 3000,
 						'step'  => 1,
 					],
 				],
@@ -856,14 +853,14 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'counter_num_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => __( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-counter-number' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-counter-number-wrap' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -871,12 +868,27 @@ class Counter extends Powerpack_Widget {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'                  => 'counter_num_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
-				'global'                => [
+				'name'                 => 'counter_num_typography',
+				'global'               => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
-				'selector'              => '{{WRAPPER}} .pp-counter-number-wrap',
+				'selector'             => '{{WRAPPER}} .pp-counter-number-wrap',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name'                 => 'counter_num_stroke',
+				'selector'             => '{{WRAPPER}} .pp-counter-number-wrap',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'                 => 'counter_num_shadow',
+				'selector'             => '{{WRAPPER}} .pp-counter-number-wrap',
 			]
 		);
 
@@ -899,11 +911,95 @@ class Counter extends Powerpack_Widget {
 		);
 
 		$this->add_control(
-			'num_divider_heading',
+			'number_prefix_heading',
 			[
-				'label'                 => __( 'Number Divider', 'powerpack' ),
+				'label'                 => __( 'Number Prefix', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
+				'condition'             => [
+					'number_prefix!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'number_prefix_color',
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-counter-number-prefix' => 'color: {{VALUE}};',
+				],
+				'condition'             => [
+					'number_prefix!' => '',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'                  => 'number_prefix_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'selector'              => '{{WRAPPER}} .pp-counter-number-prefix',
+				'condition'             => [
+					'number_prefix!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'number_suffix_heading',
+			[
+				'label'                 => __( 'Number Suffix', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+				'condition'             => [
+					'number_prefix!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'section_number_suffix_color',
+			[
+				'label'                 => __( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-counter-number-suffix' => 'color: {{VALUE}};',
+				],
+				'condition'             => [
+					'number_suffix!' => '',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'                  => 'section_number_suffix_typography',
+				'label'                 => __( 'Typography', 'powerpack' ),
+				'selector'              => '{{WRAPPER}} .pp-counter-number-suffix',
+				'condition'             => [
+					'number_suffix!' => '',
+				],
+			]
+		);
+		
+		$this->end_controls_section();
+	}
+
+	protected function register_style_number_divider_controls() {
+		/**
+		 * Style Tab: Prefix
+		 */
+		$this->start_controls_section(
+			'section_number_divider_style',
+			[
+				'label'                 => __( 'Number Divider', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'num_divider'       => 'yes',
 					'counter_layout'    => [
@@ -1067,102 +1163,6 @@ class Counter extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	protected function register_style_number_prefix_controls() {
-		/**
-		 * Style Tab: Prefix
-		 */
-		$this->start_controls_section(
-			'section_number_prefix_style',
-			[
-				'label'                 => __( 'Prefix', 'powerpack' ),
-				'tab'                   => Controls_Manager::TAB_STYLE,
-				'condition'             => [
-					'number_prefix!' => '',
-				],
-			]
-		);
-
-		$this->add_control(
-			'number_prefix_color',
-			[
-				'label'                 => __( 'Color', 'powerpack' ),
-				'type'                  => Controls_Manager::COLOR,
-				'global'                => [
-					'default' => Global_Colors::COLOR_PRIMARY,
-				],
-				'default'               => '',
-				'selectors'             => [
-					'{{WRAPPER}} .pp-counter-number-prefix' => 'color: {{VALUE}};',
-				],
-				'condition'             => [
-					'number_prefix!' => '',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'                  => 'number_prefix_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
-				'selector'              => '{{WRAPPER}} .pp-counter-number-prefix',
-				'condition'             => [
-					'number_prefix!' => '',
-				],
-			]
-		);
-
-		$this->end_controls_section();
-	}
-
-	protected function register_style_number_suffix_controls() {
-		/**
-		 * Style Tab: Suffix
-		 */
-		$this->start_controls_section(
-			'section_number_suffix_style',
-			[
-				'label'                 => __( 'Suffix', 'powerpack' ),
-				'tab'                   => Controls_Manager::TAB_STYLE,
-				'condition'             => [
-					'number_suffix!' => '',
-				],
-			]
-		);
-
-		$this->add_control(
-			'section_number_suffix_color',
-			[
-				'label'                 => __( 'Color', 'powerpack' ),
-				'type'                  => Controls_Manager::COLOR,
-				'global'                => [
-					'default' => Global_Colors::COLOR_PRIMARY,
-				],
-				'default'               => '',
-				'selectors'             => [
-					'{{WRAPPER}} .pp-counter-number-suffix' => 'color: {{VALUE}};',
-				],
-				'condition'             => [
-					'number_suffix!' => '',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'                  => 'section_number_suffix_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
-				'selector'              => '{{WRAPPER}} .pp-counter-number-suffix',
-				'condition'             => [
-					'number_suffix!' => '',
-				],
-			]
-		);
-
-		$this->end_controls_section();
-	}
-
 	protected function register_style_title_controls() {
 		/**
 		 * Style Tab: Title
@@ -1230,11 +1230,27 @@ class Counter extends Powerpack_Widget {
 				'label'                 => __( 'Typography', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-counter-title',
 				'global'                => [
-					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'condition'             => [
 					'counter_title!' => '',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name'                 => 'counter_title_stroke',
+				'selector'             => '{{WRAPPER}} .pp-counter-title',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'                 => 'counter_title_shadow',
+				'selector'             => '{{WRAPPER}} .pp-counter-title',
 			]
 		);
 
@@ -1278,6 +1294,28 @@ class Counter extends Powerpack_Widget {
 				],
 				'selector'              => '{{WRAPPER}} .pp-counter-subtitle',
 				'condition'             => [
+					'counter_subtitle!' => '',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name'                 => 'counter_subtitle_stroke',
+				'selector'             => '{{WRAPPER}} .pp-counter-subtitle',
+				'condition'            => [
+					'counter_subtitle!' => '',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'                 => 'counter_subtitle_shadow',
+				'selector'             => '{{WRAPPER}} .pp-counter-subtitle',
+				'condition'            => [
 					'counter_subtitle!' => '',
 				],
 			]
@@ -1346,23 +1384,25 @@ class Counter extends Powerpack_Widget {
 		$this->add_render_attribute([
 			'counter' => [
 				'class' => [
-					'pp-counter pp-counter-' . esc_attr( $this->get_id() ),
+					'pp-counter',
 					'pp-counter-' . $settings['counter_layout'],
 				],
-				'data-target' => '.pp-counter-number-' . esc_attr( $this->get_id() ),
 			],
 			'counter-number' => [
-				'class'               => 'pp-counter-number pp-counter-number-' . esc_attr( $this->get_id() ),
-				'data-from'           => $starting_number,
-				'data-to'             => $ending_number,
-				'data-speed'          => $counter_speed,
-				'data-separator'      => $settings['thousand_separator'],
-				'data-separator-char' => $settings['thousand_separator_char'],
+				'class'           => 'pp-counter-number pp-counter-number-' . esc_attr( $this->get_id() ),
+				'data-duration'   => $counter_speed,
+				'data-to-value'   => $ending_number,
+				'data-from-value' => $starting_number,
 			],
 		]);
+
+		if ( ! empty( $settings['thousand_separator'] ) ) {
+			$delimiter = empty( $settings['thousand_separator_char'] ) ? ',' : $settings['thousand_separator_char'];
+			$this->add_render_attribute( 'counter-number', 'data-delimiter', $delimiter );
+		}
 		?>
 		<div class="pp-counter-container">
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'counter' ) ); ?>>
+			<div <?php $this->print_render_attribute_string( 'counter' ); ?>>
 				<?php if ( 'layout-1' === $settings['counter_layout'] || 'layout-5' === $settings['counter_layout'] || 'layout-6' === $settings['counter_layout'] ) { ?>
 					<?php
 						// Counter Icon
@@ -1532,7 +1572,7 @@ class Counter extends Powerpack_Widget {
 					if ( $is_new || $migrated ) {
 						Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] );
 					} elseif ( ! empty( $settings['counter_icon'] ) ) {
-						?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i><?php
+						?><i <?php $this->print_render_attribute_string( 'i' ); ?>></i><?php
 					}
 					?>
 				</span>
@@ -1578,7 +1618,7 @@ class Counter extends Powerpack_Widget {
 				<?php
 			}
 			?>
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'counter-number' ) ); ?>>
+			<div <?php $this->print_render_attribute_string( 'counter-number' ); ?>>
 				<?php
 					$starting_number = ( $settings['starting_number'] ) ? $settings['starting_number'] : 0;
 					echo esc_attr( $starting_number );
@@ -1617,7 +1657,7 @@ class Counter extends Powerpack_Widget {
 				if ( $settings['counter_title'] ) {
 					$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
 					?>
-					<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'counter_title' ) ); ?>>
+					<<?php echo esc_html( $title_tag ); ?> <?php $this->print_render_attribute_string( 'counter_title' ); ?>>
 						<?php echo esc_attr( $settings['counter_title'] ); ?>
 					</<?php echo esc_html( $title_tag ); ?>>
 					<?php
@@ -1625,7 +1665,7 @@ class Counter extends Powerpack_Widget {
 				if ( $settings['counter_subtitle'] ) {
 					$subtitle_tag = PP_Helper::validate_html_tag( $settings['subtitle_html_tag'] );
 					?>
-					<<?php echo esc_html( $subtitle_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'counter_subtitle' ) ); ?>>
+					<<?php echo esc_html( $subtitle_tag ); ?> <?php $this->print_render_attribute_string( 'counter_subtitle' ); ?>>
 						<?php echo esc_attr( $settings['counter_subtitle'] ); ?>
 					</<?php echo esc_html( $subtitle_tag ); ?>>
 					<?php
@@ -1699,6 +1739,23 @@ class Counter extends Powerpack_Widget {
 			function number_template() { #>
 				<div class="pp-counter-number-wrap">
 					<#
+						var duration = ( settings.counter_speed.size ) ? settings.counter_speed.size : '1500';
+
+						view.addRenderAttribute(
+							'counter-number',
+							{
+								'class': 'pp-counter-number',
+								'data-duration': duration,
+								'data-to-value': settings.ending_number,
+								'data-from-value': settings.starting_number,
+							}
+						);
+
+						if ( settings.thousand_separator ) {
+							const delimiter = settings.thousand_separator_char ? settings.thousand_separator_char : ',';
+							view.addRenderAttribute( 'counter-number', 'data-delimiter', delimiter );
+						}
+
 						if ( settings.number_prefix != '' ) {
 							var prefix = settings.number_prefix;
 
@@ -1709,7 +1766,7 @@ class Counter extends Powerpack_Widget {
 							print( prefix_html );
 						}
 					#>
-					<div class="pp-counter-number" data-from="{{ settings.starting_number }}" data-to="{{ settings.ending_number }}" data-speed="{{ settings.counter_speed.size }}" data-separator="{{ settings.thousand_separator }}" data-separator-char="{{ settings.thousand_separator_char }}">
+					<div {{{ view.getRenderAttributeString( 'counter-number' ) }}}>
 						{{{ settings.starting_number }}}
 					</div>
 					<#
@@ -1765,7 +1822,7 @@ class Counter extends Powerpack_Widget {
 		#>
 
 		<div class="pp-counter-container">
-			<div class="pp-counter pp-counter-{{ settings.counter_layout }}" data-target=".pp-counter-number">
+			<div class="pp-counter pp-counter-{{ settings.counter_layout }}">
 				<# if ( settings.counter_layout == 'layout-1' || settings.counter_layout == 'layout-5' || settings.counter_layout == 'layout-6' ) { #>
 					<# icon_template(); #>
 

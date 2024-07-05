@@ -74,6 +74,10 @@ class Team_Member extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Team_Member' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register team member widget controls.
 	 *

@@ -73,6 +73,10 @@ class Info_Table extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Info_Table' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register info table widget controls.
 	 *

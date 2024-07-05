@@ -65,8 +65,12 @@ class Business_Hours extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Business_Hours' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
-	 * Register business hours widget controls.
+	 * Register Business Hours widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
@@ -229,7 +233,7 @@ class Business_Hours extends Powerpack_Widget {
 			array(
 				'label'       => __( 'Closed Text', 'powerpack' ),
 				'type'        => Controls_Manager::TEXT,
-				'label_block' => true,
+				'label_block' => false,
 				'placeholder' => __( 'Closed', 'powerpack' ),
 				'default'     => __( 'Closed', 'powerpack' ),
 				'conditions'  => array(
@@ -336,6 +340,9 @@ class Business_Hours extends Powerpack_Widget {
 				'label'   => __( 'Day', 'powerpack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => __( 'Monday', 'powerpack' ),
+				'ai'      => [
+					'active' => false,
+				],
 			)
 		);
 
@@ -357,6 +364,9 @@ class Business_Hours extends Powerpack_Widget {
 				'label'     => __( 'Time', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '09:00 AM - 05:00 PM',
+				'ai'        => [
+					'active' => false,
+				],
 				'condition' => array(
 					'closed' => 'no',
 				),
@@ -368,7 +378,7 @@ class Business_Hours extends Powerpack_Widget {
 			array(
 				'label'       => __( 'Closed Text', 'powerpack' ),
 				'type'        => Controls_Manager::TEXT,
-				'label_block' => true,
+				'label_block' => false,
 				'placeholder' => __( 'Closed', 'powerpack' ),
 				'default'     => __( 'Closed', 'powerpack' ),
 				'conditions'  => array(
@@ -1034,7 +1044,7 @@ class Business_Hours extends Powerpack_Widget {
 	}
 
 	/**
-	 * Render business hours widget output on the frontend.
+	 * Render Business Hours widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
@@ -1045,7 +1055,7 @@ class Business_Hours extends Powerpack_Widget {
 
 		$this->add_render_attribute( 'business-hours', 'class', 'pp-business-hours' );
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'business-hours' ) ); ?>>
+		<div <?php $this->print_render_attribute_string( 'business-hours' ); ?>>
 			<?php
 			if ( 'predefined' === $settings['business_timings'] ) {
 				$this->render_business_hours_predefined();
@@ -1058,7 +1068,7 @@ class Business_Hours extends Powerpack_Widget {
 	}
 
 	/**
-	 * Render predefined business hours widget output on the frontend.
+	 * Render predefined Business Hours widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
@@ -1080,7 +1090,7 @@ class Business_Hours extends Powerpack_Widget {
 				$this->add_render_attribute( $row_setting_key, 'class', 'row-closed' );
 			}
 			?>
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( $row_setting_key ) ); ?>>
+			<div <?php $this->print_render_attribute_string( $row_setting_key ); ?>>
 				<span class="pp-business-day">
 					<?php
 					if ( 'long' === $settings['days_format'] ) {
@@ -1113,7 +1123,7 @@ class Business_Hours extends Powerpack_Widget {
 						</span>
 					<?php } else {
 						if ( $item['closed_text'] ) {
-							echo esc_attr( $item['closed_text'] );
+							$this->print_unescaped_setting( 'closed_text', 'business_hours', $index );
 						} else {
 							esc_attr_e( 'Closed', 'powerpack' );
 						}
@@ -1125,7 +1135,7 @@ class Business_Hours extends Powerpack_Widget {
 	}
 
 	/**
-	 * Render custom business hours widget output on the frontend.
+	 * Render custom Business Hours widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
@@ -1148,7 +1158,7 @@ class Business_Hours extends Powerpack_Widget {
 					$this->add_render_attribute( $row_setting_key, 'class', 'row-closed' );
 				}
 				?>
-				<div <?php echo wp_kses_post( $this->get_render_attribute_string( $row_setting_key ) ); ?>>
+				<div <?php $this->print_render_attribute_string( $row_setting_key ); ?>>
 					<?php if ( $item['day'] ) { ?>
 						<span class="pp-business-day">
 							<?php
@@ -1162,7 +1172,7 @@ class Business_Hours extends Powerpack_Widget {
 							echo esc_attr( $item['time'] );
 						} else {
 							if ( $item['closed_text'] ) {
-								echo esc_attr( $item['closed_text'] );
+								$this->print_unescaped_setting( 'closed_text', 'business_hours', $index );
 							} else {
 								esc_attr_e( 'Closed', 'powerpack' );
 							}
@@ -1176,7 +1186,7 @@ class Business_Hours extends Powerpack_Widget {
 	}
 
 	/**
-	 * Render business hours widget output in the editor.
+	 * Render Business Hours widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *

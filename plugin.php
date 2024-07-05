@@ -189,6 +189,136 @@ class PowerpackLitePlugin {
 		$path = ( PP_Helper::is_script_debug() ) ? 'assets/js/' : 'assets/js/min/';
 
 		wp_register_script(
+			'pp-advanced-accordion',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-accordion' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-buttons',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-buttons' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-carousel',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-carousel' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-content-reveal',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-content-reveal' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-counter',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-counter' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-gravity-forms',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-gravity-forms' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-hotspots',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-hotspots' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-image-accordion',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-image-accordion' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-image-comparison',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-image-comparison' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-instafeed',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-instafeed' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-scroll-image',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-scroll-image' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-pricing-table',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-pricing-table' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-twitter',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-twitter' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
 			'isotope',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/isotope/isotope.pkgd' . $suffix . '.js',
 			array(
@@ -260,7 +390,7 @@ class PowerpackLitePlugin {
 
 		wp_register_script(
 			'powerpack-pp-posts',
-			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-posts' . $suffix . '.js',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-posts' . $suffix . '.js',
 			[
 				'jquery',
 			],
@@ -288,16 +418,6 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
-			'powerpack-frontend',
-			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend' . $suffix . '.js',
-			[
-				'jquery',
-			],
-			POWERPACK_ELEMENTS_LITE_VER,
-			true
-		);
-
-		wp_register_script(
 			'pp-animated-gradient-bg',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-gradient-bg-animation' . $suffix . '.js',
 			array(
@@ -310,6 +430,16 @@ class PowerpackLitePlugin {
 		wp_register_script(
 			'pp-custom-cursor',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-custom-cursor' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-wrapper-link',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-wrapper-link' . $suffix . '.js',
 			array(
 				'jquery',
 			),

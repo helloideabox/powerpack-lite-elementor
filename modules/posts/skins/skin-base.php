@@ -119,7 +119,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'prefix_class'       => 'elementor-grid%s-',
 				'render_type'        => 'template',
-				'frontend_available' => true,
 			)
 		);
 
@@ -170,7 +169,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 				),
-				'frontend_available' => true,
 			)
 		);
 
@@ -180,7 +178,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'              => __( 'Animation Speed', 'powerpack' ),
 				'type'               => Controls_Manager::NUMBER,
 				'default'            => 600,
-				'frontend_available' => true,
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 				),
@@ -196,7 +193,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label_on'           => __( 'Yes', 'powerpack' ),
 				'label_off'          => __( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
-				'frontend_available' => true,
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 				),
@@ -212,7 +208,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label_on'           => __( 'Yes', 'powerpack' ),
 				'label_off'          => __( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
-				'frontend_available' => true,
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 				),
@@ -228,7 +223,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label_on'           => __( 'Yes', 'powerpack' ),
 				'label_off'          => __( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
-				'frontend_available' => true,
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 				),
@@ -241,7 +235,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label'              => __( 'Autoplay Speed', 'powerpack' ),
 				'type'               => Controls_Manager::NUMBER,
 				'default'            => 3000,
-				'frontend_available' => true,
 				'condition'          => array(
 					$this->get_control_id( 'layout' )   => 'carousel',
 					$this->get_control_id( 'autoplay' ) => 'yes',
@@ -258,7 +251,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label_on'           => __( 'Yes', 'powerpack' ),
 				'label_off'          => __( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
-				'frontend_available' => true,
 				'condition'          => array(
 					$this->get_control_id( 'layout' )   => 'carousel',
 					$this->get_control_id( 'autoplay' ) => 'yes',
@@ -275,7 +267,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label_on'           => __( 'Yes', 'powerpack' ),
 				'label_off'          => __( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
-				'frontend_available' => true,
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 				),
@@ -291,7 +282,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label_on'           => __( 'Yes', 'powerpack' ),
 				'label_off'          => __( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
-				'frontend_available' => true,
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 				),
@@ -307,7 +297,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label_on'              => __( 'Yes', 'powerpack' ),
 				'label_off'             => __( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
-				'frontend_available'    => true,
 			]
 		);
 
@@ -329,7 +318,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					),
 				),
 				'default'            => 'left',
-				'frontend_available' => true,
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 				),
@@ -414,7 +402,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'label_on'           => __( 'Yes', 'powerpack' ),
 				'label_off'          => __( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
-				'frontend_available' => true,
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => array( 'grid', 'masonry' ),
 				),
@@ -4707,11 +4694,15 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		}
 
 		if ( 'carousel' === $layout ) {
+			$swiper_class = PP_Helper::is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
 			$classes[] = 'pp-posts-carousel';
 			$classes[] = 'pp-swiper-slider';
-			$classes[] = 'swiper-container';
-		} else {
+			$classes[] = $swiper_class;
+		} elseif ( 'masonry' === $layout ) {
 			$classes[] = 'pp-elementor-grid';
+			$classes[] = 'pp-posts-grid';
+		} else {
+			$classes[] = 'elementor-grid';
 			$classes[] = 'pp-posts-grid';
 		}
 
@@ -4925,81 +4916,83 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$adaptive_height = $this->get_instance_value( 'adaptive_height' );
 		$direction       = $this->get_instance_value( 'direction' );
 
-		$slides_to_show          = ( $this->get_instance_value( 'columns' ) !== '' ) ? absint( $this->get_instance_value( 'columns' ) ) : 3;
-		$slides_to_show_tablet   = ( $this->get_instance_value( 'columns_tablet' ) !== '' ) ? absint( $this->get_instance_value( 'columns_tablet' ) ) : 2;
-		$slides_to_show_mobile   = ( $this->get_instance_value( 'columns_mobile' ) !== '' ) ? absint( $this->get_instance_value( 'columns_mobile' ) ) : 2;
-		$slides_to_scroll        = ( $this->get_instance_value( 'slides_to_scroll' ) !== '' ) ? absint( $this->get_instance_value( 'slides_to_scroll' ) ) : 1;
-		$slides_to_scroll_tablet = ( $this->get_instance_value( 'slides_to_scroll_tablet' ) !== '' ) ? absint( $this->get_instance_value( 'slides_to_scroll_tablet' ) ) : 1;
-		$slides_to_scroll_mobile = ( $this->get_instance_value( 'slides_to_scroll_mobile' ) !== '' ) ? absint( $this->get_instance_value( 'slides_to_scroll_mobile' ) ) : 1;
+		$effect = ( $this->get_instance_value('carousel_effect') ) ? $this->get_instance_value('carousel_effect') : 'slide';
+
+		if ( 'slide' === $effect ) {
+			$slides_to_show          = ( ! empty( $this->get_instance_value( 'columns' ) ) ) ? absint( $this->get_instance_value( 'columns' ) ) : 3;
+			$slides_to_show_tablet   = ( ! empty( $this->get_instance_value( 'columns_tablet' ) ) ) ? absint( $this->get_instance_value( 'columns_tablet' ) ) : 2;
+			$slides_to_show_mobile   = ( ! empty( $this->get_instance_value( 'columns_mobile' ) ) ) ? absint( $this->get_instance_value( 'columns_mobile' ) ) : 2;
+			$slides_to_scroll        = ( ! empty( $this->get_instance_value( 'slides_to_scroll' ) ) ) ? absint( $this->get_instance_value( 'slides_to_scroll' ) ) : 1;
+			$slides_to_scroll_tablet = ( ! empty( $this->get_instance_value( 'slides_to_scroll_tablet' ) ) ) ? absint( $this->get_instance_value( 'slides_to_scroll_tablet' ) ) : 1;
+			$slides_to_scroll_mobile = ( ! empty( $this->get_instance_value( 'slides_to_scroll_mobile' ) ) ) ? absint( $this->get_instance_value( 'slides_to_scroll_mobile' ) ) : 1;
+		} else {
+			$slides_to_show          = 1;
+			$slides_to_show_tablet   = 1;
+			$slides_to_show_mobile   = 1;
+			$slides_to_scroll        = 1;
+			$slides_to_scroll_tablet = 1;
+			$slides_to_scroll_mobile = 1;
+		}
 
 		/* if ( 'right' === $direction ) {
 			$slider_options['rtl'] = true;
 		} */
 
 		$slider_options = [
-			'direction'             => 'horizontal',
-			'speed'                 => ( $animation_speed ) ? absint( $animation_speed ) : 600,
-			'slidesPerView'         => $slides_to_show,
-			'autoHeight'            => true,
-			'watchSlidesVisibility' => true,
-			'centeredSlides'        => ( 'yes' === $center_mode ),
-			'loop'                  => ( 'yes' === $infinite_loop ),
+			'direction'        => 'horizontal',
+			'effect'           => $effect,
+			'speed'            => ( $animation_speed ) ? absint( $animation_speed ) : 600,
+			'slides_per_view'  => $slides_to_show,
+			'slides_to_scroll' => $slides_to_scroll,
+			'centered_slides'  => ( 'yes' === $center_mode ),
+			'loop'             => ( 'yes' === $infinite_loop ),
 		];
 
 		if ( 'yes' === $autoplay ) {
+			$slider_options['autoplay'] = 'yes';
+
 			$autoplay_speed = ( $autoplay_speed ) ? $autoplay_speed : 999999;
-		} else {
-			$autoplay_speed = 999999;
+
+			$slider_options['autoplay_speed'] = $autoplay_speed;
+			$slider_options['pause_on_hover'] = ( 'yes' === $pause_on_hover ) ? 'yes' : '';
 		}
 
-		$slider_options['autoplay'] = [
-			'delay'                => $autoplay_speed,
-			'pauseOnHover'         => ( 'yes' === $pause_on_hover ),
-			'disableOnInteraction' => ( 'yes' === $pause_on_hover ),
-		];
-
 		if ( 'yes' === $dots ) {
-			$slider_options['pagination'] = [
-				'el'                 => '.swiper-pagination-' . esc_attr( $this->parent->get_id() ),
-				'clickable'          => true,
-			];
+			$slider_options['pagination'] = 'bullets';
 		}
 
 		if ( 'yes' === $arrows ) {
-			$slider_options['navigation'] = [
-				'nextEl'             => '.swiper-button-next-' . esc_attr( $this->parent->get_id() ),
-				'prevEl'             => '.swiper-button-prev-' . esc_attr( $this->parent->get_id() ),
-			];
+			$slider_options['show_arrows'] = true;
 		}
 
-		$elementor_bp_lg = get_option( 'elementor_viewport_lg' );
-		$elementor_bp_md = get_option( 'elementor_viewport_md' );
-		$bp_desktop      = ! empty( $elementor_bp_lg ) ? $elementor_bp_lg : 1025;
-		$bp_tablet       = ! empty( $elementor_bp_md ) ? $elementor_bp_md : 768;
-		$bp_mobile       = 320;
+		$breakpoints = pp_lite_get_elementor()->breakpoints->get_active_breakpoints();
 
-		$items        = ( isset( $settings['items']['size'] ) && '' !== $settings['items']['size'] ) ? absint( $settings['items']['size'] ) : 3;
-		$items_tablet = ( isset( $settings['items_tablet']['size'] ) && '' !== $settings['items_tablet']['size'] ) ? absint( $settings['items_tablet']['size'] ) : 2;
-		$items_mobile = ( isset( $settings['items_mobile']['size'] ) && '' !== $settings['items_mobile']['size'] ) ? absint( $settings['items_mobile']['size'] ) : 1;
+		foreach ( $breakpoints as $device => $breakpoint ) {
+			if ( in_array( $device, [ 'mobile', 'tablet', 'desktop' ] ) ) {
+				switch ( $device ) {
+					case 'desktop':
+						$slider_options['slides_per_view'] = $slides_to_show;
+						$slider_options['slides_to_scroll'] = $slides_to_scroll;
+						break;
+					case 'tablet':
+						$slider_options['slides_per_view_tablet'] = $slides_to_show_tablet;
+						$slider_options['slides_to_scroll_tablet'] = $slides_to_scroll_tablet;;
+						break;
+					case 'mobile':
+						$slider_options['slides_per_view_mobile'] = $slides_to_show_mobile;
+						$slider_options['slides_to_scroll_mobile'] = $slides_to_scroll_mobile;
+						break;
+				}
+			} else {
+				if ( ( ! empty( $this->get_instance_value( 'columns_'  . $device ) ) ) ) {
+					$slider_options['slides_per_view_' . $device] = absint( $this->get_instance_value( 'columns_'  . $device ) );
+				}
 
-		$margin        = ( isset( $settings['margin']['size'] ) && '' !== $settings['margin']['size'] ) ? absint( $settings['margin']['size'] ) : 10;
-		$margin_tablet = ( isset( $settings['margin_tablet']['size'] ) && '' !== $settings['margin_tablet']['size'] ) ? absint( $settings['margin_tablet']['size'] ) : 10;
-		$margin_mobile = ( isset( $settings['margin_mobile']['size'] ) && '' !== $settings['margin_mobile']['size'] ) ? absint( $settings['margin_mobile']['size'] ) : 10;
-
-		$slider_options['breakpoints'] = [
-			$bp_desktop => [
-				'slidesPerView' => $slides_to_show,
-				//'spaceBetween'  => $margin,
-			],
-			$bp_tablet  => [
-				'slidesPerView' => $slides_to_show_tablet,
-				//'spaceBetween'  => $margin_tablet,
-			],
-			$bp_mobile  => [
-				'slidesPerView' => $slides_to_show_mobile,
-				//'spaceBetween'  => $margin_mobile,
-			],
-		];
+				if ( ( ! empty( $this->get_instance_value( 'slides_to_scroll_'  . $device ) ) ) ) {
+					$slider_options['slides_to_scroll_' . $device] = absint( $this->get_instance_value( 'slides_to_scroll_'  . $device ) );
+				}
+			}
+		}
 
 		$this->parent->add_render_attribute(
 			'posts-wrap',

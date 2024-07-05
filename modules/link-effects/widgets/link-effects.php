@@ -66,6 +66,10 @@ class Link_Effects extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Link_Effects' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register link effects widget controls.
 	 *
