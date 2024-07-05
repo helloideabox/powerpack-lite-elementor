@@ -188,6 +188,18 @@ class PowerpackLitePlugin {
 		$suffix = ( PP_Helper::is_script_debug() ) ? '' : '.min';
 		$path = ( PP_Helper::is_script_debug() ) ? 'assets/js/' : 'assets/js/min/';
 
+		if ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+			wp_enqueue_script(
+				'powerpack-upgrade',
+				POWERPACK_ELEMENTS_LITE_URL . $path . 'editor-panel-upgrade' . $suffix . '.js',
+				array(
+					'jquery',
+				),
+				POWERPACK_ELEMENTS_LITE_VER,
+				true
+			);
+		}
+
 		wp_register_script(
 			'pp-advanced-accordion',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-accordion' . $suffix . '.js',
