@@ -1,0 +1,1 @@
+!function(n){"use strict";var e=function(n,e){void 0!==n&&n.find("select:not([multiple])").each(function(){var n=e(this);(n.next().hasClass("chosen-container")?n.next():n).wrap('<span class="pp-gf-select-custom"></span>')})};n(window).on("elementor/frontend/init",function(){elementorFrontend.hooks.addAction("frontend/element_ready/pp-gravity-forms.default",e)})}(jQuery);
