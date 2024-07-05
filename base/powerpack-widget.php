@@ -203,7 +203,7 @@ abstract class Powerpack_Widget extends Widget_Base {
 			$slider_options['show_arrows'] = true;
 		}
 
-		$breakpoints = pp_lite_get_elementor()->breakpoints->get_active_breakpoints();
+		$breakpoints = PP_Helper::elementor()->breakpoints->get_active_breakpoints();
 
 		foreach ( $breakpoints as $device => $breakpoint ) {
 			if ( in_array( $device, [ 'mobile', 'tablet', 'desktop' ] ) ) {

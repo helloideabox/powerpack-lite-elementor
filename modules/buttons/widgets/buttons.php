@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\Buttons\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -1263,7 +1264,7 @@ class Buttons extends Powerpack_Widget {
 						'position' => $ttip_position,
 					);
 
-					$breakpoints = pp_lite_get_elementor()->breakpoints->get_active_breakpoints();
+					$breakpoints = PP_Helper::elementor()->breakpoints->get_active_breakpoints();
 			
 					foreach ( $breakpoints as $device => $breakpoint ) {
 						if ( in_array( $device, [ 'mobile', 'tablet', 'desktop' ] ) ) {
