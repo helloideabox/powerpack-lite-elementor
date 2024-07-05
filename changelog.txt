@@ -1,5 +1,5 @@
 == 2.7.23 ==
-Release date: July 4, 2024
+Release date: July 5, 2024
 * Enhancement: Added support for Elementor's Element Caching feature
 * Enhancement: Added support for Elementor custom breakpoints in all carousel/slider widgets
 * Enhancement: Counter - Replaced Odometer JS lib with jQuery Numerator JS lib as used by Elementor

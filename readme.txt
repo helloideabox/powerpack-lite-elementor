@@ -236,7 +236,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
-= 2.7.23 - July 4, 2024 =
+= 2.7.23 - July 5, 2024 =
 * 	Enhancement: Added support for Elementor's Element Caching feature
 * 	Enhancement: Added support for Elementor custom breakpoints in all carousel/slider widgets
 * 	Enhancement: Counter - Replaced Odometer JS lib with jQuery Numerator JS lib as used by Elementor
