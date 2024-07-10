@@ -237,6 +237,12 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.24 - July 10, 2024 =
+* 	Enhancement: Logo Carousel - Added option to set width, height and object fit properties for logos
+* 	Fixed: Business Hours - Closed Text field was not WPML translatable
+* 	Fixed: Image Comparison - Labels were not showing
+* 	Fixed: Info Grid & Carousel - Coverflow effect was not showing correct number of slides
+
 = 2.7.23 - July 5, 2024 =
 * 	Enhancement: Added support for Elementor's Element Caching feature
 * 	Enhancement: Added support for Elementor custom breakpoints in all carousel/slider widgets
