@@ -88,21 +88,6 @@ class Random_Image extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of styles the image slider widget depended on.
-	 *
-	 * Used to set styles dependencies required to run the widget.
-	 *
-	 * @access public
-	 *
-	 * @return array Widget scripts dependencies.
-	 */
-	public function get_style_depends() {
-		return [
-			'fancybox',
-		];
-	}
-
-	/**
 	 * Image filters.
 	 *
 	 * @access public
@@ -1093,14 +1078,14 @@ class Random_Image extends Powerpack_Widget {
 
 		$count       = count( $settings['wp_gallery'] );
 		$index       = ( $count > 1 ) ? wp_rand( 0, $count - 1 ) : 0;
-		$id          = $settings['wp_gallery'][ $index ]['id'];
+		$image_id    = apply_filters( 'wpml_object_id', $settings['wp_gallery'][ $index ]['id'], 'attachment', true );
 		$has_caption = '' !== $settings['caption'];
 		$link        = '';
-		$attachment  = get_post( $id );
+		$attachment  = get_post( $image_id );
 
 		$image = array(
-			'id'  => $id,
-			'url' => Group_Control_Image_Size::get_attachment_image_src( $id, 'image', $settings ),
+			'id'  => $image_id,
+			'url' => Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image', $settings ),
 		);
 
 		$this->add_render_attribute( [
@@ -1116,7 +1101,7 @@ class Random_Image extends Powerpack_Widget {
 			],
 			'image' => [
 				'class' => 'elementor-image pp-random-image',
-				'src' => Group_Control_Image_Size::get_attachment_image_src( $id, 'image', $settings ),
+				'src' => Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image', $settings ),
 				'alt' => esc_attr( Control_Media::get_image_alt( $image ) ),
 			],
 			'caption' => [
@@ -1150,7 +1135,7 @@ class Random_Image extends Powerpack_Widget {
 				$this->add_render_attribute( 'link', 'href', $link['url'] );
 			} elseif ( 'custom' === $settings['link_to'] ) {
 				$link        = $settings['link'];
-				$link_custom = get_post_meta( $id, 'pp-custom-link', true );
+				$link_custom = get_post_meta( $image_id, 'pp-custom-link', true );
 
 				if ( '' !== $link_custom ) {
 					$link['url'] = $link_custom;
@@ -1194,7 +1179,7 @@ class Random_Image extends Powerpack_Widget {
 		<?php
 	}
 
-	protected function render_image_caption( $id ) {
+	protected function render_image_caption( $image_id ) {
 		$settings = $this->get_settings_for_display();
 
 		if ( '' === $settings['caption'] ) {
@@ -1203,7 +1188,7 @@ class Random_Image extends Powerpack_Widget {
 
 		$caption_type = $settings['caption'];
 
-		$caption = Module::get_image_caption( $id, $caption_type );
+		$caption = Module::get_image_caption( $image_id, $caption_type );
 
 		if ( '' === $caption ) {
 			return '';

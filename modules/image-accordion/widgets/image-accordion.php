@@ -1138,28 +1138,29 @@ class Image_Accordion extends Powerpack_Widget {
 			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'image-accordion' ) ); ?>>
 				<?php foreach ( $settings['accordion_items'] as $index => $item ) { ?>
 					<?php
-						$item_key = $this->get_repeater_setting_key( 'item', 'accordion_items', $index );
+					$item_key = $this->get_repeater_setting_key( 'item', 'accordion_items', $index );
 
-						$this->add_render_attribute( $item_key, [
-							'class' => [ 'pp-image-accordion-item', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) ],
-						] );
+					$this->add_render_attribute( $item_key, [
+						'class' => [ 'pp-image-accordion-item', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) ],
+					] );
 
 					if ( $item['image']['url'] ) {
 
-						$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['image']['id'], 'image', $settings );
+						$image_id  = apply_filters( 'wpml_object_id', $item['image']['id'], 'attachment', true );
+						$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image', $settings );
 
 						if ( ! $image_url ) {
 							$image_url = $item['image']['url'];
 						}
 
 						$this->add_render_attribute( $item_key, [
-							'style' => 'background-image: url(' . $image_url . ');',
+							'style' => 'background-image: url(' . esc_url( $image_url ) . ');',
 						] );
 					}
 
-						$content_key = $this->get_repeater_setting_key( 'content', 'accordion_items', $index );
+					$content_key = $this->get_repeater_setting_key( 'content', 'accordion_items', $index );
 
-						$this->add_render_attribute( $content_key, 'class', 'pp-image-accordion-content-wrap' );
+					$this->add_render_attribute( $content_key, 'class', 'pp-image-accordion-content-wrap' );
 
 					if ( 'yes' === $item['show_button'] && ! empty( $item['link']['url'] ) ) {
 						$button_key = $this->get_repeater_setting_key( 'button', 'accordion_items', $index );
@@ -1180,6 +1181,7 @@ class Image_Accordion extends Powerpack_Widget {
 
 					if ( $settings['active_tab'] ) {
 						$tab_count = $settings['active_tab'] - 1;
+
 						if ( $index === $tab_count ) {
 							$this->add_render_attribute( $item_key, [
 								'class' => 'pp-image-accordion-active',
