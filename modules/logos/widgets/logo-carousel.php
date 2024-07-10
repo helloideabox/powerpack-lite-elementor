@@ -134,7 +134,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$repeater->add_control(
 			'logo_carousel_slide',
 			[
-				'label'             => __( 'Upload Logo Image', 'powerpack' ),
+				'label'             => __( 'Image', 'powerpack' ),
 				'type'              => Controls_Manager::MEDIA,
 				'dynamic'           => [
 					'active'   => true,
@@ -705,6 +705,80 @@ class Logo_Carousel extends Powerpack_Widget {
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-logo-carousel img' => 'opacity: {{SIZE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'logos_height',
+			[
+				'label'                 => esc_html__( 'Height', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'vh', 'custom' ],
+				'range'                 => [
+					'px' => [
+						'min' => 50,
+						'max' => 1000,
+					],
+					'em' => [
+						'min' => 10,
+						'max' => 100,
+					],
+					'rem' => [
+						'min' => 10,
+						'max' => 100,
+					],
+					'vh' => [
+						'min' => 20,
+					],
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .swiper-slide img' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'logos_width',
+			[
+				'label'                 => esc_html__( 'Width', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'                 => [
+					'px' => [
+						'min' => 30,
+						'max' => 400,
+					],
+					'%' => [
+						'min' => 50,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .swiper-slide img' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'logos_object_fit',
+			[
+				'label'                 => __( 'Object Fit', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'options'               => [
+					''        => __( 'Default', 'powerpack' ),
+					'fill'    => __( 'Fill', 'powerpack' ),
+					'cover'   => __( 'Cover', 'powerpack' ),
+					'contain' => __( 'Contain', 'powerpack' ),
+				],
+				'default'               => '',
+				'selectors'             => [
+					'{{WRAPPER}} .swiper-slide img' => 'object-fit: {{VALUE}};',
+				],
+				'condition'             => [
+					'logos_height[size]!' => '',
 				],
 			]
 		);
@@ -1416,7 +1490,7 @@ class Logo_Carousel extends Powerpack_Widget {
 			'speed'           => ( $settings['slider_speed']['size'] ) ? $settings['slider_speed']['size'] : 500,
 			'slides_per_view' => $items,
 			'space_between'   => $margin,
-			'auto_height'     => true,
+			'auto_height'     => false,
 			'loop'            => ( 'yes' === $settings['infinite_loop'] ) ? 'yes' : '',
 		];
 
@@ -1563,7 +1637,8 @@ class Logo_Carousel extends Powerpack_Widget {
 												<?php
 											}
 
-											$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['logo_carousel_slide']['id'], 'thumbnail', $settings );
+											$image_id = apply_filters( 'wpml_object_id', $item['logo_carousel_slide']['id'], 'attachment', true );
+											$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'thumbnail', $settings );
 
 											if ( $image_url ) {
 												?>
@@ -1726,7 +1801,7 @@ class Logo_Carousel extends Powerpack_Widget {
 				speed:           $speed,
 				slides_per_view: $items,
 				space_between:   $margin,
-				auto_height:     true,
+				auto_height:     false,
 				loop:            ( 'yes' === settings.infinite_loop ) ? 'yes' : false,
 				grab_cursor:     ( 'yes' === settings.grab_cursor ) ? 'yes' : false,
 			};

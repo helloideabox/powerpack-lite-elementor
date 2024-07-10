@@ -112,7 +112,7 @@ class Logo_Grid extends Powerpack_Widget {
 			$repeater->add_control(
 				'logo_image',
 				[
-					'label'             => __( 'Upload Logo Image', 'powerpack' ),
+					'label'             => __( 'Image', 'powerpack' ),
 					'type'              => Controls_Manager::MEDIA,
 					'dynamic'           => [
 						'active'   => true,
@@ -886,11 +886,10 @@ class Logo_Grid extends Powerpack_Widget {
 	 */
 	protected function render_image( $item, $instance ) {
 
-		$image_id   = $item['logo_image']['id'];
+		$image_id   = apply_filters( 'wpml_object_id', $item['logo_image']['id'], 'attachment', true );
 		$image_size = $instance['image_size'];
 		$image_alt  = esc_attr( Control_Media::get_image_alt( $item['logo_image'] ) );
-
-		$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image', $instance );
+		$image_url  = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image', $instance );
 
 		if ( ! $image_url ) {
 			$image_url = $item['logo_image']['url'];
