@@ -24,8 +24,6 @@
 					container.twentytwenty({
 						default_offset_pct:    settings.visible_ratio,
 						orientation:           settings.orientation,
-						before_label:          settings.before_label,
-						after_label:           settings.after_label,
 						move_slider_on_hover:  settings.slider_on_hover,
 						move_with_handle_only: settings.slider_with_handle,
 						click_to_move:         settings.slider_with_click,
