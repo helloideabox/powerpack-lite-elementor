@@ -42,7 +42,7 @@ class WPML_PP_Buttons extends WPML_Elementor_Module_With_Items {
 			case 'tooltip_content':
 				return 'AREA';
 			case 'url':
-				return 'LINE';
+				return 'LINK';
 			default:
 				return '';
 		}

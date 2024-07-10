@@ -40,7 +40,7 @@ class WPML_PP_Image_Hotspots extends WPML_Elementor_Module_With_Items {
 			case 'hotspot_text':
 				return 'LINE';
 			case 'url':
-				return 'LINE';
+				return 'LINK';
 			case 'tooltip_content':
 				return 'VISUAL';
 			default:

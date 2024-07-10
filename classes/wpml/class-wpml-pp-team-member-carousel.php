@@ -87,7 +87,7 @@ class WPML_PP_Team_Member_Carousel extends WPML_Elementor_Module_With_Items {
 			case 'team_member_description':
 				return 'AREA';
 			case 'url':
-				return 'LINE';
+				return 'LINK';
 			case 'facebook_url':
 				return 'LINE';
 			case 'twitter_url':

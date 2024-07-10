@@ -32,7 +32,7 @@ class WPML_PP_Content_Ticker extends WPML_Elementor_Module_With_Items {
 			case 'ticker_title':
 				return 'LINE';
 			case 'url':
-				return 'LINE';
+				return 'LINK';
 			default:
 				return '';
 		}
