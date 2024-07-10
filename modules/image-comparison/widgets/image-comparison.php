@@ -151,6 +151,12 @@ class Image_Comparison extends Powerpack_Widget {
 				'label'             => __( 'Label', 'powerpack' ),
 				'type'              => Controls_Manager::TEXT,
 				'default'           => __( 'Before', 'powerpack' ),
+				'dynamic'           => array(
+					'active' => true,
+				),
+				'selectors'         => [
+					'{{WRAPPER}} .twentytwenty-before-label:before' => 'content: "{{VALUE}}"',
+				],
 			]
 		);
 
@@ -197,6 +203,12 @@ class Image_Comparison extends Powerpack_Widget {
 				'label'             => __( 'Label', 'powerpack' ),
 				'type'              => Controls_Manager::TEXT,
 				'default'           => __( 'After', 'powerpack' ),
+				'dynamic'           => array(
+					'active' => true,
+				),
+				'selectors'         => [
+					'{{WRAPPER}} .twentytwenty-after-label:before' => 'content: "{{VALUE}}"',
+				],
 			]
 		);
 
@@ -822,6 +834,26 @@ class Image_Comparison extends Powerpack_Widget {
 	}
 
 	/**
+	 *  Get Image Source.
+	 *
+	 * @access protected
+	 */
+	protected function get_image_src( $position ) {
+		$settings = $this->get_settings_for_display();
+
+		$image_id  = apply_filters( 'wpml_object_id', $settings[ $position . '_image' ]['id'], 'attachment', true );
+		$image_url = '';
+
+		if ( ! empty( $image_id ) ) {
+			$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, $position . '_image', $settings );
+		} else {
+			$image_url = $settings[ $position . '_image' ]['url'];
+		}
+
+		return $image_url;
+	}
+
+	/**
 	 * Render image comparison widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -834,8 +866,6 @@ class Image_Comparison extends Powerpack_Widget {
 		$widget_options = [
 			'visible_ratio'      => ( $settings['visible_ratio']['size'] ) ? $settings['visible_ratio']['size'] : '0.5',
 			'orientation'        => ( $settings['orientation'] ) ? $settings['orientation'] : 'vertical',
-			'before_label'       => ( $settings['before_label'] ) ? esc_attr( $settings['before_label'] ) : '',
-			'after_label'        => ( $settings['after_label'] ) ? esc_attr( $settings['after_label'] ) : '',
 			'slider_on_hover'    => 'mouse_move' === $settings['move_slider'] ? true : false,
 			'slider_with_handle' => 'drag' === $settings['move_slider'] ? true : false,
 			'slider_with_click'  => 'mouse_click' === $settings['move_slider'] ? true : false,
@@ -850,9 +880,10 @@ class Image_Comparison extends Powerpack_Widget {
 		?>
 		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'image-comparison' ) ); ?>>
 			<?php
-			if ( ! empty( $settings['before_image']['url'] ) ) :
+			if ( ! empty( $settings['before_image'] ) ) :
+				$img_url = $this->get_image_src('before');
 
-				$this->add_render_attribute( 'before-image', 'src', Group_Control_Image_Size::get_attachment_image_src( $settings['before_image']['id'], 'before_image', $settings ) );
+				$this->add_render_attribute( 'before-image', 'src', esc_url( $img_url ) );
 				$this->add_render_attribute( 'before-image', 'alt', Control_Media::get_image_alt( $settings['before_image'] ) );
 				$this->add_render_attribute( 'before-image', 'title', Control_Media::get_image_title( $settings['before_image'] ) );
 				$this->add_render_attribute( 'before-image', 'class', 'pp-before-img' );
@@ -861,9 +892,10 @@ class Image_Comparison extends Powerpack_Widget {
 
 				endif;
 
-			if ( ! empty( $settings['after_image']['url'] ) ) :
+			if ( ! empty( $settings['after_image'] ) ) :
+				$img_url = $this->get_image_src('after');
 
-				$this->add_render_attribute( 'after-image', 'src', Group_Control_Image_Size::get_attachment_image_src( $settings['after_image']['id'], 'after_image', $settings ) );
+				$this->add_render_attribute( 'after-image', 'src', esc_url( $img_url ) );
 				$this->add_render_attribute( 'after-image', 'alt', Control_Media::get_image_alt( $settings['after_image'] ) );
 				$this->add_render_attribute( 'after-image', 'title', Control_Media::get_image_title( $settings['after_image'] ) );
 				$this->add_render_attribute( 'after-image', 'class', 'pp-after-img' );
