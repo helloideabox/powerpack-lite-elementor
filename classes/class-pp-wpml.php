@@ -13,9 +13,12 @@ class PP_Elements_WPML {
 			'integration-class' => 'WPML_PP_Advanced_Accordion',
 		];
 		$widgets[ 'pp-business-hours' ]       = [
-			'conditions' => [ 'widgetType' => 'pp-business-hours' ],
-			'fields'     => [],
-			'integration-class' => 'WPML_PP_Business_Hours'
+			'conditions'        => [ 'widgetType' => 'pp-business-hours' ],
+			'fields'            => [],
+			'integration-class' => [
+				'WPML_PP_Business_Hours',
+				'WPML_PP_Business_Hours_Custom',
+			],
 		];
 		$widgets['pp-buttons']              = [
 			'conditions'        => [ 'widgetType' => 'pp-buttons' ],

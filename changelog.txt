@@ -1,6 +1,7 @@
 == 2.7.24 ==
 Release date: July 10, 2024
 * Enhancement: Logo Carousel - Added option to set width, height and object fit properties for logos
+* Fixed: Business Hours - Closed Text field was not WPML translatable
 * Fixed: Image Comparison - Labels were not showing
 * Fixed: Info Grid & Carousel - Coverflow effect was not showing correct number of slides
 
