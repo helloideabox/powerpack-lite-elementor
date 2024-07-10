@@ -51,7 +51,7 @@
 			}
 
 			getSlidesPerView(device) {
-				if ('slide' === this.getEffect()) {
+				if ('slide' === this.getEffect() || 'coverflow' === this.getEffect()) {
 					return this.getDeviceSlidesPerView(device);
 				}
 				return 1;

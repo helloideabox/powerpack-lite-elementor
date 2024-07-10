@@ -1,3 +1,7 @@
+== 2.7.24 ==
+Release date: July 10, 2024
+* Fixed: Info Grid & Carousel - Coverflow effect was not showing correct number of slides
+
 == 2.7.23 ==
 Release date: July 5, 2024
 * Enhancement: Added support for Elementor's Element Caching feature
