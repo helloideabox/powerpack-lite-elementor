@@ -412,7 +412,7 @@ class PowerpackLitePlugin {
 
 		wp_localize_script(
 			'powerpack-pp-posts',
-			'pp_posts_script',
+			'ppPostsScript',
 			[
 				'ajax_url'    => admin_url( 'admin-ajax.php' ),
 				'posts_nonce' => wp_create_nonce( 'pp-posts-widget-nonce' ),
