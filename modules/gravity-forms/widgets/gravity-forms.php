@@ -1526,7 +1526,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]' => 'margin-top: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"]' => 'margin-top: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
