@@ -1,5 +1,5 @@
 == 2.7.25 ==
-Release date: 
+Release date: July 16, 2024
 * Fixed: Posts - JS error with load more pagination
 * Fixed: Info Grid & Carousel - Center Slides option was not working on frontend
 

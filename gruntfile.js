@@ -335,7 +335,7 @@ module.exports = function( grunt ) {
 				replacements: [
 					{
 						from: /Stable tag: \d{1,1}\.\d{1,2}\.\d{1,2}/g,
-						to: 'Stable tag: <%= pkg.version %>\n'
+						to: 'Stable tag: <%= pkg.version %>'
 					},
 				]
 			},
