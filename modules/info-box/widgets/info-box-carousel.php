@@ -2579,7 +2579,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		}
 
 		if ( 'yes' === $settings['centered_slides'] ) {
-			$slider_options['centered_slides'] = true;
+			$slider_options['centered_slides'] = 'yes';
 		}
 
 		if ( 'yes' === $settings['autoplay'] ) {
