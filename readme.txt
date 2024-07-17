@@ -236,6 +236,7 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 = 2.7.25 - July 16, 2024 =
 * 	Fixed: Posts - JS error with load more pagination
+* 	Fixed: Gravity Forms - Submit Margin Top option
 * 	Fixed: Info Grid & Carousel - Center Slides option was not working on frontend
 
 = 2.7.24 - July 10, 2024 =
