@@ -234,6 +234,9 @@ Not at all! All the widgets and settings are easy to use with drag & drop interf
 
 == Changelog ==
 
+= 2.7.26 - July 17, 2024 =
+* 	Fixed: Instagram Feed - PHP error
+
 = 2.7.25 - July 16, 2024 =
 * 	Fixed: Posts - JS error with load more pagination
 * 	Fixed: Gravity Forms - Submit Margin Top option
