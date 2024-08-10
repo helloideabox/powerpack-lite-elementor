@@ -2,7 +2,7 @@
 Contributors: ideaboxcreations, simrandeep, puneetsahalot, ibachal, jainnidhi, nirbhay18, wpamitkumar
 Tags: elementor, addons, elementor addon, elementor addons, elementor widgets
 Requires at least: 6.0
-Tested up to: 6.4
+Tested up to: 6.6
 Requires PHP: 7.4
 Stable tag: 2.7.26
 
