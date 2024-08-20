@@ -9,17 +9,15 @@ Stable tag: 2.7.27
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Elevate your Elementor experience with PowerPack, a comprehensive collection of free addons and widgets designed to supercharge your website. Unlock advanced design capabilities, streamline your workflow, and create stunning, professional websites effortlessly with PowerPack's versatile and user-friendly Elementor addons.
+Elevate your Elementor experience with PowerPack, a comprehensive collection of free Elementor addons & widgets designed to supercharge your website.
 
 == Description ==
 
-Extend Elementor with creative widgets and extensions with [PowerPack Addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - The fastest-growing library. These widgets are designed with a focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever!
+[PowerPack Elementor Addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) offers a comprehensive collection of creative widgets, powerful extensions, and professionally crafted Elementor templates to elevate your website design experience. Unlock advanced design capabilities, streamline your workflow, and create stunning, professional websites effortlessly with PowerPack's versatile and user-friendly Elementor addons.
 
-PowerPack Addons is built by [IdeaBox Creations](https://ideabox.io/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link).
+Head over to [PowerPack Addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) website to explore addons.
 
-Head over to [PowerPack Addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) website to explore addon.
-
-## Top Features of PowerPack Addons
+## Top Features of PowerPack Elementor Addons
 
 - **UNIQUE WIDGETS**
 PowerPack includes a range of advanced elementor widgets that opens a whole new way of designing possibilities.
