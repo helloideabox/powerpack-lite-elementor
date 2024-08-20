@@ -1434,7 +1434,9 @@ class Gravity_Forms extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]' => 'width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'width: {{SIZE}}{{UNIT}}',
 				),
 				'condition'  => array(
 					'button_width_type' => 'custom',
@@ -1458,8 +1460,9 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"],
-                    {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'background-color: {{VALUE}}',
 				),
 			)
 		);
@@ -1471,8 +1474,9 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"],
-                    {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
+                    {{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -1484,7 +1488,9 @@ class Gravity_Forms extends Powerpack_Widget {
 				'label'       => __( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]',
+				'selector'    => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]',
 			)
 		);
 
@@ -1495,7 +1501,9 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1507,7 +1515,9 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1526,7 +1536,9 @@ class Gravity_Forms extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"]' => 'margin-top: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'margin-top: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -1539,7 +1551,9 @@ class Gravity_Forms extends Powerpack_Widget {
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
-				'selector'  => '{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]',
+				'selector'  => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]',
 				'separator' => 'before',
 			)
 		);
@@ -1548,7 +1562,9 @@ class Gravity_Forms extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name'      => 'button_box_shadow',
-				'selector'  => '{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]',
+				'selector'  => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]',
 				'separator' => 'before',
 			)
 		);
@@ -1569,7 +1585,9 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"]:hover, {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"]:hover,
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"]:hover,
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]:hover' => 'background-color: {{VALUE}}',
 				),
 			)
 		);
@@ -1581,7 +1599,9 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"]:hover, {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"]:hover,
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"]:hover,
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]:hover' => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -1593,7 +1613,9 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_footer input[type="submit"]:hover, {{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="submit"]:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"]:hover,
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"]:hover,
+					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]:hover' => 'border-color: {{VALUE}}',
 				),
 			)
 		);

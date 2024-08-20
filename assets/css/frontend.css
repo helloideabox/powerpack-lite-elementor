@@ -2100,7 +2100,7 @@ div[class*=' pa-'] {
 
 .pp-gravity-form-button-full-width .gform_wrapper .gform_footer input[type="submit"],
 .pp-gravity-form-button-full-width .gform_wrapper .gform_page_footer input[type="submit"] {
-  width: 100%; }
+  width: 100% !important; }
 
 .pp-gravity-form-button-full-width .gform_wrapper .gform_page_footer input[type="submit"] {
   margin-top: 20px; }
@@ -2120,16 +2120,14 @@ div[class*=' pa-'] {
 .pp-gravity-form .gform_wrapper .pp-gf-select-custom {
   position: relative; }
   .pp-gravity-form .gform_wrapper .pp-gf-select-custom:after {
-    content: "\f078";
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 800;
-    font-size: .7em;
-    line-height: 1;
+    content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNMjAxLjQgMzQyLjZjMTIuNSAxMi41IDMyLjggMTIuNSA0NS4zIDBsMTYwLTE2MGMxMi41LTEyLjUgMTIuNS0zMi44IDAtNDUuM3MtMzIuOC0xMi41LTQ1LjMgMEwyMjQgMjc0LjcgODYuNiAxMzcuNGMtMTIuNS0xMi41LTMyLjgtMTIuNS00NS4zIDBzLTEyLjUgMzIuOCAwIDQ1LjNsMTYwIDE2MHoiLz48L3N2Zz4=");
     pointer-events: none;
     position: absolute;
-    top: 45%;
     right: .8em;
-    transform: translateY(-45%);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
     z-index: 2; }
 
 .pp-ninja-form .nf-form-title {
