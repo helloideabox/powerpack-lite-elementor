@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.7.25\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.7.27\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2024-07-16 11:12:04+00:00\n"
+"POT-Creation-Date: 2024-08-20 11:39:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,35 +28,35 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:219
 #: modules/hotspots/widgets/hotspots.php:470
 #: modules/info-list/widgets/info-list.php:212
-#: modules/instafeed/widgets/instafeed.php:372
+#: modules/instafeed/widgets/instafeed.php:373
 msgid "1"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:373
+#: modules/instafeed/widgets/instafeed.php:374
 msgid "2"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:374
+#: modules/instafeed/widgets/instafeed.php:375
 msgid "3"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:375
+#: modules/instafeed/widgets/instafeed.php:376
 msgid "4"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:376
+#: modules/instafeed/widgets/instafeed.php:377
 msgid "5"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:377
+#: modules/instafeed/widgets/instafeed.php:378
 msgid "6"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:378
+#: modules/instafeed/widgets/instafeed.php:379
 msgid "7"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:379
+#: modules/instafeed/widgets/instafeed.php:380
 msgid "8"
 msgstr ""
 
@@ -434,7 +434,7 @@ msgstr ""
 
 #: classes/class-pp-config.php:524
 #: modules/advanced-accordion/widgets/advanced-accordion.php:503
-#: modules/instafeed/widgets/instafeed.php:1669
+#: modules/instafeed/widgets/instafeed.php:1670
 msgid "Toggle"
 msgstr ""
 
@@ -1366,18 +1366,18 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:536
 #: modules/info-list/widgets/info-list.php:359
 #: modules/info-list/widgets/info-list.php:371
-#: modules/instafeed/widgets/instafeed.php:353
-#: modules/instafeed/widgets/instafeed.php:467
-#: modules/instafeed/widgets/instafeed.php:479
-#: modules/instafeed/widgets/instafeed.php:494
-#: modules/instafeed/widgets/instafeed.php:694
-#: modules/instafeed/widgets/instafeed.php:710
-#: modules/instafeed/widgets/instafeed.php:727
-#: modules/instafeed/widgets/instafeed.php:761
-#: modules/instafeed/widgets/instafeed.php:798
-#: modules/instafeed/widgets/instafeed.php:813
-#: modules/instafeed/widgets/instafeed.php:1008
-#: modules/instafeed/widgets/instafeed.php:1052
+#: modules/instafeed/widgets/instafeed.php:354
+#: modules/instafeed/widgets/instafeed.php:468
+#: modules/instafeed/widgets/instafeed.php:480
+#: modules/instafeed/widgets/instafeed.php:495
+#: modules/instafeed/widgets/instafeed.php:695
+#: modules/instafeed/widgets/instafeed.php:711
+#: modules/instafeed/widgets/instafeed.php:728
+#: modules/instafeed/widgets/instafeed.php:762
+#: modules/instafeed/widgets/instafeed.php:799
+#: modules/instafeed/widgets/instafeed.php:814
+#: modules/instafeed/widgets/instafeed.php:1009
+#: modules/instafeed/widgets/instafeed.php:1053
 #: modules/logos/widgets/logo-carousel.php:227
 #: modules/logos/widgets/logo-carousel.php:262
 #: modules/logos/widgets/logo-carousel.php:369
@@ -1487,18 +1487,18 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:537
 #: modules/info-list/widgets/info-list.php:360
 #: modules/info-list/widgets/info-list.php:372
-#: modules/instafeed/widgets/instafeed.php:354
-#: modules/instafeed/widgets/instafeed.php:468
-#: modules/instafeed/widgets/instafeed.php:480
-#: modules/instafeed/widgets/instafeed.php:495
-#: modules/instafeed/widgets/instafeed.php:695
-#: modules/instafeed/widgets/instafeed.php:711
-#: modules/instafeed/widgets/instafeed.php:728
-#: modules/instafeed/widgets/instafeed.php:762
-#: modules/instafeed/widgets/instafeed.php:799
-#: modules/instafeed/widgets/instafeed.php:814
-#: modules/instafeed/widgets/instafeed.php:1009
-#: modules/instafeed/widgets/instafeed.php:1053
+#: modules/instafeed/widgets/instafeed.php:355
+#: modules/instafeed/widgets/instafeed.php:469
+#: modules/instafeed/widgets/instafeed.php:481
+#: modules/instafeed/widgets/instafeed.php:496
+#: modules/instafeed/widgets/instafeed.php:696
+#: modules/instafeed/widgets/instafeed.php:712
+#: modules/instafeed/widgets/instafeed.php:729
+#: modules/instafeed/widgets/instafeed.php:763
+#: modules/instafeed/widgets/instafeed.php:800
+#: modules/instafeed/widgets/instafeed.php:815
+#: modules/instafeed/widgets/instafeed.php:1010
+#: modules/instafeed/widgets/instafeed.php:1054
 #: modules/logos/widgets/logo-carousel.php:228
 #: modules/logos/widgets/logo-carousel.php:263
 #: modules/logos/widgets/logo-carousel.php:370
@@ -1564,7 +1564,7 @@ msgid "No"
 msgstr ""
 
 #: extensions/animated-gradient-background.php:161
-#: modules/instafeed/widgets/instafeed.php:1659
+#: modules/instafeed/widgets/instafeed.php:1660
 msgid "Angle"
 msgstr ""
 
@@ -1604,7 +1604,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1080
 #: modules/gravity-forms/widgets/gravity-forms.php:1219
 #: modules/gravity-forms/widgets/gravity-forms.php:1337
-#: modules/gravity-forms/widgets/gravity-forms.php:1985
+#: modules/gravity-forms/widgets/gravity-forms.php:2007
 #: modules/headings/widgets/fancy-heading.php:281
 #: modules/hotspots/widgets/hotspots.php:378
 #: modules/hotspots/widgets/hotspots.php:898
@@ -1634,12 +1634,12 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:662
 #: modules/info-table/widgets/info-table.php:1043
 #: modules/info-table/widgets/info-table.php:1430
-#: modules/instafeed/widgets/instafeed.php:1107
-#: modules/instafeed/widgets/instafeed.php:1264
-#: modules/instafeed/widgets/instafeed.php:1757
-#: modules/instafeed/widgets/instafeed.php:1813
-#: modules/instafeed/widgets/instafeed.php:1955
-#: modules/instafeed/widgets/instafeed.php:2060
+#: modules/instafeed/widgets/instafeed.php:1108
+#: modules/instafeed/widgets/instafeed.php:1265
+#: modules/instafeed/widgets/instafeed.php:1758
+#: modules/instafeed/widgets/instafeed.php:1814
+#: modules/instafeed/widgets/instafeed.php:1956
+#: modules/instafeed/widgets/instafeed.php:2061
 #: modules/logos/widgets/logo-carousel.php:1064
 #: modules/logos/widgets/logo-carousel.php:1120
 #: modules/logos/widgets/logo-carousel.php:1256
@@ -1648,17 +1648,17 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:923
 #: modules/ninja-forms/widgets/ninja-forms.php:1039
 #: modules/ninja-forms/widgets/ninja-forms.php:1352
-#: modules/posts/skins/skin-base.php:2095
-#: modules/posts/skins/skin-base.php:2488
-#: modules/posts/skins/skin-base.php:3084
-#: modules/posts/skins/skin-base.php:3160
-#: modules/posts/skins/skin-base.php:3305
-#: modules/posts/skins/skin-base.php:3388
-#: modules/posts/skins/skin-base.php:3433
-#: modules/posts/skins/skin-base.php:3554
-#: modules/posts/skins/skin-base.php:3657
-#: modules/posts/skins/skin-base.php:3728
-#: modules/posts/skins/skin-base.php:3815
+#: modules/posts/skins/skin-base.php:2096
+#: modules/posts/skins/skin-base.php:2489
+#: modules/posts/skins/skin-base.php:3085
+#: modules/posts/skins/skin-base.php:3161
+#: modules/posts/skins/skin-base.php:3306
+#: modules/posts/skins/skin-base.php:3389
+#: modules/posts/skins/skin-base.php:3434
+#: modules/posts/skins/skin-base.php:3555
+#: modules/posts/skins/skin-base.php:3658
+#: modules/posts/skins/skin-base.php:3729
+#: modules/posts/skins/skin-base.php:3816
 #: modules/pricing/widgets/price-menu.php:529
 #: modules/pricing/widgets/price-menu.php:755
 #: modules/pricing/widgets/price-menu.php:849
@@ -1744,7 +1744,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:150
 #: modules/logos/widgets/logo-carousel.php:137
 #: modules/logos/widgets/logo-grid.php:115
-#: modules/posts/skins/skin-base.php:541 modules/posts/skins/skin-base.php:1945
+#: modules/posts/skins/skin-base.php:541 modules/posts/skins/skin-base.php:1946
 #: modules/pricing/widgets/price-menu.php:186
 #: modules/pricing/widgets/price-menu.php:902
 #: modules/pricing/widgets/pricing-table.php:170
@@ -1841,12 +1841,12 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:784
 #: modules/gravity-forms/widgets/gravity-forms.php:903
 #: modules/gravity-forms/widgets/gravity-forms.php:973
-#: modules/gravity-forms/widgets/gravity-forms.php:1538
-#: modules/gravity-forms/widgets/gravity-forms.php:1753
-#: modules/gravity-forms/widgets/gravity-forms.php:1873
-#: modules/gravity-forms/widgets/gravity-forms.php:1998
-#: modules/gravity-forms/widgets/gravity-forms.php:2049
-#: modules/gravity-forms/widgets/gravity-forms.php:2248
+#: modules/gravity-forms/widgets/gravity-forms.php:1550
+#: modules/gravity-forms/widgets/gravity-forms.php:1775
+#: modules/gravity-forms/widgets/gravity-forms.php:1895
+#: modules/gravity-forms/widgets/gravity-forms.php:2020
+#: modules/gravity-forms/widgets/gravity-forms.php:2071
+#: modules/gravity-forms/widgets/gravity-forms.php:2270
 #: modules/headings/widgets/dual-heading.php:307
 #: modules/headings/widgets/dual-heading.php:421
 #: modules/headings/widgets/fancy-heading.php:251
@@ -1877,10 +1877,10 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1062
 #: modules/info-table/widgets/info-table.php:1230
 #: modules/info-table/widgets/info-table.php:1446
-#: modules/instafeed/widgets/instafeed.php:1096
-#: modules/instafeed/widgets/instafeed.php:1433
-#: modules/instafeed/widgets/instafeed.php:2137
-#: modules/instafeed/widgets/instafeed.php:2324
+#: modules/instafeed/widgets/instafeed.php:1097
+#: modules/instafeed/widgets/instafeed.php:1434
+#: modules/instafeed/widgets/instafeed.php:2138
+#: modules/instafeed/widgets/instafeed.php:2325
 #: modules/link-effects/widgets/link-effects.php:279
 #: modules/logos/widgets/logo-carousel.php:851
 #: modules/logos/widgets/logo-carousel.php:1441
@@ -1894,11 +1894,11 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:1328
 #: modules/ninja-forms/widgets/ninja-forms.php:1384
 #: modules/ninja-forms/widgets/ninja-forms.php:1438
-#: modules/posts/skins/skin-base.php:2131
-#: modules/posts/skins/skin-base.php:2300
-#: modules/posts/skins/skin-base.php:2506
-#: modules/posts/skins/skin-base.php:2607
-#: modules/posts/skins/skin-base.php:2708
+#: modules/posts/skins/skin-base.php:2132
+#: modules/posts/skins/skin-base.php:2301
+#: modules/posts/skins/skin-base.php:2507
+#: modules/posts/skins/skin-base.php:2608
+#: modules/posts/skins/skin-base.php:2709
 #: modules/pricing/widgets/price-menu.php:545
 #: modules/pricing/widgets/price-menu.php:774
 #: modules/pricing/widgets/price-menu.php:865
@@ -1935,7 +1935,7 @@ msgid "Typography"
 msgstr ""
 
 #: extensions/custom-cursor.php:297 modules/counter/widgets/counter.php:529
-#: modules/gravity-forms/widgets/gravity-forms.php:1934
+#: modules/gravity-forms/widgets/gravity-forms.php:1956
 #: modules/headings/widgets/dual-heading.php:297
 #: modules/headings/widgets/dual-heading.php:411
 #: modules/headings/widgets/fancy-heading.php:282
@@ -1981,10 +1981,10 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1542
 #: modules/gravity-forms/widgets/gravity-forms.php:760
 #: modules/gravity-forms/widgets/gravity-forms.php:839
-#: modules/gravity-forms/widgets/gravity-forms.php:1484
-#: modules/gravity-forms/widgets/gravity-forms.php:1699
-#: modules/gravity-forms/widgets/gravity-forms.php:1882
-#: modules/gravity-forms/widgets/gravity-forms.php:2257
+#: modules/gravity-forms/widgets/gravity-forms.php:1488
+#: modules/gravity-forms/widgets/gravity-forms.php:1721
+#: modules/gravity-forms/widgets/gravity-forms.php:1904
+#: modules/gravity-forms/widgets/gravity-forms.php:2279
 #: modules/headings/widgets/dual-heading.php:320
 #: modules/headings/widgets/dual-heading.php:434
 #: modules/hotspots/widgets/hotspots.php:823
@@ -2012,12 +2012,12 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:519
 #: modules/info-table/widgets/info-table.php:885
 #: modules/info-table/widgets/info-table.php:1199
-#: modules/instafeed/widgets/instafeed.php:1018
-#: modules/instafeed/widgets/instafeed.php:1491
-#: modules/instafeed/widgets/instafeed.php:1557
-#: modules/instafeed/widgets/instafeed.php:1770
-#: modules/instafeed/widgets/instafeed.php:1990
-#: modules/instafeed/widgets/instafeed.php:2293
+#: modules/instafeed/widgets/instafeed.php:1019
+#: modules/instafeed/widgets/instafeed.php:1492
+#: modules/instafeed/widgets/instafeed.php:1558
+#: modules/instafeed/widgets/instafeed.php:1771
+#: modules/instafeed/widgets/instafeed.php:1991
+#: modules/instafeed/widgets/instafeed.php:2294
 #: modules/logos/widgets/logo-carousel.php:590
 #: modules/logos/widgets/logo-carousel.php:1077
 #: modules/logos/widgets/logo-carousel.php:1289
@@ -2026,11 +2026,11 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:547
 #: modules/ninja-forms/widgets/ninja-forms.php:745
 #: modules/ninja-forms/widgets/ninja-forms.php:1176
-#: modules/posts/skins/skin-base.php:1774
-#: modules/posts/skins/skin-base.php:2765
-#: modules/posts/skins/skin-base.php:3101
-#: modules/posts/skins/skin-base.php:3322
-#: modules/posts/skins/skin-base.php:3570
+#: modules/posts/skins/skin-base.php:1775
+#: modules/posts/skins/skin-base.php:2766
+#: modules/posts/skins/skin-base.php:3102
+#: modules/posts/skins/skin-base.php:3323
+#: modules/posts/skins/skin-base.php:3571
 #: modules/pricing/widgets/price-menu.php:430
 #: modules/pricing/widgets/price-menu.php:975
 #: modules/pricing/widgets/pricing-table.php:1207
@@ -2095,10 +2095,10 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:771
 #: modules/gravity-forms/widgets/gravity-forms.php:1283
 #: modules/gravity-forms/widgets/gravity-forms.php:1310
-#: modules/gravity-forms/widgets/gravity-forms.php:1494
-#: modules/gravity-forms/widgets/gravity-forms.php:1709
-#: modules/gravity-forms/widgets/gravity-forms.php:1892
-#: modules/gravity-forms/widgets/gravity-forms.php:2268
+#: modules/gravity-forms/widgets/gravity-forms.php:1500
+#: modules/gravity-forms/widgets/gravity-forms.php:1731
+#: modules/gravity-forms/widgets/gravity-forms.php:1914
+#: modules/gravity-forms/widgets/gravity-forms.php:2290
 #: modules/headings/widgets/dual-heading.php:330
 #: modules/headings/widgets/dual-heading.php:444
 #: modules/hotspots/widgets/hotspots.php:833
@@ -2127,12 +2127,12 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:898
 #: modules/info-table/widgets/info-table.php:1213
 #: modules/info-table/widgets/info-table.php:1552
-#: modules/instafeed/widgets/instafeed.php:1028
-#: modules/instafeed/widgets/instafeed.php:1501
-#: modules/instafeed/widgets/instafeed.php:1567
-#: modules/instafeed/widgets/instafeed.php:1780
-#: modules/instafeed/widgets/instafeed.php:2005
-#: modules/instafeed/widgets/instafeed.php:2307
+#: modules/instafeed/widgets/instafeed.php:1029
+#: modules/instafeed/widgets/instafeed.php:1502
+#: modules/instafeed/widgets/instafeed.php:1568
+#: modules/instafeed/widgets/instafeed.php:1781
+#: modules/instafeed/widgets/instafeed.php:2006
+#: modules/instafeed/widgets/instafeed.php:2308
 #: modules/logos/widgets/logo-carousel.php:600
 #: modules/logos/widgets/logo-carousel.php:1087
 #: modules/logos/widgets/logo-carousel.php:1303
@@ -2141,14 +2141,14 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:986
 #: modules/ninja-forms/widgets/ninja-forms.php:1012
 #: modules/ninja-forms/widgets/ninja-forms.php:1186
-#: modules/posts/skins/skin-base.php:1784
-#: modules/posts/skins/skin-base.php:1914
-#: modules/posts/skins/skin-base.php:1956
-#: modules/posts/skins/skin-base.php:2399
-#: modules/posts/skins/skin-base.php:2778
-#: modules/posts/skins/skin-base.php:3115
-#: modules/posts/skins/skin-base.php:3336
-#: modules/posts/skins/skin-base.php:3584
+#: modules/posts/skins/skin-base.php:1785
+#: modules/posts/skins/skin-base.php:1915
+#: modules/posts/skins/skin-base.php:1957
+#: modules/posts/skins/skin-base.php:2400
+#: modules/posts/skins/skin-base.php:2779
+#: modules/posts/skins/skin-base.php:3116
+#: modules/posts/skins/skin-base.php:3337
+#: modules/posts/skins/skin-base.php:3585
 #: modules/pricing/widgets/price-menu.php:440
 #: modules/pricing/widgets/price-menu.php:985
 #: modules/pricing/widgets/pricing-table.php:1374
@@ -2208,10 +2208,10 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:694
 #: modules/formidable-forms/widgets/formidable-forms.php:1243
 #: modules/gravity-forms/widgets/gravity-forms.php:639
-#: modules/gravity-forms/widgets/gravity-forms.php:1506
-#: modules/gravity-forms/widgets/gravity-forms.php:1721
-#: modules/gravity-forms/widgets/gravity-forms.php:1904
-#: modules/gravity-forms/widgets/gravity-forms.php:2280
+#: modules/gravity-forms/widgets/gravity-forms.php:1514
+#: modules/gravity-forms/widgets/gravity-forms.php:1743
+#: modules/gravity-forms/widgets/gravity-forms.php:1926
+#: modules/gravity-forms/widgets/gravity-forms.php:2302
 #: modules/headings/widgets/dual-heading.php:342
 #: modules/headings/widgets/dual-heading.php:485
 #: modules/hotspots/widgets/hotspots.php:946
@@ -2237,10 +2237,10 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1076
 #: modules/info-table/widgets/info-table.php:1245
 #: modules/info-table/widgets/info-table.php:1460
-#: modules/instafeed/widgets/instafeed.php:1223
-#: modules/instafeed/widgets/instafeed.php:1583
-#: modules/instafeed/widgets/instafeed.php:1841
-#: modules/instafeed/widgets/instafeed.php:2339
+#: modules/instafeed/widgets/instafeed.php:1224
+#: modules/instafeed/widgets/instafeed.php:1584
+#: modules/instafeed/widgets/instafeed.php:1842
+#: modules/instafeed/widgets/instafeed.php:2340
 #: modules/logos/widgets/logo-carousel.php:612
 #: modules/logos/widgets/logo-carousel.php:915
 #: modules/logos/widgets/logo-carousel.php:1148
@@ -2248,12 +2248,12 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:566
 #: modules/ninja-forms/widgets/ninja-forms.php:672
 #: modules/ninja-forms/widgets/ninja-forms.php:1198
-#: modules/posts/skins/skin-base.php:1796
-#: modules/posts/skins/skin-base.php:1926
-#: modules/posts/skins/skin-base.php:2414
-#: modules/posts/skins/skin-base.php:2808
-#: modules/posts/skins/skin-base.php:3196
-#: modules/posts/skins/skin-base.php:3600
+#: modules/posts/skins/skin-base.php:1797
+#: modules/posts/skins/skin-base.php:1927
+#: modules/posts/skins/skin-base.php:2415
+#: modules/posts/skins/skin-base.php:2809
+#: modules/posts/skins/skin-base.php:3197
+#: modules/posts/skins/skin-base.php:3601
 #: modules/pricing/widgets/price-menu.php:417
 #: modules/pricing/widgets/price-menu.php:479
 #: modules/pricing/widgets/price-menu.php:962
@@ -2515,9 +2515,9 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1087
 #: modules/info-list/widgets/info-list.php:916
 #: modules/info-table/widgets/info-table.php:194
-#: modules/instafeed/widgets/instafeed.php:1084
+#: modules/instafeed/widgets/instafeed.php:1085
 #: modules/logos/widgets/logo-grid.php:110
-#: modules/posts/skins/skin-base.php:791 modules/posts/skins/skin-base.php:2477
+#: modules/posts/skins/skin-base.php:791 modules/posts/skins/skin-base.php:2478
 #: modules/pricing/widgets/price-menu.php:468
 #: modules/pricing/widgets/pricing-table.php:429
 #: modules/promo-box/widgets/promo-box.php:117
@@ -2578,7 +2578,7 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:140
 #: modules/ninja-forms/widgets/ninja-forms.php:325
 #: modules/posts/skins/skin-base.php:700 modules/posts/skins/skin-base.php:1480
-#: modules/posts/skins/skin-base.php:2084
+#: modules/posts/skins/skin-base.php:2085
 #: modules/posts/widgets/posts-base.php:456
 #: modules/pricing/widgets/price-menu.php:101
 #: modules/pricing/widgets/price-menu.php:107
@@ -2713,7 +2713,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:115
 #: modules/info-table/widgets/info-table.php:134
 #: modules/info-table/widgets/info-table.php:345
-#: modules/instafeed/widgets/instafeed.php:1599
+#: modules/instafeed/widgets/instafeed.php:1600
 #: modules/pricing/widgets/pricing-table.php:166
 #: modules/pricing/widgets/pricing-table.php:181
 #: modules/pricing/widgets/pricing-table.php:462
@@ -2793,8 +2793,8 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:798
 #: modules/info-list/widgets/info-list.php:969
 #: modules/info-table/widgets/info-table.php:269
-#: modules/instafeed/widgets/instafeed.php:424
-#: modules/instafeed/widgets/instafeed.php:777
+#: modules/instafeed/widgets/instafeed.php:425
+#: modules/instafeed/widgets/instafeed.php:778
 #: modules/logos/widgets/logo-carousel.php:449
 #: modules/ninja-forms/widgets/ninja-forms.php:127
 #: modules/ninja-forms/widgets/ninja-forms.php:168
@@ -2845,8 +2845,8 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:799
 #: modules/info-list/widgets/info-list.php:968
 #: modules/info-table/widgets/info-table.php:273
-#: modules/instafeed/widgets/instafeed.php:425
-#: modules/instafeed/widgets/instafeed.php:778
+#: modules/instafeed/widgets/instafeed.php:426
+#: modules/instafeed/widgets/instafeed.php:779
 #: modules/logos/widgets/logo-carousel.php:450
 #: modules/ninja-forms/widgets/ninja-forms.php:128
 #: modules/ninja-forms/widgets/ninja-forms.php:169
@@ -2947,7 +2947,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:692
 #: modules/info-list/widgets/info-list.php:398
 #: modules/info-table/widgets/info-table.php:386
-#: modules/instafeed/widgets/instafeed.php:876
+#: modules/instafeed/widgets/instafeed.php:877
 #: modules/link-effects/widgets/link-effects.php:238
 #: modules/logos/widgets/logo-carousel.php:538
 #: modules/logos/widgets/logo-grid.php:485
@@ -3001,8 +3001,8 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1189
 #: modules/gravity-forms/widgets/gravity-forms.php:589
 #: modules/gravity-forms/widgets/gravity-forms.php:1209
-#: modules/gravity-forms/widgets/gravity-forms.php:1450
-#: modules/gravity-forms/widgets/gravity-forms.php:1667
+#: modules/gravity-forms/widgets/gravity-forms.php:1452
+#: modules/gravity-forms/widgets/gravity-forms.php:1689
 #: modules/icon-list/widgets/icon-list.php:596
 #: modules/icon-list/widgets/icon-list.php:811
 #: modules/image-accordion/widgets/image-accordion.php:514
@@ -3021,13 +3021,13 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:455
 #: modules/info-table/widgets/info-table.php:846
 #: modules/info-table/widgets/info-table.php:1154
-#: modules/instafeed/widgets/instafeed.php:998
-#: modules/instafeed/widgets/instafeed.php:1257
-#: modules/instafeed/widgets/instafeed.php:1284
-#: modules/instafeed/widgets/instafeed.php:1449
-#: modules/instafeed/widgets/instafeed.php:1738
-#: modules/instafeed/widgets/instafeed.php:1943
-#: modules/instafeed/widgets/instafeed.php:2249
+#: modules/instafeed/widgets/instafeed.php:999
+#: modules/instafeed/widgets/instafeed.php:1258
+#: modules/instafeed/widgets/instafeed.php:1285
+#: modules/instafeed/widgets/instafeed.php:1450
+#: modules/instafeed/widgets/instafeed.php:1739
+#: modules/instafeed/widgets/instafeed.php:1944
+#: modules/instafeed/widgets/instafeed.php:2250
 #: modules/link-effects/widgets/link-effects.php:318
 #: modules/logos/widgets/logo-carousel.php:678
 #: modules/logos/widgets/logo-carousel.php:1045
@@ -3036,13 +3036,13 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:515
 #: modules/ninja-forms/widgets/ninja-forms.php:913
 #: modules/ninja-forms/widgets/ninja-forms.php:1144
-#: modules/posts/skins/skin-base.php:1754
-#: modules/posts/skins/skin-base.php:1995
-#: modules/posts/skins/skin-base.php:2363
-#: modules/posts/skins/skin-base.php:2724
-#: modules/posts/skins/skin-base.php:3057
-#: modules/posts/skins/skin-base.php:3294
-#: modules/posts/skins/skin-base.php:3527
+#: modules/posts/skins/skin-base.php:1755
+#: modules/posts/skins/skin-base.php:1996
+#: modules/posts/skins/skin-base.php:2364
+#: modules/posts/skins/skin-base.php:2725
+#: modules/posts/skins/skin-base.php:3058
+#: modules/posts/skins/skin-base.php:3295
+#: modules/posts/skins/skin-base.php:3528
 #: modules/pricing/widgets/pricing-table.php:366
 #: modules/pricing/widgets/pricing-table.php:2516
 #: modules/promo-box/widgets/promo-box.php:771
@@ -3099,7 +3099,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:497
 #: modules/info-table/widgets/info-table.php:111
 #: modules/info-table/widgets/info-table.php:309
-#: modules/instafeed/widgets/instafeed.php:244
+#: modules/instafeed/widgets/instafeed.php:245
 #: modules/logos/widgets/logo-grid.php:207
 #: modules/posts/skins/skin-base.php:667 modules/posts/skins/skin-base.php:1265
 #: modules/posts/widgets/posts-base.php:360
@@ -3226,8 +3226,8 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1329
 #: modules/gravity-forms/widgets/gravity-forms.php:1030
 #: modules/gravity-forms/widgets/gravity-forms.php:1256
-#: modules/gravity-forms/widgets/gravity-forms.php:1592
-#: modules/gravity-forms/widgets/gravity-forms.php:1807
+#: modules/gravity-forms/widgets/gravity-forms.php:1612
+#: modules/gravity-forms/widgets/gravity-forms.php:1829
 #: modules/hotspots/widgets/hotspots.php:406
 #: modules/icon-list/widgets/icon-list.php:767
 #: modules/image-accordion/widgets/image-accordion.php:584
@@ -3245,10 +3245,10 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1356
 #: modules/info-table/widgets/info-table.php:989
 #: modules/info-table/widgets/info-table.php:1353
-#: modules/instafeed/widgets/instafeed.php:1061
-#: modules/instafeed/widgets/instafeed.php:1825
-#: modules/instafeed/widgets/instafeed.php:2077
-#: modules/instafeed/widgets/instafeed.php:2449
+#: modules/instafeed/widgets/instafeed.php:1062
+#: modules/instafeed/widgets/instafeed.php:1826
+#: modules/instafeed/widgets/instafeed.php:2078
+#: modules/instafeed/widgets/instafeed.php:2450
 #: modules/link-effects/widgets/link-effects.php:349
 #: modules/link-effects/widgets/link-effects.php:398
 #: modules/logos/widgets/logo-carousel.php:1132
@@ -3256,13 +3256,13 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:248
 #: modules/ninja-forms/widgets/ninja-forms.php:960
 #: modules/ninja-forms/widgets/ninja-forms.php:1262
-#: modules/posts/skins/skin-base.php:1837
-#: modules/posts/skins/skin-base.php:2910
-#: modules/posts/skins/skin-base.php:3176
-#: modules/posts/skins/skin-base.php:3404
-#: modules/posts/skins/skin-base.php:3449
-#: modules/posts/skins/skin-base.php:3672
-#: modules/posts/skins/skin-base.php:3743
+#: modules/posts/skins/skin-base.php:1838
+#: modules/posts/skins/skin-base.php:2911
+#: modules/posts/skins/skin-base.php:3177
+#: modules/posts/skins/skin-base.php:3405
+#: modules/posts/skins/skin-base.php:3450
+#: modules/posts/skins/skin-base.php:3673
+#: modules/posts/skins/skin-base.php:3744
 #: modules/pricing/widgets/price-menu.php:666
 #: modules/promo-box/widgets/promo-box.php:1097
 #: modules/promo-box/widgets/promo-box.php:1330
@@ -3295,8 +3295,8 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1608
 #: modules/fluent-forms/widgets/fluent-forms.php:1288
 #: modules/formidable-forms/widgets/formidable-forms.php:1298
-#: modules/gravity-forms/widgets/gravity-forms.php:1561
-#: modules/gravity-forms/widgets/gravity-forms.php:1776
+#: modules/gravity-forms/widgets/gravity-forms.php:1577
+#: modules/gravity-forms/widgets/gravity-forms.php:1798
 #: modules/hotspots/widgets/hotspots.php:527
 #: modules/icon-list/widgets/icon-list.php:735
 #: modules/icon-list/widgets/icon-list.php:859
@@ -3316,25 +3316,25 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:503
 #: modules/info-table/widgets/info-table.php:951
 #: modules/info-table/widgets/info-table.php:1309
-#: modules/instafeed/widgets/instafeed.php:1042
-#: modules/instafeed/widgets/instafeed.php:1343
-#: modules/instafeed/widgets/instafeed.php:1515
-#: modules/instafeed/widgets/instafeed.php:1794
-#: modules/instafeed/widgets/instafeed.php:2048
-#: modules/instafeed/widgets/instafeed.php:2406
+#: modules/instafeed/widgets/instafeed.php:1043
+#: modules/instafeed/widgets/instafeed.php:1344
+#: modules/instafeed/widgets/instafeed.php:1516
+#: modules/instafeed/widgets/instafeed.php:1795
+#: modules/instafeed/widgets/instafeed.php:2049
+#: modules/instafeed/widgets/instafeed.php:2407
 #: modules/link-effects/widgets/link-effects.php:367
 #: modules/logos/widgets/logo-carousel.php:791
 #: modules/logos/widgets/logo-carousel.php:1101
 #: modules/logos/widgets/logo-carousel.php:1321
 #: modules/logos/widgets/logo-grid.php:619
 #: modules/ninja-forms/widgets/ninja-forms.php:1231
-#: modules/posts/skins/skin-base.php:1818
-#: modules/posts/skins/skin-base.php:2041
-#: modules/posts/skins/skin-base.php:2431
-#: modules/posts/skins/skin-base.php:2870
-#: modules/posts/skins/skin-base.php:3133
-#: modules/posts/skins/skin-base.php:3422
-#: modules/posts/skins/skin-base.php:3630
+#: modules/posts/skins/skin-base.php:1819
+#: modules/posts/skins/skin-base.php:2042
+#: modules/posts/skins/skin-base.php:2432
+#: modules/posts/skins/skin-base.php:2871
+#: modules/posts/skins/skin-base.php:3134
+#: modules/posts/skins/skin-base.php:3423
+#: modules/posts/skins/skin-base.php:3631
 #: modules/pricing/widgets/pricing-table.php:608
 #: modules/pricing/widgets/pricing-table.php:2631
 #: modules/promo-box/widgets/promo-box.php:862
@@ -3355,18 +3355,18 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:750
 #: modules/advanced-accordion/widgets/advanced-accordion.php:960
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1348
-#: modules/posts/skins/skin-base.php:3377
-#: modules/posts/skins/skin-base.php:3701
+#: modules/posts/skins/skin-base.php:3378
+#: modules/posts/skins/skin-base.php:3702
 #: modules/team-member/widgets/team-member-carousel.php:1123
 msgid "Active"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:814
 #: modules/content-ticker/widgets/content-ticker.php:1484
-#: modules/posts/skins/skin-base.php:2142
-#: modules/posts/skins/skin-base.php:2311
-#: modules/posts/skins/skin-base.php:2517
-#: modules/posts/skins/skin-base.php:2643
+#: modules/posts/skins/skin-base.php:2143
+#: modules/posts/skins/skin-base.php:2312
+#: modules/posts/skins/skin-base.php:2518
+#: modules/posts/skins/skin-base.php:2644
 msgid "Bottom Spacing"
 msgstr ""
 
@@ -3436,13 +3436,13 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:878
 #: modules/gravity-forms/widgets/gravity-forms.php:960
 #: modules/gravity-forms/widgets/gravity-forms.php:1117
-#: modules/gravity-forms/widgets/gravity-forms.php:1470
-#: modules/gravity-forms/widgets/gravity-forms.php:1580
-#: modules/gravity-forms/widgets/gravity-forms.php:1686
-#: modules/gravity-forms/widgets/gravity-forms.php:1795
-#: modules/gravity-forms/widgets/gravity-forms.php:1860
-#: modules/gravity-forms/widgets/gravity-forms.php:2033
-#: modules/gravity-forms/widgets/gravity-forms.php:2223
+#: modules/gravity-forms/widgets/gravity-forms.php:1473
+#: modules/gravity-forms/widgets/gravity-forms.php:1598
+#: modules/gravity-forms/widgets/gravity-forms.php:1708
+#: modules/gravity-forms/widgets/gravity-forms.php:1817
+#: modules/gravity-forms/widgets/gravity-forms.php:1882
+#: modules/gravity-forms/widgets/gravity-forms.php:2055
+#: modules/gravity-forms/widgets/gravity-forms.php:2245
 #: modules/headings/widgets/dual-heading.php:281
 #: modules/headings/widgets/dual-heading.php:395
 #: modules/headings/widgets/fancy-heading.php:306
@@ -3462,11 +3462,11 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1344
 #: modules/info-table/widgets/info-table.php:1181
 #: modules/info-table/widgets/info-table.php:1336
-#: modules/instafeed/widgets/instafeed.php:1459
-#: modules/instafeed/widgets/instafeed.php:1525
-#: modules/instafeed/widgets/instafeed.php:2119
-#: modules/instafeed/widgets/instafeed.php:2276
-#: modules/instafeed/widgets/instafeed.php:2433
+#: modules/instafeed/widgets/instafeed.php:1460
+#: modules/instafeed/widgets/instafeed.php:1526
+#: modules/instafeed/widgets/instafeed.php:2120
+#: modules/instafeed/widgets/instafeed.php:2277
+#: modules/instafeed/widgets/instafeed.php:2434
 #: modules/logos/widgets/logo-carousel.php:865
 #: modules/logos/widgets/logo-carousel.php:1424
 #: modules/ninja-forms/widgets/ninja-forms.php:334
@@ -3479,11 +3479,11 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:1250
 #: modules/ninja-forms/widgets/ninja-forms.php:1316
 #: modules/ninja-forms/widgets/ninja-forms.php:1422
-#: modules/posts/skins/skin-base.php:2384
-#: modules/posts/skins/skin-base.php:2452
-#: modules/posts/skins/skin-base.php:2561
-#: modules/posts/skins/skin-base.php:2749
-#: modules/posts/skins/skin-base.php:2895
+#: modules/posts/skins/skin-base.php:2385
+#: modules/posts/skins/skin-base.php:2453
+#: modules/posts/skins/skin-base.php:2562
+#: modules/posts/skins/skin-base.php:2750
+#: modules/posts/skins/skin-base.php:2896
 #: modules/pricing/widgets/price-menu.php:725
 #: modules/pricing/widgets/pricing-table.php:522
 #: modules/pricing/widgets/pricing-table.php:1725
@@ -3574,12 +3574,12 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1529
 #: modules/gravity-forms/widgets/gravity-forms.php:596
 #: modules/gravity-forms/widgets/gravity-forms.php:814
-#: modules/gravity-forms/widgets/gravity-forms.php:1457
-#: modules/gravity-forms/widgets/gravity-forms.php:1568
-#: modules/gravity-forms/widgets/gravity-forms.php:1674
-#: modules/gravity-forms/widgets/gravity-forms.php:1783
-#: modules/gravity-forms/widgets/gravity-forms.php:1848
-#: modules/gravity-forms/widgets/gravity-forms.php:2235
+#: modules/gravity-forms/widgets/gravity-forms.php:1459
+#: modules/gravity-forms/widgets/gravity-forms.php:1584
+#: modules/gravity-forms/widgets/gravity-forms.php:1696
+#: modules/gravity-forms/widgets/gravity-forms.php:1805
+#: modules/gravity-forms/widgets/gravity-forms.php:1870
+#: modules/gravity-forms/widgets/gravity-forms.php:2257
 #: modules/hotspots/widgets/hotspots.php:394
 #: modules/hotspots/widgets/hotspots.php:911
 #: modules/hotspots/widgets/hotspots.php:982
@@ -3613,12 +3613,12 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1165
 #: modules/info-table/widgets/info-table.php:1320
 #: modules/info-table/widgets/info-table.php:1411
-#: modules/instafeed/widgets/instafeed.php:1475
-#: modules/instafeed/widgets/instafeed.php:1541
-#: modules/instafeed/widgets/instafeed.php:1745
-#: modules/instafeed/widgets/instafeed.php:1801
-#: modules/instafeed/widgets/instafeed.php:2260
-#: modules/instafeed/widgets/instafeed.php:2417
+#: modules/instafeed/widgets/instafeed.php:1476
+#: modules/instafeed/widgets/instafeed.php:1542
+#: modules/instafeed/widgets/instafeed.php:1746
+#: modules/instafeed/widgets/instafeed.php:1802
+#: modules/instafeed/widgets/instafeed.php:2261
+#: modules/instafeed/widgets/instafeed.php:2418
 #: modules/link-effects/widgets/link-effects.php:337
 #: modules/link-effects/widgets/link-effects.php:386
 #: modules/logos/widgets/logo-carousel.php:1052
@@ -3628,18 +3628,18 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:732
 #: modules/ninja-forms/widgets/ninja-forms.php:1151
 #: modules/ninja-forms/widgets/ninja-forms.php:1238
-#: modules/posts/skins/skin-base.php:1761
-#: modules/posts/skins/skin-base.php:1825
-#: modules/posts/skins/skin-base.php:1902
-#: modules/posts/skins/skin-base.php:2370
-#: modules/posts/skins/skin-base.php:2438
-#: modules/posts/skins/skin-base.php:2734
-#: modules/posts/skins/skin-base.php:2880
-#: modules/posts/skins/skin-base.php:3068
-#: modules/posts/skins/skin-base.php:3144
-#: modules/posts/skins/skin-base.php:3538
-#: modules/posts/skins/skin-base.php:3641
-#: modules/posts/skins/skin-base.php:3712
+#: modules/posts/skins/skin-base.php:1762
+#: modules/posts/skins/skin-base.php:1826
+#: modules/posts/skins/skin-base.php:1903
+#: modules/posts/skins/skin-base.php:2371
+#: modules/posts/skins/skin-base.php:2439
+#: modules/posts/skins/skin-base.php:2735
+#: modules/posts/skins/skin-base.php:2881
+#: modules/posts/skins/skin-base.php:3069
+#: modules/posts/skins/skin-base.php:3145
+#: modules/posts/skins/skin-base.php:3539
+#: modules/posts/skins/skin-base.php:3642
+#: modules/posts/skins/skin-base.php:3713
 #: modules/pricing/widgets/price-menu.php:386
 #: modules/pricing/widgets/price-menu.php:740
 #: modules/pricing/widgets/price-menu.php:910
@@ -3694,7 +3694,7 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1042
 #: modules/image-accordion/widgets/image-accordion.php:1078
-#: modules/posts/skins/skin-base.php:2847
+#: modules/posts/skins/skin-base.php:2848
 #: modules/pricing/widgets/pricing-table.php:2370
 msgid "Icon Spacing"
 msgstr ""
@@ -3720,7 +3720,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:361
 #: modules/gravity-forms/widgets/gravity-forms.php:561
 #: modules/gravity-forms/widgets/gravity-forms.php:1372
-#: modules/gravity-forms/widgets/gravity-forms.php:2197
+#: modules/gravity-forms/widgets/gravity-forms.php:2219
 #: modules/headings/widgets/dual-heading.php:198
 #: modules/headings/widgets/fancy-heading.php:163
 #: modules/hotspots/widgets/hotspots.php:795
@@ -3732,13 +3732,13 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:924
 #: modules/info-table/widgets/info-table.php:425
 #: modules/info-table/widgets/info-table.php:1508
-#: modules/instafeed/widgets/instafeed.php:2173
+#: modules/instafeed/widgets/instafeed.php:2174
 #: modules/link-effects/widgets/link-effects.php:196
 #: modules/ninja-forms/widgets/ninja-forms.php:299
 #: modules/ninja-forms/widgets/ninja-forms.php:487
 #: modules/ninja-forms/widgets/ninja-forms.php:1073
 #: modules/posts/skins/skin-base.php:1390
-#: modules/posts/skins/skin-base.php:1875
+#: modules/posts/skins/skin-base.php:1876
 #: modules/pricing/widgets/price-menu.php:272
 #: modules/pricing/widgets/pricing-table.php:1150
 #: modules/pricing/widgets/pricing-table.php:1836
@@ -3800,16 +3800,16 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:776
 #: modules/info-list/widgets/info-list.php:1088
 #: modules/info-list/widgets/info-list.php:1180
-#: modules/instafeed/widgets/instafeed.php:1611
-#: modules/instafeed/widgets/instafeed.php:1917
+#: modules/instafeed/widgets/instafeed.php:1612
+#: modules/instafeed/widgets/instafeed.php:1918
 #: modules/logos/widgets/logo-carousel.php:1220
 #: modules/logos/widgets/logo-grid.php:755
 #: modules/ninja-forms/widgets/ninja-forms.php:685
 #: modules/ninja-forms/widgets/ninja-forms.php:803
 #: modules/ninja-forms/widgets/ninja-forms.php:1364
-#: modules/posts/skins/skin-base.php:1971
-#: modules/posts/skins/skin-base.php:2255
-#: modules/posts/skins/skin-base.php:3269
+#: modules/posts/skins/skin-base.php:1972
+#: modules/posts/skins/skin-base.php:2256
+#: modules/posts/skins/skin-base.php:3270
 #: modules/pricing/widgets/pricing-table.php:1464
 #: modules/pricing/widgets/pricing-table.php:1749
 #: modules/pricing/widgets/pricing-table.php:1983
@@ -3851,13 +3851,13 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1019
 #: modules/info-list/widgets/info-list.php:1164
 #: modules/info-table/widgets/info-table.php:1132
-#: modules/instafeed/widgets/instafeed.php:1893
-#: modules/instafeed/widgets/instafeed.php:2227
+#: modules/instafeed/widgets/instafeed.php:1894
+#: modules/instafeed/widgets/instafeed.php:2228
 #: modules/logos/widgets/logo-carousel.php:1197
 #: modules/ninja-forms/widgets/ninja-forms.php:885
-#: modules/posts/skins/skin-base.php:2688
-#: modules/posts/skins/skin-base.php:3246
-#: modules/posts/skins/skin-base.php:3830
+#: modules/posts/skins/skin-base.php:2689
+#: modules/posts/skins/skin-base.php:3247
+#: modules/posts/skins/skin-base.php:3831
 #: modules/pricing/widgets/pricing-table.php:621
 #: modules/pricing/widgets/pricing-table.php:921
 #: modules/pricing/widgets/pricing-table.php:1244
@@ -3887,7 +3887,7 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:1142
 #: modules/formidable-forms/widgets/formidable-forms.php:1152
 #: modules/gravity-forms/widgets/gravity-forms.php:1413
-#: modules/gravity-forms/widgets/gravity-forms.php:1630
+#: modules/gravity-forms/widgets/gravity-forms.php:1652
 #: modules/ninja-forms/widgets/ninja-forms.php:1107
 #: modules/posts/skins/skin-base.php:669
 #: modules/posts/widgets/posts-base.php:385
@@ -4096,7 +4096,7 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:340
 #: modules/business-hours/widgets/business-hours.php:890
 #: modules/display-conditions/conditions/date-archive.php:74
-#: modules/instafeed/widgets/instafeed.php:247
+#: modules/instafeed/widgets/instafeed.php:248
 msgid "Day"
 msgstr ""
 
@@ -4356,7 +4356,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:365
 #: modules/gravity-forms/widgets/gravity-forms.php:565
 #: modules/gravity-forms/widgets/gravity-forms.php:1376
-#: modules/gravity-forms/widgets/gravity-forms.php:2201
+#: modules/gravity-forms/widgets/gravity-forms.php:2223
 #: modules/headings/widgets/dual-heading.php:203
 #: modules/headings/widgets/fancy-heading.php:168
 #: modules/hotspots/widgets/hotspots.php:326
@@ -4377,10 +4377,10 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:928
 #: modules/info-table/widgets/info-table.php:429
 #: modules/info-table/widgets/info-table.php:1512
-#: modules/instafeed/widgets/instafeed.php:845
-#: modules/instafeed/widgets/instafeed.php:1165
-#: modules/instafeed/widgets/instafeed.php:1198
-#: modules/instafeed/widgets/instafeed.php:2177
+#: modules/instafeed/widgets/instafeed.php:846
+#: modules/instafeed/widgets/instafeed.php:1166
+#: modules/instafeed/widgets/instafeed.php:1199
+#: modules/instafeed/widgets/instafeed.php:2178
 #: modules/link-effects/widgets/link-effects.php:200
 #: modules/logos/widgets/logo-carousel.php:513
 #: modules/logos/widgets/logo-carousel.php:654
@@ -4389,7 +4389,7 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:491
 #: modules/ninja-forms/widgets/ninja-forms.php:1077
 #: modules/posts/skins/skin-base.php:312 modules/posts/skins/skin-base.php:1394
-#: modules/posts/skins/skin-base.php:1880
+#: modules/posts/skins/skin-base.php:1881
 #: modules/pricing/widgets/price-menu.php:276
 #: modules/pricing/widgets/pricing-table.php:646
 #: modules/pricing/widgets/pricing-table.php:1006
@@ -4439,7 +4439,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:369
 #: modules/gravity-forms/widgets/gravity-forms.php:569
 #: modules/gravity-forms/widgets/gravity-forms.php:1380
-#: modules/gravity-forms/widgets/gravity-forms.php:2205
+#: modules/gravity-forms/widgets/gravity-forms.php:2227
 #: modules/headings/widgets/dual-heading.php:207
 #: modules/headings/widgets/fancy-heading.php:172
 #: modules/hotspots/widgets/hotspots.php:804
@@ -4456,10 +4456,10 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:659
 #: modules/info-list/widgets/info-list.php:932
 #: modules/info-table/widgets/info-table.php:433
-#: modules/instafeed/widgets/instafeed.php:1133
-#: modules/instafeed/widgets/instafeed.php:1169
-#: modules/instafeed/widgets/instafeed.php:1202
-#: modules/instafeed/widgets/instafeed.php:2181
+#: modules/instafeed/widgets/instafeed.php:1134
+#: modules/instafeed/widgets/instafeed.php:1170
+#: modules/instafeed/widgets/instafeed.php:1203
+#: modules/instafeed/widgets/instafeed.php:2182
 #: modules/link-effects/widgets/link-effects.php:204
 #: modules/logos/widgets/logo-carousel.php:632
 #: modules/logos/widgets/logo-carousel.php:658
@@ -4469,7 +4469,7 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:495
 #: modules/ninja-forms/widgets/ninja-forms.php:1081
 #: modules/posts/skins/skin-base.php:1398
-#: modules/posts/skins/skin-base.php:1884
+#: modules/posts/skins/skin-base.php:1885
 #: modules/pricing/widgets/price-menu.php:280
 #: modules/pricing/widgets/price-menu.php:1056
 #: modules/pricing/widgets/pricing-table.php:1159
@@ -4521,7 +4521,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:373
 #: modules/gravity-forms/widgets/gravity-forms.php:573
 #: modules/gravity-forms/widgets/gravity-forms.php:1384
-#: modules/gravity-forms/widgets/gravity-forms.php:2209
+#: modules/gravity-forms/widgets/gravity-forms.php:2231
 #: modules/headings/widgets/dual-heading.php:211
 #: modules/headings/widgets/fancy-heading.php:176
 #: modules/hotspots/widgets/hotspots.php:327
@@ -4542,10 +4542,10 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:936
 #: modules/info-table/widgets/info-table.php:437
 #: modules/info-table/widgets/info-table.php:1516
-#: modules/instafeed/widgets/instafeed.php:846
-#: modules/instafeed/widgets/instafeed.php:1173
-#: modules/instafeed/widgets/instafeed.php:1206
-#: modules/instafeed/widgets/instafeed.php:2185
+#: modules/instafeed/widgets/instafeed.php:847
+#: modules/instafeed/widgets/instafeed.php:1174
+#: modules/instafeed/widgets/instafeed.php:1207
+#: modules/instafeed/widgets/instafeed.php:2186
 #: modules/link-effects/widgets/link-effects.php:208
 #: modules/logos/widgets/logo-carousel.php:514
 #: modules/logos/widgets/logo-carousel.php:662
@@ -4554,7 +4554,7 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:499
 #: modules/ninja-forms/widgets/ninja-forms.php:1085
 #: modules/posts/skins/skin-base.php:316 modules/posts/skins/skin-base.php:1402
-#: modules/posts/skins/skin-base.php:1888
+#: modules/posts/skins/skin-base.php:1889
 #: modules/pricing/widgets/price-menu.php:284
 #: modules/pricing/widgets/pricing-table.php:647
 #: modules/pricing/widgets/pricing-table.php:1010
@@ -4685,8 +4685,8 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:117
 #: modules/info-box/widgets/info-box-carousel.php:471
 #: modules/info-box/widgets/info-box-carousel.php:938
-#: modules/instafeed/widgets/instafeed.php:335
-#: modules/instafeed/widgets/instafeed.php:909
+#: modules/instafeed/widgets/instafeed.php:336
+#: modules/instafeed/widgets/instafeed.php:910
 #: modules/posts/skins/skin-base.php:91 modules/posts/skins/skin-base.php:1685
 #: modules/posts/widgets/posts.php:90
 #: modules/twitter/widgets/twitter-timeline.php:114
@@ -4698,7 +4698,7 @@ msgid "Button Size"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:313
-#: modules/gravity-forms/widgets/gravity-forms.php:1841
+#: modules/gravity-forms/widgets/gravity-forms.php:1863
 #: modules/hotspots/widgets/hotspots.php:543
 #: modules/hotspots/widgets/hotspots.php:613
 #: modules/icon-list/widgets/icon-list.php:122
@@ -4721,8 +4721,8 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1664
 #: modules/info-list/widgets/info-list.php:1168
 #: modules/info-table/widgets/info-table.php:1136
-#: modules/instafeed/widgets/instafeed.php:2231
-#: modules/posts/skins/skin-base.php:2692
+#: modules/instafeed/widgets/instafeed.php:2232
+#: modules/posts/skins/skin-base.php:2693
 #: modules/pricing/widgets/pricing-table.php:2472
 #: modules/promo-box/widgets/promo-box.php:1458
 msgid "Extra Small"
@@ -4738,8 +4738,8 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1665
 #: modules/info-list/widgets/info-list.php:1169
 #: modules/info-table/widgets/info-table.php:1137
-#: modules/instafeed/widgets/instafeed.php:2232
-#: modules/posts/skins/skin-base.php:2693
+#: modules/instafeed/widgets/instafeed.php:2233
+#: modules/posts/skins/skin-base.php:2694
 #: modules/pricing/widgets/pricing-table.php:627
 #: modules/pricing/widgets/pricing-table.php:2473
 #: modules/promo-box/widgets/promo-box.php:1459
@@ -4755,8 +4755,8 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1666
 #: modules/info-list/widgets/info-list.php:1170
 #: modules/info-table/widgets/info-table.php:1138
-#: modules/instafeed/widgets/instafeed.php:2233
-#: modules/posts/skins/skin-base.php:2694
+#: modules/instafeed/widgets/instafeed.php:2234
+#: modules/posts/skins/skin-base.php:2695
 #: modules/pricing/widgets/pricing-table.php:2474
 #: modules/promo-box/widgets/promo-box.php:1460
 msgid "Medium"
@@ -4772,8 +4772,8 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1667
 #: modules/info-list/widgets/info-list.php:1171
 #: modules/info-table/widgets/info-table.php:1139
-#: modules/instafeed/widgets/instafeed.php:2234
-#: modules/posts/skins/skin-base.php:2695
+#: modules/instafeed/widgets/instafeed.php:2235
+#: modules/posts/skins/skin-base.php:2696
 #: modules/pricing/widgets/pricing-table.php:628
 #: modules/pricing/widgets/pricing-table.php:2475
 #: modules/promo-box/widgets/promo-box.php:1461
@@ -4789,8 +4789,8 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1668
 #: modules/info-list/widgets/info-list.php:1172
 #: modules/info-table/widgets/info-table.php:1140
-#: modules/instafeed/widgets/instafeed.php:2235
-#: modules/posts/skins/skin-base.php:2696
+#: modules/instafeed/widgets/instafeed.php:2236
+#: modules/posts/skins/skin-base.php:2697
 #: modules/pricing/widgets/pricing-table.php:2476
 #: modules/promo-box/widgets/promo-box.php:1462
 msgid "Extra Large"
@@ -4872,8 +4872,8 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:331
 #: modules/info-list/widgets/info-list.php:477
 #: modules/info-list/widgets/info-list.php:622
-#: modules/instafeed/widgets/instafeed.php:1129
-#: modules/instafeed/widgets/instafeed.php:1410
+#: modules/instafeed/widgets/instafeed.php:1130
+#: modules/instafeed/widgets/instafeed.php:1411
 #: modules/logos/widgets/logo-carousel.php:628
 #: modules/logos/widgets/logo-grid.php:384
 #: modules/posts/skins/skin-base.php:1301
@@ -4893,7 +4893,7 @@ msgstr ""
 #: modules/image-accordion/widgets/image-accordion.php:663
 #: modules/image-comparison/widgets/image-comparison.php:619
 #: modules/info-box/widgets/info-box.php:335
-#: modules/instafeed/widgets/instafeed.php:1414
+#: modules/instafeed/widgets/instafeed.php:1415
 #: modules/pricing/widgets/price-menu.php:1006
 #: modules/pricing/widgets/pricing-table.php:1679
 msgid "Middle"
@@ -4912,8 +4912,8 @@ msgstr ""
 #: modules/image-comparison/widgets/image-comparison.php:623
 #: modules/info-box/widgets/info-box.php:339
 #: modules/info-list/widgets/info-list.php:630
-#: modules/instafeed/widgets/instafeed.php:1137
-#: modules/instafeed/widgets/instafeed.php:1418
+#: modules/instafeed/widgets/instafeed.php:1138
+#: modules/instafeed/widgets/instafeed.php:1419
 #: modules/logos/widgets/logo-carousel.php:636
 #: modules/logos/widgets/logo-grid.php:392
 #: modules/posts/skins/skin-base.php:1302
@@ -4980,8 +4980,8 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:876
 #: modules/info-list/widgets/info-list.php:1368
 #: modules/info-table/widgets/info-table.php:1369
-#: modules/instafeed/widgets/instafeed.php:2465
-#: modules/posts/skins/skin-base.php:2925
+#: modules/instafeed/widgets/instafeed.php:2466
+#: modules/posts/skins/skin-base.php:2926
 #: modules/pricing/widgets/pricing-table.php:675
 #: modules/pricing/widgets/pricing-table.php:2685
 #: modules/promo-box/widgets/promo-box.php:1603
@@ -4998,7 +4998,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:619
 #: modules/info-list/widgets/info-list.php:265
 #: modules/info-table/widgets/info-table.php:357
-#: modules/instafeed/widgets/instafeed.php:565
+#: modules/instafeed/widgets/instafeed.php:566
 #: modules/posts/skins/skin-base.php:1203
 #: modules/promo-box/widgets/promo-box.php:319
 msgid "Icon Position"
@@ -5068,7 +5068,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:1064
 #: modules/content-reveal/widgets/content-reveal.php:488
 #: modules/image-accordion/widgets/image-accordion.php:719
-#: modules/instafeed/widgets/instafeed.php:1194
+#: modules/instafeed/widgets/instafeed.php:1195
 #: modules/random-image/widgets/random-image.php:735
 msgid "Text Align"
 msgstr ""
@@ -5197,7 +5197,7 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:208
 #: modules/formidable-forms/widgets/formidable-forms.php:1355
 #: modules/gravity-forms/widgets/gravity-forms.php:261
-#: modules/gravity-forms/widgets/gravity-forms.php:2014
+#: modules/gravity-forms/widgets/gravity-forms.php:2036
 #: modules/ninja-forms/widgets/ninja-forms.php:198
 #: modules/ninja-forms/widgets/ninja-forms.php:1403
 #: modules/wpforms/widgets/wpforms.php:188
@@ -5210,7 +5210,7 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:181
 #: modules/formidable-forms/widgets/formidable-forms.php:215
 #: modules/gravity-forms/widgets/gravity-forms.php:268
-#: modules/gravity-forms/widgets/gravity-forms.php:2022
+#: modules/gravity-forms/widgets/gravity-forms.php:2044
 #: modules/ninja-forms/widgets/ninja-forms.php:205
 #: modules/ninja-forms/widgets/ninja-forms.php:1411
 #: modules/wpforms/widgets/wpforms.php:195
@@ -5220,7 +5220,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:219
 #: modules/contact-form-seven/widgets/contact-form-7.php:1329
 #: modules/gravity-forms/widgets/gravity-forms.php:288
-#: modules/gravity-forms/widgets/gravity-forms.php:2057
+#: modules/gravity-forms/widgets/gravity-forms.php:2079
 #: modules/ninja-forms/widgets/ninja-forms.php:225
 #: modules/ninja-forms/widgets/ninja-forms.php:1473
 msgid "Validation Errors"
@@ -5365,8 +5365,8 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:1161
 #: modules/gravity-forms/widgets/gravity-forms.php:1407
 #: modules/gravity-forms/widgets/gravity-forms.php:1422
-#: modules/gravity-forms/widgets/gravity-forms.php:1624
-#: modules/gravity-forms/widgets/gravity-forms.php:1639
+#: modules/gravity-forms/widgets/gravity-forms.php:1646
+#: modules/gravity-forms/widgets/gravity-forms.php:1661
 #: modules/hotspots/widgets/hotspots.php:771
 #: modules/hotspots/widgets/hotspots.php:1010
 #: modules/image-accordion/widgets/image-accordion.php:745
@@ -5400,7 +5400,7 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:1141
 #: modules/formidable-forms/widgets/formidable-forms.php:1151
 #: modules/gravity-forms/widgets/gravity-forms.php:1412
-#: modules/gravity-forms/widgets/gravity-forms.php:1629
+#: modules/gravity-forms/widgets/gravity-forms.php:1651
 #: modules/icon-list/widgets/icon-list.php:310
 #: modules/ninja-forms/widgets/ninja-forms.php:1106
 #: modules/wpforms/widgets/wpforms.php:1371
@@ -5410,8 +5410,8 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:1089
 #: modules/fluent-forms/widgets/fluent-forms.php:1258
 #: modules/formidable-forms/widgets/formidable-forms.php:1255
-#: modules/gravity-forms/widgets/gravity-forms.php:1518
-#: modules/gravity-forms/widgets/gravity-forms.php:1733
+#: modules/gravity-forms/widgets/gravity-forms.php:1528
+#: modules/gravity-forms/widgets/gravity-forms.php:1755
 #: modules/logos/widgets/logo-carousel.php:894
 #: modules/ninja-forms/widgets/ninja-forms.php:1210
 #: modules/pricing/widgets/pricing-table.php:2792
@@ -5445,13 +5445,13 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1808
 #: modules/info-list/widgets/info-list.php:1305
 #: modules/info-table/widgets/info-table.php:1285
-#: modules/instafeed/widgets/instafeed.php:1304
-#: modules/instafeed/widgets/instafeed.php:2022
-#: modules/instafeed/widgets/instafeed.php:2381
+#: modules/instafeed/widgets/instafeed.php:1305
+#: modules/instafeed/widgets/instafeed.php:2023
+#: modules/instafeed/widgets/instafeed.php:2382
 #: modules/ninja-forms/widgets/ninja-forms.php:355
 #: modules/ninja-forms/widgets/ninja-forms.php:407
-#: modules/posts/skins/skin-base.php:2793
-#: modules/posts/skins/skin-base.php:3352
+#: modules/posts/skins/skin-base.php:2794
+#: modules/posts/skins/skin-base.php:3353
 #: modules/pricing/widgets/price-menu.php:950
 #: modules/pricing/widgets/pricing-table.php:1330
 #: modules/pricing/widgets/pricing-table.php:1586
@@ -5468,7 +5468,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:1468
 #: modules/fluent-forms/widgets/fluent-forms.php:1536
 #: modules/formidable-forms/widgets/formidable-forms.php:1623
-#: modules/gravity-forms/widgets/gravity-forms.php:2368
+#: modules/gravity-forms/widgets/gravity-forms.php:2390
 #: modules/ninja-forms/widgets/ninja-forms.php:1563
 #: modules/wpforms/widgets/wpforms.php:1759
 msgid "No Contact Form Selected!"
@@ -5576,7 +5576,7 @@ msgstr ""
 
 #: modules/content-reveal/widgets/content-reveal.php:363
 #: modules/content-reveal/widgets/content-reveal.php:395
-#: modules/gravity-forms/widgets/gravity-forms.php:1976
+#: modules/gravity-forms/widgets/gravity-forms.php:1998
 #: modules/image-comparison/widgets/image-comparison.php:151
 #: modules/image-comparison/widgets/image-comparison.php:203
 #: modules/image-comparison/widgets/image-comparison.php:601
@@ -5600,7 +5600,7 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:565
 #: modules/counter/widgets/counter.php:218
 #: modules/info-list/widgets/info-list.php:966
-#: modules/posts/skins/skin-base.php:2167
+#: modules/posts/skins/skin-base.php:2168
 msgid "Separator"
 msgstr ""
 
@@ -5609,7 +5609,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:1045
 #: modules/divider/widgets/divider.php:313
 #: modules/flipbox/widgets/flipbox.php:496
-#: modules/gravity-forms/widgets/gravity-forms.php:1944
+#: modules/gravity-forms/widgets/gravity-forms.php:1966
 #: modules/image-accordion/widgets/image-accordion.php:316
 #: modules/logos/widgets/logo-carousel.php:715
 #: modules/promo-box/widgets/promo-box.php:459
@@ -6220,7 +6220,7 @@ msgid "Trending Now"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1053
-#: modules/instafeed/widgets/instafeed.php:1663
+#: modules/instafeed/widgets/instafeed.php:1664
 msgid "Arrow"
 msgstr ""
 
@@ -6261,7 +6261,7 @@ msgid "Fade"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1101
-#: modules/instafeed/widgets/instafeed.php:669
+#: modules/instafeed/widgets/instafeed.php:670
 #: modules/logos/widgets/logo-carousel.php:347
 #: modules/team-member/widgets/team-member-carousel.php:832
 msgid "Slider Speed"
@@ -6269,7 +6269,7 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1102
 #: modules/info-box/widgets/info-box-carousel.php:672
-#: modules/instafeed/widgets/instafeed.php:670
+#: modules/instafeed/widgets/instafeed.php:671
 #: modules/logos/widgets/logo-carousel.php:348
 #: modules/team-member/widgets/team-member-carousel.php:833
 msgid "Duration of transition between slides (in ms)"
@@ -6277,7 +6277,7 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1119
 #: modules/info-box/widgets/info-box-carousel.php:693
-#: modules/instafeed/widgets/instafeed.php:691
+#: modules/instafeed/widgets/instafeed.php:692
 #: modules/logos/widgets/logo-carousel.php:366
 #: modules/posts/skins/skin-base.php:220
 #: modules/team-member/widgets/team-member-carousel.php:851
@@ -6286,7 +6286,7 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1132
 #: modules/info-box/widgets/info-box-carousel.php:727
-#: modules/instafeed/widgets/instafeed.php:723
+#: modules/instafeed/widgets/instafeed.php:724
 #: modules/logos/widgets/logo-carousel.php:396
 #: modules/team-member/widgets/team-member-carousel.php:881
 msgid "Pause on Interaction"
@@ -6294,7 +6294,7 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1133
 #: modules/info-box/widgets/info-box-carousel.php:728
-#: modules/instafeed/widgets/instafeed.php:724
+#: modules/instafeed/widgets/instafeed.php:725
 #: modules/logos/widgets/logo-carousel.php:397
 #: modules/team-member/widgets/team-member-carousel.php:882
 msgid "Disables autoplay completely on first interaction with the carousel."
@@ -6302,7 +6302,7 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1148
 #: modules/info-box/widgets/info-box-carousel.php:745
-#: modules/instafeed/widgets/instafeed.php:741
+#: modules/instafeed/widgets/instafeed.php:742
 #: modules/posts/skins/skin-base.php:235
 #: modules/team-member/widgets/team-member-carousel.php:897
 msgid "Autoplay Speed"
@@ -6310,7 +6310,7 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1164
 #: modules/info-box/widgets/info-box-carousel.php:766
-#: modules/instafeed/widgets/instafeed.php:758
+#: modules/instafeed/widgets/instafeed.php:759
 #: modules/logos/widgets/logo-carousel.php:433
 #: modules/posts/skins/skin-base.php:264
 #: modules/team-member/widgets/team-member-carousel.php:917
@@ -6319,7 +6319,7 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1177
 #: modules/info-box/widgets/info-box-carousel.php:794
-#: modules/instafeed/widgets/instafeed.php:773
+#: modules/instafeed/widgets/instafeed.php:774
 #: modules/logos/widgets/logo-carousel.php:445
 #: modules/team-member/widgets/team-member-carousel.php:929
 msgid "Grab Cursor"
@@ -6327,7 +6327,7 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1178
 #: modules/info-box/widgets/info-box-carousel.php:795
-#: modules/instafeed/widgets/instafeed.php:774
+#: modules/instafeed/widgets/instafeed.php:775
 #: modules/logos/widgets/logo-carousel.php:446
 #: modules/team-member/widgets/team-member-carousel.php:930
 msgid "Shows grab cursor when you hover over the slider"
@@ -6335,7 +6335,7 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1191
 #: modules/info-box/widgets/info-box-carousel.php:810
-#: modules/instafeed/widgets/instafeed.php:786
+#: modules/instafeed/widgets/instafeed.php:787
 #: modules/logos/widgets/logo-carousel.php:459
 #: modules/team-member/widgets/team-member-carousel.php:943
 msgid "Navigation"
@@ -6345,11 +6345,11 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1723
 #: modules/info-box/widgets/info-box-carousel.php:822
 #: modules/info-box/widgets/info-box-carousel.php:2028
-#: modules/instafeed/widgets/instafeed.php:795
-#: modules/instafeed/widgets/instafeed.php:1642
+#: modules/instafeed/widgets/instafeed.php:796
+#: modules/instafeed/widgets/instafeed.php:1643
 #: modules/logos/widgets/logo-carousel.php:468
 #: modules/logos/widgets/logo-carousel.php:937
-#: modules/posts/skins/skin-base.php:190 modules/posts/skins/skin-base.php:2954
+#: modules/posts/skins/skin-base.php:190 modules/posts/skins/skin-base.php:2955
 #: modules/team-member/widgets/team-member-carousel.php:952
 #: modules/team-member/widgets/team-member-carousel.php:2380
 msgid "Arrows"
@@ -6372,18 +6372,18 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1734
 #: modules/info-box/widgets/info-box-carousel.php:2039
-#: modules/instafeed/widgets/instafeed.php:1654
+#: modules/instafeed/widgets/instafeed.php:1655
 #: modules/logos/widgets/logo-carousel.php:948
-#: modules/posts/skins/skin-base.php:2966
+#: modules/posts/skins/skin-base.php:2967
 #: modules/team-member/widgets/team-member-carousel.php:2391
 msgid "Choose Arrow"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1771
 #: modules/info-box/widgets/info-box-carousel.php:2076
-#: modules/instafeed/widgets/instafeed.php:1678
+#: modules/instafeed/widgets/instafeed.php:1679
 #: modules/logos/widgets/logo-carousel.php:985
-#: modules/posts/skins/skin-base.php:3007
+#: modules/posts/skins/skin-base.php:3008
 #: modules/team-member/widgets/team-member-carousel.php:2428
 msgid "Arrows Size"
 msgstr ""
@@ -6743,7 +6743,7 @@ msgstr ""
 
 #: modules/divider/widgets/divider.php:230
 #: modules/info-box/widgets/info-box-carousel.php:869
-#: modules/instafeed/widgets/instafeed.php:841
+#: modules/instafeed/widgets/instafeed.php:842
 #: modules/logos/widgets/logo-carousel.php:508
 #: modules/posts/skins/skin-base.php:306
 #: modules/team-member/widgets/team-member-carousel.php:992
@@ -6778,10 +6778,10 @@ msgstr ""
 #: modules/image-comparison/widgets/image-comparison.php:637
 #: modules/info-box/widgets/info-box-carousel.php:2272
 #: modules/info-list/widgets/info-list.php:466
-#: modules/instafeed/widgets/instafeed.php:1404
-#: modules/instafeed/widgets/instafeed.php:1874
+#: modules/instafeed/widgets/instafeed.php:1405
+#: modules/instafeed/widgets/instafeed.php:1875
 #: modules/logos/widgets/logo-carousel.php:1180
-#: modules/posts/skins/skin-base.php:3229
+#: modules/posts/skins/skin-base.php:3230
 #: modules/pricing/widgets/pricing-table.php:640
 #: modules/pricing/widgets/pricing-table.php:1000
 #: modules/pricing/widgets/pricing-table.php:1650
@@ -6833,7 +6833,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:727
 #: modules/info-list/widgets/info-list.php:226
 #: modules/info-table/widgets/info-table.php:310
-#: modules/posts/skins/skin-base.php:1744
+#: modules/posts/skins/skin-base.php:1745
 msgid "Box"
 msgstr ""
 
@@ -6868,9 +6868,9 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:252
 #: modules/info-list/widgets/info-list.php:1296
 #: modules/info-table/widgets/info-table.php:1272
-#: modules/instafeed/widgets/instafeed.php:2367
+#: modules/instafeed/widgets/instafeed.php:2368
 #: modules/posts/skins/skin-base.php:1191
-#: modules/posts/skins/skin-base.php:2834
+#: modules/posts/skins/skin-base.php:2835
 msgid "Button Icon"
 msgstr ""
 
@@ -6916,10 +6916,10 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1113
 #: modules/image-comparison/widgets/image-comparison.php:298
 #: modules/image-comparison/widgets/image-comparison.php:358
-#: modules/instafeed/widgets/instafeed.php:1245
-#: modules/instafeed/widgets/instafeed.php:1260
-#: modules/instafeed/widgets/instafeed.php:1292
-#: modules/instafeed/widgets/instafeed.php:1351
+#: modules/instafeed/widgets/instafeed.php:1246
+#: modules/instafeed/widgets/instafeed.php:1261
+#: modules/instafeed/widgets/instafeed.php:1293
+#: modules/instafeed/widgets/instafeed.php:1352
 #: modules/promo-box/widgets/promo-box.php:521
 #: modules/promo-box/widgets/promo-box.php:529
 #: modules/scroll-image/widgets/scroll-image.php:402
@@ -6979,14 +6979,14 @@ msgid "Custom Width"
 msgstr ""
 
 #: modules/fluent-forms/widgets/fluent-forms.php:1377
-#: modules/gravity-forms/widgets/gravity-forms.php:2148
+#: modules/gravity-forms/widgets/gravity-forms.php:2170
 #: modules/ninja-forms/widgets/ninja-forms.php:1458
 #: modules/wpforms/widgets/wpforms.php:1602
 msgid "Error Field Input Border Color"
 msgstr ""
 
 #: modules/fluent-forms/widgets/fluent-forms.php:1389
-#: modules/gravity-forms/widgets/gravity-forms.php:2163
+#: modules/gravity-forms/widgets/gravity-forms.php:2185
 #: modules/wpforms/widgets/wpforms.php:1617
 msgid "Error Field Input Border Width"
 msgstr ""
@@ -7040,60 +7040,60 @@ msgid "Labels Spacing"
 msgstr ""
 
 #: modules/gravity-forms/widgets/gravity-forms.php:1411
-#: modules/gravity-forms/widgets/gravity-forms.php:1628
+#: modules/gravity-forms/widgets/gravity-forms.php:1650
 #: modules/info-box/widgets/info-box-carousel.php:873
 #: modules/logos/widgets/logo-carousel.php:512
 #: modules/team-member/widgets/team-member-carousel.php:996
 msgid "Auto"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1616
+#: modules/gravity-forms/widgets/gravity-forms.php:1638
 #: modules/info-box/widgets/info-box-carousel.php:837
-#: modules/instafeed/widgets/instafeed.php:810
+#: modules/instafeed/widgets/instafeed.php:811
 #: modules/posts/skins/skin-base.php:1251
 #: modules/posts/skins/skin-base.php:1261
-#: modules/posts/skins/skin-base.php:3473
-#: modules/posts/skins/skin-base.php:4653
+#: modules/posts/skins/skin-base.php:3474
+#: modules/posts/skins/skin-base.php:4654
 #: modules/team-member/widgets/team-member-carousel.php:964
 msgid "Pagination"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1831
+#: modules/gravity-forms/widgets/gravity-forms.php:1853
 #: modules/wpforms/widgets/wpforms.php:1135
 msgid "Progress Bar"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:1926
+#: modules/gravity-forms/widgets/gravity-forms.php:1948
 msgid "Progress"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2069
+#: modules/gravity-forms/widgets/gravity-forms.php:2091
 #: modules/ninja-forms/widgets/ninja-forms.php:1485
 msgid "Error Description Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2085
+#: modules/gravity-forms/widgets/gravity-forms.php:2107
 #: modules/ninja-forms/widgets/ninja-forms.php:1501
 msgid "Error Description Typography"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2093
+#: modules/gravity-forms/widgets/gravity-forms.php:2115
 msgid "Error Border Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2109
+#: modules/gravity-forms/widgets/gravity-forms.php:2131
 msgid "Error Field Background Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2124
+#: modules/gravity-forms/widgets/gravity-forms.php:2146
 msgid "Error Field Label Color"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2140
+#: modules/gravity-forms/widgets/gravity-forms.php:2162
 msgid "Error Field Label Typography"
 msgstr ""
 
-#: modules/gravity-forms/widgets/gravity-forms.php:2189
+#: modules/gravity-forms/widgets/gravity-forms.php:2211
 msgid "Thank You Message"
 msgstr ""
 
@@ -7669,7 +7669,7 @@ msgid "Accordion Action"
 msgstr ""
 
 #: modules/image-accordion/widgets/image-accordion.php:374
-#: modules/instafeed/widgets/instafeed.php:453
+#: modules/instafeed/widgets/instafeed.php:454
 msgid "On Hover"
 msgstr ""
 
@@ -7702,7 +7702,7 @@ msgstr ""
 #: modules/image-accordion/widgets/image-accordion.php:654
 #: modules/info-box/widgets/info-box.php:325
 #: modules/info-list/widgets/info-list.php:615
-#: modules/instafeed/widgets/instafeed.php:1122
+#: modules/instafeed/widgets/instafeed.php:1123
 #: modules/logos/widgets/logo-grid.php:378
 #: modules/random-image/widgets/random-image.php:656
 msgid "Vertical Align"
@@ -7710,7 +7710,7 @@ msgstr ""
 
 #: modules/image-accordion/widgets/image-accordion.php:686
 #: modules/info-list/widgets/info-list.php:649
-#: modules/instafeed/widgets/instafeed.php:1158
+#: modules/instafeed/widgets/instafeed.php:1159
 #: modules/logos/widgets/logo-grid.php:410
 #: modules/random-image/widgets/random-image.php:693
 msgid "Horizontal Align"
@@ -7779,14 +7779,14 @@ msgid "Info Box 3"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:475
-#: modules/instafeed/widgets/instafeed.php:339
+#: modules/instafeed/widgets/instafeed.php:340
 #: modules/posts/skins/skin-base.php:94
 #: modules/twitter/widgets/twitter-grid.php:70
 msgid "Grid"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:476
-#: modules/instafeed/widgets/instafeed.php:341
+#: modules/instafeed/widgets/instafeed.php:342
 #: modules/posts/skins/skin-base.php:96
 msgid "Carousel"
 msgstr ""
@@ -7812,7 +7812,7 @@ msgid "Equal Height Boxes"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:592
-#: modules/instafeed/widgets/instafeed.php:619
+#: modules/instafeed/widgets/instafeed.php:620
 #: modules/logos/widgets/logo-carousel.php:278
 #: modules/team-member/widgets/team-member-carousel.php:787
 msgid "Carousel Settings"
@@ -7829,7 +7829,7 @@ msgid "Coverflow"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:622
-#: modules/instafeed/widgets/instafeed.php:629
+#: modules/instafeed/widgets/instafeed.php:630
 #: modules/logos/widgets/logo-carousel.php:302
 #: modules/team-member/widgets/team-member-carousel.php:794
 msgid "Visible Items"
@@ -7840,7 +7840,7 @@ msgid "Number of slides visible at the same time on slider's container)."
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:647
-#: modules/instafeed/widgets/instafeed.php:649
+#: modules/instafeed/widgets/instafeed.php:650
 #: modules/logos/widgets/logo-carousel.php:325
 #: modules/team-member/widgets/team-member-carousel.php:813
 msgid "Items Gap"
@@ -7856,7 +7856,7 @@ msgid "Transition Duration"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:709
-#: modules/instafeed/widgets/instafeed.php:706
+#: modules/instafeed/widgets/instafeed.php:707
 #: modules/logos/widgets/logo-carousel.php:379
 #: modules/posts/skins/skin-base.php:248
 #: modules/team-member/widgets/team-member-carousel.php:864
@@ -7872,35 +7872,35 @@ msgid "Centered Slides"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:852
-#: modules/instafeed/widgets/instafeed.php:825
+#: modules/instafeed/widgets/instafeed.php:826
 #: modules/logos/widgets/logo-carousel.php:492
 #: modules/team-member/widgets/team-member-carousel.php:976
 msgid "Pagination Type"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:856
-#: modules/instafeed/widgets/instafeed.php:829
+#: modules/instafeed/widgets/instafeed.php:830
 #: modules/logos/widgets/logo-carousel.php:480
 #: modules/logos/widgets/logo-carousel.php:496
-#: modules/posts/skins/skin-base.php:205 modules/posts/skins/skin-base.php:3217
+#: modules/posts/skins/skin-base.php:205 modules/posts/skins/skin-base.php:3218
 #: modules/team-member/widgets/team-member-carousel.php:980
 msgid "Dots"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:857
-#: modules/instafeed/widgets/instafeed.php:830
+#: modules/instafeed/widgets/instafeed.php:831
 #: modules/logos/widgets/logo-carousel.php:497
 #: modules/team-member/widgets/team-member-carousel.php:981
 msgid "Fraction"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:976
-#: modules/instafeed/widgets/instafeed.php:918
+#: modules/instafeed/widgets/instafeed.php:919
 msgid "Columns Gap"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:1006
-#: modules/instafeed/widgets/instafeed.php:950
+#: modules/instafeed/widgets/instafeed.php:951
 msgid "Rows Gap"
 msgstr ""
 
@@ -7934,51 +7934,51 @@ msgid "Sub Title"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2096
-#: modules/instafeed/widgets/instafeed.php:1698
+#: modules/instafeed/widgets/instafeed.php:1699
 #: modules/logos/widgets/logo-carousel.php:1005
 #: modules/team-member/widgets/team-member-carousel.php:2448
 msgid "Align Left Arrow"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2115
-#: modules/instafeed/widgets/instafeed.php:1717
+#: modules/instafeed/widgets/instafeed.php:1718
 #: modules/logos/widgets/logo-carousel.php:1024
 #: modules/team-member/widgets/team-member-carousel.php:2467
 msgid "Align Right Arrow"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2260
-#: modules/instafeed/widgets/instafeed.php:1861
+#: modules/instafeed/widgets/instafeed.php:1862
 #: modules/logos/widgets/logo-carousel.php:1168
 #: modules/team-member/widgets/team-member-carousel.php:2610
 msgid "Pagination: Dots"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2275
-#: modules/instafeed/widgets/instafeed.php:1877
+#: modules/instafeed/widgets/instafeed.php:1878
 #: modules/logos/widgets/logo-carousel.php:1183
-#: modules/posts/skins/skin-base.php:3232
+#: modules/posts/skins/skin-base.php:3233
 #: modules/team-member/widgets/team-member-carousel.php:2625
 msgid "Inside"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2276
-#: modules/instafeed/widgets/instafeed.php:1878
+#: modules/instafeed/widgets/instafeed.php:1879
 #: modules/logos/widgets/logo-carousel.php:1184
-#: modules/posts/skins/skin-base.php:3233
+#: modules/posts/skins/skin-base.php:3234
 #: modules/team-member/widgets/team-member-carousel.php:2626
 msgid "Outside"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2364
-#: modules/instafeed/widgets/instafeed.php:1972
+#: modules/instafeed/widgets/instafeed.php:1973
 #: modules/logos/widgets/logo-carousel.php:1272
 #: modules/team-member/widgets/team-member-carousel.php:2714
 msgid "Active Color"
 msgstr ""
 
 #: modules/info-box/widgets/info-box-carousel.php:2491
-#: modules/instafeed/widgets/instafeed.php:2106
+#: modules/instafeed/widgets/instafeed.php:2107
 #: modules/logos/widgets/logo-carousel.php:1412
 #: modules/team-member/widgets/team-member-carousel.php:2839
 msgid "Pagination: Fraction"
@@ -8011,7 +8011,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:1167
 #: modules/info-box/widgets/info-box.php:1280
 #: modules/info-box/widgets/info-box.php:1564
-#: modules/posts/skins/skin-base.php:2112
+#: modules/posts/skins/skin-base.php:2113
 msgid "Hover Color"
 msgstr ""
 
@@ -8085,269 +8085,269 @@ msgstr ""
 msgid "Position From Top"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:192
+#: modules/instafeed/widgets/instafeed.php:193
 msgid "Instagram Account"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:215
+#: modules/instafeed/widgets/instafeed.php:216
 msgid "Your Instagram Access Token is missing, %1$sclick here%2$s to configure."
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:227
+#: modules/instafeed/widgets/instafeed.php:228
 msgid "Custom Access Token"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:228
+#: modules/instafeed/widgets/instafeed.php:229
 msgid "Overrides global Instagram access token"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:240
+#: modules/instafeed/widgets/instafeed.php:241
 msgid "Cache Timeout"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:245
+#: modules/instafeed/widgets/instafeed.php:246
 msgid "Minute"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:246
+#: modules/instafeed/widgets/instafeed.php:247
 msgid "Hour"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:248
+#: modules/instafeed/widgets/instafeed.php:249
 msgid "Week"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:256
+#: modules/instafeed/widgets/instafeed.php:257
 msgid "Images Count"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:273
+#: modules/instafeed/widgets/instafeed.php:274
 msgid "Image Resolution"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:276
+#: modules/instafeed/widgets/instafeed.php:277
 msgid "Thumbnail (150x150)"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:277
+#: modules/instafeed/widgets/instafeed.php:278
 msgid "Low Resolution (320x320)"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:278
+#: modules/instafeed/widgets/instafeed.php:279
 msgid "Standard Resolution (640x640)"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:279
+#: modules/instafeed/widgets/instafeed.php:280
 msgid "High Resolution (original)"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:295
+#: modules/instafeed/widgets/instafeed.php:296
 msgid "Feed Settings"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:328
+#: modules/instafeed/widgets/instafeed.php:329
 #: modules/team-member/widgets/team-member-carousel.php:591
 msgid "General Settings"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:340
+#: modules/instafeed/widgets/instafeed.php:341
 #: modules/posts/skins/skin-base.php:95
 msgid "Masonry"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:350
+#: modules/instafeed/widgets/instafeed.php:351
 msgid "Square Images"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:365
+#: modules/instafeed/widgets/instafeed.php:366
 msgid "Grid Columns"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:421
+#: modules/instafeed/widgets/instafeed.php:422
 #: modules/random-image/widgets/random-image.php:220
 #: modules/random-image/widgets/random-image.php:226
 #: modules/random-image/widgets/random-image.php:633
 msgid "Caption"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:433
+#: modules/instafeed/widgets/instafeed.php:434
 msgid "Caption Length"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:448
+#: modules/instafeed/widgets/instafeed.php:449
 msgid "Content Visibility"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:452
+#: modules/instafeed/widgets/instafeed.php:453
 msgid "Always"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:464
+#: modules/instafeed/widgets/instafeed.php:465
 #: modules/random-image/widgets/random-image.php:294
 msgid "Lightbox"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:476
+#: modules/instafeed/widgets/instafeed.php:477
 msgid "Image Link"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:491
+#: modules/instafeed/widgets/instafeed.php:492
 msgid "Show Link to Instagram Profile?"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:504
+#: modules/instafeed/widgets/instafeed.php:505
 msgid "Link Title"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:506
+#: modules/instafeed/widgets/instafeed.php:507
 msgid "Follow Us @ Instagram"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:516
+#: modules/instafeed/widgets/instafeed.php:517
 msgid "Instagram Profile URL"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:531
+#: modules/instafeed/widgets/instafeed.php:532
 msgid "Title Icon"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:568
+#: modules/instafeed/widgets/instafeed.php:569
 msgid "Before Title"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:569
+#: modules/instafeed/widgets/instafeed.php:570
 msgid "After Title"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:744
+#: modules/instafeed/widgets/instafeed.php:745
 msgid "Enter carousel speed"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:988
+#: modules/instafeed/widgets/instafeed.php:989
 #: modules/random-image/widgets/random-image.php:168
 msgid "Images"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1005
-#: modules/instafeed/widgets/instafeed.php:1049
+#: modules/instafeed/widgets/instafeed.php:1006
+#: modules/instafeed/widgets/instafeed.php:1050
 msgid "Grayscale Image"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1253
+#: modules/instafeed/widgets/instafeed.php:1254
 msgid "Blend Mode"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1258
+#: modules/instafeed/widgets/instafeed.php:1259
 msgid "Multiply"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1259
+#: modules/instafeed/widgets/instafeed.php:1260
 msgid "Screen"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1261
+#: modules/instafeed/widgets/instafeed.php:1262
 msgid "Darken"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1262
+#: modules/instafeed/widgets/instafeed.php:1263
 msgid "Lighten"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1263
+#: modules/instafeed/widgets/instafeed.php:1264
 msgid "Color Dodge"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1265
+#: modules/instafeed/widgets/instafeed.php:1266
 msgid "Hue"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1266
+#: modules/instafeed/widgets/instafeed.php:1267
 msgid "Hard Light"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1267
+#: modules/instafeed/widgets/instafeed.php:1268
 msgid "Soft Light"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1268
+#: modules/instafeed/widgets/instafeed.php:1269
 msgid "Difference"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1269
+#: modules/instafeed/widgets/instafeed.php:1270
 msgid "Exclusion"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1270
+#: modules/instafeed/widgets/instafeed.php:1271
 msgid "Saturation"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1271
+#: modules/instafeed/widgets/instafeed.php:1272
 msgid "Luminosity"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1322
-#: modules/instafeed/widgets/instafeed.php:1363
+#: modules/instafeed/widgets/instafeed.php:1323
+#: modules/instafeed/widgets/instafeed.php:1364
 msgid "Overlay Opacity"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1393
+#: modules/instafeed/widgets/instafeed.php:1394
 msgid "Feed Title"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1660
+#: modules/instafeed/widgets/instafeed.php:1661
 msgid "Double Angle"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1661
+#: modules/instafeed/widgets/instafeed.php:1662
 msgid "Chevron"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1662
+#: modules/instafeed/widgets/instafeed.php:1663
 msgid "Chevron Circle"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1664
+#: modules/instafeed/widgets/instafeed.php:1665
 msgid "Long Arrow"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1665
+#: modules/instafeed/widgets/instafeed.php:1666
 msgid "Caret"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1666
+#: modules/instafeed/widgets/instafeed.php:1667
 msgid "Caret Square"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1667
+#: modules/instafeed/widgets/instafeed.php:1668
 msgid "Arrow Circle"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1668
+#: modules/instafeed/widgets/instafeed.php:1669
 msgid "Arrow Circle O"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:1670
+#: modules/instafeed/widgets/instafeed.php:1671
 msgid "Hand"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:2161
+#: modules/instafeed/widgets/instafeed.php:2162
 #: modules/posts/skins/skin-base.php:1268
 msgid "Load More Button"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:2203
+#: modules/instafeed/widgets/instafeed.php:2204
 msgid "Top Spacing"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:2838
+#: modules/instafeed/widgets/instafeed.php:2839
 msgid "No posts found"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:2844
+#: modules/instafeed/widgets/instafeed.php:2845
 msgid "Data Error"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:3154
+#: modules/instafeed/widgets/instafeed.php:3155
 msgid "No Posts Found!"
 msgstr ""
 
@@ -8610,7 +8610,7 @@ msgstr ""
 msgid "Show Search Form"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:435 modules/posts/skins/skin-base.php:2288
+#: modules/posts/skins/skin-base.php:435 modules/posts/skins/skin-base.php:2289
 msgid "Post Terms"
 msgstr ""
 
@@ -8716,7 +8716,7 @@ msgid "Number of words to be displayed from the post content"
 msgstr ""
 
 #: modules/posts/skins/skin-base.php:866 modules/posts/skins/skin-base.php:1495
-#: modules/posts/skins/skin-base.php:2550
+#: modules/posts/skins/skin-base.php:2551
 msgid "Meta"
 msgstr ""
 
@@ -8796,7 +8796,7 @@ msgstr ""
 
 #: modules/posts/skins/skin-base.php:1157
 #: modules/posts/skins/skin-base.php:1525
-#: modules/posts/skins/skin-base.php:2677
+#: modules/posts/skins/skin-base.php:2678
 msgid "Read More Button"
 msgstr ""
 
@@ -8877,47 +8877,47 @@ msgstr ""
 msgid "Row Spacing"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:1867
+#: modules/posts/skins/skin-base.php:1868
 msgid "Content Container"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2196
+#: modules/posts/skins/skin-base.php:2197
 msgid "Separator Height"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2223
+#: modules/posts/skins/skin-base.php:2224
 msgid "Separator Width"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2336
+#: modules/posts/skins/skin-base.php:2337
 msgid "Terms Gap"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2576
+#: modules/posts/skins/skin-base.php:2577
 msgid "Links Color"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2591
+#: modules/posts/skins/skin-base.php:2592
 msgid "Links Hover Color"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:2618
+#: modules/posts/skins/skin-base.php:2619
 msgid "Meta Items Spacing"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:3031
+#: modules/posts/skins/skin-base.php:3032
 msgid "Align Arrows"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:3485
+#: modules/posts/skins/skin-base.php:3486
 msgid "Gap between Posts & Pagination"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:3774
+#: modules/posts/skins/skin-base.php:3775
 msgid "Space Between"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:3802
+#: modules/posts/skins/skin-base.php:3803
 msgid "Loader"
 msgstr ""
 
@@ -10237,7 +10237,7 @@ msgctxt "Transition Control"
 msgid "Transition"
 msgstr ""
 
-#: modules/posts/skins/skin-base.php:4121
+#: modules/posts/skins/skin-base.php:4122
 msgctxt "%s = human-readable time difference"
 msgid "%s ago"
 msgstr ""
