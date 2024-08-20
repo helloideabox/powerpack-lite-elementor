@@ -99,7 +99,7 @@ class Post_Term extends Condition {
 		foreach ( $value as $term_id ) {
 			$term = get_term( $term_id );
 
-			if ( has_term( $term->name, $term->taxonomy ) ) {
+			if ( ! empty( $term ) && ! is_wp_error( $term ) && has_term( $term->name, $term->taxonomy ) ) {
 				$show = true;
 				break;
 			}
