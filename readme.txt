@@ -237,6 +237,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.7.27 - August 20, 2024 =
+* 	Fixed: Gravity Forms - Submit Button styling options were not working when button is set to inline position
+* 	Fixed: Gravity Forms - Submit Button full width option
+* 	Fixed: Posts - Row Spacing option
+
 = 2.7.26 - July 17, 2024 =
 * 	Fixed: Instagram Feed - PHP error
 
