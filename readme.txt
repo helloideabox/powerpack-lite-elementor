@@ -1,4 +1,4 @@
-=== PowerPack Addons for Elementor (Free Widgets, Extensions and Templates) ===
+=== PowerPack Elementor Addons (Free Widgets, Extensions and Templates) ===
 Contributors: ideaboxcreations, simrandeep, puneetsahalot, ibachal, jainnidhi, nirbhay18, wpamitkumar
 Tags: elementor, addons, elementor addon, elementor addons, elementor widgets
 Requires at least: 6.0
@@ -9,11 +9,11 @@ Stable tag: 2.7.26
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A collection of 30+ Free Elementor addons & widgets. Take Elementor to the next level with PowerPack.
+Elevate your Elementor experience with PowerPack, a comprehensive collection of free addons and widgets designed to supercharge your website. Unlock advanced design capabilities, streamline your workflow, and create stunning, professional websites effortlessly with PowerPack's versatile and user-friendly Elementor addons.
 
 == Description ==
 
-Extend Elementor with 60+ creative widgets and extensions with [PowerPack Addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - The fastest-growing library. Get 30+ Free widgets with PowerPack Lite. These widgets are designed with a focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever!  
+Extend Elementor with creative widgets and extensions with [PowerPack Addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - The fastest-growing library. These widgets are designed with a focus on creativity and usability. With PowerPack, building Elementor websites will be faster than ever!
 
 PowerPack Addons is built by [IdeaBox Creations](https://ideabox.io/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link).
 
@@ -216,6 +216,9 @@ Absolutely no! It delivers the code only on pages where you use it.
 
 = Do I need coding experience to use PowerPack for Elementor? =
 Not at all! All the widgets and settings are easy to use with drag & drop interface.
+
+= How can I report security bugs? =
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/powerpack-lite-for-elementor)
 
 
 == Screenshots ==
