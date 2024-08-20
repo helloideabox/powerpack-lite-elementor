@@ -1723,7 +1723,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					'size' => 25,
 				),
 				'selectors' => array(
-					'{{WRAPPER}} .pp-elementor-grid .pp-grid-item-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}' => '--grid-row-gap: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .pp-elementor-grid .pp-grid-item-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',

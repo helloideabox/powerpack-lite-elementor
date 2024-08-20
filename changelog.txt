@@ -2,6 +2,7 @@
 Release date: 
 * Fixed: Gravity Forms - Submit Button styling options were not working when button is set to inline position
 * Fixed: Gravity Forms - Submit Button full width option
+* Fixed: Posts - Row Spacing option
 
 == 2.7.26 ==
 Release date: July 17, 2024
