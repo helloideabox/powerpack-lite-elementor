@@ -67,6 +67,8 @@
 	direction: ltr;
 }
 .pp-counter-number-wrap {
+    display: flex;
+    justify-content: center;
 	font-size: 69px;
 	line-height: 1;
 }

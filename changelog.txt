@@ -1,3 +1,7 @@
+== 2.7.28 ==
+Release date: 
+* Fixed: Counter - Position of prefix and suffix was not inline
+
 == 2.7.27 ==
 Release date: August 20, 2024
 * Fixed: Gravity Forms - Submit Button styling options were not working when button is set to inline position
