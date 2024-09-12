@@ -433,7 +433,7 @@ class Info_List extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'items_spacing',
 			array(
 				'label'     => __( 'Items Spacing', 'powerpack' ),
@@ -443,7 +443,7 @@ class Info_List extends Powerpack_Widget {
 				),
 				'range'     => array(
 					'px' => array(
-						'max' => 50,
+						'max' => 100,
 					),
 				),
 				'selectors' => array(
@@ -565,7 +565,7 @@ class Info_List extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'connector_width',
 			array(
 				'label'     => __( 'Width', 'powerpack' ),
@@ -714,7 +714,7 @@ class Info_List extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_size',
 			array(
 				'label'     => __( 'Size', 'powerpack' ),
@@ -735,7 +735,7 @@ class Info_List extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_box_size',
 			array(
 				'label'     => __( 'Box Size', 'powerpack' ),
@@ -770,7 +770,7 @@ class Info_List extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_spacing',
 			array(
 				'label'     => __( 'Spacing', 'powerpack' ),
@@ -806,7 +806,7 @@ class Info_List extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_border_radius',
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),
@@ -1013,7 +1013,7 @@ class Info_List extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'separator_size',
 			[
 				'label'     => esc_html__( 'Size', 'powerpack' ),
@@ -1246,7 +1246,7 @@ class Info_List extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'button_border_radius',
 			array(
 				'label'      => __( 'Border Radius', 'powerpack' ),

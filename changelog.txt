@@ -1,5 +1,6 @@
 == 2.7.28 ==
 Release date: 
+* Fixed: Info List - Some of the style controls were not responsive
 * Fixed: Image Comparison - Divider width was not working for vertical layout
 * Fixed: Dual Heading - Default spacing between headings
 * Fixed: Counter - Position of prefix and suffix was not inline
