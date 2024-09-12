@@ -1,5 +1,6 @@
 == 2.7.28 ==
 Release date: 
+* Fixed: Dual Heading - Default spacing between headings
 * Fixed: Counter - Position of prefix and suffix was not inline
 
 == 2.7.27 ==

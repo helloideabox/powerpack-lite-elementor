@@ -542,35 +542,27 @@ class Dual_Heading extends Powerpack_Widget {
 		}
 
 		if ( $settings['first_text'] || $settings['second_text'] ) {
-			$heading_html_tag = PP_Helper::validate_html_tag( $settings['heading_html_tag'] );
-			?>
-			<<?php echo esc_html( $heading_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'dual-heading' ) ); ?>>
-				<?php
-				if ( ! empty( $settings['link']['url'] ) ) { ?>
-					<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'dual-heading-link' ) ); ?>>
-					<?php
+			$html_tag = PP_Helper::validate_html_tag( $settings['heading_html_tag'] );
+
+			$html = '<' . esc_html( $html_tag ) . ' ' . wp_kses_post( $this->get_render_attribute_string( 'dual-heading' ) ) . '>';
+				if ( ! empty( $settings['link']['url'] ) ) {
+					$html .= '<a ' . wp_kses_post( $this->get_render_attribute_string( 'dual-heading-link' ) ) . '>';
 				}
 
 				if ( $settings['first_text'] ) {
-					?>
-					<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'first_text' ) ); ?>>
-						<?php echo $this->parse_text_editor( $settings['first_text'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					</span>
-					<?php
+					$html .= '<span ' . wp_kses_post( $this->get_render_attribute_string( 'first_text' ) ) . '>' . $this->parse_text_editor( $settings['first_text'] ) . '</span>';
 				}
 				if ( $settings['second_text'] ) {
-					?>
-					<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'second_text' ) ); ?>>
-						<?php echo $this->parse_text_editor( $settings['second_text'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					</span>
-					<?php
+					$html .= '<span ' . wp_kses_post( $this->get_render_attribute_string( 'second_text' ) ) . '>' . $this->parse_text_editor( $settings['second_text'] ) . '</span>';
 				}
 
-				if ( ! empty( $settings['link']['url'] ) ) { ?>
-					</a>
-				<?php } ?>
-			</<?php echo esc_html( $heading_html_tag ); ?>>
-			<?php
+				if ( ! empty( $settings['link']['url'] ) ) {
+					$html .= '</a>';
+				}
+
+			$html .= '</' . esc_html( $html_tag ) . '>';
+
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 
