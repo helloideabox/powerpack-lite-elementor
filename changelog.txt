@@ -1,5 +1,5 @@
 == 2.7.28 ==
-Release date: 
+Release date: September 13, 2024
 * Fixed: Info Box - Selector for icon hover style options
 * Fixed: Info List - Some of the style controls were not responsive
 * Fixed: Image Comparison - Divider width was not working for vertical layout
