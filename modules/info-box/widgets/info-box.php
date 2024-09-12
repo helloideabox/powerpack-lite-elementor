@@ -1017,8 +1017,8 @@ class Info_Box extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-info-box-icon:hover' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .pp-info-box-icon:hover svg' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-icon' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-icon svg' => 'fill: {{VALUE}}',
 				),
 				'condition' => array(
 					'icon_type!' => 'image',
@@ -1036,7 +1036,7 @@ class Info_Box extends Powerpack_Widget {
 					'icon_type!' => 'none',
 				),
 				'selectors' => array(
-					'{{WRAPPER}} .pp-info-box-icon:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-icon' => 'background-color: {{VALUE}}',
 				),
 			)
 		);
@@ -1051,7 +1051,7 @@ class Info_Box extends Powerpack_Widget {
 					'icon_type!' => 'none',
 				),
 				'selectors' => array(
-					'{{WRAPPER}} .pp-info-box-icon:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-icon' => 'border-color: {{VALUE}}',
 				),
 			)
 		);
