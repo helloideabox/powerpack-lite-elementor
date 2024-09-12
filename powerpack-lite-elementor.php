@@ -4,7 +4,7 @@
  * Plugin URI: https://powerpackelements.com
  * Description: Extend Elementor Page Builder with 40+ Creative Widgets and exciting extensions.
  * Version: 2.7.28
- * Author: IdeaBox Creations
+ * Author: PowerPack Addons Team - IdeaBox Creations
  * Author URI: http://ideabox.io/
  * License: GNU General Public License v2.0
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
