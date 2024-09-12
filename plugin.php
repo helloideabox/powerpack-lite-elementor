@@ -141,13 +141,6 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_style(
-			'odometer',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/odometer/odometer-theme-default.css',
-			[],
-			POWERPACK_ELEMENTS_LITE_VER
-		);
-
-		wp_register_style(
 			'pp-twentytwenty',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/twentytwenty' . $suffix . '.css',
 			[],
@@ -371,16 +364,6 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
-			'odometer',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/odometer/odometer.min.js',
-			[
-				'jquery',
-			],
-			'0.4.8',
-			true
-		);
-
-		wp_register_script(
 			'pp-jquery-plugin',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/jquery.plugin.js',
 			[
@@ -529,7 +512,6 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_VER
 		);
 
-		wp_enqueue_style( 'odometer' );
 		wp_enqueue_style( 'pp-magnific-popup' );
 		wp_enqueue_style( 'pp-twentytwenty' );
 	}
