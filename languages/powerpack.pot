@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.7.27\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.7.28\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2024-08-20 11:39:46+00:00\n"
+"POT-Creation-Date: 2024-09-12 18:56:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -579,7 +579,7 @@ msgstr ""
 msgid "Favorite"
 msgstr ""
 
-#: classes/class-pp-templates-lib.php:496 powerpack-lite-elementor.php:203
+#: classes/class-pp-templates-lib.php:496 powerpack-lite-elementor.php:204
 msgid "Go Pro"
 msgstr ""
 
@@ -1855,7 +1855,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:1026
 #: modules/icon-list/widgets/icon-list.php:846
 #: modules/image-accordion/widgets/image-accordion.php:973
-#: modules/image-comparison/widgets/image-comparison.php:810
+#: modules/image-comparison/widgets/image-comparison.php:811
 #: modules/info-box/widgets/info-box-carousel.php:1368
 #: modules/info-box/widgets/info-box-carousel.php:1411
 #: modules/info-box/widgets/info-box-carousel.php:1491
@@ -1995,8 +1995,8 @@ msgstr ""
 #: modules/image-accordion/widgets/image-accordion.php:633
 #: modules/image-accordion/widgets/image-accordion.php:950
 #: modules/image-comparison/widgets/image-comparison.php:462
-#: modules/image-comparison/widgets/image-comparison.php:727
-#: modules/image-comparison/widgets/image-comparison.php:783
+#: modules/image-comparison/widgets/image-comparison.php:728
+#: modules/image-comparison/widgets/image-comparison.php:784
 #: modules/info-box/widgets/info-box-carousel.php:1062
 #: modules/info-box/widgets/info-box-carousel.php:1171
 #: modules/info-box/widgets/info-box-carousel.php:1868
@@ -2109,8 +2109,8 @@ msgstr ""
 #: modules/image-accordion/widgets/image-accordion.php:642
 #: modules/image-accordion/widgets/image-accordion.php:960
 #: modules/image-comparison/widgets/image-comparison.php:473
-#: modules/image-comparison/widgets/image-comparison.php:737
-#: modules/image-comparison/widgets/image-comparison.php:793
+#: modules/image-comparison/widgets/image-comparison.php:738
+#: modules/image-comparison/widgets/image-comparison.php:794
 #: modules/info-box/widgets/info-box-carousel.php:1073
 #: modules/info-box/widgets/info-box-carousel.php:1181
 #: modules/info-box/widgets/info-box-carousel.php:1878
@@ -2220,7 +2220,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:721
 #: modules/image-accordion/widgets/image-accordion.php:769
 #: modules/image-accordion/widgets/image-accordion.php:984
-#: modules/image-comparison/widgets/image-comparison.php:822
+#: modules/image-comparison/widgets/image-comparison.php:823
 #: modules/info-box/widgets/info-box-carousel.php:1085
 #: modules/info-box/widgets/info-box-carousel.php:1212
 #: modules/info-box/widgets/info-box-carousel.php:1759
@@ -2884,7 +2884,7 @@ msgstr ""
 #: modules/image-comparison/widgets/image-comparison.php:248
 #: modules/scroll-image/widgets/scroll-image.php:201
 #: modules/team-member/widgets/team-member.php:480
-#: powerpack-lite-elementor.php:192
+#: powerpack-lite-elementor.php:193
 msgid "Settings"
 msgstr ""
 
@@ -3451,8 +3451,8 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:866
 #: modules/image-accordion/widgets/image-accordion.php:936
 #: modules/image-accordion/widgets/image-accordion.php:1025
-#: modules/image-comparison/widgets/image-comparison.php:702
-#: modules/image-comparison/widgets/image-comparison.php:758
+#: modules/image-comparison/widgets/image-comparison.php:703
+#: modules/image-comparison/widgets/image-comparison.php:759
 #: modules/info-box/widgets/info-box-carousel.php:1839
 #: modules/info-box/widgets/info-box-carousel.php:1964
 #: modules/info-box/widgets/info-box-carousel.php:2503
@@ -3590,8 +3590,8 @@ msgstr ""
 #: modules/image-accordion/widgets/image-accordion.php:620
 #: modules/image-accordion/widgets/image-accordion.php:924
 #: modules/image-accordion/widgets/image-accordion.php:1013
-#: modules/image-comparison/widgets/image-comparison.php:714
-#: modules/image-comparison/widgets/image-comparison.php:770
+#: modules/image-comparison/widgets/image-comparison.php:715
+#: modules/image-comparison/widgets/image-comparison.php:771
 #: modules/info-box/widgets/info-box-carousel.php:1158
 #: modules/info-box/widgets/info-box-carousel.php:1271
 #: modules/info-box/widgets/info-box-carousel.php:1852
@@ -4366,7 +4366,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:547
 #: modules/image-accordion/widgets/image-accordion.php:691
 #: modules/image-accordion/widgets/image-accordion.php:724
-#: modules/image-comparison/widgets/image-comparison.php:642
+#: modules/image-comparison/widgets/image-comparison.php:643
 #: modules/info-box/widgets/info-box-carousel.php:874
 #: modules/info-box/widgets/info-box-carousel.php:950
 #: modules/info-box/widgets/info-box-carousel.php:1661
@@ -4447,7 +4447,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:572
 #: modules/image-accordion/widgets/image-accordion.php:695
 #: modules/image-accordion/widgets/image-accordion.php:728
-#: modules/image-comparison/widgets/image-comparison.php:646
+#: modules/image-comparison/widgets/image-comparison.php:647
 #: modules/info-box/widgets/info-box-carousel.php:954
 #: modules/info-box/widgets/info-box-carousel.php:1665
 #: modules/info-box/widgets/info-box.php:1103
@@ -4531,7 +4531,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:551
 #: modules/image-accordion/widgets/image-accordion.php:699
 #: modules/image-accordion/widgets/image-accordion.php:732
-#: modules/image-comparison/widgets/image-comparison.php:650
+#: modules/image-comparison/widgets/image-comparison.php:651
 #: modules/info-box/widgets/info-box-carousel.php:875
 #: modules/info-box/widgets/info-box-carousel.php:958
 #: modules/info-box/widgets/info-box-carousel.php:1669
@@ -4868,7 +4868,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:558
 #: modules/icon-list/widgets/icon-list.php:568
 #: modules/image-accordion/widgets/image-accordion.php:659
-#: modules/image-comparison/widgets/image-comparison.php:615
+#: modules/image-comparison/widgets/image-comparison.php:616
 #: modules/info-box/widgets/info-box.php:331
 #: modules/info-list/widgets/info-list.php:477
 #: modules/info-list/widgets/info-list.php:622
@@ -4891,7 +4891,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:682
 #: modules/flipbox/widgets/flipbox.php:1071
 #: modules/image-accordion/widgets/image-accordion.php:663
-#: modules/image-comparison/widgets/image-comparison.php:619
+#: modules/image-comparison/widgets/image-comparison.php:620
 #: modules/info-box/widgets/info-box.php:335
 #: modules/instafeed/widgets/instafeed.php:1415
 #: modules/pricing/widgets/price-menu.php:1006
@@ -4909,7 +4909,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:559
 #: modules/icon-list/widgets/icon-list.php:576
 #: modules/image-accordion/widgets/image-accordion.php:667
-#: modules/image-comparison/widgets/image-comparison.php:623
+#: modules/image-comparison/widgets/image-comparison.php:624
 #: modules/info-box/widgets/info-box.php:339
 #: modules/info-list/widgets/info-list.php:630
 #: modules/instafeed/widgets/instafeed.php:1138
@@ -5011,7 +5011,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:469
 #: modules/image-accordion/widgets/image-accordion.php:237
 #: modules/image-comparison/widgets/image-comparison.php:205
-#: modules/image-comparison/widgets/image-comparison.php:751
+#: modules/image-comparison/widgets/image-comparison.php:752
 #: modules/info-box/widgets/info-box-carousel.php:398
 #: modules/info-box/widgets/info-box.php:623
 #: modules/info-list/widgets/info-list.php:269
@@ -5031,7 +5031,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:470
 #: modules/image-accordion/widgets/image-accordion.php:236
 #: modules/image-comparison/widgets/image-comparison.php:153
-#: modules/image-comparison/widgets/image-comparison.php:695
+#: modules/image-comparison/widgets/image-comparison.php:696
 #: modules/info-box/widgets/info-box-carousel.php:397
 #: modules/info-box/widgets/info-box.php:624
 #: modules/info-list/widgets/info-list.php:270
@@ -5579,7 +5579,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1998
 #: modules/image-comparison/widgets/image-comparison.php:151
 #: modules/image-comparison/widgets/image-comparison.php:203
-#: modules/image-comparison/widgets/image-comparison.php:601
+#: modules/image-comparison/widgets/image-comparison.php:602
 msgid "Label"
 msgstr ""
 
@@ -6774,8 +6774,8 @@ msgstr ""
 #: modules/divider/widgets/divider.php:766
 #: modules/divider/widgets/divider.php:897
 #: modules/icon-list/widgets/icon-list.php:540
-#: modules/image-comparison/widgets/image-comparison.php:609
-#: modules/image-comparison/widgets/image-comparison.php:637
+#: modules/image-comparison/widgets/image-comparison.php:610
+#: modules/image-comparison/widgets/image-comparison.php:638
 #: modules/info-box/widgets/info-box-carousel.php:2272
 #: modules/info-list/widgets/info-list.php:466
 #: modules/instafeed/widgets/instafeed.php:1405
@@ -7748,7 +7748,7 @@ msgstr ""
 msgid "Handle"
 msgstr ""
 
-#: modules/image-comparison/widgets/image-comparison.php:665
+#: modules/image-comparison/widgets/image-comparison.php:666
 msgid "Align"
 msgstr ""
 
@@ -10162,31 +10162,31 @@ msgstr ""
 msgid "PowerPack Elements"
 msgstr ""
 
-#: powerpack-lite-elementor.php:68
+#: powerpack-lite-elementor.php:69
 msgid ""
 "PowerPack requires Elementor plugin to be active. Please activate Elementor "
 "to continue."
 msgstr ""
 
-#: powerpack-lite-elementor.php:69
+#: powerpack-lite-elementor.php:70
 msgid "Activate Elementor"
 msgstr ""
 
-#: powerpack-lite-elementor.php:77
+#: powerpack-lite-elementor.php:78
 msgid ""
 "PowerPack requires %1$s\"Elementor\"%2$s plugin to be installed and "
 "activated. Please install Elementor to continue."
 msgstr ""
 
-#: powerpack-lite-elementor.php:78
+#: powerpack-lite-elementor.php:79
 msgid "Install Elementor"
 msgstr ""
 
-#: powerpack-lite-elementor.php:202
+#: powerpack-lite-elementor.php:203
 msgid "View PowerPack Documentation"
 msgstr ""
 
-#: powerpack-lite-elementor.php:202
+#: powerpack-lite-elementor.php:203
 msgid "Docs & FAQs"
 msgstr ""
 
