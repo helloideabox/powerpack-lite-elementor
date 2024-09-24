@@ -1,7 +1,7 @@
 === PowerPack Elementor Addons (Free Widgets, Extensions and Templates) ===
 Contributors: ideaboxcreations, simrandeep, puneetsahalot, ibachal, jainnidhi, nirbhay18, wpamitkumar
 Tags: elementor, addons, elementor addon, elementor addons, elementor widgets
-Requires at least: 6.0
+Requires at least: 6.3
 Tested up to: 6.6
 Requires PHP: 7.4
 Stable tag: 2.7.28
