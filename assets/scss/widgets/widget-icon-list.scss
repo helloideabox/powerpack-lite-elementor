@@ -1,0 +1,77 @@
+@import "../mixins/mixins-master";
+
+.pp-icon {
+	display: inline-block;
+	line-height: 1;
+	text-align: center;
+    transition: all .3s;
+}
+.pp-icon i,
+.pp-icon svg {
+    width: 1em;
+    height: 1em;
+    position: relative;
+    display: block;
+}
+.pp-list-container {
+    .pp-icon-wrapper {
+        display: inline-flex;
+        flex-shrink: 0;
+        line-height: 1;
+        position: relative;
+        @include transition($target: all, $time: 0.25s, $timing-function: linear);
+    }
+    .pp-icon-list-icon {
+        display: inline-block;
+        text-align: center;
+    }
+    .pp-list-items {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            align-items: center;
+            display: flex;
+            &:after {
+                bottom: 0;
+                display: block;
+                position: absolute;
+                margin-bottom: -5px;
+            }
+
+            .pp-icon-list-text {
+                transition: color 0.2s ease-in-out;
+            }
+        }
+        .fa {
+            text-align: center;
+        }
+        a {
+            display: inherit;
+            align-items: inherit;
+        }
+    }
+}
+.pp-list-items {
+    &.pp-inline-items {
+        display: flex;
+        flex-wrap: wrap;
+        li:not(:last-child) {
+            margin-right: 8px;
+        }
+    }
+}
+.pp-icon-right {
+	.pp-list-items {
+		li {
+			justify-content: flex-end;
+			text-align: right;
+		}
+	}
+	.pp-icon-wrapper {
+		order: 2;
+	}
+}

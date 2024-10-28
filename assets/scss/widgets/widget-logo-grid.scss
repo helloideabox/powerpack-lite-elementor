@@ -1,0 +1,42 @@
+@import "../mixins/mixins-master";
+
+.pp-logo-grid {
+    position: relative;
+    .pp-logo-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        @include transition();
+        width: 100%;
+    }
+    .elementor-grid-item {
+        display: flex;
+        float: left;
+        flex-wrap: wrap;
+        text-align: center;
+        transition: background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    .pp-logo-title {
+        margin-bottom: 0;
+        a {
+            color: inherit;
+        }
+    }
+    &.grayscale-normal {
+        img {
+            filter: grayscale(100%);
+        }
+        .pp-logo-wrap:hover {
+            img {
+                filter: none;
+            }
+        }
+    }
+    &.grayscale-hover {
+        .pp-logo-wrap:hover {
+            img {
+                filter: grayscale(100%);
+            }
+        }
+    }
+}

@@ -7,6 +7,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Module extends Module_Base {
 
+	public function __construct() {
+		parent::__construct();
+
+		add_action( 'elementor/frontend/after_register_styles', [ $this, 'register_styles' ] );
+	}
+
 	/**
 	 * Module is active or not.
 	 *
@@ -17,7 +23,7 @@ class Module extends Module_Base {
 	 * @return bool true|false.
 	 */
 	public static function is_active() {
-        if ( class_exists( 'WPForms' ) ) {
+        if ( class_exists( 'WPForms_Pro' ) || class_exists( 'WPForms_Lite' ) ) {
 			return true;
 		}
 		return false;
@@ -49,5 +55,19 @@ class Module extends Module_Base {
 		return [
 			'WPforms',
 		];
+	}
+
+	/**
+	 * Register styles.
+	 *
+	 * @return void
+	 */
+	public function register_styles() {
+		wp_register_style(
+			'widget-pp-wp-forms',
+			$this->get_css_assets_url( 'widget-wp-forms', null, true, true ),
+			[],
+			POWERPACK_ELEMENTS_LITE_VER
+		);
 	}
 }

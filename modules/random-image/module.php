@@ -3,28 +3,36 @@ namespace PowerpackElementsLite\Modules\RandomImage;
 
 use PowerpackElementsLite\Base\Module_Base;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Module extends Module_Base {
+
+	public function __construct() {
+		parent::__construct();
+
+		add_action( 'elementor/frontend/after_register_styles', [ $this, 'register_styles' ] );
+	}
 
 	/**
 	 * Module is active or not.
 	 *
 	 * @since 2.3.0
-     *
+	 *
 	 * @access public
 	 *
 	 * @return bool true|false.
 	 */
 	public static function is_active() {
-        return true;
+		return true;
 	}
 
-    /**
+	/**
 	 * Get Module Name.
 	 *
 	 * @since 2.3.0
-     *
+	 *
 	 * @access public
 	 *
 	 * @return string Module name.
@@ -33,11 +41,11 @@ class Module extends Module_Base {
 		return 'pp-random-image';
 	}
 
-    /**
+	/**
 	 * Get Widgets.
 	 *
 	 * @since 2.3.0
-     *
+	 *
 	 * @access public
 	 *
 	 * @return array Widgets.
@@ -47,76 +55,88 @@ class Module extends Module_Base {
 			'Random_Image',
 		];
 	}
-    
-    /**
+
+	/**
 	 * Get Image Caption.
 	 *
 	 * @since 2.3.0
-     *
+	 *
 	 * @access public
 	 *
 	 * @return string image caption.
 	 */
-    public static function get_image_caption( $id, $caption_type = 'caption' ) {
+	public static function get_image_caption( $id, $caption_type = 'caption' ) {
 
-        $attachment = get_post( $id );
-        
-        $attachment_caption = '';
+		$attachment = get_post( $id );
 
-        if ( $caption_type == 'title' ) {
-            $attachment_caption = $attachment->post_title;
-        }
-        elseif ( $caption_type == 'caption' ) {
-            $attachment_caption = $attachment->post_excerpt;
-        }
-        elseif ( $caption_type == 'description' ) {
-            $attachment_caption = $attachment->post_content;
-        }
+		$attachment_caption = '';
 
-        return $attachment_caption;
-        
-    }
-    
-    /**
+		if ( 'title' === $caption_type ) {
+			$attachment_caption = $attachment->post_title;
+		} elseif ( 'caption' === $caption_type ) {
+			$attachment_caption = wp_get_attachment_caption( $id );
+		} elseif ( 'description' === $caption_type ) {
+			$attachment_caption = $attachment->post_content;
+		}
+
+		return $attachment_caption;
+
+	}
+
+	/**
 	 * Get Image Filters.
 	 *
 	 * @since 2.3.0
-     *
+	 *
 	 * @access public
 	 *
 	 * @return array image filters.
 	 */
-    public static function get_image_filters() {
-        
-        $pp_image_filters = [
-            'normal'            => __( 'Normal', 'powerpack' ),
-            'filter-1977'       => __( '1977', 'powerpack' ),
-            'filter-aden'       => __( 'Aden', 'powerpack' ),
-            'filter-amaro'      => __( 'Amaro', 'powerpack' ),
-            'filter-ashby'      => __( 'Ashby', 'powerpack' ),
-            'filter-brannan'    => __( 'Brannan', 'powerpack' ),
-            'filter-brooklyn'   => __( 'Brooklyn', 'powerpack' ),
-            'filter-charmes'    => __( 'Charmes', 'powerpack' ),
-            'filter-clarendon'  => __( 'Clarendon', 'powerpack' ),
-            'filter-crema'      => __( 'Crema', 'powerpack' ),
-            'filter-dogpatch'   => __( 'Dogpatch', 'powerpack' ),
-            'filter-earlybird'  => __( 'Earlybird', 'powerpack' ),
-            'filter-gingham'    => __( 'Gingham', 'powerpack' ),
-            'filter-ginza'      => __( 'Ginza', 'powerpack' ),
-            'filter-hefe'       => __( 'Hefe', 'powerpack' ),
-            'filter-helena'     => __( 'Helena', 'powerpack' ),
-            'filter-hudson'     => __( 'Hudson', 'powerpack' ),
-            'filter-inkwell'    => __( 'Inkwell', 'powerpack' ),
-            'filter-juno'       => __( 'Juno', 'powerpack' ),
-            'filter-kelvin'     => __( 'Kelvin', 'powerpack' ),
-            'filter-lark'       => __( 'Lark', 'powerpack' ),
-            'filter-lofi'       => __( 'Lofi', 'powerpack' ),
-            'filter-ludwig'     => __( 'Ludwig', 'powerpack' ),
-            'filter-maven'      => __( 'Maven', 'powerpack' ),
-            'filter-mayfair'    => __( 'Mayfair', 'powerpack' ),
-            'filter-moon'       => __( 'Moon', 'powerpack' ),
-        ];
-        
-        return $pp_image_filters;
-    }
+	public static function get_image_filters() {
+
+		$pp_image_filters = [
+			'normal'            => esc_html__( 'Normal', 'powerpack' ),
+			'filter-1977'       => esc_html__( '1977', 'powerpack' ),
+			'filter-aden'       => esc_html__( 'Aden', 'powerpack' ),
+			'filter-amaro'      => esc_html__( 'Amaro', 'powerpack' ),
+			'filter-ashby'      => esc_html__( 'Ashby', 'powerpack' ),
+			'filter-brannan'    => esc_html__( 'Brannan', 'powerpack' ),
+			'filter-brooklyn'   => esc_html__( 'Brooklyn', 'powerpack' ),
+			'filter-charmes'    => esc_html__( 'Charmes', 'powerpack' ),
+			'filter-clarendon'  => esc_html__( 'Clarendon', 'powerpack' ),
+			'filter-crema'      => esc_html__( 'Crema', 'powerpack' ),
+			'filter-dogpatch'   => esc_html__( 'Dogpatch', 'powerpack' ),
+			'filter-earlybird'  => esc_html__( 'Earlybird', 'powerpack' ),
+			'filter-gingham'    => esc_html__( 'Gingham', 'powerpack' ),
+			'filter-ginza'      => esc_html__( 'Ginza', 'powerpack' ),
+			'filter-hefe'       => esc_html__( 'Hefe', 'powerpack' ),
+			'filter-helena'     => esc_html__( 'Helena', 'powerpack' ),
+			'filter-hudson'     => esc_html__( 'Hudson', 'powerpack' ),
+			'filter-inkwell'    => esc_html__( 'Inkwell', 'powerpack' ),
+			'filter-juno'       => esc_html__( 'Juno', 'powerpack' ),
+			'filter-kelvin'     => esc_html__( 'Kelvin', 'powerpack' ),
+			'filter-lark'       => esc_html__( 'Lark', 'powerpack' ),
+			'filter-lofi'       => esc_html__( 'Lofi', 'powerpack' ),
+			'filter-ludwig'     => esc_html__( 'Ludwig', 'powerpack' ),
+			'filter-maven'      => esc_html__( 'Maven', 'powerpack' ),
+			'filter-mayfair'    => esc_html__( 'Mayfair', 'powerpack' ),
+			'filter-moon'       => esc_html__( 'Moon', 'powerpack' ),
+		];
+
+		return $pp_image_filters;
+	}
+
+	/**
+	 * Register styles.
+	 *
+	 * @return void
+	 */
+	public function register_styles() {
+		wp_register_style(
+			'widget-pp-random-image',
+			$this->get_css_assets_url( 'widget-random-image', null, true, true ),
+			[],
+			POWERPACK_ELEMENTS_LITE_VER
+		);
+	}
 }

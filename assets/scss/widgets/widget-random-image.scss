@@ -1,0 +1,28 @@
+.pp-media-content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.pp-random-image-wrap {
+    overflow: hidden;
+	position: relative;
+	text-align: center;
+	.pp-random-image {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.pp-media-content {
+		display: flex;
+		flex-direction: column;
+	}
+}
+.pp-random-image-caption-over .pp-random-image-link {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+}

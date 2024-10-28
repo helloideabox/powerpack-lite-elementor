@@ -1,0 +1,274 @@
+.elementor-widget-pp-pricing-table .elementor-widget-container {
+  background-color: #f8f8f8;
+}
+
+.pp-icon {
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.pp-icon i,
+.pp-icon svg {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  display: block;
+}
+
+.pp-pricing-table {
+  overflow: hidden;
+  text-align: center;
+  -webkit-transition: all 0.25s linear 0s;
+  transition: all 0.25s linear 0s;
+}
+.pp-pricing-table-container {
+  position: relative;
+}
+.pp-pricing-table.horizontal-table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.pp-pricing-table.horizontal-table .pp-pricing-table-head,
+.pp-pricing-table.horizontal-table .pp-pricing-table-footer,
+.pp-pricing-table.horizontal-table .pp-pricing-table-features {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.pp-pricing-table-align-left .pp-pricing-table, .pp-pricing-table-align-left.pp-pricing-table-price-duration-wrap .pp-pricing-table-price-duration {
+  text-align: left;
+}
+.pp-pricing-table-align-left .pp-pricing-table-price {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.pp-pricing-table-align-right .pp-pricing-table, .pp-pricing-table-align-right.pp-pricing-table-price-duration-wrap .pp-pricing-table-price-duration {
+  text-align: right;
+}
+.pp-pricing-table-align-right .pp-pricing-table-price {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.pp-pricing-table-head {
+  background: #7a7a7a;
+  padding: 30px;
+}
+.pp-pricing-table .pp-pricing-table-icon {
+  display: inline-block;
+}
+.pp-pricing-table .pp-pricing-table-title-wrap .pp-pricing-table-title {
+  margin-bottom: 0;
+}
+.pp-pricing-table .pp-pricing-table-title-wrap .pp-pricing-table-subtitle {
+  margin-bottom: 0;
+}
+.pp-pricing-table .pp-pricing-table-price {
+  font-size: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+}
+.pp-pricing-table-price-value {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.pp-pricing-table-after-part {
+  font-size: 0.4em;
+  line-height: 1;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+.pp-pricing-table .pp-pricing-table-features {
+  list-style: none;
+  margin: 0;
+  padding: 0 30px;
+}
+.pp-pricing-table .pp-pricing-table-features li {
+  margin: 0;
+  padding: 0;
+}
+.pp-pricing-table .pp-pricing-table-features li:last-child {
+  border-bottom: 0;
+}
+.pp-pricing-table .pp-pricing-table-features .excluded {
+  text-decoration: line-through;
+}
+.pp-pricing-table .pp-pricing-table-price-prefix,
+.pp-pricing-table .pp-pricing-table-price-duration {
+  font-size: 0.4em;
+  line-height: 1;
+  text-align: left;
+}
+.pp-pricing-table .pp-pricing-table-price-prefix {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+.pp-pricing-table .pp-pricing-table-price-duration {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.pp-pricing-table .pp-pricing-table-price-original .pp-pricing-table-price-prefix {
+  font-size: 1em;
+  margin: 0;
+}
+.pp-pricing-table-price-duration-wrap .pp-pricing-table-price {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.pp-pricing-table-price-duration-wrap .pp-pricing-table-price-duration {
+  text-align: center;
+  width: 100%;
+}
+.pp-pricing-table .pp-pricing-table-price-value {
+  line-height: 0.9;
+}
+.pp-pricing-table-price, .pp-pricing-table-price-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.pp-pricing-table-price-original {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 0.5em;
+  line-height: 1;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  text-decoration: line-through;
+}
+
+.pp-pricing-table-feature-content {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pp-pricing-table-ribbon {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 0;
+  z-index: 2;
+}
+.pp-pricing-table-ribbon-inner {
+  background: #61ce70;
+}
+.pp-pricing-table-ribbon-1 {
+  position: absolute;
+  top: 0;
+  width: 150px;
+  overflow: hidden;
+  height: 150px;
+}
+.pp-pricing-table-ribbon-1.pp-pricing-table-ribbon-right {
+  left: auto;
+  right: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.pp-pricing-table-ribbon-1.pp-pricing-table-ribbon-left {
+  left: 0;
+  right: auto;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+.pp-pricing-table-ribbon-1 .pp-pricing-table-ribbon-inner {
+  text-align: center;
+  left: 0;
+  width: 200%;
+  -webkit-transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
+          transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
+  margin-top: 35px;
+  line-height: 2;
+}
+.pp-pricing-table-ribbon-2 {
+  border-radius: 50%;
+  line-height: 4em;
+  min-height: 4em;
+  min-width: 4em;
+}
+.pp-pricing-table-ribbon-2 .pp-pricing-table-ribbon-inner {
+  background: #61ce70;
+  border-radius: 50%;
+}
+.pp-pricing-table-ribbon-2.pp-pricing-table-ribbon-right {
+  -webkit-transform: translateX(38%) translateY(-38%);
+          transform: translateX(38%) translateY(-38%);
+}
+.pp-pricing-table-ribbon-2.pp-pricing-table-ribbon-left {
+  -webkit-transform: translateX(-38%) translateY(-38%);
+          transform: translateX(-38%) translateY(-38%);
+}
+.pp-pricing-table-ribbon-right {
+  right: 0;
+}
+.pp-pricing-table-ribbon-left {
+  left: 0;
+}
+.pp-pricing-table-ribbon-3 {
+  background: #61ce70;
+  top: 10%;
+}
+.pp-pricing-table-ribbon-3 .pp-pricing-table-ribbon-inner {
+  padding: 3px 18px;
+}
+.pp-pricing-table-ribbon-3:before, .pp-pricing-table-ribbon-3:after {
+  border-bottom: 8px solid transparent;
+  content: "";
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: 100%;
+}
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right {
+  border-radius: 3px 3px 0 3px;
+  right: -8px;
+}
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right:before, .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right:after {
+  right: 0;
+}
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right:before {
+  border-left: 8px solid #61ce70;
+}
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right:after {
+  border-left: 8px solid rgba(0, 0, 0, 0.2);
+}
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left {
+  border-radius: 3px 3px 3px 0;
+  left: -8px;
+}
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left:before, .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left:after {
+  left: 0;
+}
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left:before {
+  border-right: 8px solid #61ce70;
+}
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left:after {
+  border-right: 8px solid rgba(0, 0, 0, 0.2);
+}
+
+.pp-tooltip-click {
+  cursor: pointer;
+}

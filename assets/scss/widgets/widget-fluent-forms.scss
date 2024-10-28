@@ -1,0 +1,46 @@
+@import "forms";
+
+.pp-fluent-forms {
+	.ff-el-group {
+		.ff-el-input--label {
+			display: none;
+		}
+	}
+    &-labels-yes {
+        .pp-fluent-forms {
+			.ff-el-input--label {
+				display: block;
+			}
+        }
+    }
+}
+.pp-fluent-forms-form-button-full-width {
+	.ff_submit_btn_wrapper {
+		.ff-btn-submit {
+			margin-left: 0;
+			margin-right: 0;
+			width: 100%;
+		}
+	}
+}
+.pp-custom-radio-checkbox {
+    .ff-el-group {
+		.ff-el-form-check {
+			margin-bottom: 8px;
+			label.ff-el-form-check-label {
+				margin-bottom: 0;
+			}
+		}
+        input[type="checkbox"],
+        input[type="radio"] {
+            border-style: solid;
+            border-width: 0;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 5px;
+            padding: 3px;
+			top: -1px;
+            appearance: none;
+        }
+    }
+}

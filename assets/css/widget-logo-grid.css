@@ -1,0 +1,45 @@
+.pp-logo-grid {
+  position: relative;
+}
+.pp-logo-grid .pp-logo-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-transition: all 0.25s linear 0s;
+  transition: all 0.25s linear 0s;
+  width: 100%;
+}
+.pp-logo-grid .elementor-grid-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: left;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  -webkit-transition: background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.pp-logo-grid .pp-logo-title {
+  margin-bottom: 0;
+}
+.pp-logo-grid .pp-logo-title a {
+  color: inherit;
+}
+.pp-logo-grid.grayscale-normal img {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+.pp-logo-grid.grayscale-normal .pp-logo-wrap:hover img {
+  -webkit-filter: none;
+          filter: none;
+}
+.pp-logo-grid.grayscale-hover .pp-logo-wrap:hover img {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}

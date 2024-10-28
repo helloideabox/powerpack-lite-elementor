@@ -9,16 +9,6 @@ class Module extends Module_Base {
 
 	public static $displayed_ids = [];
 
-	public function get_name() {
-		return 'pp-posts';
-	}
-
-	public function get_widgets() {
-		return [
-			'Posts',
-		];
-	}
-
 	/**
 	 * Constructor.
 	 */
@@ -35,6 +25,18 @@ class Module extends Module_Base {
 
 		add_action( 'wp_ajax_pp_get_post', array( $this, 'get_post_data' ) );
 		add_action( 'wp_ajax_nopriv_pp_get_post', array( $this, 'get_post_data' ) );
+
+		add_action( 'elementor/frontend/after_register_styles', [ $this, 'register_styles' ] );
+	}
+
+	public function get_name() {
+		return 'pp-posts';
+	}
+
+	public function get_widgets() {
+		return [
+			'Posts',
+		];
 	}
 
 	public static function add_to_avoid_list( $ids ) {
@@ -194,5 +196,19 @@ class Module extends Module_Base {
 		];
 
 		return $meta_items;
+	}
+
+	/**
+	 * Register styles.
+	 *
+	 * @return void
+	 */
+	public function register_styles() {
+		wp_register_style(
+			'widget-pp-posts',
+			$this->get_css_assets_url( 'widget-posts', null, true, true ),
+			[ 'pp-elementor-grid' ],
+			POWERPACK_ELEMENTS_LITE_VER
+		);
 	}
 }

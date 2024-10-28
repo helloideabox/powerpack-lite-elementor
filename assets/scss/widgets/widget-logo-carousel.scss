@@ -1,0 +1,38 @@
+.elementor-widget-pp-logo-carousel .swiper,
+.elementor-widget-pp-logo-carousel .swiper-container {
+    position: static;
+}
+.pp-logo-carousel {
+    &.grayscale-normal {
+        img {
+            filter: grayscale(100%);
+        }
+        .swiper-slide:hover {
+            img {
+                filter: none;
+            }
+        }
+    }
+    &.grayscale-hover {
+        .swiper-slide:hover {
+            img {
+                filter: grayscale(100%);
+            }
+        }
+    }
+    &.swiper-container {
+        .swiper-slide {
+            text-align: center;
+            img {
+                vertical-align: middle;
+                width: auto;
+            }
+        }
+    }
+    .pp-logo-title {
+        margin: 0;
+        a {
+            color: inherit;
+        }
+    }
+}
