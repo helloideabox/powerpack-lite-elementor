@@ -125,14 +125,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_style_depends() {
+		$styles = [ 'pp-swiper', 'widget-pp-team-member'];
+
 		if ( Icons_Manager::is_migration_allowed() ) {
-			return [
-				'elementor-icons-fa-regular',
-				'elementor-icons-fa-solid',
-				'elementor-icons-fa-brands',
-			];
+			array_push( $styles, 'elementor-icons-fa-regular', 'elementor-icons-fa-solid', 'elementor-icons-fa-brands', );
 		}
-		return [];
+
+		return $styles;
 	}
 
 	private static function get_network_icon_data( $network_name ) {

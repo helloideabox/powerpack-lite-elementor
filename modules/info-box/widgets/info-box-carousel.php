@@ -91,10 +91,35 @@ class Info_Box_Carousel extends Powerpack_Widget {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [
-			'swiper',
-			'pp-carousel',
-		];
+		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+			return [
+				'swiper',
+				'pp-carousel',
+			];
+		}
+
+		$settings = $this->get_settings_for_display();
+		$scripts = [];
+
+		if ( 'carousel' === $settings['layout'] ) {
+			array_push( $scripts, 'swiper', 'pp-carousel' );
+		}
+
+		return $scripts;
+	}
+
+	/**
+	 * Get style dependencies.
+	 *
+	 * Retrieve the list of style dependencies the widget requires.
+	 *
+	 * @since 2.11.0
+	 * @access public
+	 *
+	 * @return array Widget style dependencies.
+	 */
+	public function get_style_depends(): array {
+		return [ 'pp-swiper', 'widget-pp-info-box' ];
 	}
 
 	/**

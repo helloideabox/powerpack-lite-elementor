@@ -7,6 +7,7 @@ use PowerpackElementsLite\Classes\PP_Config;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Utils;
+use Elementor\Icons_Manager;
 use Elementor\Control_Media;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
@@ -86,9 +87,6 @@ class Image_Comparison extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return [
-			'jquery-event-move',
-			'twentytwenty',
-			'imagesloaded',
 			'pp-image-comparison',
 		];
 	}
@@ -103,9 +101,7 @@ class Image_Comparison extends Powerpack_Widget {
 	 * @return array Widget styles dependencies.
 	 */
 	public function get_style_depends() {
-		return [
-			'pp-twentytwenty',
-		];
+		return [ 'widget-pp-image-comparison' ];
 	}
 
 	/**
@@ -141,29 +137,26 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_before_image',
 			[
-				'label'             => __( 'Before Image', 'powerpack' ),
+				'label'             => esc_html__( 'Before Image', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'before_label',
 			[
-				'label'             => __( 'Label', 'powerpack' ),
+				'label'             => esc_html__( 'Label', 'powerpack' ),
 				'type'              => Controls_Manager::TEXT,
-				'default'           => __( 'Before', 'powerpack' ),
+				'default'           => esc_html__( 'Before', 'powerpack' ),
 				'dynamic'           => array(
 					'active' => true,
 				),
-				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-before-label:before' => 'content: "{{VALUE}}"',
-				],
 			]
 		);
 
 		$this->add_control(
 			'before_image',
 			[
-				'label'             => __( 'Image', 'powerpack' ),
+				'label'             => esc_html__( 'Image', 'powerpack' ),
 				'type'              => Controls_Manager::MEDIA,
 				'dynamic'           => [
 					'active'   => true,
@@ -193,29 +186,26 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_after_image',
 			[
-				'label'             => __( 'After Image', 'powerpack' ),
+				'label'             => esc_html__( 'After Image', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'after_label',
 			[
-				'label'             => __( 'Label', 'powerpack' ),
+				'label'             => esc_html__( 'Label', 'powerpack' ),
 				'type'              => Controls_Manager::TEXT,
-				'default'           => __( 'After', 'powerpack' ),
+				'default'           => esc_html__( 'After', 'powerpack' ),
 				'dynamic'           => array(
 					'active' => true,
 				),
-				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-after-label:before' => 'content: "{{VALUE}}"',
-				],
 			]
 		);
 
 		$this->add_control(
 			'after_image',
 			[
-				'label'             => __( 'Image', 'powerpack' ),
+				'label'             => esc_html__( 'Image', 'powerpack' ),
 				'type'              => Controls_Manager::MEDIA,
 				'dynamic'           => [
 					'active'   => true,
@@ -245,15 +235,16 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_settings',
 			[
-				'label'             => __( 'Settings', 'powerpack' ),
+				'label'             => esc_html__( 'Settings', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'visible_ratio',
 			[
-				'label'                 => __( 'Visible Ratio', 'powerpack' ),
+				'label'                 => esc_html__( 'Visible Ratio', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => '',
 				'range'                 => [
 					'px' => [
 						'min'   => 0,
@@ -261,19 +252,18 @@ class Image_Comparison extends Powerpack_Widget {
 						'step'  => 0.1,
 					],
 				],
-				'size_units'            => '',
 			]
 		);
 
 		$this->add_control(
 			'orientation',
 			[
-				'label'                 => __( 'Orientation', 'powerpack' ),
+				'label'                 => esc_html__( 'Orientation', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'horizontal',
 				'options'               => [
-					'vertical'      => __( 'Vertical', 'powerpack' ),
-					'horizontal'    => __( 'Horizontal', 'powerpack' ),
+					'vertical'      => esc_html__( 'Vertical', 'powerpack' ),
+					'horizontal'    => esc_html__( 'Horizontal', 'powerpack' ),
 				],
 			]
 		);
@@ -281,13 +271,12 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'move_slider',
 			[
-				'label'                 => __( 'Move Slider', 'powerpack' ),
+				'label'                 => esc_html__( 'Move Slider', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'drag',
 				'options'               => [
-					'drag'          => __( 'Drag', 'powerpack' ),
-					'mouse_move'    => __( 'Mouse Move', 'powerpack' ),
-					'mouse_click'   => __( 'Mouse Click', 'powerpack' ),
+					'drag'          => esc_html__( 'Drag', 'powerpack' ),
+					'mouse_move'    => esc_html__( 'Mouse Move', 'powerpack' ),
 				],
 			]
 		);
@@ -295,11 +284,11 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'overlay',
 			[
-				'label'             => __( 'Overlay', 'powerpack' ),
+				'label'             => esc_html__( 'Overlay', 'powerpack' ),
 				'type'              => Controls_Manager::SWITCHER,
 				'default'           => 'yes',
-				'label_on'          => __( 'Show', 'powerpack' ),
-				'label_off'         => __( 'Hide', 'powerpack' ),
+				'label_on'          => esc_html__( 'Show', 'powerpack' ),
+				'label_off'         => esc_html__( 'Hide', 'powerpack' ),
 				'return_value'      => 'yes',
 			]
 		);
@@ -322,7 +311,7 @@ class Image_Comparison extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 
@@ -355,7 +344,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_overlay_style',
 			[
-				'label'             => __( 'Overlay', 'powerpack' ),
+				'label'             => esc_html__( 'Overlay', 'powerpack' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 				'condition'         => [
 					'overlay'  => 'yes',
@@ -368,7 +357,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_overlay_normal',
 			[
-				'label'             => __( 'Normal', 'powerpack' ),
+				'label'             => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
@@ -377,7 +366,7 @@ class Image_Comparison extends Powerpack_Widget {
 			[
 				'name'              => 'overlay_background',
 				'types'             => [ 'classic', 'gradient' ],
-				'selector'          => '{{WRAPPER}} .twentytwenty-overlay',
+				'selector'          => '{{WRAPPER}} .pp-image-comparison-overlay',
 				'condition'         => [
 					'overlay'  => 'yes',
 				],
@@ -389,7 +378,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_overlay_hover',
 			[
-				'label'             => __( 'Hover', 'powerpack' ),
+				'label'             => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
@@ -398,7 +387,7 @@ class Image_Comparison extends Powerpack_Widget {
 			[
 				'name'              => 'overlay_background_hover',
 				'types'             => [ 'classic', 'gradient' ],
-				'selector'          => '{{WRAPPER}} .twentytwenty-overlay:hover',
+				'selector'          => '{{WRAPPER}} .pp-image-comparison-overlay:hover',
 				'condition'         => [
 					'overlay'  => 'yes',
 				],
@@ -419,8 +408,110 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_handle_style',
 			[
-				'label'             => __( 'Handle', 'powerpack' ),
+				'label'             => esc_html__( 'Handle', 'powerpack' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'handle_icon',
+			array(
+				'label'                  => esc_html__( 'Choose Icon', 'powerpack' ),
+				'type'                   => Controls_Manager::ICONS,
+				'label_block'            => false,
+				'default'                => array(
+					'value'   => 'fas fa-caret-right',
+					'library' => 'fa-solid',
+				),
+				'skin'                   => 'inline',
+				'exclude_inline_options' => 'svg',
+				'recommended'            => array(
+					'fa-solid'   => array(
+						'angle-right',
+						'angle-double-right',
+						'chevron-right',
+						'arrow-right',
+						'long-arrow-alt-right',
+						'caret-right',
+					),
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'handle_icon_size',
+			[
+				'label'             => esc_html__( 'Icon Size', 'powerpack' ),
+				'type'              => Controls_Manager::SLIDER,
+				'size_units'        => [ 'px', 'em', 'rem', 'custom' ],
+				'default'           => [
+					'size' => 16,
+					'unit' => 'px',
+				],
+				'range'             => [
+					'px' => [
+						'min' => 10,
+						'max' => 50,
+					],
+				],
+				'tablet_default'    => [
+					'unit' => 'px',
+				],
+				'mobile_default'    => [
+					'unit' => 'px',
+				],
+				'selectors'         => [
+					'{{WRAPPER}} .pp-comparison-handle' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-comparison-handle svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'handle_width',
+			[
+				'label'             => esc_html__( 'Width', 'powerpack' ),
+				'type'              => Controls_Manager::SLIDER,
+				'size_units'        => [ 'px', 'em', 'rem', 'custom' ],
+				'default'           => [
+					'size' => 42,
+					'unit' => 'px',
+				],
+				'range'             => [
+					'px' => [
+						'min' => 20,
+						'max' => 100,
+					],
+				],
+				'selectors'         => [
+					'{{WRAPPER}} .pp-image-comparison .pp-comparison-handle' => 'width: {{SIZE}}{{UNIT}}; margin-left: calc(-{{SIZE}}{{UNIT}} / 2);',
+					'{{WRAPPER}} .pp-image-comparison-vertical .pp-comparison-handle:before' => 'margin-right: calc({{SIZE}}{{UNIT}} / 2);',
+					'{{WRAPPER}} .pp-image-comparison-vertical .pp-comparison-handle:after' => 'margin-left: calc({{SIZE}}{{UNIT}} / 2);',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'handle_height',
+			[
+				'label'             => esc_html__( 'Height', 'powerpack' ),
+				'type'              => Controls_Manager::SLIDER,
+				'size_units'        => [ 'px', 'em', 'rem', 'custom' ],
+				'default'           => [
+					'size' => 42,
+					'unit' => 'px',
+				],
+				'range'             => [
+					'px' => [
+						'min' => 20,
+						'max' => 100,
+					],
+				],
+				'selectors'         => [
+					'{{WRAPPER}} .pp-image-comparison .pp-comparison-handle' => 'height: {{SIZE}}{{UNIT}}; margin-top: calc(-{{SIZE}}{{UNIT}} / 2);',
+					'{{WRAPPER}} .pp-image-comparison-horizontal .pp-comparison-handle:before' => 'margin-bottom: calc({{SIZE}}{{UNIT}} / 2);',
+					'{{WRAPPER}} .pp-image-comparison-horizontal .pp-comparison-handle:after' => 'margin-top: calc({{SIZE}}{{UNIT}} / 2);',
+				],
 			]
 		);
 
@@ -429,19 +520,19 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_handle_normal',
 			[
-				'label'             => __( 'Normal', 'powerpack' ),
+				'label'             => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'handle_icon_color',
 			[
-				'label'             => __( 'Icon Color', 'powerpack' ),
+				'label'             => esc_html__( 'Icon Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-left-arrow' => 'border-right-color: {{VALUE}}',
-					'{{WRAPPER}} .twentytwenty-right-arrow' => 'border-left-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-comparison-handle' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-comparison-handle svg' => 'fill: {{VALUE}}',
 				],
 			]
 		);
@@ -451,7 +542,7 @@ class Image_Comparison extends Powerpack_Widget {
 			[
 				'name'              => 'handle_background',
 				'types'             => [ 'classic', 'gradient' ],
-				'selector'          => '{{WRAPPER}} .twentytwenty-handle',
+				'selector'          => '{{WRAPPER}} .pp-comparison-handle',
 			]
 		);
 
@@ -459,10 +550,10 @@ class Image_Comparison extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'handle_border',
-				'label'             => __( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
-				'selector'          => '{{WRAPPER}} .twentytwenty-handle',
+				'selector'          => '{{WRAPPER}} .pp-comparison-handle',
 				'separator'         => 'before',
 			]
 		);
@@ -470,11 +561,11 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'handle_border_radius',
 			[
-				'label'             => __( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', '%', 'em' ],
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-handle' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-comparison-handle' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -483,7 +574,7 @@ class Image_Comparison extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'handle_box_shadow',
-				'selector'              => '{{WRAPPER}} .twentytwenty-handle',
+				'selector'              => '{{WRAPPER}} .pp-comparison-handle',
 			]
 		);
 
@@ -492,19 +583,19 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_handle_hover',
 			[
-				'label'             => __( 'Hover', 'powerpack' ),
+				'label'             => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'handle_icon_color_hover',
 			[
-				'label'             => __( 'Icon Color', 'powerpack' ),
+				'label'             => esc_html__( 'Icon Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-handle:hover .twentytwenty-left-arrow' => 'border-right-color: {{VALUE}}',
-					'{{WRAPPER}} .twentytwenty-handle:hover .twentytwenty-right-arrow' => 'border-left-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-comparison-handle:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-comparison-handle:hover svg' => 'fill: {{VALUE}}',
 				],
 			]
 		);
@@ -514,18 +605,18 @@ class Image_Comparison extends Powerpack_Widget {
 			[
 				'name'              => 'handle_background_hover',
 				'types'             => [ 'classic', 'gradient' ],
-				'selector'          => '{{WRAPPER}} .twentytwenty-handle:hover',
+				'selector'          => '{{WRAPPER}} .pp-comparison-handle:hover',
 			]
 		);
 
 		$this->add_control(
 			'handle_border_color_hover',
 			[
-				'label'             => __( 'Border Color', 'powerpack' ),
+				'label'             => esc_html__( 'Border Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-handle:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-comparison-handle:hover' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -544,7 +635,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_divider_style',
 			[
-				'label'             => __( 'Divider', 'powerpack' ),
+				'label'             => esc_html__( 'Divider', 'powerpack' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -552,11 +643,11 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'divider_color',
 			[
-				'label'             => __( 'Color', 'powerpack' ),
+				'label'             => esc_html__( 'Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:after, {{WRAPPER}} .twentytwenty-vertical .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-vertical .twentytwenty-handle:after' => 'background: {{VALUE}}',
+					'{{WRAPPER}} .pp-comparison-handle:before, {{WRAPPER}} .pp-comparison-handle:after' => 'background: {{VALUE}}',
 				],
 			]
 		);
@@ -564,15 +655,16 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_width',
 			[
-				'label'             => __( 'Width', 'powerpack' ),
+				'label'             => esc_html__( 'Width', 'powerpack' ),
 				'type'              => Controls_Manager::SLIDER,
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'           => [
 					'size' => 3,
 					'unit' => 'px',
 				],
-				'size_units'        => [ 'px', '%' ],
 				'range'             => [
 					'px' => [
+						'min' => 1,
 						'max' => 20,
 					],
 				],
@@ -583,8 +675,8 @@ class Image_Comparison extends Powerpack_Widget {
 					'unit' => 'px',
 				],
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:after' => 'width: {{SIZE}}{{UNIT}}; margin-left: calc(-{{SIZE}}{{UNIT}}/2);',
-					'{{WRAPPER}} .twentytwenty-vertical .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-vertical .twentytwenty-handle:after' => 'height: {{SIZE}}{{UNIT}}; margin-top: calc(-{{SIZE}}{{UNIT}}/2);',
+					'{{WRAPPER}} .pp-image-comparison-horizontal .pp-comparison-handle:before, {{WRAPPER}} .pp-image-comparison-horizontal .pp-comparison-handle:after' => 'margin-left: calc(-{{SIZE}}{{UNIT}} / 2); width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-image-comparison-vertical .pp-comparison-handle:before, {{WRAPPER}} .pp-image-comparison-vertical .pp-comparison-handle:after' => 'margin-top: calc(-{{SIZE}}{{UNIT}} / 2); height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -599,7 +691,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_label_style',
 			[
-				'label'             => __( 'Label', 'powerpack' ),
+				'label'             => esc_html__( 'Label', 'powerpack' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -607,25 +699,33 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'label_horizontal_position',
 			[
-				'label'                 => __( 'Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Position', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'default'               => 'top',
 				'options'               => [
 					'top'          => [
-						'title'    => __( 'Top', 'powerpack' ),
+						'title'    => esc_html__( 'Top', 'powerpack' ),
 						'icon'     => 'eicon-v-align-top',
 					],
 					'middle'       => [
-						'title'    => __( 'Middle', 'powerpack' ),
+						'title'    => esc_html__( 'Middle', 'powerpack' ),
 						'icon'     => 'eicon-v-align-middle',
 					],
 					'bottom'       => [
-						'title'    => __( 'Bottom', 'powerpack' ),
+						'title'    => esc_html__( 'Bottom', 'powerpack' ),
 						'icon'     => 'eicon-v-align-bottom',
 					],
 				],
+				'selectors_dictionary'  => [
+					'top'    => 'flex-start',
+					'middle' => 'center',
+					'bottom' => 'flex-end',
+				],
 				'prefix_class'          => 'pp-ic-label-horizontal-',
+				'selectors'             => [
+					'{{WRAPPER}} .pp-image-comparison-horizontal .pp-comparison-label' => 'justify-content: {{VALUE}};',
+				],
 				'condition'             => [
 					'orientation'  => 'horizontal',
 				],
@@ -635,25 +735,33 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'label_vertical_position',
 			[
-				'label'                 => __( 'Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Position', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'center'           => [
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-h-align-center',
 					],
 					'right'            => [
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
 				'default'               => 'center',
-				'prefix_class'  => 'pp-ic-label-vertical-',
+				'prefix_class'          => 'pp-ic-label-vertical-',
+				'selectors_dictionary'  => [
+					'left'   => 'flex-start',
+					'center' => 'center',
+					'right'  => 'flex-end',
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-image-comparison-vertical .pp-comparison-label' => 'justify-content: {{VALUE}};',
+				],
 				'condition'             => [
 					'orientation'  => 'vertical',
 				],
@@ -663,28 +771,37 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'label_align',
 			[
-				'label'             => __( 'Align', 'powerpack' ),
+				'label'             => esc_html__( 'Align', 'powerpack' ),
 				'type'              => Controls_Manager::SLIDER,
-				'size_units'        => [ 'px', '%' ],
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'             => [
 					'px' => [
 						'max' => 200,
 					],
 				],
 				'selectors'         => [
-					'{{WRAPPER}}.pp-ic-label-horizontal-top .twentytwenty-horizontal .twentytwenty-before-label:before,
-                    {{WRAPPER}}.pp-ic-label-horizontal-top .twentytwenty-horizontal .twentytwenty-after-label:before' => 'top: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-before-label:before' => 'left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-after-label:before' => 'right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.pp-ic-label-horizontal-bottom .twentytwenty-horizontal .twentytwenty-before-label:before,
-                    {{WRAPPER}}.pp-ic-label-horizontal-bottom .twentytwenty-horizontal .twentytwenty-after-label:before' => 'bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .twentytwenty-vertical .twentytwenty-before-label:before' => 'top: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .twentytwenty-vertical .twentytwenty-after-label:before' => 'bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.pp-ic-label-vertical-left .twentytwenty-vertical .twentytwenty-before-label:before,
-                    {{WRAPPER}}.pp-ic-label-vertical-left .twentytwenty-vertical .twentytwenty-after-label:before' => 'left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.pp-ic-label-vertical-right .twentytwenty-vertical .twentytwenty-before-label:before,
-                    {{WRAPPER}}.pp-ic-label-vertical-right .twentytwenty-vertical .twentytwenty-after-label:before' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.pp-ic-label-horizontal-top .pp-image-comparison-horizontal .pp-comparison-label span' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-image-comparison-horizontal .pp-comparison-label-before' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-image-comparison-horizontal .pp-comparison-label-after' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.pp-ic-label-horizontal-bottom .pp-image-comparison-horizontal .pp-comparison-label span' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-image-comparison-vertical .pp-comparison-label-before' => 'top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-image-comparison-vertical .pp-comparison-label-after' => 'bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.pp-ic-label-vertical-left .pp-image-comparison-vertical .pp-comparison-label span' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.pp-ic-label-vertical-right .pp-image-comparison-vertical .pp-comparison-label span' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'              => 'label_typography',
+				'label'             => esc_html__( 'Typography', 'powerpack' ),
+				'global'            => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
+				'selector'          => '{{WRAPPER}} .pp-comparison-label-before > span, {{WRAPPER}} .pp-comparison-label-after > span',
+				'separator'         => 'before',
 			]
 		);
 
@@ -693,18 +810,18 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_label_before',
 			[
-				'label'             => __( 'Before', 'powerpack' ),
+				'label'             => esc_html__( 'Before', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'label_text_color_before',
 			[
-				'label'             => __( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-before-label:before' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-comparison-label-before > span' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -712,11 +829,11 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'label_bg_color_before',
 			[
-				'label'             => __( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-before-label:before' => 'background: {{VALUE}}',
+					'{{WRAPPER}} .pp-comparison-label-before > span' => 'background: {{VALUE}}',
 				],
 			]
 		);
@@ -725,21 +842,21 @@ class Image_Comparison extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'label_border',
-				'label'             => __( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
-				'selector'          => '{{WRAPPER}} .twentytwenty-before-label:before',
+				'selector'          => '{{WRAPPER}} .pp-comparison-label-before > span',
 			]
 		);
 
 		$this->add_control(
 			'label_border_radius',
 			[
-				'label'             => __( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', '%', 'em' ],
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-before-label:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-comparison-label-before > span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -749,18 +866,18 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_label_after',
 			[
-				'label'             => __( 'After', 'powerpack' ),
+				'label'             => esc_html__( 'After', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'label_text_color_after',
 			[
-				'label'             => __( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-after-label:before' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-comparison-label-after > span' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -768,11 +885,11 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'label_bg_color_after',
 			[
-				'label'             => __( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-after-label:before' => 'background: {{VALUE}}',
+					'{{WRAPPER}} .pp-comparison-label-after > span' => 'background: {{VALUE}}',
 				],
 			]
 		);
@@ -781,21 +898,21 @@ class Image_Comparison extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'label_border_after',
-				'label'             => __( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
-				'selector'          => '{{WRAPPER}} .twentytwenty-after-label:before',
+				'selector'          => '{{WRAPPER}} .pp-comparison-label-after > span',
 			]
 		);
 
 		$this->add_control(
 			'label_border_radius_after',
 			[
-				'label'             => __( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', '%', 'em' ],
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-after-label:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-comparison-label-after > span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -804,27 +921,14 @@ class Image_Comparison extends Powerpack_Widget {
 
 		$this->end_controls_tabs();
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'              => 'label_typography',
-				'label'             => __( 'Typography', 'powerpack' ),
-				'global'            => [
-					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
-				],
-				'selector'          => '{{WRAPPER}} .twentytwenty-before-label:before, {{WRAPPER}} .twentytwenty-after-label:before',
-				'separator'         => 'before',
-			]
-		);
-
 		$this->add_responsive_control(
 			'label_padding',
 			[
-				'label'             => __( 'Padding', 'powerpack' ),
+				'label'             => esc_html__( 'Padding', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', 'em', '%' ],
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'         => [
-					'{{WRAPPER}} .twentytwenty-before-label:before, {{WRAPPER}} .twentytwenty-after-label:before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-comparison-label-before > span, {{WRAPPER}} .pp-comparison-label-after > span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator'         => 'before',
 			]
@@ -865,16 +969,15 @@ class Image_Comparison extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 
 		$widget_options = [
-			'visible_ratio'      => ( $settings['visible_ratio']['size'] ) ? $settings['visible_ratio']['size'] : '0.5',
+			'visible_ratio'      => ! empty( $settings['visible_ratio']['size'] ) ? $settings['visible_ratio']['size'] : '0.5',
 			'orientation'        => ( $settings['orientation'] ) ? $settings['orientation'] : 'vertical',
 			'slider_on_hover'    => 'mouse_move' === $settings['move_slider'] ? true : false,
 			'slider_with_handle' => 'drag' === $settings['move_slider'] ? true : false,
 			'slider_with_click'  => 'mouse_click' === $settings['move_slider'] ? true : false,
-			'no_overlay'         => ( 'yes' === $settings['overlay'] ) ? false : true,
 		];
 
 		$this->add_render_attribute( 'image-comparison', [
-			'class'         => 'pp-image-comparison',
+			'class'         => [ 'pp-image-comparison', 'pp-image-comparison-' . $settings['orientation'] ],
 			'id'            => 'pp-image-comparison-' . esc_attr( $this->get_id() ),
 			'data-settings' => wp_json_encode( $widget_options ),
 		] );
@@ -882,6 +985,7 @@ class Image_Comparison extends Powerpack_Widget {
 		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'image-comparison' ) ); ?>>
 			<?php
 			if ( ! empty( $settings['before_image'] ) ) :
+				echo '<div class="pp-before-image">';
 				$img_url = $this->get_image_src('before');
 
 				$this->add_render_attribute( 'before-image', 'src', esc_url( $img_url ) );
@@ -890,10 +994,11 @@ class Image_Comparison extends Powerpack_Widget {
 				$this->add_render_attribute( 'before-image', 'class', 'pp-before-img' );
 
 				printf( '<img %s />', $this->get_render_attribute_string( 'before-image' ) );
-
-				endif;
+				echo '</div>';
+			endif;
 
 			if ( ! empty( $settings['after_image'] ) ) :
+				echo '<div class="pp-after-image">';
 				$img_url = $this->get_image_src('after');
 
 				$this->add_render_attribute( 'after-image', 'src', esc_url( $img_url ) );
@@ -902,8 +1007,42 @@ class Image_Comparison extends Powerpack_Widget {
 				$this->add_render_attribute( 'after-image', 'class', 'pp-after-img' );
 
 				printf( '<img %s />', $this->get_render_attribute_string( 'after-image' ) );
+				echo '</div>';
+			endif;
 
-				endif;
+			echo '<div class="pp-comparison-handle">';
+			if ( ! empty( $settings['handle_icon']['value'] ) ) {
+				if ( 'horizontal' === $settings['orientation'] ) {
+					$after_icon = $settings['handle_icon'];
+					$before_icon = str_replace( 'right', 'left', $settings['handle_icon'] );
+				} else {
+					$after_icon = $settings['handle_icon'];
+					$after_icon = str_replace( 'right', 'down', $settings['handle_icon'] );
+					$before_icon = str_replace( 'right', 'up', $settings['handle_icon'] );
+				}
+
+				Icons_Manager::render_icon( $before_icon, [ 'aria-hidden' => 'true' ] );
+				Icons_Manager::render_icon( $after_icon, [ 'aria-hidden' => 'true' ] );
+			}
+			echo '</div>';
+
+			if ( 'yes' === $settings['overlay'] ) {
+				echo '<div class="pp-image-comparison-overlay">';
+			}
+				if ( '' !== $settings['before_label'] ) {
+					echo '<div class="pp-comparison-label pp-comparison-label-before">';
+						echo '<span>'. esc_html( $settings['before_label'] ) .'</span>';
+					echo '</div>';
+				}
+
+				if ( '' !== $settings['after_label'] ) {
+					echo '<div class="pp-comparison-label pp-comparison-label-after">';
+						echo '<span>'. esc_html( $settings['after_label'] ) .'</span>';
+					echo '</div>';
+				}
+			if ( 'yes' === $settings['overlay'] ) {
+				echo '</div>';
+			}
 			?>
 		</div>
 		<?php
@@ -914,7 +1053,7 @@ class Image_Comparison extends Powerpack_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since 2.3.2
+	 * @since 2.0.3
 	 * @access protected
 	 */
 	protected function content_template() {
@@ -924,35 +1063,75 @@ class Image_Comparison extends Powerpack_Widget {
 			var slider_on_hover     = ( settings.move_slider == 'mouse_move' ) ? true : false;
 			var slider_with_handle  = ( settings.move_slider == 'drag' ) ? true : false;
 			var slider_with_click   = ( settings.move_slider == 'mouse_click' ) ? true : false;
-			var no_overlay          = ( settings.overlay == 'yes' ) ? false : true;
 		#>
-		<div class="pp-image-comparison" data-settings='{ "visible_ratio":{{ visible_ratio }},"orientation":"{{ settings.orientation }}","before_label":"{{ settings.before_label }}","after_label":"{{ settings.after_label }}","slider_on_hover":{{ slider_on_hover }},"slider_with_handle":{{ slider_with_handle }},"slider_with_click":{{ slider_with_click }},"no_overlay":{{ no_overlay }} }'>
+		<div class="pp-image-comparison pp-image-comparison-{{ settings.orientation }}" data-settings='{ "visible_ratio":{{ visible_ratio }},"orientation":"{{ settings.orientation }}","before_label":"{{ settings.before_label }}","after_label":"{{ settings.after_label }}","slider_on_hover":{{ slider_on_hover }},"slider_with_handle":{{ slider_with_handle }},"slider_with_click":{{ slider_with_click }} }'>
 			<# if ( settings.before_image.url != '' ) { #>
-				<#
-				var before_image = {
-					id: settings.before_image.id,
-					url: settings.before_image.url,
-					size: settings.before_image_size,
-					dimension: settings.before_image_custom_dimension,
-					model: view.getEditModel()
-				};
-				var before_image_url = elementor.imagesManager.getImageUrl( before_image );
-				#>
-				<img src="{{ _.escape( before_image_url ) }}" class="pp-before-img">
+				<div class="pp-before-image">
+					<#
+					var before_image = {
+						id: settings.before_image.id,
+						url: settings.before_image.url,
+						size: settings.before_image_size,
+						dimension: settings.before_image_custom_dimension,
+						model: view.getEditModel()
+					};
+					var before_image_url = elementor.imagesManager.getImageUrl( before_image );
+					#>
+					<img src="{{ _.escape( before_image_url ) }}" class="pp-before-img">
+				</div>
 			<# } #>
 
 			<# if ( settings.after_image.url != '' ) { #>
+				<div class="pp-after-image">
+					<#
+					var after_image = {
+						id: settings.after_image.id,
+						url: settings.after_image.url,
+						size: settings.after_image_size,
+						dimension: settings.after_image_custom_dimension,
+						model: view.getEditModel()
+					};
+					var after_image_url = elementor.imagesManager.getImageUrl( after_image );
+					#>
+					<img src="{{ _.escape( after_image_url ) }}" class="pp-after-img">
+				</div>
+			<# } #>
+
+			<div class="pp-comparison-handle">
 				<#
-				var after_image = {
-					id: settings.after_image.id,
-					url: settings.after_image.url,
-					size: settings.after_image_size,
-					dimension: settings.after_image_custom_dimension,
-					model: view.getEditModel()
-				};
-				var after_image_url = elementor.imagesManager.getImageUrl( after_image );
+				if ( settings.handle_icon.value ) {
+					if ( 'horizontal' === settings.orientation ) {
+						var after_icon = settings.handle_icon.value;
+						var before_icon = after_icon.replace('right', 'left');
+					} else {
+						var afterIcon = settings.handle_icon.value;
+						var after_icon = afterIcon.replace('right', 'down');
+						var before_icon = afterIcon.replace('right', 'up');
+					}
+					#>
+					<i class="{{ before_icon }}"></i>
+					<i class="{{ after_icon }}"></i>
+					<#
+				}
 				#>
-				<img src="{{ _.escape( after_image_url ) }}" class="pp-after-img">
+			</div>
+
+			<# if ( 'yes' === settings.overlay ) { #>
+				<div class="pp-image-comparison-overlay">
+			<# } #>
+				<# if ( settings.before_label != '' ) { #>
+					<div class="pp-comparison-label pp-comparison-label-before">
+						<span>{{{ settings.before_label }}}</span>
+					</div>
+				<# } #>
+
+				<# if ( settings.after_label != '' ) { #>
+					<div class="pp-comparison-label pp-comparison-label-after">
+						<span>{{{ settings.after_label }}}</span>
+					</div>
+				<# } #>
+			<# if ( 'yes' === settings.overlay ) { #>
+				</div>
 			<# } #>
 		</div>
 		<?php

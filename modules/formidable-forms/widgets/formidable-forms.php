@@ -46,6 +46,24 @@ class Formidable_Forms extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Formidable_Forms' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
+	/**
+	 * Get style dependencies.
+	 *
+	 * Retrieve the list of style dependencies the widget requires.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Widget style dependencies.
+	 */
+	public function get_style_depends(): array {
+		return [ 'widget-pp-formidable-forms' ];
+	}
+
 	/**
 	 * Register formidable forms widget controls.
 	 *

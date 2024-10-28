@@ -65,6 +65,20 @@ class Business_Hours extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Business_Hours' );
 	}
 
+	/**
+	 * Get style dependencies.
+	 *
+	 * Retrieve the list of style dependencies the widget requires.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Widget style dependencies.
+	 */
+	public function get_style_depends(): array {
+		return [ 'widget-pp-business-hours' ];
+	}
+
 	protected function is_dynamic_content(): bool {
 		return false;
 	}

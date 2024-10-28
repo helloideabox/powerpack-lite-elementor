@@ -75,6 +75,21 @@ class Scroll_Image extends Powerpack_Widget {
 		);
 	}
 
+	/**
+	 * Retrieve the list of styles the offcanvas content widget depended on.
+	 *
+	 * Used to set styles dependencies required to run the widget.
+	 *
+	 * @access public
+	 *
+	 * @return array Widget styles dependencies.
+	 */
+	public function get_style_depends() {
+		return [
+			'widget-pp-scroll-image'
+		];
+	}
+
 	protected function register_controls() {
 
 		/**

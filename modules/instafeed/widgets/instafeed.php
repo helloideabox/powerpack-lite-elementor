@@ -132,6 +132,31 @@ class Instafeed extends Powerpack_Widget {
 	}
 
 	/**
+	 * Get style dependencies.
+	 *
+	 * Retrieve the list of style dependencies the widget requires.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Widget style dependencies.
+	 */
+	public function get_style_depends(): array {
+		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+			return [ 'pp-swiper', 'widget-pp-instagram-feed' ];
+		}
+
+		$settings = $this->get_settings_for_display();
+		$styles = [ 'widget-pp-instagram-feed' ];
+
+		if ( 'carousel' === $settings['feed_layout'] ) {
+			array_push( $styles, 'pp-swiper' );
+		}
+
+		return $styles;
+	}
+
+	/**
 	 * Register instagram feed widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.

@@ -107,6 +107,33 @@ class Pricing_Table extends Powerpack_Widget {
 	}
 
 	/**
+	 * Retrieve the list of styles the offcanvas content widget depended on.
+	 *
+	 * Used to set styles dependencies required to run the widget.
+	 *
+	 * @access public
+	 *
+	 * @return array Widget styles dependencies.
+	 */
+	public function get_style_depends() {
+		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+			return array(
+				'pp-tooltip',
+				'widget-pp-pricing-table'
+			);
+		}
+
+		$settings = $this->get_settings_for_display();
+		$scripts = [ 'widget-pp-pricing-table' ];
+
+		if ( 'yes' === $settings['show_tooltip'] ) {
+			array_push( $scripts, 'pp-tooltip' );
+		}
+
+		return $scripts;
+	}
+
+	/**
 	 * Register pricing table widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.

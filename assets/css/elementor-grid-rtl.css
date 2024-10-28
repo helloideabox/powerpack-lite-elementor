@@ -1,0 +1,321 @@
+.pp-elementor-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+}
+.pp-elementor-grid .pp-grid-item {
+  position: relative;
+}
+.pp-elementor-grid .pp-grid-item-wrap {
+  float: right;
+  margin-bottom: 0;
+  margin-right: 0;
+  -webkit-transition: background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+@media only screen and (min-width: 1025px) {
+  /* For Desktop: */
+  .elementor-element.elementor-grid-1 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-1 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 100%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-2 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-2 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 50%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-2 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(2n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-2 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(2n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-3 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-3 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 33.3333%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-3 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(3n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-3 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(3n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-4 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-4 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 25%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-4 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(4n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-4 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(4n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-5 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-5 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 20%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-5 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(5n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-5 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(5n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-6 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-6 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 16.6667%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-6 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(6n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-6 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(6n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-7 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-7 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 14.285%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-7 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(7n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-7 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(7n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-8 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-8 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 12.5%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-8 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(8n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-8 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(8n+1) {
+    clear: right;
+  }
+}
+@media only screen and (max-width: 1024px) and (min-width: 766px) {
+  /* For tablets: */
+  .elementor-element.elementor-grid-tablet-1 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-tablet-1 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 100%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-tablet-2 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-tablet-2 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 50%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-tablet-2 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(2n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-tablet-2 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(2n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-tablet-3 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-tablet-3 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 33.3333%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-tablet-3 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(3n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-tablet-3 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(3n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-tablet-4 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-tablet-4 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 25%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-tablet-4 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(4n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-tablet-4 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(4n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-tablet-5 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-tablet-5 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 20%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-tablet-5 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(5n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-tablet-5 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(5n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-tablet-6 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-tablet-6 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 16.6667%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-tablet-6 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(6n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-tablet-6 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(6n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-tablet-7 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-tablet-7 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 14.285%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-tablet-7 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(7n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-tablet-7 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(7n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-tablet-8 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-tablet-8 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 12.5%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-tablet-8 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(8n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-tablet-8 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(8n+1) {
+    clear: right;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .elementor-element.elementor-grid-mobile-1 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-mobile-1 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 100%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-mobile-2 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-mobile-2 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 50%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-mobile-2 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(2n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-mobile-2 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(2n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-mobile-3 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-mobile-3 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 33.3333%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-mobile-3 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(3n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-mobile-3 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(3n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-mobile-4 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-mobile-4 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 25%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-mobile-4 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(4n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-mobile-4 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(4n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-mobile-5 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-mobile-5 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 20%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-mobile-5 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(5n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-mobile-5 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(5n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-mobile-6 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-mobile-6 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 16.6667%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-mobile-6 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(6n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-mobile-6 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(6n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-mobile-7 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-mobile-7 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 14.285%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-mobile-7 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(7n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-mobile-7 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(7n+1) {
+    clear: right;
+  }
+  .elementor-element.elementor-grid-mobile-8 {
+    position: relative;
+  }
+  .elementor-element.elementor-grid-mobile-8 .pp-elementor-grid .pp-grid-item-wrap {
+    width: 12.5%;
+    float: right;
+  }
+  .elementor-element.elementor-grid-mobile-8 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(8n) {
+    margin-left: 0 !important;
+  }
+  .elementor-element.elementor-grid-mobile-8 .pp-elementor-grid .pp-grid-item-wrap:nth-of-type(8n+1) {
+    clear: right;
+  }
+}

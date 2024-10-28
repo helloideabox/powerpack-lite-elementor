@@ -1,0 +1,77 @@
+*:not(.elementor-editor-active) .pp-visibility-hidden {
+  display: none;
+}
+.pp-background-wrapper {
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.pp-cursor-pointer {
+	position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 99;
+}
+.pp-cursor-active {
+	.pp-cursor-pointer {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+.pp-cursor-pointer-text {
+	background-color: #111;
+	color: #fff;
+	padding: 4px 10px;
+}
+.pp-wrapper-link {
+	cursor: pointer;
+}
+.elementor-section.pp-animated-gradient-bg-yes,
+.elementor-element.pp-animated-gradient-bg-yes,
+.elementor-section.pp-animated-gradient-bg-yes .pp-animated-gradient-bg,
+.elementor-element.pp-animated-gradient-bg-yes .pp-animated-gradient-bg {
+	background-size: 400% 400% !important;
+	animation: AnimatedGradientBg 15s ease-in-out infinite;
+}
+.pp-animated-gradient-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+@keyframes AnimatedGradientBg {
+	0% {
+	background-position: 0% 50%;
+	}
+	50% {
+	background-position: 100% 50%;
+	}
+	100% {
+	background-position: 0% 50%;
+	}
+}
+@-webkit-keyframes AnimatedGradientBg {
+	0% {
+	background-position: 0% 50%;
+	}
+	50% {
+	background-position: 100% 50%;
+	}
+	100% {
+	background-position: 0% 50%;
+	}
+}
+@-moz-keyframes AnimatedGradientBg {
+	0% {
+	background-position: 0% 50%;
+	}
+	50% {
+	background-position: 100% 50%;
+	}
+	100% {
+	background-position: 0% 50%;
+	}
+}

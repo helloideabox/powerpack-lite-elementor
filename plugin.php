@@ -120,78 +120,48 @@ class PowerpackLitePlugin {
 		$this->_localize_settings[ $setting_key ] = array_replace_recursive( $this->_localize_settings[ $setting_key ], $setting_value );
 	}
 
-	/**
-	 * Enqueue frontend styles
-	 *
-	 * @since 1.3.3
-	 *
-	 * @access public
-	 */
-	public function enqueue_frontend_styles() {
+	public function register_styles() {
+		$settings         = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_settings();
 		$debug_suffix     = ( PP_Helper::is_script_debug() ) ? '' : '.min';
 		$direction_suffix = is_rtl() ? '-rtl' : '';
 		$suffix           = $direction_suffix . $debug_suffix;
 		$path             = ( PP_Helper::is_script_debug() ) ? 'assets/css/' : 'assets/css/min/';
 
-		wp_enqueue_style(
-			'powerpack-frontend',
-			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend' . $suffix . '.css',
-			[],
-			POWERPACK_ELEMENTS_LITE_VER
-		);
-
 		wp_register_style(
-			'pp-twentytwenty',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/twentytwenty' . $suffix . '.css',
-			[],
-			POWERPACK_ELEMENTS_LITE_VER
-		);
-
-		wp_register_style(
-			'pp-magnific-popup',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/magnific-popup/magnific-popup' . $suffix . '.css',
+			'pp-extensions',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'extensions' . $suffix . '.css',
 			array(),
 			POWERPACK_ELEMENTS_LITE_VER
 		);
 
-		if ( class_exists( 'GFCommon' ) && \Elementor\Plugin::$instance->preview->is_preview_mode() && PP_Helper::is_widget_active( 'Gravity_Forms' ) ) {
-			$gf_forms = \RGFormsModel::get_forms( null, 'title' );
-			foreach ( $gf_forms as $form ) {
-				if ( '0' !== $form->id ) {
-					wp_enqueue_script( 'gform_gravityforms' );
-					gravity_form_enqueue_scripts( $form->id );
-				}
-			}
-		}
+		wp_register_style(
+			'pp-tooltip',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'tooltip' . $suffix . '.css',
+			array(),
+			POWERPACK_ELEMENTS_LITE_VER
+		);
 
-		if ( function_exists( 'wpforms' ) ) {
-			wpforms()->frontend->assets_css();
-		}
+		wp_register_style(
+			'pp-elementor-grid',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'elementor-grid' . $suffix . '.css',
+			array(),
+			POWERPACK_ELEMENTS_LITE_VER
+		);
+
+		wp_register_style(
+			'pp-swiper',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-swiper' . $suffix . '.css',
+			array(),
+			POWERPACK_ELEMENTS_LITE_VER
+		);
 	}
 
-	/**
-	 * Enqueue frontend scripts
-	 *
-	 * @since 1.3.3
-	 *
-	 * @access public
-	 */
-	public function enqueue_frontend_scripts() {
+	public function register_style_scripts() {
 		$settings = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_settings();
-		$suffix = ( PP_Helper::is_script_debug() ) ? '' : '.min';
-		$path = ( PP_Helper::is_script_debug() ) ? 'assets/js/' : 'assets/js/min/';
+		$suffix   = ( PP_Helper::is_script_debug() ) ? '' : '.min';
+		$path     = ( PP_Helper::is_script_debug() ) ? 'assets/js/' : 'assets/js/min/';
 
-		if ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
-			wp_enqueue_script(
-				'powerpack-upgrade',
-				POWERPACK_ELEMENTS_LITE_URL . $path . 'editor-panel-upgrade' . $suffix . '.js',
-				array(
-					'jquery',
-				),
-				POWERPACK_ELEMENTS_LITE_VER,
-				true
-			);
-		}
+		$this->register_styles();
 
 		wp_register_script(
 			'pp-advanced-accordion',
@@ -334,26 +304,6 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
-			'twentytwenty',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/twentytwenty/jquery.twentytwenty' . $suffix . '.js',
-			[
-				'jquery',
-			],
-			'2.0.0',
-			true
-		);
-
-		wp_register_script(
-			'jquery-event-move',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/jquery.event.move.js',
-			[
-				'jquery',
-			],
-			'2.0.0',
-			true
-		);
-
-		wp_register_script(
 			'pp-magnific-popup',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/magnific-popup/jquery.magnific-popup' . $suffix . '.js',
 			[
@@ -452,6 +402,73 @@ class PowerpackLitePlugin {
 	}
 
 	/**
+	 * Enqueue frontend styles
+	 *
+	 * @since 1.3.3
+	 *
+	 * @access public
+	 */
+	public function enqueue_frontend_styles() {
+		$debug_suffix     = ( PP_Helper::is_script_debug() ) ? '' : '.min';
+		$direction_suffix = is_rtl() ? '-rtl' : '';
+		$suffix           = $direction_suffix . $debug_suffix;
+		$path             = ( PP_Helper::is_script_debug() ) ? 'assets/css/' : 'assets/css/min/';
+
+		wp_enqueue_style(
+			'powerpack-frontend',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend' . $suffix . '.css',
+			[],
+			POWERPACK_ELEMENTS_LITE_VER
+		);
+
+		wp_register_style(
+			'pp-magnific-popup',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/magnific-popup/magnific-popup' . $suffix . '.css',
+			array(),
+			POWERPACK_ELEMENTS_LITE_VER
+		);
+
+		if ( class_exists( 'GFCommon' ) && \Elementor\Plugin::$instance->preview->is_preview_mode() && PP_Helper::is_widget_active( 'Gravity_Forms' ) ) {
+			$gf_forms = \RGFormsModel::get_forms( null, 'title' );
+			foreach ( $gf_forms as $form ) {
+				if ( '0' !== $form->id ) {
+					wp_enqueue_script( 'gform_gravityforms' );
+					gravity_form_enqueue_scripts( $form->id );
+				}
+			}
+		}
+
+		if ( function_exists( 'wpforms' ) ) {
+			wpforms()->frontend->assets_css();
+		}
+	}
+
+	/**
+	 * Enqueue frontend scripts
+	 *
+	 * @since 1.3.3
+	 *
+	 * @access public
+	 */
+	public function enqueue_frontend_scripts() {
+		$settings = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_settings();
+		$suffix = ( PP_Helper::is_script_debug() ) ? '' : '.min';
+		$path = ( PP_Helper::is_script_debug() ) ? 'assets/js/' : 'assets/js/min/';
+
+		if ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+			wp_enqueue_script(
+				'powerpack-upgrade',
+				POWERPACK_ELEMENTS_LITE_URL . $path . 'editor-panel-upgrade' . $suffix . '.js',
+				array(
+					'jquery',
+				),
+				POWERPACK_ELEMENTS_LITE_VER,
+				true
+			);
+		}
+	}
+
+	/**
 	 * Enqueue editor styles
 	 *
 	 * @since 1.3.3
@@ -513,7 +530,6 @@ class PowerpackLitePlugin {
 		);
 
 		wp_enqueue_style( 'pp-magnific-popup' );
-		wp_enqueue_style( 'pp-twentytwenty' );
 	}
 
 	/**
@@ -603,6 +619,10 @@ class PowerpackLitePlugin {
 
 		add_action( 'elementor/controls/register', array( $this, 'register_controls' ) );
 		add_action( 'elementor/controls/register', array( $this, 'include_group_controls' ) );
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_style_scripts' ) );
+		add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'register_style_scripts' ) );
+		add_action( 'elementor/frontend/before_enqueue_scripts', array( $this, 'register_style_scripts' ) );
 
 		add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
 		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );

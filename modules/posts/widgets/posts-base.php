@@ -47,6 +47,23 @@ abstract class Posts_Base extends Powerpack_Widget {
 	}
 
 	/**
+	 * Retrieve the list of styles the offcanvas content widget depended on.
+	 *
+	 * Used to set styles dependencies required to run the widget.
+	 *
+	 * @access public
+	 *
+	 * @return array Widget styles dependencies.
+	 */
+	public function get_style_depends() {
+		return [
+			'pp-swiper',
+			'pp-elementor-grid',
+			'widget-pp-posts'
+		];
+	}
+
+	/**
 	 * Register posts grid widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.

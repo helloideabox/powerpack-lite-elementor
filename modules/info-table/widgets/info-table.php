@@ -78,6 +78,20 @@ class Info_Table extends Powerpack_Widget {
 	}
 
 	/**
+	 * Get style dependencies.
+	 *
+	 * Retrieve the list of style dependencies the widget requires.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Widget style dependencies.
+	 */
+	public function get_style_depends(): array {
+		return [ 'widget-pp-info-table' ];
+	}
+
+	/**
 	 * Register info table widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.

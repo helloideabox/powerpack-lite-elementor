@@ -73,6 +73,20 @@ class Gravity_Forms extends Powerpack_Widget {
 	}
 
 	/**
+	 * Get style dependencies.
+	 *
+	 * Retrieve the list of style dependencies the widget requires.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Widget style dependencies.
+	 */
+	public function get_style_depends(): array {
+		return [ 'widget-pp-gravity-forms' ];
+	}
+
+	/**
 	 * Retrieve the list of scripts the gravity forms widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
