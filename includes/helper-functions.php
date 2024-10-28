@@ -372,6 +372,7 @@ function pp_elements_lite_get_modules() {
 		'pp-logo-grid'              => esc_html__( 'Logo Grid', 'powerpack' ),
 		'pp-image-comparison'       => esc_html__( 'Image Comparison', 'powerpack' ),
 		'pp-instafeed'              => esc_html__( 'Instagram Feed', 'powerpack' ),
+		'pp-interactive-circle'     => esc_html__( 'Interactive Circle', 'powerpack' ),
 		'pp-content-ticker'         => esc_html__( 'Content Ticker', 'powerpack' ),
 		'pp-scroll-image'           => esc_html__( 'Scroll Image', 'powerpack' ),
 		'pp-buttons'                => esc_html__( 'Buttons', 'powerpack' ),

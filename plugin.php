@@ -264,6 +264,16 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
+			'pp-interactive-circle',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-interactive-circle' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
 			'pp-scroll-image',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-scroll-image' . $suffix . '.js',
 			array(

@@ -202,6 +202,13 @@ class PP_Config {
 					'keywords'   => array( 'powerpack', 'instagram' ),
 					'icon'       => 'ppicon-instagram-feed power-pack-admin-icon',
 				),
+				'Interactive_Circle'   => array(
+					'name'       => 'pp-interactive-circle',
+					'title'      => __( 'Interactive Circle', 'powerpack' ),
+					'categories' => array( 'powerpack-elements' ),
+					'keywords'   => array( 'powerpack', 'interactive circle', 'circle' ),
+					'icon'       => 'ppicon-interactive-circle power-pack-admin-icon',
+				),
 				'Link_Effects'         => array(
 					'name'       => 'pa-link-effects',
 					'title'      => __( 'Link Effects', 'powerpack' ),

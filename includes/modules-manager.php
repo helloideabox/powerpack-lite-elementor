@@ -36,6 +36,7 @@ class Modules_Manager {
 			'info-list',
 			'info-table',
 			'instafeed',
+			'interactive-circle',
 			'link-effects',
 			'logos',
 			'posts',

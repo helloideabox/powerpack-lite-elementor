@@ -1,0 +1,520 @@
+@keyframes pp-circle-item-start {
+	0% {
+		top: 50%;
+		left: 50%;
+	}
+}
+.pp-circle-skin-1.pp-circle-animation-bounce-in .pp-circle-tab,
+.pp-circle-skin-1.pp-circle-animation-rotate .pp-circle-tab,
+.pp-circle-skin-1.pp-circle-animation-spin .pp-circle-tab,
+.pp-circle-skin-2.pp-circle-animation-bounce-in .pp-circle-tab {
+	animation: pp-circle-item-start 2s forwards;
+}
+@keyframes pp-1-anim-2-circle-animation {
+	0% {
+		height: 0;
+		width: 0;
+		margin-top: 250px;
+		margin-bottom: 250px;
+		transform: rotate(-360deg);
+	}
+}
+.pp-circle-skin-1.pp-circle-animation-rotate .pp-circle-inner {
+	animation: pp-1-anim-2-circle-animation 2s;
+}
+@keyframes pp-1-anim-3-circle-animation {
+	0% {
+		transform: rotate(-360deg);
+	}
+}
+.pp-circle-skin-1.pp-circle-animation-spin .pp-circle-inner {
+	animation: pp-1-anim-3-circle-animation 2s;
+}
+@keyframes pp-1-anim-3-circle-content-animation {
+	0% {
+		transform: rotate(360deg);
+	}
+}
+.pp-circle-skin-1.pp-circle-animation-spin .pp-circle-tab-content {
+	animation: pp-1-anim-3-circle-content-animation 2s;
+}
+@keyframes pp-skin-2-rotate {
+	0% {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(-700deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+}
+.pp-circle-skin-2.pp-circle-animation-rotate .pp-circle-tab {
+	animation: pp-skin-2-rotate 2s forwards;
+}
+@keyframes pp-2-anim-2-content-animation {
+	0% {
+		transform: scale(0);
+	}
+	15% {
+		transform: scale(0);
+	}
+}
+.pp-circle-skin-2.pp-circle-animation-rotate .pp-circle-tab-content {
+	animation: pp-2-anim-2-content-animation 2s;
+}
+@keyframes pp-skin-2-spin {
+	0% {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	20% {
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	100% {
+		transform: translate(-50%, -50%);
+	}
+}
+.pp-circle-skin-2.pp-circle-animation-spin .pp-circle-tab {
+	animation: pp-skin-2-spin 2s forwards;
+	transform-origin: center center;
+}
+@keyframes pp-skin-3-bounce-in {
+	0% {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	100% {
+		transform: translate(-50%, -50%);
+	}
+}
+.pp-circle-skin-3.pp-circle-animation-bounce-in .pp-circle-tab {
+	animation: pp-skin-3-bounce-in 2s forwards;
+	transform-origin: center center;
+}
+@keyframes pp-3-anim-1-shape-1-animation {
+	0% {
+		width: 0;
+	}
+}
+@keyframes pp-3-anim-1-shape-2-animation {
+	0% {
+		left: 50%;
+	}
+}
+.pp-circle-skin-3.pp-circle-animation-bounce-in .pp-circle-tab .pp-shape-1 {
+	animation: pp-3-anim-1-shape-1-animation 2s;
+}
+.pp-circle-skin-3.pp-circle-animation-bounce-in .pp-circle-tab .pp-shape-2 {
+	animation: pp-3-anim-1-shape-2-animation 2s;
+}
+@keyframes pp-skin-3-rotate {
+	0% {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	100% {
+		transform: translate(-50%, -50%);
+	}
+}
+.pp-circle-skin-3.pp-circle-animation-rotate .pp-circle-tab {
+	animation: pp-skin-3-rotate 2s forwards;
+	transform-origin: center center;
+}
+
+@keyframes pp-3-anim-2-circle-animation {
+	0% {
+		transform: rotate(-360deg);
+	}
+}
+.pp-circle-skin-3.pp-circle-animation-rotate .pp-circle-info {
+	animation: pp-3-anim-2-circle-animation 2s;
+}
+@keyframes pp-3-anim-2-shape-1-animation {
+	0% {
+		width: 0;
+	}
+}
+@keyframes pp-3-anim-2-shape-2-animation {
+	0% {
+		left: 50%;
+	}
+}
+@keyframes pp-3-anim-2-circle-content-animation {
+	0% {
+		transform: rotate(360deg);
+	}
+}
+.pp-circle-skin-3.pp-circle-animation-rotate .pp-circle-tab-content {
+	animation: pp-3-anim-2-circle-content-animation 2s;
+}
+.pp-circle-skin-3.pp-circle-animation-rotate .pp-circle-tab {
+	transform: translate(-50%, -50%) rotate(360deg);
+}
+.pp-circle-skin-3.pp-circle-animation-rotate .pp-circle-tab .pp-shape-1 {
+	animation: pp-3-anim-2-shape-1-animation 2s;
+}
+.pp-circle-skin-3.pp-circle-animation-rotate .pp-circle-tab .pp-shape-2 {
+	animation: pp-3-anim-2-shape-2-animation 2s;
+}
+@keyframes pp-3-anim-3-circle-animation {
+	30% {
+	transform: rotate(-180deg);
+	}
+}
+.pp-circle-skin-3.pp-circle-animation-spin .pp-circle-info {
+	animation: pp-3-anim-3-circle-animation 2s;
+}
+@keyframes pp-3-anim-3-btn-animation {
+	30% {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+}
+@keyframes pp-3-anim-3-shape-1-animation {
+	30% {
+		width: 0;
+	}
+}
+@keyframes pp-3-anim-3-shape-2-animation {
+	30% {
+		left: 50%;
+	}
+}
+@keyframes pp-3-anim-3-circle-content-animation {
+	30% {
+		transform: rotate(180deg);
+	}
+}
+.pp-circle-skin-3.pp-circle-animation-spin .pp-circle-tab-content {
+	animation: pp-3-anim-3-circle-content-animation 2s;
+}
+.pp-circle-skin-3.pp-circle-animation-spin .pp-circle-tab {
+	animation: pp-3-anim-3-btn-animation 2s;
+}
+.pp-circle-skin-3.pp-circle-animation-spin .pp-circle-tab .pp-shape-1 {
+	animation: pp-3-anim-3-shape-1-animation 2s;
+}
+.pp-circle-skin-3.pp-circle-animation-spin .pp-circle-tab .pp-shape-2 {
+	animation: pp-3-anim-3-shape-2-animation 2s;
+}
+@keyframes pp-skin-4-bounce {
+	0% {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	100% {
+		transform: translate(-50%, -50%);
+	}
+}
+.pp-circle-skin-4.pp-circle-animation-bounce-in .pp-circle-tab {
+	animation: pp-skin-4-bounce 2s forwards;
+	transform-origin: center center;
+}
+@keyframes pp-4-anim-2-btn-animation {
+	40% {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+}
+.pp-circle-skin-4.pp-circle-animation-rotate .pp-circle-tab {
+	animation: pp-4-anim-2-btn-animation 2s;
+}
+@keyframes pp-skin-4-spin {
+	0% {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	100% {
+		transform: translate(-50%, -50%);
+	}
+}
+.pp-circle-skin-4.pp-circle-animation-spin .pp-circle-tab {
+	animation: pp-skin-4-spin 2s forwards;
+	transform-origin: center center;
+}
+.pp-circle-skin-4.pp-circle-animation-spin .pp-circle-info {
+	animation: pp-4-anim-3-circle-animation 2s;
+}
+@keyframes pp-4-anim-3-circle-animation {
+	0% {
+		transform: rotate(-360deg);
+	}
+}
+@keyframes pp-4-anim-3-circle-content-animation {
+	0% {
+		transform: rotate(360deg);
+	}
+}
+.pp-circle-skin-4.pp-circle-animation-spin .pp-circle-tab {
+	transform: translate(-50%, -50%) rotate(360deg);
+}
+@media only screen and (max-width: 600px) {
+	@keyframes pp-desktop-skin-2-items-6 {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="6"] .pp-circle-item #pp-circle-item-2 {
+		left: 2%;
+		animation: pp-desktop-skin-2-items-6 2s forwards;
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="6"] .pp-circle-item #pp-circle-item-5 {
+		left: 98%;
+		animation: pp-desktop-skin-2-items-6 2s forwards;
+	}
+	@keyframes pp-desktop-skin-2-items-7 {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="7"] #pp-circle-item-2 {
+		left: 2%;
+		animation: pp-desktop-skin-2-items-7 2s forwards;
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="7"] #pp-circle-item-3 {
+		left: 13.3%;
+		animation: pp-desktop-skin-2-items-7 2s forwards;
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="7"] #pp-circle-item-5 {
+		left: 85.7%;
+		animation: pp-desktop-skin-2-items-7 2s forwards;
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="7"] #pp-circle-item-6 {
+		left: 96%;
+		animation: pp-desktop-skin-2-items-7 2s forwards;
+	}
+	@keyframes pp-a1p2di8dv-item-2-animation {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		100% {
+			top: 40%;
+			left: 2%;
+		}
+	}
+	@keyframes pp-a1p2di8dv-item-3-animation {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		100% {
+			top: 16%;
+			left: 6.9%;
+		}
+	}
+	@keyframes pp-a1p2di8dv-item-4-animation {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		100% {
+			top: 2.9%;
+			left: 33.6%;
+		}
+	}
+	@keyframes pp-a1p2di8dv-item-5-animation {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		100% {
+			top: 3%;
+			left: 65.4%;
+		}
+	}
+	@keyframes pp-a1p2di8dv-item-6-animation {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		100% {
+			top: 16%;
+			left: 93.1%;
+		}
+	}
+	@keyframes pp-a1p2di8dv-item-7-animation {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		100% {
+			top: 40%;
+			left: 97%;
+		}
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-2 {
+		left: 2%;
+		animation: pp-a1p2di8dv-item-2-animation 2s;
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-3 {
+		top: 16%;
+		left: 6.9%;
+		animation: pp-a1p2di8dv-item-3-animation 2s;
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-4 {
+		top: 2.9%;
+		left: 33.6%;
+		animation: pp-a1p2di8dv-item-4-animation 2s;
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-5 {
+		top: 3%;
+		left: 65.4%;
+		animation: pp-a1p2di8dv-item-5-animation 2s;
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-6 {
+		left: 93.1%;
+		animation: pp-a1p2di8dv-item-6-animation 2s;
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-7 {
+		left: 97%;
+		animation: pp-a1p2di8dv-item-7-animation 2s;
+	}
+	@keyframes pp-desktop-spin-skin-2-items-1 {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		20% {
+			top: 30%;
+			left: 50%;
+		}
+		100% {
+			top: 0%;
+			left: 50%;
+		}
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="1"] #pp-circle-item-1 {
+		animation: pp-desktop-spin-skin-2-items-1 2s forwards;
+	}
+	@keyframes pp-desktop-spin-skin-2-items-2 {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		20% {
+			top: 30%;
+			left: 50%;
+		}
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="2"] #pp-circle-item-1,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="2"] #pp-circle-item-2 {
+		animation: pp-desktop-spin-skin-2-items-2 2s forwards;
+	}
+	@keyframes pp-desktop-spin-skin-2-items-3 {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		20% {
+			top: 30%;
+			left: 50%;
+		}
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="3"] #pp-circle-item-1,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="3"] #pp-circle-item-2,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="3"] #pp-circle-item-3 {
+		animation: pp-desktop-spin-skin-2-items-3 2s forwards;
+	}
+	@keyframes pp-desktop-spin-skin-2-items-4 {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		20% {
+			top: 30%;
+			left: 50%;
+		}
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="4"] #pp-circle-item-1,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="4"] #pp-circle-item-2,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="4"] #pp-circle-item-3,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="4"] #pp-circle-item-4 {
+		animation: pp-desktop-spin-skin-2-items-4 2s forwards;
+	}
+	@keyframes pp-desktop-spin-skin-2-items-5 {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		20% {
+			top: 30%;
+			left: 50%;
+		}
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="5"] #pp-circle-item-1,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="5"] #pp-circle-item-2,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="5"] #pp-circle-item-3,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="5"] #pp-circle-item-4,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="5"] #pp-circle-item-5 {
+		animation: pp-desktop-spin-skin-2-items-5 2s forwards;
+	}
+	@keyframes pp-desktop-spin-skin-2-items-6 {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		20% {
+			top: 30%;
+			left: 50%;
+		}
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="6"] #pp-circle-item-1,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="6"] #pp-circle-item-2,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="6"] #pp-circle-item-3,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="6"] #pp-circle-item-4,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="6"] #pp-circle-item-5,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="6"] #pp-circle-item-6 {
+		animation: pp-desktop-spin-skin-2-items-6 2s forwards;
+	}
+	@keyframes pp-desktop-spin-skin-2-items-7 {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		20% {
+			top: 30%;
+			left: 50%;
+		}
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="7"] #pp-circle-item-1,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="7"] #pp-circle-item-2,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="7"] #pp-circle-item-3,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="7"] #pp-circle-item-4,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="7"] #pp-circle-item-5,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="7"] #pp-circle-item-6,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="7"] #pp-circle-item-7 {
+		animation: pp-desktop-spin-skin-2-items-7 2s forwards;
+	}
+	@keyframes pp-desktop-spin-skin-2-items-8 {
+		0% {
+			top: 50%;
+			left: 50%;
+		}
+		20% {
+			top: 30%;
+			left: 50%;
+		}
+	}
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="8"] #pp-circle-item-1,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="8"] #pp-circle-item-2,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="8"] #pp-circle-item-3,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="8"] #pp-circle-item-4,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="8"] #pp-circle-item-5,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="8"] #pp-circle-item-6,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="8"] #pp-circle-item-7,
+	.pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="8"] #pp-circle-item-8 {
+		animation: pp-desktop-spin-skin-2-items-8 2s forwards;
+	}
+}
