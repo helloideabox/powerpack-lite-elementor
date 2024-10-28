@@ -150,6 +150,7 @@ class Module extends Module_Base {
 			// Misc
 			'os',
 			'browser',
+			'device_type',
 			'search_bot',
 			'request_parameter',
 		];
