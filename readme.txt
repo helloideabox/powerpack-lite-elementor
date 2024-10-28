@@ -235,6 +235,21 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.8.0 - October 29, 2024 =
+* 	New: Interactive Circle widget
+* 	New: Progress Bar widget
+* 	Enhancement: Display Conditions - Added new Device Type display condition
+* 	Enhancement: Added additional size units and custom units to all the widgets and extensions
+* 	Enhancement: Conditionally loading widget styles only when the respective widgets are used
+* 	Enhancement: Gravity Forms - Added options to style sub-labels
+* 	Enhancement: Gravity Forms - Added options to style required text
+* 	Enhancement: Info Box - Added option to change button width
+* 	Enhancement: Info Box - Added option to change button icon spacing
+* 	Enhancement: Info Box - Added option to change button icon size
+* 	Enhancement: Image Comparison - Removed dependency on twentytwenty library
+* 	Fixed: Divider - Icon Rotation option
+* 	Fixed: Removed unnecessary calls to odometer lib files
+
 = 2.7.28 - September 13, 2024 =
 * 	Fixed: Info Box - Selector for icon hover style options
 * 	Fixed: Info List - Some of the style controls were not responsive
