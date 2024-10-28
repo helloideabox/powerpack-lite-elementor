@@ -263,7 +263,7 @@ class PP_Config {
 					'title'      => __( 'Progress Bar', 'powerpack' ),
 					'categories' => array( 'powerpack-elements' ),
 					'keywords'   => array( 'powerpack', 'chart', 'counter' ),
-					'icon'       => 'eicon-skill-bar power-pack-admin-icon',
+					'icon'       => 'ppicon-progress-bar-2 power-pack-admin-icon',
 				),
 				'Promo_Box'            => array(
 					'name'       => 'pp-promo-box',

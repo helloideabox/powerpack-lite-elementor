@@ -24,6 +24,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.ppicon-progress-bar-2:before {
+  content: "\e928";
+}
+.ppicon-interactive-circle:before {
+  content: "\e900";
+}
 .ppicon-powerpack-small:before {
 	content: "\e95e";
 }
@@ -186,7 +193,7 @@
 .ppicon-magazine-slider:before {
   content: "\e93b";
 }
-.ppicon-progress-bar:before {
+.ppicon-progress-bar-1:before {
   content: "\e93c";
 }
 .ppicon-protected-content:before {
