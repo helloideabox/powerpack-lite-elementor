@@ -1,0 +1,321 @@
+.pp-progress-bar-layout-grid {
+    .pp-progress-bar-container {
+        justify-items: center;
+    }
+}
+
+.pp-progress-bar-container {
+	display: flex;
+	width: 100%;
+}
+
+.pp-progress-bar-line .pp-progress-bar-wrapper,
+.pp-progress-bar-dots .pp-progress-bar-wrapper {
+	width: 100%;
+}
+
+.pp-progress-label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.pp-progress-bar-line .pp-progress-count,
+.pp-progress-bar-dots .pp-progress-count {
+	float: right;
+}
+
+.pp-progress-line {
+    position: relative;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pp-progress-fill {
+    height: 100%;
+    background-color: #6EC1E4;
+    width: 0;
+    transition: width 1s ease;
+}
+
+.pp-progress-bar-striped .pp-progress-fill {
+	background-image: linear-gradient(45deg,
+			rgba(255, 255, 255, 0.15) 25%,
+			transparent 25%,
+			transparent 50%,
+			rgba(255, 255, 255, 0.15) 50%,
+			rgba(255, 255, 255, 0.15) 75%,
+			transparent 75%,
+			transparent);
+	background-size: 40px 40px;
+}
+
+.pp-progress-bar-active .pp-progress-fill {
+	animation: pp-progress-bar-stripes 2s linear infinite;
+}
+
+@keyframes pp-progress-bar-stripes {
+	from {
+		background-position: 0 0;
+	}
+  
+	to {
+		background-position: 40px 0;
+	}
+}
+
+.pp-progress-bar-rainbow .pp-progress-fill {
+	background: linear-gradient(270deg, #9400d3, #4b0082, #0000ff, #00ff00, #ffff00, #ff7f00, #ff0000);
+	animation: pp-rainbow 5s ease infinite;
+	background-size: 500% 500%;
+    position: absolute;
+}
+
+@keyframes pp-rainbow {
+	0%{background-position:0% 50%}
+	50%{background-position:100% 50%}
+	100%{background-position:0% 50%}
+}
+
+.pp-bar-container-label {
+	position: relative;
+	&::after {
+		content: '';
+		clear: both;
+		position: relative;
+		display: block;
+	}
+}
+
+.pp-bar-container-label p:first-of-type {
+	margin: 0;
+	float: left;
+}
+
+.pp-bar-container-label p:nth-of-type(2) {
+	margin: 0;
+	float: right;
+}
+
+.pp-bar-indicator-align-left .pp-bar-center-label {
+	transform: translateX(-100%);
+}
+
+.pp-bar-indicator-align-center .pp-bar-center-label {
+	transform: translateX(-50%);
+}
+
+.pp-bar-indicator-pin.pp-bar-indicator-align-left .pp-bar-center-label {
+	margin-left: 0.5px;
+}
+
+.pp-bar-indicator-pin.pp-bar-indicator-align-right .pp-bar-center-label {
+	margin-left: -0.5px;
+}
+
+.pp-bar-indicator-arrow.pp-bar-indicator-align-left .pp-bar-center-label {
+	margin-left: 7px;
+}
+
+.pp-bar-indicator-arrow.pp-bar-indicator-align-right .pp-bar-center-label {
+	margin-left: -7px;	
+}
+
+.pp-bar-label {
+	position: relative;
+	float: left;
+	width: 0;
+	left: 50%;
+}
+
+.pp-bar-center-label {
+	position: relative;
+	white-space: nowrap;
+}
+
+.pp-bar-label-arrow {
+	height: 15px;
+	left: 50%;
+	display: inline-block;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 11px solid;
+	transform: translateX(-50%);
+}
+
+.pp-bar-label-pin {
+	border-left: 1px solid;
+	height: 12px;
+	left: 50%;
+	display: inline-block;
+}
+
+.pp-bar-label-arrow,
+.pp-bar-label-pin {
+	transform: translateX(50%);
+}
+
+.pp-progress-bar-vertical {
+	text-align: center;
+
+	.pp-progress-bar-wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.pp-vertical-bar {
+		display: flex;
+		align-items: flex-end;
+		margin: 0 auto;
+	}
+
+	.pp-bar-container-label {
+		position: absolute;
+		height: 100%;
+		margin-left: 25px;
+		overflow: visible;
+	}
+
+	.pp-bar-label {
+		position: absolute;
+		display: flex;
+		flex-flow: row-reverse nowrap;
+		width: auto;
+		align-items: center;
+	}
+
+	.pp-bar-center-label {
+		transform: unset !important;
+	}
+
+	.pp-bar-container-label p:nth-of-type(2) {
+		transform: rotate(90deg) !important;
+	}
+}
+
+.pp-bar-circle-wrapper {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.pp-bar-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: inset(0 0 0 50%);
+    .pp-progress-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: none;
+        border: 10px solid #00aaff;
+        border-radius: 50%;
+        clip-path: inset(0 50% 0 0);
+    }
+    .pp-progress-fill-left {
+        transform: rotate(0deg);
+    }
+    .pp-progress-fill-right {
+        transform: rotate(180deg);
+        visibility: hidden;
+    }
+}
+
+.pp-bar-circle-inner {
+    height: 100%;
+    width: 100%;
+    border: 10px solid #e0e0e0;
+    border-radius: 50%;
+}
+
+.pp-progress-bar-circle_half {
+    .pp-progress-circle-half {
+        height: 80px;
+        overflow: hidden;
+        position: relative;
+    }
+    .pp-bar-circle {
+        clip-path: inset(0 0 50% 0);
+    }
+    .pp-bar-circle .pp-progress-fill {
+        clip-path: inset(50% 0 0 0);
+        transform: rotate(0deg);
+    }
+    .pp-bar-circle-content {
+        top: initial;
+        bottom: 0;
+        transform: translateY(0);
+		width: 160px;
+    }
+
+	.pp-progress-bar-hf-labels {
+		width: 160px;
+		.pp-progress-bar-hf-label-right {
+			float: right;
+		}
+	}
+}
+
+.pp-bar-circle-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.pp-vertical-bar {
+    position: relative;
+    width: 20px;
+    height: 150px;
+    background-color: #e0e0e0;
+    overflow: hidden;
+    .pp-progress-fill {
+        width: 100%;
+        height: 0;
+        transition: height 1s ease;
+    }
+}
+
+.pp-progress-dots {
+	.pp-progress-fill {
+		background-color: transparent;
+		width: 100%;
+		display: flex;
+		height: auto;
+		box-shadow: none;
+	}
+
+	.pp-progress-segment {
+		position: relative;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		overflow: hidden;
+		background-color: #f5f5f5;
+	}
+
+	.segment-inner {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		background-color: #6ec1e4;
+	}
+}
+
+@media (max-width: 768px) {
+	.pp-bar-center-label {
+		transform: rotate(-90deg) !important;
+		transform-origin: 0;
+	}
+}

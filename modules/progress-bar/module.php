@@ -1,5 +1,5 @@
 <?php
-namespace PowerpackElementsLite\Modules\InteractiveCircle;
+namespace PowerpackElementsLite\Modules\ProgressBar;
 
 use PowerpackElementsLite\Base\Module_Base;
 
@@ -38,7 +38,7 @@ class Module extends Module_Base {
 	 * @return string Module name.
 	 */
 	public function get_name() {
-		return 'pp-interactive-circle';
+		return 'pp-progress-bar';
 	}
 
 	/**
@@ -52,7 +52,7 @@ class Module extends Module_Base {
 	 */
 	public function get_widgets() {
 		return [
-			'Interactive_Circle',
+			'Progress_Bar',
 		];
 	}
 
@@ -63,8 +63,8 @@ class Module extends Module_Base {
 	 */
 	public function register_styles() {
 		wp_register_style(
-			'widget-pp-interactive-circle',
-			$this->get_css_assets_url( 'widget-interactive-circle', null, true, true ),
+			'widget-pp-progress-bar',
+			$this->get_css_assets_url( 'widget-progress-bar', null, true, true ),
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);

@@ -41,6 +41,7 @@ class Modules_Manager {
 			'logos',
 			'posts',
 			'pricing',
+			'progress-bar',
 			'promo-box',
 			'random-image',
 			'scroll-image',

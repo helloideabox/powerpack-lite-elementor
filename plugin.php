@@ -294,6 +294,16 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
+			'pp-progress-bar',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-progress-bar' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
 			'pp-twitter',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-twitter' . $suffix . '.js',
 			array(

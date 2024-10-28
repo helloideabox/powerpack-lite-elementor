@@ -124,7 +124,7 @@ class Interactive_Circle extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since 2.11.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_controls() {
