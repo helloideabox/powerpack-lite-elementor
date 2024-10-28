@@ -122,7 +122,7 @@ class Divider extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_buton',
 			[
-				'label'                 => __( 'Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Divider', 'powerpack' ),
 			]
 		);
 
@@ -158,12 +158,12 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'divider_text',
 			[
-				'label'                 => __( 'Text', 'powerpack' ),
+				'label'                 => esc_html__( 'Text', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active' => true,
 				],
-				'default'               => __( 'Divider Text', 'powerpack' ),
+				'default'               => esc_html__( 'Divider Text', 'powerpack' ),
 				'condition'             => [
 					'divider_type' => 'text',
 				],
@@ -173,7 +173,7 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'icon',
 			[
-				'label'                 => __( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack' ),
 				'type'                  => Controls_Manager::ICONS,
 				'fa4compatibility'      => 'divider_icon',
 				'default'               => [
@@ -189,19 +189,19 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'text_html_tag',
 			[
-				'label'                 => __( 'HTML Tag', 'powerpack' ),
+				'label'                 => esc_html__( 'HTML Tag', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'span',
 				'options'               => [
-					'h1'            => __( 'H1', 'powerpack' ),
-					'h2'            => __( 'H2', 'powerpack' ),
-					'h3'            => __( 'H3', 'powerpack' ),
-					'h4'            => __( 'H4', 'powerpack' ),
-					'h5'            => __( 'H5', 'powerpack' ),
-					'h6'            => __( 'H6', 'powerpack' ),
-					'div'           => __( 'div', 'powerpack' ),
-					'span'          => __( 'span', 'powerpack' ),
-					'p'             => __( 'p', 'powerpack' ),
+					'h1'            => esc_html__( 'H1', 'powerpack' ),
+					'h2'            => esc_html__( 'H2', 'powerpack' ),
+					'h3'            => esc_html__( 'H3', 'powerpack' ),
+					'h4'            => esc_html__( 'H4', 'powerpack' ),
+					'h5'            => esc_html__( 'H5', 'powerpack' ),
+					'h6'            => esc_html__( 'H6', 'powerpack' ),
+					'div'           => esc_html__( 'div', 'powerpack' ),
+					'span'          => esc_html__( 'span', 'powerpack' ),
+					'p'             => esc_html__( 'p', 'powerpack' ),
 				],
 				'condition'             => [
 					'divider_type' => 'text',
@@ -212,7 +212,7 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'divider_image',
 			[
-				'label'                 => __( 'Image', 'powerpack' ),
+				'label'                 => esc_html__( 'Image', 'powerpack' ),
 				'type'                  => Controls_Manager::MEDIA,
 				'dynamic'               => [
 					'active' => true,
@@ -241,12 +241,12 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'divider_direction',
 			[
-				'label'                 => __( 'Direction', 'powerpack' ),
+				'label'                 => esc_html__( 'Direction', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'horizontal',
 				'options'               => [
-					'horizontal' => __( 'Horizontal', 'powerpack' ),
-					'vertical'   => __( 'Vertical', 'powerpack' ),
+					'horizontal' => esc_html__( 'Horizontal', 'powerpack' ),
+					'vertical'   => esc_html__( 'Vertical', 'powerpack' ),
 				],
 				'condition'             => [
 					'divider_type' => 'plain',
@@ -257,14 +257,14 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'divider_style',
 			[
-				'label'                 => __( 'Style', 'powerpack' ),
+				'label'                 => esc_html__( 'Style', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'dashed',
 				'options'               => [
-					'solid'          => __( 'Solid', 'powerpack' ),
-					'dashed'         => __( 'Dashed', 'powerpack' ),
-					'dotted'         => __( 'Dotted', 'powerpack' ),
-					'double'         => __( 'Double', 'powerpack' ),
+					'solid'          => esc_html__( 'Solid', 'powerpack' ),
+					'dashed'         => esc_html__( 'Dashed', 'powerpack' ),
+					'dotted'         => esc_html__( 'Dotted', 'powerpack' ),
+					'double'         => esc_html__( 'Double', 'powerpack' ),
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-divider, {{WRAPPER}} .divider-border' => 'border-style: {{VALUE}};',
@@ -275,9 +275,9 @@ class Divider extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'horizontal_width',
 			[
-				'label'                 => __( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ '%', 'px' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range'                 => [
 					'px'           => [
 						'min'      => 1,
@@ -324,9 +324,9 @@ class Divider extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'vertical_height',
 			[
-				'label'                 => __( 'Height', 'powerpack' ),
+				'label'                 => esc_html__( 'Height', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ '%', 'px' ],
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px'           => [
 						'min'      => 1,
@@ -362,20 +362,20 @@ class Divider extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'                 => __( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'center',
 				'options'               => [
 					'left'          => [
-						'title'     => __( 'Left', 'powerpack' ),
+						'title'     => esc_html__( 'Left', 'powerpack' ),
 						'icon'      => 'eicon-h-align-left',
 					],
 					'center'        => [
-						'title'     => __( 'Center', 'powerpack' ),
+						'title'     => esc_html__( 'Center', 'powerpack' ),
 						'icon'      => 'eicon-h-align-center',
 					],
 					'right'         => [
-						'title'     => __( 'Right', 'powerpack' ),
+						'title'     => esc_html__( 'Right', 'powerpack' ),
 						'icon'      => 'eicon-h-align-right',
 					],
 				],
@@ -409,7 +409,7 @@ class Divider extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				array(
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				)
 			);
 
@@ -448,7 +448,7 @@ class Divider extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_divider_style',
 			[
-				'label'                 => __( 'Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Divider', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -456,21 +456,21 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'divider_vertical_align',
 			[
-				'label'                 => __( 'Vertical Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Vertical Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'default'               => 'middle',
 				'options'               => [
 					'top'          => [
-						'title'    => __( 'Top', 'powerpack' ),
+						'title'    => esc_html__( 'Top', 'powerpack' ),
 						'icon'     => 'eicon-v-align-top',
 					],
 					'middle'       => [
-						'title'    => __( 'Center', 'powerpack' ),
+						'title'    => esc_html__( 'Center', 'powerpack' ),
 						'icon'     => 'eicon-v-align-middle',
 					],
 					'bottom'       => [
-						'title'    => __( 'Bottom', 'powerpack' ),
+						'title'    => esc_html__( 'Bottom', 'powerpack' ),
 						'icon'     => 'eicon-v-align-bottom',
 					],
 				],
@@ -491,9 +491,9 @@ class Divider extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'horizontal_height',
 			[
-				'label'                 => __( 'Weight', 'powerpack' ),
+				'label'                 => esc_html__( 'Weight', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ 'px' ],
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px'       => [
 						'min'  => 1,
@@ -546,9 +546,9 @@ class Divider extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'vertical_width',
 			[
-				'label'                 => __( 'Weight', 'powerpack' ),
+				'label'                 => esc_html__( 'Weight', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ 'px' ],
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px'           => [
 						'min'      => 1,
@@ -580,7 +580,7 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'divider_border_color',
 			[
-				'label'                 => __( 'Divider Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Divider Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -597,7 +597,7 @@ class Divider extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_before_style',
 			[
-				'label'                 => __( 'Before', 'powerpack' ),
+				'label'                 => esc_html__( 'Before', 'powerpack' ),
 				'condition'             => [
 					'divider_type!' => 'plain',
 				],
@@ -607,7 +607,7 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'divider_before_color',
 			[
-				'label'                 => __( 'Divider Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Divider Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'condition'             => [
@@ -624,7 +624,7 @@ class Divider extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_after_style',
 			[
-				'label'                 => __( 'After', 'powerpack' ),
+				'label'                 => esc_html__( 'After', 'powerpack' ),
 				'condition'             => [
 					'divider_type!' => 'plain',
 				],
@@ -634,7 +634,7 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'divider_after_color',
 			[
-				'label'                 => __( 'Divider Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Divider Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'condition'             => [
@@ -658,7 +658,7 @@ class Divider extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_text_style',
 			[
-				'label'                 => __( 'Text', 'powerpack' ),
+				'label'                 => esc_html__( 'Text', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'divider_type'    => 'text',
@@ -669,19 +669,19 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'text_position',
 			[
-				'label'                 => __( 'Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Position', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'         => [
-						'title'    => __( 'Left', 'powerpack' ),
+						'title'    => esc_html__( 'Left', 'powerpack' ),
 						'icon'     => 'eicon-h-align-left',
 					],
 					'center'       => [
-						'title'    => __( 'Center', 'powerpack' ),
+						'title'    => esc_html__( 'Center', 'powerpack' ),
 						'icon'     => 'eicon-h-align-center',
 					],
 					'right'        => [
-						'title'    => __( 'Right', 'powerpack' ),
+						'title'    => esc_html__( 'Right', 'powerpack' ),
 						'icon'     => 'eicon-h-align-right',
 					],
 				],
@@ -693,7 +693,7 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'divider_text_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'condition'             => [
@@ -709,7 +709,7 @@ class Divider extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -739,9 +739,9 @@ class Divider extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'text_spacing',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ '%', 'px' ],
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'max' => 200,
@@ -766,7 +766,7 @@ class Divider extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_icon_style',
 			[
-				'label'                 => __( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'divider_type' => 'icon',
@@ -777,19 +777,19 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'icon_position',
 			[
-				'label'                 => __( 'Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Position', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'         => [
-						'title'    => __( 'Left', 'powerpack' ),
+						'title'    => esc_html__( 'Left', 'powerpack' ),
 						'icon'     => 'eicon-h-align-left',
 					],
 					'center'       => [
-						'title'    => __( 'Center', 'powerpack' ),
+						'title'    => esc_html__( 'Center', 'powerpack' ),
 						'icon'     => 'eicon-h-align-center',
 					],
 					'right'        => [
-						'title'    => __( 'Right', 'powerpack' ),
+						'title'    => esc_html__( 'Right', 'powerpack' ),
 						'icon'     => 'eicon-h-align-right',
 					],
 				],
@@ -801,7 +801,7 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'divider_icon_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'condition'             => [
@@ -817,9 +817,9 @@ class Divider extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label'                 => __( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ '%', 'px' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'max' => 100,
@@ -841,25 +841,16 @@ class Divider extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_rotation',
 			[
-				'label'                 => __( 'Icon Rotation', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Rotation', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ '%', 'px' ],
+				'size_units'            => [ 'deg' ],
 				'range'                 => [
-					'px' => [
+					'deg' => [
 						'max' => 360,
 					],
 				],
-				'default'               => [
-					'unit' => 'px',
-				],
-				'tablet_default'    => [
-					'unit' => 'px',
-				],
-				'mobile_default'    => [
-					'unit' => 'px',
-				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-divider-icon .fa' => 'transform: rotate( {{SIZE}}deg );',
+					'{{WRAPPER}} .pp-divider-icon' => 'transform: rotate( {{SIZE}}deg );',
 				],
 				'condition'             => [
 					'divider_type' => 'icon',
@@ -870,9 +861,9 @@ class Divider extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_spacing',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ '%', 'px' ],
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'max' => 200,
@@ -897,7 +888,7 @@ class Divider extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_image_style',
 			[
-				'label'                 => __( 'Image', 'powerpack' ),
+				'label'                 => esc_html__( 'Image', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'divider_type' => 'image',
@@ -908,19 +899,19 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'image_position',
 			[
-				'label'                 => __( 'Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Position', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-h-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
@@ -932,9 +923,9 @@ class Divider extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_width',
 			[
-				'label'                 => __( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ '%', 'px' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'max' => 1200,
@@ -962,9 +953,9 @@ class Divider extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'condition'             => [
 					'divider_type'    => 'image',
 				],
@@ -977,9 +968,9 @@ class Divider extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_spacing',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ '%', 'px' ],
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'max' => 200,

@@ -41,7 +41,7 @@ abstract class Powerpack_Widget extends Widget_Base {
 	}
 
 	public function upgrade_powerpack_title() {
-		$upgrade_title = __( 'Get PowerPack Pro', 'powerpack' );
+		$upgrade_title = esc_html__( 'Get PowerPack Pro', 'powerpack' );
 
 		return $upgrade_title;
 	}
@@ -126,8 +126,8 @@ abstract class Powerpack_Widget extends Widget_Base {
 		}
 
 		$defaults = [
-			'title' => $this->get_title() . ' - ' . __( 'ID', 'powerpack' ) . ' ' . $this->get_id(),
-			'body'  => __( 'This is a placeholder for this widget and is visible only in the editor.', 'powerpack' ),
+			'title' => $this->get_title() . ' - ' . esc_html__( 'ID', 'powerpack' ) . ' ' . $this->get_id(),
+			'body'  => esc_html__( 'This is a placeholder for this widget and is visible only in the editor.', 'powerpack' ),
 		];
 
 		$args = wp_parse_args( $args, $defaults );

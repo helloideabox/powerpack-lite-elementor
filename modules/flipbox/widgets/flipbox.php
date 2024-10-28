@@ -174,7 +174,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'select_icon',
 			[
-				'label'            => __( 'Icon', 'powerpack' ),
+				'label'            => esc_html__( 'Icon', 'powerpack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default'          => [
@@ -202,7 +202,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'icon_text',
 			array(
-				'label'     => __( 'Icon Text', 'powerpack' ),
+				'label'     => esc_html__( 'Icon Text', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'dynamic'   => array(
 					'active' => true,
@@ -236,26 +236,26 @@ class Flipbox extends Powerpack_Widget {
 					'active' => true,
 				),
 				'label_block' => true,
-				'default'     => __( 'This is the front content. Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'powerpack' ),
+				'default'     => esc_html__( 'This is the front content. Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'title_html_tag_front',
 			array(
-				'label'   => __( 'Title HTML Tag', 'powerpack' ),
+				'label'   => esc_html__( 'Title HTML Tag', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'h3',
 				'options' => array(
-					'h1'   => __( 'H1', 'powerpack' ),
-					'h2'   => __( 'H2', 'powerpack' ),
-					'h3'   => __( 'H3', 'powerpack' ),
-					'h4'   => __( 'H4', 'powerpack' ),
-					'h5'   => __( 'H5', 'powerpack' ),
-					'h6'   => __( 'H6', 'powerpack' ),
-					'div'  => __( 'div', 'powerpack' ),
-					'span' => __( 'span', 'powerpack' ),
-					'p'    => __( 'p', 'powerpack' ),
+					'h1'   => esc_html__( 'H1', 'powerpack' ),
+					'h2'   => esc_html__( 'H2', 'powerpack' ),
+					'h3'   => esc_html__( 'H3', 'powerpack' ),
+					'h4'   => esc_html__( 'H4', 'powerpack' ),
+					'h5'   => esc_html__( 'H5', 'powerpack' ),
+					'h6'   => esc_html__( 'H6', 'powerpack' ),
+					'div'  => esc_html__( 'div', 'powerpack' ),
+					'span' => esc_html__( 'span', 'powerpack' ),
+					'p'    => esc_html__( 'p', 'powerpack' ),
 				),
 			)
 		);
@@ -322,7 +322,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'select_icon_back',
 			[
-				'label'            => __( 'Icon', 'powerpack' ),
+				'label'            => esc_html__( 'Icon', 'powerpack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon_back',
 				'default'          => [
@@ -350,7 +350,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'icon_text_back',
 			array(
-				'label'     => __( 'Icon Text', 'powerpack' ),
+				'label'     => esc_html__( 'Icon Text', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'dynamic'   => array(
 					'active' => true,
@@ -385,26 +385,26 @@ class Flipbox extends Powerpack_Widget {
 					'active' => true,
 				),
 				'label_block' => true,
-				'default'     => __( 'This is the front content. Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'powerpack' ),
+				'default'     => esc_html__( 'This is the front content. Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'title_html_tag_back',
 			array(
-				'label'   => __( 'Title HTML Tag', 'powerpack' ),
+				'label'   => esc_html__( 'Title HTML Tag', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'h3',
 				'options' => array(
-					'h1'   => __( 'H1', 'powerpack' ),
-					'h2'   => __( 'H2', 'powerpack' ),
-					'h3'   => __( 'H3', 'powerpack' ),
-					'h4'   => __( 'H4', 'powerpack' ),
-					'h5'   => __( 'H5', 'powerpack' ),
-					'h6'   => __( 'H6', 'powerpack' ),
-					'div'  => __( 'div', 'powerpack' ),
-					'span' => __( 'span', 'powerpack' ),
-					'p'    => __( 'p', 'powerpack' ),
+					'h1'   => esc_html__( 'H1', 'powerpack' ),
+					'h2'   => esc_html__( 'H2', 'powerpack' ),
+					'h3'   => esc_html__( 'H3', 'powerpack' ),
+					'h4'   => esc_html__( 'H4', 'powerpack' ),
+					'h5'   => esc_html__( 'H5', 'powerpack' ),
+					'h6'   => esc_html__( 'H6', 'powerpack' ),
+					'div'  => esc_html__( 'div', 'powerpack' ),
+					'span' => esc_html__( 'span', 'powerpack' ),
+					'p'    => esc_html__( 'p', 'powerpack' ),
 				),
 			)
 		);
@@ -412,14 +412,14 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'link_type',
 			[
-				'label'                 => __( 'Link Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Link Type', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'none',
 				'options'               => [
-					'none'      => __( 'None', 'powerpack' ),
-					'title'     => __( 'Title', 'powerpack' ),
-					'button'    => __( 'Button', 'powerpack' ),
-					'box'       => __( 'Box', 'powerpack' ),
+					'none'      => esc_html__( 'None', 'powerpack' ),
+					'title'     => esc_html__( 'Title', 'powerpack' ),
+					'button'    => esc_html__( 'Button', 'powerpack' ),
+					'box'       => esc_html__( 'Box', 'powerpack' ),
 				],
 			]
 		);
@@ -427,7 +427,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'link',
 			[
-				'label'                 => __( 'Link', 'powerpack' ),
+				'label'                 => esc_html__( 'Link', 'powerpack' ),
 				'type'                  => Controls_Manager::URL,
 				'dynamic'               => [
 					'active'        => true,
@@ -449,12 +449,12 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'flipbox_button_text',
 			[
-				'label'                 => __( 'Button Text', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Text', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'default'               => __( 'Get Started', 'powerpack' ),
+				'default'               => esc_html__( 'Get Started', 'powerpack' ),
 				'condition'             => [
 					'link_type'   => 'button',
 				],
@@ -464,7 +464,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'select_button_icon',
 			[
-				'label'                 => __( 'Button Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Icon', 'powerpack' ),
 				'type'                  => Controls_Manager::ICONS,
 				'fa4compatibility'      => 'button_icon',
 				'condition'             => [
@@ -476,12 +476,12 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'button_icon_position',
 			[
-				'label'                 => __( 'Icon Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Position', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'after',
 				'options'               => [
-					'after'     => __( 'After', 'powerpack' ),
-					'before'    => __( 'Before', 'powerpack' ),
+					'after'     => esc_html__( 'After', 'powerpack' ),
+					'before'    => esc_html__( 'Before', 'powerpack' ),
 				],
 				'condition'             => [
 					'link_type'     => 'button',
@@ -507,9 +507,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'height',
 			[
-				'label'                 => __( 'Height', 'powerpack' ),
+				'label'                 => esc_html__( 'Height', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ 'px', 'vh' ],
+				'size_units'            => [ 'px', 'em', 'rem', 'vh', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min' => 100,
@@ -529,9 +529,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min' => 0,
@@ -604,7 +604,7 @@ class Flipbox extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 
@@ -647,7 +647,7 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-front .pp-flipbox-overlay' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -684,20 +684,20 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'vertical_position_front',
 			[
-				'label'                 => __( 'Vertical Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Vertical Position', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
 					'top' => [
-						'title' => __( 'Top', 'powerpack' ),
+						'title' => esc_html__( 'Top', 'powerpack' ),
 						'icon' => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => __( 'Middle', 'powerpack' ),
+						'title' => esc_html__( 'Middle', 'powerpack' ),
 						'icon' => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => __( 'Bottom', 'powerpack' ),
+						'title' => esc_html__( 'Bottom', 'powerpack' ),
 						'icon' => 'eicon-v-align-bottom',
 					],
 				],
@@ -777,7 +777,7 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-front .pp-flipbox-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -799,8 +799,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_spacing_front',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min' => 0,
@@ -819,13 +820,14 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_size_front',
 			[
-				'label'                 => esc_html__( 'Size (%)', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size' => '',
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-flipbox-icon-image > img' => 'width: {{SIZE}}%;',
+					'{{WRAPPER}} .pp-flipbox-icon-image > img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition'             => [
 					'icon_type' => 'image',
@@ -864,8 +866,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_size_front',
 			[
-				'label'                 => __( 'Icon Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size' => 40,
 					'unit' => 'px',
@@ -889,7 +892,7 @@ class Flipbox extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'icon_typography_front',
-				'label'     => __( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -903,8 +906,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_spacing_front',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min' => 0,
@@ -961,8 +965,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'title_spacing_front',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min' => 0,
@@ -1036,7 +1041,7 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-back .pp-flipbox-overlay' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1073,20 +1078,20 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'vertical_position_back',
 			[
-				'label'                 => __( 'Vertical Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Vertical Position', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
 					'top' => [
-						'title' => __( 'Top', 'powerpack' ),
+						'title' => esc_html__( 'Top', 'powerpack' ),
 						'icon' => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => __( 'Middle', 'powerpack' ),
+						'title' => esc_html__( 'Middle', 'powerpack' ),
 						'icon' => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => __( 'Bottom', 'powerpack' ),
+						'title' => esc_html__( 'Bottom', 'powerpack' ),
 						'icon' => 'eicon-v-align-bottom',
 					],
 				],
@@ -1166,7 +1171,7 @@ class Flipbox extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-back .pp-flipbox-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1188,8 +1193,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_spacing_back',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min' => 0,
@@ -1208,13 +1214,14 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_size_back',
 			[
-				'label'                 => esc_html__( 'Size (%)', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size' => '',
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-flipbox-icon-image-back > img' => 'width: {{SIZE}}%;',
+					'{{WRAPPER}} .pp-flipbox-icon-image-back > img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition'             => [
 					'icon_type_back'    => 'image',
@@ -1253,8 +1260,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_size_back',
 			[
-				'label'                 => __( 'Icon Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size' => 40,
 					'unit' => 'px',
@@ -1278,7 +1286,7 @@ class Flipbox extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'icon_typography_back',
-				'label'     => __( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1292,8 +1300,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_spacing_back',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min' => 0,
@@ -1350,8 +1359,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'title_spacing_back',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min' => 0,
@@ -1416,7 +1426,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_info_box_button_style',
 			[
-				'label'                 => __( 'Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Button', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'link_type'    => 'button',
@@ -1427,15 +1437,15 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'button_size',
 			[
-				'label'                 => __( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'md',
 				'options'               => [
-					'xs' => __( 'Extra Small', 'powerpack' ),
-					'sm' => __( 'Small', 'powerpack' ),
-					'md' => __( 'Medium', 'powerpack' ),
-					'lg' => __( 'Large', 'powerpack' ),
-					'xl' => __( 'Extra Large', 'powerpack' ),
+					'xs' => esc_html__( 'Extra Small', 'powerpack' ),
+					'sm' => esc_html__( 'Small', 'powerpack' ),
+					'md' => esc_html__( 'Medium', 'powerpack' ),
+					'lg' => esc_html__( 'Large', 'powerpack' ),
+					'xl' => esc_html__( 'Extra Large', 'powerpack' ),
 				],
 				'condition'             => [
 					'link_type'    => 'button',
@@ -1446,8 +1456,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_spacing',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size' => 15,
 				],
@@ -1471,7 +1482,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 				'condition'             => [
 					'link_type'    => 'button',
 				],
@@ -1481,7 +1492,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'button_bg_color_normal',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1496,7 +1507,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_normal',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1513,7 +1524,7 @@ class Flipbox extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border_normal',
-				'label'                 => __( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-flipbox-button',
@@ -1526,9 +1537,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1542,7 +1553,7 @@ class Flipbox extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'button_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1556,9 +1567,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1582,7 +1593,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'info_box_button_icon_heading',
 			[
-				'label'                 => __( 'Button Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Icon', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -1595,9 +1606,9 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_icon_margin',
 			[
-				'label'                 => __( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'placeholder'       => [
 					'top'      => '',
 					'right'    => '',
@@ -1619,7 +1630,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
 				'condition'             => [
 					'link_type'    => 'button',
 				],
@@ -1629,7 +1640,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'button_bg_color_hover',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1644,7 +1655,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1659,7 +1670,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1674,7 +1685,7 @@ class Flipbox extends Powerpack_Widget {
 		$this->add_control(
 			'button_animation',
 			[
-				'label'                 => __( 'Animation', 'powerpack' ),
+				'label'                 => esc_html__( 'Animation', 'powerpack' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 				'condition'             => [
 					'link_type'    => 'button',

@@ -215,19 +215,19 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_instaaccount',
 			array(
-				'label' => __( 'Instagram Account', 'powerpack' ),
+				'label' => esc_html__( 'Instagram Account', 'powerpack' ),
 			)
 		);
 
 		/* $this->add_control(
 			'insta_display',
 			[
-				'label'     => __( 'Display', 'powerpack' ),
+				'label'     => esc_html__( 'Display', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'feed',
 				'options'   => [
-					'feed'  => __( 'My Photos', 'powerpack' ),
-					'tags'  => __( 'Tagged Photos', 'powerpack' ),
+					'feed'  => esc_html__( 'My Photos', 'powerpack' ),
+					'tags'  => esc_html__( 'Tagged Photos', 'powerpack' ),
 				],
 			]
 		); */
@@ -238,7 +238,7 @@ class Instafeed extends Powerpack_Widget {
 				[
 					'type'            => Controls_Manager::RAW_HTML,
 					'raw'             => sprintf(
-						__( 'Your Instagram Access Token is missing, %1$sclick here%2$s to configure.', 'powerpack' ),
+						esc_html__( 'Your Instagram Access Token is missing, %1$sclick here%2$s to configure.', 'powerpack' ),
 						'<a href="' . admin_url( 'admin.php?page=powerpack-settings&tab=integration' ) . '"><strong>',
 						'</strong></a>'
 					),
@@ -250,8 +250,8 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'access_token',
 			[
-				'label'       => __( 'Custom Access Token', 'powerpack' ),
-				'description' => __( 'Overrides global Instagram access token', 'powerpack' ),
+				'label'       => esc_html__( 'Custom Access Token', 'powerpack' ),
+				'description' => esc_html__( 'Overrides global Instagram access token', 'powerpack' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::TEXT,
 				'ai'          => [
@@ -279,7 +279,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'images_count',
 			array(
-				'label'      => __( 'Images Count', 'powerpack' ),
+				'label'      => esc_html__( 'Images Count', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array( 'size' => 5 ),
 				'range'      => array(
@@ -289,20 +289,19 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => '',
 			)
 		);
 
 		$this->add_control(
 			'resolution',
 			[
-				'label'                 => __( 'Image Resolution', 'powerpack' ),
+				'label'                 => esc_html__( 'Image Resolution', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'thumbnail'              => __( 'Thumbnail (150x150)', 'powerpack' ),
-					'low_resolution'         => __( 'Low Resolution (320x320)', 'powerpack' ),
-					'standard_resolution'    => __( 'Standard Resolution (640x640)', 'powerpack' ),
-					'high'                   => __( 'High Resolution (original)', 'powerpack' ),
+					'thumbnail'           => esc_html__( 'Thumbnail (150x150)', 'powerpack' ),
+					'low_resolution'      => esc_html__( 'Low Resolution (320x320)', 'powerpack' ),
+					'standard_resolution' => esc_html__( 'Standard Resolution (640x640)', 'powerpack' ),
+					'high'                => esc_html__( 'High Resolution (original)', 'powerpack' ),
 				],
 				'default'               => 'low_resolution',
 			]
@@ -318,24 +317,24 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_instafeed',
 			array(
-				'label' => __( 'Feed Settings', 'powerpack' ),
+				'label' => esc_html__( 'Feed Settings', 'powerpack' ),
 			)
 		);
 
 		/* $this->add_control(
 			'sort_by',
 			[
-				'label'                 => __( 'Sort By', 'powerpack' ),
+				'label'                 => esc_html__( 'Sort By', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'none'               => __( 'None', 'powerpack' ),
-					'most-recent'        => __( 'Most Recent', 'powerpack' ),
-					'least-recent'       => __( 'Least Recent', 'powerpack' ),
-					'most-liked'         => __( 'Most Liked', 'powerpack' ),
-					'least-liked'        => __( 'Least Liked', 'powerpack' ),
-					'most-commented'     => __( 'Most Commented', 'powerpack' ),
-					'least-commented'    => __( 'Least Commented', 'powerpack' ),
-					'random'             => __( 'Random', 'powerpack' ),
+					'none'               => esc_html__( 'None', 'powerpack' ),
+					'most-recent'        => esc_html__( 'Most Recent', 'powerpack' ),
+					'least-recent'       => esc_html__( 'Least Recent', 'powerpack' ),
+					'most-liked'         => esc_html__( 'Most Liked', 'powerpack' ),
+					'least-liked'        => esc_html__( 'Least Liked', 'powerpack' ),
+					'most-commented'     => esc_html__( 'Most Commented', 'powerpack' ),
+					'least-commented'    => esc_html__( 'Least Commented', 'powerpack' ),
+					'random'             => esc_html__( 'Random', 'powerpack' ),
 				],
 				'default'               => 'none',
 			]
@@ -351,20 +350,20 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_general_settings',
 			array(
-				'label' => __( 'General Settings', 'powerpack' ),
+				'label' => esc_html__( 'General Settings', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'feed_layout',
 			array(
-				'label'              => __( 'Layout', 'powerpack' ),
+				'label'              => esc_html__( 'Layout', 'powerpack' ),
 				'type'               => Controls_Manager::SELECT,
 				'default'            => 'grid',
 				'options'            => array(
-					'grid'     => __( 'Grid', 'powerpack' ),
-					'masonry'  => __( 'Masonry', 'powerpack' ),
-					'carousel' => __( 'Carousel', 'powerpack' ),
+					'grid'     => esc_html__( 'Grid', 'powerpack' ),
+					'masonry'  => esc_html__( 'Masonry', 'powerpack' ),
+					'carousel' => esc_html__( 'Carousel', 'powerpack' ),
 				),
 				'frontend_available' => true,
 			)
@@ -373,11 +372,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'square_images',
 			array(
-				'label'        => __( 'Square Images', 'powerpack' ),
+				'label'        => esc_html__( 'Square Images', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'feed_layout' => array( 'grid', 'carousel' ),
@@ -388,21 +387,21 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'grid_cols',
 			array(
-				'label'          => __( 'Grid Columns', 'powerpack' ),
+				'label'          => esc_html__( 'Grid Columns', 'powerpack' ),
 				'type'           => Controls_Manager::SELECT,
 				'label_block'    => false,
 				'default'        => '5',
 				'tablet_default' => '3',
 				'mobile_default' => '2',
 				'options'        => array(
-					'1' => __( '1', 'powerpack' ),
-					'2' => __( '2', 'powerpack' ),
-					'3' => __( '3', 'powerpack' ),
-					'4' => __( '4', 'powerpack' ),
-					'5' => __( '5', 'powerpack' ),
-					'6' => __( '6', 'powerpack' ),
-					'7' => __( '7', 'powerpack' ),
-					'8' => __( '8', 'powerpack' ),
+					'1' => esc_html__( '1', 'powerpack' ),
+					'2' => esc_html__( '2', 'powerpack' ),
+					'3' => esc_html__( '3', 'powerpack' ),
+					'4' => esc_html__( '4', 'powerpack' ),
+					'5' => esc_html__( '5', 'powerpack' ),
+					'6' => esc_html__( '6', 'powerpack' ),
+					'7' => esc_html__( '7', 'powerpack' ),
+					'8' => esc_html__( '8', 'powerpack' ),
 				),
 				'selectors'      => array(
 					'{{WRAPPER}} .pp-instagram-feed-grid .pp-feed-item' => 'width: calc( 100% / {{VALUE}} )',
@@ -417,11 +416,11 @@ class Instafeed extends Powerpack_Widget {
 		/* $this->add_control(
 			'insta_likes',
 			array(
-				'label'              => __( 'Likes', 'powerpack' ),
+				'label'              => esc_html__( 'Likes', 'powerpack' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'no',
-				'label_on'           => __( 'Show', 'powerpack' ),
-				'label_off'          => __( 'Hide', 'powerpack' ),
+				'label_on'           => esc_html__( 'Show', 'powerpack' ),
+				'label_off'          => esc_html__( 'Hide', 'powerpack' ),
 				'return_value'       => 'yes',
 				'separator'          => 'before',
 				'frontend_available' => true,
@@ -431,11 +430,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'insta_comments',
 			array(
-				'label'              => __( 'Comments', 'powerpack' ),
+				'label'              => esc_html__( 'Comments', 'powerpack' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'no',
-				'label_on'           => __( 'Show', 'powerpack' ),
-				'label_off'          => __( 'Hide', 'powerpack' ),
+				'label_on'           => esc_html__( 'Show', 'powerpack' ),
+				'label_off'          => esc_html__( 'Hide', 'powerpack' ),
 				'return_value'       => 'yes',
 				'frontend_available' => true,
 			)
@@ -444,11 +443,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'insta_caption',
 			array(
-				'label'              => __( 'Caption', 'powerpack' ),
+				'label'              => esc_html__( 'Caption', 'powerpack' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => '',
-				'label_on'           => __( 'Show', 'powerpack' ),
-				'label_off'          => __( 'Hide', 'powerpack' ),
+				'label_on'           => esc_html__( 'Show', 'powerpack' ),
+				'label_off'          => esc_html__( 'Hide', 'powerpack' ),
 				'return_value'       => 'yes',
 			)
 		);
@@ -456,7 +455,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'insta_caption_length',
 			array(
-				'label'     => __( 'Caption Length', 'powerpack' ),
+				'label'     => esc_html__( 'Caption Length', 'powerpack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'dynamic'   => array(
 					'active' => true,
@@ -471,12 +470,12 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'content_visibility',
 			array(
-				'label'     => __( 'Content Visibility', 'powerpack' ),
+				'label'     => esc_html__( 'Content Visibility', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'always',
 				'options'   => array(
-					'always' => __( 'Always', 'powerpack' ),
-					'hover'  => __( 'On Hover', 'powerpack' ),
+					'always' => esc_html__( 'Always', 'powerpack' ),
+					'hover'  => esc_html__( 'On Hover', 'powerpack' ),
 				),
 				'condition' => [
 					'insta_caption' => 'yes',
@@ -487,11 +486,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'insta_image_popup',
 			array(
-				'label'        => __( 'Lightbox', 'powerpack' ),
+				'label'        => esc_html__( 'Lightbox', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -499,11 +498,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'insta_image_link',
 			array(
-				'label'        => __( 'Image Link', 'powerpack' ),
+				'label'        => esc_html__( 'Image Link', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'insta_image_popup!' => 'yes',
@@ -514,11 +513,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'insta_profile_link',
 			array(
-				'label'        => __( 'Show Link to Instagram Profile?', 'powerpack' ),
+				'label'        => esc_html__( 'Show Link to Instagram Profile?', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 			)
@@ -527,9 +526,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'insta_link_title',
 			array(
-				'label'     => __( 'Link Title', 'powerpack' ),
+				'label'     => esc_html__( 'Link Title', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => __( 'Follow Us @ Instagram', 'powerpack' ),
+				'default'   => esc_html__( 'Follow Us @ Instagram', 'powerpack' ),
 				'condition' => array(
 					'insta_profile_link' => 'yes',
 				),
@@ -539,7 +538,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'insta_profile_url',
 			array(
-				'label'       => __( 'Instagram Profile URL', 'powerpack' ),
+				'label'       => esc_html__( 'Instagram Profile URL', 'powerpack' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => 'https://www.your-link.com',
 				'default'     => array(
@@ -554,7 +553,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'title_icon',
 			array(
-				'label'            => __( 'Title Icon', 'powerpack' ),
+				'label'            => esc_html__( 'Title Icon', 'powerpack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'insta_title_icon',
 				'recommended'      => array(
@@ -588,11 +587,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'insta_title_icon_position',
 			array(
-				'label'     => __( 'Icon Position', 'powerpack' ),
+				'label'     => esc_html__( 'Icon Position', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'before_title' => __( 'Before Title', 'powerpack' ),
-					'after_title'  => __( 'After Title', 'powerpack' ),
+					'before_title' => esc_html__( 'Before Title', 'powerpack' ),
+					'after_title'  => esc_html__( 'After Title', 'powerpack' ),
 				),
 				'default'   => 'before_title',
 				'condition' => array(
@@ -604,11 +603,11 @@ class Instafeed extends Powerpack_Widget {
 		/* $this->add_control(
 			'load_more_button',
 			array(
-				'label'        => __( 'Show Load More Button', 'powerpack' ),
+				'label'        => esc_html__( 'Show Load More Button', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 				'condition'    => array(
@@ -621,9 +620,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'load_more_button_text',
 			array(
-				'label'     => __( 'Button Text', 'powerpack' ),
+				'label'     => esc_html__( 'Button Text', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => __( 'Load More', 'powerpack' ),
+				'default'   => esc_html__( 'Load More', 'powerpack' ),
 				'condition' => array(
 					'use_api'          => 'yes',
 					'load_more_button' => 'yes',
@@ -642,7 +641,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_carousel_settings',
 			array(
-				'label'     => __( 'Carousel Settings', 'powerpack' ),
+				'label'     => esc_html__( 'Carousel Settings', 'powerpack' ),
 				'condition' => array(
 					'feed_layout' => 'carousel',
 				),
@@ -652,7 +651,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'items',
 			array(
-				'label'      => __( 'Visible Items', 'powerpack' ),
+				'label'      => esc_html__( 'Visible Items', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array( 'size' => 3 ),
 				'range'      => array(
@@ -662,7 +661,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => '',
 				'condition'  => array(
 					'feed_layout' => 'carousel',
 				),
@@ -672,7 +670,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'margin',
 			array(
-				'label'      => __( 'Items Gap', 'powerpack' ),
+				'label'      => esc_html__( 'Items Gap', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array( 'size' => 10 ),
 				'range'      => array(
@@ -682,7 +680,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => '',
 				'condition'  => array(
 					'feed_layout' => 'carousel',
 				),
@@ -692,8 +689,8 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'slider_speed',
 			array(
-				'label'       => __( 'Slider Speed', 'powerpack' ),
-				'description' => __( 'Duration of transition between slides (in ms)', 'powerpack' ),
+				'label'       => esc_html__( 'Slider Speed', 'powerpack' ),
+				'description' => esc_html__( 'Duration of transition between slides (in ms)', 'powerpack' ),
 				'type'        => Controls_Manager::SLIDER,
 				'default'     => array( 'size' => 600 ),
 				'range'       => array(
@@ -703,7 +700,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units'  => '',
 				'separator'   => 'before',
 				'condition'   => array(
 					'feed_layout' => 'carousel',
@@ -714,11 +710,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'autoplay',
 			array(
-				'label'        => __( 'Autoplay', 'powerpack' ),
+				'label'        => esc_html__( 'Autoplay', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'feed_layout' => 'carousel',
@@ -729,12 +725,12 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'pause_on_hover',
 			array(
-				'label'                 => __( 'Pause on Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Pause on Hover', 'powerpack' ),
 				'description'           => '',
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 				'frontend_available'    => true,
 				'condition'             => array(
@@ -746,12 +742,12 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'pause_on_interaction',
 			array(
-				'label'              => __( 'Pause on Interaction', 'powerpack' ),
-				'description'        => __( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
+				'label'              => esc_html__( 'Pause on Interaction', 'powerpack' ),
+				'description'        => esc_html__( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => '',
-				'label_on'           => __( 'Yes', 'powerpack' ),
-				'label_off'          => __( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'          => esc_html__( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
 				'frontend_available' => true,
 				'condition'          => array(
@@ -764,10 +760,10 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'autoplay_speed',
 			array(
-				'label'     => __( 'Autoplay Speed', 'powerpack' ),
+				'label'     => esc_html__( 'Autoplay Speed', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => 3000,
-				'title'     => __( 'Enter carousel speed', 'powerpack' ),
+				'title'     => esc_html__( 'Enter carousel speed', 'powerpack' ),
 				'ai'        => [
 					'active' => false,
 				],
@@ -781,11 +777,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'infinite_loop',
 			array(
-				'label'        => __( 'Infinite Loop', 'powerpack' ),
+				'label'        => esc_html__( 'Infinite Loop', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'feed_layout' => 'carousel',
@@ -796,12 +792,12 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'grab_cursor',
 			array(
-				'label'        => __( 'Grab Cursor', 'powerpack' ),
-				'description'  => __( 'Shows grab cursor when you hover over the slider', 'powerpack' ),
+				'label'        => esc_html__( 'Grab Cursor', 'powerpack' ),
+				'description'  => esc_html__( 'Shows grab cursor when you hover over the slider', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => __( 'Show', 'powerpack' ),
-				'label_off'    => __( 'Hide', 'powerpack' ),
+				'label_on'     => esc_html__( 'Show', 'powerpack' ),
+				'label_off'    => esc_html__( 'Hide', 'powerpack' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -809,7 +805,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'navigation_heading',
 			array(
-				'label'     => __( 'Navigation', 'powerpack' ),
+				'label'     => esc_html__( 'Navigation', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -818,11 +814,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'arrows',
 			array(
-				'label'        => __( 'Arrows', 'powerpack' ),
+				'label'        => esc_html__( 'Arrows', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'feed_layout' => 'carousel',
@@ -833,11 +829,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'dots',
 			array(
-				'label'        => __( 'Pagination', 'powerpack' ),
+				'label'        => esc_html__( 'Pagination', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'feed_layout' => 'carousel',
@@ -848,12 +844,12 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'pagination_type',
 			array(
-				'label'     => __( 'Pagination Type', 'powerpack' ),
+				'label'     => esc_html__( 'Pagination Type', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'bullets',
 				'options'   => array(
-					'bullets'  => __( 'Dots', 'powerpack' ),
-					'fraction' => __( 'Fraction', 'powerpack' ),
+					'bullets'  => esc_html__( 'Dots', 'powerpack' ),
+					'fraction' => esc_html__( 'Fraction', 'powerpack' ),
 				),
 				'condition' => array(
 					'dots' => 'yes',
@@ -864,12 +860,12 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'direction',
 			array(
-				'label'     => __( 'Direction', 'powerpack' ),
+				'label'     => esc_html__( 'Direction', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'left',
 				'options'   => array(
-					'left'  => __( 'Left', 'powerpack' ),
-					'right' => __( 'Right', 'powerpack' ),
+					'left'  => esc_html__( 'Left', 'powerpack' ),
+					'right' => esc_html__( 'Right', 'powerpack' ),
 				),
 				'separator' => 'before',
 			)
@@ -899,7 +895,7 @@ class Instafeed extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				array(
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				)
 			);
 
@@ -932,22 +928,24 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_layout_style',
 			array(
-				'label'     => __( 'Layout', 'powerpack' ),
+				'label'     => esc_html__( 'Layout', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'feed_layout' => array( 'grid', 'masonry' ),
 				),
 			)
-		);$this->add_responsive_control(
+		);
+		
+		$this->add_responsive_control(
 			'columns_gap',
 			array(
-				'label'          => __( 'Columns Gap', 'powerpack' ),
+				'label'          => esc_html__( 'Columns Gap', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => '',
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 100,
@@ -973,13 +971,13 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'rows_gap',
 			array(
-				'label'          => __( 'Rows Gap', 'powerpack' ),
+				'label'          => esc_html__( 'Rows Gap', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => '',
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 100,
@@ -1011,7 +1009,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_image_style',
 			array(
-				'label' => __( 'Images', 'powerpack' ),
+				'label' => esc_html__( 'Images', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1021,18 +1019,18 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_image_normal',
 			array(
-				'label' => __( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'insta_image_grayscale',
 			array(
-				'label'        => __( 'Grayscale Image', 'powerpack' ),
+				'label'        => esc_html__( 'Grayscale Image', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -1041,7 +1039,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'images_border',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-instagram-feed .pp-if-img',
@@ -1051,9 +1049,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'images_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .pp-if-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1065,18 +1063,18 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_image_hover',
 			array(
-				'label' => __( 'Hover', 'powerpack' ),
+				'label' => esc_html__( 'Hover', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'insta_image_grayscale_hover',
 			array(
-				'label'        => __( 'Grayscale Image', 'powerpack' ),
+				'label'        => esc_html__( 'Grayscale Image', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -1084,7 +1082,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'images_border_color_hover',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1107,7 +1105,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_content_style',
 			array(
-				'label'     => __( 'Content', 'powerpack' ),
+				'label'     => esc_html__( 'Content', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'insta_caption' => 'yes',
@@ -1119,7 +1117,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'content_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack' ),
 				'selector'  => '{{WRAPPER}} .pp-feed-item .pp-overlay-container',
 				'condition' => array(
 					'insta_caption' => 'yes',
@@ -1130,7 +1128,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'likes_comments_color',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1145,22 +1143,22 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'content_vertical_align',
 			array(
-				'label'                => __( 'Vertical Align', 'powerpack' ),
+				'label'                => esc_html__( 'Vertical Align', 'powerpack' ),
 				'type'                 => Controls_Manager::CHOOSE,
 				'label_block'          => false,
 				'toggle'               => false,
 				'default'              => 'middle',
 				'options'              => array(
 					'top'    => array(
-						'title' => __( 'Top', 'powerpack' ),
+						'title' => esc_html__( 'Top', 'powerpack' ),
 						'icon'  => 'eicon-v-align-top',
 					),
 					'middle' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-v-align-middle',
 					),
 					'bottom' => array(
-						'title' => __( 'Bottom', 'powerpack' ),
+						'title' => esc_html__( 'Bottom', 'powerpack' ),
 						'icon'  => 'eicon-v-align-bottom',
 					),
 				),
@@ -1181,22 +1179,22 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'content_horizontal_align',
 			array(
-				'label'                => __( 'Horizontal Align', 'powerpack' ),
+				'label'                => esc_html__( 'Horizontal Align', 'powerpack' ),
 				'type'                 => Controls_Manager::CHOOSE,
 				'label_block'          => false,
 				'toggle'               => false,
 				'default'              => 'center',
 				'options'              => array(
 					'left'   => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-h-align-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
 					),
 				),
@@ -1217,19 +1215,19 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'text_align',
 			array(
-				'label'    => __( 'Text Align', 'powerpack' ),
+				'label'    => esc_html__( 'Text Align', 'powerpack' ),
 				'type'     => Controls_Manager::CHOOSE,
 				'options'  => array(
 					'left' => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'right' => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 				),
@@ -1246,9 +1244,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-overlay-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1268,7 +1266,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_overlay_style',
 			array(
-				'label' => __( 'Overlay', 'powerpack' ),
+				'label' => esc_html__( 'Overlay', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1276,25 +1274,25 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'overlay_blend_mode',
 			array(
-				'label'     => __( 'Blend Mode', 'powerpack' ),
+				'label'     => esc_html__( 'Blend Mode', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'normal',
 				'options'   => array(
-					'normal'      => __( 'Normal', 'powerpack' ),
-					'multiply'    => __( 'Multiply', 'powerpack' ),
-					'screen'      => __( 'Screen', 'powerpack' ),
-					'overlay'     => __( 'Overlay', 'powerpack' ),
-					'darken'      => __( 'Darken', 'powerpack' ),
-					'lighten'     => __( 'Lighten', 'powerpack' ),
-					'color-dodge' => __( 'Color Dodge', 'powerpack' ),
-					'color'       => __( 'Color', 'powerpack' ),
-					'hue'         => __( 'Hue', 'powerpack' ),
-					'hard-light'  => __( 'Hard Light', 'powerpack' ),
-					'soft-light'  => __( 'Soft Light', 'powerpack' ),
-					'difference'  => __( 'Difference', 'powerpack' ),
-					'exclusion'   => __( 'Exclusion', 'powerpack' ),
-					'saturation'  => __( 'Saturation', 'powerpack' ),
-					'luminosity'  => __( 'Luminosity', 'powerpack' ),
+					'normal'      => esc_html__( 'Normal', 'powerpack' ),
+					'multiply'    => esc_html__( 'Multiply', 'powerpack' ),
+					'screen'      => esc_html__( 'Screen', 'powerpack' ),
+					'overlay'     => esc_html__( 'Overlay', 'powerpack' ),
+					'darken'      => esc_html__( 'Darken', 'powerpack' ),
+					'lighten'     => esc_html__( 'Lighten', 'powerpack' ),
+					'color-dodge' => esc_html__( 'Color Dodge', 'powerpack' ),
+					'color'       => esc_html__( 'Color', 'powerpack' ),
+					'hue'         => esc_html__( 'Hue', 'powerpack' ),
+					'hard-light'  => esc_html__( 'Hard Light', 'powerpack' ),
+					'soft-light'  => esc_html__( 'Soft Light', 'powerpack' ),
+					'difference'  => esc_html__( 'Difference', 'powerpack' ),
+					'exclusion'   => esc_html__( 'Exclusion', 'powerpack' ),
+					'saturation'  => esc_html__( 'Saturation', 'powerpack' ),
+					'luminosity'  => esc_html__( 'Luminosity', 'powerpack' ),
 				),
 				'selectors' => array(
 					'{{WRAPPER}} .pp-instagram-feed .pp-overlay-container' => 'mix-blend-mode: {{VALUE}};',
@@ -1307,7 +1305,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_overlay_normal',
 			array(
-				'label' => __( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack' ),
 			)
 		);
 
@@ -1315,7 +1313,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Background::get_type(),
 			array(
 				'name'     => 'image_overlay_normal',
-				'label'    => __( 'Overlay', 'powerpack' ),
+				'label'    => esc_html__( 'Overlay', 'powerpack' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'exclude'  => array(
 					'image',
@@ -1327,17 +1325,18 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'overlay_margin_normal',
 			array(
-				'label'     => __( 'Margin', 'powerpack' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
+				'label'      => esc_html__( 'Margin', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
+				'range'      => array(
 					'px' => array(
 						'min'  => 0,
 						'max'  => 50,
 						'step' => 1,
 					),
 				),
-				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-overlay-container' => 'top: {{SIZE}}px; bottom: {{SIZE}}px; left: {{SIZE}}px; right: {{SIZE}}px;',
+				'selectors'  => array(
+					'{{WRAPPER}} .pp-instagram-feed .pp-overlay-container' => 'top: {{SIZE}}px; bottom: {{SIZE}}px; left: {{SIZE}}px; right: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -1345,7 +1344,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'image_overlay_opacity_normal',
 			array(
-				'label'      => __( 'Overlay Opacity', 'powerpack' ),
+				'label'      => esc_html__( 'Overlay Opacity', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'range'      => array(
 					'px' => array(
@@ -1354,7 +1353,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 0.1,
 					),
 				),
-				'size_units' => '',
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .pp-overlay-container' => 'opacity: {{SIZE}};',
 				),
@@ -1366,7 +1364,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_overlay_hover',
 			array(
-				'label' => __( 'Hover', 'powerpack' ),
+				'label' => esc_html__( 'Hover', 'powerpack' ),
 			)
 		);
 
@@ -1374,7 +1372,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Background::get_type(),
 			array(
 				'name'     => 'image_overlay_hover',
-				'label'    => __( 'Overlay', 'powerpack' ),
+				'label'    => esc_html__( 'Overlay', 'powerpack' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'exclude'  => array(
 					'image',
@@ -1386,7 +1384,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'image_overlay_opacity_hover',
 			array(
-				'label'      => __( 'Overlay Opacity', 'powerpack' ),
+				'label'      => esc_html__( 'Overlay Opacity', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'range'      => array(
 					'px' => array(
@@ -1395,7 +1393,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 0.1,
 					),
 				),
-				'size_units' => '',
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .pp-feed-item:hover .pp-overlay-container' => 'opacity: {{SIZE}};',
 				),
@@ -1416,7 +1413,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_feed_title_style',
 			array(
-				'label'     => __( 'Feed Title', 'powerpack' ),
+				'label'     => esc_html__( 'Feed Title', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'insta_profile_link' => 'yes',
@@ -1427,21 +1424,21 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'feed_title_position',
 			array(
-				'label'        => __( 'Position', 'powerpack' ),
+				'label'        => esc_html__( 'Position', 'powerpack' ),
 				'type'         => Controls_Manager::CHOOSE,
 				'label_block'  => false,
 				'default'      => 'middle',
 				'options'      => array(
 					'top'    => array(
-						'title' => __( 'Top', 'powerpack' ),
+						'title' => esc_html__( 'Top', 'powerpack' ),
 						'icon'  => 'eicon-v-align-top',
 					),
 					'middle' => array(
-						'title' => __( 'Middle', 'powerpack' ),
+						'title' => esc_html__( 'Middle', 'powerpack' ),
 						'icon'  => 'eicon-v-align-middle',
 					),
 					'bottom' => array(
-						'title' => __( 'Bottom', 'powerpack' ),
+						'title' => esc_html__( 'Bottom', 'powerpack' ),
 						'icon'  => 'eicon-v-align-bottom',
 					),
 				),
@@ -1456,7 +1453,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'feed_title_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1472,7 +1469,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_title_normal',
 			array(
-				'label'     => __( 'Normal', 'powerpack' ),
+				'label'     => esc_html__( 'Normal', 'powerpack' ),
 				'condition' => array(
 					'insta_profile_link' => 'yes',
 				),
@@ -1482,7 +1479,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'title_color_normal',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1498,7 +1495,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'title_bg_color_normal',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1514,7 +1511,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'title_border_normal',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-instagram-feed-title-wrap',
@@ -1524,9 +1521,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'title_border_radius_normal',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed-title-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1538,7 +1535,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_title_hover',
 			array(
-				'label'     => __( 'Hover', 'powerpack' ),
+				'label'     => esc_html__( 'Hover', 'powerpack' ),
 				'condition' => array(
 					'insta_profile_link' => 'yes',
 				),
@@ -1548,7 +1545,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'title_color_hover',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1564,7 +1561,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'title_bg_color_hover',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1580,7 +1577,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'title_border_hover',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-instagram-feed-title-wrap:hover',
@@ -1590,9 +1587,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'title_border_radius_hover',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed-title-wrap:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1606,9 +1603,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'title_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1622,7 +1619,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'title_icon_heading',
 			array(
-				'label'     => __( 'Icon', 'powerpack' ),
+				'label'     => esc_html__( 'Icon', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1634,8 +1631,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'title_icon_spacing',
 			array(
-				'label'      => __( 'Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'default'    => array( 'size' => 4 ),
 				'range'      => array(
 					'px' => array(
@@ -1644,7 +1642,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .pp-icon-before_title' => 'margin-right: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .pp-instagram-feed .pp-icon-after_title' => 'margin-left: {{SIZE}}{{UNIT}};',
@@ -1665,7 +1662,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_arrows_style',
 			array(
-				'label'     => __( 'Arrows', 'powerpack' ),
+				'label'     => esc_html__( 'Arrows', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'arrows'      => 'yes',
@@ -1677,23 +1674,23 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'arrow',
 			array(
-				'label'       => __( 'Choose Arrow', 'powerpack' ),
+				'label'       => esc_html__( 'Choose Arrow', 'powerpack' ),
 				'type'        => Controls_Manager::SELECT,
 				'label_block' => false,
 				'default'     => 'fa fa-angle-right',
 				'options'     => array(
-					'fa fa-angle-right'          => __( 'Angle', 'powerpack' ),
-					'fa fa-angle-double-right'   => __( 'Double Angle', 'powerpack' ),
-					'fa fa-chevron-right'        => __( 'Chevron', 'powerpack' ),
-					'fa fa-chevron-circle-right' => __( 'Chevron Circle', 'powerpack' ),
-					'fa fa-arrow-right'          => __( 'Arrow', 'powerpack' ),
-					'fa fa-long-arrow-right'     => __( 'Long Arrow', 'powerpack' ),
-					'fa fa-caret-right'          => __( 'Caret', 'powerpack' ),
-					'fa fa-caret-square-o-right' => __( 'Caret Square', 'powerpack' ),
-					'fa fa-arrow-circle-right'   => __( 'Arrow Circle', 'powerpack' ),
-					'fa fa-arrow-circle-o-right' => __( 'Arrow Circle O', 'powerpack' ),
-					'fa fa-toggle-right'         => __( 'Toggle', 'powerpack' ),
-					'fa fa-hand-o-right'         => __( 'Hand', 'powerpack' ),
+					'fa fa-angle-right'          => esc_html__( 'Angle', 'powerpack' ),
+					'fa fa-angle-double-right'   => esc_html__( 'Double Angle', 'powerpack' ),
+					'fa fa-chevron-right'        => esc_html__( 'Chevron', 'powerpack' ),
+					'fa fa-chevron-circle-right' => esc_html__( 'Chevron Circle', 'powerpack' ),
+					'fa fa-arrow-right'          => esc_html__( 'Arrow', 'powerpack' ),
+					'fa fa-long-arrow-right'     => esc_html__( 'Long Arrow', 'powerpack' ),
+					'fa fa-caret-right'          => esc_html__( 'Caret', 'powerpack' ),
+					'fa fa-caret-square-o-right' => esc_html__( 'Caret Square', 'powerpack' ),
+					'fa fa-arrow-circle-right'   => esc_html__( 'Arrow Circle', 'powerpack' ),
+					'fa fa-arrow-circle-o-right' => esc_html__( 'Arrow Circle O', 'powerpack' ),
+					'fa fa-toggle-right'         => esc_html__( 'Toggle', 'powerpack' ),
+					'fa fa-hand-o-right'         => esc_html__( 'Hand', 'powerpack' ),
 				),
 			)
 		);
@@ -1701,8 +1698,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_size',
 			array(
-				'label'      => __( 'Arrows Size', 'powerpack' ),
+				'label'      => esc_html__( 'Arrows Size', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'default'    => array( 'size' => '22' ),
 				'range'      => array(
 					'px' => array(
@@ -1711,7 +1709,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'font-size: {{SIZE}}{{UNIT}};',
 				),
@@ -1721,8 +1718,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'left_arrow_position',
 			array(
-				'label'      => __( 'Align Left Arrow', 'powerpack' ),
+				'label'      => esc_html__( 'Align Left Arrow', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
 					'px' => array(
 						'min'  => -100,
@@ -1730,7 +1728,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
 				),
@@ -1740,8 +1737,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'right_arrow_position',
 			array(
-				'label'      => __( 'Align Right Arrow', 'powerpack' ),
+				'label'      => esc_html__( 'Align Right Arrow', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
 					'px' => array(
 						'min'  => -100,
@@ -1749,7 +1747,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
 				),
@@ -1761,14 +1758,14 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_arrows_normal',
 			array(
-				'label' => __( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'arrows_bg_color_normal',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1780,7 +1777,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_color_normal',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1793,7 +1790,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'arrows_border_normal',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-instagram-feed .pp-swiper-button',
@@ -1803,9 +1800,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_border_radius_normal',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1817,14 +1814,14 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_arrows_hover',
 			array(
-				'label' => __( 'Hover', 'powerpack' ),
+				'label' => esc_html__( 'Hover', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'arrows_bg_color_hover',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1836,7 +1833,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_color_hover',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1848,7 +1845,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_border_color_hover',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1864,9 +1861,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1884,7 +1881,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_dots_style',
 			array(
-				'label'     => __( 'Pagination: Dots', 'powerpack' ),
+				'label'     => esc_html__( 'Pagination: Dots', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'feed_layout'     => 'carousel',
@@ -1897,11 +1894,11 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'dots_position',
 			array(
-				'label'        => __( 'Position', 'powerpack' ),
+				'label'        => esc_html__( 'Position', 'powerpack' ),
 				'type'         => Controls_Manager::SELECT,
 				'options'      => array(
-					'inside'  => __( 'Inside', 'powerpack' ),
-					'outside' => __( 'Outside', 'powerpack' ),
+					'inside'  => esc_html__( 'Inside', 'powerpack' ),
+					'outside' => esc_html__( 'Outside', 'powerpack' ),
 				),
 				'default'      => 'outside',
 				'prefix_class' => 'swiper-container-dots-',
@@ -1916,8 +1913,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_size',
 			array(
-				'label'      => __( 'Size', 'powerpack' ),
+				'label'      => esc_html__( 'Size', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
 					'px' => array(
 						'min'  => 2,
@@ -1925,7 +1923,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => '',
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				),
@@ -1940,8 +1937,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_spacing',
 			array(
-				'label'      => __( 'Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
 					'px' => array(
 						'min'  => 1,
@@ -1949,7 +1947,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => '',
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .swiper-pagination-bullet' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
 				),
@@ -1966,7 +1963,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_dots_normal',
 			array(
-				'label'     => __( 'Normal', 'powerpack' ),
+				'label'     => esc_html__( 'Normal', 'powerpack' ),
 				'condition' => array(
 					'feed_layout'     => 'carousel',
 					'dots'            => 'yes',
@@ -1978,7 +1975,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'dots_color_normal',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1995,7 +1992,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'active_dot_color_normal',
 			array(
-				'label'     => __( 'Active Color', 'powerpack' ),
+				'label'     => esc_html__( 'Active Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2013,7 +2010,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'dots_border_normal',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-instagram-feed .swiper-pagination-bullet',
@@ -2028,9 +2025,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'dots_border_radius_normal',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-instagram-feed .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2045,9 +2042,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_margin',
 			array(
-				'label'              => __( 'Margin', 'powerpack' ),
+				'label'              => esc_html__( 'Margin', 'powerpack' ),
 				'type'               => Controls_Manager::DIMENSIONS,
-				'size_units'         => array( 'px', 'em', '%' ),
+				'size_units'         => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'allowed_dimensions' => 'vertical',
 				'placeholder'        => array(
 					'top'    => '',
@@ -2071,7 +2068,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_dots_hover',
 			array(
-				'label'     => __( 'Hover', 'powerpack' ),
+				'label'     => esc_html__( 'Hover', 'powerpack' ),
 				'condition' => array(
 					'feed_layout'     => 'carousel',
 					'dots'            => 'yes',
@@ -2083,7 +2080,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'dots_color_hover',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2100,7 +2097,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'dots_border_color_hover',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2129,7 +2126,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_fraction_style',
 			array(
-				'label'     => __( 'Pagination: Fraction', 'powerpack' ),
+				'label'     => esc_html__( 'Pagination: Fraction', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'feed_layout'     => 'carousel',
@@ -2142,7 +2139,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'fraction_text_color',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2160,7 +2157,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'fraction_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -2184,7 +2181,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_load_more_button_style',
 			array(
-				'label'     => __( 'Load More Button', 'powerpack' ),
+				'label'     => esc_html__( 'Load More Button', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'load_more_button' => 'yes',
@@ -2196,19 +2193,19 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_alignment',
 			array(
-				'label'     => __( 'Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Alignment', 'powerpack' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 				),
@@ -2226,8 +2223,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'button_top_spacing',
 			array(
-				'label'      => __( 'Top Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Top Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'default'    => array( 'size' => 20 ),
 				'range'      => array(
 					'px' => array(
@@ -2236,7 +2234,6 @@ class Instafeed extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-load-more-button-wrap' => 'margin-top: {{SIZE}}{{UNIT}};',
 				),
@@ -2250,15 +2247,15 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'button_size',
 			array(
-				'label'     => __( 'Size', 'powerpack' ),
+				'label'     => esc_html__( 'Size', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'md',
 				'options'   => array(
-					'xs' => __( 'Extra Small', 'powerpack' ),
-					'sm' => __( 'Small', 'powerpack' ),
-					'md' => __( 'Medium', 'powerpack' ),
-					'lg' => __( 'Large', 'powerpack' ),
-					'xl' => __( 'Extra Large', 'powerpack' ),
+					'xs' => esc_html__( 'Extra Small', 'powerpack' ),
+					'sm' => esc_html__( 'Small', 'powerpack' ),
+					'md' => esc_html__( 'Medium', 'powerpack' ),
+					'lg' => esc_html__( 'Large', 'powerpack' ),
+					'xl' => esc_html__( 'Extra Large', 'powerpack' ),
 				),
 				'condition' => array(
 					'load_more_button' => 'yes',
@@ -2272,7 +2269,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			array(
-				'label'     => __( 'Normal', 'powerpack' ),
+				'label'     => esc_html__( 'Normal', 'powerpack' ),
 				'condition' => array(
 					'load_more_button' => 'yes',
 					'feed_layout'      => 'grid',
@@ -2283,7 +2280,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'button_bg_color_normal',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2299,7 +2296,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_normal',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2316,7 +2313,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'button_border_normal',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-load-more-button',
@@ -2330,9 +2327,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-load-more-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2347,7 +2344,7 @@ class Instafeed extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'button_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -2362,9 +2359,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-load-more-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2390,7 +2387,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'load_more_button_icon_heading',
 			array(
-				'label'     => __( 'Button Icon', 'powerpack' ),
+				'label'     => esc_html__( 'Button Icon', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -2404,9 +2401,9 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_icon_margin',
 			array(
-				'label'       => __( 'Margin', 'powerpack' ),
+				'label'       => esc_html__( 'Margin', 'powerpack' ),
 				'type'        => Controls_Manager::DIMENSIONS,
-				'size_units'  => array( 'px', '%' ),
+				'size_units'  => array( 'px', 'em', 'rem', 'custom' ),
 				'placeholder' => array(
 					'top'    => '',
 					'right'  => '',
@@ -2429,7 +2426,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			array(
-				'label'     => __( 'Hover', 'powerpack' ),
+				'label'     => esc_html__( 'Hover', 'powerpack' ),
 				'condition' => array(
 					'load_more_button' => 'yes',
 					'feed_layout'      => 'grid',
@@ -2440,7 +2437,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'button_bg_color_hover',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2456,7 +2453,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_hover',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2472,7 +2469,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2488,7 +2485,7 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_control(
 			'button_animation',
 			array(
-				'label'     => __( 'Animation', 'powerpack' ),
+				'label'     => esc_html__( 'Animation', 'powerpack' ),
 				'type'      => Controls_Manager::HOVER_ANIMATION,
 				'condition' => array(
 					'load_more_button' => 'yes',
@@ -2861,13 +2858,13 @@ class Instafeed extends Powerpack_Widget {
 		$result         = json_decode( wp_remote_retrieve_body( $response ), true );
 
 		if ( 200 !== $response_code ) {
-			$message = is_array( $result ) && isset( $result['error']['message'] ) ? $result['error']['message'] : __( 'No posts found', 'powerpack' );
+			$message = is_array( $result ) && isset( $result['error']['message'] ) ? $result['error']['message'] : esc_html__( 'No posts found', 'powerpack' );
 
 			return new \WP_Error( $response_code, $message );
 		}
 
 		if ( ! is_array( $result ) ) {
-			return new \WP_Error( 'error', __( 'Data Error', 'powerpack' ) );
+			return new \WP_Error( 'error', esc_html__( 'Data Error', 'powerpack' ) );
 		}
 
 		return $result;
@@ -3173,11 +3170,11 @@ class Instafeed extends Powerpack_Widget {
 		$gallery = $this->get_insta_posts( $settings );
 
 		if ( empty( $gallery ) || is_wp_error( $gallery ) ) {
-			$placeholder = sprintf( 'Click here to edit the "%1$s" settings and change the source of photos.', esc_attr( $this->get_title() ) );
+			$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and change the source of photos.', 'powerpack' ), esc_attr( $this->get_title() ) );
 
 			echo esc_attr( $this->render_editor_placeholder(
 				[
-					'title' => __( 'No Posts Found!', 'powerpack' ),
+					'title' => esc_html__( 'No Posts Found!', 'powerpack' ),
 					'body' => $placeholder,
 				]
 			) );

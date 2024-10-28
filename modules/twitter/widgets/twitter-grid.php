@@ -67,14 +67,14 @@ class Twitter_Grid extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_grid',
 			array(
-				'label' => __( 'Grid', 'powerpack' ),
+				'label' => esc_html__( 'Grid', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'url',
 			array(
-				'label'   => __( 'Collection URL', 'powerpack' ),
+				'label'   => esc_html__( 'Collection URL', 'powerpack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '',
 				'ai'      => [
@@ -86,10 +86,10 @@ class Twitter_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'footer',
 			array(
-				'label'        => __( 'Show Footer?', 'powerpack' ),
+				'label'        => esc_html__( 'Show Footer?', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			)
@@ -98,7 +98,7 @@ class Twitter_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'width',
 			array(
-				'label'      => __( 'Width', 'powerpack' ),
+				'label'      => esc_html__( 'Width', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array(
 					'unit' => 'px',
@@ -117,7 +117,7 @@ class Twitter_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'tweet_limit',
 			array(
-				'label'       => __( 'Tweet Limit', 'powerpack' ),
+				'label'       => esc_html__( 'Tweet Limit', 'powerpack' ),
 				'type'        => Controls_Manager::NUMBER,
 				'label_block' => false,
 				'min'         => 1,
@@ -139,7 +139,7 @@ class Twitter_Grid extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 

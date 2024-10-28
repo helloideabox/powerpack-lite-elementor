@@ -98,7 +98,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_contact_forms',
 			[
-				'label'             => __( 'WP Fluent Forms', 'powerpack' ),
+				'label'             => esc_html__( 'WP Fluent Forms', 'powerpack' ),
 			]
 		);
 
@@ -116,10 +116,10 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'custom_title_description',
 			[
-				'label'                 => __( 'Custom Title & Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Custom Title & Description', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -152,11 +152,11 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'labels_switch',
 			[
-				'label'                 => __( 'Labels', 'powerpack' ),
+				'label'                 => esc_html__( 'Labels', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => __( 'Show', 'powerpack' ),
-				'label_off'             => __( 'Hide', 'powerpack' ),
+				'label_on'              => esc_html__( 'Show', 'powerpack' ),
+				'label_off'             => esc_html__( 'Hide', 'powerpack' ),
 				'return_value'          => 'yes',
 				'prefix_class'          => 'pp-fluent-forms-labels-',
 			]
@@ -165,11 +165,11 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'placeholder_switch',
 			[
-				'label'                 => __( 'Placeholder', 'powerpack' ),
+				'label'                 => esc_html__( 'Placeholder', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => __( 'Show', 'powerpack' ),
-				'label_off'             => __( 'Hide', 'powerpack' ),
+				'label_on'              => esc_html__( 'Show', 'powerpack' ),
+				'label_off'             => esc_html__( 'Hide', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -185,19 +185,19 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_errors',
 			[
-				'label'                 => __( 'Errors', 'powerpack' ),
+				'label'                 => esc_html__( 'Errors', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'error_messages',
 			[
-				'label'                 => __( 'Error Messages', 'powerpack' ),
+				'label'                 => esc_html__( 'Error Messages', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'show',
 				'options'               => [
-					'show'          => __( 'Show', 'powerpack' ),
-					'hide'          => __( 'Hide', 'powerpack' ),
+					'show'          => esc_html__( 'Show', 'powerpack' ),
+					'hide'          => esc_html__( 'Hide', 'powerpack' ),
 				],
 				'selectors_dictionary'  => [
 					'show'          => 'block',
@@ -224,7 +224,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 
@@ -258,7 +258,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_form_title_style',
 			[
-				'label'                 => __( 'Title & Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Title & Description', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'custom_title_description'   => 'yes',
@@ -269,19 +269,19 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'heading_alignment',
 			[
-				'label'                 => __( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -298,7 +298,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'title_heading',
 			[
-				'label'                 => __( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -310,7 +310,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_title_text_color',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -326,7 +326,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'form_title_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-contact-form .pp-contact-form-title',
 				'condition'             => [
 					'custom_title_description'   => 'yes',
@@ -337,9 +337,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'form_title_margin',
 			[
-				'label'                 => __( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'allowed_dimensions'    => 'vertical',
 				'placeholder'           => [
 					'top'      => '',
@@ -359,7 +359,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'description_heading',
 			[
-				'label'                 => __( 'Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -371,7 +371,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_description_text_color',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -387,7 +387,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'form_description_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -401,9 +401,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'form_description_margin',
 			[
-				'label'                 => __( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'allowed_dimensions'    => 'vertical',
 				'placeholder'           => [
 					'top'      => '',
@@ -431,7 +431,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_label_style',
 			[
-				'label'             => __( 'Labels', 'powerpack' ),
+				'label'             => esc_html__( 'Labels', 'powerpack' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -439,7 +439,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'text_color_label',
 			[
-				'label'             => __( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-input--label label' => 'color: {{VALUE}}',
@@ -451,7 +451,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'              => 'typography_label',
-				'label'             => __( 'Typography', 'powerpack' ),
+				'label'             => esc_html__( 'Typography', 'powerpack' ),
 				'global'            => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -470,7 +470,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_fields_style',
 			[
-				'label'             => __( 'Input & Textarea', 'powerpack' ),
+				'label'             => esc_html__( 'Input & Textarea', 'powerpack' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -478,19 +478,19 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'input_alignment',
 			[
-				'label'                 => __( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -506,14 +506,14 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_fields_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'field_bg_color',
 			[
-				'label'             => __( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -525,7 +525,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'field_text_color',
 			[
-				'label'             => __( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -538,7 +538,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'              => 'field_typography',
-				'label'             => __( 'Typography', 'powerpack' ),
+				'label'             => esc_html__( 'Typography', 'powerpack' ),
 				'global'            => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -550,7 +550,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'field_border',
-				'label'             => __( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .pp-fluent-forms .ff-el-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-fluent-forms .ff-el-group textarea, {{WRAPPER}} .pp-fluent-forms .ff-el-group select',
@@ -560,9 +560,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'field_radius',
 			[
-				'label'             => __( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', 'em', '%' ],
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-fluent-forms .ff-el-group textarea, {{WRAPPER}} .pp-fluent-forms .ff-el-group select' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -580,8 +580,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'text_indent',
 			[
-				'label'                 => __( 'Text Indent', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Indent', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px'        => [
 						'min'   => 0,
@@ -594,7 +595,6 @@ class Fluent_Forms extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-fluent-forms .ff-el-group textarea, {{WRAPPER}} .pp-fluent-forms .ff-el-group select' => 'text-indent: {{SIZE}}{{UNIT}}',
 				],
@@ -605,8 +605,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'input_width',
 			[
-				'label'             => __( 'Input Width', 'powerpack' ),
+				'label'             => esc_html__( 'Input Width', 'powerpack' ),
 				'type'              => Controls_Manager::SLIDER,
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'             => [
 					'px' => [
 						'min'   => 0,
@@ -614,7 +615,6 @@ class Fluent_Forms extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'        => [ 'px', 'em', '%' ],
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-fluent-forms .ff-el-group select' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -624,8 +624,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'input_height',
 			[
-				'label'             => __( 'Input Height', 'powerpack' ),
+				'label'             => esc_html__( 'Input Height', 'powerpack' ),
 				'type'              => Controls_Manager::SLIDER,
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'             => [
 					'px' => [
 						'min'   => 0,
@@ -633,7 +634,6 @@ class Fluent_Forms extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'        => [ 'px', 'em', '%' ],
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-fluent-forms .ff-el-group select' => 'height: {{SIZE}}{{UNIT}}',
 				],
@@ -643,8 +643,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'textarea_width',
 			[
-				'label'             => __( 'Textarea Width', 'powerpack' ),
+				'label'             => esc_html__( 'Textarea Width', 'powerpack' ),
 				'type'              => Controls_Manager::SLIDER,
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'             => [
 					'px' => [
 						'min'   => 0,
@@ -652,7 +653,6 @@ class Fluent_Forms extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'        => [ 'px', 'em', '%' ],
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group textarea' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -662,8 +662,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'textarea_height',
 			[
-				'label'             => __( 'Textarea Height', 'powerpack' ),
+				'label'             => esc_html__( 'Textarea Height', 'powerpack' ),
 				'type'              => Controls_Manager::SLIDER,
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'             => [
 					'px' => [
 						'min'   => 0,
@@ -671,7 +672,6 @@ class Fluent_Forms extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'        => [ 'px', 'em', '%' ],
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group textarea' => 'height: {{SIZE}}{{UNIT}}',
 				],
@@ -681,9 +681,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_padding',
 			[
-				'label'             => __( 'Padding', 'powerpack' ),
+				'label'             => esc_html__( 'Padding', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', 'em', '%' ],
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-fluent-forms .ff-el-group textarea, {{WRAPPER}} .pp-fluent-forms .ff-el-group select' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -694,8 +694,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_spacing',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px'        => [
 						'min'   => 0,
@@ -703,7 +704,6 @@ class Fluent_Forms extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
@@ -715,14 +715,14 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_fields_focus',
 			[
-				'label'                 => __( 'Focus', 'powerpack' ),
+				'label'                 => esc_html__( 'Focus', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'focus_field_bg_color',
 			[
-				'label'             => __( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -734,7 +734,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'focus_field_text_color',
 			[
-				'label'             => __( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -747,7 +747,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'focus_input_border',
-				'label'             => __( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .pp-fluent-forms .ff-el-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus, {{WRAPPER}} .pp-fluent-forms .ff-el-group textarea:focus, {{WRAPPER}} .pp-fluent-forms .ff-el-group select:focus',
@@ -776,7 +776,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_field_description_style',
 			[
-				'label'                 => __( 'Field Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Field Description', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -784,7 +784,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'field_description_text_color',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-input--content .ff-el-help-message' => 'color: {{VALUE}}',
@@ -796,7 +796,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'field_description_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-fluent-forms .ff-el-input--content .ff-el-help-message',
 			]
 		);
@@ -804,8 +804,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_description_spacing',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px'        => [
 						'min'   => 0,
@@ -813,7 +814,6 @@ class Fluent_Forms extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-input--content .ff-el-help-message' => 'padding-top: {{SIZE}}{{UNIT}}',
 				],
@@ -831,7 +831,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_placeholder_style',
 			[
-				'label'             => __( 'Placeholder', 'powerpack' ),
+				'label'             => esc_html__( 'Placeholder', 'powerpack' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'placeholder_switch'   => 'yes',
@@ -842,7 +842,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'text_color_placeholder',
 			[
-				'label'             => __( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group input::-webkit-input-placeholder, {{WRAPPER}} .pp-fluent-forms .ff-el-group textarea::-webkit-input-placeholder' => 'color: {{VALUE}}',
@@ -864,7 +864,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_radio_checkbox_style',
 			[
-				'label'                 => __( 'Radio & Checkbox', 'powerpack' ),
+				'label'                 => esc_html__( 'Radio & Checkbox', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -872,10 +872,10 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'custom_radio_checkbox',
 			[
-				'label'                 => __( 'Custom Styles', 'powerpack' ),
+				'label'                 => esc_html__( 'Custom Styles', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -883,8 +883,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'radio_checkbox_size',
 			[
-				'label'                 => __( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size'      => '15',
 					'unit'      => 'px',
@@ -896,7 +897,6 @@ class Fluent_Forms extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-custom-radio-checkbox input[type="checkbox"], {{WRAPPER}} .pp-custom-radio-checkbox input[type="radio"]' => 'width: {{SIZE}}{{UNIT}} !important; height: {{SIZE}}{{UNIT}}',
 				],
@@ -911,7 +911,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'radio_checkbox_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
 				],
@@ -921,7 +921,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -936,7 +936,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_color_label',
 			[
-				'label'             => __( 'Label Color', 'powerpack' ),
+				'label'             => esc_html__( 'Label Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group .ff-el-form-check-label' => 'color: {{VALUE}}',
@@ -948,7 +948,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'              => 'radio_checkbox_typography_label',
-				'label'             => __( 'Typography', 'powerpack' ),
+				'label'             => esc_html__( 'Typography', 'powerpack' ),
 				'global'            => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -959,8 +959,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'radio_checkbox_border_width',
 			[
-				'label'                 => __( 'Border Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Width', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px'        => [
 						'min'   => 0,
@@ -968,7 +969,6 @@ class Fluent_Forms extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-custom-radio-checkbox input[type="checkbox"], {{WRAPPER}} .pp-custom-radio-checkbox input[type="radio"]' => 'border-width: {{SIZE}}{{UNIT}}',
 				],
@@ -981,7 +981,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_border_color',
 			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1007,7 +1007,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'checkbox_heading',
 			[
-				'label'                 => __( 'Checkbox', 'powerpack' ),
+				'label'                 => esc_html__( 'Checkbox', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'         => 'before',
 				'condition'             => [
@@ -1019,9 +1019,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'checkbox_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-custom-radio-checkbox input[type="checkbox"], {{WRAPPER}} .pp-custom-radio-checkbox input[type="checkbox"]:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1034,7 +1034,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_heading',
 			[
-				'label'                 => __( 'Radio Buttons', 'powerpack' ),
+				'label'                 => esc_html__( 'Radio Buttons', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'         => 'before',
 				'condition'             => [
@@ -1046,9 +1046,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-custom-radio-checkbox input[type="radio"], {{WRAPPER}} .pp-custom-radio-checkbox input[type="radio"]:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1063,7 +1063,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'radio_checkbox_checked',
 			[
-				'label'                 => __( 'Checked', 'powerpack' ),
+				'label'                 => esc_html__( 'Checked', 'powerpack' ),
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
 				],
@@ -1073,7 +1073,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_color_checked',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1110,7 +1110,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_submit_button_style',
 			[
-				'label'             => __( 'Submit Button', 'powerpack' ),
+				'label'             => esc_html__( 'Submit Button', 'powerpack' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1118,19 +1118,19 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_align',
 			[
-				'label'             => __( 'Alignment', 'powerpack' ),
+				'label'             => esc_html__( 'Alignment', 'powerpack' ),
 				'type'              => Controls_Manager::CHOOSE,
 				'options'           => [
 					'left'        => [
-						'title'   => __( 'Left', 'powerpack' ),
+						'title'   => esc_html__( 'Left', 'powerpack' ),
 						'icon'    => 'eicon-h-align-left',
 					],
 					'center'      => [
-						'title'   => __( 'Center', 'powerpack' ),
+						'title'   => esc_html__( 'Center', 'powerpack' ),
 						'icon'    => 'eicon-h-align-center',
 					],
 					'right'       => [
-						'title'   => __( 'Right', 'powerpack' ),
+						'title'   => esc_html__( 'Right', 'powerpack' ),
 						'icon'    => 'eicon-h-align-right',
 					],
 				],
@@ -1148,12 +1148,12 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_width_type',
 			[
-				'label'                 => __( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'custom',
 				'options'               => [
-					'full-width'    => __( 'Full Width', 'powerpack' ),
-					'custom'        => __( 'Custom', 'powerpack' ),
+					'full-width'    => esc_html__( 'Full Width', 'powerpack' ),
+					'custom'        => esc_html__( 'Custom', 'powerpack' ),
 				],
 				'prefix_class'          => 'pp-fluent-forms-form-button-',
 			]
@@ -1162,8 +1162,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_width',
 			[
-				'label'                 => __( 'Custom Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Custom Width', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size'      => '',
 					'unit'      => 'px',
@@ -1175,7 +1176,6 @@ class Fluent_Forms extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group .ff-btn-submit' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -1190,14 +1190,14 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'             => __( 'Normal', 'powerpack' ),
+				'label'             => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color_normal',
 			[
-				'label'             => __( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1209,7 +1209,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_bg_color_normal',
 			[
-				'label'             => __( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1222,7 +1222,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'              => 'button_typography',
-				'label'             => __( 'Typography', 'powerpack' ),
+				'label'             => esc_html__( 'Typography', 'powerpack' ),
 				'global'            => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1235,7 +1235,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'button_border_normal',
-				'label'             => __( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .pp-fluent-forms .ff-el-group .ff-btn-submit',
@@ -1245,9 +1245,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'             => __( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', 'em', '%' ],
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group .ff-btn-submit' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1257,9 +1257,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'             => __( 'Padding', 'powerpack' ),
+				'label'             => esc_html__( 'Padding', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', 'em', '%' ],
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group .ff-btn-submit' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1269,8 +1269,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_margin',
 			[
-				'label'                 => __( 'Margin Top', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin Top', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px'        => [
 						'min'   => 0,
@@ -1278,7 +1279,6 @@ class Fluent_Forms extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-el-group .ff-btn-submit' => 'margin-top: {{SIZE}}{{UNIT}}',
 				],
@@ -1299,14 +1299,14 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'             => __( 'Hover', 'powerpack' ),
+				'label'             => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label'             => __( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1318,7 +1318,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_bg_color_hover',
 			[
-				'label'             => __( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1330,7 +1330,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			[
-				'label'             => __( 'Border Color', 'powerpack' ),
+				'label'             => esc_html__( 'Border Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1353,7 +1353,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_error_style',
 			[
-				'label'                 => __( 'Errors', 'powerpack' ),
+				'label'                 => esc_html__( 'Errors', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1361,7 +1361,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'error_message_text_color',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1377,7 +1377,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'error_message_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-fluent-forms .ff-el-is-error .error',
 				'condition'             => [
 					'error_messages' => 'show',
@@ -1388,7 +1388,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'error_field_input_border_color',
 			[
-				'label'                 => __( 'Error Field Input Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Error Field Input Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1400,7 +1400,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'error_field_input_border_width',
 			[
-				'label'                 => __( 'Error Field Input Border Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Error Field Input Border Width', 'powerpack' ),
 				'type'                  => Controls_Manager::NUMBER,
 				'default'               => 1,
 				'min'                   => 1,
@@ -1423,7 +1423,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_confirmation_style',
 			[
-				'label'                 => __( 'Confirmation Message', 'powerpack' ),
+				'label'                 => esc_html__( 'Confirmation Message', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1432,7 +1432,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'confirmation_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-fluent-forms .ff-message-success',
 			]
 		);
@@ -1440,7 +1440,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'confirmation_text_color',
 			[
-				'label'             => __( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1452,7 +1452,7 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'confirmation_bg_color',
 			[
-				'label'             => __( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1465,7 +1465,7 @@ class Fluent_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'confirmation_border',
-				'label'             => __( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .pp-fluent-forms .ff-message-success',
@@ -1475,9 +1475,9 @@ class Fluent_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'confirmation_border_radius',
 			[
-				'label'             => __( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'              => Controls_Manager::DIMENSIONS,
-				'size_units'        => [ 'px', 'em', '%' ],
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
 					'{{WRAPPER}} .pp-fluent-forms .ff-message-success' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1544,10 +1544,10 @@ class Fluent_Forms extends Powerpack_Widget {
 				</div>
 				<?php
 			} else {
-				$placeholder = sprintf( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', esc_attr( $this->get_title() ) );
+				$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', 'powerpack' ), esc_attr( $this->get_title() ) );
 
 				echo wp_kses_post( $this->render_editor_placeholder( [
-					'title' => __( 'No Contact Form Selected!', 'powerpack' ),
+					'title' => esc_html__( 'No Contact Form Selected!', 'powerpack' ),
 					'body' => $placeholder,
 				] ) );
 			}

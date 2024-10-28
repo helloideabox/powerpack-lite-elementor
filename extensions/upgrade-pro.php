@@ -45,7 +45,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	 * @since 2.4.1
 	 **/
 	public static function get_description() {
-		return __( 'Adds upgrade PowerPack notice to all widgets of PowerPack.', 'powerpack' );
+		return esc_html__( 'Adds upgrade PowerPack notice to all widgets of PowerPack.', 'powerpack' );
 	}
 
 	/**
@@ -76,7 +76,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 		$element->start_controls_section(
 			'section_upgrade_powerpack_lite',
 			array(
-				'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
+				'label' => apply_filters( 'upgrade_powerpack_title', esc_html__( 'Get PowerPack Pro', 'powerpack' ) ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			)
 		);
@@ -86,7 +86,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 			)
 		);

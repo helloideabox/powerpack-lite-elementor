@@ -267,7 +267,7 @@ class PP_Posts_Helper {
 		);
 
 		if ( empty( $taxonomies ) ) {
-			$options[''] = __( 'No taxonomies found', 'powerpack' );
+			$options[''] = esc_html__( 'No taxonomies found', 'powerpack' );
 			return $options;
 		}
 

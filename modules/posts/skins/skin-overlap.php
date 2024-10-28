@@ -29,6 +29,6 @@ class Skin_Overlap extends Skin_Base {
 	 * @return string Skin title.
 	 */
 	public function get_title() {
-		return __( 'Overlap', 'powerpack' );
+		return esc_html__( 'Overlap', 'powerpack' );
 	}
 }

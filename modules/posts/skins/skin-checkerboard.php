@@ -29,6 +29,6 @@ class Skin_Checkerboard extends Skin_Base {
 	 * @return string Skin title.
 	 */
 	public function get_title() {
-		return __( 'Checkerboard', 'powerpack' );
+		return esc_html__( 'Checkerboard', 'powerpack' );
 	}
 }

@@ -116,28 +116,28 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_heading',
 			[
-				'label'                 => __( 'Fancy Heading', 'powerpack' ),
+				'label'                 => esc_html__( 'Fancy Heading', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'heading_text',
 			[
-				'label'                 => __( 'Heading', 'powerpack' ),
+				'label'                 => esc_html__( 'Heading', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXTAREA,
 				'dynamic'               => [
 					'active'   => true,
 				],
 				'label_block'           => true,
 				'rows'                  => 2,
-				'default'               => __( 'Add Your Heading Text Here', 'powerpack' ),
+				'default'               => esc_html__( 'Add Your Heading Text Here', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'link',
 			[
-				'label'                 => __( 'Link', 'powerpack' ),
+				'label'                 => esc_html__( 'Link', 'powerpack' ),
 				'type'                  => Controls_Manager::URL,
 				'dynamic'               => [
 					'active'        => true,
@@ -153,20 +153,20 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->add_control(
 			'heading_html_tag',
 			[
-				'label'                 => __( 'HTML Tag', 'powerpack' ),
+				'label'                 => esc_html__( 'HTML Tag', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => false,
 				'default'               => 'h2',
 				'options'               => [
-					'h1'     => __( 'H1', 'powerpack' ),
-					'h2'     => __( 'H2', 'powerpack' ),
-					'h3'     => __( 'H3', 'powerpack' ),
-					'h4'     => __( 'H4', 'powerpack' ),
-					'h5'     => __( 'H5', 'powerpack' ),
-					'h6'     => __( 'H6', 'powerpack' ),
-					'div'    => __( 'div', 'powerpack' ),
-					'span'   => __( 'span', 'powerpack' ),
-					'p'      => __( 'p', 'powerpack' ),
+					'h1'     => esc_html__( 'H1', 'powerpack' ),
+					'h2'     => esc_html__( 'H2', 'powerpack' ),
+					'h3'     => esc_html__( 'H3', 'powerpack' ),
+					'h4'     => esc_html__( 'H4', 'powerpack' ),
+					'h5'     => esc_html__( 'H5', 'powerpack' ),
+					'h6'     => esc_html__( 'H6', 'powerpack' ),
+					'div'    => esc_html__( 'div', 'powerpack' ),
+					'span'   => esc_html__( 'span', 'powerpack' ),
+					'p'      => esc_html__( 'p', 'powerpack' ),
 				],
 			]
 		);
@@ -174,24 +174,24 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'                 => __( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
 					'left' => [
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => __( 'Justified', 'powerpack' ),
+						'title' => esc_html__( 'Justified', 'powerpack' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
@@ -220,7 +220,7 @@ class Fancy_Heading extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 
@@ -253,7 +253,7 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->start_controls_section(
 			'heading_section_style',
 			[
-				'label'                 => __( 'Fancy Heading', 'powerpack' ),
+				'label'                 => esc_html__( 'Fancy Heading', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -262,7 +262,7 @@ class Fancy_Heading extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
@@ -289,11 +289,11 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->add_control(
 			'heading_fill',
 			[
-				'label'                 => __( 'Fill', 'powerpack' ),
+				'label'                 => esc_html__( 'Fill', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'solid'     => __( 'Color', 'powerpack' ),
-					'gradient'  => __( 'Background', 'powerpack' ),
+					'solid'     => esc_html__( 'Color', 'powerpack' ),
+					'gradient'  => esc_html__( 'Background', 'powerpack' ),
 				],
 				'default'               => 'solid',
 				'prefix_class'          => 'pp-heading-fill-',
@@ -317,7 +317,7 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->add_control(
 			'heading_text_color',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_PRIMARY,

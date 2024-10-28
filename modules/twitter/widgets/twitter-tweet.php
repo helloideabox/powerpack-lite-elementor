@@ -68,14 +68,14 @@ class Twitter_Tweet extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_tweet',
 			array(
-				'label' => __( 'Tweet', 'powerpack' ),
+				'label' => esc_html__( 'Tweet', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'tweet_url',
 			array(
-				'label'       => __( 'Tweet URL', 'powerpack' ),
+				'label'       => esc_html__( 'Tweet URL', 'powerpack' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'dynamic'     => [
@@ -95,12 +95,12 @@ class Twitter_Tweet extends Powerpack_Widget {
 		$this->add_control(
 			'theme',
 			array(
-				'label'   => __( 'Theme', 'powerpack' ),
+				'label'   => esc_html__( 'Theme', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'light',
 				'options' => array(
-					'light' => __( 'Light', 'powerpack' ),
-					'dark'  => __( 'Dark', 'powerpack' ),
+					'light' => esc_html__( 'Light', 'powerpack' ),
+					'dark'  => esc_html__( 'Dark', 'powerpack' ),
 				),
 			)
 		);
@@ -108,10 +108,10 @@ class Twitter_Tweet extends Powerpack_Widget {
 		$this->add_control(
 			'expanded',
 			array(
-				'label'        => __( 'Expanded', 'powerpack' ),
+				'label'        => esc_html__( 'Expanded', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			)
@@ -120,13 +120,13 @@ class Twitter_Tweet extends Powerpack_Widget {
 		$this->add_control(
 			'alignment',
 			array(
-				'label'   => __( 'Alignment', 'powerpack' ),
+				'label'   => esc_html__( 'Alignment', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'center',
 				'options' => array(
-					'left'   => __( 'Left', 'powerpack' ),
-					'center' => __( 'Center', 'powerpack' ),
-					'right'  => __( 'Right', 'powerpack' ),
+					'left'   => esc_html__( 'Left', 'powerpack' ),
+					'center' => esc_html__( 'Center', 'powerpack' ),
+					'right'  => esc_html__( 'Right', 'powerpack' ),
 				),
 			)
 		);
@@ -134,7 +134,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 		$this->add_control(
 			'width',
 			array(
-				'label'      => __( 'Width', 'powerpack' ),
+				'label'      => esc_html__( 'Width', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array(
 					'unit' => 'px',
@@ -153,7 +153,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 		$this->add_control(
 			'link_color',
 			array(
-				'label'   => __( 'Link Color', 'powerpack' ),
+				'label'   => esc_html__( 'Link Color', 'powerpack' ),
 				'type'    => Controls_Manager::COLOR,
 				'default' => '',
 			)
@@ -172,7 +172,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 

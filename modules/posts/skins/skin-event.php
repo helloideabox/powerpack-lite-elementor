@@ -29,6 +29,6 @@ class Skin_Event extends Skin_Base {
 	 * @return string Skin title.
 	 */
 	public function get_title() {
-		return __( 'Event', 'powerpack' );
+		return esc_html__( 'Event', 'powerpack' );
 	}
 }

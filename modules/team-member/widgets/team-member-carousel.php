@@ -174,7 +174,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_team_member',
 			array(
-				'label' => __( 'Team Members', 'powerpack' ),
+				'label' => esc_html__( 'Team Members', 'powerpack' ),
 			)
 		);
 
@@ -182,48 +182,48 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 		$repeater->start_controls_tabs( 'team_member_tabs' );
 
-		$repeater->start_controls_tab( 'tab_content', array( 'label' => __( 'Content', 'powerpack' ) ) );
+		$repeater->start_controls_tab( 'tab_content', array( 'label' => esc_html__( 'Content', 'powerpack' ) ) );
 
 			$repeater->add_control(
 				'team_member_name',
 				array(
-					'label'   => __( 'Name', 'powerpack' ),
+					'label'   => esc_html__( 'Name', 'powerpack' ),
 					'type'    => Controls_Manager::TEXT,
 					'dynamic' => array(
 						'active' => true,
 					),
-					'default' => __( 'John Doe', 'powerpack' ),
+					'default' => esc_html__( 'John Doe', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'team_member_position',
 				array(
-					'label'   => __( 'Position', 'powerpack' ),
+					'label'   => esc_html__( 'Position', 'powerpack' ),
 					'type'    => Controls_Manager::TEXT,
 					'dynamic' => array(
 						'active' => true,
 					),
-					'default' => __( 'WordPress Developer', 'powerpack' ),
+					'default' => esc_html__( 'WordPress Developer', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'team_member_description',
 				array(
-					'label'   => __( 'Description', 'powerpack' ),
+					'label'   => esc_html__( 'Description', 'powerpack' ),
 					'type'    => Controls_Manager::TEXTAREA,
 					'dynamic' => array(
 						'active' => true,
 					),
-					'default' => __( 'Enter member description here which describes the position of member in company', 'powerpack' ),
+					'default' => esc_html__( 'Enter member description here which describes the position of member in company', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'team_member_image',
 				array(
-					'label'   => __( 'Image', 'powerpack' ),
+					'label'   => esc_html__( 'Image', 'powerpack' ),
 					'type'    => Controls_Manager::MEDIA,
 					'dynamic' => array(
 						'active' => true,
@@ -237,13 +237,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			$repeater->add_control(
 				'link_type',
 				array(
-					'label'   => __( 'Link Type', 'powerpack' ),
+					'label'   => esc_html__( 'Link Type', 'powerpack' ),
 					'type'    => Controls_Manager::SELECT,
 					'default' => 'none',
 					'options' => array(
-						'none'  => __( 'None', 'powerpack' ),
-						'image' => __( 'Image', 'powerpack' ),
-						'title' => __( 'Title', 'powerpack' ),
+						'none'  => esc_html__( 'None', 'powerpack' ),
+						'image' => esc_html__( 'Image', 'powerpack' ),
+						'title' => esc_html__( 'Title', 'powerpack' ),
 					),
 				)
 			);
@@ -251,7 +251,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			$repeater->add_control(
 				'link',
 				array(
-					'label'       => __( 'Link', 'powerpack' ),
+					'label'       => esc_html__( 'Link', 'powerpack' ),
 					'type'        => Controls_Manager::URL,
 					'dynamic'     => array(
 						'active'     => true,
@@ -272,13 +272,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_social_links', array( 'label' => __( 'Social Links', 'powerpack' ) ) );
+		$repeater->start_controls_tab( 'tab_social_links', array( 'label' => esc_html__( 'Social Links', 'powerpack' ) ) );
 
 			$repeater->add_control(
 				'facebook_url',
 				array(
 					'name'        => 'facebook_url',
-					'label'       => __( 'Facebook', 'powerpack' ),
+					'label'       => esc_html__( 'Facebook', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -289,7 +289,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Facebook page or profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Facebook page or profile URL of team member', 'powerpack' ),
 				)
 			);
 
@@ -297,7 +297,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				'twitter_url',
 				array(
 					'name'        => 'twitter_url',
-					'label'       => __( 'Twitter', 'powerpack' ),
+					'label'       => esc_html__( 'Twitter', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -308,14 +308,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Twitter profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Twitter profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'instagram_url',
 				array(
-					'label'       => __( 'Instagram', 'powerpack' ),
+					'label'       => esc_html__( 'Instagram', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -326,14 +326,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Instagram profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Instagram profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'linkedin_url',
 				array(
-					'label'       => __( 'Linkedin', 'powerpack' ),
+					'label'       => esc_html__( 'Linkedin', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -344,14 +344,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Linkedin profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Linkedin profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'youtube_url',
 				array(
-					'label'       => __( 'YouTube', 'powerpack' ),
+					'label'       => esc_html__( 'YouTube', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -362,14 +362,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter YouTube profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter YouTube profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'pinterest_url',
 				array(
-					'label'       => __( 'Pinterest', 'powerpack' ),
+					'label'       => esc_html__( 'Pinterest', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -380,14 +380,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Pinterest profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Pinterest profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'dribbble_url',
 				array(
-					'label'       => __( 'Dribbble', 'powerpack' ),
+					'label'       => esc_html__( 'Dribbble', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -398,14 +398,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Dribbble profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Dribbble profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'flickr_url',
 				array(
-					'label'       => __( 'Flickr', 'powerpack' ),
+					'label'       => esc_html__( 'Flickr', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -416,14 +416,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Flickr profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Flickr profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'tumblr_url',
 				array(
-					'label'       => __( 'Tumblr', 'powerpack' ),
+					'label'       => esc_html__( 'Tumblr', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -434,14 +434,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Tumblr profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Tumblr profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'tiktok_url',
 				array(
-					'label'       => __( 'Tiktok', 'powerpack' ),
+					'label'       => esc_html__( 'Tiktok', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -452,14 +452,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Tiktok profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Tiktok profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'github_url',
 				array(
-					'label'       => __( 'Github', 'powerpack' ),
+					'label'       => esc_html__( 'Github', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -470,14 +470,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Github profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Github profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'vimeo_url',
 				array(
-					'label'       => __( 'Vimeo', 'powerpack' ),
+					'label'       => esc_html__( 'Vimeo', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -488,14 +488,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Vimeo profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Vimeo profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'xing_url',
 				array(
-					'label'       => __( 'Xing', 'powerpack' ),
+					'label'       => esc_html__( 'Xing', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -506,14 +506,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter Xing profile URL of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter Xing profile URL of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'email',
 				array(
-					'label'       => __( 'Email', 'powerpack' ),
+					'label'       => esc_html__( 'Email', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -524,14 +524,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter email ID of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter email ID of team member', 'powerpack' ),
 				)
 			);
 
 			$repeater->add_control(
 				'phone',
 				array(
-					'label'       => __( 'Contact Number', 'powerpack' ),
+					'label'       => esc_html__( 'Contact Number', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => array(
 						'active'     => true,
@@ -542,7 +542,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					'ai'          => [
 						'active' => false,
 					],
-					'description' => __( 'Enter contact number of team member', 'powerpack' ),
+					'description' => esc_html__( 'Enter contact number of team member', 'powerpack' ),
 				)
 			);
 
@@ -587,7 +587,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_member_box_settings',
 			array(
-				'label' => __( 'General Settings', 'powerpack' ),
+				'label' => esc_html__( 'General Settings', 'powerpack' ),
 			)
 		);
 
@@ -595,7 +595,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			Group_Control_Image_Size::get_type(),
 			array(
 				'name'    => 'thumbnail', // Usage: '{name}_size' and '{name}_custom_dimension', in this case 'thumbnail_size' and 'thumbnail_custom_dimension'.,
-				'label'   => __( 'Image Size', 'powerpack' ),
+				'label'   => esc_html__( 'Image Size', 'powerpack' ),
 				'default' => 'full',
 			)
 		);
@@ -603,19 +603,19 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'name_html_tag',
 			array(
-				'label'     => __( 'Name HTML Tag', 'powerpack' ),
+				'label'     => esc_html__( 'Name HTML Tag', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'h4',
 				'options'   => array(
-					'h1'   => __( 'H1', 'powerpack' ),
-					'h2'   => __( 'H2', 'powerpack' ),
-					'h3'   => __( 'H3', 'powerpack' ),
-					'h4'   => __( 'H4', 'powerpack' ),
-					'h5'   => __( 'H5', 'powerpack' ),
-					'h6'   => __( 'H6', 'powerpack' ),
-					'div'  => __( 'div', 'powerpack' ),
-					'span' => __( 'span', 'powerpack' ),
-					'p'    => __( 'p', 'powerpack' ),
+					'h1'   => esc_html__( 'H1', 'powerpack' ),
+					'h2'   => esc_html__( 'H2', 'powerpack' ),
+					'h3'   => esc_html__( 'H3', 'powerpack' ),
+					'h4'   => esc_html__( 'H4', 'powerpack' ),
+					'h5'   => esc_html__( 'H5', 'powerpack' ),
+					'h6'   => esc_html__( 'H6', 'powerpack' ),
+					'div'  => esc_html__( 'div', 'powerpack' ),
+					'span' => esc_html__( 'span', 'powerpack' ),
+					'p'    => esc_html__( 'p', 'powerpack' ),
 				),
 				'separator' => 'before',
 			)
@@ -624,19 +624,19 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'position_html_tag',
 			array(
-				'label'   => __( 'Position HTML Tag', 'powerpack' ),
+				'label'   => esc_html__( 'Position HTML Tag', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'div',
 				'options' => array(
-					'h1'   => __( 'H1', 'powerpack' ),
-					'h2'   => __( 'H2', 'powerpack' ),
-					'h3'   => __( 'H3', 'powerpack' ),
-					'h4'   => __( 'H4', 'powerpack' ),
-					'h5'   => __( 'H5', 'powerpack' ),
-					'h6'   => __( 'H6', 'powerpack' ),
-					'div'  => __( 'div', 'powerpack' ),
-					'span' => __( 'span', 'powerpack' ),
-					'p'    => __( 'p', 'powerpack' ),
+					'h1'   => esc_html__( 'H1', 'powerpack' ),
+					'h2'   => esc_html__( 'H2', 'powerpack' ),
+					'h3'   => esc_html__( 'H3', 'powerpack' ),
+					'h4'   => esc_html__( 'H4', 'powerpack' ),
+					'h5'   => esc_html__( 'H5', 'powerpack' ),
+					'h6'   => esc_html__( 'H6', 'powerpack' ),
+					'div'  => esc_html__( 'div', 'powerpack' ),
+					'span' => esc_html__( 'span', 'powerpack' ),
+					'p'    => esc_html__( 'p', 'powerpack' ),
 				),
 			)
 		);
@@ -644,11 +644,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_social_links',
 			array(
-				'label'        => __( 'Show Social Icons', 'powerpack' ),
+				'label'        => esc_html__( 'Show Social Icons', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 			)
@@ -657,12 +657,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'social_links_position',
 			array(
-				'label'     => __( 'Social Icons Position', 'powerpack' ),
+				'label'     => esc_html__( 'Social Icons Position', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'after_desc',
 				'options'   => array(
-					'before_desc' => __( 'Before Description', 'powerpack' ),
-					'after_desc'  => __( 'After Description', 'powerpack' ),
+					'before_desc' => esc_html__( 'Before Description', 'powerpack' ),
+					'after_desc'  => esc_html__( 'After Description', 'powerpack' ),
 				),
 				'condition' => array(
 					'member_social_links' => 'yes',
@@ -674,12 +674,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'social_links_style',
 			[
-				'label'   => __( 'Links Style', 'powerpack' ),
+				'label'   => esc_html__( 'Links Style', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'icon',
 				'options' => [
-					'icon'   => __( 'Icon', 'powerpack' ),
-					'button' => __( 'Button', 'powerpack' ),
+					'icon'   => esc_html__( 'Icon', 'powerpack' ),
+					'button' => esc_html__( 'Button', 'powerpack' ),
 				],
 				'condition' => array(
 					'member_social_links' => 'yes',
@@ -709,12 +709,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'links_target',
 			[
-				'label'     => __( 'Links Target', 'powerpack' ),
+				'label'     => esc_html__( 'Links Target', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '_self',
 				'options'   => [
-					'_self'  => __( 'Same Window', 'powerpack' ),
-					'_blank' => __( 'New Window', 'powerpack' ),
+					'_self'  => esc_html__( 'Same Window', 'powerpack' ),
+					'_blank' => esc_html__( 'New Window', 'powerpack' ),
 				],
 				'condition' => array(
 					'member_social_links' => 'yes',
@@ -725,14 +725,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'overlay_content',
 			array(
-				'label'     => __( 'Overlay Content', 'powerpack' ),
+				'label'     => esc_html__( 'Overlay Content', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'none',
 				'options'   => array(
-					'none'         => __( 'None', 'powerpack' ),
-					'social_icons' => __( 'Social Icons', 'powerpack' ),
-					'content'      => __( 'Description', 'powerpack' ),
-					'all_content'  => __( 'Description', 'powerpack' ) . ' + ' . __( 'Social Icons', 'powerpack' ),
+					'none'         => esc_html__( 'None', 'powerpack' ),
+					'social_icons' => esc_html__( 'Social Icons', 'powerpack' ),
+					'content'      => esc_html__( 'Description', 'powerpack' ),
+					'all_content'  => esc_html__( 'Description', 'powerpack' ) . ' + ' . esc_html__( 'Social Icons', 'powerpack' ),
 				),
 				'separator' => 'before',
 			)
@@ -741,11 +741,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_title_divider',
 			array(
-				'label'        => __( 'Divider after Name', 'powerpack' ),
+				'label'        => esc_html__( 'Divider after Name', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => __( 'Show', 'powerpack' ),
-				'label_off'    => __( 'Hide', 'powerpack' ),
+				'label_on'     => esc_html__( 'Show', 'powerpack' ),
+				'label_off'    => esc_html__( 'Hide', 'powerpack' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 			)
@@ -754,11 +754,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_position_divider',
 			array(
-				'label'        => __( 'Divider after Position', 'powerpack' ),
+				'label'        => esc_html__( 'Divider after Position', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'hide',
-				'label_on'     => __( 'Show', 'powerpack' ),
-				'label_off'    => __( 'Hide', 'powerpack' ),
+				'label_on'     => esc_html__( 'Show', 'powerpack' ),
+				'label_off'    => esc_html__( 'Hide', 'powerpack' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -766,11 +766,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_description_divider',
 			array(
-				'label'        => __( 'Divider after Description', 'powerpack' ),
+				'label'        => esc_html__( 'Divider after Description', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'hide',
-				'label_on'     => __( 'Show', 'powerpack' ),
-				'label_off'    => __( 'Hide', 'powerpack' ),
+				'label_on'     => esc_html__( 'Show', 'powerpack' ),
+				'label_off'    => esc_html__( 'Hide', 'powerpack' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -783,14 +783,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_slider_settings',
 			array(
-				'label' => __( 'Carousel Settings', 'powerpack' ),
+				'label' => esc_html__( 'Carousel Settings', 'powerpack' ),
 			)
 		);
 
 		$this->add_responsive_control(
 			'items',
 			array(
-				'label'          => __( 'Visible Items', 'powerpack' ),
+				'label'          => esc_html__( 'Visible Items', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => array( 'size' => 3 ),
 				'tablet_default' => array( 'size' => 2 ),
@@ -802,14 +802,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units'     => '',
 			)
 		);
 
 		$this->add_responsive_control(
 			'margin',
 			array(
-				'label'          => __( 'Items Gap', 'powerpack' ),
+				'label'          => esc_html__( 'Items Gap', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => array( 'size' => 10 ),
 				'tablet_default' => array( 'size' => 10 ),
@@ -821,15 +820,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units'     => '',
 			)
 		);
 
 		$this->add_control(
 			'slider_speed',
 			array(
-				'label'       => __( 'Slider Speed', 'powerpack' ),
-				'description' => __( 'Duration of transition between slides (in ms)', 'powerpack' ),
+				'label'       => esc_html__( 'Slider Speed', 'powerpack' ),
+				'description' => esc_html__( 'Duration of transition between slides (in ms)', 'powerpack' ),
 				'type'        => Controls_Manager::SLIDER,
 				'default'     => array( 'size' => 600 ),
 				'range'       => array(
@@ -839,7 +837,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units'  => '',
 				'separator'   => 'before',
 			)
 		);
@@ -847,11 +844,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'autoplay',
 			array(
-				'label'        => __( 'Autoplay', 'powerpack' ),
+				'label'        => esc_html__( 'Autoplay', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 			)
@@ -860,12 +857,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'pause_on_hover',
 			array(
-				'label'                 => __( 'Pause on Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Pause on Hover', 'powerpack' ),
 				'description'           => '',
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 				'frontend_available'    => true,
 				'condition'             => array(
@@ -877,12 +874,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'pause_on_interaction',
 			array(
-				'label'              => __( 'Pause on Interaction', 'powerpack' ),
-				'description'        => __( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
+				'label'              => esc_html__( 'Pause on Interaction', 'powerpack' ),
+				'description'        => esc_html__( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => '',
-				'label_on'           => __( 'Yes', 'powerpack' ),
-				'label_off'          => __( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'          => esc_html__( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
 				'condition'          => array(
 					'autoplay' => 'yes',
@@ -893,7 +890,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'autoplay_speed',
 			array(
-				'label'      => __( 'Autoplay Speed', 'powerpack' ),
+				'label'      => esc_html__( 'Autoplay Speed', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array( 'size' => 3000 ),
 				'range'      => array(
@@ -903,7 +900,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => '',
 				'condition'  => array(
 					'autoplay' => 'yes',
 				),
@@ -913,11 +909,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'infinite_loop',
 			array(
-				'label'        => __( 'Infinite Loop', 'powerpack' ),
+				'label'        => esc_html__( 'Infinite Loop', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -925,12 +921,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'grab_cursor',
 			array(
-				'label'        => __( 'Grab Cursor', 'powerpack' ),
-				'description'  => __( 'Shows grab cursor when you hover over the slider', 'powerpack' ),
+				'label'        => esc_html__( 'Grab Cursor', 'powerpack' ),
+				'description'  => esc_html__( 'Shows grab cursor when you hover over the slider', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => __( 'Show', 'powerpack' ),
-				'label_off'    => __( 'Hide', 'powerpack' ),
+				'label_on'     => esc_html__( 'Show', 'powerpack' ),
+				'label_off'    => esc_html__( 'Hide', 'powerpack' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 			)
@@ -939,7 +935,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'name_navigation_heading',
 			array(
-				'label'     => __( 'Navigation', 'powerpack' ),
+				'label'     => esc_html__( 'Navigation', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -948,11 +944,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows',
 			array(
-				'label'        => __( 'Arrows', 'powerpack' ),
+				'label'        => esc_html__( 'Arrows', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -960,11 +956,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots',
 			array(
-				'label'        => __( 'Pagination', 'powerpack' ),
+				'label'        => esc_html__( 'Pagination', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -972,12 +968,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'pagination_type',
 			array(
-				'label'     => __( 'Pagination Type', 'powerpack' ),
+				'label'     => esc_html__( 'Pagination Type', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'bullets',
 				'options'   => array(
-					'bullets'  => __( 'Dots', 'powerpack' ),
-					'fraction' => __( 'Fraction', 'powerpack' ),
+					'bullets'  => esc_html__( 'Dots', 'powerpack' ),
+					'fraction' => esc_html__( 'Fraction', 'powerpack' ),
 				),
 				'condition' => array(
 					'dots' => 'yes',
@@ -988,13 +984,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'direction',
 			array(
-				'label'                 => __( 'Direction', 'powerpack' ),
+				'label'                 => esc_html__( 'Direction', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'left',
 				'options'               => [
-					'auto'  => __( 'Auto', 'powerpack' ),
-					'left'  => __( 'Left', 'powerpack' ),
-					'right' => __( 'Right', 'powerpack' ),
+					'auto'  => esc_html__( 'Auto', 'powerpack' ),
+					'left'  => esc_html__( 'Left', 'powerpack' ),
+					'right' => esc_html__( 'Right', 'powerpack' ),
 				],
 				'separator'             => 'before',
 			)
@@ -1008,7 +1004,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				array(
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				)
 			);
 
@@ -1039,7 +1035,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_member_box_style',
 			array(
-				'label' => __( 'Box Style', 'powerpack' ),
+				'label' => esc_html__( 'Box Style', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1047,19 +1043,19 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'member_box_alignment',
 			array(
-				'label'     => __( 'Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Alignment', 'powerpack' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 				),
@@ -1075,7 +1071,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_box_normal',
 			array(
-				'label' => __( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack' ),
 			)
 		);
 
@@ -1083,7 +1079,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'member_container_border',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-tm',
@@ -1093,9 +1089,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_container_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-tm' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1105,9 +1101,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'member_container_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-tm' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1119,14 +1115,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_box_active',
 			array(
-				'label' => __( 'Active', 'powerpack' ),
+				'label' => esc_html__( 'Active', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'member_container_border_color_active',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1147,7 +1143,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_member_content_style',
 			array(
-				'label' => __( 'Content', 'powerpack' ),
+				'label' => esc_html__( 'Content', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1155,7 +1151,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_box_bg_color',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1168,7 +1164,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'member_box_border',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'separator'   => 'before',
@@ -1179,9 +1175,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_box_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-tm-content-normal' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1191,9 +1187,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'member_box_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-tm-content-normal' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1217,7 +1213,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_member_overlay_style',
 			array(
-				'label'     => __( 'Overlay', 'powerpack' ),
+				'label'     => esc_html__( 'Overlay', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'overlay_content!' => 'none',
@@ -1228,19 +1224,19 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'overlay_alignment',
 			array(
-				'label'     => __( 'Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Alignment', 'powerpack' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 				),
@@ -1269,7 +1265,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'overlay_opacity',
 			array(
-				'label'     => __( 'Opacity', 'powerpack' ),
+				'label'     => esc_html__( 'Opacity', 'powerpack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -1295,7 +1291,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_member_image_style',
 			array(
-				'label' => __( 'Image', 'powerpack' ),
+				'label' => esc_html__( 'Image', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1303,9 +1299,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'member_image_width',
 			array(
-				'label'          => __( 'Image Width', 'powerpack' ),
+				'label'          => esc_html__( 'Image Width', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( '%', 'px' ),
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 1200,
@@ -1327,7 +1323,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'member_image_border',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-tm-image img',
@@ -1337,9 +1333,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_image_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-tm-image img, {{WRAPPER}} .pp-tm-overlay-content-wrap:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1349,13 +1345,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'member_image_margin',
 			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
+				'label'          => esc_html__( 'Margin Bottom', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 10,
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 100,
@@ -1381,7 +1377,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_member_name_style',
 			array(
-				'label' => __( 'Name', 'powerpack' ),
+				'label' => esc_html__( 'Name', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1390,7 +1386,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'member_name_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
@@ -1401,7 +1397,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_name_text_color',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -1416,13 +1412,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'member_name_margin',
 			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
+				'label'          => esc_html__( 'Margin Bottom', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 10,
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 100,
@@ -1443,7 +1439,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'name_divider_heading',
 			array(
-				'label'     => __( 'Divider', 'powerpack' ),
+				'label'     => esc_html__( 'Divider', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1455,7 +1451,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'name_divider_color',
 			array(
-				'label'     => __( 'Divider Color', 'powerpack' ),
+				'label'     => esc_html__( 'Divider Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'global'    => [
@@ -1473,14 +1469,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'name_divider_style',
 			array(
-				'label'     => __( 'Divider Style', 'powerpack' ),
+				'label'     => esc_html__( 'Divider Style', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'solid',
 				'options'   => array(
-					'solid'  => __( 'Solid', 'powerpack' ),
-					'dotted' => __( 'Dotted', 'powerpack' ),
-					'dashed' => __( 'Dashed', 'powerpack' ),
-					'double' => __( 'Double', 'powerpack' ),
+					'solid'  => esc_html__( 'Solid', 'powerpack' ),
+					'dotted' => esc_html__( 'Dotted', 'powerpack' ),
+					'dashed' => esc_html__( 'Dashed', 'powerpack' ),
+					'double' => esc_html__( 'Double', 'powerpack' ),
 				),
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-title-divider' => 'border-bottom-style: {{VALUE}}',
@@ -1494,13 +1490,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'name_divider_width',
 			array(
-				'label'          => __( 'Divider Width', 'powerpack' ),
+				'label'          => esc_html__( 'Divider Width', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 100,
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 800,
@@ -1524,12 +1520,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'name_divider_height',
 			array(
-				'label'          => __( 'Divider Height', 'powerpack' ),
+				'label'          => esc_html__( 'Divider Height', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 4,
 				),
-				'size_units'     => array( 'px' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 20,
@@ -1553,13 +1549,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'name_divider_margin',
 			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
+				'label'          => esc_html__( 'Margin Bottom', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 10,
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 100,
@@ -1588,7 +1584,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_member_position_style',
 			array(
-				'label' => __( 'Position', 'powerpack' ),
+				'label' => esc_html__( 'Position', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1597,7 +1593,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'member_position_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				],
@@ -1608,7 +1604,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_position_text_color',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'   => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -1623,13 +1619,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'member_position_margin',
 			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
+				'label'          => esc_html__( 'Margin Bottom', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 10,
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 100,
@@ -1650,7 +1646,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'position_divider_heading',
 			array(
-				'label'     => __( 'Divider', 'powerpack' ),
+				'label'     => esc_html__( 'Divider', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1662,7 +1658,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'position_divider_color',
 			array(
-				'label'     => __( 'Divider Color', 'powerpack' ),
+				'label'     => esc_html__( 'Divider Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'global'    => [
@@ -1680,14 +1676,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'position_divider_style',
 			array(
-				'label'     => __( 'Divider Style', 'powerpack' ),
+				'label'     => esc_html__( 'Divider Style', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'solid',
 				'options'   => array(
-					'solid'  => __( 'Solid', 'powerpack' ),
-					'dotted' => __( 'Dotted', 'powerpack' ),
-					'dashed' => __( 'Dashed', 'powerpack' ),
-					'double' => __( 'Double', 'powerpack' ),
+					'solid'  => esc_html__( 'Solid', 'powerpack' ),
+					'dotted' => esc_html__( 'Dotted', 'powerpack' ),
+					'dashed' => esc_html__( 'Dashed', 'powerpack' ),
+					'double' => esc_html__( 'Double', 'powerpack' ),
 				),
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-position-divider' => 'border-bottom-style: {{VALUE}}',
@@ -1701,13 +1697,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'position_divider_width',
 			array(
-				'label'          => __( 'Divider Width', 'powerpack' ),
+				'label'          => esc_html__( 'Divider Width', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 100,
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 800,
@@ -1731,12 +1727,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'position_divider_height',
 			array(
-				'label'          => __( 'Divider Height', 'powerpack' ),
+				'label'          => esc_html__( 'Divider Height', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 4,
 				),
-				'size_units'     => array( 'px' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 20,
@@ -1760,13 +1756,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'position_divider_margin',
 			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
+				'label'          => esc_html__( 'Margin Bottom', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 10,
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 100,
@@ -1795,7 +1791,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_member_description_style',
 			array(
-				'label' => __( 'Description', 'powerpack' ),
+				'label' => esc_html__( 'Description', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1804,7 +1800,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'member_description_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				],
@@ -1815,7 +1811,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_description_text_color',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -1830,13 +1826,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'member_description_margin',
 			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
+				'label'          => esc_html__( 'Margin Bottom', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 10,
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 100,
@@ -1857,7 +1853,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'description_divider_heading',
 			array(
-				'label'     => __( 'Divider', 'powerpack' ),
+				'label'     => esc_html__( 'Divider', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1869,7 +1865,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'description_divider_color',
 			array(
-				'label'     => __( 'Divider Color', 'powerpack' ),
+				'label'     => esc_html__( 'Divider Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'global'    => [
@@ -1887,14 +1883,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'description_divider_style',
 			array(
-				'label'     => __( 'Divider Style', 'powerpack' ),
+				'label'     => esc_html__( 'Divider Style', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'solid',
 				'options'   => array(
-					'solid'  => __( 'Solid', 'powerpack' ),
-					'dotted' => __( 'Dotted', 'powerpack' ),
-					'dashed' => __( 'Dashed', 'powerpack' ),
-					'double' => __( 'Double', 'powerpack' ),
+					'solid'  => esc_html__( 'Solid', 'powerpack' ),
+					'dotted' => esc_html__( 'Dotted', 'powerpack' ),
+					'dashed' => esc_html__( 'Dashed', 'powerpack' ),
+					'double' => esc_html__( 'Double', 'powerpack' ),
 				),
 				'selectors' => array(
 					'{{WRAPPER}} .pp-tm-description-divider' => 'border-bottom-style: {{VALUE}}',
@@ -1908,13 +1904,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'description_divider_width',
 			array(
-				'label'          => __( 'Divider Width', 'powerpack' ),
+				'label'          => esc_html__( 'Divider Width', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 100,
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 800,
@@ -1938,12 +1934,12 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'description_divider_height',
 			array(
-				'label'          => __( 'Divider Height', 'powerpack' ),
+				'label'          => esc_html__( 'Divider Height', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 4,
 				),
-				'size_units'     => array( 'px' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 20,
@@ -1967,13 +1963,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'description_divider_margin',
 			array(
-				'label'          => __( 'Margin Bottom', 'powerpack' ),
+				'label'          => esc_html__( 'Margin Bottom', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array(
 					'size' => 10,
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', '%' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 100,
@@ -2002,7 +1998,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_member_social_links_style',
 			array(
-				'label' => __( 'Social Icons', 'powerpack' ),
+				'label' => esc_html__( 'Social Icons', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -2010,10 +2006,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'member_icons_gap',
 			array(
-				'label'          => __( 'Icons Gap', 'powerpack' ),
+				'label'          => esc_html__( 'Icons Gap', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'        => array( 'size' => 10 ),
-				'size_units'     => array( '%', 'px' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 60,
@@ -2034,9 +2030,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'member_icon_size',
 			array(
-				'label'          => __( 'Icon Size', 'powerpack' ),
+				'label'          => esc_html__( 'Icon Size', 'powerpack' ),
 				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
+				'size_units'     => array( 'px', 'em', 'rem', 'custom' ),
 				'range'          => array(
 					'px' => array(
 						'max' => 30,
@@ -2079,7 +2075,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_links_normal',
 			[
-				'label'      => __( 'Normal', 'powerpack' ),
+				'label'      => esc_html__( 'Normal', 'powerpack' ),
 				'conditions' => array(
 					'relation' => 'or',
 					'terms'    => array(
@@ -2111,7 +2107,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_links_icons_color',
 			array(
-				'label'     => __( 'Icons Color', 'powerpack' ),
+				'label'     => esc_html__( 'Icons Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2148,7 +2144,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_links_bg_color',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2186,7 +2182,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'member_links_border',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'separator'   => 'before',
@@ -2197,9 +2193,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_links_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2209,9 +2205,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'member_links_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'separator'  => 'before',
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -2224,7 +2220,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_links_hover',
 			array(
-				'label'      => __( 'Hover', 'powerpack' ),
+				'label'      => esc_html__( 'Hover', 'powerpack' ),
 				'conditions' => array(
 					'relation' => 'or',
 					'terms'    => array(
@@ -2256,7 +2252,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_links_icons_color_hover',
 			array(
-				'label'     => __( 'Icons Color', 'powerpack' ),
+				'label'     => esc_html__( 'Icons Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2293,7 +2289,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_links_bg_color_hover',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2330,7 +2326,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'member_links_border_color_hover',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2376,7 +2372,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_arrows_style',
 			array(
-				'label'     => __( 'Arrows', 'powerpack' ),
+				'label'     => esc_html__( 'Arrows', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'arrows' => 'yes',
@@ -2387,7 +2383,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'select_arrow',
 			array(
-				'label'                  => __( 'Choose Arrow', 'powerpack' ),
+				'label'                  => esc_html__( 'Choose Arrow', 'powerpack' ),
 				'type'                   => Controls_Manager::ICONS,
 				'fa4compatibility'       => 'arrow',
 				'label_block'            => false,
@@ -2424,8 +2420,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_size',
 			array(
-				'label'      => __( 'Arrows Size', 'powerpack' ),
+				'label'      => esc_html__( 'Arrows Size', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'default'    => array( 'size' => '22' ),
 				'range'      => array(
 					'px' => array(
@@ -2434,7 +2431,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'font-size: {{SIZE}}{{UNIT}};',
 				),
@@ -2444,8 +2440,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'left_arrow_position',
 			array(
-				'label'      => __( 'Align Left Arrow', 'powerpack' ),
+				'label'      => esc_html__( 'Align Left Arrow', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
 					'px' => array(
 						'min'  => -100,
@@ -2453,7 +2450,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .elementor-swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
 				),
@@ -2463,8 +2459,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'right_arrow_position',
 			array(
-				'label'      => __( 'Align Right Arrow', 'powerpack' ),
+				'label'      => esc_html__( 'Align Right Arrow', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
 					'px' => array(
 						'min'  => -100,
@@ -2472,7 +2469,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .elementor-swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
 				),
@@ -2484,14 +2480,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_arrows_normal',
 			array(
-				'label' => __( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'arrows_bg_color_normal',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2503,7 +2499,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_color_normal',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2516,7 +2512,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'arrows_border_normal',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev',
@@ -2527,9 +2523,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_border_radius_normal',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2541,14 +2537,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_arrows_hover',
 			array(
-				'label' => __( 'Hover', 'powerpack' ),
+				'label' => esc_html__( 'Hover', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'arrows_bg_color_hover',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2560,7 +2556,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_color_hover',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2572,7 +2568,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_border_color_hover',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2588,9 +2584,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2606,7 +2602,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_dots_style',
 			array(
-				'label'     => __( 'Pagination: Dots', 'powerpack' ),
+				'label'     => esc_html__( 'Pagination: Dots', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'dots'            => 'yes',
@@ -2618,11 +2614,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_position',
 			array(
-				'label'     => __( 'Position', 'powerpack' ),
+				'label'     => esc_html__( 'Position', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'inside'  => __( 'Inside', 'powerpack' ),
-					'outside' => __( 'Outside', 'powerpack' ),
+					'inside'  => esc_html__( 'Inside', 'powerpack' ),
+					'outside' => esc_html__( 'Outside', 'powerpack' ),
 				),
 				'default'   => 'outside',
 				'condition' => array(
@@ -2635,8 +2631,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_size',
 			array(
-				'label'      => __( 'Size', 'powerpack' ),
+				'label'      => esc_html__( 'Size', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
 					'px' => array(
 						'min'  => 2,
@@ -2644,7 +2641,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => '',
 				'selectors'  => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				),
@@ -2658,8 +2654,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_spacing',
 			array(
-				'label'      => __( 'Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
 					'px' => array(
 						'min'  => 1,
@@ -2667,7 +2664,6 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => '',
 				'selectors'  => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
 				),
@@ -2683,7 +2679,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_dots_normal',
 			array(
-				'label'     => __( 'Normal', 'powerpack' ),
+				'label'     => esc_html__( 'Normal', 'powerpack' ),
 				'condition' => array(
 					'dots'            => 'yes',
 					'pagination_type' => 'bullets',
@@ -2694,7 +2690,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_color_normal',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2710,7 +2706,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'active_dot_color_normal',
 			array(
-				'label'     => __( 'Active Color', 'powerpack' ),
+				'label'     => esc_html__( 'Active Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2727,7 +2723,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'dots_border_normal',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet',
@@ -2741,9 +2737,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_border_radius_normal',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -2757,9 +2753,9 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_margin',
 			array(
-				'label'              => __( 'Margin', 'powerpack' ),
+				'label'              => esc_html__( 'Margin', 'powerpack' ),
 				'type'               => Controls_Manager::DIMENSIONS,
-				'size_units'         => array( 'px', 'em', '%' ),
+				'size_units'         => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'allowed_dimensions' => 'vertical',
 				'placeholder'        => array(
 					'top'    => '',
@@ -2782,7 +2778,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_dots_hover',
 			array(
-				'label'     => __( 'Hover', 'powerpack' ),
+				'label'     => esc_html__( 'Hover', 'powerpack' ),
 				'condition' => array(
 					'dots'            => 'yes',
 					'pagination_type' => 'bullets',
@@ -2793,7 +2789,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_color_hover',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2809,7 +2805,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_border_color_hover',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2835,7 +2831,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_fraction_style',
 			array(
-				'label'     => __( 'Pagination: Fraction', 'powerpack' ),
+				'label'     => esc_html__( 'Pagination: Fraction', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'dots'            => 'yes',
@@ -2847,7 +2843,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'fraction_text_color',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2864,7 +2860,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'fraction_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],

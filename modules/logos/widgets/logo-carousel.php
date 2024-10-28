@@ -139,7 +139,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_logo_carousel',
 			[
-				'label'                 => __( 'Logo Carousel', 'powerpack' ),
+				'label' => esc_html__( 'Logo Carousel', 'powerpack' ),
 			]
 		);
 
@@ -148,7 +148,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$repeater->add_control(
 			'logo_carousel_slide',
 			[
-				'label'             => __( 'Image', 'powerpack' ),
+				'label'             => esc_html__( 'Image', 'powerpack' ),
 				'type'              => Controls_Manager::MEDIA,
 				'dynamic'           => [
 					'active'   => true,
@@ -162,7 +162,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$repeater->add_control(
 			'logo_title',
 			[
-				'label'             => __( 'Title', 'powerpack' ),
+				'label'             => esc_html__( 'Title', 'powerpack' ),
 				'type'              => Controls_Manager::TEXT,
 				'dynamic'           => [
 					'active'   => true,
@@ -173,7 +173,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$repeater->add_control(
 			'link',
 			[
-				'label'             => __( 'Link', 'powerpack' ),
+				'label'             => esc_html__( 'Link', 'powerpack' ),
 				'type'              => Controls_Manager::URL,
 				'dynamic'           => [
 					'active'   => true,
@@ -226,7 +226,7 @@ class Logo_Carousel extends Powerpack_Widget {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'                  => 'thumbnail', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.,
-				'label'                 => __( 'Image Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Image Size', 'powerpack' ),
 				'default'               => 'full',
 				'separator'             => 'before',
 			]
@@ -235,11 +235,11 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'show_title',
 			[
-				'label'                 => __( 'Show Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Show Title', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -247,19 +247,19 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'title_html_tag',
 			[
-				'label'                => __( 'Title HTML Tag', 'powerpack' ),
+				'label'                => esc_html__( 'Title HTML Tag', 'powerpack' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'h4',
 				'options'              => [
-					'h1'     => __( 'H1', 'powerpack' ),
-					'h2'     => __( 'H2', 'powerpack' ),
-					'h3'     => __( 'H3', 'powerpack' ),
-					'h4'     => __( 'H4', 'powerpack' ),
-					'h5'     => __( 'H5', 'powerpack' ),
-					'h6'     => __( 'H6', 'powerpack' ),
-					'div'    => __( 'div', 'powerpack' ),
-					'span'   => __( 'span', 'powerpack' ),
-					'p'      => __( 'p', 'powerpack' ),
+					'h1'     => esc_html__( 'H1', 'powerpack' ),
+					'h2'     => esc_html__( 'H2', 'powerpack' ),
+					'h3'     => esc_html__( 'H3', 'powerpack' ),
+					'h4'     => esc_html__( 'H4', 'powerpack' ),
+					'h5'     => esc_html__( 'H5', 'powerpack' ),
+					'h6'     => esc_html__( 'H6', 'powerpack' ),
+					'div'    => esc_html__( 'div', 'powerpack' ),
+					'span'   => esc_html__( 'span', 'powerpack' ),
+					'p'      => esc_html__( 'p', 'powerpack' ),
 				],
 				'condition'             => [
 					'show_title'   => 'yes',
@@ -270,11 +270,11 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'randomize',
 			[
-				'label'                 => __( 'Randomize Logos', 'powerpack' ),
+				'label'                 => esc_html__( 'Randomize Logos', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -289,23 +289,23 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_carousel_settings',
 			[
-				'label'                 => __( 'Carousel Settings', 'powerpack' ),
+				'label'                 => esc_html__( 'Carousel Settings', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'carousel_effect',
 			[
-				'label'                 => __( 'Effect', 'powerpack' ),
-				'description'           => __( 'Sets transition effect', 'powerpack' ),
+				'label'                 => esc_html__( 'Effect', 'powerpack' ),
+				'description'           => esc_html__( 'Sets transition effect', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'slide',
 				'options'               => [
-					'slide'     => __( 'Slide', 'powerpack' ),
-					'fade'      => __( 'Fade', 'powerpack' ),
-					'cube'      => __( 'Cube', 'powerpack' ),
-					'coverflow' => __( 'Coverflow', 'powerpack' ),
-					'flip'      => __( 'Flip', 'powerpack' ),
+					'slide'     => esc_html__( 'Slide', 'powerpack' ),
+					'fade'      => esc_html__( 'Fade', 'powerpack' ),
+					'cube'      => esc_html__( 'Cube', 'powerpack' ),
+					'coverflow' => esc_html__( 'Coverflow', 'powerpack' ),
+					'flip'      => esc_html__( 'Flip', 'powerpack' ),
 				],
 			]
 		);
@@ -313,7 +313,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'items',
 			[
-				'label'                 => __( 'Visible Items', 'powerpack' ),
+				'label'                 => esc_html__( 'Visible Items', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [ 'size' => 3 ],
 				'tablet_default'        => [ 'size' => 2 ],
@@ -325,7 +325,6 @@ class Logo_Carousel extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => '',
 				'condition'             => [
 					'carousel_effect'   => 'slide',
 				],
@@ -336,7 +335,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'margin',
 			[
-				'label'                 => __( 'Items Gap', 'powerpack' ),
+				'label'                 => esc_html__( 'Items Gap', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [ 'size' => 10 ],
 				'tablet_default'        => [ 'size' => 10 ],
@@ -348,7 +347,6 @@ class Logo_Carousel extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => '',
 				'condition'             => [
 					'carousel_effect'   => 'slide',
 				],
@@ -358,8 +356,8 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'slider_speed',
 			[
-				'label'                 => __( 'Slider Speed', 'powerpack' ),
-				'description'           => __( 'Duration of transition between slides (in ms)', 'powerpack' ),
+				'label'                 => esc_html__( 'Slider Speed', 'powerpack' ),
+				'description'           => esc_html__( 'Duration of transition between slides (in ms)', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [ 'size' => 400 ],
 				'range'                 => [
@@ -369,7 +367,6 @@ class Logo_Carousel extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => '',
 				'separator'             => 'before',
 			]
 		);
@@ -377,11 +374,11 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'autoplay',
 			[
-				'label'                 => __( 'Autoplay', 'powerpack' ),
+				'label'                 => esc_html__( 'Autoplay', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 				'separator'             => 'before',
 			]
@@ -390,12 +387,12 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'pause_on_hover',
 			[
-				'label'                 => __( 'Pause on Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Pause on Hover', 'powerpack' ),
 				'description'           => '',
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 				'frontend_available'    => true,
 				'condition'             => [
@@ -407,12 +404,12 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'pause_on_interaction',
 			[
-				'label'                 => __( 'Pause on Interaction', 'powerpack' ),
-				'description'           => __( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
+				'label'                 => esc_html__( 'Pause on Interaction', 'powerpack' ),
+				'description'           => esc_html__( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 				'frontend_available'    => true,
 				'condition'             => [
@@ -424,7 +421,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'autoplay_speed',
 			[
-				'label'                 => __( 'Autoplay Delay', 'powerpack' ),
+				'label'                 => esc_html__( 'Autoplay Delay', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [ 'size' => 3000 ],
 				'range'                 => [
@@ -434,7 +431,6 @@ class Logo_Carousel extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => '',
 				'condition'         => [
 					'autoplay'      => 'yes',
 				],
@@ -444,11 +440,11 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'infinite_loop',
 			[
-				'label'                 => __( 'Infinite Loop', 'powerpack' ),
+				'label'                 => esc_html__( 'Infinite Loop', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -456,12 +452,12 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'grab_cursor',
 			[
-				'label'                 => __( 'Grab Cursor', 'powerpack' ),
-				'description'           => __( 'Shows grab cursor when you hover over the slider', 'powerpack' ),
+				'label'                 => esc_html__( 'Grab Cursor', 'powerpack' ),
+				'description'           => esc_html__( 'Shows grab cursor when you hover over the slider', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'          => __( 'Show', 'powerpack' ),
-				'label_off'         => __( 'Hide', 'powerpack' ),
+				'label_on'          => esc_html__( 'Show', 'powerpack' ),
+				'label_off'         => esc_html__( 'Hide', 'powerpack' ),
 				'return_value'      => 'yes',
 				'separator'             => 'before',
 			]
@@ -470,7 +466,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'navigation_heading',
 			[
-				'label'                 => __( 'Navigation', 'powerpack' ),
+				'label'                 => esc_html__( 'Navigation', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -479,11 +475,11 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows',
 			[
-				'label'                 => __( 'Arrows', 'powerpack' ),
+				'label'                 => esc_html__( 'Arrows', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -491,11 +487,11 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots',
 			[
-				'label'                 => __( 'Dots', 'powerpack' ),
+				'label'                 => esc_html__( 'Dots', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -503,12 +499,12 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'pagination_type',
 			[
-				'label'                 => __( 'Pagination Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Pagination Type', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'bullets',
 				'options'               => [
-					'bullets'       => __( 'Dots', 'powerpack' ),
-					'fraction'      => __( 'Fraction', 'powerpack' ),
+					'bullets'       => esc_html__( 'Dots', 'powerpack' ),
+					'fraction'      => esc_html__( 'Fraction', 'powerpack' ),
 				],
 				'condition'             => [
 					'dots'          => 'yes',
@@ -519,13 +515,13 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'direction',
 			[
-				'label'                 => __( 'Direction', 'powerpack' ),
+				'label'                 => esc_html__( 'Direction', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'left',
 				'options'               => array(
-					'auto'  => __( 'Auto', 'powerpack' ),
-					'left'  => __( 'Left', 'powerpack' ),
-					'right' => __( 'Right', 'powerpack' ),
+					'auto'  => esc_html__( 'Auto', 'powerpack' ),
+					'left'  => esc_html__( 'Left', 'powerpack' ),
+					'right' => esc_html__( 'Right', 'powerpack' ),
 				),
 				'separator'             => 'before',
 			]
@@ -549,7 +545,7 @@ class Logo_Carousel extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 
@@ -582,7 +578,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_logos_style',
 			[
-				'label'                 => __( 'Logos', 'powerpack' ),
+				'label'                 => esc_html__( 'Logos', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -591,7 +587,7 @@ class Logo_Carousel extends Powerpack_Widget {
 			Group_Control_Background::get_type(),
 			[
 				'name'                  => 'logo_bg',
-				'label'                 => __( 'Button Background', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Background', 'powerpack' ),
 				'types'                 => [ 'none', 'classic', 'gradient' ],
 				'selector'              => '{{WRAPPER}} .pp-lc-logo',
 			]
@@ -601,7 +597,7 @@ class Logo_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'logo_border',
-				'label'                 => __( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-lc-logo',
@@ -611,9 +607,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'logo_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-lc-logo, {{WRAPPER}} .pp-lc-logo img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -623,9 +619,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'logo_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-lc-logo' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -635,19 +631,19 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'logos_vertical_alignment',
 			array(
-				'label'     => __( 'Vertical Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Vertical Alignment', 'powerpack' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'flex-start' => array(
-						'title' => __( 'Top', 'powerpack' ),
+						'title' => esc_html__( 'Top', 'powerpack' ),
 						'icon'  => 'eicon-v-align-top',
 					),
 					'center'     => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-v-align-middle',
 					),
 					'flex-end'   => array(
-						'title' => __( 'Bottom', 'powerpack' ),
+						'title' => esc_html__( 'Bottom', 'powerpack' ),
 						'icon'  => 'eicon-v-align-bottom',
 					),
 				),
@@ -661,19 +657,19 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'logos_horizontal_alignment',
 			array(
-				'label'     => __( 'Horizontal Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Horizontal Alignment', 'powerpack' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left' => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
 					),
 					'center'     => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-h-align-center',
 					),
 					'right'   => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
 					),
 				),
@@ -689,18 +685,18 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_logos_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'grayscale_normal',
 			[
-				'label'                 => __( 'Grayscale', 'powerpack' ),
+				'label'                 => esc_html__( 'Grayscale', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'no',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -708,7 +704,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'opacity_normal',
 			[
-				'label'                 => __( 'Opacity', 'powerpack' ),
+				'label'                 => esc_html__( 'Opacity', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -779,13 +775,13 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'logos_object_fit',
 			[
-				'label'                 => __( 'Object Fit', 'powerpack' ),
+				'label'                 => esc_html__( 'Object Fit', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					''        => __( 'Default', 'powerpack' ),
-					'fill'    => __( 'Fill', 'powerpack' ),
-					'cover'   => __( 'Cover', 'powerpack' ),
-					'contain' => __( 'Contain', 'powerpack' ),
+					''        => esc_html__( 'Default', 'powerpack' ),
+					'fill'    => esc_html__( 'Fill', 'powerpack' ),
+					'cover'   => esc_html__( 'Cover', 'powerpack' ),
+					'contain' => esc_html__( 'Contain', 'powerpack' ),
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -802,18 +798,18 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_logos_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'grayscale_hover',
 			[
-				'label'                 => __( 'Grayscale', 'powerpack' ),
+				'label'                 => esc_html__( 'Grayscale', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'no',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -821,7 +817,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'opacity_hover',
 			[
-				'label'                 => __( 'Opacity', 'powerpack' ),
+				'label'                 => esc_html__( 'Opacity', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -850,7 +846,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_logo_title_style',
 			[
-				'label'                 => __( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'show_title'   => 'yes',
@@ -862,7 +858,7 @@ class Logo_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'title_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -876,7 +872,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'title_color',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -892,7 +888,7 @@ class Logo_Carousel extends Powerpack_Widget {
 			Group_Control_Background::get_type(),
 			[
 				'name'                  => 'logo_title_bg',
-				'label'                 => __( 'Background', 'powerpack' ),
+				'label'                 => esc_html__( 'Background', 'powerpack' ),
 				'types'                 => [ 'classic', 'gradient' ],
 				'exclude'               => [ 'image' ],
 				'selector'              => '{{WRAPPER}} .pp-logo-title',
@@ -905,9 +901,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'title_spacing',
 			[
-				'label'                 => __( 'Margin Top', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin Top', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ 'px' ],
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min' => 0,
@@ -926,9 +922,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'title_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-logo-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -948,7 +944,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_arrows_style',
 			[
-				'label'                 => __( 'Arrows', 'powerpack' ),
+				'label'                 => esc_html__( 'Arrows', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'arrows'        => 'yes',
@@ -959,7 +955,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'select_arrow',
 			array(
-				'label'                  => __( 'Choose Arrow', 'powerpack' ),
+				'label'                  => esc_html__( 'Choose Arrow', 'powerpack' ),
 				'type'                   => Controls_Manager::ICONS,
 				'fa4compatibility'       => 'arrow',
 				'label_block'            => false,
@@ -996,8 +992,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_size',
 			[
-				'label'                 => __( 'Arrows Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Arrows Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [ 'size' => '22' ],
 				'range'                 => [
 					'px' => [
@@ -1006,7 +1003,6 @@ class Logo_Carousel extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px' ],
 				'selectors'             => [
 					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
@@ -1016,8 +1012,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'left_arrow_position',
 			[
-				'label'                 => __( 'Align Left Arrow', 'powerpack' ),
+				'label'                 => esc_html__( 'Align Left Arrow', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min'   => -100,
@@ -1025,8 +1022,7 @@ class Logo_Carousel extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px' ],
-				'selectors'         => [
+				'selectors'             => [
 					'{{WRAPPER}} .elementor-swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -1035,8 +1031,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'right_arrow_position',
 			[
-				'label'                 => __( 'Align Right Arrow', 'powerpack' ),
+				'label'                 => esc_html__( 'Align Right Arrow', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min'   => -100,
@@ -1044,8 +1041,7 @@ class Logo_Carousel extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px' ],
-				'selectors'         => [
+				'selectors'             => [
 					'{{WRAPPER}} .elementor-swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -1056,14 +1052,14 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_arrows_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'arrows_bg_color_normal',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1075,7 +1071,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_color_normal',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1088,7 +1084,7 @@ class Logo_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'arrows_border_normal',
-				'label'                 => __( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev',
@@ -1098,9 +1094,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_border_radius_normal',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1112,14 +1108,14 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_arrows_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'arrows_bg_color_hover',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1131,7 +1127,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_color_hover',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1143,7 +1139,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_border_color_hover',
 			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1159,9 +1155,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .elementor-swiper-button-next, {{WRAPPER}} .elementor-swiper-button-prev' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1179,7 +1175,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_dots_style',
 			[
-				'label'                 => __( 'Pagination: Dots', 'powerpack' ),
+				'label'                 => esc_html__( 'Pagination: Dots', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'dots'              => 'yes',
@@ -1191,11 +1187,11 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_position',
 			[
-				'label'                 => __( 'Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Position', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'inside'     => __( 'Inside', 'powerpack' ),
-					'outside'    => __( 'Outside', 'powerpack' ),
+					'inside'     => esc_html__( 'Inside', 'powerpack' ),
+					'outside'    => esc_html__( 'Outside', 'powerpack' ),
 				],
 				'default'               => 'outside',
 				'condition'             => [
@@ -1208,8 +1204,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_size',
 			[
-				'label'                 => __( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min'   => 2,
@@ -1217,7 +1214,6 @@ class Logo_Carousel extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => '',
 				'selectors'             => [
 					'{{WRAPPER}} .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				],
@@ -1231,8 +1227,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_spacing',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min'   => 1,
@@ -1240,7 +1237,6 @@ class Logo_Carousel extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => '',
 				'selectors'             => [
 					'{{WRAPPER}} .swiper-pagination-bullet' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
 				],
@@ -1256,7 +1252,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_dots_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 				'condition'             => [
 					'dots'              => 'yes',
 					'pagination_type'   => 'bullets',
@@ -1267,7 +1263,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_color_normal',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1283,7 +1279,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'active_dot_color_normal',
 			[
-				'label'                 => __( 'Active Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Active Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1300,7 +1296,7 @@ class Logo_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'dots_border_normal',
-				'label'                 => __( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .swiper-pagination-bullet',
@@ -1314,9 +1310,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_border_radius_normal',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .swiper-pagination-bullet' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1332,7 +1328,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_dots_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
 				'condition'             => [
 					'dots'              => 'yes',
 					'pagination_type'   => 'bullets',
@@ -1343,7 +1339,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_color_hover',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1359,7 +1355,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_border_color_hover',
 			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1379,7 +1375,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'pagination_container_heading',
 			[
-				'label'                 => __( 'Pagination Container', 'powerpack' ),
+				'label'                 => esc_html__( 'Pagination Container', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -1392,9 +1388,9 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'allowed_dimensions'    => 'vertical',
 				'placeholder'           => [
 					'top'      => '',
@@ -1423,7 +1419,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_fraction_style',
 			[
-				'label'                 => __( 'Pagination: Fraction', 'powerpack' ),
+				'label'                 => esc_html__( 'Pagination: Fraction', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'dots'              => 'yes',
@@ -1435,7 +1431,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'fraction_text_color',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1452,7 +1448,7 @@ class Logo_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'fraction_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],

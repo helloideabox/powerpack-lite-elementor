@@ -67,22 +67,22 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_buttons',
 			array(
-				'label' => __( 'Buttons', 'powerpack' ),
+				'label' => esc_html__( 'Buttons', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'button_type',
 			array(
-				'label'   => __( 'Type', 'powerpack' ),
+				'label'   => esc_html__( 'Type', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'share',
 				'options' => array(
-					'share'   => __( 'Share', 'powerpack' ),
-					'follow'  => __( 'Follow', 'powerpack' ),
-					'mention' => __( 'Mention', 'powerpack' ),
-					'hashtag' => __( 'Hashtag', 'powerpack' ),
-					'message' => __( 'Message', 'powerpack' ),
+					'share'   => esc_html__( 'Share', 'powerpack' ),
+					'follow'  => esc_html__( 'Follow', 'powerpack' ),
+					'mention' => esc_html__( 'Mention', 'powerpack' ),
+					'hashtag' => esc_html__( 'Hashtag', 'powerpack' ),
+					'message' => esc_html__( 'Message', 'powerpack' ),
 				),
 			)
 		);
@@ -90,7 +90,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'profile',
 			array(
-				'label'     => __( 'Profile URL or Username', 'powerpack' ),
+				'label'     => esc_html__( 'Profile URL or Username', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'ai'        => [
@@ -105,7 +105,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'recipient_id',
 			array(
-				'label'     => __( 'Recipient ID', 'powerpack' ),
+				'label'     => esc_html__( 'Recipient ID', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'ai'        => [
@@ -120,7 +120,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'default_text',
 			array(
-				'label'     => __( 'Default Text', 'powerpack' ),
+				'label'     => esc_html__( 'Default Text', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'condition' => array(
@@ -132,7 +132,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'hashtag_url',
 			array(
-				'label'     => __( 'Hashtag URL or #hashtag', 'powerpack' ),
+				'label'     => esc_html__( 'Hashtag URL or #hashtag', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'ai'        => [
@@ -147,7 +147,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'via',
 			array(
-				'label'     => __( 'Via (twitter handler)', 'powerpack' ),
+				'label'     => esc_html__( 'Via (twitter handler)', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'ai'        => [
@@ -162,7 +162,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'share_text',
 			array(
-				'label'     => __( 'Custom Share Text', 'powerpack' ),
+				'label'     => esc_html__( 'Custom Share Text', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'condition' => array(
@@ -174,7 +174,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'share_url',
 			array(
-				'label'     => __( 'Custom Share URL', 'powerpack' ),
+				'label'     => esc_html__( 'Custom Share URL', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'ai'        => [
@@ -189,10 +189,10 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'show_count',
 			array(
-				'label'        => __( 'Show Count', 'powerpack' ),
+				'label'        => esc_html__( 'Show Count', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'default'      => 'no',
 				'condition'    => array(
@@ -204,10 +204,10 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'large_button',
 			array(
-				'label'        => __( 'Large Button', 'powerpack' ),
+				'label'        => esc_html__( 'Large Button', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'default'      => 'no',
 			)
@@ -226,7 +226,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 

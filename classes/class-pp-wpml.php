@@ -30,12 +30,12 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'form_title_text',
-					'type'        => __( 'Contact Form 7 - Title', 'powerpack' ),
+					'type'        => esc_html__( 'Contact Form 7 - Title', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'form_description_text',
-					'type'        => __( 'Contact Form 7 - Description', 'powerpack' ),
+					'type'        => esc_html__( 'Contact Form 7 - Description', 'powerpack' ),
 					'editor_type' => 'AREA'
 				],
 			],
@@ -45,7 +45,7 @@ class PP_Elements_WPML {
 			'fields'            => [
 				[
 					'field'       => 'heading',
-					'type'        => __( 'Content Ticker - Heading Text', 'powerpack' ),
+					'type'        => esc_html__( 'Content Ticker - Heading Text', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -56,17 +56,17 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'content',
-					'type'        => __( 'Content Reveal - Content Type = Content', 'powerpack' ),
+					'type'        => esc_html__( 'Content Reveal - Content Type = Content', 'powerpack' ),
 					'editor_type' => 'VISUAL',
 				],
 				[
 					'field'       => 'button_text_closed',
-					'type'        => __( 'Content Reveal - Content Unreveal Label', 'powerpack' ),
+					'type'        => esc_html__( 'Content Reveal - Content Unreveal Label', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'button_text_open',
-					'type'        => __( 'Content Reveal - Content Reveal Label', 'powerpack' ),
+					'type'        => esc_html__( 'Content Reveal - Content Reveal Label', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -76,32 +76,32 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'starting_number',
-					'type'        => __( 'Counter - Starting Number', 'powerpack' ),
+					'type'        => esc_html__( 'Counter - Starting Number', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'ending_number',
-					'type'        => __( 'Counter - Ending Number', 'powerpack' ),
+					'type'        => esc_html__( 'Counter - Ending Number', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'number_prefix',
-					'type'        => __( 'Counter - Number Prefix', 'powerpack' ),
+					'type'        => esc_html__( 'Counter - Number Prefix', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'number_suffix',
-					'type'        => __( 'Counter - Number Suffix', 'powerpack' ),
+					'type'        => esc_html__( 'Counter - Number Suffix', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'counter_title',
-					'type'        => __( 'Counter - Title', 'powerpack' ),
+					'type'        => esc_html__( 'Counter - Title', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'counter_subtitle',
-					'type'        => __( 'Counter - Subtitle', 'powerpack' ),
+					'type'        => esc_html__( 'Counter - Subtitle', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 			],
@@ -111,7 +111,7 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'divider_text',
-					'type'        => __( 'Divider - Divider Text', 'powerpack' ),
+					'type'        => esc_html__( 'Divider - Divider Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 			],
@@ -121,17 +121,17 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'first_text',
-					'type'        => __( 'Dual Heading - First Text', 'powerpack' ),
+					'type'        => esc_html__( 'Dual Heading - First Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'second_text',
-					'type'        => __( 'Dual Heading - Second Text', 'powerpack' ),
+					'type'        => esc_html__( 'Dual Heading - Second Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				'link' => [
 					'field'       => 'url',
-					'type'        => __( 'Dual Heading - Link', 'powerpack' ),
+					'type'        => esc_html__( 'Dual Heading - Link', 'powerpack' ),
 					'editor_type' => 'LINK',
 				],
 			],
@@ -141,12 +141,12 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'heading_text',
-					'type'        => __( 'Fancy Heading - Heading Text', 'powerpack' ),
+					'type'        => esc_html__( 'Fancy Heading - Heading Text', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				'link' => [
 					'field'       => 'url',
-					'type'        => __( 'Fancy Heading - Link', 'powerpack' ),
+					'type'        => esc_html__( 'Fancy Heading - Link', 'powerpack' ),
 					'editor_type' => 'LINK',
 				],
 			],
@@ -156,42 +156,42 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'icon_text',
-					'type'        => __( 'Flip Box - Front Icon Text', 'powerpack' ),
+					'type'        => esc_html__( 'Flip Box - Front Icon Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'title_front',
-					'type'        => __( 'Flip Box - Front Title', 'powerpack' ),
+					'type'        => esc_html__( 'Flip Box - Front Title', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'description_front',
-					'type'        => __( 'Flip Box - Front Description', 'powerpack' ),
+					'type'        => esc_html__( 'Flip Box - Front Description', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'icon_text_back',
-					'type'        => __( 'Flip Box - Back Icon Text', 'powerpack' ),
+					'type'        => esc_html__( 'Flip Box - Back Icon Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'title_back',
-					'type'        => __( 'Flip Box - Back Title', 'powerpack' ),
+					'type'        => esc_html__( 'Flip Box - Back Title', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'description_back',
-					'type'        => __( 'Flip Box - Back Description', 'powerpack' ),
+					'type'        => esc_html__( 'Flip Box - Back Description', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				'link' => [
 					'field'       => 'url',
-					'type'        => __( 'Flip Box - Link', 'powerpack' ),
+					'type'        => esc_html__( 'Flip Box - Link', 'powerpack' ),
 					'editor_type' => 'LINK',
 				],
 				[
 					'field'       => 'flipbox_button_text',
-					'type'        => __( 'Flip Box - Button Text', 'powerpack' ),
+					'type'        => esc_html__( 'Flip Box - Button Text', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -201,12 +201,12 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'form_title_custom',
-					'type'        => __( 'Fluent Forms - Title', 'powerpack' ),
+					'type'        => esc_html__( 'Fluent Forms - Title', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'form_description_custom',
-					'type'        => __( 'Fluent Forms - Description', 'powerpack' ),
+					'type'        => esc_html__( 'Fluent Forms - Description', 'powerpack' ),
 					'editor_type' => 'AREA',
 				],
 			],
@@ -216,12 +216,12 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'form_title_custom',
-					'type'        => __( 'Formidable Forms - Title', 'powerpack' ),
+					'type'        => esc_html__( 'Formidable Forms - Title', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'form_description_custom',
-					'type'        => __( 'Formidable Forms - Description', 'powerpack' ),
+					'type'        => esc_html__( 'Formidable Forms - Description', 'powerpack' ),
 					'editor_type' => 'AREA',
 				],
 			],
@@ -231,12 +231,12 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'form_title_custom',
-					'type'        => __( 'Gravity Forms - Title', 'powerpack' ),
+					'type'        => esc_html__( 'Gravity Forms - Title', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'form_description_custom',
-					'type'        => __( 'Gravity Forms - Description', 'powerpack' ),
+					'type'        => esc_html__( 'Gravity Forms - Description', 'powerpack' ),
 					'editor_type' => 'AREA'
 				],
 			],
@@ -261,12 +261,12 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'before_label',
-					'type'        => __( 'Image Comparision - Before Label', 'powerpack' ),
+					'type'        => esc_html__( 'Image Comparision - Before Label', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'after_label',
-					'type'        => __( 'Image Comparision - After Label', 'powerpack' ),
+					'type'        => esc_html__( 'Image Comparision - After Label', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				
@@ -277,32 +277,32 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'icon_text',
-					'type'        => __( 'Info Box - Icon Text', 'powerpack' ),
+					'type'        => esc_html__( 'Info Box - Icon Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'heading',
-					'type'        => __( 'Info Box - Title', 'powerpack' ),
+					'type'        => esc_html__( 'Info Box - Title', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'sub_heading',
-					'type'        => __( 'Info Box - Subtitle', 'powerpack' ),
+					'type'        => esc_html__( 'Info Box - Subtitle', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'description',
-					'type'        => __( 'Info Box - Description', 'powerpack' ),
+					'type'        => esc_html__( 'Info Box - Description', 'powerpack' ),
 					'editor_type' => 'AREA'
 				],
 				'link' => [
 					'field'       => 'url',
-					'type'        => __( 'Info Box - Link', 'powerpack' ),
+					'type'        => esc_html__( 'Info Box - Link', 'powerpack' ),
 					'editor_type' => 'LINK'
 				],
 				[
 					'field'       => 'button_text',
-					'type'        => __( 'Info Box - Button Text', 'powerpack' ),
+					'type'        => esc_html__( 'Info Box - Button Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				
@@ -323,37 +323,37 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'icon_text',
-					'type'        => __( 'Info Table - Icon Text', 'powerpack' ),
+					'type'        => esc_html__( 'Info Table - Icon Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'heading',
-					'type'        => __( 'Info Table - Title', 'powerpack' ),
+					'type'        => esc_html__( 'Info Table - Title', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'sub_heading',
-					'type'        => __( 'Info Table - Subtitle', 'powerpack' ),
+					'type'        => esc_html__( 'Info Table - Subtitle', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'description',
-					'type'        => __( 'Info Table - Description', 'powerpack' ),
+					'type'        => esc_html__( 'Info Table - Description', 'powerpack' ),
 					'editor_type' => 'AREA'
 				],
 				[
 					'field'       => 'sale_badge_text',
-					'type'        => __( 'Info Table - Sale Badge Text', 'powerpack' ),
+					'type'        => esc_html__( 'Info Table - Sale Badge Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				'link' => [
 					'field'       => 'url',
-					'type'        => __( 'Info Table - Link', 'powerpack' ),
+					'type'        => esc_html__( 'Info Table - Link', 'powerpack' ),
 					'editor_type' => 'LINK'
 				],
 				[
 					'field'       => 'button_text',
-					'type'        => __( 'Info Table - Button Text', 'powerpack' ),
+					'type'        => esc_html__( 'Info Table - Button Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				
@@ -364,17 +364,17 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'insta_link_title',
-					'type'        => __( 'Instafeed - Link Title', 'powerpack' ),
+					'type'        => esc_html__( 'Instafeed - Link Title', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				'insta_profile_url' => [
 					'field'       => 'url',
-					'type'        => __( 'Instafeed - Instagram Profile URL', 'powerpack' ),
+					'type'        => esc_html__( 'Instafeed - Instagram Profile URL', 'powerpack' ),
 					'editor_type' => 'LINK'
 				],
 				[
 					'field'       => 'load_more_button_text',
-					'type'        => __( 'Instafeed - Load More Button Text', 'powerpack' ),
+					'type'        => esc_html__( 'Instafeed - Load More Button Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 			],
@@ -384,17 +384,17 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'text',
-					'type'        => __( 'Link Effects - Text', 'powerpack' ),
+					'type'        => esc_html__( 'Link Effects - Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'secondary_text',
-					'type'        => __( 'Link Effects - Secondary Text', 'powerpack' ),
+					'type'        => esc_html__( 'Link Effects - Secondary Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				'link' => [
 					'field'       => 'url',
-					'type'        => __( 'Link Effects - Link', 'powerpack' ),
+					'type'        => esc_html__( 'Link Effects - Link', 'powerpack' ),
 					'editor_type' => 'LINK'
 				],
 			],
@@ -414,12 +414,12 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'form_title_custom',
-					'type'        => __( 'Ninja Forms - Title', 'powerpack' ),
+					'type'        => esc_html__( 'Ninja Forms - Title', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'form_description_custom',
-					'type'        => __( 'Ninja Forms - Description', 'powerpack' ),
+					'type'        => esc_html__( 'Ninja Forms - Description', 'powerpack' ),
 					'editor_type' => 'AREA'
 				],
 			],
@@ -429,47 +429,47 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'query_id',
-					'type'        => __( 'Posts - Query Id', 'powerpack' ),
+					'type'        => esc_html__( 'Posts - Query Id', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'nothing_found_message',
-					'type'        => __( 'Posts - Nothing Found Message', 'powerpack' ),
+					'type'        => esc_html__( 'Posts - Nothing Found Message', 'powerpack' ),
 					'editor_type' => 'AREA',
 				],
 				[
 					'field'       => 'classic_post_terms_separator',
-					'type'        => __( 'Posts: Classic - Terms Separator', 'powerpack' ),
+					'type'        => esc_html__( 'Posts: Classic - Terms Separator', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'classic_post_meta_separator',
-					'type'        => __( 'Posts: Classic - Post Meta Separator', 'powerpack' ),
+					'type'        => esc_html__( 'Posts: Classic - Post Meta Separator', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'classic_author_prefix',
-					'type'        => __( 'Posts: Classic - Author Prefix', 'powerpack' ),
+					'type'        => esc_html__( 'Posts: Classic - Author Prefix', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'classic_date_prefix',
-					'type'        => __( 'Posts: Classic - Date Prefix', 'powerpack' ),
+					'type'        => esc_html__( 'Posts: Classic - Date Prefix', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'classic_button_text',
-					'type'        => __( 'Posts: Classic - Read More Button Text', 'powerpack' ),
+					'type'        => esc_html__( 'Posts: Classic - Read More Button Text', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'classic_pagination_prev_label',
-					'type'        => __( 'Posts: Classic - Pagination Prev Label', 'powerpack' ),
+					'type'        => esc_html__( 'Posts: Classic - Pagination Prev Label', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'classic_pagination_next_label',
-					'type'        => __( 'Posts: Classic - Pagination Next Label', 'powerpack' ),
+					'type'        => esc_html__( 'Posts: Classic - Pagination Next Label', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -484,47 +484,47 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'table_title',
-					'type'        => __( 'Pricing Table - Title', 'powerpack' ),
+					'type'        => esc_html__( 'Pricing Table - Title', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'table_subtitle',
-					'type'        => __( 'Pricing Table - Subtitle', 'powerpack' ),
+					'type'        => esc_html__( 'Pricing Table - Subtitle', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'table_price',
-					'type'        => __( 'Pricing Table - Price', 'powerpack' ),
+					'type'        => esc_html__( 'Pricing Table - Price', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'table_original_price',
-					'type'        => __( 'Pricing Table - Origibal Price', 'powerpack' ),
+					'type'        => esc_html__( 'Pricing Table - Origibal Price', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'table_duration',
-					'type'        => __( 'Pricing Table - Duration', 'powerpack' ),
+					'type'        => esc_html__( 'Pricing Table - Duration', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'ribbon_title',
-					'type'        => __( 'Pricing Table - Ribbon Title', 'powerpack' ),
+					'type'        => esc_html__( 'Pricing Table - Ribbon Title', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'table_button_text',
-					'type'        => __( 'Pricing Table - Button Text', 'powerpack' ),
+					'type'        => esc_html__( 'Pricing Table - Button Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				'link' => [
 					'field'       => 'url',
-					'type'        => __( 'Pricing Table - Link', 'powerpack' ),
+					'type'        => esc_html__( 'Pricing Table - Link', 'powerpack' ),
 					'editor_type' => 'LINK'
 				],
 				[
 					'field'       => 'table_additional_info',
-					'type'        => __( 'Pricing Table - Additional Info', 'powerpack' ),
+					'type'        => esc_html__( 'Pricing Table - Additional Info', 'powerpack' ),
 					'editor_type' => 'AREA'
 				],
 			],
@@ -535,27 +535,27 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'heading',
-					'type'        => __( 'Promo Box - Heading', 'powerpack' ),
+					'type'        => esc_html__( 'Promo Box - Heading', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'sub_heading',
-					'type'        => __( 'Promo Box - Sub Heading', 'powerpack' ),
+					'type'        => esc_html__( 'Promo Box - Sub Heading', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'content',
-					'type'        => __( 'Promo Box - Description', 'powerpack' ),
+					'type'        => esc_html__( 'Promo Box - Description', 'powerpack' ),
 					'editor_type' => 'AREA'
 				],
 				[
 					'field'       => 'button_text',
-					'type'        => __( 'Promo Box - Button Text', 'powerpack' ),
+					'type'        => esc_html__( 'Promo Box - Button Text', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				'link' => [
 					'field'       => 'url',
-					'type'        => __( 'Promo Box - link', 'powerpack' ),
+					'type'        => esc_html__( 'Promo Box - link', 'powerpack' ),
 					'editor_type' => 'LINK'
 				],
 			],
@@ -565,7 +565,7 @@ class PP_Elements_WPML {
 			'fields'     => [
 				'link' => [
 					'field'       => 'url',
-					'type'        => __( 'Scroll Image - URL', 'powerpack' ),
+					'type'        => esc_html__( 'Scroll Image - URL', 'powerpack' ),
 					'editor_type' => 'LINK',
 				],
 			],
@@ -575,7 +575,7 @@ class PP_Elements_WPML {
 			'fields'     => [
 				'link' => [
 					'field'       => 'url',
-					'type'        => __( 'Random Image - URL', 'powerpack' ),
+					'type'        => esc_html__( 'Random Image - URL', 'powerpack' ),
 					'editor_type' => 'LINK',
 				],
 			],
@@ -585,22 +585,22 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'team_member_name',
-					'type'        => __( 'Team Member - Name', 'powerpack' ),
+					'type'        => esc_html__( 'Team Member - Name', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'team_member_position',
-					'type'        => __( 'Team Member - Position', 'powerpack' ),
+					'type'        => esc_html__( 'Team Member - Position', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'team_member_description',
-					'type'        => __( 'Team Member - Description', 'powerpack' ),
+					'type'        => esc_html__( 'Team Member - Description', 'powerpack' ),
 					'editor_type' => 'VISUAL'
 				],
 				'link' => [
 					'field'       => 'url',
-					'type'        => __( 'Team Member - URL', 'powerpack' ),
+					'type'        => esc_html__( 'Team Member - URL', 'powerpack' ),
 					'editor_type' => 'LINK',
 				],
 			],
@@ -616,37 +616,37 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'profile',
-					'type'        => __( 'Twitter Button - Profile URL or Username', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Button - Profile URL or Username', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'recipient_id',
-					'type'        => __( 'Twitter Button - Recipient Id', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Button - Recipient Id', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'default_text',
-					'type'        => __( 'Twitter Button - Default Text', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Button - Default Text', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'hashtag_url',
-					'type'        => __( 'Twitter Button - Hashtag URL or #hashtag', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Button - Hashtag URL or #hashtag', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'via',
-					'type'        => __( 'Twitter Button - Via (twitter handler)', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Button - Via (twitter handler)', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'share_text',
-					'type'        => __( 'Twitter Button - Custom Share Text', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Button - Custom Share Text', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'share_url',
-					'type'        => __( 'Twitter Button - Custom Share URL', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Button - Custom Share URL', 'powerpack' ),
 					'editor_type' => 'LINK',
 				],
 			],
@@ -656,12 +656,12 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'url',
-					'type'        => __( 'Twitter Grid - Collection URL', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Grid - Collection URL', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'tweet_limit',
-					'type'        => __( 'Twitter Grid - Tweet Limit', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Grid - Tweet Limit', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -671,12 +671,12 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'username',
-					'type'        => __( 'Twitter Timeline - Username', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Timeline - Username', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'tweet_limit',
-					'type'        => __( 'Twitter Timeline - Tweet Limit', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Timeline - Tweet Limit', 'powerpack' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -686,7 +686,7 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'tweet_url',
-					'type'        => __( 'Twitter Tweet - Tweet URL', 'powerpack' ),
+					'type'        => esc_html__( 'Twitter Tweet - Tweet URL', 'powerpack' ),
 					'editor_type' => 'LINK',
 				],
 			],
@@ -696,12 +696,12 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'form_title_custom',
-					'type'        => __( 'WPForms - Title', 'powerpack' ),
+					'type'        => esc_html__( 'WPForms - Title', 'powerpack' ),
 					'editor_type' => 'LINE'
 				],
 				[
 					'field'       => 'form_description_custom',
-					'type'        => __( 'WPForms - Description', 'powerpack' ),
+					'type'        => esc_html__( 'WPForms - Description', 'powerpack' ),
 					'editor_type' => 'AREA'
 				],
 			],

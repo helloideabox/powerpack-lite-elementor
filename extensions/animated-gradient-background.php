@@ -49,12 +49,23 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 	}
 
 	/**
+	 * A list of styles that the extension is depended in
+	 *
+	 * @since x.x.x
+	 **/
+	public function get_style_depends() {
+		return array(
+			'pp-extensions',
+		);
+	}
+
+	/**
 	 * The description of the current extension
 	 *
-	 * @since 2.-.0
+	 * @since 2.6.0
 	 **/
 	public static function get_description() {
-		return __( 'Add Animated Gradient Background to sections allowing you to show gradient Animated background for sections.', 'powerpack' );
+		return esc_html__( 'Add Animated Gradient Background to sections allowing you to show gradient Animated background for sections.', 'powerpack' );
 	}
 
 	/**
@@ -95,7 +106,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 			$section_name,
 			array(
 				'tab'   => Controls_Manager::TAB_STYLE,
-				'label' => __( 'PowerPack Background', 'powerpack' ),
+				'label' => esc_html__( 'PowerPack Background', 'powerpack' ),
 			)
 		);
 
@@ -142,13 +153,23 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 	private function add_controls( $element, $args ) {
 
 		$element->add_control(
+			'pp_animated_gradient_bg_heading',
+			array(
+				'label'              => esc_html__( 'Animated Gradient Background', 'powerpack' ),
+				'type'               => Controls_Manager::HEADING,
+				'default'            => '',
+				'separator'          => 'before',
+			)
+		);
+
+		$element->add_control(
 			'pp_animated_gradient_bg_enable',
 			[
 				'type'         => Controls_Manager::SWITCHER,
-				'label'        => __( 'Enable Animated Gradient Background', 'powerpack' ),
+				'label'        => esc_html__( 'Enable Animated Gradient Background', 'powerpack' ),
 				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'prefix_class' => 'pp-animated-gradient-bg-',
 				'render_type'  => 'template',
@@ -158,7 +179,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		$element->add_control(
 			'pp_animated_gradient_bg_angle',
 			[
-				'label'      => __( 'Angle', 'powerpack' ),
+				'label'      => esc_html__( 'Angle', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'deg' ],
 				'range'      => [
@@ -186,7 +207,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		$repeater->add_control(
 			'pp_animated_gradient_bg_color',
 			[
-				'label' => __( 'Add Color', 'powerpack' ),
+				'label' => esc_html__( 'Add Color', 'powerpack' ),
 				'type'  => Controls_Manager::COLOR,
 			]
 		);
@@ -194,7 +215,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		$element->add_control(
 			'pp_animated_gradient_bg_color_list',
 			[
-				'label'       => __( 'Color', 'powerpack' ),
+				'label'       => esc_html__( 'Color', 'powerpack' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'title_field' => 'Color {{{pp_animated_gradient_bg_color}}}',
@@ -308,51 +329,18 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		?>
 		<# if ( 'yes' === settings.pp_animated_gradient_bg_enable ) {
 
-			// Function to validate color input in hex, rgb, or rgba format
-			function isValidColor(color) {
-				// Regular expression for hex color format
-				const hexRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$/;
-
-				// Regular expression for RGB color format
-				const rgbRegex = /^rgb\(\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*,\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*,\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*\)$/;
-
-				// Regular expression for RGBA color format
-				const rgbaRegex = /^rgba\(\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*,\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*,\s*([01]?\d\d?|2[0-4]\d|25[0-5])\s*,\s*(0|1|0?\.\d+)\s*\)$/;
-
-				// Check if the color matches any of the formats
-				if ( hexRegex.test(color) ) {
-					return true;
-				} else if ( rgbRegex.test(color) ) {
-					return true;
-				} else if ( rgbaRegex.test(color) ) {
-					return true;
-				} else {
-					return false;
-				}
-			}
-
-			var colorList = settings.pp_animated_gradient_bg_color_list;
-			var angle = settings.pp_animated_gradient_bg_angle.size + 'deg';
-
-			view.addRenderAttribute( 'animated_bg', 'class', 'pp-animated-gradient-bg' );
-			view.addRenderAttribute( 'animated_bg', 'data-angle', angle );
-
+			color_list = settings.pp_animated_gradient_bg_color_list;
+			angle = settings.pp_animated_gradient_bg_angle.size + 'deg';
 			var color = [];
 			var i = 0;
-
-			_.each( colorList, function( color_list ) {
-				if ( isValidColor( color_list.pp_animated_gradient_bg_color ) ) {
-					color[i] = elementor.helpers.sanitize( color_list.pp_animated_gradient_bg_color );
-				}
-				i = i+1;
+			_.each(color_list , function(color_list){
+					color[i] = color_list.pp_animated_gradient_bg_color;
+					i = i+1;
 			});
-
+			view.addRenderAttribute('_wrapper', 'data-color', color);
 			var gradientColorEditor = 'linear-gradient( ' + angle + ',' + color + ' )';
-
-			view.addRenderAttribute('animated_bg', 'data-color', _.escape( color ));
-			view.addRenderAttribute('animated_bg', 'style', "background-image: " + gradientColorEditor);
 			#>
-			<div {{{ view.getRenderAttributeString( 'animated_bg' ) }}}></div>
+			<div class="pp-animated-gradient-bg" data-angle="{{{ angle }}}deg" data-color="{{{ color }}}" style="background-image : {{{ gradientColorEditor }}}"></div>
 		<# } #>
 		<?php
 		$animated_gradient_content = ob_get_contents();

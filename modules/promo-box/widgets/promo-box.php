@@ -129,39 +129,39 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label'                 => __( 'Content', 'powerpack' ),
+				'label'                 => esc_html__( 'Content', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'heading',
 			[
-				'label'                 => __( 'Heading', 'powerpack' ),
+				'label'                 => esc_html__( 'Heading', 'powerpack' ),
 				'label_block'           => true,
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'default'               => __( 'Heading', 'powerpack' ),
+				'default'               => esc_html__( 'Heading', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'heading_html_tag',
 			[
-				'label'                => __( 'Heading HTML Tag', 'powerpack' ),
+				'label'                => esc_html__( 'Heading HTML Tag', 'powerpack' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'h4',
 				'options'              => [
-					'h1'     => __( 'H1', 'powerpack' ),
-					'h2'     => __( 'H2', 'powerpack' ),
-					'h3'     => __( 'H3', 'powerpack' ),
-					'h4'     => __( 'H4', 'powerpack' ),
-					'h5'     => __( 'H5', 'powerpack' ),
-					'h6'     => __( 'H6', 'powerpack' ),
-					'div'    => __( 'div', 'powerpack' ),
-					'span'   => __( 'span', 'powerpack' ),
-					'p'      => __( 'p', 'powerpack' ),
+					'h1'     => esc_html__( 'H1', 'powerpack' ),
+					'h2'     => esc_html__( 'H2', 'powerpack' ),
+					'h3'     => esc_html__( 'H3', 'powerpack' ),
+					'h4'     => esc_html__( 'H4', 'powerpack' ),
+					'h5'     => esc_html__( 'H5', 'powerpack' ),
+					'h6'     => esc_html__( 'H6', 'powerpack' ),
+					'div'    => esc_html__( 'div', 'powerpack' ),
+					'span'   => esc_html__( 'span', 'powerpack' ),
+					'p'      => esc_html__( 'p', 'powerpack' ),
 				],
 			]
 		);
@@ -169,11 +169,11 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_heading_switch',
 			[
-				'label'                 => __( 'Heading Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Heading Divider', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => __( 'On', 'powerpack' ),
-				'label_off'             => __( 'Off', 'powerpack' ),
+				'label_on'              => esc_html__( 'On', 'powerpack' ),
+				'label_off'             => esc_html__( 'Off', 'powerpack' ),
 				'return_value'          => 'yes',
 				'condition'             => [
 					'heading!' => '',
@@ -184,32 +184,32 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'sub_heading',
 			[
-				'label'                 => __( 'Sub Heading', 'powerpack' ),
+				'label'                 => esc_html__( 'Sub Heading', 'powerpack' ),
 				'label_block'           => true,
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'default'               => __( 'Sub heading', 'powerpack' ),
+				'default'               => esc_html__( 'Sub heading', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'sub_heading_html_tag',
 			[
-				'label'                => __( 'Sub Heading HTML Tag', 'powerpack' ),
+				'label'                => esc_html__( 'Sub Heading HTML Tag', 'powerpack' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'h5',
 				'options'              => [
-					'h1'     => __( 'H1', 'powerpack' ),
-					'h2'     => __( 'H2', 'powerpack' ),
-					'h3'     => __( 'H3', 'powerpack' ),
-					'h4'     => __( 'H4', 'powerpack' ),
-					'h5'     => __( 'H5', 'powerpack' ),
-					'h6'     => __( 'H6', 'powerpack' ),
-					'div'    => __( 'div', 'powerpack' ),
-					'span'   => __( 'span', 'powerpack' ),
-					'p'      => __( 'p', 'powerpack' ),
+					'h1'     => esc_html__( 'H1', 'powerpack' ),
+					'h2'     => esc_html__( 'H2', 'powerpack' ),
+					'h3'     => esc_html__( 'H3', 'powerpack' ),
+					'h4'     => esc_html__( 'H4', 'powerpack' ),
+					'h5'     => esc_html__( 'H5', 'powerpack' ),
+					'h6'     => esc_html__( 'H6', 'powerpack' ),
+					'div'    => esc_html__( 'div', 'powerpack' ),
+					'span'   => esc_html__( 'span', 'powerpack' ),
+					'p'      => esc_html__( 'p', 'powerpack' ),
 				],
 			]
 		);
@@ -217,11 +217,11 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_subheading_switch',
 			[
-				'label'                 => __( 'Sub Heading Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Sub Heading Divider', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => __( 'On', 'powerpack' ),
-				'label_off'             => __( 'Off', 'powerpack' ),
+				'label_on'              => esc_html__( 'On', 'powerpack' ),
+				'label_off'             => esc_html__( 'Off', 'powerpack' ),
 				'return_value'          => 'yes',
 				'condition'             => [
 					'sub_heading!' => '',
@@ -232,12 +232,12 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'content',
 			[
-				'label'                 => __( 'Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXTAREA,
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'default'               => __( 'Enter promo box description', 'powerpack' ),
+				'default'               => esc_html__( 'Enter promo box description', 'powerpack' ),
 			]
 		);
 
@@ -251,18 +251,18 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_promo_box_icon',
 			[
-				'label'                 => __( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_switch',
 			[
-				'label'                 => __( 'Show Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Show Icon', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -270,12 +270,12 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'icon_type',
 			[
-				'label'                 => __( 'Icon Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Type', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'icon',
 				'options'               => [
-					'icon'      => __( 'Icon', 'powerpack' ),
-					'image'     => __( 'Image', 'powerpack' ),
+					'icon'      => esc_html__( 'Icon', 'powerpack' ),
+					'image'     => esc_html__( 'Image', 'powerpack' ),
 				],
 				'condition'             => [
 					'icon_switch'   => 'yes',
@@ -286,7 +286,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'selected_icon',
 			[
-				'label'                 => __( 'Choose', 'powerpack' ) . ' ' . __( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Choose', 'powerpack' ) . ' ' . esc_html__( 'Icon', 'powerpack' ),
 				'type'                  => Controls_Manager::ICONS,
 				'fa4compatibility'      => 'icon',
 				'default'               => [
@@ -303,7 +303,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'icon_image',
 			[
-				'label'                 => __( 'Image', 'powerpack' ),
+				'label'                 => esc_html__( 'Image', 'powerpack' ),
 				'type'                  => Controls_Manager::MEDIA,
 				'default'   => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -331,12 +331,12 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'icon_position',
 			[
-				'label'                 => __( 'Icon Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Position', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'above-title',
 				'options'               => [
-					'above-title'      => __( 'Above Title', 'powerpack' ),
-					'below-title'      => __( 'Below Title', 'powerpack' ),
+					'above-title'      => esc_html__( 'Above Title', 'powerpack' ),
+					'below-title'      => esc_html__( 'Below Title', 'powerpack' ),
 				],
 				'condition'             => [
 					'icon_switch'   => 'yes',
@@ -354,18 +354,18 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_promo_box_button',
 			[
-				'label'                 => __( 'Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Button', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_switch',
 			[
-				'label'                 => __( 'Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Button', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => __( 'On', 'powerpack' ),
-				'label_off'             => __( 'Off', 'powerpack' ),
+				'label_on'              => esc_html__( 'On', 'powerpack' ),
+				'label_off'             => esc_html__( 'Off', 'powerpack' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -373,12 +373,12 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'button_text',
 			[
-				'label'                 => __( 'Button Text', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Text', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'default'               => __( 'Get Started', 'powerpack' ),
+				'default'               => esc_html__( 'Get Started', 'powerpack' ),
 				'condition'             => [
 					'button_switch' => 'yes',
 				],
@@ -388,7 +388,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'link',
 			[
-				'label'                 => __( 'Link', 'powerpack' ),
+				'label'                 => esc_html__( 'Link', 'powerpack' ),
 				'type'                  => Controls_Manager::URL,
 				'label_block'           => true,
 				'dynamic'               => [
@@ -420,7 +420,7 @@ class Promo_Box extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 
@@ -453,7 +453,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_promo_box_style',
 			[
-				'label'                 => __( 'Promo Box', 'powerpack' ),
+				'label'                 => esc_html__( 'Promo Box', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -462,7 +462,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Background::get_type(),
 			[
 				'name'                  => 'box_bg',
-				'label'                 => __( 'Background', 'powerpack' ),
+				'label'                 => esc_html__( 'Background', 'powerpack' ),
 				'types'                 => [ 'classic', 'gradient' ],
 				'selector'              => '{{WRAPPER}} .pp-promo-box-bg',
 			]
@@ -471,8 +471,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'box_height',
 			[
-				'label'                 => __( 'Height', 'powerpack' ),
+				'label'                 => esc_html__( 'Height', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'vh', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min'   => 50,
@@ -480,7 +481,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box' => 'height: {{SIZE}}{{UNIT}}',
 				],
@@ -492,7 +492,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'promo_box_border',
-				'label'                 => __( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-promo-box-wrap',
@@ -502,9 +502,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'promo_box_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box, {{WRAPPER}} .pp-promo-box-wrap, {{WRAPPER}} .pp-promo-box .pp-promo-box-banner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -514,9 +514,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'box_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -533,7 +533,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_promo_overlay_style',
 			[
-				'label'                 => __( 'Overlay', 'powerpack' ),
+				'label'                 => esc_html__( 'Overlay', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -541,11 +541,11 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'overlay_switch',
 			[
-				'label'                 => __( 'Overlay', 'powerpack' ),
+				'label'                 => esc_html__( 'Overlay', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => __( 'On', 'powerpack' ),
-				'label_off'             => __( 'Off', 'powerpack' ),
+				'label_on'              => esc_html__( 'On', 'powerpack' ),
+				'label_off'             => esc_html__( 'Off', 'powerpack' ),
 				'return_value'          => 'yes',
 				'separator'             => 'before',
 			]
@@ -555,7 +555,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Background::get_type(),
 			[
 				'name'                  => 'overlay_color',
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'types'                 => [ 'classic', 'gradient' ],
 				'selector'              => '{{WRAPPER}} .pp-promo-box-overlay',
 				'condition'             => [
@@ -574,7 +574,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_promo_content_style',
 			[
-				'label'                 => __( 'Content', 'powerpack' ),
+				'label'                 => esc_html__( 'Content', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -582,20 +582,20 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'align',
 			[
-				'label'                 => __( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -609,21 +609,21 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'vertical_align',
 			[
-				'label'                 => __( 'Vertical Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Vertical Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'default'               => 'middle',
 				'options'               => [
 					'top'          => [
-						'title'    => __( 'Top', 'powerpack' ),
+						'title'    => esc_html__( 'Top', 'powerpack' ),
 						'icon'     => 'eicon-v-align-top',
 					],
 					'middle'       => [
-						'title'    => __( 'Center', 'powerpack' ),
+						'title'    => esc_html__( 'Center', 'powerpack' ),
 						'icon'     => 'eicon-v-align-middle',
 					],
 					'bottom'       => [
-						'title'    => __( 'Bottom', 'powerpack' ),
+						'title'    => esc_html__( 'Bottom', 'powerpack' ),
 						'icon'     => 'eicon-v-align-bottom',
 					],
 				],
@@ -637,7 +637,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Background::get_type(),
 			[
 				'name'                  => 'content_bg',
-				'label'                 => __( 'Background', 'powerpack' ),
+				'label'                 => esc_html__( 'Background', 'powerpack' ),
 				'types'                 => [ 'classic', 'gradient' ],
 				'selector'              => '{{WRAPPER}} .pp-promo-box-inner',
 				'separator'             => 'before',
@@ -648,7 +648,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'content_border',
-				'label'                 => __( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-promo-box-inner',
@@ -659,9 +659,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'content_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -671,8 +671,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_width',
 			[
-				'label'                 => __( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min'   => 0,
@@ -685,7 +686,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-wrap' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -696,9 +696,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -715,7 +715,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_promo_box_icon_style',
 			[
-				'label'                 => __( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'icon_switch'   => 'yes',
@@ -726,8 +726,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label'                 => __( 'Icon Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'unit' => 'px',
 					'size' => 30,
@@ -739,7 +740,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', 'em' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-icon' => 'font-size: {{SIZE}}{{UNIT}}',
 				],
@@ -753,8 +753,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_img_width',
 			[
-				'label'                 => __( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min'   => 1,
@@ -767,7 +768,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-icon img' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -783,14 +783,14 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_icon_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_color_normal',
 			[
-				'label'                 => __( 'Icon Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -807,7 +807,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'icon_bg_color_normal',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -819,9 +819,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -832,7 +832,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'icon_border',
-				'label'                 => __( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-promo-box-icon',
@@ -842,9 +842,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-icon, {{WRAPPER}} .pp-promo-box-icon img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -854,9 +854,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_margin',
 			[
-				'label'                 => __( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'placeholder'           => [
 					'top'      => '',
 					'right'    => '',
@@ -874,14 +874,14 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_icon_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_color_hover',
 			[
-				'label'                 => __( 'Icon Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -898,7 +898,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'icon_bg_color_hover',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -910,7 +910,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'hover_animation_icon',
 			[
-				'label'                 => __( 'Icon Animation', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Animation', 'powerpack' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -929,7 +929,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_promo_box_heading_style',
 			[
-				'label'                 => __( 'Heading', 'powerpack' ),
+				'label'                 => esc_html__( 'Heading', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -937,7 +937,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'title_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -950,7 +950,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'title_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-promo-box-title',
 			]
 		);
@@ -958,8 +958,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'title_margin',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size'  => 20,
 				],
@@ -975,7 +976,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-title' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
@@ -992,7 +992,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_heading_divider_style',
 			[
-				'label'                 => __( 'Heading Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Heading Divider', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'divider_heading_switch' => 'yes',
@@ -1003,12 +1003,12 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_heading_type',
 			[
-				'label'                 => __( 'Divider Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Divider Type', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'border',
 				'options'               => [
-					'border'    => __( 'Border', 'powerpack' ),
-					'image'     => __( 'Image', 'powerpack' ),
+					'border'    => esc_html__( 'Border', 'powerpack' ),
+					'image'     => esc_html__( 'Image', 'powerpack' ),
 				],
 				'condition'             => [
 					'divider_heading_switch' => 'yes',
@@ -1019,7 +1019,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_title_image',
 			[
-				'label'                 => __( 'Image', 'powerpack' ),
+				'label'                 => esc_html__( 'Image', 'powerpack' ),
 				'type'                  => Controls_Manager::MEDIA,
 				'condition'             => [
 					'divider_heading_switch' => 'yes',
@@ -1031,14 +1031,14 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_heading_border_type',
 			[
-				'label'                 => __( 'Border Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Type', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'solid',
 				'options'               => [
-					'solid'     => __( 'Solid', 'powerpack' ),
-					'double'    => __( 'Double', 'powerpack' ),
-					'dotted'    => __( 'Dotted', 'powerpack' ),
-					'dashed'    => __( 'Dashed', 'powerpack' ),
+					'solid'     => esc_html__( 'Solid', 'powerpack' ),
+					'double'    => esc_html__( 'Double', 'powerpack' ),
+					'dotted'    => esc_html__( 'Dotted', 'powerpack' ),
+					'dashed'    => esc_html__( 'Dashed', 'powerpack' ),
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-heading-divider' => 'border-bottom-style: {{VALUE}}',
@@ -1053,8 +1053,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_title_width',
 			[
-				'label'                 => __( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size'  => 30,
 				],
@@ -1070,7 +1071,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-heading-divider' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -1083,8 +1083,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_heading_border_weight',
 			[
-				'label'                 => __( 'Border Weight', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Weight', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size'  => 4,
 				],
@@ -1095,7 +1096,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-heading-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
 				],
@@ -1109,7 +1109,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_heading_border_color',
 			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#000000',
 				'selectors'             => [
@@ -1125,8 +1125,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_title_margin',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size'  => 20,
 				],
@@ -1142,7 +1143,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-heading-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
@@ -1162,7 +1162,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_subheading_style',
 			[
-				'label'                 => __( 'Sub Heading', 'powerpack' ),
+				'label'                 => esc_html__( 'Sub Heading', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1170,7 +1170,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1183,7 +1183,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'subtitle_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-promo-box-subtitle',
 			]
 		);
@@ -1191,8 +1191,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'subtitle_margin',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size'  => 20,
 				],
@@ -1208,7 +1209,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-subtitle' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
@@ -1225,7 +1225,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_subheading_divider_style',
 			[
-				'label'                 => __( 'Sub Heading Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Sub Heading Divider', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'divider_subheading_switch' => 'yes',
@@ -1236,12 +1236,12 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_subheading_type',
 			[
-				'label'                 => __( 'Divider Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Divider Type', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'border',
 				'options'               => [
-					'border'    => __( 'Border', 'powerpack' ),
-					'image'     => __( 'Image', 'powerpack' ),
+					'border'    => esc_html__( 'Border', 'powerpack' ),
+					'image'     => esc_html__( 'Image', 'powerpack' ),
 				],
 				'condition'             => [
 					'divider_subheading_switch' => 'yes',
@@ -1252,7 +1252,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_subheading_image',
 			[
-				'label'                 => __( 'Image', 'powerpack' ),
+				'label'                 => esc_html__( 'Image', 'powerpack' ),
 				'type'                  => Controls_Manager::MEDIA,
 				'condition'             => [
 					'divider_subheading_switch' => 'yes',
@@ -1264,14 +1264,14 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_subheading_border_type',
 			[
-				'label'                 => __( 'Border Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Type', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'solid',
 				'options'               => [
-					'solid'     => __( 'Solid', 'powerpack' ),
-					'double'    => __( 'Double', 'powerpack' ),
-					'dotted'    => __( 'Dotted', 'powerpack' ),
-					'dashed'    => __( 'Dashed', 'powerpack' ),
+					'solid'     => esc_html__( 'Solid', 'powerpack' ),
+					'double'    => esc_html__( 'Double', 'powerpack' ),
+					'dotted'    => esc_html__( 'Dotted', 'powerpack' ),
+					'dashed'    => esc_html__( 'Dashed', 'powerpack' ),
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-subheading-divider' => 'border-bottom-style: {{VALUE}}',
@@ -1286,8 +1286,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_subheading_width',
 			[
-				'label'                 => __( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size'  => 30,
 				],
@@ -1303,7 +1304,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-subheading-divider' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -1316,8 +1316,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_subheading_border_weight',
 			[
-				'label'                 => __( 'Border Weight', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Weight', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size'  => 4,
 				],
@@ -1328,7 +1329,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-subheading-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
 				],
@@ -1342,7 +1342,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'divider_subheading_border_color',
 			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#000000',
 				'selectors'             => [
@@ -1358,8 +1358,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_subheading_margin',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size'  => 20,
 				],
@@ -1375,7 +1376,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-subheading-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
@@ -1392,7 +1392,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_promo_description_style',
 			[
-				'label'                 => __( 'Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1400,7 +1400,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'content_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1413,7 +1413,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'content_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-promo-box-content',
 			]
 		);
@@ -1421,8 +1421,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_margin',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size'  => 0,
 				],
@@ -1438,7 +1439,6 @@ class Promo_Box extends Powerpack_Widget {
 						'step'  => 1,
 					],
 				],
-				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-content' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
@@ -1455,7 +1455,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_promo_box_button_style',
 			[
-				'label'                 => __( 'Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Button', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'button_switch'   => 'yes',
@@ -1466,15 +1466,15 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'button_size',
 			[
-				'label'                 => __( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'md',
 				'options'               => [
-					'xs' => __( 'Extra Small', 'powerpack' ),
-					'sm' => __( 'Small', 'powerpack' ),
-					'md' => __( 'Medium', 'powerpack' ),
-					'lg' => __( 'Large', 'powerpack' ),
-					'xl' => __( 'Extra Large', 'powerpack' ),
+					'xs' => esc_html__( 'Extra Small', 'powerpack' ),
+					'sm' => esc_html__( 'Small', 'powerpack' ),
+					'md' => esc_html__( 'Medium', 'powerpack' ),
+					'lg' => esc_html__( 'Large', 'powerpack' ),
+					'xl' => esc_html__( 'Extra Large', 'powerpack' ),
 				],
 				'condition'             => [
 					'button_text!' => '',
@@ -1487,14 +1487,14 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_bg_color_normal',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1506,7 +1506,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_normal',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1519,7 +1519,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border_normal',
-				'label'                 => __( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-promo-box-button',
@@ -1529,9 +1529,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1542,7 +1542,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'button_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-promo-box-button',
 			]
 		);
@@ -1550,9 +1550,9 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-promo-box-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -1572,14 +1572,14 @@ class Promo_Box extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_bg_color_hover',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1591,7 +1591,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1603,7 +1603,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1615,7 +1615,7 @@ class Promo_Box extends Powerpack_Widget {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label'                 => __( 'Animation', 'powerpack' ),
+				'label'                 => esc_html__( 'Animation', 'powerpack' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);

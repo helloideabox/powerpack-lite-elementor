@@ -79,7 +79,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_query',
 			array(
-				'label' => __( 'Query', 'powerpack' ),
+				'label'     => esc_html__( 'Query', 'powerpack' ),
 				'condition' => $condition,
 			)
 		);
@@ -87,24 +87,23 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'query_type',
 			array(
-				'label'       => __( 'Query Type', 'powerpack' ),
+				'label'       => esc_html__( 'Query Type', 'powerpack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'custom',
-				'label_block' => true,
 				'options'     => array(
-					'main'   => __( 'Main Query', 'powerpack' ),
-					'custom' => __( 'Custom Query', 'powerpack' ),
+					'main'   => esc_html__( 'Main Query', 'powerpack' ),
+					'custom' => esc_html__( 'Custom Query', 'powerpack' ),
 				),
 			)
 		);
 
 		$post_types            = PP_Posts_Helper::get_post_types();
-		$post_types['related'] = __( 'Related', 'powerpack' );
+		$post_types['related'] = esc_html__( 'Related', 'powerpack' );
 
 		$this->add_control(
 			'post_type',
 			array(
-				'label'     => __( 'Post Type', 'powerpack' ),
+				'label'     => esc_html__( 'Post Type', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => $post_types,
 				'default'   => 'post',
@@ -137,10 +136,10 @@ abstract class Posts_Base extends Powerpack_Widget {
 						$tax_control_key = $index . '_' . $post_type_slug;
 
 						if ( 'yes' === $old_code ) {
-							if ( $post_type_slug == 'post' ) {
-								if ( $index == 'post_tag' ) {
+							if ( 'post' === $post_type_slug ) {
+								if ( 'post_tag' === $index ) {
 									$tax_control_key = 'tags';
-								} elseif ( $index == 'category' ) {
+								} elseif ( 'category' === $index ) {
 									$tax_control_key = 'categories';
 								}
 							}
@@ -151,15 +150,15 @@ abstract class Posts_Base extends Powerpack_Widget {
 							$index . '_' . $post_type_slug . '_filter_type',
 							array(
 								/* translators: %s Label */
-								'label'       => sprintf( __( '%s Filter Type', 'powerpack' ), $tax->label ),
+								'label'       => sprintf( esc_html__( '%s Filter Type', 'powerpack' ), $tax->label ),
 								'type'        => Controls_Manager::SELECT,
 								'default'     => 'IN',
 								'label_block' => true,
 								'options'     => array(
 									/* translators: %s label */
-									'IN'     => sprintf( __( 'Include %s', 'powerpack' ), $tax->label ),
+									'IN'     => sprintf( esc_html__( 'Include %s', 'powerpack' ), $tax->label ),
 									/* translators: %s label */
-									'NOT IN' => sprintf( __( 'Exclude %s', 'powerpack' ), $tax->label ),
+									'NOT IN' => sprintf( esc_html__( 'Exclude %s', 'powerpack' ), $tax->label ),
 								),
 								'separator'   => 'before',
 								'condition'   => array(
@@ -196,14 +195,14 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'author_filter_type',
 			array(
-				'label'       => __( 'Authors Filter Type', 'powerpack' ),
+				'label'       => esc_html__( 'Authors Filter Type', 'powerpack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'author__in',
 				'label_block' => true,
 				'separator'   => 'before',
 				'options'     => array(
-					'author__in'     => __( 'Include Authors', 'powerpack' ),
-					'author__not_in' => __( 'Exclude Authors', 'powerpack' ),
+					'author__in'     => esc_html__( 'Include Authors', 'powerpack' ),
+					'author__not_in' => esc_html__( 'Exclude Authors', 'powerpack' ),
 				),
 				'condition'   => array(
 					'query_type' => 'custom',
@@ -215,7 +214,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'authors',
 			array(
-				'label'       => __( 'Authors', 'powerpack' ),
+				'label'       => esc_html__( 'Authors', 'powerpack' ),
 				'type'        => 'pp-query',
 				'label_block' => true,
 				'multiple'    => true,
@@ -232,16 +231,16 @@ abstract class Posts_Base extends Powerpack_Widget {
 				$post_type_slug . '_filter_type',
 				array(
 					/* translators: %s: post type label */
-					'label'       => sprintf( __( '%s Filter Type', 'powerpack' ), $post_type_label ),
+					'label'       => sprintf( esc_html__( '%s Filter Type', 'powerpack' ), $post_type_label ),
 					'type'        => Controls_Manager::SELECT,
 					'default'     => 'post__not_in',
 					'label_block' => true,
 					'separator'   => 'before',
 					'options'     => array(
 						/* translators: %s: post type label */
-						'post__in'     => sprintf( __( 'Include %s', 'powerpack' ), $post_type_label ),
+						'post__in'     => sprintf( esc_html__( 'Include %s', 'powerpack' ), $post_type_label ),
 						/* translators: %s: post type label */
-						'post__not_in' => sprintf( __( 'Exclude %s', 'powerpack' ), $post_type_label ),
+						'post__not_in' => sprintf( esc_html__( 'Exclude %s', 'powerpack' ), $post_type_label ),
 					),
 					'condition'   => array(
 						'query_type' => 'custom',
@@ -288,7 +287,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_related_include',
 			array(
-				'label'     => __( 'Include', 'powerpack' ),
+				'label'     => esc_html__( 'Include', 'powerpack' ),
 				'condition' => array(
 					'query_type' => 'custom',
 					'post_type'  => 'related',
@@ -299,14 +298,14 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'related_include_by',
 			array(
-				'label'       => __( 'Include By', 'powerpack' ),
+				'label'       => esc_html__( 'Include By', 'powerpack' ),
 				'type'        => Controls_Manager::SELECT2,
 				'default'     => '',
 				'label_block' => true,
 				'multiple'    => true,
 				'options'     => array(
-					'terms'   => __( 'Term', 'powerpack' ),
-					'authors' => __( 'Author', 'powerpack' ),
+					'terms'   => esc_html__( 'Term', 'powerpack' ),
+					'authors' => esc_html__( 'Author', 'powerpack' ),
 				),
 				'condition'   => array(
 					'query_type' => 'custom',
@@ -318,7 +317,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'related_filter_include',
 			array(
-				'label'       => __( 'Term', 'powerpack' ),
+				'label'       => esc_html__( 'Term', 'powerpack' ),
 				'type'        => Controls_Manager::SELECT2,
 				'default'     => '',
 				'label_block' => true,
@@ -337,7 +336,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_related_exclude',
 			array(
-				'label'     => __( 'Exclude', 'powerpack' ),
+				'label'     => esc_html__( 'Exclude', 'powerpack' ),
 				'condition' => array(
 					'query_type' => 'custom',
 					'post_type'  => 'related',
@@ -348,14 +347,14 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'related_exclude_by',
 			array(
-				'label'       => __( 'Exclude By', 'powerpack' ),
+				'label'       => esc_html__( 'Exclude By', 'powerpack' ),
 				'type'        => Controls_Manager::SELECT2,
 				'default'     => '',
 				'label_block' => true,
 				'multiple'    => true,
 				'options'     => array(
-					'current_post' => __( 'Current Post', 'powerpack' ),
-					'authors'      => __( 'Author', 'powerpack' ),
+					'current_post' => esc_html__( 'Current Post', 'powerpack' ),
+					'authors'      => esc_html__( 'Author', 'powerpack' ),
 				),
 				'condition'   => array(
 					'query_type' => 'custom',
@@ -370,12 +369,12 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'related_fallback',
 			array(
-				'label'       => __( 'Fallback', 'powerpack' ),
-				'description' => __( 'Displayed if no relevant results are found.', 'powerpack' ),
+				'label'       => esc_html__( 'Fallback', 'powerpack' ),
+				'description' => esc_html__( 'Displayed if no relevant results are found.', 'powerpack' ),
 				'type'        => Controls_Manager::SELECT,
 				'options'     => array(
-					'none'   => __( 'None', 'powerpack' ),
-					'recent' => __( 'Recent Posts', 'powerpack' ),
+					'none'   => esc_html__( 'None', 'powerpack' ),
+					'recent' => esc_html__( 'Recent Posts', 'powerpack' ),
 				),
 				'default'     => 'none',
 				'label_block' => false,
@@ -390,16 +389,16 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'select_date',
 			array(
-				'label'       => __( 'Date', 'powerpack' ),
+				'label'       => esc_html__( 'Date', 'powerpack' ),
 				'type'        => Controls_Manager::SELECT,
 				'options'     => array(
-					'anytime' => __( 'All', 'powerpack' ),
-					'today'   => __( 'Past Day', 'powerpack' ),
-					'week'    => __( 'Past Week', 'powerpack' ),
-					'month'   => __( 'Past Month', 'powerpack' ),
-					'quarter' => __( 'Past Quarter', 'powerpack' ),
-					'year'    => __( 'Past Year', 'powerpack' ),
-					'exact'   => __( 'Custom', 'powerpack' ),
+					'anytime' => esc_html__( 'All', 'powerpack' ),
+					'today'   => esc_html__( 'Past Day', 'powerpack' ),
+					'week'    => esc_html__( 'Past Week', 'powerpack' ),
+					'month'   => esc_html__( 'Past Month', 'powerpack' ),
+					'quarter' => esc_html__( 'Past Quarter', 'powerpack' ),
+					'year'    => esc_html__( 'Past Year', 'powerpack' ),
+					'exact'   => esc_html__( 'Custom', 'powerpack' ),
 				),
 				'default'     => 'anytime',
 				'label_block' => false,
@@ -414,12 +413,12 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'date_before',
 			array(
-				'label'       => __( 'Before', 'powerpack' ),
-				'description' => __( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'powerpack' ),
+				'label'       => esc_html__( 'Before', 'powerpack' ),
+				'description' => esc_html__( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'powerpack' ),
 				'type'        => Controls_Manager::DATE_TIME,
 				'label_block' => false,
 				'multiple'    => false,
-				'placeholder' => __( 'Choose', 'powerpack' ),
+				'placeholder' => esc_html__( 'Choose', 'powerpack' ),
 				'condition'   => array(
 					'query_type'  => 'custom',
 					'select_date' => 'exact',
@@ -430,12 +429,12 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'date_after',
 			array(
-				'label'       => __( 'After', 'powerpack' ),
-				'description' => __( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'powerpack' ),
+				'label'       => esc_html__( 'After', 'powerpack' ),
+				'description' => esc_html__( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'powerpack' ),
 				'type'        => Controls_Manager::DATE_TIME,
 				'label_block' => false,
 				'multiple'    => false,
-				'placeholder' => __( 'Choose', 'powerpack' ),
+				'placeholder' => esc_html__( 'Choose', 'powerpack' ),
 				'condition'   => array(
 					'query_type'  => 'custom',
 					'select_date' => 'exact',
@@ -446,11 +445,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'order',
 			array(
-				'label'     => __( 'Order', 'powerpack' ),
+				'label'     => esc_html__( 'Order', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'DESC' => __( 'Descending', 'powerpack' ),
-					'ASC'  => __( 'Ascending', 'powerpack' ),
+					'DESC' => esc_html__( 'Descending', 'powerpack' ),
+					'ASC'  => esc_html__( 'Ascending', 'powerpack' ),
 				),
 				'default'   => 'DESC',
 				'separator' => 'before',
@@ -463,18 +462,18 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'orderby',
 			array(
-				'label'     => __( 'Order By', 'powerpack' ),
+				'label'     => esc_html__( 'Order By', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'date'          => __( 'Date', 'powerpack' ),
-					'modified'      => __( 'Last Modified Date', 'powerpack' ),
-					'rand'          => __( 'Random', 'powerpack' ),
-					'comment_count' => __( 'Comment Count', 'powerpack' ),
-					'title'         => __( 'Title', 'powerpack' ),
-					'ID'            => __( 'Post ID', 'powerpack' ),
-					'author'        => __( 'Post Author', 'powerpack' ),
-					'menu_order'    => __( 'Menu Order', 'powerpack' ),
-					'relevance'     => __( 'Relevance', 'powerpack' ),
+					'date'          => esc_html__( 'Date', 'powerpack' ),
+					'modified'      => esc_html__( 'Last Modified Date', 'powerpack' ),
+					'rand'          => esc_html__( 'Random', 'powerpack' ),
+					'comment_count' => esc_html__( 'Comment Count', 'powerpack' ),
+					'title'         => esc_html__( 'Title', 'powerpack' ),
+					'ID'            => esc_html__( 'Post ID', 'powerpack' ),
+					'author'        => esc_html__( 'Post Author', 'powerpack' ),
+					'menu_order'    => esc_html__( 'Menu Order', 'powerpack' ),
+					'relevance'     => esc_html__( 'Relevance', 'powerpack' ),
 				),
 				'default'   => 'date',
 				'condition' => array(
@@ -486,11 +485,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'sticky_posts',
 			array(
-				'label'        => __( 'Sticky Posts', 'powerpack' ),
+				'label'        => esc_html__( 'Sticky Posts', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 				'condition'    => array(
@@ -502,11 +501,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'all_sticky_posts',
 			array(
-				'label'        => __( 'Show Only Sticky Posts', 'powerpack' ),
+				'label'        => esc_html__( 'Show Only Sticky Posts', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'query_type'   => 'custom',
@@ -518,8 +517,8 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'offset',
 			array(
-				'label'       => __( 'Offset', 'powerpack' ),
-				'description' => __( 'Use this setting to skip this number of initial posts', 'powerpack' ),
+				'label'       => esc_html__( 'Offset', 'powerpack' ),
+				'description' => esc_html__( 'Use this setting to skip this number of initial posts', 'powerpack' ),
 				'type'        => Controls_Manager::NUMBER,
 				'default'     => '',
 				'min'         => 0,
@@ -533,13 +532,13 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'exclude_current',
 			array(
-				'label'        => __( 'Exclude Current Post', 'powerpack' ),
+				'label'        => esc_html__( 'Exclude Current Post', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'default'      => '',
-				'description'  => __( 'Enable this option to remove current post from the query.', 'powerpack' ),
+				'description'  => esc_html__( 'Enable this option to remove current post from the query.', 'powerpack' ),
 				'condition'    => array(
 					'query_type' => 'custom',
 				),
@@ -562,8 +561,8 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'query_id',
 			array(
-				'label'       => __( 'Query ID', 'powerpack' ),
-				'description' => __( 'Give your Query a custom unique id to allow server side filtering', 'powerpack' ),
+				'label'       => esc_html__( 'Query ID', 'powerpack' ),
+				'description' => esc_html__( 'Give your Query a custom unique id to allow server side filtering', 'powerpack' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'ai'          => [
@@ -577,7 +576,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 			$this->add_control(
 				'heading_nothing_found',
 				array(
-					'label'     => __( 'If Nothing Found!', 'powerpack' ),
+					'label'     => esc_html__( 'If Nothing Found!', 'powerpack' ),
 					'type'      => Controls_Manager::HEADING,
 					'separator' => 'before',
 				)
@@ -586,20 +585,20 @@ abstract class Posts_Base extends Powerpack_Widget {
 			$this->add_control(
 				'nothing_found_message',
 				array(
-					'label'   => __( 'Nothing Found Message', 'powerpack' ),
+					'label'   => esc_html__( 'Nothing Found Message', 'powerpack' ),
 					'type'    => Controls_Manager::TEXTAREA,
 					'rows'    => 3,
-					'default' => __( 'It seems we can\'t find what you\'re looking for.', 'powerpack' ),
+					'default' => esc_html__( 'It seems we can\'t find what you\'re looking for.', 'powerpack' ),
 				)
 			);
 
 			$this->add_control(
 				'show_search_form',
 				array(
-					'label'        => __( 'Show Search Form', 'powerpack' ),
+					'label'        => esc_html__( 'Show Search Form', 'powerpack' ),
 					'type'         => Controls_Manager::SWITCHER,
-					'label_on'     => __( 'Yes', 'powerpack' ),
-					'label_off'    => __( 'No', 'powerpack' ),
+					'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+					'label_off'    => esc_html__( 'No', 'powerpack' ),
 					'return_value' => 'yes',
 					'default'      => '',
 				)
@@ -634,6 +633,10 @@ abstract class Posts_Base extends Powerpack_Widget {
 			'ignore_sticky_posts' => ( 'yes' === $settings['sticky_posts'] ) ? 0 : 1,
 			'posts_per_page'      => -1,
 		);
+
+		if ( 'attachment' === $settings['post_type'] ) {
+			$query_args['post_status'] = array( 'inherit' );
+		}
 
 		if ( ! $posts_count ) {
 			$posts_per_page = ( $posts_count_var ) ? $settings[ $posts_count_var ] : ( isset( $settings['posts_per_page'] ) ? $settings['posts_per_page'] : '' );
@@ -676,6 +679,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 
 			if ( ! empty( $settings['related_exclude_by'] ) ) {
 				if ( in_array( 'current_post', $settings['related_exclude_by'], true ) ) {
+					//$query_args['post__not_in'] = array( get_the_ID() );
 					$post__not_in = array( get_the_ID() );
 				}
 
@@ -946,7 +950,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		 * @param \WP_Query     $wp_query
 		 */
 		do_action_deprecated( "pp_query_{$query_id}", [ $wp_query ], '2.3.7', "powerpack/query/{$query_id}" );
-		do_action( "powerpack/query/{$query_id}", $wp_query );
+		do_action( "powerpack/query/{$query_id}", $wp_query, $this );
 
 	}
 

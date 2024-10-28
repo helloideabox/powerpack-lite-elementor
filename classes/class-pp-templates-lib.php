@@ -145,7 +145,7 @@ class PP_Templates_Lib {
 			$editor_post_id = absint( $data['editor_post_id'] );
 
 			if ( ! get_post( $editor_post_id ) ) {
-				throw new \Exception( __( 'Post not found.', 'powerpack' ) );
+				throw new \Exception( esc_html__( 'Post not found.', 'powerpack' ) );
 			}
 
 			Plugin::$instance->db->switch_to_post( $editor_post_id );
@@ -325,7 +325,7 @@ class PP_Templates_Lib {
 		}
 
 		if ( empty( $license_key ) ) {
-			return new \WP_Error( 'no_license', __( 'License is not active.', 'powerpack' ) );
+			return new \WP_Error( 'no_license', esc_html__( 'License is not active.', 'powerpack' ) );
 		}
 
 		$args = [
@@ -493,7 +493,7 @@ class PP_Templates_Lib {
 		<script type="text/template" id="tmpl-elementor-template-library-get-pro-button-pp">
 			<a class="elementor-template-library-template-action elementor-button elementor-go-pro" href="https://powerpackelements.com/pricing/?utm_source=panel-library&utm_campaign=gopro&utm_medium=wp-dash" target="_blank">
 				<i class="eicon-external-link-square" aria-hidden="true"></i>
-				<span class="elementor-button-title"><?php echo __( 'Go Pro', 'powerpack' ); ?></span>
+				<span class="elementor-button-title"><?php echo esc_html__( 'Go Pro', 'powerpack' ); ?></span>
 			</a>
 		</script>
 		<script type="text/template" id="tmpl-elementor-pro-template-library-activate-license-button-pp">

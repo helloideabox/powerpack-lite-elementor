@@ -125,7 +125,7 @@ class Info_List extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_list',
 			array(
-				'label' => __( 'List Items', 'powerpack' ),
+				'label' => esc_html__( 'List Items', 'powerpack' ),
 			)
 		);
 
@@ -134,26 +134,26 @@ class Info_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'text',
 			array(
-				'label'       => __( 'Title', 'powerpack' ),
+				'label'       => esc_html__( 'Title', 'powerpack' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => array(
 					'active' => true,
 				),
-				'default'     => __( 'List Item #1', 'powerpack' ),
+				'default'     => esc_html__( 'List Item #1', 'powerpack' ),
 			)
 		);
 
 		$repeater->add_control(
 			'description',
 			array(
-				'label'       => __( 'Description', 'powerpack' ),
+				'label'       => esc_html__( 'Description', 'powerpack' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::TEXTAREA,
 				'dynamic'     => array(
 					'active' => true,
 				),
-				'default'     => __( 'List Item Description', 'powerpack' ),
+				'default'     => esc_html__( 'List Item Description', 'powerpack' ),
 			)
 		);
 
@@ -188,7 +188,7 @@ class Info_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'icon',
 			array(
-				'label'            => __( 'Icon', 'powerpack' ),
+				'label'            => esc_html__( 'Icon', 'powerpack' ),
 				'type'             => Controls_Manager::ICONS,
 				'label_block'      => true,
 				'default'          => array(
@@ -205,7 +205,7 @@ class Info_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'list_image',
 			array(
-				'label'       => __( 'Image', 'powerpack' ),
+				'label'       => esc_html__( 'Image', 'powerpack' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::MEDIA,
 				'default'     => array(
@@ -220,10 +220,10 @@ class Info_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'icon_text',
 			array(
-				'label'       => __( 'Icon Text', 'powerpack' ),
+				'label'       => esc_html__( 'Icon Text', 'powerpack' ),
 				'label_block' => false,
 				'type'        => Controls_Manager::TEXT,
-				'default'     => __( '1', 'powerpack' ),
+				'default'     => esc_html__( '1', 'powerpack' ),
 				'condition'   => array(
 					'pp_icon_type' => 'text',
 				),
@@ -233,13 +233,13 @@ class Info_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'link_type',
 			array(
-				'label'   => __( 'Link Type', 'powerpack' ),
+				'label'   => esc_html__( 'Link Type', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => array(
-					'none'   => __( 'None', 'powerpack' ),
-					'box'    => __( 'Box', 'powerpack' ),
-					'title'  => __( 'Title', 'powerpack' ),
-					'button' => __( 'Button', 'powerpack' ),
+					'none'   => esc_html__( 'None', 'powerpack' ),
+					'box'    => esc_html__( 'Box', 'powerpack' ),
+					'title'  => esc_html__( 'Title', 'powerpack' ),
+					'button' => esc_html__( 'Button', 'powerpack' ),
 				),
 				'default' => 'none',
 			)
@@ -248,12 +248,12 @@ class Info_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'button_text',
 			array(
-				'label'     => __( 'Button Text', 'powerpack' ),
+				'label'     => esc_html__( 'Button Text', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
 				'dynamic'   => array(
 					'active' => true,
 				),
-				'default'   => __( 'Get Started', 'powerpack' ),
+				'default'   => esc_html__( 'Get Started', 'powerpack' ),
 				'condition' => array(
 					'link_type' => 'button',
 				),
@@ -263,7 +263,7 @@ class Info_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'selected_icon',
 			array(
-				'label'            => __( 'Button Icon', 'powerpack' ),
+				'label'            => esc_html__( 'Button Icon', 'powerpack' ),
 				'type'             => Controls_Manager::ICONS,
 				'label_block'      => true,
 				'fa4compatibility' => 'button_icon',
@@ -276,12 +276,12 @@ class Info_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'button_icon_position',
 			array(
-				'label'     => __( 'Icon Position', 'powerpack' ),
+				'label'     => esc_html__( 'Icon Position', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'after',
 				'options'   => array(
-					'after'  => __( 'After', 'powerpack' ),
-					'before' => __( 'Before', 'powerpack' ),
+					'after'  => esc_html__( 'After', 'powerpack' ),
+					'before' => esc_html__( 'Before', 'powerpack' ),
 				),
 				'condition' => array(
 					'link_type' => 'button',
@@ -292,13 +292,13 @@ class Info_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'link',
 			array(
-				'label'       => __( 'Link', 'powerpack' ),
+				'label'       => esc_html__( 'Link', 'powerpack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => array(
 					'active' => true,
 				),
 				'label_block' => true,
-				'placeholder' => __( 'http://your-link.com', 'powerpack' ),
+				'placeholder' => esc_html__( 'http://your-link.com', 'powerpack' ),
 				'default'     => array(
 					'url' => '#',
 				),
@@ -321,12 +321,12 @@ class Info_List extends Powerpack_Widget {
 				'type'        => Controls_Manager::REPEATER,
 				'default'     => array(
 					array(
-						'text' => __( 'List Item #1', 'powerpack' ),
-						'icon' => __( 'fa fa-check', 'powerpack' ),
+						'text' => esc_html__( 'List Item #1', 'powerpack' ),
+						'icon' => esc_html__( 'fa fa-check', 'powerpack' ),
 					),
 					array(
-						'text' => __( 'List Item #2', 'powerpack' ),
-						'icon' => __( 'fa fa-check', 'powerpack' ),
+						'text' => esc_html__( 'List Item #2', 'powerpack' ),
+						'icon' => esc_html__( 'fa fa-check', 'powerpack' ),
 					),
 				),
 				'fields'      => $repeater->get_controls(),
@@ -338,7 +338,7 @@ class Info_List extends Powerpack_Widget {
 			Group_Control_Image_Size::get_type(),
 			array(
 				'name'      => 'thumbnail', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.,
-				'label'     => __( 'Image Size', 'powerpack' ),
+				'label'     => esc_html__( 'Image Size', 'powerpack' ),
 				'default'   => 'full',
 				'separator' => 'before',
 			)
@@ -347,19 +347,19 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'title_html_tag',
 			array(
-				'label'   => __( 'Title HTML Tag', 'powerpack' ),
+				'label'   => esc_html__( 'Title HTML Tag', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'div',
 				'options' => array(
-					'h1'   => __( 'H1', 'powerpack' ),
-					'h2'   => __( 'H2', 'powerpack' ),
-					'h3'   => __( 'H3', 'powerpack' ),
-					'h4'   => __( 'H4', 'powerpack' ),
-					'h5'   => __( 'H5', 'powerpack' ),
-					'h6'   => __( 'H6', 'powerpack' ),
-					'div'  => __( 'div', 'powerpack' ),
-					'span' => __( 'span', 'powerpack' ),
-					'p'    => __( 'p', 'powerpack' ),
+					'h1'   => esc_html__( 'H1', 'powerpack' ),
+					'h2'   => esc_html__( 'H2', 'powerpack' ),
+					'h3'   => esc_html__( 'H3', 'powerpack' ),
+					'h4'   => esc_html__( 'H4', 'powerpack' ),
+					'h5'   => esc_html__( 'H5', 'powerpack' ),
+					'h6'   => esc_html__( 'H6', 'powerpack' ),
+					'div'  => esc_html__( 'div', 'powerpack' ),
+					'span' => esc_html__( 'span', 'powerpack' ),
+					'p'    => esc_html__( 'p', 'powerpack' ),
 				),
 			)
 		);
@@ -367,11 +367,11 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'connector',
 			array(
-				'label'        => __( 'Connector', 'powerpack' ),
+				'label'        => esc_html__( 'Connector', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -379,11 +379,11 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'corner_lines',
 			array(
-				'label'        => __( 'Hide Corner Lines', 'powerpack' ),
+				'label'        => esc_html__( 'Hide Corner Lines', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'connector' => 'yes',
@@ -409,7 +409,7 @@ class Info_List extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				array(
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				)
 			);
 
@@ -442,7 +442,7 @@ class Info_List extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_list_style',
 			array(
-				'label' => __( 'List', 'powerpack' ),
+				'label' => esc_html__( 'List', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -450,17 +450,18 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'items_spacing',
 			array(
-				'label'     => __( 'Items Spacing', 'powerpack' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => array(
+				'label'      => esc_html__( 'Items Spacing', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
+				'default'    => array(
 					'size' => 10,
 				),
-				'range'     => array(
+				'range'      => array(
 					'px' => array(
 						'max' => 100,
 					),
 				),
-				'selectors' => array(
+				'selectors'  => array(
 					'{{WRAPPER}}.pp-info-list-icon-left .pp-info-list-item:not(:last-child) .pp-info-list-item-inner, {{WRAPPER}}.pp-info-list-icon-right .pp-info-list-item:not(:last-child) .pp-info-list-item-inner' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}}.pp-info-list-icon-top .pp-info-list-item .pp-info-list-item-inner' => 'margin-right: calc({{SIZE}}{{UNIT}}/2); margin-left: calc({{SIZE}}{{UNIT}}/2);',
 					'{{WRAPPER}}.pp-info-list-icon-top .pp-list-items' => 'margin-right: calc(-{{SIZE}}{{UNIT}}/2); margin-left: calc(-{{SIZE}}{{UNIT}}/2);',
@@ -477,22 +478,22 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_position',
 			array(
-				'label'        => __( 'Position', 'powerpack' ),
+				'label'        => esc_html__( 'Position', 'powerpack' ),
 				'type'         => Controls_Manager::CHOOSE,
 				'label_block'  => false,
 				'toggle'       => false,
 				'default'      => 'left',
 				'options'      => array(
 					'left'  => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
 					),
 					'top'   => array(
-						'title' => __( 'Top', 'powerpack' ),
+						'title' => esc_html__( 'Top', 'powerpack' ),
 						'icon'  => 'eicon-v-align-top',
 					),
 					'right' => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
 					),
 				),
@@ -503,14 +504,14 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'responsive_breakpoint',
 			array(
-				'label'        => __( 'Responsive Breakpoint', 'powerpack' ),
+				'label'        => esc_html__( 'Responsive Breakpoint', 'powerpack' ),
 				'type'         => Controls_Manager::SELECT,
 				'label_block'  => false,
 				'default'      => 'mobile',
 				'options'      => array(
-					''       => __( 'None', 'powerpack' ),
-					'tablet' => __( 'Tablet', 'powerpack' ),
-					'mobile' => __( 'Mobile', 'powerpack' ),
+					''       => esc_html__( 'None', 'powerpack' ),
+					'tablet' => esc_html__( 'Tablet', 'powerpack' ),
+					'mobile' => esc_html__( 'Mobile', 'powerpack' ),
 				),
 				'prefix_class' => 'pp-info-list-stack-',
 				'condition'    => array(
@@ -529,7 +530,7 @@ class Info_List extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_connector_style',
 			array(
-				'label'     => __( 'Connector', 'powerpack' ),
+				'label'     => esc_html__( 'Connector', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'connector' => 'yes',
@@ -540,7 +541,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'connector_color',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -555,13 +556,13 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'connector_style',
 			array(
-				'label'     => __( 'Style', 'powerpack' ),
+				'label'     => esc_html__( 'Style', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'solid'  => __( 'Solid', 'powerpack' ),
-					'double' => __( 'Double', 'powerpack' ),
-					'dotted' => __( 'Dotted', 'powerpack' ),
-					'dashed' => __( 'Dashed', 'powerpack' ),
+					'solid'  => esc_html__( 'Solid', 'powerpack' ),
+					'double' => esc_html__( 'Double', 'powerpack' ),
+					'dotted' => esc_html__( 'Dotted', 'powerpack' ),
+					'dashed' => esc_html__( 'Dashed', 'powerpack' ),
 				),
 				'default'   => 'solid',
 				'selectors' => array(
@@ -582,18 +583,19 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'connector_width',
 			array(
-				'label'     => __( 'Width', 'powerpack' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => array(
+				'label'      => esc_html__( 'Width', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
+				'default'    => array(
 					'size' => 1,
 				),
-				'range'     => array(
+				'range'      => array(
 					'px' => array(
 						'min' => 1,
 						'max' => 20,
 					),
 				),
-				'selectors' => array(
+				'selectors'  => array(
 					'{{WRAPPER}}.pp-info-list-icon-left .pp-info-list-connector .pp-infolist-icon-wrapper:before, {{WRAPPER}}.pp-info-list-icon-left .pp-info-list-connector .pp-infolist-icon-wrapper:after' => 'border-right-width: {{SIZE}}px;',
 					'{{WRAPPER}}.pp-info-list-icon-right .pp-info-list-connector .pp-infolist-icon-wrapper:before, {{WRAPPER}}.pp-info-list-icon-right .pp-infolist-icon-wrapper:after' => 'border-left-width: {{SIZE}}px;',
 					'{{WRAPPER}}.pp-info-list-icon-top .pp-info-list-connector .pp-infolist-icon-wrapper:before, {{WRAPPER}}.pp-info-list-icon-top .pp-info-list-connector .pp-infolist-icon-wrapper:after' => 'border-top-width: {{SIZE}}px;',
@@ -602,7 +604,7 @@ class Info_List extends Powerpack_Widget {
 
 					'(mobile){{WRAPPER}}.pp-info-list-stack-mobile.pp-info-list-icon-top .pp-info-list-connector .pp-infolist-icon-wrapper:before, {{WRAPPER}}.pp-info-list-icon-top .pp-info-list-connector .pp-infolist-icon-wrapper:after' => 'border-right-width: {{SIZE}}px;',
 				),
-				'condition' => array(
+				'condition'  => array(
 					'connector' => 'yes',
 				),
 			)
@@ -618,7 +620,7 @@ class Info_List extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_icon_style',
 			array(
-				'label' => __( 'Icon', 'powerpack' ),
+				'label' => esc_html__( 'Icon', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -626,22 +628,22 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_vertical_align',
 			array(
-				'label'                => __( 'Vertical Align', 'powerpack' ),
+				'label'                => esc_html__( 'Vertical Align', 'powerpack' ),
 				'type'                 => Controls_Manager::CHOOSE,
 				'label_block'          => false,
 				'toggle'               => false,
 				'default'              => 'middle',
 				'options'              => array(
 					'top'    => array(
-						'title' => __( 'Top', 'powerpack' ),
+						'title' => esc_html__( 'Top', 'powerpack' ),
 						'icon'  => 'eicon-v-align-top',
 					),
 					'middle' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-v-align-middle',
 					),
 					'bottom' => array(
-						'title' => __( 'Bottom', 'powerpack' ),
+						'title' => esc_html__( 'Bottom', 'powerpack' ),
 						'icon'  => 'eicon-v-align-bottom',
 					),
 				),
@@ -660,21 +662,21 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_horizontal_align',
 			array(
-				'label'                => __( 'Horizontal Align', 'powerpack' ),
+				'label'                => esc_html__( 'Horizontal Align', 'powerpack' ),
 				'type'                 => Controls_Manager::CHOOSE,
 				'label_block'          => false,
 				'toggle'               => false,
 				'options'              => array(
 					'left'   => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-h-align-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
 					),
 				),
@@ -696,14 +698,14 @@ class Info_List extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_icon_normal',
 			array(
-				'label' => __( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'icon_color',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -719,7 +721,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_bg_color',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -731,18 +733,19 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_size',
 			array(
-				'label'     => __( 'Size', 'powerpack' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => array(
+				'label'      => esc_html__( 'Size', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
+				'default'    => array(
 					'size' => 14,
 				),
-				'range'     => array(
+				'range'      => array(
 					'px' => array(
 						'min' => 6,
 						'max' => 100,
 					),
 				),
-				'selectors' => array(
+				'selectors'  => array(
 					'{{WRAPPER}} .pp-list-items .pp-info-list-icon' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .pp-list-items .pp-info-list-image img' => 'width: {{SIZE}}{{UNIT}};',
 				),
@@ -752,18 +755,19 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_box_size',
 			array(
-				'label'     => __( 'Box Size', 'powerpack' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => array(
+				'label'      => esc_html__( 'Box Size', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
+				'default'    => array(
 					'size' => 14,
 				),
-				'range'     => array(
+				'range'      => array(
 					'px' => array(
 						'min' => 6,
 						'max' => 200,
 					),
 				),
-				'selectors' => array(
+				'selectors'  => array(
 					'{{WRAPPER}} .pp-infolist-icon-wrapper' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
 
 					'{{WRAPPER}}.pp-info-list-icon-left .pp-info-list-container .pp-infolist-icon-wrapper:before' => 'left: calc(({{SIZE}}px/2) - ({{connector_width.SIZE}}px/2)); bottom: {{SIZE}}{{UNIT}};',
@@ -787,17 +791,18 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_spacing',
 			array(
-				'label'     => __( 'Spacing', 'powerpack' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => array(
+				'label'      => esc_html__( 'Spacing', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
+				'default'    => array(
 					'size' => 8,
 				),
-				'range'     => array(
+				'range'      => array(
 					'px' => array(
 						'max' => 50,
 					),
 				),
-				'selectors' => array(
+				'selectors'  => array(
 					'{{WRAPPER}}.pp-info-list-icon-left .pp-infolist-icon-wrapper' => 'margin-right: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}}.pp-info-list-icon-right .pp-infolist-icon-wrapper' => 'margin-left: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}}.pp-info-list-icon-top .pp-infolist-icon-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}};',
@@ -813,7 +818,7 @@ class Info_List extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'icon_border',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-list-items .pp-infolist-icon-wrapper',
@@ -823,9 +828,9 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-list-items .pp-infolist-icon-wrapper, {{WRAPPER}} .pp-list-items .pp-info-list-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -837,14 +842,14 @@ class Info_List extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_icon_hover',
 			array(
-				'label' => __( 'Hover', 'powerpack' ),
+				'label' => esc_html__( 'Hover', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'icon_color_hover',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -860,7 +865,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_bg_color_hover',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -872,7 +877,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_color_hover',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -887,7 +892,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_hover_animation',
 			array(
-				'label' => __( 'Animation', 'powerpack' ),
+				'label' => esc_html__( 'Animation', 'powerpack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			)
 		);
@@ -899,7 +904,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_number_heading',
 			array(
-				'label'     => __( 'Icon Type: Number', 'powerpack' ),
+				'label'     => esc_html__( 'Icon Type: Number', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -909,7 +914,7 @@ class Info_List extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'icon_number_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -927,7 +932,7 @@ class Info_List extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_content_style',
 			array(
-				'label' => __( 'Content', 'powerpack' ),
+				'label' => esc_html__( 'Content', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -935,23 +940,23 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_align',
 			array(
-				'label'     => __( 'Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Alignment', 'powerpack' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'    => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center'  => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'right'   => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 					'justify' => array(
-						'title' => __( 'Justified', 'powerpack' ),
+						'title' => esc_html__( 'Justified', 'powerpack' ),
 						'icon'  => 'eicon-text-align-justify',
 					),
 				),
@@ -965,9 +970,9 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-infolist-content-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1008,13 +1013,13 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'separator_style',
 			array(
-				'label'     => __( 'Style', 'powerpack' ),
+				'label'     => esc_html__( 'Style', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'solid'  => __( 'Solid', 'powerpack' ),
-					'double' => __( 'Double', 'powerpack' ),
-					'dotted' => __( 'Dotted', 'powerpack' ),
-					'dashed' => __( 'Dashed', 'powerpack' ),
+					'solid'  => esc_html__( 'Solid', 'powerpack' ),
+					'double' => esc_html__( 'Double', 'powerpack' ),
+					'dotted' => esc_html__( 'Dotted', 'powerpack' ),
+					'dashed' => esc_html__( 'Dashed', 'powerpack' ),
 				),
 				'default'   => 'solid',
 				'condition' => array(
@@ -1030,22 +1035,23 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'separator_size',
 			[
-				'label'     => esc_html__( 'Size', 'powerpack' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => array(
+				'label'      => esc_html__( 'Size', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
+				'default'    => array(
 					'size' => 1,
 				),
-				'range'     => [
+				'range'      => [
 					'px' => [
 						'min' => 0,
 						'max' => 20,
 					],
 				],
-				'condition' => [
+				'condition'  => [
 					'icon_position!'  => 'top',
 					'show_separator!' => '',
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-list-item:not(:last-child) .pp-infolist-content-wrapper' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
 				],
 			]
@@ -1054,7 +1060,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'title_heading',
 			array(
-				'label'     => __( 'Title', 'powerpack' ),
+				'label'     => esc_html__( 'Title', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -1063,7 +1069,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'title_color',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1079,7 +1085,7 @@ class Info_List extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'title_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
@@ -1091,7 +1097,7 @@ class Info_List extends Powerpack_Widget {
 			Group_Control_Text_Shadow::get_type(),
 			array(
 				'name'      => 'title_text_shadow',
-				'label'     => __( 'Text Shadow', 'powerpack' ),
+				'label'     => esc_html__( 'Text Shadow', 'powerpack' ),
 				'selector'  => '{{WRAPPER}} .pp-info-list-title',
 			)
 		);
@@ -1099,8 +1105,9 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'title_margin',
 			array(
-				'label'      => __( 'Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
 					'px' => array(
 						'min'  => 0,
@@ -1113,7 +1120,6 @@ class Info_List extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-list-title' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				),
@@ -1123,7 +1129,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'description_heading',
 			array(
-				'label'     => __( 'Description', 'powerpack' ),
+				'label'     => esc_html__( 'Description', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -1132,7 +1138,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'description_color',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1148,7 +1154,7 @@ class Info_List extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'description_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				],
@@ -1167,7 +1173,7 @@ class Info_List extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_info_box_button_style',
 			array(
-				'label' => __( 'Button', 'powerpack' ),
+				'label' => esc_html__( 'Button', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1175,15 +1181,15 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'button_size',
 			array(
-				'label'   => __( 'Size', 'powerpack' ),
+				'label'   => esc_html__( 'Size', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'sm',
 				'options' => array(
-					'xs' => __( 'Extra Small', 'powerpack' ),
-					'sm' => __( 'Small', 'powerpack' ),
-					'md' => __( 'Medium', 'powerpack' ),
-					'lg' => __( 'Large', 'powerpack' ),
-					'xl' => __( 'Extra Large', 'powerpack' ),
+					'xs' => esc_html__( 'Extra Small', 'powerpack' ),
+					'sm' => esc_html__( 'Small', 'powerpack' ),
+					'md' => esc_html__( 'Medium', 'powerpack' ),
+					'lg' => esc_html__( 'Large', 'powerpack' ),
+					'xl' => esc_html__( 'Extra Large', 'powerpack' ),
 				),
 			)
 		);
@@ -1191,8 +1197,9 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_margin',
 			array(
-				'label'      => __( 'Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Spacing', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
 					'px' => array(
 						'min'  => 0,
@@ -1205,7 +1212,6 @@ class Info_List extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-list-button' => 'margin-top: {{SIZE}}{{UNIT}}',
 				),
@@ -1217,14 +1223,14 @@ class Info_List extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			array(
-				'label' => __( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'button_bg_color_normal',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -1239,7 +1245,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_normal',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1253,7 +1259,7 @@ class Info_List extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'button_border_normal',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-info-list-button',
@@ -1263,9 +1269,9 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-list-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1276,7 +1282,7 @@ class Info_List extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'button_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1287,9 +1293,9 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-info-list-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1307,7 +1313,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'info_box_button_icon_heading',
 			array(
-				'label'     => __( 'Button Icon', 'powerpack' ),
+				'label'     => esc_html__( 'Button Icon', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -1316,9 +1322,9 @@ class Info_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_icon_margin',
 			array(
-				'label'       => __( 'Margin', 'powerpack' ),
+				'label'       => esc_html__( 'Margin', 'powerpack' ),
 				'type'        => Controls_Manager::DIMENSIONS,
-				'size_units'  => array( 'px', '%' ),
+				'size_units'  => array( 'px', 'em', 'rem', 'custom' ),
 				'placeholder' => array(
 					'top'    => '',
 					'right'  => '',
@@ -1336,14 +1342,14 @@ class Info_List extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			array(
-				'label' => __( 'Hover', 'powerpack' ),
+				'label' => esc_html__( 'Hover', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'button_bg_color_hover',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1355,7 +1361,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_hover',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1367,7 +1373,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1379,7 +1385,7 @@ class Info_List extends Powerpack_Widget {
 		$this->add_control(
 			'button_animation',
 			array(
-				'label' => __( 'Animation', 'powerpack' ),
+				'label' => esc_html__( 'Animation', 'powerpack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			)
 		);

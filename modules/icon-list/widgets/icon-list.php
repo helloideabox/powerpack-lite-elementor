@@ -121,23 +121,23 @@ class Icon_List extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_list',
 			[
-				'label'                 => __( 'Icon List', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon List', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'view',
 			[
-				'label'                 => __( 'Layout', 'powerpack' ),
+				'label'                 => esc_html__( 'Layout', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'traditional',
 				'options'               => [
 					'traditional'  => [
-						'title'    => __( 'Default', 'powerpack' ),
+						'title'    => esc_html__( 'Default', 'powerpack' ),
 						'icon'     => 'eicon-editor-list-ul',
 					],
 					'inline'       => [
-						'title'    => __( 'Inline', 'powerpack' ),
+						'title'    => esc_html__( 'Inline', 'powerpack' ),
 						'icon'     => 'eicon-ellipsis-h',
 					],
 				],
@@ -151,18 +151,18 @@ class Icon_List extends Powerpack_Widget {
 
 		$repeater->start_controls_tabs( 'items_repeater' );
 
-		$repeater->start_controls_tab( 'tab_content', [ 'label' => __( 'Content', 'powerpack' ) ] );
+		$repeater->start_controls_tab( 'tab_content', [ 'label' => esc_html__( 'Content', 'powerpack' ) ] );
 
 		$repeater->add_control(
 			'text',
 			array(
-				'label'       => __( 'Text', 'powerpack' ),
+				'label'       => esc_html__( 'Text', 'powerpack' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => array(
 					'active' => true,
 				),
-				'default'     => __( 'List Item #1', 'powerpack' ),
+				'default'     => esc_html__( 'List Item #1', 'powerpack' ),
 			)
 		);
 
@@ -197,7 +197,7 @@ class Icon_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'icon',
 			array(
-				'label'            => __( 'Icon', 'powerpack' ),
+				'label'            => esc_html__( 'Icon', 'powerpack' ),
 				'type'             => Controls_Manager::ICONS,
 				'label_block'      => true,
 				'default'          => array(
@@ -214,7 +214,7 @@ class Icon_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'list_image',
 			array(
-				'label'       => __( 'Image', 'powerpack' ),
+				'label'       => esc_html__( 'Image', 'powerpack' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::MEDIA,
 				'dynamic'     => array(
@@ -232,7 +232,7 @@ class Icon_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'icon_text',
 			array(
-				'label'       => __( 'Text', 'powerpack' ),
+				'label'       => esc_html__( 'Text', 'powerpack' ),
 				'label_block' => false,
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
@@ -245,25 +245,26 @@ class Icon_List extends Powerpack_Widget {
 		$repeater->add_control(
 			'link',
 			array(
-				'label'       => __( 'Link', 'powerpack' ),
+				'label'       => esc_html__( 'Link', 'powerpack' ),
 				'type'        => Controls_Manager::URL,
 				'label_block' => true,
 				'dynamic'     => array(
 					'active' => true,
 				),
-				'placeholder' => __( 'http://your-link.com', 'powerpack' ),
+				'placeholder' => esc_html__( 'http://your-link.com', 'powerpack' ),
 			)
 		);
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_icon', [ 'label' => __( 'Style', 'powerpack' ) ] );
+		$repeater->start_controls_tab( 'tab_icon', [ 'label' => esc_html__( 'Style', 'powerpack' ) ] );
 
 		$repeater->add_responsive_control(
 			'single_icon_size',
 			[
-				'label'                 => __( 'Icon Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'min' => 6,
@@ -284,20 +285,20 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'list_items',
 			array(
-				'label'       => __( 'Items', 'powerpack' ),
+				'label'       => esc_html__( 'Items', 'powerpack' ),
 				'type'        => Controls_Manager::REPEATER,
 				'default'     => array(
 					array(
-						'text' => __( 'List Item #1', 'powerpack' ),
-						'icon' => __( 'fa fa-check', 'powerpack' ),
+						'text' => esc_html__( 'List Item #1', 'powerpack' ),
+						'icon' => esc_html__( 'fa fa-check', 'powerpack' ),
 					),
 					array(
-						'text' => __( 'List Item #2', 'powerpack' ),
-						'icon' => __( 'fa fa-check', 'powerpack' ),
+						'text' => esc_html__( 'List Item #2', 'powerpack' ),
+						'icon' => esc_html__( 'fa fa-check', 'powerpack' ),
 					),
 					array(
-						'text' => __( 'List Item #3', 'powerpack' ),
-						'icon' => __( 'fa fa-check', 'powerpack' ),
+						'text' => esc_html__( 'List Item #3', 'powerpack' ),
+						'icon' => esc_html__( 'fa fa-check', 'powerpack' ),
 					),
 				),
 				'fields'      => $repeater->get_controls(),
@@ -309,7 +310,7 @@ class Icon_List extends Powerpack_Widget {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'                  => 'image',
-				'label'                 => __( 'Image Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Image Size', 'powerpack' ),
 				'default'               => 'full',
 				'separator'             => 'before',
 			]
@@ -346,7 +347,7 @@ class Icon_List extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 
@@ -379,7 +380,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_list_style',
 			[
-				'label'                 => __( 'List', 'powerpack' ),
+				'label'                 => esc_html__( 'List', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -388,7 +389,7 @@ class Icon_List extends Powerpack_Widget {
 			Group_Control_Background::get_type(),
 			[
 				'name'                  => 'items_background',
-				'label'                 => __( 'Background', 'powerpack' ),
+				'label'                 => esc_html__( 'Background', 'powerpack' ),
 				'types'                 => [ 'classic', 'gradient' ],
 				'selector'              => '{{WRAPPER}} .pp-list-items li',
 			]
@@ -397,8 +398,9 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'items_spacing',
 			[
-				'label'                 => __( 'List Items Gap', 'powerpack' ),
+				'label'                 => esc_html__( 'Space Between', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
 					'px' => [
 						'max' => 50,
@@ -416,9 +418,9 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'list_items_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-list-items li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -428,19 +430,19 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'list_items_alignment',
 			[
-				'label'                 => __( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-h-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
@@ -458,10 +460,10 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'divider',
 			[
-				'label'                 => __( 'Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Divider', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
-				'label_off'             => __( 'Off', 'powerpack' ),
-				'label_on'              => __( 'On', 'powerpack' ),
+				'label_off'             => esc_html__( 'Off', 'powerpack' ),
+				'label_on'              => esc_html__( 'On', 'powerpack' ),
 				'separator'             => 'before',
 			]
 		);
@@ -469,15 +471,15 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'divider_style',
 			[
-				'label'                 => __( 'Style', 'powerpack' ),
+				'label'                 => esc_html__( 'Style', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'solid'    => __( 'Solid', 'powerpack' ),
-					'double'   => __( 'Double', 'powerpack' ),
-					'dotted'   => __( 'Dotted', 'powerpack' ),
-					'dashed'   => __( 'Dashed', 'powerpack' ),
-					'groove'   => __( 'Groove', 'powerpack' ),
-					'ridge'    => __( 'Ridge', 'powerpack' ),
+					'solid'    => esc_html__( 'Solid', 'powerpack' ),
+					'double'   => esc_html__( 'Double', 'powerpack' ),
+					'dotted'   => esc_html__( 'Dotted', 'powerpack' ),
+					'dashed'   => esc_html__( 'Dashed', 'powerpack' ),
+					'groove'   => esc_html__( 'Groove', 'powerpack' ),
+					'ridge'    => esc_html__( 'Ridge', 'powerpack' ),
 				],
 				'default'               => 'solid',
 				'condition'             => [
@@ -493,8 +495,9 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'divider_weight',
 			[
-				'label'                 => __( 'Weight', 'powerpack' ),
+				'label'                 => esc_html__( 'Weight', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size' => 1,
 				],
@@ -517,7 +520,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'divider_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#ddd',
 				'global'                => [
@@ -543,7 +546,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_icon_style',
 			[
-				'label'                 => __( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -551,18 +554,18 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_position',
 			[
-				'label'                 => __( 'Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Position', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'toggle'                => false,
 				'default'               => 'left',
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
@@ -573,21 +576,21 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_vertical_align',
 			[
-				'label'                 => __( 'Vertical Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Vertical Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'default'               => 'middle',
 				'options'               => [
 					'top'          => [
-						'title'    => __( 'Top', 'powerpack' ),
+						'title'    => esc_html__( 'Top', 'powerpack' ),
 						'icon'     => 'eicon-v-align-top',
 					],
 					'middle'       => [
-						'title'    => __( 'Center', 'powerpack' ),
+						'title'    => esc_html__( 'Center', 'powerpack' ),
 						'icon'     => 'eicon-v-align-middle',
 					],
 					'bottom'       => [
-						'title'    => __( 'Bottom', 'powerpack' ),
+						'title'    => esc_html__( 'Bottom', 'powerpack' ),
 						'icon'     => 'eicon-v-align-bottom',
 					],
 				],
@@ -607,14 +610,14 @@ class Icon_List extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_icon_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -630,7 +633,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_bg_color',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -642,8 +645,9 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label'                 => __( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size' => 14,
 				],
@@ -663,8 +667,9 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_spacing',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size' => 8,
 				],
@@ -710,7 +715,7 @@ class Icon_List extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'icon_border',
-				'label'                 => __( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-list-items .pp-icon-wrapper',
@@ -720,9 +725,9 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-list-items .pp-icon-wrapper, {{WRAPPER}} .pp-list-items .pp-icon-list-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -732,9 +737,9 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-list-items .pp-icon-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -746,14 +751,14 @@ class Icon_List extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_icon_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_color_hover',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -766,7 +771,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_bg_color_hover',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -778,7 +783,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_color_hover',
 			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -793,7 +798,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'icon_hover_animation',
 			[
-				'label'                 => __( 'Animation', 'powerpack' ),
+				'label'                 => esc_html__( 'Animation', 'powerpack' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -812,7 +817,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_text_style',
 			[
-				'label'                 => __( 'Text', 'powerpack' ),
+				'label'                 => esc_html__( 'Text', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -822,14 +827,14 @@ class Icon_List extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_text_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'text_color',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -844,7 +849,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'text_bg_color',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -857,7 +862,7 @@ class Icon_List extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'text_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				],
@@ -870,14 +875,14 @@ class Icon_List extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_text_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'text_hover_color',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -889,7 +894,7 @@ class Icon_List extends Powerpack_Widget {
 		$this->add_control(
 			'text_hover_bg_color',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [

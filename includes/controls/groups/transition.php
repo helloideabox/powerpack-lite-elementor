@@ -35,11 +35,11 @@ class Group_Control_Transition extends Group_Control_Base {
 	 */
 	public static function get_transition_effects() {
 		return [
-			'linear' 		=> __( 'Linear', 'powerpack' ),
-			'ease'			=> __( 'Ease', 'powerpack' ),
-			'ease-in' 		=> __( 'Ease In', 'powerpack' ),
-			'ease-out' 		=> __( 'Ease Out', 'powerpack' ),
-			'ease-in-out' 	=> __( 'Ease In Out', 'powerpack' ),
+			'linear' 		=> esc_html__( 'Linear', 'powerpack' ),
+			'ease'			=> esc_html__( 'Ease', 'powerpack' ),
+			'ease-in' 		=> esc_html__( 'Ease In', 'powerpack' ),
+			'ease-out' 		=> esc_html__( 'Ease Out', 'powerpack' ),
+			'ease-in-out' 	=> esc_html__( 'Ease In Out', 'powerpack' ),
 		];
 	}
 
@@ -55,7 +55,7 @@ class Group_Control_Transition extends Group_Control_Base {
 			'type' 			=> Controls_Manager::SELECT,
 			'default' 		=> 'all',
 			'options'		=> [
-				'all'		=> __( 'All', 'powerpack' ),
+				'all'		=> esc_html__( 'All', 'powerpack' ),
 			],
 			'selectors' => [
 				'{{SELECTOR}}' => 'transition-property: {{VALUE}}',

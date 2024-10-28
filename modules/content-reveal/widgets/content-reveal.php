@@ -109,7 +109,7 @@ class Content_Reveal extends Powerpack_Widget {
 	 * @since 2.5.0
 	 * @access protected
 	 */
-	protected function register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function register_controls() {
 
 		/*-----------------------------------------------------------------------------------*/
 		/*	CONTENT TAB
@@ -117,7 +117,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label'                 => __( 'Content', 'powerpack' ),
+				'label'                 => esc_html__( 'Content', 'powerpack' ),
 			]
 		);
 
@@ -128,8 +128,8 @@ class Content_Reveal extends Powerpack_Widget {
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => false,
 				'options'               => [
-					'content'   => __( 'Content', 'powerpack' ),
-					'template'  => __( 'Template', 'powerpack' ),
+					'content'   => esc_html__( 'Content', 'powerpack' ),
+					'template'  => esc_html__( 'Template', 'powerpack' ),
 				],
 				'default'               => 'content',
 			]
@@ -151,7 +151,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'template',
 			array(
-				'label'       => __( 'Choose Template', 'powerpack' ),
+				'label'       => esc_html__( 'Choose Template', 'powerpack' ),
 				'type'        => 'pp-query',
 				'label_block' => false,
 				'multiple'    => false,
@@ -165,7 +165,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'separator',
 			[
-				'label'                 => __( 'Show Separator', 'powerpack' ),
+				'label'                 => esc_html__( 'Show Separator', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
 				'return_value'          => 'yes',
@@ -178,7 +178,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_settings',
 			[
-				'label'                 => __( 'Settings', 'powerpack' ),
+				'label'                 => esc_html__( 'Settings', 'powerpack' ),
 			]
 		);
 
@@ -189,8 +189,8 @@ class Content_Reveal extends Powerpack_Widget {
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => false,
 				'options'               => [
-					'reveal'   => __( 'Reveal', 'powerpack' ),
-					'unreveal' => __( 'Unreveal', 'powerpack' ),
+					'reveal'   => esc_html__( 'Reveal', 'powerpack' ),
+					'unreveal' => esc_html__( 'Unreveal', 'powerpack' ),
 				],
 				'default'               => 'unreveal',
 				'frontend_available'    => true,
@@ -200,8 +200,8 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'scroll_top',
 			[
-				'label'                 => __( 'Scroll Top', 'powerpack' ),
-				'description'           => __( 'Enable this option to scroll to top of content when Read Less button is clicked', 'powerpack' ),
+				'label'                 => esc_html__( 'Scroll Top', 'powerpack' ),
+				'description'           => esc_html__( 'Enable this option to scroll to top of content when Read Less button is clicked', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
 				'return_value'          => 'yes',
@@ -211,7 +211,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'speed_unreveal',
 			[
-				'label'                 => __( 'Transition Speed', 'powerpack' ),
+				'label'                 => esc_html__( 'Transition Speed', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'dynamic'               => [ 'active' => true ],
 				'default'               => [
@@ -230,12 +230,12 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'visible_type',
 			[
-				'label'                 => __( 'Content Visibility By', 'powerpack' ),
+				'label'                 => esc_html__( 'Content Visibility By', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'pixels',
 				'options'               => [
-					'lines'  => __( 'Lines', 'powerpack' ),
-					'pixels' => __( 'Pixels', 'powerpack' ),
+					'lines'  => esc_html__( 'Lines', 'powerpack' ),
+					'pixels' => esc_html__( 'Pixels', 'powerpack' ),
 				],
 				'condition'             => [
 					'content_type' => 'content',
@@ -246,7 +246,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'visible_amount',
 			[
-				'label'                 => __( 'Visible Amount (px)', 'powerpack' ),
+				'label'                 => esc_html__( 'Visible Amount (px)', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'dynamic'               => [ 'active' => true ],
 				'default'               => [
@@ -293,7 +293,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'visible_lines',
 			[
-				'label'                 => __( 'Visible Amount (lines)', 'powerpack' ),
+				'label'                 => esc_html__( 'Visible Amount (lines)', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'dynamic'               => [ 'active' => true ],
 				'default'               => [
@@ -315,7 +315,7 @@ class Content_Reveal extends Powerpack_Widget {
 			'content_valid_warning',
 			[
 				'type'                  => Controls_Manager::RAW_HTML,
-				'raw'                   => __( 'Make sure your WYSIWYG content is valid HTML.', 'powerpack' ),
+				'raw'                   => esc_html__( 'Make sure your WYSIWYG content is valid HTML.', 'powerpack' ),
 				'content_classes'       => 'elementor-panel-alert elementor-panel-alert-warning',
 				'condition'             => [
 					'visible_type' => 'lines',
@@ -328,27 +328,27 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_button',
 			[
-				'label'                 => __( 'Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Button', 'powerpack' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'button_align',
 			[
-				'label'                 => __( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'center',
 				'options'               => [
 					'left'  => [
-						'title'     => __( 'Left', 'powerpack' ),
+						'title'     => esc_html__( 'Left', 'powerpack' ),
 						'icon'      => 'eicon-h-align-left',
 					],
 					'center'        => [
-						'title'     => __( 'Center', 'powerpack' ),
+						'title'     => esc_html__( 'Center', 'powerpack' ),
 						'icon'      => 'eicon-h-align-center',
 					],
 					'right'         => [
-						'title'     => __( 'Right', 'powerpack' ),
+						'title'     => esc_html__( 'Right', 'powerpack' ),
 						'icon'      => 'eicon-h-align-right',
 					],
 				],
@@ -367,24 +367,24 @@ class Content_Reveal extends Powerpack_Widget {
 
 		$this->start_controls_tab(
 			'tab_button_closed', [
-				'label'                 => __( 'Content Unreveal', 'powerpack' ),
+				'label'                 => esc_html__( 'Content Unreveal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_closed',
 			[
-				'label'                 => __( 'Label', 'powerpack' ),
+				'label'                 => esc_html__( 'Label', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [ 'active' => true ],
-				'default'               => __( 'Read More', 'powerpack' ),
+				'default'               => esc_html__( 'Read More', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_icon_closed',
 			[
-				'label'                 => __( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack' ),
 				'type'                  => Controls_Manager::ICONS,
 				'label_block'           => false,
 				'skin'                  => 'inline',
@@ -399,24 +399,24 @@ class Content_Reveal extends Powerpack_Widget {
 
 		$this->start_controls_tab(
 			'tab_button_open', [
-				'label'                 => __( 'Content Reveal', 'powerpack' ),
+				'label'                 => esc_html__( 'Content Reveal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_open',
 			[
-				'label'                 => __( 'Label', 'powerpack' ),
+				'label'                 => esc_html__( 'Label', 'powerpack' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [ 'active' => true ],
-				'default'               => __( 'Read Less', 'powerpack' ),
+				'default'               => esc_html__( 'Read Less', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_icon_open',
 			[
-				'label'                 => __( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack' ),
 				'type'                  => Controls_Manager::ICONS,
 				'label_block'           => false,
 				'skin'                  => 'inline',
@@ -433,12 +433,12 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_icon_position',
 			[
-				'label'                 => __( 'Icon Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Position', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'after',
 				'options'               => [
-					'after'     => __( 'After', 'powerpack' ),
-					'before'    => __( 'Before', 'powerpack' ),
+					'after'     => esc_html__( 'After', 'powerpack' ),
+					'before'    => esc_html__( 'Before', 'powerpack' ),
 				],
 				'conditions'            => [
 					'relation'  => 'or',
@@ -491,7 +491,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_style_content',
 			[
-				'label'                 => __( 'Content', 'powerpack' ),
+				'label'                 => esc_html__( 'Content', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -499,23 +499,23 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'text_align',
 			[
-				'label'                 => __( 'Text Align', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Align', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 					'justify'   => [
-						'title' => __( 'Justify', 'powerpack' ),
+						'title' => esc_html__( 'Justify', 'powerpack' ),
 						'icon'  => 'eicon-text-align-justify',
 					],
 				],
@@ -529,7 +529,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'content_color',
 			[
-				'label'                 => __( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-content' => 'color: {{VALUE}};',
@@ -540,7 +540,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'content_background',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-content' => 'background-color: {{VALUE}};',
@@ -559,12 +559,12 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'content_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default'               => [
 					'size'      => 10,
 				],
-				'size_units'            => [ 'px' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -576,7 +576,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_separator_style',
 			[
-				'label'                 => __( 'Separator', 'powerpack' ),
+				'label'                 => esc_html__( 'Separator', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'separator' => 'yes',
@@ -587,8 +587,9 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'separator_height',
 			[
-				'label'                 => __( 'Height', 'powerpack' ),
+				'label'                 => esc_html__( 'Height', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'dynamic'               => [ 'active' => true ],
 				'default'               => [
 					'size'  => 50,
@@ -600,7 +601,6 @@ class Content_Reveal extends Powerpack_Widget {
 						'min' => 0,
 					],
 				],
-				'size_units'            => [ 'px', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-saparator' => 'height: {{SIZE}}{{UNIT}}',
 				],
@@ -627,7 +627,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_button_style',
 			[
-				'label'                 => __( 'Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Button', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -635,15 +635,15 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_size',
 			[
-				'label'                 => __( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'md',
 				'options'               => [
-					'xs' => __( 'Extra Small', 'powerpack' ),
-					'sm' => __( 'Small', 'powerpack' ),
-					'md' => __( 'Medium', 'powerpack' ),
-					'lg' => __( 'Large', 'powerpack' ),
-					'xl' => __( 'Extra Large', 'powerpack' ),
+					'xs' => esc_html__( 'Extra Small', 'powerpack' ),
+					'sm' => esc_html__( 'Small', 'powerpack' ),
+					'md' => esc_html__( 'Medium', 'powerpack' ),
+					'lg' => esc_html__( 'Large', 'powerpack' ),
+					'xl' => esc_html__( 'Extra Large', 'powerpack' ),
 				],
 			]
 		);
@@ -651,8 +651,9 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_spacing',
 			[
-				'label'                 => __( 'Button Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'dynamic'               => [ 'active' => true ],
 				'default'               => [
 					'size' => 20,
@@ -672,7 +673,7 @@ class Content_Reveal extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-content-reveal-button-inner',
 				'conditions'            => [
 					'relation'  => 'or',
@@ -697,14 +698,14 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#ffffff',
 				'selectors'             => [
@@ -731,7 +732,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_icon_color',
 			[
-				'label'                 => __( 'Icon Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -758,7 +759,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_background',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'global'                => [
@@ -774,7 +775,7 @@ class Content_Reveal extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border',
-				'label'                 => __( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-content-reveal-button-inner',
@@ -784,9 +785,9 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -806,14 +807,14 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner:hover' => 'color: {{VALUE}};',
@@ -839,7 +840,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_icon_color_hover',
 			[
-				'label'                 => __( 'Icon Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -867,7 +868,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_background_hover',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -881,7 +882,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner:hover' => 'border-color: {{VALUE}};',
@@ -895,13 +896,13 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default'               => [
 					'size'      => '10',
 					'unit'      => 'px',
 				],
-				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -911,7 +912,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_style_heading',
 			[
-				'label'                 => __( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'conditions'            => [
@@ -935,8 +936,9 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_icon_size',
 			[
-				'label'                 => __( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size' => '20',
 				],
@@ -970,8 +972,9 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_icon_spacing',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size' => 8,
 				],

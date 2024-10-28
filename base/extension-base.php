@@ -59,7 +59,7 @@ class Extension_Base {
 	 * @since 0.1.0
 	 * @access public
 	 */
-	public final function __construct() {
+	final public function __construct() {
 
 		// Enqueue scripts
 		add_action( 'elementor/frontend/after_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
@@ -144,7 +144,7 @@ class Extension_Base {
 	 *
 	 * @return array Widget styles dependencies.
 	 */
-	final public function get_style_depends() {
+	public function get_style_depends() {
 		return $this->depended_styles;
 	}
 
@@ -180,7 +180,7 @@ class Extension_Base {
 	 *
 	 * @access private
 	 */
-	protected final function add_common_sections( $element, $args ) {
+	final protected function add_common_sections( $element, $args ) {
 
 		// The name of the section
 		$section_name = 'section_powerpack_elements_advanced';
@@ -196,8 +196,8 @@ class Extension_Base {
 		$element->start_controls_section(
 			$section_name,
 			[
-				'tab' 	=> Controls_Manager::TAB_ADVANCED,
-				'label' => __( 'PowerPack', 'powerpack' ),
+				'tab'   => Controls_Manager::TAB_ADVANCED,
+				'label' => esc_html__( 'PowerPack', 'powerpack' ),
 			]
 		);
 

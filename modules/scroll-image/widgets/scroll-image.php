@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\ScrollImage\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -91,315 +92,328 @@ class Scroll_Image extends Powerpack_Widget {
 	}
 
 	protected function register_controls() {
+		/* Content Tab */
+		$this->register_content_image_controls();
+		$this->register_content_settings_controls();
+		$this->register_content_help_docs_controls();
 
+		/* Style Tab */
+		$this->register_style_image_controls();
+		$this->register_style_overlay_controls();
+	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	CONTENT TAB
+	/*-----------------------------------------------------------------------------------*/
+
+	protected function register_content_image_controls() {
 		/**
 		 * Content Tab: Image
 		 */
-		$this->start_controls_section(
-			'image_settings',
-			array(
-				'label' => __( 'Image', 'powerpack' ),
-			)
+		$this->start_controls_section('image_settings',
+			[
+				'label'                 => esc_html__( 'Image', 'powerpack' ),
+			]
 		);
 
-		$this->add_control(
-			'image',
-			array(
-				'label'       => __( 'Image', 'powerpack' ),
-				'type'        => Controls_Manager::MEDIA,
-				'dynamic'     => array( 'active' => true ),
-				'default'     => array(
-					'url' => Utils::get_placeholder_image_src(),
-				),
-				'label_block' => true,
-			)
+		$this->add_control('image',
+			[
+				'label'                 => esc_html__( 'Image', 'powerpack' ),
+				'type'                  => Controls_Manager::MEDIA,
+				'dynamic'               => [ 'active' => true ],
+				'default'               => [
+					'url'   => Utils::get_placeholder_image_src(),
+				],
+				'label_block'           => true,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
-			array(
-				'name'    => 'image',
-				'label'   => __( 'Image Size', 'powerpack' ),
-				'default' => 'full',
-			)
+			[
+				'name'                  => 'image',
+				'label'                 => esc_html__( 'Image Size', 'powerpack' ),
+				'default'               => 'full',
+			]
 		);
 
-		$this->add_responsive_control(
-			'image_height',
-			array(
-				'label'      => __( 'Image Height', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px', 'em', 'vh' ),
-				'default'    => array(
-					'unit' => 'px',
-					'size' => 300,
-				),
-				'range'      => array(
-					'px' => array(
-						'min' => 200,
-						'max' => 800,
-					),
-					'em' => array(
-						'min' => 1,
-						'max' => 50,
-					),
-				),
-				'selectors'  => array(
+		$this->add_responsive_control('image_height',
+			[
+				'label'                 => esc_html__( 'Image Height', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'vh', 'custom' ],
+				'default'               => [
+					'unit'  => 'px',
+					'size'  => 300,
+				],
+				'range'                 => [
+					'px'    => [
+						'min'   => 200,
+						'max'   => 800,
+					],
+					'em'    => [
+						'min'   => 1,
+						'max'   => 50,
+					],
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-image-scroll-container' => 'height: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'link',
-			array(
-				'label'       => __( 'URL', 'powerpack' ),
-				'type'        => Controls_Manager::URL,
-				'dynamic'     => array(
+			[
+				'label'                 => esc_html__( 'URL', 'powerpack' ),
+				'type'                  => Controls_Manager::URL,
+				'dynamic'               => [
 					'active' => true,
-				),
-				'placeholder' => 'https://powerpackelements.com/',
-				'label_block' => true,
-			)
+				],
+				'placeholder'           => 'https://powerpackelements.com/',
+				'label_block'           => true,
+			]
 		);
 
 		$this->add_control(
 			'icon_heading',
-			array(
-				'label'     => __( 'Icon', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			)
+			[
+				'label'                 => esc_html__( 'Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+			]
 		);
 
 		$this->add_control(
 			'selected_icon',
-			array(
-				'label'            => __( 'Cover', 'powerpack' ) . ' ' . __( 'Icon', 'powerpack' ),
-				'type'             => Controls_Manager::ICONS,
-				'fa4compatibility' => 'icon',
-			)
+			[
+				'label'                 => esc_html__( 'Cover', 'powerpack' ) . ' ' . esc_html__( 'Icon', 'powerpack' ),
+				'type'                  => Controls_Manager::ICONS,
+				'fa4compatibility'      => 'icon',
+			]
 		);
 
-		$this->add_control(
-			'icon_size',
-			array(
-				'label'      => __( 'Icon Size', 'powerpack' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px', 'em' ),
-				'default'    => array(
-					'size' => 30,
-				),
-				'range'      => array(
-					'px' => array(
+		$this->add_control('icon_size',
+			[
+				'label'                 => esc_html__( 'Icon Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
+				'default'               => [
+					'size'  => 30,
+				],
+				'range'                 => [
+					'px'    => [
 						'min' => 5,
 						'max' => 100,
-					),
-				),
-				'selectors'  => array(
+					],
+				],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-image-scroll-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'             => [
 					'selected_icon[value]!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_content_settings_controls() {
 		/**
 		 * Content Tab: Settings
 		 */
-		$this->start_controls_section(
-			'settings',
-			array(
-				'label' => __( 'Settings', 'powerpack' ),
-			)
+		$this->start_controls_section('settings',
+			[
+				'label'                 => esc_html__( 'Settings', 'powerpack' ),
+			]
 		);
 
-		$this->add_control(
-			'trigger_type',
-			array(
-				'label'              => __( 'Trigger', 'powerpack' ),
-				'type'               => Controls_Manager::SELECT,
-				'options'            => array(
-					'hover'  => __( 'Hover', 'powerpack' ),
-					'scroll' => __( 'Mouse Scroll', 'powerpack' ),
-				),
-				'default'            => 'hover',
-				'frontend_available' => true,
-			)
+		$this->add_control('trigger_type',
+			[
+				'label'                 => esc_html__( 'Trigger', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'options'               => [
+					'hover'   => esc_html__( 'Hover', 'powerpack' ),
+					'scroll'  => esc_html__( 'Mouse Scroll', 'powerpack' ),
+				],
+				'default'               => 'hover',
+				'frontend_available'    => true,
+			]
 		);
 
-		$this->add_control(
-			'duration_speed',
-			array(
-				'label'     => __( 'Scroll Speed', 'powerpack' ),
-				'title'     => __( 'In seconds', 'powerpack' ),
-				'type'      => Controls_Manager::NUMBER,
-				'default'   => 3,
-				'selectors' => array(
+		$this->add_control('duration_speed',
+			[
+				'label'                 => esc_html__( 'Scroll Speed', 'powerpack' ),
+				'title'                 => esc_html__( 'In seconds', 'powerpack' ),
+				'type'                  => Controls_Manager::NUMBER,
+				'default'               => 3,
+				'selectors' => [
 					'{{WRAPPER}} .pp-image-scroll-container .pp-image-scroll-image img'   => 'transition: all {{Value}}s; -webkit-transition: all {{Value}}s;',
-				),
-				'condition' => array(
+				],
+				'condition'             => [
 					'trigger_type' => 'hover',
-				),
-			)
+				],
+			]
 		);
 
-		$this->add_control(
-			'direction_type',
-			array(
-				'label'              => __( 'Scroll Direction', 'powerpack' ),
-				'type'               => Controls_Manager::SELECT,
-				'options'            => array(
-					'horizontal' => __( 'Horizontal', 'powerpack' ),
-					'vertical'   => __( 'Vertical', 'powerpack' ),
-				),
-				'default'            => 'vertical',
-				'frontend_available' => true,
-			)
+		$this->add_control('direction_type',
+			[
+				'label'                 => esc_html__( 'Scroll Direction', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'options'               => [
+					'horizontal' => esc_html__( 'Horizontal', 'powerpack' ),
+					'vertical'   => esc_html__( 'Vertical', 'powerpack' ),
+				],
+				'default'               => 'vertical',
+				'frontend_available'    => true,
+			]
 		);
 
-		$this->add_control(
-			'reverse',
-			array(
-				'label'              => __( 'Reverse Direction', 'powerpack' ),
-				'type'               => Controls_Manager::SWITCHER,
-				'frontend_available' => true,
-				'condition'          => array(
+		$this->add_control('reverse',
+			[
+				'label'                 => esc_html__( 'Reverse Direction', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'frontend_available'    => true,
+				'condition'             => [
 					'trigger_type' => 'hover',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
+	}
 
-		/**
-		 * Content Tab: Help Docs
-		 *
-		 * @since 1.4.8
-		 * @access protected
-		 */
-		$this->start_controls_section(
-			'section_help_docs',
-			array(
-				'label' => __( 'Help Docs', 'powerpack' ),
-			)
-		);
+	protected function register_content_help_docs_controls() {
 
-		$this->add_control(
-			'help_doc_1',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				/* translators: %1$s doc link */
-				'raw'             => sprintf( __( '%1$s Watch Video Overview %2$s', 'powerpack' ), '<a href="https://www.youtube.com/watch?v=eduATa8FPpU&list=PLpsSO_wNe8Dz4vfe2tWlySBCCFEgh1qZj" target="_blank" rel="noopener">', '</a>' ),
-				'content_classes' => 'pp-editor-doc-links',
-			)
-		);
+		$help_docs = PP_Config::get_widget_help_links( 'Scroll_Image' );
+		if ( ! empty( $help_docs ) ) {
+			/**
+			 * Content Tab: Docs Links
+			 *
+			 * @since 1.4.8
+			 * @access protected
+			 */
+			$this->start_controls_section(
+				'section_help_docs',
+				[
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+				]
+			);
 
-		$this->end_controls_section();
+			$hd_counter = 1;
+			foreach ( $help_docs as $hd_title => $hd_link ) {
+				$this->add_control(
+					'help_doc_' . $hd_counter,
+					[
+						'type'            => Controls_Manager::RAW_HTML,
+						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
+						'content_classes' => 'pp-editor-doc-links',
+					]
+				);
 
-		/*
-		-----------------------------------------------------------------------------------*/
-		/*
-		STYLE TAB
-		/*-----------------------------------------------------------------------------------*/
+				$hd_counter++;
+			}
 
+			$this->end_controls_section();
+		}
+	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	STYLE TAB
+	/*-----------------------------------------------------------------------------------*/
+
+	protected function register_style_image_controls() {
 		/**
 		 * Style Tab: Image
 		 */
-		$this->start_controls_section(
-			'image_style',
-			array(
-				'label' => __( 'Image', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+		$this->start_controls_section('image_style',
+			[
+				'label'                 => esc_html__( 'Image', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
-		$this->add_control(
-			'icon_color',
-			array(
-				'label'     => __( 'Icon Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
-					'{{WRAPPER}} .pp-image-scroll-icon' => 'color: {{VALUE}};',
+		$this->add_control('icon_color',
+			[
+				'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'selectors'             => [
+					'{{WRAPPER}} .pp-image-scroll-icon'     => 'color: {{VALUE}};',
 					'{{WRAPPER}} .pp-image-scroll-icon svg' => 'fill: {{VALUE}};',
-				),
-				'condition' => array(
-					'selected_icon[value]!' => '',
-				),
-			)
+				],
+				'condition'             => [
+					'selected_icon[value]!'     => '',
+				],
+			]
 		);
 
 		$this->start_controls_tabs( 'image_style_tabs' );
 
-		$this->start_controls_tab(
-			'image_style_tab_normal',
-			array(
-				'label' => __( 'Normal', 'powerpack' ),
-			)
+		$this->start_controls_tab('image_style_tab_normal',
+			[
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'     => 'container_border',
-				'selector' => '{{WRAPPER}} .pp-image-scroll-wrap',
-			)
+			[
+				'name'                  => 'container_border',
+				'selector'              => '{{WRAPPER}} .pp-image-scroll-wrap',
+			]
 		);
 
 		$this->add_control(
 			'image_border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
-				'selectors'  => array(
+			[
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'             => [
 					'{{WRAPPER}} .pp-image-scroll-wrap, {{WRAPPER}} .pp-container-scroll' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'     => 'container_box_shadow',
-				'selector' => '{{WRAPPER}} .pp-image-scroll-wrap',
-			)
+			[
+				'name'                  => 'container_box_shadow',
+				'selector'              => '{{WRAPPER}} .pp-image-scroll-wrap',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
-			array(
-				'name'     => 'css_filters',
-				'selector' => '{{WRAPPER}} .pp-image-scroll-container .pp-image-scroll-image img',
-			)
+			[
+				'name'                  => 'css_filters',
+				'selector'              => '{{WRAPPER}} .pp-image-scroll-container .pp-image-scroll-image img',
+			]
 		);
 
 		$this->end_controls_tab();
 
-		$this->start_controls_tab(
-			'image_style_tab_hover',
-			array(
-				'label' => __( 'Hover', 'powerpack' ),
-			)
+		$this->start_controls_tab('image_style_tab_hover',
+			[
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'     => 'container_box_shadow_hover',
-				'selector' => '{{WRAPPER}} .pp-image-scroll-wrap:hover',
-			)
+			[
+				'name'                  => 'container_box_shadow_hover',
+				'selector'              => '{{WRAPPER}} .pp-image-scroll-wrap:hover',
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
-			array(
-				'name'     => 'css_filters_hover',
-				'selector' => '{{WRAPPER}} .pp-image-scroll-container .pp-image-scroll-image img:hover',
-			)
+			[
+				'name'                  => 'css_filters_hover',
+				'selector'              => '{{WRAPPER}} .pp-image-scroll-container .pp-image-scroll-image img:hover',
+			]
 		);
 
 		$this->end_controls_tab();
@@ -407,50 +421,48 @@ class Scroll_Image extends Powerpack_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
+	protected function register_style_overlay_controls() {
 		/**
 		 * Style Tab: Overlay
 		 */
-		$this->start_controls_section(
-			'overlay_style',
-			array(
-				'label' => __( 'Overlay', 'powerpack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+		$this->start_controls_section('overlay_style',
+			[
+				'label'                 => esc_html__( 'Overlay', 'powerpack' ),
+				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
 		);
 
-		$this->add_control(
-			'overlay',
-			array(
-				'label'     => __( 'Overlay', 'powerpack' ),
-				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => __( 'Show', 'powerpack' ),
-				'label_off' => __( 'Hide', 'powerpack' ),
+		$this->add_control('overlay',
+			[
+				'label'                 => esc_html__( 'Overlay', 'powerpack' ),
+				'type'                  => Controls_Manager::SWITCHER,
+				'label_on'              => esc_html__( 'Show', 'powerpack' ),
+				'label_off'             => esc_html__( 'Hide', 'powerpack' ),
 
-			)
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
-			array(
-				'name'      => 'overlay_background',
-				'types'     => array( 'classic', 'gradient' ),
-				'selector'  => '{{WRAPPER}} .pp-image-scroll-overlay',
-				'exclude'   => array(
+			[
+				'name'                  => 'overlay_background',
+				'types'                 => [ 'classic', 'gradient' ],
+				'selector'              => '{{WRAPPER}} .pp-image-scroll-overlay',
+				'exclude'               => [
 					'image',
-				),
-				'condition' => array(
-					'overlay' => 'yes',
-				),
-			)
+				],
+				'condition'             => [
+					'overlay'  => 'yes',
+				],
+			]
 		);
 
 		$this->end_controls_section();
-
 	}
 
 	protected function render() {
-
 		$settings = $this->get_settings_for_display();
 
 		if ( empty( $settings['image']['url'] ) ) {
@@ -473,7 +485,7 @@ class Scroll_Image extends Powerpack_Widget {
 
 		if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
 			// add old default
-			$settings['icon'] = 'fa fa-star';
+			$settings['icon'] = 'eicon-star';
 		}
 
 		$has_icon = ! empty( $settings['icon'] );
@@ -533,6 +545,14 @@ class Scroll_Image extends Powerpack_Widget {
 		<?php
 	}
 
+	/**
+	 * Render scroll image widgets output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since 2.0.3
+	 * @access protected
+	 */
 	protected function content_template() {
 		?>
 		<#
@@ -543,7 +563,6 @@ class Scroll_Image extends Powerpack_Widget {
 				migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' );
 
 			if ( settings.icon || settings.selected_icon.value ) {
-
 				view.addRenderAttribute( 'icon', 'class', [
 					'pp-image-scroll-icon',
 					'pp-icon',
@@ -552,7 +571,7 @@ class Scroll_Image extends Powerpack_Widget {
 			}
 
 			if ( settings.link.url ) {
-				view.addRenderAttribute( 'link', 'class', 'pp-image-scroll-link' );
+				view.addRenderAttribute( 'link', 'class', 'pp-image-scroll-link pp-media-content' );
 				url = settings.link.url;
 				view.addRenderAttribute( 'link', 'href',  url );
 			}
@@ -561,7 +580,6 @@ class Scroll_Image extends Powerpack_Widget {
 
 			view.addRenderAttribute( 'direction_type', 'class', 'pp-image-scroll-image pp-image-scroll-' + direction );
 		#>
-
 		<div class="pp-image-scroll-wrap">
 			<div {{{ view.getRenderAttributeString('container') }}}>
 				<# if ( settings.icon || settings.selected_icon ) { #>
@@ -577,16 +595,15 @@ class Scroll_Image extends Powerpack_Widget {
 				<# } #>
 				<div {{{ view.getRenderAttributeString('direction_type') }}}>
 					<# if( 'yes' == settings.overlay ) { #>
-						<div class="pp-image-scroll-overlay">
+						<div class="pp-image-scroll-overlay pp-media-overlay">
 					<# }
 					if ( settings.link.url ) { #>
 						<a {{{ view.getRenderAttributeString('link') }}}></a>
 					<# }
 					if( 'yes' == settings.overlay ) { #>
 						</div> 
-					<# } #>
+					<# }
 
-					<#
 					var image = {
 						id: settings.image.id,
 						url: settings.image.url,
@@ -602,5 +619,4 @@ class Scroll_Image extends Powerpack_Widget {
 		</div>
 		<?php
 	}
-
 }

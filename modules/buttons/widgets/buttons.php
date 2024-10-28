@@ -126,7 +126,7 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_list',
 			[
-				'label'                 => __( 'Buttons', 'powerpack' ),
+				'label'                 => esc_html__( 'Buttons', 'powerpack' ),
 			]
 		);
 		$repeater = new Repeater();
@@ -136,17 +136,17 @@ class Buttons extends Powerpack_Widget {
 			$repeater->start_controls_tab(
 				'button_general',
 				[
-					'label' => __( 'Content', 'powerpack' ),
+					'label' => esc_html__( 'Content', 'powerpack' ),
 				]
 			);
 
 			$repeater->add_control(
 				'text',
 				[
-					'label'             => __( 'Text', 'powerpack' ),
+					'label'             => esc_html__( 'Text', 'powerpack' ),
 					'type'              => Controls_Manager::TEXT,
-					'default'           => __( 'Button #1', 'powerpack' ),
-					'placeholder'       => __( 'Button #1', 'powerpack' ),
+					'default'           => esc_html__( 'Button #1', 'powerpack' ),
+					'placeholder'       => esc_html__( 'Button #1', 'powerpack' ),
 					'dynamic'           => [
 						'active' => true,
 					],
@@ -155,7 +155,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'pp_icon_type',
 				[
-					'label'             => __( 'Icon Type', 'powerpack' ),
+					'label'             => esc_html__( 'Icon Type', 'powerpack' ),
 					'type'              => Controls_Manager::CHOOSE,
 					'label_block'       => false,
 					'toggle'            => false,
@@ -183,7 +183,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'selected_icon',
 				[
-					'label'             => __( 'Icon', 'powerpack' ),
+					'label'             => esc_html__( 'Icon', 'powerpack' ),
 					'type'              => Controls_Manager::ICONS,
 					'label_block'       => true,
 					'default'           => [
@@ -199,7 +199,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'icon_img',
 				[
-					'label'             => __( 'Image', 'powerpack' ),
+					'label'             => esc_html__( 'Image', 'powerpack' ),
 					'label_block'       => true,
 					'type'              => Controls_Manager::MEDIA,
 					'default'           => [
@@ -217,7 +217,7 @@ class Buttons extends Powerpack_Widget {
 				Group_Control_Image_Size::get_type(),
 				array(
 					'name'      => 'icon_img',
-					'label'     => __( 'Image Size', 'powerpack' ),
+					'label'     => esc_html__( 'Image Size', 'powerpack' ),
 					'default'   => 'full',
 					'condition' => array(
 						'pp_icon_type' => 'image',
@@ -227,10 +227,10 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'icon_text',
 				[
-					'label'             => __( 'Icon Text', 'powerpack' ),
+					'label'             => esc_html__( 'Icon Text', 'powerpack' ),
 					'label_block'       => false,
 					'type'              => Controls_Manager::TEXT,
-					'default'           => __( '1', 'powerpack' ),
+					'default'           => esc_html__( '1', 'powerpack' ),
 					'dynamic'           => [
 						'active'  => true,
 					],
@@ -243,21 +243,21 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'has_tooltip',
 				[
-					'label'         => __( 'Enable Tooltip', 'powerpack' ),
+					'label'         => esc_html__( 'Enable Tooltip', 'powerpack' ),
 					'type'          => Controls_Manager::SWITCHER,
 					'default'       => 'no',
-					'yes'       => __( 'Yes', 'powerpack' ),
-					'no'        => __( 'No', 'powerpack' ),
+					'yes'       => esc_html__( 'Yes', 'powerpack' ),
+					'no'        => esc_html__( 'No', 'powerpack' ),
 				]
 			);
 
 			$repeater->add_control(
 				'tooltip_content',
 				[
-					'label'         => __( 'Tooltip Content', 'powerpack' ),
+					'label'         => esc_html__( 'Tooltip Content', 'powerpack' ),
 					'type'          => Controls_Manager::TEXTAREA,
-					'default'       => __( 'I am a tooltip for a button', 'powerpack' ),
-					'placeholder'   => __( 'I am a tooltip for a button', 'powerpack' ),
+					'default'       => esc_html__( 'I am a tooltip for a button', 'powerpack' ),
+					'placeholder'   => esc_html__( 'I am a tooltip for a button', 'powerpack' ),
 					'rows'          => 5,
 					'condition'     => [
 						'has_tooltip'   => 'yes',
@@ -268,20 +268,20 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'link',
 				[
-					'label'             => __( 'Link', 'powerpack' ),
+					'label'             => esc_html__( 'Link', 'powerpack' ),
 					'type'              => Controls_Manager::URL,
 					'dynamic'           => [
 						'active'  => true,
 					],
 					'label_block'       => true,
-					'placeholder'       => __( 'http://your-link.com', 'powerpack' ),
+					'placeholder'       => esc_html__( 'http://your-link.com', 'powerpack' ),
 				]
 			);
 			$repeater->add_control(
 				'css_id',
 				[
-					'label'       => __( 'CSS ID', 'powerpack' ),
-					'title'       => __( 'Add your custom ID WITHOUT the # key. e.g: my-id', 'powerpack' ),
+					'label'       => esc_html__( 'CSS ID', 'powerpack' ),
+					'title'       => esc_html__( 'Add your custom ID WITHOUT the # key. e.g: my-id', 'powerpack' ),
 					'label_block' => false,
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => [
@@ -295,8 +295,8 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'css_classes',
 				[
-					'label'       => __( 'CSS Classes', 'powerpack' ),
-					'title'       => __( 'Add your custom class WITHOUT the dot. e.g: my-class', 'powerpack' ),
+					'label'       => esc_html__( 'CSS Classes', 'powerpack' ),
+					'title'       => esc_html__( 'Add your custom class WITHOUT the dot. e.g: my-class', 'powerpack' ),
 					'label_block' => false,
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => [
@@ -313,24 +313,24 @@ class Buttons extends Powerpack_Widget {
 			$repeater->start_controls_tab(
 				'button_layout_tab',
 				[
-					'label' => __( 'Layout', 'powerpack' ),
+					'label' => esc_html__( 'Layout', 'powerpack' ),
 				]
 			);
 
 			$repeater->add_control(
 				'single_button_size',
 				[
-					'label'                 => __( 'Button Size', 'powerpack' ),
+					'label'                 => esc_html__( 'Button Size', 'powerpack' ),
 					'type'                  => Controls_Manager::SELECT,
 					'default'               => 'default',
 					'options'               => [
-						'default' => __( 'Default', 'powerpack' ),
-						'xs' => __( 'Extra Small', 'powerpack' ),
-						'sm' => __( 'Small', 'powerpack' ),
-						'md' => __( 'Medium', 'powerpack' ),
-						'lg' => __( 'Large', 'powerpack' ),
-						'xl' => __( 'Extra Large', 'powerpack' ),
-						'custom' => __( 'Custom', 'powerpack' ),
+						'default' => esc_html__( 'Default', 'powerpack' ),
+						'xs' => esc_html__( 'Extra Small', 'powerpack' ),
+						'sm' => esc_html__( 'Small', 'powerpack' ),
+						'md' => esc_html__( 'Medium', 'powerpack' ),
+						'lg' => esc_html__( 'Large', 'powerpack' ),
+						'xl' => esc_html__( 'Extra Large', 'powerpack' ),
+						'custom' => esc_html__( 'Custom', 'powerpack' ),
 					],
 				]
 			);
@@ -338,9 +338,9 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_responsive_control(
 				'single_button_width',
 				[
-					'label'                 => __( 'Button Width', 'powerpack' ),
+					'label'                 => esc_html__( 'Button Width', 'powerpack' ),
 					'type'                  => Controls_Manager::SLIDER,
-					'size_units'            => [ 'px', '%' ],
+					'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 					'range'                 => [
 						'px' => [
 							'min'   => 10,
@@ -360,9 +360,9 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_responsive_control(
 				'single_button_padding',
 				[
-					'label'                 => __( 'Padding', 'powerpack' ),
+					'label'                 => esc_html__( 'Padding', 'powerpack' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
-					'size_units'            => [ 'px', 'em', '%' ],
+					'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 					'selectors'             => [
 						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -374,7 +374,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->start_controls_tab(
 				'button_style_tabs',
 				[
-					'label' => __( 'Style', 'powerpack' ),
+					'label' => esc_html__( 'Style', 'powerpack' ),
 				]
 			);
 
@@ -382,7 +382,7 @@ class Buttons extends Powerpack_Widget {
 				Group_Control_Typography::get_type(),
 				[
 					'name'                  => 'single_title_typography',
-					'label'                 => __( 'Button Typography', 'powerpack' ),
+					'label'                 => esc_html__( 'Button Typography', 'powerpack' ),
 					'global'                => [
 						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 					],
@@ -401,8 +401,9 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_responsive_control(
 				'single_icon_size',
 				[
-					'label'                 => __( 'Icon Size', 'powerpack' ),
+					'label'                 => esc_html__( 'Icon Size', 'powerpack' ),
 					'type'                  => Controls_Manager::SLIDER,
+					'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 					'range'                 => [
 						'px' => [
 							'min'   => 5,
@@ -423,7 +424,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_normal_options',
 				[
-					'label'     => __( 'Normal', 'powerpack' ),
+					'label'     => esc_html__( 'Normal', 'powerpack' ),
 					'type'      => Controls_Manager::HEADING,
 					'separator' => 'after',
 				]
@@ -431,7 +432,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_button_bg_color',
 				[
-					'label'                 => __( 'Background Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -442,7 +443,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_text_color',
 				[
-					'label'                 => __( 'Text Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -453,7 +454,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_icon_color',
 				[
-					'label'                 => __( 'Icon Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -466,7 +467,7 @@ class Buttons extends Powerpack_Widget {
 				Group_Control_Border::get_type(),
 				[
 					'name'                  => 'single_button_border',
-					'label'                 => __( 'Border', 'powerpack' ),
+					'label'                 => esc_html__( 'Border', 'powerpack' ),
 					'placeholder'           => '1px',
 					'default'               => '1px',
 					'selector'              => '{{WRAPPER}} {{CURRENT_ITEM}}.pp-button',
@@ -475,9 +476,9 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_button_border_radius',
 				[
-					'label'                 => __( 'Border Radius', 'powerpack' ),
+					'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
-					'size_units'            => [ 'px', '%', 'em' ],
+					'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 					'selectors'             => [
 						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -487,7 +488,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_hover_options',
 				[
-					'label' => __( 'Hover', 'powerpack' ),
+					'label' => esc_html__( 'Hover', 'powerpack' ),
 					'type'  => Controls_Manager::HEADING,
 					'separator' => 'after',
 				]
@@ -496,7 +497,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_button_bg_color_hover',
 				[
-					'label'                 => __( 'Background Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -508,7 +509,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_text_color_hover',
 				[
-					'label'                 => __( 'Text Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -520,7 +521,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_icon_color_hover',
 				[
-					'label'                 => __( 'Icon Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -533,7 +534,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_border_color_hover',
 				[
-					'label'                 => __( 'Border Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -549,17 +550,17 @@ class Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'buttons',
 			[
-				'label'       => __( 'Buttons', 'powerpack' ),
+				'label'       => esc_html__( 'Buttons', 'powerpack' ),
 				'type'        => Controls_Manager::REPEATER,
 				'show_label'  => true,
 				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ text }}}',
 				'default'     => [
 					[
-						'text' => __( 'Button #1', 'powerpack' ),
+						'text' => esc_html__( 'Button #1', 'powerpack' ),
 					],
 					[
-						'text' => __( 'Button #2', 'powerpack' ),
+						'text' => esc_html__( 'Button #2', 'powerpack' ),
 					],
 				],
 			]
@@ -594,31 +595,31 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'button_layout',
 			[
-				'label' => __( 'Layout', 'powerpack' ),
+				'label' => esc_html__( 'Layout', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'button_size',
 			[
-				'label'                 => __( 'Buttons Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Buttons Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'sm',
 				'options'               => [
-					'xs' => __( 'Extra Small', 'powerpack' ),
-					'sm' => __( 'Small', 'powerpack' ),
-					'md' => __( 'Medium', 'powerpack' ),
-					'lg' => __( 'Large', 'powerpack' ),
-					'xl' => __( 'Extra Large', 'powerpack' ),
+					'xs' => esc_html__( 'Extra Small', 'powerpack' ),
+					'sm' => esc_html__( 'Small', 'powerpack' ),
+					'md' => esc_html__( 'Medium', 'powerpack' ),
+					'lg' => esc_html__( 'Large', 'powerpack' ),
+					'xl' => esc_html__( 'Extra Large', 'powerpack' ),
 				],
 			]
 		);
 		$this->add_responsive_control(
 			'button_spacing',
 			[
-				'label'                 => __( 'Buttons Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Buttons Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => array( 'px', 'em', 'rem' ),
+				'size_units'            => array(  'px', 'em', 'rem', 'custom' ),
 				'default'               => [
 					'size' => 10,
 				],
@@ -637,24 +638,24 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'vertical_align',
 			[
-				'label'                 => __( 'Vertical Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Vertical Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'middle',
 				'options'               => [
 					'top'           => [
-						'title'     => __( 'Top', 'powerpack' ),
+						'title'     => esc_html__( 'Top', 'powerpack' ),
 						'icon'      => 'eicon-v-align-top',
 					],
 					'middle'        => [
-						'title'     => __( 'Middle', 'powerpack' ),
+						'title'     => esc_html__( 'Middle', 'powerpack' ),
 						'icon'      => 'eicon-v-align-middle',
 					],
 					'bottom'        => [
-						'title'     => __( 'Bottom', 'powerpack' ),
+						'title'     => esc_html__( 'Bottom', 'powerpack' ),
 						'icon'      => 'eicon-v-align-bottom',
 					],
 					'stretch'       => [
-						'title'     => __( 'Stretch', 'powerpack' ),
+						'title'     => esc_html__( 'Stretch', 'powerpack' ),
 						'icon'      => 'eicon-v-align-stretch',
 					],
 				],
@@ -665,24 +666,24 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_align',
 			[
-				'label'                 => __( 'Horizontal Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Horizontal Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'left',
 				'options'               => [
 					'left'          => [
-						'title'     => __( 'Left', 'powerpack' ),
+						'title'     => esc_html__( 'Left', 'powerpack' ),
 						'icon'      => 'eicon-h-align-left',
 					],
 					'center'        => [
-						'title'     => __( 'Center', 'powerpack' ),
+						'title'     => esc_html__( 'Center', 'powerpack' ),
 						'icon'      => 'eicon-h-align-center',
 					],
 					'right'         => [
-						'title'     => __( 'Right', 'powerpack' ),
+						'title'     => esc_html__( 'Right', 'powerpack' ),
 						'icon'      => 'eicon-h-align-right',
 					],
 					'stretch'       => [
-						'title'     => __( 'Stretch', 'powerpack' ),
+						'title'     => esc_html__( 'Stretch', 'powerpack' ),
 						'icon'      => 'eicon-h-align-stretch',
 					],
 				],
@@ -693,24 +694,24 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_align',
 			[
-				'label'                 => __( 'Content Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Content Alignment', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'left',
 				'options'               => [
 					'left'          => [
-						'title'     => __( 'Left', 'powerpack' ),
+						'title'     => esc_html__( 'Left', 'powerpack' ),
 						'icon'      => 'eicon-h-align-left',
 					],
 					'center'        => [
-						'title'     => __( 'Center', 'powerpack' ),
+						'title'     => esc_html__( 'Center', 'powerpack' ),
 						'icon'      => 'eicon-h-align-center',
 					],
 					'right'         => [
-						'title'     => __( 'Right', 'powerpack' ),
+						'title'     => esc_html__( 'Right', 'powerpack' ),
 						'icon'      => 'eicon-h-align-right',
 					],
 					'stretch'       => [
-						'title'     => __( 'Stretch', 'powerpack' ),
+						'title'     => esc_html__( 'Stretch', 'powerpack' ),
 						'icon'      => 'eicon-h-align-stretch',
 					],
 				],
@@ -732,15 +733,15 @@ class Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'stack_on',
 			[
-				'label'                 => __( 'Stack on', 'powerpack' ),
+				'label'                 => esc_html__( 'Stack on', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'none',
-				'description'           => __( 'Choose a breakpoint where the buttons will stack.', 'powerpack' ),
+				'description'           => esc_html__( 'Choose a breakpoint where the buttons will stack.', 'powerpack' ),
 				'options'               => [
-					'none'    => __( 'None', 'powerpack' ),
-					'desktop' => __( 'Desktop', 'powerpack' ),
-					'tablet'  => __( 'Tablet', 'powerpack' ),
-					'mobile'  => __( 'Mobile', 'powerpack' ),
+					'none'    => esc_html__( 'None', 'powerpack' ),
+					'desktop' => esc_html__( 'Desktop', 'powerpack' ),
+					'tablet'  => esc_html__( 'Tablet', 'powerpack' ),
+					'mobile'  => esc_html__( 'Mobile', 'powerpack' ),
 				],
 				'prefix_class'          => 'pp-buttons-stack-',
 			]
@@ -749,9 +750,9 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -767,7 +768,7 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_info_box_button_style',
 			[
-				'label'                 => __( 'Styling', 'powerpack' ),
+				'label'                 => esc_html__( 'Styling', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -775,7 +776,7 @@ class Buttons extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'button_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -796,14 +797,14 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 			$this->add_control(
 				'button_bg_color_normal',
 				[
-					'label'                 => __( 'Background Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'global'                => [
 						'default' => Global_Colors::COLOR_ACCENT,
@@ -817,7 +818,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'button_text_color_normal',
 				[
-					'label'                 => __( 'Text Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#ffffff',
 					'selectors'             => [
@@ -829,7 +830,7 @@ class Buttons extends Powerpack_Widget {
 				Group_Control_Border::get_type(),
 				[
 					'name'                  => 'button_border_normal',
-					'label'                 => __( 'Border', 'powerpack' ),
+					'label'                 => esc_html__( 'Border', 'powerpack' ),
 					'placeholder'           => '1px',
 					'default'               => '1px',
 					'selector'              => '{{WRAPPER}} .pp-button',
@@ -838,9 +839,9 @@ class Buttons extends Powerpack_Widget {
 			$this->add_responsive_control(
 				'button_border_radius',
 				[
-					'label'                 => __( 'Border Radius', 'powerpack' ),
+					'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
-					'size_units'            => [ 'px', '%', 'em' ],
+					'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 					'selectors'             => [
 						'{{WRAPPER}} .pp-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -859,14 +860,14 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
 			$this->add_control(
 				'button_bg_color_hover',
 				[
-					'label'                 => __( 'Background Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -877,7 +878,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'button_text_color_hover',
 				[
-					'label'                 => __( 'Text Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -888,7 +889,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'button_border_color_hover',
 				[
-					'label'                 => __( 'Border Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -906,7 +907,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'button_animation',
 				[
-					'label'                 => __( 'Animation', 'powerpack' ),
+					'label'                 => esc_html__( 'Animation', 'powerpack' ),
 					'type'                  => Controls_Manager::HOVER_ANIMATION,
 				]
 			);
@@ -923,7 +924,7 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_icon_style',
 			[
-				'label'                 => __( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -932,7 +933,7 @@ class Buttons extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'icon_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -942,22 +943,23 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_position',
 			[
-				'label'             => __( 'Icon Position', 'powerpack' ),
+				'label'             => esc_html__( 'Icon Position', 'powerpack' ),
 				'type'              => Controls_Manager::SELECT,
 				'default'           => 'before',
 				'options'           => [
-					'after'     => __( 'After', 'powerpack' ),
-					'before'    => __( 'Before', 'powerpack' ),
-					'top'       => __( 'Top', 'powerpack' ),
-					'bottom'    => __( 'Bottom', 'powerpack' ),
+					'after'     => esc_html__( 'After', 'powerpack' ),
+					'before'    => esc_html__( 'Before', 'powerpack' ),
+					'top'       => esc_html__( 'Top', 'powerpack' ),
+					'bottom'    => esc_html__( 'Bottom', 'powerpack' ),
 				],
 			]
 		);
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label'                 => __( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default'               => [
 					'size' => '',
 				],
@@ -976,8 +978,9 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_spacing',
 			[
-				'label'                 => __( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
 					'size' => 8,
 				],
@@ -1000,13 +1003,13 @@ class Buttons extends Powerpack_Widget {
 			$this->start_controls_tab(
 				'tab_icon_normal',
 				[
-					'label'                 => __( 'Normal', 'powerpack' ),
+					'label'                 => esc_html__( 'Normal', 'powerpack' ),
 				]
 			);
 			$this->add_control(
 				'icon_color',
 				[
-					'label'                 => __( 'Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -1021,14 +1024,14 @@ class Buttons extends Powerpack_Widget {
 			$this->start_controls_tab(
 				'tab_icon_hover',
 				[
-					'label'                 => __( 'Hover', 'powerpack' ),
+					'label'                 => esc_html__( 'Hover', 'powerpack' ),
 				]
 			);
 
 			$this->add_control(
 				'icon_color_hover',
 				[
-					'label'                 => __( 'Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Color', 'powerpack' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -1052,7 +1055,7 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_tooltip_style',
 			[
-				'label'     => __( 'Tooltip', 'powerpack' ),
+				'label'     => esc_html__( 'Tooltip', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1060,14 +1063,14 @@ class Buttons extends Powerpack_Widget {
 			$this->add_responsive_control(
 				'tooltips_position',
 				[
-					'label'     => __( 'Tooltip Position', 'powerpack' ),
+					'label'     => esc_html__( 'Tooltip Position', 'powerpack' ),
 					'type'      => Controls_Manager::SELECT,
 					'default'   => 'above',
 					'options'   => [
-						'above'     => __( 'Above', 'powerpack' ),
-						'below'     => __( 'Below', 'powerpack' ),
-						'left'      => __( 'Left', 'powerpack' ),
-						'right'     => __( 'Right', 'powerpack' ),
+						'above'     => esc_html__( 'Above', 'powerpack' ),
+						'below'     => esc_html__( 'Below', 'powerpack' ),
+						'left'      => esc_html__( 'Left', 'powerpack' ),
+						'right'     => esc_html__( 'Right', 'powerpack' ),
 					],
 				]
 			);
@@ -1075,20 +1078,20 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'tooltips_align',
 				[
-					'label'     => __( 'Text Align', 'powerpack' ),
+					'label'     => esc_html__( 'Text Align', 'powerpack' ),
 					'type'      => Controls_Manager::CHOOSE,
 					'default'   => ' center',
 					'options'   => [
 						'left'      => [
-							'title' => __( 'Left', 'powerpack' ),
+							'title' => esc_html__( 'Left', 'powerpack' ),
 							'icon'  => 'eicon-text-align-left',
 						],
 						'center'    => [
-							'title' => __( 'Center', 'powerpack' ),
+							'title' => esc_html__( 'Center', 'powerpack' ),
 							'icon'  => 'eicon-text-align-center',
 						],
 						'right'     => [
-							'title' => __( 'Right', 'powerpack' ),
+							'title' => esc_html__( 'Right', 'powerpack' ),
 							'icon'  => 'eicon-text-align-right',
 						],
 					],
@@ -1101,7 +1104,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'tooltips_background_color',
 				[
-					'label'     => __( 'Background Color', 'powerpack' ),
+					'label'     => esc_html__( 'Background Color', 'powerpack' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#000000',
 					'selectors' => [
@@ -1117,7 +1120,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'tooltips_color',
 				[
-					'label'     => __( 'Color', 'powerpack' ),
+					'label'     => esc_html__( 'Color', 'powerpack' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#ffffff',
 					'selectors' => [
@@ -1141,9 +1144,9 @@ class Buttons extends Powerpack_Widget {
 			$this->add_responsive_control(
 				'tooltips_border_radius',
 				[
-					'label'      => __( 'Border Radius', 'powerpack' ),
+					'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', '%', 'em' ],
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 					'selectors'  => [
 						'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -1153,9 +1156,9 @@ class Buttons extends Powerpack_Widget {
 			$this->add_responsive_control(
 				'tooltips_padding',
 				[
-					'label'      => __( 'Padding', 'powerpack' ),
+					'label'      => esc_html__( 'Padding', 'powerpack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', 'em', '%' ],
+					'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 					'selectors'  => [
 						'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
@@ -1335,11 +1338,10 @@ class Buttons extends Powerpack_Widget {
 											<?php
 											if ( $is_new || $migrated ) {
 												Icons_Manager::render_icon( $item['selected_icon'], [
-													'class' => 'pp-button-icon',
 													'aria-hidden' => 'true',
 												] );
 											} else { ?>
-												<i class="pp-button-icon <?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
+												<i class="<?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
 												<?php
 											}
 											?>

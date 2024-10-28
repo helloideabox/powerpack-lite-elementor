@@ -115,37 +115,37 @@ class Random_Image extends Powerpack_Widget {
 
 		if ( $inherit ) {
 			$inherit_opt = array(
-				'' => __( 'Inherit', 'powerpack' ),
+				'' => esc_html__( 'Inherit', 'powerpack' ),
 			);
 		}
 
 		$pp_image_filters = array(
-			'normal'            => __( 'Normal', 'powerpack' ),
-			'filter-1977'       => __( '1977', 'powerpack' ),
-			'filter-aden'       => __( 'Aden', 'powerpack' ),
-			'filter-amaro'      => __( 'Amaro', 'powerpack' ),
-			'filter-ashby'      => __( 'Ashby', 'powerpack' ),
-			'filter-brannan'    => __( 'Brannan', 'powerpack' ),
-			'filter-brooklyn'   => __( 'Brooklyn', 'powerpack' ),
-			'filter-charmes'    => __( 'Charmes', 'powerpack' ),
-			'filter-clarendon'  => __( 'Clarendon', 'powerpack' ),
-			'filter-crema'      => __( 'Crema', 'powerpack' ),
-			'filter-dogpatch'   => __( 'Dogpatch', 'powerpack' ),
-			'filter-earlybird'  => __( 'Earlybird', 'powerpack' ),
-			'filter-gingham'    => __( 'Gingham', 'powerpack' ),
-			'filter-ginza'      => __( 'Ginza', 'powerpack' ),
-			'filter-hefe'       => __( 'Hefe', 'powerpack' ),
-			'filter-helena'     => __( 'Helena', 'powerpack' ),
-			'filter-hudson'     => __( 'Hudson', 'powerpack' ),
-			'filter-inkwell'    => __( 'Inkwell', 'powerpack' ),
-			'filter-juno'       => __( 'Juno', 'powerpack' ),
-			'filter-kelvin'     => __( 'Kelvin', 'powerpack' ),
-			'filter-lark'       => __( 'Lark', 'powerpack' ),
-			'filter-lofi'       => __( 'Lofi', 'powerpack' ),
-			'filter-ludwig'     => __( 'Ludwig', 'powerpack' ),
-			'filter-maven'      => __( 'Maven', 'powerpack' ),
-			'filter-mayfair'    => __( 'Mayfair', 'powerpack' ),
-			'filter-moon'       => __( 'Moon', 'powerpack' ),
+			'normal'            => esc_html__( 'Normal', 'powerpack' ),
+			'filter-1977'       => esc_html__( '1977', 'powerpack' ),
+			'filter-aden'       => esc_html__( 'Aden', 'powerpack' ),
+			'filter-amaro'      => esc_html__( 'Amaro', 'powerpack' ),
+			'filter-ashby'      => esc_html__( 'Ashby', 'powerpack' ),
+			'filter-brannan'    => esc_html__( 'Brannan', 'powerpack' ),
+			'filter-brooklyn'   => esc_html__( 'Brooklyn', 'powerpack' ),
+			'filter-charmes'    => esc_html__( 'Charmes', 'powerpack' ),
+			'filter-clarendon'  => esc_html__( 'Clarendon', 'powerpack' ),
+			'filter-crema'      => esc_html__( 'Crema', 'powerpack' ),
+			'filter-dogpatch'   => esc_html__( 'Dogpatch', 'powerpack' ),
+			'filter-earlybird'  => esc_html__( 'Earlybird', 'powerpack' ),
+			'filter-gingham'    => esc_html__( 'Gingham', 'powerpack' ),
+			'filter-ginza'      => esc_html__( 'Ginza', 'powerpack' ),
+			'filter-hefe'       => esc_html__( 'Hefe', 'powerpack' ),
+			'filter-helena'     => esc_html__( 'Helena', 'powerpack' ),
+			'filter-hudson'     => esc_html__( 'Hudson', 'powerpack' ),
+			'filter-inkwell'    => esc_html__( 'Inkwell', 'powerpack' ),
+			'filter-juno'       => esc_html__( 'Juno', 'powerpack' ),
+			'filter-kelvin'     => esc_html__( 'Kelvin', 'powerpack' ),
+			'filter-lark'       => esc_html__( 'Lark', 'powerpack' ),
+			'filter-lofi'       => esc_html__( 'Lofi', 'powerpack' ),
+			'filter-ludwig'     => esc_html__( 'Ludwig', 'powerpack' ),
+			'filter-maven'      => esc_html__( 'Maven', 'powerpack' ),
+			'filter-mayfair'    => esc_html__( 'Mayfair', 'powerpack' ),
+			'filter-moon'       => esc_html__( 'Moon', 'powerpack' ),
 		);
 
 		return array_merge( $inherit_opt, $pp_image_filters );
@@ -180,14 +180,14 @@ class Random_Image extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_images',
 			[
-				'label' => __( 'Images', 'powerpack' ),
+				'label' => esc_html__( 'Images', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'wp_gallery',
 			[
-				'label'     => __( 'Add Images', 'powerpack' ),
+				'label'     => esc_html__( 'Add Images', 'powerpack' ),
 				'type'      => Controls_Manager::GALLERY,
 				'dynamic'   => [
 					'active' => true,
@@ -199,7 +199,7 @@ class Random_Image extends Powerpack_Widget {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'      => 'image', // Actually its `image_size`.
-				'label'     => __( 'Image Size', 'powerpack' ),
+				'label'     => esc_html__( 'Image Size', 'powerpack' ),
 				'default'   => 'full',
 			]
 		);
@@ -207,19 +207,19 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'     => __( 'Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Alignment', 'powerpack' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => [
 					'left'  => [
-						'title'     => __( 'Left', 'powerpack' ),
+						'title'     => esc_html__( 'Left', 'powerpack' ),
 						'icon'      => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title'     => __( 'Center', 'powerpack' ),
+						'title'     => esc_html__( 'Center', 'powerpack' ),
 						'icon'      => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title'     => __( 'Right', 'powerpack' ),
+						'title'     => esc_html__( 'Right', 'powerpack' ),
 						'icon'      => 'eicon-text-align-right',
 					],
 				],
@@ -232,14 +232,14 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption',
 			[
-				'label'     => __( 'Caption', 'powerpack' ),
+				'label'     => esc_html__( 'Caption', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
 				'options'   => [
-					''            => __( 'None', 'powerpack' ),
-					'title'       => __( 'Title', 'powerpack' ),
-					'caption'     => __( 'Caption', 'powerpack' ),
-					'description' => __( 'Description', 'powerpack' ),
+					''            => esc_html__( 'None', 'powerpack' ),
+					'title'       => esc_html__( 'Title', 'powerpack' ),
+					'caption'     => esc_html__( 'Caption', 'powerpack' ),
+					'description' => esc_html__( 'Description', 'powerpack' ),
 				],
 			]
 		);
@@ -247,12 +247,12 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_position',
 			array(
-				'label'     => __( 'Caption Position', 'powerpack' ),
+				'label'     => esc_html__( 'Caption Position', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'below_image',
 				'options'   => array(
-					'over_image'  => __( 'Over Image', 'powerpack' ),
-					'below_image' => __( 'Below Image', 'powerpack' ),
+					'over_image'  => esc_html__( 'Over Image', 'powerpack' ),
+					'below_image' => esc_html__( 'Below Image', 'powerpack' ),
 				),
 				'condition' => array(
 					'caption!' => '',
@@ -263,13 +263,13 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'link_to',
 			[
-				'label'   => __( 'Link to', 'powerpack' ),
+				'label'   => esc_html__( 'Link to', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'none',
 				'options' => [
-					'none'   => __( 'None', 'powerpack' ),
-					'file'   => __( 'Media File', 'powerpack' ),
-					'custom' => __( 'Custom URL', 'powerpack' ),
+					'none'   => esc_html__( 'None', 'powerpack' ),
+					'file'   => esc_html__( 'Media File', 'powerpack' ),
+					'custom' => esc_html__( 'Custom URL', 'powerpack' ),
 				],
 			]
 		);
@@ -277,12 +277,12 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'link',
 			[
-				'label'       => __( 'Link', 'powerpack' ),
+				'label'       => esc_html__( 'Link', 'powerpack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [
 					'active' => true,
 				],
-				'placeholder' => __( 'https://your-link.com', 'powerpack' ),
+				'placeholder' => esc_html__( 'https://your-link.com', 'powerpack' ),
 				'condition'   => [
 					'link_to' => 'custom',
 				],
@@ -295,7 +295,7 @@ class Random_Image extends Powerpack_Widget {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => __( 'To add a different link to each image, add custom link in the media uploader.', 'powerpack' ),
+				'raw'             => esc_html__( 'To add a different link to each image, add custom link in the media uploader.', 'powerpack' ),
 				'content_classes' => 'pp-editor-info',
 				'condition'       => array(
 					'link_to' => 'custom',
@@ -306,13 +306,13 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'open_lightbox',
 			[
-				'label'     => __( 'Lightbox', 'powerpack' ),
+				'label'     => esc_html__( 'Lightbox', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'default',
 				'options'   => [
-					'default' => __( 'Default', 'powerpack' ),
-					'yes'     => __( 'Yes', 'powerpack' ),
-					'no'      => __( 'No', 'powerpack' ),
+					'default' => esc_html__( 'Default', 'powerpack' ),
+					'yes'     => esc_html__( 'Yes', 'powerpack' ),
+					'no'      => esc_html__( 'No', 'powerpack' ),
 				],
 				'condition' => [
 					'link_to' => 'file',
@@ -338,7 +338,7 @@ class Random_Image extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 
@@ -371,27 +371,21 @@ class Random_Image extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_image',
 			[
-				'label'                 => __( 'Image', 'powerpack' ),
-				'tab'               => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__( 'Image', 'powerpack' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_responsive_control(
 			'width',
 			[
-				'label' => __( 'Width', 'powerpack' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
+				'label'      => esc_html__( 'Width', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'default'    => [
 					'unit' => '%',
 				],
-				'tablet_default' => [
-					'unit' => '%',
-				],
-				'mobile_default' => [
-					'unit' => '%',
-				],
-				'size_units' => [ '%', 'px', 'vw' ],
-				'range' => [
+				'range'      => [
 					'%' => [
 						'min' => 1,
 						'max' => 100,
@@ -405,7 +399,7 @@ class Random_Image extends Powerpack_Widget {
 						'max' => 100,
 					],
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .pp-random-image' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -414,19 +408,13 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'space',
 			[
-				'label' => __( 'Max Width', 'powerpack' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
+				'label'      => esc_html__( 'Max Width', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'default'    => [
 					'unit' => '%',
 				],
-				'tablet_default' => [
-					'unit' => '%',
-				],
-				'mobile_default' => [
-					'unit' => '%',
-				],
-				'size_units' => [ '%', 'px', 'vw' ],
-				'range' => [
+				'range'      => [
 					'%' => [
 						'min' => 1,
 						'max' => 100,
@@ -440,7 +428,7 @@ class Random_Image extends Powerpack_Widget {
 						'max' => 100,
 					],
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .pp-random-image' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -449,19 +437,13 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'height',
 			[
-				'label' => __( 'Height', 'powerpack' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
+				'label'      => esc_html__( 'Height', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'vh', 'custom' ],
+				'default'    => [
 					'unit' => 'px',
 				],
-				'tablet_default' => [
-					'unit' => 'px',
-				],
-				'mobile_default' => [
-					'unit' => 'px',
-				],
-				'size_units' => [ 'px', 'vh' ],
-				'range' => [
+				'range'      => [
 					'px' => [
 						'min' => 1,
 						'max' => 500,
@@ -471,7 +453,7 @@ class Random_Image extends Powerpack_Widget {
 						'max' => 100,
 					],
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .pp-random-image' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -480,18 +462,18 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'object-fit',
 			[
-				'label' => __( 'Object Fit', 'powerpack' ),
-				'type' => Controls_Manager::SELECT,
+				'label'     => esc_html__( 'Object Fit', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
 				'condition' => [
 					'height[size]!' => '',
 				],
-				'options' => [
-					'' => __( 'Default', 'powerpack' ),
-					'fill' => __( 'Fill', 'powerpack' ),
-					'cover' => __( 'Cover', 'powerpack' ),
-					'contain' => __( 'Contain', 'powerpack' ),
+				'options'   => [
+					''        => esc_html__( 'Default', 'powerpack' ),
+					'fill'    => esc_html__( 'Fill', 'powerpack' ),
+					'cover'   => esc_html__( 'Cover', 'powerpack' ),
+					'contain' => esc_html__( 'Contain', 'powerpack' ),
 				],
-				'default' => '',
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .pp-random-image' => 'object-fit: {{VALUE}};',
 				],
@@ -510,14 +492,14 @@ class Random_Image extends Powerpack_Widget {
 
 		$this->start_controls_tab( 'normal',
 			[
-				'label' => __( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'opacity',
 			[
-				'label' => __( 'Opacity', 'powerpack' ),
+				'label' => esc_html__( 'Opacity', 'powerpack' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -544,14 +526,14 @@ class Random_Image extends Powerpack_Widget {
 
 		$this->start_controls_tab( 'hover',
 			[
-				'label' => __( 'Hover', 'powerpack' ),
+				'label' => esc_html__( 'Hover', 'powerpack' ),
 			]
 		);
 
 		$this->add_control(
 			'opacity_hover',
 			[
-				'label' => __( 'Opacity', 'powerpack' ),
+				'label' => esc_html__( 'Opacity', 'powerpack' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -577,7 +559,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'background_hover_transition',
 			[
-				'label' => __( 'Transition Duration', 'powerpack' ),
+				'label' => esc_html__( 'Transition Duration', 'powerpack' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -594,7 +576,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'hover_animation',
 			[
-				'label' => __( 'Hover Animation', 'powerpack' ),
+				'label' => esc_html__( 'Hover Animation', 'powerpack' ),
 				'type' => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -606,8 +588,8 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'image_border',
-				'selector' => '{{WRAPPER}} .pp-random-image',
+				'name'      => 'image_border',
+				'selector'  => '{{WRAPPER}} .pp-random-image',
 				'separator' => 'before',
 			]
 		);
@@ -615,10 +597,10 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_border_radius',
 			[
-				'label' => __( 'Border Radius', 'powerpack' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-random-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -627,8 +609,8 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'image_box_shadow',
-				'exclude' => [
+				'name'     => 'image_box_shadow',
+				'exclude'  => [
 					'box_shadow_position',
 				],
 				'selector' => '{{WRAPPER}} .pp-random-image',
@@ -645,7 +627,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_caption_style',
 			[
-				'label'                 => __( 'Caption', 'powerpack' ),
+				'label'                 => esc_html__( 'Caption', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'caption!'   => '',
@@ -657,7 +639,7 @@ class Random_Image extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'caption_typography',
-				'label'                 => __( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-random-image-caption',
 				'condition'             => [
 					'caption!'   => '',
@@ -668,22 +650,22 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_vertical_align',
 			[
-				'label'                 => __( 'Vertical Align', 'powerpack' ),
+				'label'                 => esc_html__( 'Vertical Align', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'toggle'                => false,
 				'default'               => 'bottom',
 				'options'               => [
 					'top'          => [
-						'title'    => __( 'Top', 'powerpack' ),
+						'title'    => esc_html__( 'Top', 'powerpack' ),
 						'icon'     => 'eicon-v-align-top',
 					],
 					'middle'       => [
-						'title'    => __( 'Center', 'powerpack' ),
+						'title'    => esc_html__( 'Center', 'powerpack' ),
 						'icon'     => 'eicon-v-align-middle',
 					],
 					'bottom'       => [
-						'title'    => __( 'Bottom', 'powerpack' ),
+						'title'    => esc_html__( 'Bottom', 'powerpack' ),
 						'icon'     => 'eicon-v-align-bottom',
 					],
 				],
@@ -705,25 +687,25 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_horizontal_align',
 			[
-				'label'                 => __( 'Horizontal Align', 'powerpack' ),
+				'label'                 => esc_html__( 'Horizontal Align', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'toggle'                => false,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'center'           => [
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-h-align-center',
 					],
 					'right'            => [
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 					'justify'          => [
-						'title' => __( 'Justify', 'powerpack' ),
+						'title' => esc_html__( 'Justify', 'powerpack' ),
 						'icon'  => 'eicon-h-align-stretch',
 					],
 				],
@@ -747,20 +729,20 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_text_align',
 			[
-				'label'                 => __( 'Text Align', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Align', 'powerpack' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -813,9 +795,9 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'caption_margin',
 			[
-				'label'                 => __( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-random-image-caption' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -828,9 +810,9 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'caption_padding',
 			[
-				'label'                 => __( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-random-image-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -843,29 +825,29 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_hover_effect',
 			[
-				'label'                 => __( 'Hover Effect', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover Effect', 'powerpack' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => '',
 				'options'               => [
-					''                  => __( 'None', 'powerpack' ),
-					'fade-in'           => __( 'Fade In', 'powerpack' ),
-					'fade-out'          => __( 'Fade Out', 'powerpack' ),
-					'fade-from-top'     => __( 'Fade From Top', 'powerpack' ),
-					'fade-from-bottom'  => __( 'Fade From Bottom', 'powerpack' ),
-					'fade-from-left'    => __( 'Fade From Left', 'powerpack' ),
-					'fade-from-right'   => __( 'Fade From Right', 'powerpack' ),
-					'slide-from-top'    => __( 'Slide From Top', 'powerpack' ),
-					'slide-from-bottom' => __( 'Slide From Bottom', 'powerpack' ),
-					'slide-from-left'   => __( 'Slide From Left', 'powerpack' ),
-					'slide-from-right'  => __( 'Slide From Right', 'powerpack' ),
-					'fade-to-top'       => __( 'Fade To Top', 'powerpack' ),
-					'fade-to-bottom'    => __( 'Fade To Bottom', 'powerpack' ),
-					'fade-to-left'      => __( 'Fade To Left', 'powerpack' ),
-					'fade-to-right'     => __( 'Fade To Right', 'powerpack' ),
-					'slide-to-top'      => __( 'Slide To Top', 'powerpack' ),
-					'slide-to-bottom'   => __( 'Slide To Bottom', 'powerpack' ),
-					'slide-to-left'     => __( 'Slide To Left', 'powerpack' ),
-					'slide-to-right'    => __( 'Slide To Right', 'powerpack' ),
+					''                  => esc_html__( 'None', 'powerpack' ),
+					'fade-in'           => esc_html__( 'Fade In', 'powerpack' ),
+					'fade-out'          => esc_html__( 'Fade Out', 'powerpack' ),
+					'fade-from-top'     => esc_html__( 'Fade From Top', 'powerpack' ),
+					'fade-from-bottom'  => esc_html__( 'Fade From Bottom', 'powerpack' ),
+					'fade-from-left'    => esc_html__( 'Fade From Left', 'powerpack' ),
+					'fade-from-right'   => esc_html__( 'Fade From Right', 'powerpack' ),
+					'slide-from-top'    => esc_html__( 'Slide From Top', 'powerpack' ),
+					'slide-from-bottom' => esc_html__( 'Slide From Bottom', 'powerpack' ),
+					'slide-from-left'   => esc_html__( 'Slide From Left', 'powerpack' ),
+					'slide-from-right'  => esc_html__( 'Slide From Right', 'powerpack' ),
+					'fade-to-top'       => esc_html__( 'Fade To Top', 'powerpack' ),
+					'fade-to-bottom'    => esc_html__( 'Fade To Bottom', 'powerpack' ),
+					'fade-to-left'      => esc_html__( 'Fade To Left', 'powerpack' ),
+					'fade-to-right'     => esc_html__( 'Fade To Right', 'powerpack' ),
+					'slide-to-top'      => esc_html__( 'Slide To Top', 'powerpack' ),
+					'slide-to-bottom'   => esc_html__( 'Slide To Bottom', 'powerpack' ),
+					'slide-to-left'     => esc_html__( 'Slide To Left', 'powerpack' ),
+					'slide-to-right'    => esc_html__( 'Slide To Right', 'powerpack' ),
 				],
 				'prefix_class'          => 'pp-caption-hover-effect-',
 				'condition'             => [
@@ -880,7 +862,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_caption_normal',
 			[
-				'label'                 => __( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
 				'condition'             => [
 					'caption!'   => '',
 				],
@@ -890,7 +872,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_color',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -905,7 +887,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_bg_color',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -921,7 +903,7 @@ class Random_Image extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'caption_border',
-				'label'                 => __( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-random-image-caption',
@@ -934,9 +916,9 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%', 'em' ],
+				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-random-image-caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -950,7 +932,7 @@ class Random_Image extends Powerpack_Widget {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name'                  => 'caption_text_shadow',
-				'label'                 => __( 'Text Shadow', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Shadow', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-random-image-caption',
 				'condition'             => [
 					'caption!'   => '',
@@ -961,7 +943,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_opacity_normal',
 			[
-				'label'                 => __( 'Opacity', 'powerpack' ),
+				'label'                 => esc_html__( 'Opacity', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -985,7 +967,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_caption_hover',
 			[
-				'label'                 => __( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
 				'condition'             => [
 					'caption!'   => '',
 				],
@@ -995,7 +977,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_color_hover',
 			[
-				'label'                 => __( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1010,7 +992,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_bg_color_hover',
 			[
-				'label'                 => __( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1025,7 +1007,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_border_color_hover',
 			[
-				'label'                 => __( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1041,7 +1023,7 @@ class Random_Image extends Powerpack_Widget {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name'                  => 'caption_text_shadow_hover',
-				'label'                 => __( 'Text Shadow', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Shadow', 'powerpack' ),
 				'selector'              => '{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image-caption',
 				'condition'             => [
 					'caption!'   => '',
@@ -1052,7 +1034,7 @@ class Random_Image extends Powerpack_Widget {
 		$this->add_control(
 			'caption_opacity_hover',
 			[
-				'label'                 => __( 'Opacity', 'powerpack' ),
+				'label'                 => esc_html__( 'Opacity', 'powerpack' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -1081,7 +1063,7 @@ class Random_Image extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 
 		if ( ! $settings['wp_gallery'] ) {
-			$placeholder = sprintf( 'Click here to edit the "%1$s" settings and choose some images.', esc_attr( $this->get_title() ) );
+			$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose some images.', 'powerpack' ), esc_attr( $this->get_title() ) );
 
 			echo esc_attr( $this->render_editor_placeholder(
 				array(

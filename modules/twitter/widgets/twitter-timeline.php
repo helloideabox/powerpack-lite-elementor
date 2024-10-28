@@ -67,14 +67,14 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_timeline',
 			array(
-				'label' => __( 'Timeline', 'powerpack' ),
+				'label' => esc_html__( 'Timeline', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'username',
 			array(
-				'label'   => __( 'User Name', 'powerpack' ),
+				'label'   => esc_html__( 'User Name', 'powerpack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '',
 				'ai'      => [
@@ -86,12 +86,12 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'theme',
 			array(
-				'label'   => __( 'Theme', 'powerpack' ),
+				'label'   => esc_html__( 'Theme', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'light',
 				'options' => array(
-					'light' => __( 'Light', 'powerpack' ),
-					'dark'  => __( 'Dark', 'powerpack' ),
+					'light' => esc_html__( 'Light', 'powerpack' ),
+					'dark'  => esc_html__( 'Dark', 'powerpack' ),
 				),
 			)
 		);
@@ -99,10 +99,10 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'show_replies',
 			array(
-				'label'        => __( 'Show Replies', 'powerpack' ),
+				'label'        => esc_html__( 'Show Replies', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'default'      => 'no',
 			)
@@ -111,15 +111,15 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'layout',
 			array(
-				'label'    => __( 'Layout', 'powerpack' ),
+				'label'    => esc_html__( 'Layout', 'powerpack' ),
 				'type'     => Controls_Manager::SELECT2,
 				'default'  => '',
 				'options'  => array(
-					'noheader'    => __( 'No Header', 'powerpack' ),
-					'nofooter'    => __( 'No Footer', 'powerpack' ),
-					'noborders'   => __( 'No Borders', 'powerpack' ),
-					'transparent' => __( 'Transparent', 'powerpack' ),
-					'noscrollbar' => __( 'No Scroll Bar', 'powerpack' ),
+					'noheader'    => esc_html__( 'No Header', 'powerpack' ),
+					'nofooter'    => esc_html__( 'No Footer', 'powerpack' ),
+					'noborders'   => esc_html__( 'No Borders', 'powerpack' ),
+					'transparent' => esc_html__( 'Transparent', 'powerpack' ),
+					'noscrollbar' => esc_html__( 'No Scroll Bar', 'powerpack' ),
 				),
 				'multiple' => true,
 			)
@@ -128,7 +128,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'width',
 			array(
-				'label'      => __( 'Width', 'powerpack' ),
+				'label'      => esc_html__( 'Width', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array(
 					'unit' => 'px',
@@ -146,7 +146,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'height',
 			array(
-				'label'      => __( 'Height', 'powerpack' ),
+				'label'      => esc_html__( 'Height', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array(
 					'unit' => 'px',
@@ -165,7 +165,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'tweet_limit',
 			array(
-				'label'       => __( 'Tweet Limit', 'powerpack' ),
+				'label'       => esc_html__( 'Tweet Limit', 'powerpack' ),
 				'type'        => Controls_Manager::NUMBER,
 				'label_block' => false,
 				'min'         => 1,
@@ -177,7 +177,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'link_color',
 			array(
-				'label'   => __( 'Link Color', 'powerpack' ),
+				'label'   => esc_html__( 'Link Color', 'powerpack' ),
 				'type'    => Controls_Manager::COLOR,
 				'default' => '',
 			)
@@ -186,7 +186,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'border_color',
 			array(
-				'label'   => __( 'Border Color', 'powerpack' ),
+				'label'   => esc_html__( 'Border Color', 'powerpack' ),
 				'type'    => Controls_Manager::COLOR,
 				'default' => '',
 			)
@@ -205,7 +205,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				]
 			);
 

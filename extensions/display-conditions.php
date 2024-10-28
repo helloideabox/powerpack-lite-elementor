@@ -39,12 +39,23 @@ class Extension_Display_Conditions extends Extension_Base {
 	}
 
 	/**
+	 * A list of styles that the extension is depended in
+	 *
+	 * @since 2.11.0
+	 **/
+	public function get_style_depends() {
+		return array(
+			'pp-extensions',
+		);
+	}
+
+	/**
 	 * The description of the current extension
 	 *
 	 * @since 1.2.7
 	 **/
 	public static function get_description() {
-		return __( 'Adds display conditions to widgets and sections allowing you to show them depending on authentication, roles, date and time of day.', 'powerpack' );
+		return esc_html__( 'Adds display conditions to widgets and sections allowing you to show them depending on authentication, roles, date and time of day.', 'powerpack' );
 	}
 
 	/**
@@ -75,28 +86,28 @@ class Extension_Display_Conditions extends Extension_Base {
 
 			$this->add_common_sections( $element, $args );
 
-		}, 10, 2 );
+		}, 1, 2 );
 
 		// Activate sections for columns
 		add_action( 'elementor/element/column/section_advanced/after_section_end', function( $element, $args ) {
 
 			$this->add_common_sections( $element, $args );
 
-		}, 10, 2 );
+		}, 1, 2 );
 
 		// Activate sections for sections
 		add_action( 'elementor/element/section/section_advanced/after_section_end', function( $element, $args ) {
 
 			$this->add_common_sections( $element, $args );
 
-		}, 10, 2 );
+		}, 1, 2 );
 
 		// Activate sections for containers
 		add_action( 'elementor/element/container/section_layout/after_section_end', function( $element, $args ) {
 
 			$this->add_common_sections( $element, $args );
 
-		}, 10, 2 );
+		}, 1, 2 );
 
 	}
 

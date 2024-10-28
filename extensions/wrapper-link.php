@@ -48,12 +48,23 @@ class Extension_Wrapper_Link extends Extension_Base {
 	}
 
 	/**
+	 * A list of styles that the extension is depended in
+	 *
+	 * @since x.x.x
+	 **/
+	public function get_style_depends() {
+		return array(
+			'pp-extensions',
+		);
+	}
+
+	/**
 	 * The description of the current extension
 	 *
 	 * @since 2.4.0
 	 **/
 	public static function get_description() {
-		return __( 'Adds link around sections, columns and widgets.', 'powerpack' );
+		return esc_html__( 'Adds link around sections, columns and widgets.', 'powerpack' );
 	}
 
 	/**
@@ -122,11 +133,11 @@ class Extension_Wrapper_Link extends Extension_Base {
 		$element->add_control(
 			'pp_wrapper_link_enable',
 			array(
-				'label'        => __( 'Wrapper Link', 'powerpack' ),
+				'label'        => esc_html__( 'Wrapper Link', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 			)
@@ -135,7 +146,7 @@ class Extension_Wrapper_Link extends Extension_Base {
 		$element->add_control(
 			'pp_wrapper_link',
 			[
-				'label'        => __( 'Link', 'powerpack' ),
+				'label'        => esc_html__( 'Link', 'powerpack' ),
 				'type'         => Controls_Manager::URL,
 				'dynamic'      => [
 					'active' => true,

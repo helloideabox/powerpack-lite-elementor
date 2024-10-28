@@ -138,14 +138,14 @@ class Hotspots extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_image',
 			array(
-				'label' => __( 'Image', 'powerpack' ),
+				'label' => esc_html__( 'Image', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'image',
 			array(
-				'label'   => __( 'Choose Image', 'powerpack' ),
+				'label'   => esc_html__( 'Choose Image', 'powerpack' ),
 				'type'    => Controls_Manager::MEDIA,
 				'default' => array(
 					'url' => Utils::get_placeholder_image_src(),
@@ -157,7 +157,7 @@ class Hotspots extends Powerpack_Widget {
 			Group_Control_Image_Size::get_type(),
 			array(
 				'name'    => 'image',
-				'label'   => __( 'Image Size', 'powerpack' ),
+				'label'   => esc_html__( 'Image Size', 'powerpack' ),
 				'default' => 'full',
 			)
 		);
@@ -172,7 +172,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_hotspots',
 			array(
-				'label' => __( 'Hotspots', 'powerpack' ),
+				'label' => esc_html__( 'Hotspots', 'powerpack' ),
 			)
 		);
 
@@ -180,12 +180,12 @@ class Hotspots extends Powerpack_Widget {
 
 		$repeater->start_controls_tabs( 'hot_spots_tabs' );
 
-		$repeater->start_controls_tab( 'tab_content', array( 'label' => __( 'General', 'powerpack' ) ) );
+		$repeater->start_controls_tab( 'tab_content', array( 'label' => esc_html__( 'General', 'powerpack' ) ) );
 
 			$repeater->add_control(
 				'hotspot_admin_label',
 				array(
-					'label'       => __( 'Admin Label', 'powerpack' ),
+					'label'       => esc_html__( 'Admin Label', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'label_block' => true,
 					'default'     => '',
@@ -195,13 +195,13 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'hotspot_type',
 				array(
-					'label'   => __( 'Type', 'powerpack' ),
+					'label'   => esc_html__( 'Type', 'powerpack' ),
 					'type'    => Controls_Manager::SELECT,
 					'default' => 'icon',
 					'options' => array(
-						'icon'  => __( 'Icon', 'powerpack' ),
-						'text'  => __( 'Text', 'powerpack' ),
-						'blank' => __( 'Blank', 'powerpack' ),
+						'icon'  => esc_html__( 'Icon', 'powerpack' ),
+						'text'  => esc_html__( 'Text', 'powerpack' ),
+						'blank' => esc_html__( 'Blank', 'powerpack' ),
 					),
 				)
 			);
@@ -209,7 +209,7 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'selected_icon',
 				array(
-					'label'            => __( 'Icon', 'powerpack' ),
+					'label'            => esc_html__( 'Icon', 'powerpack' ),
 					'type'             => Controls_Manager::ICONS,
 					'label_block'      => false,
 					'default'          => array(
@@ -233,7 +233,7 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'hotspot_text',
 				array(
-					'label'       => __( 'Text', 'powerpack' ),
+					'label'       => esc_html__( 'Text', 'powerpack' ),
 					'type'        => Controls_Manager::TEXT,
 					'label_block' => false,
 					'default'     => '#',
@@ -252,17 +252,17 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_responsive_control(
 				'left_position',
 				array(
-					'label'     => __( 'Horizontal Position (%)', 'powerpack' ),
+					'label'     => esc_html__( 'Horizontal Position (%)', 'powerpack' ),
 					'type'      => Controls_Manager::SLIDER,
 					'range'     => array(
-						'px' => array(
+						'%' => array(
 							'min'  => 0,
 							'max'  => 100,
 							'step' => 0.1,
 						),
 					),
 					'default'   => [
-						'unit' => 'px',
+						'unit' => '%',
 						'size' => 20,
 					],
 					'separator' => 'before',
@@ -275,17 +275,17 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_responsive_control(
 				'top_position',
 				array(
-					'label'     => __( 'Vertical Position (%)', 'powerpack' ),
+					'label'     => esc_html__( 'Vertical Position (%)', 'powerpack' ),
 					'type'      => Controls_Manager::SLIDER,
 					'range'     => array(
-						'px' => array(
+						'%' => array(
 							'min'  => 0,
 							'max'  => 100,
 							'step' => 0.1,
 						),
 					),
 					'default'   => [
-						'unit' => 'px',
+						'unit' => '%',
 						'size' => 20,
 					],
 					'selectors' => array(
@@ -297,8 +297,8 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'hotspot_link',
 				array(
-					'label'       => __( 'Link', 'powerpack' ),
-					'description' => __( 'Works only when tolltips\' Trigger is set to Hover or if tooltip is disabled.', 'powerpack' ),
+					'label'       => esc_html__( 'Link', 'powerpack' ),
+					'description' => esc_html__( 'Works only when tolltips\' Trigger is set to Hover or if tooltip is disabled.', 'powerpack' ),
 					'type'        => Controls_Manager::URL,
 					'dynamic'     => array(
 						'active' => true,
@@ -313,16 +313,16 @@ class Hotspots extends Powerpack_Widget {
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_position', array( 'label' => __( 'Tooltip', 'powerpack' ) ) );
+		$repeater->start_controls_tab( 'tab_position', array( 'label' => esc_html__( 'Tooltip', 'powerpack' ) ) );
 
 			$repeater->add_control(
 				'tooltip',
 				array(
-					'label'        => __( 'Tooltip', 'powerpack' ),
+					'label'        => esc_html__( 'Tooltip', 'powerpack' ),
 					'type'         => Controls_Manager::SWITCHER,
 					'default'      => '',
-					'label_on'     => __( 'Show', 'powerpack' ),
-					'label_off'    => __( 'Hide', 'powerpack' ),
+					'label_on'     => esc_html__( 'Show', 'powerpack' ),
+					'label_off'    => esc_html__( 'Hide', 'powerpack' ),
 					'return_value' => 'yes',
 				)
 			);
@@ -330,15 +330,15 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'tooltip_position_local',
 				array(
-					'label'      => __( 'Tooltip Position', 'powerpack' ),
+					'label'      => esc_html__( 'Tooltip Position', 'powerpack' ),
 					'type'       => Controls_Manager::SELECT,
 					'default'    => 'global',
 					'options'    => array(
-						'global'       => __( 'Global', 'powerpack' ),
-						'top'          => __( 'Top', 'powerpack' ),
-						'bottom'       => __( 'Bottom', 'powerpack' ),
-						'left'         => __( 'Left', 'powerpack' ),
-						'right'        => __( 'Right', 'powerpack' ),
+						'global'       => esc_html__( 'Global', 'powerpack' ),
+						'top'          => esc_html__( 'Top', 'powerpack' ),
+						'bottom'       => esc_html__( 'Bottom', 'powerpack' ),
+						'left'         => esc_html__( 'Left', 'powerpack' ),
+						'right'        => esc_html__( 'Right', 'powerpack' ),
 					),
 					'conditions' => array(
 						'terms' => array(
@@ -355,9 +355,9 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'tooltip_content',
 				array(
-					'label'      => __( 'Tooltip Content', 'powerpack' ),
+					'label'      => esc_html__( 'Tooltip Content', 'powerpack' ),
 					'type'       => Controls_Manager::WYSIWYG,
-					'default'    => __( 'Tooltip Content', 'powerpack' ),
+					'default'    => esc_html__( 'Tooltip Content', 'powerpack' ),
 					'conditions' => array(
 						'terms' => array(
 							array(
@@ -372,13 +372,13 @@ class Hotspots extends Powerpack_Widget {
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_style', array( 'label' => __( 'Style', 'powerpack' ) ) );
+		$repeater->start_controls_tab( 'tab_style', array( 'label' => esc_html__( 'Style', 'powerpack' ) ) );
 
 			$repeater->add_group_control(
 				Group_Control_Typography::get_type(),
 				array(
 					'name'      => 'hotspot_typography',
-					'label'     => __( 'Typography', 'powerpack' ),
+					'label'     => esc_html__( 'Typography', 'powerpack' ),
 					'selector'  => '{{WRAPPER}} {{CURRENT_ITEM}} .pp-hot-spot-inner',
 					'condition' => array(
 						'hotspot_type' => 'text',
@@ -389,7 +389,7 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'hotspot_color_single',
 				array(
-					'label'     => __( 'Color', 'powerpack' ),
+					'label'     => esc_html__( 'Color', 'powerpack' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '',
 					'selectors' => array(
@@ -405,7 +405,7 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'hotspot_bg_color_single',
 				array(
-					'label'     => __( 'Background Color', 'powerpack' ),
+					'label'     => esc_html__( 'Background Color', 'powerpack' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '',
 					'selectors' => array(
@@ -417,7 +417,7 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'hotspot_border_color_single',
 				array(
-					'label'     => __( 'Border Color', 'powerpack' ),
+					'label'     => esc_html__( 'Border Color', 'powerpack' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '',
 					'selectors' => array(
@@ -429,8 +429,9 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_responsive_control(
 				'hotspot_icon_size_single',
 				array(
-					'label'      => __( 'Size', 'powerpack' ),
+					'label'      => esc_html__( 'Size', 'powerpack' ),
 					'type'       => Controls_Manager::SLIDER,
+					'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 					'range'      => array(
 						'px' => array(
 							'min'  => 6,
@@ -438,7 +439,6 @@ class Hotspots extends Powerpack_Widget {
 							'step' => 1,
 						),
 					),
-					'size_units' => array( 'px' ),
 					'selectors'  => array(
 						'{{WRAPPER}} {{CURRENT_ITEM}} .pp-hot-spot-inner' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; font-size: {{SIZE}}{{UNIT}};',
 					),
@@ -448,7 +448,7 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'hotspot_css_id',
 				array(
-					'label'   => __( 'CSS ID', 'powerpack' ),
+					'label'   => esc_html__( 'CSS ID', 'powerpack' ),
 					'type'    => Controls_Manager::TEXT,
 					'default' => '',
 					'ai'      => [
@@ -460,7 +460,7 @@ class Hotspots extends Powerpack_Widget {
 			$repeater->add_control(
 				'hotspot_css_classes',
 				array(
-					'label'   => __( 'CSS Classes', 'powerpack' ),
+					'label'   => esc_html__( 'CSS Classes', 'powerpack' ),
 					'type'    => Controls_Manager::TEXT,
 					'default' => '',
 					'ai'      => [
@@ -480,8 +480,8 @@ class Hotspots extends Powerpack_Widget {
 				'type'        => Controls_Manager::REPEATER,
 				'default'     => array(
 					array(
-						'hotspot_admin_label' => __( 'Hotspot #1', 'powerpack' ),
-						'hotspot_text'        => __( '1', 'powerpack' ),
+						'hotspot_admin_label' => esc_html__( 'Hotspot #1', 'powerpack' ),
+						'hotspot_text'        => esc_html__( '1', 'powerpack' ),
 						'selected_icon'       => 'fa fa-plus',
 						'left_position'       => 20,
 						'top_position'        => 30,
@@ -495,11 +495,11 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'hotspot_pulse',
 			array(
-				'label'        => __( 'Glow Effect', 'powerpack' ),
+				'label'        => esc_html__( 'Glow Effect', 'powerpack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'    => esc_html__( 'No', 'powerpack' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 			)
@@ -515,18 +515,18 @@ class Hotspots extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_tooltip',
 			array(
-				'label' => __( 'Tooltip Settings', 'powerpack' ),
+				'label' => esc_html__( 'Tooltip Settings', 'powerpack' ),
 			)
 		);
 
 		$this->add_control(
 			'tooltip_always_open',
 			array(
-				'label'              => __( 'Always Open?', 'powerpack' ),
+				'label'              => esc_html__( 'Always Open?', 'powerpack' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'no',
-				'label_on'           => __( 'Yes', 'powerpack' ),
-				'label_off'          => __( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'          => esc_html__( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
 			)
 		);
@@ -534,12 +534,12 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_trigger',
 			array(
-				'label'              => __( 'Trigger', 'powerpack' ),
+				'label'              => esc_html__( 'Trigger', 'powerpack' ),
 				'type'               => Controls_Manager::SELECT,
 				'default'            => 'hover',
 				'options'            => array(
-					'hover' => __( 'Hover', 'powerpack' ),
-					'click' => __( 'Click', 'powerpack' ),
+					'hover' => esc_html__( 'Hover', 'powerpack' ),
+					'click' => esc_html__( 'Click', 'powerpack' ),
 				),
 				'condition' => array(
 					'tooltip_always_open!' => 'yes',
@@ -550,14 +550,14 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_size',
 			array(
-				'label'   => __( 'Size', 'powerpack' ),
+				'label'   => esc_html__( 'Size', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => array(
-					'default' => __( 'Default', 'powerpack' ),
-					'tiny'    => __( 'Tiny', 'powerpack' ),
-					'small'   => __( 'Small', 'powerpack' ),
-					'large'   => __( 'Large', 'powerpack' ),
+					'default' => esc_html__( 'Default', 'powerpack' ),
+					'tiny'    => esc_html__( 'Tiny', 'powerpack' ),
+					'small'   => esc_html__( 'Small', 'powerpack' ),
+					'large'   => esc_html__( 'Large', 'powerpack' ),
 				),
 			)
 		);
@@ -565,14 +565,14 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_position',
 			array(
-				'label'   => __( 'Global Position', 'powerpack' ),
+				'label'   => esc_html__( 'Global Position', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'top',
 				'options' => array(
-					'top'          => __( 'Top', 'powerpack' ),
-					'bottom'       => __( 'Bottom', 'powerpack' ),
-					'left'         => __( 'Left', 'powerpack' ),
-					'right'        => __( 'Right', 'powerpack' ),
+					'top'          => esc_html__( 'Top', 'powerpack' ),
+					'bottom'       => esc_html__( 'Bottom', 'powerpack' ),
+					'left'         => esc_html__( 'Left', 'powerpack' ),
+					'right'        => esc_html__( 'Right', 'powerpack' ),
 				),
 			)
 		);
@@ -580,8 +580,8 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'distance',
 			array(
-				'label'       => __( 'Distance', 'powerpack' ),
-				'description' => __( 'The distance between the hotspot and the tooltip.', 'powerpack' ),
+				'label'       => esc_html__( 'Distance', 'powerpack' ),
+				'description' => esc_html__( 'The distance between the hotspot and the tooltip.', 'powerpack' ),
 				'type'        => Controls_Manager::SLIDER,
 				'default'     => array(
 					'size' => '',
@@ -598,11 +598,11 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_arrow',
 			array(
-				'label'              => __( 'Show Arrow', 'powerpack' ),
+				'label'              => esc_html__( 'Show Arrow', 'powerpack' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
-				'label_on'           => __( 'Yes', 'powerpack' ),
-				'label_off'          => __( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
+				'label_off'          => esc_html__( 'No', 'powerpack' ),
 				'return_value'       => 'yes',
 			)
 		);
@@ -610,93 +610,93 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_animation',
 			array(
-				'label'   => __( 'Animation', 'powerpack' ),
+				'label'   => esc_html__( 'Animation', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'fade',
 				'options' => array(
-					'fade'  => __( 'Fade', 'powerpack' ),
-					'fall'  => __( 'Fall', 'powerpack' ),
-					'grow'  => __( 'Grow', 'powerpack' ),
-					'slide' => __( 'Slide', 'powerpack' ),
-					'swing' => __( 'Swing', 'powerpack' ),
+					'fade'  => esc_html__( 'Fade', 'powerpack' ),
+					'fall'  => esc_html__( 'Fall', 'powerpack' ),
+					'grow'  => esc_html__( 'Grow', 'powerpack' ),
+					'slide' => esc_html__( 'Slide', 'powerpack' ),
+					'swing' => esc_html__( 'Swing', 'powerpack' ),
 				),
 			)
 		);
 
 		$tooltip_animations = array(
-			''                  => __( 'Default', 'powerpack' ),
-			'bounce'            => __( 'Bounce', 'powerpack' ),
-			'flash'             => __( 'Flash', 'powerpack' ),
-			'pulse'             => __( 'Pulse', 'powerpack' ),
-			'rubberBand'        => __( 'rubberBand', 'powerpack' ),
-			'shake'             => __( 'Shake', 'powerpack' ),
-			'swing'             => __( 'Swing', 'powerpack' ),
-			'tada'              => __( 'Tada', 'powerpack' ),
-			'wobble'            => __( 'Wobble', 'powerpack' ),
-			'bounceIn'          => __( 'bounceIn', 'powerpack' ),
-			'bounceInDown'      => __( 'bounceInDown', 'powerpack' ),
-			'bounceInLeft'      => __( 'bounceInLeft', 'powerpack' ),
-			'bounceInRight'     => __( 'bounceInRight', 'powerpack' ),
-			'bounceInUp'        => __( 'bounceInUp', 'powerpack' ),
-			'bounceOut'         => __( 'bounceOut', 'powerpack' ),
-			'bounceOutDown'     => __( 'bounceOutDown', 'powerpack' ),
-			'bounceOutLeft'     => __( 'bounceOutLeft', 'powerpack' ),
-			'bounceOutRight'    => __( 'bounceOutRight', 'powerpack' ),
-			'bounceOutUp'       => __( 'bounceOutUp', 'powerpack' ),
-			'fadeIn'            => __( 'fadeIn', 'powerpack' ),
-			'fadeInDown'        => __( 'fadeInDown', 'powerpack' ),
-			'fadeInDownBig'     => __( 'fadeInDownBig', 'powerpack' ),
-			'fadeInLeft'        => __( 'fadeInLeft', 'powerpack' ),
-			'fadeInLeftBig'     => __( 'fadeInLeftBig', 'powerpack' ),
-			'fadeInRight'       => __( 'fadeInRight', 'powerpack' ),
-			'fadeInRightBig'    => __( 'fadeInRightBig', 'powerpack' ),
-			'fadeInUp'          => __( 'fadeInUp', 'powerpack' ),
-			'fadeInUpBig'       => __( 'fadeInUpBig', 'powerpack' ),
-			'fadeOut'           => __( 'fadeOut', 'powerpack' ),
-			'fadeOutDown'       => __( 'fadeOutDown', 'powerpack' ),
-			'fadeOutDownBig'    => __( 'fadeOutDownBig', 'powerpack' ),
-			'fadeOutLeft'       => __( 'fadeOutLeft', 'powerpack' ),
-			'fadeOutLeftBig'    => __( 'fadeOutLeftBig', 'powerpack' ),
-			'fadeOutRight'      => __( 'fadeOutRight', 'powerpack' ),
-			'fadeOutRightBig'   => __( 'fadeOutRightBig', 'powerpack' ),
-			'fadeOutUp'         => __( 'fadeOutUp', 'powerpack' ),
-			'fadeOutUpBig'      => __( 'fadeOutUpBig', 'powerpack' ),
-			'flip'              => __( 'flip', 'powerpack' ),
-			'flipInX'           => __( 'flipInX', 'powerpack' ),
-			'flipInY'           => __( 'flipInY', 'powerpack' ),
-			'flipOutX'          => __( 'flipOutX', 'powerpack' ),
-			'flipOutY'          => __( 'flipOutY', 'powerpack' ),
-			'lightSpeedIn'      => __( 'lightSpeedIn', 'powerpack' ),
-			'lightSpeedOut'     => __( 'lightSpeedOut', 'powerpack' ),
-			'rotateIn'          => __( 'rotateIn', 'powerpack' ),
-			'rotateInDownLeft'  => __( 'rotateInDownLeft', 'powerpack' ),
-			'rotateInDownLeft'  => __( 'rotateInDownRight', 'powerpack' ),
-			'rotateInUpLeft'    => __( 'rotateInUpLeft', 'powerpack' ),
-			'rotateInUpRight'   => __( 'rotateInUpRight', 'powerpack' ),
-			'rotateOut'         => __( 'rotateOut', 'powerpack' ),
-			'rotateOutDownLeft' => __( 'rotateOutDownLeft', 'powerpack' ),
-			'rotateOutDownLeft' => __( 'rotateOutDownRight', 'powerpack' ),
-			'rotateOutUpLeft'   => __( 'rotateOutUpLeft', 'powerpack' ),
-			'rotateOutUpRight'  => __( 'rotateOutUpRight', 'powerpack' ),
-			'hinge'             => __( 'Hinge', 'powerpack' ),
-			'rollIn'            => __( 'rollIn', 'powerpack' ),
-			'rollOut'           => __( 'rollOut', 'powerpack' ),
-			'zoomIn'            => __( 'zoomIn', 'powerpack' ),
-			'zoomInDown'        => __( 'zoomInDown', 'powerpack' ),
-			'zoomInLeft'        => __( 'zoomInLeft', 'powerpack' ),
-			'zoomInRight'       => __( 'zoomInRight', 'powerpack' ),
-			'zoomInUp'          => __( 'zoomInUp', 'powerpack' ),
-			'zoomOut'           => __( 'zoomOut', 'powerpack' ),
-			'zoomOutDown'       => __( 'zoomOutDown', 'powerpack' ),
-			'zoomOutLeft'       => __( 'zoomOutLeft', 'powerpack' ),
-			'zoomOutRight'      => __( 'zoomOutRight', 'powerpack' ),
-			'zoomOutUp'         => __( 'zoomOutUp', 'powerpack' ),
+			''                  => esc_html__( 'Default', 'powerpack' ),
+			'bounce'            => esc_html__( 'Bounce', 'powerpack' ),
+			'flash'             => esc_html__( 'Flash', 'powerpack' ),
+			'pulse'             => esc_html__( 'Pulse', 'powerpack' ),
+			'rubberBand'        => esc_html__( 'rubberBand', 'powerpack' ),
+			'shake'             => esc_html__( 'Shake', 'powerpack' ),
+			'swing'             => esc_html__( 'Swing', 'powerpack' ),
+			'tada'              => esc_html__( 'Tada', 'powerpack' ),
+			'wobble'            => esc_html__( 'Wobble', 'powerpack' ),
+			'bounceIn'          => esc_html__( 'bounceIn', 'powerpack' ),
+			'bounceInDown'      => esc_html__( 'bounceInDown', 'powerpack' ),
+			'bounceInLeft'      => esc_html__( 'bounceInLeft', 'powerpack' ),
+			'bounceInRight'     => esc_html__( 'bounceInRight', 'powerpack' ),
+			'bounceInUp'        => esc_html__( 'bounceInUp', 'powerpack' ),
+			'bounceOut'         => esc_html__( 'bounceOut', 'powerpack' ),
+			'bounceOutDown'     => esc_html__( 'bounceOutDown', 'powerpack' ),
+			'bounceOutLeft'     => esc_html__( 'bounceOutLeft', 'powerpack' ),
+			'bounceOutRight'    => esc_html__( 'bounceOutRight', 'powerpack' ),
+			'bounceOutUp'       => esc_html__( 'bounceOutUp', 'powerpack' ),
+			'fadeIn'            => esc_html__( 'fadeIn', 'powerpack' ),
+			'fadeInDown'        => esc_html__( 'fadeInDown', 'powerpack' ),
+			'fadeInDownBig'     => esc_html__( 'fadeInDownBig', 'powerpack' ),
+			'fadeInLeft'        => esc_html__( 'fadeInLeft', 'powerpack' ),
+			'fadeInLeftBig'     => esc_html__( 'fadeInLeftBig', 'powerpack' ),
+			'fadeInRight'       => esc_html__( 'fadeInRight', 'powerpack' ),
+			'fadeInRightBig'    => esc_html__( 'fadeInRightBig', 'powerpack' ),
+			'fadeInUp'          => esc_html__( 'fadeInUp', 'powerpack' ),
+			'fadeInUpBig'       => esc_html__( 'fadeInUpBig', 'powerpack' ),
+			'fadeOut'           => esc_html__( 'fadeOut', 'powerpack' ),
+			'fadeOutDown'       => esc_html__( 'fadeOutDown', 'powerpack' ),
+			'fadeOutDownBig'    => esc_html__( 'fadeOutDownBig', 'powerpack' ),
+			'fadeOutLeft'       => esc_html__( 'fadeOutLeft', 'powerpack' ),
+			'fadeOutLeftBig'    => esc_html__( 'fadeOutLeftBig', 'powerpack' ),
+			'fadeOutRight'      => esc_html__( 'fadeOutRight', 'powerpack' ),
+			'fadeOutRightBig'   => esc_html__( 'fadeOutRightBig', 'powerpack' ),
+			'fadeOutUp'         => esc_html__( 'fadeOutUp', 'powerpack' ),
+			'fadeOutUpBig'      => esc_html__( 'fadeOutUpBig', 'powerpack' ),
+			'flip'              => esc_html__( 'flip', 'powerpack' ),
+			'flipInX'           => esc_html__( 'flipInX', 'powerpack' ),
+			'flipInY'           => esc_html__( 'flipInY', 'powerpack' ),
+			'flipOutX'          => esc_html__( 'flipOutX', 'powerpack' ),
+			'flipOutY'          => esc_html__( 'flipOutY', 'powerpack' ),
+			'lightSpeedIn'      => esc_html__( 'lightSpeedIn', 'powerpack' ),
+			'lightSpeedOut'     => esc_html__( 'lightSpeedOut', 'powerpack' ),
+			'rotateIn'          => esc_html__( 'rotateIn', 'powerpack' ),
+			'rotateInDownLeft'  => esc_html__( 'rotateInDownLeft', 'powerpack' ),
+			'rotateInDownLeft'  => esc_html__( 'rotateInDownRight', 'powerpack' ),
+			'rotateInUpLeft'    => esc_html__( 'rotateInUpLeft', 'powerpack' ),
+			'rotateInUpRight'   => esc_html__( 'rotateInUpRight', 'powerpack' ),
+			'rotateOut'         => esc_html__( 'rotateOut', 'powerpack' ),
+			'rotateOutDownLeft' => esc_html__( 'rotateOutDownLeft', 'powerpack' ),
+			'rotateOutDownLeft' => esc_html__( 'rotateOutDownRight', 'powerpack' ),
+			'rotateOutUpLeft'   => esc_html__( 'rotateOutUpLeft', 'powerpack' ),
+			'rotateOutUpRight'  => esc_html__( 'rotateOutUpRight', 'powerpack' ),
+			'hinge'             => esc_html__( 'Hinge', 'powerpack' ),
+			'rollIn'            => esc_html__( 'rollIn', 'powerpack' ),
+			'rollOut'           => esc_html__( 'rollOut', 'powerpack' ),
+			'zoomIn'            => esc_html__( 'zoomIn', 'powerpack' ),
+			'zoomInDown'        => esc_html__( 'zoomInDown', 'powerpack' ),
+			'zoomInLeft'        => esc_html__( 'zoomInLeft', 'powerpack' ),
+			'zoomInRight'       => esc_html__( 'zoomInRight', 'powerpack' ),
+			'zoomInUp'          => esc_html__( 'zoomInUp', 'powerpack' ),
+			'zoomOut'           => esc_html__( 'zoomOut', 'powerpack' ),
+			'zoomOutDown'       => esc_html__( 'zoomOutDown', 'powerpack' ),
+			'zoomOutLeft'       => esc_html__( 'zoomOutLeft', 'powerpack' ),
+			'zoomOutRight'      => esc_html__( 'zoomOutRight', 'powerpack' ),
+			'zoomOutUp'         => esc_html__( 'zoomOutUp', 'powerpack' ),
 		);
 
 		/* $this->add_control(
 			'tooltip_animation_in',
 			array(
-				'label'   => __( 'Animation In', 'powerpack' ),
+				'label'   => esc_html__( 'Animation In', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT2,
 				'default' => '',
 				'options' => $tooltip_animations,
@@ -707,7 +707,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_animation_out',
 			array(
-				'label'   => __( 'Animation Out', 'powerpack' ),
+				'label'   => esc_html__( 'Animation Out', 'powerpack' ),
 				'type'    => Controls_Manager::SELECT2,
 				'default' => '',
 				'options' => $tooltip_animations,
@@ -718,8 +718,8 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_zindex',
 			array(
-				'label'              => __( 'Z-Index', 'powerpack' ),
-				'description'        => __( 'Increase the z-index value if you are unable to see the tooltip. For example: 99, 999, 9999 ', 'powerpack' ),
+				'label'              => esc_html__( 'Z-Index', 'powerpack' ),
+				'description'        => esc_html__( 'Increase the z-index value if you are unable to see the tooltip. For example: 99, 999, 9999 ', 'powerpack' ),
 				'type'               => Controls_Manager::NUMBER,
 				'default'            => 99,
 				'min'                => -9999999,
@@ -745,7 +745,7 @@ class Hotspots extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				array(
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack' ),
 				)
 			);
 
@@ -774,7 +774,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_image_style',
 			array(
-				'label' => __( 'Image', 'powerpack' ),
+				'label' => esc_html__( 'Image', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -782,8 +782,9 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_width',
 			array(
-				'label'      => __( 'Width', 'powerpack' ),
+				'label'      => esc_html__( 'Width', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'range'      => array(
 					'px' => array(
 						'min'  => 1,
@@ -796,7 +797,6 @@ class Hotspots extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-hot-spot-image' => 'width: {{SIZE}}{{UNIT}};',
 				),
@@ -806,20 +806,20 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_align',
 			array(
-				'label'        => __( 'Alignment', 'powerpack' ),
+				'label'        => esc_html__( 'Alignment', 'powerpack' ),
 				'type'         => Controls_Manager::CHOOSE,
 				'label_block'  => false,
 				'options'      => array(
 					'left'   => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack' ),
 						'icon'  => 'eicon-h-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack' ),
 						'icon'  => 'eicon-h-align-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack' ),
 						'icon'  => 'eicon-h-align-right',
 					),
 				),
@@ -834,7 +834,7 @@ class Hotspots extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'image_border',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-hot-spot-image img',
@@ -844,9 +844,9 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'image_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-hot-spot-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -872,7 +872,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_hotspots_style',
 			array(
-				'label' => __( 'Hotspot', 'powerpack' ),
+				'label' => esc_html__( 'Hotspot', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -880,8 +880,9 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'hotspot_icon_size',
 			array(
-				'label'      => __( 'Size', 'powerpack' ),
+				'label'      => esc_html__( 'Size', 'powerpack' ),
 				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'default'    => array( 'size' => '14' ),
 				'range'      => array(
 					'px' => array(
@@ -890,7 +891,6 @@ class Hotspots extends Powerpack_Widget {
 						'step' => 1,
 					),
 				),
-				'size_units' => array( 'px' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-hot-spot-inner' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; font-size: {{SIZE}}{{UNIT}};',
 				),
@@ -901,7 +901,7 @@ class Hotspots extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'hotspots_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack' ),
 				'selector'  => '{{WRAPPER}} .pp-hot-spot-inner',
 			)
 		);
@@ -909,7 +909,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'icon_color_normal',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
 				'selectors' => array(
@@ -922,7 +922,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'icon_bg_color_normal',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -935,7 +935,7 @@ class Hotspots extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'icon_border_normal',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-hot-spot-inner',
@@ -945,9 +945,9 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-hot-spot-inner, {{WRAPPER}} .pp-hot-spot-inner:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -957,9 +957,9 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
 					'{{WRAPPER}} .pp-hot-spot-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -985,7 +985,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_tooltips_style',
 			array(
-				'label' => __( 'Tooltip', 'powerpack' ),
+				'label' => esc_html__( 'Tooltip', 'powerpack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -993,7 +993,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_bg_color',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1009,7 +1009,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_color',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1021,7 +1021,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_width',
 			array(
-				'label'     => __( 'Width', 'powerpack' ),
+				'label'     => esc_html__( 'Width', 'powerpack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -1037,7 +1037,7 @@ class Hotspots extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'tooltip_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1049,7 +1049,7 @@ class Hotspots extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'tooltip_border',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box',
@@ -1059,9 +1059,9 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
 					'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
@@ -1071,9 +1071,9 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'tooltip_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
 					'.pp-tooltip.pp-tooltip-{{ID}} .tooltipster-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),

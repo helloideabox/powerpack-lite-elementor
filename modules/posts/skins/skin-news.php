@@ -29,6 +29,6 @@ class Skin_News extends Skin_Base {
 	 * @return string Skin title.
 	 */
 	public function get_title() {
-		return __( 'News', 'powerpack' );
+		return esc_html__( 'News', 'powerpack' );
 	}
 }
