@@ -152,7 +152,7 @@ abstract class Module_Base {
 	/**
 	 * Get assets url.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 * @access protected
 	 *
 	 * @param string $file_name
@@ -190,7 +190,7 @@ abstract class Module_Base {
 	/**
 	 * Get css assets url
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 * @access protected
 	 *
 	 * @param string $file_name
@@ -217,7 +217,7 @@ abstract class Module_Base {
 	/**
 	 * Get assets base url
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 * @access protected
 	 *
 	 * @return string
@@ -229,7 +229,7 @@ abstract class Module_Base {
 	/**
 	 * Get assets relative url
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 * @access protected
 	 *
 	 * @return string

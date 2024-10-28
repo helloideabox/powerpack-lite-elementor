@@ -54,7 +54,7 @@ class Ninja_Forms extends Powerpack_Widget {
 	 *
 	 * Retrieve the list of style dependencies the widget requires.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 * @access public
 	 *
 	 * @return array Widget style dependencies.

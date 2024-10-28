@@ -18,7 +18,7 @@ class Module extends Module_Base {
 	/**
 	 * Module is active or not.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 *
 	 * @access public
 	 *
@@ -31,7 +31,7 @@ class Module extends Module_Base {
 	/**
 	 * Get Module Name.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 *
 	 * @access public
 	 *
@@ -44,7 +44,7 @@ class Module extends Module_Base {
 	/**
 	 * Get Widgets.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 *
 	 * @access public
 	 *

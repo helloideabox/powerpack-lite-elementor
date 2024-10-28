@@ -53,7 +53,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 	/**
 	 * A list of styles that the extension is depended in
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 **/
 	public function get_style_depends() {
 		return array(

@@ -74,7 +74,7 @@ class Progress_Bar extends Powerpack_Widget {
 	 *
 	 * Retrieve the list of keywords the widget belongs to.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 * @access public
 	 *
 	 * @return array Widget keywords.
@@ -120,7 +120,7 @@ class Progress_Bar extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 * @access protected
 	 */
 	protected function register_controls() {
@@ -676,7 +676,7 @@ class Progress_Bar extends Powerpack_Widget {
 			/**
 			 * Content Tab: Help Docs
 			 *
-			 * @since x.x.x
+			 * @since 2.8.0
 			 * @access protected
 			 */
 			$this->start_controls_section(
@@ -1518,7 +1518,7 @@ class Progress_Bar extends Powerpack_Widget {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.0
 	 * @access protected
 	 */
 	protected function render() {
