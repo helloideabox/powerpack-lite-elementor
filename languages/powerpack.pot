@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PowerPack Lite for Elementor 2.8.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2024-10-28 19:46:50+00:00\n"
+"POT-Creation-Date: 2024-10-29 13:21:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1069,6 +1069,18 @@ msgstr ""
 msgid "WPForms - Description"
 msgstr ""
 
+#: classes/class-pp-wpml.php:714
+msgid "Progress Bar - Label (Single)"
+msgstr ""
+
+#: classes/class-pp-wpml.php:719
+msgid "Progress Bar - Half Circle Prefix Label"
+msgstr ""
+
+#: classes/class-pp-wpml.php:724
+msgid "Progress Bar - Half Circle Suffix Label"
+msgstr ""
+
 #: classes/wpml/class-wpml-pp-advanced-accordion.php:22
 msgid "Advanced Accordion - Item Title"
 msgstr ""
@@ -1202,6 +1214,18 @@ msgstr ""
 msgid "Info List - Button Text"
 msgstr ""
 
+#: classes/wpml/class-wpml-pp-interactive-circle.php:22
+msgid "Interactive Circle - Tab Label"
+msgstr ""
+
+#: classes/wpml/class-wpml-pp-interactive-circle.php:24
+msgid "Interactive Circle - Item Title"
+msgstr ""
+
+#: classes/wpml/class-wpml-pp-interactive-circle.php:26
+msgid "Interactive Circle - Item Content"
+msgstr ""
+
 #: classes/wpml/class-wpml-pp-logo-carousel.php:22
 #: classes/wpml/class-wpml-pp-logo-grid.php:22
 msgid "Logo Carousel - Logo Title"
@@ -1238,6 +1262,10 @@ msgstr ""
 
 #: classes/wpml/class-wpml-pp-pricing-table.php:24
 msgid "Price Table - Tooltip Content"
+msgstr ""
+
+#: classes/wpml/class-wpml-pp-progress-bar.php:20
+msgid "Progress Bar - Label (Multiple)"
 msgstr ""
 
 #: classes/wpml/class-wpml-pp-team-member-carousel.php:39
