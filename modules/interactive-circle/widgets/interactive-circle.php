@@ -130,7 +130,6 @@ class Interactive_Circle extends Powerpack_Widget {
 	protected function register_controls() {
 		$this->register_content_general_controls();
 		$this->register_content_items_controls();
-		$this->register_content_query_controls();
 		$this->register_content_additional_options_controls();
 
 		$this->register_style_circle_controls();
@@ -158,6 +157,19 @@ class Interactive_Circle extends Powerpack_Widget {
 					'posts'  => esc_html__( 'Posts', 'powerpack' ),
 				],
 			]
+		);
+
+		$this->add_control(
+			'show_source_notice',
+			array(
+				'label'           => '',
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
+				'condition'       => array(
+					'source' => 'posts',
+				),
+			)
 		);
 
 		$this->add_control(
@@ -192,9 +204,6 @@ class Interactive_Circle extends Powerpack_Widget {
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
 				'return_value' => 'yes',
-				'condition'             => [
-					'source!' => 'posts',
-				],
 			]
 		);
 
@@ -214,62 +223,6 @@ class Interactive_Circle extends Powerpack_Widget {
 				'label'     => esc_html__( 'Content', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'posts_per_page',
-			[
-				'label'     => __( 'Posts Count', 'powerpack' ),
-				'type'      => Controls_Manager::NUMBER,
-				'default'   => 6,
-				'condition' => [
-					'source' => 'posts',
-				],
-			]
-		);
-
-		$this->add_control(
-			'max_posts_notice',
-			array(
-				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'Maximum 8 posts are supported. Adding more than 8 posts will break the layout.', 'powerpack' ),
-				'content_classes' => 'pp-editor-info',
-				'condition'       => [
-					'source' => 'posts',
-				],
-			)
-		);
-
-		$this->add_control(
-			'posts_content_type',
-			[
-				'label'                 => __( 'Content Type', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'default'               => 'excerpt',
-				'label_block'           => true,
-				'options'               => [
-					'excerpt'       => __( 'Excerpt', 'powerpack' ),
-					'full_content'  => __( 'Content', 'powerpack' ),
-				],
-				'condition'             => [
-					'source' => 'posts',
-				],
-			]
-		);
-
-		$this->add_control(
-			'preview_excerpt_length',
-			[
-				'label'                 => __( 'Excerpt Length', 'powerpack' ),
-				'type'                  => Controls_Manager::NUMBER,
-				'default'               => 30,
-				'min'                   => 0,
-				'max'                   => 50,
-				'step'                  => 1,
-				'condition'             => [
-					'source' => 'posts',
-				],
 			]
 		);
 
@@ -314,304 +267,6 @@ class Interactive_Circle extends Powerpack_Widget {
 				'condition' => [
 					'content_icon_type' => 'image',
 				],
-			]
-		);
-
-		$this->end_controls_section();
-	}
-
-	protected function register_content_query_controls() {
-		$this->start_controls_section(
-			'section_query',
-			[
-				'label' => esc_html__( 'Query', 'powerpack' ),
-				'condition' => [
-					'source' => 'posts',
-				],
-			]
-		);
-
-		$this->add_control(
-			'post_type',
-			[
-				'label'                 => __( 'Post Type', 'powerpack' ),
-				'type'                  => Controls_Manager::SELECT,
-				'options'               => PP_Posts_Helper::get_post_types(),
-				'default'               => 'post',
-
-			]
-		);
-
-		$post_types = PP_Posts_Helper::get_post_types();
-
-		foreach ( $post_types as $post_type_slug => $post_type_label ) {
-
-			$taxonomy = PP_Posts_Helper::get_post_taxonomies( $post_type_slug );
-
-			if ( ! empty( $taxonomy ) ) {
-
-				foreach ( $taxonomy as $index => $tax ) {
-
-					$terms = PP_Posts_Helper::get_tax_terms( $index );
-
-					$tax_terms = array();
-
-					if ( ! empty( $terms ) ) {
-
-						foreach ( $terms as $term_index => $term_obj ) {
-
-							$tax_terms[ $term_obj->term_id ] = $term_obj->name;
-						}
-
-						if ( 'post' === $post_type_slug ) {
-							if ( 'post_tag' === $index ) {
-								$tax_control_key = 'tags';
-							} elseif ( 'category' === $index ) {
-								$tax_control_key = 'categories';
-							} else {
-								$tax_control_key = $index . '_' . $post_type_slug;
-							}
-						} else {
-							$tax_control_key = $index . '_' . $post_type_slug;
-						}
-
-						// Taxonomy filter type
-						$this->add_control(
-							$index . '_' . $post_type_slug . '_filter_type',
-							[
-								/* translators: %s Label */
-								'label'       => sprintf( __( '%s Filter Type', 'powerpack' ), $tax->label ),
-								'type'        => Controls_Manager::SELECT,
-								'default'     => 'IN',
-								'label_block' => true,
-								'options'     => [
-									/* translators: %s label */
-									'IN'     => sprintf( __( 'Include %s', 'powerpack' ), $tax->label ),
-									/* translators: %s label */
-									'NOT IN' => sprintf( __( 'Exclude %s', 'powerpack' ), $tax->label ),
-								],
-								'separator'         => 'before',
-								'condition'   => [
-									'post_type' => $post_type_slug,
-								],
-							]
-						);
-
-						$this->add_control(
-							$tax_control_key,
-							[
-								'label'         => $tax->label,
-								'type'          => 'pp-query',
-								'post_type'     => $post_type_slug,
-								'options'       => [],
-								'label_block'   => true,
-								'multiple'      => true,
-								'query_type'    => 'terms',
-								'object_type'   => $index,
-								'include_type'  => true,
-								'condition'   => [
-									'post_type' => $post_type_slug,
-								],
-							]
-						);
-
-					}
-				}
-			}
-		}
-
-		$this->add_control(
-			'author_filter_type',
-			[
-				'label'       => __( 'Authors Filter Type', 'powerpack' ),
-				'type'        => Controls_Manager::SELECT,
-				'default'     => 'author__in',
-				'label_block' => true,
-				'separator'         => 'before',
-				'options'     => [
-					'author__in'     => __( 'Include Authors', 'powerpack' ),
-					'author__not_in' => __( 'Exclude Authors', 'powerpack' ),
-				],
-			]
-		);
-
-		$this->add_control(
-			'authors',
-			[
-				'label'                 => __( 'Authors', 'powerpack' ),
-				'type'                  => 'pp-query',
-				'label_block'           => true,
-				'multiple'              => true,
-				'query_type'            => 'authors',
-				'condition'         => [
-					'post_type!' => 'related',
-				],
-			]
-		);
-
-		foreach ( $post_types as $post_type_slug => $post_type_label ) {
-
-			if ( 'post' === $post_type_slug ) {
-				$posts_control_key = 'exclude_posts';
-			} else {
-				$posts_control_key = $post_type_slug . '_filter';
-			}
-
-			$this->add_control(
-				$post_type_slug . '_filter_type',
-				[
-					'label'             => sprintf( __( '%s Filter Type', 'powerpack' ), $post_type_label ),
-					'type'              => Controls_Manager::SELECT,
-					'default'           => 'post__not_in',
-					'label_block'       => true,
-					'separator'         => 'before',
-					'options'           => [
-						'post__in'     => sprintf( __( 'Include %s', 'powerpack' ), $post_type_label ),
-						'post__not_in' => sprintf( __( 'Exclude %s', 'powerpack' ), $post_type_label ),
-					],
-					'condition'   => [
-						'post_type' => $post_type_slug,
-					],
-				]
-			);
-
-			$this->add_control(
-				$posts_control_key,
-				[
-					/* translators: %s Label */
-					'label'             => $post_type_label,
-					'type'              => 'pp-query',
-					'default'           => '',
-					'multiple'          => true,
-					'label_block'       => true,
-					'query_type'        => 'posts',
-					'object_type'       => $post_type_slug,
-					'condition'         => [
-						'post_type' => $post_type_slug,
-					],
-				]
-			);
-		}
-
-		$this->add_control(
-			'select_date',
-			[
-				'label'             => __( 'Date', 'powerpack' ),
-				'type'              => Controls_Manager::SELECT,
-				'options'           => [
-					'anytime'   => __( 'All', 'powerpack' ),
-					'today'     => __( 'Past Day', 'powerpack' ),
-					'week'      => __( 'Past Week', 'powerpack' ),
-					'month'     => __( 'Past Month', 'powerpack' ),
-					'quarter'   => __( 'Past Quarter', 'powerpack' ),
-					'year'      => __( 'Past Year', 'powerpack' ),
-					'exact'     => __( 'Custom', 'powerpack' ),
-				],
-				'default'           => 'anytime',
-				'label_block'       => false,
-				'multiple'          => false,
-				'separator'         => 'before',
-			]
-		);
-
-		$this->add_control(
-			'date_before',
-			[
-				'label'             => __( 'Before', 'powerpack' ),
-				'description'       => __( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'powerpack' ),
-				'type'              => Controls_Manager::DATE_TIME,
-				'label_block'       => false,
-				'multiple'          => false,
-				'placeholder'       => __( 'Choose', 'powerpack' ),
-				'condition'         => [
-					'select_date' => 'exact',
-				],
-			]
-		);
-
-		$this->add_control(
-			'date_after',
-			[
-				'label'             => __( 'After', 'powerpack' ),
-				'description'       => __( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'powerpack' ),
-				'type'              => Controls_Manager::DATE_TIME,
-				'label_block'       => false,
-				'multiple'          => false,
-				'placeholder'       => __( 'Choose', 'powerpack' ),
-				'condition'         => [
-					'select_date' => 'exact',
-				],
-			]
-		);
-
-		$this->add_control(
-			'order',
-			[
-				'label'             => __( 'Order', 'powerpack' ),
-				'type'              => Controls_Manager::SELECT,
-				'options'           => [
-					'DESC'      => __( 'Descending', 'powerpack' ),
-					'ASC'       => __( 'Ascending', 'powerpack' ),
-				],
-				'default'           => 'DESC',
-				'separator'         => 'before',
-			]
-		);
-
-		$this->add_control(
-			'orderby',
-			[
-				'label'             => __( 'Order By', 'powerpack' ),
-				'type'              => Controls_Manager::SELECT,
-				'options'           => [
-					'date'           => __( 'Date', 'powerpack' ),
-					'modified'       => __( 'Last Modified Date', 'powerpack' ),
-					'rand'           => __( 'Random', 'powerpack' ),
-					'comment_count'  => __( 'Comment Count', 'powerpack' ),
-					'title'          => __( 'Title', 'powerpack' ),
-					'ID'             => __( 'Post ID', 'powerpack' ),
-					'author'         => __( 'Post Author', 'powerpack' ),
-				],
-				'default'           => 'date',
-			]
-		);
-
-		$this->add_control(
-			'sticky_posts',
-			[
-				'label'             => __( 'Sticky Posts', 'powerpack' ),
-				'type'              => Controls_Manager::SWITCHER,
-				'default'           => '',
-				'label_on'          => __( 'Yes', 'powerpack' ),
-				'label_off'         => __( 'No', 'powerpack' ),
-				'return_value'      => 'yes',
-				'separator'         => 'before',
-			]
-		);
-
-		$this->add_control(
-			'all_sticky_posts',
-			[
-				'label'             => __( 'Show Only Sticky Posts', 'powerpack' ),
-				'type'              => Controls_Manager::SWITCHER,
-				'default'           => '',
-				'label_on'          => __( 'Yes', 'powerpack' ),
-				'label_off'         => __( 'No', 'powerpack' ),
-				'return_value'      => 'yes',
-				'condition'         => [
-					'sticky_posts' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'offset',
-			[
-				'label'             => __( 'Offset', 'powerpack' ),
-				'description'       => __( 'Use this setting to skip this number of initial posts', 'powerpack' ),
-				'type'              => Controls_Manager::NUMBER,
-				'default'           => '',
-				'separator'         => 'before',
 			]
 		);
 
@@ -1938,11 +1593,7 @@ class Interactive_Circle extends Powerpack_Widget {
 	public function get_circle_items() {
 		$settings = $this->get_settings();
 
-		if ( 'posts' === $settings['source'] ) {
-			return $this->get_interactive_circle_posts();
-		} else {
-			return $settings['tabs'];
-		}
+		return $settings['tabs'];
 	}
 
 	/**
