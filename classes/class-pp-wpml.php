@@ -706,6 +706,32 @@ class PP_Elements_WPML {
 				],
 			],
 		];
+		$widgets['pp-progress-bar'] = [
+			'conditions' => [ 'widgetType' => 'pp-progress-bar' ],
+			'fields'     => [
+				[
+					'field'       => 'bar_label',
+					'type'        => esc_html__( 'Progress Bar - Label (Single)', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'half_circle_prefix',
+					'type'        => esc_html__( 'Progress Bar - Half Circle Prefix Label', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'half_circle_suffix',
+					'type'        => esc_html__( 'Progress Bar - Half Circle Suffix Label', 'powerpack' ),
+					'editor_type' => 'LINE',
+				],
+			],
+			'integration-class' => 'WPML_PP_Progress_Bar',
+		];
+		$widgets['pp-interactive-circle'] = [
+			'conditions' => [ 'widgetType' => 'pp-interactive-circle' ],
+			'fields'     => [],
+			'integration-class' => 'WPML_PP_Interactive_Circle',
+		];
 
 		$this->init_classes();
 		
@@ -728,6 +754,8 @@ class PP_Elements_WPML {
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-pricing-table.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-team-member.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-team-member-carousel.php';
+		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-progress-bar.php';
+		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-interactive-circle.php';
 	}
 }
 
