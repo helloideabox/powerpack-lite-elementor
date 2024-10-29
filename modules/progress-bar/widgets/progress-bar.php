@@ -309,9 +309,6 @@ class Progress_Bar extends Powerpack_Widget {
 				],
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 50,
-				'selectors' => array(
-					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'left: {{SIZE}}%;',
-				),
 			)
 		);
 
@@ -1467,7 +1464,7 @@ class Progress_Bar extends Powerpack_Widget {
 			$direction = is_rtl() ? 'right' : 'left';
 
 			foreach ( $settings['labels'] as $item ) {
-				$number            = (int) $item['number'];
+				$number            = ( ! empty( $item['number'] ) && is_numeric( $item['number'] ) ) ? (int) $item['number'] : 0;
 				$text              = esc_html( $item['text'] );
 				$number_percentage = esc_attr( $number . '%' );
 
