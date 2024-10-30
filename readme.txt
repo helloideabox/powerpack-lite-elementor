@@ -80,6 +80,8 @@ PowerPack Addon for Elementor comes from our team of experts, who always deliver
 36. [Posts](https://powerpackelements.com/elementor-widgets/posts/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display blog posts beautifully on your WordPress websites built through Elementor.
 37. [Content Reveal](https://powerpackelements.com/elementor-widgets/content-reveal/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Organize the layout of your page by displaying more content in less area. Content Reveal widget allows you to display the extra information with a simple click of button.
 38. [Random Image](https://powerpackelements.com/elementor-widgets/random-image/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display Random Images from a set of the images on your webpage.
+39. [Interactive Circle](https://powerpackelements.com/elementor-widgets/interactive-circle/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - This widget lets you showcase content on your website in beautiful and eye-catchy circular layouts without using any additional HTML code and CSS.
+40. [Progress Bar](https://powerpackelements.com/elementor-widgets/progress-bar/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Add interactive Progress Bars to your website. Showcase progress with horizontal, vertical, circular bars, and more using this versatile widget.
 
 ## CREATIVE EXTENSIONS - FREE
 
