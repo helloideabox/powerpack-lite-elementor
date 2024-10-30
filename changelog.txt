@@ -1,5 +1,5 @@
 == 2.8.0 ==
-Release date: 
+Release date: October 30, 2024
 * New: Interactive Circle widget
 * New: Progress Bar widget
 * Enhancement: Display Conditions - Added new Device Type display condition

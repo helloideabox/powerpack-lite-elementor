@@ -235,7 +235,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-= 2.8.0 - October 29, 2024 =
+= 2.8.0 - October 30, 2024 =
 * 	New: Interactive Circle widget
 * 	New: Progress Bar widget
 * 	Enhancement: Display Conditions - Added new Device Type display condition
