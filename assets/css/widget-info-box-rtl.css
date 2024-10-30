@@ -1,3 +1,8 @@
+.elementor-widget-pp-info-box-carousel .swiper,
+.elementor-widget-pp-info-box-carousel .swiper-container {
+  position: static;
+}
+
 .pp-icon {
   display: inline-block;
   line-height: 1;
