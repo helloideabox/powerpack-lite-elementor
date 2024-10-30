@@ -1008,11 +1008,6 @@ class Divider extends Powerpack_Widget {
 			$classes[] = $settings['divider_direction'];
 		}
 
-		if ( $settings['divider_style'] ) {
-			$classes[] = 'pp-divider-' . $settings['divider_style'];
-			$classes[] = $settings['divider_style'];
-		}
-
 		$this->add_render_attribute( 'divider', 'class', $classes );
 
 		$this->add_render_attribute( 'divider-content', 'class', [ 'pp-divider-' . $settings['divider_type'], 'pp-icon' ] );
