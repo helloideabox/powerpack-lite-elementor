@@ -1,3 +1,7 @@
+== 2.8.1 ==
+Release date: 
+* Fixed: Unnecessary call to frontend.min.css file
+
 == 2.8.0 ==
 Release date: October 30, 2024
 * New: Interactive Circle widget
