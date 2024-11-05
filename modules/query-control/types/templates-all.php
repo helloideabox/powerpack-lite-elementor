@@ -46,6 +46,7 @@ class Templates_All extends Type_Base {
 			'post_type' 		=> Source_Local::CPT,
 			'posts_per_page' 	=> -1,
 			'order' 			=> 'ASC',
+			'post_status'       => [ 'publish' ],
 		];
 
 		$query = new \WP_Query( $query_params );

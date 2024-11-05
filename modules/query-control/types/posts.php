@@ -37,6 +37,7 @@ class Posts extends Type_Base {
 			'post_type' 		=> $data['object_type'],
 			's' 				=> $data['q'],
 			'posts_per_page' 	=> -1,
+			'post_status'       => [ 'publish' ],
 		];
 
 		if ( 'attachment' === $query_params['post_type'] ) {

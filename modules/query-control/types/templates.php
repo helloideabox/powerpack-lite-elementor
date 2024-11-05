@@ -47,6 +47,7 @@ class Templates extends Type_Base {
 			'posts_per_page' 	=> -1,
 			'orderby' 			=> 'meta_value',
 			'order' 			=> 'ASC',
+			'post_status'       => [ 'publish' ],
 			'meta_query' => [
 				[
 					'key' 		=> Document::TYPE_META_KEY,
