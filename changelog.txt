@@ -1,5 +1,6 @@
 == 2.8.1 ==
 Release date: 
+* Enhancement: Dual Heading - Moved Spacing option to content tab and reorganised the style options
 * Fixed: Unnecessary call to frontend.min.css file
 
 == 2.8.0 ==

@@ -90,8 +90,7 @@ class Dual_Heading extends Powerpack_Widget {
 		$this->register_content_help_docs_controls();
 
 		/* Style Tab */
-		$this->register_style_first_section_controls();
-		$this->register_style_second_section_controls();
+		$this->register_style_heading_controls();
 	}
 
 	/*-----------------------------------------------------------------------------------*/
@@ -220,6 +219,34 @@ class Dual_Heading extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_responsive_control(
+			'second_text_margin',
+			[
+				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
+				'default'               => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'range'                 => [
+					'px' => [
+						'max' => 100,
+					],
+				],
+				'tablet_default'        => [
+					'unit' => 'px',
+				],
+				'mobile_default'        => [
+					'unit' => 'px',
+				],
+				'selectors'             => [
+					'{{WRAPPER}}.pp-dual-heading-inline .pp-second-text' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.pp-dual-heading-block .pp-second-text' => 'margin-top: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -264,17 +291,21 @@ class Dual_Heading extends Powerpack_Widget {
 	/*	STYLE TAB
 	/*-----------------------------------------------------------------------------------*/
 
-	protected function register_style_first_section_controls() {
+	protected function register_style_heading_controls() {
 		/**
-		 * Style Tab: First Part
+		 * Style Tab: Dual Heading
 		 */
 		$this->start_controls_section(
-			'first_section_style',
+			'section_dual_heading_style',
 			[
-				'label'                 => esc_html__( 'First Part', 'powerpack' ),
+				'label'                 => esc_html__( 'Dual Heading', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
+
+		$this->start_controls_tabs( 'dual_heading_tabs' );
+
+		$this->start_controls_tab( 'dual_heading_tab_first_part', array( 'label' => esc_html__( 'First Part', 'powerpack' ) ) );
 
 		$this->add_control(
 			'first_text_color',
@@ -282,7 +313,7 @@ class Dual_Heading extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
-					'default' => Global_Colors::COLOR_PRIMARY,
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'               => '',
 				'selectors'             => [
@@ -375,20 +406,9 @@ class Dual_Heading extends Powerpack_Widget {
 			]
 		);
 
-		$this->end_controls_section();
-	}
+		$this->end_controls_tab();
 
-	protected function register_style_second_section_controls() {
-		/**
-		 * Style Tab: Second Part
-		 */
-		$this->start_controls_section(
-			'second_section_style',
-			[
-				'label'                 => esc_html__( 'Second Part', 'powerpack' ),
-				'tab'                   => Controls_Manager::TAB_STYLE,
-			]
-		);
+		$this->start_controls_tab( 'dual_heading_tab_second_part', array( 'label' => esc_html__( 'Second Part', 'powerpack' ) ) );
 
 		$this->add_control(
 			'second_text_color',
@@ -451,35 +471,6 @@ class Dual_Heading extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_responsive_control(
-			'second_text_margin',
-			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
-				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
-				'default'               => [
-					'size' => 0,
-					'unit' => 'px',
-				],
-				'range'                 => [
-					'px' => [
-						'max' => 100,
-					],
-				],
-				'tablet_default'        => [
-					'unit' => 'px',
-				],
-				'mobile_default'        => [
-					'unit' => 'px',
-				],
-				'selectors'             => [
-					'{{WRAPPER}}.pp-dual-heading-inline .pp-second-text' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.pp-dual-heading-block .pp-second-text' => 'margin-top: {{SIZE}}{{UNIT}};',
-				],
-				'separator'             => 'before',
-			]
-		);
-
 		$this->add_control(
 			'second_text_padding',
 			[
@@ -518,8 +509,11 @@ class Dual_Heading extends Powerpack_Widget {
 			]
 		);
 
-		$this->end_controls_section();
+		$this->end_controls_tab();
 
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
 	}
 
 	/**
