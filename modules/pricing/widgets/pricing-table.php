@@ -88,7 +88,6 @@ class Pricing_Table extends Powerpack_Widget {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-
 		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
 			return array(
 				'pp-tooltipster',
@@ -661,17 +660,30 @@ class Pricing_Table extends Powerpack_Widget {
 			)
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'tooltip_position',
 			array(
-				'label'   => esc_html__( 'Position', 'powerpack' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'top',
-				'options' => array(
-					'top'          => esc_html__( 'Top', 'powerpack' ),
-					'bottom'       => esc_html__( 'Bottom', 'powerpack' ),
-					'left'         => esc_html__( 'Left', 'powerpack' ),
-					'right'        => esc_html__( 'Right', 'powerpack' ),
+				'label'       => esc_html__( 'Position', 'powerpack' ),
+				'type'        => Controls_Manager::CHOOSE,
+				'label_block' => false,
+				'default'     => 'top',
+				'options'     => array(
+					'top'    => array(
+						'title' => esc_html__( 'Top', 'powerpack' ),
+						'icon'  => 'eicon-v-align-top',
+					),
+					'left' => array(
+						'title' => esc_html__( 'Left', 'powerpack' ),
+						'icon'  => 'eicon-order-start',
+					),
+					'right' => array(
+						'title' => esc_html__( 'Right', 'powerpack' ),
+						'icon'  => 'eicon-nowrap',
+					),
+					'bottom' => array(
+						'title' => esc_html__( 'Bottom', 'powerpack' ),
+						'icon'  => 'eicon-v-align-bottom',
+					),
 				),
 				'condition' => [
 					'show_tooltip' => 'yes',
@@ -2915,42 +2927,46 @@ class Pricing_Table extends Powerpack_Widget {
 	 */
 	protected function get_tooltip_attributes( $item, $tooltip_key, $tooltip_content_key ) {
 		$settings = $this->get_settings_for_display();
-		$tooltip_position = $settings['tooltip_position'];
-		$tooltip_content_id  = $this->get_id() . '-' . $item['_id'];
+		$tooltip_content_id = $this->get_id() . '-' . $item['_id'];
+
+		$tooltip_attributes = [
+			'position' => isset($settings['tooltip_position']) ? $settings['tooltip_position'] : 'top',
+			'distance' => isset($settings['tooltip_distance']['size']) ? $settings['tooltip_distance']['size'] : '',
+			'width'    => isset($settings['tooltip_width']['size']) ? $settings['tooltip_width']['size'] : '',
+		];
+
+		$breakpoints = PP_Helper::elementor()->breakpoints->get_active_breakpoints();
+		foreach ($breakpoints as $device => $breakpoint) {
+			$tooltip_position_key = 'tooltip_position_' . $device;
+			$tooltip_positions[$device] = isset($settings[$tooltip_position_key]) && !empty($settings[$tooltip_position_key])
+				? $settings[$tooltip_position_key]
+				: '';
+		}
+
+		foreach ($tooltip_positions as $device => $position) {
+			if (!empty($position)) {
+				$tooltip_attributes['position_' . $device] = $position;
+			}
+		}
+
+		$tooltip_attributes_json = wp_json_encode($tooltip_attributes);
 
 		$this->add_render_attribute(
 			$tooltip_key,
-			array(
-				'class'                 => 'pp-pricing-table-tooptip',
-				'data-tooltip'          => 'yes',
-				'data-tooltip-position' => $tooltip_position,
-				'data-tooltip-content'  => '#pp-tooltip-content-' . $tooltip_content_id,
-			)
+			[
+				'class'                => 'pp-pricing-table-tooptip',
+				'data-tooltip'         => $tooltip_attributes_json,
+				'data-tooltip-content' => '#pp-tooltip-content-' . $tooltip_content_id
+			]
 		);
-
-		if ( $settings['tooltip_distance']['size'] ) {
-			$this->add_render_attribute( $tooltip_key, 'data-tooltip-distance', $settings['tooltip_distance']['size'] );
-		}
-
-		if ( $settings['tooltip_width']['size'] ) {
-			$this->add_render_attribute( $tooltip_key, 'data-tooltip-width', $settings['tooltip_width']['size'] );
-		}
 
 		$this->add_render_attribute(
 			$tooltip_content_key,
-			array(
-				'class' => [ 'pp-tooltip-content', 'pp-tooltip-content-' . $this->get_id() ],
+			[
+				'class' => ['pp-tooltip-content', 'pp-tooltip-content-' . $this->get_id()],
 				'id'    => 'pp-tooltip-content-' . $tooltip_content_id,
-			)
+			]
 		);
-
-		/* if ( $settings['tooltip_animation_in'] ) {
-			$this->add_render_attribute( $tooltip_key, 'data-tooltip-animation-in', $settings['tooltip_animation_in'] );
-		}
-
-		if ( $settings['tooltip_animation_out'] ) {
-			$this->add_render_attribute( $tooltip_key, 'data-tooltip-animation-out', $settings['tooltip_animation_out'] );
-		} */
 	}
 
 	/**

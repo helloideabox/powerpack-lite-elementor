@@ -21,48 +21,52 @@
 			}
 
 			initTooltips() {
-				const elementSettings    = this.getElementSettings(),
-					$id                  = this.getID(),
-					tooltipElm           = this.$element.find('[data-tooltip]'),
-					ttArrow              = elementSettings.tooltip_arrow,
-					ttTrigger            = elementSettings.tooltip_trigger,
-					animation            = elementSettings.tooltip_animation,
-					tooltipSize          = elementSettings.tooltip_size,
-					tooltipZindex        = elementSettings.tooltip_zindex,
-					elementorBreakpoints = elementorFrontend.config.breakpoints;
+				const elementSettings = this.getElementSettings(),
+					elementID         = this.getID(),
+					$tooltipElements  = this.$element.find('[data-tooltip]'),
+					tooltipArrow      = elementSettings.tooltip_arrow === 'yes',
+					tooltipTrigger    = elementSettings.tooltip_trigger,
+					tooltipAnimation  = elementSettings.tooltip_animation,
+					tooltipSize       = elementSettings.tooltip_size,
+					tooltipZIndex     = elementSettings.tooltip_zindex,
+					breakpoints       = elementorFrontend.config.responsive.activeBreakpoints;
 
-				let ppclass = 'pp-tooltip' + ' pp-tooltip-' + $id;
-
-				if ( '' !== tooltipSize && undefined !== tooltipSize ) {
-					ppclass += ' pp-tooltip-size-' + tooltipSize;
+				let tooltipClass = `pp-tooltip pp-tooltip-${elementID}`;
+				if (tooltipSize) {
+					tooltipClass += ` pp-tooltip-size-${tooltipSize}`;
 				}
 
-				tooltipElm.each(function () {
-					let ttPosition = $(this).data('tooltip-position'),
-						minWidth   = $(this).data('tooltip-width'),
-						ttDistance = $(this).data('tooltip-distance');
+				const getTooltipPosition = (tooltipOptions) => {
+					const windowWidth = window.innerWidth;
 
-					// Tablet
-					if ( window.innerWidth <= elementorBreakpoints.lg && window.innerWidth >= elementorBreakpoints.md ) {
-						ttPosition = $scope.find('.pp-pricing-table-tooptip[data-tooltip]').data('tooltip-position-tablet');
-					}
+					if (windowWidth >= breakpoints.widescreen.value) return tooltipOptions.position_widescreen || 'top';
+					if (windowWidth > breakpoints.laptop.value) return tooltipOptions.position || 'top';
+					if (windowWidth > breakpoints.tablet_extra.value) return tooltipOptions.position_laptop || 'top';
+					if (windowWidth > breakpoints.tablet.value) return tooltipOptions.position_tablet_extra || 'top';
+					if (windowWidth > breakpoints.mobile_extra.value) return tooltipOptions.position_tablet || 'top';
+					if (windowWidth > breakpoints.mobile.value) return tooltipOptions.position_mobile_extra || 'top';
 
-					// Mobile
-					if ( window.innerWidth < elementorBreakpoints.md ) {
-						ttPosition = $scope.find('.pp-pricing-table-tooptip[data-tooltip]').data('tooltip-position-mobile');
-					}
+					return tooltipOptions.position_mobile || 'top';
+				};
 
-					$(this).pptooltipster({
-						trigger : ttTrigger,
-						animation : animation,
-						minWidth: minWidth,
-						ppclass : ppclass,
-						side : ttPosition,
-						arrow : ( 'yes' === ttArrow ),
-						distance : ttDistance,
-						interactive : true,
-						positionTracker : true,
-						zIndex : tooltipZindex,
+				$tooltipElements.each(function () {
+					const $this         = $(this),
+						tooltipOptions  = $this.data('tooltip') || {},
+						tooltipPosition = getTooltipPosition(tooltipOptions),
+						minWidth        = tooltipOptions.width || 'auto',
+						tooltipDistance = tooltipOptions.distance || 10;
+
+					$this.pptooltipster({
+						trigger:         tooltipTrigger,
+						animation:       tooltipAnimation,
+						minWidth:        minWidth,
+						ppclass:         tooltipClass,
+						side:            tooltipPosition,
+						arrow:           tooltipArrow,
+						distance:        tooltipDistance,
+						interactive:     true,
+						positionTracker: true,
+						zIndex:          tooltipZIndex,
 					});
 				});
 			}
