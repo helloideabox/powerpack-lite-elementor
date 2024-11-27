@@ -1659,7 +1659,7 @@ class WPforms extends Powerpack_Widget {
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
-					'{{WRAPPER}} .pp-wpforms .wpforms-confirmation-container-full' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-wpforms .wpforms-confirmation-container-full, {{WRAPPER}} .pp-wpforms .wpforms-confirmation-container-full p' => 'color: {{VALUE}}',
 				],
 			]
 		);
