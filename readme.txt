@@ -237,6 +237,14 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.8.1 - November 27, 2024 =
+* 	Enhancement: Dual Heading - Moved Spacing option to content tab and reorganised the style options
+* 	Enhancement: Pricing Table - Added responsive support for Tooltip position option
+* 	Fixed: Image Comparison - Handle was not working
+* 	Fixed: WP Forms - Confirmation text color option was not working
+* 	Fixed: Unnecessary call to frontend.min.css file
+* 	Fixed: Security issue
+
 = 2.8.0 - October 30, 2024 =
 * 	New: Interactive Circle widget
 * 	New: Progress Bar widget
