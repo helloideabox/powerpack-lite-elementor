@@ -324,6 +324,16 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
+			'jquery-event-move',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/jquery-event-move/jquery.event.move' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			'2.0.0',
+			true
+		);
+
+		wp_register_script(
 			'pp-jquery-plugin',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/js/jquery.plugin.js',
 			[

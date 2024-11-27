@@ -87,6 +87,7 @@ class Image_Comparison extends Powerpack_Widget {
 	 */
 	public function get_script_depends() {
 		return [
+			'jquery-event-move',
 			'pp-image-comparison',
 		];
 	}
