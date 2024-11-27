@@ -69,6 +69,7 @@ class Posts extends Type_Base {
 			'post_type' 		=> 'any',
 			'post__in' 			=> $ids,
 			'posts_per_page' 	=> -1,
+			'post_status'       => [ 'publish' ],
 		] );
 
 		foreach ( $query->posts as $post ) {

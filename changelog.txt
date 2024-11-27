@@ -5,6 +5,7 @@ Release date:
 * Fixed: Image Comparison - Handle was not working
 * Fixed: WP Forms - Confirmation text color option was not working
 * Fixed: Unnecessary call to frontend.min.css file
+* Fixed: Security issue
 
 == 2.8.0 ==
 Release date: October 30, 2024
