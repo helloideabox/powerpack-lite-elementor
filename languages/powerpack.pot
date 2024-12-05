@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.8.0\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.8.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2024-10-30 05:35:26+00:00\n"
+"POT-Creation-Date: 2024-12-05 17:34:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -172,9 +172,9 @@ msgstr ""
 #: modules/divider/widgets/divider.php:125
 #: modules/divider/widgets/divider.php:451
 #: modules/icon-list/widgets/icon-list.php:463
-#: modules/image-comparison/widgets/image-comparison.php:638
-#: modules/pricing/widgets/pricing-table.php:2180
-#: modules/pricing/widgets/pricing-table.php:2190
+#: modules/image-comparison/widgets/image-comparison.php:639
+#: modules/pricing/widgets/pricing-table.php:2192
+#: modules/pricing/widgets/pricing-table.php:2202
 #: modules/team-member/widgets/team-member-carousel.php:1442
 #: modules/team-member/widgets/team-member-carousel.php:1649
 #: modules/team-member/widgets/team-member-carousel.php:1856
@@ -203,7 +203,8 @@ msgid "Gravity Forms"
 msgstr ""
 
 #: classes/class-pp-config.php:130 includes/helper-functions.php:369
-#: modules/headings/widgets/dual-heading.php:108
+#: modules/headings/widgets/dual-heading.php:107
+#: modules/headings/widgets/dual-heading.php:301
 msgid "Dual Heading"
 msgstr ""
 
@@ -425,7 +426,7 @@ msgid "Showcase"
 msgstr ""
 
 #: classes/class-pp-config.php:503
-#: modules/pricing/widgets/pricing-table.php:1169
+#: modules/pricing/widgets/pricing-table.php:1181
 msgid "Table"
 msgstr ""
 
@@ -560,7 +561,7 @@ msgid "Sync Templates"
 msgstr ""
 
 #: classes/class-pp-templates-lib.php:425
-#: modules/pricing/widgets/pricing-table.php:938
+#: modules/pricing/widgets/pricing-table.php:950
 msgid "New"
 msgstr ""
 
@@ -1464,11 +1465,11 @@ msgstr ""
 #: modules/posts/widgets/posts-base.php:600
 #: modules/pricing/widgets/price-menu.php:323
 #: modules/pricing/widgets/price-menu.php:338
-#: modules/pricing/widgets/pricing-table.php:480
-#: modules/pricing/widgets/pricing-table.php:622
-#: modules/pricing/widgets/pricing-table.php:689
-#: modules/pricing/widgets/pricing-table.php:907
-#: modules/pricing/widgets/pricing-table.php:2068
+#: modules/pricing/widgets/pricing-table.php:479
+#: modules/pricing/widgets/pricing-table.php:621
+#: modules/pricing/widgets/pricing-table.php:701
+#: modules/pricing/widgets/pricing-table.php:919
+#: modules/pricing/widgets/pricing-table.php:2080
 #: modules/promo-box/widgets/promo-box.php:264
 #: modules/random-image/widgets/random-image.php:314
 #: modules/team-member/widgets/team-member-carousel.php:650
@@ -1586,11 +1587,11 @@ msgstr ""
 #: modules/posts/widgets/posts-base.php:601
 #: modules/pricing/widgets/price-menu.php:324
 #: modules/pricing/widgets/price-menu.php:339
-#: modules/pricing/widgets/pricing-table.php:481
-#: modules/pricing/widgets/pricing-table.php:623
-#: modules/pricing/widgets/pricing-table.php:690
-#: modules/pricing/widgets/pricing-table.php:908
-#: modules/pricing/widgets/pricing-table.php:2069
+#: modules/pricing/widgets/pricing-table.php:480
+#: modules/pricing/widgets/pricing-table.php:622
+#: modules/pricing/widgets/pricing-table.php:702
+#: modules/pricing/widgets/pricing-table.php:920
+#: modules/pricing/widgets/pricing-table.php:2081
 #: modules/promo-box/widgets/promo-box.php:265
 #: modules/random-image/widgets/random-image.php:315
 #: modules/team-member/widgets/team-member-carousel.php:651
@@ -1623,9 +1624,9 @@ msgstr ""
 
 #: extensions/animated-gradient-background.php:218
 #: extensions/custom-cursor.php:289
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1241
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1317
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1372
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1268
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1344
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1399
 #: modules/business-hours/widgets/business-hours.php:939
 #: modules/business-hours/widgets/business-hours.php:998
 #: modules/buttons/widgets/buttons.php:1012
@@ -1662,7 +1663,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:761
 #: modules/image-accordion/widgets/image-accordion.php:804
 #: modules/image-accordion/widgets/image-accordion.php:856
-#: modules/image-comparison/widgets/image-comparison.php:646
+#: modules/image-comparison/widgets/image-comparison.php:647
 #: modules/info-box/widgets/info-box-carousel.php:1420
 #: modules/info-box/widgets/info-box-carousel.php:1500
 #: modules/info-box/widgets/info-box-carousel.php:1757
@@ -1713,12 +1714,12 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:770
 #: modules/pricing/widgets/price-menu.php:864
 #: modules/pricing/widgets/price-menu.php:1119
-#: modules/pricing/widgets/pricing-table.php:1340
-#: modules/pricing/widgets/pricing-table.php:1425
-#: modules/pricing/widgets/pricing-table.php:1461
-#: modules/pricing/widgets/pricing-table.php:1542
-#: modules/pricing/widgets/pricing-table.php:1978
-#: modules/pricing/widgets/pricing-table.php:2358
+#: modules/pricing/widgets/pricing-table.php:1352
+#: modules/pricing/widgets/pricing-table.php:1437
+#: modules/pricing/widgets/pricing-table.php:1473
+#: modules/pricing/widgets/pricing-table.php:1554
+#: modules/pricing/widgets/pricing-table.php:1990
+#: modules/pricing/widgets/pricing-table.php:2370
 #: modules/progress-bar/widgets/progress-bar.php:577
 #: modules/progress-bar/widgets/progress-bar.php:958
 #: modules/progress-bar/widgets/progress-bar.php:1080
@@ -1787,8 +1788,8 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:185
 #: modules/icon-list/widgets/icon-list.php:217
 #: modules/image-accordion/widgets/image-accordion.php:166
-#: modules/image-comparison/widgets/image-comparison.php:159
-#: modules/image-comparison/widgets/image-comparison.php:208
+#: modules/image-comparison/widgets/image-comparison.php:160
+#: modules/image-comparison/widgets/image-comparison.php:209
 #: modules/info-box/widgets/info-box-carousel.php:230
 #: modules/info-box/widgets/info-box-carousel.php:277
 #: modules/info-box/widgets/info-box.php:158
@@ -1804,8 +1805,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:560 modules/posts/skins/skin-base.php:2041
 #: modules/pricing/widgets/price-menu.php:201
 #: modules/pricing/widgets/price-menu.php:917
-#: modules/pricing/widgets/pricing-table.php:197
-#: modules/pricing/widgets/pricing-table.php:224
+#: modules/pricing/widgets/pricing-table.php:196
+#: modules/pricing/widgets/pricing-table.php:223
 #: modules/promo-box/widgets/promo-box.php:278
 #: modules/promo-box/widgets/promo-box.php:306
 #: modules/promo-box/widgets/promo-box.php:1011
@@ -1910,15 +1911,15 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:2103
 #: modules/gravity-forms/widgets/gravity-forms.php:2154
 #: modules/gravity-forms/widgets/gravity-forms.php:2353
-#: modules/headings/widgets/dual-heading.php:308
-#: modules/headings/widgets/dual-heading.php:422
+#: modules/headings/widgets/dual-heading.php:339
+#: modules/headings/widgets/dual-heading.php:442
 #: modules/headings/widgets/fancy-heading.php:265
 #: modules/hotspots/widgets/hotspots.php:381
 #: modules/hotspots/widgets/hotspots.php:904
 #: modules/hotspots/widgets/hotspots.php:1040
 #: modules/icon-list/widgets/icon-list.php:865
 #: modules/image-accordion/widgets/image-accordion.php:987
-#: modules/image-comparison/widgets/image-comparison.php:799
+#: modules/image-comparison/widgets/image-comparison.php:800
 #: modules/info-box/widgets/info-box-carousel.php:1393
 #: modules/info-box/widgets/info-box-carousel.php:1436
 #: modules/info-box/widgets/info-box-carousel.php:1516
@@ -1965,14 +1966,14 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:560
 #: modules/pricing/widgets/price-menu.php:789
 #: modules/pricing/widgets/price-menu.php:880
-#: modules/pricing/widgets/pricing-table.php:1438
-#: modules/pricing/widgets/pricing-table.php:1477
-#: modules/pricing/widgets/pricing-table.php:1530
-#: modules/pricing/widgets/pricing-table.php:1765
-#: modules/pricing/widgets/pricing-table.php:1957
-#: modules/pricing/widgets/pricing-table.php:2276
-#: modules/pricing/widgets/pricing-table.php:2601
-#: modules/pricing/widgets/pricing-table.php:2861
+#: modules/pricing/widgets/pricing-table.php:1450
+#: modules/pricing/widgets/pricing-table.php:1489
+#: modules/pricing/widgets/pricing-table.php:1542
+#: modules/pricing/widgets/pricing-table.php:1777
+#: modules/pricing/widgets/pricing-table.php:1969
+#: modules/pricing/widgets/pricing-table.php:2288
+#: modules/pricing/widgets/pricing-table.php:2613
+#: modules/pricing/widgets/pricing-table.php:2873
 #: modules/promo-box/widgets/promo-box.php:953
 #: modules/promo-box/widgets/promo-box.php:1186
 #: modules/promo-box/widgets/promo-box.php:1416
@@ -1999,8 +2000,8 @@ msgstr ""
 
 #: extensions/custom-cursor.php:306 modules/counter/widgets/counter.php:543
 #: modules/gravity-forms/widgets/gravity-forms.php:2039
-#: modules/headings/widgets/dual-heading.php:298
-#: modules/headings/widgets/dual-heading.php:412
+#: modules/headings/widgets/dual-heading.php:329
+#: modules/headings/widgets/dual-heading.php:432
 #: modules/headings/widgets/fancy-heading.php:296
 #: modules/icon-list/widgets/icon-list.php:392
 #: modules/info-box/widgets/info-box.php:858
@@ -2019,7 +2020,7 @@ msgstr ""
 
 #: extensions/custom-cursor.php:321
 #: modules/advanced-accordion/widgets/advanced-accordion.php:896
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1276
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1303
 #: modules/buttons/widgets/buttons.php:470
 #: modules/buttons/widgets/buttons.php:833
 #: modules/contact-form-seven/widgets/contact-form-7.php:522
@@ -2051,8 +2052,8 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1804
 #: modules/gravity-forms/widgets/gravity-forms.php:1987
 #: modules/gravity-forms/widgets/gravity-forms.php:2362
-#: modules/headings/widgets/dual-heading.php:321
-#: modules/headings/widgets/dual-heading.php:435
+#: modules/headings/widgets/dual-heading.php:352
+#: modules/headings/widgets/dual-heading.php:455
 #: modules/hotspots/widgets/hotspots.php:837
 #: modules/hotspots/widgets/hotspots.php:938
 #: modules/hotspots/widgets/hotspots.php:1052
@@ -2060,9 +2061,9 @@ msgstr ""
 #: modules/image-accordion/widgets/image-accordion.php:548
 #: modules/image-accordion/widgets/image-accordion.php:647
 #: modules/image-accordion/widgets/image-accordion.php:964
-#: modules/image-comparison/widgets/image-comparison.php:553
-#: modules/image-comparison/widgets/image-comparison.php:845
-#: modules/image-comparison/widgets/image-comparison.php:901
+#: modules/image-comparison/widgets/image-comparison.php:554
+#: modules/image-comparison/widgets/image-comparison.php:846
+#: modules/image-comparison/widgets/image-comparison.php:902
 #: modules/info-box/widgets/info-box-carousel.php:1087
 #: modules/info-box/widgets/info-box-carousel.php:1196
 #: modules/info-box/widgets/info-box-carousel.php:1893
@@ -2102,12 +2103,12 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3737
 #: modules/pricing/widgets/price-menu.php:445
 #: modules/pricing/widgets/price-menu.php:990
-#: modules/pricing/widgets/pricing-table.php:1234
-#: modules/pricing/widgets/pricing-table.php:1388
-#: modules/pricing/widgets/pricing-table.php:1567
-#: modules/pricing/widgets/pricing-table.php:2291
-#: modules/pricing/widgets/pricing-table.php:2587
-#: modules/pricing/widgets/pricing-table.php:2699
+#: modules/pricing/widgets/pricing-table.php:1246
+#: modules/pricing/widgets/pricing-table.php:1400
+#: modules/pricing/widgets/pricing-table.php:1579
+#: modules/pricing/widgets/pricing-table.php:2303
+#: modules/pricing/widgets/pricing-table.php:2599
+#: modules/pricing/widgets/pricing-table.php:2711
 #: modules/progress-bar/widgets/progress-bar.php:882
 #: modules/promo-box/widgets/promo-box.php:495
 #: modules/promo-box/widgets/promo-box.php:651
@@ -2135,7 +2136,7 @@ msgstr ""
 #: extensions/custom-cursor.php:335
 #: modules/advanced-accordion/widgets/advanced-accordion.php:711
 #: modules/advanced-accordion/widgets/advanced-accordion.php:904
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1284
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1311
 #: modules/buttons/widgets/buttons.php:479
 #: modules/buttons/widgets/buttons.php:842
 #: modules/buttons/widgets/buttons.php:1147
@@ -2170,8 +2171,8 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1814
 #: modules/gravity-forms/widgets/gravity-forms.php:1997
 #: modules/gravity-forms/widgets/gravity-forms.php:2373
-#: modules/headings/widgets/dual-heading.php:331
-#: modules/headings/widgets/dual-heading.php:445
+#: modules/headings/widgets/dual-heading.php:362
+#: modules/headings/widgets/dual-heading.php:465
 #: modules/hotspots/widgets/hotspots.php:847
 #: modules/hotspots/widgets/hotspots.php:948
 #: modules/hotspots/widgets/hotspots.php:1062
@@ -2179,9 +2180,9 @@ msgstr ""
 #: modules/image-accordion/widgets/image-accordion.php:556
 #: modules/image-accordion/widgets/image-accordion.php:656
 #: modules/image-accordion/widgets/image-accordion.php:974
-#: modules/image-comparison/widgets/image-comparison.php:564
-#: modules/image-comparison/widgets/image-comparison.php:855
-#: modules/image-comparison/widgets/image-comparison.php:911
+#: modules/image-comparison/widgets/image-comparison.php:565
+#: modules/image-comparison/widgets/image-comparison.php:856
+#: modules/image-comparison/widgets/image-comparison.php:912
 #: modules/info-box/widgets/info-box-carousel.php:1098
 #: modules/info-box/widgets/info-box-carousel.php:1206
 #: modules/info-box/widgets/info-box-carousel.php:1903
@@ -2222,10 +2223,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3751
 #: modules/pricing/widgets/price-menu.php:455
 #: modules/pricing/widgets/price-menu.php:1000
-#: modules/pricing/widgets/pricing-table.php:1401
-#: modules/pricing/widgets/pricing-table.php:1577
-#: modules/pricing/widgets/pricing-table.php:2304
-#: modules/pricing/widgets/pricing-table.php:2630
+#: modules/pricing/widgets/pricing-table.php:1413
+#: modules/pricing/widgets/pricing-table.php:1589
+#: modules/pricing/widgets/pricing-table.php:2316
+#: modules/pricing/widgets/pricing-table.php:2642
 #: modules/progress-bar/widgets/progress-bar.php:771
 #: modules/promo-box/widgets/promo-box.php:505
 #: modules/promo-box/widgets/promo-box.php:662
@@ -2256,7 +2257,7 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:798
 #: modules/advanced-accordion/widgets/advanced-accordion.php:916
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1134
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1296
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1323
 #: modules/business-hours/widgets/business-hours.php:728
 #: modules/buttons/widgets/buttons.php:363
 #: modules/buttons/widgets/buttons.php:753
@@ -2285,15 +2286,15 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1826
 #: modules/gravity-forms/widgets/gravity-forms.php:2009
 #: modules/gravity-forms/widgets/gravity-forms.php:2385
-#: modules/headings/widgets/dual-heading.php:343
-#: modules/headings/widgets/dual-heading.php:486
+#: modules/headings/widgets/dual-heading.php:374
+#: modules/headings/widgets/dual-heading.php:477
 #: modules/hotspots/widgets/hotspots.php:960
 #: modules/hotspots/widgets/hotspots.php:1074
 #: modules/icon-list/widgets/icon-list.php:421
 #: modules/icon-list/widgets/icon-list.php:740
 #: modules/image-accordion/widgets/image-accordion.php:783
 #: modules/image-accordion/widgets/image-accordion.php:998
-#: modules/image-comparison/widgets/image-comparison.php:927
+#: modules/image-comparison/widgets/image-comparison.php:928
 #: modules/info-box/widgets/info-box-carousel.php:1110
 #: modules/info-box/widgets/info-box-carousel.php:1237
 #: modules/info-box/widgets/info-box-carousel.php:1784
@@ -2331,15 +2332,15 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:432
 #: modules/pricing/widgets/price-menu.php:494
 #: modules/pricing/widgets/price-menu.php:977
-#: modules/pricing/widgets/pricing-table.php:1247
-#: modules/pricing/widgets/pricing-table.php:1372
-#: modules/pricing/widgets/pricing-table.php:1625
-#: modules/pricing/widgets/pricing-table.php:1917
-#: modules/pricing/widgets/pricing-table.php:2077
-#: modules/pricing/widgets/pricing-table.php:2319
-#: modules/pricing/widgets/pricing-table.php:2615
-#: modules/pricing/widgets/pricing-table.php:2754
-#: modules/pricing/widgets/pricing-table.php:2845
+#: modules/pricing/widgets/pricing-table.php:1259
+#: modules/pricing/widgets/pricing-table.php:1384
+#: modules/pricing/widgets/pricing-table.php:1637
+#: modules/pricing/widgets/pricing-table.php:1929
+#: modules/pricing/widgets/pricing-table.php:2089
+#: modules/pricing/widgets/pricing-table.php:2331
+#: modules/pricing/widgets/pricing-table.php:2627
+#: modules/pricing/widgets/pricing-table.php:2766
+#: modules/pricing/widgets/pricing-table.php:2857
 #: modules/progress-bar/widgets/progress-bar.php:904
 #: modules/promo-box/widgets/promo-box.php:517
 #: modules/promo-box/widgets/promo-box.php:699
@@ -2384,7 +2385,7 @@ msgstr ""
 #: extensions/wrapper-link.php:149 modules/buttons/widgets/buttons.php:271
 #: modules/content-ticker/widgets/content-ticker.php:514
 #: modules/flipbox/widgets/flipbox.php:430
-#: modules/headings/widgets/dual-heading.php:143
+#: modules/headings/widgets/dual-heading.php:142
 #: modules/headings/widgets/fancy-heading.php:140
 #: modules/hotspots/widgets/hotspots.php:300
 #: modules/icon-list/widgets/icon-list.php:248
@@ -2401,7 +2402,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:176
 #: modules/logos/widgets/logo-grid.php:154
 #: modules/pricing/widgets/price-menu.php:225
-#: modules/pricing/widgets/pricing-table.php:1093
+#: modules/pricing/widgets/pricing-table.php:1105
 #: modules/promo-box/widgets/promo-box.php:391
 #: modules/random-image/widgets/random-image.php:280
 #: modules/team-member/widgets/team-member-carousel.php:254
@@ -2595,7 +2596,7 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:124
 #: modules/posts/skins/skin-base.php:813 modules/posts/skins/skin-base.php:2633
 #: modules/pricing/widgets/price-menu.php:483
-#: modules/pricing/widgets/pricing-table.php:456
+#: modules/pricing/widgets/pricing-table.php:455
 #: modules/promo-box/widgets/promo-box.php:132
 #: modules/promo-box/widgets/promo-box.php:577
 #: modules/team-member/widgets/team-member-carousel.php:185
@@ -2662,10 +2663,10 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:122
 #: modules/pricing/widgets/price-menu.php:123
 #: modules/pricing/widgets/price-menu.php:516
-#: modules/pricing/widgets/pricing-table.php:250
-#: modules/pricing/widgets/pricing-table.php:255
-#: modules/pricing/widgets/pricing-table.php:933
-#: modules/pricing/widgets/pricing-table.php:1416
+#: modules/pricing/widgets/pricing-table.php:249
+#: modules/pricing/widgets/pricing-table.php:254
+#: modules/pricing/widgets/pricing-table.php:945
+#: modules/pricing/widgets/pricing-table.php:1428
 #: modules/random-image/widgets/random-image.php:240
 #: modules/team-member/widgets/team-member-carousel.php:246
 #: modules/team-member/widgets/team-member.php:263
@@ -2795,13 +2796,13 @@ msgstr ""
 #: modules/instafeed/widgets/instafeed.php:1622
 #: modules/interactive-circle/widgets/interactive-circle.php:238
 #: modules/interactive-circle/widgets/interactive-circle.php:346
-#: modules/pricing/widgets/pricing-table.php:193
-#: modules/pricing/widgets/pricing-table.php:208
-#: modules/pricing/widgets/pricing-table.php:489
-#: modules/pricing/widgets/pricing-table.php:727
+#: modules/pricing/widgets/pricing-table.php:192
+#: modules/pricing/widgets/pricing-table.php:207
+#: modules/pricing/widgets/pricing-table.php:488
 #: modules/pricing/widgets/pricing-table.php:739
-#: modules/pricing/widgets/pricing-table.php:1259
-#: modules/pricing/widgets/pricing-table.php:1969
+#: modules/pricing/widgets/pricing-table.php:751
+#: modules/pricing/widgets/pricing-table.php:1271
+#: modules/pricing/widgets/pricing-table.php:1981
 #: modules/promo-box/widgets/promo-box.php:254
 #: modules/promo-box/widgets/promo-box.php:277
 #: modules/promo-box/widgets/promo-box.php:289
@@ -2870,7 +2871,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:288
 #: modules/gravity-forms/widgets/gravity-forms.php:308
 #: modules/hotspots/widgets/hotspots.php:324
-#: modules/image-comparison/widgets/image-comparison.php:290
+#: modules/image-comparison/widgets/image-comparison.php:291
 #: modules/info-box/widgets/info-box-carousel.php:823
 #: modules/info-list/widgets/info-list.php:988
 #: modules/info-table/widgets/info-table.php:283
@@ -2924,7 +2925,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:289
 #: modules/gravity-forms/widgets/gravity-forms.php:309
 #: modules/hotspots/widgets/hotspots.php:325
-#: modules/image-comparison/widgets/image-comparison.php:291
+#: modules/image-comparison/widgets/image-comparison.php:292
 #: modules/info-box/widgets/info-box-carousel.php:824
 #: modules/info-list/widgets/info-list.php:987
 #: modules/info-table/widgets/info-table.php:287
@@ -2966,7 +2967,7 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:181
 #: modules/flipbox/widgets/flipbox.php:503
 #: modules/image-accordion/widgets/image-accordion.php:323
-#: modules/image-comparison/widgets/image-comparison.php:238
+#: modules/image-comparison/widgets/image-comparison.php:239
 #: modules/scroll-image/widgets/scroll-image.php:228
 #: modules/team-member/widgets/team-member.php:495
 #: powerpack-lite-elementor.php:193
@@ -2993,7 +2994,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:222
 #: modules/logos/widgets/logo-carousel.php:250
 #: modules/logos/widgets/logo-grid.php:322
-#: modules/pricing/widgets/pricing-table.php:263
+#: modules/pricing/widgets/pricing-table.php:262
 msgid "Title HTML Tag"
 msgstr ""
 
@@ -3022,12 +3023,12 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:227
 #: modules/formidable-forms/widgets/formidable-forms.php:265
 #: modules/gravity-forms/widgets/gravity-forms.php:339
-#: modules/headings/widgets/dual-heading.php:241
+#: modules/headings/widgets/dual-heading.php:268
 #: modules/headings/widgets/fancy-heading.php:223
 #: modules/hotspots/widgets/hotspots.php:748
 #: modules/icon-list/widgets/icon-list.php:350
 #: modules/image-accordion/widgets/image-accordion.php:461
-#: modules/image-comparison/widgets/image-comparison.php:314
+#: modules/image-comparison/widgets/image-comparison.php:315
 #: modules/info-box/widgets/info-box-carousel.php:927
 #: modules/info-box/widgets/info-box.php:769
 #: modules/info-list/widgets/info-list.php:412
@@ -3038,7 +3039,7 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:499
 #: modules/posts/skins/skin-base.php:1713
 #: modules/pricing/widgets/price-menu.php:360
-#: modules/pricing/widgets/pricing-table.php:1135
+#: modules/pricing/widgets/pricing-table.php:1147
 #: modules/progress-bar/widgets/progress-bar.php:682
 #: modules/promo-box/widgets/promo-box.php:423
 #: modules/random-image/widgets/random-image.php:341
@@ -3067,7 +3068,7 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:646
 #: modules/advanced-accordion/widgets/advanced-accordion.php:849
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1234
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1261
 #: modules/business-hours/widgets/business-hours.php:584
 #: modules/business-hours/widgets/business-hours.php:897
 #: modules/buttons/widgets/buttons.php:427
@@ -3094,8 +3095,8 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:830
 #: modules/image-accordion/widgets/image-accordion.php:528
 #: modules/image-accordion/widgets/image-accordion.php:931
-#: modules/image-comparison/widgets/image-comparison.php:360
-#: modules/image-comparison/widgets/image-comparison.php:523
+#: modules/image-comparison/widgets/image-comparison.php:361
+#: modules/image-comparison/widgets/image-comparison.php:524
 #: modules/info-box/widgets/info-box-carousel.php:1160
 #: modules/info-box/widgets/info-box-carousel.php:1857
 #: modules/info-box/widgets/info-box-carousel.php:2161
@@ -3131,8 +3132,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3223
 #: modules/posts/skins/skin-base.php:3460
 #: modules/posts/skins/skin-base.php:3694
-#: modules/pricing/widgets/pricing-table.php:393
-#: modules/pricing/widgets/pricing-table.php:2543
+#: modules/pricing/widgets/pricing-table.php:392
+#: modules/pricing/widgets/pricing-table.php:2555
 #: modules/promo-box/widgets/promo-box.php:786
 #: modules/promo-box/widgets/promo-box.php:1490
 #: modules/random-image/module.php:98
@@ -3195,9 +3196,9 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:686 modules/posts/skins/skin-base.php:1357
 #: modules/posts/widgets/posts-base.php:376
 #: modules/pricing/widgets/price-menu.php:612
-#: modules/pricing/widgets/pricing-table.php:189
-#: modules/pricing/widgets/pricing-table.php:334
-#: modules/pricing/widgets/pricing-table.php:1073
+#: modules/pricing/widgets/pricing-table.php:188
+#: modules/pricing/widgets/pricing-table.php:333
+#: modules/pricing/widgets/pricing-table.php:1085
 #: modules/progress-bar/widgets/progress-bar.php:354
 #: modules/random-image/widgets/random-image.php:239
 #: modules/random-image/widgets/random-image.php:270
@@ -3304,8 +3305,8 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:772
 #: modules/advanced-accordion/widgets/advanced-accordion.php:962
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1011
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1348
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1406
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1375
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1433
 #: modules/buttons/widgets/buttons.php:537
 #: modules/buttons/widgets/buttons.php:892
 #: modules/contact-form-seven/widgets/contact-form-7.php:839
@@ -3326,7 +3327,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:786
 #: modules/image-accordion/widgets/image-accordion.php:598
 #: modules/image-accordion/widgets/image-accordion.php:1052
-#: modules/image-comparison/widgets/image-comparison.php:615
+#: modules/image-comparison/widgets/image-comparison.php:616
 #: modules/info-box/widgets/info-box-carousel.php:1308
 #: modules/info-box/widgets/info-box-carousel.php:1667
 #: modules/info-box/widgets/info-box-carousel.php:2014
@@ -3379,7 +3380,7 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:733
 #: modules/advanced-accordion/widgets/advanced-accordion.php:930
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1310
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1337
 #: modules/business-hours/widgets/business-hours.php:605
 #: modules/business-hours/widgets/business-hours.php:1024
 #: modules/buttons/widgets/buttons.php:491
@@ -3399,8 +3400,8 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:878
 #: modules/image-accordion/widgets/image-accordion.php:578
 #: modules/image-accordion/widgets/image-accordion.php:1020
-#: modules/image-comparison/widgets/image-comparison.php:381
-#: modules/image-comparison/widgets/image-comparison.php:586
+#: modules/image-comparison/widgets/image-comparison.php:382
+#: modules/image-comparison/widgets/image-comparison.php:587
 #: modules/info-box/widgets/info-box-carousel.php:1276
 #: modules/info-box/widgets/info-box-carousel.php:1982
 #: modules/info-box/widgets/info-box-carousel.php:2217
@@ -3434,8 +3435,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3299
 #: modules/posts/skins/skin-base.php:3588
 #: modules/posts/skins/skin-base.php:3797
-#: modules/pricing/widgets/pricing-table.php:635
-#: modules/pricing/widgets/pricing-table.php:2658
+#: modules/pricing/widgets/pricing-table.php:634
+#: modules/pricing/widgets/pricing-table.php:2670
 #: modules/promo-box/widgets/promo-box.php:877
 #: modules/promo-box/widgets/promo-box.php:1575
 #: modules/random-image/widgets/random-image.php:529
@@ -3453,7 +3454,7 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:765
 #: modules/advanced-accordion/widgets/advanced-accordion.php:976
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1365
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1392
 #: modules/interactive-circle/widgets/interactive-circle.php:930
 #: modules/posts/skins/skin-base.php:3543
 #: modules/posts/skins/skin-base.php:3868
@@ -3547,16 +3548,16 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1965
 #: modules/gravity-forms/widgets/gravity-forms.php:2138
 #: modules/gravity-forms/widgets/gravity-forms.php:2328
-#: modules/headings/widgets/dual-heading.php:282
-#: modules/headings/widgets/dual-heading.php:396
+#: modules/headings/widgets/dual-heading.php:313
+#: modules/headings/widgets/dual-heading.php:416
 #: modules/headings/widgets/fancy-heading.php:320
 #: modules/hotspots/widgets/hotspots.php:1012
 #: modules/icon-list/widgets/icon-list.php:837
 #: modules/icon-list/widgets/icon-list.php:885
 #: modules/image-accordion/widgets/image-accordion.php:950
 #: modules/image-accordion/widgets/image-accordion.php:1039
-#: modules/image-comparison/widgets/image-comparison.php:820
-#: modules/image-comparison/widgets/image-comparison.php:876
+#: modules/image-comparison/widgets/image-comparison.php:821
+#: modules/image-comparison/widgets/image-comparison.php:877
 #: modules/info-box/widgets/info-box-carousel.php:1864
 #: modules/info-box/widgets/info-box-carousel.php:1989
 #: modules/info-box/widgets/info-box-carousel.php:2528
@@ -3593,17 +3594,17 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2914
 #: modules/posts/skins/skin-base.php:3061
 #: modules/pricing/widgets/price-menu.php:740
-#: modules/pricing/widgets/pricing-table.php:549
-#: modules/pricing/widgets/pricing-table.php:1752
-#: modules/pricing/widgets/pricing-table.php:1810
-#: modules/pricing/widgets/pricing-table.php:1902
-#: modules/pricing/widgets/pricing-table.php:2119
-#: modules/pricing/widgets/pricing-table.php:2161
-#: modules/pricing/widgets/pricing-table.php:2241
-#: modules/pricing/widgets/pricing-table.php:2448
-#: modules/pricing/widgets/pricing-table.php:2571
-#: modules/pricing/widgets/pricing-table.php:2683
-#: modules/pricing/widgets/pricing-table.php:2786
+#: modules/pricing/widgets/pricing-table.php:548
+#: modules/pricing/widgets/pricing-table.php:1764
+#: modules/pricing/widgets/pricing-table.php:1822
+#: modules/pricing/widgets/pricing-table.php:1914
+#: modules/pricing/widgets/pricing-table.php:2131
+#: modules/pricing/widgets/pricing-table.php:2173
+#: modules/pricing/widgets/pricing-table.php:2253
+#: modules/pricing/widgets/pricing-table.php:2460
+#: modules/pricing/widgets/pricing-table.php:2583
+#: modules/pricing/widgets/pricing-table.php:2695
+#: modules/pricing/widgets/pricing-table.php:2798
 #: modules/progress-bar/widgets/progress-bar.php:1023
 #: modules/promo-box/widgets/promo-box.php:1509
 #: modules/promo-box/widgets/promo-box.php:1594
@@ -3636,9 +3637,9 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:950
 #: modules/advanced-accordion/widgets/advanced-accordion.php:999
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1099
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1260
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1333
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1391
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1287
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1360
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1418
 #: modules/business-hours/widgets/business-hours.php:280
 #: modules/business-hours/widgets/business-hours.php:425
 #: modules/business-hours/widgets/business-hours.php:591
@@ -3699,8 +3700,8 @@ msgstr ""
 #: modules/image-accordion/widgets/image-accordion.php:634
 #: modules/image-accordion/widgets/image-accordion.php:938
 #: modules/image-accordion/widgets/image-accordion.php:1027
-#: modules/image-comparison/widgets/image-comparison.php:832
-#: modules/image-comparison/widgets/image-comparison.php:888
+#: modules/image-comparison/widgets/image-comparison.php:833
+#: modules/image-comparison/widgets/image-comparison.php:889
 #: modules/info-box/widgets/info-box-carousel.php:1183
 #: modules/info-box/widgets/info-box-carousel.php:1296
 #: modules/info-box/widgets/info-box-carousel.php:1877
@@ -3756,19 +3757,19 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:401
 #: modules/pricing/widgets/price-menu.php:755
 #: modules/pricing/widgets/price-menu.php:925
-#: modules/pricing/widgets/pricing-table.php:562
-#: modules/pricing/widgets/pricing-table.php:1218
-#: modules/pricing/widgets/pricing-table.php:1325
-#: modules/pricing/widgets/pricing-table.php:1554
-#: modules/pricing/widgets/pricing-table.php:1890
-#: modules/pricing/widgets/pricing-table.php:2104
-#: modules/pricing/widgets/pricing-table.php:2146
-#: modules/pricing/widgets/pricing-table.php:2222
-#: modules/pricing/widgets/pricing-table.php:2435
-#: modules/pricing/widgets/pricing-table.php:2553
-#: modules/pricing/widgets/pricing-table.php:2668
-#: modules/pricing/widgets/pricing-table.php:2742
-#: modules/pricing/widgets/pricing-table.php:2804
+#: modules/pricing/widgets/pricing-table.php:561
+#: modules/pricing/widgets/pricing-table.php:1230
+#: modules/pricing/widgets/pricing-table.php:1337
+#: modules/pricing/widgets/pricing-table.php:1566
+#: modules/pricing/widgets/pricing-table.php:1902
+#: modules/pricing/widgets/pricing-table.php:2116
+#: modules/pricing/widgets/pricing-table.php:2158
+#: modules/pricing/widgets/pricing-table.php:2234
+#: modules/pricing/widgets/pricing-table.php:2447
+#: modules/pricing/widgets/pricing-table.php:2565
+#: modules/pricing/widgets/pricing-table.php:2680
+#: modules/pricing/widgets/pricing-table.php:2754
+#: modules/pricing/widgets/pricing-table.php:2816
 #: modules/progress-bar/widgets/progress-bar.php:867
 #: modules/promo-box/widgets/promo-box.php:810
 #: modules/promo-box/widgets/promo-box.php:901
@@ -3797,7 +3798,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:869
 #: modules/flipbox/widgets/flipbox.php:1263
 #: modules/icon-list/widgets/icon-list.php:265
-#: modules/image-comparison/widgets/image-comparison.php:444
+#: modules/image-comparison/widgets/image-comparison.php:445
 #: modules/info-box/widgets/info-box-carousel.php:1139
 #: modules/info-box/widgets/info-box.php:1907
 #: modules/info-table/widgets/info-table.php:776
@@ -3814,67 +3815,14 @@ msgstr ""
 #: modules/image-accordion/widgets/image-accordion.php:1092
 #: modules/info-box/widgets/info-box.php:686
 #: modules/posts/skins/skin-base.php:3012
-#: modules/pricing/widgets/pricing-table.php:2397
+#: modules/pricing/widgets/pricing-table.php:2409
 msgid "Icon Spacing"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1167
-#: modules/business-hours/widgets/business-hours.php:913
-#: modules/business-hours/widgets/business-hours.php:972
-#: modules/contact-form-seven/widgets/contact-form-7.php:283
-#: modules/contact-form-seven/widgets/contact-form-7.php:952
-#: modules/content-reveal/widgets/content-reveal.php:338
-#: modules/content-ticker/widgets/content-ticker.php:1284
-#: modules/counter/widgets/counter.php:454
-#: modules/divider/widgets/divider.php:365
-#: modules/flipbox/widgets/flipbox.php:660
-#: modules/flipbox/widgets/flipbox.php:1054
-#: modules/fluent-forms/widgets/fluent-forms.php:272
-#: modules/fluent-forms/widgets/fluent-forms.php:481
-#: modules/fluent-forms/widgets/fluent-forms.php:1121
-#: modules/formidable-forms/widgets/formidable-forms.php:339
-#: modules/formidable-forms/widgets/formidable-forms.php:539
-#: modules/formidable-forms/widgets/formidable-forms.php:630
-#: modules/formidable-forms/widgets/formidable-forms.php:1262
-#: modules/formidable-forms/widgets/formidable-forms.php:1712
-#: modules/gravity-forms/widgets/gravity-forms.php:377
-#: modules/gravity-forms/widgets/gravity-forms.php:485
-#: modules/gravity-forms/widgets/gravity-forms.php:1455
-#: modules/gravity-forms/widgets/gravity-forms.php:2302
-#: modules/headings/widgets/dual-heading.php:199
-#: modules/headings/widgets/fancy-heading.php:177
-#: modules/hotspots/widgets/hotspots.php:809
-#: modules/icon-list/widgets/icon-list.php:433
-#: modules/info-box/widgets/info-box-carousel.php:971
-#: modules/info-box/widgets/info-box-carousel.php:1682
-#: modules/info-box/widgets/info-box.php:1172
-#: modules/info-box/widgets/info-box.php:1550
-#: modules/info-list/widgets/info-list.php:943
-#: modules/info-table/widgets/info-table.php:439
-#: modules/info-table/widgets/info-table.php:1522
-#: modules/instafeed/widgets/instafeed.php:2196
-#: modules/link-effects/widgets/link-effects.php:210
-#: modules/ninja-forms/widgets/ninja-forms.php:309
-#: modules/ninja-forms/widgets/ninja-forms.php:497
-#: modules/ninja-forms/widgets/ninja-forms.php:1083
-#: modules/posts/skins/skin-base.php:1482
-#: modules/posts/skins/skin-base.php:1971
-#: modules/posts/skins/skin-base.php:2302
-#: modules/pricing/widgets/price-menu.php:287
-#: modules/pricing/widgets/pricing-table.php:1177
-#: modules/pricing/widgets/pricing-table.php:1863
-#: modules/progress-bar/widgets/progress-bar.php:255
-#: modules/promo-box/widgets/promo-box.php:585
-#: modules/random-image/widgets/random-image.php:210
-#: modules/team-member/widgets/team-member-carousel.php:1046
-#: modules/team-member/widgets/team-member-carousel.php:1227
-#: modules/team-member/widgets/team-member.php:674
-#: modules/team-member/widgets/team-member.php:777
-#: modules/twitter/widgets/twitter-tweet.php:123
-#: modules/wpforms/widgets/wpforms.php:267
-#: modules/wpforms/widgets/wpforms.php:445
-#: modules/wpforms/widgets/wpforms.php:1337
-msgid "Alignment"
+#: modules/buttons/widgets/buttons.php:669
+#: modules/logos/widgets/logo-carousel.php:660
+msgid "Horizontal Alignment"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1171
@@ -3886,6 +3834,160 @@ msgid "End"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1187
+#: modules/buttons/widgets/buttons.php:641
+#: modules/divider/widgets/divider.php:459
+#: modules/icon-list/widgets/icon-list.php:579
+#: modules/logos/widgets/logo-carousel.php:634
+#: modules/pricing/widgets/price-menu.php:1062
+#: modules/promo-box/widgets/promo-box.php:612
+msgid "Vertical Alignment"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1191
+#: modules/buttons/widgets/buttons.php:646
+#: modules/buttons/widgets/buttons.php:952
+#: modules/divider/widgets/divider.php:465
+#: modules/flipbox/widgets/flipbox.php:576
+#: modules/flipbox/widgets/flipbox.php:692
+#: modules/flipbox/widgets/flipbox.php:1086
+#: modules/hotspots/widgets/hotspots.php:338
+#: modules/hotspots/widgets/hotspots.php:572
+#: modules/icon-list/widgets/icon-list.php:585
+#: modules/image-accordion/widgets/image-accordion.php:673
+#: modules/image-comparison/widgets/image-comparison.php:709
+#: modules/info-box/widgets/info-box.php:345
+#: modules/info-list/widgets/info-list.php:492
+#: modules/info-list/widgets/info-list.php:638
+#: modules/instafeed/widgets/instafeed.php:1153
+#: modules/instafeed/widgets/instafeed.php:1433
+#: modules/logos/widgets/logo-carousel.php:638
+#: modules/logos/widgets/logo-grid.php:398
+#: modules/posts/skins/skin-base.php:1393
+#: modules/posts/skins/skin-base.php:1395
+#: modules/pricing/widgets/price-menu.php:1017
+#: modules/pricing/widgets/price-menu.php:1067
+#: modules/pricing/widgets/pricing-table.php:672
+#: modules/pricing/widgets/pricing-table.php:1714
+#: modules/promo-box/widgets/promo-box.php:618
+#: modules/random-image/widgets/random-image.php:660
+msgid "Top"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1195
+#: modules/business-hours/widgets/business-hours.php:921
+#: modules/business-hours/widgets/business-hours.php:980
+#: modules/buttons/widgets/buttons.php:678
+#: modules/buttons/widgets/buttons.php:706
+#: modules/buttons/widgets/buttons.php:1090
+#: modules/contact-form-seven/widgets/contact-form-7.php:291
+#: modules/contact-form-seven/widgets/contact-form-7.php:961
+#: modules/content-reveal/widgets/content-reveal.php:347
+#: modules/content-reveal/widgets/content-reveal.php:510
+#: modules/content-ticker/widgets/content-ticker.php:1292
+#: modules/counter/widgets/counter.php:462
+#: modules/divider/widgets/divider.php:374
+#: modules/divider/widgets/divider.php:469
+#: modules/divider/widgets/divider.php:680
+#: modules/divider/widgets/divider.php:788
+#: modules/divider/widgets/divider.php:910
+#: modules/flipbox/widgets/flipbox.php:669
+#: modules/flipbox/widgets/flipbox.php:1063
+#: modules/fluent-forms/widgets/fluent-forms.php:280
+#: modules/fluent-forms/widgets/fluent-forms.php:489
+#: modules/fluent-forms/widgets/fluent-forms.php:1129
+#: modules/formidable-forms/widgets/formidable-forms.php:347
+#: modules/formidable-forms/widgets/formidable-forms.php:547
+#: modules/formidable-forms/widgets/formidable-forms.php:638
+#: modules/formidable-forms/widgets/formidable-forms.php:1270
+#: modules/formidable-forms/widgets/formidable-forms.php:1720
+#: modules/gravity-forms/widgets/gravity-forms.php:385
+#: modules/gravity-forms/widgets/gravity-forms.php:493
+#: modules/gravity-forms/widgets/gravity-forms.php:1463
+#: modules/gravity-forms/widgets/gravity-forms.php:2310
+#: modules/headings/widgets/dual-heading.php:207
+#: modules/headings/widgets/fancy-heading.php:186
+#: modules/hotspots/widgets/hotspots.php:818
+#: modules/icon-list/widgets/icon-list.php:441
+#: modules/icon-list/widgets/icon-list.php:589
+#: modules/image-accordion/widgets/image-accordion.php:709
+#: modules/image-accordion/widgets/image-accordion.php:742
+#: modules/image-comparison/widgets/image-comparison.php:748
+#: modules/info-box/widgets/info-box-carousel.php:979
+#: modules/info-box/widgets/info-box-carousel.php:1690
+#: modules/info-box/widgets/info-box.php:1180
+#: modules/info-box/widgets/info-box.php:1558
+#: modules/info-list/widgets/info-list.php:642
+#: modules/info-list/widgets/info-list.php:675
+#: modules/info-list/widgets/info-list.php:951
+#: modules/info-table/widgets/info-table.php:447
+#: modules/instafeed/widgets/instafeed.php:1157
+#: modules/instafeed/widgets/instafeed.php:1193
+#: modules/instafeed/widgets/instafeed.php:1226
+#: modules/instafeed/widgets/instafeed.php:2204
+#: modules/link-effects/widgets/link-effects.php:218
+#: modules/logos/widgets/logo-carousel.php:642
+#: modules/logos/widgets/logo-carousel.php:668
+#: modules/logos/widgets/logo-grid.php:402
+#: modules/logos/widgets/logo-grid.php:433
+#: modules/ninja-forms/widgets/ninja-forms.php:317
+#: modules/ninja-forms/widgets/ninja-forms.php:505
+#: modules/ninja-forms/widgets/ninja-forms.php:1091
+#: modules/posts/skins/skin-base.php:1490
+#: modules/posts/skins/skin-base.php:1980
+#: modules/posts/skins/skin-base.php:2311
+#: modules/pricing/widgets/price-menu.php:295
+#: modules/pricing/widgets/price-menu.php:1071
+#: modules/pricing/widgets/pricing-table.php:1198
+#: modules/pricing/widgets/pricing-table.php:1884
+#: modules/progress-bar/widgets/progress-bar.php:264
+#: modules/progress-bar/widgets/progress-bar.php:376
+#: modules/promo-box/widgets/promo-box.php:594
+#: modules/promo-box/widgets/promo-box.php:622
+#: modules/random-image/widgets/random-image.php:218
+#: modules/random-image/widgets/random-image.php:664
+#: modules/random-image/widgets/random-image.php:700
+#: modules/random-image/widgets/random-image.php:741
+#: modules/team-member/widgets/team-member-carousel.php:1054
+#: modules/team-member/widgets/team-member-carousel.php:1235
+#: modules/team-member/widgets/team-member.php:682
+#: modules/team-member/widgets/team-member.php:785
+#: modules/twitter/widgets/twitter-tweet.php:128
+#: modules/wpforms/widgets/wpforms.php:275
+#: modules/wpforms/widgets/wpforms.php:453
+#: modules/wpforms/widgets/wpforms.php:1345
+msgid "Center"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1199
+#: modules/buttons/widgets/buttons.php:654
+#: modules/buttons/widgets/buttons.php:953
+#: modules/divider/widgets/divider.php:473
+#: modules/flipbox/widgets/flipbox.php:577
+#: modules/flipbox/widgets/flipbox.php:700
+#: modules/flipbox/widgets/flipbox.php:1094
+#: modules/hotspots/widgets/hotspots.php:339
+#: modules/hotspots/widgets/hotspots.php:573
+#: modules/icon-list/widgets/icon-list.php:593
+#: modules/image-accordion/widgets/image-accordion.php:681
+#: modules/image-comparison/widgets/image-comparison.php:717
+#: modules/info-box/widgets/info-box.php:353
+#: modules/info-list/widgets/info-list.php:646
+#: modules/instafeed/widgets/instafeed.php:1161
+#: modules/instafeed/widgets/instafeed.php:1441
+#: modules/logos/widgets/logo-carousel.php:646
+#: modules/logos/widgets/logo-grid.php:406
+#: modules/posts/skins/skin-base.php:1394
+#: modules/posts/skins/skin-base.php:1395
+#: modules/pricing/widgets/price-menu.php:1025
+#: modules/pricing/widgets/price-menu.php:1075
+#: modules/pricing/widgets/pricing-table.php:684
+#: modules/pricing/widgets/pricing-table.php:1722
+#: modules/promo-box/widgets/promo-box.php:626
+#: modules/random-image/widgets/random-image.php:668
+msgid "Bottom"
+msgstr ""
+
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1214
 #: modules/buttons/widgets/buttons.php:981
 #: modules/contact-form-seven/widgets/contact-form-7.php:424
 #: modules/contact-form-seven/widgets/contact-form-7.php:644
@@ -3911,7 +4013,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:544
 #: modules/gravity-forms/widgets/gravity-forms.php:853
 #: modules/gravity-forms/widgets/gravity-forms.php:972
-#: modules/headings/widgets/dual-heading.php:457
+#: modules/headings/widgets/dual-heading.php:225
 #: modules/icon-list/widgets/icon-list.php:670
 #: modules/image-accordion/widgets/image-accordion.php:824
 #: modules/info-box/widgets/info-box-carousel.php:2337
@@ -3932,11 +4034,11 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2067
 #: modules/posts/skins/skin-base.php:2408
 #: modules/posts/skins/skin-base.php:3435
-#: modules/pricing/widgets/pricing-table.php:1491
-#: modules/pricing/widgets/pricing-table.php:1776
-#: modules/pricing/widgets/pricing-table.php:2010
-#: modules/pricing/widgets/pricing-table.php:2042
-#: modules/pricing/widgets/pricing-table.php:2514
+#: modules/pricing/widgets/pricing-table.php:1503
+#: modules/pricing/widgets/pricing-table.php:1788
+#: modules/pricing/widgets/pricing-table.php:2022
+#: modules/pricing/widgets/pricing-table.php:2054
+#: modules/pricing/widgets/pricing-table.php:2526
 #: modules/progress-bar/widgets/progress-bar.php:201
 #: modules/progress-bar/widgets/progress-bar.php:992
 #: modules/promo-box/widgets/promo-box.php:961
@@ -3951,7 +4053,7 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: modules/advanced-accordion/widgets/advanced-accordion.php:1206
+#: modules/advanced-accordion/widgets/advanced-accordion.php:1233
 #: modules/buttons/widgets/buttons.php:960
 #: modules/contact-form-seven/widgets/contact-form-7.php:764
 #: modules/content-reveal/widgets/content-reveal.php:638
@@ -3985,13 +4087,13 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2850
 #: modules/posts/skins/skin-base.php:3412
 #: modules/posts/skins/skin-base.php:3998
-#: modules/pricing/widgets/pricing-table.php:648
-#: modules/pricing/widgets/pricing-table.php:948
-#: modules/pricing/widgets/pricing-table.php:1271
-#: modules/pricing/widgets/pricing-table.php:1657
-#: modules/pricing/widgets/pricing-table.php:1991
-#: modules/pricing/widgets/pricing-table.php:2374
-#: modules/pricing/widgets/pricing-table.php:2495
+#: modules/pricing/widgets/pricing-table.php:647
+#: modules/pricing/widgets/pricing-table.php:960
+#: modules/pricing/widgets/pricing-table.php:1283
+#: modules/pricing/widgets/pricing-table.php:1669
+#: modules/pricing/widgets/pricing-table.php:2003
+#: modules/pricing/widgets/pricing-table.php:2386
+#: modules/pricing/widgets/pricing-table.php:2507
 #: modules/progress-bar/widgets/progress-bar.php:790
 #: modules/progress-bar/widgets/progress-bar.php:1245
 #: modules/progress-bar/widgets/progress-bar.php:1263
@@ -4022,7 +4124,7 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:1117
 #: modules/posts/skins/skin-base.php:688 modules/posts/skins/skin-base.php:1093
 #: modules/posts/widgets/posts-base.php:401
-#: modules/pricing/widgets/pricing-table.php:352
+#: modules/pricing/widgets/pricing-table.php:351
 #: modules/team-member/widgets/team-member-carousel.php:2065
 #: modules/team-member/widgets/team-member.php:1629
 #: modules/wpforms/widgets/wpforms.php:1372
@@ -4341,7 +4443,7 @@ msgid "Rows Style"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:627
-#: modules/pricing/widgets/pricing-table.php:2065
+#: modules/pricing/widgets/pricing-table.php:2077
 msgid "Striped Rows"
 msgstr ""
 
@@ -4364,7 +4466,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:571
 #: modules/pricing/widgets/price-menu.php:696
 #: modules/pricing/widgets/price-menu.php:891
-#: modules/pricing/widgets/pricing-table.php:1937
+#: modules/pricing/widgets/pricing-table.php:1949
 #: modules/team-member/widgets/team-member-carousel.php:1348
 #: modules/team-member/widgets/team-member-carousel.php:1415
 #: modules/team-member/widgets/team-member-carousel.php:1552
@@ -4457,6 +4559,64 @@ msgstr ""
 msgid "Divider Weight"
 msgstr ""
 
+#: modules/business-hours/widgets/business-hours.php:913
+#: modules/business-hours/widgets/business-hours.php:972
+#: modules/contact-form-seven/widgets/contact-form-7.php:283
+#: modules/contact-form-seven/widgets/contact-form-7.php:952
+#: modules/content-reveal/widgets/content-reveal.php:338
+#: modules/content-ticker/widgets/content-ticker.php:1284
+#: modules/counter/widgets/counter.php:454
+#: modules/divider/widgets/divider.php:365
+#: modules/flipbox/widgets/flipbox.php:660
+#: modules/flipbox/widgets/flipbox.php:1054
+#: modules/fluent-forms/widgets/fluent-forms.php:272
+#: modules/fluent-forms/widgets/fluent-forms.php:481
+#: modules/fluent-forms/widgets/fluent-forms.php:1121
+#: modules/formidable-forms/widgets/formidable-forms.php:339
+#: modules/formidable-forms/widgets/formidable-forms.php:539
+#: modules/formidable-forms/widgets/formidable-forms.php:630
+#: modules/formidable-forms/widgets/formidable-forms.php:1262
+#: modules/formidable-forms/widgets/formidable-forms.php:1712
+#: modules/gravity-forms/widgets/gravity-forms.php:377
+#: modules/gravity-forms/widgets/gravity-forms.php:485
+#: modules/gravity-forms/widgets/gravity-forms.php:1455
+#: modules/gravity-forms/widgets/gravity-forms.php:2302
+#: modules/headings/widgets/dual-heading.php:198
+#: modules/headings/widgets/fancy-heading.php:177
+#: modules/hotspots/widgets/hotspots.php:809
+#: modules/icon-list/widgets/icon-list.php:433
+#: modules/info-box/widgets/info-box-carousel.php:971
+#: modules/info-box/widgets/info-box-carousel.php:1682
+#: modules/info-box/widgets/info-box.php:1172
+#: modules/info-box/widgets/info-box.php:1550
+#: modules/info-list/widgets/info-list.php:943
+#: modules/info-table/widgets/info-table.php:439
+#: modules/info-table/widgets/info-table.php:1522
+#: modules/instafeed/widgets/instafeed.php:2196
+#: modules/link-effects/widgets/link-effects.php:210
+#: modules/ninja-forms/widgets/ninja-forms.php:309
+#: modules/ninja-forms/widgets/ninja-forms.php:497
+#: modules/ninja-forms/widgets/ninja-forms.php:1083
+#: modules/posts/skins/skin-base.php:1482
+#: modules/posts/skins/skin-base.php:1971
+#: modules/posts/skins/skin-base.php:2302
+#: modules/pricing/widgets/price-menu.php:287
+#: modules/pricing/widgets/pricing-table.php:1189
+#: modules/pricing/widgets/pricing-table.php:1875
+#: modules/progress-bar/widgets/progress-bar.php:255
+#: modules/promo-box/widgets/promo-box.php:585
+#: modules/random-image/widgets/random-image.php:210
+#: modules/team-member/widgets/team-member-carousel.php:1046
+#: modules/team-member/widgets/team-member-carousel.php:1227
+#: modules/team-member/widgets/team-member.php:674
+#: modules/team-member/widgets/team-member.php:777
+#: modules/twitter/widgets/twitter-tweet.php:123
+#: modules/wpforms/widgets/wpforms.php:267
+#: modules/wpforms/widgets/wpforms.php:445
+#: modules/wpforms/widgets/wpforms.php:1337
+msgid "Alignment"
+msgstr ""
+
 #: modules/business-hours/widgets/business-hours.php:917
 #: modules/business-hours/widgets/business-hours.php:976
 #: modules/buttons/widgets/buttons.php:674
@@ -4489,7 +4649,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:489
 #: modules/gravity-forms/widgets/gravity-forms.php:1459
 #: modules/gravity-forms/widgets/gravity-forms.php:2306
-#: modules/headings/widgets/dual-heading.php:204
+#: modules/headings/widgets/dual-heading.php:203
 #: modules/headings/widgets/fancy-heading.php:182
 #: modules/hotspots/widgets/hotspots.php:340
 #: modules/hotspots/widgets/hotspots.php:574
@@ -4498,7 +4658,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:564
 #: modules/image-accordion/widgets/image-accordion.php:705
 #: modules/image-accordion/widgets/image-accordion.php:738
-#: modules/image-comparison/widgets/image-comparison.php:743
+#: modules/image-comparison/widgets/image-comparison.php:744
 #: modules/info-box/widgets/info-box-carousel.php:899
 #: modules/info-box/widgets/info-box-carousel.php:975
 #: modules/info-box/widgets/info-box-carousel.php:1686
@@ -4524,10 +4684,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1976
 #: modules/posts/skins/skin-base.php:2307
 #: modules/pricing/widgets/price-menu.php:291
-#: modules/pricing/widgets/pricing-table.php:673
-#: modules/pricing/widgets/pricing-table.php:1033
-#: modules/pricing/widgets/pricing-table.php:1182
-#: modules/pricing/widgets/pricing-table.php:1868
+#: modules/pricing/widgets/pricing-table.php:676
+#: modules/pricing/widgets/pricing-table.php:1045
+#: modules/pricing/widgets/pricing-table.php:1194
+#: modules/pricing/widgets/pricing-table.php:1880
 #: modules/progress-bar/widgets/progress-bar.php:260
 #: modules/progress-bar/widgets/progress-bar.php:372
 #: modules/promo-box/widgets/promo-box.php:590
@@ -4544,90 +4704,6 @@ msgstr ""
 #: modules/wpforms/widgets/wpforms.php:449
 #: modules/wpforms/widgets/wpforms.php:1341
 msgid "Left"
-msgstr ""
-
-#: modules/business-hours/widgets/business-hours.php:921
-#: modules/business-hours/widgets/business-hours.php:980
-#: modules/buttons/widgets/buttons.php:678
-#: modules/buttons/widgets/buttons.php:706
-#: modules/buttons/widgets/buttons.php:1090
-#: modules/contact-form-seven/widgets/contact-form-7.php:291
-#: modules/contact-form-seven/widgets/contact-form-7.php:961
-#: modules/content-reveal/widgets/content-reveal.php:347
-#: modules/content-reveal/widgets/content-reveal.php:510
-#: modules/content-ticker/widgets/content-ticker.php:1292
-#: modules/counter/widgets/counter.php:462
-#: modules/divider/widgets/divider.php:374
-#: modules/divider/widgets/divider.php:469
-#: modules/divider/widgets/divider.php:680
-#: modules/divider/widgets/divider.php:788
-#: modules/divider/widgets/divider.php:910
-#: modules/flipbox/widgets/flipbox.php:669
-#: modules/flipbox/widgets/flipbox.php:1063
-#: modules/fluent-forms/widgets/fluent-forms.php:280
-#: modules/fluent-forms/widgets/fluent-forms.php:489
-#: modules/fluent-forms/widgets/fluent-forms.php:1129
-#: modules/formidable-forms/widgets/formidable-forms.php:347
-#: modules/formidable-forms/widgets/formidable-forms.php:547
-#: modules/formidable-forms/widgets/formidable-forms.php:638
-#: modules/formidable-forms/widgets/formidable-forms.php:1270
-#: modules/formidable-forms/widgets/formidable-forms.php:1720
-#: modules/gravity-forms/widgets/gravity-forms.php:385
-#: modules/gravity-forms/widgets/gravity-forms.php:493
-#: modules/gravity-forms/widgets/gravity-forms.php:1463
-#: modules/gravity-forms/widgets/gravity-forms.php:2310
-#: modules/headings/widgets/dual-heading.php:208
-#: modules/headings/widgets/fancy-heading.php:186
-#: modules/hotspots/widgets/hotspots.php:818
-#: modules/icon-list/widgets/icon-list.php:441
-#: modules/icon-list/widgets/icon-list.php:589
-#: modules/image-accordion/widgets/image-accordion.php:709
-#: modules/image-accordion/widgets/image-accordion.php:742
-#: modules/image-comparison/widgets/image-comparison.php:747
-#: modules/info-box/widgets/info-box-carousel.php:979
-#: modules/info-box/widgets/info-box-carousel.php:1690
-#: modules/info-box/widgets/info-box.php:1180
-#: modules/info-box/widgets/info-box.php:1558
-#: modules/info-list/widgets/info-list.php:642
-#: modules/info-list/widgets/info-list.php:675
-#: modules/info-list/widgets/info-list.php:951
-#: modules/info-table/widgets/info-table.php:447
-#: modules/instafeed/widgets/instafeed.php:1157
-#: modules/instafeed/widgets/instafeed.php:1193
-#: modules/instafeed/widgets/instafeed.php:1226
-#: modules/instafeed/widgets/instafeed.php:2204
-#: modules/link-effects/widgets/link-effects.php:218
-#: modules/logos/widgets/logo-carousel.php:642
-#: modules/logos/widgets/logo-carousel.php:668
-#: modules/logos/widgets/logo-grid.php:402
-#: modules/logos/widgets/logo-grid.php:433
-#: modules/ninja-forms/widgets/ninja-forms.php:317
-#: modules/ninja-forms/widgets/ninja-forms.php:505
-#: modules/ninja-forms/widgets/ninja-forms.php:1091
-#: modules/posts/skins/skin-base.php:1490
-#: modules/posts/skins/skin-base.php:1980
-#: modules/posts/skins/skin-base.php:2311
-#: modules/pricing/widgets/price-menu.php:295
-#: modules/pricing/widgets/price-menu.php:1071
-#: modules/pricing/widgets/pricing-table.php:1186
-#: modules/pricing/widgets/pricing-table.php:1872
-#: modules/progress-bar/widgets/progress-bar.php:264
-#: modules/progress-bar/widgets/progress-bar.php:376
-#: modules/promo-box/widgets/promo-box.php:594
-#: modules/promo-box/widgets/promo-box.php:622
-#: modules/random-image/widgets/random-image.php:218
-#: modules/random-image/widgets/random-image.php:664
-#: modules/random-image/widgets/random-image.php:700
-#: modules/random-image/widgets/random-image.php:741
-#: modules/team-member/widgets/team-member-carousel.php:1054
-#: modules/team-member/widgets/team-member-carousel.php:1235
-#: modules/team-member/widgets/team-member.php:682
-#: modules/team-member/widgets/team-member.php:785
-#: modules/twitter/widgets/twitter-tweet.php:128
-#: modules/wpforms/widgets/wpforms.php:275
-#: modules/wpforms/widgets/wpforms.php:453
-#: modules/wpforms/widgets/wpforms.php:1345
-msgid "Center"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:925
@@ -4662,7 +4738,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:497
 #: modules/gravity-forms/widgets/gravity-forms.php:1467
 #: modules/gravity-forms/widgets/gravity-forms.php:2314
-#: modules/headings/widgets/dual-heading.php:212
+#: modules/headings/widgets/dual-heading.php:211
 #: modules/headings/widgets/fancy-heading.php:190
 #: modules/hotspots/widgets/hotspots.php:341
 #: modules/hotspots/widgets/hotspots.php:575
@@ -4671,7 +4747,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:568
 #: modules/image-accordion/widgets/image-accordion.php:713
 #: modules/image-accordion/widgets/image-accordion.php:746
-#: modules/image-comparison/widgets/image-comparison.php:751
+#: modules/image-comparison/widgets/image-comparison.php:752
 #: modules/info-box/widgets/info-box-carousel.php:900
 #: modules/info-box/widgets/info-box-carousel.php:983
 #: modules/info-box/widgets/info-box-carousel.php:1694
@@ -4697,10 +4773,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1984
 #: modules/posts/skins/skin-base.php:2315
 #: modules/pricing/widgets/price-menu.php:299
-#: modules/pricing/widgets/pricing-table.php:674
-#: modules/pricing/widgets/pricing-table.php:1037
-#: modules/pricing/widgets/pricing-table.php:1190
-#: modules/pricing/widgets/pricing-table.php:1876
+#: modules/pricing/widgets/pricing-table.php:680
+#: modules/pricing/widgets/pricing-table.php:1049
+#: modules/pricing/widgets/pricing-table.php:1202
+#: modules/pricing/widgets/pricing-table.php:1888
 #: modules/progress-bar/widgets/progress-bar.php:268
 #: modules/progress-bar/widgets/progress-bar.php:380
 #: modules/promo-box/widgets/promo-box.php:598
@@ -4747,8 +4823,8 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:180
 #: modules/info-table/widgets/info-table.php:137
 #: modules/link-effects/widgets/link-effects.php:115
-#: modules/pricing/widgets/pricing-table.php:463
-#: modules/pricing/widgets/pricing-table.php:726
+#: modules/pricing/widgets/pricing-table.php:462
+#: modules/pricing/widgets/pricing-table.php:738
 msgid "Text"
 msgstr ""
 
@@ -4766,7 +4842,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:163
 #: modules/info-table/widgets/info-table.php:120
 #: modules/interactive-circle/widgets/interactive-circle.php:232
-#: modules/pricing/widgets/pricing-table.php:184
+#: modules/pricing/widgets/pricing-table.php:183
 #: modules/promo-box/widgets/promo-box.php:273
 msgid "Icon Type"
 msgstr ""
@@ -4782,14 +4858,14 @@ msgid "Icon Text"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:246
-#: modules/pricing/widgets/pricing-table.php:619
+#: modules/pricing/widgets/pricing-table.php:618
 msgid "Enable Tooltip"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:257
 #: modules/hotspots/widgets/hotspots.php:358
 #: modules/hotspots/widgets/hotspots.php:360
-#: modules/pricing/widgets/pricing-table.php:512
+#: modules/pricing/widgets/pricing-table.php:511
 msgid "Tooltip Content"
 msgstr ""
 
@@ -4848,9 +4924,9 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:136
 #: modules/logos/widgets/logo-carousel.php:781
 #: modules/posts/skins/skin-base.php:687 modules/posts/skins/skin-base.php:1088
-#: modules/pricing/widgets/pricing-table.php:652
-#: modules/pricing/widgets/pricing-table.php:775
-#: modules/pricing/widgets/pricing-table.php:920
+#: modules/pricing/widgets/pricing-table.php:651
+#: modules/pricing/widgets/pricing-table.php:787
+#: modules/pricing/widgets/pricing-table.php:932
 #: modules/random-image/widgets/random-image.php:313
 #: modules/random-image/widgets/random-image.php:471
 msgid "Default"
@@ -4867,7 +4943,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1150
 #: modules/instafeed/widgets/instafeed.php:2254
 #: modules/posts/skins/skin-base.php:2854
-#: modules/pricing/widgets/pricing-table.php:2499
+#: modules/pricing/widgets/pricing-table.php:2511
 #: modules/promo-box/widgets/promo-box.php:1473
 msgid "Extra Small"
 msgstr ""
@@ -4884,8 +4960,8 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1151
 #: modules/instafeed/widgets/instafeed.php:2255
 #: modules/posts/skins/skin-base.php:2855
-#: modules/pricing/widgets/pricing-table.php:654
-#: modules/pricing/widgets/pricing-table.php:2500
+#: modules/pricing/widgets/pricing-table.php:653
+#: modules/pricing/widgets/pricing-table.php:2512
 #: modules/promo-box/widgets/promo-box.php:1474
 msgid "Small"
 msgstr ""
@@ -4901,7 +4977,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1152
 #: modules/instafeed/widgets/instafeed.php:2256
 #: modules/posts/skins/skin-base.php:2856
-#: modules/pricing/widgets/pricing-table.php:2501
+#: modules/pricing/widgets/pricing-table.php:2513
 #: modules/promo-box/widgets/promo-box.php:1475
 msgid "Medium"
 msgstr ""
@@ -4918,8 +4994,8 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1153
 #: modules/instafeed/widgets/instafeed.php:2257
 #: modules/posts/skins/skin-base.php:2857
-#: modules/pricing/widgets/pricing-table.php:655
-#: modules/pricing/widgets/pricing-table.php:2502
+#: modules/pricing/widgets/pricing-table.php:654
+#: modules/pricing/widgets/pricing-table.php:2514
 #: modules/promo-box/widgets/promo-box.php:1476
 msgid "Large"
 msgstr ""
@@ -4935,7 +5011,7 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1154
 #: modules/instafeed/widgets/instafeed.php:2258
 #: modules/posts/skins/skin-base.php:2858
-#: modules/pricing/widgets/pricing-table.php:2503
+#: modules/pricing/widgets/pricing-table.php:2515
 #: modules/promo-box/widgets/promo-box.php:1477
 msgid "Extra Large"
 msgstr ""
@@ -4954,8 +5030,8 @@ msgstr ""
 #: modules/interactive-circle/widgets/interactive-circle.php:371
 #: modules/logos/widgets/logo-grid.php:168
 #: modules/pricing/widgets/price-menu.php:1097
-#: modules/pricing/widgets/pricing-table.php:526
-#: modules/pricing/widgets/pricing-table.php:916
+#: modules/pricing/widgets/pricing-table.php:525
+#: modules/pricing/widgets/pricing-table.php:928
 #: modules/progress-bar/widgets/progress-bar.php:545
 msgid "Style"
 msgstr ""
@@ -4968,8 +5044,8 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:524
 #: modules/content-reveal/widgets/content-reveal.php:735
 #: modules/content-reveal/widgets/content-reveal.php:843
-#: modules/image-comparison/widgets/image-comparison.php:530
-#: modules/image-comparison/widgets/image-comparison.php:593
+#: modules/image-comparison/widgets/image-comparison.php:531
+#: modules/image-comparison/widgets/image-comparison.php:594
 #: modules/info-box/widgets/info-box-carousel.php:1167
 #: modules/info-box/widgets/info-box-carousel.php:1283
 #: modules/info-box/widgets/info-box.php:1000
@@ -4980,7 +5056,7 @@ msgstr ""
 #: modules/interactive-circle/widgets/interactive-circle.php:893
 #: modules/interactive-circle/widgets/interactive-circle.php:962
 #: modules/interactive-circle/widgets/interactive-circle.php:1120
-#: modules/pricing/widgets/pricing-table.php:533
+#: modules/pricing/widgets/pricing-table.php:532
 #: modules/promo-box/widgets/promo-box.php:793
 #: modules/promo-box/widgets/promo-box.php:884
 #: modules/scroll-image/widgets/scroll-image.php:339
@@ -4999,93 +5075,22 @@ msgstr ""
 msgid "Buttons Spacing"
 msgstr ""
 
-#: modules/buttons/widgets/buttons.php:641
-#: modules/divider/widgets/divider.php:459
-#: modules/icon-list/widgets/icon-list.php:579
-#: modules/logos/widgets/logo-carousel.php:634
-#: modules/pricing/widgets/price-menu.php:1062
-#: modules/promo-box/widgets/promo-box.php:612
-msgid "Vertical Alignment"
-msgstr ""
-
-#: modules/buttons/widgets/buttons.php:646
-#: modules/buttons/widgets/buttons.php:952
-#: modules/divider/widgets/divider.php:465
-#: modules/flipbox/widgets/flipbox.php:576
-#: modules/flipbox/widgets/flipbox.php:692
-#: modules/flipbox/widgets/flipbox.php:1086
-#: modules/hotspots/widgets/hotspots.php:338
-#: modules/hotspots/widgets/hotspots.php:572
-#: modules/icon-list/widgets/icon-list.php:585
-#: modules/image-accordion/widgets/image-accordion.php:673
-#: modules/image-comparison/widgets/image-comparison.php:708
-#: modules/info-box/widgets/info-box.php:345
-#: modules/info-list/widgets/info-list.php:492
-#: modules/info-list/widgets/info-list.php:638
-#: modules/instafeed/widgets/instafeed.php:1153
-#: modules/instafeed/widgets/instafeed.php:1433
-#: modules/logos/widgets/logo-carousel.php:638
-#: modules/logos/widgets/logo-grid.php:398
-#: modules/posts/skins/skin-base.php:1393
-#: modules/posts/skins/skin-base.php:1395
-#: modules/pricing/widgets/price-menu.php:1017
-#: modules/pricing/widgets/price-menu.php:1067
-#: modules/pricing/widgets/pricing-table.php:671
-#: modules/pricing/widgets/pricing-table.php:1702
-#: modules/promo-box/widgets/promo-box.php:618
-#: modules/random-image/widgets/random-image.php:660
-msgid "Top"
-msgstr ""
-
 #: modules/buttons/widgets/buttons.php:650
 #: modules/flipbox/widgets/flipbox.php:696
 #: modules/flipbox/widgets/flipbox.php:1090
 #: modules/image-accordion/widgets/image-accordion.php:677
-#: modules/image-comparison/widgets/image-comparison.php:712
+#: modules/image-comparison/widgets/image-comparison.php:713
 #: modules/info-box/widgets/info-box.php:349
 #: modules/instafeed/widgets/instafeed.php:1437
 #: modules/pricing/widgets/price-menu.php:1021
-#: modules/pricing/widgets/pricing-table.php:1706
+#: modules/pricing/widgets/pricing-table.php:1718
 msgid "Middle"
-msgstr ""
-
-#: modules/buttons/widgets/buttons.php:654
-#: modules/buttons/widgets/buttons.php:953
-#: modules/divider/widgets/divider.php:473
-#: modules/flipbox/widgets/flipbox.php:577
-#: modules/flipbox/widgets/flipbox.php:700
-#: modules/flipbox/widgets/flipbox.php:1094
-#: modules/hotspots/widgets/hotspots.php:339
-#: modules/hotspots/widgets/hotspots.php:573
-#: modules/icon-list/widgets/icon-list.php:593
-#: modules/image-accordion/widgets/image-accordion.php:681
-#: modules/image-comparison/widgets/image-comparison.php:716
-#: modules/info-box/widgets/info-box.php:353
-#: modules/info-list/widgets/info-list.php:646
-#: modules/instafeed/widgets/instafeed.php:1161
-#: modules/instafeed/widgets/instafeed.php:1441
-#: modules/logos/widgets/logo-carousel.php:646
-#: modules/logos/widgets/logo-grid.php:406
-#: modules/posts/skins/skin-base.php:1394
-#: modules/posts/skins/skin-base.php:1395
-#: modules/pricing/widgets/price-menu.php:1025
-#: modules/pricing/widgets/price-menu.php:1075
-#: modules/pricing/widgets/pricing-table.php:672
-#: modules/pricing/widgets/pricing-table.php:1710
-#: modules/promo-box/widgets/promo-box.php:626
-#: modules/random-image/widgets/random-image.php:668
-msgid "Bottom"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:658
 #: modules/buttons/widgets/buttons.php:686
 #: modules/buttons/widgets/buttons.php:714
 msgid "Stretch"
-msgstr ""
-
-#: modules/buttons/widgets/buttons.php:669
-#: modules/logos/widgets/logo-carousel.php:660
-msgid "Horizontal Alignment"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:697
@@ -5134,8 +5139,8 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:1383
 #: modules/instafeed/widgets/instafeed.php:2488
 #: modules/posts/skins/skin-base.php:3091
-#: modules/pricing/widgets/pricing-table.php:702
-#: modules/pricing/widgets/pricing-table.php:2712
+#: modules/pricing/widgets/pricing-table.php:714
+#: modules/pricing/widgets/pricing-table.php:2724
 #: modules/promo-box/widgets/promo-box.php:1618
 msgid "Animation"
 msgstr ""
@@ -5162,15 +5167,15 @@ msgstr ""
 #: modules/divider/widgets/divider.php:627
 #: modules/flipbox/widgets/flipbox.php:483
 #: modules/image-accordion/widgets/image-accordion.php:251
-#: modules/image-comparison/widgets/image-comparison.php:198
-#: modules/image-comparison/widgets/image-comparison.php:869
+#: modules/image-comparison/widgets/image-comparison.php:199
+#: modules/image-comparison/widgets/image-comparison.php:870
 #: modules/info-box/widgets/info-box-carousel.php:423
 #: modules/info-box/widgets/info-box.php:637
 #: modules/info-list/widgets/info-list.php:283
 #: modules/info-table/widgets/info-table.php:375
 #: modules/posts/skins/skin-base.php:1299
 #: modules/posts/widgets/posts-base.php:432
-#: modules/pricing/widgets/pricing-table.php:1687
+#: modules/pricing/widgets/pricing-table.php:1699
 #: modules/progress-bar/widgets/progress-bar.php:502
 msgid "After"
 msgstr ""
@@ -5183,15 +5188,15 @@ msgstr ""
 #: modules/divider/widgets/divider.php:600
 #: modules/flipbox/widgets/flipbox.php:484
 #: modules/image-accordion/widgets/image-accordion.php:250
-#: modules/image-comparison/widgets/image-comparison.php:149
-#: modules/image-comparison/widgets/image-comparison.php:813
+#: modules/image-comparison/widgets/image-comparison.php:150
+#: modules/image-comparison/widgets/image-comparison.php:814
 #: modules/info-box/widgets/info-box-carousel.php:422
 #: modules/info-box/widgets/info-box.php:638
 #: modules/info-list/widgets/info-list.php:284
 #: modules/info-table/widgets/info-table.php:376
 #: modules/posts/skins/skin-base.php:1300
 #: modules/posts/widgets/posts-base.php:416
-#: modules/pricing/widgets/pricing-table.php:1683
+#: modules/pricing/widgets/pricing-table.php:1695
 #: modules/progress-bar/widgets/progress-bar.php:501
 msgid "Before"
 msgstr ""
@@ -5200,9 +5205,9 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:316
 #: modules/hotspots/widgets/hotspots.php:321
 #: modules/hotspots/widgets/hotspots.php:988
-#: modules/pricing/widgets/pricing-table.php:505
-#: modules/pricing/widgets/pricing-table.php:612
-#: modules/pricing/widgets/pricing-table.php:2211
+#: modules/pricing/widgets/pricing-table.php:504
+#: modules/pricing/widgets/pricing-table.php:611
+#: modules/pricing/widgets/pricing-table.php:2223
 msgid "Tooltip"
 msgstr ""
 
@@ -5253,7 +5258,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:158
 #: modules/pricing/widgets/price-menu.php:191
 #: modules/pricing/widgets/price-menu.php:812
-#: modules/pricing/widgets/pricing-table.php:404
+#: modules/pricing/widgets/pricing-table.php:403
 #: modules/promo-box/widgets/promo-box.php:175
 #: modules/promo-box/widgets/promo-box.php:223
 #: modules/promo-box/widgets/promo-box.php:367
@@ -5273,7 +5278,7 @@ msgstr ""
 #: modules/pricing/widgets/price-menu.php:159
 #: modules/pricing/widgets/price-menu.php:192
 #: modules/pricing/widgets/price-menu.php:813
-#: modules/pricing/widgets/pricing-table.php:405
+#: modules/pricing/widgets/pricing-table.php:404
 #: modules/promo-box/widgets/promo-box.php:176
 #: modules/promo-box/widgets/promo-box.php:224
 #: modules/promo-box/widgets/promo-box.php:368
@@ -5524,8 +5529,8 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:785
 #: modules/hotspots/widgets/hotspots.php:1024
 #: modules/image-accordion/widgets/image-accordion.php:759
-#: modules/image-comparison/widgets/image-comparison.php:473
-#: modules/image-comparison/widgets/image-comparison.php:658
+#: modules/image-comparison/widgets/image-comparison.php:474
+#: modules/image-comparison/widgets/image-comparison.php:659
 #: modules/info-box/widgets/info-box-carousel.php:1360
 #: modules/info-box/widgets/info-box.php:259
 #: modules/info-box/widgets/info-box.php:1756
@@ -5536,9 +5541,9 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:1112
 #: modules/ninja-forms/widgets/ninja-forms.php:1126
 #: modules/pricing/widgets/price-menu.php:937
-#: modules/pricing/widgets/pricing-table.php:1298
-#: modules/pricing/widgets/pricing-table.php:1589
-#: modules/pricing/widgets/pricing-table.php:2256
+#: modules/pricing/widgets/pricing-table.php:1310
+#: modules/pricing/widgets/pricing-table.php:1601
+#: modules/pricing/widgets/pricing-table.php:2268
 #: modules/promo-box/widgets/promo-box.php:674
 #: modules/promo-box/widgets/promo-box.php:756
 #: modules/promo-box/widgets/promo-box.php:1056
@@ -5570,7 +5575,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1838
 #: modules/logos/widgets/logo-carousel.php:904
 #: modules/ninja-forms/widgets/ninja-forms.php:1220
-#: modules/pricing/widgets/pricing-table.php:2819
+#: modules/pricing/widgets/pricing-table.php:2831
 #: modules/wpforms/widgets/wpforms.php:1493
 msgid "Margin Top"
 msgstr ""
@@ -5611,8 +5616,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2958
 #: modules/posts/skins/skin-base.php:3518
 #: modules/pricing/widgets/price-menu.php:965
-#: modules/pricing/widgets/pricing-table.php:1357
-#: modules/pricing/widgets/pricing-table.php:1613
+#: modules/pricing/widgets/pricing-table.php:1369
+#: modules/pricing/widgets/pricing-table.php:1625
 #: modules/promo-box/widgets/promo-box.php:857
 #: modules/random-image/widgets/random-image.php:798
 #: modules/team-member/widgets/team-member-carousel.php:2756
@@ -5728,8 +5733,8 @@ msgstr ""
 #: modules/info-table/widgets/info-table.php:326
 #: modules/info-table/widgets/info-table.php:359
 #: modules/info-table/widgets/info-table.php:1134
-#: modules/pricing/widgets/pricing-table.php:1060
-#: modules/pricing/widgets/pricing-table.php:2484
+#: modules/pricing/widgets/pricing-table.php:1072
+#: modules/pricing/widgets/pricing-table.php:2496
 #: modules/promo-box/widgets/promo-box.php:357
 #: modules/promo-box/widgets/promo-box.php:364
 #: modules/promo-box/widgets/promo-box.php:1458
@@ -5746,9 +5751,9 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:409
 #: modules/formidable-forms/widgets/formidable-forms.php:483
 #: modules/gravity-forms/widgets/gravity-forms.php:2081
-#: modules/image-comparison/widgets/image-comparison.php:147
-#: modules/image-comparison/widgets/image-comparison.php:196
-#: modules/image-comparison/widgets/image-comparison.php:694
+#: modules/image-comparison/widgets/image-comparison.php:148
+#: modules/image-comparison/widgets/image-comparison.php:197
+#: modules/image-comparison/widgets/image-comparison.php:695
 #: modules/progress-bar/widgets/progress-bar.php:292
 #: modules/progress-bar/widgets/progress-bar.php:318
 #: modules/progress-bar/widgets/progress-bar.php:322
@@ -5785,7 +5790,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:510
 #: modules/gravity-forms/widgets/gravity-forms.php:2049
 #: modules/image-accordion/widgets/image-accordion.php:330
-#: modules/image-comparison/widgets/image-comparison.php:497
+#: modules/image-comparison/widgets/image-comparison.php:498
 #: modules/logos/widgets/logo-carousel.php:725
 #: modules/progress-bar/widgets/progress-bar.php:745
 #: modules/progress-bar/widgets/progress-bar.php:1280
@@ -5840,7 +5845,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:196
 #: modules/flipbox/widgets/flipbox.php:250
 #: modules/flipbox/widgets/flipbox.php:399
-#: modules/headings/widgets/dual-heading.php:164
+#: modules/headings/widgets/dual-heading.php:163
 #: modules/headings/widgets/fancy-heading.php:161
 #: modules/image-accordion/widgets/image-accordion.php:358
 #: modules/info-box/widgets/info-box-carousel.php:560
@@ -5855,8 +5860,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:326
 #: modules/posts/skins/skin-base.php:772
 #: modules/pricing/widgets/price-menu.php:528
-#: modules/pricing/widgets/pricing-table.php:267
-#: modules/pricing/widgets/pricing-table.php:300
+#: modules/pricing/widgets/pricing-table.php:266
+#: modules/pricing/widgets/pricing-table.php:299
 #: modules/promo-box/widgets/promo-box.php:156
 #: modules/promo-box/widgets/promo-box.php:204
 #: modules/team-member/widgets/team-member-carousel.php:610
@@ -5872,7 +5877,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:197
 #: modules/flipbox/widgets/flipbox.php:251
 #: modules/flipbox/widgets/flipbox.php:400
-#: modules/headings/widgets/dual-heading.php:165
+#: modules/headings/widgets/dual-heading.php:164
 #: modules/headings/widgets/fancy-heading.php:162
 #: modules/image-accordion/widgets/image-accordion.php:359
 #: modules/info-box/widgets/info-box-carousel.php:561
@@ -5887,8 +5892,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:327
 #: modules/posts/skins/skin-base.php:773
 #: modules/pricing/widgets/price-menu.php:529
-#: modules/pricing/widgets/pricing-table.php:268
-#: modules/pricing/widgets/pricing-table.php:301
+#: modules/pricing/widgets/pricing-table.php:267
+#: modules/pricing/widgets/pricing-table.php:300
 #: modules/promo-box/widgets/promo-box.php:157
 #: modules/promo-box/widgets/promo-box.php:205
 #: modules/team-member/widgets/team-member-carousel.php:611
@@ -5904,7 +5909,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:198
 #: modules/flipbox/widgets/flipbox.php:252
 #: modules/flipbox/widgets/flipbox.php:401
-#: modules/headings/widgets/dual-heading.php:166
+#: modules/headings/widgets/dual-heading.php:165
 #: modules/headings/widgets/fancy-heading.php:163
 #: modules/image-accordion/widgets/image-accordion.php:360
 #: modules/info-box/widgets/info-box-carousel.php:562
@@ -5919,8 +5924,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:328
 #: modules/posts/skins/skin-base.php:774
 #: modules/pricing/widgets/price-menu.php:530
-#: modules/pricing/widgets/pricing-table.php:269
-#: modules/pricing/widgets/pricing-table.php:302
+#: modules/pricing/widgets/pricing-table.php:268
+#: modules/pricing/widgets/pricing-table.php:301
 #: modules/promo-box/widgets/promo-box.php:158
 #: modules/promo-box/widgets/promo-box.php:206
 #: modules/team-member/widgets/team-member-carousel.php:612
@@ -5936,7 +5941,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:199
 #: modules/flipbox/widgets/flipbox.php:253
 #: modules/flipbox/widgets/flipbox.php:402
-#: modules/headings/widgets/dual-heading.php:167
+#: modules/headings/widgets/dual-heading.php:166
 #: modules/headings/widgets/fancy-heading.php:164
 #: modules/image-accordion/widgets/image-accordion.php:361
 #: modules/info-box/widgets/info-box-carousel.php:563
@@ -5951,8 +5956,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:329
 #: modules/posts/skins/skin-base.php:775
 #: modules/pricing/widgets/price-menu.php:531
-#: modules/pricing/widgets/pricing-table.php:270
-#: modules/pricing/widgets/pricing-table.php:303
+#: modules/pricing/widgets/pricing-table.php:269
+#: modules/pricing/widgets/pricing-table.php:302
 #: modules/promo-box/widgets/promo-box.php:159
 #: modules/promo-box/widgets/promo-box.php:207
 #: modules/team-member/widgets/team-member-carousel.php:613
@@ -5968,7 +5973,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:200
 #: modules/flipbox/widgets/flipbox.php:254
 #: modules/flipbox/widgets/flipbox.php:403
-#: modules/headings/widgets/dual-heading.php:168
+#: modules/headings/widgets/dual-heading.php:167
 #: modules/headings/widgets/fancy-heading.php:165
 #: modules/image-accordion/widgets/image-accordion.php:362
 #: modules/info-box/widgets/info-box-carousel.php:564
@@ -5983,8 +5988,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:330
 #: modules/posts/skins/skin-base.php:776
 #: modules/pricing/widgets/price-menu.php:532
-#: modules/pricing/widgets/pricing-table.php:271
-#: modules/pricing/widgets/pricing-table.php:304
+#: modules/pricing/widgets/pricing-table.php:270
+#: modules/pricing/widgets/pricing-table.php:303
 #: modules/promo-box/widgets/promo-box.php:160
 #: modules/promo-box/widgets/promo-box.php:208
 #: modules/team-member/widgets/team-member-carousel.php:614
@@ -6000,7 +6005,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:201
 #: modules/flipbox/widgets/flipbox.php:255
 #: modules/flipbox/widgets/flipbox.php:404
-#: modules/headings/widgets/dual-heading.php:169
+#: modules/headings/widgets/dual-heading.php:168
 #: modules/headings/widgets/fancy-heading.php:166
 #: modules/image-accordion/widgets/image-accordion.php:363
 #: modules/info-box/widgets/info-box-carousel.php:565
@@ -6015,8 +6020,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:331
 #: modules/posts/skins/skin-base.php:777
 #: modules/pricing/widgets/price-menu.php:533
-#: modules/pricing/widgets/pricing-table.php:272
-#: modules/pricing/widgets/pricing-table.php:305
+#: modules/pricing/widgets/pricing-table.php:271
+#: modules/pricing/widgets/pricing-table.php:304
 #: modules/promo-box/widgets/promo-box.php:161
 #: modules/promo-box/widgets/promo-box.php:209
 #: modules/team-member/widgets/team-member-carousel.php:615
@@ -6032,7 +6037,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:202
 #: modules/flipbox/widgets/flipbox.php:256
 #: modules/flipbox/widgets/flipbox.php:405
-#: modules/headings/widgets/dual-heading.php:170
+#: modules/headings/widgets/dual-heading.php:169
 #: modules/headings/widgets/fancy-heading.php:167
 #: modules/image-accordion/widgets/image-accordion.php:364
 #: modules/info-box/widgets/info-box-carousel.php:566
@@ -6047,8 +6052,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:332
 #: modules/posts/skins/skin-base.php:778
 #: modules/pricing/widgets/price-menu.php:534
-#: modules/pricing/widgets/pricing-table.php:273
-#: modules/pricing/widgets/pricing-table.php:306
+#: modules/pricing/widgets/pricing-table.php:272
+#: modules/pricing/widgets/pricing-table.php:305
 #: modules/promo-box/widgets/promo-box.php:162
 #: modules/promo-box/widgets/promo-box.php:210
 #: modules/team-member/widgets/team-member-carousel.php:616
@@ -6064,7 +6069,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:203
 #: modules/flipbox/widgets/flipbox.php:257
 #: modules/flipbox/widgets/flipbox.php:406
-#: modules/headings/widgets/dual-heading.php:171
+#: modules/headings/widgets/dual-heading.php:170
 #: modules/headings/widgets/fancy-heading.php:168
 #: modules/image-accordion/widgets/image-accordion.php:365
 #: modules/info-box/widgets/info-box-carousel.php:567
@@ -6079,8 +6084,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:333
 #: modules/posts/skins/skin-base.php:779
 #: modules/pricing/widgets/price-menu.php:535
-#: modules/pricing/widgets/pricing-table.php:274
-#: modules/pricing/widgets/pricing-table.php:307
+#: modules/pricing/widgets/pricing-table.php:273
+#: modules/pricing/widgets/pricing-table.php:306
 #: modules/promo-box/widgets/promo-box.php:163
 #: modules/promo-box/widgets/promo-box.php:211
 #: modules/team-member/widgets/team-member-carousel.php:617
@@ -6096,7 +6101,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:204
 #: modules/flipbox/widgets/flipbox.php:258
 #: modules/flipbox/widgets/flipbox.php:407
-#: modules/headings/widgets/dual-heading.php:172
+#: modules/headings/widgets/dual-heading.php:171
 #: modules/headings/widgets/fancy-heading.php:169
 #: modules/image-accordion/widgets/image-accordion.php:366
 #: modules/info-box/widgets/info-box-carousel.php:568
@@ -6111,8 +6116,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:334
 #: modules/posts/skins/skin-base.php:780
 #: modules/pricing/widgets/price-menu.php:536
-#: modules/pricing/widgets/pricing-table.php:275
-#: modules/pricing/widgets/pricing-table.php:308
+#: modules/pricing/widgets/pricing-table.php:274
+#: modules/pricing/widgets/pricing-table.php:307
 #: modules/promo-box/widgets/promo-box.php:164
 #: modules/promo-box/widgets/promo-box.php:212
 #: modules/team-member/widgets/team-member-carousel.php:618
@@ -6381,8 +6386,8 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:999
 #: modules/content-ticker/widgets/content-ticker.php:1273
-#: modules/pricing/widgets/pricing-table.php:177
-#: modules/pricing/widgets/pricing-table.php:1210
+#: modules/pricing/widgets/pricing-table.php:176
+#: modules/pricing/widgets/pricing-table.php:1222
 msgid "Header"
 msgstr ""
 
@@ -6430,7 +6435,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:304
 #: modules/logos/widgets/logo-grid.php:662
 #: modules/posts/skins/skin-base.php:165
-#: modules/pricing/widgets/pricing-table.php:709
+#: modules/pricing/widgets/pricing-table.php:721
 msgid "Slide"
 msgstr ""
 
@@ -6440,7 +6445,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:633
 #: modules/logos/widgets/logo-carousel.php:305
 #: modules/posts/skins/skin-base.php:166
-#: modules/pricing/widgets/pricing-table.php:706
+#: modules/pricing/widgets/pricing-table.php:718
 msgid "Fade"
 msgstr ""
 
@@ -6617,8 +6622,8 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:416
 #: modules/info-table/widgets/info-table.php:241
 #: modules/info-table/widgets/info-table.php:243
-#: modules/pricing/widgets/pricing-table.php:283
-#: modules/pricing/widgets/pricing-table.php:288
+#: modules/pricing/widgets/pricing-table.php:282
+#: modules/pricing/widgets/pricing-table.php:287
 msgid "Subtitle"
 msgstr ""
 
@@ -6626,7 +6631,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:576
 #: modules/info-box/widgets/info-box.php:467
 #: modules/info-table/widgets/info-table.php:249
-#: modules/pricing/widgets/pricing-table.php:296
+#: modules/pricing/widgets/pricing-table.php:295
 msgid "Subtitle HTML Tag"
 msgstr ""
 
@@ -6924,7 +6929,7 @@ msgid "Divider Text"
 msgstr ""
 
 #: modules/divider/widgets/divider.php:192
-#: modules/headings/widgets/dual-heading.php:159
+#: modules/headings/widgets/dual-heading.php:158
 #: modules/headings/widgets/fancy-heading.php:156
 #: modules/link-effects/widgets/link-effects.php:190
 #: modules/posts/skins/skin-base.php:768
@@ -6943,14 +6948,14 @@ msgstr ""
 
 #: modules/divider/widgets/divider.php:248
 #: modules/image-accordion/widgets/image-accordion.php:404
-#: modules/image-comparison/widgets/image-comparison.php:266
+#: modules/image-comparison/widgets/image-comparison.php:267
 #: modules/scroll-image/widgets/scroll-image.php:265
 msgid "Horizontal"
 msgstr ""
 
 #: modules/divider/widgets/divider.php:249
 #: modules/image-accordion/widgets/image-accordion.php:403
-#: modules/image-comparison/widgets/image-comparison.php:265
+#: modules/image-comparison/widgets/image-comparison.php:266
 #: modules/scroll-image/widgets/scroll-image.php:266
 msgid "Vertical"
 msgstr ""
@@ -6965,17 +6970,17 @@ msgstr ""
 #: modules/divider/widgets/divider.php:780
 #: modules/divider/widgets/divider.php:902
 #: modules/icon-list/widgets/icon-list.php:557
-#: modules/image-comparison/widgets/image-comparison.php:702
-#: modules/image-comparison/widgets/image-comparison.php:738
+#: modules/image-comparison/widgets/image-comparison.php:703
+#: modules/image-comparison/widgets/image-comparison.php:739
 #: modules/info-box/widgets/info-box-carousel.php:2297
 #: modules/info-list/widgets/info-list.php:481
 #: modules/instafeed/widgets/instafeed.php:1427
 #: modules/instafeed/widgets/instafeed.php:1897
 #: modules/logos/widgets/logo-carousel.php:1190
 #: modules/posts/skins/skin-base.php:3395
-#: modules/pricing/widgets/pricing-table.php:667
-#: modules/pricing/widgets/pricing-table.php:1027
-#: modules/pricing/widgets/pricing-table.php:1677
+#: modules/pricing/widgets/pricing-table.php:666
+#: modules/pricing/widgets/pricing-table.php:1039
+#: modules/pricing/widgets/pricing-table.php:1689
 #: modules/team-member/widgets/team-member-carousel.php:202
 #: modules/team-member/widgets/team-member-carousel.php:1587
 #: modules/team-member/widgets/team-member-carousel.php:2617
@@ -7034,7 +7039,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:251
 #: modules/info-table/widgets/info-table.php:347
 #: modules/posts/skins/skin-base.php:1268
-#: modules/pricing/widgets/pricing-table.php:1081
+#: modules/pricing/widgets/pricing-table.php:1093
 #: modules/promo-box/widgets/promo-box.php:376
 msgid "Button Text"
 msgstr ""
@@ -7045,7 +7050,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box.php:567
 #: modules/info-list/widgets/info-list.php:256
 #: modules/info-table/widgets/info-table.php:349
-#: modules/pricing/widgets/pricing-table.php:1086
+#: modules/pricing/widgets/pricing-table.php:1098
 #: modules/promo-box/widgets/promo-box.php:381
 msgid "Get Started"
 msgstr ""
@@ -7094,7 +7099,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:687
 #: modules/flipbox/widgets/flipbox.php:1081
 #: modules/pricing/widgets/price-menu.php:1012
-#: modules/pricing/widgets/pricing-table.php:1697
+#: modules/pricing/widgets/pricing-table.php:1709
 msgid "Vertical Position"
 msgstr ""
 
@@ -7105,8 +7110,8 @@ msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:738
 #: modules/flipbox/widgets/flipbox.php:1132
-#: modules/image-comparison/widgets/image-comparison.php:287
-#: modules/image-comparison/widgets/image-comparison.php:347
+#: modules/image-comparison/widgets/image-comparison.php:288
+#: modules/image-comparison/widgets/image-comparison.php:348
 #: modules/instafeed/widgets/instafeed.php:1269
 #: modules/instafeed/widgets/instafeed.php:1284
 #: modules/instafeed/widgets/instafeed.php:1316
@@ -7235,7 +7240,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1113
 #: modules/pricing/widgets/price-menu.php:143
 #: modules/pricing/widgets/price-menu.php:720
-#: modules/pricing/widgets/pricing-table.php:376
+#: modules/pricing/widgets/pricing-table.php:375
 msgid "Price"
 msgstr ""
 
@@ -7308,35 +7313,35 @@ msgstr ""
 msgid "Thank You Message"
 msgstr ""
 
-#: modules/headings/widgets/dual-heading.php:115
-#: modules/headings/widgets/dual-heading.php:274
+#: modules/headings/widgets/dual-heading.php:114
+#: modules/headings/widgets/dual-heading.php:308
 msgid "First Part"
 msgstr ""
 
-#: modules/headings/widgets/dual-heading.php:122
+#: modules/headings/widgets/dual-heading.php:121
 msgid "Our"
 msgstr ""
 
-#: modules/headings/widgets/dual-heading.php:129
-#: modules/headings/widgets/dual-heading.php:388
+#: modules/headings/widgets/dual-heading.php:128
+#: modules/headings/widgets/dual-heading.php:411
 msgid "Second Part"
 msgstr ""
 
-#: modules/headings/widgets/dual-heading.php:136
+#: modules/headings/widgets/dual-heading.php:135
 msgid "Services"
 msgstr ""
 
-#: modules/headings/widgets/dual-heading.php:180
+#: modules/headings/widgets/dual-heading.php:179
 msgid "Second Part Display"
 msgstr ""
 
-#: modules/headings/widgets/dual-heading.php:185
+#: modules/headings/widgets/dual-heading.php:184
 #: modules/icon-list/widgets/icon-list.php:140
 #: modules/icon-list/widgets/icon-list.php:326
 msgid "Inline"
 msgstr ""
 
-#: modules/headings/widgets/dual-heading.php:186
+#: modules/headings/widgets/dual-heading.php:185
 msgid "Block"
 msgstr ""
 
@@ -7411,19 +7416,19 @@ msgid "Always Open?"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:537
-#: modules/pricing/widgets/pricing-table.php:631
+#: modules/pricing/widgets/pricing-table.php:630
 #: modules/scroll-image/widgets/scroll-image.php:234
 msgid "Trigger"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:542
 #: modules/interactive-circle/widgets/interactive-circle.php:487
-#: modules/pricing/widgets/pricing-table.php:636
+#: modules/pricing/widgets/pricing-table.php:635
 msgid "Click"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:558
-#: modules/pricing/widgets/pricing-table.php:653
+#: modules/pricing/widgets/pricing-table.php:652
 msgid "Tiny"
 msgstr ""
 
@@ -7432,8 +7437,8 @@ msgid "Global Position"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:583
-#: modules/pricing/widgets/pricing-table.php:755
-#: modules/pricing/widgets/pricing-table.php:1006
+#: modules/pricing/widgets/pricing-table.php:767
+#: modules/pricing/widgets/pricing-table.php:1018
 msgid "Distance"
 msgstr ""
 
@@ -7442,359 +7447,359 @@ msgid "The distance between the hotspot and the tooltip."
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:601
-#: modules/pricing/widgets/pricing-table.php:685
+#: modules/pricing/widgets/pricing-table.php:697
 msgid "Show Arrow"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:618
-#: modules/pricing/widgets/pricing-table.php:707
+#: modules/pricing/widgets/pricing-table.php:719
 msgid "Fall"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:619
-#: modules/pricing/widgets/pricing-table.php:708
+#: modules/pricing/widgets/pricing-table.php:720
 msgid "Grow"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:621
 #: modules/hotspots/widgets/hotspots.php:633
-#: modules/pricing/widgets/pricing-table.php:710
-#: modules/pricing/widgets/pricing-table.php:781
+#: modules/pricing/widgets/pricing-table.php:722
+#: modules/pricing/widgets/pricing-table.php:793
 msgid "Swing"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:628
-#: modules/pricing/widgets/pricing-table.php:776
+#: modules/pricing/widgets/pricing-table.php:788
 msgid "Bounce"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:629
-#: modules/pricing/widgets/pricing-table.php:777
+#: modules/pricing/widgets/pricing-table.php:789
 msgid "Flash"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:630
-#: modules/pricing/widgets/pricing-table.php:778
+#: modules/pricing/widgets/pricing-table.php:790
 msgid "Pulse"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:631
-#: modules/pricing/widgets/pricing-table.php:779
+#: modules/pricing/widgets/pricing-table.php:791
 msgid "rubberBand"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:632
-#: modules/pricing/widgets/pricing-table.php:780
+#: modules/pricing/widgets/pricing-table.php:792
 msgid "Shake"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:634
-#: modules/pricing/widgets/pricing-table.php:782
+#: modules/pricing/widgets/pricing-table.php:794
 msgid "Tada"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:635
-#: modules/pricing/widgets/pricing-table.php:783
+#: modules/pricing/widgets/pricing-table.php:795
 msgid "Wobble"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:636
-#: modules/pricing/widgets/pricing-table.php:784
+#: modules/pricing/widgets/pricing-table.php:796
 msgid "bounceIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:637
-#: modules/pricing/widgets/pricing-table.php:785
+#: modules/pricing/widgets/pricing-table.php:797
 msgid "bounceInDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:638
-#: modules/pricing/widgets/pricing-table.php:786
+#: modules/pricing/widgets/pricing-table.php:798
 msgid "bounceInLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:639
-#: modules/pricing/widgets/pricing-table.php:787
+#: modules/pricing/widgets/pricing-table.php:799
 msgid "bounceInRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:640
-#: modules/pricing/widgets/pricing-table.php:788
+#: modules/pricing/widgets/pricing-table.php:800
 msgid "bounceInUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:641
-#: modules/pricing/widgets/pricing-table.php:789
+#: modules/pricing/widgets/pricing-table.php:801
 msgid "bounceOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:642
-#: modules/pricing/widgets/pricing-table.php:790
+#: modules/pricing/widgets/pricing-table.php:802
 msgid "bounceOutDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:643
-#: modules/pricing/widgets/pricing-table.php:791
+#: modules/pricing/widgets/pricing-table.php:803
 msgid "bounceOutLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:644
-#: modules/pricing/widgets/pricing-table.php:792
+#: modules/pricing/widgets/pricing-table.php:804
 msgid "bounceOutRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:645
-#: modules/pricing/widgets/pricing-table.php:793
+#: modules/pricing/widgets/pricing-table.php:805
 msgid "bounceOutUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:646
-#: modules/pricing/widgets/pricing-table.php:794
+#: modules/pricing/widgets/pricing-table.php:806
 msgid "fadeIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:647
-#: modules/pricing/widgets/pricing-table.php:795
+#: modules/pricing/widgets/pricing-table.php:807
 msgid "fadeInDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:648
-#: modules/pricing/widgets/pricing-table.php:796
+#: modules/pricing/widgets/pricing-table.php:808
 msgid "fadeInDownBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:649
-#: modules/pricing/widgets/pricing-table.php:797
+#: modules/pricing/widgets/pricing-table.php:809
 msgid "fadeInLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:650
-#: modules/pricing/widgets/pricing-table.php:798
+#: modules/pricing/widgets/pricing-table.php:810
 msgid "fadeInLeftBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:651
-#: modules/pricing/widgets/pricing-table.php:799
+#: modules/pricing/widgets/pricing-table.php:811
 msgid "fadeInRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:652
-#: modules/pricing/widgets/pricing-table.php:800
+#: modules/pricing/widgets/pricing-table.php:812
 msgid "fadeInRightBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:653
-#: modules/pricing/widgets/pricing-table.php:801
+#: modules/pricing/widgets/pricing-table.php:813
 msgid "fadeInUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:654
-#: modules/pricing/widgets/pricing-table.php:802
+#: modules/pricing/widgets/pricing-table.php:814
 msgid "fadeInUpBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:655
-#: modules/pricing/widgets/pricing-table.php:803
+#: modules/pricing/widgets/pricing-table.php:815
 msgid "fadeOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:656
-#: modules/pricing/widgets/pricing-table.php:804
+#: modules/pricing/widgets/pricing-table.php:816
 msgid "fadeOutDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:657
-#: modules/pricing/widgets/pricing-table.php:805
+#: modules/pricing/widgets/pricing-table.php:817
 msgid "fadeOutDownBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:658
-#: modules/pricing/widgets/pricing-table.php:806
+#: modules/pricing/widgets/pricing-table.php:818
 msgid "fadeOutLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:659
-#: modules/pricing/widgets/pricing-table.php:807
+#: modules/pricing/widgets/pricing-table.php:819
 msgid "fadeOutLeftBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:660
-#: modules/pricing/widgets/pricing-table.php:808
+#: modules/pricing/widgets/pricing-table.php:820
 msgid "fadeOutRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:661
-#: modules/pricing/widgets/pricing-table.php:809
+#: modules/pricing/widgets/pricing-table.php:821
 msgid "fadeOutRightBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:662
-#: modules/pricing/widgets/pricing-table.php:810
+#: modules/pricing/widgets/pricing-table.php:822
 msgid "fadeOutUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:663
-#: modules/pricing/widgets/pricing-table.php:811
+#: modules/pricing/widgets/pricing-table.php:823
 msgid "fadeOutUpBig"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:664
-#: modules/pricing/widgets/pricing-table.php:812
+#: modules/pricing/widgets/pricing-table.php:824
 msgid "flip"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:665
-#: modules/pricing/widgets/pricing-table.php:813
+#: modules/pricing/widgets/pricing-table.php:825
 msgid "flipInX"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:666
-#: modules/pricing/widgets/pricing-table.php:814
+#: modules/pricing/widgets/pricing-table.php:826
 msgid "flipInY"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:667
-#: modules/pricing/widgets/pricing-table.php:815
+#: modules/pricing/widgets/pricing-table.php:827
 msgid "flipOutX"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:668
-#: modules/pricing/widgets/pricing-table.php:816
+#: modules/pricing/widgets/pricing-table.php:828
 msgid "flipOutY"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:669
-#: modules/pricing/widgets/pricing-table.php:817
+#: modules/pricing/widgets/pricing-table.php:829
 msgid "lightSpeedIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:670
-#: modules/pricing/widgets/pricing-table.php:818
+#: modules/pricing/widgets/pricing-table.php:830
 msgid "lightSpeedOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:671
-#: modules/pricing/widgets/pricing-table.php:819
+#: modules/pricing/widgets/pricing-table.php:831
 msgid "rotateIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:672
-#: modules/pricing/widgets/pricing-table.php:820
+#: modules/pricing/widgets/pricing-table.php:832
 msgid "rotateInDownLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:673
-#: modules/pricing/widgets/pricing-table.php:821
+#: modules/pricing/widgets/pricing-table.php:833
 msgid "rotateInDownRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:674
-#: modules/pricing/widgets/pricing-table.php:822
+#: modules/pricing/widgets/pricing-table.php:834
 msgid "rotateInUpLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:675
-#: modules/pricing/widgets/pricing-table.php:823
+#: modules/pricing/widgets/pricing-table.php:835
 msgid "rotateInUpRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:676
-#: modules/pricing/widgets/pricing-table.php:824
+#: modules/pricing/widgets/pricing-table.php:836
 msgid "rotateOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:677
-#: modules/pricing/widgets/pricing-table.php:825
+#: modules/pricing/widgets/pricing-table.php:837
 msgid "rotateOutDownLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:678
-#: modules/pricing/widgets/pricing-table.php:826
+#: modules/pricing/widgets/pricing-table.php:838
 msgid "rotateOutDownRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:679
-#: modules/pricing/widgets/pricing-table.php:827
+#: modules/pricing/widgets/pricing-table.php:839
 msgid "rotateOutUpLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:680
-#: modules/pricing/widgets/pricing-table.php:828
+#: modules/pricing/widgets/pricing-table.php:840
 msgid "rotateOutUpRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:681
-#: modules/pricing/widgets/pricing-table.php:829
+#: modules/pricing/widgets/pricing-table.php:841
 msgid "Hinge"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:682
-#: modules/pricing/widgets/pricing-table.php:830
+#: modules/pricing/widgets/pricing-table.php:842
 msgid "rollIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:683
-#: modules/pricing/widgets/pricing-table.php:831
+#: modules/pricing/widgets/pricing-table.php:843
 msgid "rollOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:684
-#: modules/pricing/widgets/pricing-table.php:832
+#: modules/pricing/widgets/pricing-table.php:844
 msgid "zoomIn"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:685
-#: modules/pricing/widgets/pricing-table.php:833
+#: modules/pricing/widgets/pricing-table.php:845
 msgid "zoomInDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:686
-#: modules/pricing/widgets/pricing-table.php:834
+#: modules/pricing/widgets/pricing-table.php:846
 msgid "zoomInLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:687
-#: modules/pricing/widgets/pricing-table.php:835
+#: modules/pricing/widgets/pricing-table.php:847
 msgid "zoomInRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:688
-#: modules/pricing/widgets/pricing-table.php:836
+#: modules/pricing/widgets/pricing-table.php:848
 msgid "zoomInUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:689
-#: modules/pricing/widgets/pricing-table.php:837
+#: modules/pricing/widgets/pricing-table.php:849
 msgid "zoomOut"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:690
-#: modules/pricing/widgets/pricing-table.php:838
+#: modules/pricing/widgets/pricing-table.php:850
 msgid "zoomOutDown"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:691
-#: modules/pricing/widgets/pricing-table.php:839
+#: modules/pricing/widgets/pricing-table.php:851
 msgid "zoomOutLeft"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:692
-#: modules/pricing/widgets/pricing-table.php:840
+#: modules/pricing/widgets/pricing-table.php:852
 msgid "zoomOutRight"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:693
-#: modules/pricing/widgets/pricing-table.php:841
+#: modules/pricing/widgets/pricing-table.php:853
 msgid "zoomOutUp"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:721
-#: modules/pricing/widgets/pricing-table.php:873
+#: modules/pricing/widgets/pricing-table.php:885
 msgid "Z-Index"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:722
-#: modules/pricing/widgets/pricing-table.php:874
+#: modules/pricing/widgets/pricing-table.php:886
 msgid ""
 "Increase the z-index value if you are unable to see the tooltip. For "
 "example: 99, 999, 9999 "
@@ -7895,7 +7900,7 @@ msgid "On Click"
 msgstr ""
 
 #: modules/image-accordion/widgets/image-accordion.php:398
-#: modules/image-comparison/widgets/image-comparison.php:261
+#: modules/image-comparison/widgets/image-comparison.php:262
 msgid "Orientation"
 msgstr ""
 
@@ -7934,39 +7939,39 @@ msgstr ""
 msgid "Horizontal Align"
 msgstr ""
 
-#: modules/image-comparison/widgets/image-comparison.php:140
+#: modules/image-comparison/widgets/image-comparison.php:141
 msgid "Before Image"
 msgstr ""
 
-#: modules/image-comparison/widgets/image-comparison.php:189
+#: modules/image-comparison/widgets/image-comparison.php:190
 msgid "After Image"
 msgstr ""
 
-#: modules/image-comparison/widgets/image-comparison.php:245
+#: modules/image-comparison/widgets/image-comparison.php:246
 msgid "Visible Ratio"
 msgstr ""
 
-#: modules/image-comparison/widgets/image-comparison.php:274
+#: modules/image-comparison/widgets/image-comparison.php:275
 msgid "Move Slider"
 msgstr ""
 
-#: modules/image-comparison/widgets/image-comparison.php:278
+#: modules/image-comparison/widgets/image-comparison.php:279
 msgid "Drag"
 msgstr ""
 
-#: modules/image-comparison/widgets/image-comparison.php:279
+#: modules/image-comparison/widgets/image-comparison.php:280
 msgid "Mouse Move"
 msgstr ""
 
-#: modules/image-comparison/widgets/image-comparison.php:411
+#: modules/image-comparison/widgets/image-comparison.php:412
 msgid "Handle"
 msgstr ""
 
-#: modules/image-comparison/widgets/image-comparison.php:419
+#: modules/image-comparison/widgets/image-comparison.php:420
 msgid "Choose Icon"
 msgstr ""
 
-#: modules/image-comparison/widgets/image-comparison.php:774
+#: modules/image-comparison/widgets/image-comparison.php:775
 msgid "Align"
 msgstr ""
 
@@ -8148,7 +8153,7 @@ msgstr ""
 #: modules/info-box/widgets/info-box-carousel.php:1491
 #: modules/info-box/widgets/info-box.php:1327
 #: modules/info-table/widgets/info-table.php:664
-#: modules/pricing/widgets/pricing-table.php:1449
+#: modules/pricing/widgets/pricing-table.php:1461
 msgid "Sub Title"
 msgstr ""
 
@@ -8759,7 +8764,7 @@ msgstr ""
 
 #: modules/interactive-circle/widgets/interactive-circle.php:621
 #: modules/link-effects/widgets/link-effects.php:172
-#: modules/pricing/widgets/pricing-table.php:921
+#: modules/pricing/widgets/pricing-table.php:933
 #: modules/progress-bar/widgets/progress-bar.php:163
 #: modules/team-member/widgets/team-member-carousel.php:699
 #: modules/team-member/widgets/team-member.php:473
@@ -9405,7 +9410,7 @@ msgid "Include By"
 msgstr ""
 
 #: modules/posts/widgets/posts-base.php:339
-#: modules/pricing/widgets/pricing-table.php:477
+#: modules/pricing/widgets/pricing-table.php:476
 msgid "Exclude"
 msgstr ""
 
@@ -9490,14 +9495,14 @@ msgid ""
 msgstr ""
 
 #: modules/pricing/widgets/price-menu.php:155
-#: modules/pricing/widgets/pricing-table.php:401
+#: modules/pricing/widgets/pricing-table.php:400
 msgid "Discount"
 msgstr ""
 
 #: modules/pricing/widgets/price-menu.php:167
 #: modules/pricing/widgets/price-menu.php:800
-#: modules/pricing/widgets/pricing-table.php:413
-#: modules/pricing/widgets/pricing-table.php:1798
+#: modules/pricing/widgets/pricing-table.php:412
+#: modules/pricing/widgets/pricing-table.php:1810
 msgid "Original Price"
 msgstr ""
 
@@ -9562,219 +9567,219 @@ msgstr ""
 msgid "Original Price Typography"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:256
+#: modules/pricing/widgets/pricing-table.php:255
 msgid "Enter table title"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:289
+#: modules/pricing/widgets/pricing-table.php:288
 msgid "Enter table subtitle"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:324
-#: modules/pricing/widgets/pricing-table.php:1521
+#: modules/pricing/widgets/pricing-table.php:323
+#: modules/pricing/widgets/pricing-table.php:1533
 msgid "Pricing"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:331
-#: modules/pricing/widgets/pricing-table.php:1645
+#: modules/pricing/widgets/pricing-table.php:330
+#: modules/pricing/widgets/pricing-table.php:1657
 msgid "Currency Symbol"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:335
+#: modules/pricing/widgets/pricing-table.php:334
 msgid "Dollar"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:336
+#: modules/pricing/widgets/pricing-table.php:335
 msgid "Euro"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:337
+#: modules/pricing/widgets/pricing-table.php:336
 msgid "Baht"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:338
+#: modules/pricing/widgets/pricing-table.php:337
 msgid "Franc"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:339
+#: modules/pricing/widgets/pricing-table.php:338
 msgid "Guilder"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:340
+#: modules/pricing/widgets/pricing-table.php:339
 msgid "Krona"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:341
+#: modules/pricing/widgets/pricing-table.php:340
 msgid "Lira"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:342
+#: modules/pricing/widgets/pricing-table.php:341
 msgid "Peseta"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:343
+#: modules/pricing/widgets/pricing-table.php:342
 msgid "Peso"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:344
+#: modules/pricing/widgets/pricing-table.php:343
 msgid "Pound Sterling"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:345
+#: modules/pricing/widgets/pricing-table.php:344
 msgid "Real"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:346
+#: modules/pricing/widgets/pricing-table.php:345
 msgid "Ruble"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:347
+#: modules/pricing/widgets/pricing-table.php:346
 msgid "Rupee"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:348
+#: modules/pricing/widgets/pricing-table.php:347
 msgid "Rupee (Indian)"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:349
+#: modules/pricing/widgets/pricing-table.php:348
 msgid "Shekel"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:350
+#: modules/pricing/widgets/pricing-table.php:349
 msgid "Yen/Yuan"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:351
+#: modules/pricing/widgets/pricing-table.php:350
 msgid "Won"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:361
+#: modules/pricing/widgets/pricing-table.php:360
 msgid "Custom Symbol"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:388
+#: modules/pricing/widgets/pricing-table.php:387
 msgid "Currency Format"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:392
+#: modules/pricing/widgets/pricing-table.php:391
 msgid "Raised"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:428
-#: modules/pricing/widgets/pricing-table.php:1729
+#: modules/pricing/widgets/pricing-table.php:427
+#: modules/pricing/widgets/pricing-table.php:1741
 msgid "Duration"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:430
+#: modules/pricing/widgets/pricing-table.php:429
 msgid "per month"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:445
-#: modules/pricing/widgets/pricing-table.php:1855
+#: modules/pricing/widgets/pricing-table.php:444
+#: modules/pricing/widgets/pricing-table.php:1867
 msgid "Features"
 msgstr ""
 
+#: modules/pricing/widgets/pricing-table.php:468
 #: modules/pricing/widgets/pricing-table.php:469
-#: modules/pricing/widgets/pricing-table.php:470
 msgid "Feature"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:514
+#: modules/pricing/widgets/pricing-table.php:513
 msgid "This is a tooltip"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:582
+#: modules/pricing/widgets/pricing-table.php:581
 msgid "Feature #1"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:586
+#: modules/pricing/widgets/pricing-table.php:585
 msgid "Feature #2"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:590
+#: modules/pricing/widgets/pricing-table.php:589
 msgid "Feature #3"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:722
+#: modules/pricing/widgets/pricing-table.php:734
 msgid "Display On"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:756
+#: modules/pricing/widgets/pricing-table.php:768
 msgid "The distance between the text/icon and the tooltip."
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:897
-#: modules/pricing/widgets/pricing-table.php:2427
+#: modules/pricing/widgets/pricing-table.php:909
+#: modules/pricing/widgets/pricing-table.php:2439
 msgid "Ribbon"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:904
+#: modules/pricing/widgets/pricing-table.php:916
 msgid "Show Ribbon"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:922
+#: modules/pricing/widgets/pricing-table.php:934
 msgid "Flag"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:978
+#: modules/pricing/widgets/pricing-table.php:990
 msgid "Distance from Top"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1067
+#: modules/pricing/widgets/pricing-table.php:1079
 msgid "Button Position"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1071
+#: modules/pricing/widgets/pricing-table.php:1083
 msgid "Above Features"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1072
+#: modules/pricing/widgets/pricing-table.php:1084
 msgid "Below Features"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1109
-#: modules/pricing/widgets/pricing-table.php:1115
-#: modules/pricing/widgets/pricing-table.php:2774
+#: modules/pricing/widgets/pricing-table.php:1121
+#: modules/pricing/widgets/pricing-table.php:1127
+#: modules/pricing/widgets/pricing-table.php:2786
 msgid "Additional Info"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1114
+#: modules/pricing/widgets/pricing-table.php:1126
 msgid "Enter additional info here"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1738
+#: modules/pricing/widgets/pricing-table.php:1750
 msgid "Duration Position"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1742
+#: modules/pricing/widgets/pricing-table.php:1754
 msgid "Same Line"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1743
+#: modules/pricing/widgets/pricing-table.php:1755
 msgid "Next Line"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:1825
+#: modules/pricing/widgets/pricing-table.php:1837
 msgid "Font Size"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2033
+#: modules/pricing/widgets/pricing-table.php:2045
 msgid "Rows"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2094
+#: modules/pricing/widgets/pricing-table.php:2106
 msgid "Even"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2136
+#: modules/pricing/widgets/pricing-table.php:2148
 msgid "Odd"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2345
+#: modules/pricing/widgets/pricing-table.php:2357
 msgid "Tooltip Icon"
 msgstr ""
 
-#: modules/pricing/widgets/pricing-table.php:2734
+#: modules/pricing/widgets/pricing-table.php:2746
 msgid "Footer"
 msgstr ""
 
@@ -10698,7 +10703,7 @@ msgstr ""
 msgid "Steps Typography"
 msgstr ""
 
-#: plugin.php:608
+#: plugin.php:595
 msgid "PowerPack Elements"
 msgstr ""
 
