@@ -398,12 +398,13 @@ class Extension_Custom_Cursor extends Extension_Base {
 		// Conditions for sections
 		add_action( 'elementor/frontend/before_render', function( $element ) {
 			$settings      = $element->get_settings_for_display();
-			$cursor_url    = $settings['pp_custom_cursor_icon'];
-			$cursor_text   = $settings['pp_custom_cursor_text'];
-			$cursor_target = $settings['pp_custom_cursor_target'];
-			$css_selector  = $settings['pp_custom_cursor_css_selector'];
+			$cursor_enable = isset( $settings['pp_custom_cursor_enable'] ) ? $settings['pp_custom_cursor_enable'] : '';
+			$cursor_url    = isset( $settings['pp_custom_cursor_icon'] ) ? $settings['pp_custom_cursor_icon'] : [];
+			$cursor_text   = isset( $settings['pp_custom_cursor_text'] ) ? $settings['pp_custom_cursor_text'] : '';
+			$cursor_target = isset( $settings['pp_custom_cursor_target'] ) ? $settings['pp_custom_cursor_target'] : '';
+			$css_selector  = isset( $settings['pp_custom_cursor_css_selector'] ) ? $settings['pp_custom_cursor_css_selector'] : '';
 
-			if ( 'yes' === $settings['pp_custom_cursor_enable'] ) {
+			if ( 'yes' === $cursor_enable ) {
 				if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() || ! \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
 					wp_enqueue_script( 'pp-custom-cursor' );
 				}

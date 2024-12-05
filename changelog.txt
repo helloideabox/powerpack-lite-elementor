@@ -4,6 +4,7 @@ Release date:
 * Enhancement: Removed .elementor-widget-container class as part of the “Optimized Markup” experiment
 * Enhancement: Enhanced security of widgets with saved templates feature
 * Fixed: Image Comparison - jQuery Event Move lib was missing
+* Fixed: PHP errors when Optimized Markup experiment is activated
 
 == 2.8.1 ==
 Release date: November 27, 2024

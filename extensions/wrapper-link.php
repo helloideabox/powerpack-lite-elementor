@@ -194,10 +194,11 @@ class Extension_Wrapper_Link extends Extension_Base {
 
 		// Conditions for sections
 		add_action( 'elementor/frontend/before_render', function( $element ) {
-			$settings  = $element->get_settings_for_display();
-			$link = $settings['pp_wrapper_link'];
+			$settings    = $element->get_settings_for_display();
+			$link        = isset( $settings['pp_wrapper_link'] ) ? $settings['pp_wrapper_link'] : [];
+			$link_enable = isset( $settings['pp_wrapper_link_enable'] ) ? $settings['pp_wrapper_link_enable'] : '';
 
-			if ( 'yes' === $settings['pp_wrapper_link_enable'] && $link['url'] ) {
+			if ( 'yes' === $link_enable && $link['url'] ) {
 				if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() || ! \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
 					wp_enqueue_script( 'pp-wrapper-link' );
 				}
