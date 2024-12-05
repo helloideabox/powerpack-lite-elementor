@@ -1454,14 +1454,26 @@ class Advanced_Accordion extends Powerpack_Widget {
 				break;
 
 			case 'section':
+				if ( 'publish' !== get_post_status( $tab['saved_section'] ) ) {
+					return;
+				}
+
 				$output = PP_Helper::elementor()->frontend->get_builder_content_for_display( $tab['saved_section'] );
 				break;
 
 			case 'template':
+				if ( 'publish' !== get_post_status( $tab['templates'] ) ) {
+					return;
+				}
+
 				$output = PP_Helper::elementor()->frontend->get_builder_content_for_display( $tab['templates'] );
 				break;
 
 			case 'widget':
+				if ( 'publish' !== get_post_status( $tab['saved_widget'] ) ) {
+					return;
+				}
+
 				$output = PP_Helper::elementor()->frontend->get_builder_content_for_display( $tab['saved_widget'] );
 				break;
 

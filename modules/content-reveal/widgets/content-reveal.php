@@ -1024,6 +1024,10 @@ class Content_Reveal extends Powerpack_Widget {
 				break;
 
 			case 'template':
+				if ( 'publish' !== get_post_status( $settings['template'] ) ) {
+					return;
+				}
+
 				$output = \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $settings['template'] );
 				break;
 
