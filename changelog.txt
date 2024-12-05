@@ -2,6 +2,7 @@
 Release date: 
 * Enhancement: Removed .elementor-widget-container class as part of the “Optimized Markup” experiment
 * Enhancement: Enhanced security of widgets with saved templates feature
+* Fixed: Image Comparison - jQuery Event Move lib was missing
 
 == 2.8.1 ==
 Release date: November 27, 2024
