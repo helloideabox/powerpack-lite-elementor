@@ -1164,7 +1164,7 @@ class Advanced_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'toggle_icon_align',
 			[
-				'label'   => esc_html__( 'Alignment', 'powerpack' ),
+				'label'   => esc_html__( 'Horizontal Alignment', 'powerpack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'  => [
@@ -1178,6 +1178,33 @@ class Advanced_Accordion extends Powerpack_Widget {
 				],
 				'default' => is_rtl() ? 'left' : 'right',
 				'toggle'  => false,
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_align_vertical',
+			[
+				'label'     => esc_html__( 'Vertical Alignment', 'powerpack' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'flex-start' => array(
+						'title' => esc_html__( 'Top', 'powerpack' ),
+						'icon'  => 'eicon-v-align-top',
+					),
+					'center'     => array(
+						'title' => esc_html__( 'Center', 'powerpack' ),
+						'icon'  => 'eicon-v-align-middle',
+					),
+					'flex-end'   => array(
+						'title' => esc_html__( 'Bottom', 'powerpack' ),
+						'icon'  => 'eicon-v-align-bottom',
+					),
+				],
+				'default'   => 'center',
+				'toggle'    => false,
+				'selectors' => array(
+					'{{WRAPPER}} .pp-accordion-tab-title' => 'align-items: {{VALUE}};',
+				),
 			]
 		);
 
