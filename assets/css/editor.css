@@ -127,11 +127,11 @@
 }
 
 /* Flip Box Widget */
-.elementor-widget-pp-flipbox.pp-flip-box--flipped .elementor-widget-container .pp-flipbox-front {
+.elementor-widget-pp-flipbox.pp-flip-box--flipped .pp-flipbox-front {
 	display: none;
 }
 
-.elementor-widget-pp-flipbox.pp-flip-box--flipped .elementor-widget-container .pp-flipbox-back {
+.elementor-widget-pp-flipbox.pp-flip-box--flipped .pp-flipbox-back {
 	-webkit-transform: none !important;
 	        transform: none !important;
 	-webkit-transition: unset !important;
@@ -139,7 +139,7 @@
 	opacity: 1;
 }
 
-.elementor-widget-pp-flipbox.pp-flip-box--flipped .elementor-widget-container .pp-flipbox-flip-card {
+.elementor-widget-pp-flipbox.pp-flip-box--flipped .pp-flipbox-flip-card {
 	-webkit-transition: unset !important;
 	transition: unset !important;
 	-webkit-transform: none !important;

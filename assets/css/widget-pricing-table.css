@@ -1,7 +1,3 @@
-.elementor-widget-pp-pricing-table .elementor-widget-container {
-  background-color: #f8f8f8;
-}
-
 .pp-icon {
   display: inline-block;
   line-height: 1;
@@ -25,6 +21,7 @@
   transition: all 0.25s linear 0s;
 }
 .pp-pricing-table-container {
+  background-color: #f8f8f8;
   position: relative;
 }
 .pp-pricing-table.horizontal-table {

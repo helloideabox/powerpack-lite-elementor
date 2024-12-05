@@ -1,8 +1,5 @@
 @import "../mixins/mixins-master";
 
-.elementor-widget-pp-pricing-table .elementor-widget-container {
-	background-color: #f8f8f8;
-}
 .pp-icon {
 	display: inline-block;
 	line-height: 1;
@@ -21,6 +18,7 @@
     text-align: center;
     @include transition();
     &-container {
+        background-color: #f8f8f8;
         position: relative;
     }
     &.horizontal-table {
