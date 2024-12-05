@@ -10,7 +10,7 @@
 		var color          = $scope.data( 'color' ),
 			angle          = $scope.data( 'angle' ),
 			gradientColor  = 'linear-gradient( ' + angle + ',' + color + ' )';
-		
+
 		$scope.css( 'background-image', gradientColor );
 
 		if ( elementorFrontend.isEditMode() ) {

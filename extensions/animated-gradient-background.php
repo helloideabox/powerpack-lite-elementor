@@ -193,9 +193,6 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 					'unit' => 'deg',
 					'size' => -45,
 				],
-				'selectors'  => [
-					'{{WRAPPER}} .box' => 'width: {{SIZE}}{{UNIT}};',
-				],
 				'condition'  => [
 					'pp_animated_gradient_bg_enable' => 'yes',
 				],
@@ -299,7 +296,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		}
 
 		if ( 'yes' === $settings['pp_animated_gradient_bg_enable'] ) {
-			$angle = $settings['pp_animated_gradient_bg_angle']['size'];
+			$angle = isset( $settings['pp_animated_gradient_bg_angle'] ) ? $settings['pp_animated_gradient_bg_angle']['size'] : '';
 			$element->add_render_attribute( '_wrapper', 'data-angle', $angle . 'deg' );
 			$gradient_color_list = $settings['pp_animated_gradient_bg_color_list'];
 			foreach ( $gradient_color_list as $gradient_color ) {

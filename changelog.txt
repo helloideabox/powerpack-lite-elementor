@@ -1,3 +1,7 @@
+== 2.8.3 ==
+Release date: 
+* Fixed: Animation Gradient Background
+
 == 2.8.2 ==
 Release date: December 5, 2024
 * Enhancement: Advanced Accordion - Added Vertical Alignment option for Toggle Icon
