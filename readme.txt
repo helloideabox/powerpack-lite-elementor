@@ -237,6 +237,13 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.8.2 - December 5, 2024 =
+* 	Enhancement: Advanced Accordion - Added Vertical Alignment option for Toggle Icon
+* 	Enhancement: Removed .elementor-widget-container class as part of the “Optimized Markup” experiment
+* 	Enhancement: Enhanced security of widgets with saved templates feature
+* 	Fixed: Image Comparison - jQuery Event Move lib was missing
+* 	Fixed: PHP errors when Optimized Markup experiment is activated
+
 = 2.8.1 - November 27, 2024 =
 * 	Enhancement: Dual Heading - Moved Spacing option to content tab and reorganised the style options
 * 	Enhancement: Pricing Table - Added responsive support for Tooltip position option
