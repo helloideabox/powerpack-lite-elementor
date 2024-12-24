@@ -2,6 +2,7 @@
 Release date: 
 * Enhancement: Added has_widget_inner_wrapper to support “Optimized Markup” experiment
 * Enhancement: Instagram Feed - Updated Choose Arrow option
+* Fixed: Pricing Table - Default background color
 * Fixed: Animation Gradient Background
 
 == 2.8.2 ==

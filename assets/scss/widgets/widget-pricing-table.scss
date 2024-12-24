@@ -18,7 +18,6 @@
     text-align: center;
     @include transition();
     &-container {
-        background-color: #f8f8f8;
         position: relative;
     }
     &.horizontal-table {

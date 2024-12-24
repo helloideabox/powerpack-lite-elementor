@@ -21,7 +21,6 @@
   transition: all 0.25s linear 0s;
 }
 .pp-pricing-table-container {
-  background-color: #f8f8f8;
   position: relative;
 }
 .pp-pricing-table.horizontal-table {
