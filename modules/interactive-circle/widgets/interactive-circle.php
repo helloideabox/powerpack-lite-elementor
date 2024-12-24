@@ -168,7 +168,7 @@ class Interactive_Circle extends Powerpack_Widget {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				'condition'       => array(
 					'source' => 'posts',

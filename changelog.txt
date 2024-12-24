@@ -1,8 +1,10 @@
 == 2.8.3 ==
 Release date: 
 * Enhancement: Added has_widget_inner_wrapper to support “Optimized Markup” experiment
+* Enhancement: Advanced Posts - Added conditional check to scripts and styles
 * Enhancement: Instagram Feed - Updated Choose Arrow option
 * Fixed: Pricing Table - Default background color
+* Fixed: Issue with carousel widgets
 * Fixed: Animation Gradient Background
 
 == 2.8.2 ==
