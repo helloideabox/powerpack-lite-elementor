@@ -1,5 +1,5 @@
 == 2.8.3 ==
-Release date: 
+Release date: December 24, 2024
 * Enhancement: Added has_widget_inner_wrapper to support “Optimized Markup” experiment
 * Enhancement: Advanced Posts - Added conditional check to scripts and styles
 * Enhancement: Instagram Feed - Updated Choose Arrow option
