@@ -142,14 +142,14 @@ class Instafeed extends Powerpack_Widget {
 	 */
 	public function get_style_depends(): array {
 		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
-			return [ 'pp-swiper', 'widget-pp-instagram-feed' ];
+			return [ 'e-swiper', 'pp-swiper', 'widget-pp-instagram-feed' ];
 		}
 
 		$settings = $this->get_settings_for_display();
 		$styles = [ 'widget-pp-instagram-feed' ];
 
 		if ( 'carousel' === $settings['feed_layout'] ) {
-			array_push( $styles, 'pp-swiper' );
+			array_push( $styles, 'e-swiper', 'pp-swiper' );
 		}
 
 		return $styles;
@@ -1668,34 +1668,51 @@ class Instafeed extends Powerpack_Widget {
 				'label'     => esc_html__( 'Arrows', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
-					'arrows'      => 'yes',
 					'feed_layout' => 'carousel',
+					'arrows'      => 'yes',
 				),
 			)
 		);
 
 		$this->add_control(
-			'arrow',
-			array(
-				'label'       => esc_html__( 'Choose Arrow', 'powerpack' ),
-				'type'        => Controls_Manager::SELECT,
-				'label_block' => false,
-				'default'     => 'fa fa-angle-right',
-				'options'     => array(
-					'fa fa-angle-right'          => esc_html__( 'Angle', 'powerpack' ),
-					'fa fa-angle-double-right'   => esc_html__( 'Double Angle', 'powerpack' ),
-					'fa fa-chevron-right'        => esc_html__( 'Chevron', 'powerpack' ),
-					'fa fa-chevron-circle-right' => esc_html__( 'Chevron Circle', 'powerpack' ),
-					'fa fa-arrow-right'          => esc_html__( 'Arrow', 'powerpack' ),
-					'fa fa-long-arrow-right'     => esc_html__( 'Long Arrow', 'powerpack' ),
-					'fa fa-caret-right'          => esc_html__( 'Caret', 'powerpack' ),
-					'fa fa-caret-square-o-right' => esc_html__( 'Caret Square', 'powerpack' ),
-					'fa fa-arrow-circle-right'   => esc_html__( 'Arrow Circle', 'powerpack' ),
-					'fa fa-arrow-circle-o-right' => esc_html__( 'Arrow Circle O', 'powerpack' ),
-					'fa fa-toggle-right'         => esc_html__( 'Toggle', 'powerpack' ),
-					'fa fa-hand-o-right'         => esc_html__( 'Hand', 'powerpack' ),
+			'select_arrow',
+			[
+				'label'                  => esc_html__( 'Choose Arrow', 'powerpack' ),
+				'type'                   => Controls_Manager::ICONS,
+				'fa4compatibility'       => 'arrow',
+				'label_block'            => false,
+				'default'                => array(
+					'value'   => 'fas fa-angle-right',
+					'library' => 'fa-solid',
 				),
-			)
+				'skin'                   => 'inline',
+				'exclude_inline_options' => 'svg',
+				'recommended'            => array(
+					'fa-regular' => array(
+						'arrow-alt-circle-right',
+						'caret-square-right',
+						'hand-point-right',
+					),
+					'fa-solid'   => array(
+						'angle-right',
+						'angle-double-right',
+						'chevron-right',
+						'chevron-circle-right',
+						'arrow-right',
+						'long-arrow-alt-right',
+						'caret-right',
+						'caret-square-right',
+						'arrow-circle-right',
+						'arrow-alt-circle-right',
+						'toggle-right',
+						'hand-point-right',
+					),
+				),
+				'condition'             => [
+					'feed_layout' => 'carousel',
+					'arrows'      => 'yes',
+				],
+			]
 		);
 
 		$this->add_responsive_control(
