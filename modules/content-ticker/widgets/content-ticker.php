@@ -97,7 +97,7 @@ class Content_Ticker extends Powerpack_Widget {
 	 * @return array Widget style dependencies.
 	 */
 	public function get_style_depends(): array {
-		return [ 'pp-swiper', 'widget-pp-content-ticker' ];
+		return [ 'e-swiper', 'pp-swiper', 'widget-pp-content-ticker' ];
 	}
 
 	public function has_widget_inner_wrapper(): bool {

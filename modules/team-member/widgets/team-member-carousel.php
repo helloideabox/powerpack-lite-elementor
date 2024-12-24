@@ -125,7 +125,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_style_depends() {
-		$styles = [ 'pp-swiper', 'widget-pp-team-member'];
+		$styles = [ 'e-swiper', 'pp-swiper', 'widget-pp-team-member'];
 
 		if ( Icons_Manager::is_migration_allowed() ) {
 			array_push( $styles, 'elementor-icons-fa-regular', 'elementor-icons-fa-solid', 'elementor-icons-fa-brands', );

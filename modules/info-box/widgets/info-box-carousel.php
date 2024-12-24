@@ -119,7 +119,22 @@ class Info_Box_Carousel extends Powerpack_Widget {
 	 * @return array Widget style dependencies.
 	 */
 	public function get_style_depends(): array {
-		return [ 'pp-swiper', 'widget-pp-info-box' ];
+		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+			return [
+				'e-swiper',
+				'pp-swiper',
+				'widget-pp-info-box'
+			];
+		}
+
+		$settings = $this->get_settings_for_display();
+		$styles = ['widget-pp-info-box'];
+
+		if ( 'carousel' === $settings['layout'] ) {
+			array_push( $styles, 'e-swiper', 'pp-swiper' );
+		}
+
+		return $styles;
 	}
 
 	public function has_widget_inner_wrapper(): bool {
