@@ -3,6 +3,7 @@ namespace PowerpackElementsLite\Modules\RandomImage\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
 use PowerpackElementsLite\Modules\RandomImage\Module;
+use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
@@ -100,6 +101,10 @@ class Random_Image extends Powerpack_Widget {
 		return [
 			'widget-pp-random-image'
 		];
+	}
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
 
 	/**

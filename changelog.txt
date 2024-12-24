@@ -1,5 +1,6 @@
 == 2.8.3 ==
 Release date: 
+* Enhancement: Added has_widget_inner_wrapper to support “Optimized Markup” experiment
 * Fixed: Animation Gradient Background
 
 == 2.8.2 ==

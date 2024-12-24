@@ -119,6 +119,10 @@ class Interactive_Circle extends Powerpack_Widget {
 		return $styles;
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register Interactive Circle widget controls.
 	 *

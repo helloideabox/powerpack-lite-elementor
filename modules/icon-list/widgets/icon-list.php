@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\IconList\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
@@ -88,6 +89,10 @@ class Icon_List extends Powerpack_Widget {
 	 */
 	public function get_style_depends(): array {
 		return [ 'widget-pp-icon-list' ];
+	}
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
 
 	/**

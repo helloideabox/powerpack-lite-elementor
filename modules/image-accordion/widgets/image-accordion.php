@@ -104,6 +104,10 @@ class Image_Accordion extends Powerpack_Widget {
 		return [ 'widget-pp-image-accordion' ];
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register image accordion widget controls.
 	 *

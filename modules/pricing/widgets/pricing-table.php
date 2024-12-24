@@ -132,6 +132,10 @@ class Pricing_Table extends Powerpack_Widget {
 		return $scripts;
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register pricing table widget controls.
 	 *

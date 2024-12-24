@@ -3,6 +3,7 @@ namespace PowerpackElementsLite\Modules\Posts\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
 use PowerpackElementsLite\Modules\Posts\Module;
+use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Posts_Helper;
 
 use Elementor\Controls_Manager;
@@ -61,6 +62,10 @@ abstract class Posts_Base extends Powerpack_Widget {
 			'pp-elementor-grid',
 			'widget-pp-posts'
 		];
+	}
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
 
 	/**

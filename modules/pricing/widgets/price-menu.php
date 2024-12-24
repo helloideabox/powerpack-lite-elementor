@@ -71,6 +71,10 @@ class Price_Menu extends Powerpack_Widget {
 		];
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register price menu widget controls.
 	 *

@@ -91,6 +91,10 @@ class Info_Table extends Powerpack_Widget {
 		return [ 'widget-pp-info-table' ];
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register info table widget controls.
 	 *

@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\ImageComparison\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
@@ -103,6 +104,10 @@ class Image_Comparison extends Powerpack_Widget {
 	 */
 	public function get_style_depends() {
 		return [ 'widget-pp-image-comparison' ];
+	}
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
 
 	/**

@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\BusinessHours\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
@@ -65,6 +66,10 @@ class Business_Hours extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Business_Hours' );
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Get style dependencies.
 	 *
@@ -79,8 +84,8 @@ class Business_Hours extends Powerpack_Widget {
 		return [ 'widget-pp-business-hours' ];
 	}
 
-	protected function is_dynamic_content(): bool {
-		return false;
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
 
 	/**

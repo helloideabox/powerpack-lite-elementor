@@ -100,6 +100,10 @@ class Info_Box extends Powerpack_Widget {
 		return [ 'widget-pp-info-box' ];
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register info box widget controls.
 	 *

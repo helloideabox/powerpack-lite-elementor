@@ -69,6 +69,10 @@ class Contact_Form_7 extends Powerpack_Widget {
 		return false;
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register contact form 7 widget controls.
 	 *

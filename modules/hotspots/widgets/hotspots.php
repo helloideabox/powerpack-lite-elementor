@@ -8,6 +8,7 @@
 namespace PowerpackElementsLite\Modules\Hotspots\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
@@ -108,6 +109,10 @@ class Hotspots extends Powerpack_Widget {
 	 */
 	public function get_style_depends(): array {
 		return [ 'pp-tooltip', 'widget-pp-hotspots' ];
+	}
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
 
 	/**

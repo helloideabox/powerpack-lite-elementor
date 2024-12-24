@@ -88,6 +88,10 @@ class Fancy_Heading extends Powerpack_Widget {
 		return [ 'widget-pp-fancy-heading' ];
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register fancy heading widget controls.
 	 *

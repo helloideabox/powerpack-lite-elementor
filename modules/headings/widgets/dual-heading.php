@@ -76,6 +76,10 @@ class Dual_Heading extends Powerpack_Widget {
 		return false;
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register dual heading widget controls.
 	 *

@@ -63,6 +63,10 @@ class Ninja_Forms extends Powerpack_Widget {
 		return [ 'widget-pp-ninja-forms' ];
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register ninja forms widget controls.
 	 *

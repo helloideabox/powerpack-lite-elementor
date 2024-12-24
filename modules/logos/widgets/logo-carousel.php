@@ -106,6 +106,10 @@ class Logo_Carousel extends Powerpack_Widget {
 		return [ 'pp-swiper', 'widget-pp-logo-carousel' ];
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register logo carousel widget controls.
 	 *

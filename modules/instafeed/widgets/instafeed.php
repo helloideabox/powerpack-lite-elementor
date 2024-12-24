@@ -107,7 +107,6 @@ class Instafeed extends Powerpack_Widget {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-
 		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
 			return [
 				'isotope',
@@ -154,6 +153,10 @@ class Instafeed extends Powerpack_Widget {
 		}
 
 		return $styles;
+	}
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
 
 	/**

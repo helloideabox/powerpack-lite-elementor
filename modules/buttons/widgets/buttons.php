@@ -106,6 +106,10 @@ class Buttons extends Powerpack_Widget {
 		return [ 'pp-tooltip', 'widget-pp-buttons' ];
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	/**
 	 * Register Buttons widget controls.
 	 *

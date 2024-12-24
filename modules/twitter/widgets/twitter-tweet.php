@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\Twitter\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
@@ -62,6 +63,10 @@ class Twitter_Tweet extends Powerpack_Widget {
 			'twitter-widgets',
 			'pp-twiiter',
 		);
+	}
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
 
 	protected function register_controls() {

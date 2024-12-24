@@ -134,6 +134,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		return $styles;
 	}
 
+	public function has_widget_inner_wrapper(): bool {
+		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
 	private static function get_network_icon_data( $network_name ) {
 		$prefix = 'fa ';
 		$library = '';
