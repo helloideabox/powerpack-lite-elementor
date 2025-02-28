@@ -14,6 +14,9 @@
   transition: all 0.25s linear 0s;
   width: 100%;
 }
+.pp-logo-grid .pp-logo-wrap a img {
+  vertical-align: middle;
+}
 .pp-logo-grid .elementor-grid-item {
   display: -webkit-box;
   display: -ms-flexbox;

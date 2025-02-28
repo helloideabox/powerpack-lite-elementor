@@ -8,6 +8,11 @@
         align-items: flex-start;
         @include transition();
         width: 100%;
+        a {
+            img {
+                vertical-align: middle;
+            }
+        }
     }
     .elementor-grid-item {
         display: flex;

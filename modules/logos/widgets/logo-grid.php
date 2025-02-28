@@ -810,7 +810,7 @@ class Logo_Grid extends Powerpack_Widget {
 			$this->add_render_attribute( 'logo-grid', 'class', 'grayscale-hover' );
 		}
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'logo-grid' ) ); ?>>
+		<div <?php $this->print_render_attribute_string( 'logo-grid' ); ?>>
 			<?php
 			$logos = $settings['pp_logos'];
 
@@ -839,8 +839,8 @@ class Logo_Grid extends Powerpack_Widget {
 						}
 					}
 					?>
-					<div <?php echo wp_kses_post( $this->get_render_attribute_string( $item_wrap_setting_key ) ); ?>>
-						<div <?php echo wp_kses_post( $this->get_render_attribute_string( $item_setting_key ) ); ?>>
+					<div <?php $this->print_render_attribute_string( $item_wrap_setting_key ); ?>>
+						<div <?php $this->print_render_attribute_string( $item_setting_key ); ?>>
 						<?php
 						if ( '' !== $item['link']['url'] ) {
 							$this->add_link_attributes( $link_setting_key, $item['link'] );
@@ -848,7 +848,7 @@ class Logo_Grid extends Powerpack_Widget {
 
 						if ( ! empty( $item['link']['url'] ) ) {
 							?>
-							<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+							<a <?php $this->print_render_attribute_string( $link_setting_key ); ?>>
 							<?php
 						}
 
@@ -868,7 +868,7 @@ class Logo_Grid extends Powerpack_Widget {
 								<<?php echo esc_html( $title_tag ); ?> class="pp-logo-title">
 								<?php
 								if ( '' !== $item['link']['url'] ) { ?>
-									<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
+									<a <?php $this->print_render_attribute_string( $link_setting_key ); ?>>
 									<?php
 								}
 
