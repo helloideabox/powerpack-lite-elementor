@@ -51,7 +51,7 @@ class Request_Parameter extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( ' Request Parameter', 'powerpack' );
+		return esc_html__( ' Request Parameter', 'powerpack' );
 	}
 
 	/**
@@ -67,7 +67,7 @@ class Request_Parameter extends Condition {
 			'type'        => Controls_Manager::TEXTAREA,
 			'default'     => '',
 			'placeholder' => '',
-			'description' => __( 'Enter each request parameter on a new line as pairs of param=value or param1=value1&amp;param2=value2.', 'powerpack' ),
+			'description' => esc_html__( 'Enter each request parameter on a new line as pairs of param=value or param1=value1&amp;param2=value2.', 'powerpack' ),
 			'ai'          => [
 				'active' => false,
 			],
@@ -88,17 +88,18 @@ class Request_Parameter extends Condition {
 	public function check( $name, $operator, $value ) {
 		$show = false;
 
-		if ( ! isset( $_SERVER['REQUEST_URI'] ) || empty( $_SERVER['REQUEST_URI'] ) ) {
-			$show = false;
+		if ( empty( $_SERVER['REQUEST_URI'] ) ) {
+			return $this->compare( $show, true, $operator );
 		}
 
-		$url = wp_parse_url( filter_var( wp_unslash( $_SERVER['REQUEST_URI'] ), FILTER_SANITIZE_STRING ) );
+		$request_uri = esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+		$url = wp_parse_url( $request_uri );
 
-		if ( $url && isset( $url['query'] ) && ! empty( $url['query'] ) ) {
+		if ( isset( $url['query'] ) && ! empty( $url['query'] ) ) {
 			$query_params = explode( '&', $url['query'] );
 
-			$value = str_replace( '&', "\n", $value );
-			$value = explode( "\n", sanitize_textarea_field( $value ) );
+			$value = str_replace( '&', "\n", sanitize_textarea_field( $value ) );
+			$value = explode( "\n", $value );
 
 			if ( ! empty( $value ) ) {
 				foreach ( $value as $index => $param ) {
@@ -109,7 +110,8 @@ class Request_Parameter extends Condition {
 						}
 					}
 				}
-				$show = ! empty( array_intersect( $value, $query_params ) ) ? true : false;
+
+				$show = ! empty( array_intersect( $value, $query_params ) );
 			}
 		}
 
