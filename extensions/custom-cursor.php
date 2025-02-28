@@ -410,20 +410,20 @@ class Extension_Custom_Cursor extends Extension_Base {
 				}
 
 				$custom_cursor_options = [
-					'type' => $settings['pp_custom_cursor_type'],
+					'type' => esc_attr( $settings['pp_custom_cursor_type'] ),
 				];
 
 				if ( ! empty( $cursor_url ) ) {
-					$custom_cursor_options['url'] = $cursor_url['url'];
+					$custom_cursor_options['url'] = esc_url( $cursor_url['url'] );
 				}
 
 				if ( $cursor_text ) {
-					$custom_cursor_options['text'] = $cursor_text;
+					$custom_cursor_options['text'] = esc_html( $cursor_text );
 				}
 
 				if ( 'css-selector' === $cursor_target && $css_selector ) {
 					$custom_cursor_options['target'] = 'selector';
-					$custom_cursor_options['css_selector'] = $css_selector;
+					$custom_cursor_options['css_selector'] = esc_attr( $css_selector );
 				}
 
 				$element->add_render_attribute(
