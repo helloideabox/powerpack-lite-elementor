@@ -223,16 +223,14 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Screenshots ==
 
-1. Pricing Table
+1. Instagram Feed
 2. Counter
-3. Dual Heading
-4. Image Comparison
-5. Countdown Timer (Pro)
-6. Tiled Post (Pro)
-7. Timeline (Pro)
-8. Forms Styler
-9. Team Member
-10. Logo Carousel
+3. Image Comparison
+4. Image Hotspots
+5. Info Box
+6. Logo Grid
+7. Pricing Table
+8. Team Member
 
 
 == Changelog ==
