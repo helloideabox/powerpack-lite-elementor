@@ -1,15 +1,15 @@
-# Copyright (C) 2024 PowerPack Addons Team - IdeaBox Creations
+# Copyright (C) 2025 PowerPack Addons Team - IdeaBox Creations
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.8.3\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.8.4\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2024-12-24 17:33:00+00:00\n"
+"POT-Creation-Date: 2025-02-28 02:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -94,7 +94,7 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1374
 #: modules/posts/skins/skin-base.php:1756 modules/posts/widgets/posts.php:99
 msgid ""
-"Upgrade to %1$s Pro Version %2$s for 70+ widgets, exciting extensions and "
+"Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and "
 "advanced features."
 msgstr ""
 
@@ -136,7 +136,7 @@ msgstr ""
 msgid "Advanced Accordion"
 msgstr ""
 
-#: classes/class-pp-config.php:53
+#: classes/class-pp-config.php:53 includes/helper-functions.php:363
 #: modules/business-hours/widgets/business-hours.php:122
 #: modules/business-hours/widgets/business-hours.php:892
 msgid "Business Hours"
@@ -1402,14 +1402,14 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:533
 #: modules/hotspots/widgets/hotspots.php:609
 #: modules/image-accordion/widgets/image-accordion.php:197
-#: modules/image-accordion/widgets/image-accordion.php:442
-#: modules/info-box/widgets/info-box-carousel.php:338
-#: modules/info-box/widgets/info-box-carousel.php:725
-#: modules/info-box/widgets/info-box-carousel.php:742
-#: modules/info-box/widgets/info-box-carousel.php:760
-#: modules/info-box/widgets/info-box-carousel.php:799
-#: modules/info-box/widgets/info-box-carousel.php:854
+#: modules/image-accordion/widgets/image-accordion.php:461
+#: modules/info-box/widgets/info-box-carousel.php:353
+#: modules/info-box/widgets/info-box-carousel.php:740
+#: modules/info-box/widgets/info-box-carousel.php:757
+#: modules/info-box/widgets/info-box-carousel.php:775
+#: modules/info-box/widgets/info-box-carousel.php:814
 #: modules/info-box/widgets/info-box-carousel.php:869
+#: modules/info-box/widgets/info-box-carousel.php:884
 #: modules/info-box/widgets/info-box.php:554
 #: modules/info-list/widgets/info-list.php:377
 #: modules/info-list/widgets/info-list.php:389
@@ -1458,12 +1458,12 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1202
 #: modules/posts/skins/skin-base.php:1259
 #: modules/posts/skins/skin-base.php:1314
-#: modules/posts/widgets/posts-base.php:496
-#: modules/posts/widgets/posts-base.php:512
-#: modules/posts/widgets/posts-base.php:542
-#: modules/posts/widgets/posts-base.php:605
-#: modules/pricing/widgets/price-menu.php:327
-#: modules/pricing/widgets/price-menu.php:342
+#: modules/posts/widgets/posts-base.php:529
+#: modules/posts/widgets/posts-base.php:545
+#: modules/posts/widgets/posts-base.php:575
+#: modules/posts/widgets/posts-base.php:638
+#: modules/pricing/widgets/price-menu.php:328
+#: modules/pricing/widgets/price-menu.php:343
 #: modules/pricing/widgets/pricing-table.php:483
 #: modules/pricing/widgets/pricing-table.php:625
 #: modules/pricing/widgets/pricing-table.php:705
@@ -1524,14 +1524,14 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:534
 #: modules/hotspots/widgets/hotspots.php:610
 #: modules/image-accordion/widgets/image-accordion.php:198
-#: modules/image-accordion/widgets/image-accordion.php:443
-#: modules/info-box/widgets/info-box-carousel.php:339
-#: modules/info-box/widgets/info-box-carousel.php:726
-#: modules/info-box/widgets/info-box-carousel.php:743
-#: modules/info-box/widgets/info-box-carousel.php:761
-#: modules/info-box/widgets/info-box-carousel.php:800
-#: modules/info-box/widgets/info-box-carousel.php:855
+#: modules/image-accordion/widgets/image-accordion.php:462
+#: modules/info-box/widgets/info-box-carousel.php:354
+#: modules/info-box/widgets/info-box-carousel.php:741
+#: modules/info-box/widgets/info-box-carousel.php:758
+#: modules/info-box/widgets/info-box-carousel.php:776
+#: modules/info-box/widgets/info-box-carousel.php:815
 #: modules/info-box/widgets/info-box-carousel.php:870
+#: modules/info-box/widgets/info-box-carousel.php:885
 #: modules/info-box/widgets/info-box.php:555
 #: modules/info-list/widgets/info-list.php:378
 #: modules/info-list/widgets/info-list.php:390
@@ -1580,12 +1580,12 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1203
 #: modules/posts/skins/skin-base.php:1260
 #: modules/posts/skins/skin-base.php:1315
-#: modules/posts/widgets/posts-base.php:497
-#: modules/posts/widgets/posts-base.php:513
-#: modules/posts/widgets/posts-base.php:543
-#: modules/posts/widgets/posts-base.php:606
-#: modules/pricing/widgets/price-menu.php:328
-#: modules/pricing/widgets/price-menu.php:343
+#: modules/posts/widgets/posts-base.php:530
+#: modules/posts/widgets/posts-base.php:546
+#: modules/posts/widgets/posts-base.php:576
+#: modules/posts/widgets/posts-base.php:639
+#: modules/pricing/widgets/price-menu.php:329
+#: modules/pricing/widgets/price-menu.php:344
 #: modules/pricing/widgets/pricing-table.php:484
 #: modules/pricing/widgets/pricing-table.php:626
 #: modules/pricing/widgets/pricing-table.php:706
@@ -1659,16 +1659,16 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:528
 #: modules/icon-list/widgets/icon-list.php:625
 #: modules/icon-list/widgets/icon-list.php:766
-#: modules/image-accordion/widgets/image-accordion.php:808
-#: modules/image-accordion/widgets/image-accordion.php:860
+#: modules/image-accordion/widgets/image-accordion.php:827
+#: modules/image-accordion/widgets/image-accordion.php:879
 #: modules/image-comparison/widgets/image-comparison.php:652
-#: modules/info-box/widgets/info-box-carousel.php:1424
-#: modules/info-box/widgets/info-box-carousel.php:1504
-#: modules/info-box/widgets/info-box-carousel.php:1761
-#: modules/info-box/widgets/info-box-carousel.php:2184
-#: modules/info-box/widgets/info-box-carousel.php:2240
-#: modules/info-box/widgets/info-box-carousel.php:2377
-#: modules/info-box/widgets/info-box-carousel.php:2476
+#: modules/info-box/widgets/info-box-carousel.php:1493
+#: modules/info-box/widgets/info-box-carousel.php:1573
+#: modules/info-box/widgets/info-box-carousel.php:1830
+#: modules/info-box/widgets/info-box-carousel.php:2253
+#: modules/info-box/widgets/info-box-carousel.php:2309
+#: modules/info-box/widgets/info-box-carousel.php:2446
+#: modules/info-box/widgets/info-box-carousel.php:2545
 #: modules/info-box/widgets/info-box.php:1230
 #: modules/info-box/widgets/info-box.php:1343
 #: modules/info-box/widgets/info-box.php:1627
@@ -1680,8 +1680,8 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1145
 #: modules/info-table/widgets/info-table.php:605
 #: modules/info-table/widgets/info-table.php:680
-#: modules/info-table/widgets/info-table.php:1061
-#: modules/info-table/widgets/info-table.php:1448
+#: modules/info-table/widgets/info-table.php:1078
+#: modules/info-table/widgets/info-table.php:1465
 #: modules/instafeed/widgets/instafeed.php:1134
 #: modules/instafeed/widgets/instafeed.php:1291
 #: modules/instafeed/widgets/instafeed.php:1800
@@ -1708,10 +1708,10 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3824
 #: modules/posts/skins/skin-base.php:3895
 #: modules/posts/skins/skin-base.php:3983
-#: modules/pricing/widgets/price-menu.php:548
-#: modules/pricing/widgets/price-menu.php:774
-#: modules/pricing/widgets/price-menu.php:868
-#: modules/pricing/widgets/price-menu.php:1123
+#: modules/pricing/widgets/price-menu.php:549
+#: modules/pricing/widgets/price-menu.php:775
+#: modules/pricing/widgets/price-menu.php:869
+#: modules/pricing/widgets/price-menu.php:1124
 #: modules/pricing/widgets/pricing-table.php:1356
 #: modules/pricing/widgets/pricing-table.php:1441
 #: modules/pricing/widgets/pricing-table.php:1477
@@ -1788,8 +1788,8 @@ msgstr ""
 #: modules/image-accordion/widgets/image-accordion.php:170
 #: modules/image-comparison/widgets/image-comparison.php:165
 #: modules/image-comparison/widgets/image-comparison.php:214
-#: modules/info-box/widgets/info-box-carousel.php:234
-#: modules/info-box/widgets/info-box-carousel.php:281
+#: modules/info-box/widgets/info-box-carousel.php:249
+#: modules/info-box/widgets/info-box-carousel.php:296
 #: modules/info-box/widgets/info-box.php:162
 #: modules/info-box/widgets/info-box.php:208
 #: modules/info-list/widgets/info-list.php:180
@@ -1802,7 +1802,7 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:133
 #: modules/posts/skins/skin-base.php:560 modules/posts/skins/skin-base.php:2041
 #: modules/pricing/widgets/price-menu.php:205
-#: modules/pricing/widgets/price-menu.php:921
+#: modules/pricing/widgets/price-menu.php:922
 #: modules/pricing/widgets/pricing-table.php:200
 #: modules/pricing/widgets/pricing-table.php:227
 #: modules/promo-box/widgets/promo-box.php:282
@@ -1916,14 +1916,14 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:909
 #: modules/hotspots/widgets/hotspots.php:1045
 #: modules/icon-list/widgets/icon-list.php:870
-#: modules/image-accordion/widgets/image-accordion.php:991
+#: modules/image-accordion/widgets/image-accordion.php:1010
 #: modules/image-comparison/widgets/image-comparison.php:805
-#: modules/info-box/widgets/info-box-carousel.php:1397
-#: modules/info-box/widgets/info-box-carousel.php:1440
-#: modules/info-box/widgets/info-box-carousel.php:1520
-#: modules/info-box/widgets/info-box-carousel.php:1777
-#: modules/info-box/widgets/info-box-carousel.php:1920
-#: modules/info-box/widgets/info-box-carousel.php:2549
+#: modules/info-box/widgets/info-box-carousel.php:1466
+#: modules/info-box/widgets/info-box-carousel.php:1509
+#: modules/info-box/widgets/info-box-carousel.php:1589
+#: modules/info-box/widgets/info-box-carousel.php:1846
+#: modules/info-box/widgets/info-box-carousel.php:1989
+#: modules/info-box/widgets/info-box-carousel.php:2618
 #: modules/info-box/widgets/info-box.php:981
 #: modules/info-box/widgets/info-box.php:1264
 #: modules/info-box/widgets/info-box.php:1377
@@ -1935,10 +1935,10 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1289
 #: modules/info-table/widgets/info-table.php:621
 #: modules/info-table/widgets/info-table.php:699
-#: modules/info-table/widgets/info-table.php:849
-#: modules/info-table/widgets/info-table.php:1080
-#: modules/info-table/widgets/info-table.php:1248
-#: modules/info-table/widgets/info-table.php:1464
+#: modules/info-table/widgets/info-table.php:866
+#: modules/info-table/widgets/info-table.php:1097
+#: modules/info-table/widgets/info-table.php:1265
+#: modules/info-table/widgets/info-table.php:1481
 #: modules/instafeed/widgets/instafeed.php:1123
 #: modules/instafeed/widgets/instafeed.php:1459
 #: modules/instafeed/widgets/instafeed.php:2180
@@ -1961,9 +1961,9 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2662
 #: modules/posts/skins/skin-base.php:2766
 #: modules/posts/skins/skin-base.php:2870
-#: modules/pricing/widgets/price-menu.php:564
-#: modules/pricing/widgets/price-menu.php:793
-#: modules/pricing/widgets/price-menu.php:884
+#: modules/pricing/widgets/price-menu.php:565
+#: modules/pricing/widgets/price-menu.php:794
+#: modules/pricing/widgets/price-menu.php:885
 #: modules/pricing/widgets/pricing-table.php:1454
 #: modules/pricing/widgets/pricing-table.php:1493
 #: modules/pricing/widgets/pricing-table.php:1546
@@ -2056,17 +2056,17 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:943
 #: modules/hotspots/widgets/hotspots.php:1057
 #: modules/icon-list/widgets/icon-list.php:723
-#: modules/image-accordion/widgets/image-accordion.php:552
-#: modules/image-accordion/widgets/image-accordion.php:651
-#: modules/image-accordion/widgets/image-accordion.php:968
+#: modules/image-accordion/widgets/image-accordion.php:571
+#: modules/image-accordion/widgets/image-accordion.php:670
+#: modules/image-accordion/widgets/image-accordion.php:987
 #: modules/image-comparison/widgets/image-comparison.php:559
 #: modules/image-comparison/widgets/image-comparison.php:851
 #: modules/image-comparison/widgets/image-comparison.php:907
-#: modules/info-box/widgets/info-box-carousel.php:1091
-#: modules/info-box/widgets/info-box-carousel.php:1200
-#: modules/info-box/widgets/info-box-carousel.php:1897
-#: modules/info-box/widgets/info-box-carousel.php:2197
-#: modules/info-box/widgets/info-box-carousel.php:2410
+#: modules/info-box/widgets/info-box-carousel.php:1106
+#: modules/info-box/widgets/info-box-carousel.php:1269
+#: modules/info-box/widgets/info-box-carousel.php:1966
+#: modules/info-box/widgets/info-box-carousel.php:2266
+#: modules/info-box/widgets/info-box-carousel.php:2479
 #: modules/info-box/widgets/info-box.php:872
 #: modules/info-box/widgets/info-box.php:922
 #: modules/info-box/widgets/info-box.php:1036
@@ -2075,8 +2075,8 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1266
 #: modules/info-table/widgets/info-table.php:489
 #: modules/info-table/widgets/info-table.php:537
-#: modules/info-table/widgets/info-table.php:903
-#: modules/info-table/widgets/info-table.php:1217
+#: modules/info-table/widgets/info-table.php:920
+#: modules/info-table/widgets/info-table.php:1234
 #: modules/instafeed/widgets/instafeed.php:1045
 #: modules/instafeed/widgets/instafeed.php:1517
 #: modules/instafeed/widgets/instafeed.php:1583
@@ -2099,8 +2099,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3267
 #: modules/posts/skins/skin-base.php:3488
 #: modules/posts/skins/skin-base.php:3737
-#: modules/pricing/widgets/price-menu.php:449
-#: modules/pricing/widgets/price-menu.php:994
+#: modules/pricing/widgets/price-menu.php:450
+#: modules/pricing/widgets/price-menu.php:995
 #: modules/pricing/widgets/pricing-table.php:1250
 #: modules/pricing/widgets/pricing-table.php:1404
 #: modules/pricing/widgets/pricing-table.php:1583
@@ -2175,17 +2175,17 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:953
 #: modules/hotspots/widgets/hotspots.php:1067
 #: modules/icon-list/widgets/icon-list.php:733
-#: modules/image-accordion/widgets/image-accordion.php:560
-#: modules/image-accordion/widgets/image-accordion.php:660
-#: modules/image-accordion/widgets/image-accordion.php:978
+#: modules/image-accordion/widgets/image-accordion.php:579
+#: modules/image-accordion/widgets/image-accordion.php:679
+#: modules/image-accordion/widgets/image-accordion.php:997
 #: modules/image-comparison/widgets/image-comparison.php:570
 #: modules/image-comparison/widgets/image-comparison.php:861
 #: modules/image-comparison/widgets/image-comparison.php:917
-#: modules/info-box/widgets/info-box-carousel.php:1102
-#: modules/info-box/widgets/info-box-carousel.php:1210
-#: modules/info-box/widgets/info-box-carousel.php:1907
-#: modules/info-box/widgets/info-box-carousel.php:2207
-#: modules/info-box/widgets/info-box-carousel.php:2424
+#: modules/info-box/widgets/info-box-carousel.php:1117
+#: modules/info-box/widgets/info-box-carousel.php:1279
+#: modules/info-box/widgets/info-box-carousel.php:1976
+#: modules/info-box/widgets/info-box-carousel.php:2276
+#: modules/info-box/widgets/info-box-carousel.php:2493
 #: modules/info-box/widgets/info-box.php:882
 #: modules/info-box/widgets/info-box.php:932
 #: modules/info-box/widgets/info-box.php:1049
@@ -2194,9 +2194,9 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1276
 #: modules/info-table/widgets/info-table.php:498
 #: modules/info-table/widgets/info-table.php:546
-#: modules/info-table/widgets/info-table.php:916
-#: modules/info-table/widgets/info-table.php:1231
-#: modules/info-table/widgets/info-table.php:1570
+#: modules/info-table/widgets/info-table.php:933
+#: modules/info-table/widgets/info-table.php:1248
+#: modules/info-table/widgets/info-table.php:1587
 #: modules/instafeed/widgets/instafeed.php:1055
 #: modules/instafeed/widgets/instafeed.php:1527
 #: modules/instafeed/widgets/instafeed.php:1593
@@ -2219,8 +2219,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3281
 #: modules/posts/skins/skin-base.php:3502
 #: modules/posts/skins/skin-base.php:3751
-#: modules/pricing/widgets/price-menu.php:459
-#: modules/pricing/widgets/price-menu.php:1004
+#: modules/pricing/widgets/price-menu.php:460
+#: modules/pricing/widgets/price-menu.php:1005
 #: modules/pricing/widgets/pricing-table.php:1417
 #: modules/pricing/widgets/pricing-table.php:1593
 #: modules/pricing/widgets/pricing-table.php:2320
@@ -2290,14 +2290,14 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:1079
 #: modules/icon-list/widgets/icon-list.php:426
 #: modules/icon-list/widgets/icon-list.php:745
-#: modules/image-accordion/widgets/image-accordion.php:787
-#: modules/image-accordion/widgets/image-accordion.php:1002
+#: modules/image-accordion/widgets/image-accordion.php:806
+#: modules/image-accordion/widgets/image-accordion.php:1021
 #: modules/image-comparison/widgets/image-comparison.php:933
-#: modules/info-box/widgets/info-box-carousel.php:1114
-#: modules/info-box/widgets/info-box-carousel.php:1241
-#: modules/info-box/widgets/info-box-carousel.php:1788
-#: modules/info-box/widgets/info-box-carousel.php:1931
-#: modules/info-box/widgets/info-box-carousel.php:2268
+#: modules/info-box/widgets/info-box-carousel.php:1129
+#: modules/info-box/widgets/info-box-carousel.php:1310
+#: modules/info-box/widgets/info-box-carousel.php:1857
+#: modules/info-box/widgets/info-box-carousel.php:2000
+#: modules/info-box/widgets/info-box-carousel.php:2337
 #: modules/info-box/widgets/info-box.php:840
 #: modules/info-box/widgets/info-box.php:1076
 #: modules/info-box/widgets/info-box.php:1206
@@ -2306,9 +2306,9 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1300
 #: modules/info-table/widgets/info-table.php:568
 #: modules/info-table/widgets/info-table.php:631
-#: modules/info-table/widgets/info-table.php:1094
-#: modules/info-table/widgets/info-table.php:1263
-#: modules/info-table/widgets/info-table.php:1478
+#: modules/info-table/widgets/info-table.php:1111
+#: modules/info-table/widgets/info-table.php:1280
+#: modules/info-table/widgets/info-table.php:1495
 #: modules/instafeed/widgets/instafeed.php:1250
 #: modules/instafeed/widgets/instafeed.php:1609
 #: modules/instafeed/widgets/instafeed.php:1884
@@ -2327,9 +2327,9 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2973
 #: modules/posts/skins/skin-base.php:3362
 #: modules/posts/skins/skin-base.php:3767
-#: modules/pricing/widgets/price-menu.php:436
-#: modules/pricing/widgets/price-menu.php:498
-#: modules/pricing/widgets/price-menu.php:981
+#: modules/pricing/widgets/price-menu.php:437
+#: modules/pricing/widgets/price-menu.php:499
+#: modules/pricing/widgets/price-menu.php:982
 #: modules/pricing/widgets/pricing-table.php:1263
 #: modules/pricing/widgets/pricing-table.php:1388
 #: modules/pricing/widgets/pricing-table.php:1641
@@ -2388,9 +2388,9 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:305
 #: modules/icon-list/widgets/icon-list.php:253
 #: modules/image-accordion/widgets/image-accordion.php:189
-#: modules/image-accordion/widgets/image-accordion.php:206
-#: modules/info-box/widgets/info-box-carousel.php:297
-#: modules/info-box/widgets/info-box-carousel.php:318
+#: modules/image-accordion/widgets/image-accordion.php:222
+#: modules/info-box/widgets/info-box-carousel.php:312
+#: modules/info-box/widgets/info-box-carousel.php:333
 #: modules/info-box/widgets/info-box.php:507
 #: modules/info-box/widgets/info-box.php:530
 #: modules/info-list/widgets/info-list.php:299
@@ -2530,7 +2530,7 @@ msgstr ""
 
 #: includes/controls/groups/transition.php:58
 #: modules/content-ticker/widgets/content-ticker.php:854
-#: modules/posts/widgets/posts-base.php:400
+#: modules/posts/widgets/posts-base.php:433
 msgid "All"
 msgstr ""
 
@@ -2546,10 +2546,6 @@ msgstr ""
 
 #: includes/helper-functions.php:355
 msgid "Flipbox"
-msgstr ""
-
-#: includes/helper-functions.php:363
-msgid "Businsess Hours"
 msgstr ""
 
 #: includes/helper-functions.php:407 modules/wpforms/widgets/wpforms.php:77
@@ -2579,8 +2575,8 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1155
 #: modules/icon-list/widgets/icon-list.php:159
 #: modules/image-accordion/widgets/image-accordion.php:140
-#: modules/image-accordion/widgets/image-accordion.php:630
-#: modules/info-box/widgets/info-box-carousel.php:176
+#: modules/image-accordion/widgets/image-accordion.php:649
+#: modules/info-box/widgets/info-box-carousel.php:191
 #: modules/info-box/widgets/info-box.php:396
 #: modules/info-box/widgets/info-box.php:1168
 #: modules/info-list/widgets/info-list.php:939
@@ -2593,7 +2589,7 @@ msgstr ""
 #: modules/interactive-circle/widgets/interactive-circle.php:1198
 #: modules/logos/widgets/logo-grid.php:128
 #: modules/posts/skins/skin-base.php:813 modules/posts/skins/skin-base.php:2633
-#: modules/pricing/widgets/price-menu.php:487
+#: modules/pricing/widgets/price-menu.php:488
 #: modules/pricing/widgets/pricing-table.php:459
 #: modules/promo-box/widgets/promo-box.php:136
 #: modules/promo-box/widgets/promo-box.php:581
@@ -2629,11 +2625,11 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:212
 #: modules/gravity-forms/widgets/gravity-forms.php:407
 #: modules/image-accordion/widgets/image-accordion.php:145
-#: modules/image-accordion/widgets/image-accordion.php:799
-#: modules/info-box/widgets/info-box-carousel.php:181
-#: modules/info-box/widgets/info-box-carousel.php:186
-#: modules/info-box/widgets/info-box-carousel.php:309
-#: modules/info-box/widgets/info-box-carousel.php:1416
+#: modules/image-accordion/widgets/image-accordion.php:818
+#: modules/info-box/widgets/info-box-carousel.php:196
+#: modules/info-box/widgets/info-box-carousel.php:201
+#: modules/info-box/widgets/info-box-carousel.php:324
+#: modules/info-box/widgets/info-box-carousel.php:1485
 #: modules/info-box/widgets/info-box.php:403
 #: modules/info-box/widgets/info-box.php:408
 #: modules/info-box/widgets/info-box.php:521
@@ -2656,11 +2652,11 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:339
 #: modules/posts/skins/skin-base.php:722 modules/posts/skins/skin-base.php:1572
 #: modules/posts/skins/skin-base.php:2192
-#: modules/posts/widgets/posts-base.php:477
+#: modules/posts/widgets/posts-base.php:510
 #: modules/pricing/widgets/price-menu.php:120
 #: modules/pricing/widgets/price-menu.php:126
 #: modules/pricing/widgets/price-menu.php:127
-#: modules/pricing/widgets/price-menu.php:520
+#: modules/pricing/widgets/price-menu.php:521
 #: modules/pricing/widgets/pricing-table.php:253
 #: modules/pricing/widgets/pricing-table.php:258
 #: modules/pricing/widgets/pricing-table.php:949
@@ -2699,10 +2695,10 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:204
 #: modules/image-accordion/widgets/image-accordion.php:161
-#: modules/image-accordion/widgets/image-accordion.php:276
-#: modules/image-accordion/widgets/image-accordion.php:283
-#: modules/image-accordion/widgets/image-accordion.php:290
-#: modules/image-accordion/widgets/image-accordion.php:297
+#: modules/image-accordion/widgets/image-accordion.php:295
+#: modules/image-accordion/widgets/image-accordion.php:302
+#: modules/image-accordion/widgets/image-accordion.php:309
+#: modules/image-accordion/widgets/image-accordion.php:316
 msgid ""
 "Click edit button to change this text. Lorem ipsum dolor sit amet, "
 "consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, "
@@ -2714,8 +2710,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:207
 #: modules/hotspots/widgets/hotspots.php:165
 #: modules/icon-list/widgets/icon-list.php:318
-#: modules/image-accordion/widgets/image-accordion.php:379
-#: modules/info-box/widgets/info-box-carousel.php:540
+#: modules/image-accordion/widgets/image-accordion.php:398
+#: modules/info-box/widgets/info-box-carousel.php:555
 #: modules/info-list/widgets/info-list.php:345
 #: modules/interactive-circle/widgets/interactive-circle.php:269
 #: modules/logos/widgets/logo-carousel.php:233
@@ -2774,11 +2770,11 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:186
 #: modules/icon-list/widgets/icon-list.php:205
 #: modules/icon-list/widgets/icon-list.php:554
-#: modules/image-accordion/widgets/image-accordion.php:1087
-#: modules/info-box/widgets/info-box-carousel.php:216
-#: modules/info-box/widgets/info-box-carousel.php:230
-#: modules/info-box/widgets/info-box-carousel.php:249
-#: modules/info-box/widgets/info-box-carousel.php:1135
+#: modules/image-accordion/widgets/image-accordion.php:1106
+#: modules/info-box/widgets/info-box-carousel.php:231
+#: modules/info-box/widgets/info-box-carousel.php:245
+#: modules/info-box/widgets/info-box-carousel.php:264
+#: modules/info-box/widgets/info-box-carousel.php:1150
 #: modules/info-box/widgets/info-box.php:142
 #: modules/info-box/widgets/info-box.php:158
 #: modules/info-box/widgets/info-box.php:177
@@ -2870,7 +2866,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:312
 #: modules/hotspots/widgets/hotspots.php:329
 #: modules/image-comparison/widgets/image-comparison.php:296
-#: modules/info-box/widgets/info-box-carousel.php:827
+#: modules/info-box/widgets/info-box-carousel.php:842
 #: modules/info-list/widgets/info-list.php:992
 #: modules/info-table/widgets/info-table.php:287
 #: modules/instafeed/widgets/instafeed.php:452
@@ -2924,7 +2920,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:313
 #: modules/hotspots/widgets/hotspots.php:330
 #: modules/image-comparison/widgets/image-comparison.php:297
-#: modules/info-box/widgets/info-box-carousel.php:828
+#: modules/info-box/widgets/info-box-carousel.php:843
 #: modules/info-list/widgets/info-list.php:991
 #: modules/info-table/widgets/info-table.php:291
 #: modules/instafeed/widgets/instafeed.php:453
@@ -2964,7 +2960,7 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:508
 #: modules/content-reveal/widgets/content-reveal.php:186
 #: modules/flipbox/widgets/flipbox.php:507
-#: modules/image-accordion/widgets/image-accordion.php:327
+#: modules/image-accordion/widgets/image-accordion.php:346
 #: modules/image-comparison/widgets/image-comparison.php:244
 #: modules/scroll-image/widgets/scroll-image.php:233
 #: modules/team-member/widgets/team-member.php:499
@@ -2985,8 +2981,8 @@ msgstr ""
 #: modules/counter/widgets/counter.php:367
 #: modules/flipbox/widgets/flipbox.php:250
 #: modules/flipbox/widgets/flipbox.php:399
-#: modules/image-accordion/widgets/image-accordion.php:357
-#: modules/info-box/widgets/info-box-carousel.php:560
+#: modules/image-accordion/widgets/image-accordion.php:376
+#: modules/info-box/widgets/info-box-carousel.php:575
 #: modules/info-box/widgets/info-box.php:451
 #: modules/info-list/widgets/info-list.php:354
 #: modules/info-table/widgets/info-table.php:226
@@ -3025,9 +3021,9 @@ msgstr ""
 #: modules/headings/widgets/fancy-heading.php:227
 #: modules/hotspots/widgets/hotspots.php:753
 #: modules/icon-list/widgets/icon-list.php:355
-#: modules/image-accordion/widgets/image-accordion.php:465
+#: modules/image-accordion/widgets/image-accordion.php:484
 #: modules/image-comparison/widgets/image-comparison.php:320
-#: modules/info-box/widgets/info-box-carousel.php:931
+#: modules/info-box/widgets/info-box-carousel.php:946
 #: modules/info-box/widgets/info-box.php:773
 #: modules/info-list/widgets/info-list.php:416
 #: modules/info-table/widgets/info-table.php:404
@@ -3036,7 +3032,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:552
 #: modules/logos/widgets/logo-grid.php:503
 #: modules/posts/skins/skin-base.php:1713
-#: modules/pricing/widgets/price-menu.php:364
+#: modules/pricing/widgets/price-menu.php:365
 #: modules/pricing/widgets/pricing-table.php:1151
 #: modules/progress-bar/widgets/progress-bar.php:686
 #: modules/promo-box/widgets/promo-box.php:427
@@ -3055,7 +3051,7 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:619
 #: modules/icon-list/widgets/icon-list.php:293
 #: modules/image-accordion/widgets/image-accordion.php:132
-#: modules/image-accordion/widgets/image-accordion.php:496
+#: modules/image-accordion/widgets/image-accordion.php:515
 #: modules/interactive-circle/widgets/interactive-circle.php:284
 msgid "Items"
 msgstr ""
@@ -3091,22 +3087,22 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1776
 #: modules/icon-list/widgets/icon-list.php:618
 #: modules/icon-list/widgets/icon-list.php:835
-#: modules/image-accordion/widgets/image-accordion.php:532
-#: modules/image-accordion/widgets/image-accordion.php:935
+#: modules/image-accordion/widgets/image-accordion.php:551
+#: modules/image-accordion/widgets/image-accordion.php:954
 #: modules/image-comparison/widgets/image-comparison.php:366
 #: modules/image-comparison/widgets/image-comparison.php:529
-#: modules/info-box/widgets/info-box-carousel.php:1164
-#: modules/info-box/widgets/info-box-carousel.php:1861
-#: modules/info-box/widgets/info-box-carousel.php:2165
-#: modules/info-box/widgets/info-box-carousel.php:2366
+#: modules/info-box/widgets/info-box-carousel.php:1233
+#: modules/info-box/widgets/info-box-carousel.php:1930
+#: modules/info-box/widgets/info-box-carousel.php:2234
+#: modules/info-box/widgets/info-box-carousel.php:2435
 #: modules/info-box/widgets/info-box.php:854
 #: modules/info-box/widgets/info-box.php:997
 #: modules/info-box/widgets/info-box.php:1784
 #: modules/info-list/widgets/info-list.php:705
 #: modules/info-list/widgets/info-list.php:1230
 #: modules/info-table/widgets/info-table.php:473
-#: modules/info-table/widgets/info-table.php:864
-#: modules/info-table/widgets/info-table.php:1172
+#: modules/info-table/widgets/info-table.php:881
+#: modules/info-table/widgets/info-table.php:1189
 #: modules/instafeed/widgets/instafeed.php:1025
 #: modules/instafeed/widgets/instafeed.php:1284
 #: modules/instafeed/widgets/instafeed.php:1311
@@ -3153,10 +3149,10 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:657
 #: modules/gravity-forms/widgets/gravity-forms.php:1036
-#: modules/info-box/widgets/info-box-carousel.php:1594
+#: modules/info-box/widgets/info-box-carousel.php:1663
 #: modules/info-box/widgets/info-box.php:1456
 #: modules/logos/widgets/logo-grid.php:221
-#: modules/pricing/widgets/price-menu.php:612
+#: modules/pricing/widgets/price-menu.php:613
 #: modules/promo-box/widgets/promo-box.php:1038
 #: modules/promo-box/widgets/promo-box.php:1271
 msgid "Border Type"
@@ -3174,10 +3170,10 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:423
 #: modules/gravity-forms/widgets/gravity-forms.php:1040
 #: modules/icon-list/widgets/icon-list.php:182
-#: modules/image-accordion/widgets/image-accordion.php:424
-#: modules/info-box/widgets/info-box-carousel.php:226
-#: modules/info-box/widgets/info-box-carousel.php:306
-#: modules/info-box/widgets/info-box-carousel.php:1598
+#: modules/image-accordion/widgets/image-accordion.php:443
+#: modules/info-box/widgets/info-box-carousel.php:241
+#: modules/info-box/widgets/info-box-carousel.php:321
+#: modules/info-box/widgets/info-box-carousel.php:1667
 #: modules/info-box/widgets/info-box.php:154
 #: modules/info-box/widgets/info-box.php:518
 #: modules/info-box/widgets/info-box.php:1460
@@ -3192,8 +3188,8 @@ msgstr ""
 #: modules/interactive-circle/widgets/interactive-circle.php:684
 #: modules/logos/widgets/logo-grid.php:225
 #: modules/posts/skins/skin-base.php:686 modules/posts/skins/skin-base.php:1357
-#: modules/posts/widgets/posts-base.php:381
-#: modules/pricing/widgets/price-menu.php:616
+#: modules/posts/widgets/posts-base.php:414
+#: modules/pricing/widgets/price-menu.php:617
 #: modules/pricing/widgets/pricing-table.php:192
 #: modules/pricing/widgets/pricing-table.php:337
 #: modules/pricing/widgets/pricing-table.php:1089
@@ -3215,13 +3211,13 @@ msgstr ""
 #: modules/divider/widgets/divider.php:268
 #: modules/gravity-forms/widgets/gravity-forms.php:1041
 #: modules/icon-list/widgets/icon-list.php:482
-#: modules/info-box/widgets/info-box-carousel.php:1599
+#: modules/info-box/widgets/info-box-carousel.php:1668
 #: modules/info-box/widgets/info-box.php:1461
 #: modules/info-list/widgets/info-list.php:566
 #: modules/info-list/widgets/info-list.php:1023
 #: modules/logos/widgets/logo-grid.php:226
-#: modules/pricing/widgets/price-menu.php:617
-#: modules/pricing/widgets/price-menu.php:1105
+#: modules/pricing/widgets/price-menu.php:618
+#: modules/pricing/widgets/price-menu.php:1106
 #: modules/progress-bar/widgets/progress-bar.php:553
 #: modules/promo-box/widgets/promo-box.php:1042
 #: modules/promo-box/widgets/promo-box.php:1275
@@ -3240,13 +3236,13 @@ msgstr ""
 #: modules/divider/widgets/divider.php:271
 #: modules/gravity-forms/widgets/gravity-forms.php:1042
 #: modules/icon-list/widgets/icon-list.php:483
-#: modules/info-box/widgets/info-box-carousel.php:1600
+#: modules/info-box/widgets/info-box-carousel.php:1669
 #: modules/info-box/widgets/info-box.php:1462
 #: modules/info-list/widgets/info-list.php:567
 #: modules/info-list/widgets/info-list.php:1024
 #: modules/logos/widgets/logo-grid.php:227
-#: modules/pricing/widgets/price-menu.php:618
-#: modules/pricing/widgets/price-menu.php:1108
+#: modules/pricing/widgets/price-menu.php:619
+#: modules/pricing/widgets/price-menu.php:1109
 #: modules/promo-box/widgets/promo-box.php:1043
 #: modules/promo-box/widgets/promo-box.php:1276
 #: modules/team-member/widgets/team-member-carousel.php:1483
@@ -3265,13 +3261,13 @@ msgstr ""
 #: modules/divider/widgets/divider.php:270
 #: modules/gravity-forms/widgets/gravity-forms.php:1043
 #: modules/icon-list/widgets/icon-list.php:484
-#: modules/info-box/widgets/info-box-carousel.php:1601
+#: modules/info-box/widgets/info-box-carousel.php:1670
 #: modules/info-box/widgets/info-box.php:1463
 #: modules/info-list/widgets/info-list.php:568
 #: modules/info-list/widgets/info-list.php:1025
 #: modules/logos/widgets/logo-grid.php:228
-#: modules/pricing/widgets/price-menu.php:619
-#: modules/pricing/widgets/price-menu.php:1107
+#: modules/pricing/widgets/price-menu.php:620
+#: modules/pricing/widgets/price-menu.php:1108
 #: modules/promo-box/widgets/promo-box.php:1044
 #: modules/promo-box/widgets/promo-box.php:1277
 #: modules/team-member/widgets/team-member-carousel.php:1481
@@ -3288,11 +3284,11 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:966
 #: modules/formidable-forms/widgets/formidable-forms.php:1126
 #: modules/gravity-forms/widgets/gravity-forms.php:1285
-#: modules/info-box/widgets/info-box-carousel.php:1616
+#: modules/info-box/widgets/info-box-carousel.php:1685
 #: modules/info-box/widgets/info-box.php:1478
 #: modules/logos/widgets/logo-grid.php:244
 #: modules/ninja-forms/widgets/ninja-forms.php:952
-#: modules/pricing/widgets/price-menu.php:659
+#: modules/pricing/widgets/price-menu.php:660
 #: modules/progress-bar/widgets/progress-bar.php:822
 #: modules/wpforms/widgets/wpforms.php:1006
 msgid "Border Width"
@@ -3323,21 +3319,21 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1916
 #: modules/hotspots/widgets/hotspots.php:425
 #: modules/icon-list/widgets/icon-list.php:791
-#: modules/image-accordion/widgets/image-accordion.php:602
-#: modules/image-accordion/widgets/image-accordion.php:1056
+#: modules/image-accordion/widgets/image-accordion.php:621
+#: modules/image-accordion/widgets/image-accordion.php:1075
 #: modules/image-comparison/widgets/image-comparison.php:621
-#: modules/info-box/widgets/info-box-carousel.php:1312
-#: modules/info-box/widgets/info-box-carousel.php:1671
-#: modules/info-box/widgets/info-box-carousel.php:2018
-#: modules/info-box/widgets/info-box-carousel.php:2252
-#: modules/info-box/widgets/info-box-carousel.php:2492
+#: modules/info-box/widgets/info-box-carousel.php:1381
+#: modules/info-box/widgets/info-box-carousel.php:1740
+#: modules/info-box/widgets/info-box-carousel.php:2087
+#: modules/info-box/widgets/info-box-carousel.php:2321
+#: modules/info-box/widgets/info-box-carousel.php:2561
 #: modules/info-box/widgets/info-box.php:1128
 #: modules/info-box/widgets/info-box.php:1535
 #: modules/info-box/widgets/info-box.php:1999
 #: modules/info-list/widgets/info-list.php:884
 #: modules/info-list/widgets/info-list.php:1380
-#: modules/info-table/widgets/info-table.php:1007
-#: modules/info-table/widgets/info-table.php:1371
+#: modules/info-table/widgets/info-table.php:1024
+#: modules/info-table/widgets/info-table.php:1388
 #: modules/instafeed/widgets/instafeed.php:1088
 #: modules/instafeed/widgets/instafeed.php:1868
 #: modules/instafeed/widgets/instafeed.php:2120
@@ -3359,7 +3355,7 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3615
 #: modules/posts/skins/skin-base.php:3839
 #: modules/posts/skins/skin-base.php:3910
-#: modules/pricing/widgets/price-menu.php:685
+#: modules/pricing/widgets/price-menu.php:686
 #: modules/promo-box/widgets/promo-box.php:1116
 #: modules/promo-box/widgets/promo-box.php:1349
 #: modules/promo-box/widgets/promo-box.php:1610
@@ -3396,22 +3392,22 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:546
 #: modules/icon-list/widgets/icon-list.php:759
 #: modules/icon-list/widgets/icon-list.php:883
-#: modules/image-accordion/widgets/image-accordion.php:582
-#: modules/image-accordion/widgets/image-accordion.php:1024
+#: modules/image-accordion/widgets/image-accordion.php:601
+#: modules/image-accordion/widgets/image-accordion.php:1043
 #: modules/image-comparison/widgets/image-comparison.php:387
 #: modules/image-comparison/widgets/image-comparison.php:592
-#: modules/info-box/widgets/info-box-carousel.php:1280
-#: modules/info-box/widgets/info-box-carousel.php:1986
-#: modules/info-box/widgets/info-box-carousel.php:2221
-#: modules/info-box/widgets/info-box-carousel.php:2465
+#: modules/info-box/widgets/info-box-carousel.php:1349
+#: modules/info-box/widgets/info-box-carousel.php:2055
+#: modules/info-box/widgets/info-box-carousel.php:2290
+#: modules/info-box/widgets/info-box-carousel.php:2534
 #: modules/info-box/widgets/info-box.php:904
 #: modules/info-box/widgets/info-box.php:1090
 #: modules/info-box/widgets/info-box.php:1958
 #: modules/info-list/widgets/info-list.php:849
 #: modules/info-list/widgets/info-list.php:1349
 #: modules/info-table/widgets/info-table.php:521
-#: modules/info-table/widgets/info-table.php:969
-#: modules/info-table/widgets/info-table.php:1327
+#: modules/info-table/widgets/info-table.php:986
+#: modules/info-table/widgets/info-table.php:1344
 #: modules/instafeed/widgets/instafeed.php:1069
 #: modules/instafeed/widgets/instafeed.php:1370
 #: modules/instafeed/widgets/instafeed.php:1541
@@ -3552,19 +3548,19 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:1017
 #: modules/icon-list/widgets/icon-list.php:842
 #: modules/icon-list/widgets/icon-list.php:890
-#: modules/image-accordion/widgets/image-accordion.php:954
-#: modules/image-accordion/widgets/image-accordion.php:1043
+#: modules/image-accordion/widgets/image-accordion.php:973
+#: modules/image-accordion/widgets/image-accordion.php:1062
 #: modules/image-comparison/widgets/image-comparison.php:826
 #: modules/image-comparison/widgets/image-comparison.php:882
-#: modules/info-box/widgets/info-box-carousel.php:1868
-#: modules/info-box/widgets/info-box-carousel.php:1993
-#: modules/info-box/widgets/info-box-carousel.php:2532
+#: modules/info-box/widgets/info-box-carousel.php:1937
+#: modules/info-box/widgets/info-box-carousel.php:2062
+#: modules/info-box/widgets/info-box-carousel.php:2601
 #: modules/info-box/widgets/info-box.php:1794
 #: modules/info-box/widgets/info-box.php:1968
 #: modules/info-list/widgets/info-list.php:1252
 #: modules/info-list/widgets/info-list.php:1368
-#: modules/info-table/widgets/info-table.php:1199
-#: modules/info-table/widgets/info-table.php:1354
+#: modules/info-table/widgets/info-table.php:1216
+#: modules/info-table/widgets/info-table.php:1371
 #: modules/instafeed/widgets/instafeed.php:1485
 #: modules/instafeed/widgets/instafeed.php:1551
 #: modules/instafeed/widgets/instafeed.php:2162
@@ -3591,7 +3587,7 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:2720
 #: modules/posts/skins/skin-base.php:2914
 #: modules/posts/skins/skin-base.php:3061
-#: modules/pricing/widgets/price-menu.php:744
+#: modules/pricing/widgets/price-menu.php:745
 #: modules/pricing/widgets/pricing-table.php:552
 #: modules/pricing/widgets/pricing-table.php:1768
 #: modules/pricing/widgets/pricing-table.php:1826
@@ -3695,17 +3691,17 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:779
 #: modules/icon-list/widgets/icon-list.php:857
 #: modules/icon-list/widgets/icon-list.php:902
-#: modules/image-accordion/widgets/image-accordion.php:638
-#: modules/image-accordion/widgets/image-accordion.php:942
-#: modules/image-accordion/widgets/image-accordion.php:1031
+#: modules/image-accordion/widgets/image-accordion.php:657
+#: modules/image-accordion/widgets/image-accordion.php:961
+#: modules/image-accordion/widgets/image-accordion.php:1050
 #: modules/image-comparison/widgets/image-comparison.php:838
 #: modules/image-comparison/widgets/image-comparison.php:894
-#: modules/info-box/widgets/info-box-carousel.php:1187
-#: modules/info-box/widgets/info-box-carousel.php:1300
-#: modules/info-box/widgets/info-box-carousel.php:1881
-#: modules/info-box/widgets/info-box-carousel.php:2006
-#: modules/info-box/widgets/info-box-carousel.php:2172
-#: modules/info-box/widgets/info-box-carousel.php:2228
+#: modules/info-box/widgets/info-box-carousel.php:1256
+#: modules/info-box/widgets/info-box-carousel.php:1369
+#: modules/info-box/widgets/info-box-carousel.php:1950
+#: modules/info-box/widgets/info-box-carousel.php:2075
+#: modules/info-box/widgets/info-box-carousel.php:2241
+#: modules/info-box/widgets/info-box-carousel.php:2297
 #: modules/info-box/widgets/info-box.php:1023
 #: modules/info-box/widgets/info-box.php:1113
 #: modules/info-box/widgets/info-box.php:1810
@@ -3715,12 +3711,12 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1237
 #: modules/info-list/widgets/info-list.php:1356
 #: modules/info-table/widgets/info-table.php:594
-#: modules/info-table/widgets/info-table.php:890
-#: modules/info-table/widgets/info-table.php:992
-#: modules/info-table/widgets/info-table.php:1050
-#: modules/info-table/widgets/info-table.php:1183
-#: modules/info-table/widgets/info-table.php:1338
-#: modules/info-table/widgets/info-table.php:1429
+#: modules/info-table/widgets/info-table.php:907
+#: modules/info-table/widgets/info-table.php:1009
+#: modules/info-table/widgets/info-table.php:1067
+#: modules/info-table/widgets/info-table.php:1200
+#: modules/info-table/widgets/info-table.php:1355
+#: modules/info-table/widgets/info-table.php:1446
 #: modules/instafeed/widgets/instafeed.php:1501
 #: modules/instafeed/widgets/instafeed.php:1567
 #: modules/instafeed/widgets/instafeed.php:1788
@@ -3752,9 +3748,9 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:3705
 #: modules/posts/skins/skin-base.php:3808
 #: modules/posts/skins/skin-base.php:3879
-#: modules/pricing/widgets/price-menu.php:405
-#: modules/pricing/widgets/price-menu.php:759
-#: modules/pricing/widgets/price-menu.php:929
+#: modules/pricing/widgets/price-menu.php:406
+#: modules/pricing/widgets/price-menu.php:760
+#: modules/pricing/widgets/price-menu.php:930
 #: modules/pricing/widgets/pricing-table.php:565
 #: modules/pricing/widgets/pricing-table.php:1234
 #: modules/pricing/widgets/pricing-table.php:1341
@@ -3797,9 +3793,9 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1267
 #: modules/icon-list/widgets/icon-list.php:270
 #: modules/image-comparison/widgets/image-comparison.php:450
-#: modules/info-box/widgets/info-box-carousel.php:1143
+#: modules/info-box/widgets/info-box-carousel.php:1212
 #: modules/info-box/widgets/info-box.php:1911
-#: modules/info-table/widgets/info-table.php:780
+#: modules/info-table/widgets/info-table.php:797
 #: modules/interactive-circle/widgets/interactive-circle.php:771
 #: modules/interactive-circle/widgets/interactive-circle.php:1097
 #: modules/promo-box/widgets/promo-box.php:733
@@ -3810,7 +3806,7 @@ msgid "Icon Size"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1062
-#: modules/image-accordion/widgets/image-accordion.php:1096
+#: modules/image-accordion/widgets/image-accordion.php:1115
 #: modules/info-box/widgets/info-box.php:690
 #: modules/posts/skins/skin-base.php:3012
 #: modules/pricing/widgets/pricing-table.php:2413
@@ -3836,7 +3832,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:463
 #: modules/icon-list/widgets/icon-list.php:584
 #: modules/logos/widgets/logo-carousel.php:638
-#: modules/pricing/widgets/price-menu.php:1066
+#: modules/pricing/widgets/price-menu.php:1067
 #: modules/promo-box/widgets/promo-box.php:616
 msgid "Vertical Alignment"
 msgstr ""
@@ -3851,8 +3847,9 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:343
 #: modules/hotspots/widgets/hotspots.php:577
 #: modules/icon-list/widgets/icon-list.php:590
-#: modules/image-accordion/widgets/image-accordion.php:677
+#: modules/image-accordion/widgets/image-accordion.php:696
 #: modules/image-comparison/widgets/image-comparison.php:714
+#: modules/info-box/widgets/info-box-carousel.php:1182
 #: modules/info-box/widgets/info-box.php:349
 #: modules/info-list/widgets/info-list.php:496
 #: modules/info-list/widgets/info-list.php:642
@@ -3862,8 +3859,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:402
 #: modules/posts/skins/skin-base.php:1393
 #: modules/posts/skins/skin-base.php:1395
-#: modules/pricing/widgets/price-menu.php:1021
-#: modules/pricing/widgets/price-menu.php:1071
+#: modules/pricing/widgets/price-menu.php:1022
+#: modules/pricing/widgets/price-menu.php:1072
 #: modules/pricing/widgets/pricing-table.php:676
 #: modules/pricing/widgets/pricing-table.php:1718
 #: modules/promo-box/widgets/promo-box.php:622
@@ -3907,11 +3904,11 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:823
 #: modules/icon-list/widgets/icon-list.php:446
 #: modules/icon-list/widgets/icon-list.php:594
-#: modules/image-accordion/widgets/image-accordion.php:713
-#: modules/image-accordion/widgets/image-accordion.php:746
+#: modules/image-accordion/widgets/image-accordion.php:732
+#: modules/image-accordion/widgets/image-accordion.php:765
 #: modules/image-comparison/widgets/image-comparison.php:753
-#: modules/info-box/widgets/info-box-carousel.php:983
-#: modules/info-box/widgets/info-box-carousel.php:1694
+#: modules/info-box/widgets/info-box-carousel.php:998
+#: modules/info-box/widgets/info-box-carousel.php:1763
 #: modules/info-box/widgets/info-box.php:1184
 #: modules/info-box/widgets/info-box.php:1562
 #: modules/info-list/widgets/info-list.php:646
@@ -3933,8 +3930,8 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1490
 #: modules/posts/skins/skin-base.php:1980
 #: modules/posts/skins/skin-base.php:2311
-#: modules/pricing/widgets/price-menu.php:299
-#: modules/pricing/widgets/price-menu.php:1075
+#: modules/pricing/widgets/price-menu.php:300
+#: modules/pricing/widgets/price-menu.php:1076
 #: modules/pricing/widgets/pricing-table.php:1202
 #: modules/pricing/widgets/pricing-table.php:1888
 #: modules/progress-bar/widgets/progress-bar.php:268
@@ -3966,8 +3963,9 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:344
 #: modules/hotspots/widgets/hotspots.php:578
 #: modules/icon-list/widgets/icon-list.php:598
-#: modules/image-accordion/widgets/image-accordion.php:685
+#: modules/image-accordion/widgets/image-accordion.php:704
 #: modules/image-comparison/widgets/image-comparison.php:722
+#: modules/info-box/widgets/info-box-carousel.php:1190
 #: modules/info-box/widgets/info-box.php:357
 #: modules/info-list/widgets/info-list.php:650
 #: modules/instafeed/widgets/instafeed.php:1164
@@ -3976,8 +3974,8 @@ msgstr ""
 #: modules/logos/widgets/logo-grid.php:410
 #: modules/posts/skins/skin-base.php:1394
 #: modules/posts/skins/skin-base.php:1395
-#: modules/pricing/widgets/price-menu.php:1029
-#: modules/pricing/widgets/price-menu.php:1079
+#: modules/pricing/widgets/price-menu.php:1030
+#: modules/pricing/widgets/price-menu.php:1080
 #: modules/pricing/widgets/pricing-table.php:688
 #: modules/pricing/widgets/pricing-table.php:1726
 #: modules/promo-box/widgets/promo-box.php:630
@@ -4013,8 +4011,8 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:976
 #: modules/headings/widgets/dual-heading.php:229
 #: modules/icon-list/widgets/icon-list.php:675
-#: modules/image-accordion/widgets/image-accordion.php:828
-#: modules/info-box/widgets/info-box-carousel.php:2341
+#: modules/image-accordion/widgets/image-accordion.php:847
+#: modules/info-box/widgets/info-box-carousel.php:2410
 #: modules/info-box/widgets/info-box.php:1301
 #: modules/info-box/widgets/info-box.php:1414
 #: modules/info-box/widgets/info-box.php:1584
@@ -4068,15 +4066,15 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:558
 #: modules/hotspots/widgets/hotspots.php:888
 #: modules/icon-list/widgets/icon-list.php:653
-#: modules/image-accordion/widgets/image-accordion.php:894
-#: modules/info-box/widgets/info-box-carousel.php:1843
-#: modules/info-box/widgets/info-box-carousel.php:2318
+#: modules/image-accordion/widgets/image-accordion.php:913
+#: modules/info-box/widgets/info-box-carousel.php:1912
+#: modules/info-box/widgets/info-box-carousel.php:2387
 #: modules/info-box/widgets/info-box.php:237
 #: modules/info-box/widgets/info-box.php:1741
 #: modules/info-list/widgets/info-list.php:740
 #: modules/info-list/widgets/info-list.php:1042
 #: modules/info-list/widgets/info-list.php:1188
-#: modules/info-table/widgets/info-table.php:1150
+#: modules/info-table/widgets/info-table.php:1167
 #: modules/instafeed/widgets/instafeed.php:1936
 #: modules/instafeed/widgets/instafeed.php:2270
 #: modules/interactive-circle/widgets/interactive-circle.php:633
@@ -4121,7 +4119,7 @@ msgstr ""
 #: modules/interactive-circle/widgets/interactive-circle.php:160
 #: modules/ninja-forms/widgets/ninja-forms.php:1121
 #: modules/posts/skins/skin-base.php:688 modules/posts/skins/skin-base.php:1093
-#: modules/posts/widgets/posts-base.php:406
+#: modules/posts/widgets/posts-base.php:439
 #: modules/pricing/widgets/pricing-table.php:355
 #: modules/team-member/widgets/team-member-carousel.php:2069
 #: modules/team-member/widgets/team-member.php:1633
@@ -4454,16 +4452,16 @@ msgid "Odd Row"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:754
-#: modules/info-box/widgets/info-box-carousel.php:1468
-#: modules/info-box/widgets/info-box-carousel.php:1548
-#: modules/info-box/widgets/info-box-carousel.php:1715
-#: modules/info-box/widgets/info-box-carousel.php:1800
+#: modules/info-box/widgets/info-box-carousel.php:1537
+#: modules/info-box/widgets/info-box-carousel.php:1617
+#: modules/info-box/widgets/info-box-carousel.php:1784
+#: modules/info-box/widgets/info-box-carousel.php:1869
 #: modules/info-table/widgets/info-table.php:642
 #: modules/info-table/widgets/info-table.php:713
-#: modules/info-table/widgets/info-table.php:1106
-#: modules/pricing/widgets/price-menu.php:575
-#: modules/pricing/widgets/price-menu.php:700
-#: modules/pricing/widgets/price-menu.php:895
+#: modules/info-table/widgets/info-table.php:1123
+#: modules/pricing/widgets/price-menu.php:576
+#: modules/pricing/widgets/price-menu.php:701
+#: modules/pricing/widgets/price-menu.php:896
 #: modules/pricing/widgets/pricing-table.php:1953
 #: modules/team-member/widgets/team-member-carousel.php:1352
 #: modules/team-member/widgets/team-member-carousel.php:1419
@@ -4510,13 +4508,13 @@ msgstr ""
 #: modules/divider/widgets/divider.php:269
 #: modules/gravity-forms/widgets/gravity-forms.php:1044
 #: modules/icon-list/widgets/icon-list.php:485
-#: modules/info-box/widgets/info-box-carousel.php:1602
+#: modules/info-box/widgets/info-box-carousel.php:1671
 #: modules/info-box/widgets/info-box.php:1464
 #: modules/info-list/widgets/info-list.php:569
 #: modules/info-list/widgets/info-list.php:1026
 #: modules/logos/widgets/logo-grid.php:229
-#: modules/pricing/widgets/price-menu.php:620
-#: modules/pricing/widgets/price-menu.php:1106
+#: modules/pricing/widgets/price-menu.php:621
+#: modules/pricing/widgets/price-menu.php:1107
 #: modules/promo-box/widgets/promo-box.php:1045
 #: modules/promo-box/widgets/promo-box.php:1278
 #: modules/team-member/widgets/team-member-carousel.php:1482
@@ -4553,7 +4551,7 @@ msgid "Divider Color"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:862
-#: modules/pricing/widgets/price-menu.php:1142
+#: modules/pricing/widgets/price-menu.php:1143
 msgid "Divider Weight"
 msgstr ""
 
@@ -4583,13 +4581,13 @@ msgstr ""
 #: modules/headings/widgets/fancy-heading.php:181
 #: modules/hotspots/widgets/hotspots.php:814
 #: modules/icon-list/widgets/icon-list.php:438
-#: modules/info-box/widgets/info-box-carousel.php:975
-#: modules/info-box/widgets/info-box-carousel.php:1686
+#: modules/info-box/widgets/info-box-carousel.php:990
+#: modules/info-box/widgets/info-box-carousel.php:1755
 #: modules/info-box/widgets/info-box.php:1176
 #: modules/info-box/widgets/info-box.php:1554
 #: modules/info-list/widgets/info-list.php:947
 #: modules/info-table/widgets/info-table.php:443
-#: modules/info-table/widgets/info-table.php:1526
+#: modules/info-table/widgets/info-table.php:1543
 #: modules/instafeed/widgets/instafeed.php:2216
 #: modules/link-effects/widgets/link-effects.php:214
 #: modules/ninja-forms/widgets/ninja-forms.php:313
@@ -4598,7 +4596,7 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:1482
 #: modules/posts/skins/skin-base.php:1971
 #: modules/posts/skins/skin-base.php:2302
-#: modules/pricing/widgets/price-menu.php:291
+#: modules/pricing/widgets/price-menu.php:292
 #: modules/pricing/widgets/pricing-table.php:1193
 #: modules/pricing/widgets/pricing-table.php:1879
 #: modules/progress-bar/widgets/progress-bar.php:259
@@ -4654,19 +4652,19 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:819
 #: modules/icon-list/widgets/icon-list.php:442
 #: modules/icon-list/widgets/icon-list.php:569
-#: modules/image-accordion/widgets/image-accordion.php:709
-#: modules/image-accordion/widgets/image-accordion.php:742
+#: modules/image-accordion/widgets/image-accordion.php:728
+#: modules/image-accordion/widgets/image-accordion.php:761
 #: modules/image-comparison/widgets/image-comparison.php:749
-#: modules/info-box/widgets/info-box-carousel.php:903
-#: modules/info-box/widgets/info-box-carousel.php:979
-#: modules/info-box/widgets/info-box-carousel.php:1690
+#: modules/info-box/widgets/info-box-carousel.php:918
+#: modules/info-box/widgets/info-box-carousel.php:994
+#: modules/info-box/widgets/info-box-carousel.php:1759
 #: modules/info-box/widgets/info-box.php:1180
 #: modules/info-box/widgets/info-box.php:1558
 #: modules/info-list/widgets/info-list.php:492
 #: modules/info-list/widgets/info-list.php:675
 #: modules/info-list/widgets/info-list.php:951
 #: modules/info-table/widgets/info-table.php:447
-#: modules/info-table/widgets/info-table.php:1530
+#: modules/info-table/widgets/info-table.php:1547
 #: modules/instafeed/widgets/instafeed.php:870
 #: modules/instafeed/widgets/instafeed.php:1192
 #: modules/instafeed/widgets/instafeed.php:1225
@@ -4681,7 +4679,7 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:332 modules/posts/skins/skin-base.php:1486
 #: modules/posts/skins/skin-base.php:1976
 #: modules/posts/skins/skin-base.php:2307
-#: modules/pricing/widgets/price-menu.php:295
+#: modules/pricing/widgets/price-menu.php:296
 #: modules/pricing/widgets/pricing-table.php:680
 #: modules/pricing/widgets/pricing-table.php:1049
 #: modules/pricing/widgets/pricing-table.php:1198
@@ -4743,19 +4741,19 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:827
 #: modules/icon-list/widgets/icon-list.php:450
 #: modules/icon-list/widgets/icon-list.php:573
-#: modules/image-accordion/widgets/image-accordion.php:717
-#: modules/image-accordion/widgets/image-accordion.php:750
+#: modules/image-accordion/widgets/image-accordion.php:736
+#: modules/image-accordion/widgets/image-accordion.php:769
 #: modules/image-comparison/widgets/image-comparison.php:757
-#: modules/info-box/widgets/info-box-carousel.php:904
-#: modules/info-box/widgets/info-box-carousel.php:987
-#: modules/info-box/widgets/info-box-carousel.php:1698
+#: modules/info-box/widgets/info-box-carousel.php:919
+#: modules/info-box/widgets/info-box-carousel.php:1002
+#: modules/info-box/widgets/info-box-carousel.php:1767
 #: modules/info-box/widgets/info-box.php:1188
 #: modules/info-box/widgets/info-box.php:1566
 #: modules/info-list/widgets/info-list.php:500
 #: modules/info-list/widgets/info-list.php:683
 #: modules/info-list/widgets/info-list.php:959
 #: modules/info-table/widgets/info-table.php:455
-#: modules/info-table/widgets/info-table.php:1534
+#: modules/info-table/widgets/info-table.php:1551
 #: modules/instafeed/widgets/instafeed.php:871
 #: modules/instafeed/widgets/instafeed.php:1200
 #: modules/instafeed/widgets/instafeed.php:1233
@@ -4770,7 +4768,7 @@ msgstr ""
 #: modules/posts/skins/skin-base.php:336 modules/posts/skins/skin-base.php:1494
 #: modules/posts/skins/skin-base.php:1984
 #: modules/posts/skins/skin-base.php:2315
-#: modules/pricing/widgets/price-menu.php:303
+#: modules/pricing/widgets/price-menu.php:304
 #: modules/pricing/widgets/pricing-table.php:684
 #: modules/pricing/widgets/pricing-table.php:1053
 #: modules/pricing/widgets/pricing-table.php:1206
@@ -4814,8 +4812,8 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:194
 #: modules/icon-list/widgets/icon-list.php:240
 #: modules/icon-list/widgets/icon-list.php:825
-#: modules/info-box/widgets/info-box-carousel.php:238
-#: modules/info-box/widgets/info-box-carousel.php:266
+#: modules/info-box/widgets/info-box-carousel.php:253
+#: modules/info-box/widgets/info-box-carousel.php:281
 #: modules/info-box/widgets/info-box.php:166
 #: modules/info-box/widgets/info-box.php:566
 #: modules/info-list/widgets/info-list.php:184
@@ -4848,7 +4846,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:234
 #: modules/flipbox/widgets/flipbox.php:209
 #: modules/flipbox/widgets/flipbox.php:357
-#: modules/info-box/widgets/info-box-carousel.php:1387
+#: modules/info-box/widgets/info-box-carousel.php:1456
 #: modules/info-box/widgets/info-box.php:193
 #: modules/info-list/widgets/info-list.php:227
 #: modules/info-table/widgets/info-table.php:194
@@ -4901,8 +4899,8 @@ msgstr ""
 #: modules/counter/widgets/counter.php:424
 #: modules/counter/widgets/counter.php:430
 #: modules/icon-list/widgets/icon-list.php:136
-#: modules/info-box/widgets/info-box-carousel.php:500
-#: modules/info-box/widgets/info-box-carousel.php:967
+#: modules/info-box/widgets/info-box-carousel.php:515
+#: modules/info-box/widgets/info-box-carousel.php:982
 #: modules/instafeed/widgets/instafeed.php:363
 #: modules/instafeed/widgets/instafeed.php:934
 #: modules/posts/skins/skin-base.php:92 modules/posts/skins/skin-base.php:1777
@@ -4934,11 +4932,11 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:613
 #: modules/content-reveal/widgets/content-reveal.php:647
 #: modules/flipbox/widgets/flipbox.php:1448
-#: modules/image-accordion/widgets/image-accordion.php:898
-#: modules/info-box/widgets/info-box-carousel.php:1847
+#: modules/image-accordion/widgets/image-accordion.php:917
+#: modules/info-box/widgets/info-box-carousel.php:1916
 #: modules/info-box/widgets/info-box.php:1745
 #: modules/info-list/widgets/info-list.php:1192
-#: modules/info-table/widgets/info-table.php:1154
+#: modules/info-table/widgets/info-table.php:1171
 #: modules/instafeed/widgets/instafeed.php:2274
 #: modules/posts/skins/skin-base.php:2854
 #: modules/pricing/widgets/pricing-table.php:2515
@@ -4951,11 +4949,11 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:648
 #: modules/flipbox/widgets/flipbox.php:1449
 #: modules/hotspots/widgets/hotspots.php:564
-#: modules/image-accordion/widgets/image-accordion.php:899
-#: modules/info-box/widgets/info-box-carousel.php:1848
+#: modules/image-accordion/widgets/image-accordion.php:918
+#: modules/info-box/widgets/info-box-carousel.php:1917
 #: modules/info-box/widgets/info-box.php:1746
 #: modules/info-list/widgets/info-list.php:1193
-#: modules/info-table/widgets/info-table.php:1155
+#: modules/info-table/widgets/info-table.php:1172
 #: modules/instafeed/widgets/instafeed.php:2275
 #: modules/posts/skins/skin-base.php:2855
 #: modules/pricing/widgets/pricing-table.php:657
@@ -4968,11 +4966,11 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:615
 #: modules/content-reveal/widgets/content-reveal.php:649
 #: modules/flipbox/widgets/flipbox.php:1450
-#: modules/image-accordion/widgets/image-accordion.php:900
-#: modules/info-box/widgets/info-box-carousel.php:1849
+#: modules/image-accordion/widgets/image-accordion.php:919
+#: modules/info-box/widgets/info-box-carousel.php:1918
 #: modules/info-box/widgets/info-box.php:1747
 #: modules/info-list/widgets/info-list.php:1194
-#: modules/info-table/widgets/info-table.php:1156
+#: modules/info-table/widgets/info-table.php:1173
 #: modules/instafeed/widgets/instafeed.php:2276
 #: modules/posts/skins/skin-base.php:2856
 #: modules/pricing/widgets/pricing-table.php:2517
@@ -4985,11 +4983,11 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:650
 #: modules/flipbox/widgets/flipbox.php:1451
 #: modules/hotspots/widgets/hotspots.php:565
-#: modules/image-accordion/widgets/image-accordion.php:901
-#: modules/info-box/widgets/info-box-carousel.php:1850
+#: modules/image-accordion/widgets/image-accordion.php:920
+#: modules/info-box/widgets/info-box-carousel.php:1919
 #: modules/info-box/widgets/info-box.php:1748
 #: modules/info-list/widgets/info-list.php:1195
-#: modules/info-table/widgets/info-table.php:1157
+#: modules/info-table/widgets/info-table.php:1174
 #: modules/instafeed/widgets/instafeed.php:2277
 #: modules/posts/skins/skin-base.php:2857
 #: modules/pricing/widgets/pricing-table.php:658
@@ -5002,11 +5000,11 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:617
 #: modules/content-reveal/widgets/content-reveal.php:651
 #: modules/flipbox/widgets/flipbox.php:1452
-#: modules/image-accordion/widgets/image-accordion.php:902
-#: modules/info-box/widgets/info-box-carousel.php:1851
+#: modules/image-accordion/widgets/image-accordion.php:921
+#: modules/info-box/widgets/info-box-carousel.php:1920
 #: modules/info-box/widgets/info-box.php:1749
 #: modules/info-list/widgets/info-list.php:1196
-#: modules/info-table/widgets/info-table.php:1158
+#: modules/info-table/widgets/info-table.php:1175
 #: modules/instafeed/widgets/instafeed.php:2278
 #: modules/posts/skins/skin-base.php:2858
 #: modules/pricing/widgets/pricing-table.php:2519
@@ -5027,7 +5025,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1020
 #: modules/interactive-circle/widgets/interactive-circle.php:375
 #: modules/logos/widgets/logo-grid.php:172
-#: modules/pricing/widgets/price-menu.php:1101
+#: modules/pricing/widgets/price-menu.php:1102
 #: modules/pricing/widgets/pricing-table.php:529
 #: modules/pricing/widgets/pricing-table.php:932
 #: modules/progress-bar/widgets/progress-bar.php:549
@@ -5044,12 +5042,12 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:848
 #: modules/image-comparison/widgets/image-comparison.php:536
 #: modules/image-comparison/widgets/image-comparison.php:599
-#: modules/info-box/widgets/info-box-carousel.php:1171
-#: modules/info-box/widgets/info-box-carousel.php:1287
+#: modules/info-box/widgets/info-box-carousel.php:1240
+#: modules/info-box/widgets/info-box-carousel.php:1356
 #: modules/info-box/widgets/info-box.php:1004
 #: modules/info-box/widgets/info-box.php:1097
-#: modules/info-table/widgets/info-table.php:871
-#: modules/info-table/widgets/info-table.php:976
+#: modules/info-table/widgets/info-table.php:888
+#: modules/info-table/widgets/info-table.php:993
 #: modules/interactive-circle/widgets/interactive-circle.php:832
 #: modules/interactive-circle/widgets/interactive-circle.php:897
 #: modules/interactive-circle/widgets/interactive-circle.php:966
@@ -5076,11 +5074,12 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:654
 #: modules/flipbox/widgets/flipbox.php:700
 #: modules/flipbox/widgets/flipbox.php:1094
-#: modules/image-accordion/widgets/image-accordion.php:681
+#: modules/image-accordion/widgets/image-accordion.php:700
 #: modules/image-comparison/widgets/image-comparison.php:718
+#: modules/info-box/widgets/info-box-carousel.php:1186
 #: modules/info-box/widgets/info-box.php:353
 #: modules/instafeed/widgets/instafeed.php:1440
-#: modules/pricing/widgets/price-menu.php:1025
+#: modules/pricing/widgets/price-menu.php:1026
 #: modules/pricing/widgets/pricing-table.php:1722
 msgid "Middle"
 msgstr ""
@@ -5109,14 +5108,14 @@ msgid "Desktop"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:747
-#: modules/image-accordion/widgets/image-accordion.php:422
+#: modules/image-accordion/widgets/image-accordion.php:441
 #: modules/info-list/widgets/info-list.php:517
 msgid "Tablet"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:748
 #: modules/display-conditions/conditions/device-type.php:66
-#: modules/image-accordion/widgets/image-accordion.php:423
+#: modules/image-accordion/widgets/image-accordion.php:442
 #: modules/info-list/widgets/info-list.php:518
 msgid "Mobile"
 msgstr ""
@@ -5129,12 +5128,12 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1692
 #: modules/hotspots/widgets/hotspots.php:618
 #: modules/icon-list/widgets/icon-list.php:806
-#: modules/image-accordion/widgets/image-accordion.php:1068
-#: modules/info-box/widgets/info-box-carousel.php:2030
+#: modules/image-accordion/widgets/image-accordion.php:1087
+#: modules/info-box/widgets/info-box-carousel.php:2099
 #: modules/info-box/widgets/info-box.php:2014
 #: modules/info-list/widgets/info-list.php:899
 #: modules/info-list/widgets/info-list.php:1392
-#: modules/info-table/widgets/info-table.php:1387
+#: modules/info-table/widgets/info-table.php:1404
 #: modules/instafeed/widgets/instafeed.php:2508
 #: modules/posts/skins/skin-base.php:3091
 #: modules/pricing/widgets/pricing-table.php:718
@@ -5147,12 +5146,14 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:441
 #: modules/content-ticker/widgets/content-ticker.php:1050
 #: modules/flipbox/widgets/flipbox.php:483
-#: modules/image-accordion/widgets/image-accordion.php:250
-#: modules/info-box/widgets/info-box-carousel.php:422
+#: modules/image-accordion/widgets/image-accordion.php:268
+#: modules/info-box/widgets/info-box-carousel.php:437
+#: modules/info-box/widgets/info-box-carousel.php:1158
 #: modules/info-box/widgets/info-box.php:316
 #: modules/info-box/widgets/info-box.php:637
 #: modules/info-list/widgets/info-list.php:283
 #: modules/info-table/widgets/info-table.php:375
+#: modules/info-table/widgets/info-table.php:759
 #: modules/instafeed/widgets/instafeed.php:593
 #: modules/posts/skins/skin-base.php:1295
 #: modules/promo-box/widgets/promo-box.php:338
@@ -5164,15 +5165,15 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:891
 #: modules/divider/widgets/divider.php:631
 #: modules/flipbox/widgets/flipbox.php:487
-#: modules/image-accordion/widgets/image-accordion.php:255
+#: modules/image-accordion/widgets/image-accordion.php:273
 #: modules/image-comparison/widgets/image-comparison.php:204
 #: modules/image-comparison/widgets/image-comparison.php:875
-#: modules/info-box/widgets/info-box-carousel.php:427
+#: modules/info-box/widgets/info-box-carousel.php:442
 #: modules/info-box/widgets/info-box.php:641
 #: modules/info-list/widgets/info-list.php:287
 #: modules/info-table/widgets/info-table.php:379
 #: modules/posts/skins/skin-base.php:1299
-#: modules/posts/widgets/posts-base.php:437
+#: modules/posts/widgets/posts-base.php:470
 #: modules/pricing/widgets/pricing-table.php:1703
 #: modules/progress-bar/widgets/progress-bar.php:506
 msgid "After"
@@ -5185,15 +5186,15 @@ msgstr ""
 #: modules/display-conditions/conditions/time.php:67
 #: modules/divider/widgets/divider.php:604
 #: modules/flipbox/widgets/flipbox.php:488
-#: modules/image-accordion/widgets/image-accordion.php:254
+#: modules/image-accordion/widgets/image-accordion.php:272
 #: modules/image-comparison/widgets/image-comparison.php:155
 #: modules/image-comparison/widgets/image-comparison.php:819
-#: modules/info-box/widgets/info-box-carousel.php:426
+#: modules/info-box/widgets/info-box-carousel.php:441
 #: modules/info-box/widgets/info-box.php:642
 #: modules/info-list/widgets/info-list.php:288
 #: modules/info-table/widgets/info-table.php:380
 #: modules/posts/skins/skin-base.php:1300
-#: modules/posts/widgets/posts-base.php:421
+#: modules/posts/widgets/posts-base.php:454
 #: modules/pricing/widgets/pricing-table.php:1699
 #: modules/progress-bar/widgets/progress-bar.php:505
 msgid "Before"
@@ -5224,7 +5225,7 @@ msgstr ""
 
 #: modules/buttons/widgets/buttons.php:1085
 #: modules/content-reveal/widgets/content-reveal.php:507
-#: modules/image-accordion/widgets/image-accordion.php:737
+#: modules/image-accordion/widgets/image-accordion.php:756
 #: modules/instafeed/widgets/instafeed.php:1221
 #: modules/random-image/widgets/random-image.php:737
 msgid "Text Align"
@@ -5249,13 +5250,13 @@ msgstr ""
 #: modules/counter/widgets/counter.php:208
 #: modules/counter/widgets/counter.php:333
 #: modules/icon-list/widgets/icon-list.php:471
-#: modules/info-box/widgets/info-box-carousel.php:551
-#: modules/info-box/widgets/info-box-carousel.php:603
+#: modules/info-box/widgets/info-box-carousel.php:566
+#: modules/info-box/widgets/info-box-carousel.php:618
 #: modules/info-box/widgets/info-box.php:442
 #: modules/logos/widgets/logo-grid.php:181
 #: modules/pricing/widgets/price-menu.php:162
 #: modules/pricing/widgets/price-menu.php:195
-#: modules/pricing/widgets/price-menu.php:816
+#: modules/pricing/widgets/price-menu.php:817
 #: modules/pricing/widgets/pricing-table.php:407
 #: modules/promo-box/widgets/promo-box.php:179
 #: modules/promo-box/widgets/promo-box.php:227
@@ -5269,13 +5270,13 @@ msgstr ""
 #: modules/counter/widgets/counter.php:209
 #: modules/counter/widgets/counter.php:334
 #: modules/icon-list/widgets/icon-list.php:470
-#: modules/info-box/widgets/info-box-carousel.php:552
-#: modules/info-box/widgets/info-box-carousel.php:604
+#: modules/info-box/widgets/info-box-carousel.php:567
+#: modules/info-box/widgets/info-box-carousel.php:619
 #: modules/info-box/widgets/info-box.php:443
 #: modules/logos/widgets/logo-grid.php:182
 #: modules/pricing/widgets/price-menu.php:163
 #: modules/pricing/widgets/price-menu.php:196
-#: modules/pricing/widgets/price-menu.php:817
+#: modules/pricing/widgets/price-menu.php:818
 #: modules/pricing/widgets/pricing-table.php:408
 #: modules/promo-box/widgets/promo-box.php:180
 #: modules/promo-box/widgets/promo-box.php:228
@@ -5303,19 +5304,19 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:225
 #: modules/gravity-forms/widgets/gravity-forms.php:440
 #: modules/image-accordion/widgets/image-accordion.php:158
-#: modules/image-accordion/widgets/image-accordion.php:851
-#: modules/info-box/widgets/info-box-carousel.php:205
-#: modules/info-box/widgets/info-box-carousel.php:1753
+#: modules/image-accordion/widgets/image-accordion.php:870
+#: modules/info-box/widgets/info-box-carousel.php:220
+#: modules/info-box/widgets/info-box-carousel.php:1822
 #: modules/info-box/widgets/info-box.php:427
 #: modules/info-box/widgets/info-box.php:1615
 #: modules/info-list/widgets/info-list.php:154
 #: modules/info-list/widgets/info-list.php:1136
 #: modules/info-table/widgets/info-table.php:275
-#: modules/info-table/widgets/info-table.php:1040
+#: modules/info-table/widgets/info-table.php:1057
 #: modules/ninja-forms/widgets/ninja-forms.php:167
 #: modules/ninja-forms/widgets/ninja-forms.php:388
 #: modules/pricing/widgets/price-menu.php:134
-#: modules/pricing/widgets/price-menu.php:860
+#: modules/pricing/widgets/price-menu.php:861
 #: modules/promo-box/widgets/promo-box.php:239
 #: modules/promo-box/widgets/promo-box.php:1399
 #: modules/random-image/widgets/random-image.php:247
@@ -5526,19 +5527,19 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1748
 #: modules/hotspots/widgets/hotspots.php:790
 #: modules/hotspots/widgets/hotspots.php:1029
-#: modules/image-accordion/widgets/image-accordion.php:763
+#: modules/image-accordion/widgets/image-accordion.php:782
 #: modules/image-comparison/widgets/image-comparison.php:479
 #: modules/image-comparison/widgets/image-comparison.php:664
-#: modules/info-box/widgets/info-box-carousel.php:1364
+#: modules/info-box/widgets/info-box-carousel.php:1433
 #: modules/info-box/widgets/info-box.php:263
 #: modules/info-box/widgets/info-box.php:1760
 #: modules/info-list/widgets/info-list.php:590
-#: modules/info-table/widgets/info-table.php:1500
+#: modules/info-table/widgets/info-table.php:1517
 #: modules/link-effects/widgets/link-effects.php:308
 #: modules/logos/widgets/logo-carousel.php:758
 #: modules/ninja-forms/widgets/ninja-forms.php:1116
 #: modules/ninja-forms/widgets/ninja-forms.php:1130
-#: modules/pricing/widgets/price-menu.php:941
+#: modules/pricing/widgets/price-menu.php:942
 #: modules/pricing/widgets/pricing-table.php:1314
 #: modules/pricing/widgets/pricing-table.php:1605
 #: modules/pricing/widgets/pricing-table.php:2272
@@ -5597,13 +5598,13 @@ msgstr ""
 #: modules/formidable-forms/widgets/formidable-forms.php:399
 #: modules/formidable-forms/widgets/formidable-forms.php:451
 #: modules/gravity-forms/widgets/gravity-forms.php:1096
-#: modules/info-box/widgets/info-box-carousel.php:1260
-#: modules/info-box/widgets/info-box-carousel.php:1963
-#: modules/info-box/widgets/info-box-carousel.php:2440
+#: modules/info-box/widgets/info-box-carousel.php:1329
+#: modules/info-box/widgets/info-box-carousel.php:2032
+#: modules/info-box/widgets/info-box-carousel.php:2509
 #: modules/info-box/widgets/info-box.php:1064
 #: modules/info-box/widgets/info-box.php:1934
 #: modules/info-list/widgets/info-list.php:1329
-#: modules/info-table/widgets/info-table.php:1303
+#: modules/info-table/widgets/info-table.php:1320
 #: modules/instafeed/widgets/instafeed.php:1331
 #: modules/instafeed/widgets/instafeed.php:2065
 #: modules/instafeed/widgets/instafeed.php:2424
@@ -5613,7 +5614,7 @@ msgstr ""
 #: modules/ninja-forms/widgets/ninja-forms.php:421
 #: modules/posts/skins/skin-base.php:2958
 #: modules/posts/skins/skin-base.php:3518
-#: modules/pricing/widgets/price-menu.php:969
+#: modules/pricing/widgets/price-menu.php:970
 #: modules/pricing/widgets/pricing-table.php:1373
 #: modules/pricing/widgets/pricing-table.php:1629
 #: modules/promo-box/widgets/promo-box.php:861
@@ -5719,9 +5720,10 @@ msgstr ""
 #: modules/content-reveal/widgets/content-reveal.php:635
 #: modules/flipbox/widgets/flipbox.php:425
 #: modules/flipbox/widgets/flipbox.php:1433
-#: modules/image-accordion/widgets/image-accordion.php:886
-#: modules/info-box/widgets/info-box-carousel.php:310
-#: modules/info-box/widgets/info-box-carousel.php:1835
+#: modules/image-accordion/widgets/image-accordion.php:210
+#: modules/image-accordion/widgets/image-accordion.php:905
+#: modules/info-box/widgets/info-box-carousel.php:325
+#: modules/info-box/widgets/info-box-carousel.php:1904
 #: modules/info-box/widgets/info-box.php:522
 #: modules/info-box/widgets/info-box.php:566
 #: modules/info-box/widgets/info-box.php:603
@@ -5730,7 +5732,7 @@ msgstr ""
 #: modules/info-list/widgets/info-list.php:1180
 #: modules/info-table/widgets/info-table.php:330
 #: modules/info-table/widgets/info-table.php:363
-#: modules/info-table/widgets/info-table.php:1138
+#: modules/info-table/widgets/info-table.php:1155
 #: modules/pricing/widgets/pricing-table.php:1076
 #: modules/pricing/widgets/pricing-table.php:2500
 #: modules/promo-box/widgets/promo-box.php:361
@@ -5787,7 +5789,7 @@ msgstr ""
 #: modules/divider/widgets/divider.php:331
 #: modules/flipbox/widgets/flipbox.php:514
 #: modules/gravity-forms/widgets/gravity-forms.php:2053
-#: modules/image-accordion/widgets/image-accordion.php:334
+#: modules/image-accordion/widgets/image-accordion.php:353
 #: modules/image-comparison/widgets/image-comparison.php:503
 #: modules/logos/widgets/logo-carousel.php:729
 #: modules/progress-bar/widgets/progress-bar.php:749
@@ -5799,7 +5801,7 @@ msgid "Height"
 msgstr ""
 
 #: modules/content-reveal/widgets/content-reveal.php:659
-#: modules/image-accordion/widgets/image-accordion.php:910
+#: modules/image-accordion/widgets/image-accordion.php:929
 msgid "Button Spacing"
 msgstr ""
 
@@ -5816,7 +5818,7 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:164
 #: modules/flipbox/widgets/flipbox.php:419
-#: modules/info-box/widgets/info-box-carousel.php:302
+#: modules/info-box/widgets/info-box-carousel.php:317
 #: modules/info-box/widgets/info-box.php:514
 #: modules/info-list/widgets/info-list.php:240
 #: modules/info-table/widgets/info-table.php:323
@@ -5845,9 +5847,9 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:403
 #: modules/headings/widgets/dual-heading.php:167
 #: modules/headings/widgets/fancy-heading.php:165
-#: modules/image-accordion/widgets/image-accordion.php:362
-#: modules/info-box/widgets/info-box-carousel.php:564
-#: modules/info-box/widgets/info-box-carousel.php:584
+#: modules/image-accordion/widgets/image-accordion.php:381
+#: modules/info-box/widgets/info-box-carousel.php:579
+#: modules/info-box/widgets/info-box-carousel.php:599
 #: modules/info-box/widgets/info-box.php:455
 #: modules/info-box/widgets/info-box.php:475
 #: modules/info-list/widgets/info-list.php:358
@@ -5857,7 +5859,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:258
 #: modules/logos/widgets/logo-grid.php:330
 #: modules/posts/skins/skin-base.php:772
-#: modules/pricing/widgets/price-menu.php:532
+#: modules/pricing/widgets/price-menu.php:533
 #: modules/pricing/widgets/pricing-table.php:270
 #: modules/pricing/widgets/pricing-table.php:303
 #: modules/promo-box/widgets/promo-box.php:160
@@ -5877,9 +5879,9 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:404
 #: modules/headings/widgets/dual-heading.php:168
 #: modules/headings/widgets/fancy-heading.php:166
-#: modules/image-accordion/widgets/image-accordion.php:363
-#: modules/info-box/widgets/info-box-carousel.php:565
-#: modules/info-box/widgets/info-box-carousel.php:585
+#: modules/image-accordion/widgets/image-accordion.php:382
+#: modules/info-box/widgets/info-box-carousel.php:580
+#: modules/info-box/widgets/info-box-carousel.php:600
 #: modules/info-box/widgets/info-box.php:456
 #: modules/info-box/widgets/info-box.php:476
 #: modules/info-list/widgets/info-list.php:359
@@ -5889,7 +5891,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:259
 #: modules/logos/widgets/logo-grid.php:331
 #: modules/posts/skins/skin-base.php:773
-#: modules/pricing/widgets/price-menu.php:533
+#: modules/pricing/widgets/price-menu.php:534
 #: modules/pricing/widgets/pricing-table.php:271
 #: modules/pricing/widgets/pricing-table.php:304
 #: modules/promo-box/widgets/promo-box.php:161
@@ -5909,9 +5911,9 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:405
 #: modules/headings/widgets/dual-heading.php:169
 #: modules/headings/widgets/fancy-heading.php:167
-#: modules/image-accordion/widgets/image-accordion.php:364
-#: modules/info-box/widgets/info-box-carousel.php:566
-#: modules/info-box/widgets/info-box-carousel.php:586
+#: modules/image-accordion/widgets/image-accordion.php:383
+#: modules/info-box/widgets/info-box-carousel.php:581
+#: modules/info-box/widgets/info-box-carousel.php:601
 #: modules/info-box/widgets/info-box.php:457
 #: modules/info-box/widgets/info-box.php:477
 #: modules/info-list/widgets/info-list.php:360
@@ -5921,7 +5923,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:260
 #: modules/logos/widgets/logo-grid.php:332
 #: modules/posts/skins/skin-base.php:774
-#: modules/pricing/widgets/price-menu.php:534
+#: modules/pricing/widgets/price-menu.php:535
 #: modules/pricing/widgets/pricing-table.php:272
 #: modules/pricing/widgets/pricing-table.php:305
 #: modules/promo-box/widgets/promo-box.php:162
@@ -5941,9 +5943,9 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:406
 #: modules/headings/widgets/dual-heading.php:170
 #: modules/headings/widgets/fancy-heading.php:168
-#: modules/image-accordion/widgets/image-accordion.php:365
-#: modules/info-box/widgets/info-box-carousel.php:567
-#: modules/info-box/widgets/info-box-carousel.php:587
+#: modules/image-accordion/widgets/image-accordion.php:384
+#: modules/info-box/widgets/info-box-carousel.php:582
+#: modules/info-box/widgets/info-box-carousel.php:602
 #: modules/info-box/widgets/info-box.php:458
 #: modules/info-box/widgets/info-box.php:478
 #: modules/info-list/widgets/info-list.php:361
@@ -5953,7 +5955,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:261
 #: modules/logos/widgets/logo-grid.php:333
 #: modules/posts/skins/skin-base.php:775
-#: modules/pricing/widgets/price-menu.php:535
+#: modules/pricing/widgets/price-menu.php:536
 #: modules/pricing/widgets/pricing-table.php:273
 #: modules/pricing/widgets/pricing-table.php:306
 #: modules/promo-box/widgets/promo-box.php:163
@@ -5973,9 +5975,9 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:407
 #: modules/headings/widgets/dual-heading.php:171
 #: modules/headings/widgets/fancy-heading.php:169
-#: modules/image-accordion/widgets/image-accordion.php:366
-#: modules/info-box/widgets/info-box-carousel.php:568
-#: modules/info-box/widgets/info-box-carousel.php:588
+#: modules/image-accordion/widgets/image-accordion.php:385
+#: modules/info-box/widgets/info-box-carousel.php:583
+#: modules/info-box/widgets/info-box-carousel.php:603
 #: modules/info-box/widgets/info-box.php:459
 #: modules/info-box/widgets/info-box.php:479
 #: modules/info-list/widgets/info-list.php:362
@@ -5985,7 +5987,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:262
 #: modules/logos/widgets/logo-grid.php:334
 #: modules/posts/skins/skin-base.php:776
-#: modules/pricing/widgets/price-menu.php:536
+#: modules/pricing/widgets/price-menu.php:537
 #: modules/pricing/widgets/pricing-table.php:274
 #: modules/pricing/widgets/pricing-table.php:307
 #: modules/promo-box/widgets/promo-box.php:164
@@ -6005,9 +6007,9 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:408
 #: modules/headings/widgets/dual-heading.php:172
 #: modules/headings/widgets/fancy-heading.php:170
-#: modules/image-accordion/widgets/image-accordion.php:367
-#: modules/info-box/widgets/info-box-carousel.php:569
-#: modules/info-box/widgets/info-box-carousel.php:589
+#: modules/image-accordion/widgets/image-accordion.php:386
+#: modules/info-box/widgets/info-box-carousel.php:584
+#: modules/info-box/widgets/info-box-carousel.php:604
 #: modules/info-box/widgets/info-box.php:460
 #: modules/info-box/widgets/info-box.php:480
 #: modules/info-list/widgets/info-list.php:363
@@ -6017,7 +6019,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:263
 #: modules/logos/widgets/logo-grid.php:335
 #: modules/posts/skins/skin-base.php:777
-#: modules/pricing/widgets/price-menu.php:537
+#: modules/pricing/widgets/price-menu.php:538
 #: modules/pricing/widgets/pricing-table.php:275
 #: modules/pricing/widgets/pricing-table.php:308
 #: modules/promo-box/widgets/promo-box.php:165
@@ -6037,9 +6039,9 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:409
 #: modules/headings/widgets/dual-heading.php:173
 #: modules/headings/widgets/fancy-heading.php:171
-#: modules/image-accordion/widgets/image-accordion.php:368
-#: modules/info-box/widgets/info-box-carousel.php:570
-#: modules/info-box/widgets/info-box-carousel.php:590
+#: modules/image-accordion/widgets/image-accordion.php:387
+#: modules/info-box/widgets/info-box-carousel.php:585
+#: modules/info-box/widgets/info-box-carousel.php:605
 #: modules/info-box/widgets/info-box.php:461
 #: modules/info-box/widgets/info-box.php:481
 #: modules/info-list/widgets/info-list.php:364
@@ -6049,7 +6051,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:264
 #: modules/logos/widgets/logo-grid.php:336
 #: modules/posts/skins/skin-base.php:778
-#: modules/pricing/widgets/price-menu.php:538
+#: modules/pricing/widgets/price-menu.php:539
 #: modules/pricing/widgets/pricing-table.php:276
 #: modules/pricing/widgets/pricing-table.php:309
 #: modules/promo-box/widgets/promo-box.php:166
@@ -6069,9 +6071,9 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:410
 #: modules/headings/widgets/dual-heading.php:174
 #: modules/headings/widgets/fancy-heading.php:172
-#: modules/image-accordion/widgets/image-accordion.php:369
-#: modules/info-box/widgets/info-box-carousel.php:571
-#: modules/info-box/widgets/info-box-carousel.php:591
+#: modules/image-accordion/widgets/image-accordion.php:388
+#: modules/info-box/widgets/info-box-carousel.php:586
+#: modules/info-box/widgets/info-box-carousel.php:606
 #: modules/info-box/widgets/info-box.php:462
 #: modules/info-box/widgets/info-box.php:482
 #: modules/info-list/widgets/info-list.php:365
@@ -6081,7 +6083,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:265
 #: modules/logos/widgets/logo-grid.php:337
 #: modules/posts/skins/skin-base.php:779
-#: modules/pricing/widgets/price-menu.php:539
+#: modules/pricing/widgets/price-menu.php:540
 #: modules/pricing/widgets/pricing-table.php:277
 #: modules/pricing/widgets/pricing-table.php:310
 #: modules/promo-box/widgets/promo-box.php:167
@@ -6101,9 +6103,9 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:411
 #: modules/headings/widgets/dual-heading.php:175
 #: modules/headings/widgets/fancy-heading.php:173
-#: modules/image-accordion/widgets/image-accordion.php:370
-#: modules/info-box/widgets/info-box-carousel.php:572
-#: modules/info-box/widgets/info-box-carousel.php:592
+#: modules/image-accordion/widgets/image-accordion.php:389
+#: modules/info-box/widgets/info-box-carousel.php:587
+#: modules/info-box/widgets/info-box-carousel.php:607
 #: modules/info-box/widgets/info-box.php:463
 #: modules/info-box/widgets/info-box.php:483
 #: modules/info-list/widgets/info-list.php:366
@@ -6113,7 +6115,7 @@ msgstr ""
 #: modules/logos/widgets/logo-carousel.php:266
 #: modules/logos/widgets/logo-grid.php:338
 #: modules/posts/skins/skin-base.php:780
-#: modules/pricing/widgets/price-menu.php:540
+#: modules/pricing/widgets/price-menu.php:541
 #: modules/pricing/widgets/pricing-table.php:278
 #: modules/pricing/widgets/pricing-table.php:311
 #: modules/promo-box/widgets/promo-box.php:168
@@ -6137,8 +6139,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:927
 #: modules/display-conditions/conditions/date-archive.php:54
 #: modules/posts/skins/skin-base.php:1660
-#: modules/posts/widgets/posts-base.php:397
-#: modules/posts/widgets/posts-base.php:473
+#: modules/posts/widgets/posts-base.php:430
+#: modules/posts/widgets/posts-base.php:506
 #. translators: %s Label
 msgid "Date"
 msgstr ""
@@ -6154,8 +6156,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:382
 #: modules/display-conditions/conditions/author-archive.php:55
 #: modules/posts/skins/skin-base.php:1644
-#: modules/posts/widgets/posts-base.php:313
-#: modules/posts/widgets/posts-base.php:362
+#: modules/posts/widgets/posts-base.php:346
+#: modules/posts/widgets/posts-base.php:395
 msgid "Author"
 msgstr ""
 
@@ -6206,21 +6208,21 @@ msgid "Content Ticker Item 4"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:635
-#: modules/posts/widgets/posts-base.php:87
+#: modules/posts/widgets/posts-base.php:120
 msgid "Query"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:645
 #: modules/display-conditions/conditions/post-type-archive.php:55
 #: modules/display-conditions/conditions/post-type.php:55
-#: modules/posts/widgets/posts-base.php:111
+#: modules/posts/widgets/posts-base.php:144
 msgid "Post Type"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:689
 #: modules/content-ticker/widgets/content-ticker.php:796
-#: modules/posts/widgets/posts-base.php:158
-#: modules/posts/widgets/posts-base.php:239
+#: modules/posts/widgets/posts-base.php:191
+#: modules/posts/widgets/posts-base.php:272
 #. translators: %s Label
 #. translators: %s Label
 #. translators: %s: post type label
@@ -6229,8 +6231,8 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:695
 #: modules/content-ticker/widgets/content-ticker.php:802
-#: modules/posts/widgets/posts-base.php:164
-#: modules/posts/widgets/posts-base.php:246
+#: modules/posts/widgets/posts-base.php:197
+#: modules/posts/widgets/posts-base.php:279
 #. translators: %s label
 #. translators: %s label
 #. translators: %s: post type label
@@ -6239,8 +6241,8 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:697
 #: modules/content-ticker/widgets/content-ticker.php:803
-#: modules/posts/widgets/posts-base.php:166
-#: modules/posts/widgets/posts-base.php:248
+#: modules/posts/widgets/posts-base.php:199
+#: modules/posts/widgets/posts-base.php:281
 #. translators: %s label
 #. translators: %s label
 #. translators: %s: post type label
@@ -6248,52 +6250,52 @@ msgid "Exclude %s"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:752
-#: modules/posts/widgets/posts-base.php:203
+#: modules/posts/widgets/posts-base.php:236
 msgid "Authors Filter Type"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:758
-#: modules/posts/widgets/posts-base.php:209
+#: modules/posts/widgets/posts-base.php:242
 msgid "Include Authors"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:759
-#: modules/posts/widgets/posts-base.php:210
+#: modules/posts/widgets/posts-base.php:243
 msgid "Exclude Authors"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:770
-#: modules/posts/widgets/posts-base.php:222
+#: modules/posts/widgets/posts-base.php:255
 msgid "Authors"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:855
-#: modules/posts/widgets/posts-base.php:401
+#: modules/posts/widgets/posts-base.php:434
 msgid "Past Day"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:856
-#: modules/posts/widgets/posts-base.php:402
+#: modules/posts/widgets/posts-base.php:435
 msgid "Past Week"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:857
-#: modules/posts/widgets/posts-base.php:403
+#: modules/posts/widgets/posts-base.php:436
 msgid "Past Month"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:858
-#: modules/posts/widgets/posts-base.php:404
+#: modules/posts/widgets/posts-base.php:437
 msgid "Past Quarter"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:859
-#: modules/posts/widgets/posts-base.php:405
+#: modules/posts/widgets/posts-base.php:438
 msgid "Past Year"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:876
-#: modules/posts/widgets/posts-base.php:422
+#: modules/posts/widgets/posts-base.php:455
 msgid ""
 "Setting a ‘Before’ date will show all the posts published until the chosen "
 "date (inclusive)."
@@ -6301,14 +6303,14 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:880
 #: modules/content-ticker/widgets/content-ticker.php:896
-#: modules/posts/widgets/posts-base.php:426
-#: modules/posts/widgets/posts-base.php:442
+#: modules/posts/widgets/posts-base.php:459
+#: modules/posts/widgets/posts-base.php:475
 #: modules/promo-box/widgets/promo-box.php:293
 msgid "Choose"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:892
-#: modules/posts/widgets/posts-base.php:438
+#: modules/posts/widgets/posts-base.php:471
 msgid ""
 "Setting an ‘After’ date will show all the posts published since the chosen "
 "date (inclusive)."
@@ -6316,69 +6318,69 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:907
 #: modules/posts/skins/skin-base.php:1526
-#: modules/posts/widgets/posts-base.php:453
+#: modules/posts/widgets/posts-base.php:486
 msgid "Order"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:910
-#: modules/posts/widgets/posts-base.php:456
+#: modules/posts/widgets/posts-base.php:489
 msgid "Descending"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:911
-#: modules/posts/widgets/posts-base.php:457
+#: modules/posts/widgets/posts-base.php:490
 msgid "Ascending"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:924
-#: modules/posts/widgets/posts-base.php:470
+#: modules/posts/widgets/posts-base.php:503
 msgid "Order By"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:928
 #: modules/posts/skins/skin-base.php:1052
-#: modules/posts/widgets/posts-base.php:474
+#: modules/posts/widgets/posts-base.php:507
 msgid "Last Modified Date"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:929
-#: modules/posts/widgets/posts-base.php:475
+#: modules/posts/widgets/posts-base.php:508
 msgid "Random"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:930
-#: modules/posts/widgets/posts-base.php:476
+#: modules/posts/widgets/posts-base.php:509
 msgid "Comment Count"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:932
-#: modules/posts/widgets/posts-base.php:478
+#: modules/posts/widgets/posts-base.php:511
 msgid "Post ID"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:933
 #: modules/posts/skins/skin-base.php:922
-#: modules/posts/widgets/posts-base.php:479
+#: modules/posts/widgets/posts-base.php:512
 msgid "Post Author"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:945
-#: modules/posts/widgets/posts-base.php:493
+#: modules/posts/widgets/posts-base.php:526
 msgid "Sticky Posts"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:961
-#: modules/posts/widgets/posts-base.php:509
+#: modules/posts/widgets/posts-base.php:542
 msgid "Show Only Sticky Posts"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:977
-#: modules/posts/widgets/posts-base.php:525
+#: modules/posts/widgets/posts-base.php:558
 msgid "Offset"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:978
-#: modules/posts/widgets/posts-base.php:526
+#: modules/posts/widgets/posts-base.php:559
 msgid "Use this setting to skip this number of initial posts"
 msgstr ""
 
@@ -6411,7 +6413,7 @@ msgid "Ticker Settings"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1105
-#: modules/info-box/widgets/info-box-carousel.php:631
+#: modules/info-box/widgets/info-box-carousel.php:646
 #: modules/link-effects/widgets/link-effects.php:162
 #: modules/logos/widgets/logo-carousel.php:303
 #: modules/posts/skins/skin-base.php:160
@@ -6419,7 +6421,7 @@ msgid "Effect"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1106
-#: modules/info-box/widgets/info-box-carousel.php:632
+#: modules/info-box/widgets/info-box-carousel.php:647
 #: modules/logos/widgets/logo-carousel.php:304
 #: modules/posts/skins/skin-base.php:161
 msgid "Sets transition effect"
@@ -6428,7 +6430,7 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1110
 #: modules/flipbox/widgets/flipbox.php:560
 #: modules/hotspots/widgets/hotspots.php:625
-#: modules/info-box/widgets/info-box-carousel.php:636
+#: modules/info-box/widgets/info-box-carousel.php:651
 #: modules/logos/widgets/logo-carousel.php:308
 #: modules/logos/widgets/logo-grid.php:666
 #: modules/posts/skins/skin-base.php:165
@@ -6439,7 +6441,7 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1111
 #: modules/flipbox/widgets/flipbox.php:564
 #: modules/hotspots/widgets/hotspots.php:622
-#: modules/info-box/widgets/info-box-carousel.php:637
+#: modules/info-box/widgets/info-box-carousel.php:652
 #: modules/logos/widgets/logo-carousel.php:309
 #: modules/posts/skins/skin-base.php:166
 #: modules/pricing/widgets/pricing-table.php:722
@@ -6454,7 +6456,7 @@ msgid "Slider Speed"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1120
-#: modules/info-box/widgets/info-box-carousel.php:701
+#: modules/info-box/widgets/info-box-carousel.php:716
 #: modules/instafeed/widgets/instafeed.php:696
 #: modules/logos/widgets/logo-carousel.php:364
 #: modules/team-member/widgets/team-member-carousel.php:834
@@ -6462,7 +6464,7 @@ msgid "Duration of transition between slides (in ms)"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1137
-#: modules/info-box/widgets/info-box-carousel.php:722
+#: modules/info-box/widgets/info-box-carousel.php:737
 #: modules/instafeed/widgets/instafeed.php:716
 #: modules/logos/widgets/logo-carousel.php:381
 #: modules/posts/skins/skin-base.php:240
@@ -6471,7 +6473,7 @@ msgid "Autoplay"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1150
-#: modules/info-box/widgets/info-box-carousel.php:756
+#: modules/info-box/widgets/info-box-carousel.php:771
 #: modules/instafeed/widgets/instafeed.php:748
 #: modules/logos/widgets/logo-carousel.php:411
 #: modules/team-member/widgets/team-member-carousel.php:881
@@ -6479,7 +6481,7 @@ msgid "Pause on Interaction"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1151
-#: modules/info-box/widgets/info-box-carousel.php:757
+#: modules/info-box/widgets/info-box-carousel.php:772
 #: modules/instafeed/widgets/instafeed.php:749
 #: modules/logos/widgets/logo-carousel.php:412
 #: modules/team-member/widgets/team-member-carousel.php:882
@@ -6487,7 +6489,7 @@ msgid "Disables autoplay completely on first interaction with the carousel."
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1166
-#: modules/info-box/widgets/info-box-carousel.php:774
+#: modules/info-box/widgets/info-box-carousel.php:789
 #: modules/instafeed/widgets/instafeed.php:766
 #: modules/posts/skins/skin-base.php:255
 #: modules/team-member/widgets/team-member-carousel.php:897
@@ -6495,7 +6497,7 @@ msgid "Autoplay Speed"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1182
-#: modules/info-box/widgets/info-box-carousel.php:795
+#: modules/info-box/widgets/info-box-carousel.php:810
 #: modules/instafeed/widgets/instafeed.php:783
 #: modules/logos/widgets/logo-carousel.php:447
 #: modules/posts/skins/skin-base.php:284
@@ -6504,7 +6506,7 @@ msgid "Infinite Loop"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1195
-#: modules/info-box/widgets/info-box-carousel.php:823
+#: modules/info-box/widgets/info-box-carousel.php:838
 #: modules/instafeed/widgets/instafeed.php:798
 #: modules/logos/widgets/logo-carousel.php:459
 #: modules/team-member/widgets/team-member-carousel.php:928
@@ -6512,7 +6514,7 @@ msgid "Grab Cursor"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1196
-#: modules/info-box/widgets/info-box-carousel.php:824
+#: modules/info-box/widgets/info-box-carousel.php:839
 #: modules/instafeed/widgets/instafeed.php:799
 #: modules/logos/widgets/logo-carousel.php:460
 #: modules/team-member/widgets/team-member-carousel.php:929
@@ -6520,7 +6522,7 @@ msgid "Shows grab cursor when you hover over the slider"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1209
-#: modules/info-box/widgets/info-box-carousel.php:839
+#: modules/info-box/widgets/info-box-carousel.php:854
 #: modules/instafeed/widgets/instafeed.php:811
 #: modules/logos/widgets/logo-carousel.php:473
 #: modules/team-member/widgets/team-member-carousel.php:942
@@ -6529,8 +6531,8 @@ msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1218
 #: modules/content-ticker/widgets/content-ticker.php:1741
-#: modules/info-box/widgets/info-box-carousel.php:851
-#: modules/info-box/widgets/info-box-carousel.php:2057
+#: modules/info-box/widgets/info-box-carousel.php:866
+#: modules/info-box/widgets/info-box-carousel.php:2126
 #: modules/instafeed/widgets/instafeed.php:820
 #: modules/instafeed/widgets/instafeed.php:1668
 #: modules/logos/widgets/logo-carousel.php:482
@@ -6542,9 +6544,9 @@ msgid "Arrows"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1564
-#: modules/image-accordion/widgets/image-accordion.php:504
+#: modules/image-accordion/widgets/image-accordion.php:523
 #: modules/info-list/widgets/info-list.php:457
-#: modules/pricing/widgets/price-menu.php:417
+#: modules/pricing/widgets/price-menu.php:418
 msgid "Items Spacing"
 msgstr ""
 
@@ -6558,7 +6560,7 @@ msgid "Post Meta Color"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1752
-#: modules/info-box/widgets/info-box-carousel.php:2068
+#: modules/info-box/widgets/info-box-carousel.php:2137
 #: modules/instafeed/widgets/instafeed.php:1680
 #: modules/logos/widgets/logo-carousel.php:962
 #: modules/posts/skins/skin-base.php:3132
@@ -6567,7 +6569,7 @@ msgid "Choose Arrow"
 msgstr ""
 
 #: modules/content-ticker/widgets/content-ticker.php:1789
-#: modules/info-box/widgets/info-box-carousel.php:2105
+#: modules/info-box/widgets/info-box-carousel.php:2174
 #: modules/instafeed/widgets/instafeed.php:1721
 #: modules/logos/widgets/logo-carousel.php:999
 #: modules/posts/skins/skin-base.php:3173
@@ -6613,8 +6615,8 @@ msgstr ""
 
 #: modules/counter/widgets/counter.php:390
 #: modules/counter/widgets/counter.php:1278
-#: modules/info-box/widgets/info-box-carousel.php:193
-#: modules/info-box/widgets/info-box-carousel.php:198
+#: modules/info-box/widgets/info-box-carousel.php:208
+#: modules/info-box/widgets/info-box-carousel.php:213
 #: modules/info-box/widgets/info-box.php:415
 #: modules/info-box/widgets/info-box.php:420
 #: modules/info-table/widgets/info-table.php:245
@@ -6625,7 +6627,7 @@ msgid "Subtitle"
 msgstr ""
 
 #: modules/counter/widgets/counter.php:402
-#: modules/info-box/widgets/info-box-carousel.php:580
+#: modules/info-box/widgets/info-box-carousel.php:595
 #: modules/info-box/widgets/info-box.php:471
 #: modules/info-table/widgets/info-table.php:253
 #: modules/pricing/widgets/pricing-table.php:299
@@ -6638,16 +6640,16 @@ msgstr ""
 
 #: modules/counter/widgets/counter.php:474
 #: modules/headings/widgets/fancy-heading.php:198
-#: modules/info-box/widgets/info-box-carousel.php:991
+#: modules/info-box/widgets/info-box-carousel.php:1006
 #: modules/info-box/widgets/info-box.php:1192
 #: modules/info-list/widgets/info-list.php:963
 #: modules/link-effects/widgets/link-effects.php:230
-#: modules/pricing/widgets/price-menu.php:307
+#: modules/pricing/widgets/price-menu.php:308
 msgid "Justified"
 msgstr ""
 
 #: modules/counter/widgets/counter.php:604
-#: modules/info-table/widgets/info-table.php:822
+#: modules/info-table/widgets/info-table.php:839
 #: modules/interactive-circle/widgets/interactive-circle.php:1139
 #: modules/logos/widgets/logo-grid.php:469
 #: modules/team-member/widgets/team-member-carousel.php:1306
@@ -6830,8 +6832,8 @@ msgid "Leave blank or select all for any taxonomy."
 msgstr ""
 
 #: modules/display-conditions/conditions/term-archive.php:55
-#: modules/posts/widgets/posts-base.php:312
-#: modules/posts/widgets/posts-base.php:325
+#: modules/posts/widgets/posts-base.php:345
+#: modules/posts/widgets/posts-base.php:358
 msgid "Term"
 msgstr ""
 
@@ -6930,12 +6932,12 @@ msgstr ""
 #: modules/headings/widgets/fancy-heading.php:160
 #: modules/link-effects/widgets/link-effects.php:194
 #: modules/posts/skins/skin-base.php:768
-#: modules/pricing/widgets/price-menu.php:528
+#: modules/pricing/widgets/price-menu.php:529
 msgid "HTML Tag"
 msgstr ""
 
 #: modules/divider/widgets/divider.php:248
-#: modules/info-box/widgets/info-box-carousel.php:898
+#: modules/info-box/widgets/info-box-carousel.php:913
 #: modules/instafeed/widgets/instafeed.php:866
 #: modules/logos/widgets/logo-carousel.php:522
 #: modules/posts/skins/skin-base.php:326
@@ -6944,14 +6946,14 @@ msgid "Direction"
 msgstr ""
 
 #: modules/divider/widgets/divider.php:252
-#: modules/image-accordion/widgets/image-accordion.php:408
+#: modules/image-accordion/widgets/image-accordion.php:427
 #: modules/image-comparison/widgets/image-comparison.php:272
 #: modules/scroll-image/widgets/scroll-image.php:270
 msgid "Horizontal"
 msgstr ""
 
 #: modules/divider/widgets/divider.php:253
-#: modules/image-accordion/widgets/image-accordion.php:407
+#: modules/image-accordion/widgets/image-accordion.php:426
 #: modules/image-comparison/widgets/image-comparison.php:271
 #: modules/scroll-image/widgets/scroll-image.php:271
 msgid "Vertical"
@@ -6969,7 +6971,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:562
 #: modules/image-comparison/widgets/image-comparison.php:708
 #: modules/image-comparison/widgets/image-comparison.php:744
-#: modules/info-box/widgets/info-box-carousel.php:2301
+#: modules/info-box/widgets/info-box-carousel.php:2370
 #: modules/info-list/widgets/info-list.php:485
 #: modules/instafeed/widgets/instafeed.php:1430
 #: modules/instafeed/widgets/instafeed.php:1917
@@ -6987,9 +6989,9 @@ msgid "Position"
 msgstr ""
 
 #: modules/divider/widgets/divider.php:848
-#: modules/info-box/widgets/info-box-carousel.php:1222
-#: modules/info-box/widgets/info-box-carousel.php:1324
-#: modules/info-table/widgets/info-table.php:931
+#: modules/info-box/widgets/info-box-carousel.php:1291
+#: modules/info-box/widgets/info-box-carousel.php:1393
+#: modules/info-table/widgets/info-table.php:948
 msgid "Icon Rotation"
 msgstr ""
 
@@ -7020,8 +7022,8 @@ msgid "Flipbox Image"
 msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:426
-#: modules/info-box/widgets/info-box-carousel.php:307
-#: modules/info-box/widgets/info-box-carousel.php:1073
+#: modules/info-box/widgets/info-box-carousel.php:322
+#: modules/info-box/widgets/info-box-carousel.php:1088
 #: modules/info-box/widgets/info-box.php:519
 #: modules/info-box/widgets/info-box.php:808
 #: modules/info-list/widgets/info-list.php:244
@@ -7031,8 +7033,8 @@ msgid "Box"
 msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:456
-#: modules/image-accordion/widgets/image-accordion.php:223
-#: modules/info-box/widgets/info-box-carousel.php:350
+#: modules/image-accordion/widgets/image-accordion.php:239
+#: modules/info-box/widgets/info-box-carousel.php:365
 #: modules/info-list/widgets/info-list.php:255
 #: modules/info-table/widgets/info-table.php:351
 #: modules/posts/skins/skin-base.php:1268
@@ -7042,8 +7044,8 @@ msgid "Button Text"
 msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:461
-#: modules/image-accordion/widgets/image-accordion.php:228
-#: modules/info-box/widgets/info-box-carousel.php:355
+#: modules/image-accordion/widgets/image-accordion.php:244
+#: modules/info-box/widgets/info-box-carousel.php:370
 #: modules/info-box/widgets/info-box.php:571
 #: modules/info-list/widgets/info-list.php:260
 #: modules/info-table/widgets/info-table.php:353
@@ -7054,13 +7056,13 @@ msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:471
 #: modules/flipbox/widgets/flipbox.php:1600
-#: modules/image-accordion/widgets/image-accordion.php:238
-#: modules/info-box/widgets/info-box-carousel.php:387
-#: modules/info-box/widgets/info-box-carousel.php:1951
+#: modules/image-accordion/widgets/image-accordion.php:255
+#: modules/info-box/widgets/info-box-carousel.php:402
+#: modules/info-box/widgets/info-box-carousel.php:2020
 #: modules/info-box/widgets/info-box.php:1898
 #: modules/info-list/widgets/info-list.php:270
 #: modules/info-list/widgets/info-list.php:1320
-#: modules/info-table/widgets/info-table.php:1290
+#: modules/info-table/widgets/info-table.php:1307
 #: modules/instafeed/widgets/instafeed.php:2410
 #: modules/posts/skins/skin-base.php:1283
 #: modules/posts/skins/skin-base.php:2999
@@ -7072,7 +7074,7 @@ msgid "Flip Effect"
 msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:559
-#: modules/info-box/widgets/info-box-carousel.php:640
+#: modules/info-box/widgets/info-box-carousel.php:655
 #: modules/logos/widgets/logo-carousel.php:312
 msgid "Flip"
 msgstr ""
@@ -7095,7 +7097,7 @@ msgstr ""
 
 #: modules/flipbox/widgets/flipbox.php:691
 #: modules/flipbox/widgets/flipbox.php:1085
-#: modules/pricing/widgets/price-menu.php:1016
+#: modules/pricing/widgets/price-menu.php:1017
 #: modules/pricing/widgets/pricing-table.php:1713
 msgid "Vertical Position"
 msgstr ""
@@ -7228,15 +7230,15 @@ msgid "Section Field"
 msgstr ""
 
 #: modules/gravity-forms/widgets/gravity-forms.php:1056
-#: modules/info-box/widgets/info-box-carousel.php:1646
+#: modules/info-box/widgets/info-box-carousel.php:1715
 #: modules/info-box/widgets/info-box.php:1509
-#: modules/pricing/widgets/price-menu.php:634
+#: modules/pricing/widgets/price-menu.php:635
 msgid "Border Height"
 msgstr ""
 
 #: modules/gravity-forms/widgets/gravity-forms.php:1117
 #: modules/pricing/widgets/price-menu.php:147
-#: modules/pricing/widgets/price-menu.php:724
+#: modules/pricing/widgets/price-menu.php:725
 #: modules/pricing/widgets/pricing-table.php:379
 msgid "Price"
 msgstr ""
@@ -7259,14 +7261,14 @@ msgstr ""
 
 #: modules/gravity-forms/widgets/gravity-forms.php:1498
 #: modules/gravity-forms/widgets/gravity-forms.php:1737
-#: modules/info-box/widgets/info-box-carousel.php:902
+#: modules/info-box/widgets/info-box-carousel.php:917
 #: modules/logos/widgets/logo-carousel.php:526
 #: modules/team-member/widgets/team-member-carousel.php:995
 msgid "Auto"
 msgstr ""
 
 #: modules/gravity-forms/widgets/gravity-forms.php:1725
-#: modules/info-box/widgets/info-box-carousel.php:866
+#: modules/info-box/widgets/info-box-carousel.php:881
 #: modules/instafeed/widgets/instafeed.php:835
 #: modules/posts/skins/skin-base.php:1343
 #: modules/posts/skins/skin-base.php:1353
@@ -7369,7 +7371,7 @@ msgid "Admin Label"
 msgstr ""
 
 #: modules/hotspots/widgets/hotspots.php:203
-#: modules/info-box/widgets/info-box-carousel.php:221
+#: modules/info-box/widgets/info-box-carousel.php:236
 #: modules/info-box/widgets/info-box.php:149
 #: modules/progress-bar/widgets/progress-bar.php:162
 #: modules/twitter/widgets/twitter-buttons.php:82
@@ -7831,6 +7833,7 @@ msgid "List Item #3"
 msgstr ""
 
 #: modules/icon-list/widgets/icon-list.php:327
+#: modules/image-accordion/widgets/image-accordion.php:206
 msgid "Apply Link On"
 msgstr ""
 
@@ -7849,77 +7852,79 @@ msgid "Adjust Vertical Position"
 msgstr ""
 
 #: modules/image-accordion/widgets/image-accordion.php:194
-#: modules/info-box/widgets/info-box-carousel.php:335
-#: modules/info-box/widgets/info-box.php:551
-#: modules/posts/skins/skin-base.php:1256
-msgid "Show Button"
+msgid "Add Link"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:275
+#: modules/image-accordion/widgets/image-accordion.php:211
+msgid "Container"
+msgstr ""
+
+#: modules/image-accordion/widgets/image-accordion.php:294
 msgid "Accordion #1"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:282
+#: modules/image-accordion/widgets/image-accordion.php:301
 msgid "Accordion #2"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:289
+#: modules/image-accordion/widgets/image-accordion.php:308
 msgid "Accordion #3"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:296
+#: modules/image-accordion/widgets/image-accordion.php:315
 msgid "Accordion #4"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:311
+#: modules/image-accordion/widgets/image-accordion.php:330
 #: modules/interactive-circle/widgets/interactive-circle.php:471
 msgid "Default Active Item"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:312
+#: modules/image-accordion/widgets/image-accordion.php:331
 #: modules/interactive-circle/widgets/interactive-circle.php:472
 msgid ""
 "Add item number to make that item active by default. For example: Add 1 to "
 "make first item active by default."
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:387
+#: modules/image-accordion/widgets/image-accordion.php:406
 msgid "Accordion Action"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:392
+#: modules/image-accordion/widgets/image-accordion.php:411
 #: modules/instafeed/widgets/instafeed.php:481
 msgid "On Hover"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:393
+#: modules/image-accordion/widgets/image-accordion.php:412
 msgid "On Click"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:402
+#: modules/image-accordion/widgets/image-accordion.php:421
 #: modules/image-comparison/widgets/image-comparison.php:267
 msgid "Orientation"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:417
+#: modules/image-accordion/widgets/image-accordion.php:436
 #: modules/interactive-circle/widgets/interactive-circle.php:704
 msgid "Stack On"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:436
+#: modules/image-accordion/widgets/image-accordion.php:455
 msgid "Disable Body Click"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:437
+#: modules/image-accordion/widgets/image-accordion.php:456
 msgid "Don't collapse accordion on body click"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:539
-#: modules/image-accordion/widgets/image-accordion.php:589
+#: modules/image-accordion/widgets/image-accordion.php:558
+#: modules/image-accordion/widgets/image-accordion.php:608
 msgid "Overlay Color"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:672
+#: modules/image-accordion/widgets/image-accordion.php:691
+#: modules/info-box/widgets/info-box-carousel.php:1177
 #: modules/info-box/widgets/info-box.php:343
 #: modules/info-list/widgets/info-list.php:635
 #: modules/instafeed/widgets/instafeed.php:1149
@@ -7928,7 +7933,7 @@ msgstr ""
 msgid "Vertical Align"
 msgstr ""
 
-#: modules/image-accordion/widgets/image-accordion.php:704
+#: modules/image-accordion/widgets/image-accordion.php:723
 #: modules/info-list/widgets/info-list.php:669
 #: modules/instafeed/widgets/instafeed.php:1185
 #: modules/logos/widgets/logo-grid.php:428
@@ -7972,110 +7977,116 @@ msgstr ""
 msgid "Align"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:168
+#: modules/info-box/widgets/info-box-carousel.php:183
 msgid "Info Boxes"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:210
+#: modules/info-box/widgets/info-box-carousel.php:225
 #: modules/info-box/widgets/info-box.php:432
 msgid "Enter info box description"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:308
+#: modules/info-box/widgets/info-box-carousel.php:323
 #: modules/info-box/widgets/info-box.php:520
 msgid "Image/Icon"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:483
+#: modules/info-box/widgets/info-box-carousel.php:350
+#: modules/info-box/widgets/info-box.php:551
+#: modules/posts/skins/skin-base.php:1256
+msgid "Show Button"
+msgstr ""
+
+#: modules/info-box/widgets/info-box-carousel.php:498
 msgid "Info Box 1"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:486
+#: modules/info-box/widgets/info-box-carousel.php:501
 msgid "Info Box 2"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:489
+#: modules/info-box/widgets/info-box-carousel.php:504
 msgid "Info Box 3"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:504
+#: modules/info-box/widgets/info-box-carousel.php:519
 #: modules/instafeed/widgets/instafeed.php:367
 #: modules/posts/skins/skin-base.php:95
 #: modules/twitter/widgets/twitter-grid.php:75
 msgid "Grid"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:505
+#: modules/info-box/widgets/info-box-carousel.php:520
 #: modules/instafeed/widgets/instafeed.php:369
 #: modules/posts/skins/skin-base.php:97
 msgid "Carousel"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:514
+#: modules/info-box/widgets/info-box-carousel.php:529
 #: modules/logos/widgets/logo-grid.php:364
 #: modules/posts/skins/skin-base.php:106
 msgid "Columns"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:548
-#: modules/info-box/widgets/info-box-carousel.php:1583
+#: modules/info-box/widgets/info-box-carousel.php:563
+#: modules/info-box/widgets/info-box-carousel.php:1652
 #: modules/info-box/widgets/info-box.php:439
 #: modules/info-box/widgets/info-box.php:1444
 #: modules/posts/skins/skin-base.php:791
-#: modules/pricing/widgets/price-menu.php:339
-#: modules/pricing/widgets/price-menu.php:601
+#: modules/pricing/widgets/price-menu.php:340
+#: modules/pricing/widgets/price-menu.php:602
 msgid "Title Separator"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:600
+#: modules/info-box/widgets/info-box-carousel.php:615
 msgid "Equal Height Boxes"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:621
+#: modules/info-box/widgets/info-box-carousel.php:636
 #: modules/instafeed/widgets/instafeed.php:647
 #: modules/logos/widgets/logo-carousel.php:296
 #: modules/team-member/widgets/team-member-carousel.php:790
 msgid "Carousel Settings"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:638
+#: modules/info-box/widgets/info-box-carousel.php:653
 #: modules/logos/widgets/logo-carousel.php:310
 msgid "Cube"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:639
+#: modules/info-box/widgets/info-box-carousel.php:654
 #: modules/logos/widgets/logo-carousel.php:311
 msgid "Coverflow"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:651
+#: modules/info-box/widgets/info-box-carousel.php:666
 #: modules/instafeed/widgets/instafeed.php:657
 #: modules/logos/widgets/logo-carousel.php:320
 #: modules/team-member/widgets/team-member-carousel.php:797
 msgid "Visible Items"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:652
+#: modules/info-box/widgets/info-box-carousel.php:667
 msgid "Number of slides visible at the same time on slider's container)."
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:676
+#: modules/info-box/widgets/info-box-carousel.php:691
 #: modules/instafeed/widgets/instafeed.php:676
 #: modules/logos/widgets/logo-carousel.php:342
 #: modules/team-member/widgets/team-member-carousel.php:815
 msgid "Items Gap"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:677
+#: modules/info-box/widgets/info-box-carousel.php:692
 msgid "Distance between slides (in px)"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:700
+#: modules/info-box/widgets/info-box-carousel.php:715
 #: modules/random-image/widgets/random-image.php:567
 msgid "Transition Duration"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:738
+#: modules/info-box/widgets/info-box-carousel.php:753
 #: modules/instafeed/widgets/instafeed.php:731
 #: modules/interactive-circle/widgets/interactive-circle.php:582
 #: modules/logos/widgets/logo-carousel.php:394
@@ -8084,22 +8095,22 @@ msgstr ""
 msgid "Pause on Hover"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:796
+#: modules/info-box/widgets/info-box-carousel.php:811
 msgid "Enables continuous loop mode"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:811
+#: modules/info-box/widgets/info-box-carousel.php:826
 msgid "Centered Slides"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:881
+#: modules/info-box/widgets/info-box-carousel.php:896
 #: modules/instafeed/widgets/instafeed.php:850
 #: modules/logos/widgets/logo-carousel.php:506
 #: modules/team-member/widgets/team-member-carousel.php:975
 msgid "Pagination Type"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:885
+#: modules/info-box/widgets/info-box-carousel.php:900
 #: modules/instafeed/widgets/instafeed.php:854
 #: modules/logos/widgets/logo-carousel.php:494
 #: modules/logos/widgets/logo-carousel.php:510
@@ -8108,36 +8119,65 @@ msgstr ""
 msgid "Dots"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:886
+#: modules/info-box/widgets/info-box-carousel.php:901
 #: modules/instafeed/widgets/instafeed.php:855
 #: modules/logos/widgets/logo-carousel.php:511
 #: modules/team-member/widgets/team-member-carousel.php:980
 msgid "Fraction"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:1005
+#: modules/info-box/widgets/info-box-carousel.php:1020
 #: modules/instafeed/widgets/instafeed.php:945
 msgid "Columns Gap"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:1035
+#: modules/info-box/widgets/info-box-carousel.php:1050
 #: modules/instafeed/widgets/instafeed.php:977
 msgid "Rows Gap"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:1343
+#: modules/info-box/widgets/info-box-carousel.php:1162
+#: modules/info-table/widgets/info-table.php:763
+#: modules/interactive-circle/widgets/interactive-circle.php:256
+#: modules/promo-box/widgets/promo-box.php:342
+msgid "Above Title"
+msgstr ""
+
+#: modules/info-box/widgets/info-box-carousel.php:1163
+#: modules/info-table/widgets/info-table.php:764
+#: modules/promo-box/widgets/promo-box.php:343
+msgid "Below Title"
+msgstr ""
+
+#: modules/info-box/widgets/info-box-carousel.php:1164
+msgid "Left of Title"
+msgstr ""
+
+#: modules/info-box/widgets/info-box-carousel.php:1165
+msgid "Right of Title"
+msgstr ""
+
+#: modules/info-box/widgets/info-box-carousel.php:1166
+msgid "Left of Title and Description"
+msgstr ""
+
+#: modules/info-box/widgets/info-box-carousel.php:1167
+msgid "Right of Title and Description"
+msgstr ""
+
+#: modules/info-box/widgets/info-box-carousel.php:1412
 #: modules/info-box/widgets/info-box.php:1143
-#: modules/info-table/widgets/info-table.php:1022
+#: modules/info-table/widgets/info-table.php:1039
 #: modules/promo-box/widgets/promo-box.php:917
 msgid "Icon Animation"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:1355
+#: modules/info-box/widgets/info-box-carousel.php:1424
 msgid "Icon Image"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:1460
-#: modules/info-box/widgets/info-box-carousel.php:1540
+#: modules/info-box/widgets/info-box-carousel.php:1529
+#: modules/info-box/widgets/info-box-carousel.php:1609
 #: modules/info-box/widgets/info-box.php:1290
 #: modules/info-box/widgets/info-box.php:1403
 #: modules/info-box/widgets/info-box.php:1676
@@ -8147,35 +8187,35 @@ msgstr ""
 msgid "Text Shadow"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:1495
+#: modules/info-box/widgets/info-box-carousel.php:1564
 #: modules/info-box/widgets/info-box.php:1331
 #: modules/info-table/widgets/info-table.php:668
 #: modules/pricing/widgets/pricing-table.php:1465
 msgid "Sub Title"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:2125
+#: modules/info-box/widgets/info-box-carousel.php:2194
 #: modules/instafeed/widgets/instafeed.php:1741
 #: modules/logos/widgets/logo-carousel.php:1019
 #: modules/team-member/widgets/team-member-carousel.php:2447
 msgid "Align Left Arrow"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:2144
+#: modules/info-box/widgets/info-box-carousel.php:2213
 #: modules/instafeed/widgets/instafeed.php:1760
 #: modules/logos/widgets/logo-carousel.php:1038
 #: modules/team-member/widgets/team-member-carousel.php:2466
 msgid "Align Right Arrow"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:2289
+#: modules/info-box/widgets/info-box-carousel.php:2358
 #: modules/instafeed/widgets/instafeed.php:1904
 #: modules/logos/widgets/logo-carousel.php:1182
 #: modules/team-member/widgets/team-member-carousel.php:2609
 msgid "Pagination: Dots"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:2304
+#: modules/info-box/widgets/info-box-carousel.php:2373
 #: modules/instafeed/widgets/instafeed.php:1920
 #: modules/logos/widgets/logo-carousel.php:1197
 #: modules/posts/skins/skin-base.php:3398
@@ -8183,7 +8223,7 @@ msgstr ""
 msgid "Inside"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:2305
+#: modules/info-box/widgets/info-box-carousel.php:2374
 #: modules/instafeed/widgets/instafeed.php:1921
 #: modules/logos/widgets/logo-carousel.php:1198
 #: modules/posts/skins/skin-base.php:3399
@@ -8191,14 +8231,14 @@ msgstr ""
 msgid "Outside"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:2393
+#: modules/info-box/widgets/info-box-carousel.php:2462
 #: modules/instafeed/widgets/instafeed.php:2015
 #: modules/logos/widgets/logo-carousel.php:1286
 #: modules/team-member/widgets/team-member-carousel.php:2713
 msgid "Active Color"
 msgstr ""
 
-#: modules/info-box/widgets/info-box-carousel.php:2520
+#: modules/info-box/widgets/info-box-carousel.php:2589
 #: modules/instafeed/widgets/instafeed.php:2149
 #: modules/logos/widgets/logo-carousel.php:1426
 #: modules/team-member/widgets/team-member-carousel.php:2838
@@ -8271,7 +8311,7 @@ msgid "Enter description"
 msgstr ""
 
 #: modules/info-table/widgets/info-table.php:283
-#: modules/info-table/widgets/info-table.php:1419
+#: modules/info-table/widgets/info-table.php:1436
 msgid "Sale Badge"
 msgstr ""
 
@@ -8287,23 +8327,23 @@ msgstr ""
 msgid "Icon / Image"
 msgstr ""
 
-#: modules/info-table/widgets/info-table.php:758
+#: modules/info-table/widgets/info-table.php:775
 msgid "Box Background Color"
 msgstr ""
 
-#: modules/info-table/widgets/info-table.php:769
+#: modules/info-table/widgets/info-table.php:786
 msgid "Box Padding"
 msgstr ""
 
-#: modules/info-table/widgets/info-table.php:801
+#: modules/info-table/widgets/info-table.php:818
 msgid "Icon Box Size"
 msgstr ""
 
-#: modules/info-table/widgets/info-table.php:954
+#: modules/info-table/widgets/info-table.php:971
 msgid "Inside Spacing"
 msgstr ""
 
-#: modules/info-table/widgets/info-table.php:1544
+#: modules/info-table/widgets/info-table.php:1561
 msgid "Position From Top"
 msgstr ""
 
@@ -8584,11 +8624,6 @@ msgstr ""
 
 #: modules/interactive-circle/widgets/interactive-circle.php:251
 msgid "Icon Location"
-msgstr ""
-
-#: modules/interactive-circle/widgets/interactive-circle.php:256
-#: modules/promo-box/widgets/promo-box.php:342
-msgid "Above Title"
 msgstr ""
 
 #: modules/interactive-circle/widgets/interactive-circle.php:257
@@ -8980,7 +9015,7 @@ msgid "Search Form"
 msgstr ""
 
 #: modules/posts/skins/skin-base.php:419
-#: modules/posts/widgets/posts-base.php:603
+#: modules/posts/widgets/posts-base.php:636
 msgid "Show Search Form"
 msgstr ""
 
@@ -9345,99 +9380,99 @@ msgstr ""
 msgid "Saved Template"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:95
+#: modules/posts/widgets/posts-base.php:128
 msgid "Query Type"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:99
+#: modules/posts/widgets/posts-base.php:132
 msgid "Main Query"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:100
+#: modules/posts/widgets/posts-base.php:133
 msgid "Custom Query"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:106
+#: modules/posts/widgets/posts-base.php:139
 msgid "Related"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:295
+#: modules/posts/widgets/posts-base.php:328
 #. translators: %s Label
 msgid "Include"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:306
+#: modules/posts/widgets/posts-base.php:339
 msgid "Include By"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:344
+#: modules/posts/widgets/posts-base.php:377
 #: modules/pricing/widgets/pricing-table.php:480
 msgid "Exclude"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:355
+#: modules/posts/widgets/posts-base.php:388
 msgid "Exclude By"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:361
+#: modules/posts/widgets/posts-base.php:394
 msgid "Current Post"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:377
+#: modules/posts/widgets/posts-base.php:410
 msgid "Fallback"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:378
+#: modules/posts/widgets/posts-base.php:411
 msgid "Displayed if no relevant results are found."
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:382
+#: modules/posts/widgets/posts-base.php:415
 msgid "Recent Posts"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:480
+#: modules/posts/widgets/posts-base.php:513
 msgid "Menu Order"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:481
+#: modules/posts/widgets/posts-base.php:514
 msgid "Relevance"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:540
+#: modules/posts/widgets/posts-base.php:573
 msgid "Exclude Current Post"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:546
+#: modules/posts/widgets/posts-base.php:579
 msgid "Enable this option to remove current post from the query."
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:556
+#: modules/posts/widgets/posts-base.php:589
 msgid "Avoid Duplicates"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:559
+#: modules/posts/widgets/posts-base.php:592
 msgid ""
 "Set to Yes to avoid duplicate posts from showing up on the page. This only "
 "affects the frontend."
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:569
+#: modules/posts/widgets/posts-base.php:602
 msgid "Query ID"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:570
+#: modules/posts/widgets/posts-base.php:603
 msgid "Give your Query a custom unique id to allow server side filtering"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:584
+#: modules/posts/widgets/posts-base.php:617
 msgid "If Nothing Found!"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:593
+#: modules/posts/widgets/posts-base.php:626
 msgid "Nothing Found Message"
 msgstr ""
 
-#: modules/posts/widgets/posts-base.php:596
+#: modules/posts/widgets/posts-base.php:629
 msgid "It seems we can't find what you're looking for."
 msgstr ""
 
@@ -9461,7 +9496,7 @@ msgid "Discount"
 msgstr ""
 
 #: modules/pricing/widgets/price-menu.php:171
-#: modules/pricing/widgets/price-menu.php:804
+#: modules/pricing/widgets/price-menu.php:805
 #: modules/pricing/widgets/pricing-table.php:416
 #: modules/pricing/widgets/pricing-table.php:1814
 msgid "Original Price"
@@ -9503,28 +9538,32 @@ msgstr ""
 msgid "Style 4"
 msgstr ""
 
-#: modules/pricing/widgets/price-menu.php:324
-#: modules/pricing/widgets/price-menu.php:1054
+#: modules/pricing/widgets/price-menu.php:284
+msgid "Style 5"
+msgstr ""
+
+#: modules/pricing/widgets/price-menu.php:325
+#: modules/pricing/widgets/price-menu.php:1055
 msgid "Title-Price Connector"
 msgstr ""
 
-#: modules/pricing/widgets/price-menu.php:397
+#: modules/pricing/widgets/price-menu.php:398
 msgid "Menu Items"
 msgstr ""
 
-#: modules/pricing/widgets/price-menu.php:732
+#: modules/pricing/widgets/price-menu.php:733
 msgid "Price Badge"
 msgstr ""
 
-#: modules/pricing/widgets/price-menu.php:813
+#: modules/pricing/widgets/price-menu.php:814
 msgid "Strikethrough"
 msgstr ""
 
-#: modules/pricing/widgets/price-menu.php:828
+#: modules/pricing/widgets/price-menu.php:829
 msgid "Original Price Color"
 msgstr ""
 
-#: modules/pricing/widgets/price-menu.php:844
+#: modules/pricing/widgets/price-menu.php:845
 msgid "Original Price Typography"
 msgstr ""
 
@@ -9904,10 +9943,6 @@ msgstr ""
 
 #: modules/promo-box/widgets/promo-box.php:244
 msgid "Enter promo box description"
-msgstr ""
-
-#: modules/promo-box/widgets/promo-box.php:343
-msgid "Below Title"
 msgstr ""
 
 #: modules/promo-box/widgets/promo-box.php:1090
