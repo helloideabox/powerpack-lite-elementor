@@ -1,3 +1,7 @@
+== 2.8.4 ==
+Release date: 
+* Enhancement: Info Grid & Carousel - Added Icon Position option
+
 == 2.8.3 ==
 Release date: December 24, 2024
 * Enhancement: Added has_widget_inner_wrapper to support “Optimized Markup” experiment

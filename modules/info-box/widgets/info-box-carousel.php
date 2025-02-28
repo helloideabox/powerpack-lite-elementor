@@ -1007,7 +1007,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						'icon'  => 'eicon-text-align-justify',
 					],
 				],
-				'default'               => 'center',
+				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box'   => 'text-align: {{VALUE}};',
 				],
@@ -1149,6 +1149,60 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Icon', 'powerpack' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'icon_position',
+			[
+				'label'                 => esc_html__( 'Icon Position', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'above-title',
+				'options'               => [
+					'above-title' => esc_html__( 'Above Title', 'powerpack' ),
+					'below-title' => esc_html__( 'Below Title', 'powerpack' ),
+					'left-title'  => esc_html__( 'Left of Title', 'powerpack' ),
+					'right-title' => esc_html__( 'Right of Title', 'powerpack' ),
+					'left'        => esc_html__( 'Left of Title and Description', 'powerpack' ),
+					'right'       => esc_html__( 'Right of Title and Description', 'powerpack' ),
+				],
+				'prefix_class'          => 'pp-info-box-',
+				'render_type'           => 'template',
+			]
+		);
+
+		$this->add_control(
+			'icon_vertical_position',
+			[
+				'label'                => esc_html__( 'Vertical Align', 'powerpack' ),
+				'type'                 => Controls_Manager::CHOOSE,
+				'default'              => 'top',
+				'options'              => [
+					'top'    => [
+						'title' => esc_html__( 'Top', 'powerpack' ),
+						'icon'  => 'eicon-v-align-top',
+					],
+					'middle' => [
+						'title' => esc_html__( 'Middle', 'powerpack' ),
+						'icon'  => 'eicon-v-align-middle',
+					],
+					'bottom' => [
+						'title' => esc_html__( 'Bottom', 'powerpack' ),
+						'icon'  => 'eicon-v-align-bottom',
+					],
+				],
+				'selectors'            => [
+					'{{WRAPPER}} .pp-info-box .pp-info-box-icon-wrap,
+					{{WRAPPER}} .pp-info-box .pp-info-box-icon-title-wrap' => 'align-items: {{VALUE}};',
+				],
+				'selectors_dictionary' => [
+					'top'    => 'flex-start',
+					'middle' => 'center',
+					'bottom' => 'flex-end',
+				],
+				'condition'            => [
+					'icon_position' => [ 'left-title', 'right-title', 'left', 'right' ],
+				],
 			]
 		);
 
@@ -2695,30 +2749,25 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'container' => [
 					'class' => 'pp-info-box-container',
 				],
-				'info-box'  => [
+				'info-box' => [
 					'class' => 'pp-info-box',
-				]
+				],
 			]
 		);
 
 		if ( 'grid' === $settings['layout'] ) {
-
 			$this->add_render_attribute( 'container', 'class', 'elementor-grid' );
 			$this->add_render_attribute( 'info-box', 'class', 'elementor-grid-item' );
 
 			if ( 'yes' === $settings['equal_height_boxes'] ) {
-	
 				$this->add_render_attribute( 'container', 'class', 'pp-info-box-equal-height' );
 			}
-
 		} else {
-
 			if ( 'right' === $settings['direction'] || is_rtl() ) {
 				$this->add_render_attribute( 'container', 'dir', 'rtl' );
 			}
 
 			$slider_options = $this->get_slider_settings();
-
 			$swiper_class = PP_Helper::is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
 
 			$this->add_render_attribute(
@@ -2736,7 +2785,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			}
 
 			$this->add_render_attribute( 'info-box', 'class', 'swiper-slide' );
-
 		}
 
 		$title_container_tag = 'div';
@@ -2757,119 +2805,146 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		if ( $settings['icon_animation'] ) {
 			$this->add_render_attribute( 'icon', 'class', 'elementor-animation-' . $settings['icon_animation'] );
 		}
+
+		$icon_position = $settings['icon_position'] ?: 'above-title';
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container' ) ); ?>>
-			<?php if ( 'carousel' === $settings['layout'] ) { ?><div class="swiper-wrapper"><?php } ?>
-				<?php
-				$i = 1;
+		<div <?php $this->print_render_attribute_string( 'container' ); ?>>
+			<?php if ( 'carousel' === $settings['layout'] ) : ?>
+				<div class="swiper-wrapper">
+			<?php endif; ?>
 
-				foreach ( $settings['pp_info_boxes'] as $index => $item ) :
-					$title_container_setting_key = $this->get_repeater_setting_key( 'title_container', 'info_boxes', $index );
-					$link_setting_key = $this->get_repeater_setting_key( 'link', 'info_boxes', $index );
+			<?php foreach ( $settings['pp_info_boxes'] as $index => $item ) :
+				$title_container_setting_key = $this->get_repeater_setting_key( 'title_container', 'info_boxes', $index );
+				$link_setting_key = $this->get_repeater_setting_key( 'link', 'info_boxes', $index );
 
-					$this->add_render_attribute( $title_container_setting_key, 'class', 'pp-info-box-title-container' );
+				$this->add_render_attribute( $title_container_setting_key, 'class', 'pp-info-box-title-container' );
 
-					if ( 'none' !== $item['link_type'] ) {
-						if ( ! empty( $item['link']['url'] ) ) {
+				if ( 'none' !== $item['link_type'] && ! empty( $item['link']['url'] ) ) {
+					$this->add_link_attributes( $link_setting_key, $item['link'] );
 
-							$this->add_link_attributes( $link_setting_key, $item['link'] );
-
-							if ( 'title' === $item['link_type'] ) {
-								$title_container_tag = 'a';
-								$this->add_link_attributes( $title_container_setting_key, $item['link'] );
-							} elseif ( 'button' === $item['link_type'] ) {
-								$button_html_tag = 'a';
-							} elseif ( 'box' === $item['link_type'] ) {
-								$button_html_tag = 'div';
-							}
-						}
+					if ( 'title' === $item['link_type'] ) {
+						$title_container_tag = 'a';
+						$this->add_link_attributes( $title_container_setting_key, $item['link'] );
+					} elseif ( 'button' === $item['link_type'] ) {
+						$button_html_tag = 'a';
+					} elseif ( 'box' === $item['link_type'] ) {
+						$button_html_tag = 'div';
 					}
-					?>
-					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box' ) ); ?>>
-						<?php if ( 'box' === $item['link_type'] ) { ?>
-							<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
-						<?php } ?>
-							<?php if ( 'none' !== $item['icon_type'] ) { ?>
-								<div class="pp-info-box-icon-wrap">
-									<?php if ( 'icon' === $item['link_type'] ) { ?>
-										<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); ?>>
-									<?php } ?>
-									<?php $this->render_infobox_icon( $item ); ?>
-									<?php if ( 'icon' === $item['link_type'] ) { ?>
-										</a>
-									<?php } ?>
-								</div>
-							<?php } ?>
-							<div class="pp-info-box-content">
-								<div class="pp-info-box-title-wrap">
-									<?php
-									if ( '' !== $item['title'] ) {
-										$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
-										?>
-										<<?php echo esc_html( $title_container_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $title_container_setting_key ) ); ?>>
-											<<?php echo esc_html( $title_tag ); ?> class="pp-info-box-title">
-												<?php echo wp_kses_post( $item['title'] ); ?>
-											</<?php echo esc_html( $title_tag ); ?>>
-										</<?php echo esc_html( $title_container_tag ); ?>>
-										<?php
-									}
+				}
+				?>
+				<div <?php $this->print_render_attribute_string( 'info-box' ); ?>>
+					<?php if ( 'box' === $item['link_type'] ) : ?>
+						<a <?php $this->print_render_attribute_string( $link_setting_key ); ?>>
+					<?php endif; ?>
 
-									if ( '' !== $item['subtitle'] ) {
-										$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
-										?>
-										<<?php echo esc_html( $subtitle_tag ); ?> class="pp-info-box-subtitle">
-											<?php echo wp_kses_post( $item['subtitle'] ); ?>
-										</<?php echo esc_html( $subtitle_tag ); ?>>
-										<?php
+					<?php if ( in_array( $icon_position, ['above-title', 'left', 'right'], true ) ) :
+						$this->render_infobox_icon( $item, $link_setting_key );
+					endif; ?>
+
+					<?php if ( in_array( $icon_position, ['left-title', 'right-title'], true ) ) : ?>
+						<div class="pp-info-box-icon-title-wrap">
+							<?php
+							$this->render_infobox_icon( $item, $link_setting_key );
+							$this->render_infobox_title( $item, $title_container_tag, $title_container_setting_key );
+							?>
+						</div>
+					<?php endif; ?>
+
+					<div class="pp-info-box-content">
+						<?php
+						if ( ! in_array( $icon_position, ['left-title', 'right-title'], true ) ) {
+							$this->render_infobox_title( $item, $title_container_tag, $title_container_setting_key );
+						}
+
+						if ( 'below-title' === $icon_position ) {
+							$this->render_infobox_icon( $item, $link_setting_key );
+						}
+						?>
+
+						<?php if ( 'yes' === $settings['divider_title_switch'] ) : ?>
+							<div class="pp-info-box-divider-wrap">
+								<div class="pp-info-box-divider"></div>
+							</div>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $item['description'] ) ) : ?>
+							<div class="pp-info-box-description">
+								<?php echo wp_kses_post( $this->parse_text_editor( $item['description'] ) ); ?>
+							</div>
+						<?php endif; ?>
+
+						<?php if ( 'button' === $item['link_type'] || ( 'box' === $item['link_type'] && 'yes' === $item['button_visible'] ) ) : ?>
+							<div class="pp-info-box-footer">
+								<<?php echo esc_html( $button_html_tag ); ?> <?php $this->print_render_attribute_string( 'info-box-button' ); ?>
+									<?php if ( 'button' === $item['link_type'] ) : ?>
+										<?php $this->print_render_attribute_string( $link_setting_key ); ?>
+									<?php endif; ?>
+									<?php
+									if ( 'before' === $item['button_icon_position'] ) {
+										$this->render_infobox_button_icon( $item );
 									}
 									?>
-								</div>
-
-								<?php if ( 'yes' === $settings['divider_title_switch'] ) { ?>
-									<div class="pp-info-box-divider-wrap">
-										<div class="pp-info-box-divider"></div>
-									</div>
-								<?php } ?>
-
-								<?php if ( ! empty( $item['description'] ) ) { ?>
-									<div class="pp-info-box-description">
-										<?php echo $this->parse_text_editor( $item['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-									</div>
-								<?php } ?>
-								<?php if ( 'button' === $item['link_type'] || ( 'box' === $item['link_type'] && 'yes' === $item['button_visible'] ) ) { ?>
-									<div class="pp-info-box-footer">
-										<<?php echo esc_html( $button_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-box-button' ) ); ?> <?php if ( 'button' === $item['link_type'] ) { echo wp_kses_post( $this->get_render_attribute_string( $link_setting_key ) ); } ?>>
-											<?php
-											if ( 'before' === $item['button_icon_position'] ) {
-												$this->render_infobox_button_icon( $item );
-											}
-											?>
-											<?php if ( ! empty( $item['button_text'] ) ) { ?>
-												<span class="pp-button-text">
-													<?php echo wp_kses_post( $item['button_text'] ); ?>
-												</span>
-											<?php } ?>
-											<?php
-											if ( 'after' === $item['button_icon_position'] ) {
-												$this->render_infobox_button_icon( $item );
-											}
-											?>
-										</<?php echo esc_html( $button_html_tag ); ?>>
-									</div>
-								<?php } ?>
+									<?php if ( ! empty( $item['button_text'] ) ) : ?>
+										<span class="pp-button-text">
+											<?php echo wp_kses_post( $item['button_text'] ); ?>
+										</span>
+									<?php endif; ?>
+									<?php
+									if ( 'after' === $item['button_icon_position'] ) {
+										$this->render_infobox_button_icon( $item );
+									}
+									?>
+								</<?php echo esc_html( $button_html_tag ); ?>>
 							</div>
-						<?php if ( 'box' === $item['link_type'] ) { ?>
-							</a>
-						<?php } ?>
+						<?php endif; ?>
 					</div>
-					<?php $i++;
-				endforeach; ?>
-			<?php if ( 'carousel' === $settings['layout'] ) { ?></div><?php } ?>
-			<?php
-			if ( 'carousel' === $settings['layout'] ) {
-				$this->render_dots();
 
+					<?php if ( 'box' === $item['link_type'] ) : ?>
+						</a>
+					<?php endif; ?>
+				</div>
+			<?php endforeach; ?>
+
+			<?php if ( 'carousel' === $settings['layout'] ) : ?>
+				</div>
+				<?php
+				$this->render_dots();
 				$this->render_arrows();
+			endif; ?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render info-box carousel icon output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @access protected
+	 */
+	protected function render_infobox_title( $item, $title_container_tag, $title_container_setting_key ) {
+		$settings = $this->get_settings_for_display();
+		?>
+		<div class="pp-info-box-title-wrap">
+			<?php
+			if ( '' !== $item['title'] ) {
+				$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+				?>
+				<<?php echo esc_html( $title_container_tag ); ?> <?php $this->print_render_attribute_string( $title_container_setting_key ); ?>>
+					<<?php echo esc_html( $title_tag ); ?> class="pp-info-box-title">
+						<?php echo wp_kses_post( $item['title'] ); ?>
+					</<?php echo esc_html( $title_tag ); ?>>
+				</<?php echo esc_html( $title_container_tag ); ?>>
+				<?php
+			}
+
+			if ( '' !== $item['subtitle'] ) {
+				$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
+				?>
+				<<?php echo esc_html( $subtitle_tag ); ?> class="pp-info-box-subtitle">
+					<?php echo wp_kses_post( $item['subtitle'] ); ?>
+				</<?php echo esc_html( $subtitle_tag ); ?>>
+				<?php
 			}
 			?>
 		</div>
@@ -2883,8 +2958,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function render_infobox_icon( $item ) {
+	protected function render_infobox_icon( $item, $link_setting_key ) {
 		$settings = $this->get_settings_for_display();
+
+		if ( 'none' === $item['icon_type'] || '' === $item['icon_type'] ) {
+			return;
+		}
 
 		$fallback_defaults = [
 			'fa fa-check',
@@ -2904,34 +2983,43 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) || ! empty( $item['image']['url'] ) || '' !== $item['icon_text'] ) {
 			?>
-			<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
-				<?php if ( 'icon' === $item['icon_type'] ) { ?>
-					<?php
-					if ( $is_new || $migrated ) {
-						Icons_Manager::render_icon( $item['selected_icon'], [ 'aria-hidden' => 'true' ] );
-					} else { ?>
-						<i class="<?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
-					<?php } ?>
-				<?php } elseif ( 'image' === $item['icon_type'] ) { ?>
-					<?php
-					if ( ! empty( $item['image']['url'] ) ) {
-						$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['image']['id'], 'thumbnail', $settings );
+			<div class="pp-info-box-icon-wrap">
+				<?php if ( 'icon' === $item['link_type'] ) { ?>
+					<a <?php $this->print_render_attribute_string( $link_setting_key ); ?>>
+				<?php } ?>
+				<span <?php $this->print_render_attribute_string( 'icon' ); ?>>
+					<?php if ( 'icon' === $item['icon_type'] ) { ?>
+						<?php
+						if ( $is_new || $migrated ) {
+							Icons_Manager::render_icon( $item['selected_icon'], [ 'aria-hidden' => 'true' ] );
+						} else { ?>
+							<i class="<?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
+						<?php } ?>
+					<?php } elseif ( 'image' === $item['icon_type'] ) { ?>
+						<?php
+						if ( ! empty( $item['image']['url'] ) ) {
+							$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['image']['id'], 'thumbnail', $settings );
 
-						if ( $image_url ) {
-							?>
-							<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $item['image'] ) ); ?>">
-							<?php
-						} else {
-							?>
-							<img src="<?php echo esc_url( $item['image']['url'] ); ?>">
-							<?php
+							if ( $image_url ) {
+								?>
+								<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $item['image'] ) ); ?>">
+								<?php
+							} else {
+								?>
+								<img src="<?php echo esc_url( $item['image']['url'] ); ?>">
+								<?php
+							}
 						}
-					}
-					?>
-				<?php } elseif ( 'text' === $item['icon_type'] ) {
-					echo wp_kses_post( $item['icon_text'] );
-				} ?>
-			</span>
+						?>
+					<?php } elseif ( 'text' === $item['icon_type'] ) {
+						echo wp_kses_post( $item['icon_text'] );
+					} ?>
+				</span>
+
+				<?php if ( 'icon' === $item['link_type'] ) { ?>
+					</a>
+				<?php } ?>
+			</div>
 			<?php
 		}
 	}
@@ -3123,7 +3211,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					}
 				}
 			}
-					   
+
 			function button_icon_template( item, index ) {
 				var buttonIconHTML = {},
 					buttonMigrated = {};
@@ -3141,6 +3229,78 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					</span>
 					<#
 				}
+			}
+
+			function title_template( item, i ) {
+				#>
+				<div class="pp-info-box-title-wrap">
+					<#
+						var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ),
+							subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.sub_title_html_tag );
+
+						if ( item.title ) {
+							#>
+							<{{{ $title_container_tag }}} {{{ view.getRenderAttributeString( 'title-container' + i ) }}}>
+
+							<{{{ titleHTMLTag }}} class="pp-info-box-title">
+							{{ item.title }}
+							</{{{ titleHTMLTag }}}>
+							</{{{ $title_container_tag }}}>
+							<#
+						}
+
+						if ( item.subtitle ) {
+							#>
+							<{{{ subtitleHTMLTag }}} class="pp-info-box-subtitle">
+							{{ item.subtitle }}
+							</{{{ subtitleHTMLTag }}}>
+							<#
+						}
+					#>
+				</div>
+				<#
+			}
+
+			function icon_template( item, index ) {
+				if ( item.icon_type != 'none' ) { #>
+					<div class="pp-info-box-icon-wrap">
+						<# if ( item.link_type == 'icon' ) { #>
+							<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
+						<# } #>
+						<span {{{ view.getRenderAttributeString( 'icon' ) }}}>
+							<# if ( item.icon_type == 'icon' ) { #>
+								<# if ( item.icon || item.selected_icon.value ) { #>
+									<#
+										iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
+										migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
+										if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.icon || migrated[ index ] ) ) { #>
+											{{{ iconsHTML[ index ].value }}}
+										<# } else { #>
+											<i class="{{ item.icon }}" aria-hidden="true"></i>
+										<# }
+									#>
+								<# } #>
+							<# } else if ( item.icon_type == 'image' ) { #>
+								<#
+								var image = {
+									id: item.image.id,
+									url: item.image.url,
+									size: settings.thumbnail_size,
+									dimension: settings.thumbnail_custom_dimension,
+									model: view.getEditModel()
+								};
+								var image_url = elementor.imagesManager.getImageUrl( image );
+								#>
+								<img src="{{{ image_url }}}" />
+							<# } else if ( item.icon_type == 'text' ) { #>
+								{{{ item.icon_text }}}
+							<# } #>
+						</span>
+						<# if ( item.link_type == 'icon' ) { #>
+							</a>
+						<# } #>
+					</div>
+				<# }
 			}
 
 			view.addRenderAttribute( 'container', 'class', 'pp-info-box-container' );
@@ -3199,6 +3359,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 			var iconsHTML = {},
 				migrated = {};
+			
+			var iconPosition = ( settings.icon_position ) ? settings.icon_position : 'above-title';
 		#>
 		<div {{{ view.getRenderAttributeString( 'container' ) }}}>
 			<# if ( settings.layout == 'carousel' ) { #><div class="swiper-wrapper"><# } #>
@@ -3236,71 +3398,27 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					<# if ( item.link_type == 'box' ) { #>
 						<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
 					<# } #>
-						<# if ( item.icon_type != 'none' ) { #>
-							<div class="pp-info-box-icon-wrap">
-								<# if ( item.link_type == 'icon' ) { #>
-									<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
-								<# } #>
-								<span {{{ view.getRenderAttributeString( 'icon' ) }}}>
-									<# if ( item.icon_type == 'icon' ) { #>
-										<# if ( item.icon || item.selected_icon.value ) { #>
-											<#
-												iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
-												migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
-												if ( iconsHTML[ index ] && iconsHTML[ index ].rendered && ( ! item.icon || migrated[ index ] ) ) { #>
-													{{{ iconsHTML[ index ].value }}}
-												<# } else { #>
-													<i class="{{ item.icon }}" aria-hidden="true"></i>
-												<# }
-											#>
-										<# } #>
-									<# } else if ( item.icon_type == 'image' ) { #>
-										<#
-										var image = {
-											id: item.image.id,
-											url: item.image.url,
-											size: settings.thumbnail_size,
-											dimension: settings.thumbnail_custom_dimension,
-											model: view.getEditModel()
-										};
-										var image_url = elementor.imagesManager.getImageUrl( image );
-										#>
-										<img src="{{{ image_url }}}" />
-									<# } else if ( item.icon_type == 'text' ) { #>
-										{{{ item.icon_text }}}
-									<# } #>
-								</span>
-								<# if ( item.link_type == 'icon' ) { #>
-									</a>
-								<# } #>
+						<#
+						if ( 'above-title' == iconPosition || 'left' == iconPosition || 'right' == iconPosition ) {
+							icon_template( item, index );
+						}
+						#>
+						<# if ( 'left-title' === iconPosition || 'right-title' === iconPosition ) { #>
+							<div class="pp-info-box-icon-title-wrap">
+								<# icon_template( item, index ); #>
+								<# title_template( item, i ); #>
 							</div>
 						<# } #>
 						<div class="pp-info-box-content">
-							<div class="pp-info-box-title-wrap">
-								<#
-									var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ),
-										subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.sub_title_html_tag );
+							<#
+							if ( 'above-title' == iconPosition || 'below-title' == iconPosition || 'left' == iconPosition || 'right' == iconPosition ) {
+								title_template( item, i );
+							}
 
-									if ( item.title ) {
-										#>
-										<{{{ $title_container_tag }}} {{{ view.getRenderAttributeString( 'title-container' + i ) }}}>
-
-										<{{{ titleHTMLTag }}} class="pp-info-box-title">
-										{{ item.title }}
-										</{{{ titleHTMLTag }}}>
-										</{{{ $title_container_tag }}}>
-										<#
-									}
-
-									if ( item.subtitle ) {
-										#>
-										<{{{ subtitleHTMLTag }}} class="pp-info-box-subtitle">
-										{{ item.subtitle }}
-										</{{{ subtitleHTMLTag }}}>
-										<#
-									}
-								#>
-							</div>
+							if ( 'below-title' == iconPosition ) {
+								icon_template( item, index );
+							}
+							#>
 
 							<# if ( settings.divider_title_switch == 'yes' ) { #>
 								<div class="pp-info-box-divider-wrap">
