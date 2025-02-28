@@ -37,7 +37,7 @@
 .pp-restaurant-menu .pp-restaurant-menu-title a {
   color: inherit;
 }
-.pp-restaurant-menu-style-1 .pp-restaurant-menu-price {
+.pp-restaurant-menu-style-1 .pp-restaurant-menu-price, .pp-restaurant-menu-style-5 .pp-restaurant-menu-price {
   float: right;
 }
 .pp-restaurant-menu-style-3 .pp-restaurant-menu-image {
@@ -52,7 +52,7 @@
 .pp-restaurant-menu-style-4 .pp-restaurant-menu-image {
   display: inline-block;
 }
-.pp-restaurant-menu-style-1 .pp-price-title-connector {
+.pp-restaurant-menu-style-1 .pp-price-title-connector, .pp-restaurant-menu-style-5 .pp-price-title-connector {
   border-bottom: 1px dashed #000;
   height: 1px;
   -webkit-box-flex: 1;
@@ -61,6 +61,16 @@
   -ms-flex-item-align: center;
       align-self: center;
   margin: 0 20px;
+}
+.pp-restaurant-menu-style-5 .pp-restaurant-menu-item {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.pp-restaurant-menu-style-5 .pp-restaurant-menu-image {
+  margin-left: 10px;
+  margin-right: 0;
 }
 .pp-restaurant-menu-style-powerpack .pp-restaurant-menu-item {
   min-height: 150px;

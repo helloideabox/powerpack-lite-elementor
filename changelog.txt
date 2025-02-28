@@ -1,5 +1,6 @@
 == 2.8.4 ==
 Release date: 
+* Enhancement: Price Menu - Added 1 new style
 * Enhancement: Info Grid & Carousel - Added Icon Position option
 * Enhancement: Info Table - Added Icon Position option
 * Fixed: Logo Grid - Minor CSS glitch when link is added to logo

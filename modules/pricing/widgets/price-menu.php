@@ -14,8 +14,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -281,6 +281,7 @@ class Price_Menu extends Powerpack_Widget {
 					'style-2'         => esc_html__( 'Style 2', 'powerpack' ),
 					'style-3'         => esc_html__( 'Style 3', 'powerpack' ),
 					'style-4'         => esc_html__( 'Style 4', 'powerpack' ),
+					'style-5'         => esc_html__( 'Style 5', 'powerpack' ),
 				),
 			)
 		);
@@ -1172,7 +1173,7 @@ class Price_Menu extends Powerpack_Widget {
 			$this->add_render_attribute( 'price-menu', 'class', 'pp-restaurant-menu-' . $settings['menu_style'] );
 		}
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'price-menu' ) ); ?>>
+		<div <?php $this->print_render_attribute_string( 'price-menu' ); ?>>
 			<div class="pp-restaurant-menu-items">
 				<?php foreach ( $settings['menu_items'] as $index => $item ) : ?>
 					<?php
@@ -1223,15 +1224,15 @@ class Price_Menu extends Powerpack_Widget {
 												$title_link_key = $this->get_repeater_setting_key( 'menu_title_link', 'menu_items', $index );
 												$this->add_link_attributes( $title_link_key, $item['link'] );
 												?>
-												<a <?php echo wp_kses_post( $this->get_render_attribute_string( $title_link_key ) ); ?>>
-													<span <?php echo wp_kses_post( $this->get_render_attribute_string( $title_key ) ); ?>>
+												<a <?php $this->print_render_attribute_string( $title_link_key ); ?>>
+													<span <?php $this->print_render_attribute_string( $title_key ); ?>>
 														<?php $this->print_unescaped_setting( 'menu_title', 'menu_items', $index ); ?>
 													</span>
 												</a>
 												<?php
 											} else {
 												?>
-												<span <?php echo wp_kses_post( $this->get_render_attribute_string( $title_key ) ); ?>>
+												<span <?php $this->print_render_attribute_string( $title_key ); ?>>
 													<?php $this->print_unescaped_setting( 'menu_title', 'menu_items', $index ); ?>
 												</span>
 												<?php
@@ -1246,15 +1247,15 @@ class Price_Menu extends Powerpack_Widget {
 										<?php
 									}
 
-									if ( 'style-1' === $settings['menu_style'] ) { ?>
+									if ( 'style-1' === $settings['menu_style'] || 'style-5' === $settings['menu_style'] ) { ?>
 										<?php if ( ! empty( $item['menu_price'] ) ) { ?>
 											<span class="pp-restaurant-menu-price">
 												<?php if ( 'yes' === $item['discount'] ) { ?>
-													<span <?php echo wp_kses_post( $this->get_render_attribute_string( $original_price_key ) ); ?>>
+													<span <?php $this->print_render_attribute_string( $original_price_key ); ?>>
 														<?php $this->print_unescaped_setting( 'original_price', 'menu_items', $index ); ?>
 													</span>
 												<?php } ?>
-												<span <?php echo wp_kses_post( $this->get_render_attribute_string( $discount_price_key ) ); ?>>
+												<span <?php $this->print_render_attribute_string( $discount_price_key ); ?>>
 													<?php $this->print_unescaped_setting( 'menu_price', 'menu_items', $index ); ?>
 												</span>
 											</span>
@@ -1271,22 +1272,22 @@ class Price_Menu extends Powerpack_Widget {
 								<?php
 								if ( '' !== $item['menu_description'] ) {
 									?>
-									<div <?php echo wp_kses_post( $this->get_render_attribute_string( $description_key ) ); ?>>
+									<div <?php $this->print_render_attribute_string( $description_key ); ?>>
 										<?php $this->print_unescaped_setting( 'menu_description', 'menu_items', $index ); ?>
 									</div>
 									<?php
 								}
 								?>
 
-								<?php if ( 'style-1' !== $settings['menu_style'] ) { ?>
+								<?php if ( 'style-1' !== $settings['menu_style'] && 'style-5' !== $settings['menu_style'] ) { ?>
 									<?php if ( '' !== $item['menu_price'] ) { ?>
 										<span class="pp-restaurant-menu-price">
 											<?php if ( 'yes' === $item['discount'] ) { ?>
-												<span <?php echo wp_kses_post( $this->get_render_attribute_string( $original_price_key ) ); ?>>
+												<span <?php $this->print_render_attribute_string( $original_price_key ); ?>>
 													<?php $this->print_unescaped_setting( 'original_price', 'menu_items', $index ); ?>
 												</span>
 											<?php } ?>
-											<span <?php echo wp_kses_post( $this->get_render_attribute_string( $discount_price_key ) ); ?>>
+											<span <?php $this->print_render_attribute_string( $discount_price_key ); ?>>
 												<?php $this->print_unescaped_setting( 'menu_price', 'menu_items', $index ); ?>
 											</span>
 										</span>
@@ -1391,7 +1392,7 @@ class Price_Menu extends Powerpack_Widget {
 										<span class="pp-price-title-connector"></span>
 									<# }
 
-									if ( settings.menu_style == 'style-1' ) {
+									if ( settings.menu_style == 'style-1' || settings.menu_style == 'style-5' ) {
 										price_template( item );
 									} #>
 								</div>
@@ -1414,7 +1415,7 @@ class Price_Menu extends Powerpack_Widget {
 									print( description_html );
 								}
 
-								if ( settings.menu_style != 'style-1' ) {
+								if ( settings.menu_style != 'style-1' && settings.menu_style != 'style-5' ) {
 									price_template( item );
 								} #>
 							</div>

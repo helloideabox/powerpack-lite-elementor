@@ -26,7 +26,8 @@
             color: inherit;
         }
     }
-    &-style-1 {
+    &-style-1,
+    &-style-5 {
         .pp-restaurant-menu-price {
             float: right;
         }
@@ -45,13 +46,23 @@
             display: inline-block
         }
     }
-    &-style-1 {
+    &-style-1,
+    &-style-5 {
         .pp-price-title-connector {
             border-bottom: 1px dashed #000;
             height: 1px;
             flex-grow: 1;
             align-self: center;
             margin: 0 20px;
+        }
+    }
+    &-style-5 {
+        .pp-restaurant-menu-item {
+            flex-direction: row-reverse;
+        }
+        .pp-restaurant-menu-image {
+            margin-left: 10px;
+            margin-right: 0;
         }
     }
     &-style-powerpack {
