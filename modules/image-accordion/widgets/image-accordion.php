@@ -191,12 +191,28 @@ class Image_Accordion extends Powerpack_Widget {
 		$repeater->add_control(
 			'show_button',
 			[
-				'label'                 => esc_html__( 'Show Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Add Link', 'powerpack' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
 				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
 				'label_off'             => esc_html__( 'No', 'powerpack' ),
 				'return_value'          => 'yes',
+			]
+		);
+
+		$repeater->add_control(
+			'apply_link_on',
+			[
+				'label'                 => esc_html__( 'Apply Link On', 'powerpack' ),
+				'type'                  => Controls_Manager::SELECT,
+				'default'               => 'button',
+				'options'               => [
+					'button'    => esc_html__( 'Button', 'powerpack' ),
+					'container' => esc_html__( 'Container', 'powerpack' ),
+				],
+				'condition'             => [
+					'show_button' => 'yes',
+				],
 			]
 		);
 
@@ -227,7 +243,8 @@ class Image_Accordion extends Powerpack_Widget {
 				],
 				'default'               => esc_html__( 'Get Started', 'powerpack' ),
 				'condition'             => [
-					'show_button'   => 'yes',
+					'show_button'    => 'yes',
+					'apply_link_on!' => 'container',
 				],
 			]
 		);
@@ -239,7 +256,8 @@ class Image_Accordion extends Powerpack_Widget {
 				'type'                  => Controls_Manager::ICONS,
 				'fa4compatibility'      => 'button_icon',
 				'condition'             => [
-					'show_button'   => 'yes',
+					'show_button'    => 'yes',
+					'apply_link_on!' => 'container',
 				],
 			]
 		);
@@ -255,7 +273,8 @@ class Image_Accordion extends Powerpack_Widget {
 					'after'     => esc_html__( 'After', 'powerpack' ),
 				],
 				'condition'             => [
-					'show_button'   => 'yes',
+					'show_button'    => 'yes',
+					'apply_link_on!' => 'container',
 					'select_button_icon[value]!'  => '',
 				],
 			]
@@ -1153,14 +1172,16 @@ class Image_Accordion extends Powerpack_Widget {
 		] );
 
 		if ( ! empty( $settings['accordion_items'] ) ) { ?>
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'image-accordion' ) ); ?>>
+			<div <?php $this->print_render_attribute_string( 'image-accordion' ); ?>>
 				<?php foreach ( $settings['accordion_items'] as $index => $item ) { ?>
 					<?php
-					$item_key = $this->get_repeater_setting_key( 'item', 'accordion_items', $index );
+					$item_key    = $this->get_repeater_setting_key( 'item', 'accordion_items', $index );
+					$overlay_key = $this->get_repeater_setting_key( 'container_link', 'accordion_items', $index );
+					$overlay_tag = 'div';
+					$add_link    = false;
 
-					$this->add_render_attribute( $item_key, [
-						'class' => [ 'pp-image-accordion-item', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) ],
-					] );
+					$this->add_render_attribute( $item_key, 'class', [ 'pp-image-accordion-item', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) ] );
+					$this->add_render_attribute( $overlay_key, 'class', [ 'pp-image-accordion-overlay', 'pp-media-overlay' ] );
 
 					if ( $item['image']['url'] ) {
 
@@ -1181,20 +1202,29 @@ class Image_Accordion extends Powerpack_Widget {
 					$this->add_render_attribute( $content_key, 'class', 'pp-image-accordion-content-wrap' );
 
 					if ( 'yes' === $item['show_button'] && ! empty( $item['link']['url'] ) ) {
-						$button_key = $this->get_repeater_setting_key( 'button', 'accordion_items', $index );
+						$add_link      = true;
+						$apply_link_on = ( $item['apply_link_on'] ) ? $item['apply_link_on'] : 'button';
 
-						$this->add_render_attribute( $button_key, 'class', [
-							'pp-image-accordion-button',
-							'pp-button-icon-' . $item['button_icon_position'],
-							'elementor-button',
-							'elementor-size-' . $settings['button_size'],
-						] );
+						if ( $add_link && 'container' === $apply_link_on ) {
+							$overlay_tag = 'a';
 
-						if ( $settings['button_hover_animation'] ) {
-							$this->add_render_attribute( $button_key, 'class', 'elementor-animation-' . $settings['button_hover_animation'] );
+							$this->add_link_attributes( $overlay_key, $item['link'] );
+						} else {
+							$button_key = $this->get_repeater_setting_key( 'button', 'accordion_items', $index );
+
+							$this->add_render_attribute( $button_key, 'class', [
+								'pp-image-accordion-button',
+								'pp-button-icon-' . $item['button_icon_position'],
+								'elementor-button',
+								'elementor-size-' . $settings['button_size'],
+							] );
+
+							if ( $settings['button_hover_animation'] ) {
+								$this->add_render_attribute( $button_key, 'class', 'elementor-animation-' . $settings['button_hover_animation'] );
+							}
+
+							$this->add_link_attributes( $button_key, $item['link'] );
 						}
-
-						$this->add_link_attributes( $button_key, $item['link'] );
 					}
 
 					if ( $settings['active_tab'] ) {
@@ -1211,9 +1241,9 @@ class Image_Accordion extends Powerpack_Widget {
 						}
 					}
 					?>
-					<div <?php echo wp_kses_post( $this->get_render_attribute_string( $item_key ) ); ?>>
-						<div class="pp-image-accordion-overlay pp-media-overlay">
-							<div <?php echo wp_kses_post( $this->get_render_attribute_string( $content_key ) ); ?>>
+					<div <?php $this->print_render_attribute_string( $item_key ); ?>>
+						<<?php echo esc_html( $overlay_tag ) ?> <?php $this->print_render_attribute_string( $overlay_key ); ?>>
+							<div <?php $this->print_render_attribute_string( $content_key ); ?>>
 								<div class="pp-image-accordion-content">
 									<?php $title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] ); ?>
 									<<?php echo esc_html( $title_tag ); ?> class="pp-image-accordion-title">
@@ -1223,29 +1253,29 @@ class Image_Accordion extends Powerpack_Widget {
 										<?php echo $this->parse_text_editor( $item['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 									</div>
 								</div>
-								<?php if ( 'yes' === $item['show_button'] && $item['link']['url'] ) { ?>
-								<div class="pp-image-accordion-button-wrap">
-									<a <?php echo wp_kses_post( $this->get_render_attribute_string( $button_key ) ); ?>>
-										<?php
-										if ( 'before' === $item['button_icon_position'] ) {
-											$this->render_button_icon( $item );
-										}
-										?>
-										<?php if ( ! empty( $item['button_text'] ) ) { ?>
-											<span class="pp-button-text">
-												<?php echo wp_kses_post( $item['button_text'] ); ?>
-											</span>
-										<?php } ?>
-										<?php
-										if ( 'after' === $item['button_icon_position'] ) {
-											$this->render_button_icon( $item );
-										}
-										?>
-									</a>
-								</div>
+								<?php if ( $add_link && 'button' === $apply_link_on ) { ?>
+									<div class="pp-image-accordion-button-wrap">
+										<a <?php $this->print_render_attribute_string( $button_key ); ?>>
+											<?php
+											if ( 'before' === $item['button_icon_position'] ) {
+												$this->render_button_icon( $item );
+											}
+											?>
+											<?php if ( ! empty( $item['button_text'] ) ) { ?>
+												<span class="pp-button-text">
+													<?php echo wp_kses_post( $item['button_text'] ); ?>
+												</span>
+											<?php } ?>
+											<?php
+											if ( 'after' === $item['button_icon_position'] ) {
+												$this->render_button_icon( $item );
+											}
+											?>
+										</a>
+									</div>
 								<?php } ?>
 							</div>
-						</div>
+						</<?php echo esc_html( $overlay_tag ) ?>>
 					</div>
 				<?php } ?>
 			</div>
