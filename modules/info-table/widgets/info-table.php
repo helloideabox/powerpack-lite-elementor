@@ -14,8 +14,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -752,6 +752,23 @@ class Info_Table extends Powerpack_Widget {
 				],
 			]
 		);
+
+		$this->add_control(
+			'icon_position',
+			[
+				'label'        => esc_html__( 'Icon Position', 'powerpack' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'below-title',
+				'options'      => [
+					'above-title' => esc_html__( 'Above Title', 'powerpack' ),
+					'below-title' => esc_html__( 'Below Title', 'powerpack' ),
+				],
+				'condition'    => [
+					'icon_type!' => 'none',
+				],
+			]
+		);
+
 		$this->add_control(
 			'icon_box_bg_color',
 			[
@@ -1606,13 +1623,13 @@ class Info_Table extends Powerpack_Widget {
 			<div class="pp-info-table-icon-container">
 				<div class="pp-info-table-icon-inner">
 					<div class="pp-info-table-icon-wrap">
-						<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
+						<span <?php $this->print_render_attribute_string( 'icon' ); ?>>
 							<?php if ( 'icon' === $settings['icon_type'] ) { ?>
 								<?php
 								if ( $is_new || $migrated ) {
 									Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
 								} elseif ( ! empty( $settings['icon'] ) ) {
-									?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i><?php
+									?><i <?php $this->print_render_attribute_string( 'i' ); ?>></i><?php
 								}
 								?>
 							<?php } elseif ( 'image' === $settings['icon_type'] ) { ?>
@@ -1715,64 +1732,72 @@ class Info_Table extends Powerpack_Widget {
 			$has_button_icon = true;
 		}
 		$button_icon_migrated = isset( $settings['__fa4_migrated']['select_button_icon'] );
-		$is_new_button_icon = ! isset( $settings['button_icon'] ) && Icons_Manager::is_migration_allowed();
+		$is_new_button_icon   = ! isset( $settings['button_icon'] ) && Icons_Manager::is_migration_allowed();
+		$icon_position        = ( $settings['icon_position'] ) ? $settings['icon_position'] : 'below-title';
 		?>
-		<<?php echo esc_html( $if_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-table-container' ) ); ?>>
-			<?php if ( $if_html_tag_a ) { ?>
-			<<?php echo esc_html( $if_html_tag_a ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-table-container-a' ) ); ?>>
+		<<?php echo esc_html( $if_html_tag ); ?> <?php $this->print_render_attribute_string( 'info-table-container' ); ?>>
+			<?php if ( ! empty( $settings['link']['url'] ) && 'box' === $settings['link_type'] ) { ?>
+			<<?php echo esc_html( $if_html_tag_a ); ?> <?php $this->print_render_attribute_string( 'info-table-container-a' ); ?>>
 			<?php } ?>
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-table' ) ); ?>>
+			<div <?php $this->print_render_attribute_string( 'info-table' ); ?>>
 				<?php if ( 'show' === $settings['sale_badge'] && ! empty( $settings['sale_badge_text'] ) ) { ?>
-					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'sale-badge' ) ); ?>>
+					<div <?php $this->print_render_attribute_string( 'sale-badge' ); ?>>
 						<p><?php echo wp_kses_post( $settings['sale_badge_text'] ); ?></p>
 					</div>
 				<?php } ?>
-				<div class="pp-info-table-title-wrap">
 				<?php
-				if ( '' !== $settings['heading'] ) {
-					?>
-					<<?php echo esc_html( $title_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'title-container' ) ); ?>>
-						<?php $title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] ); ?>
-						<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'heading' ) ); ?>>
-							<?php echo wp_kses_post( $settings['heading'] ); ?>
-						</<?php esc_html( $title_tag ); ?>>
-					</<?php echo esc_html( $title_html_tag ); ?>>
-					<?php
-				}
-				if ( '' !== $settings['sub_heading'] ) {
-					$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
-					?>
-					<<?php echo esc_html( $subtitle_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'sub_heading' ) ); ?>>
-						<?php echo wp_kses_post( $settings['sub_heading'] ); ?>
-					</<?php esc_html( $subtitle_tag ); ?>>
-					<?php
+				if ( 'above-title' === $icon_position ) {
+					$this->render_infotable_icon();
 				}
 				?>
+				<div class="pp-info-table-title-wrap">
+					<?php
+					if ( '' !== $settings['heading'] ) {
+						?>
+						<<?php echo esc_html( $title_html_tag ); ?> <?php $this->print_render_attribute_string( 'title-container' ); ?>>
+							<?php $title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] ); ?>
+							<<?php echo esc_html( $title_tag ); ?> <?php $this->print_render_attribute_string( 'heading' ); ?>>
+								<?php echo wp_kses_post( $settings['heading'] ); ?>
+							</<?php esc_html( $title_tag ); ?>>
+						</<?php echo esc_html( $title_html_tag ); ?>>
+						<?php
+					}
+					if ( '' !== $settings['sub_heading'] ) {
+						$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
+						?>
+						<<?php echo esc_html( $subtitle_tag ); ?> <?php $this->print_render_attribute_string( 'sub_heading' ); ?>>
+							<?php echo wp_kses_post( $settings['sub_heading'] ); ?>
+						</<?php esc_html( $subtitle_tag ); ?>>
+						<?php
+					}
+					?>
 				</div>
-
-				<?php $this->render_infotable_icon(); ?>
-
+				<?php
+				if ( 'below-title' === $icon_position ) {
+					$this->render_infotable_icon();
+				}
+				?>
 				<?php if ( ! empty( $settings['description'] ) ) { ?>
-					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'description' ) ); ?>>
+					<div <?php $this->print_render_attribute_string( 'description' ); ?>>
 						<?php echo $this->parse_text_editor( nl2br( $settings['description'] ) ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
 				<?php } ?>
 				<?php if ( 'button' === $settings['link_type'] ) { ?>
 					<div class="pp-info-table-footer">
-						<<?php echo esc_html( $button_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'info-table-button' ) ); ?>>
+						<<?php echo esc_html( $button_html_tag ); ?> <?php $this->print_render_attribute_string( 'info-table-button' ); ?>>
 							<?php if ( $has_button_icon && 'before' === $settings['button_icon_position'] ) { ?>
 								<span class='pp-button-icon pp-icon pp-no-trans'>
 									<?php
 									if ( $is_new_button_icon || $button_icon_migrated ) {
 										Icons_Manager::render_icon( $settings['select_button_icon'], [ 'aria-hidden' => 'true' ] );
 									} elseif ( ! empty( $settings['button_icon'] ) ) {
-										?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'button-icon' ) ); ?>></i><?php
+										?><i <?php $this->print_render_attribute_string( 'button-icon' ); ?>></i><?php
 									}
 									?>
 								</span>
 							<?php } ?>
 							<?php if ( ! empty( $settings['button_text'] ) ) { ?>
-								<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'button_text' ) ); ?>>
+								<span <?php $this->print_render_attribute_string( 'button_text' ); ?>>
 									<?php echo esc_attr( $settings['button_text'] ); ?>
 								</span>
 							<?php } ?>
@@ -1782,7 +1807,7 @@ class Info_Table extends Powerpack_Widget {
 									if ( $is_new_button_icon || $button_icon_migrated ) {
 										Icons_Manager::render_icon( $settings['select_button_icon'], [ 'aria-hidden' => 'true' ] );
 									} elseif ( ! empty( $settings['button_icon'] ) ) {
-										?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'button-icon' ) ); ?>></i><?php
+										?><i <?php $this->print_render_attribute_string( 'button-icon' ); ?>></i><?php
 									}
 									?>
 								</span>
@@ -1791,7 +1816,7 @@ class Info_Table extends Powerpack_Widget {
 					</div>
 				<?php } ?>
 			</div>
-			<?php if ( $if_html_tag_a ) { ?>
+			<?php if ( ! empty( $settings['link']['url'] ) && 'box' === $settings['link_type'] ) { ?>
 				</<?php echo esc_html( $if_html_tag_a ); ?>>
 			<?php } ?>
 		</<?php echo esc_html( $if_html_tag ); ?>>
@@ -1822,6 +1847,7 @@ class Info_Table extends Powerpack_Widget {
 				migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' ),
 				buttonIconHTML = elementor.helpers.renderIcon( view, settings.select_button_icon, { 'aria-hidden': true }, 'i' , 'object' ),
 				buttonIconMigrated = elementor.helpers.isIconMigrated( settings, 'select_button_icon' );
+				iconPosition = ( settings.icon_position ) ? settings.icon_position : 'below-title';
 		   
 			view.addInlineEditingAttributes( 'icon_text', 'none' );
 			view.addRenderAttribute( 'icon_text', 'class', 'pp-icon-text' );
@@ -1883,41 +1909,9 @@ class Info_Table extends Powerpack_Widget {
 					}
 				}
 			}
-		#>
-		<{{{if_html_tag}}} {{{view.getRenderAttributeString('info-table-container')}}}>
-			<{{{if_html_tag_a}}} {{{view.getRenderAttributeString('info-table-container-a')}}}>
-			<div {{{view.getRenderAttributeString('info-table')}}}>
-				<#
-				if ( settings.sale_badge == 'show' && settings.sale_badge_text != '' ) {
-					if ( settings.sale_badge_align == 'right' ) { #>
-						<div class='pp-info-table-sale-badge right'>
-						<# } else if ( settings.sale_badge_align == 'left' ) { #>
-						<div class='pp-info-table-sale-badge left'>
-						<# } #>
-							<p>{{{ settings.sale_badge_text }}}</p>
-						</div>
-				<# } #>
-				<div class="pp-info-table-title-wrap">
-				<#
-				if ( settings.heading != '' ) { #>
-					<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
-					<{{{ pp_title_html_tag }}} {{{ view.getRenderAttributeString('title-container') }}}>
-						<{{{ titleHTMLTag }}} {{{ view.getRenderAttributeString('heading') }}}>
-							{{{ settings.heading }}}
-						</{{{ titleHTMLTag }}}>
-					</{{{ pp_title_html_tag }}}>
-					<#
-				}
-				if ( settings.sub_heading != '' ) { #>
-					<# var subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.sub_title_html_tag ); #>
-					<{{{ subtitleHTMLTag }}} {{{ view.getRenderAttributeString('sub_heading') }}}>
-						{{{ settings.sub_heading }}}
-					</{{{ subtitleHTMLTag }}}>
-					<#
-				}
-				#>
-				</div>
-				<# if ( settings.icon_type != 'none' ) { #>
+
+			function icon_template() {
+				if ( settings.icon_type != 'none' ) { #>
 					<div class="pp-info-table-icon-container">
 						<div class="pp-info-table-icon-inner">
 							<div class="pp-info-table-icon-wrap">
@@ -1951,7 +1945,52 @@ class Info_Table extends Powerpack_Widget {
 							</div>
 						</div>
 					</div>
+				<# }
+			}
+		#>
+		<{{{if_html_tag}}} {{{view.getRenderAttributeString('info-table-container')}}}>
+			<{{{if_html_tag_a}}} {{{view.getRenderAttributeString('info-table-container-a')}}}>
+			<div {{{view.getRenderAttributeString('info-table')}}}>
+				<#
+				if ( settings.sale_badge == 'show' && settings.sale_badge_text != '' ) {
+					if ( settings.sale_badge_align == 'right' ) { #>
+						<div class='pp-info-table-sale-badge right'>
+						<# } else if ( settings.sale_badge_align == 'left' ) { #>
+						<div class='pp-info-table-sale-badge left'>
+						<# } #>
+							<p>{{{ settings.sale_badge_text }}}</p>
+						</div>
 				<# } #>
+				<#
+				if ( iconPosition == 'above-title' ) {
+					icon_template();
+				}
+				#>
+				<div class="pp-info-table-title-wrap">
+				<#
+				if ( settings.heading != '' ) { #>
+					<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
+					<{{{ pp_title_html_tag }}} {{{ view.getRenderAttributeString('title-container') }}}>
+						<{{{ titleHTMLTag }}} {{{ view.getRenderAttributeString('heading') }}}>
+							{{{ settings.heading }}}
+						</{{{ titleHTMLTag }}}>
+					</{{{ pp_title_html_tag }}}>
+					<#
+				}
+				if ( settings.sub_heading != '' ) { #>
+					<# var subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.sub_title_html_tag ); #>
+					<{{{ subtitleHTMLTag }}} {{{ view.getRenderAttributeString('sub_heading') }}}>
+						{{{ settings.sub_heading }}}
+					</{{{ subtitleHTMLTag }}}>
+					<#
+				}
+				#>
+				</div>
+				<#
+				if ( iconPosition == 'below-title' ) {
+					icon_template();
+				}
+				#>
 
 				<# if ( settings.description != '' ) { #>
 					<div {{{view.getRenderAttributeString('description')}}}>
