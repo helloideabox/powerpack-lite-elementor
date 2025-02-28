@@ -1,5 +1,5 @@
 == 2.8.4 ==
-Release date: 
+Release date: February 28, 2025
 * Enhancement: Price Menu - Added 1 new style
 * Enhancement: Image Accordion - Added option to apply link on button or item container
 * Enhancement: Info Grid & Carousel - Added Icon Position option

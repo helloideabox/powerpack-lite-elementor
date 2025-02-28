@@ -235,6 +235,14 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.8.4 - February 28, 2025 =
+* 	Enhancement: Price Menu - Added 1 new style
+* 	Enhancement: Image Accordion - Added option to apply link on button or item container
+* 	Enhancement: Info Grid & Carousel - Added Icon Position option
+* 	Enhancement: Info Table - Added Icon Position option
+* 	Fixed: Logo Grid - Minor CSS glitch when link is added to logo
+* 	Fixed: Display Conditions - Deprecated code in Request Parameter condition
+
 = 2.8.3 - December 24, 2024 =
 * 	Enhancement: Added has_widget_inner_wrapper to support “Optimized Markup” experiment
 * 	Enhancement: Advanced Posts - Added conditional check to scripts and styles
