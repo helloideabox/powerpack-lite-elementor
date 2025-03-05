@@ -1,5 +1,5 @@
 == 2.9.0 ==
-Release date: 
+Release date: March 5, 2025
 * New: Charts widget
 * Fixed: Instagram Feed - Lightbox arrows were not showing
 
