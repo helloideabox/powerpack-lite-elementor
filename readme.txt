@@ -81,7 +81,7 @@ PowerPack Addon for Elementor comes from our team of experts, who always deliver
 38. [Random Image](https://powerpackelements.com/elementor-widgets/random-image/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display Random Images from a set of the images on your webpage.
 39. [Interactive Circle](https://powerpackelements.com/elementor-widgets/interactive-circle/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - This widget lets you showcase content on your website in beautiful and eye-catchy circular layouts without using any additional HTML code and CSS.
 40. [Progress Bar](https://powerpackelements.com/elementor-widgets/progress-bar/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Add interactive Progress Bars to your website. Showcase progress with horizontal, vertical, circular bars, and more using this versatile widget.
-41. [Advanced Charts](https://powerpackelements.com/elementor-widgets/charts/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Add interactive charts to your Elementor website—display data in different interactive chart layouts such as Lines and Bars. 
+41. [Charts](https://powerpackelements.com/elementor-widgets/advanced-charts/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Add interactive charts to your Elementor website—display data in different interactive chart layouts such as Lines and Bars. 
 
 ## CREATIVE EXTENSIONS - FREE
 
@@ -131,7 +131,7 @@ PowerPack Addon for Elementor comes from our team of experts, who always deliver
 24. [Breadcrumbs](https://powerpackelements.com/elementor-widgets/breadcrumbs/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - This widget lets you add breadcrumbs to pages on your website.
 25. [Advanced Posts](https://powerpackelements.com/elementor-widgets/posts/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create stylish blog layouts with the Elementor Posts widget.
 26. [Business Reviews](https://powerpackelements.com/elementor-widgets/business-reviews/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Fetch your product reviews from Google & Yelp and easily display them on your sites in Elementor.
-[Advanced Charts](https://powerpackelements.com/elementor-widgets/charts/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Create beautiful charts in Elementor. Visualize data with Line, Bar, Radar, Doughnut, Pie, Polar Area, and Bubble charts.
+27. [Advanced Charts](https://powerpackelements.com/elementor-widgets/advanced-charts/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Create beautiful charts in Elementor. Visualize data with Line, Bar, Radar, Doughnut, Pie, Polar Area, and Bubble charts.
 
 ### TEMPLATE LIBRARY FOR ELEMENTOR - FREE & PRO
 **Easiest, Fastest, and Creative Way to Design Websites!** 
