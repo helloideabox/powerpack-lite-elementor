@@ -236,6 +236,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.9.0 - March 5, 2025 =
+* 	New: Charts widget
+* 	Fixed: Instagram Feed - Lightbox arrows were not showing
+
 = 2.8.4 - February 28, 2025 =
 * 	Enhancement: Price Menu - Added 1 new style
 * 	Enhancement: Image Accordion - Added option to apply link on button or item container
