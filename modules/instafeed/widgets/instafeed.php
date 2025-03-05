@@ -127,6 +127,10 @@ class Instafeed extends Powerpack_Widget {
 			array_push( $scripts, 'swiper', 'pp-instafeed' );
 		}
 
+		if ( 'yes' === $settings['insta_image_popup'] ) {
+			array_push( $scripts, 'swiper' );
+		}
+
 		return $scripts;
 	}
 
@@ -150,6 +154,10 @@ class Instafeed extends Powerpack_Widget {
 
 		if ( 'carousel' === $settings['feed_layout'] ) {
 			array_push( $styles, 'e-swiper', 'pp-swiper' );
+		}
+
+		if ( 'yes' === $settings['insta_image_popup'] ) {
+			array_push( $styles, 'e-swiper' );
 		}
 
 		return $styles;
@@ -2952,13 +2960,13 @@ class Instafeed extends Powerpack_Widget {
 
 		if ( $has_icon ) {
 			?>
-			<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'title-icon' ) ); ?>>
+			<span <?php $this->print_render_attribute_string( 'title-icon' ); ?>>
 				<?php
 				if ( $is_new || $migrated ) {
 					Icons_Manager::render_icon( $settings['title_icon'], array( 'aria-hidden' => 'true' ) );
 				} elseif ( ! empty( $settings['insta_title_icon'] ) ) {
 					?>
-					<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i>
+					<i <?php $this->print_render_attribute_string( 'i' ); ?>></i>
 					<?php
 				}
 				?>
@@ -2981,7 +2989,7 @@ class Instafeed extends Powerpack_Widget {
 
 		if ( 'yes' === $settings['insta_profile_link'] && $settings['insta_link_title'] ) { ?>
 			<span class="pp-instagram-feed-title-wrap">
-				<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'instagram-profile-link' ) ); ?>>
+				<a <?php $this->print_render_attribute_string( 'instagram-profile-link' ); ?>>
 					<span class="pp-instagram-feed-title">
 						<?php
 						if ( 'before_title' === $settings['insta_title_icon_position'] ) {
@@ -3202,11 +3210,11 @@ class Instafeed extends Powerpack_Widget {
 			return;
 		}
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'insta-feed-wrap' ) ); ?>>
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container-wrap' ) ); ?>>
-				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'insta-feed-container' ) ); ?>>
+		<div <?php $this->print_render_attribute_string( 'insta-feed-wrap' ); ?>>
+			<div <?php $this->print_render_attribute_string( 'container-wrap' ); ?>>
+				<div <?php $this->print_render_attribute_string( 'insta-feed-container' ); ?>>
 					<?php $this->get_insta_profile_link(); ?>
-					<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'insta-feed' ) ); ?>>
+					<div <?php $this->print_render_attribute_string( 'insta-feed' ); ?>>
 						<?php
 						foreach ( $gallery as $index => $item ) {
 							$item_key = $this->get_repeater_setting_key( 'item', 'insta_images', $index );
@@ -3216,7 +3224,7 @@ class Instafeed extends Powerpack_Widget {
 								$this->add_render_attribute( $item_key, 'class', 'swiper-slide' );
 							}
 							?>
-							<div <?php echo wp_kses_post( $this->get_render_attribute_string( $item_key ) ); ?>>
+							<div <?php $this->print_render_attribute_string( $item_key ); ?>>
 								<div class="pp-feed-item-inner">
 								<?php $this->render_image_thumbnail( $item, $index ); ?>
 								</div>
@@ -3352,7 +3360,7 @@ class Instafeed extends Powerpack_Widget {
 		if ( 'grid' === $settings['feed_layout'] && 'yes' === $settings['load_more_button'] ) {
 			?>
 			<div class="pp-load-more-button-wrap">
-				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'load-more-button' ) ); ?>>
+				<div <?php $this->print_render_attribute_string( 'load-more-button' ); ?>>
 					<span class="pp-button-loader"></span>
 					<span class="pp-load-more-button-text">
 						<?php echo esc_attr( $settings['load_more_button_text'] ); ?>
