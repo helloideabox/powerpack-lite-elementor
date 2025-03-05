@@ -96,7 +96,7 @@ class Charts extends Powerpack_Widget {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since x.x.x
+	 * @since 2.9.0
 	 * @access protected
 	 */
 	protected function register_controls() {
