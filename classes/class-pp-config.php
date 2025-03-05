@@ -62,6 +62,13 @@ class PP_Config {
 					'keywords'   => array( 'powerpack', 'buttons' ),
 					'icon'       => 'ppicon-multi-buttons power-pack-admin-icon',
 				),
+				'Charts'               => array(
+					'name'       => 'pp-charts',
+					'title'      => esc_html__( 'Charts', 'powerpack' ),
+					'categories' => array( 'powerpack-elements' ),
+					'keywords'   => array( 'powerpack', 'chart', 'graph' ),
+					'icon'       => 'ppicon-advanced-charts power-pack-admin-icon',
+				),
 				'Contact_Form_7'       => array(
 					'name'       => 'pp-contact-form-7',
 					'title'      => esc_html__( 'Contact Form 7', 'powerpack' ),

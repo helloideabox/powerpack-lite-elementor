@@ -1,3 +1,7 @@
+== 2.9.0 ==
+Release date: 
+* New: Charts widget
+
 == 2.8.4 ==
 Release date: February 28, 2025
 * Enhancement: Price Menu - Added 1 new style

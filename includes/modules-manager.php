@@ -16,6 +16,7 @@ class Modules_Manager {
 			'advanced-accordion',
 			'business-hours',
 			'buttons',
+			'charts',
 			'contact-form-seven',
 			'content-reveal',
 			'content-ticker',

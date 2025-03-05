@@ -274,6 +274,26 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
+			'pp-chartjs',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/chartjs/chart.umd.min.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-chart',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-charts' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
 			'pp-scroll-image',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-scroll-image' . $suffix . '.js',
 			array(
