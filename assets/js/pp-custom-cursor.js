@@ -85,7 +85,7 @@
 
 				$("#style-" + columnId).remove();
 
-				$scope.append('<div class="pp-cursor-pointer pp-cursor-pointer-text">' + cursorText + '</div>');
+				$scope.append('<div class="pp-cursor-pointer pp-cursor-pointer-text">' + cursorText.replace( /(<([^>]+)>)/ig, '' ) + '</div>');
 
 				$selector.mouseenter(function() {
 					$(".pp-custom-cursor").removeClass("pp-cursor-active");
