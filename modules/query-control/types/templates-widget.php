@@ -45,6 +45,7 @@ class Templates_Widget extends Type_Base {
 			's' 				=> $data['q'],
 			'post_type' 		=> Source_Local::CPT,
 			'posts_per_page' 	=> -1,
+			'post_status'       => [ 'publish' ],
 			'tax_query'			=> [
 				[
 					'taxonomy' 	=> Source_Local::TAXONOMY_TYPE_SLUG,
