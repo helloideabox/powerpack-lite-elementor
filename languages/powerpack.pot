@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.9.0\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.9.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2025-03-05 16:11:54+00:00\n"
+"POT-Creation-Date: 2025-03-26 17:17:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,57 +60,66 @@ msgstr ""
 msgid "8"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1102
-#: modules/charts/widgets/charts.php:1230
-#: modules/charts/widgets/charts.php:1365
+#: modules/charts/widgets/charts.php:1096
+#: modules/charts/widgets/charts.php:1361
+#: modules/charts/widgets/charts.php:1561
+#: modules/charts/widgets/charts.php:1693
 msgid "100"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1103
-#: modules/charts/widgets/charts.php:1231
-#: modules/charts/widgets/charts.php:1366
+#: modules/charts/widgets/charts.php:1097
+#: modules/charts/widgets/charts.php:1362
+#: modules/charts/widgets/charts.php:1562
+#: modules/charts/widgets/charts.php:1694
 msgid "200"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1104
-#: modules/charts/widgets/charts.php:1232
-#: modules/charts/widgets/charts.php:1367
+#: modules/charts/widgets/charts.php:1098
+#: modules/charts/widgets/charts.php:1363
+#: modules/charts/widgets/charts.php:1563
+#: modules/charts/widgets/charts.php:1695
 msgid "300"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1105
-#: modules/charts/widgets/charts.php:1233
-#: modules/charts/widgets/charts.php:1368
+#: modules/charts/widgets/charts.php:1099
+#: modules/charts/widgets/charts.php:1364
+#: modules/charts/widgets/charts.php:1564
+#: modules/charts/widgets/charts.php:1696
 msgid "400"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1106
-#: modules/charts/widgets/charts.php:1234
-#: modules/charts/widgets/charts.php:1369
+#: modules/charts/widgets/charts.php:1100
+#: modules/charts/widgets/charts.php:1365
+#: modules/charts/widgets/charts.php:1565
+#: modules/charts/widgets/charts.php:1697
 msgid "500"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1107
-#: modules/charts/widgets/charts.php:1235
-#: modules/charts/widgets/charts.php:1370
+#: modules/charts/widgets/charts.php:1101
+#: modules/charts/widgets/charts.php:1366
+#: modules/charts/widgets/charts.php:1566
+#: modules/charts/widgets/charts.php:1698
 msgid "600"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1108
-#: modules/charts/widgets/charts.php:1236
-#: modules/charts/widgets/charts.php:1371
+#: modules/charts/widgets/charts.php:1102
+#: modules/charts/widgets/charts.php:1367
+#: modules/charts/widgets/charts.php:1567
+#: modules/charts/widgets/charts.php:1699
 msgid "700"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1109
-#: modules/charts/widgets/charts.php:1237
-#: modules/charts/widgets/charts.php:1372
+#: modules/charts/widgets/charts.php:1103
+#: modules/charts/widgets/charts.php:1368
+#: modules/charts/widgets/charts.php:1568
+#: modules/charts/widgets/charts.php:1700
 msgid "800"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1110
-#: modules/charts/widgets/charts.php:1238
-#: modules/charts/widgets/charts.php:1373
+#: modules/charts/widgets/charts.php:1104
+#: modules/charts/widgets/charts.php:1369
+#: modules/charts/widgets/charts.php:1569
+#: modules/charts/widgets/charts.php:1701
 msgid "900"
 msgstr ""
 
@@ -139,7 +148,7 @@ msgstr ""
 
 #: base/powerpack-widget.php:50 extensions/upgrade-pro.php:89
 #: modules/buttons/widgets/buttons.php:588
-#: modules/charts/widgets/charts.php:150
+#: modules/charts/widgets/charts.php:152
 #: modules/contact-form-seven/widgets/contact-form-7.php:258
 #: modules/content-reveal/widgets/content-reveal.php:488
 #: modules/formidable-forms/widgets/formidable-forms.php:313
@@ -205,7 +214,7 @@ msgstr ""
 msgid "Buttons"
 msgstr ""
 
-#: classes/class-pp-config.php:67
+#: classes/class-pp-config.php:67 modules/charts/widgets/charts.php:125
 msgid "Charts"
 msgstr ""
 
@@ -230,7 +239,7 @@ msgstr ""
 #: classes/class-pp-config.php:102 includes/helper-functions.php:354
 #: modules/divider/widgets/divider.php:129
 #: modules/divider/widgets/divider.php:455
-#: modules/icon-list/widgets/icon-list.php:468
+#: modules/icon-list/widgets/icon-list.php:500
 #: modules/image-comparison/widgets/image-comparison.php:644
 #: modules/pricing/widgets/pricing-table.php:2196
 #: modules/pricing/widgets/pricing-table.php:2206
@@ -1436,11 +1445,14 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:505
 #: modules/business-hours/widgets/business-hours.php:635
 #: modules/buttons/widgets/buttons.php:253
-#: modules/charts/widgets/charts.php:163 modules/charts/widgets/charts.php:434
-#: modules/charts/widgets/charts.php:445 modules/charts/widgets/charts.php:501
-#: modules/charts/widgets/charts.php:556 modules/charts/widgets/charts.php:567
-#: modules/charts/widgets/charts.php:604 modules/charts/widgets/charts.php:685
-#: modules/charts/widgets/charts.php:768 modules/charts/widgets/charts.php:1448
+#: modules/charts/widgets/charts.php:165 modules/charts/widgets/charts.php:345
+#: modules/charts/widgets/charts.php:356 modules/charts/widgets/charts.php:412
+#: modules/charts/widgets/charts.php:467 modules/charts/widgets/charts.php:588
+#: modules/charts/widgets/charts.php:640 modules/charts/widgets/charts.php:651
+#: modules/charts/widgets/charts.php:662 modules/charts/widgets/charts.php:697
+#: modules/charts/widgets/charts.php:708 modules/charts/widgets/charts.php:749
+#: modules/charts/widgets/charts.php:831 modules/charts/widgets/charts.php:914
+#: modules/charts/widgets/charts.php:1776
 #: modules/contact-form-seven/widgets/contact-form-7.php:703
 #: modules/contact-form-seven/widgets/contact-form-7.php:759
 #: modules/content-ticker/widgets/content-ticker.php:544
@@ -1563,11 +1575,14 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:506
 #: modules/business-hours/widgets/business-hours.php:636
 #: modules/buttons/widgets/buttons.php:254
-#: modules/charts/widgets/charts.php:164 modules/charts/widgets/charts.php:435
-#: modules/charts/widgets/charts.php:446 modules/charts/widgets/charts.php:502
-#: modules/charts/widgets/charts.php:557 modules/charts/widgets/charts.php:568
-#: modules/charts/widgets/charts.php:605 modules/charts/widgets/charts.php:686
-#: modules/charts/widgets/charts.php:769 modules/charts/widgets/charts.php:1449
+#: modules/charts/widgets/charts.php:166 modules/charts/widgets/charts.php:346
+#: modules/charts/widgets/charts.php:357 modules/charts/widgets/charts.php:413
+#: modules/charts/widgets/charts.php:468 modules/charts/widgets/charts.php:589
+#: modules/charts/widgets/charts.php:641 modules/charts/widgets/charts.php:652
+#: modules/charts/widgets/charts.php:663 modules/charts/widgets/charts.php:698
+#: modules/charts/widgets/charts.php:709 modules/charts/widgets/charts.php:750
+#: modules/charts/widgets/charts.php:832 modules/charts/widgets/charts.php:915
+#: modules/charts/widgets/charts.php:1777
 #: modules/contact-form-seven/widgets/contact-form-7.php:704
 #: modules/contact-form-seven/widgets/contact-form-7.php:760
 #: modules/content-ticker/widgets/content-ticker.php:545
@@ -1699,10 +1714,11 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:1016
 #: modules/buttons/widgets/buttons.php:1038
 #: modules/buttons/widgets/buttons.php:1127
-#: modules/charts/widgets/charts.php:1052
-#: modules/charts/widgets/charts.php:1180
-#: modules/charts/widgets/charts.php:1675
-#: modules/charts/widgets/charts.php:1717
+#: modules/charts/widgets/charts.php:1046
+#: modules/charts/widgets/charts.php:1308
+#: modules/charts/widgets/charts.php:1508
+#: modules/charts/widgets/charts.php:2003
+#: modules/charts/widgets/charts.php:2045
 #: modules/contact-form-seven/widgets/contact-form-7.php:806
 #: modules/contact-form-seven/widgets/contact-form-7.php:922
 #: modules/content-reveal/widgets/content-reveal.php:537
@@ -1729,9 +1745,9 @@ msgstr ""
 #: modules/headings/widgets/fancy-heading.php:299
 #: modules/hotspots/widgets/hotspots.php:397
 #: modules/hotspots/widgets/hotspots.php:917
-#: modules/icon-list/widgets/icon-list.php:528
-#: modules/icon-list/widgets/icon-list.php:625
-#: modules/icon-list/widgets/icon-list.php:766
+#: modules/icon-list/widgets/icon-list.php:560
+#: modules/icon-list/widgets/icon-list.php:657
+#: modules/icon-list/widgets/icon-list.php:798
 #: modules/image-accordion/widgets/image-accordion.php:827
 #: modules/image-accordion/widgets/image-accordion.php:879
 #: modules/image-comparison/widgets/image-comparison.php:652
@@ -1927,9 +1943,10 @@ msgstr ""
 #: modules/business-hours/widgets/business-hours.php:1016
 #: modules/buttons/widgets/buttons.php:783
 #: modules/buttons/widgets/buttons.php:940
-#: modules/charts/widgets/charts.php:1064
-#: modules/charts/widgets/charts.php:1192
-#: modules/charts/widgets/charts.php:1327
+#: modules/charts/widgets/charts.php:1058
+#: modules/charts/widgets/charts.php:1321
+#: modules/charts/widgets/charts.php:1521
+#: modules/charts/widgets/charts.php:1655
 #: modules/contact-form-seven/widgets/contact-form-7.php:335
 #: modules/contact-form-seven/widgets/contact-form-7.php:368
 #: modules/contact-form-seven/widgets/contact-form-7.php:550
@@ -1991,7 +2008,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:386
 #: modules/hotspots/widgets/hotspots.php:909
 #: modules/hotspots/widgets/hotspots.php:1045
-#: modules/icon-list/widgets/icon-list.php:870
+#: modules/icon-list/widgets/icon-list.php:902
 #: modules/image-accordion/widgets/image-accordion.php:1010
 #: modules/image-comparison/widgets/image-comparison.php:805
 #: modules/info-box/widgets/info-box-carousel.php:1466
@@ -2072,13 +2089,13 @@ msgstr ""
 msgid "Typography"
 msgstr ""
 
-#: extensions/custom-cursor.php:306 modules/charts/widgets/charts.php:255
-#: modules/counter/widgets/counter.php:547
+#: extensions/custom-cursor.php:306 modules/counter/widgets/counter.php:547
 #: modules/gravity-forms/widgets/gravity-forms.php:2043
 #: modules/headings/widgets/dual-heading.php:333
 #: modules/headings/widgets/dual-heading.php:436
 #: modules/headings/widgets/fancy-heading.php:300
-#: modules/icon-list/widgets/icon-list.php:397
+#: modules/icon-list/widgets/icon-list.php:406
+#: modules/icon-list/widgets/icon-list.php:425
 #: modules/info-box/widgets/info-box.php:862
 #: modules/info-box/widgets/info-box.php:912
 #: modules/info-table/widgets/info-table.php:480
@@ -2098,7 +2115,6 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1307
 #: modules/buttons/widgets/buttons.php:474
 #: modules/buttons/widgets/buttons.php:837
-#: modules/charts/widgets/charts.php:309
 #: modules/contact-form-seven/widgets/contact-form-7.php:526
 #: modules/contact-form-seven/widgets/contact-form-7.php:593
 #: modules/contact-form-seven/widgets/contact-form-7.php:1060
@@ -2133,7 +2149,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:842
 #: modules/hotspots/widgets/hotspots.php:943
 #: modules/hotspots/widgets/hotspots.php:1057
-#: modules/icon-list/widgets/icon-list.php:723
+#: modules/icon-list/widgets/icon-list.php:755
 #: modules/image-accordion/widgets/image-accordion.php:571
 #: modules/image-accordion/widgets/image-accordion.php:670
 #: modules/image-accordion/widgets/image-accordion.php:987
@@ -2216,7 +2232,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:483
 #: modules/buttons/widgets/buttons.php:846
 #: modules/buttons/widgets/buttons.php:1151
-#: modules/charts/widgets/charts.php:1634
+#: modules/charts/widgets/charts.php:1962
 #: modules/contact-form-seven/widgets/contact-form-7.php:537
 #: modules/contact-form-seven/widgets/contact-form-7.php:869
 #: modules/contact-form-seven/widgets/contact-form-7.php:895
@@ -2253,7 +2269,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:852
 #: modules/hotspots/widgets/hotspots.php:953
 #: modules/hotspots/widgets/hotspots.php:1067
-#: modules/icon-list/widgets/icon-list.php:733
+#: modules/icon-list/widgets/icon-list.php:765
 #: modules/image-accordion/widgets/image-accordion.php:579
 #: modules/image-accordion/widgets/image-accordion.php:679
 #: modules/image-accordion/widgets/image-accordion.php:997
@@ -2339,7 +2355,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:367
 #: modules/buttons/widgets/buttons.php:757
 #: modules/buttons/widgets/buttons.php:1163
-#: modules/charts/widgets/charts.php:1654
+#: modules/charts/widgets/charts.php:1982
 #: modules/contact-form-seven/widgets/contact-form-7.php:451
 #: modules/contact-form-seven/widgets/contact-form-7.php:1081
 #: modules/content-reveal/widgets/content-reveal.php:567
@@ -2368,8 +2384,8 @@ msgstr ""
 #: modules/headings/widgets/dual-heading.php:481
 #: modules/hotspots/widgets/hotspots.php:965
 #: modules/hotspots/widgets/hotspots.php:1079
-#: modules/icon-list/widgets/icon-list.php:426
-#: modules/icon-list/widgets/icon-list.php:745
+#: modules/icon-list/widgets/icon-list.php:458
+#: modules/icon-list/widgets/icon-list.php:777
 #: modules/image-accordion/widgets/image-accordion.php:806
 #: modules/image-accordion/widgets/image-accordion.php:1021
 #: modules/image-comparison/widgets/image-comparison.php:933
@@ -2628,7 +2644,7 @@ msgstr ""
 msgid "Flipbox"
 msgstr ""
 
-#: includes/helper-functions.php:388 modules/charts/widgets/charts.php:123
+#: includes/helper-functions.php:388
 msgid "Advanced Charts"
 msgstr ""
 
@@ -2650,7 +2666,7 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:202
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1095
 #: modules/buttons/widgets/buttons.php:143
-#: modules/charts/widgets/charts.php:218
+#: modules/charts/widgets/charts.php:220
 #: modules/content-reveal/widgets/content-reveal.php:125
 #: modules/content-reveal/widgets/content-reveal.php:136
 #: modules/content-reveal/widgets/content-reveal.php:499
@@ -2686,7 +2702,9 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:172
 #: modules/advanced-accordion/widgets/advanced-accordion.php:825
-#: modules/charts/widgets/charts.php:1666
+#: modules/charts/widgets/charts.php:671 modules/charts/widgets/charts.php:758
+#: modules/charts/widgets/charts.php:1295
+#: modules/charts/widgets/charts.php:1994
 #: modules/contact-form-seven/widgets/contact-form-7.php:140
 #: modules/contact-form-seven/widgets/contact-form-7.php:313
 #: modules/content-ticker/widgets/content-ticker.php:168
@@ -2855,7 +2873,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:217
 #: modules/icon-list/widgets/icon-list.php:186
 #: modules/icon-list/widgets/icon-list.php:205
-#: modules/icon-list/widgets/icon-list.php:554
+#: modules/icon-list/widgets/icon-list.php:586
 #: modules/image-accordion/widgets/image-accordion.php:1106
 #: modules/info-box/widgets/info-box-carousel.php:231
 #: modules/info-box/widgets/info-box-carousel.php:245
@@ -3154,12 +3172,14 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:431
 #: modules/buttons/widgets/buttons.php:804
 #: modules/buttons/widgets/buttons.php:1010
-#: modules/charts/widgets/charts.php:1112
-#: modules/charts/widgets/charts.php:1129
-#: modules/charts/widgets/charts.php:1240
-#: modules/charts/widgets/charts.php:1257
-#: modules/charts/widgets/charts.php:1375
-#: modules/charts/widgets/charts.php:1392
+#: modules/charts/widgets/charts.php:1106
+#: modules/charts/widgets/charts.php:1123
+#: modules/charts/widgets/charts.php:1371
+#: modules/charts/widgets/charts.php:1389
+#: modules/charts/widgets/charts.php:1571
+#: modules/charts/widgets/charts.php:1589
+#: modules/charts/widgets/charts.php:1703
+#: modules/charts/widgets/charts.php:1720
 #: modules/contact-form-seven/widgets/contact-form-7.php:397
 #: modules/contact-form-seven/widgets/contact-form-7.php:796
 #: modules/contact-form-seven/widgets/contact-form-7.php:1028
@@ -3177,8 +3197,9 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1260
 #: modules/gravity-forms/widgets/gravity-forms.php:1539
 #: modules/gravity-forms/widgets/gravity-forms.php:1776
-#: modules/icon-list/widgets/icon-list.php:618
-#: modules/icon-list/widgets/icon-list.php:835
+#: modules/icon-list/widgets/icon-list.php:398
+#: modules/icon-list/widgets/icon-list.php:650
+#: modules/icon-list/widgets/icon-list.php:867
 #: modules/image-accordion/widgets/image-accordion.php:551
 #: modules/image-accordion/widgets/image-accordion.php:954
 #: modules/image-comparison/widgets/image-comparison.php:366
@@ -3240,7 +3261,6 @@ msgid "Normal"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:657
-#: modules/charts/widgets/charts.php:318
 #: modules/gravity-forms/widgets/gravity-forms.php:1036
 #: modules/info-box/widgets/info-box-carousel.php:1663
 #: modules/info-box/widgets/info-box.php:1456
@@ -3303,7 +3323,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:1040
 #: modules/divider/widgets/divider.php:268
 #: modules/gravity-forms/widgets/gravity-forms.php:1041
-#: modules/icon-list/widgets/icon-list.php:482
+#: modules/icon-list/widgets/icon-list.php:514
 #: modules/info-box/widgets/info-box-carousel.php:1668
 #: modules/info-box/widgets/info-box.php:1461
 #: modules/info-list/widgets/info-list.php:566
@@ -3328,7 +3348,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:1041
 #: modules/divider/widgets/divider.php:271
 #: modules/gravity-forms/widgets/gravity-forms.php:1042
-#: modules/icon-list/widgets/icon-list.php:483
+#: modules/icon-list/widgets/icon-list.php:515
 #: modules/info-box/widgets/info-box-carousel.php:1669
 #: modules/info-box/widgets/info-box.php:1462
 #: modules/info-list/widgets/info-list.php:567
@@ -3353,7 +3373,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:1042
 #: modules/divider/widgets/divider.php:270
 #: modules/gravity-forms/widgets/gravity-forms.php:1043
-#: modules/icon-list/widgets/icon-list.php:484
+#: modules/icon-list/widgets/icon-list.php:516
 #: modules/info-box/widgets/info-box-carousel.php:1670
 #: modules/info-box/widgets/info-box.php:1463
 #: modules/info-list/widgets/info-list.php:568
@@ -3373,8 +3393,8 @@ msgid "Dotted"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:675
-#: modules/charts/widgets/charts.php:1513
-#: modules/charts/widgets/charts.php:1616
+#: modules/charts/widgets/charts.php:1841
+#: modules/charts/widgets/charts.php:1944
 #: modules/contact-form-seven/widgets/contact-form-7.php:821
 #: modules/fluent-forms/widgets/fluent-forms.php:966
 #: modules/formidable-forms/widgets/formidable-forms.php:1126
@@ -3398,8 +3418,8 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1437
 #: modules/buttons/widgets/buttons.php:541
 #: modules/buttons/widgets/buttons.php:896
-#: modules/charts/widgets/charts.php:338 modules/charts/widgets/charts.php:1499
-#: modules/charts/widgets/charts.php:1604
+#: modules/charts/widgets/charts.php:266 modules/charts/widgets/charts.php:1827
+#: modules/charts/widgets/charts.php:1932
 #: modules/contact-form-seven/widgets/contact-form-7.php:843
 #: modules/contact-form-seven/widgets/contact-form-7.php:1167
 #: modules/content-reveal/widgets/content-reveal.php:890
@@ -3415,7 +3435,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1699
 #: modules/gravity-forms/widgets/gravity-forms.php:1916
 #: modules/hotspots/widgets/hotspots.php:425
-#: modules/icon-list/widgets/icon-list.php:791
+#: modules/icon-list/widgets/icon-list.php:823
 #: modules/image-accordion/widgets/image-accordion.php:621
 #: modules/image-accordion/widgets/image-accordion.php:1075
 #: modules/image-comparison/widgets/image-comparison.php:621
@@ -3477,7 +3497,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:495
 #: modules/buttons/widgets/buttons.php:867
 #: modules/buttons/widgets/buttons.php:1031
-#: modules/charts/widgets/charts.php:514
+#: modules/charts/widgets/charts.php:425
 #: modules/contact-form-seven/widgets/contact-form-7.php:1136
 #: modules/content-reveal/widgets/content-reveal.php:815
 #: modules/content-ticker/widgets/content-ticker.php:1587
@@ -3488,8 +3508,9 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:1664
 #: modules/gravity-forms/widgets/gravity-forms.php:1885
 #: modules/hotspots/widgets/hotspots.php:546
-#: modules/icon-list/widgets/icon-list.php:759
-#: modules/icon-list/widgets/icon-list.php:883
+#: modules/icon-list/widgets/icon-list.php:417
+#: modules/icon-list/widgets/icon-list.php:791
+#: modules/icon-list/widgets/icon-list.php:915
 #: modules/image-accordion/widgets/image-accordion.php:601
 #: modules/image-accordion/widgets/image-accordion.php:1043
 #: modules/image-comparison/widgets/image-comparison.php:387
@@ -3644,8 +3665,8 @@ msgstr ""
 #: modules/headings/widgets/dual-heading.php:420
 #: modules/headings/widgets/fancy-heading.php:324
 #: modules/hotspots/widgets/hotspots.php:1017
-#: modules/icon-list/widgets/icon-list.php:842
-#: modules/icon-list/widgets/icon-list.php:890
+#: modules/icon-list/widgets/icon-list.php:874
+#: modules/icon-list/widgets/icon-list.php:922
 #: modules/image-accordion/widgets/image-accordion.php:973
 #: modules/image-accordion/widgets/image-accordion.php:1062
 #: modules/image-comparison/widgets/image-comparison.php:826
@@ -3744,8 +3765,8 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:811
 #: modules/buttons/widgets/buttons.php:874
 #: modules/buttons/widgets/buttons.php:1111
-#: modules/charts/widgets/charts.php:283 modules/charts/widgets/charts.php:1485
-#: modules/charts/widgets/charts.php:1593
+#: modules/charts/widgets/charts.php:257 modules/charts/widgets/charts.php:1813
+#: modules/charts/widgets/charts.php:1921
 #: modules/contact-form-seven/widgets/contact-form-7.php:404
 #: modules/contact-form-seven/widgets/contact-form-7.php:580
 #: modules/contact-form-seven/widgets/contact-form-7.php:1035
@@ -3787,10 +3808,10 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:413
 #: modules/hotspots/widgets/hotspots.php:930
 #: modules/hotspots/widgets/hotspots.php:1001
-#: modules/icon-list/widgets/icon-list.php:641
-#: modules/icon-list/widgets/icon-list.php:779
-#: modules/icon-list/widgets/icon-list.php:857
-#: modules/icon-list/widgets/icon-list.php:902
+#: modules/icon-list/widgets/icon-list.php:673
+#: modules/icon-list/widgets/icon-list.php:811
+#: modules/icon-list/widgets/icon-list.php:889
+#: modules/icon-list/widgets/icon-list.php:934
 #: modules/image-accordion/widgets/image-accordion.php:657
 #: modules/image-accordion/widgets/image-accordion.php:961
 #: modules/image-accordion/widgets/image-accordion.php:1050
@@ -3920,19 +3941,19 @@ msgid "Horizontal Alignment"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1175
-#: modules/charts/widgets/charts.php:475
+#: modules/charts/widgets/charts.php:386 modules/charts/widgets/charts.php:513
 msgid "Start"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1179
-#: modules/charts/widgets/charts.php:477
+#: modules/charts/widgets/charts.php:388 modules/charts/widgets/charts.php:515
 msgid "End"
 msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1191
 #: modules/buttons/widgets/buttons.php:645
 #: modules/divider/widgets/divider.php:463
-#: modules/icon-list/widgets/icon-list.php:584
+#: modules/icon-list/widgets/icon-list.php:616
 #: modules/logos/widgets/logo-carousel.php:638
 #: modules/pricing/widgets/price-menu.php:1067
 #: modules/promo-box/widgets/promo-box.php:616
@@ -3942,14 +3963,14 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1195
 #: modules/buttons/widgets/buttons.php:650
 #: modules/buttons/widgets/buttons.php:956
-#: modules/charts/widgets/charts.php:458
+#: modules/charts/widgets/charts.php:369 modules/charts/widgets/charts.php:496
 #: modules/divider/widgets/divider.php:469
 #: modules/flipbox/widgets/flipbox.php:580
 #: modules/flipbox/widgets/flipbox.php:696
 #: modules/flipbox/widgets/flipbox.php:1090
 #: modules/hotspots/widgets/hotspots.php:343
 #: modules/hotspots/widgets/hotspots.php:577
-#: modules/icon-list/widgets/icon-list.php:590
+#: modules/icon-list/widgets/icon-list.php:622
 #: modules/image-accordion/widgets/image-accordion.php:696
 #: modules/image-comparison/widgets/image-comparison.php:714
 #: modules/info-box/widgets/info-box-carousel.php:1182
@@ -3977,7 +3998,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:682
 #: modules/buttons/widgets/buttons.php:710
 #: modules/buttons/widgets/buttons.php:1094
-#: modules/charts/widgets/charts.php:476
+#: modules/charts/widgets/charts.php:387 modules/charts/widgets/charts.php:514
 #: modules/contact-form-seven/widgets/contact-form-7.php:295
 #: modules/contact-form-seven/widgets/contact-form-7.php:965
 #: modules/content-reveal/widgets/content-reveal.php:352
@@ -4006,8 +4027,8 @@ msgstr ""
 #: modules/headings/widgets/dual-heading.php:211
 #: modules/headings/widgets/fancy-heading.php:190
 #: modules/hotspots/widgets/hotspots.php:823
-#: modules/icon-list/widgets/icon-list.php:446
-#: modules/icon-list/widgets/icon-list.php:594
+#: modules/icon-list/widgets/icon-list.php:478
+#: modules/icon-list/widgets/icon-list.php:626
 #: modules/image-accordion/widgets/image-accordion.php:732
 #: modules/image-accordion/widgets/image-accordion.php:765
 #: modules/image-comparison/widgets/image-comparison.php:753
@@ -4060,14 +4081,14 @@ msgstr ""
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1203
 #: modules/buttons/widgets/buttons.php:658
 #: modules/buttons/widgets/buttons.php:957
-#: modules/charts/widgets/charts.php:459
+#: modules/charts/widgets/charts.php:370 modules/charts/widgets/charts.php:497
 #: modules/divider/widgets/divider.php:477
 #: modules/flipbox/widgets/flipbox.php:581
 #: modules/flipbox/widgets/flipbox.php:704
 #: modules/flipbox/widgets/flipbox.php:1098
 #: modules/hotspots/widgets/hotspots.php:344
 #: modules/hotspots/widgets/hotspots.php:578
-#: modules/icon-list/widgets/icon-list.php:598
+#: modules/icon-list/widgets/icon-list.php:630
 #: modules/image-accordion/widgets/image-accordion.php:704
 #: modules/image-comparison/widgets/image-comparison.php:722
 #: modules/info-box/widgets/info-box-carousel.php:1190
@@ -4115,7 +4136,7 @@ msgstr ""
 #: modules/gravity-forms/widgets/gravity-forms.php:857
 #: modules/gravity-forms/widgets/gravity-forms.php:976
 #: modules/headings/widgets/dual-heading.php:229
-#: modules/icon-list/widgets/icon-list.php:675
+#: modules/icon-list/widgets/icon-list.php:707
 #: modules/image-accordion/widgets/image-accordion.php:847
 #: modules/info-box/widgets/info-box-carousel.php:2410
 #: modules/info-box/widgets/info-box.php:1301
@@ -4156,9 +4177,10 @@ msgstr ""
 
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1237
 #: modules/buttons/widgets/buttons.php:964
-#: modules/charts/widgets/charts.php:1079
-#: modules/charts/widgets/charts.php:1207
-#: modules/charts/widgets/charts.php:1342
+#: modules/charts/widgets/charts.php:1073
+#: modules/charts/widgets/charts.php:1337
+#: modules/charts/widgets/charts.php:1537
+#: modules/charts/widgets/charts.php:1670
 #: modules/contact-form-seven/widgets/contact-form-7.php:768
 #: modules/content-reveal/widgets/content-reveal.php:643
 #: modules/content-reveal/widgets/content-reveal.php:944
@@ -4173,7 +4195,7 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:437
 #: modules/hotspots/widgets/hotspots.php:558
 #: modules/hotspots/widgets/hotspots.php:888
-#: modules/icon-list/widgets/icon-list.php:653
+#: modules/icon-list/widgets/icon-list.php:685
 #: modules/image-accordion/widgets/image-accordion.php:913
 #: modules/info-box/widgets/info-box-carousel.php:1912
 #: modules/info-box/widgets/info-box-carousel.php:2387
@@ -4615,7 +4637,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:1043
 #: modules/divider/widgets/divider.php:269
 #: modules/gravity-forms/widgets/gravity-forms.php:1044
-#: modules/icon-list/widgets/icon-list.php:485
+#: modules/icon-list/widgets/icon-list.php:517
 #: modules/info-box/widgets/info-box-carousel.php:1671
 #: modules/info-box/widgets/info-box.php:1464
 #: modules/info-list/widgets/info-list.php:569
@@ -4635,13 +4657,13 @@ msgid "Dashed"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:835
-#: modules/icon-list/widgets/icon-list.php:486
+#: modules/icon-list/widgets/icon-list.php:518
 #: modules/logos/widgets/logo-grid.php:230
 msgid "Groove"
 msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:836
-#: modules/icon-list/widgets/icon-list.php:487
+#: modules/icon-list/widgets/icon-list.php:519
 msgid "Ridge"
 msgstr ""
 
@@ -4665,7 +4687,7 @@ msgstr ""
 
 #: modules/business-hours/widgets/business-hours.php:918
 #: modules/business-hours/widgets/business-hours.php:977
-#: modules/charts/widgets/charts.php:471
+#: modules/charts/widgets/charts.php:382 modules/charts/widgets/charts.php:509
 #: modules/contact-form-seven/widgets/contact-form-7.php:287
 #: modules/contact-form-seven/widgets/contact-form-7.php:956
 #: modules/content-reveal/widgets/content-reveal.php:343
@@ -4689,7 +4711,7 @@ msgstr ""
 #: modules/headings/widgets/dual-heading.php:202
 #: modules/headings/widgets/fancy-heading.php:181
 #: modules/hotspots/widgets/hotspots.php:814
-#: modules/icon-list/widgets/icon-list.php:438
+#: modules/icon-list/widgets/icon-list.php:470
 #: modules/info-box/widgets/info-box-carousel.php:990
 #: modules/info-box/widgets/info-box-carousel.php:1755
 #: modules/info-box/widgets/info-box.php:1176
@@ -4728,7 +4750,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:706
 #: modules/buttons/widgets/buttons.php:1076
 #: modules/buttons/widgets/buttons.php:1090
-#: modules/charts/widgets/charts.php:457
+#: modules/charts/widgets/charts.php:368 modules/charts/widgets/charts.php:495
 #: modules/contact-form-seven/widgets/contact-form-7.php:291
 #: modules/contact-form-seven/widgets/contact-form-7.php:961
 #: modules/content-reveal/widgets/content-reveal.php:348
@@ -4760,8 +4782,8 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:345
 #: modules/hotspots/widgets/hotspots.php:579
 #: modules/hotspots/widgets/hotspots.php:819
-#: modules/icon-list/widgets/icon-list.php:442
-#: modules/icon-list/widgets/icon-list.php:569
+#: modules/icon-list/widgets/icon-list.php:474
+#: modules/icon-list/widgets/icon-list.php:601
 #: modules/image-accordion/widgets/image-accordion.php:728
 #: modules/image-accordion/widgets/image-accordion.php:761
 #: modules/image-comparison/widgets/image-comparison.php:749
@@ -4818,7 +4840,7 @@ msgstr ""
 #: modules/buttons/widgets/buttons.php:714
 #: modules/buttons/widgets/buttons.php:1077
 #: modules/buttons/widgets/buttons.php:1098
-#: modules/charts/widgets/charts.php:460
+#: modules/charts/widgets/charts.php:371 modules/charts/widgets/charts.php:498
 #: modules/contact-form-seven/widgets/contact-form-7.php:299
 #: modules/contact-form-seven/widgets/contact-form-7.php:969
 #: modules/content-reveal/widgets/content-reveal.php:356
@@ -4850,8 +4872,8 @@ msgstr ""
 #: modules/hotspots/widgets/hotspots.php:346
 #: modules/hotspots/widgets/hotspots.php:580
 #: modules/hotspots/widgets/hotspots.php:827
-#: modules/icon-list/widgets/icon-list.php:450
-#: modules/icon-list/widgets/icon-list.php:573
+#: modules/icon-list/widgets/icon-list.php:482
+#: modules/icon-list/widgets/icon-list.php:605
 #: modules/image-accordion/widgets/image-accordion.php:736
 #: modules/image-accordion/widgets/image-accordion.php:769
 #: modules/image-comparison/widgets/image-comparison.php:757
@@ -4922,7 +4944,7 @@ msgstr ""
 #: modules/icon-list/widgets/icon-list.php:164
 #: modules/icon-list/widgets/icon-list.php:194
 #: modules/icon-list/widgets/icon-list.php:240
-#: modules/icon-list/widgets/icon-list.php:825
+#: modules/icon-list/widgets/icon-list.php:857
 #: modules/info-box/widgets/info-box-carousel.php:253
 #: modules/info-box/widgets/info-box-carousel.php:281
 #: modules/info-box/widgets/info-box.php:166
@@ -5025,12 +5047,14 @@ msgid "Button Size"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:331
-#: modules/charts/widgets/charts.php:1111
-#: modules/charts/widgets/charts.php:1128
-#: modules/charts/widgets/charts.php:1239
-#: modules/charts/widgets/charts.php:1256
-#: modules/charts/widgets/charts.php:1374
-#: modules/charts/widgets/charts.php:1391
+#: modules/charts/widgets/charts.php:1105
+#: modules/charts/widgets/charts.php:1122
+#: modules/charts/widgets/charts.php:1370
+#: modules/charts/widgets/charts.php:1388
+#: modules/charts/widgets/charts.php:1570
+#: modules/charts/widgets/charts.php:1588
+#: modules/charts/widgets/charts.php:1702
+#: modules/charts/widgets/charts.php:1719
 #: modules/gravity-forms/widgets/gravity-forms.php:1950
 #: modules/hotspots/widgets/hotspots.php:562
 #: modules/hotspots/widgets/hotspots.php:632
@@ -5134,13 +5158,14 @@ msgid "Button Width"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:381
-#: modules/charts/widgets/charts.php:248 modules/charts/widgets/charts.php:1124
-#: modules/charts/widgets/charts.php:1252
-#: modules/charts/widgets/charts.php:1387
+#: modules/charts/widgets/charts.php:250 modules/charts/widgets/charts.php:1118
+#: modules/charts/widgets/charts.php:1384
+#: modules/charts/widgets/charts.php:1584
+#: modules/charts/widgets/charts.php:1715
 #: modules/divider/widgets/divider.php:264
 #: modules/hotspots/widgets/hotspots.php:380
 #: modules/icon-list/widgets/icon-list.php:265
-#: modules/icon-list/widgets/icon-list.php:479
+#: modules/icon-list/widgets/icon-list.php:511
 #: modules/info-list/widgets/info-list.php:563
 #: modules/info-list/widgets/info-list.php:1020
 #: modules/interactive-circle/widgets/interactive-circle.php:375
@@ -5245,10 +5270,10 @@ msgid "Styling"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:914
-#: modules/charts/widgets/charts.php:697 modules/charts/widgets/charts.php:706
+#: modules/charts/widgets/charts.php:843 modules/charts/widgets/charts.php:852
 #: modules/flipbox/widgets/flipbox.php:1692
 #: modules/hotspots/widgets/hotspots.php:618
-#: modules/icon-list/widgets/icon-list.php:806
+#: modules/icon-list/widgets/icon-list.php:838
 #: modules/image-accordion/widgets/image-accordion.php:1087
 #: modules/info-box/widgets/info-box-carousel.php:2099
 #: modules/info-box/widgets/info-box.php:2014
@@ -5322,7 +5347,7 @@ msgid "Before"
 msgstr ""
 
 #: modules/buttons/widgets/buttons.php:1062
-#: modules/charts/widgets/charts.php:492 modules/charts/widgets/charts.php:1582
+#: modules/charts/widgets/charts.php:403 modules/charts/widgets/charts.php:1910
 #: modules/hotspots/widgets/hotspots.php:321
 #: modules/hotspots/widgets/hotspots.php:326
 #: modules/hotspots/widgets/hotspots.php:993
@@ -5353,67 +5378,69 @@ msgstr ""
 msgid "Text Align"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:130
+#: modules/charts/widgets/charts.php:132
 msgid "Chart Type"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:134 modules/charts/widgets/charts.php:1468
+#: modules/charts/widgets/charts.php:136 modules/charts/widgets/charts.php:1796
 msgid "Line"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:135
+#: modules/charts/widgets/charts.php:137
 msgid "Bar"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:136
+#: modules/charts/widgets/charts.php:138
 msgid "Radar"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:136 modules/charts/widgets/charts.php:137
 #: modules/charts/widgets/charts.php:138 modules/charts/widgets/charts.php:139
-#: modules/charts/widgets/charts.php:140 modules/charts/widgets/charts.php:161
+#: modules/charts/widgets/charts.php:140 modules/charts/widgets/charts.php:141
+#: modules/charts/widgets/charts.php:142 modules/charts/widgets/charts.php:163
+#: modules/charts/widgets/charts.php:717 modules/charts/widgets/charts.php:732
+#: modules/charts/widgets/charts.php:774 modules/charts/widgets/charts.php:783
 msgid "Pro"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:137
+#: modules/charts/widgets/charts.php:139
 msgid "Pie"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:138
+#: modules/charts/widgets/charts.php:140
 msgid "Doughnut"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:139
+#: modules/charts/widgets/charts.php:141
 msgid "Polar Area"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:140
+#: modules/charts/widgets/charts.php:142
 msgid "Bubble"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:150
+#: modules/charts/widgets/charts.php:152
 msgid "This chart type is available in PowerPack Pro."
 msgstr ""
 
-#: modules/charts/widgets/charts.php:161
+#: modules/charts/widgets/charts.php:163
 msgid "Stepped Line Chart"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:175
+#: modules/charts/widgets/charts.php:177
 #: modules/image-accordion/widgets/image-accordion.php:421
 #: modules/image-comparison/widgets/image-comparison.php:267
 msgid "Orientation"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:179
+#: modules/charts/widgets/charts.php:181
 msgid "Vertical Bar"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:180
+#: modules/charts/widgets/charts.php:182
 msgid "Horizontal Bar"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:191 modules/charts/widgets/charts.php:1025
+#: modules/charts/widgets/charts.php:193 modules/charts/widgets/charts.php:1432
 #: modules/contact-form-seven/widgets/contact-form-7.php:176
 #: modules/contact-form-seven/widgets/contact-form-7.php:623
 #: modules/fluent-forms/widgets/fluent-forms.php:159
@@ -5429,19 +5456,19 @@ msgstr ""
 msgid "Labels"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:193
+#: modules/charts/widgets/charts.php:195
 msgid "January, February, March, April"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:194
+#: modules/charts/widgets/charts.php:196
 msgid "Add labels separated by comma"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:206 modules/charts/widgets/charts.php:532
+#: modules/charts/widgets/charts.php:208 modules/charts/widgets/charts.php:443
 msgid "Dataset"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:225 modules/charts/widgets/charts.php:227
+#: modules/charts/widgets/charts.php:227 modules/charts/widgets/charts.php:229
 #: modules/content-reveal/widgets/content-reveal.php:382
 #: modules/content-reveal/widgets/content-reveal.php:414
 #: modules/formidable-forms/widgets/formidable-forms.php:487
@@ -5457,39 +5484,15 @@ msgstr ""
 msgid "Label"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:235
+#: modules/charts/widgets/charts.php:237
 msgid "Data"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:238
+#: modules/charts/widgets/charts.php:240
 msgid "Add data values separated by comma"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:263
-msgid "Background Type"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:267 modules/charts/widgets/charts.php:322
-msgid "Single Color"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:271 modules/charts/widgets/charts.php:326
-msgid "Multiple Colors"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:295
-msgid "Background Colors"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:298 modules/charts/widgets/charts.php:353
-msgid "Add colors separated by comma"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:350
-msgid "Border Colors"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:364
+#: modules/charts/widgets/charts.php:275
 #: modules/headings/widgets/fancy-heading.php:296
 #: modules/logos/widgets/logo-carousel.php:786
 #: modules/progress-bar/widgets/progress-bar.php:923
@@ -5497,51 +5500,51 @@ msgstr ""
 msgid "Fill"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:367
+#: modules/charts/widgets/charts.php:278
 msgid "Fill option is supported by Line and Radar charts only"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:375
+#: modules/charts/widgets/charts.php:286
 msgid "Border Dash"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:377
+#: modules/charts/widgets/charts.php:288
 msgid "Border Dash option is supported by Line and Radar charts only"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:388
+#: modules/charts/widgets/charts.php:299
 msgid "Chart Data"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:393
+#: modules/charts/widgets/charts.php:304
 msgid "Data 1"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:399
+#: modules/charts/widgets/charts.php:310
 msgid "Data 2"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:405
+#: modules/charts/widgets/charts.php:316
 msgid "Data 3"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:425 modules/charts/widgets/charts.php:1304
+#: modules/charts/widgets/charts.php:336 modules/charts/widgets/charts.php:1632
 msgid "Legend"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:432
+#: modules/charts/widgets/charts.php:343
 msgid "Show Legend"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:443
+#: modules/charts/widgets/charts.php:354
 msgid "Reverse"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:453
+#: modules/charts/widgets/charts.php:364 modules/charts/widgets/charts.php:491
 #: modules/divider/widgets/divider.php:676
 #: modules/divider/widgets/divider.php:784
 #: modules/divider/widgets/divider.php:906
-#: modules/icon-list/widgets/icon-list.php:562
+#: modules/icon-list/widgets/icon-list.php:594
 #: modules/image-comparison/widgets/image-comparison.php:708
 #: modules/image-comparison/widgets/image-comparison.php:744
 #: modules/info-box/widgets/info-box-carousel.php:2370
@@ -5561,237 +5564,329 @@ msgstr ""
 msgid "Position"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:499
+#: modules/charts/widgets/charts.php:410
 msgid "Show Tooltip"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:510
+#: modules/charts/widgets/charts.php:421
 msgid "Tooltip Event"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:515
+#: modules/charts/widgets/charts.php:426
 #: modules/hotspots/widgets/hotspots.php:547
 #: modules/interactive-circle/widgets/interactive-circle.php:491
 #: modules/pricing/widgets/pricing-table.php:639
 msgid "Click"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:526
+#: modules/charts/widgets/charts.php:437
 msgid "Tooltip Mode"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:530
+#: modules/charts/widgets/charts.php:441
 msgid "Index"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:531
+#: modules/charts/widgets/charts.php:442
 msgid "Point"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:547
+#: modules/charts/widgets/charts.php:458 modules/charts/widgets/charts.php:476
+#: modules/charts/widgets/charts.php:1035
+msgid "Chart Title"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:465
+msgid "Show Chart Title"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:530
 #: modules/interactive-circle/widgets/interactive-circle.php:463
 msgid "Additional Options"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:554
-msgid "Show Grid Lines"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:565
-msgid "Show Labels"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:576
+#: modules/charts/widgets/charts.php:537
 msgid "Begin at Zero"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:589
+#: modules/charts/widgets/charts.php:562
 msgid "Step Size"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:602
+#: modules/charts/widgets/charts.php:586
 msgid "Maintain Aspect Ratio"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:614
+#: modules/charts/widgets/charts.php:598
 msgid "Chart Height"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:645
-msgid "Line Chart"
+#: modules/charts/widgets/charts.php:629 modules/charts/widgets/charts.php:1221
+#: modules/charts/widgets/charts.php:1475
+msgid "X Axis"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:658
-msgid "Line Tension"
+#: modules/charts/widgets/charts.php:638 modules/charts/widgets/charts.php:695
+msgid "Show Grid Lines"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:671
-msgid "Bar Chart"
+#: modules/charts/widgets/charts.php:649 modules/charts/widgets/charts.php:706
+msgid "Show Labels"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:683
-msgid "Stacked"
+#: modules/charts/widgets/charts.php:660 modules/charts/widgets/charts.php:747
+#: modules/interactive-circle/widgets/interactive-circle.php:217
+#: modules/logos/widgets/logo-carousel.php:242
+#: modules/logos/widgets/logo-grid.php:313
+msgid "Show Title"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:710
-msgid "linear"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:711
-msgid "easeInQuad"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:712
-msgid "easeOutQuad"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:713
-msgid "easeInOutQuad"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:714
-msgid "easeInCubic"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:715
-msgid "easeOutCubic"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:716
-msgid "easeInOutCubic"
+#: modules/charts/widgets/charts.php:686 modules/charts/widgets/charts.php:1235
+#: modules/charts/widgets/charts.php:1489
+msgid "Y Axis"
 msgstr ""
 
 #: modules/charts/widgets/charts.php:717
-msgid "easeInQuart"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:718
-msgid "easeOutQuart"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:719
-msgid "easeInOutQuart"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:720
-msgid "easeInQuint"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:721
-msgid "easeOutQuint"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:722
-msgid "easeInOutQuint"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:723
-msgid "easeInSine"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:724
-msgid "easeOutSine"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:725
-msgid "easeInOutSine"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:726
-msgid "easeInExpo"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:727
-msgid "easeOutExpo"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:728
-msgid "easeInOutExpo"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:729
-msgid "easeInCirc"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:730
-msgid "easeOutCirc"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:731
-msgid "easeInOutCirc"
+msgid "Labels Prefix"
 msgstr ""
 
 #: modules/charts/widgets/charts.php:732
+msgid "Labels Suffix"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:774
+msgid "Minimum Value"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:775
+msgid ""
+"Set minimum value for Y-axis. This value is ignored when data has a smaller "
+"value."
+msgstr ""
+
+#: modules/charts/widgets/charts.php:783
+msgid "Maximum Value"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:784
+msgid ""
+"Set maximum value for Y-axis. This value is ignored when data has a larger "
+"value."
+msgstr ""
+
+#: modules/charts/widgets/charts.php:791
+msgid "Line Chart"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:804
+msgid "Line Tension"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:817
+msgid "Bar Chart"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:829
+msgid "Stacked"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:856
+msgid "linear"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:857
+msgid "easeInQuad"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:858
+msgid "easeOutQuad"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:859
+msgid "easeInOutQuad"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:860
+msgid "easeInCubic"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:861
+msgid "easeOutCubic"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:862
+msgid "easeInOutCubic"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:863
+msgid "easeInQuart"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:864
+msgid "easeOutQuart"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:865
+msgid "easeInOutQuart"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:866
+msgid "easeInQuint"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:867
+msgid "easeOutQuint"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:868
+msgid "easeInOutQuint"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:869
+msgid "easeInSine"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:870
+msgid "easeOutSine"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:871
+msgid "easeInOutSine"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:872
+msgid "easeInExpo"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:873
+msgid "easeOutExpo"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:874
+msgid "easeInOutExpo"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:875
+msgid "easeInCirc"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:876
+msgid "easeOutCirc"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:877
+msgid "easeInOutCirc"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:878
 msgid "easeInElastic"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:733
+#: modules/charts/widgets/charts.php:879
 msgid "easeOutElastic"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:734
+#: modules/charts/widgets/charts.php:880
 msgid "easeInOutElastic"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:735
+#: modules/charts/widgets/charts.php:881
 msgid "easeInBack"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:736
+#: modules/charts/widgets/charts.php:882
 msgid "easeOutBack"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:737
+#: modules/charts/widgets/charts.php:883
 msgid "easeInOutBack"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:738
+#: modules/charts/widgets/charts.php:884
 msgid "easeInBounce"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:739
+#: modules/charts/widgets/charts.php:885
 msgid "easeOutBounce"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:740
+#: modules/charts/widgets/charts.php:886
 msgid "easeInOutBounce"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:749
+#: modules/charts/widgets/charts.php:895
 #: modules/pricing/widgets/pricing-table.php:431
 #: modules/pricing/widgets/pricing-table.php:1745
 msgid "Duration"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:766
+#: modules/charts/widgets/charts.php:912
 msgid "Loop Animation"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:782
+#: modules/charts/widgets/charts.php:927
 msgid "Chart"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:790
+#: modules/charts/widgets/charts.php:935
 msgid "Line Border Width"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:811
+#: modules/charts/widgets/charts.php:956
 msgid "Bar Border Width"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:832
+#: modules/charts/widgets/charts.php:977
 msgid "Bar Border Radius"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:850
+#: modules/charts/widgets/charts.php:995
 msgid "Bar Size"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:868
+#: modules/charts/widgets/charts.php:1013
 msgid "Bar Space"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:890
+#: modules/charts/widgets/charts.php:1093
+#: modules/charts/widgets/charts.php:1358
+#: modules/charts/widgets/charts.php:1558
+#: modules/charts/widgets/charts.php:1690
+#: modules/divider/widgets/divider.php:498
+#: modules/divider/widgets/divider.php:553
+#: modules/icon-list/widgets/icon-list.php:535
+msgid "Weight"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:1107
+#: modules/charts/widgets/charts.php:1372
+#: modules/charts/widgets/charts.php:1572
+#: modules/charts/widgets/charts.php:1704
+msgid "Bold"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:1124
+#: modules/charts/widgets/charts.php:1390
+#: modules/charts/widgets/charts.php:1590
+#: modules/charts/widgets/charts.php:1721
+msgid "Italic"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:1125
+#: modules/charts/widgets/charts.php:1391
+#: modules/charts/widgets/charts.php:1591
+#: modules/charts/widgets/charts.php:1722
+msgid "Oblique"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:1137
+#: modules/charts/widgets/charts.php:1404
+#: modules/charts/widgets/charts.php:1604
+#: modules/charts/widgets/charts.php:1734
+msgid "Line Height"
+msgstr ""
+
+#: modules/charts/widgets/charts.php:1166
 #: modules/info-box/widgets/info-box-carousel.php:519
 #: modules/instafeed/widgets/instafeed.php:375
 #: modules/posts/skins/skin-base.php:95
@@ -5799,70 +5894,25 @@ msgstr ""
 msgid "Grid"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:907 modules/charts/widgets/charts.php:1042
-msgid "X Axes"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:917 modules/charts/widgets/charts.php:974
+#: modules/charts/widgets/charts.php:1255
 msgid "Grid Line Color"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:930 modules/charts/widgets/charts.php:986
+#: modules/charts/widgets/charts.php:1269
 msgid "Grid Line Width"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:950 modules/charts/widgets/charts.php:1006
-msgid "Draw Border on Chart Area"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:964 modules/charts/widgets/charts.php:1170
-msgid "Y Axes"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:1099
-#: modules/charts/widgets/charts.php:1227
-#: modules/charts/widgets/charts.php:1362
-#: modules/divider/widgets/divider.php:498
-#: modules/divider/widgets/divider.php:553
-#: modules/icon-list/widgets/icon-list.php:503
-msgid "Weight"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:1113
-#: modules/charts/widgets/charts.php:1241
-#: modules/charts/widgets/charts.php:1376
-msgid "Bold"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:1130
-#: modules/charts/widgets/charts.php:1258
-#: modules/charts/widgets/charts.php:1393
-msgid "Italic"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:1131
-#: modules/charts/widgets/charts.php:1259
-#: modules/charts/widgets/charts.php:1394
-msgid "Oblique"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:1143
-#: modules/charts/widgets/charts.php:1271
-#: modules/charts/widgets/charts.php:1406
-msgid "Line Height"
-msgstr ""
-
-#: modules/charts/widgets/charts.php:1315
+#: modules/charts/widgets/charts.php:1643
 #: modules/fluent-forms/widgets/fluent-forms.php:943
 #: modules/formidable-forms/widgets/formidable-forms.php:1115
 msgid "Label Color"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1435
+#: modules/charts/widgets/charts.php:1763
 msgid "Points"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1446
+#: modules/charts/widgets/charts.php:1774
 #: modules/contact-form-seven/widgets/contact-form-7.php:757
 #: modules/fluent-forms/widgets/fluent-forms.php:879
 #: modules/formidable-forms/widgets/formidable-forms.php:1039
@@ -5872,11 +5922,11 @@ msgstr ""
 msgid "Custom Styles"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1460
+#: modules/charts/widgets/charts.php:1788
 msgid "Point Style"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1464
+#: modules/charts/widgets/charts.php:1792
 #: modules/interactive-circle/widgets/interactive-circle.php:625
 #: modules/link-effects/widgets/link-effects.php:176
 #: modules/pricing/widgets/pricing-table.php:937
@@ -5886,64 +5936,64 @@ msgstr ""
 msgid "Circle"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1465
+#: modules/charts/widgets/charts.php:1793
 #: modules/link-effects/widgets/link-effects.php:182
 msgid "Cross"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1466
+#: modules/charts/widgets/charts.php:1794
 msgid "CrossRot"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1467
+#: modules/charts/widgets/charts.php:1795
 msgid "Dash"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1469
+#: modules/charts/widgets/charts.php:1797
 msgid "Rect"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1470
+#: modules/charts/widgets/charts.php:1798
 msgid "RectRounded"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1471
+#: modules/charts/widgets/charts.php:1799
 msgid "RectRot"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1472
+#: modules/charts/widgets/charts.php:1800
 msgid "Star"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1473
+#: modules/charts/widgets/charts.php:1801
 msgid "Triangle"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1535
+#: modules/charts/widgets/charts.php:1863
 msgid "Point Size"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1557
+#: modules/charts/widgets/charts.php:1885
 msgid "Point Hover Size"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1688
-#: modules/charts/widgets/charts.php:1730
+#: modules/charts/widgets/charts.php:2016
+#: modules/charts/widgets/charts.php:2058
 #: modules/pricing/widgets/pricing-table.php:1841
 msgid "Font Size"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1708
+#: modules/charts/widgets/charts.php:2036
 msgid "Body"
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1762
+#: modules/charts/widgets/charts.php:2090
 msgid ""
 "Click here to edit the \"%1$s\" settings and choose one of the available "
 "chart types fron the Chart Type option."
 msgstr ""
 
-#: modules/charts/widgets/charts.php:1766
+#: modules/charts/widgets/charts.php:2094
 msgid "Chart type not available!"
 msgstr ""
 
@@ -5965,7 +6015,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:155
 #: modules/counter/widgets/counter.php:208
 #: modules/counter/widgets/counter.php:333
-#: modules/icon-list/widgets/icon-list.php:471
+#: modules/icon-list/widgets/icon-list.php:503
 #: modules/info-box/widgets/info-box-carousel.php:566
 #: modules/info-box/widgets/info-box-carousel.php:618
 #: modules/info-box/widgets/info-box.php:442
@@ -5985,7 +6035,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:156
 #: modules/counter/widgets/counter.php:209
 #: modules/counter/widgets/counter.php:334
-#: modules/icon-list/widgets/icon-list.php:470
+#: modules/icon-list/widgets/icon-list.php:502
 #: modules/info-box/widgets/info-box-carousel.php:567
 #: modules/info-box/widgets/info-box-carousel.php:619
 #: modules/info-box/widgets/info-box.php:443
@@ -8472,12 +8522,12 @@ msgstr ""
 msgid "List"
 msgstr ""
 
-#: modules/icon-list/widgets/icon-list.php:406
+#: modules/icon-list/widgets/icon-list.php:438
 #: modules/posts/skins/skin-base.php:3941
 msgid "Space Between"
 msgstr ""
 
-#: modules/icon-list/widgets/icon-list.php:697
+#: modules/icon-list/widgets/icon-list.php:729
 msgid "Adjust Vertical Position"
 msgstr ""
 
@@ -9191,11 +9241,11 @@ msgstr ""
 msgid "Data Error"
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:3201
+#: modules/instafeed/widgets/instafeed.php:3199
 msgid "Click here to edit the \"%1$s\" settings and change the source of photos."
 msgstr ""
 
-#: modules/instafeed/widgets/instafeed.php:3205
+#: modules/instafeed/widgets/instafeed.php:3203
 msgid "No Posts Found!"
 msgstr ""
 
@@ -9232,12 +9282,6 @@ msgstr ""
 #: modules/interactive-circle/widgets/interactive-circle.php:207
 #: modules/promo-box/widgets/promo-box.php:265
 msgid "Show Icon"
-msgstr ""
-
-#: modules/interactive-circle/widgets/interactive-circle.php:217
-#: modules/logos/widgets/logo-carousel.php:242
-#: modules/logos/widgets/logo-grid.php:313
-msgid "Show Title"
 msgstr ""
 
 #: modules/interactive-circle/widgets/interactive-circle.php:251
