@@ -1,3 +1,7 @@
+== 2.9.1 ==
+Release date: 
+* Fixed: Carousel issue in various widgets
+
 == 2.9.0 ==
 Release date: March 5, 2025
 * New: Charts widget

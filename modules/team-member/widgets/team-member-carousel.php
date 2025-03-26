@@ -2889,12 +2889,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			$this->add_render_attribute( 'team-member-carousel-wrap', 'class', 'swiper-container-wrap-dots-' . $settings['dots_position'] );
 		}
 
-		$swiper_class = PP_Helper::is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
-
 		$this->add_render_attribute(
 			'team-member-carousel',
 			array(
-				'class' => array( 'pp-tm-wrapper', 'pp-tm-carousel', 'pp-swiper-slider', $swiper_class ),
+				'class' => array( 'pp-tm-wrapper', 'pp-tm-carousel', 'pp-swiper-slider', 'swiper' ),
 				'id'    => 'swiper-container-' . esc_attr( $this->get_id() ),
 			)
 		);
@@ -2918,8 +2916,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			)
 		);
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'team-member-carousel-wrap' ) ); ?>>
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'team-member-carousel' ) ); ?>>
+		<div <?php $this->print_render_attribute_string( 'team-member-carousel-wrap' ); ?>>
+			<div <?php $this->print_render_attribute_string( 'team-member-carousel' ); ?>>
 				<div class="swiper-wrapper">
 					<?php foreach ( $settings['team_member_details'] as $index => $item ) : ?>
 						<div class="swiper-slide">
@@ -2941,7 +2939,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 											$this->add_link_attributes( $link_key, $item['link'] );
 											?>
-											<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
+											<a <?php $this->print_render_attribute_string( $link_key ); ?>>
 												<?php echo wp_kses_post( $image_html ); ?>
 											</a>
 											<?php
@@ -3042,7 +3040,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 		$name_html_tag = PP_Helper::validate_html_tag( $settings['name_html_tag'] );
 		?>
-		<<?php echo esc_html( $name_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( $member_key ) ); ?>>
+		<<?php echo esc_html( $name_html_tag ); ?> <?php $this->print_render_attribute_string( $member_key ); ?>>
 			<?php echo wp_kses_post( $member_name ); ?>
 		</<?php echo esc_html( $name_html_tag ); ?>>
 
@@ -3155,7 +3153,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						?>
 						<li>
 							<a href="<?php echo $social_link_url; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" target="<?php echo esc_attr( $link_target ); ?>">
-								<span <?php echo wp_kses_post( $this->get_render_attribute_string( $icon_wrap_key ) ); ?>>
+								<span <?php $this->print_render_attribute_string( $icon_wrap_key ); ?>>
 									<?php self::render_share_icon( $network_name ); ?>
 								</span>
 							</a>
@@ -3430,7 +3428,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						'pp-tm-wrapper',
 						'pp-tm-carousel',
 						'pp-swiper-slider',
-						elementorFrontend.config.swiperClass
+						'swiper'
 					],
 				}
 			);

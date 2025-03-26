@@ -1579,8 +1579,7 @@ class Logo_Carousel extends Powerpack_Widget {
 	 * @access protected
 	 */
 	protected function render() {
-		$settings     = $this->get_settings_for_display();
-		$swiper_class = PP_Helper::is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
+		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute(
 			[
@@ -1593,7 +1592,7 @@ class Logo_Carousel extends Powerpack_Widget {
 					'class'           => [
 						'pp-logo-carousel',
 						'pp-swiper-slider',
-						$swiper_class
+						'swiper'
 					],
 				]
 			]
@@ -1623,8 +1622,8 @@ class Logo_Carousel extends Powerpack_Widget {
 			$this->add_render_attribute( 'logo-carousel', 'class', 'grayscale-hover' );
 		}
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'logo-carousel-wrap' ) ); ?>>
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'logo-carousel' ) ); ?>>
+		<div <?php $this->print_render_attribute_string( 'logo-carousel-wrap' ); ?>>
+			<div <?php $this->print_render_attribute_string( 'logo-carousel' ); ?>>
 				<div class="swiper-wrapper">
 				<?php
 				$logos = $settings['carousel_slides'];
@@ -1647,7 +1646,7 @@ class Logo_Carousel extends Powerpack_Widget {
 											}
 
 											if ( ! empty( $item['link']['url'] ) ) { ?>
-												<a <?php echo wp_kses_post( $this->get_render_attribute_string( $logo_link_setting_key ) ); ?>>
+												<a <?php $this->print_render_attribute_string( $logo_link_setting_key ); ?>>
 												<?php
 											}
 
@@ -1680,7 +1679,7 @@ class Logo_Carousel extends Powerpack_Widget {
 											<?php
 											if ( ! empty( $item['link']['url'] ) ) {
 												?>
-												<a <?php echo wp_kses_post( $this->get_render_attribute_string( $logo_link_setting_key ) ); ?>>
+												<a <?php $this->print_render_attribute_string( $logo_link_setting_key ); ?>>
 												<?php
 											}
 											echo wp_kses_post( $item['logo_title'] );
@@ -1865,7 +1864,7 @@ class Logo_Carousel extends Powerpack_Widget {
 		view.addRenderAttribute(
 			'container',
 			{
-				'class': [ 'pp-logo-carousel', 'pp-swiper-slider', elementorFrontend.config.swiperClass ],
+				'class': [ 'pp-logo-carousel', 'pp-swiper-slider', 'swiper' ],
 			}
 		);
 

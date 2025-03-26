@@ -3139,8 +3139,6 @@ class Instafeed extends Powerpack_Widget {
 		$this->add_render_attribute( 'container-wrap', 'class', 'pp-insta-feed-inner' );
 
 		if ( 'carousel' === $settings['feed_layout'] ) {
-			$swiper_class = PP_Helper::is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
-
 			$this->add_render_attribute(
 				array(
 					'container-wrap'     => array(
@@ -3152,7 +3150,7 @@ class Instafeed extends Powerpack_Widget {
 					'insta-feed-container' => array(
 						'class' => array(
 							'pp-swiper-slider',
-							$swiper_class
+							'swiper'
 						),
 					),
 					'insta-feed'           => array(

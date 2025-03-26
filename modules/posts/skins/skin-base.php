@@ -4997,10 +4997,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		}
 
 		if ( 'carousel' === $layout ) {
-			$swiper_class = PP_Helper::is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
 			$classes[] = 'pp-posts-carousel';
 			$classes[] = 'pp-swiper-slider';
-			$classes[] = $swiper_class;
+			$classes[] = 'swiper';
 		} elseif ( 'masonry' === $layout ) {
 			$classes[] = 'pp-elementor-grid';
 			$classes[] = 'pp-posts-grid';

@@ -2768,12 +2768,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			}
 
 			$slider_options = $this->get_slider_settings();
-			$swiper_class = PP_Helper::is_feature_active( 'e_swiper_latest' ) ? 'swiper' : 'swiper-container';
 
 			$this->add_render_attribute(
 				'container',
 				[
-					'class'                => [ 'pp-info-box-carousel', 'pp-swiper-slider', $swiper_class ],
+					'class'                => [ 'pp-info-box-carousel', 'pp-swiper-slider', 'swiper' ],
 					'data-slider-settings' => wp_json_encode( $slider_options ),
 				]
 			);
@@ -3329,7 +3328,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
                 view.addRenderAttribute(
                     'container',
                     {
-                        'class': [ 'pp-info-box-carousel', 'pp-swiper-slider', elementorFrontend.config.swiperClass, 'swiper-container-wrap-dots-' + settings.dots_position ],
+                        'class': [ 'pp-info-box-carousel', 'pp-swiper-slider', 'swiper', 'swiper-container-wrap-dots-' + settings.dots_position ],
                         'data-slider-settings': JSON.stringify( slider_options )
                     }
                 );
