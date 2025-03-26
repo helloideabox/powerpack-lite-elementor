@@ -105,10 +105,12 @@ class Charts extends Powerpack_Widget {
 		$this->register_content_dataset_controls();
 		$this->register_content_legend_controls();
 		$this->register_content_tooltip_controls();
+		$this->register_content_chart_title_controls();
 		$this->register_content_options_controls();
 
 		// Style tab
 		$this->register_style_chart_controls();
+		$this->register_style_chart_title_controls();
 		$this->register_style_grid_controls();
 		$this->register_style_labels_controls();
 		$this->register_style_legend_controls();
@@ -250,111 +252,20 @@ class Charts extends Powerpack_Widget {
 		);
 
 		$repeater->add_control(
-			'chart_bg_heading',
-			[
-				'label'     => esc_html__( 'Background', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-			]
-		);
-
-		$repeater->add_control(
-			'chart_bg_type',
-			[
-				'label'   => esc_html__( 'Background Type', 'powerpack' ),
-				'type'    => \Elementor\Controls_Manager::CHOOSE,
-				'options' => [
-					'single'   => [
-						'title' => esc_html__( 'Single Color', 'powerpack' ),
-						'icon'  => 'eicon-paint-brush',
-					],
-					'multiple' => [
-						'title' => esc_html__( 'Multiple Colors', 'powerpack' ),
-						'icon'  => 'eicon-navigator',
-					],
-				],
-				'default' => 'single',
-				'toggle'  => false,
-			]
-		);
-
-		$repeater->add_control(
 			'bg_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => 'rgb(0 0 0 / 50%)',
-				'condition' => [
-					'chart_bg_type!' => 'multiple',
-				],
-			]
-		);
-
-		$repeater->add_control(
-			'multiple_bg_colors',
-			[
-				'label'       => esc_html__( 'Background Colors', 'powerpack' ),
-				'type'        => Controls_Manager::TEXTAREA,
-				'default'     => '#EC6E8599, #569FE599, #F7CF6B99, #F0964099',
-				'description' => esc_html__( 'Add colors separated by comma', 'powerpack' ),
-				'dynamic'     => [ 'active' => true ],
-				'condition'   => [
-					'chart_bg_type' => 'multiple',
-				],
-			]
-		);
-
-		$repeater->add_control(
-			'chart_border_heading',
-			[
-				'label'     => esc_html__( 'Border', 'powerpack' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
-
-		$repeater->add_control(
-			'chart_border_type',
-			[
-				'label'   => esc_html__( 'Border Type', 'powerpack' ),
-				'type'    => \Elementor\Controls_Manager::CHOOSE,
-				'options' => [
-					'single'   => [
-						'title' => esc_html__( 'Single Color', 'powerpack' ),
-						'icon'  => 'eicon-paint-brush',
-					],
-					'multiple' => [
-						'title' => esc_html__( 'Multiple Colors', 'powerpack' ),
-						'icon'  => 'eicon-navigator',
-					],
-				],
-				'default' => 'single',
-				'toggle'  => false,
+				'label'   => esc_html__( 'Background Color', 'powerpack' ),
+				'type'    => Controls_Manager::COLOR,
+				'default' => 'rgb(0 0 0 / 50%)',
 			]
 		);
 
 		$repeater->add_control(
 			'border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => 'rgb(0 0 0 / 50%)',
-				'condition' => [
-					'chart_border_type!' => 'multiple',
-				],
-			]
-		);
-
-		$repeater->add_control(
-			'multiple_border_colors',
-			[
-				'label'       => esc_html__( 'Border Colors', 'powerpack' ),
-				'type'        => Controls_Manager::TEXTAREA,
-				'default'     => '#EC6E85, #569FE5, #F7CF6B, #F09640',
-				'description' => esc_html__( 'Add colors separated by comma', 'powerpack' ),
-				'dynamic'     => [ 'active' => true ],
-				'condition'   => [
-					'chart_border_type' => 'multiple',
-				],
+				'label'   => esc_html__( 'Border Color', 'powerpack' ),
+				'type'    => Controls_Manager::COLOR,
+				'default' => 'rgb(0 0 0 / 50%)',
 			]
 		);
 
@@ -540,6 +451,78 @@ class Charts extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
+	protected function register_content_chart_title_controls() {
+		$this->start_controls_section(
+			'section_chart_title',
+			[
+				'label' => esc_html__( 'Chart Title', 'powerpack' ),
+			]
+		);
+
+		$this->add_control(
+			'show_chart_title',
+			[
+				'label'     => esc_html__( 'Show Chart Title', 'powerpack' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
+				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'default'   => '',
+			]
+		);
+
+		$this->add_control(
+			'chart_title',
+			[
+				'label'     => esc_html__( 'Chart Title', 'powerpack' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => '',
+				'dynamic'   => [
+					'active' => true,
+				],
+				'condition' => [
+					'show_chart_title' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'chart_title_position',
+			[
+				'label'   => esc_html__( 'Position', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'top',
+				'options' => [
+					'left'   => esc_html__( 'Left', 'powerpack' ),
+					'top'    => esc_html__( 'Top', 'powerpack' ),
+					'bottom' => esc_html__( 'Bottom', 'powerpack' ),
+					'right'  => esc_html__( 'Right', 'powerpack' ),
+				],
+				'condition' => [
+					'show_chart_title' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'chart_title_align',
+			[
+				'label'   => esc_html__( 'Alignment', 'powerpack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'center',
+				'options' => [
+					'start'  => esc_html__( 'Start', 'powerpack' ),
+					'center' => esc_html__( 'Center', 'powerpack' ),
+					'end'    => esc_html__( 'End', 'powerpack' ),
+				],
+				'condition' => [
+					'show_chart_title' => 'yes',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
 	protected function register_content_options_controls() {
 		$this->start_controls_section(
 			'section_chart_additional_options',
@@ -549,35 +532,25 @@ class Charts extends Powerpack_Widget {
 		);
 
 		$this->add_control(
-			'show_grid_lines',
-			[
-				'label'     => esc_html__( 'Show Grid Lines', 'powerpack' ),
-				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
-				'default'   => 'yes',
-			]
-		);
-
-		$this->add_control(
-			'show_labels',
-			[
-				'label'     => esc_html__( 'Show Labels', 'powerpack' ),
-				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
-				'default'   => 'yes',
-			]
-		);
-
-		$this->add_control(
 			'begin_at_zero',
 			[
-				'label'     => esc_html__( 'Begin at Zero', 'powerpack' ),
-				'type'      => Controls_Manager::SWITCHER,
-				'default'   => 'yes',
-				'condition' => [
-					'show_grid_lines' => 'yes',
+				'label'      => esc_html__( 'Begin at Zero', 'powerpack' ),
+				'type'       => Controls_Manager::SWITCHER,
+				'default'    => 'yes',
+				'conditions' => [
+					'relation' => 'or',
+					'terms'    => [
+						[
+							'name'     => 'x_axis_show_grid_lines',
+							'operator' => '===',
+							'value'    => 'yes',
+						],
+						[
+							'name'     => 'y_axis_show_grid_lines',
+							'operator' => '===',
+							'value'    => 'yes',
+						],
+					],
 				],
 			]
 		);
@@ -585,13 +558,24 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'step_size',
 			[
-				'type'      => Controls_Manager::NUMBER,
-				'label'     => esc_html__( 'Step Size', 'powerpack' ),
-				'min'       => 0,
-				'step'      => 0.5,
-				'default'   => 0.5,
-				'condition' => [
-					'show_grid_lines' => 'yes',
+				'type'       => Controls_Manager::NUMBER,
+				'label'      => esc_html__( 'Step Size', 'powerpack' ),
+				'min'        => 0,
+				'step'       => 0.5,
+				'conditions' => [
+					'relation' => 'or',
+					'terms'    => [
+						[
+							'name'     => 'x_axis_show_grid_lines',
+							'operator' => '===',
+							'value'    => 'yes',
+						],
+						[
+							'name'     => 'y_axis_show_grid_lines',
+							'operator' => '===',
+							'value'    => 'yes',
+						],
+					],
 				],
 			]
 		);
@@ -636,6 +620,168 @@ class Charts extends Powerpack_Widget {
 				'condition' => [
 					'maintain_aspect_ratio!' => 'yes',
 				],
+			]
+		);
+
+		$this->add_control(
+			'x_axis_heading',
+			[
+				'label'     => esc_html__( 'X Axis', 'powerpack' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'x_axis_show_grid_lines',
+			[
+				'label'     => esc_html__( 'Show Grid Lines', 'powerpack' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
+				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'default'   => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'x_axis_show_labels',
+			[
+				'label'     => esc_html__( 'Show Labels', 'powerpack' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
+				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'default'   => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'x_axis_show_title',
+			[
+				'label'     => esc_html__( 'Show Title', 'powerpack' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
+				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'default'   => '',
+			]
+		);
+
+		$this->add_control(
+			'x_axis_title',
+			[
+				'label'     => esc_html__( 'Title', 'powerpack' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => '',
+				'dynamic'   => [
+					'active' => true,
+				],
+				'condition' => [
+					'x_axis_show_title' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'y_axis_heading',
+			[
+				'label'     => esc_html__( 'Y Axis', 'powerpack' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'y_axis_show_grid_lines',
+			[
+				'label'     => esc_html__( 'Show Grid Lines', 'powerpack' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
+				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'default'   => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'y_axis_show_labels',
+			[
+				'label'     => esc_html__( 'Show Labels', 'powerpack' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
+				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'default'   => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'y_axis_labels_prefix',
+			[
+				'label'              => esc_html__( 'Labels Prefix', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
+				'type'               => Controls_Manager::TEXT,
+				'default'            => '',
+				'dynamic'            => [
+					'active' => true,
+				],
+				'condition'          => [
+					'y_axis_show_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'y_axis_labels_suffix',
+			[
+				'label'              => esc_html__( 'Labels Suffix', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
+				'type'               => Controls_Manager::TEXT,
+				'default'            => '',
+				'dynamic'            => [
+					'active' => true,
+				],
+				'condition'          => [
+					'y_axis_show_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'y_axis_show_title',
+			[
+				'label'     => esc_html__( 'Show Title', 'powerpack' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
+				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'default'   => '',
+			]
+		);
+
+		$this->add_control(
+			'y_axis_title',
+			[
+				'label'     => esc_html__( 'Title', 'powerpack' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => '',
+				'dynamic'   => [
+					'active' => true,
+				],
+				'condition' => [
+					'y_axis_show_title' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'y_axis_min',
+			[
+				'type'        => Controls_Manager::NUMBER,
+				'label'       => esc_html__( 'Minimum Value', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
+				'description' => esc_html__( 'Set minimum value for Y-axis. This value is ignored when data has a smaller value.', 'powerpack' ),
+			]
+		);
+
+		$this->add_control(
+			'y_axis_max',
+			[
+				'type'        => Controls_Manager::NUMBER,
+				'label'       => esc_html__( 'Maximum Value', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
+				'description' => esc_html__( 'Set maximum value for Y-axis. This value is ignored when data has a larger value.', 'powerpack' ),
 			]
 		);
 
@@ -772,7 +918,6 @@ class Charts extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
-
 	}
 
 	protected function register_style_chart_controls() {
@@ -883,104 +1028,242 @@ class Charts extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	protected function register_style_grid_controls() {
+	protected function register_style_chart_title_controls() {
 		$this->start_controls_section(
-			'section_chart_grid_style',
+			'section_chart_title_style',
 			[
-				'label'     => __( 'Grid', 'powerpack' ),
+				'label'     => __( 'Chart Title', 'powerpack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'show_grid_lines' => 'yes',
-				],
-			]
-		);
-
-		$this->start_controls_tabs( 'tabs_grid_style', [
-			'condition' => [
-				'show_grid_lines' => 'yes',
-			],
-		] );
-
-		$this->start_controls_tab(
-			'tab_grid_x',
-			[
-				'label'     => esc_html__( 'X Axes', 'powerpack' ),
-				'condition' => [
-					'show_grid_lines' => 'yes',
+					'show_chart_title' => 'yes',
 				],
 			]
 		);
 
 		$this->add_control(
-			'grid_color_x',
+			'chart_title_color',
 			[
-				'label'     => esc_html__( 'Grid Line Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => 'rgb(0 0 0 / 50%)',
+				'default'   => '',
 				'condition' => [
-					'show_grid_lines' => 'yes',
+					'show_chart_title' => 'yes',
 				],
 			]
 		);
 
 		$this->add_control(
-			'grid_width_x',
+			'chart_title_typography',
+			[
+				'label'        => esc_html__( 'Typography', 'powerpack' ),
+				'type'         => Controls_Manager::POPOVER_TOGGLE,
+				'return_value' => 'yes',
+				'condition'    => [
+					'show_chart_title' => 'yes',
+				],
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			'chart_title_size',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Grid Line Width', 'powerpack' ),
+				'label'     => esc_html__( 'Size', 'powerpack' ),
 				'range'     => [
 					'px' => [
-						'min'  => 0,
-						'max'  => 10,
+						'min' => 1,
+						'max' => 50,
 						'step' => 1,
 					],
 				],
 				'default'   => [
-					'size' => 1,
+					'size' => 12,
 				],
 				'condition' => [
-					'show_grid_lines' => 'yes',
+					'show_chart_title' => 'yes',
 				],
 			]
 		);
 
 		$this->add_control(
-			'draw_on_chart_area_x',
+			'chart_title_font_weight',
 			[
-				'label'     => esc_html__( 'Draw Border on Chart Area', 'powerpack' ),
-				'type'      => Controls_Manager::SWITCHER,
-				'default'   => 'yes',
+				'label'     => esc_html__( 'Weight', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
+					'100'    => esc_html__( '100', 'powerpack' ),
+					'200'    => esc_html__( '200', 'powerpack' ),
+					'300'    => esc_html__( '300', 'powerpack' ),
+					'400'    => esc_html__( '400', 'powerpack' ),
+					'500'    => esc_html__( '500', 'powerpack' ),
+					'600'    => esc_html__( '600', 'powerpack' ),
+					'700'    => esc_html__( '700', 'powerpack' ),
+					'800'    => esc_html__( '800', 'powerpack' ),
+					'900'    => esc_html__( '900', 'powerpack' ),
+					''       => esc_html__( 'Default', 'powerpack' ),
+					'normal' => esc_html__( 'Normal', 'powerpack' ),
+					'bold'   => esc_html__( 'Bold', 'powerpack' ),
+				],
 				'condition' => [
-					'show_grid_lines' => 'yes',
+					'show_chart_title' => 'yes',
 				],
 			]
 		);
+
+		$this->add_control(
+			'chart_title_font_style',
+			[
+				'label'     => esc_html__( 'Style', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => '',
+				'options'   => [
+					''        => esc_html__( 'Default', 'powerpack' ),
+					'normal'  => esc_html__( 'Normal', 'powerpack' ),
+					'italic'  => esc_html__( 'Italic', 'powerpack' ),
+					'oblique' => esc_html__( 'Oblique', 'powerpack' ),
+				],
+				'condition' => [
+					'show_chart_title' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'chart_title_line_height',
+			[
+				'type'       => Controls_Manager::SLIDER,
+				'label'      => esc_html__( 'Line Height', 'powerpack' ),
+				'range'      => [
+					'px' => [
+						'min' => 1,
+						'max' => 100,
+						'step' => 1,
+					],
+					'em' => [
+						'min' => 0.1,
+						'max' => 10,
+						'step' => 0.1,
+					],
+				],
+				'size_units' => [ 'px', 'em' ],
+				'condition'  => [
+					'show_chart_title' => 'yes',
+				],
+			]
+		);
+
+		$this->end_popover();
+
+		$this->end_controls_section();
+	}
+
+	protected function register_style_grid_controls() {
+		$this->start_controls_section(
+			'section_chart_grid_style',
+			[
+				'label'      => __( 'Grid', 'powerpack' ),
+				'tab'        => Controls_Manager::TAB_STYLE,
+				'conditions' => [
+					'relation' => 'and',
+					'terms'    => [
+						[
+							'relation' => 'and',
+							'terms'    => [
+								[
+									'name'     => 'chart_type',
+									'operator' => '!==',
+									'value'    => 'pie',
+								],
+								[
+									'name'     => 'chart_type',
+									'operator' => '!==',
+									'value'    => 'doughnut',
+								],
+							],
+						],
+						[
+							'relation' => 'or',
+							'terms'    => [
+								[
+									'name'     => 'x_axis_show_grid_lines',
+									'operator' => '===',
+									'value'    => 'yes',
+								],
+								[
+									'name'     => 'y_axis_show_grid_lines',
+									'operator' => '===',
+									'value'    => 'yes',
+								],
+								[
+									'name'     => 'x_axis_show_title',
+									'operator' => '===',
+									'value'    => 'yes',
+								],
+								[
+									'name'     => 'y_axis_show_title',
+									'operator' => '===',
+									'value'    => 'yes',
+								],
+							],
+						],
+					],
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'tabs_grid_style' );
+
+		$this->start_controls_tab(
+			'tab_grid_x',
+			[
+				'label'     => esc_html__( 'X Axis', 'powerpack' ),
+				'condition' => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+				],
+			]
+		);
+
+		$this->grid_style_controls( 'x' );
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_grid_y',
 			[
-				'label'     => esc_html__( 'Y Axes', 'powerpack' ),
+				'label'     => esc_html__( 'Y Axis', 'powerpack' ),
 				'condition' => [
-					'show_grid_lines' => 'yes',
+					'chart_type!' => [ 'pie', 'doughnut' ],
 				],
 			]
 		);
 
+		$this->grid_style_controls( 'y' );
+
+		$this->end_controls_tab();
+		
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+	}
+
+	protected function grid_style_controls( $type ) {
 		$this->add_control(
-			'grid_color_y',
+			'grid_color_' . $type,
 			[
 				'label'     => esc_html__( 'Grid Line Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => 'rgb(0 0 0 / 50%)',
 				'condition' => [
-					'show_grid_lines' => 'yes',
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_grid_lines' => 'yes',
 				],
 			]
 		);
+
 		$this->add_control(
-			'grid_width_y',
+			'grid_width_' . $type,
 			[
 				'type'      => Controls_Manager::SLIDER,
 				'label'     => esc_html__( 'Grid Line Width', 'powerpack' ),
@@ -995,306 +1278,351 @@ class Charts extends Powerpack_Widget {
 					'size' => 1,
 				],
 				'condition' => [
-					'show_grid_lines' => 'yes',
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_grid_lines' => 'yes',
+				],
+			]
+		);
+
+		$this->title_style_controls( $type );
+	}
+
+	protected function title_style_controls( $type ) {
+
+		$this->add_control(
+			$type . '_heading',
+			[
+				'label'     => esc_html__( 'Title', 'powerpack' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_title' => 'yes',
 				],
 			]
 		);
 
 		$this->add_control(
-			'draw_on_chart_area_y',
+			$type . '_axis_title_color',
 			[
-				'label'     => esc_html__( 'Draw Border on Chart Area', 'powerpack' ),
-				'type'      => Controls_Manager::SWITCHER,
-				'default'   => 'yes',
+				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'condition' => [
-					'show_grid_lines' => 'yes',
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_title' => 'yes',
 				],
 			]
 		);
 
-		$this->end_controls_tab();
-		$this->end_controls_tabs();
+		$this->add_control(
+			$type . '_axis_title_typography',
+			[
+				'label'        => esc_html__( 'Typography', 'powerpack' ),
+				'type'         => Controls_Manager::POPOVER_TOGGLE,
+				'return_value' => 'yes',
+				'condition'    => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_title' => 'yes',
+				],
+			]
+		);
 
-		$this->end_controls_section();
+		$this->start_popover();
+
+		$this->add_control(
+			$type . '_axis_title_size',
+			[
+				'type'      => Controls_Manager::SLIDER,
+				'label'     => esc_html__( 'Size', 'powerpack' ),
+				'range'     => [
+					'px' => [
+						'min' => 1,
+						'max' => 50,
+						'step' => 1,
+					],
+				],
+				'default'   => [
+					'size' => 12,
+				],
+				'condition' => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_title' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			$type . '_axis_title_font_weight',
+			[
+				'label'     => esc_html__( 'Weight', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
+					'100'    => esc_html__( '100', 'powerpack' ),
+					'200'    => esc_html__( '200', 'powerpack' ),
+					'300'    => esc_html__( '300', 'powerpack' ),
+					'400'    => esc_html__( '400', 'powerpack' ),
+					'500'    => esc_html__( '500', 'powerpack' ),
+					'600'    => esc_html__( '600', 'powerpack' ),
+					'700'    => esc_html__( '700', 'powerpack' ),
+					'800'    => esc_html__( '800', 'powerpack' ),
+					'900'    => esc_html__( '900', 'powerpack' ),
+					''       => esc_html__( 'Default', 'powerpack' ),
+					'normal' => esc_html__( 'Normal', 'powerpack' ),
+					'bold'   => esc_html__( 'Bold', 'powerpack' ),
+				],
+				'condition' => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_title' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			$type . '_axis_title_font_style',
+			[
+				'label'     => esc_html__( 'Style', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => '',
+				'options'   => [
+					''        => esc_html__( 'Default', 'powerpack' ),
+					'normal'  => esc_html__( 'Normal', 'powerpack' ),
+					'italic'  => esc_html__( 'Italic', 'powerpack' ),
+					'oblique' => esc_html__( 'Oblique', 'powerpack' ),
+				],
+				'condition' => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_title' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			$type . '_axis_title_line_height',
+			[
+				'type'       => Controls_Manager::SLIDER,
+				'label'      => esc_html__( 'Line Height', 'powerpack' ),
+				'range'      => [
+					'px' => [
+						'min' => 1,
+						'max' => 100,
+						'step' => 1,
+					],
+					'em' => [
+						'min' => 0.1,
+						'max' => 10,
+						'step' => 0.1,
+					],
+				],
+				'size_units' => [ 'px', 'em' ],
+				'condition'  => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_title' => 'yes',
+				],
+			]
+		);
+
+		$this->end_popover();
 	}
 
 	protected function register_style_labels_controls() {
 		$this->start_controls_section(
 			'section_chart_labels_style',
 			[
-				'label'     => __( 'Labels', 'powerpack' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->start_controls_tabs( 'tabs_labels_style', [
-			'condition' => [
-				'show_labels' => 'yes',
-			],
-		] );
-
-		$this->start_controls_tab(
-			'tab_labels_x',
-			[
-				'label'     => esc_html__( 'X Axes', 'powerpack' ),
-				'condition' => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'labels_color_x',
-			[
-				'label'     => esc_html__( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#666',
-				'condition' => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'labels_typography_x',
-			[
-				'label'        => esc_html__( 'Typography', 'powerpack' ),
-				'type'         => Controls_Manager::POPOVER_TOGGLE,
-				'return_value' => 'yes',
-				'condition'    => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->start_popover();
-
-		$this->add_control(
-			'labels_size_x',
-			[
-				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Size', 'powerpack' ),
-				'range'     => [
-					'px' => [
-						'min' => 1,
-						'max' => 50,
-						'step' => 1,
+				'label'      => __( 'Labels', 'powerpack' ),
+				'tab'        => Controls_Manager::TAB_STYLE,
+				'conditions' => [
+					'relation' => 'and',
+					'terms'    => [
+						[
+							'relation' => 'and',
+							'terms'    => [
+								[
+									'name'     => 'chart_type',
+									'operator' => '!==',
+									'value'    => 'pie',
+								],
+								[
+									'name'     => 'chart_type',
+									'operator' => '!==',
+									'value'    => 'doughnut',
+								],
+							],
+						],
+						[
+							'relation' => 'or',
+							'terms'    => [
+								[
+									'name'     => 'x_axis_show_labels',
+									'operator' => '===',
+									'value'    => 'yes',
+								],
+								[
+									'name'     => 'y_axis_show_labels',
+									'operator' => '===',
+									'value'    => 'yes',
+								],
+							],
+						],
 					],
 				],
-				'default'   => [
-					'size' => 12,
-				],
+			]
+		);
+
+		$this->add_control(
+			'x_axis_labels_heading',
+			[
+				'label'     => esc_html__( 'X Axis', 'powerpack' ),
+				'type'      => Controls_Manager::HEADING,
 				'condition' => [
-					'show_labels' => 'yes',
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					'x_axis_show_labels' => 'yes',
 				],
 			]
 		);
 
+		$this->labels_style_controls( 'x' );
+
 		$this->add_control(
-			'labels_font_weight_x',
+			'y_axis_labels_heading',
 			[
-				'label'     => esc_html__( 'Weight', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'options'   => [
-					'100'    => esc_html__( '100', 'powerpack' ),
-					'200'    => esc_html__( '200', 'powerpack' ),
-					'300'    => esc_html__( '300', 'powerpack' ),
-					'400'    => esc_html__( '400', 'powerpack' ),
-					'500'    => esc_html__( '500', 'powerpack' ),
-					'600'    => esc_html__( '600', 'powerpack' ),
-					'700'    => esc_html__( '700', 'powerpack' ),
-					'800'    => esc_html__( '800', 'powerpack' ),
-					'900'    => esc_html__( '900', 'powerpack' ),
-					''       => esc_html__( 'Default', 'powerpack' ),
-					'normal' => esc_html__( 'Normal', 'powerpack' ),
-					'bold'   => esc_html__( 'Bold', 'powerpack' ),
-				],
+				'label'     => esc_html__( 'Y Axis', 'powerpack' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
 				'condition' => [
-					'show_labels' => 'yes',
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					'y_axis_show_labels' => 'yes',
 				],
 			]
 		);
 
-		$this->add_control(
-			'labels_font_style_x',
-			[
-				'label'     => esc_html__( 'Style', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => '',
-				'options'   => [
-					''        => esc_html__( 'Default', 'powerpack' ),
-					'normal'  => esc_html__( 'Normal', 'powerpack' ),
-					'italic'  => esc_html__( 'Italic', 'powerpack' ),
-					'oblique' => esc_html__( 'Oblique', 'powerpack' ),
-				],
-				'condition' => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'labels_line_height_x',
-			[
-				'type'       => Controls_Manager::SLIDER,
-				'label'      => esc_html__( 'Line Height', 'powerpack' ),
-				'range'      => [
-					'px' => [
-						'min' => 1,
-						'max' => 100,
-						'step' => 1,
-					],
-					'em' => [
-						'min' => 0.1,
-						'max' => 10,
-						'step' => 0.1,
-					],
-				],
-				'size_units' => [ 'px', 'em' ],
-				'condition'  => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->end_popover();
-
-		$this->end_controls_tab();
-
-		$this->start_controls_tab(
-			'tab_labels_y',
-			[
-				'label'     => esc_html__( 'Y Axes', 'powerpack' ),
-				'condition' => [
-					'show_grid_lines' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'labels_color_y',
-			[
-				'label'     => esc_html__( 'Color', 'powerpack' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#666',
-				'condition' => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'labels_typography_y',
-			[
-				'label'        => esc_html__( 'Typography', 'powerpack' ),
-				'type'         => Controls_Manager::POPOVER_TOGGLE,
-				'return_value' => 'yes',
-				'condition'    => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->start_popover();
-
-		$this->add_control(
-			'labels_size_y',
-			[
-				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Size', 'powerpack' ),
-				'range'     => [
-					'px' => [
-						'min' => 1,
-						'max' => 50,
-						'step' => 1,
-					],
-				],
-				'default'   => [
-					'size' => 12,
-				],
-				'condition' => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'labels_font_weight_y',
-			[
-				'label'     => esc_html__( 'Weight', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'options'   => [
-					'100'    => esc_html__( '100', 'powerpack' ),
-					'200'    => esc_html__( '200', 'powerpack' ),
-					'300'    => esc_html__( '300', 'powerpack' ),
-					'400'    => esc_html__( '400', 'powerpack' ),
-					'500'    => esc_html__( '500', 'powerpack' ),
-					'600'    => esc_html__( '600', 'powerpack' ),
-					'700'    => esc_html__( '700', 'powerpack' ),
-					'800'    => esc_html__( '800', 'powerpack' ),
-					'900'    => esc_html__( '900', 'powerpack' ),
-					''       => esc_html__( 'Default', 'powerpack' ),
-					'normal' => esc_html__( 'Normal', 'powerpack' ),
-					'bold'   => esc_html__( 'Bold', 'powerpack' ),
-				],
-				'condition' => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'labels_font_style_y',
-			[
-				'label'     => esc_html__( 'Style', 'powerpack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => '',
-				'options'   => [
-					''        => esc_html__( 'Default', 'powerpack' ),
-					'normal'  => esc_html__( 'Normal', 'powerpack' ),
-					'italic'  => esc_html__( 'Italic', 'powerpack' ),
-					'oblique' => esc_html__( 'Oblique', 'powerpack' ),
-				],
-				'condition' => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'labels_line_height_y',
-			[
-				'type'       => Controls_Manager::SLIDER,
-				'label'      => esc_html__( 'Line Height', 'powerpack' ),
-				'range'      => [
-					'px' => [
-						'min' => 1,
-						'max' => 100,
-						'step' => 1,
-					],
-					'em' => [
-						'min' => 0.1,
-						'max' => 10,
-						'step' => 0.1,
-					],
-				],
-				'size_units' => [ 'px', 'em' ],
-				'condition'  => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->end_popover();
-
-		$this->end_controls_tab();
-
-		$this->end_controls_tabs();
+		$this->labels_style_controls( 'y' );
 
 		$this->end_controls_section();
+	}
+
+	protected function labels_style_controls( $type ) {
+		$this->add_control(
+			$type . '_axis_labels_color',
+			[
+				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#666',
+				'condition' => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			$type . '_axis_labels_typography',
+			[
+				'label'        => esc_html__( 'Typography', 'powerpack' ),
+				'type'         => Controls_Manager::POPOVER_TOGGLE,
+				'return_value' => 'yes',
+				'condition'    => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			$type . '_axis_labels_size',
+			[
+				'type'      => Controls_Manager::SLIDER,
+				'label'     => esc_html__( 'Size', 'powerpack' ),
+				'range'     => [
+					'px' => [
+						'min' => 1,
+						'max' => 50,
+						'step' => 1,
+					],
+				],
+				'default'   => [
+					'size' => 12,
+				],
+				'condition' => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			$type . '_axis_labels_font_weight',
+			[
+				'label'     => esc_html__( 'Weight', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
+					'100'    => esc_html__( '100', 'powerpack' ),
+					'200'    => esc_html__( '200', 'powerpack' ),
+					'300'    => esc_html__( '300', 'powerpack' ),
+					'400'    => esc_html__( '400', 'powerpack' ),
+					'500'    => esc_html__( '500', 'powerpack' ),
+					'600'    => esc_html__( '600', 'powerpack' ),
+					'700'    => esc_html__( '700', 'powerpack' ),
+					'800'    => esc_html__( '800', 'powerpack' ),
+					'900'    => esc_html__( '900', 'powerpack' ),
+					''       => esc_html__( 'Default', 'powerpack' ),
+					'normal' => esc_html__( 'Normal', 'powerpack' ),
+					'bold'   => esc_html__( 'Bold', 'powerpack' ),
+				],
+				'condition' => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			$type . '_axis_labels_font_style',
+			[
+				'label'     => esc_html__( 'Style', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => '',
+				'options'   => [
+					''        => esc_html__( 'Default', 'powerpack' ),
+					'normal'  => esc_html__( 'Normal', 'powerpack' ),
+					'italic'  => esc_html__( 'Italic', 'powerpack' ),
+					'oblique' => esc_html__( 'Oblique', 'powerpack' ),
+				],
+				'condition' => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			$type . '_axis_labels_line_height',
+			[
+				'type'       => Controls_Manager::SLIDER,
+				'label'      => esc_html__( 'Line Height', 'powerpack' ),
+				'range'      => [
+					'px' => [
+						'min' => 1,
+						'max' => 100,
+						'step' => 1,
+					],
+					'em' => [
+						'min' => 0.1,
+						'max' => 10,
+						'step' => 0.1,
+					],
+				],
+				'size_units' => [ 'px', 'em' ],
+				'condition'  => [
+					'chart_type!' => [ 'pie', 'doughnut' ],
+					$type . '_axis_show_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->end_popover();
 	}
 
 	protected function register_style_legend_controls() {
@@ -1670,7 +1998,7 @@ class Charts extends Powerpack_Widget {
 		);
 
 		$this->add_control(
-			'tooltip_color',
+			'tooltip_title_color',
 			[
 				'label'     => esc_html__( 'Color', 'powerpack' ),
 				'type'      => Controls_Manager::COLOR,
@@ -1898,18 +2226,10 @@ class Charts extends Powerpack_Widget {
 	}
 
 	protected function get_background_color( $item ) {
-		if ( ! empty( $item['chart_bg_type'] ) && 'multiple' === $item['chart_bg_type'] && ! empty( $item['multiple_bg_colors'] ) ) {
-			return explode( ',', $item['multiple_bg_colors'] );
-		}
-
 		return $item['bg_color'];
 	}
 
 	protected function get_border_color( $item ) {
-		if ( ! empty( $item['chart_border_type'] ) && 'multiple' === $item['chart_border_type'] && ! empty( $item['multiple_border_colors'] ) ) {
-			return explode( ',', $item['multiple_border_colors'] );
-		}
-
 		return $item['border_color'];
 	}
 
@@ -1945,11 +2265,7 @@ class Charts extends Powerpack_Widget {
 			$options['indexAxis'] = 'y';
 		}
 
-		if ( ! empty( $settings['show_grid_lines'] ) && 'yes' === $settings['show_grid_lines'] ) {
-			$options['scales'] = $this->get_grid_options( $settings );
-		} else {
-			$options['scales'] = $this->get_default_scales( $settings );
-		}
+		$options['scales'] = $this->get_grid_options( $settings );
 
 		$options = $this->get_additional_options( $settings, $options );
 
@@ -1957,76 +2273,121 @@ class Charts extends Powerpack_Widget {
 	}
 
 	protected function get_grid_options( $settings ) {
+		$x_axis_title = $this->get_axis_title( $settings, 'x' );
+		$y_axis_title = $this->get_axis_title( $settings, 'y' );
+
 		return [
-			'x' => [
-				'beginAtZero' => ( 'yes' === $settings['begin_at_zero'] ) ? true : false,
-				'stacked'     => ( 'bar' === $settings['chart_type'] && 'yes' === $settings['stacked'] ) ? true : false,
-				'ticks'       => [
-					'display'  => ! empty( $settings['show_labels'] ),
-					'color'    => $settings['labels_color_x'],
-					'font'     => [
-						'size'       => ( $settings['labels_typography_x'] && $settings['labels_size_x']['size'] ) ? $settings['labels_size_x']['size'] : 12,
-						'style'      => ( $settings['labels_typography_x'] && $settings['labels_font_style_x'] ) ? $settings['labels_font_style_x'] : '',
-						'weight'     => ( $settings['labels_typography_x'] && $settings['labels_font_weight_x'] ) ? $settings['labels_font_weight_x'] : '',
-						'lineHeight' => ( $settings['labels_typography_x'] && $settings['labels_line_height_x']['size'] ) ? $settings['labels_line_height_x']['size'] . $settings['labels_line_height_x']['unit'] : '',
-					],
-					'stepSize' => ( '' !== $settings['step_size'] ) ? $settings['step_size'] : 0,
-				],
-				'grid'        => [
-					'color'           => $settings['grid_color_x'],
-					'lineWidth'       => ! empty( $settings['grid_width_x']['size'] ) ? $settings['grid_width_x']['size'] : 1,
-					'drawOnChartArea' => ! empty( $settings['draw_on_chart_area_x'] ),
-				],
-			],
-			'y' => [
-				'beginAtZero' => ( 'yes' === $settings['begin_at_zero'] ) ? true : false,
-				'stacked'     => ( 'bar' === $settings['chart_type'] && 'yes' === $settings['stacked'] ) ? true : false,
-				'ticks'       => [
-					'display'  => ! empty( $settings['show_labels'] ),
-					'color'    => $settings['labels_color_y'],
-					'font'     => [
-						'size'       => ( $settings['labels_typography_y'] && $settings['labels_size_y']['size'] ) ? $settings['labels_size_y']['size'] : 12,
-						'style'      => ( $settings['labels_typography_y'] && $settings['labels_font_style_y'] ) ? $settings['labels_font_style_y'] : '',
-						'weight'     => ( $settings['labels_typography_y'] && $settings['labels_font_weight_y'] ) ? $settings['labels_font_weight_y'] : '',
-						'lineHeight' => ( $settings['labels_typography_y'] && $settings['labels_line_height_y']['size'] ) ? $settings['labels_line_height_y']['size'] . $settings['labels_line_height_y']['unit'] : '',
-					],
-					'stepSize' => ( '' !== $settings['step_size'] ) ? $settings['step_size'] : 0,
-				],
-				'grid'        => [
-					'color'           => $settings['grid_color_y'],
-					'lineWidth'       => ! empty( $settings['grid_width_y']['size'] ) ? $settings['grid_width_y']['size'] : 1,
-					'drawOnChartArea' => ! empty( $settings['draw_on_chart_area_y'] ),
-				],
-			],
+			'x' => array_merge( $this->get_axis_settings( $settings, 'x' ), [
+				'title' => $x_axis_title,
+				'grid'  => $this->get_grid_settings( $settings, 'x' ),
+			] ),
+			'y' => array_merge( $this->get_axis_settings( $settings, 'y' ), [
+				'title' => $y_axis_title,
+				'grid'  => $this->get_grid_settings( $settings, 'y' ),
+			] ),
 		];
 	}
 
-	protected function get_default_scales( $settings ) {
+	private function get_axis_title( $settings, $axis ) {
+		$show_title_key  = "{$axis}_axis_show_title";
+		$title_key       = "{$axis}_axis_title";
+		$color_key       = "{$axis}_axis_title_color";
+		$typography_key  = "{$axis}_axis_title_typography";
+		$size_key        = "{$axis}_axis_title_size";
+		$font_style_key  = "{$axis}_axis_title_font_style";
+		$font_weight_key = "{$axis}_axis_title_font_weight";
+		$line_height_key = "{$axis}_axis_title_line_height";
+
+		if ( 'yes' === $settings[$show_title_key] ) {
+			return [
+				'display' => true,
+				'text'    => $settings[$title_key] ?? '',
+				'color'   => $settings[$color_key],
+				'font'    => [
+					'size'       => ! empty( $settings[$size_key]['size'] ) ? $settings[$size_key]['size'] : 12,
+					'style'      => $settings[$font_style_key] ?? '',
+					'weight'     => $settings[$font_weight_key] ?? '',
+					'lineHeight' => ! empty( $settings[$line_height_key]['size'] ) ? $settings[$line_height_key]['size'] . $settings[$line_height_key]['unit'] : '',
+				],
+			];
+		}
+
+		return [ 'display' => false ];
+	}
+
+	private function get_axis_settings( $settings, $axis ) {
+		$begin_at_zero_key = 'begin_at_zero';
+		$chart_type_key    = 'chart_type';
+		$stacked_key       = 'stacked';
+
 		return [
-			'y' => [
-				'ticks' => [
-					'display' => ! empty( $settings['show_labels'] ),
-					'color'   => $settings['labels_color'],
-					'font'    => [ 'size' => $settings['labels_size']['size'] ?? null ],
-				],
-				'grid' => [
-					'display' => false,
-				],
+			'beginAtZero' => ( 'yes' === $settings[$begin_at_zero_key] ) ? true : false,
+			'stacked'     => ( 'bar' === $settings[$chart_type_key] && 'yes' === $settings[$stacked_key] ) ? true : false,
+			'ticks'       => $this->get_ticks_settings( $settings, $axis ),
+		];
+	}
+
+	private function get_grid_settings( $settings, $axis ) {
+		$show_grid_lines_key = "{$axis}_axis_show_grid_lines";
+		$grid_color_key      = "grid_color_{$axis}";
+		$grid_width_key      = "grid_width_{$axis}";
+
+		return [
+			'display'   => ! empty( $settings[$show_grid_lines_key] ),
+			'color'     => $settings[$grid_color_key],
+			'lineWidth' => ! empty( $settings[$grid_width_key]['size'] ) ? $settings[$grid_width_key]['size'] : 1,
+		];
+	}
+
+	private function get_ticks_settings( $settings, $axis ) {
+		$show_labels_key  = "{$axis}_axis_show_labels";
+		$labels_color_key = "{$axis}_axis_labels_color";
+		$typography_key   = "{$axis}_axis_labels_typography";
+		$size_key         = "{$axis}_axis_labels_size";
+		$font_style_key   = "{$axis}_axis_labels_font_style";
+		$font_weight_key  = "{$axis}_axis_labels_font_weight";
+		$line_height_key  = "{$axis}_axis_labels_line_height";
+		$step_size_key    = 'step_size';
+
+		return [
+			'display'  => ! empty( $settings[$show_labels_key] ),
+			'color'    => $settings[$labels_color_key],
+			'font'     => [
+				'size'       => ! empty( $settings[$size_key]['size'] ) ? $settings[$size_key]['size'] : 12,
+				'style'      => $settings[$font_style_key] ?? '',
+				'weight'     => $settings[$font_weight_key] ?? '',
+				'lineHeight' => ! empty( $settings[$line_height_key]['size'] ) ? $settings[$line_height_key]['size'] . $settings[$line_height_key]['unit'] : '',
 			],
-			'x' => [
-				'ticks' => [
-					'display' => ! empty( $settings['show_labels'] ),
-					'color'   => $settings['labels_color'],
-					'font'    => [ 'size' => $settings['labels_size']['size'] ?? null ],
-				],
-				'grid' => [
-					'display' => false,
-				],
-			],
+			'stepSize' => ! empty( $settings[$step_size_key] ) ? $settings[$step_size_key] : 0,
 		];
 	}
 
 	protected function get_additional_options( $settings, $options ) {
+		if ( 'yes' === $settings['show_chart_title'] && ! empty( $settings['chart_title'] ) ) {
+			$options['plugins']['title'] = [
+				'display' => true,
+				'text'    => $settings['chart_title'] ?? '',
+				'color'   => $settings['chart_title_color'],
+				'font'    => [
+					'size'       => ( $settings['chart_title_typography'] && $settings['chart_title_size']['size'] ) ? $settings['chart_title_size']['size'] : 12,
+					'style'      => ( $settings['chart_title_typography'] && $settings['chart_title_font_style'] ) ? $settings['chart_title_font_style'] : '',
+					'weight'     => ( $settings['chart_title_typography'] && $settings['chart_title_font_weight'] ) ? $settings['chart_title_font_weight'] : '',
+					'lineHeight' => ( $settings['chart_title_typography'] && $settings['chart_title_line_height']['size'] ) ? $settings['chart_title_line_height']['size'] . $settings['chart_title_line_height']['unit'] : '',
+				],
+				'padding' => [
+					'bottom' => 20,
+				],
+			];
+
+			if ( 'top' !== $settings['chart_title_position'] ) {
+				$options['plugins']['title']['position'] = $settings['chart_title_position'];
+			}
+
+			if ( 'center' !== $settings['chart_title_align'] ) {
+				$options['plugins']['title']['align'] = $settings['chart_title_align'];
+			}
+		}
+
 		if ( ! empty( $settings['show_legend'] ) && 'yes' === $settings['show_legend'] ) {
 			$options['plugins']['legend'] = [
 				'position' => $settings['legend_position'] ?? '',
@@ -2063,7 +2424,7 @@ class Charts extends Powerpack_Widget {
 				'borderWidth'     => ( '' !== $settings['tooltip_border_width']['size'] ) ? $settings['tooltip_border_width']['size'] : 0,
 				'cornerRadius'    => ( '' !== $settings['tooltip_border_radius']['size'] ) ? $settings['tooltip_border_radius']['size'] : 6,
 				'padding'         => ( $settings['tooltip_padding'] ) ? $settings['tooltip_padding'] : 6,
-				'titleColor'      => $settings['tooltip_color'] ?? '',
+				'titleColor'      => $settings['tooltip_title_color'] ?? '',
 				'bodyColor'       => $settings['tooltip_body_color'] ?? '',
 				'titleFont'       => [ 'size' => $settings['tooltip_title_font_size']['size'] ?? null ],
 				'bodyFont'        => [ 'size' => $settings['tooltip_body_font_size']['size'] ?? null ],
@@ -2075,10 +2436,6 @@ class Charts extends Powerpack_Widget {
 			}
 		} else {
 			$options['plugins']['tooltip'] = [ 'enabled' => false ];
-		}
-
-		if ( ! empty( $settings['aspect_ratio'] ) && 'yes' === $settings['aspect_ratio'] ) {
-			$options['aspectRatio'] = 1;
 		}
 
 		if ( 'yes' !== $settings['maintain_aspect_ratio'] ) {
