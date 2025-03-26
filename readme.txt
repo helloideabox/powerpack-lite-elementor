@@ -236,6 +236,12 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.9.1 - March 26, 2025 =
+* 	Enhancement: Advanced Charts - Added option to show chart title
+* 	Enhancement: Advanced Charts - Added options to show title for X-axis and Y-axis
+* 	Enhancement: Icon List - Added hover background option for list items
+* 	Fixed: Carousel issue in various widgets
+
 = 2.9.0 - March 5, 2025 =
 * 	New: Charts widget
 * 	Fixed: Instagram Feed - Lightbox arrows were not showing
