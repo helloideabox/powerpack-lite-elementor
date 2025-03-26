@@ -21,12 +21,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Advanced Charts Widget
+ * Charts Widget
  */
 class Charts extends Powerpack_Widget {
 
 	/**
-	 * Retrieve advanced charts widget name.
+	 * Retrieve Charts widget name.
 	 *
 	 * @access public
 	 *
@@ -37,7 +37,7 @@ class Charts extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve advanced charts widget title.
+	 * Retrieve Charts widget title.
 	 *
 	 * @access public
 	 *
@@ -48,7 +48,7 @@ class Charts extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve advanced charts widget icon.
+	 * Retrieve Charts widget icon.
 	 *
 	 * @access public
 	 *
@@ -61,7 +61,7 @@ class Charts extends Powerpack_Widget {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the advanced charts widget belongs to.
+	 * Retrieve the list of keywords the Charts widget belongs to.
 	 *
 	 * @access public
 	 *
@@ -72,7 +72,7 @@ class Charts extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of scripts the advanced charts widget depended on.
+	 * Retrieve the list of scripts the Charts widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
@@ -92,7 +92,7 @@ class Charts extends Powerpack_Widget {
 	}
 
 	/**
-	 * Register advanced charts widget controls.
+	 * Register Charts widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
@@ -122,7 +122,7 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_charts',
 			[
-				'label' => esc_html__( 'Advanced Charts', 'powerpack' ),
+				'label' => esc_html__( 'Charts', 'powerpack' ),
 			]
 		);
 
@@ -2076,7 +2076,7 @@ class Charts extends Powerpack_Widget {
 	}
 
 	/**
-	 * Render advanced charts widget output on the frontend.
+	 * Render Charts widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
