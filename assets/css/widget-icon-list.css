@@ -44,6 +44,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transition: all 0.25s linear 0s;
+  transition: all 0.25s linear 0s;
 }
 .pp-list-container .pp-list-items li:after {
   bottom: 0;

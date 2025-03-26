@@ -35,6 +35,7 @@
             position: relative;
             align-items: center;
             display: flex;
+            @include transition($target: all, $time: 0.25s,);
             &:after {
                 bottom: 0;
                 display: block;

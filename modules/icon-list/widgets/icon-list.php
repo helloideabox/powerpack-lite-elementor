@@ -390,6 +390,15 @@ class Icon_List extends Powerpack_Widget {
 			]
 		);
 
+		$this->start_controls_tabs( 'tabs_list_style' );
+
+		$this->start_controls_tab(
+			'tab_list_normal',
+			[
+				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+			]
+		);
+
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -399,6 +408,29 @@ class Icon_List extends Powerpack_Widget {
 				'selector'              => '{{WRAPPER}} .pp-list-items li',
 			]
 		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_list_hover',
+			[
+				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'                  => 'items_background_hover',
+				'label'                 => esc_html__( 'Background', 'powerpack' ),
+				'types'                 => [ 'classic', 'gradient' ],
+				'selector'              => '{{WRAPPER}} .pp-list-items li:hover',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
 
 		$this->add_responsive_control(
 			'items_spacing',
@@ -943,7 +975,7 @@ class Icon_List extends Powerpack_Widget {
 		$i = 1;
 		?>
 		<div class="pp-list-container">
-			<ul <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon-list' ) ); ?>>
+			<ul <?php $this->print_render_attribute_string( 'icon-list' ); ?>>
 				<?php foreach ( $settings['list_items'] as $index => $item ) : ?>
 					<?php if ( $item['text'] ) { ?>
 						<?php
@@ -964,20 +996,20 @@ class Icon_List extends Powerpack_Widget {
 
 							$this->add_inline_editing_attributes( $text_key, 'none' );
 						?>
-						<li <?php echo wp_kses_post( $this->get_render_attribute_string( $item_key ) ); ?>>
+						<li <?php $this->print_render_attribute_string( $item_key ); ?>>
 							<?php
 							if ( '' !== $item['link']['url'] ) {
 								$link_key = 'link_' . $i;
 
 								$this->add_link_attributes( $link_key, $item['link'] );
 								?>
-								<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
+								<a <?php $this->print_render_attribute_string( $link_key ); ?>>
 								<?php
 							}
 
 							$this->render_iconlist_icon( $item, $i );
 							?>
-							<span <?php echo wp_kses_post( $this->get_render_attribute_string( $text_key ) ); ?>>
+							<span <?php $this->print_render_attribute_string( $text_key ); ?>>
 								<?php echo wp_kses_post( $item['text'] ); ?>
 							</span>
 							<?php
@@ -1031,7 +1063,7 @@ class Icon_List extends Powerpack_Widget {
 				$icon_animation = '';
 			}
 			?>
-			<span <?php echo wp_kses_post( $this->get_render_attribute_string( $icon_key ) ); ?>>
+			<span <?php $this->print_render_attribute_string( $icon_key ); ?>>
 				<?php
 				if ( 'icon' === $item['pp_icon_type'] ) {
 					if ( ! empty( $item['list_icon'] ) || ( ! empty( $item['icon']['value'] ) && $is_new ) ) { ?>

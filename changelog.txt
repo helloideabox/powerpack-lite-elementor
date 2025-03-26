@@ -1,5 +1,6 @@
 == 2.9.1 ==
 Release date: 
+* Enhancement: Icon List - Added hover background option for list items
 * Fixed: Carousel issue in various widgets
 
 == 2.9.0 ==
