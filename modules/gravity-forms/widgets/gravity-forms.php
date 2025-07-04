@@ -106,7 +106,7 @@ class Gravity_Forms extends Powerpack_Widget {
 	 *
 	 * Used to determine whether the reload preview is required.
 	 *
-	 * @since x.x.x
+	 * @since 2.9.2
 	 * @access public
 	 *
 	 * @return bool Whether the reload preview is required.
