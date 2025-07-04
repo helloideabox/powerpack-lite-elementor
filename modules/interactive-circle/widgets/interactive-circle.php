@@ -2,7 +2,6 @@
 namespace PowerpackElementsLite\Modules\InteractiveCircle\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
-use PowerpackElementsLite\Classes\PP_Posts_Helper;
 use PowerpackElementsLite\Classes\PP_Config;
 use PowerpackElementsLite\Classes\PP_Helper;
 
@@ -165,15 +164,15 @@ class Interactive_Circle extends Powerpack_Widget {
 
 		$this->add_control(
 			'show_source_notice',
-			array(
+			[
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
 				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				'condition'       => array(
+				'condition'       => [
 					'source' => 'posts',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
@@ -290,14 +289,14 @@ class Interactive_Circle extends Powerpack_Widget {
 
 		$this->add_control(
 			'max_items_notice',
-			array(
+			[
 				'type'            => Controls_Manager::RAW_HTML,
 				'raw'             => esc_html__( 'Interactive Circle supports maximum 8 items. Adding more than 8 items will break the layout.', 'powerpack' ),
 				'content_classes' => 'pp-editor-info',
 				'condition'       => [
 					'source' => 'custom',
 				],
-			)
+			]
 		);
 
 		$repeater = new Repeater();
@@ -344,15 +343,66 @@ class Interactive_Circle extends Powerpack_Widget {
 
 		$repeater->start_controls_tab( 'interactive_circle_icon_tab', [ 'label' => __( 'Icon/Image', 'powerpack' ) ] );
 
+		$repeater->add_responsive_control(
+			'tab_icon_separator',
+			[
+				'label' => esc_html__( 'Tab', 'powerpack' ),
+				'type'  => Controls_Manager::HEADING,
+			]
+		);
+
+		$repeater->add_control(
+			'tab_icon_type',
+			[
+				'label'       => esc_html__( 'Icon Type', 'powerpack' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'icon',
+				'label_block' => false,
+				'options'     => [
+					'icon'  => esc_html__( 'Icon', 'powerpack' ),
+					'image' => esc_html__( 'Image', 'powerpack' ),
+				],
+			]
+		);
+
 		$repeater->add_control(
 			'tab_icon',
 			[
-				'label'   => esc_html__( 'Icon', 'powerpack' ),
-				'type'    => Controls_Manager::ICONS,
-				'default' => [
+				'label'     => esc_html__( 'Icon', 'powerpack' ),
+				'type'      => Controls_Manager::ICONS,
+				'default'   => [
 					'value'   => 'fas fa-home',
 					'library' => 'fa-solid',
 				],
+				'condition' => [
+					'tab_icon_type!' => 'image',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'tab_icon_image',
+			[
+				'label'     => __( 'Icon Image', 'powerpack' ),
+				'type'      => Controls_Manager::MEDIA,
+				'dynamic'   => [
+					'active' => true,
+				],
+				'default'   => [
+					'url' => Utils::get_placeholder_image_src(),
+				],
+				'condition' => [
+					'tab_icon_type' => 'image',
+				],
+			]
+		);
+
+		$repeater->add_responsive_control(
+			'tab_content_separator',
+			[
+				'label'     => esc_html__( 'Content', 'powerpack' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
@@ -700,13 +750,13 @@ class Interactive_Circle extends Powerpack_Widget {
 
 		$this->add_control(
 			'stack_on',
-			array(
+			[
 				'label'              => esc_html__( 'Stack On', 'powerpack' ),
 				'type'               => Controls_Manager::SELECT,
 				'default'            => 'mobile',
 				'options'            => $stack_on_options,
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->add_responsive_control(
@@ -785,6 +835,25 @@ class Interactive_Circle extends Powerpack_Widget {
 				'selectors'  => [
 					'{{WRAPPER}} .pp-circle-tab-icon i'   => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .pp-circle-tab-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; min-width: {{SIZE}}{{UNIT}}; min-height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'tab_icon_image_width',
+			[
+				'label'      => __( 'Icon Image Width', 'powerpack' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => [
+					'px' => [
+						'min'   => 20,
+						'max'   => 150,
+						'step'  => 1,
+					],
+				],
+				'size_units' => [ 'px', '%', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .pp-circle-tab-icon img' => 'width: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -1088,6 +1157,9 @@ class Interactive_Circle extends Powerpack_Widget {
 				'label'     => esc_html__( 'Icon/Image', 'powerpack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
+				'condition' => [
+					'content_icon_type!' => ''
+				],
 			]
 		);
 
@@ -1113,7 +1185,7 @@ class Interactive_Circle extends Powerpack_Widget {
 					'{{WRAPPER}} .pp-circle-content-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; min-width: {{SIZE}}{{UNIT}}; min-height: {{SIZE}}{{UNIT}};',
 				],
 				'condition'  => [
-					'content_icon_type!' => ''
+					'content_icon_type' => 'icon'
 				],
 			]
 		);
@@ -1128,7 +1200,7 @@ class Interactive_Circle extends Powerpack_Widget {
 					'{{WRAPPER}} .pp-circle-info .pp-circle-inner .pp-circle-item .pp-circle-content .pp-circle-content-icon svg' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
-					'content_icon_type!' => ''
+					'content_icon_type' => 'icon'
 				],
 			]
 		);
@@ -1154,7 +1226,7 @@ class Interactive_Circle extends Powerpack_Widget {
 					'{{WRAPPER}} .pp-circle-content-image img' => 'width: {{SIZE}}{{UNIT}}',
 				],
 				'condition'  => [
-					'content_icon_type!' => '',
+					'content_icon_type' => 'image'
 				],
 			]
 		);
@@ -1232,11 +1304,29 @@ class Interactive_Circle extends Powerpack_Widget {
 	protected function render_tab_icon( $item ) {
 		$settings       = $this->get_settings_for_display();
 		$show_btn_icon  = isset( $settings['tabs_icon'] ) && 'yes' === $settings['tabs_icon'];
+		$icon_type      = isset( $item['tab_icon_type'] ) ? $item['tab_icon_type'] : 'icon';
 		$show_btn_title = isset( $settings['tabs_title'] ) && 'yes' === $settings['tabs_title'];
 
 		if ( $show_btn_icon ) {
-			Icons_Manager::render_icon( $item['tab_icon'] );
+			if ( 'icon' === $icon_type ) {
+				Icons_Manager::render_icon( $item['tab_icon'] );
+			} elseif ( 'image' === $icon_type ) {
+				if ( ! empty( $item['tab_icon_image']['url'] ) ) {
+					$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['tab_icon_image']['id'], 'image', $settings );
+
+					if ( $image_url ) {
+						?>
+						<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $item['tab_icon_image'] ) ); ?>">
+						<?php
+					} else {
+						?>
+						<img src="<?php echo esc_url( $item['tab_icon_image']['url'] ); ?>">
+						<?php
+					}
+				}
+			}
 		}
+
 		if ( $show_btn_title ) {
 			echo '<span class="pp-circle-tab-text">' . esc_html( $item['tab_label'] ) . '</span>';
 		}
@@ -1296,7 +1386,7 @@ class Interactive_Circle extends Powerpack_Widget {
 		$active_tab = ( '' !== $settings['active_tab'] ) ? $settings['active_tab'] : 1;
 		$active_tab = $active_tab - 1;
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'circle_info' ); ?>>
+		<div <?php $this->print_render_attribute_string( 'circle_info' ); ?>>
 			<div class="pp-circle-inner">
 				<?php
 				foreach ( $items as $index => $item ) :
@@ -1414,184 +1504,18 @@ class Interactive_Circle extends Powerpack_Widget {
 			$this->add_render_attribute( 'circle_wrapper', 'class', 'pp-pause-rotate');
 		}
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'container' ); ?>>
+		<div <?php $this->print_render_attribute_string( 'container' ); ?>>
 			<?php if ( ( $settings['skin'] != 'skin-2' ) ) { ?>
-				<div <?php echo $this->get_render_attribute_string( 'circle_wrapper' ); ?>>
+				<div <?php $this->print_render_attribute_string( 'circle_wrapper' ); ?>>
 					<?php $this->render_skin_circle( $items, $item_count ); ?>
 				</div>
 			<?php } else { ?>
-				<div <?php echo $this->get_render_attribute_string( 'circle_wrapper' ); ?>>
+				<div <?php $this->print_render_attribute_string( 'circle_wrapper' ); ?>>
 					<?php $this->render_skin_circle_half( $items, $item_count ); ?>
 				</div>
 			<?php } ?>
 		</div>
 		<?php
-	}
-
-	/**
-	 * Get post query arguments.
-	 *
-	 * @access protected
-	 */
-	protected function get_posts_query_arguments() {
-		$settings = $this->get_settings();
-		$posts_count = absint( $settings['posts_per_page'] );
-
-		// Query Arguments
-		$query_args = array(
-			'post_status'           => array( 'publish' ),
-			'post_type'             => $settings['post_type'],
-			'orderby'               => $settings['orderby'],
-			'order'                 => $settings['order'],
-			'offset'                => $settings['offset'],
-			'ignore_sticky_posts'   => ( 'yes' === $settings['sticky_posts'] ) ? 0 : 1,
-			'showposts'             => $posts_count,
-		);
-
-		// Author Filter
-		if ( ! empty( $settings['authors'] ) ) {
-			$query_args[ $settings['author_filter_type'] ] = $settings['authors'];
-		}
-
-		// Posts Filter
-		$post_type = $settings['post_type'];
-
-		if ( 'post' === $post_type ) {
-			$posts_control_key = 'exclude_posts';
-		} else {
-			$posts_control_key = $post_type . '_filter';
-		}
-
-		if ( ! empty( $settings[ $posts_control_key ] ) ) {
-			$query_args[ $settings[ $post_type . '_filter_type' ] ] = $settings[ $posts_control_key ];
-		}
-
-		// Taxonomy Filter
-		$taxonomy = PP_Posts_Helper::get_post_taxonomies( $post_type );
-
-		if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
-
-			foreach ( $taxonomy as $index => $tax ) {
-
-				if ( 'post' === $post_type ) {
-					if ( 'post_tag' === $index ) {
-						$tax_control_key = 'tags';
-					} elseif ( 'category' === $index ) {
-						$tax_control_key = 'categories';
-					} else {
-						$tax_control_key = $index . '_' . $post_type;
-					}
-				} else {
-					$tax_control_key = $index . '_' . $post_type;
-				}
-
-				if ( ! empty( $settings[ $tax_control_key ] ) ) {
-
-					$operator = $settings[ $index . '_' . $post_type . '_filter_type' ];
-
-					$query_args['tax_query'][] = [
-						'taxonomy' => $index,
-						'field'    => 'term_id',
-						'terms'    => $settings[ $tax_control_key ],
-						'operator' => $operator,
-					];
-				}
-			}
-		}
-
-		if ( 'anytime' !== $settings['select_date'] ) {
-			$select_date = $settings['select_date'];
-			if ( ! empty( $select_date ) ) {
-				$date_query = [];
-				if ( 'today' === $select_date ) {
-					$date_query['after'] = '-1 day';
-				} elseif ( 'week' === $select_date ) {
-					$date_query['after'] = '-1 week';
-				} elseif ( 'month' === $select_date ) {
-					$date_query['after'] = '-1 month';
-				} elseif ( 'quarter' === $select_date ) {
-					$date_query['after'] = '-3 month';
-				} elseif ( 'year' === $select_date ) {
-					$date_query['after'] = '-1 year';
-				} elseif ( 'exact' === $select_date ) {
-					$after_date = $settings['date_after'];
-					if ( ! empty( $after_date ) ) {
-						$date_query['after'] = $after_date;
-					}
-					$before_date = $settings['date_before'];
-					if ( ! empty( $before_date ) ) {
-						$date_query['before'] = $before_date;
-					}
-					$date_query['inclusive'] = true;
-				}
-
-				$query_args['date_query'] = $date_query;
-			}
-		}
-
-		// Sticky Posts Filter
-		if ( 'yes' === $settings['sticky_posts'] && 'yes' === $settings['all_sticky_posts'] ) {
-			$post__in = get_option( 'sticky_posts' );
-
-			$query_args['post__in'] = $post__in;
-		}
-
-		return apply_filters( 'ppe_interactive_circle_query_args', $query_args, $settings );
-	}
-
-	/**
-	 * Render posts output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @access protected
-	 */
-	protected function get_interactive_circle_posts() {
-		$settings = $this->get_settings();
-
-		$i = 0;
-		$ic_item = array();
-		$active_tabs = array();
-
-		// Query Arguments
-		$args = $this->get_posts_query_arguments();
-		$posts_query = new \WP_Query( $args );
-
-		if ( $posts_query->have_posts() ) :
-			while ( $posts_query->have_posts() ) :
-				$posts_query->the_post();
-
-				$limit = $settings['preview_excerpt_length'];
-
-				$ic_item[ $i ]['_id'] = 'ppic' . $i;
-				$ic_item[ $i ]['tab_icon'] = [];
-
-				$ic_item[ $i ]['tab_label'] = $this->get_circle_post_content( get_the_title(), 3 );
-
-				$ic_item[ $i ]['item_title'] = $this->get_circle_post_content( get_the_title(), 5 );
-
-				if ( 'excerpt' === $settings['posts_content_type'] ) {
-					$content = get_the_excerpt();
-				} else {
-					$content = get_the_content();
-				}
-
-				$ic_item[ $i ]['item_content'] = $this->get_circle_post_content( $content, $limit );
-				$ic_item[ $i ]['icon_type'] = 'image';
-
-				$attachment_id = get_post_thumbnail_id( $posts_query->post->ID );
-				$url = wp_get_attachment_image_src($attachment_id, 'desired-size');
-
-				$ic_item[ $i ]['tab_image']['id'] = $attachment_id;
-				$ic_item[ $i ]['tab_image']['url'] = ! empty( $url ) ? $url[0] : '';
-
-				$i++;
-			endwhile;
-		endif;
-
-		wp_reset_postdata();
-
-		return $ic_item;
 	}
 
 	public function get_circle_items() {
