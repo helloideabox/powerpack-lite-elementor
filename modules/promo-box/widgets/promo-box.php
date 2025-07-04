@@ -237,7 +237,7 @@ class Promo_Box extends Powerpack_Widget {
 			'content',
 			[
 				'label'                 => esc_html__( 'Description', 'powerpack' ),
-				'type'                  => Controls_Manager::TEXTAREA,
+				'type'                  => Controls_Manager::WYSIWYG,
 				'dynamic'               => [
 					'active'   => true,
 				],
@@ -339,8 +339,10 @@ class Promo_Box extends Powerpack_Widget {
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'above-title',
 				'options'               => [
-					'above-title'      => esc_html__( 'Above Title', 'powerpack' ),
-					'below-title'      => esc_html__( 'Below Title', 'powerpack' ),
+					'above-title'       => esc_html__( 'Above Heading', 'powerpack' ),
+					'below-title'       => esc_html__( 'Below Heading', 'powerpack' ),
+					'above-description' => esc_html__( 'Above Description', 'powerpack' ),
+					'below-description' => esc_html__( 'Below Description', 'powerpack' ),
 				],
 				'condition'             => [
 					'icon_switch'   => 'yes',
@@ -1675,7 +1677,7 @@ class Promo_Box extends Powerpack_Widget {
 		$is_new = ! isset( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 		?>
 		<div class="pp-promo-box-icon-wrap">
-			<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
+			<span <?php $this->print_render_attribute_string( 'icon' ); ?>>
 				<?php if ( 'icon' === $settings['icon_type'] ) { ?>
 					<span class="pp-promo-box-icon-inner">
 						<?php
@@ -1683,7 +1685,7 @@ class Promo_Box extends Powerpack_Widget {
 							Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
 						} elseif ( ! empty( $settings['icon'] ) ) {
 							?>
-							<i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i>
+							<i <?php $this->print_render_attribute_string( 'i' ); ?>></i>
 							<?php
 						}
 						?>
@@ -1737,7 +1739,7 @@ class Promo_Box extends Powerpack_Widget {
 			$this->add_render_attribute( 'button_text', 'class', 'elementor-animation-' . $settings['button_hover_animation'] );
 		}
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'promo-box' ) ); ?>>
+		<div <?php $this->print_render_attribute_string( 'promo-box' ); ?>>
 			<div class="pp-promo-box-bg"></div>
 			<?php if ( 'yes' === $settings['overlay_switch'] ) { ?>
 				<div class="pp-promo-box-overlay"></div>
@@ -1746,16 +1748,14 @@ class Promo_Box extends Powerpack_Widget {
 				<div class="pp-promo-box-inner">
 					<div class="pp-promo-box-inner-content">
 						<?php
-						if ( 'yes' === $settings['icon_switch'] ) {
-							if ( 'above-title' === $settings['icon_position'] ) {
-								$this->render_promobox_icon();
-							}
+						if ( 'yes' === $settings['icon_switch'] && 'above-title' === $settings['icon_position'] ) {
+							$this->render_promobox_icon();
 						}
 
 						if ( '' !== $settings['heading'] ) {
 							$heading_html_tag = PP_Helper::validate_html_tag( $settings['heading_html_tag'] );
 							?>
-							<<?php echo esc_html( $heading_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'heading' ) ); ?>>
+							<<?php echo esc_html( $heading_html_tag ); ?> <?php $this->print_render_attribute_string( 'heading' ); ?>>
 								<?php echo esc_attr( $settings['heading'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							</<?php echo esc_html( $heading_html_tag ); ?>>
 							<?php
@@ -1772,16 +1772,14 @@ class Promo_Box extends Powerpack_Widget {
 							<?php
 						}
 
-						if ( 'yes' === $settings['icon_switch'] ) {
-							if ( 'below-title' === $settings['icon_position'] ) {
-								$this->render_promobox_icon();
-							}
+						if ( 'yes' === $settings['icon_switch'] && 'below-title' === $settings['icon_position'] ) {
+							$this->render_promobox_icon();
 						}
 
 						if ( '' !== $settings['sub_heading'] ) {
 							$subheading_html_tag = PP_Helper::validate_html_tag( $settings['sub_heading_html_tag'] );
 							?>
-							<<?php echo esc_html( $subheading_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'sub_heading' ) ); ?>>
+							<<?php echo esc_html( $subheading_html_tag ); ?> <?php $this->print_render_attribute_string( 'sub_heading' ); ?>>
 								<?php echo esc_attr( $settings['sub_heading'] ); ?>
 							</<?php echo esc_html( $subheading_html_tag ); ?>>
 							<?php
@@ -1798,18 +1796,26 @@ class Promo_Box extends Powerpack_Widget {
 							<?php
 						}
 
+						if ( 'yes' === $settings['icon_switch'] && 'above-description' === $settings['icon_position'] ) {
+							$this->render_promobox_icon();
+						}
+
 						if ( '' !== $settings['content'] ) { ?>
-							<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'content' ) ); ?>>
+							<div <?php $this->print_render_attribute_string( 'content' ); ?>>
 								<?php echo $this->parse_text_editor( $settings['content'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							</div>
 							<?php
+						}
+
+						if ( 'yes' === $settings['icon_switch'] && 'below-description' === $settings['icon_position'] ) {
+							$this->render_promobox_icon();
 						}
 
 						if ( 'yes' === $settings['button_switch'] ) {
 							if ( '' !== $settings['button_text'] ) {
 								?>
 								<div class="pp-promo-box-footer">
-									<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'button_text' ) ); ?>>
+									<a <?php $this->print_render_attribute_string( 'button_text' ); ?>>
 										<?php echo esc_attr( $settings['button_text'] ); ?>
 									</a>
 								</div>
@@ -1939,6 +1945,12 @@ class Promo_Box extends Powerpack_Widget {
 								</div>
 							</div>
 						<# }
+
+						if ( settings.icon_switch == 'yes' ) { #>
+							<# if ( settings.icon_position == 'above-description' ) { #>
+								<# icon_template(); #>
+							<# } #>
+						<# }
 						   
 						if ( settings.content != '' ) {
 							var content = settings.content;
@@ -1951,6 +1963,12 @@ class Promo_Box extends Powerpack_Widget {
 
 							print( content_html );
 						}
+
+						if ( settings.icon_switch == 'yes' ) { #>
+							<# if ( settings.icon_position == 'below-description' ) { #>
+								<# icon_template(); #>
+							<# } #>
+						<# }
 						   
 						if ( settings.button_switch == 'yes' ) { #>
 							<# if ( settings.button_text != '' ) { #>
