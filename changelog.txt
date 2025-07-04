@@ -2,6 +2,7 @@
 Release date: 
 * Enhancement: Promo Box - Updated description control type to WYSIWYG
 * Enhancement: Promo Box - Added option to show icon above or below content
+* Fix: Image Accordion - Dynamic links support for URL field
 
 == 2.9.1 ==
 Release date: March 26, 2025

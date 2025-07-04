@@ -222,6 +222,9 @@ class Image_Accordion extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Link', 'powerpack' ),
 				'type'                  => Controls_Manager::URL,
 				'label_block'           => true,
+				'dynamic'               => [
+					'active'  => true,
+				],
 				'default'               => [
 					'url'           => '#',
 					'is_external'   => '',

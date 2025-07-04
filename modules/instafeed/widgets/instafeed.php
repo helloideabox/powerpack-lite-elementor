@@ -539,6 +539,9 @@ class Instafeed extends Powerpack_Widget {
 			array(
 				'label'     => esc_html__( 'Link Title', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
+				'dynamic'   => [
+					'active'  => true,
+				],
 				'default'   => esc_html__( 'Follow Us @ Instagram', 'powerpack' ),
 				'condition' => array(
 					'insta_profile_link' => 'yes',
@@ -552,6 +555,9 @@ class Instafeed extends Powerpack_Widget {
 				'label'       => esc_html__( 'Instagram Profile URL', 'powerpack' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => 'https://www.your-link.com',
+				'dynamic'     => [
+					'active'  => true,
+				],
 				'default'     => array(
 					'url' => '#',
 				),

@@ -337,6 +337,9 @@ class Info_Table extends Powerpack_Widget {
 				'label'       => esc_html__( 'Link', 'powerpack' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => 'https://www.your-link.com',
+				'dynamic'     => [
+					'active'  => true,
+				],
 				'default'     => [
 					'url' => '#',
 				],
