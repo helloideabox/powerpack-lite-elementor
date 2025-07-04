@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Scroll_Image extends Powerpack_Widget {
 
 	/**
-	 * Retrieve Scroll Image widget name.
+	 * Retrieve scroll image widget name.
 	 *
 	 * @access public
 	 *
@@ -36,7 +36,7 @@ class Scroll_Image extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve Scroll Image widget title.
+	 * Retrieve scroll image widget title.
 	 *
 	 * @access public
 	 *
@@ -47,7 +47,7 @@ class Scroll_Image extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve Scroll Image widget icon.
+	 * Retrieve scroll image widget icon.
 	 *
 	 * @access public
 	 *
@@ -57,12 +57,26 @@ class Scroll_Image extends Powerpack_Widget {
 		return parent::get_widget_icon( 'Scroll_Image' );
 	}
 
+	/**
+	 * Get widget keywords.
+	 *
+	 * Retrieve the list of keywords the widget belongs to.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Widget keywords.
+	 */
+	public function get_keywords() {
+		return parent::get_widget_keywords( 'Scroll_Image' );
+	}
+
 	protected function is_dynamic_content(): bool {
 		return false;
 	}
 
 	/**
-	 * Retrieve the list of scripts the Scroll Image widget depended on.
+	 * Retrieve the list of scripts the scroll image widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
@@ -71,10 +85,10 @@ class Scroll_Image extends Powerpack_Widget {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return array(
+		return [
 			'imagesloaded',
 			'pp-scroll-image',
-		);
+		];
 	}
 
 	/**
@@ -96,6 +110,13 @@ class Scroll_Image extends Powerpack_Widget {
 		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
 
+	/**
+	 * Register scroll image widget controls.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @access protected
+	 */
 	protected function register_controls() {
 		/* Content Tab */
 		$this->register_content_image_controls();
@@ -518,26 +539,26 @@ class Scroll_Image extends Powerpack_Widget {
 		] );
 		?>
 		<div class="pp-image-scroll-wrap">
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container' ) ); ?>>
+			<div <?php $this->print_render_attribute_string( 'container' ); ?>>
 				<?php if ( ! empty( $settings['icon'] ) || ( ! empty( $settings['selected_icon']['value'] ) && $is_new ) ) { ?>
 					<div class="pp-image-scroll-content">
-						<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'icon' ) ); ?>>
+						<span <?php $this->print_render_attribute_string( 'icon' ); ?>>
 							<?php
 							if ( $is_new || $migrated ) {
 								Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
 							} elseif ( ! empty( $settings['icon'] ) ) {
-								?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i><?php
+								?><i <?php $this->print_render_attribute_string( 'i' ); ?>></i><?php
 							}
 							?>
 						</span>
 					</div>
 				<?php } ?>
-				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'direction_type' ) ); ?>>
+				<div <?php $this->print_render_attribute_string( 'direction_type' ); ?>>
 					<?php if ( 'yes' === $settings['overlay'] ) { ?>
 						<div class="pp-image-scroll-overlay pp-media-overlay">
 					<?php } ?>
 					<?php if ( ! empty( $link_url ) ) { ?>
-							<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>></a>
+							<a <?php $this->print_render_attribute_string( 'link' ); ?>></a>
 					<?php } ?>
 					<?php if ( 'yes' === $settings['overlay'] ) { ?>
 						</div> 

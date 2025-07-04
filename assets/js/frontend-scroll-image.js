@@ -9,6 +9,7 @@
 					selectors: {
 						container: '.pp-image-scroll-container',
 						overlay: '.pp-image-scroll-overlay',
+						scrollOverlay: '.pp-image-scroll-overlay',
 						verticalScroll: '.pp-image-scroll-vertical',
 						imageScroll: '.pp-image-scroll-image img',
 					},
@@ -20,6 +21,7 @@
 				return {
 					$container: this.$element.find( selectors.container ),
 					$overlay: this.$element.find( selectors.overlay ),
+					$scrollOverlay: this.$element.find( selectors.scrollOverlay ),
 					$verticalScroll: this.$element.find( selectors.verticalScroll ),
 					$imageScroll: this.$element.find( selectors.imageScroll ),
 				};
@@ -42,7 +44,7 @@
 						this.elements.$verticalScroll.addClass('pp-image-scroll-ver');
 					} else {
 						scrollElement.imagesLoaded(function() {
-						  scrollOverlay.css( { 'width': imageScroll.width(), 'height': imageScroll.height() } );
+							this.elements.$scrollOverlay.css( { 'width': imageScroll.width(), 'height': imageScroll.height() } );
 						});
 					}
 				} else {
