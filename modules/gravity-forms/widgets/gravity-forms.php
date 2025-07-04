@@ -101,6 +101,20 @@ class Gravity_Forms extends Powerpack_Widget {
 		);
 	}
 
+	/**
+	 * Whether the reload preview is required or not.
+	 *
+	 * Used to determine whether the reload preview is required.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return bool Whether the reload preview is required.
+	 */
+	public function is_reload_preview_required() {
+		return true;
+	}
+
 	public function has_widget_inner_wrapper(): bool {
 		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
@@ -2443,7 +2457,7 @@ class Gravity_Forms extends Powerpack_Widget {
 
 		if ( class_exists( 'GFCommon' ) ) {
 			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
-				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'contact-form' ) ); ?>>
+				<div <?php $this->print_render_attribute_string( 'contact-form' ); ?>>
 					<?php if ( 'yes' === $settings['custom_title_description'] ) { ?>
 						<div class="pp-gravity-form-heading">
 							<?php if ( $settings['form_title_custom'] ) { ?>

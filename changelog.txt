@@ -3,6 +3,7 @@ Release date:
 * Enhancement: Promo Box - Updated description control type to WYSIWYG
 * Enhancement: Promo Box - Added option to show icon above or below content
 * Enhancement: Interactive Circle - Added an option to use image as tab icon
+* Enhancement: Gravity Forms - Added option to reload the page
 * Fix: Image Accordion - Dynamic links support for URL field
 * Fix: Image Scroll - Fixed JS error with scroll trigger
 
