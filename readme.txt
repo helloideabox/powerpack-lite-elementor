@@ -236,6 +236,14 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.9.2 - July 4, 2025 =
+* 	Enhancement: Promo Box - Updated description control type to WYSIWYG
+* 	Enhancement: Promo Box - Added option to show icon above or below content
+* 	Enhancement: Interactive Circle - Added an option to use image as tab icon
+* 	Enhancement: Gravity Forms - Added option to reload the page
+* 	Fix: Image Accordion - Dynamic links support for URL field
+* 	Fix: Image Scroll - Fixed JS error with scroll trigger
+
 = 2.9.1 - March 26, 2025 =
 * 	Enhancement: Advanced Charts - Added option to show chart title
 * 	Enhancement: Advanced Charts - Added options to show title for X-axis and Y-axis
