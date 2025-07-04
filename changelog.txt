@@ -1,5 +1,5 @@
 == 2.9.2 ==
-Release date: 
+Release date: July 4, 2025
 * Enhancement: Promo Box - Updated description control type to WYSIWYG
 * Enhancement: Promo Box - Added option to show icon above or below content
 * Enhancement: Interactive Circle - Added an option to use image as tab icon
