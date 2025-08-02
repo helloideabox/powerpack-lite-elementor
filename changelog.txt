@@ -1,3 +1,7 @@
+== 2.9.3 ==
+Release date: 
+* Enhancement: Charts - Added missing chart.js lib
+
 == 2.9.2 ==
 Release date: July 4, 2025
 * Enhancement: Promo Box - Updated description control type to WYSIWYG
