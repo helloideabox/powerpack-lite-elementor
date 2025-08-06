@@ -1,5 +1,5 @@
 == 2.9.3 ==
-Release date: 
+Release date: August 6, 2025
 * Enhancement: Updated Elementor compatibility tags
 * Fix: Charts - Added missing chart.js lib
 

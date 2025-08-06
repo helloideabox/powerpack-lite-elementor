@@ -236,6 +236,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.9.3 - August 6, 2025 =
+* 	Enhancement: Updated Elementor compatibility tags
+* 	Fix: Charts - Added missing chart.js lib
+
 = 2.9.2 - July 4, 2025 =
 * 	Enhancement: Promo Box - Updated description control type to WYSIWYG
 * 	Enhancement: Promo Box - Added option to show icon above or below content
