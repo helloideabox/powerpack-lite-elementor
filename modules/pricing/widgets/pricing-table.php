@@ -10,6 +10,7 @@ use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Repeater;
 use Elementor\Icons_Manager;
+use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
@@ -1212,6 +1213,46 @@ class Pricing_Table extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'      => 'table_background',
+				'label'     => esc_html__( 'Background', 'powerpack' ),
+				'types'     => [ 'classic', 'gradient' ],
+				'exclude'   => [ 'image' ],
+				'selector'  => '{{WRAPPER}} .pp-pricing-table',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'     => 'table_border',
+				'label'    => esc_html__( 'Border', 'powerpack' ),
+				'selector' => '{{WRAPPER}} .pp-pricing-table',
+			]
+		);
+
+		$this->add_control(
+			'table_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .pp-pricing-table' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'table_box_shadow',
+				'selector' => '{{WRAPPER}} .pp-pricing-table',
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -1740,6 +1781,111 @@ class Pricing_Table extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'fractional_part_style',
+			[
+				'label' => esc_html__( 'Fractional Part', 'powerpack' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'fractional-part_size',
+			[
+				'label' => esc_html__( 'Size', 'powerpack' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .pp-pricing-table-fractional-part' => 'font-size: calc({{SIZE}}em/100)',
+				],
+			]
+		);
+
+		$this->add_control(
+			'fractional_part_vertical_position',
+			[
+				'label' => esc_html__( 'Vertical Position', 'powerpack' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'top' => [
+						'title' => esc_html__( 'Top', 'powerpack' ),
+						'icon' => 'eicon-v-align-top',
+					],
+					'middle' => [
+						'title' => esc_html__( 'Middle', 'powerpack' ),
+						'icon' => 'eicon-v-align-middle',
+					],
+					'bottom' => [
+						'title' => esc_html__( 'Bottom', 'powerpack' ),
+						'icon' => 'eicon-v-align-bottom',
+					],
+				],
+				'default' => 'top',
+				'selectors_dictionary' => [
+					'top' => 'flex-start',
+					'middle' => 'center',
+					'bottom' => 'flex-end',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .pp-pricing-table-after-price' => 'justify-content: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'table_original_price_style_heading',
+			[
+				'label'                 => esc_html__( 'Original Price', 'powerpack' ),
+				'type'                  => Controls_Manager::HEADING,
+				'separator'             => 'before',
+				'condition'             => [
+					'discount' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'table_original_price_text_color',
+			[
+				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'type'                  => Controls_Manager::COLOR,
+				'default'               => '',
+				'condition'             => [
+					'discount' => 'yes',
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-pricing-table-price-original' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'table_original_price_text_size',
+			[
+				'label'                 => esc_html__( 'Font Size', 'powerpack' ),
+				'type'                  => Controls_Manager::SLIDER,
+				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
+				'range'                 => [
+					'px' => [
+						'min'   => 5,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'condition'             => [
+					'discount' => 'yes',
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .pp-pricing-table-price-original' => 'font-size: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_control(
 			'table_duration_heading',
 			[
 				'label'                 => esc_html__( 'Duration', 'powerpack' ),
@@ -1804,55 +1950,6 @@ class Pricing_Table extends Powerpack_Widget {
 				],
 				'condition'             => [
 					'duration_position' => 'wrap',
-				],
-			]
-		);
-
-		$this->add_control(
-			'table_original_price_style_heading',
-			[
-				'label'                 => esc_html__( 'Original Price', 'powerpack' ),
-				'type'                  => Controls_Manager::HEADING,
-				'separator'             => 'before',
-				'condition'             => [
-					'discount' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'table_original_price_text_color',
-			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
-				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
-				'condition'             => [
-					'discount' => 'yes',
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .pp-pricing-table-price-original' => 'color: {{VALUE}}',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'table_original_price_text_size',
-			[
-				'label'                 => esc_html__( 'Font Size', 'powerpack' ),
-				'type'                  => Controls_Manager::SLIDER,
-				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
-				'range'                 => [
-					'px' => [
-						'min'   => 5,
-						'max'   => 100,
-						'step'  => 1,
-					],
-				],
-				'condition'             => [
-					'discount' => 'yes',
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .pp-pricing-table-price-original' => 'font-size: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -3062,7 +3159,7 @@ class Pricing_Table extends Powerpack_Widget {
 		}
 		?>
 		<div class="pp-pricing-table-container">
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'pricing-table' ) ); ?>>
+			<div <?php $this->print_render_attribute_string( 'pricing-table' ); ?>>
 				<div class="pp-pricing-table-head">
 					<?php if ( 'none' !== $settings['icon_type'] ) { ?>
 						<div class="pp-pricing-table-icon-wrap">
@@ -3072,7 +3169,7 @@ class Pricing_Table extends Powerpack_Widget {
 									if ( $is_new || $migrated ) {
 										Icons_Manager::render_icon( $settings['select_table_icon'], [ 'aria-hidden' => 'true' ] );
 									} elseif ( ! empty( $settings['table_icon'] ) ) {
-										?><i <?php echo wp_kses_post( $this->get_render_attribute_string( 'i' ) ); ?>></i><?php
+										?><i <?php $this->print_render_attribute_string( 'i' ); ?>></i><?php
 									}
 									?>
 								</span>
@@ -3091,7 +3188,7 @@ class Pricing_Table extends Powerpack_Widget {
 						if ( $settings['table_title'] ) {
 							$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
 							?>
-							<<?php echo esc_html( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_title' ) ); ?>>
+							<<?php echo esc_html( $title_tag ); ?> <?php $this->print_render_attribute_string( 'table_title' ); ?>>
 								<?php echo wp_kses_post( $settings['table_title'] ); ?>
 							</<?php echo esc_html( $title_tag ); ?>>
 							<?php
@@ -3100,7 +3197,7 @@ class Pricing_Table extends Powerpack_Widget {
 						if ( $settings['table_subtitle'] ) {
 							$subtitle_tag = PP_Helper::validate_html_tag( $settings['subtitle_html_tag'] );
 							?>
-							<<?php echo esc_html( $subtitle_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_subtitle' ) ); ?>>
+							<<?php echo esc_html( $subtitle_tag ); ?> <?php $this->print_render_attribute_string( 'table_subtitle' ); ?>>
 								<?php echo wp_kses_post( $settings['table_subtitle'] ); ?>
 							</<?php echo esc_html( $subtitle_tag ); ?>>
 							<?php
@@ -3120,7 +3217,7 @@ class Pricing_Table extends Powerpack_Widget {
 							</span>
 						<?php } ?>
 						<?php $this->render_currency_symbol( $symbol, 'before' ); ?>
-						<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_price' ) ); ?>>
+						<span <?php $this->print_render_attribute_string( 'table_price' ); ?>>
 							<span class="pp-pricing-table-integer-part">
 								<?php
 									// PHPCS - the main text of a widget should not be escaped.
@@ -3128,14 +3225,16 @@ class Pricing_Table extends Powerpack_Widget {
 								?>
 							</span>
 							<?php if ( $fraction ) { ?>
-								<span class="pp-pricing-table-after-part">
-									<?php echo esc_attr( $fraction ); ?>
-								</span>
+								<div class="pp-pricing-table-after-price">
+									<span class="pp-pricing-table-fractional-part">
+										<?php echo esc_attr( $fraction ); ?>
+									</span>
+								</div>
 							<?php } ?>
 						</span>
 						<?php $this->render_currency_symbol( $symbol, 'after' ); ?>
 						<?php if ( $settings['table_duration'] ) { ?>
-							<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_duration' ) ); ?>>
+							<span <?php $this->print_render_attribute_string( 'table_duration' ); ?>>
 								<?php echo wp_kses_post( $settings['table_duration'] ); ?>
 							</span>
 						<?php } ?>
@@ -3144,7 +3243,7 @@ class Pricing_Table extends Powerpack_Widget {
 				<?php if ( 'above' === $settings['table_button_position'] ) { ?>
 					<div class="pp-pricing-table-button-wrap">
 						<?php if ( $settings['table_button_text'] ) { ?>
-							<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_button_text' ) ); ?>>
+							<a <?php $this->print_render_attribute_string( 'table_button_text' ); ?>>
 								<?php echo wp_kses_post( $settings['table_button_text'] ); ?>
 							</a>
 						<?php } ?>
@@ -3202,8 +3301,8 @@ class Pricing_Table extends Powerpack_Widget {
 							$this->add_render_attribute( $feature_list_key, 'class', 'excluded' );
 						}
 						?>
-						<li <?php echo wp_kses_post( $this->get_render_attribute_string( $feature_list_key ) ); ?>>
-							<div <?php echo wp_kses_post( $this->get_render_attribute_string( $feature_content_key ) ); ?>>
+						<li <?php $this->print_render_attribute_string( $feature_list_key ); ?>>
+							<div <?php $this->print_render_attribute_string( $feature_content_key ); ?>>
 								<?php
 								if ( ! empty( $item['feature_icon'] ) || ( ! empty( $item['select_feature_icon']['value'] ) && $is_new ) ) : ?>
 									<span class="pp-pricing-table-fature-icon pp-icon">
@@ -3220,18 +3319,18 @@ class Pricing_Table extends Powerpack_Widget {
 									endif;
 								?>
 								<?php if ( $item['feature_text'] ) { ?>
-									<span <?php echo wp_kses_post( $this->get_render_attribute_string( $feature_key ) ); ?>>
+									<span <?php $this->print_render_attribute_string( $feature_key ); ?>>
 										<?php echo wp_kses_post( $item['feature_text'] ); ?>
 									</span>
 								<?php } ?>
 								<?php if ( 'yes' === $settings['show_tooltip'] && $item['tooltip_content'] ) { ?>
 									<?php if ( 'icon' === $settings['tooltip_display_on'] ) { ?>
-										<span <?php echo wp_kses_post( $this->get_render_attribute_string( $tooltip_icon_key ) ); ?>>
+										<span <?php $this->print_render_attribute_string( $tooltip_icon_key ); ?>>
 											<?php \Elementor\Icons_Manager::render_icon( $settings['tooltip_icon'], array( 'aria-hidden' => 'true' ) ); ?>
 										</span>
 									<?php } ?>
 									<div class="pp-tooltip-container">
-										<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tooltip_content_key ) ); ?>>
+										<div <?php $this->print_render_attribute_string( $tooltip_content_key ); ?>>
 											<?php echo wp_kses_post( $item['tooltip_content'] ); ?>
 										</div>
 									</div>
@@ -3243,13 +3342,13 @@ class Pricing_Table extends Powerpack_Widget {
 				<div class="pp-pricing-table-footer">
 					<?php if ( 'below' === $settings['table_button_position'] ) { ?>
 						<?php if ( $settings['table_button_text'] ) { ?>
-							<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_button_text' ) ); ?>>
+							<a <?php $this->print_render_attribute_string( 'table_button_text' ); ?>>
 								<?php echo wp_kses_post( $settings['table_button_text'] ); ?>
 							</a>
 						<?php } ?>
 					<?php } ?>
 					<?php if ( $settings['table_additional_info'] ) { ?>
-						<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'table_additional_info' ) ); ?>>
+						<div <?php $this->print_render_attribute_string( 'table_additional_info' ); ?>>
 							<?php echo wp_kses_post( $this->parse_text_editor( $settings['table_additional_info'] ) ); ?>
 						</div>
 					<?php } ?>
@@ -3264,7 +3363,7 @@ class Pricing_Table extends Powerpack_Widget {
 					];
 					$this->add_render_attribute( 'ribbon', 'class', $classes );
 					?>
-				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'ribbon' ) ); ?>>
+				<div <?php $this->print_render_attribute_string( 'ribbon' ); ?>>
 					<div class="pp-pricing-table-ribbon-inner">
 						<div class="pp-pricing-table-ribbon-title">
 							<?php echo wp_kses_post( $settings['ribbon_title'] ); ?>
@@ -3423,9 +3522,11 @@ class Pricing_Table extends Powerpack_Widget {
 								{{{ intvalue }}}
 							</span>
 							<# if ( fraction ) { #>
-								<span class="pp-pricing-table-after-part">
-									{{{ fraction }}}
-								</span>
+								<div class="pp-pricing-table-after-price">
+									<span class="pp-pricing-table-fractional-part">
+										{{{ fraction }}}
+									</span>
+								</div>
 							<# } #>
 						</span>
 						<# if ( ! _.isEmpty( symbol ) && 'after' == settings.currency_position ) { #>
