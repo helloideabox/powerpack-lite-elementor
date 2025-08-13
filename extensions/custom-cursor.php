@@ -399,69 +399,18 @@ class Extension_Custom_Cursor extends Extension_Base {
 		add_action( 'elementor/frontend/before_render', function( $element ) {
 			$settings      = $element->get_settings_for_display();
 			$cursor_enable = isset( $settings['pp_custom_cursor_enable'] ) ? $settings['pp_custom_cursor_enable'] : '';
-			$cursor_url    = isset( $settings['pp_custom_cursor_icon'] ) ? $settings['pp_custom_cursor_icon'] : [];
-			$cursor_text   = isset( $settings['pp_custom_cursor_text'] ) ? $settings['pp_custom_cursor_text'] : '';
-			$cursor_target = isset( $settings['pp_custom_cursor_target'] ) ? $settings['pp_custom_cursor_target'] : '';
-			$css_selector  = isset( $settings['pp_custom_cursor_css_selector'] ) ? $settings['pp_custom_cursor_css_selector'] : '';
 
 			if ( 'yes' === $cursor_enable ) {
 				if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() || ! \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
 					wp_enqueue_script( 'pp-custom-cursor' );
 				}
 
-				$custom_cursor_options = [
-					'type' => esc_attr( $settings['pp_custom_cursor_type'] ),
-				];
-
-				if ( ! empty( $cursor_url ) ) {
-					$custom_cursor_options['url'] = esc_url( $cursor_url['url'] );
-				}
-
-				if ( $cursor_text ) {
-					$custom_cursor_options['text'] = esc_html( $cursor_text );
-				}
-
-				if ( 'css-selector' === $cursor_target && $css_selector ) {
-					$custom_cursor_options['target'] = 'selector';
-					$custom_cursor_options['css_selector'] = esc_attr( $css_selector );
-				}
-
 				$element->add_render_attribute(
 					'_wrapper', [
-						'class'               => [ 'pp-custom-cursor', 'pp-custom-cursor-' . $element->get_id() ],
-						'data-cursor-options' => wp_json_encode( $custom_cursor_options ),
+						'class' => [ 'pp-custom-cursor', 'pp-custom-cursor-' . $element->get_id() ],
 					]
 				);
 			}
 		}, 10, 1 );
-
-		/* add_action( 'elementor/widget/print_template', function( $template, $widget ) {
-
-			if ( ! $template ) {
-				return;
-			}
-
-			ob_start();
-
-			?><#
-
-			if ( 'yes' === settings.pp_custom_cursor_enable ) {
-
-				view.addRenderAttribute( '_wrapper', 'class', 'pp-custom-cursor' );
-				view.addRenderAttribute( '_wrapper', 'id', 'hotip-content-' + view.$el.data('id') );
-
-				#>
-
-				<span {{{ view.getRenderAttributeString( 'tooltip' ) }}}>
-					{{{ settings.tooltip_content }}}
-				</span>
-
-			<# } #><?php
-
-			$template .= ob_get_clean();
-
-			return $template;
-
-		}, 10, 2 ); */
 	}
 }

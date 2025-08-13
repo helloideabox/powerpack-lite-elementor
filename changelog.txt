@@ -1,3 +1,7 @@
+== 2.9.4 ==
+Release date: August 13, 2025
+* Security Fix
+
 == 2.9.3 ==
 Release date: August 6, 2025
 * Enhancement: Updated Elementor compatibility tags
