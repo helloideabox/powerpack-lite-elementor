@@ -236,6 +236,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.9.4 - August 13, 2025 =
+* 	Enhancement: Pricing Table - Added Table style options
+* 	Enhancement: Pricing Table - Added fraction style option
+* 	Security Fix
+
 = 2.9.3 - August 6, 2025 =
 * 	Enhancement: Updated Elementor compatibility tags
 * 	Fix: Charts - Added missing chart.js lib
