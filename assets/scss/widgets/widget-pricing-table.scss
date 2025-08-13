@@ -72,11 +72,18 @@
 	&-price-value {
 		display: flex;
 	}
-	&-after-part {
+	&-after-price {
+        align-items: flex-start;
+		align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: start;
+	}
+    &-fractional-part {
 		font-size: .4em;
 		line-height: 1;
-		align-self: flex-start;
-	}
+    }
     .pp-pricing-table-features {
         list-style: none;
         margin: 0;
