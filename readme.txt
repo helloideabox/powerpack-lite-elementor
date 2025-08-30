@@ -41,6 +41,7 @@ All widgets included with PowerPack come with well-thought-out design and stylin
 PowerPack Addon for Elementor comes from our team of experts, who always deliver the best and try to fix all of their queries earliest. 
 
 ## PowerPack Lite for Elementor - Features
+PowerPack adds a carefully selected essential addons for Elementor for users who want both creativity and performance.
 
 1. [Business Hours](https://powerpackelements.com/elementor-widgets/business-hours/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A content widget that allows you to display opening and closing hours with various styling options.
 2. [Counter](https://powerpackelements.com/elementor-widgets/counter/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - An impressive widget that allows you to show important facts on your website.
@@ -81,7 +82,7 @@ PowerPack Addon for Elementor comes from our team of experts, who always deliver
 37. [Random Image](https://powerpackelements.com/elementor-widgets/random-image/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display Random Images from a set of the images on your webpage.
 38. [Interactive Circle](https://powerpackelements.com/elementor-widgets/interactive-circle/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - This widget lets you showcase content on your website in beautiful and eye-catchy circular layouts without using any additional HTML code and CSS.
 39. [Progress Bar](https://powerpackelements.com/elementor-widgets/progress-bar/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Add interactive Progress Bars to your website. Showcase progress with horizontal, vertical, circular bars, and more using this versatile widget.
-40. [Charts](https://powerpackelements.com/elementor-widgets/advanced-charts/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Add interactive charts to your Elementor website—display data in different interactive chart layouts such as Lines and Bars. 
+40. [Charts](https://powerpackelements.com/elementor-widgets/advanced-charts/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Add interactive charts to your Elementor website. Display data in different interactive chart layouts such as Lines and Bars.
 
 ## CREATIVE EXTENSIONS - FREE
 
@@ -197,9 +198,12 @@ Want to know more about us? Follow us on [Twitter](https://twitter.com/ppelement
 ### Join our Facebook Group
 Want to connect us with more? We have an active Facebook Group where we keep posting PowerPack's latest updates and help our users with any questions they may have! We are sure you will love the group. Join in and say Hello! [PowerPack Elements Facebook Group.](https://www.facebook.com/groups/ppelementor/)
 
-## Other Plugins for Elementor
+## Other Ultimate Addons for Elementor
 - **[Dashboard Welcome for Elementor](https://wordpress.org/plugins/dashboard-welcome-for-elementor/)**
 This feature gives you full control over the WordPress welcome screen. You can personalize the dashboard with content and design built with Elementor.
+
+- **[TableMaster for Elementor](https://wordpress.org/plugins/tablemaster-for-elementor/)**
+Build advanced responsive tables directly inside Elementor editor. Build tables manually or by importing data from CSV sheets.
 
 == Installation ==
 
