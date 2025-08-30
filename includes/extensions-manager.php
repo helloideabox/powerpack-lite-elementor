@@ -12,6 +12,7 @@ class Extensions_Manager {
 	const UPGRADE_PRO                  = 'upgrade-pro';
 	const ANIMATED_GRADIENT_BACKGROUND = 'animated-gradient-background';
 	const CUSTOM_CURSOR                = 'custom-cursor';
+	const MARKETING                    = 'marketing';
 
 	private $_extensions = null;
 
@@ -21,6 +22,7 @@ class Extensions_Manager {
 		self::UPGRADE_PRO,
 		self::ANIMATED_GRADIENT_BACKGROUND,
 		self::CUSTOM_CURSOR,
+		self::MARKETING,
 	];
 
 	/**
@@ -75,6 +77,7 @@ class Extensions_Manager {
 	public function is_extension_disabled( $extension = '' ) {
 		$enabled_extensions = pp_elements_lite_get_enabled_extensions();
 		$enabled_extensions[] = 'pp-upgrade-pro';
+		$enabled_extensions[] = 'pp-marketing';
 
 		if ( ! is_array( $enabled_extensions ) ) {
 			$enabled_extensions = array();

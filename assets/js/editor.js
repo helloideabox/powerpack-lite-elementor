@@ -109,3 +109,122 @@
 	// Add Control Handlers
 	elementor.addControlView( 'pp-query', ControlQuery );
 } )( elementor, jQuery, window );
+
+/* === PowerPack: Pricing Table Editor Notice === */
+(function(elementor, $, window){
+	// Guard: ensure module utils exist
+	if (typeof elementorModules === 'undefined' || !elementorModules.editor || !elementorModules.editor.utils) {
+		return;
+	}
+
+	var TableMasterPricingTableNotice = elementorModules.editor.utils.Module.extend({
+		eventName: 'tablemaster_pricing_table_notice',
+		control: null,
+
+		onInit: function() {
+			// Listen when any section in the editor panel is activated.
+			// We'll only proceed if our control actually exists in that section.
+			elementor.channels.editor.on('section:activated', this.onSectionActive.bind(this));
+		},
+
+		onSectionActive: function(/* sectionName */) {
+			// Reset cached control on each section activation
+			this.control = null;
+
+			// If the user dismissed this notice in this account, remove the control (if rendered) and stop.
+			if (Array.isArray(elementor.config.user.dismissed_editor_notices) &&
+				elementor.config.user.dismissed_editor_notices.indexOf(this.eventName) !== -1) {
+				if (this.getPromoControl()) {
+					this.getPromoControl().remove();
+				}
+				return;
+			}
+
+			// Only proceed if our control exists in the currently active section.
+			if (!this.hasPromoControl()) {
+				return;
+			}
+
+			this.registerEvents();
+		},
+
+		getPromoControl: function() {
+			if (!this.control) {
+				// Control ID provided by user
+				this.control = this.getEditorControlView('upgrade_powerpack_lite_notices');
+			}
+			return this.control;
+		},
+
+		hasPromoControl: function() {
+			return !!this.getPromoControl();
+		},
+
+		registerEvents: function() {
+			var controlView = this.getPromoControl();
+			if (!controlView || !controlView.$el) {
+				return;
+			}
+
+			// Dismiss button
+			var $dismissBtn = controlView.$el.find('.elementor-control-notice-dismiss');
+			var onDismissBtnClick = (function(event) {
+				$dismissBtn.off('click', onDismissBtnClick);
+				event.preventDefault();
+				this.dismiss();
+				controlView.remove();
+			}).bind(this);
+			$dismissBtn.on('click', onDismissBtnClick);
+
+			// Primary action button (Elementor button component)
+			var $actionBtn = controlView.$el.find('.e-btn-1');
+			var onActionBtn = (function(event) {
+				$actionBtn.off('click', onActionBtn);
+				event.preventDefault();
+				this.onAction(event);
+				controlView.remove();
+			}).bind(this);
+			$actionBtn.on('click', onActionBtn);
+		},
+
+		ajaxRequest: function(name, data) {
+			elementorCommon.ajax.addRequest(name, { data: data });
+		},
+
+		dismiss: function() {
+			this.ajaxRequest('dismissed_editor_notices', { dismissId: this.eventName });
+
+			// Prevent opening the same hint again in current editor session.
+			this.ensureNoPromoControlInSession();
+		},
+
+		ensureNoPromoControlInSession: function() {
+			if (!Array.isArray(elementor.config.user.dismissed_editor_notices)) {
+				elementor.config.user.dismissed_editor_notices = [];
+			}
+			elementor.config.user.dismissed_editor_notices.push(this.eventName);
+		},
+
+		onAction: function(event) {
+			try {
+				var settingsData = (event.target.closest('button') || {}).dataset && (event.target.closest('button').dataset.settings || '{}');
+				var settings = JSON.parse(settingsData);
+				var actionURL = settings.action_url || null;
+				if (actionURL) {
+					window.open(actionURL, '_blank');
+				}
+			} catch (e) {
+				// swallow
+			}
+
+			// Optional tracking hook (customize source if needed)
+			this.ajaxRequest('powerpack_tablemaster_campaign', { source: 'pp-pricing-table-notice' });
+
+			this.ensureNoPromoControlInSession();
+		}
+	});
+
+	// Instantiate the module so onInit runs.
+	new TableMasterPricingTableNotice();
+
+})(elementor, jQuery, window);
