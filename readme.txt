@@ -41,7 +41,7 @@ All widgets included with PowerPack come with well-thought-out design and stylin
 PowerPack Addon for Elementor comes from our team of experts, who always deliver the best and try to fix all of their queries earliest. 
 
 ## PowerPack Lite for Elementor - Features
-PowerPack adds a carefully selected essential addons for Elementor for users who want both creativity and performance.
+PowerPack adds a carefully selected set of essential addons for Elementor users who want both creativity and performance.
 
 1. [Business Hours](https://powerpackelements.com/elementor-widgets/business-hours/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A content widget that allows you to display opening and closing hours with various styling options.
 2. [Counter](https://powerpackelements.com/elementor-widgets/counter/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - An impressive widget that allows you to show important facts on your website.
