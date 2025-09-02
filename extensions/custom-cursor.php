@@ -201,10 +201,9 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_control(
 			'pp_custom_cursor_icon',
 			array(
-				'label'              => esc_html__( 'Choose Cursor Icon', 'powerpack' ),
-				'type'               => Controls_Manager::MEDIA,
-				'frontend_available' => true,
-				'condition'          => array(
+				'label'     => esc_html__( 'Choose Cursor Icon', 'powerpack' ),
+				'type'      => Controls_Manager::MEDIA,
+				'condition' => array(
 					'pp_custom_cursor_enable' => 'yes',
 					'pp_custom_cursor_type'   => [ 'image', 'follow-image' ],
 				),
@@ -399,18 +398,28 @@ class Extension_Custom_Cursor extends Extension_Base {
 		add_action( 'elementor/frontend/before_render', function( $element ) {
 			$settings      = $element->get_settings_for_display();
 			$cursor_enable = isset( $settings['pp_custom_cursor_enable'] ) ? $settings['pp_custom_cursor_enable'] : '';
+			$cursor_url    = isset( $settings['pp_custom_cursor_icon'] ) ? $settings['pp_custom_cursor_icon'] : [];
 
-			if ( 'yes' === $cursor_enable ) {
-				if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() || ! \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
-					wp_enqueue_script( 'pp-custom-cursor' );
-				}
-
-				$element->add_render_attribute(
-					'_wrapper', [
-						'class' => [ 'pp-custom-cursor', 'pp-custom-cursor-' . $element->get_id() ],
-					]
-				);
+			if ( 'yes' !== $cursor_enable ) {
+				return;
 			}
+
+			if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() || ! \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+				wp_enqueue_script( 'pp-custom-cursor' );
+			}
+
+			$custom_cursor_options = [];
+
+			if ( ! empty( $cursor_url ) ) {
+				$custom_cursor_options['url'] = esc_url_raw( $cursor_url['url'] );
+			}
+
+			$element->add_render_attribute(
+				'_wrapper', [
+					'class' => [ 'pp-custom-cursor', 'pp-custom-cursor-' . $element->get_id() ],
+					'data-cursor-options' => wp_json_encode( $custom_cursor_options ),
+				]
+			);
 		}, 10, 1 );
 	}
 }
