@@ -1,3 +1,7 @@
+== 2.9.5 ==
+Release date: 
+* Development: Tested compatibility with Elementor 3.32.0
+
 == 2.9.4 ==
 Release date: August 13, 2025
 * Enhancement: Pricing Table - Added Table style options
