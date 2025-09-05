@@ -28,7 +28,7 @@ define( 'POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED', '3.5.0' );
 define( 'POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED', '5.6' );
 
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/helper-functions.php';
-require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-tracking.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/feedback/class-pp-tracking.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-admin-settings.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-config.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-helper.php';
