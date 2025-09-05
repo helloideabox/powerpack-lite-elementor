@@ -71,13 +71,13 @@ class UsageTracking {
 		//add_action( 'admin_init', array( $this, 'act_on_tracking_decision' ) );
 		$this->config = wp_parse_args( $config, $this->get_default_config() );
 
-		$this->plugin_slug = str_replace( '-', '_', $this->plugin_slug );
+		// Normalize slug to a key-safe value.
+		$this->plugin_slug = sanitize_key( str_replace( '-', '_', $this->plugin_slug ) );
 
 		add_action( 'admin_init', array( $this, 'hook_notices' ) );
-
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
-		add_action( 'admin_head', [ $this, 'show_deactivation_feedback_popup' ] );
+		add_action( 'admin_footer-plugins.php', [ $this, 'show_deactivation_feedback_popup' ] );
 		add_action( 'wp_ajax_' . $this->plugin_slug . '_submit_deactivation_response', [ $this, 'submit_deactivation_response' ] );
 	}
 
@@ -106,6 +106,10 @@ class UsageTracking {
 	public function enqueue_scripts() {
 		$screen = get_current_screen();
 
+		if ( ! $screen || 'plugins' !== $screen->id ) {
+			return;
+		}
+
 		// Enqueue CSS.
 		wp_enqueue_style(
 			'pp-feedback-css',
@@ -113,10 +117,6 @@ class UsageTracking {
 			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
-
-		if ( ! isset( $screen ) || $screen->id !== 'plugins' ) {
-			return;
-		}
 
 		// Enqueue JavaScript.
 		wp_enqueue_script(
@@ -150,29 +150,30 @@ class UsageTracking {
 	 * @access public
 	 */
 	public function hook_notices() {
-		if ( isset( $_GET['pp_admin_action'] ) && isset( $_GET['_nonce'] ) ) {
-			$action = sanitize_text_field( wp_unslash( $_GET['pp_admin_action'] ) );
-			$nonce = wp_unslash( $_GET['_nonce'] ); // @codingStandardsIgnoreLine.
-			if ( wp_verify_nonce( $nonce, 'pp_admin_notice_nonce' ) ) {
-				if ( 'review_maybe_later' === $action ) {
-					update_option( 'pp_review_later_date', current_time( 'mysql' ) );
-				}
-				if ( 'review_already_did' === $action ) {
-					update_option( 'pp_review_already_did', 'yes' );
-				}
-				if ( 'do_not_upgrade' === $action ) {
-					update_option( 'pp_do_not_upgrade_to_pro', 'yes' );
-				}
-			}
+		$action = isset( $_GET['pp_admin_action'] ) ? sanitize_key( wp_unslash( $_GET['pp_admin_action'] ) ) : '';
+		$nonce  = isset( $_GET['_nonce'] ) ? wp_unslash( $_GET['_nonce'] ) : '';
 
-			wp_safe_redirect( esc_url_raw( remove_query_arg( array( 'pp_admin_action', '_nonce' ) ) ) );
+		if ( $action && $nonce && wp_verify_nonce( $nonce, 'pp_admin_notice' ) ) {
+			switch ( $action ) {
+				case 'review_maybe_later':
+					update_option( 'pp_review_later_date', current_time( 'mysql' ) );
+					break;
+				case 'review_already_did':
+					update_option( 'pp_review_already_did', 'yes' );
+					break;
+				case 'do_not_upgrade':
+					update_option( 'pp_do_not_upgrade_to_pro', 'yes' );
+					break;
+			}
+			wp_safe_redirect( esc_url_raw( remove_query_arg( [ 'pp_admin_action', '_nonce' ] ) ) );
+			exit;
 		}
 
-		if ( isset( $_GET['page'] ) && 'powerpack-settings' === $_GET['page'] ) {
+		if ( isset( $_GET['page'] ) && 'powerpack-settings' === sanitize_key( wp_unslash( $_GET['page'] ) ) ) {
 			remove_all_actions( 'admin_notices' );
 		}
 
-		//add_action( 'admin_notices', [ $this, 'tracking_admin_notice' ] );
+		// add_action( 'admin_notices', [ $this, 'tracking_admin_notice' ] );
 		add_action( 'admin_notices', [ $this, 'review_plugin_notice' ] );
 		add_action( 'admin_notices', [ $this, 'pro_upgrade_notice' ] );
 	}
@@ -224,50 +225,39 @@ class UsageTracking {
 	 * @return void
 	 */
 	private function setup_data() {
-		$data = array();
-
-		// Retrieve current theme info.
-		$theme_data = wp_get_theme();
-		$theme = $theme_data->Name . ' ' . $theme_data->Version; // @codingStandardsIgnoreLine.
-
-		$data['php_version'] = phpversion();
-		$data['edd_version'] = POWERPACK_ELEMENTS_LITE_VER;
-		$data['wp_version'] = get_bloginfo( 'version' );
-		$data['server'] = isset( $_SERVER['SERVER_SOFTWARE'] ) ? $_SERVER['SERVER_SOFTWARE'] : ''; // @codingStandardsIgnoreLine.
-
-		$data['install_date'] = get_option( 'pp_install_date', 'not set' );
-
-		$data['multisite'] = is_multisite();
-		$data['url'] = home_url();
-		$data['theme'] = $theme;
-		$data['email'] = get_bloginfo( 'admin_email' );
-
-		// Retrieve current plugin information.
-		if ( ! function_exists( 'get_plugins' ) ) {
-			include ABSPATH . '/wp-admin/includes/plugin.php';
+		if ( ! $this->tracking_allowed() ) {
+			$this->data = [];
+			return;
 		}
 
-		$plugins = array_keys( get_plugins() );
-		$active_plugins = get_option( 'active_plugins', array() );
-
-		foreach ( $plugins as $key => $plugin ) {
-			if ( in_array( $plugin, $active_plugins ) ) {
-				// Remove active plugins from list so we can show active and inactive separately.
-				unset( $plugins[ $key ] );
-			}
-		}
-
-		$data['active_plugins'] = $active_plugins;
-		$data['inactive_plugins'] = $plugins;
-		$data['locale'] = ($data['wp_version'] >= 4.7) ? get_user_locale() : get_locale();
-
+		$theme       = wp_get_theme();
 		$current_user = wp_get_current_user();
 
-		$data['user_firstname'] = esc_html( $current_user->user_firstname );
-		$data['user_lastname'] = esc_html( $current_user->user_lastname );
-		$data['user_email'] = esc_html( $current_user->user_email );
+		if ( ! function_exists( 'get_plugins' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
 
-		$this->data = $data;
+		$all_plugins    = get_plugins(); // [ 'dir/file.php' => [ 'Name' => ..., 'Version' => ... ] ]
+		$active_plugins = (array) get_option( 'active_plugins', [] );
+		$inactive       = array_diff( array_keys( $all_plugins ), $active_plugins );
+
+		$this->data = [
+			'php_version'      => PHP_VERSION,
+			'edd_version'      => POWERPACK_ELEMENTS_LITE_VER,
+			'wp_version'       => get_bloginfo( 'version' ),
+			'server'           => isset( $_SERVER['SERVER_SOFTWARE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) ) : '',
+			'install_date'     => get_option( 'pp_install_date', 'not set' ),
+			'multisite'        => is_multisite(),
+			'url'              => home_url(),
+			'theme'            => $theme->get( 'Name' ) . ' ' . $theme->get( 'Version' ),
+			'email'            => get_bloginfo( 'admin_email' ),
+			'active_plugins'   => $active_plugins,
+			'inactive_plugins' => array_values( $inactive ),
+			'locale'           => get_user_locale(),
+			'user_firstname'   => sanitize_text_field( $current_user->user_firstname ),
+			'user_lastname'    => sanitize_text_field( $current_user->user_lastname ),
+			'user_email'       => sanitize_email( $current_user->user_email ),
+		];
 	}
 
 	/**
@@ -280,6 +270,7 @@ class UsageTracking {
 	 */
 	public function send_checkin( $override = false, $ignore_last_checkin = false ) {
 		$home_url = trailingslashit( home_url() );
+
 		// Allows us to stop our own site from checking in, and a filter for our additional sites.
 		if ( $this->site_url === $home_url || apply_filters( 'pp_disable_tracking_checkin', false ) ) {
 			return false;
@@ -297,20 +288,20 @@ class UsageTracking {
 
 		$this->setup_data();
 
-		$request = wp_remote_post(
-			$this->site_url . '?edd_action=checkin', array(
-			'method' => 'POST',
-			'timeout' => 20,
-			'redirection' => 5,
-			'httpversion' => '1.1',
-			'blocking' => true,
-			'body' => $this->data,
-			'user-agent' => 'EDD/' . POWERPACK_ELEMENTS_LITE_VER . '; ' . get_bloginfo( 'url' ),
-			)
+		$response = wp_remote_post(
+			add_query_arg( 'edd_action', 'checkin', $this->site_url ),
+			[
+				'timeout'    => 20,
+				'redirection'=> 5,
+				'httpversion'=> '1.1',
+				'blocking'   => true,
+				'body'       => $this->data,
+				'user-agent' => 'EDD/' . POWERPACK_ELEMENTS_LITE_VER . '; ' . home_url( '/' ),
+			]
 		);
 
-		if ( is_wp_error( $request ) ) {
-			return $request;
+		if ( is_wp_error( $response ) ) {
+			return $response;
 		}
 
 		update_option( 'pp_tracking_last_send', time() );
@@ -410,60 +401,54 @@ class UsageTracking {
 	public function tracking_admin_notice() {
 		$hide_notice = get_option( 'pp_tracking_notice' );
 
-		if ( $hide_notice ) {
+		if ( $hide_notice || $this->tracking_allowed() || ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
-		if ( $this->tracking_allowed() ) {
-			return;
-		}
+		$host = network_site_url( '/' );
+		$dev_env = ( false !== stripos( $host, 'dev' ) )
+			|| ( false !== stripos( $host, 'localhost' ) )
+			|| ( false !== stripos( $host, ':8888' ) ) // This is common with MAMP on OS X.
+			|| in_array( ( $_SERVER['REMOTE_ADDR'] ?? '' ), [ '127.0.0.1', '::1' ], true );
 
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-
-		if ( stristr( network_site_url( '/' ), 'dev' ) !== false
-			|| stristr( network_site_url( '/' ), 'localhost' ) !== false
-			|| stristr( network_site_url( '/' ), ':8888' ) !== false // This is common with MAMP on OS X.
-			|| in_array( wp_unslash( $_SERVER['REMOTE_ADDR'] ), array( '127.0.0.1', '::1' ), true ) // @codingStandardsIgnoreLine.
-		) {
+		if ( $dev_env ) {
 			update_option( 'pp_tracking_notice', '1' );
-		} else {
+			return;
+		}
 
-			$optin_url = add_query_arg( 'pp_admin_action', 'pp_opt_into_tracking' );
-			$optout_url = add_query_arg( 'pp_admin_action', 'pp_opt_out_of_tracking' );
+		$optin_url  = add_query_arg( 'pp_admin_action', 'pp_opt_into_tracking' );
+		$optout_url = add_query_arg( 'pp_admin_action', 'pp_opt_out_of_tracking' );
 
-			$source = substr( md5( get_bloginfo( 'name' ) ), 0, 10 );
-			$store_url = $this->site_url . 'pricing/?utm_source=' . $source . '&utm_medium=admin&utm_term=notice&utm_campaign=PPEUsageTracking';
+		$source = substr( md5( get_bloginfo( 'name' ) ), 0, 10 );
+		$store_url = $this->site_url . 'pricing/?utm_source=' . $source . '&utm_medium=admin&utm_term=notice&utm_campaign=PPEUsageTracking';
 
-			echo '<div class="notice notice-info updated"><p>';
-			printf(
-				// translators: %1$s denotes plugin name, %2$s denotes title text, %3$s denotes percentile, %4$s denotes store URL.
-				__( 'Want to help make %1$s even more awesome? Allow us to <a href="#pp-what-we-collect" title="%2$s">collect non-sensitive</a> diagnostic data and plugin usage information. Opt-in to tracking and we will send you a special 15%3$s discount code for <a href="%4$s">Premium Upgrade</a>.', 'powerpack' ),
-				'<strong>PowerPack Elements</strong>',
-				esc_html__( 'Click here to check what we collect.', 'powerpack' ),
-				'%',
-				esc_url( $store_url )
-			);
-			echo '</p>';
-			echo '<p id="pp-what-we-collect" style="display: none;">';
-			echo esc_html__( 'We collect WordPress and PHP version, plugin and theme version, server environment, website, user first name, user last name, and email address to send you the discount code. No sensitive data is tracked.', 'powerpack' );
-			echo '</p>';
-			echo '<p>';
-			echo '<a href="' . esc_url( $optin_url ) . '" class="button-primary">' . esc_html__( 'Sure! I\'d love to help', 'powerpack' ) . '</a>';
-			echo '&nbsp;<a href="' . esc_url( $optout_url ) . '" class="button-secondary">' . esc_html__( 'No thanks', 'powerpack' ) . '</a>';
-			echo '</p></div>';
-			?>
-			<script type="text/javascript">
-			;(function($) {
-				$('a[href="#pp-what-we-collect"]').on('click', function(e) {
-					e.preventDefault();
-					$( $(this).attr('href') ).slideToggle('fast');
-				});
-			})(jQuery);
-			</script>
-			<?php
-		} // End if().
+		echo '<div class="notice notice-info updated"><p>';
+		printf(
+			// translators: %1$s denotes plugin name, %2$s denotes title text, %3$s denotes percentile, %4$s denotes store URL.
+			__( 'Want to help make %1$s even more awesome? Allow us to <a href="#pp-what-we-collect" title="%2$s">collect non-sensitive</a> diagnostic data and plugin usage information. Opt-in to tracking and we will send you a special 15%3$s discount code for <a href="%4$s">Premium Upgrade</a>.', 'powerpack' ),
+			'<strong>PowerPack Elements</strong>',
+			esc_html__( 'Click here to check what we collect.', 'powerpack' ),
+			'%',
+			esc_url( $store_url )
+		);
+		echo '</p>';
+		echo '<p id="pp-what-we-collect" style="display: none;">';
+		echo esc_html__( 'We collect WordPress and PHP version, plugin and theme version, server environment, website, user first name, user last name, and email address to send you the discount code. No sensitive data is tracked.', 'powerpack' );
+		echo '</p>';
+		echo '<p>';
+		echo '<a href="' . esc_url( $optin_url ) . '" class="button-primary">' . esc_html__( 'Sure! I\'d love to help', 'powerpack' ) . '</a>';
+		echo '&nbsp;<a href="' . esc_url( $optout_url ) . '" class="button-secondary">' . esc_html__( 'No thanks', 'powerpack' ) . '</a>';
+		echo '</p></div>';
+		?>
+		<script type="text/javascript">
+		;(function($) {
+			$('a[href="#pp-what-we-collect"]').on('click', function(e) {
+				e.preventDefault();
+				$( $(this).attr('href') ).slideToggle('fast');
+			});
+		})(jQuery);
+		</script>
+		<?php
 	}
 
 	/**
@@ -809,9 +794,13 @@ class UsageTracking {
 	public function submit_deactivation_response() {
 		check_ajax_referer( $this->plugin_slug . '_feedback_nonce', 'nonce' );
 
-		$reason  = sanitize_text_field( $_POST['reason'] ?? '' );
-		$details = sanitize_textarea_field( $_POST['details'] ?? '' );
-		$consent = isset( $_POST['consent'] ) ? true : false;
+		if ( ! current_user_can( 'activate_plugins' ) ) {
+			wp_send_json_error( [ 'message' => esc_html__( 'Unauthorized.', 'powerpack' ) ], 403 );
+		}
+
+		$reason  = isset( $_POST['reason'] )  ? sanitize_text_field( wp_unslash( $_POST['reason'] ) ) : '';
+		$details = isset( $_POST['details'] ) ? sanitize_textarea_field( wp_unslash( $_POST['details'] ) ) : '';
+		$consent = ! empty( $_POST['consent'] );
 
 		$data = [
 			'plugin_name'    => $this->plugin_name,
@@ -846,17 +835,19 @@ class UsageTracking {
 	private function get_system_info() {
 		global $wpdb;
 
+		$server = isset( $_SERVER['SERVER_SOFTWARE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) ) : 'Unknown';
+
 		return [
 			'wp_version'      => get_bloginfo( 'version' ),
-			'php_version'     => phpversion(),
-			'mysql_version'   => $wpdb->get_var( "SELECT VERSION()" ),
-			'server_software' => $_SERVER['SERVER_SOFTWARE'] ?? 'Unknown',
+			'php_version'     => PHP_VERSION,
+			'mysql_version'   => $wpdb->get_var( 'SELECT VERSION()' ),
+			'server_software' => $server,
 			'wp_memory_limit' => ini_get( 'memory_limit' ),
-			'wp_debug'        => defined( 'WP_DEBUG' ) && WP_DEBUG ? esc_html__( 'Enabled', 'powerpack' ) : esc_html__( 'Disabled', 'powerpack' ),
+			'wp_debug'        => ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? 'Enabled' : 'Disabled',
 			'wp_multisite'    => is_multisite() ? 'Yes' : 'No',
 			'wp_language'     => get_locale(),
 			'active_theme'    => wp_get_theme()->get( 'Name' ),
-			'active_plugins' => $this->get_active_plugins_info()
+			'active_plugins'  => $this->get_active_plugins_info(),
 		];
 	}
 
@@ -870,15 +861,18 @@ class UsageTracking {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
-		$active_plugins = get_option( 'active_plugins', [] );
+		$all_plugins    = get_plugins();
+		$active_plugins = (array) get_option( 'active_plugins', [] );
 		$plugins_info   = [];
 
 		foreach ( $active_plugins as $plugin_path ) {
-			$plugin_data    = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin_path );
-			$plugins_info[] = [
-				'name'    => $plugin_data['Name'],
-				'version' => $plugin_data['Version']
-			];
+			if ( isset( $all_plugins[ $plugin_path ] ) ) {
+				$meta = $all_plugins[ $plugin_path ];
+				$plugins_info[] = [
+					'name'    => isset( $meta['Name'] ) ? $meta['Name'] : $plugin_path,
+					'version' => isset( $meta['Version'] ) ? $meta['Version'] : '',
+				];
+			}
 		}
 
 		return $plugins_info;
@@ -891,16 +885,16 @@ class UsageTracking {
 	 * @return array|WP_Error Response
 	 */
 	private function send_feedback( $data ) {
-		$api_url = $this->config['feedback_api_url'];
+		$api_url = isset( $this->config['feedback_api_url'] ) ? esc_url_raw( $this->config['feedback_api_url'] ) : '';
 
 		if ( empty( $api_url ) ) {
-			return new WP_Error( 'no_api_url', esc_html__( 'No feedback API URL configured', 'powerpack' ) );
+			return new \WP_Error( 'no_api_url', esc_html__( 'No feedback API URL configured', 'powerpack' ) );
 		}
 
 		$json_data = json_encode( $data );
 
 		if ( false === $json_data ) {
-			return new WP_Error( 'json_encode_error', json_last_error_msg() );
+			return new \WP_Error( 'json_encode_error', json_last_error_msg() );
 		}
 
 		return wp_remote_post(
