@@ -523,7 +523,7 @@ class UsageTracking {
 		}
 		.pp-upgrade-notice .pp-notice-col-left {
 			width: <?php echo class_exists( 'WooCommerce' ) ? 8 : 10; ?>%;
-    		min-width: 75px;
+    		max-width: 75px;
 		}
 		.pp-upgrade-notice .pp-notice-col-right {
 			padding-left: 15px;
