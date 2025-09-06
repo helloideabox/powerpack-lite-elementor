@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.9.4\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.9.5\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2025-08-13 14:32:22+00:00\n"
+"POT-Creation-Date: 2025-09-06 09:28:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -670,6 +670,7 @@ msgid "Activate License"
 msgstr ""
 
 #: classes/class-pp-tracking.php:352
+#: includes/admin/feedback/class-pp-tracking.php:428
 #. translators: %1$s denotes plugin name, %2$s denotes title text, %3$s denotes
 #. percentile, %4$s denotes store URL.
 msgid ""
@@ -681,10 +682,12 @@ msgid ""
 msgstr ""
 
 #: classes/class-pp-tracking.php:354
+#: includes/admin/feedback/class-pp-tracking.php:430
 msgid "Click here to check what we collect."
 msgstr ""
 
 #: classes/class-pp-tracking.php:360
+#: includes/admin/feedback/class-pp-tracking.php:436
 msgid ""
 "We collect WordPress and PHP version, plugin and theme version, server "
 "environment, website, user first name, user last name, and email address to "
@@ -692,14 +695,17 @@ msgid ""
 msgstr ""
 
 #: classes/class-pp-tracking.php:363
+#: includes/admin/feedback/class-pp-tracking.php:439
 msgid "Sure! I'd love to help"
 msgstr ""
 
 #: classes/class-pp-tracking.php:364
+#: includes/admin/feedback/class-pp-tracking.php:440
 msgid "No thanks"
 msgstr ""
 
 #: classes/class-pp-tracking.php:430
+#: includes/admin/feedback/class-pp-tracking.php:505
 #. translators: %1$s denotes plugin name, %2$s denotes opening anchor tag, %3$s
 #. denots closing anchor tag.
 msgid ""
@@ -710,18 +716,22 @@ msgid ""
 msgstr ""
 
 #: classes/class-pp-tracking.php:460
+#: includes/admin/feedback/class-pp-tracking.php:535
 msgid "Ok, you deserve it"
 msgstr ""
 
 #: classes/class-pp-tracking.php:462
+#: includes/admin/feedback/class-pp-tracking.php:537
 msgid "Nope, maybe later"
 msgstr ""
 
 #: classes/class-pp-tracking.php:464
+#: includes/admin/feedback/class-pp-tracking.php:539
 msgid "I already did"
 msgstr ""
 
 #: classes/class-pp-tracking.php:503
+#: includes/admin/feedback/class-pp-tracking.php:578
 msgid ""
 "<strong>Exclusive Offer!</strong> We don't run promotions very often. But "
 "for a limited time we are offering an exclusive <strong>20% "
@@ -729,20 +739,24 @@ msgid ""
 msgstr ""
 
 #: classes/class-pp-tracking.php:504
+#: includes/admin/feedback/class-pp-tracking.php:579
 msgid "Get this offer"
 msgstr ""
 
 #: classes/class-pp-tracking.php:507
+#: includes/admin/feedback/class-pp-tracking.php:582
 msgid ""
 "Upgrade to <strong>PowerPack Pro for Elementor</strong> and Get WooCommerce "
 "Elementor Widgets like Product Grid, Checkout Styler, Off-Canvas Cart, etc."
 msgstr ""
 
 #: classes/class-pp-tracking.php:509
+#: includes/admin/feedback/class-pp-tracking.php:584
 msgid "Explore now"
 msgstr ""
 
 #: classes/class-pp-tracking.php:562
+#: includes/admin/feedback/class-pp-tracking.php:637
 msgid "I'm not interested"
 msgstr ""
 
@@ -1705,7 +1719,7 @@ msgid "Add Color"
 msgstr ""
 
 #: extensions/animated-gradient-background.php:215
-#: extensions/custom-cursor.php:289
+#: extensions/custom-cursor.php:288
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1272
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1348
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1403
@@ -1927,19 +1941,19 @@ msgstr ""
 msgid "Choose Cursor Icon"
 msgstr ""
 
-#: extensions/custom-cursor.php:217
+#: extensions/custom-cursor.php:216
 msgid "Cursor Text"
 msgstr ""
 
-#: extensions/custom-cursor.php:230
+#: extensions/custom-cursor.php:229
 msgid "Left Offset"
 msgstr ""
 
-#: extensions/custom-cursor.php:253
+#: extensions/custom-cursor.php:252
 msgid "Top Offset"
 msgstr ""
 
-#: extensions/custom-cursor.php:277
+#: extensions/custom-cursor.php:276
 #: modules/business-hours/widgets/business-hours.php:957
 #: modules/business-hours/widgets/business-hours.php:1016
 #: modules/buttons/widgets/buttons.php:783
@@ -2090,7 +2104,7 @@ msgstr ""
 msgid "Typography"
 msgstr ""
 
-#: extensions/custom-cursor.php:306 modules/counter/widgets/counter.php:547
+#: extensions/custom-cursor.php:305 modules/counter/widgets/counter.php:547
 #: modules/gravity-forms/widgets/gravity-forms.php:2057
 #: modules/headings/widgets/dual-heading.php:333
 #: modules/headings/widgets/dual-heading.php:436
@@ -2112,7 +2126,7 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: extensions/custom-cursor.php:321
+#: extensions/custom-cursor.php:320
 #: modules/advanced-accordion/widgets/advanced-accordion.php:900
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1307
 #: modules/buttons/widgets/buttons.php:474
@@ -2228,7 +2242,7 @@ msgstr ""
 msgid "Border"
 msgstr ""
 
-#: extensions/custom-cursor.php:335
+#: extensions/custom-cursor.php:334
 #: modules/advanced-accordion/widgets/advanced-accordion.php:715
 #: modules/advanced-accordion/widgets/advanced-accordion.php:908
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1315
@@ -2350,7 +2364,7 @@ msgstr ""
 msgid "Border Radius"
 msgstr ""
 
-#: extensions/custom-cursor.php:351
+#: extensions/custom-cursor.php:350
 #: modules/advanced-accordion/widgets/advanced-accordion.php:802
 #: modules/advanced-accordion/widgets/advanced-accordion.php:920
 #: modules/advanced-accordion/widgets/advanced-accordion.php:1138
@@ -2606,6 +2620,100 @@ msgstr ""
 
 #: includes/admin/admin-settings.php:285
 msgid "this link"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:139
+msgid "Submitting..."
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:140
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:141
+msgid "Thank you for your feedback!"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:688
+msgid "Quick Feedback"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:698
+msgid "If you have a moment, please let us know why you're deactivating %s:"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:725
+msgid ""
+"I agree to share anonymous usage data and basic site details to help "
+"improve %s."
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:733
+msgid "Submit & Deactivate"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:736
+msgid "Skip & Deactivate"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:739
+msgid "Cancel"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:758
+msgid "The plugin is not working"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:759
+msgid "Please describe the issue you encountered"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:762
+msgid "I found a better alternative"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:763
+msgid "Please share which plugin you're switching to"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:766
+msgid "I no longer need the plugin"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:770
+msgid "It's a temporary deactivation"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:774
+msgid "Missing a feature I need"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:775
+msgid "What feature were you looking for?"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:778
+msgid "Other"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:779
+msgid "Please share your reason"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:798
+msgid "Unauthorized."
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:824
+msgid "Failed to send feedback"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:827
+msgid "Feedback submitted successfully"
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:891
+msgid "No feedback API URL configured"
 msgstr ""
 
 #: includes/controls/groups/transition.php:38
