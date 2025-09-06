@@ -240,6 +240,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.9.5 - September 6, 2025 =
+* 	Enhancement: Info Box - Added support for all responsive resolutions
+* 	Fix: Info Box - Minor issue with icon responsive position option
+* 	Development: Tested compatibility with Elementor 3.32.0
+
 = 2.9.4 - August 13, 2025 =
 * 	Enhancement: Pricing Table - Added Table style options
 * 	Enhancement: Pricing Table - Added fraction style option

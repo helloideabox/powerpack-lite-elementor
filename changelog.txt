@@ -1,5 +1,5 @@
 == 2.9.5 ==
-Release date: 
+Release date: September 6, 2025
 * Enhancement: Info Box - Added support for all responsive resolutions
 * Fix: Info Box - Minor issue with icon responsive position option
 * Development: Tested compatibility with Elementor 3.32.0
