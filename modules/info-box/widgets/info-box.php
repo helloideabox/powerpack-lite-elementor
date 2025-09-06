@@ -280,7 +280,7 @@ class Info_Box extends Powerpack_Widget {
 				),
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
-					'{{WRAPPER}}.pp-info-box-top .pp-info-box-icon img, {{WRAPPER}}.pp-info-box-left .pp-info-box-icon-wrap, {{WRAPPER}}.pp-info-box-right .pp-info-box-icon-wrap' => 'width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}}' => '--info-box-icon-width: {{SIZE}}{{UNIT}}',
 				),
 				'condition'  => array(
 					'icon_type' => 'image',

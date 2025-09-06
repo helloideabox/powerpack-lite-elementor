@@ -1,5 +1,7 @@
 == 2.9.5 ==
 Release date: 
+* Enhancement: Info Box - Added support for all responsive resolutions
+* Fix: Info Box - Minor issue with icon responsive position option
 * Development: Tested compatibility with Elementor 3.32.0
 
 == 2.9.4 ==
