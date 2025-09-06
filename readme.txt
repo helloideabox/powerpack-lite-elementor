@@ -19,7 +19,7 @@ Head over to [PowerPack Addons](https://powerpackelements.com/?utm_medium=powerp
 
 ## Top Features of PowerPack Elementor Addons
 
-- **UNIQUE WIDGETS**
+- **UNIQUE ELEMENTOR WIDGETS**
 PowerPack includes a range of advanced elementor widgets that open a whole new way of designing possibilities.
 
 - **FULLY CUSTOMIZABLE**
@@ -29,7 +29,7 @@ All PowerPack widgets are completely customizable; you can alter settings and st
 PowerPack is 100% Compatible with Elementor 3.0 Dynamic Fields. Hence, you can use them to display dynamic content.
 
 - **WHITE LABEL BRANDING**
-Self-branding is extremely important when you are working for third-party clients. This feature allows you to change the branding of the plugin and help you maintain your personal brand while building client sites.
+Self-branding is extremely important when you are working for third-party clients. This feature allows you to change the branding of the plugin and helps you maintain your personal brand while building client sites.
 
 - **LIGHTWEIGHT, FAST, USER-FRIENDLY**
 PowerPack boasts of superior code quality optimized for performance. Minimal usage of external scripts helps you maintain superior loading time for your websites.
@@ -46,7 +46,7 @@ PowerPack adds a carefully selected set of essential addons for Elementor users 
 1. [**Business Hours**](https://powerpackelements.com/elementor-widgets/business-hours/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A content widget that allows you to display opening and closing hours with various styling options.
 2. [**Counter**](https://powerpackelements.com/elementor-widgets/counter/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - An impressive widget that allows you to show important facts on your website.
 3. [**Divider**](https://powerpackelements.com/elementor-widgets/divider/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - This widget allows you to create a stylish break to your content with fancy dividers.
-4. [**Dual Heading**](https://powerpackelements.com/elementor-widgets/dual-heading/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A creative widget that lets you highlight other words in a heading with different color and variation.
+4. [**Dual Heading**](https://powerpackelements.com/elementor-widgets/dual-heading/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - A creative widget that lets you highlight other words in a heading with different colors and variations.
 5. [**Image Hotspots**](https://powerpackelements.com/elementor-widgets/image-hotspot/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - With Image Hotspot widget, you can display feature of the product, create virtual tours, display information easily and interactively.
 6. [**Icon List**](https://powerpackelements.com/elementor-widgets/icon-list/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – A content widget that allows you to display a list of features with font icons or numbers for bullet points.
 7. [**Image Comparison**](https://powerpackelements.com/elementor-widgets/image-comparison/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - With this widget, you can compare before and after versions of the image.
@@ -107,32 +107,32 @@ PowerPack adds a carefully selected set of essential addons for Elementor users 
 **All above-mentioned widgets and the following...**
 
 1. [**Countdown Timer**](https://powerpackelements.com/elementor-widgets/countdown/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create urgency on your site or set up a “Coming Soon” page
-2. [**Popup Box**](https://powerpackelements.com/elementor-widgets/popup-box/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Show custom content, image, video, form, saved template in popup box with various trigger options – auto-load, on-click and exit intent.
-3. [**Page Navigation**](https://powerpackelements.com/elementor-widgets/one-page-navigation/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – With this you can  create impressive one-page websites.
-4. [**Image Gallery**](https://powerpackelements.com/elementor-widgets/image-gallery/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create spectacular galleries on your website with filters and various options.
+2. [**Popup Box**](https://powerpackelements.com/elementor-widgets/popup-box/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Show custom content, image, video, form, saved template in popup box with various trigger options – auto-load, on-click and exit intent
+3. [**Page Navigation**](https://powerpackelements.com/elementor-widgets/one-page-navigation/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – With this you can  create impressive one-page websites
+4. [**Image Gallery**](https://powerpackelements.com/elementor-widgets/image-gallery/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create spectacular galleries on your website with filters and various options
 5. [**Image Slider**](https://powerpackelements.com/elementor-widgets/image-slider/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create stunning slideshow or carousel of images with numerous customization options
-6. [**Off-canvas Content**](https://powerpackelements.com/elementor-widgets/offcanvas-content/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Allows you to create beautiful Slide-in menus. Create impressive menus, popups, or custom content displays that slide in when the trigger is activated
-7. [**Showcase Widget**](https://powerpackelements.com/elementor-widgets/showcase-widget/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – A creative widget that allows you to showcase images and videos on your website pages.
-8. [**Card Slider**](https://powerpackelements.com/elementor-widgets/card-slider/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Display featured posts, announcements, latest posts, custom content, etc.
+6. [**Off-canvas Content**](https://powerpackelements.com/elementor-widgets/offcanvas-content/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Allows you to create beautiful Slide-in menus. Create impressive menus, popups, or custom content displays that slide in when the trigger is activated.
+7. [**Showcase Widget**](https://powerpackelements.com/elementor-widgets/showcase-widget/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – A creative widget that allows you to showcase images and videos on your website pages
+8. [**Card Slider**](https://powerpackelements.com/elementor-widgets/card-slider/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Display featured posts, announcements, latest posts, custom content, etc
 9. [**Advanced Menu**](https://powerpackelements.com/elementor-widgets/advanced-menu/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Add impressive Off Canvas & Full Screen overlay menus on your website
 10. [**Tiled Post**](https://powerpackelements.com/elementor-widgets/tiled-post/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create beautiful magazine style layout with Tiled Post widget
 11. [**Recipe**](https://powerpackelements.com/elementor-widgets/recipe/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – A widget to create recipes with necessary options
 12. [**Content Toggle**](https://powerpackelements.com/elementor-widgets/content-toggle/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Switch between two content like primary/secondary or annual/monthly
 13. [**Table**](https://powerpackelements.com/elementor-widgets/table/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) – Display your data in table with various customization options
 14. [**Google Maps**](https://powerpackelements.com/elementor-widgets/google-map/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Show Google map on your website with various styling options
-15. [**Advanced Tabs**](https://powerpackelements.com/elementor-widgets/advanced-tab/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Display custom content or saved templates in tabs with more styling controls.
-16. [**Timeline**](https://powerpackelements.com/elementor-widgets/timeline/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create stunning **Post Timeline** layouts with vertical or horizontal options for blog posts or custom post types.
-17. [**Magazine Slider**](https://powerpackelements.com/elementor-widgets/magazine-slider/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Highlight posts in a **Post Carousel** or **magazine-style Post Slider** for engaging storytelling.
+15. [**Advanced Tabs**](https://powerpackelements.com/elementor-widgets/advanced-tab/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Display custom content or saved templates in tabs with more styling controls
+16. [**Timeline**](https://powerpackelements.com/elementor-widgets/timeline/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create stunning **Post Timeline** layouts with vertical or horizontal options for blog posts or custom post types
+17. [**Magazine Slider**](https://powerpackelements.com/elementor-widgets/magazine-slider/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Highlight posts in a **Post Carousel** or **magazine-style Post Slider** for engaging storytelling
 18. [**Video**](https://powerpackelements.com/elementor-widgets/video/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – A widget to embed videos on your website
-19. [**Video Gallery**](https://powerpackelements.com/elementor-widgets/video-gallery/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create video gallery with filter options.
-20. [**Album**](https://powerpackelements.com/elementor-widgets/album/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create beautiful Photo Albums on your website.
-21. [**Categories**](https://powerpackelements.com/elementor-widgets/categories/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create attractive category displays on your website.
-22. [**Coupons**](https://powerpackelements.com/elementor-widgets/coupon/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) -  Display special offers, discounts, and deals with the help of coupon widget.
-23. [**Table of Contents**](https://powerpackelements.com/elementor-widgets/table-of-content/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create table of contents for your blog/page.
-24. [**Breadcrumbs**](https://powerpackelements.com/elementor-widgets/breadcrumbs/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - This widget lets you add breadcrumbs to pages on your website.
-25. [**Advanced Posts**](https://powerpackelements.com/elementor-widgets/posts/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display blog posts beautifully on your Elementor websites with layouts such as **Post Grid** and **Post Slider** for more engaging designs.
-26. [**Business Reviews**](https://powerpackelements.com/elementor-widgets/business-reviews/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Fetch your product reviews from Google & Yelp and easily display them on your sites in Elementor.
-27. [**Advanced Charts**](https://powerpackelements.com/elementor-widgets/advanced-charts/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Create beautiful charts in Elementor. Visualize data with Line, Bar, Radar, Doughnut, Pie, Polar Area, and Bubble charts.
+19. [**Video Gallery**](https://powerpackelements.com/elementor-widgets/video-gallery/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link)  – Create video gallery with filter options
+20. [**Album**](https://powerpackelements.com/elementor-widgets/album/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create beautiful Photo Albums on your website
+21. [**Categories**](https://powerpackelements.com/elementor-widgets/categories/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create attractive category displays on your website
+22. [**Coupons**](https://powerpackelements.com/elementor-widgets/coupon/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) -  Display special offers, discounts, and deals with the help of coupon widget
+23. [**Table of Contents**](https://powerpackelements.com/elementor-widgets/table-of-content/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Create table of contents for your blog/page
+24. [**Breadcrumbs**](https://powerpackelements.com/elementor-widgets/breadcrumbs/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - This widget lets you add breadcrumbs to pages on your website
+25. [**Advanced Posts**](https://powerpackelements.com/elementor-widgets/posts/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display blog posts beautifully on your Elementor websites with layouts such as **Post Grid** and **Post Slider** for more engaging designs
+26. [**Business Reviews**](https://powerpackelements.com/elementor-widgets/business-reviews/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Fetch your product reviews from Google & Yelp and easily display them on your sites in Elementor
+27. [**Advanced Charts**](https://powerpackelements.com/elementor-widgets/advanced-charts/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Create beautiful charts in Elementor. Visualize data with Line, Bar, Radar, Doughnut, Pie, Polar Area, and Bubble charts
 
 ### TEMPLATE LIBRARY FOR ELEMENTOR - FREE & PRO
 **Easiest, Fastest, and Creative Way to Design Websites!** 
@@ -166,7 +166,7 @@ https://www.youtube.com/watch?v=IoSvG1-0f4M&t=1s
 With PowerPack Display Conditions, you can control how your Elementor content appears. These conditions give you complete flexibility when and where to show or hide stuff on your website. You can tweak things based on various WooCommerce factors, like the Product Category, the number of items in the Shopping Cart, the Categories the purchased items belong to, and many other cool options.
 
  - **ADVANCED DISPLAY CONDITIONS FUNCTIONALITY**
- Our Advanced Display Conditions have built-in support for Advanced Custom Fields, which allows you to display content from custom fields based on the user's browser, operating system, date, time, login status, and much more. The most UNIQUE solution for widgets and sections. 
+ Our Advanced Display Conditions have built-in support for Advanced Custom Fields, which allows you to display content from custom fields based on the user's browser, operating system, date, time, login status, and much more. The is the most UNIQUE solution for widgets and sections. 
 
 https://www.youtube.com/watch?v=blCGxZujnJg
 
