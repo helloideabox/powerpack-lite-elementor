@@ -191,7 +191,7 @@ class Icon_List extends Powerpack_Widget {
 						'icon'  => 'eicon-image-bold',
 					),
 					'text'  => array(
-						'title' => esc_html__( 'Text', 'powerpack' ),
+						'title' => esc_html__( 'Text/Number', 'powerpack' ),
 						'icon'  => 'eicon-font',
 					),
 				),
@@ -238,6 +238,7 @@ class Icon_List extends Powerpack_Widget {
 			'icon_text',
 			array(
 				'label'       => esc_html__( 'Text', 'powerpack' ),
+				'description' => esc_html__( 'Leave the Text field empty to display the list item number', 'powerpack' ),
 				'label_block' => false,
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
@@ -1088,7 +1089,7 @@ class Icon_List extends Powerpack_Widget {
 					?>
 					<span class="pp-icon-list-image <?php echo esc_attr( $icon_animation ); ?>"><?php echo wp_kses_post( $image_html ); ?></span>
 					<?php
-				} elseif ( 'number' === $item['pp_icon_type'] ) {
+				} elseif ( 'text' === $item['pp_icon_type'] ) {
 					if ( $item['icon_text'] ) {
 						$number = $item['icon_text'];
 					} else {
@@ -1186,7 +1187,7 @@ class Icon_List extends Powerpack_Widget {
 											#>
 											<img src="{{ _.escape( image_url ) }}" />
 										</span>
-									<# } else if ( item.pp_icon_type == 'number' ) { #>
+									<# } else if ( item.pp_icon_type == 'text' ) { #>
 										<#
 											if ( item.icon_text ) {
 												var number = item.icon_text;
