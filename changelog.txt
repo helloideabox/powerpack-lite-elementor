@@ -1,5 +1,7 @@
 == 2.9.6 ==
 Release date: 
+* Enhancement: Flip Box - Added Text Stroke option for title
+* Enhancement: Flip Box - Added Text Shadow option for title
 * Fix: Icon List - Icon type text was not working
 
 == 2.9.5 ==

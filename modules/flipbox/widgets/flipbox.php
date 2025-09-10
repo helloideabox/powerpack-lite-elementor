@@ -13,6 +13,8 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Text_Stroke;
+use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -966,6 +968,29 @@ class Flipbox extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name'      => 'title_text_stroke_front',
+				'selector'  => '{{WRAPPER}} .pp-flipbox-front .pp-flipbox-heading',
+				'condition' => [
+					'title_front!' => '',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'      => 'title_text_shadow_front',
+				'label'     => esc_html__( 'Text Shadow', 'powerpack' ),
+				'selector'  => '{{WRAPPER}} .pp-flipbox-front .pp-flipbox-heading',
+				'condition' => [
+					'title_front!' => '',
+				],
+			]
+		);
+
 		$this->add_responsive_control(
 			'title_spacing_front',
 			[
@@ -1355,6 +1380,29 @@ class Flipbox extends Powerpack_Widget {
 				'name'                  => 'title_typography_back',
 				'selector'              => '{{WRAPPER}} .pp-flipbox-back .pp-flipbox-heading',
 				'condition'             => [
+					'title_back!' => '',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name'      => 'title_text_stroke_back',
+				'selector'  => '{{WRAPPER}} .pp-flipbox-back .pp-flipbox-heading',
+				'condition' => [
+					'title_back!' => '',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'      => 'title_text_shadow_back',
+				'label'     => esc_html__( 'Text Shadow', 'powerpack' ),
+				'selector'  => '{{WRAPPER}} .pp-flipbox-back .pp-flipbox-heading',
+				'condition' => [
 					'title_back!' => '',
 				],
 			]
