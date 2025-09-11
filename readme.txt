@@ -13,11 +13,11 @@ Elevate your Elementor experience with PowerPack, a comprehensive collection of 
 
 == Description ==
 
-[PowerPack Elementor Addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) offers a comprehensive collection of creative widgets, powerful extensions, and professionally crafted Elementor templates to elevate your website design experience. Unlock advanced design capabilities, streamline your workflow, and create stunning, professional websites effortlessly with PowerPack's versatile and user-friendly Elementor addons.
+[PowerPack Addons for Elementor](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) offers a comprehensive collection of creative widgets, powerful extensions, and professionally crafted Elementor templates to elevate your website design experience. Unlock advanced design capabilities, streamline your workflow, and create stunning, professional websites effortlessly with PowerPack's versatile and user-friendly Elementor addons.
 
-Head over to [PowerPack Addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) website to explore addons.
+Head over to [PowerPack Addons](https://powerpackelements.com/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) website to explore all the Elementor addons.
 
-## Top Features of PowerPack Elementor Addons
+## Top Features of PowerPack Addons for Elementor
 
 - **UNIQUE ELEMENTOR WIDGETS**
 PowerPack includes a range of advanced elementor widgets that open a whole new way of designing possibilities.
@@ -142,7 +142,7 @@ PowerPack template library includes 150+ ready-to-use section blocks. All block 
 https://www.youtube.com/watch?v=IoSvG1-0f4M&t=1s
 
 ### WOOCOMMERCE WIDGETS - PRO 
-**Get Special WooCommerce widgets for Elementor with PowerPack Pro**
+**Get special WooCommerce widgets for Elementor with premium version of PowerPack**
 
 1. [**Woo Products**](https://powerpackelements.com/woocommerce-elementor-widgets/product-grid/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Multiple layout and styling options to create WooCommerce Product Grid and Carousel layouts for your e-commerce websites 
 2. [**Woo Categories**](https://powerpackelements.com/woocommerce-elementor-widgets/categories-widget/?utm_source=repo-readme&utm_medium=powerpack-lite&utm_campaign=repo-demo-link) - Display a grid or carousel for WooCommerce Product Categories
