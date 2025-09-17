@@ -324,6 +324,36 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
+			'tablesaw',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tablesaw/tablesaw.jquery.js',
+			array(
+				'jquery',
+			),
+			'3.0.3',
+			true
+		);
+
+		wp_register_script(
+			'tablesaw-init',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/tablesaw/tablesaw-init.js',
+			array(
+				'jquery',
+			),
+			'3.0.3',
+			true
+		);
+
+		wp_register_script(
+			'pp-table',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-table' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
 			'pp-twitter',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-twitter' . $suffix . '.js',
 			array(

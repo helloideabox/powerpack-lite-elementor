@@ -46,6 +46,7 @@ class Modules_Manager {
 			'promo-box',
 			'random-image',
 			'scroll-image',
+			'table',
 			'team-member',
 			'twitter',
 			'query-control',

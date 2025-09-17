@@ -293,6 +293,13 @@ class PP_Config {
 					'keywords'   => array( 'powerpack', 'image' ),
 					'icon'       => 'ppicon-scroll-image power-pack-admin-icon',
 				),
+				'Table'                => array(
+					'name'       => 'pp-table',
+					'title'      => esc_html__( 'Table', 'powerpack' ),
+					'categories' => array( 'powerpack-elements' ),
+					'keywords'   => array( 'powerpack', 'table', 'csv' ),
+					'icon'       => 'ppicon-table power-pack-admin-icon',
+				),
 				'Team_Member'          => array(
 					'name'       => 'pp-team-member',
 					'title'      => esc_html__( 'Team Member', 'powerpack' ),
@@ -504,13 +511,6 @@ class PP_Config {
 					'categories' => '["powerpack-elements"]',
 					'keywords'   => array( 'powerpack', 'image', 'video', 'embed', 'youtube', 'vimeo', 'dailymotion', 'slider' ),
 					'icon'       => 'ppicon-showcase power-pack-admin-icon',
-				),
-				'Table'              => array(
-					'name'       => 'pp-table',
-					'title'      => esc_html__( 'Table', 'powerpack' ),
-					'categories' => '["powerpack-elements"]',
-					'keywords'   => array( 'powerpack', 'table', 'csv' ),
-					'icon'       => 'ppicon-table power-pack-admin-icon',
 				),
 				'Tabbed_Gallery'     => array(
 					'name'       => 'pp-tabbed-gallery',

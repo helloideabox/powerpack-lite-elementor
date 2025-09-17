@@ -386,6 +386,7 @@ function pp_elements_lite_get_modules() {
 		'pp-content-reveal'         => esc_html__( 'Content Reveal', 'powerpack' ),
 		'pp-random-image'           => esc_html__( 'Random Image', 'powerpack' ),
 		'pp-charts'                 => esc_html__( 'Advanced Charts', 'powerpack' ),
+		'pp-table'                  => esc_html__( 'Table', 'powerpack' ),
 	);
 
 	// Contact Form 7
