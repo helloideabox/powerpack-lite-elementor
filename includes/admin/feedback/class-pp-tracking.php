@@ -76,9 +76,12 @@ class UsageTracking {
 
 		add_action( 'admin_init', array( $this, 'hook_notices' ) );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-
+		add_action( 'admin_footer', [ $this, 'dismiss_notice_script' ] );
 		add_action( 'admin_footer-plugins.php', [ $this, 'show_deactivation_feedback_popup' ] );
+
+		// AJAX handlers
 		add_action( 'wp_ajax_' . $this->plugin_slug . '_submit_deactivation_response', [ $this, 'submit_deactivation_response' ] );
+		add_action( 'wp_ajax_pp_dismiss_admin_notice', [ $this, 'dismiss_admin_notice' ] );
 	}
 
 	/**
@@ -153,7 +156,7 @@ class UsageTracking {
 		$action = isset( $_GET['pp_admin_action'] ) ? sanitize_key( wp_unslash( $_GET['pp_admin_action'] ) ) : '';
 		$nonce  = isset( $_GET['_nonce'] ) ? wp_unslash( $_GET['_nonce'] ) : '';
 
-		if ( $action && $nonce && wp_verify_nonce( $nonce, 'pp_admin_notice' ) ) {
+		if ( $action && $nonce && wp_verify_nonce( $nonce, 'pp_admin_notice_nonce' ) ) {
 			switch ( $action ) {
 				case 'review_maybe_later':
 					update_option( 'pp_review_later_date', current_time( 'mysql' ) );
@@ -669,6 +672,65 @@ class UsageTracking {
 		}
 		</style>
 		<?php
+	}
+
+	/**
+	 * Output JavaScript in admin footer to persist notice dismissals.
+	 */
+	public function dismiss_notice_script() {
+		if ( ! is_admin() ) {
+			return;
+		}
+
+		$nonce = wp_create_nonce( 'pp_admin_notice_nonce' );
+		?>
+		<script type="text/javascript">
+		(function($){
+			$(document).on('click', '.pp--notice.is-dismissible .notice-dismiss', function(){
+				const $notice = $(this).closest('.pp--notice');
+				let noticeType = 'review';
+
+				if ($notice.hasClass('pp-upgrade-notice')) {
+					noticeType = 'upgrade';
+				} else if ($notice.hasClass('pp-review-notice')) {
+					noticeType = 'review';
+				}
+
+				$.post(ajaxurl, {
+					action: 'pp_dismiss_admin_notice',
+					nonce: '<?php echo esc_js( $nonce ); ?>',
+					notice_type: noticeType
+				});
+			});
+		})(jQuery);
+		</script>
+		<?php
+	}
+
+	/**
+	 * Handle AJAX request to dismiss admin notices persistently.
+	 */
+	public function dismiss_admin_notice() {
+		check_ajax_referer( 'pp_admin_notice_nonce', 'nonce' );
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( [ 'message' => esc_html__( 'Unauthorized.', 'powerpack' ) ], 403 );
+		}
+
+		$notice_type = isset( $_POST['notice_type'] ) ? sanitize_key( $_POST['notice_type'] ) : '';
+
+		switch ( $notice_type ) {
+			case 'review':
+				update_option( 'pp_review_already_did', 'yes' );
+				break;
+			case 'upgrade':
+				update_option( 'pp_do_not_upgrade_to_pro', 'yes' );
+				break;
+			default:
+				wp_send_json_error( [ 'message' => esc_html__( 'Invalid notice type.', 'powerpack' ) ] );
+		}
+
+		wp_send_json_success( [ 'message' => esc_html__( 'Notice dismissed.', 'powerpack' ) ] );
 	}
 
 	/**

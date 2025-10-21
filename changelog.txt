@@ -1,3 +1,7 @@
+== 2.9.7 ==
+Release date: 
+* Fix: Issue with dismiss notice function
+
 == 2.9.6 ==
 Release date: September 10, 2025
 * Enhancement: Flip Box - Added Text Stroke option for title
