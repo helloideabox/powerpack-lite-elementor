@@ -240,6 +240,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.9.7 - October 22, 2025 =
+* 	Fix: Issue with dismiss notice function
+
 = 2.9.6 - September 10, 2025 =
 * 	Enhancement: Flip Box - Added Text Stroke option for title
 * 	Enhancement: Flip Box - Added Text Shadow option for title

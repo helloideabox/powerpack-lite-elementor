@@ -1,5 +1,5 @@
 == 2.9.7 ==
-Release date: 
+Release date: October 22, 2025
 * Fix: Issue with dismiss notice function
 
 == 2.9.6 ==
