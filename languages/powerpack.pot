@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.9.6\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.9.7\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2025-09-10 16:13:00+00:00\n"
+"POT-Creation-Date: 2025-10-22 02:58:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n 1.0.3\n"
+"X-Generator: grunt-wp-i18n 1.0.4\n"
 
 #: modules/buttons/widgets/buttons.php:237
 #: modules/hotspots/widgets/hotspots.php:489
@@ -2531,19 +2531,19 @@ msgstr ""
 msgid "this link"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:139
+#: includes/admin/feedback/class-pp-tracking.php:148
 msgid "Submitting..."
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:140
+#: includes/admin/feedback/class-pp-tracking.php:149
 msgid "An error occurred. Please try again."
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:141
+#: includes/admin/feedback/class-pp-tracking.php:150
 msgid "Thank you for your feedback!"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:428
+#: includes/admin/feedback/class-pp-tracking.php:438
 #. translators: %1$s denotes plugin name, %2$s denotes title text, %3$s denotes
 #. percentile, %4$s denotes store URL.
 msgid ""
@@ -2554,26 +2554,26 @@ msgid ""
 "Upgrade</a>."
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:430
+#: includes/admin/feedback/class-pp-tracking.php:440
 msgid "Click here to check what we collect."
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:436
+#: includes/admin/feedback/class-pp-tracking.php:446
 msgid ""
 "We collect WordPress and PHP version, plugin and theme version, server "
 "environment, website, user first name, user last name, and email address to "
 "send you the discount code. No sensitive data is tracked."
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:439
+#: includes/admin/feedback/class-pp-tracking.php:449
 msgid "Sure! I'd love to help"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:440
+#: includes/admin/feedback/class-pp-tracking.php:450
 msgid "No thanks"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:505
+#: includes/admin/feedback/class-pp-tracking.php:502
 #. translators: %1$s denotes plugin name, %2$s denotes opening anchor tag, %3$s
 #. denots closing anchor tag.
 msgid ""
@@ -2583,122 +2583,131 @@ msgid ""
 "motivation - thanks!"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:535
+#: includes/admin/feedback/class-pp-tracking.php:532
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:537
+#: includes/admin/feedback/class-pp-tracking.php:534
 msgid "Nope, maybe later"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:539
+#: includes/admin/feedback/class-pp-tracking.php:536
 msgid "I already did"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:578
+#: includes/admin/feedback/class-pp-tracking.php:575
 msgid ""
 "<strong>Exclusive Offer!</strong> We don't run promotions very often. But "
 "for a limited time we are offering an exclusive <strong>20% "
 "discount</strong> to all users of Free PowerPack Elementor addon."
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:579
+#: includes/admin/feedback/class-pp-tracking.php:576
 msgid "Get this offer"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:582
+#: includes/admin/feedback/class-pp-tracking.php:579
 msgid ""
 "Upgrade to <strong>PowerPack Pro for Elementor</strong> and Get WooCommerce "
 "Elementor Widgets like Product Grid, Checkout Styler, Off-Canvas Cart, etc."
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:584
+#: includes/admin/feedback/class-pp-tracking.php:581
 msgid "Explore now"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:637
+#: includes/admin/feedback/class-pp-tracking.php:634
 msgid "I'm not interested"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:688
+#: includes/admin/feedback/class-pp-tracking.php:705
+#: includes/admin/feedback/class-pp-tracking.php:848
+msgid "Unauthorized."
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:718
+msgid "Invalid notice type."
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:721
+msgid "Notice dismissed."
+msgstr ""
+
+#: includes/admin/feedback/class-pp-tracking.php:738
 msgid "Quick Feedback"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:698
+#: includes/admin/feedback/class-pp-tracking.php:748
 msgid "If you have a moment, please let us know why you're deactivating %s:"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:725
+#: includes/admin/feedback/class-pp-tracking.php:775
 msgid ""
 "I agree to share anonymous usage data and basic site details to help "
 "improve %s."
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:733
+#: includes/admin/feedback/class-pp-tracking.php:783
 msgid "Submit & Deactivate"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:736
+#: includes/admin/feedback/class-pp-tracking.php:786
 msgid "Skip & Deactivate"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:739
+#: includes/admin/feedback/class-pp-tracking.php:789
 msgid "Cancel"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:758
+#: includes/admin/feedback/class-pp-tracking.php:808
 msgid "The plugin is not working"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:759
+#: includes/admin/feedback/class-pp-tracking.php:809
 msgid "Please describe the issue you encountered"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:762
+#: includes/admin/feedback/class-pp-tracking.php:812
 msgid "I found a better alternative"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:763
+#: includes/admin/feedback/class-pp-tracking.php:813
 msgid "Please share which plugin you're switching to"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:766
+#: includes/admin/feedback/class-pp-tracking.php:816
 msgid "I no longer need the plugin"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:770
+#: includes/admin/feedback/class-pp-tracking.php:820
 msgid "It's a temporary deactivation"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:774
+#: includes/admin/feedback/class-pp-tracking.php:824
 msgid "Missing a feature I need"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:775
+#: includes/admin/feedback/class-pp-tracking.php:825
 msgid "What feature were you looking for?"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:778
+#: includes/admin/feedback/class-pp-tracking.php:828
 msgid "Other"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:779
+#: includes/admin/feedback/class-pp-tracking.php:829
 msgid "Please share your reason"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:798
-msgid "Unauthorized."
-msgstr ""
-
-#: includes/admin/feedback/class-pp-tracking.php:824
+#: includes/admin/feedback/class-pp-tracking.php:874
 msgid "Failed to send feedback"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:827
+#: includes/admin/feedback/class-pp-tracking.php:877
 msgid "Feedback submitted successfully"
 msgstr ""
 
-#: includes/admin/feedback/class-pp-tracking.php:891
+#: includes/admin/feedback/class-pp-tracking.php:941
 msgid "No feedback API URL configured"
 msgstr ""
 
