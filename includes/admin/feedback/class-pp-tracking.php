@@ -24,6 +24,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 class UsageTracking {
+
+	/**
+	 * Plugin configuration.
+	 *
+	 * @var array
+	 */
 	private $config;
 
 	/**
@@ -35,7 +41,7 @@ class UsageTracking {
 	private $data;
 
 	/**
-	 * Remote site.
+	 * Remote site URL.
 	 *
 	 * @var string $site_url
 	 * @access private
@@ -104,7 +110,7 @@ class UsageTracking {
 	}
 
 	/**
-	 * Enqueue scripts and styles.
+	 * Enqueue admin scripts and styles.
 	 */
 	public function enqueue_scripts() {
 		$screen = get_current_screen();
@@ -148,7 +154,7 @@ class UsageTracking {
 	}
 
 	/**
-	 * Hook some notices and perform actions.
+	 * Hook notices and perform actions.
 	 *
 	 * @access public
 	 */
@@ -168,6 +174,7 @@ class UsageTracking {
 					update_option( 'pp_do_not_upgrade_to_pro', 'yes' );
 					break;
 			}
+
 			wp_safe_redirect( esc_url_raw( remove_query_arg( [ 'pp_admin_action', '_nonce' ] ) ) );
 			exit;
 		}
@@ -466,25 +473,12 @@ class UsageTracking {
 		}
 
 		$maybe_later_date = get_option( 'pp_review_later_date' );
+		$install_date     = get_option( 'pp_install_date' );
 
-		if ( ! empty( $maybe_later_date ) ) {
-			$diff = round( ( time() - strtotime( $maybe_later_date ) ) / 24 / 60 / 60 );
-
-			if ( $diff < 7 ) {
-				return;
-			}
-		} else {
-			$install_date = get_option( 'pp_install_date' );
-
-			if ( ! $install_date || empty( $install_date ) ) {
-				return;
-			}
-
-			$diff = round( ( time() - strtotime( $install_date ) ) / 24 / 60 / 60 );
-
-			if ( $diff < 7 ) {
-				return;
-			}
+		// Exit if review notice shown before or within 7 days.
+		$date_to_check = ! empty( $maybe_later_date ) ? $maybe_later_date : $install_date;
+		if ( empty( $date_to_check ) || ( time() - strtotime( $date_to_check ) ) < WEEK_IN_SECONDS ) {
+			return;
 		}
 
 		$nonce = wp_create_nonce( 'pp_admin_notice_nonce' );
@@ -688,13 +682,7 @@ class UsageTracking {
 		(function($){
 			$(document).on('click', '.pp--notice.is-dismissible .notice-dismiss', function(){
 				const $notice = $(this).closest('.pp--notice');
-				let noticeType = 'review';
-
-				if ($notice.hasClass('pp-upgrade-notice')) {
-					noticeType = 'upgrade';
-				} else if ($notice.hasClass('pp-review-notice')) {
-					noticeType = 'review';
-				}
+				let noticeType = $notice.hasClass('pp-upgrade-notice') ? 'upgrade' : 'review';
 
 				$.post(ajaxurl, {
 					action: 'pp_dismiss_admin_notice',
