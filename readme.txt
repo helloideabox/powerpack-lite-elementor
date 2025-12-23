@@ -240,6 +240,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.9.9 - December 23, 2025 =
+* 	Development: Tested compatibility with Elementor 3.34.0
+
 = 2.9.8 - December 4, 2025 =
 * 	Enhancement: Updated compatibility with WordPress 6.9
 

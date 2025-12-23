@@ -1,3 +1,7 @@
+== 2.9.9 ==
+Release date: 
+* Development: Tested compatibility with Elementor 3.34.0
+
 == 2.9.8 ==
 Release date: December 4, 2025
 * Enhancement: Updated compatibility with WordPress 6.9
