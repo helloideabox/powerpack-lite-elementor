@@ -1,6 +1,6 @@
 == 2.9.9 ==
 Release date: 
-* Development: Tested compatibility with Elementor 3.34.0
+* Development: Tested compatibility with Elementor 3.35.0
 
 == 2.9.8 ==
 Release date: December 4, 2025
