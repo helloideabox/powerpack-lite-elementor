@@ -620,7 +620,8 @@ class Fluent_Forms extends Powerpack_Widget {
 					],
 				],
 				'selectors'         => [
-					'{{WRAPPER}} .pp-fluent-forms .ff-el-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-fluent-forms .ff-el-group select' => 'width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .pp-fluent-forms .ff-el-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-fluent-forms .ff-el-group select' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-fluent-forms .fluentform .frm-fluent-form .ff-el-group .ff_input-group > input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):not(:first-child)' => 'width: auto;',
 				],
 			]
 		);
@@ -1529,7 +1530,7 @@ class Fluent_Forms extends Powerpack_Widget {
 
 		if ( function_exists( 'wpFluentForm' ) ) {
 			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
-				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'contact-form' ) ); ?>>
+				<div <?php $this->print_render_attribute_string( 'contact-form' ); ?>>
 					<?php if ( 'yes' === $settings['custom_title_description'] ) { ?>
 						<div class="pp-fluent-forms-heading">
 							<?php if ( $settings['form_title_custom'] ) { ?>
