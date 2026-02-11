@@ -1,15 +1,15 @@
-# Copyright (C) 2025 PowerPack Addons Team - IdeaBox Creations
+# Copyright (C) 2026 PowerPack Addons Team - IdeaBox Creations
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: PowerPack Lite for Elementor 2.9.8\n"
+"Project-Id-Version: PowerPack Lite for Elementor 2.9.9\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/powerpack-lite-for-elementor\n"
-"POT-Creation-Date: 2025-12-04 01:43:31+00:00\n"
+"POT-Creation-Date: 2026-02-11 02:09:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -174,25 +174,25 @@ msgstr ""
 msgid "Settings updated!"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:161
+#: classes/class-pp-admin-settings.php:165
 msgid "Elements"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:168
+#: classes/class-pp-admin-settings.php:172
 #: includes/admin/admin-settings-extensions.php:7
 msgid "Extensions"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:175
+#: classes/class-pp-admin-settings.php:179
 #: includes/admin/admin-settings-integration.php:7
 msgid "Integration"
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:212
+#: classes/class-pp-admin-settings.php:216
 msgid "Setting page file could not be located."
 msgstr ""
 
-#: classes/class-pp-admin-settings.php:234
+#: classes/class-pp-admin-settings.php:238
 msgid "You do not have permission to view this setting."
 msgstr ""
 
@@ -1391,7 +1391,7 @@ msgstr ""
 #: modules/display-conditions/module.php:360
 #: modules/display-conditions/module.php:374
 #: modules/fluent-forms/widgets/fluent-forms.php:125
-#: modules/fluent-forms/widgets/fluent-forms.php:881
+#: modules/fluent-forms/widgets/fluent-forms.php:882
 #: modules/formidable-forms/widgets/formidable-forms.php:130
 #: modules/formidable-forms/widgets/formidable-forms.php:1041
 #: modules/gravity-forms/widgets/gravity-forms.php:187
@@ -1521,7 +1521,7 @@ msgstr ""
 #: modules/display-conditions/module.php:361
 #: modules/display-conditions/module.php:375
 #: modules/fluent-forms/widgets/fluent-forms.php:126
-#: modules/fluent-forms/widgets/fluent-forms.php:882
+#: modules/fluent-forms/widgets/fluent-forms.php:883
 #: modules/formidable-forms/widgets/formidable-forms.php:131
 #: modules/formidable-forms/widgets/formidable-forms.php:1042
 #: modules/gravity-forms/widgets/gravity-forms.php:188
@@ -1658,8 +1658,8 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1276
 #: modules/flipbox/widgets/flipbox.php:1365
 #: modules/flipbox/widgets/flipbox.php:1447
-#: modules/fluent-forms/widgets/fluent-forms.php:928
-#: modules/fluent-forms/widgets/fluent-forms.php:1080
+#: modules/fluent-forms/widgets/fluent-forms.php:929
+#: modules/fluent-forms/widgets/fluent-forms.php:1081
 #: modules/formidable-forms/widgets/formidable-forms.php:1100
 #: modules/formidable-forms/widgets/formidable-forms.php:1229
 #: modules/gravity-forms/widgets/gravity-forms.php:1284
@@ -1895,11 +1895,11 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:394
 #: modules/fluent-forms/widgets/fluent-forms.php:458
 #: modules/fluent-forms/widgets/fluent-forms.php:545
-#: modules/fluent-forms/widgets/fluent-forms.php:803
-#: modules/fluent-forms/widgets/fluent-forms.php:955
-#: modules/fluent-forms/widgets/fluent-forms.php:1229
-#: modules/fluent-forms/widgets/fluent-forms.php:1384
-#: modules/fluent-forms/widgets/fluent-forms.php:1439
+#: modules/fluent-forms/widgets/fluent-forms.php:804
+#: modules/fluent-forms/widgets/fluent-forms.php:956
+#: modules/fluent-forms/widgets/fluent-forms.php:1230
+#: modules/fluent-forms/widgets/fluent-forms.php:1385
+#: modules/fluent-forms/widgets/fluent-forms.php:1440
 #: modules/formidable-forms/widgets/formidable-forms.php:391
 #: modules/formidable-forms/widgets/formidable-forms.php:440
 #: modules/formidable-forms/widgets/formidable-forms.php:510
@@ -2053,9 +2053,9 @@ msgstr ""
 #: modules/counter/widgets/counter.php:653
 #: modules/flipbox/widgets/flipbox.php:1579
 #: modules/fluent-forms/widgets/fluent-forms.php:557
-#: modules/fluent-forms/widgets/fluent-forms.php:754
-#: modules/fluent-forms/widgets/fluent-forms.php:1242
-#: modules/fluent-forms/widgets/fluent-forms.php:1472
+#: modules/fluent-forms/widgets/fluent-forms.php:755
+#: modules/fluent-forms/widgets/fluent-forms.php:1243
+#: modules/fluent-forms/widgets/fluent-forms.php:1473
 #: modules/formidable-forms/widgets/formidable-forms.php:582
 #: modules/formidable-forms/widgets/formidable-forms.php:694
 #: modules/formidable-forms/widgets/formidable-forms.php:906
@@ -2172,10 +2172,10 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:538
 #: modules/flipbox/widgets/flipbox.php:1592
 #: modules/fluent-forms/widgets/fluent-forms.php:567
-#: modules/fluent-forms/widgets/fluent-forms.php:1026
-#: modules/fluent-forms/widgets/fluent-forms.php:1053
-#: modules/fluent-forms/widgets/fluent-forms.php:1252
-#: modules/fluent-forms/widgets/fluent-forms.php:1482
+#: modules/fluent-forms/widgets/fluent-forms.php:1027
+#: modules/fluent-forms/widgets/fluent-forms.php:1054
+#: modules/fluent-forms/widgets/fluent-forms.php:1253
+#: modules/fluent-forms/widgets/fluent-forms.php:1483
 #: modules/formidable-forms/widgets/formidable-forms.php:592
 #: modules/formidable-forms/widgets/formidable-forms.php:705
 #: modules/formidable-forms/widgets/formidable-forms.php:1175
@@ -2297,8 +2297,8 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1071
 #: modules/flipbox/widgets/flipbox.php:1201
 #: modules/flipbox/widgets/flipbox.php:1622
-#: modules/fluent-forms/widgets/fluent-forms.php:688
-#: modules/fluent-forms/widgets/fluent-forms.php:1264
+#: modules/fluent-forms/widgets/fluent-forms.php:689
+#: modules/fluent-forms/widgets/fluent-forms.php:1265
 #: modules/formidable-forms/widgets/formidable-forms.php:604
 #: modules/formidable-forms/widgets/formidable-forms.php:818
 #: modules/formidable-forms/widgets/formidable-forms.php:1392
@@ -3297,8 +3297,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1811
 #: modules/flipbox/widgets/flipbox.php:1537
 #: modules/fluent-forms/widgets/fluent-forms.php:513
-#: modules/fluent-forms/widgets/fluent-forms.php:918
-#: modules/fluent-forms/widgets/fluent-forms.php:1197
+#: modules/fluent-forms/widgets/fluent-forms.php:919
+#: modules/fluent-forms/widgets/fluent-forms.php:1198
 #: modules/formidable-forms/widgets/formidable-forms.php:662
 #: modules/formidable-forms/widgets/formidable-forms.php:1090
 #: modules/formidable-forms/widgets/formidable-forms.php:1338
@@ -3505,7 +3505,7 @@ msgstr ""
 #: modules/charts/widgets/charts.php:1841
 #: modules/charts/widgets/charts.php:1944
 #: modules/contact-form-seven/widgets/contact-form-7.php:821
-#: modules/fluent-forms/widgets/fluent-forms.php:966
+#: modules/fluent-forms/widgets/fluent-forms.php:967
 #: modules/formidable-forms/widgets/formidable-forms.php:1126
 #: modules/gravity-forms/widgets/gravity-forms.php:1299
 #: modules/info-box/widgets/info-box-carousel.php:1685
@@ -3535,8 +3535,8 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1604
 #: modules/content-ticker/widgets/content-ticker.php:1898
 #: modules/flipbox/widgets/flipbox.php:1725
-#: modules/fluent-forms/widgets/fluent-forms.php:988
-#: modules/fluent-forms/widgets/fluent-forms.php:1337
+#: modules/fluent-forms/widgets/fluent-forms.php:989
+#: modules/fluent-forms/widgets/fluent-forms.php:1338
 #: modules/formidable-forms/widgets/formidable-forms.php:1148
 #: modules/formidable-forms/widgets/formidable-forms.php:1478
 #: modules/gravity-forms/widgets/gravity-forms.php:1095
@@ -3612,7 +3612,7 @@ msgstr ""
 #: modules/content-ticker/widgets/content-ticker.php:1587
 #: modules/content-ticker/widgets/content-ticker.php:1867
 #: modules/flipbox/widgets/flipbox.php:1685
-#: modules/fluent-forms/widgets/fluent-forms.php:1306
+#: modules/fluent-forms/widgets/fluent-forms.php:1307
 #: modules/formidable-forms/widgets/formidable-forms.php:1447
 #: modules/gravity-forms/widgets/gravity-forms.php:1678
 #: modules/gravity-forms/widgets/gravity-forms.php:1899
@@ -3732,13 +3732,13 @@ msgstr ""
 #: modules/fluent-forms/widgets/fluent-forms.php:378
 #: modules/fluent-forms/widgets/fluent-forms.php:446
 #: modules/fluent-forms/widgets/fluent-forms.php:532
-#: modules/fluent-forms/widgets/fluent-forms.php:741
-#: modules/fluent-forms/widgets/fluent-forms.php:791
-#: modules/fluent-forms/widgets/fluent-forms.php:849
-#: modules/fluent-forms/widgets/fluent-forms.php:1204
-#: modules/fluent-forms/widgets/fluent-forms.php:1313
-#: modules/fluent-forms/widgets/fluent-forms.php:1368
-#: modules/fluent-forms/widgets/fluent-forms.php:1447
+#: modules/fluent-forms/widgets/fluent-forms.php:742
+#: modules/fluent-forms/widgets/fluent-forms.php:792
+#: modules/fluent-forms/widgets/fluent-forms.php:850
+#: modules/fluent-forms/widgets/fluent-forms.php:1205
+#: modules/fluent-forms/widgets/fluent-forms.php:1314
+#: modules/fluent-forms/widgets/fluent-forms.php:1369
+#: modules/fluent-forms/widgets/fluent-forms.php:1448
 #: modules/formidable-forms/widgets/formidable-forms.php:378
 #: modules/formidable-forms/widgets/formidable-forms.php:427
 #: modules/formidable-forms/widgets/formidable-forms.php:496
@@ -3896,10 +3896,10 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1547
 #: modules/flipbox/widgets/flipbox.php:1695
 #: modules/fluent-forms/widgets/fluent-forms.php:520
-#: modules/fluent-forms/widgets/fluent-forms.php:729
-#: modules/fluent-forms/widgets/fluent-forms.php:1216
-#: modules/fluent-forms/widgets/fluent-forms.php:1325
-#: modules/fluent-forms/widgets/fluent-forms.php:1459
+#: modules/fluent-forms/widgets/fluent-forms.php:730
+#: modules/fluent-forms/widgets/fluent-forms.php:1217
+#: modules/fluent-forms/widgets/fluent-forms.php:1326
+#: modules/fluent-forms/widgets/fluent-forms.php:1460
 #: modules/formidable-forms/widgets/formidable-forms.php:669
 #: modules/formidable-forms/widgets/formidable-forms.php:881
 #: modules/formidable-forms/widgets/formidable-forms.php:1345
@@ -4124,7 +4124,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1092
 #: modules/fluent-forms/widgets/fluent-forms.php:284
 #: modules/fluent-forms/widgets/fluent-forms.php:493
-#: modules/fluent-forms/widgets/fluent-forms.php:1133
+#: modules/fluent-forms/widgets/fluent-forms.php:1134
 #: modules/formidable-forms/widgets/formidable-forms.php:351
 #: modules/formidable-forms/widgets/formidable-forms.php:551
 #: modules/formidable-forms/widgets/formidable-forms.php:642
@@ -4239,8 +4239,8 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1332
 #: modules/flipbox/widgets/flipbox.php:1414
 #: modules/flipbox/widgets/flipbox.php:1511
-#: modules/fluent-forms/widgets/fluent-forms.php:701
-#: modules/fluent-forms/widgets/fluent-forms.php:811
+#: modules/fluent-forms/widgets/fluent-forms.php:702
+#: modules/fluent-forms/widgets/fluent-forms.php:812
 #: modules/formidable-forms/widgets/formidable-forms.php:831
 #: modules/formidable-forms/widgets/formidable-forms.php:967
 #: modules/gravity-forms/widgets/gravity-forms.php:562
@@ -4300,7 +4300,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:829
 #: modules/flipbox/widgets/flipbox.php:1246
 #: modules/flipbox/widgets/flipbox.php:1492
-#: modules/fluent-forms/widgets/fluent-forms.php:890
+#: modules/fluent-forms/widgets/fluent-forms.php:891
 #: modules/formidable-forms/widgets/formidable-forms.php:1050
 #: modules/gravity-forms/widgets/gravity-forms.php:1223
 #: modules/hotspots/widgets/hotspots.php:437
@@ -4354,7 +4354,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:991
 #: modules/content-ticker/widgets/content-ticker.php:154
 #: modules/content-ticker/widgets/content-ticker.php:860
-#: modules/fluent-forms/widgets/fluent-forms.php:1160
+#: modules/fluent-forms/widgets/fluent-forms.php:1161
 #: modules/formidable-forms/widgets/formidable-forms.php:1301
 #: modules/gravity-forms/widgets/gravity-forms.php:1514
 #: modules/gravity-forms/widgets/gravity-forms.php:1753
@@ -4810,7 +4810,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1083
 #: modules/fluent-forms/widgets/fluent-forms.php:276
 #: modules/fluent-forms/widgets/fluent-forms.php:485
-#: modules/fluent-forms/widgets/fluent-forms.php:1125
+#: modules/fluent-forms/widgets/fluent-forms.php:1126
 #: modules/formidable-forms/widgets/formidable-forms.php:343
 #: modules/formidable-forms/widgets/formidable-forms.php:543
 #: modules/formidable-forms/widgets/formidable-forms.php:634
@@ -4879,7 +4879,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1088
 #: modules/fluent-forms/widgets/fluent-forms.php:280
 #: modules/fluent-forms/widgets/fluent-forms.php:489
-#: modules/fluent-forms/widgets/fluent-forms.php:1129
+#: modules/fluent-forms/widgets/fluent-forms.php:1130
 #: modules/formidable-forms/widgets/formidable-forms.php:347
 #: modules/formidable-forms/widgets/formidable-forms.php:547
 #: modules/formidable-forms/widgets/formidable-forms.php:638
@@ -4969,7 +4969,7 @@ msgstr ""
 #: modules/flipbox/widgets/flipbox.php:1096
 #: modules/fluent-forms/widgets/fluent-forms.php:288
 #: modules/fluent-forms/widgets/fluent-forms.php:497
-#: modules/fluent-forms/widgets/fluent-forms.php:1137
+#: modules/fluent-forms/widgets/fluent-forms.php:1138
 #: modules/formidable-forms/widgets/formidable-forms.php:355
 #: modules/formidable-forms/widgets/formidable-forms.php:555
 #: modules/formidable-forms/widgets/formidable-forms.php:646
@@ -6016,7 +6016,7 @@ msgid "Grid Line Width"
 msgstr ""
 
 #: modules/charts/widgets/charts.php:1643
-#: modules/fluent-forms/widgets/fluent-forms.php:943
+#: modules/fluent-forms/widgets/fluent-forms.php:944
 #: modules/formidable-forms/widgets/formidable-forms.php:1115
 msgid "Label Color"
 msgstr ""
@@ -6027,7 +6027,7 @@ msgstr ""
 
 #: modules/charts/widgets/charts.php:1774
 #: modules/contact-form-seven/widgets/contact-form-7.php:757
-#: modules/fluent-forms/widgets/fluent-forms.php:879
+#: modules/fluent-forms/widgets/fluent-forms.php:880
 #: modules/formidable-forms/widgets/formidable-forms.php:1039
 #: modules/gravity-forms/widgets/gravity-forms.php:1212
 #: modules/ninja-forms/widgets/ninja-forms.php:888
@@ -6215,7 +6215,7 @@ msgstr ""
 #: modules/contact-form-seven/widgets/contact-form-7.php:196
 #: modules/contact-form-seven/widgets/contact-form-7.php:1190
 #: modules/fluent-forms/widgets/fluent-forms.php:192
-#: modules/fluent-forms/widgets/fluent-forms.php:1360
+#: modules/fluent-forms/widgets/fluent-forms.php:1361
 #: modules/formidable-forms/widgets/formidable-forms.php:228
 #: modules/formidable-forms/widgets/formidable-forms.php:1504
 #: modules/gravity-forms/widgets/gravity-forms.php:295
@@ -6285,7 +6285,7 @@ msgid "Input Width"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:506
-#: modules/fluent-forms/widgets/fluent-forms.php:650
+#: modules/fluent-forms/widgets/fluent-forms.php:651
 #: modules/formidable-forms/widgets/formidable-forms.php:780
 #: modules/gravity-forms/widgets/gravity-forms.php:663
 #: modules/ninja-forms/widgets/ninja-forms.php:648
@@ -6294,7 +6294,7 @@ msgid "Textarea Width"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:573
-#: modules/fluent-forms/widgets/fluent-forms.php:722
+#: modules/fluent-forms/widgets/fluent-forms.php:723
 #: modules/formidable-forms/widgets/formidable-forms.php:874
 #: modules/gravity-forms/widgets/gravity-forms.php:749
 #: modules/ninja-forms/widgets/ninja-forms.php:739
@@ -6304,7 +6304,7 @@ msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:692
 #: modules/fluent-forms/widgets/fluent-forms.php:172
-#: modules/fluent-forms/widgets/fluent-forms.php:838
+#: modules/fluent-forms/widgets/fluent-forms.php:839
 #: modules/formidable-forms/widgets/formidable-forms.php:207
 #: modules/formidable-forms/widgets/formidable-forms.php:996
 #: modules/gravity-forms/widgets/gravity-forms.php:263
@@ -6321,7 +6321,7 @@ msgid "Show Placeholder"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:749
-#: modules/fluent-forms/widgets/fluent-forms.php:871
+#: modules/fluent-forms/widgets/fluent-forms.php:872
 #: modules/formidable-forms/widgets/formidable-forms.php:1031
 #: modules/gravity-forms/widgets/gravity-forms.php:1204
 #: modules/ninja-forms/widgets/ninja-forms.php:880
@@ -6330,7 +6330,7 @@ msgid "Radio & Checkbox"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:858
-#: modules/fluent-forms/widgets/fluent-forms.php:1014
+#: modules/fluent-forms/widgets/fluent-forms.php:1015
 #: modules/formidable-forms/widgets/formidable-forms.php:1163
 #: modules/gravity-forms/widgets/gravity-forms.php:1336
 #: modules/ninja-forms/widgets/ninja-forms.php:989
@@ -6339,7 +6339,7 @@ msgid "Checkbox"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:884
-#: modules/fluent-forms/widgets/fluent-forms.php:1041
+#: modules/fluent-forms/widgets/fluent-forms.php:1042
 #: modules/formidable-forms/widgets/formidable-forms.php:1190
 #: modules/gravity-forms/widgets/gravity-forms.php:1363
 #: modules/ninja-forms/widgets/ninja-forms.php:1015
@@ -6348,7 +6348,7 @@ msgid "Radio Buttons"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:912
-#: modules/fluent-forms/widgets/fluent-forms.php:1070
+#: modules/fluent-forms/widgets/fluent-forms.php:1071
 #: modules/formidable-forms/widgets/formidable-forms.php:1219
 #: modules/gravity-forms/widgets/gravity-forms.php:1392
 #: modules/ninja-forms/widgets/ninja-forms.php:1043
@@ -6357,7 +6357,7 @@ msgid "Checked"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:948
-#: modules/fluent-forms/widgets/fluent-forms.php:1117
+#: modules/fluent-forms/widgets/fluent-forms.php:1118
 #: modules/formidable-forms/widgets/formidable-forms.php:1258
 #: modules/gravity-forms/widgets/gravity-forms.php:1465
 #: modules/ninja-forms/widgets/ninja-forms.php:1079
@@ -6373,7 +6373,7 @@ msgstr ""
 #: modules/counter/widgets/counter.php:1094
 #: modules/divider/widgets/divider.php:282
 #: modules/divider/widgets/divider.php:930
-#: modules/fluent-forms/widgets/fluent-forms.php:1155
+#: modules/fluent-forms/widgets/fluent-forms.php:1156
 #: modules/formidable-forms/widgets/formidable-forms.php:1296
 #: modules/formidable-forms/widgets/formidable-forms.php:1310
 #: modules/gravity-forms/widgets/gravity-forms.php:1508
@@ -6412,7 +6412,7 @@ msgid "Width"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:990
-#: modules/fluent-forms/widgets/fluent-forms.php:1159
+#: modules/fluent-forms/widgets/fluent-forms.php:1160
 #: modules/formidable-forms/widgets/formidable-forms.php:1300
 #: modules/gravity-forms/widgets/gravity-forms.php:1513
 #: modules/gravity-forms/widgets/gravity-forms.php:1752
@@ -6423,7 +6423,7 @@ msgid "Full Width"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:1093
-#: modules/fluent-forms/widgets/fluent-forms.php:1276
+#: modules/fluent-forms/widgets/fluent-forms.php:1277
 #: modules/formidable-forms/widgets/formidable-forms.php:1404
 #: modules/gravity-forms/widgets/gravity-forms.php:1629
 #: modules/gravity-forms/widgets/gravity-forms.php:1856
@@ -6483,7 +6483,7 @@ msgid "Margin"
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:1468
-#: modules/fluent-forms/widgets/fluent-forms.php:1551
+#: modules/fluent-forms/widgets/fluent-forms.php:1552
 #: modules/formidable-forms/widgets/formidable-forms.php:1853
 #: modules/gravity-forms/widgets/gravity-forms.php:2487
 #: modules/ninja-forms/widgets/ninja-forms.php:1573
@@ -6493,7 +6493,7 @@ msgid ""
 msgstr ""
 
 #: modules/contact-form-seven/widgets/contact-form-7.php:1472
-#: modules/fluent-forms/widgets/fluent-forms.php:1554
+#: modules/fluent-forms/widgets/fluent-forms.php:1555
 #: modules/formidable-forms/widgets/formidable-forms.php:1857
 #: modules/gravity-forms/widgets/gravity-forms.php:2491
 #: modules/ninja-forms/widgets/ninja-forms.php:1577
@@ -7961,7 +7961,7 @@ msgstr ""
 msgid "Custom Title & Description"
 msgstr ""
 
-#: modules/fluent-forms/widgets/fluent-forms.php:631
+#: modules/fluent-forms/widgets/fluent-forms.php:632
 #: modules/formidable-forms/widgets/formidable-forms.php:761
 #: modules/gravity-forms/widgets/gravity-forms.php:644
 #: modules/ninja-forms/widgets/ninja-forms.php:629
@@ -7969,7 +7969,7 @@ msgstr ""
 msgid "Input Height"
 msgstr ""
 
-#: modules/fluent-forms/widgets/fluent-forms.php:669
+#: modules/fluent-forms/widgets/fluent-forms.php:670
 #: modules/formidable-forms/widgets/formidable-forms.php:799
 #: modules/gravity-forms/widgets/gravity-forms.php:682
 #: modules/ninja-forms/widgets/ninja-forms.php:667
@@ -7977,7 +7977,7 @@ msgstr ""
 msgid "Textarea Height"
 msgstr ""
 
-#: modules/fluent-forms/widgets/fluent-forms.php:783
+#: modules/fluent-forms/widgets/fluent-forms.php:784
 #: modules/formidable-forms/widgets/formidable-forms.php:939
 #: modules/gravity-forms/widgets/gravity-forms.php:940
 #: modules/ninja-forms/widgets/ninja-forms.php:789
@@ -7985,24 +7985,24 @@ msgstr ""
 msgid "Field Description"
 msgstr ""
 
-#: modules/fluent-forms/widgets/fluent-forms.php:1169
+#: modules/fluent-forms/widgets/fluent-forms.php:1170
 msgid "Custom Width"
 msgstr ""
 
-#: modules/fluent-forms/widgets/fluent-forms.php:1395
+#: modules/fluent-forms/widgets/fluent-forms.php:1396
 #: modules/gravity-forms/widgets/gravity-forms.php:2271
 #: modules/ninja-forms/widgets/ninja-forms.php:1472
 #: modules/wpforms/widgets/wpforms.php:1606
 msgid "Error Field Input Border Color"
 msgstr ""
 
-#: modules/fluent-forms/widgets/fluent-forms.php:1407
+#: modules/fluent-forms/widgets/fluent-forms.php:1408
 #: modules/gravity-forms/widgets/gravity-forms.php:2286
 #: modules/wpforms/widgets/wpforms.php:1621
 msgid "Error Field Input Border Width"
 msgstr ""
 
-#: modules/fluent-forms/widgets/fluent-forms.php:1430
+#: modules/fluent-forms/widgets/fluent-forms.php:1431
 #: modules/formidable-forms/widgets/formidable-forms.php:1708
 #: modules/wpforms/widgets/wpforms.php:1645
 msgid "Confirmation Message"
