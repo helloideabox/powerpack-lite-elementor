@@ -1,5 +1,5 @@
 == 2.9.9 ==
-Release date: 
+Release date: February 11, 2026
 * Fix: Counter - Ending number was using default value when 0 was used
 * Fix: Fluent Forms - Fixed width issue when prefix is set
 * Development: Tested compatibility with Elementor 3.35.0

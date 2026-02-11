@@ -240,6 +240,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.9.9 - February 11, 2026 =
+* 	Fix: Counter - Ending number was using default value when 0 was used
+* 	Fix: Fluent Forms - Fixed width issue when prefix is set
+* 	Development: Tested compatibility with Elementor 3.35.0
+
 = 2.9.9 - December 23, 2025 =
 * 	Development: Tested compatibility with Elementor 3.34.0
 
