@@ -1,5 +1,6 @@
 == 2.9.9 ==
 Release date: 
+* Fix: Counter - Ending number was using default value when 0 was used
 * Development: Tested compatibility with Elementor 3.35.0
 
 == 2.9.8 ==

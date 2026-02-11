@@ -1395,8 +1395,8 @@ class Counter extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		$starting_number = ( $settings['starting_number'] ) ? $settings['starting_number'] : 0;
-		$ending_number = ( $settings['ending_number'] ) ? $settings['ending_number'] : 250;
+		$starting_number = ( '' !== $settings['starting_number'] ) ? (int) $settings['starting_number'] : 0;
+		$ending_number = ( '' !== $settings['ending_number'] ) ? (int) $settings['ending_number'] : 250;
 		$counter_speed = ( $settings['counter_speed']['size'] ) ? $settings['counter_speed']['size'] : 1500;
 
 		$this->add_render_attribute([
