@@ -483,7 +483,7 @@ class UsageTracking {
 
 		$nonce = wp_create_nonce( 'pp_admin_notice_nonce' );
 
-		$review_url = 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/reviews/?filter=5#new-post';
+		$review_url = 'https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post';
 		$maybe_later_url = add_query_arg(
 			array(
 				'pp_admin_action' 	=> 'review_maybe_later',
