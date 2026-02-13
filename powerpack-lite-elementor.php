@@ -8,7 +8,7 @@
  * Author URI: http://ideabox.io/
  * License: GNU General Public License v2.0
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: powerpack
+ * Text Domain: powerpack-lite-for-elementor
  * Domain Path: /languages
  * Elementor tested up to: 3.35.0
  * Elementor Pro tested up to: 3.35.0
@@ -74,7 +74,17 @@ function pp_elements_lite_fail_load() {
 		}
 
 		$activation_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
-        $message = sprintf( __( 'PowerPack requires %1$s"Elementor"%2$s plugin to be installed and activated. Please install Elementor to continue.', 'powerpack-lite-for-elementor' ), '<strong>', '</strong>' );
+		$message = sprintf(
+			/* translators: 1: Opening strong tag, 2: Closing strong tag. */
+			__(
+				'PowerPack requires the %1$sElementor%2$s plugin to be installed and activated. Please install Elementor to continue.',
+				'powerpack-lite-for-elementor'
+			),
+			'<strong>',
+			'</strong>'
+		);
+
+		$message = wp_kses_post( $message );
 		$button_text = __( 'Install Elementor', 'powerpack-lite-for-elementor' );
 	}
 
@@ -94,8 +104,15 @@ function pp_elements_lite_fail_load_out_of_date() {
     if ( ! current_user_can( 'update_plugins' ) ) {
 		return;
 	}
-    
-	$message = __( 'PowerPack requires Elementor version at least ' . POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED . '. Please update Elementor to continue.', 'powerpack-lite-for-elementor' );
+
+	$message = sprintf(
+		/* translators: %s: Minimum required Elementor version number. */
+		esc_html__(
+			'PowerPack requires Elementor version at least %s. Please update Elementor to continue.',
+			'powerpack-lite-for-elementor'
+		),
+		POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED
+	);
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 }
@@ -108,7 +125,14 @@ function pp_elements_lite_fail_load_out_of_date() {
  *
  */
 function pp_elements_lite_fail_php() {
-	$message = __( 'PowerPack requires PHP version ' . POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED .'+ to work properly. The plugins is deactivated for now.', 'powerpack-lite-for-elementor' );
+	$message = sprintf(
+		/* translators: %s: Minimum required PHP version number. */
+		esc_html__(
+			'PowerPack requires PHP version %s+ to work properly. The plugin is deactivated for now.',
+			'powerpack-lite-for-elementor'
+		),
+		POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED
+	);
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 
@@ -123,16 +147,6 @@ function pp_elements_lite_fail_php() {
  */
 function pp_elements_lite_deactivate() {
 	deactivate_plugins( plugin_basename( __FILE__ ) );
-}
-
-/**
- * Load theme textdomain
- *
- * @since 1.0
- *
- */
-function pp_elements_lite_load_plugin_textdomain() {
-	load_plugin_textdomain( 'powerpack', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 
 add_action( 'plugins_loaded', 'pp_elements_lite_init' );
@@ -157,8 +171,6 @@ function pp_elements_lite_init() {
 		add_action( 'admin_init', 'pp_elements_lite_deactivate' );
 		return;
 	}
-    
-    add_action( 'init', 'pp_elements_lite_load_plugin_textdomain' );
 
 	$is_plugin_activated = get_option( 'pp_plugin_activated' );
 	if ( current_user_can('activate_plugins') && 'yes' !== $is_plugin_activated ) {

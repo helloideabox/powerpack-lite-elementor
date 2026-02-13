@@ -793,14 +793,26 @@ class Content_Ticker extends Powerpack_Widget {
 			$this->add_control(
 				$post_type_slug . '_filter_type',
 				array(
-					'label'       => sprintf( __( '%s Filter Type', 'powerpack-lite-for-elementor' ), $post_type_label ),
+					'label'       => sprintf(
+						/* translators: %s: Post type label. */
+						esc_html__( '%s Filter Type', 'powerpack-lite-for-elementor' ),
+						esc_html( $post_type_label )
+					),
 					'type'        => Controls_Manager::SELECT,
 					'default'     => 'post__not_in',
 					'label_block' => true,
 					'separator'   => 'before',
 					'options'     => array(
-						'post__in'     => sprintf( __( 'Include %s', 'powerpack-lite-for-elementor' ), $post_type_label ),
-						'post__not_in' => sprintf( __( 'Exclude %s', 'powerpack-lite-for-elementor' ), $post_type_label ),
+						'post__in'     => sprintf(
+							/* translators: %s: Post type label. */
+							esc_html__( 'Include %s', 'powerpack-lite-for-elementor' ),
+							esc_html( $post_type_label )
+						),
+						'post__not_in' => sprintf(
+							/* translators: %s: Post type label. */
+							esc_html__( 'Exclude %s', 'powerpack-lite-for-elementor' ),
+							esc_html( $post_type_label )
+						),
 					),
 					'condition'   => array(
 						'source'    => 'posts',

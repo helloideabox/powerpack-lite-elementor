@@ -149,7 +149,12 @@ class Charts extends Powerpack_Widget {
 			[
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This chart type is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => PP_Helper::get_pro_feature_notice(
+					esc_html__(
+						'This chart type is available in PowerPack Pro.',
+						'powerpack-lite-for-elementor'
+					)
+				),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				'condition'       => [
 					'chart_type!' => [ 'line', 'bar' ],
@@ -2087,7 +2092,14 @@ class Charts extends Powerpack_Widget {
 		$chart_type = $this->get_chart_type();
 
 		if ( 'radar' === $chart_type || 'pie' === $chart_type || 'doughnut' === $chart_type || 'polarArea' === $chart_type || 'bubble' === $chart_type ) {
-			$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose one of the available chart types fron the Chart Type option.', 'powerpack-lite-for-elementor' ), esc_attr( $this->get_title() ) );
+			$placeholder = sprintf(
+				/* translators: %s: Widget title. */
+				esc_html__(
+					'Click here to edit the "%1$s" settings and choose one of the available chart types from the Chart Type option.',
+					'powerpack-lite-for-elementor'
+				),
+				esc_html( $this->get_title() )
+			);
 
 			echo esc_attr( $this->render_editor_placeholder(
 				[

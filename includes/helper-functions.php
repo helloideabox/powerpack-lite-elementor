@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 // Get all elementor page templates
 function pp_elements_lite_get_page_templates( $type = '' ) {
 	$args = [

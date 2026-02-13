@@ -280,6 +280,51 @@ class PP_Helper {
 	}
 
 	/**
+	 * Get upgrade notice HTML.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return string
+	 */
+	public static function get_upgrade_notice() {
+
+		$upgrade_url = 'https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-widget-upgrade-section&utm_campaign=pp-pro-upgrade';
+
+		$upgrade_message = sprintf(
+			/* translators: 1: Opening anchor tag, 2: Closing anchor tag. */
+			__(
+				'Upgrade to %1$sPro Version%2$s for 90+ widgets, exciting extensions and advanced features.',
+				'powerpack-lite-for-elementor'
+			),
+			'<a href="' . $upgrade_url . '" target="_blank" rel="noopener">',
+			'</a>'
+		);
+
+		return wp_kses_post(
+			apply_filters( 'upgrade_powerpack_message', $upgrade_message )
+		);
+	}
+
+	/**
+	 * Get full Pro feature notice.
+	 *
+	 * @param string $message Optional prefix message.
+	 * @since x.x.x
+	 *
+	 * @return string
+	 */
+	public static function get_pro_feature_notice( $message = '' ) {
+
+		$prefix = '';
+
+		if ( ! empty( $message ) ) {
+			$prefix = esc_html( $message ) . ' ';
+		}
+
+		return $prefix . self::get_upgrade_notice();
+	}
+
+	/**
 	 * Check if script debug is enabled.
 	 *
 	 * @since 2.1.0

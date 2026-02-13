@@ -7,6 +7,10 @@
 
 namespace PowerpackElementsLite\Classes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Elementor\Plugin;
 use Elementor\TemplateLibrary\Source_Base;
 use Elementor\TemplateLibrary\Source_Local;

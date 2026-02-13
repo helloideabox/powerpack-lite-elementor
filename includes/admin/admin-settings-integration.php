@@ -1,8 +1,12 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use PowerpackElementsLite\Classes\PP_Helper;
 use PowerpackElementsLite\Classes\PP_Admin_Settings;
 
-$settings   = PP_Admin_Settings::get_settings();
+$settings = PP_Admin_Settings::get_settings();
 ?>
 <h3><?php _e( 'Integration', 'powerpack-lite-for-elementor' ); ?></h3>
 

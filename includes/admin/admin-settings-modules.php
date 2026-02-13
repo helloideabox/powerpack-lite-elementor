@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 $current_filter = isset( $_GET['show'] ) ? $_GET['show'] : '';
 if ( 'notused' === $current_filter || 'used' === $current_filter ) {
 	$modules = pp_elements_lite_get_filter_modules( $current_filter );

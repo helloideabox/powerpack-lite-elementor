@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use PowerpackElementsLite\Classes\PP_Admin_Settings;
 
 $current_tab  = isset( $_REQUEST['tab'] ) ? esc_attr( $_REQUEST['tab'] ) : 'general';
@@ -240,7 +244,11 @@ $settings     = PP_Admin_Settings::get_settings();
 			<span>
 			<?php
 				$admin_label = 'PowerPack';
-				echo sprintf( esc_html__( '%s Settings', 'powerpack-lite-for-elementor' ), $admin_label );
+				printf(
+				/* translators: %s: Plugin label. */
+				esc_html__( '%s Settings', 'powerpack-lite-for-elementor' ),
+				$admin_label
+				);
 			?>
 			</span>
 		</h3>
@@ -248,7 +256,12 @@ $settings     = PP_Admin_Settings::get_settings();
 			<?php self::render_tabs( $current_tab ); ?>
 		</div>
 		<div class="pp-settings-version wp-clearfix">
-			<span><?php echo sprintf( esc_html__( 'Version %s', 'powerpack-lite-for-elementor' ), POWERPACK_ELEMENTS_LITE_VER ); ?></span>
+			<span>
+				<?php
+				/* translators: %s: Plugin version number. */
+				printf( esc_html__( 'Version %s', 'powerpack-lite-for-elementor' ), POWERPACK_ELEMENTS_LITE_VER );
+				?>
+			</span>
 		</div>
 	</div>
 

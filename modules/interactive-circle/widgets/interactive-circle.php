@@ -164,15 +164,17 @@ class Interactive_Circle extends Powerpack_Widget {
 
 		$this->add_control(
 			'show_source_notice',
-			[
+			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => PP_Helper::get_pro_feature_notice(
+					esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack-lite-for-elementor' )
+				),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				'condition'       => [
+				'condition'       => array(
 					'source' => 'posts',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(

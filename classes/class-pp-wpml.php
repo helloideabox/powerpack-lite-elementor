@@ -1,6 +1,10 @@
 <?php
 namespace PowerpackElementsLite\Classes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 class PP_Elements_WPML {
     public function __construct() {
 		add_filter( 'wpml_elementor_widgets_to_translate', array( $this, 'translate_fields' ) );

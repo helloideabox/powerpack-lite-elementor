@@ -1,6 +1,10 @@
 <?php
 namespace PowerpackElementsLite\Classes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Handles logic for the admin settings page.
  *

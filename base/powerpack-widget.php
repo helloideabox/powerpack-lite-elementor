@@ -47,7 +47,17 @@ abstract class Powerpack_Widget extends Widget_Base {
 	}
 
 	public function upgrade_powerpack_message() {
-		$upgrade_message = sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-widget-upgrade-section&utm_campaign=pp-pro-upgrade" target="_blank" rel="noopener">', '</a>' );
+		$upgrade_message = sprintf(
+			/* translators: 1: Opening anchor tag, 2: Closing anchor tag. */
+			__(
+				'Upgrade to %1$sPro Version%2$s for 90+ widgets, exciting extensions and advanced features.',
+				'powerpack-lite-for-elementor'
+			),
+			'<a href="' . $upgrade_url . '" target="_blank" rel="noopener">',
+			'</a>'
+		);
+
+		$upgrade_message = wp_kses_post( $upgrade_message );
 
 		return $upgrade_message;
 	}

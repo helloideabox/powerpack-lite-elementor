@@ -382,9 +382,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => PP_Helper::get_pro_feature_notice(
+					esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack-lite-for-elementor' )
+				),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				'condition'    => array(
+				'condition'       => array(
 					'post_type!'                            => 'related',
 					$this->get_control_id( 'layout!' )      => 'carousel',
 					$this->get_control_id( 'show_filters' ) => 'yes',
@@ -433,9 +435,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => PP_Helper::get_pro_feature_notice(
+					__( 'This feature is available in PowerPack Pro.', 'powerpack-lite-for-elementor' )
+				),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				'condition'    => array(
+				'condition'       => array(
 					$this->get_control_id( 'layout' )                => array( 'grid', 'masonry' ),
 					$this->get_control_id( 'show_ajax_search_form' ) => 'yes',
 				),
@@ -1371,10 +1375,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This pagination option is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => PP_Helper::get_pro_feature_notice(
+					__( 'This pagination option is available in PowerPack Pro.', 'powerpack-lite-for-elementor' )
+				),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				'condition'       => array(
-					$this->get_control_id( 'layout!' ) => 'carousel',
+					$this->get_control_id( 'layout!' )       => 'carousel',
 					$this->get_control_id( 'pagination_type' ) => array(
 						'load_more',
 						'infinite',
@@ -1751,9 +1757,22 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			$this->add_control(
 				'upgrade_powerpack_notice',
 				array(
-					'label'           => '',
-					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'label' => '',
+					'type'  => Controls_Manager::RAW_HTML,
+					'raw'   => apply_filters(
+						'upgrade_powerpack_message',
+						wp_kses_post(
+							sprintf(
+								/* translators: 1: Opening anchor tag, 2: Closing anchor tag. */
+								__(
+									'Upgrade to %1$sPro Version%2$s for 90+ widgets, exciting extensions and advanced features.',
+									'powerpack-lite-for-elementor'
+								),
+								'<a href="https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-widget-upgrade-section&utm_campaign=pp-pro-upgrade" target="_blank" rel="noopener">',
+								'</a>'
+							)
+						)
+					),
 					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				)
 			);
@@ -4286,7 +4305,20 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		}
 
 		if ( 'ago' === $date_type ) {
-			$date = sprintf( _x( '%s ago', '%s = human-readable time difference', 'powerpack-lite-for-elementor' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+			$date = sprintf(
+				/* translators: %s: Human-readable time difference (e.g., "5 minutes"). */
+				esc_html_x(
+					'%s ago',
+					'human-readable time difference',
+					'powerpack-lite-for-elementor'
+				),
+				esc_html(
+					human_time_diff(
+						get_the_time( 'U' ),
+						current_time( 'timestamp' )
+					)
+				)
+			);
 		} elseif ( 'modified' === $date_type ) {
 			$date = get_the_modified_date( $date_format, get_the_ID() );
 		} elseif ( 'key' === $date_type ) {

@@ -2484,7 +2484,14 @@ class Gravity_Forms extends Powerpack_Widget {
 				</div>
 				<?php
 			} else {
-				$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', 'powerpack-lite-for-elementor' ), esc_attr( $this->get_title() ) );
+				$placeholder = sprintf(
+					/* translators: %s: Widget title. */
+					esc_html__(
+						'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.',
+						'powerpack-lite-for-elementor'
+					),
+					esc_html( $this->get_title() )
+				);
 
 				echo esc_attr( $this->render_editor_placeholder(
 					array(

@@ -244,14 +244,24 @@ class Instafeed extends Powerpack_Widget {
 		); */
 
 		if ( ! $this->get_insta_global_access_token() ) {
+			$settings_url = esc_url(
+				admin_url( 'admin.php?page=powerpack-settings&tab=integration' )
+			);
+
 			$this->add_control(
 				'access_token_missing',
 				[
-					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => sprintf(
-						esc_html__( 'Your Instagram Access Token is missing, %1$sclick here%2$s to configure.', 'powerpack-lite-for-elementor' ),
-						'<a href="' . admin_url( 'admin.php?page=powerpack-settings&tab=integration' ) . '"><strong>',
-						'</strong></a>'
+					'type'           => Controls_Manager::RAW_HTML,
+					'raw'            => wp_kses_post(
+						sprintf(
+							/* translators: 1: Opening anchor tag with strong tag, 2: Closing strong and anchor tags. */
+							__(
+								'Your Instagram Access Token is missing, %1$sclick here%2$s to configure.',
+								'powerpack-lite-for-elementor'
+							),
+							'<a href="' . $settings_url . '"><strong>',
+							'</strong></a>'
+						)
 					),
 					'content_classes' => 'pp-editor-info',
 				]
@@ -3202,7 +3212,14 @@ class Instafeed extends Powerpack_Widget {
 		$gallery = $this->get_insta_posts( $settings );
 
 		if ( empty( $gallery ) || is_wp_error( $gallery ) ) {
-			$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and change the source of photos.', 'powerpack-lite-for-elementor' ), esc_attr( $this->get_title() ) );
+			$placeholder = sprintf(
+				/* translators: %s: Widget title. */
+				esc_html__(
+					'Click here to edit the "%1$s" settings and change the source of photos.',
+					'powerpack-lite-for-elementor'
+				),
+				esc_html( $this->get_title() )
+			);
 
 			echo esc_attr( $this->render_editor_placeholder(
 				[

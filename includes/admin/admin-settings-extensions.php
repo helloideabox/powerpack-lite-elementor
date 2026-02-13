@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 $extensions         = pp_elements_lite_get_extensions();
 $enabled_extensions = pp_elements_lite_get_enabled_extensions();
 ?>
