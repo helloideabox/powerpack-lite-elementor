@@ -23,17 +23,17 @@ class WPML_PP_Info_Box_Carousel extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'title':
-				return esc_html__( 'Info Grid & Carousel - Title', 'powerpack' );
+				return esc_html__( 'Info Grid & Carousel - Title', 'powerpack-lite-for-elementor' );
 			case 'subtitle':
-				return esc_html__( 'Info Grid & Carousel - Subtitle', 'powerpack' );
+				return esc_html__( 'Info Grid & Carousel - Subtitle', 'powerpack-lite-for-elementor' );
 			case 'description':
-				return esc_html__( 'Info Grid & Carousel - Description', 'powerpack' );
+				return esc_html__( 'Info Grid & Carousel - Description', 'powerpack-lite-for-elementor' );
 			case 'icon_text':
-				return esc_html__( 'Info Grid & Carousel - Icon Text', 'powerpack' );
+				return esc_html__( 'Info Grid & Carousel - Icon Text', 'powerpack-lite-for-elementor' );
 			case 'url':
-				return esc_html__( 'Info Grid & Carousel - Link', 'powerpack' );
+				return esc_html__( 'Info Grid & Carousel - Link', 'powerpack-lite-for-elementor' );
 			case 'button_text':
-				return esc_html__( 'Info Grid & Carousel - Button Text', 'powerpack' );
+				return esc_html__( 'Info Grid & Carousel - Button Text', 'powerpack-lite-for-elementor' );
 			default:
 				return '';
 		}

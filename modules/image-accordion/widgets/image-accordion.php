@@ -129,7 +129,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_items',
 			[
-				'label'                 => esc_html__( 'Items', 'powerpack' ),
+				'label'                 => esc_html__( 'Items', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -137,15 +137,15 @@ class Image_Accordion extends Powerpack_Widget {
 
 		$repeater->start_controls_tabs( 'image_accordion_tabs' );
 
-		$repeater->start_controls_tab( 'tab_content', [ 'label' => esc_html__( 'Content', 'powerpack' ) ] );
+		$repeater->start_controls_tab( 'tab_content', [ 'label' => esc_html__( 'Content', 'powerpack-lite-for-elementor' ) ] );
 
 		$repeater->add_control(
 			'title',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'label_block'           => true,
-				'default'               => esc_html__( 'Accordion Title', 'powerpack' ),
+				'default'               => esc_html__( 'Accordion Title', 'powerpack-lite-for-elementor' ),
 				'dynamic'               => [
 					'active'   => true,
 				],
@@ -155,10 +155,10 @@ class Image_Accordion extends Powerpack_Widget {
 		$repeater->add_control(
 			'description',
 			[
-				'label'                 => esc_html__( 'Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::WYSIWYG,
 				'label_block'           => true,
-				'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
+				'default'               => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack-lite-for-elementor' ),
 				'dynamic'               => [
 					'active'   => true,
 				],
@@ -167,12 +167,12 @@ class Image_Accordion extends Powerpack_Widget {
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_image', [ 'label' => esc_html__( 'Image', 'powerpack' ) ] );
+		$repeater->start_controls_tab( 'tab_image', [ 'label' => esc_html__( 'Image', 'powerpack-lite-for-elementor' ) ] );
 
 		$repeater->add_control(
 			'image',
 			[
-				'label'                 => esc_html__( 'Choose Image', 'powerpack' ),
+				'label'                 => esc_html__( 'Choose Image', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::MEDIA,
 				'label_block'           => true,
 				'dynamic'               => [
@@ -186,16 +186,16 @@ class Image_Accordion extends Powerpack_Widget {
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_link', [ 'label' => esc_html__( 'Link', 'powerpack' ) ] );
+		$repeater->start_controls_tab( 'tab_link', [ 'label' => esc_html__( 'Link', 'powerpack-lite-for-elementor' ) ] );
 
 		$repeater->add_control(
 			'show_button',
 			[
-				'label'                 => esc_html__( 'Add Link', 'powerpack' ),
+				'label'                 => esc_html__( 'Add Link', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -203,12 +203,12 @@ class Image_Accordion extends Powerpack_Widget {
 		$repeater->add_control(
 			'apply_link_on',
 			[
-				'label'                 => esc_html__( 'Apply Link On', 'powerpack' ),
+				'label'                 => esc_html__( 'Apply Link On', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'button',
 				'options'               => [
-					'button'    => esc_html__( 'Button', 'powerpack' ),
-					'container' => esc_html__( 'Container', 'powerpack' ),
+					'button'    => esc_html__( 'Button', 'powerpack-lite-for-elementor' ),
+					'container' => esc_html__( 'Container', 'powerpack-lite-for-elementor' ),
 				],
 				'condition'             => [
 					'show_button' => 'yes',
@@ -219,7 +219,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$repeater->add_control(
 			'link',
 			[
-				'label'                 => esc_html__( 'Link', 'powerpack' ),
+				'label'                 => esc_html__( 'Link', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::URL,
 				'label_block'           => true,
 				'dynamic'               => [
@@ -239,12 +239,12 @@ class Image_Accordion extends Powerpack_Widget {
 		$repeater->add_control(
 			'button_text',
 			[
-				'label'                 => esc_html__( 'Button Text', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Text', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'default'               => esc_html__( 'Get Started', 'powerpack' ),
+				'default'               => esc_html__( 'Get Started', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'show_button'    => 'yes',
 					'apply_link_on!' => 'container',
@@ -255,7 +255,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$repeater->add_control(
 			'select_button_icon',
 			[
-				'label'                 => esc_html__( 'Button Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Icon', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::ICONS,
 				'fa4compatibility'      => 'button_icon',
 				'condition'             => [
@@ -268,12 +268,12 @@ class Image_Accordion extends Powerpack_Widget {
 		$repeater->add_control(
 			'button_icon_position',
 			[
-				'label'                 => esc_html__( 'Icon Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Position', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'after',
 				'options'               => [
-					'before'    => esc_html__( 'Before', 'powerpack' ),
-					'after'     => esc_html__( 'After', 'powerpack' ),
+					'before'    => esc_html__( 'Before', 'powerpack-lite-for-elementor' ),
+					'after'     => esc_html__( 'After', 'powerpack-lite-for-elementor' ),
 				],
 				'condition'             => [
 					'show_button'    => 'yes',
@@ -294,29 +294,29 @@ class Image_Accordion extends Powerpack_Widget {
 				'seperator'             => 'before',
 				'default'               => [
 					[
-						'title'         => esc_html__( 'Accordion #1', 'powerpack' ),
-						'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
+						'title'         => esc_html__( 'Accordion #1', 'powerpack-lite-for-elementor' ),
+						'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack-lite-for-elementor' ),
 						'image'         => [
 							'url' => Utils::get_placeholder_image_src(),
 						],
 					],
 					[
-						'title'         => esc_html__( 'Accordion #2', 'powerpack' ),
-						'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
+						'title'         => esc_html__( 'Accordion #2', 'powerpack-lite-for-elementor' ),
+						'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack-lite-for-elementor' ),
 						'image'         => [
 							'url' => Utils::get_placeholder_image_src(),
 						],
 					],
 					[
-						'title'         => esc_html__( 'Accordion #3', 'powerpack' ),
-						'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
+						'title'         => esc_html__( 'Accordion #3', 'powerpack-lite-for-elementor' ),
+						'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack-lite-for-elementor' ),
 						'image'         => [
 							'url' => Utils::get_placeholder_image_src(),
 						],
 					],
 					[
-						'title'         => esc_html__( 'Accordion #4', 'powerpack' ),
-						'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack' ),
+						'title'         => esc_html__( 'Accordion #4', 'powerpack-lite-for-elementor' ),
+						'description'   => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack-lite-for-elementor' ),
 						'image'         => [
 							'url' => Utils::get_placeholder_image_src(),
 						],
@@ -330,8 +330,8 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'active_tab',
 			[
-				'label'                 => esc_html__( 'Default Active Item', 'powerpack' ),
-				'description'           => esc_html__( 'Add item number to make that item active by default. For example: Add 1 to make first item active by default.', 'powerpack' ),
+				'label'                 => esc_html__( 'Default Active Item', 'powerpack-lite-for-elementor' ),
+				'description'           => esc_html__( 'Add item number to make that item active by default. For example: Add 1 to make first item active by default.', 'powerpack-lite-for-elementor' ),
 				'type'                  => \Elementor\Controls_Manager::NUMBER,
 				'min'                   => 1,
 				'max'                   => 100,
@@ -346,14 +346,14 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_image_accordion_settings',
 			[
-				'label'                 => esc_html__( 'Settings', 'powerpack' ),
+				'label'                 => esc_html__( 'Settings', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'accordion_height',
 			[
-				'label'                 => esc_html__( 'Height', 'powerpack' ),
+				'label'                 => esc_html__( 'Height', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'vh', 'custom' ],
 				'range'                 => [
@@ -376,20 +376,20 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'title_html_tag',
 			[
-				'label'                => esc_html__( 'Title HTML Tag', 'powerpack' ),
+				'label'                => esc_html__( 'Title HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'h2',
 				'separator'            => 'before',
 				'options'              => [
-					'h1'     => esc_html__( 'H1', 'powerpack' ),
-					'h2'     => esc_html__( 'H2', 'powerpack' ),
-					'h3'     => esc_html__( 'H3', 'powerpack' ),
-					'h4'     => esc_html__( 'H4', 'powerpack' ),
-					'h5'     => esc_html__( 'H5', 'powerpack' ),
-					'h6'     => esc_html__( 'H6', 'powerpack' ),
-					'div'    => esc_html__( 'div', 'powerpack' ),
-					'span'   => esc_html__( 'span', 'powerpack' ),
-					'p'      => esc_html__( 'p', 'powerpack' ),
+					'h1'     => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
+					'h2'     => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
+					'h3'     => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
+					'h4'     => esc_html__( 'H4', 'powerpack-lite-for-elementor' ),
+					'h5'     => esc_html__( 'H5', 'powerpack-lite-for-elementor' ),
+					'h6'     => esc_html__( 'H6', 'powerpack-lite-for-elementor' ),
+					'div'    => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
+					'span'   => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
+					'p'      => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -398,7 +398,7 @@ class Image_Accordion extends Powerpack_Widget {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'                  => 'image',
-				'label'                 => esc_html__( 'Image Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Image Size', 'powerpack-lite-for-elementor' ),
 				'default'               => 'full',
 			]
 		);
@@ -406,13 +406,13 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'accordion_action',
 			[
-				'label'                 => esc_html__( 'Accordion Action', 'powerpack' ),
+				'label'                 => esc_html__( 'Accordion Action', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'on-hover',
 				'label_block'           => false,
 				'options'               => [
-					'on-hover'  => esc_html__( 'On Hover', 'powerpack' ),
-					'on-click'  => esc_html__( 'On Click', 'powerpack' ),
+					'on-hover'  => esc_html__( 'On Hover', 'powerpack-lite-for-elementor' ),
+					'on-click'  => esc_html__( 'On Click', 'powerpack-lite-for-elementor' ),
 				],
 				'frontend_available'    => true,
 			]
@@ -421,13 +421,13 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'orientation',
 			[
-				'label'                 => esc_html__( 'Orientation', 'powerpack' ),
+				'label'                 => esc_html__( 'Orientation', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'vertical',
 				'label_block'           => false,
 				'options'               => [
-					'vertical'      => esc_html__( 'Vertical', 'powerpack' ),
-					'horizontal'    => esc_html__( 'Horizontal', 'powerpack' ),
+					'vertical'      => esc_html__( 'Vertical', 'powerpack-lite-for-elementor' ),
+					'horizontal'    => esc_html__( 'Horizontal', 'powerpack-lite-for-elementor' ),
 				],
 				'prefix_class'          => 'pp-image-accordion-orientation-',
 			]
@@ -436,14 +436,14 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'stack_on',
 			[
-				'label'                 => esc_html__( 'Stack On', 'powerpack' ),
+				'label'                 => esc_html__( 'Stack On', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'tablet',
 				'label_block'           => false,
 				'options'               => [
-					'tablet'    => esc_html__( 'Tablet', 'powerpack' ),
-					'mobile'    => esc_html__( 'Mobile', 'powerpack' ),
-					'none'      => esc_html__( 'None', 'powerpack' ),
+					'tablet'    => esc_html__( 'Tablet', 'powerpack-lite-for-elementor' ),
+					'mobile'    => esc_html__( 'Mobile', 'powerpack-lite-for-elementor' ),
+					'none'      => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
 				],
 				'prefix_class'          => 'pp-image-accordion-stack-on-',
 				'condition'             => [
@@ -455,14 +455,14 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'disable_body_click',
 			[
-				'label'                 => esc_html__( 'Disable Body Click', 'powerpack' ),
-				'description'           => esc_html__( 'Don\'t collapse accordion on body click', 'powerpack' ),
+				'label'                 => esc_html__( 'Disable Body Click', 'powerpack-lite-for-elementor' ),
+				'description'           => esc_html__( 'Don\'t collapse accordion on body click', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'no',
 				'label_block'           => false,
 				'options'               => [
-					'yes' => esc_html__( 'Yes', 'powerpack' ),
-					'no'  => esc_html__( 'No', 'powerpack' ),
+					'yes' => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+					'no'  => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				],
 				'frontend_available'    => true,
 				'condition'             => [
@@ -484,7 +484,7 @@ class Image_Accordion extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => __( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -515,7 +515,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_items_style',
 			[
-				'label'                 => esc_html__( 'Items', 'powerpack' ),
+				'label'                 => esc_html__( 'Items', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -523,7 +523,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'items_spacing',
 			[
-				'label'                 => esc_html__( 'Items Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Items Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -551,14 +551,14 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_items_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'accordion_img_overlay_color',
 			[
-				'label'                 => esc_html__( 'Overlay Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Overlay Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => 'rgba(0,0,0,0.3)',
 				'selectors'             => [
@@ -571,7 +571,7 @@ class Image_Accordion extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'items_border',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-image-accordion-item',
 			]
 		);
@@ -579,7 +579,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'items_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -601,14 +601,14 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_items_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'accordion_img_hover_color',
 			[
-				'label'                 => esc_html__( 'Overlay Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Overlay Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => 'rgba(0,0,0,0.5)',
 				'selectors'             => [
@@ -621,7 +621,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'items_border_color_hover',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -649,7 +649,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_content_style',
 			[
-				'label'                 => esc_html__( 'Content', 'powerpack' ),
+				'label'                 => esc_html__( 'Content', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -657,7 +657,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'content_bg_color',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -670,7 +670,7 @@ class Image_Accordion extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'content_border',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-image-accordion .pp-image-accordion-content',
 				'separator'             => 'before',
 			]
@@ -679,7 +679,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'content_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -691,20 +691,20 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_vertical_align',
 			[
-				'label'                 => esc_html__( 'Vertical Align', 'powerpack' ),
+				'label'                 => esc_html__( 'Vertical Align', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'middle',
 				'options'               => [
 					'top'       => [
-						'title' => esc_html__( 'Top', 'powerpack' ),
+						'title' => esc_html__( 'Top', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-v-align-top',
 					],
 					'middle'    => [
-						'title' => esc_html__( 'Middle', 'powerpack' ),
+						'title' => esc_html__( 'Middle', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-v-align-middle',
 					],
 					'bottom'    => [
-						'title' => esc_html__( 'Bottom', 'powerpack' ),
+						'title' => esc_html__( 'Bottom', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-v-align-bottom',
 					],
 				],
@@ -723,20 +723,20 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_horizontal_align',
 			[
-				'label'                 => esc_html__( 'Horizontal Align', 'powerpack' ),
+				'label'                 => esc_html__( 'Horizontal Align', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => true,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'center'           => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-center',
 					],
 					'right'            => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
@@ -756,20 +756,20 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'text_align',
 			[
-				'label'                 => esc_html__( 'Text Align', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Align', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => ' center',
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -782,7 +782,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_width',
 			[
-				'label'                 => esc_html__( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -806,7 +806,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
@@ -818,7 +818,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'title_style_heading',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -827,7 +827,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'title_color',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#fff',
 				'selectors'             => [
@@ -847,7 +847,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'title_spacing',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -870,7 +870,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'description_style_heading',
 			[
-				'label'                 => esc_html__( 'Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -879,7 +879,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'description_color',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#fff',
 				'selectors'             => [
@@ -905,7 +905,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_button_style',
 			[
-				'label'                 => esc_html__( 'Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Button', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -913,15 +913,15 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'button_size',
 			[
-				'label'                 => esc_html__( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'md',
 				'options'               => [
-					'xs' => esc_html__( 'Extra Small', 'powerpack' ),
-					'sm' => esc_html__( 'Small', 'powerpack' ),
-					'md' => esc_html__( 'Medium', 'powerpack' ),
-					'lg' => esc_html__( 'Large', 'powerpack' ),
-					'xl' => esc_html__( 'Extra Large', 'powerpack' ),
+					'xs' => esc_html__( 'Extra Small', 'powerpack-lite-for-elementor' ),
+					'sm' => esc_html__( 'Small', 'powerpack-lite-for-elementor' ),
+					'md' => esc_html__( 'Medium', 'powerpack-lite-for-elementor' ),
+					'lg' => esc_html__( 'Large', 'powerpack-lite-for-elementor' ),
+					'xl' => esc_html__( 'Extra Large', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -929,7 +929,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_spacing',
 			[
-				'label'                 => esc_html__( 'Button Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -954,14 +954,14 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_bg_color_normal',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -973,7 +973,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_normal',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -987,7 +987,7 @@ class Image_Accordion extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border_normal',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-image-accordion-button',
@@ -997,7 +997,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -1010,7 +1010,7 @@ class Image_Accordion extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'button_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1021,7 +1021,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
@@ -1043,14 +1043,14 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_bg_color_hover',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1062,7 +1062,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1075,7 +1075,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1087,7 +1087,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label'                 => esc_html__( 'Animation', 'powerpack' ),
+				'label'                 => esc_html__( 'Animation', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -1106,7 +1106,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_control(
 			'button_icon_heading',
 			[
-				'label'                 => esc_html__( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -1115,7 +1115,7 @@ class Image_Accordion extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_icon_spacing',
 			[
-				'label'                 => esc_html__( 'Icon Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [

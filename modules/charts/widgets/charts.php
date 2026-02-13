@@ -122,24 +122,24 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_charts',
 			[
-				'label' => esc_html__( 'Charts', 'powerpack' ),
+				'label' => esc_html__( 'Charts', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'chart_type',
 			[
-				'label'   => esc_html__( 'Chart Type', 'powerpack' ),
+				'label'   => esc_html__( 'Chart Type', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'line',
 				'options' => [
-					'line'      => esc_html__( 'Line', 'powerpack' ),
-					'bar'       => esc_html__( 'Bar', 'powerpack' ),
-					'radar'     => esc_html__( 'Radar', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
-					'pie'       => esc_html__( 'Pie', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
-					'doughnut'  => esc_html__( 'Doughnut', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
-					'polarArea' => esc_html__( 'Polar Area', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
-					'bubble'    => esc_html__( 'Bubble', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
+					'line'      => esc_html__( 'Line', 'powerpack-lite-for-elementor' ),
+					'bar'       => esc_html__( 'Bar', 'powerpack-lite-for-elementor' ),
+					'radar'     => esc_html__( 'Radar', 'powerpack-lite-for-elementor' ) . ' (' . esc_html__( 'Pro', 'powerpack-lite-for-elementor' ) . ')',
+					'pie'       => esc_html__( 'Pie', 'powerpack-lite-for-elementor' ) . ' (' . esc_html__( 'Pro', 'powerpack-lite-for-elementor' ) . ')',
+					'doughnut'  => esc_html__( 'Doughnut', 'powerpack-lite-for-elementor' ) . ' (' . esc_html__( 'Pro', 'powerpack-lite-for-elementor' ) . ')',
+					'polarArea' => esc_html__( 'Polar Area', 'powerpack-lite-for-elementor' ) . ' (' . esc_html__( 'Pro', 'powerpack-lite-for-elementor' ) . ')',
+					'bubble'    => esc_html__( 'Bubble', 'powerpack-lite-for-elementor' ) . ' (' . esc_html__( 'Pro', 'powerpack-lite-for-elementor' ) . ')',
 				],
 			]
 		);
@@ -149,7 +149,7 @@ class Charts extends Powerpack_Widget {
 			[
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This chart type is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => esc_html__( 'This chart type is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				'condition'       => [
 					'chart_type!' => [ 'line', 'bar' ],
@@ -160,10 +160,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'stepped_line',
 			[
-				'label'     => esc_html__( 'Stepped Line Chart', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
+				'label'     => esc_html__( 'Stepped Line Chart', 'powerpack-lite-for-elementor' ) . ' (' . esc_html__( 'Pro', 'powerpack-lite-for-elementor' ) . ')',
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => '',
 				'condition' => [
 					'chart_type' => 'line',
@@ -174,12 +174,12 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'bar_chart_type',
 			[
-				'label'   => esc_html__( 'Orientation', 'powerpack' ),
+				'label'   => esc_html__( 'Orientation', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'vertical_bar',
 				'options' => [
-					'vertical_bar'   => esc_html__( 'Vertical Bar', 'powerpack' ),
-					'horizontal_bar' => esc_html__( 'Horizontal Bar', 'powerpack' ),
+					'vertical_bar'   => esc_html__( 'Vertical Bar', 'powerpack-lite-for-elementor' ),
+					'horizontal_bar' => esc_html__( 'Horizontal Bar', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'chart_type' => 'bar',
@@ -190,10 +190,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'labels',
 			[
-				'label'       => esc_html__( 'Labels', 'powerpack' ),
+				'label'       => esc_html__( 'Labels', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::TEXTAREA,
-				'default'     => esc_html__( 'January, February, March, April', 'powerpack' ),
-				'description' => esc_html__( 'Add labels separated by comma', 'powerpack' ),
+				'default'     => esc_html__( 'January, February, March, April', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'Add labels separated by comma', 'powerpack-lite-for-elementor' ),
 				'dynamic'     => [ 'active' => true ],
 			]
 		);
@@ -205,7 +205,7 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_chart_dataset',
 			[
-				'label' => esc_html__( 'Dataset', 'powerpack' ),
+				'label' => esc_html__( 'Dataset', 'powerpack-lite-for-elementor' ),
 			],
 		);
 
@@ -217,16 +217,16 @@ class Charts extends Powerpack_Widget {
 		$repeater->start_controls_tab(
 			'tabs_chart_content',
 			[
-				'label' => esc_html__( 'Content', 'powerpack' ),
+				'label' => esc_html__( 'Content', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$repeater->add_control(
 			'dataset_label',
 			[
-				'label'   => esc_html__( 'Label', 'powerpack' ),
+				'label'   => esc_html__( 'Label', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Label', 'powerpack' ),
+				'default' => esc_html__( 'Label', 'powerpack-lite-for-elementor' ),
 				'dynamic' => [ 'active' => true ],
 			]
 		);
@@ -234,10 +234,10 @@ class Charts extends Powerpack_Widget {
 		$repeater->add_control(
 			'dataset_data',
 			[
-				'label'       => esc_html__( 'Data', 'powerpack' ),
+				'label'       => esc_html__( 'Data', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'default'     => '40, 60, 10, 80',
-				'description' => esc_html__( 'Add data values separated by comma', 'powerpack' ),
+				'description' => esc_html__( 'Add data values separated by comma', 'powerpack-lite-for-elementor' ),
 				'dynamic'     => [ 'active' => true ],
 			]
 		);
@@ -247,14 +247,14 @@ class Charts extends Powerpack_Widget {
 		$repeater->start_controls_tab(
 			'tabs_chart_style',
 			[
-				'label' => esc_html__( 'Style', 'powerpack' ),
+				'label' => esc_html__( 'Style', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$repeater->add_control(
 			'bg_color',
 			[
-				'label'   => esc_html__( 'Background Color', 'powerpack' ),
+				'label'   => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::COLOR,
 				'default' => 'rgb(0 0 0 / 50%)',
 			]
@@ -263,7 +263,7 @@ class Charts extends Powerpack_Widget {
 		$repeater->add_control(
 			'border_color',
 			[
-				'label'   => esc_html__( 'Border Color', 'powerpack' ),
+				'label'   => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::COLOR,
 				'default' => 'rgb(0 0 0 / 50%)',
 			]
@@ -272,10 +272,10 @@ class Charts extends Powerpack_Widget {
 		$repeater->add_control(
 			'fill',
 			[
-				'label'       => esc_html__( 'Fill', 'powerpack' ),
+				'label'       => esc_html__( 'Fill', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SWITCHER,
 				'default'     => '',
-				'description' => esc_html__( 'Fill option is supported by Line and Radar charts only', 'powerpack' ),
+				'description' => esc_html__( 'Fill option is supported by Line and Radar charts only', 'powerpack-lite-for-elementor' ),
 				'separator'   => 'before',
 			]
 		);
@@ -283,9 +283,9 @@ class Charts extends Powerpack_Widget {
 		$repeater->add_control(
 			'border_dash',
 			[
-				'label'       => esc_html__( 'Border Dash', 'powerpack' ),
+				'label'       => esc_html__( 'Border Dash', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SWITCHER,
-				'description' => esc_html__( 'Border Dash option is supported by Line and Radar charts only', 'powerpack' ),
+				'description' => esc_html__( 'Border Dash option is supported by Line and Radar charts only', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -296,24 +296,24 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'chart_dataset',
 			[
-				'label'       => esc_html__( 'Chart Data', 'powerpack' ),
+				'label'       => esc_html__( 'Chart Data', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'default'     => [
 					[
-						'dataset_label'   => esc_html__( 'Data 1', 'powerpack' ),
+						'dataset_label'   => esc_html__( 'Data 1', 'powerpack-lite-for-elementor' ),
 						'dataset_data'    => '40, 60, 10, 80',
 						'bg_color'     => '#EC6E8599',
 						'border_color' => '#EC6E85',
 					],
 					[
-						'dataset_label'   => esc_html__( 'Data 2', 'powerpack' ),
+						'dataset_label'   => esc_html__( 'Data 2', 'powerpack-lite-for-elementor' ),
 						'dataset_data'    => '5, 35, 55, 90',
 						'bg_color'     => '#569FE599',
 						'border_color' => '#569FE5',
 					],
 					[
-						'dataset_label'   => esc_html__( 'Data 3', 'powerpack' ),
+						'dataset_label'   => esc_html__( 'Data 3', 'powerpack-lite-for-elementor' ),
 						'dataset_data'    => '30, 25, 40, 5',
 						'bg_color'     => '#F7CF6B99',
 						'border_color' => '#F7CF6B',
@@ -333,17 +333,17 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_legend',
 			[
-				'label' => esc_html__( 'Legend', 'powerpack' ),
+				'label' => esc_html__( 'Legend', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'show_legend',
 			[
-				'label'     => esc_html__( 'Show Legend', 'powerpack' ),
+				'label'     => esc_html__( 'Show Legend', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => 'yes',
 			]
 		);
@@ -351,24 +351,24 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'legend_reverse',
 			[
-				'label'     => esc_html__( 'Reverse', 'powerpack' ),
+				'label'     => esc_html__( 'Reverse', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'legend_position',
 			[
-				'label'   => esc_html__( 'Position', 'powerpack' ),
+				'label'   => esc_html__( 'Position', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'top',
 				'options' => [
-					'left'   => esc_html__( 'Left', 'powerpack' ),
-					'top'    => esc_html__( 'Top', 'powerpack' ),
-					'bottom' => esc_html__( 'Bottom', 'powerpack' ),
-					'right'  => esc_html__( 'Right', 'powerpack' ),
+					'left'   => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
+					'top'    => esc_html__( 'Top', 'powerpack-lite-for-elementor' ),
+					'bottom' => esc_html__( 'Bottom', 'powerpack-lite-for-elementor' ),
+					'right'  => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'show_legend' => 'yes',
@@ -379,13 +379,13 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'legend_align',
 			[
-				'label'   => esc_html__( 'Alignment', 'powerpack' ),
+				'label'   => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'center',
 				'options' => [
-					'start'  => esc_html__( 'Start', 'powerpack' ),
-					'center' => esc_html__( 'Center', 'powerpack' ),
-					'end'    => esc_html__( 'End', 'powerpack' ),
+					'start'  => esc_html__( 'Start', 'powerpack-lite-for-elementor' ),
+					'center' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
+					'end'    => esc_html__( 'End', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'show_legend' => 'yes',
@@ -400,17 +400,17 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_chart_tooltip',
 			[
-				'label' => esc_html__( 'Tooltip', 'powerpack' ),
+				'label' => esc_html__( 'Tooltip', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'show_tooltip',
 			[
-				'label'     => esc_html__( 'Show Tooltip', 'powerpack' ),
+				'label'     => esc_html__( 'Show Tooltip', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => 'yes',
 			]
 		);
@@ -418,12 +418,12 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_event',
 			[
-				'label'     => esc_html__( 'Tooltip Event', 'powerpack' ),
+				'label'     => esc_html__( 'Tooltip Event', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'hover',
 				'options'   => [
-					'hover' => esc_html__( 'Hover', 'powerpack' ),
-					'click' => esc_html__( 'Click', 'powerpack' ),
+					'hover' => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
+					'click' => esc_html__( 'Click', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'show_tooltip' => 'yes',
@@ -434,13 +434,13 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'interaction_mode',
 			[
-				'label'     => esc_html__( 'Tooltip Mode', 'powerpack' ),
+				'label'     => esc_html__( 'Tooltip Mode', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'point',
 				'options'   => [
-					'index'   => esc_html__( 'Index', 'powerpack' ),
-					'point'   => esc_html__( 'Point', 'powerpack' ),
-					'dataset' => esc_html__( 'Dataset', 'powerpack' ),
+					'index'   => esc_html__( 'Index', 'powerpack-lite-for-elementor' ),
+					'point'   => esc_html__( 'Point', 'powerpack-lite-for-elementor' ),
+					'dataset' => esc_html__( 'Dataset', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'show_tooltip' => 'yes',
@@ -455,17 +455,17 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_chart_title',
 			[
-				'label' => esc_html__( 'Chart Title', 'powerpack' ),
+				'label' => esc_html__( 'Chart Title', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'show_chart_title',
 			[
-				'label'     => esc_html__( 'Show Chart Title', 'powerpack' ),
+				'label'     => esc_html__( 'Show Chart Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => '',
 			]
 		);
@@ -473,7 +473,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'chart_title',
 			[
-				'label'     => esc_html__( 'Chart Title', 'powerpack' ),
+				'label'     => esc_html__( 'Chart Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'dynamic'   => [
@@ -488,14 +488,14 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'chart_title_position',
 			[
-				'label'   => esc_html__( 'Position', 'powerpack' ),
+				'label'   => esc_html__( 'Position', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'top',
 				'options' => [
-					'left'   => esc_html__( 'Left', 'powerpack' ),
-					'top'    => esc_html__( 'Top', 'powerpack' ),
-					'bottom' => esc_html__( 'Bottom', 'powerpack' ),
-					'right'  => esc_html__( 'Right', 'powerpack' ),
+					'left'   => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
+					'top'    => esc_html__( 'Top', 'powerpack-lite-for-elementor' ),
+					'bottom' => esc_html__( 'Bottom', 'powerpack-lite-for-elementor' ),
+					'right'  => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'show_chart_title' => 'yes',
@@ -506,13 +506,13 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'chart_title_align',
 			[
-				'label'   => esc_html__( 'Alignment', 'powerpack' ),
+				'label'   => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'center',
 				'options' => [
-					'start'  => esc_html__( 'Start', 'powerpack' ),
-					'center' => esc_html__( 'Center', 'powerpack' ),
-					'end'    => esc_html__( 'End', 'powerpack' ),
+					'start'  => esc_html__( 'Start', 'powerpack-lite-for-elementor' ),
+					'center' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
+					'end'    => esc_html__( 'End', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'show_chart_title' => 'yes',
@@ -527,14 +527,14 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_chart_additional_options',
 			[
-				'label' => esc_html__( 'Additional Options', 'powerpack' ),
+				'label' => esc_html__( 'Additional Options', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'begin_at_zero',
 			[
-				'label'      => esc_html__( 'Begin at Zero', 'powerpack' ),
+				'label'      => esc_html__( 'Begin at Zero', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SWITCHER,
 				'default'    => 'yes',
 				'conditions' => [
@@ -559,7 +559,7 @@ class Charts extends Powerpack_Widget {
 			'step_size',
 			[
 				'type'       => Controls_Manager::NUMBER,
-				'label'      => esc_html__( 'Step Size', 'powerpack' ),
+				'label'      => esc_html__( 'Step Size', 'powerpack-lite-for-elementor' ),
 				'min'        => 0,
 				'step'       => 0.5,
 				'conditions' => [
@@ -583,10 +583,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'maintain_aspect_ratio',
 			[
-				'label'     => esc_html__( 'Maintain Aspect Ratio', 'powerpack' ),
+				'label'     => esc_html__( 'Maintain Aspect Ratio', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => 'yes',
 			]
 		);
@@ -595,7 +595,7 @@ class Charts extends Powerpack_Widget {
 			'chart_height',
 			[
 				'type'       => Controls_Manager::SLIDER,
-				'label'      => esc_html__( 'Chart Height', 'powerpack' ),
+				'label'      => esc_html__( 'Chart Height', 'powerpack-lite-for-elementor' ),
 				'range'      => [
 					'px' => [
 						'min' => 200,
@@ -626,7 +626,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'x_axis_heading',
 			[
-				'label'     => esc_html__( 'X Axis', 'powerpack' ),
+				'label'     => esc_html__( 'X Axis', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -635,10 +635,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'x_axis_show_grid_lines',
 			[
-				'label'     => esc_html__( 'Show Grid Lines', 'powerpack' ),
+				'label'     => esc_html__( 'Show Grid Lines', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => 'yes',
 			]
 		);
@@ -646,10 +646,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'x_axis_show_labels',
 			[
-				'label'     => esc_html__( 'Show Labels', 'powerpack' ),
+				'label'     => esc_html__( 'Show Labels', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => 'yes',
 			]
 		);
@@ -657,10 +657,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'x_axis_show_title',
 			[
-				'label'     => esc_html__( 'Show Title', 'powerpack' ),
+				'label'     => esc_html__( 'Show Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => '',
 			]
 		);
@@ -668,7 +668,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'x_axis_title',
 			[
-				'label'     => esc_html__( 'Title', 'powerpack' ),
+				'label'     => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'dynamic'   => [
@@ -683,7 +683,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'y_axis_heading',
 			[
-				'label'     => esc_html__( 'Y Axis', 'powerpack' ),
+				'label'     => esc_html__( 'Y Axis', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -692,10 +692,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'y_axis_show_grid_lines',
 			[
-				'label'     => esc_html__( 'Show Grid Lines', 'powerpack' ),
+				'label'     => esc_html__( 'Show Grid Lines', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => 'yes',
 			]
 		);
@@ -703,10 +703,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'y_axis_show_labels',
 			[
-				'label'     => esc_html__( 'Show Labels', 'powerpack' ),
+				'label'     => esc_html__( 'Show Labels', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => 'yes',
 			]
 		);
@@ -714,7 +714,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'y_axis_labels_prefix',
 			[
-				'label'              => esc_html__( 'Labels Prefix', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
+				'label'              => esc_html__( 'Labels Prefix', 'powerpack-lite-for-elementor' ) . ' (' . esc_html__( 'Pro', 'powerpack-lite-for-elementor' ) . ')',
 				'type'               => Controls_Manager::TEXT,
 				'default'            => '',
 				'dynamic'            => [
@@ -729,7 +729,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'y_axis_labels_suffix',
 			[
-				'label'              => esc_html__( 'Labels Suffix', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
+				'label'              => esc_html__( 'Labels Suffix', 'powerpack-lite-for-elementor' ) . ' (' . esc_html__( 'Pro', 'powerpack-lite-for-elementor' ) . ')',
 				'type'               => Controls_Manager::TEXT,
 				'default'            => '',
 				'dynamic'            => [
@@ -744,10 +744,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'y_axis_show_title',
 			[
-				'label'     => esc_html__( 'Show Title', 'powerpack' ),
+				'label'     => esc_html__( 'Show Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => '',
 			]
 		);
@@ -755,7 +755,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'y_axis_title',
 			[
-				'label'     => esc_html__( 'Title', 'powerpack' ),
+				'label'     => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'dynamic'   => [
@@ -771,8 +771,8 @@ class Charts extends Powerpack_Widget {
 			'y_axis_min',
 			[
 				'type'        => Controls_Manager::NUMBER,
-				'label'       => esc_html__( 'Minimum Value', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
-				'description' => esc_html__( 'Set minimum value for Y-axis. This value is ignored when data has a smaller value.', 'powerpack' ),
+				'label'       => esc_html__( 'Minimum Value', 'powerpack-lite-for-elementor' ) . ' (' . esc_html__( 'Pro', 'powerpack-lite-for-elementor' ) . ')',
+				'description' => esc_html__( 'Set minimum value for Y-axis. This value is ignored when data has a smaller value.', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -780,15 +780,15 @@ class Charts extends Powerpack_Widget {
 			'y_axis_max',
 			[
 				'type'        => Controls_Manager::NUMBER,
-				'label'       => esc_html__( 'Maximum Value', 'powerpack' ) . ' (' . esc_html__( 'Pro', 'powerpack' ) . ')',
-				'description' => esc_html__( 'Set maximum value for Y-axis. This value is ignored when data has a larger value.', 'powerpack' ),
+				'label'       => esc_html__( 'Maximum Value', 'powerpack-lite-for-elementor' ) . ' (' . esc_html__( 'Pro', 'powerpack-lite-for-elementor' ) . ')',
+				'description' => esc_html__( 'Set maximum value for Y-axis. This value is ignored when data has a larger value.', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'line_chart_heading',
 			[
-				'label'     => esc_html__( 'Line Chart', 'powerpack' ),
+				'label'     => esc_html__( 'Line Chart', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -801,7 +801,7 @@ class Charts extends Powerpack_Widget {
 			'tension',
 			[
 				'type'      => Controls_Manager::NUMBER,
-				'label'     => esc_html__( 'Line Tension', 'powerpack' ),
+				'label'     => esc_html__( 'Line Tension', 'powerpack-lite-for-elementor' ),
 				'min'       => 0,
 				'max'       => 10,
 				'step'      => 0.1,
@@ -814,7 +814,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'stacked_heading',
 			[
-				'label'     => esc_html__( 'Bar Chart', 'powerpack' ),
+				'label'     => esc_html__( 'Bar Chart', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -826,10 +826,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'stacked',
 			[
-				'label'     => esc_html__( 'Stacked', 'powerpack' ),
+				'label'     => esc_html__( 'Stacked', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => '',
 				'condition' => [
 					'chart_type' => 'bar',
@@ -840,7 +840,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'animation_heading',
 			[
-				'label'     => esc_html__( 'Animation', 'powerpack' ),
+				'label'     => esc_html__( 'Animation', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -849,41 +849,41 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'chart_animation',
 			[
-				'label'   => esc_html__( 'Animation', 'powerpack' ),
+				'label'   => esc_html__( 'Animation', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'easeOutQuart',
 				'options' => [
-					'linear'           => esc_html__( 'linear', 'powerpack' ),
-					'easeInQuad'       => esc_html__( 'easeInQuad', 'powerpack' ),
-					'easeOutQuad'      => esc_html__( 'easeOutQuad', 'powerpack' ),
-					'easeInOutQuad'    => esc_html__( 'easeInOutQuad', 'powerpack' ),
-					'easeInCubic'      => esc_html__( 'easeInCubic', 'powerpack' ),
-					'easeOutCubic'     => esc_html__( 'easeOutCubic', 'powerpack' ),
-					'easeInOutCubic'   => esc_html__( 'easeInOutCubic', 'powerpack' ),
-					'easeInQuart'      => esc_html__( 'easeInQuart', 'powerpack' ),
-					'easeOutQuart'     => esc_html__( 'easeOutQuart', 'powerpack' ),
-					'easeInOutQuart'   => esc_html__( 'easeInOutQuart', 'powerpack' ),
-					'easeInQuint'      => esc_html__( 'easeInQuint', 'powerpack' ),
-					'easeOutQuint'     => esc_html__( 'easeOutQuint', 'powerpack' ),
-					'easeInOutQuint'   => esc_html__( 'easeInOutQuint', 'powerpack' ),
-					'easeInSine'       => esc_html__( 'easeInSine', 'powerpack' ),
-					'easeOutSine'      => esc_html__( 'easeOutSine', 'powerpack' ),
-					'easeInOutSine'    => esc_html__( 'easeInOutSine', 'powerpack' ),
-					'easeInExpo'       => esc_html__( 'easeInExpo', 'powerpack' ),
-					'easeOutExpo'      => esc_html__( 'easeOutExpo', 'powerpack' ),
-					'easeInOutExpo'    => esc_html__( 'easeInOutExpo', 'powerpack' ),
-					'easeInCirc'       => esc_html__( 'easeInCirc', 'powerpack' ),
-					'easeOutCirc'      => esc_html__( 'easeOutCirc', 'powerpack' ),
-					'easeInOutCirc'    => esc_html__( 'easeInOutCirc', 'powerpack' ),
-					'easeInElastic'    => esc_html__( 'easeInElastic', 'powerpack' ),
-					'easeOutElastic'   => esc_html__( 'easeOutElastic', 'powerpack' ),
-					'easeInOutElastic' => esc_html__( 'easeInOutElastic', 'powerpack' ),
-					'easeInBack'       => esc_html__( 'easeInBack', 'powerpack' ),
-					'easeOutBack'      => esc_html__( 'easeOutBack', 'powerpack' ),
-					'easeInOutBack'    => esc_html__( 'easeInOutBack', 'powerpack' ),
-					'easeInBounce'     => esc_html__( 'easeInBounce', 'powerpack' ),
-					'easeOutBounce'    => esc_html__( 'easeOutBounce', 'powerpack' ),
-					'easeInOutBounce'  => esc_html__( 'easeInOutBounce', 'powerpack' ),
+					'linear'           => esc_html__( 'linear', 'powerpack-lite-for-elementor' ),
+					'easeInQuad'       => esc_html__( 'easeInQuad', 'powerpack-lite-for-elementor' ),
+					'easeOutQuad'      => esc_html__( 'easeOutQuad', 'powerpack-lite-for-elementor' ),
+					'easeInOutQuad'    => esc_html__( 'easeInOutQuad', 'powerpack-lite-for-elementor' ),
+					'easeInCubic'      => esc_html__( 'easeInCubic', 'powerpack-lite-for-elementor' ),
+					'easeOutCubic'     => esc_html__( 'easeOutCubic', 'powerpack-lite-for-elementor' ),
+					'easeInOutCubic'   => esc_html__( 'easeInOutCubic', 'powerpack-lite-for-elementor' ),
+					'easeInQuart'      => esc_html__( 'easeInQuart', 'powerpack-lite-for-elementor' ),
+					'easeOutQuart'     => esc_html__( 'easeOutQuart', 'powerpack-lite-for-elementor' ),
+					'easeInOutQuart'   => esc_html__( 'easeInOutQuart', 'powerpack-lite-for-elementor' ),
+					'easeInQuint'      => esc_html__( 'easeInQuint', 'powerpack-lite-for-elementor' ),
+					'easeOutQuint'     => esc_html__( 'easeOutQuint', 'powerpack-lite-for-elementor' ),
+					'easeInOutQuint'   => esc_html__( 'easeInOutQuint', 'powerpack-lite-for-elementor' ),
+					'easeInSine'       => esc_html__( 'easeInSine', 'powerpack-lite-for-elementor' ),
+					'easeOutSine'      => esc_html__( 'easeOutSine', 'powerpack-lite-for-elementor' ),
+					'easeInOutSine'    => esc_html__( 'easeInOutSine', 'powerpack-lite-for-elementor' ),
+					'easeInExpo'       => esc_html__( 'easeInExpo', 'powerpack-lite-for-elementor' ),
+					'easeOutExpo'      => esc_html__( 'easeOutExpo', 'powerpack-lite-for-elementor' ),
+					'easeInOutExpo'    => esc_html__( 'easeInOutExpo', 'powerpack-lite-for-elementor' ),
+					'easeInCirc'       => esc_html__( 'easeInCirc', 'powerpack-lite-for-elementor' ),
+					'easeOutCirc'      => esc_html__( 'easeOutCirc', 'powerpack-lite-for-elementor' ),
+					'easeInOutCirc'    => esc_html__( 'easeInOutCirc', 'powerpack-lite-for-elementor' ),
+					'easeInElastic'    => esc_html__( 'easeInElastic', 'powerpack-lite-for-elementor' ),
+					'easeOutElastic'   => esc_html__( 'easeOutElastic', 'powerpack-lite-for-elementor' ),
+					'easeInOutElastic' => esc_html__( 'easeInOutElastic', 'powerpack-lite-for-elementor' ),
+					'easeInBack'       => esc_html__( 'easeInBack', 'powerpack-lite-for-elementor' ),
+					'easeOutBack'      => esc_html__( 'easeOutBack', 'powerpack-lite-for-elementor' ),
+					'easeInOutBack'    => esc_html__( 'easeInOutBack', 'powerpack-lite-for-elementor' ),
+					'easeInBounce'     => esc_html__( 'easeInBounce', 'powerpack-lite-for-elementor' ),
+					'easeOutBounce'    => esc_html__( 'easeOutBounce', 'powerpack-lite-for-elementor' ),
+					'easeInOutBounce'  => esc_html__( 'easeInOutBounce', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -892,7 +892,7 @@ class Charts extends Powerpack_Widget {
 			'chart_animation_duration',
 			[
 				'type'    => Controls_Manager::SLIDER,
-				'label'   => esc_html__( 'Duration', 'powerpack' ),
+				'label'   => esc_html__( 'Duration', 'powerpack-lite-for-elementor' ),
 				'range'   => [
 					'px' => [
 						'min' => 1,
@@ -909,10 +909,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'chart_animation_loop',
 			[
-				'label'     => esc_html__( 'Loop Animation', 'powerpack' ),
+				'label'     => esc_html__( 'Loop Animation', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => '',
 			]
 		);
@@ -924,7 +924,7 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_chart_style',
 			[
-				'label' => esc_html__( 'Chart', 'powerpack' ),
+				'label' => esc_html__( 'Chart', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -932,7 +932,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'line_border_width',
 			[
-				'label'     => esc_html__( 'Line Border Width', 'powerpack' ),
+				'label'     => esc_html__( 'Line Border Width', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -953,7 +953,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'bar_border_width',
 			[
-				'label'     => esc_html__( 'Bar Border Width', 'powerpack' ),
+				'label'     => esc_html__( 'Bar Border Width', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -974,7 +974,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'bar_border_radius',
 			[
-				'label'     => esc_html__( 'Bar Border Radius', 'powerpack' ),
+				'label'     => esc_html__( 'Bar Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -992,7 +992,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'maxbarthickness',
 			[
-				'label'     => esc_html__( 'Bar Size', 'powerpack' ),
+				'label'     => esc_html__( 'Bar Size', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -1010,7 +1010,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'barthickness',
 			[
-				'label'     => esc_html__( 'Bar Space', 'powerpack' ),
+				'label'     => esc_html__( 'Bar Space', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -1032,7 +1032,7 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_chart_title_style',
 			[
-				'label'     => __( 'Chart Title', 'powerpack' ),
+				'label'     => __( 'Chart Title', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_chart_title' => 'yes',
@@ -1043,7 +1043,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'chart_title_color',
 			[
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'condition' => [
@@ -1055,7 +1055,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'chart_title_typography',
 			[
-				'label'        => esc_html__( 'Typography', 'powerpack' ),
+				'label'        => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::POPOVER_TOGGLE,
 				'return_value' => 'yes',
 				'condition'    => [
@@ -1070,7 +1070,7 @@ class Charts extends Powerpack_Widget {
 			'chart_title_size',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Size', 'powerpack' ),
+				'label'     => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min' => 1,
@@ -1090,21 +1090,21 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'chart_title_font_weight',
 			[
-				'label'     => esc_html__( 'Weight', 'powerpack' ),
+				'label'     => esc_html__( 'Weight', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => [
-					'100'    => esc_html__( '100', 'powerpack' ),
-					'200'    => esc_html__( '200', 'powerpack' ),
-					'300'    => esc_html__( '300', 'powerpack' ),
-					'400'    => esc_html__( '400', 'powerpack' ),
-					'500'    => esc_html__( '500', 'powerpack' ),
-					'600'    => esc_html__( '600', 'powerpack' ),
-					'700'    => esc_html__( '700', 'powerpack' ),
-					'800'    => esc_html__( '800', 'powerpack' ),
-					'900'    => esc_html__( '900', 'powerpack' ),
-					''       => esc_html__( 'Default', 'powerpack' ),
-					'normal' => esc_html__( 'Normal', 'powerpack' ),
-					'bold'   => esc_html__( 'Bold', 'powerpack' ),
+					'100'    => esc_html__( '100', 'powerpack-lite-for-elementor' ),
+					'200'    => esc_html__( '200', 'powerpack-lite-for-elementor' ),
+					'300'    => esc_html__( '300', 'powerpack-lite-for-elementor' ),
+					'400'    => esc_html__( '400', 'powerpack-lite-for-elementor' ),
+					'500'    => esc_html__( '500', 'powerpack-lite-for-elementor' ),
+					'600'    => esc_html__( '600', 'powerpack-lite-for-elementor' ),
+					'700'    => esc_html__( '700', 'powerpack-lite-for-elementor' ),
+					'800'    => esc_html__( '800', 'powerpack-lite-for-elementor' ),
+					'900'    => esc_html__( '900', 'powerpack-lite-for-elementor' ),
+					''       => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
+					'normal' => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
+					'bold'   => esc_html__( 'Bold', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'show_chart_title' => 'yes',
@@ -1115,14 +1115,14 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'chart_title_font_style',
 			[
-				'label'     => esc_html__( 'Style', 'powerpack' ),
+				'label'     => esc_html__( 'Style', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
 				'options'   => [
-					''        => esc_html__( 'Default', 'powerpack' ),
-					'normal'  => esc_html__( 'Normal', 'powerpack' ),
-					'italic'  => esc_html__( 'Italic', 'powerpack' ),
-					'oblique' => esc_html__( 'Oblique', 'powerpack' ),
+					''        => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
+					'normal'  => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
+					'italic'  => esc_html__( 'Italic', 'powerpack-lite-for-elementor' ),
+					'oblique' => esc_html__( 'Oblique', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'show_chart_title' => 'yes',
@@ -1134,7 +1134,7 @@ class Charts extends Powerpack_Widget {
 			'chart_title_line_height',
 			[
 				'type'       => Controls_Manager::SLIDER,
-				'label'      => esc_html__( 'Line Height', 'powerpack' ),
+				'label'      => esc_html__( 'Line Height', 'powerpack-lite-for-elementor' ),
 				'range'      => [
 					'px' => [
 						'min' => 1,
@@ -1163,7 +1163,7 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_chart_grid_style',
 			[
-				'label'      => __( 'Grid', 'powerpack' ),
+				'label'      => __( 'Grid', 'powerpack-lite-for-elementor' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'conditions' => [
 					'relation' => 'and',
@@ -1218,7 +1218,7 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_grid_x',
 			[
-				'label'     => esc_html__( 'X Axis', 'powerpack' ),
+				'label'     => esc_html__( 'X Axis', 'powerpack-lite-for-elementor' ),
 				'condition' => [
 					'chart_type!' => [ 'pie', 'doughnut' ],
 				],
@@ -1232,7 +1232,7 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_grid_y',
 			[
-				'label'     => esc_html__( 'Y Axis', 'powerpack' ),
+				'label'     => esc_html__( 'Y Axis', 'powerpack-lite-for-elementor' ),
 				'condition' => [
 					'chart_type!' => [ 'pie', 'doughnut' ],
 				],
@@ -1252,7 +1252,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'grid_color_' . $type,
 			[
-				'label'     => esc_html__( 'Grid Line Color', 'powerpack' ),
+				'label'     => esc_html__( 'Grid Line Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => 'rgb(0 0 0 / 50%)',
 				'condition' => [
@@ -1266,7 +1266,7 @@ class Charts extends Powerpack_Widget {
 			'grid_width_' . $type,
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Grid Line Width', 'powerpack' ),
+				'label'     => esc_html__( 'Grid Line Width', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min'  => 0,
@@ -1292,7 +1292,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			$type . '_heading',
 			[
-				'label'     => esc_html__( 'Title', 'powerpack' ),
+				'label'     => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1305,7 +1305,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			$type . '_axis_title_color',
 			[
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'condition' => [
@@ -1318,7 +1318,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			$type . '_axis_title_typography',
 			[
-				'label'        => esc_html__( 'Typography', 'powerpack' ),
+				'label'        => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::POPOVER_TOGGLE,
 				'return_value' => 'yes',
 				'condition'    => [
@@ -1334,7 +1334,7 @@ class Charts extends Powerpack_Widget {
 			$type . '_axis_title_size',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Size', 'powerpack' ),
+				'label'     => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min' => 1,
@@ -1355,21 +1355,21 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			$type . '_axis_title_font_weight',
 			[
-				'label'     => esc_html__( 'Weight', 'powerpack' ),
+				'label'     => esc_html__( 'Weight', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => [
-					'100'    => esc_html__( '100', 'powerpack' ),
-					'200'    => esc_html__( '200', 'powerpack' ),
-					'300'    => esc_html__( '300', 'powerpack' ),
-					'400'    => esc_html__( '400', 'powerpack' ),
-					'500'    => esc_html__( '500', 'powerpack' ),
-					'600'    => esc_html__( '600', 'powerpack' ),
-					'700'    => esc_html__( '700', 'powerpack' ),
-					'800'    => esc_html__( '800', 'powerpack' ),
-					'900'    => esc_html__( '900', 'powerpack' ),
-					''       => esc_html__( 'Default', 'powerpack' ),
-					'normal' => esc_html__( 'Normal', 'powerpack' ),
-					'bold'   => esc_html__( 'Bold', 'powerpack' ),
+					'100'    => esc_html__( '100', 'powerpack-lite-for-elementor' ),
+					'200'    => esc_html__( '200', 'powerpack-lite-for-elementor' ),
+					'300'    => esc_html__( '300', 'powerpack-lite-for-elementor' ),
+					'400'    => esc_html__( '400', 'powerpack-lite-for-elementor' ),
+					'500'    => esc_html__( '500', 'powerpack-lite-for-elementor' ),
+					'600'    => esc_html__( '600', 'powerpack-lite-for-elementor' ),
+					'700'    => esc_html__( '700', 'powerpack-lite-for-elementor' ),
+					'800'    => esc_html__( '800', 'powerpack-lite-for-elementor' ),
+					'900'    => esc_html__( '900', 'powerpack-lite-for-elementor' ),
+					''       => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
+					'normal' => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
+					'bold'   => esc_html__( 'Bold', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'chart_type!' => [ 'pie', 'doughnut' ],
@@ -1381,14 +1381,14 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			$type . '_axis_title_font_style',
 			[
-				'label'     => esc_html__( 'Style', 'powerpack' ),
+				'label'     => esc_html__( 'Style', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
 				'options'   => [
-					''        => esc_html__( 'Default', 'powerpack' ),
-					'normal'  => esc_html__( 'Normal', 'powerpack' ),
-					'italic'  => esc_html__( 'Italic', 'powerpack' ),
-					'oblique' => esc_html__( 'Oblique', 'powerpack' ),
+					''        => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
+					'normal'  => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
+					'italic'  => esc_html__( 'Italic', 'powerpack-lite-for-elementor' ),
+					'oblique' => esc_html__( 'Oblique', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'chart_type!' => [ 'pie', 'doughnut' ],
@@ -1401,7 +1401,7 @@ class Charts extends Powerpack_Widget {
 			$type . '_axis_title_line_height',
 			[
 				'type'       => Controls_Manager::SLIDER,
-				'label'      => esc_html__( 'Line Height', 'powerpack' ),
+				'label'      => esc_html__( 'Line Height', 'powerpack-lite-for-elementor' ),
 				'range'      => [
 					'px' => [
 						'min' => 1,
@@ -1429,7 +1429,7 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_chart_labels_style',
 			[
-				'label'      => __( 'Labels', 'powerpack' ),
+				'label'      => __( 'Labels', 'powerpack-lite-for-elementor' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'conditions' => [
 					'relation' => 'and',
@@ -1472,7 +1472,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'x_axis_labels_heading',
 			[
-				'label'     => esc_html__( 'X Axis', 'powerpack' ),
+				'label'     => esc_html__( 'X Axis', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'condition' => [
 					'chart_type!' => [ 'pie', 'doughnut' ],
@@ -1486,7 +1486,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'y_axis_labels_heading',
 			[
-				'label'     => esc_html__( 'Y Axis', 'powerpack' ),
+				'label'     => esc_html__( 'Y Axis', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1505,7 +1505,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			$type . '_axis_labels_color',
 			[
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#666',
 				'condition' => [
@@ -1518,7 +1518,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			$type . '_axis_labels_typography',
 			[
-				'label'        => esc_html__( 'Typography', 'powerpack' ),
+				'label'        => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::POPOVER_TOGGLE,
 				'return_value' => 'yes',
 				'condition'    => [
@@ -1534,7 +1534,7 @@ class Charts extends Powerpack_Widget {
 			$type . '_axis_labels_size',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Size', 'powerpack' ),
+				'label'     => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min' => 1,
@@ -1555,21 +1555,21 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			$type . '_axis_labels_font_weight',
 			[
-				'label'     => esc_html__( 'Weight', 'powerpack' ),
+				'label'     => esc_html__( 'Weight', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => [
-					'100'    => esc_html__( '100', 'powerpack' ),
-					'200'    => esc_html__( '200', 'powerpack' ),
-					'300'    => esc_html__( '300', 'powerpack' ),
-					'400'    => esc_html__( '400', 'powerpack' ),
-					'500'    => esc_html__( '500', 'powerpack' ),
-					'600'    => esc_html__( '600', 'powerpack' ),
-					'700'    => esc_html__( '700', 'powerpack' ),
-					'800'    => esc_html__( '800', 'powerpack' ),
-					'900'    => esc_html__( '900', 'powerpack' ),
-					''       => esc_html__( 'Default', 'powerpack' ),
-					'normal' => esc_html__( 'Normal', 'powerpack' ),
-					'bold'   => esc_html__( 'Bold', 'powerpack' ),
+					'100'    => esc_html__( '100', 'powerpack-lite-for-elementor' ),
+					'200'    => esc_html__( '200', 'powerpack-lite-for-elementor' ),
+					'300'    => esc_html__( '300', 'powerpack-lite-for-elementor' ),
+					'400'    => esc_html__( '400', 'powerpack-lite-for-elementor' ),
+					'500'    => esc_html__( '500', 'powerpack-lite-for-elementor' ),
+					'600'    => esc_html__( '600', 'powerpack-lite-for-elementor' ),
+					'700'    => esc_html__( '700', 'powerpack-lite-for-elementor' ),
+					'800'    => esc_html__( '800', 'powerpack-lite-for-elementor' ),
+					'900'    => esc_html__( '900', 'powerpack-lite-for-elementor' ),
+					''       => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
+					'normal' => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
+					'bold'   => esc_html__( 'Bold', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'chart_type!' => [ 'pie', 'doughnut' ],
@@ -1581,14 +1581,14 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			$type . '_axis_labels_font_style',
 			[
-				'label'     => esc_html__( 'Style', 'powerpack' ),
+				'label'     => esc_html__( 'Style', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
 				'options'   => [
-					''        => esc_html__( 'Default', 'powerpack' ),
-					'normal'  => esc_html__( 'Normal', 'powerpack' ),
-					'italic'  => esc_html__( 'Italic', 'powerpack' ),
-					'oblique' => esc_html__( 'Oblique', 'powerpack' ),
+					''        => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
+					'normal'  => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
+					'italic'  => esc_html__( 'Italic', 'powerpack-lite-for-elementor' ),
+					'oblique' => esc_html__( 'Oblique', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'chart_type!' => [ 'pie', 'doughnut' ],
@@ -1601,7 +1601,7 @@ class Charts extends Powerpack_Widget {
 			$type . '_axis_labels_line_height',
 			[
 				'type'       => Controls_Manager::SLIDER,
-				'label'      => esc_html__( 'Line Height', 'powerpack' ),
+				'label'      => esc_html__( 'Line Height', 'powerpack-lite-for-elementor' ),
 				'range'      => [
 					'px' => [
 						'min' => 1,
@@ -1629,7 +1629,7 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_legend_style',
 			[
-				'label'     => __( 'Legend', 'powerpack' ),
+				'label'     => __( 'Legend', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_legend' => 'yes',
@@ -1640,7 +1640,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'legend_color',
 			[
-				'label'     => esc_html__( 'Label Color', 'powerpack' ),
+				'label'     => esc_html__( 'Label Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#666',
 				'condition' => [
@@ -1652,7 +1652,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'legend_typography',
 			[
-				'label'        => esc_html__( 'Typography', 'powerpack' ),
+				'label'        => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::POPOVER_TOGGLE,
 				'return_value' => 'yes',
 				'condition'    => [
@@ -1667,7 +1667,7 @@ class Charts extends Powerpack_Widget {
 			'legend_size',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Size', 'powerpack' ),
+				'label'     => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min' => 1,
@@ -1687,21 +1687,21 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'legend_font_weight',
 			[
-				'label'     => esc_html__( 'Weight', 'powerpack' ),
+				'label'     => esc_html__( 'Weight', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => [
-					'100'    => esc_html__( '100', 'powerpack' ),
-					'200'    => esc_html__( '200', 'powerpack' ),
-					'300'    => esc_html__( '300', 'powerpack' ),
-					'400'    => esc_html__( '400', 'powerpack' ),
-					'500'    => esc_html__( '500', 'powerpack' ),
-					'600'    => esc_html__( '600', 'powerpack' ),
-					'700'    => esc_html__( '700', 'powerpack' ),
-					'800'    => esc_html__( '800', 'powerpack' ),
-					'900'    => esc_html__( '900', 'powerpack' ),
-					''       => esc_html__( 'Default', 'powerpack' ),
-					'normal' => esc_html__( 'Normal', 'powerpack' ),
-					'bold'   => esc_html__( 'Bold', 'powerpack' ),
+					'100'    => esc_html__( '100', 'powerpack-lite-for-elementor' ),
+					'200'    => esc_html__( '200', 'powerpack-lite-for-elementor' ),
+					'300'    => esc_html__( '300', 'powerpack-lite-for-elementor' ),
+					'400'    => esc_html__( '400', 'powerpack-lite-for-elementor' ),
+					'500'    => esc_html__( '500', 'powerpack-lite-for-elementor' ),
+					'600'    => esc_html__( '600', 'powerpack-lite-for-elementor' ),
+					'700'    => esc_html__( '700', 'powerpack-lite-for-elementor' ),
+					'800'    => esc_html__( '800', 'powerpack-lite-for-elementor' ),
+					'900'    => esc_html__( '900', 'powerpack-lite-for-elementor' ),
+					''       => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
+					'normal' => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
+					'bold'   => esc_html__( 'Bold', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'show_legend' => 'yes',
@@ -1712,14 +1712,14 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'legend_font_style',
 			[
-				'label'     => esc_html__( 'Style', 'powerpack' ),
+				'label'     => esc_html__( 'Style', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
 				'options'   => [
-					''        => esc_html__( 'Default', 'powerpack' ),
-					'normal'  => esc_html__( 'Normal', 'powerpack' ),
-					'italic'  => esc_html__( 'Italic', 'powerpack' ),
-					'oblique' => esc_html__( 'Oblique', 'powerpack' ),
+					''        => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
+					'normal'  => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
+					'italic'  => esc_html__( 'Italic', 'powerpack-lite-for-elementor' ),
+					'oblique' => esc_html__( 'Oblique', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'show_legend' => 'yes',
@@ -1731,7 +1731,7 @@ class Charts extends Powerpack_Widget {
 			'legend_line_height',
 			[
 				'type'       => Controls_Manager::SLIDER,
-				'label'      => esc_html__( 'Line Height', 'powerpack' ),
+				'label'      => esc_html__( 'Line Height', 'powerpack-lite-for-elementor' ),
 				'range'      => [
 					'px' => [
 						'min' => 1,
@@ -1760,7 +1760,7 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_chart_points_style',
 			[
-				'label'     => __( 'Points', 'powerpack' ),
+				'label'     => __( 'Points', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'chart_type' => 'line',
@@ -1771,10 +1771,10 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'custom_point_styles',
 			[
-				'label'     => esc_html__( 'Custom Styles', 'powerpack' ),
+				'label'     => esc_html__( 'Custom Styles', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'Yes', 'powerpack' ),
-				'label_off' => esc_html__( 'No', 'powerpack' ),
+				'label_on'  => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'   => '',
 				'condition' => [
 					'chart_type' => 'line',
@@ -1785,20 +1785,20 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'point_style',
 			[
-				'label'     => esc_html__( 'Point Style', 'powerpack' ),
+				'label'     => esc_html__( 'Point Style', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'circle',
 				'options'   => [
-					'circle'      => esc_html__( 'Circle', 'powerpack' ),
-					'cross'       => esc_html__( 'Cross', 'powerpack' ),
-					'crossRot'    => esc_html__( 'CrossRot', 'powerpack' ),
-					'dash'        => esc_html__( 'Dash', 'powerpack' ),
-					'line'        => esc_html__( 'Line', 'powerpack' ),
-					'rect'        => esc_html__( 'Rect', 'powerpack' ),
-					'rectRounded' => esc_html__( 'RectRounded', 'powerpack' ),
-					'rectRot'     => esc_html__( 'RectRot', 'powerpack' ),
-					'star'        => esc_html__( 'Star', 'powerpack' ),
-					'triangle'    => esc_html__( 'Triangle', 'powerpack' ),
+					'circle'      => esc_html__( 'Circle', 'powerpack-lite-for-elementor' ),
+					'cross'       => esc_html__( 'Cross', 'powerpack-lite-for-elementor' ),
+					'crossRot'    => esc_html__( 'CrossRot', 'powerpack-lite-for-elementor' ),
+					'dash'        => esc_html__( 'Dash', 'powerpack-lite-for-elementor' ),
+					'line'        => esc_html__( 'Line', 'powerpack-lite-for-elementor' ),
+					'rect'        => esc_html__( 'Rect', 'powerpack-lite-for-elementor' ),
+					'rectRounded' => esc_html__( 'RectRounded', 'powerpack-lite-for-elementor' ),
+					'rectRot'     => esc_html__( 'RectRot', 'powerpack-lite-for-elementor' ),
+					'star'        => esc_html__( 'Star', 'powerpack-lite-for-elementor' ),
+					'triangle'    => esc_html__( 'Triangle', 'powerpack-lite-for-elementor' ),
 				],
 				'condition' => [
 					'chart_type' => 'line',
@@ -1810,7 +1810,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'point_bg',
 			[
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ff5a6e99',
 				'condition' => [
@@ -1824,7 +1824,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'point_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#00000099',
 				'condition' => [
@@ -1838,7 +1838,7 @@ class Charts extends Powerpack_Widget {
 			'point_border_width',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Border Width', 'powerpack' ),
+				'label'     => esc_html__( 'Border Width', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min' => 1,
@@ -1860,7 +1860,7 @@ class Charts extends Powerpack_Widget {
 			'point_size',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Point Size', 'powerpack' ),
+				'label'     => esc_html__( 'Point Size', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min' => 1,
@@ -1882,7 +1882,7 @@ class Charts extends Powerpack_Widget {
 			'point_hover_size',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Point Hover Size', 'powerpack' ),
+				'label'     => esc_html__( 'Point Hover Size', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min' => 1,
@@ -1907,7 +1907,7 @@ class Charts extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_chart_tooltip_style',
 			[
-				'label'     => __( 'Tooltip', 'powerpack' ),
+				'label'     => __( 'Tooltip', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_tooltip' => 'yes',
@@ -1918,7 +1918,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'show_tooltip' => 'yes',
@@ -1929,7 +1929,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'show_tooltip' => 'yes',
@@ -1941,7 +1941,7 @@ class Charts extends Powerpack_Widget {
 			'tooltip_border_width',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Border Width', 'powerpack' ),
+				'label'     => esc_html__( 'Border Width', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min'  => 1,
@@ -1959,7 +1959,7 @@ class Charts extends Powerpack_Widget {
 			'tooltip_border_radius',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'     => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min'  => 0,
@@ -1979,7 +1979,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_padding',
 			[
-				'label'     => esc_html__( 'Padding', 'powerpack' ),
+				'label'     => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 6,
 				'condition' => [
@@ -1991,7 +1991,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_title_heading',
 			[
-				'label'     => esc_html__( 'Title', 'powerpack' ),
+				'label'     => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2000,7 +2000,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_title_color',
 			[
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
 				'condition' => [
@@ -2013,7 +2013,7 @@ class Charts extends Powerpack_Widget {
 			'tooltip_title_font_size',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Font Size', 'powerpack' ),
+				'label'     => esc_html__( 'Font Size', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min' => 1,
@@ -2033,7 +2033,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_body_heading',
 			[
-				'label'     => esc_html__( 'Body', 'powerpack' ),
+				'label'     => esc_html__( 'Body', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -2042,7 +2042,7 @@ class Charts extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_body_color',
 			[
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
 				'condition' => [
@@ -2055,7 +2055,7 @@ class Charts extends Powerpack_Widget {
 			'tooltip_body_font_size',
 			[
 				'type'      => Controls_Manager::SLIDER,
-				'label'     => esc_html__( 'Font Size', 'powerpack' ),
+				'label'     => esc_html__( 'Font Size', 'powerpack-lite-for-elementor' ),
 				'range'     => [
 					'px' => [
 						'min' => 1,
@@ -2087,11 +2087,11 @@ class Charts extends Powerpack_Widget {
 		$chart_type = $this->get_chart_type();
 
 		if ( 'radar' === $chart_type || 'pie' === $chart_type || 'doughnut' === $chart_type || 'polarArea' === $chart_type || 'bubble' === $chart_type ) {
-			$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose one of the available chart types fron the Chart Type option.', 'powerpack' ), esc_attr( $this->get_title() ) );
+			$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose one of the available chart types fron the Chart Type option.', 'powerpack-lite-for-elementor' ), esc_attr( $this->get_title() ) );
 
 			echo esc_attr( $this->render_editor_placeholder(
 				[
-					'title' => esc_html__( 'Chart type not available!', 'powerpack' ),
+					'title' => esc_html__( 'Chart type not available!', 'powerpack-lite-for-elementor' ),
 					'body' => $placeholder,
 				]
 			) );

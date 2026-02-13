@@ -74,14 +74,14 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_wpforms',
 			[
-				'label'                 => esc_html__( 'WPForms', 'powerpack' ),
+				'label'                 => esc_html__( 'WPForms', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'contact_form_list',
 			[
-				'label'                 => esc_html__( 'Contact Form', 'powerpack' ),
+				'label'                 => esc_html__( 'Contact Form', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => true,
 				'options'               => PP_Helper::get_contact_forms( 'WP_Forms' ),
@@ -92,10 +92,10 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'custom_title_description',
 			[
-				'label'                 => esc_html__( 'Custom Title & Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Custom Title & Description', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -103,11 +103,11 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'form_title',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => esc_html__( 'Show', 'powerpack' ),
-				'label_off'             => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'              => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'condition'             => [
 					'custom_title_description!'   => 'yes',
@@ -118,11 +118,11 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'form_description',
 			[
-				'label'                 => esc_html__( 'Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => esc_html__( 'Show', 'powerpack' ),
-				'label_off'             => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'              => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'condition'             => [
 					'custom_title_description!'   => 'yes',
@@ -133,7 +133,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'form_title_custom',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'label_block'           => true,
 				'default'               => '',
@@ -146,7 +146,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'form_description_custom',
 			[
-				'label'                 => esc_html__( 'Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXTAREA,
 				'default'               => '',
 				'condition'             => [
@@ -158,11 +158,11 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'labels_switch',
 			[
-				'label'                 => esc_html__( 'Labels', 'powerpack' ),
+				'label'                 => esc_html__( 'Labels', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => esc_html__( 'Show', 'powerpack' ),
-				'label_off'             => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'              => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'prefix_class'          => 'pp-wpforms-labels-',
 			]
@@ -171,11 +171,11 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'placeholder_switch',
 			[
-				'label'                 => esc_html__( 'Placeholder', 'powerpack' ),
+				'label'                 => esc_html__( 'Placeholder', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => esc_html__( 'Show', 'powerpack' ),
-				'label_off'             => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'              => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -189,19 +189,19 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_errors',
 			[
-				'label'                 => esc_html__( 'Errors', 'powerpack' ),
+				'label'                 => esc_html__( 'Errors', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'error_messages',
 			[
-				'label'                 => esc_html__( 'Error Messages', 'powerpack' ),
+				'label'                 => esc_html__( 'Error Messages', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'show',
 				'options'               => [
-					'show'          => esc_html__( 'Show', 'powerpack' ),
-					'hide'          => esc_html__( 'Hide', 'powerpack' ),
+					'show'          => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+					'hide'          => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				],
 				'selectors_dictionary'  => [
 					'show'          => 'block',
@@ -228,7 +228,7 @@ class WPforms extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -260,7 +260,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_form_title_style',
 			[
-				'label'                 => esc_html__( 'Title & Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Title & Description', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -268,19 +268,19 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'heading_alignment',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -294,7 +294,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'title_heading',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -303,7 +303,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'form_title_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -316,7 +316,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'form_title_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-contact-form-title, {{WRAPPER}} .wpforms-title',
 			]
 		);
@@ -324,7 +324,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'form_title_margin',
 			[
-				'label'                 => esc_html__( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'allowed_dimensions'    => 'vertical',
@@ -343,7 +343,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'description_heading',
 			[
-				'label'                 => esc_html__( 'Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -352,7 +352,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'form_description_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -365,7 +365,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'form_description_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -376,7 +376,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'form_description_margin',
 			[
-				'label'                 => esc_html__( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'allowed_dimensions'    => 'vertical',
@@ -401,7 +401,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_label_style',
 			[
-				'label'             => esc_html__( 'Labels', 'powerpack' ),
+				'label'             => esc_html__( 'Labels', 'powerpack-lite-for-elementor' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -409,7 +409,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'text_color_label',
 			[
-				'label'             => esc_html__( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'selectors'         => [
 					'{{WRAPPER}} .pp-wpforms .wpforms-field-label' => 'color: {{VALUE}}',
@@ -421,7 +421,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'              => 'typography_label',
-				'label'             => esc_html__( 'Typography', 'powerpack' ),
+				'label'             => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -438,7 +438,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_fields_style',
 			[
-				'label'             => esc_html__( 'Input & Textarea', 'powerpack' ),
+				'label'             => esc_html__( 'Input & Textarea', 'powerpack-lite-for-elementor' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -446,19 +446,19 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'input_alignment',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -474,14 +474,14 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_fields_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'field_bg_color',
 			[
-				'label'             => esc_html__( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -493,7 +493,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'field_text_color',
 			[
-				'label'             => esc_html__( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -506,7 +506,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'field_border',
-				'label'             => esc_html__( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-field input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-wpforms .wpforms-container .wpforms-form .choices__inner, {{WRAPPER}} .pp-wpforms .wpforms-field textarea, {{WRAPPER}} .pp-wpforms .wpforms-field select',
@@ -517,7 +517,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'field_radius',
 			[
-				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
@@ -529,7 +529,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'text_indent',
 			[
-				'label'                 => esc_html__( 'Text Indent', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Indent', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -554,7 +554,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'input_width',
 			[
-				'label'             => esc_html__( 'Input Width', 'powerpack' ),
+				'label'             => esc_html__( 'Input Width', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'             => [
@@ -573,7 +573,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'input_height',
 			[
-				'label'             => esc_html__( 'Input Height', 'powerpack' ),
+				'label'             => esc_html__( 'Input Height', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'             => [
@@ -592,7 +592,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'textarea_width',
 			[
-				'label'             => esc_html__( 'Textarea Width', 'powerpack' ),
+				'label'             => esc_html__( 'Textarea Width', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'             => [
@@ -611,7 +611,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'textarea_height',
 			[
-				'label'             => esc_html__( 'Textarea Height', 'powerpack' ),
+				'label'             => esc_html__( 'Textarea Height', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'             => [
@@ -630,7 +630,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_padding',
 			[
-				'label'             => esc_html__( 'Padding', 'powerpack' ),
+				'label'             => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'         => [
@@ -643,7 +643,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_spacing',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -663,7 +663,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'              => 'field_typography',
-				'label'             => esc_html__( 'Typography', 'powerpack' ),
+				'label'             => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -686,7 +686,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_fields_focus',
 			[
-				'label'                 => esc_html__( 'Focus', 'powerpack' ),
+				'label'                 => esc_html__( 'Focus', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -694,7 +694,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'focus_input_border',
-				'label'             => esc_html__( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-field input:focus, {{WRAPPER}} .pp-wpforms .wpforms-field textarea:focus',
@@ -723,7 +723,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_field_description_style',
 			[
-				'label'                 => esc_html__( 'Field Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Field Description', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -731,7 +731,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'field_description_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-wpforms .wpforms-field .wpforms-field-description, {{WRAPPER}} .pp-wpforms .wpforms-field .wpforms-field-sublabel' => 'color: {{VALUE}}',
@@ -743,7 +743,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'field_description_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-wpforms .wpforms-field .wpforms-field-description, {{WRAPPER}} .pp-wpforms .wpforms-field .wpforms-field-sublabel',
 			]
 		);
@@ -751,7 +751,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_description_spacing',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -776,7 +776,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_placeholder_style',
 			[
-				'label'             => esc_html__( 'Placeholder', 'powerpack' ),
+				'label'             => esc_html__( 'Placeholder', 'powerpack-lite-for-elementor' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'placeholder_switch'   => 'yes',
@@ -787,7 +787,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'text_color_placeholder',
 			[
-				'label'             => esc_html__( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'selectors'         => [
 					'{{WRAPPER}} .pp-wpforms .wpforms-field input::-webkit-input-placeholder, {{WRAPPER}} .pp-wpforms .wpforms-field textarea::-webkit-input-placeholder' => 'color: {{VALUE}}',
@@ -807,7 +807,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_section_divider_style',
 			[
-				'label'                 => esc_html__( 'Section Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Section Divider', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -815,7 +815,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'section_divider_bg_color',
 			[
-				'label'             => esc_html__( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -827,7 +827,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'section_divider_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-wpforms .wpforms-field-divider h3' => 'color: {{VALUE}}',
@@ -839,7 +839,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'section_divider_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-wpforms .wpforms-field-divider h3',
 			]
 		);
@@ -864,7 +864,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'section_divider_border',
-				'label'             => esc_html__( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-field-divider',
@@ -874,7 +874,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'section_divider_border_radius',
 			[
-				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
@@ -886,7 +886,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'section_divider_padding',
 			[
-				'label'             => esc_html__( 'Padding', 'powerpack' ),
+				'label'             => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'         => [
@@ -906,7 +906,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'section_divider_spacing',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -931,7 +931,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_radio_checkbox_style',
 			[
-				'label'                 => esc_html__( 'Radio & Checkbox', 'powerpack' ),
+				'label'                 => esc_html__( 'Radio & Checkbox', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -939,10 +939,10 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'custom_radio_checkbox',
 			[
-				'label'                 => esc_html__( 'Custom Styles', 'powerpack' ),
+				'label'                 => esc_html__( 'Custom Styles', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -950,7 +950,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'radio_checkbox_size',
 			[
-				'label'                 => esc_html__( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
@@ -978,7 +978,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'radio_checkbox_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
 				],
@@ -988,7 +988,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_color',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1003,7 +1003,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'radio_checkbox_border_width',
 			[
-				'label'                 => esc_html__( 'Border Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -1025,7 +1025,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_border_color',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1040,7 +1040,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'checkbox_heading',
 			[
-				'label'                 => esc_html__( 'Checkbox', 'powerpack' ),
+				'label'                 => esc_html__( 'Checkbox', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
@@ -1051,7 +1051,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'checkbox_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -1066,7 +1066,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_heading',
 			[
-				'label'                 => esc_html__( 'Radio Buttons', 'powerpack' ),
+				'label'                 => esc_html__( 'Radio Buttons', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
@@ -1077,7 +1077,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -1094,7 +1094,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'radio_checkbox_checked',
 			[
-				'label'                 => esc_html__( 'Checked', 'powerpack' ),
+				'label'                 => esc_html__( 'Checked', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
 				],
@@ -1104,7 +1104,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_color_checked',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1128,7 +1128,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_page_break_style',
 			[
-				'label' => esc_html__( 'Page Break', 'powerpack' ),
+				'label' => esc_html__( 'Page Break', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1136,7 +1136,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'progress_bar_heading',
 			[
-				'label' => esc_html__( 'Progress Bar', 'powerpack' ),
+				'label' => esc_html__( 'Progress Bar', 'powerpack-lite-for-elementor' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -1144,7 +1144,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'progress_bar_bg_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpforms-page-indicator.progress .wpforms-page-indicator-page-progress-wrap' => 'background-color: {{VALUE}};',
@@ -1155,7 +1155,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'progress_bar_text_color',
 			[
-				'label'     => esc_html__( 'Steps Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Steps Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -1168,7 +1168,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'progress_bar_typography',
-				'label'    => esc_html__( 'Steps Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Steps Typography', 'powerpack-lite-for-elementor' ),
 				'selector' => '{{WRAPPER}} .pp-wpforms .wpforms-page-indicator-steps',
 			]
 		);
@@ -1176,7 +1176,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'page_break_buttons_heading',
 			[
-				'label'     => esc_html__( 'Buttons', 'powerpack' ),
+				'label'     => esc_html__( 'Buttons', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1186,7 +1186,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'page_break_buttons_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'  => '{{WRAPPER}} .pp-wpforms .wpforms-pagebreak-left .wpforms-page-button',
 			]
 		);
@@ -1196,14 +1196,14 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_page_break_buttons_normal',
 			[
-				'label' => esc_html__( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'page_break_buttons_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -1239,7 +1239,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'page_break_buttons_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -1259,7 +1259,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'page_break_buttons_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'  => [
@@ -1274,14 +1274,14 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_page_break_buttons_hover',
 			[
-				'label' => esc_html__( 'Hover', 'powerpack' ),
+				'label' => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'page_break_buttons_text_color_hover',
 			[
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -1308,7 +1308,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'page_break_buttons_border_color_hover',
 			[
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -1330,7 +1330,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_submit_button_style',
 			[
-				'label'             => esc_html__( 'Submit Button', 'powerpack' ),
+				'label'             => esc_html__( 'Submit Button', 'powerpack-lite-for-elementor' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1338,19 +1338,19 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_align',
 			[
-				'label'             => esc_html__( 'Alignment', 'powerpack' ),
+				'label'             => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::CHOOSE,
 				'options'           => [
 					'left'        => [
-						'title'   => esc_html__( 'Left', 'powerpack' ),
+						'title'   => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'    => 'eicon-h-align-left',
 					],
 					'center'      => [
-						'title'   => esc_html__( 'Center', 'powerpack' ),
+						'title'   => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'    => 'eicon-h-align-center',
 					],
 					'right'       => [
-						'title'   => esc_html__( 'Right', 'powerpack' ),
+						'title'   => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'    => 'eicon-h-align-right',
 					],
 				],
@@ -1368,12 +1368,12 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'button_width_type',
 			[
-				'label'                 => esc_html__( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'custom',
 				'options'               => [
-					'full-width'    => esc_html__( 'Full Width', 'powerpack' ),
-					'custom'        => esc_html__( 'Custom', 'powerpack' ),
+					'full-width'    => esc_html__( 'Full Width', 'powerpack-lite-for-elementor' ),
+					'custom'        => esc_html__( 'Custom', 'powerpack-lite-for-elementor' ),
 				],
 				'prefix_class'          => 'pp-wpforms-form-button-',
 			]
@@ -1382,7 +1382,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_width',
 			[
-				'label'                 => esc_html__( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
@@ -1421,14 +1421,14 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'             => esc_html__( 'Normal', 'powerpack' ),
+				'label'             => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color_normal',
 			[
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -1440,7 +1440,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'button_bg_color_normal',
 			[
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -1461,7 +1461,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -1481,7 +1481,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'  => [
@@ -1494,7 +1494,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_margin',
 			[
-				'label'      => esc_html__( 'Margin Top', 'powerpack' ),
+				'label'      => esc_html__( 'Margin Top', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'      => [
@@ -1515,14 +1515,14 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'             => esc_html__( 'Hover', 'powerpack' ),
+				'label'             => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label'             => esc_html__( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1534,7 +1534,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'button_bg_color_hover',
 			[
-				'label'             => esc_html__( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1546,7 +1546,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			[
-				'label'             => esc_html__( 'Border Color', 'powerpack' ),
+				'label'             => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1568,7 +1568,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_error_style',
 			[
-				'label'                 => esc_html__( 'Errors', 'powerpack' ),
+				'label'                 => esc_html__( 'Errors', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'error_messages' => 'show',
@@ -1579,7 +1579,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'error_message_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1595,7 +1595,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'error_message_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-wpforms label.wpforms-error',
 			]
 		);
@@ -1603,7 +1603,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'error_field_input_border_color',
 			[
-				'label'                 => esc_html__( 'Error Field Input Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Error Field Input Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1618,7 +1618,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'error_field_input_border_width',
 			[
-				'label'                 => esc_html__( 'Error Field Input Border Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Error Field Input Border Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::NUMBER,
 				'default'               => 1,
 				'min'                   => 1,
@@ -1642,7 +1642,7 @@ class WPforms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_confirmation_style',
 			[
-				'label'                 => esc_html__( 'Confirmation Message', 'powerpack' ),
+				'label'                 => esc_html__( 'Confirmation Message', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1651,7 +1651,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'confirmation_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-wpforms .wpforms-confirmation-container-full',
 			]
 		);
@@ -1659,7 +1659,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'confirmation_text_color',
 			[
-				'label'             => esc_html__( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1671,7 +1671,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'confirmation_bg_color',
 			[
-				'label'             => esc_html__( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1684,7 +1684,7 @@ class WPforms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'confirmation_border',
-				'label'             => esc_html__( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .pp-wpforms .wpforms-confirmation-container-full',
@@ -1694,7 +1694,7 @@ class WPforms extends Powerpack_Widget {
 		$this->add_control(
 			'confirmation_border_radius',
 			[
-				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
@@ -1760,7 +1760,7 @@ class WPforms extends Powerpack_Widget {
 				$placeholder = sprintf( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', esc_attr( $this->get_title() ) );
 
 				echo esc_attr( $this->render_editor_placeholder( [
-					'title' => esc_html__( 'No Contact Form Selected!', 'powerpack' ),
+					'title' => esc_html__( 'No Contact Form Selected!', 'powerpack-lite-for-elementor' ),
 					'body' => $placeholder,
 				] ) );
 			}

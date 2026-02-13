@@ -52,7 +52,7 @@ class Term_Archive extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Term', 'powerpack' );
+		return __( 'Term', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -66,7 +66,7 @@ class Term_Archive extends Condition {
 	public function get_value_control() {
 
 		return [
-			'description'   => __( 'Leave blank or select all for any term.', 'powerpack' ),
+			'description'   => __( 'Leave blank or select all for any term.', 'powerpack-lite-for-elementor' ),
 			'type'          => 'pp-query',
 			'post_type'     => '',
 			'options'       => [],

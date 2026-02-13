@@ -46,7 +46,7 @@ function pp_elements_lite_get_contact_form_7_forms() {
 
 			foreach ( $contact_forms as $post ) {
 				if ( $i == 0 ) {
-					$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
+					$options[0] = esc_html__( 'Select a Contact form', 'powerpack-lite-for-elementor' );
 				}
 				$options[ $post->ID ] = $post->post_title;
 				$i++;
@@ -72,7 +72,7 @@ function pp_elements_lite_get_gravity_forms() {
 
 			foreach ( $contact_forms as $form ) {
 				if ( $i == 0 ) {
-					$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
+					$options[0] = esc_html__( 'Select a Contact form', 'powerpack-lite-for-elementor' );
 				}
 				$options[ $form->id ] = $form->title;
 				$i++;
@@ -98,7 +98,7 @@ function pp_elements_lite_get_ninja_forms() {
 
 			foreach ( $contact_forms as $form ) {
 				if ( $i == 0 ) {
-					$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
+					$options[0] = esc_html__( 'Select a Contact form', 'powerpack-lite-for-elementor' );
 				}
 				$options[ $form->get_id() ] = $form->get_setting( 'title' );
 				$i++;
@@ -129,7 +129,7 @@ function pp_elements_lite_get_wpforms_forms() {
 
 			foreach ( $contact_forms as $post ) {
 				if ( $i == 0 ) {
-					$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
+					$options[0] = esc_html__( 'Select a Contact form', 'powerpack-lite-for-elementor' );
 				}
 				$options[ $post->ID ] = $post->post_title;
 				$i++;
@@ -153,7 +153,7 @@ if ( ! function_exists( 'pp_elements_lite_get_formidable_forms' ) ) {
 				$i = 0;
 				foreach ( $forms as $form ) {
 					if ( 0 === $i ) {
-						$options[0] = esc_html__( 'Select a Contact form', 'powerpack' );
+						$options[0] = esc_html__( 'Select a Contact form', 'powerpack-lite-for-elementor' );
 					}
 					$options[ $form->id ] = $form->name;
 					$i++;
@@ -178,12 +178,12 @@ if ( ! function_exists( 'pp_elements_lite_get_fluent_forms' ) ) {
 
 			$result = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}fluentform_forms" );
 			if ( $result ) {
-				$options[0] = esc_html__( 'Select a Contact Form', 'powerpack' );
+				$options[0] = esc_html__( 'Select a Contact Form', 'powerpack-lite-for-elementor' );
 				foreach ( $result as $form ) {
 					$options[ $form->id ] = $form->title;
 				}
 			} else {
-				$options[0] = esc_html__( 'No forms found!', 'powerpack' );
+				$options[0] = esc_html__( 'No forms found!', 'powerpack-lite-for-elementor' );
 			}
 		}
 
@@ -349,73 +349,73 @@ if ( class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce
 
 function pp_elements_lite_get_modules() {
 	$modules = array(
-		'pp-advanced-accordion'     => esc_html__( 'Advanced Accordion', 'powerpack' ),
-		'pp-link-effects'           => esc_html__( 'Link Effects', 'powerpack' ),
-		'pp-divider'                => esc_html__( 'Divider', 'powerpack' ),
-		'pp-flipbox'                => esc_html__( 'Flipbox', 'powerpack' ),
-		'pp-image-accordion'        => esc_html__( 'Image Accordion', 'powerpack' ),
-		'pp-info-box'               => esc_html__( 'Info Box', 'powerpack' ),
-		'pp-info-box-carousel'      => esc_html__( 'Info Grid & Carousel', 'powerpack' ),
-		'pp-info-list'              => esc_html__( 'Info List', 'powerpack' ),
-		'pp-info-table'             => esc_html__( 'Info Table', 'powerpack' ),
-		'pp-pricing-table'          => esc_html__( 'Pricing Table', 'powerpack' ),
-		'pp-price-menu'             => esc_html__( 'Price Menu', 'powerpack' ),
-		'pp-business-hours'         => esc_html__( 'Business Hours', 'powerpack' ),
-		'pp-team-member'            => esc_html__( 'Team Member', 'powerpack' ),
-		'pp-team-member-carousel'   => esc_html__( 'Team Member Carousel', 'powerpack' ),
-		'pp-counter'                => esc_html__( 'Counter', 'powerpack' ),
-		'pp-hotspots'               => esc_html__( 'Image Hotspots', 'powerpack' ),
-		'pp-icon-list'              => esc_html__( 'Icon List', 'powerpack' ),
-		'pp-dual-heading'           => esc_html__( 'Dual Heading', 'powerpack' ),
-		'pp-promo-box'              => esc_html__( 'Promo Box', 'powerpack' ),
-		'pp-logo-carousel'          => esc_html__( 'Logo Carousel', 'powerpack' ),
-		'pp-logo-grid'              => esc_html__( 'Logo Grid', 'powerpack' ),
-		'pp-image-comparison'       => esc_html__( 'Image Comparison', 'powerpack' ),
-		'pp-instafeed'              => esc_html__( 'Instagram Feed', 'powerpack' ),
-		'pp-interactive-circle'     => esc_html__( 'Interactive Circle', 'powerpack' ),
-		'pp-progress-bar'           => esc_html__( 'Progress Bar', 'powerpack' ),
-		'pp-content-ticker'         => esc_html__( 'Content Ticker', 'powerpack' ),
-		'pp-scroll-image'           => esc_html__( 'Scroll Image', 'powerpack' ),
-		'pp-buttons'                => esc_html__( 'Buttons', 'powerpack' ),
-		'pp-twitter-buttons'        => esc_html__( 'Twitter Buttons', 'powerpack' ),
-		'pp-twitter-grid'           => esc_html__( 'Twitter Grid', 'powerpack' ),
-		'pp-twitter-timeline'       => esc_html__( 'Twitter Timeline', 'powerpack' ),
-		'pp-twitter-tweet'          => esc_html__( 'Twitter Tweet', 'powerpack' ),
-		'pp-fancy-heading'          => esc_html__( 'Fancy Heading', 'powerpack' ),
-		'pp-posts'                  => esc_html__( 'Posts', 'powerpack' ),
-		'pp-content-reveal'         => esc_html__( 'Content Reveal', 'powerpack' ),
-		'pp-random-image'           => esc_html__( 'Random Image', 'powerpack' ),
-		'pp-charts'                 => esc_html__( 'Advanced Charts', 'powerpack' ),
+		'pp-advanced-accordion'     => esc_html__( 'Advanced Accordion', 'powerpack-lite-for-elementor' ),
+		'pp-link-effects'           => esc_html__( 'Link Effects', 'powerpack-lite-for-elementor' ),
+		'pp-divider'                => esc_html__( 'Divider', 'powerpack-lite-for-elementor' ),
+		'pp-flipbox'                => esc_html__( 'Flipbox', 'powerpack-lite-for-elementor' ),
+		'pp-image-accordion'        => esc_html__( 'Image Accordion', 'powerpack-lite-for-elementor' ),
+		'pp-info-box'               => esc_html__( 'Info Box', 'powerpack-lite-for-elementor' ),
+		'pp-info-box-carousel'      => esc_html__( 'Info Grid & Carousel', 'powerpack-lite-for-elementor' ),
+		'pp-info-list'              => esc_html__( 'Info List', 'powerpack-lite-for-elementor' ),
+		'pp-info-table'             => esc_html__( 'Info Table', 'powerpack-lite-for-elementor' ),
+		'pp-pricing-table'          => esc_html__( 'Pricing Table', 'powerpack-lite-for-elementor' ),
+		'pp-price-menu'             => esc_html__( 'Price Menu', 'powerpack-lite-for-elementor' ),
+		'pp-business-hours'         => esc_html__( 'Business Hours', 'powerpack-lite-for-elementor' ),
+		'pp-team-member'            => esc_html__( 'Team Member', 'powerpack-lite-for-elementor' ),
+		'pp-team-member-carousel'   => esc_html__( 'Team Member Carousel', 'powerpack-lite-for-elementor' ),
+		'pp-counter'                => esc_html__( 'Counter', 'powerpack-lite-for-elementor' ),
+		'pp-hotspots'               => esc_html__( 'Image Hotspots', 'powerpack-lite-for-elementor' ),
+		'pp-icon-list'              => esc_html__( 'Icon List', 'powerpack-lite-for-elementor' ),
+		'pp-dual-heading'           => esc_html__( 'Dual Heading', 'powerpack-lite-for-elementor' ),
+		'pp-promo-box'              => esc_html__( 'Promo Box', 'powerpack-lite-for-elementor' ),
+		'pp-logo-carousel'          => esc_html__( 'Logo Carousel', 'powerpack-lite-for-elementor' ),
+		'pp-logo-grid'              => esc_html__( 'Logo Grid', 'powerpack-lite-for-elementor' ),
+		'pp-image-comparison'       => esc_html__( 'Image Comparison', 'powerpack-lite-for-elementor' ),
+		'pp-instafeed'              => esc_html__( 'Instagram Feed', 'powerpack-lite-for-elementor' ),
+		'pp-interactive-circle'     => esc_html__( 'Interactive Circle', 'powerpack-lite-for-elementor' ),
+		'pp-progress-bar'           => esc_html__( 'Progress Bar', 'powerpack-lite-for-elementor' ),
+		'pp-content-ticker'         => esc_html__( 'Content Ticker', 'powerpack-lite-for-elementor' ),
+		'pp-scroll-image'           => esc_html__( 'Scroll Image', 'powerpack-lite-for-elementor' ),
+		'pp-buttons'                => esc_html__( 'Buttons', 'powerpack-lite-for-elementor' ),
+		'pp-twitter-buttons'        => esc_html__( 'Twitter Buttons', 'powerpack-lite-for-elementor' ),
+		'pp-twitter-grid'           => esc_html__( 'Twitter Grid', 'powerpack-lite-for-elementor' ),
+		'pp-twitter-timeline'       => esc_html__( 'Twitter Timeline', 'powerpack-lite-for-elementor' ),
+		'pp-twitter-tweet'          => esc_html__( 'Twitter Tweet', 'powerpack-lite-for-elementor' ),
+		'pp-fancy-heading'          => esc_html__( 'Fancy Heading', 'powerpack-lite-for-elementor' ),
+		'pp-posts'                  => esc_html__( 'Posts', 'powerpack-lite-for-elementor' ),
+		'pp-content-reveal'         => esc_html__( 'Content Reveal', 'powerpack-lite-for-elementor' ),
+		'pp-random-image'           => esc_html__( 'Random Image', 'powerpack-lite-for-elementor' ),
+		'pp-charts'                 => esc_html__( 'Advanced Charts', 'powerpack-lite-for-elementor' ),
 	);
 
 	// Contact Form 7
 	if ( function_exists( 'wpcf7' ) ) {
-		$modules['pp-contact-form-7'] = esc_html__( 'Contact Form 7', 'powerpack' );
+		$modules['pp-contact-form-7'] = esc_html__( 'Contact Form 7', 'powerpack-lite-for-elementor' );
 	}
 
 	// Gravity Forms
 	if ( class_exists( 'GFCommon' ) ) {
-		$modules['pp-gravity-forms'] = esc_html__( 'Gravity Forms', 'powerpack' );
+		$modules['pp-gravity-forms'] = esc_html__( 'Gravity Forms', 'powerpack-lite-for-elementor' );
 	}
 
 	// Ninja Forms
 	if ( class_exists( 'Ninja_Forms' ) ) {
-		$modules['pp-ninja-forms'] = esc_html__( 'Ninja Forms', 'powerpack' );
+		$modules['pp-ninja-forms'] = esc_html__( 'Ninja Forms', 'powerpack-lite-for-elementor' );
 	}
 
 	// WPForms
 	if ( function_exists( 'wpforms' ) ) {
-		$modules['pp-wpforms'] = esc_html__( 'WPForms', 'powerpack' );
+		$modules['pp-wpforms'] = esc_html__( 'WPForms', 'powerpack-lite-for-elementor' );
 	}
 
 	// Formidable Forms
 	if ( class_exists( 'FrmForm' ) ) {
-		$modules['pp-formidable-forms'] = esc_html__( 'Formidable Forms', 'powerpack' );
+		$modules['pp-formidable-forms'] = esc_html__( 'Formidable Forms', 'powerpack-lite-for-elementor' );
 	}
 
 	// Fluent Forms
 	if ( function_exists( 'wpFluentForm' ) ) {
-		$modules['pp-fluent-forms'] = esc_html__( 'Fluent Forms', 'powerpack' );
+		$modules['pp-fluent-forms'] = esc_html__( 'Fluent Forms', 'powerpack-lite-for-elementor' );
 	}
 
 	ksort( $modules );
@@ -425,10 +425,10 @@ function pp_elements_lite_get_modules() {
 
 function pp_elements_lite_get_extensions() {
 	$extensions = array(
-		'pp-display-conditions'           => esc_html__( 'Display Conditions', 'powerpack' ),
-		'pp-wrapper-link'                 => esc_html__( 'Wrapper Link', 'powerpack' ),
-		'pp-animated-gradient-background' => esc_html__( 'Animated Gradient Background', 'powerpack' ),
-		'pp-custom-cursor'                => esc_html__( 'Custom Cursor', 'powerpack' ),
+		'pp-display-conditions'           => esc_html__( 'Display Conditions', 'powerpack-lite-for-elementor' ),
+		'pp-wrapper-link'                 => esc_html__( 'Wrapper Link', 'powerpack-lite-for-elementor' ),
+		'pp-animated-gradient-background' => esc_html__( 'Animated Gradient Background', 'powerpack-lite-for-elementor' ),
+		'pp-custom-cursor'                => esc_html__( 'Custom Cursor', 'powerpack-lite-for-elementor' ),
 	);
 
 	return $extensions;

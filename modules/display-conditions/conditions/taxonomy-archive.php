@@ -52,7 +52,7 @@ class Taxonomy_Archive extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Taxonomy', 'powerpack' );
+		return __( 'Taxonomy', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -67,8 +67,8 @@ class Taxonomy_Archive extends Condition {
 		return [
 			'type'          => Controls_Manager::SELECT2,
 			'default'       => '',
-			'placeholder'   => __( 'Any', 'powerpack' ),
-			'description'   => __( 'Leave blank or select all for any taxonomy.', 'powerpack' ),
+			'placeholder'   => __( 'Any', 'powerpack-lite-for-elementor' ),
+			'description'   => __( 'Leave blank or select all for any taxonomy.', 'powerpack-lite-for-elementor' ),
 			'multiple'      => true,
 			'label_block'   => true,
 			'options'       => PP_Posts_Helper::get_taxonomies_options(),

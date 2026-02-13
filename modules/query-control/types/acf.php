@@ -33,7 +33,7 @@ class Acf extends Meta_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'ACF', 'powerpack' );
+		return __( 'ACF', 'powerpack-lite-for-elementor' );
 	}
 
 	/**

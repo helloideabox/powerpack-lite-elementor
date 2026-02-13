@@ -46,7 +46,7 @@ class Device_Type extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return esc_html__( 'Device Type', 'powerpack' );
+		return esc_html__( 'Device Type', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -63,8 +63,8 @@ class Device_Type extends Condition {
 			'default'       => 'mobile',
 			'label_block'   => true,
 			'options'       => array(
-				'mobile'  => esc_html__( 'Mobile', 'powerpack' ),
-				'desktop' => esc_html__( 'Desktop', 'powerpack' ),
+				'mobile'  => esc_html__( 'Mobile', 'powerpack-lite-for-elementor' ),
+				'desktop' => esc_html__( 'Desktop', 'powerpack-lite-for-elementor' ),
 			),
 		];
 	}

@@ -67,7 +67,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 	 * @since 2.7.0
 	 **/
 	public static function get_description() {
-		return esc_html__( 'Adds custom mouse cursors on columns.', 'powerpack' );
+		return esc_html__( 'Adds custom mouse cursors on columns.', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -136,11 +136,11 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_control(
 			'pp_custom_cursor_enable',
 			array(
-				'label'              => esc_html__( 'Custom Cursor', 'powerpack' ),
+				'label'              => esc_html__( 'Custom Cursor', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => '',
-				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'          => esc_html__( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'separator'          => 'before',
 				'frontend_available' => true,
@@ -150,12 +150,12 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_control(
 			'pp_custom_cursor_target',
 			array(
-				'label'              => esc_html__( 'Apply On', 'powerpack' ),
+				'label'              => esc_html__( 'Apply On', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SELECT,
 				'default'            => 'container',
 				'options'            => array(
 					'container'    => ucfirst( $element_type ),
-					'css-selector' => esc_html__( 'Element Class/ID', 'powerpack' ),
+					'css-selector' => esc_html__( 'Element Class/ID', 'powerpack-lite-for-elementor' ),
 				),
 				'frontend_available' => true,
 				'condition'          => array(
@@ -167,7 +167,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_control(
 			'pp_custom_cursor_css_selector',
 			array(
-				'label'              => esc_html__( 'CSS Selector', 'powerpack' ),
+				'label'              => esc_html__( 'CSS Selector', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::TEXT,
 				'frontend_available' => true,
 				'ai'                 => [
@@ -183,13 +183,13 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_control(
 			'pp_custom_cursor_type',
 			array(
-				'label'              => esc_html__( 'Cursor Type', 'powerpack' ),
+				'label'              => esc_html__( 'Cursor Type', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SELECT,
 				'default'            => 'image',
 				'options'            => array(
-					'image'        => esc_html__( 'Image', 'powerpack' ),
-					'follow-image' => esc_html__( 'Follow Image', 'powerpack' ),
-					'follow-text'  => esc_html__( 'Follow Text', 'powerpack' ),
+					'image'        => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
+					'follow-image' => esc_html__( 'Follow Image', 'powerpack-lite-for-elementor' ),
+					'follow-text'  => esc_html__( 'Follow Text', 'powerpack-lite-for-elementor' ),
 				),
 				'frontend_available' => true,
 				'condition'          => array(
@@ -201,7 +201,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_control(
 			'pp_custom_cursor_icon',
 			array(
-				'label'     => esc_html__( 'Choose Cursor Icon', 'powerpack' ),
+				'label'     => esc_html__( 'Choose Cursor Icon', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::MEDIA,
 				'condition' => array(
 					'pp_custom_cursor_enable' => 'yes',
@@ -213,7 +213,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_control(
 			'pp_custom_cursor_text',
 			array(
-				'label'              => esc_html__( 'Cursor Text', 'powerpack' ),
+				'label'              => esc_html__( 'Cursor Text', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::TEXT,
 				'frontend_available' => true,
 				'condition'          => array(
@@ -226,7 +226,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_control(
 			'pp_custom_cursor_left_offset',
 			[
-				'label'              => esc_html__( 'Left Offset', 'powerpack' ),
+				'label'              => esc_html__( 'Left Offset', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SLIDER,
 				'frontend_available' => true,
 				'range'      => [
@@ -249,7 +249,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_control(
 			'pp_custom_cursor_top_offset',
 			[
-				'label'              => esc_html__( 'Top Offset', 'powerpack' ),
+				'label'              => esc_html__( 'Top Offset', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SLIDER,
 				'frontend_available' => true,
 				'range'              => [
@@ -273,7 +273,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'pp_custom_cursor_text_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'  => '{{WRAPPER}} .pp-cursor-pointer-text',
 				'condition' => array(
 					'pp_custom_cursor_enable' => 'yes',
@@ -285,7 +285,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_control(
 			'pp_custom_cursor_text_color',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -302,7 +302,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'pp_custom_cursor_text_bg',
-				'label'     => esc_html__( 'Background', 'powerpack' ),
+				'label'     => esc_html__( 'Background', 'powerpack-lite-for-elementor' ),
 				'types'     => [ 'classic', 'gradient' ],
 				'exclude'   => array( 'image' ),
 				'selector'  => '{{WRAPPER}} .pp-cursor-pointer-text',
@@ -317,7 +317,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'pp_custom_cursor_text_border',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-cursor-pointer-text',
@@ -331,7 +331,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_control(
 			'pp_custom_cursor_text_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -347,7 +347,7 @@ class Extension_Custom_Cursor extends Extension_Base {
 		$element->add_responsive_control(
 			'pp_custom_cursor_text_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(

@@ -65,8 +65,8 @@ function pp_elements_lite_fail_load() {
 		}
 
 		$activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
-        $message = __( 'PowerPack requires Elementor plugin to be active. Please activate Elementor to continue.', 'powerpack' );
-		$button_text = __( 'Activate Elementor', 'powerpack' );
+        $message = __( 'PowerPack requires Elementor plugin to be active. Please activate Elementor to continue.', 'powerpack-lite-for-elementor' );
+		$button_text = __( 'Activate Elementor', 'powerpack-lite-for-elementor' );
 
 	} else {
 		if ( ! current_user_can( 'install_plugins' ) ) {
@@ -74,8 +74,8 @@ function pp_elements_lite_fail_load() {
 		}
 
 		$activation_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
-        $message = sprintf( __( 'PowerPack requires %1$s"Elementor"%2$s plugin to be installed and activated. Please install Elementor to continue.', 'powerpack' ), '<strong>', '</strong>' );
-		$button_text = __( 'Install Elementor', 'powerpack' );
+        $message = sprintf( __( 'PowerPack requires %1$s"Elementor"%2$s plugin to be installed and activated. Please install Elementor to continue.', 'powerpack-lite-for-elementor' ), '<strong>', '</strong>' );
+		$button_text = __( 'Install Elementor', 'powerpack-lite-for-elementor' );
 	}
 
 	$button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
@@ -95,7 +95,7 @@ function pp_elements_lite_fail_load_out_of_date() {
 		return;
 	}
     
-	$message = __( 'PowerPack requires Elementor version at least ' . POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED . '. Please update Elementor to continue.', 'powerpack' );
+	$message = __( 'PowerPack requires Elementor version at least ' . POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED . '. Please update Elementor to continue.', 'powerpack-lite-for-elementor' );
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 }
@@ -108,7 +108,7 @@ function pp_elements_lite_fail_load_out_of_date() {
  *
  */
 function pp_elements_lite_fail_php() {
-	$message = __( 'PowerPack requires PHP version ' . POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED .'+ to work properly. The plugins is deactivated for now.', 'powerpack' );
+	$message = __( 'PowerPack requires PHP version ' . POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED .'+ to work properly. The plugins is deactivated for now.', 'powerpack-lite-for-elementor' );
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 
@@ -189,7 +189,7 @@ if ( ! function_exists( 'is_pp_elements_active' ) ) {
  * @since 1.4.4
  */
 function pp_elements_lite_add_plugin_page_settings_link( $links ) {
-	$links[] = '<a href="' . admin_url( 'admin.php?page=powerpack-settings' ) . '">' . __('Settings', 'powerpack') . '</a>';
+	$links[] = '<a href="' . admin_url( 'admin.php?page=powerpack-settings' ) . '">' . __('Settings', 'powerpack-lite-for-elementor') . '</a>';
 	return $links;
 }
 add_filter('plugin_action_links_' . POWERPACK_ELEMENTS_LITE_BASE, 'pp_elements_lite_add_plugin_page_settings_link');
@@ -199,8 +199,8 @@ function pp_add_description_links( $plugin_meta, $plugin_file ) {
 
 	if ( POWERPACK_ELEMENTS_LITE_BASE === $plugin_file ) {
 		$row_meta = [
-			'docs' => '<a href="https://powerpackelements.com/docs/?utm_source=doclink&utm_medium=widget&utm_campaign=lite" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'powerpack' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'powerpack' ) . '</a>',
-			'ideo' => '<a href="https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite" aria-label="' . esc_attr( __( 'Go Pro', 'powerpack' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'powerpack' ) . '</a>',
+			'docs' => '<a href="https://powerpackelements.com/docs/?utm_source=doclink&utm_medium=widget&utm_campaign=lite" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'powerpack-lite-for-elementor' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'powerpack-lite-for-elementor' ) . '</a>',
+			'ideo' => '<a href="https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite" aria-label="' . esc_attr( __( 'Go Pro', 'powerpack-lite-for-elementor' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'powerpack-lite-for-elementor' ) . '</a>',
 		];
 
 		$plugin_meta = array_merge( $plugin_meta, $row_meta );

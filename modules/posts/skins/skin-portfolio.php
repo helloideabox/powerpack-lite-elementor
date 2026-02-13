@@ -29,6 +29,6 @@ class Skin_Portfolio extends Skin_Base {
 	 * @return string Skin title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Portfolio', 'powerpack' );
+		return esc_html__( 'Portfolio', 'powerpack-lite-for-elementor' );
 	}
 }

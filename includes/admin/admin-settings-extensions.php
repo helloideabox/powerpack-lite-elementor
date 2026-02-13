@@ -4,7 +4,7 @@ $enabled_extensions = pp_elements_lite_get_enabled_extensions();
 ?>
 <div class="pp-settings-section">
 	<div class="pp-settings-section-header">
-		<h3 class="pp-settings-section-title"><?php _e( 'Extensions', 'powerpack' ); ?></h3>
+		<h3 class="pp-settings-section-title"><?php _e( 'Extensions', 'powerpack-lite-for-elementor' ); ?></h3>
 	</div>
 	<div class="pp-settings-section-content">
 		<table class="form-table pp-settings-elements-grid">

@@ -51,7 +51,7 @@ class Search_Results extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Search', 'powerpack' );
+		return __( 'Search', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -66,8 +66,8 @@ class Search_Results extends Condition {
 		return [
 			'type'          => Controls_Manager::TEXT,
 			'default'       => '',
-			'placeholder'   => __( 'Keywords', 'powerpack' ),
-			'description'   => __( 'Enter keywords, separated by commas, to condition the display on specific keywords and leave blank for any.', 'powerpack' ),
+			'placeholder'   => __( 'Keywords', 'powerpack-lite-for-elementor' ),
+			'description'   => __( 'Enter keywords, separated by commas, to condition the display on specific keywords and leave blank for any.', 'powerpack-lite-for-elementor' ),
 			'label_block'   => true,
 		];
 	}

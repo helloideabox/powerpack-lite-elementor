@@ -138,13 +138,13 @@ class Scroll_Image extends Powerpack_Widget {
 		 */
 		$this->start_controls_section('image_settings',
 			[
-				'label'                 => esc_html__( 'Image', 'powerpack' ),
+				'label'                 => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control('image',
 			[
-				'label'                 => esc_html__( 'Image', 'powerpack' ),
+				'label'                 => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::MEDIA,
 				'dynamic'               => [ 'active' => true ],
 				'default'               => [
@@ -158,14 +158,14 @@ class Scroll_Image extends Powerpack_Widget {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'                  => 'image',
-				'label'                 => esc_html__( 'Image Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Image Size', 'powerpack-lite-for-elementor' ),
 				'default'               => 'full',
 			]
 		);
 
 		$this->add_responsive_control('image_height',
 			[
-				'label'                 => esc_html__( 'Image Height', 'powerpack' ),
+				'label'                 => esc_html__( 'Image Height', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'vh', 'custom' ],
 				'default'               => [
@@ -191,7 +191,7 @@ class Scroll_Image extends Powerpack_Widget {
 		$this->add_control(
 			'link',
 			[
-				'label'                 => esc_html__( 'URL', 'powerpack' ),
+				'label'                 => esc_html__( 'URL', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::URL,
 				'dynamic'               => [
 					'active' => true,
@@ -204,7 +204,7 @@ class Scroll_Image extends Powerpack_Widget {
 		$this->add_control(
 			'icon_heading',
 			[
-				'label'                 => esc_html__( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -213,7 +213,7 @@ class Scroll_Image extends Powerpack_Widget {
 		$this->add_control(
 			'selected_icon',
 			[
-				'label'                 => esc_html__( 'Cover', 'powerpack' ) . ' ' . esc_html__( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Cover', 'powerpack-lite-for-elementor' ) . ' ' . esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::ICONS,
 				'fa4compatibility'      => 'icon',
 			]
@@ -221,7 +221,7 @@ class Scroll_Image extends Powerpack_Widget {
 
 		$this->add_control('icon_size',
 			[
-				'label'                 => esc_html__( 'Icon Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
@@ -251,17 +251,17 @@ class Scroll_Image extends Powerpack_Widget {
 		 */
 		$this->start_controls_section('settings',
 			[
-				'label'                 => esc_html__( 'Settings', 'powerpack' ),
+				'label'                 => esc_html__( 'Settings', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control('trigger_type',
 			[
-				'label'                 => esc_html__( 'Trigger', 'powerpack' ),
+				'label'                 => esc_html__( 'Trigger', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'hover'   => esc_html__( 'Hover', 'powerpack' ),
-					'scroll'  => esc_html__( 'Mouse Scroll', 'powerpack' ),
+					'hover'   => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
+					'scroll'  => esc_html__( 'Mouse Scroll', 'powerpack-lite-for-elementor' ),
 				],
 				'default'               => 'hover',
 				'frontend_available'    => true,
@@ -270,8 +270,8 @@ class Scroll_Image extends Powerpack_Widget {
 
 		$this->add_control('duration_speed',
 			[
-				'label'                 => esc_html__( 'Scroll Speed', 'powerpack' ),
-				'title'                 => esc_html__( 'In seconds', 'powerpack' ),
+				'label'                 => esc_html__( 'Scroll Speed', 'powerpack-lite-for-elementor' ),
+				'title'                 => esc_html__( 'In seconds', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::NUMBER,
 				'default'               => 3,
 				'selectors' => [
@@ -285,11 +285,11 @@ class Scroll_Image extends Powerpack_Widget {
 
 		$this->add_control('direction_type',
 			[
-				'label'                 => esc_html__( 'Scroll Direction', 'powerpack' ),
+				'label'                 => esc_html__( 'Scroll Direction', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'horizontal' => esc_html__( 'Horizontal', 'powerpack' ),
-					'vertical'   => esc_html__( 'Vertical', 'powerpack' ),
+					'horizontal' => esc_html__( 'Horizontal', 'powerpack-lite-for-elementor' ),
+					'vertical'   => esc_html__( 'Vertical', 'powerpack-lite-for-elementor' ),
 				],
 				'default'               => 'vertical',
 				'frontend_available'    => true,
@@ -298,7 +298,7 @@ class Scroll_Image extends Powerpack_Widget {
 
 		$this->add_control('reverse',
 			[
-				'label'                 => esc_html__( 'Reverse Direction', 'powerpack' ),
+				'label'                 => esc_html__( 'Reverse Direction', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'frontend_available'    => true,
 				'condition'             => [
@@ -323,7 +323,7 @@ class Scroll_Image extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -355,14 +355,14 @@ class Scroll_Image extends Powerpack_Widget {
 		 */
 		$this->start_controls_section('image_style',
 			[
-				'label'                 => esc_html__( 'Image', 'powerpack' ),
+				'label'                 => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control('icon_color',
 			[
-				'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-image-scroll-icon'     => 'color: {{VALUE}};',
@@ -378,7 +378,7 @@ class Scroll_Image extends Powerpack_Widget {
 
 		$this->start_controls_tab('image_style_tab_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -393,7 +393,7 @@ class Scroll_Image extends Powerpack_Widget {
 		$this->add_control(
 			'image_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -422,7 +422,7 @@ class Scroll_Image extends Powerpack_Widget {
 
 		$this->start_controls_tab('image_style_tab_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -455,17 +455,17 @@ class Scroll_Image extends Powerpack_Widget {
 		 */
 		$this->start_controls_section('overlay_style',
 			[
-				'label'                 => esc_html__( 'Overlay', 'powerpack' ),
+				'label'                 => esc_html__( 'Overlay', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control('overlay',
 			[
-				'label'                 => esc_html__( 'Overlay', 'powerpack' ),
+				'label'                 => esc_html__( 'Overlay', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
-				'label_on'              => esc_html__( 'Show', 'powerpack' ),
-				'label_off'             => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'              => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 
 			]
 		);

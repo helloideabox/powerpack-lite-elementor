@@ -116,7 +116,7 @@ final class PP_Admin_Settings {
 				echo '<div class="error"><p>' . esc_html( $message ) . '</p></div>';
 			}
 		} elseif ( ! empty( $_POST ) && ! isset( $_POST['email'] ) ) {
-			echo '<div class="updated"><p>' . esc_html__( 'Settings updated!', 'powerpack' ) . '</p></div>';
+			echo '<div class="updated"><p>' . esc_html__( 'Settings updated!', 'powerpack-lite-for-elementor' ) . '</p></div>';
 		}
 	}
 
@@ -162,21 +162,21 @@ final class PP_Admin_Settings {
 
 		return apply_filters( 'pp_elements_lite_admin_settings_tabs', array(
 			'modules'   => array(
-				'title'     => esc_html__( 'Elements', 'powerpack' ),
+				'title'     => esc_html__( 'Elements', 'powerpack-lite-for-elementor' ),
 				'show'      => true,
 				'cap'       => 'edit_posts',
 				'file'      => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-modules.php',
 				'priority'  => 150,
 			),
 			'extensions'   => array(
-				'title'     => esc_html__( 'Extensions', 'powerpack' ),
+				'title'     => esc_html__( 'Extensions', 'powerpack-lite-for-elementor' ),
 				'show'      => true,
 				'cap'       => 'edit_posts',
 				'file'      => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-extensions.php',
 				'priority'  => 200,
 			),
 			'integration'   => array(
-				'title'         => esc_html__( 'Integration', 'powerpack' ),
+				'title'         => esc_html__( 'Integration', 'powerpack-lite-for-elementor' ),
 				'show'          => true,
 				'cap'           => ! is_network_admin() ? 'manage_options' : 'manage_network_plugins',
 				'file'          => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-integration.php',
@@ -213,7 +213,7 @@ final class PP_Admin_Settings {
 		$current_tab = self::get_current_tab();
 
 		if ( isset( $tabs[ $current_tab ] ) ) {
-			$no_setting_file_msg = esc_html__( 'Setting page file could not be located.', 'powerpack' );
+			$no_setting_file_msg = esc_html__( 'Setting page file could not be located.', 'powerpack-lite-for-elementor' );
 
 			if ( ! isset( $tabs[ $current_tab ]['file'] ) || empty( $tabs[ $current_tab ]['file'] ) ) {
 				echo esc_html( $no_setting_file_msg );
@@ -235,7 +235,7 @@ final class PP_Admin_Settings {
 			}
 
 			if ( ! $render || ! current_user_can( $cap ) ) {
-				esc_html_e( 'You do not have permission to view this setting.', 'powerpack' );
+				esc_html_e( 'You do not have permission to view this setting.', 'powerpack-lite-for-elementor' );
 				return;
 			}
 

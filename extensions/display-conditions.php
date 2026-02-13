@@ -55,7 +55,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	 * @since 1.2.7
 	 **/
 	public static function get_description() {
-		return esc_html__( 'Adds display conditions to widgets and sections allowing you to show them depending on authentication, roles, date and time of day.', 'powerpack' );
+		return esc_html__( 'Adds display conditions to widgets and sections allowing you to show them depending on authentication, roles, date and time of day.', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -124,7 +124,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	}
 
 	protected function render_editor_notice( $settings ) {
-		?><span><?php _e( 'This widget is displayed conditionally.', 'powerpack' ); ?></span>
+		?><span><?php _e( 'This widget is displayed conditionally.', 'powerpack-lite-for-elementor' ); ?></span>
 		<?php
 	}
 }

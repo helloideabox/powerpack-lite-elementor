@@ -119,74 +119,74 @@ class Business_Hours extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_price_menu',
 			array(
-				'label' => esc_html__( 'Business Hours', 'powerpack' ),
+				'label' => esc_html__( 'Business Hours', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'business_timings',
 			array(
-				'label'   => esc_html__( 'Business Timings', 'powerpack' ),
+				'label'   => esc_html__( 'Business Timings', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'predefined',
 				'options' => array(
-					'predefined' => esc_html__( 'Predefined', 'powerpack' ),
-					'custom'     => esc_html__( 'Custom', 'powerpack' ),
+					'predefined' => esc_html__( 'Predefined', 'powerpack-lite-for-elementor' ),
+					'custom'     => esc_html__( 'Custom', 'powerpack-lite-for-elementor' ),
 				),
 			)
 		);
 
 		$hours = array(
-			'00:00' => esc_html__( '12:00 AM', 'powerpack' ),
-			'00:30' => esc_html__( '12:30 AM', 'powerpack' ),
-			'01:00' => esc_html__( '1:00 AM', 'powerpack' ),
-			'01:30' => esc_html__( '1:30 AM', 'powerpack' ),
-			'02:00' => esc_html__( '2:00 AM', 'powerpack' ),
-			'02:30' => esc_html__( '2:30 AM', 'powerpack' ),
-			'03:00' => esc_html__( '3:00 AM', 'powerpack' ),
-			'03:30' => esc_html__( '3:30 AM', 'powerpack' ),
-			'04:00' => esc_html__( '4:00 AM', 'powerpack' ),
-			'04:30' => esc_html__( '4:30 AM', 'powerpack' ),
-			'05:00' => esc_html__( '5:00 AM', 'powerpack' ),
-			'05:30' => esc_html__( '5:30 AM', 'powerpack' ),
-			'06:00' => esc_html__( '6:00 AM', 'powerpack' ),
-			'06:30' => esc_html__( '6:30 AM', 'powerpack' ),
-			'07:00' => esc_html__( '7:00 AM', 'powerpack' ),
-			'07:30' => esc_html__( '7:30 AM', 'powerpack' ),
-			'08:00' => esc_html__( '8:00 AM', 'powerpack' ),
-			'08:30' => esc_html__( '8:30 AM', 'powerpack' ),
-			'09:00' => esc_html__( '9:00 AM', 'powerpack' ),
-			'09:30' => esc_html__( '9:30 AM', 'powerpack' ),
-			'10:00' => esc_html__( '10:00 AM', 'powerpack' ),
-			'10:30' => esc_html__( '10:30 AM', 'powerpack' ),
-			'11:00' => esc_html__( '11:00 AM', 'powerpack' ),
-			'11:30' => esc_html__( '11:30 AM', 'powerpack' ),
-			'12:00' => esc_html__( '12:00 PM', 'powerpack' ),
-			'12:30' => esc_html__( '12:30 PM', 'powerpack' ),
-			'13:00' => esc_html__( '1:00 PM', 'powerpack' ),
-			'13:30' => esc_html__( '1:30 PM', 'powerpack' ),
-			'14:00' => esc_html__( '2:00 PM', 'powerpack' ),
-			'14:30' => esc_html__( '2:30 PM', 'powerpack' ),
-			'15:00' => esc_html__( '3:00 PM', 'powerpack' ),
-			'15:30' => esc_html__( '3:30 PM', 'powerpack' ),
-			'16:00' => esc_html__( '4:00 PM', 'powerpack' ),
-			'16:30' => esc_html__( '4:30 PM', 'powerpack' ),
-			'17:00' => esc_html__( '5:00 PM', 'powerpack' ),
-			'17:30' => esc_html__( '5:30 PM', 'powerpack' ),
-			'18:00' => esc_html__( '6:00 PM', 'powerpack' ),
-			'18:30' => esc_html__( '6:30 PM', 'powerpack' ),
-			'19:00' => esc_html__( '7:00 PM', 'powerpack' ),
-			'19:30' => esc_html__( '7:30 PM', 'powerpack' ),
-			'20:00' => esc_html__( '8:00 PM', 'powerpack' ),
-			'20:30' => esc_html__( '8:30 PM', 'powerpack' ),
-			'21:00' => esc_html__( '9:00 PM', 'powerpack' ),
-			'21:30' => esc_html__( '9:30 PM', 'powerpack' ),
-			'22:00' => esc_html__( '10:00 PM', 'powerpack' ),
-			'22:30' => esc_html__( '10:30 PM', 'powerpack' ),
-			'23:00' => esc_html__( '11:00 PM', 'powerpack' ),
-			'23:30' => esc_html__( '11:30 PM', 'powerpack' ),
-			'24:00' => esc_html__( '12:00 PM', 'powerpack' ),
-			'24:30' => esc_html__( '12:30 PM', 'powerpack' ),
+			'00:00' => esc_html__( '12:00 AM', 'powerpack-lite-for-elementor' ),
+			'00:30' => esc_html__( '12:30 AM', 'powerpack-lite-for-elementor' ),
+			'01:00' => esc_html__( '1:00 AM', 'powerpack-lite-for-elementor' ),
+			'01:30' => esc_html__( '1:30 AM', 'powerpack-lite-for-elementor' ),
+			'02:00' => esc_html__( '2:00 AM', 'powerpack-lite-for-elementor' ),
+			'02:30' => esc_html__( '2:30 AM', 'powerpack-lite-for-elementor' ),
+			'03:00' => esc_html__( '3:00 AM', 'powerpack-lite-for-elementor' ),
+			'03:30' => esc_html__( '3:30 AM', 'powerpack-lite-for-elementor' ),
+			'04:00' => esc_html__( '4:00 AM', 'powerpack-lite-for-elementor' ),
+			'04:30' => esc_html__( '4:30 AM', 'powerpack-lite-for-elementor' ),
+			'05:00' => esc_html__( '5:00 AM', 'powerpack-lite-for-elementor' ),
+			'05:30' => esc_html__( '5:30 AM', 'powerpack-lite-for-elementor' ),
+			'06:00' => esc_html__( '6:00 AM', 'powerpack-lite-for-elementor' ),
+			'06:30' => esc_html__( '6:30 AM', 'powerpack-lite-for-elementor' ),
+			'07:00' => esc_html__( '7:00 AM', 'powerpack-lite-for-elementor' ),
+			'07:30' => esc_html__( '7:30 AM', 'powerpack-lite-for-elementor' ),
+			'08:00' => esc_html__( '8:00 AM', 'powerpack-lite-for-elementor' ),
+			'08:30' => esc_html__( '8:30 AM', 'powerpack-lite-for-elementor' ),
+			'09:00' => esc_html__( '9:00 AM', 'powerpack-lite-for-elementor' ),
+			'09:30' => esc_html__( '9:30 AM', 'powerpack-lite-for-elementor' ),
+			'10:00' => esc_html__( '10:00 AM', 'powerpack-lite-for-elementor' ),
+			'10:30' => esc_html__( '10:30 AM', 'powerpack-lite-for-elementor' ),
+			'11:00' => esc_html__( '11:00 AM', 'powerpack-lite-for-elementor' ),
+			'11:30' => esc_html__( '11:30 AM', 'powerpack-lite-for-elementor' ),
+			'12:00' => esc_html__( '12:00 PM', 'powerpack-lite-for-elementor' ),
+			'12:30' => esc_html__( '12:30 PM', 'powerpack-lite-for-elementor' ),
+			'13:00' => esc_html__( '1:00 PM', 'powerpack-lite-for-elementor' ),
+			'13:30' => esc_html__( '1:30 PM', 'powerpack-lite-for-elementor' ),
+			'14:00' => esc_html__( '2:00 PM', 'powerpack-lite-for-elementor' ),
+			'14:30' => esc_html__( '2:30 PM', 'powerpack-lite-for-elementor' ),
+			'15:00' => esc_html__( '3:00 PM', 'powerpack-lite-for-elementor' ),
+			'15:30' => esc_html__( '3:30 PM', 'powerpack-lite-for-elementor' ),
+			'16:00' => esc_html__( '4:00 PM', 'powerpack-lite-for-elementor' ),
+			'16:30' => esc_html__( '4:30 PM', 'powerpack-lite-for-elementor' ),
+			'17:00' => esc_html__( '5:00 PM', 'powerpack-lite-for-elementor' ),
+			'17:30' => esc_html__( '5:30 PM', 'powerpack-lite-for-elementor' ),
+			'18:00' => esc_html__( '6:00 PM', 'powerpack-lite-for-elementor' ),
+			'18:30' => esc_html__( '6:30 PM', 'powerpack-lite-for-elementor' ),
+			'19:00' => esc_html__( '7:00 PM', 'powerpack-lite-for-elementor' ),
+			'19:30' => esc_html__( '7:30 PM', 'powerpack-lite-for-elementor' ),
+			'20:00' => esc_html__( '8:00 PM', 'powerpack-lite-for-elementor' ),
+			'20:30' => esc_html__( '8:30 PM', 'powerpack-lite-for-elementor' ),
+			'21:00' => esc_html__( '9:00 PM', 'powerpack-lite-for-elementor' ),
+			'21:30' => esc_html__( '9:30 PM', 'powerpack-lite-for-elementor' ),
+			'22:00' => esc_html__( '10:00 PM', 'powerpack-lite-for-elementor' ),
+			'22:30' => esc_html__( '10:30 PM', 'powerpack-lite-for-elementor' ),
+			'23:00' => esc_html__( '11:00 PM', 'powerpack-lite-for-elementor' ),
+			'23:30' => esc_html__( '11:30 PM', 'powerpack-lite-for-elementor' ),
+			'24:00' => esc_html__( '12:00 PM', 'powerpack-lite-for-elementor' ),
+			'24:30' => esc_html__( '12:30 PM', 'powerpack-lite-for-elementor' ),
 		);
 
 		$repeater = new Repeater();
@@ -194,17 +194,17 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater->add_control(
 			'day',
 			array(
-				'label'   => esc_html__( 'Day', 'powerpack' ),
+				'label'   => esc_html__( 'Day', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'Monday',
 				'options' => array(
-					'Monday'    => esc_html__( 'Monday', 'powerpack' ),
-					'Tuesday'   => esc_html__( 'Tuesday', 'powerpack' ),
-					'Wednesday' => esc_html__( 'Wednesday', 'powerpack' ),
-					'Thursday'  => esc_html__( 'Thursday', 'powerpack' ),
-					'Friday'    => esc_html__( 'Friday', 'powerpack' ),
-					'Saturday'  => esc_html__( 'Saturday', 'powerpack' ),
-					'Sunday'    => esc_html__( 'Sunday', 'powerpack' ),
+					'Monday'    => esc_html__( 'Monday', 'powerpack-lite-for-elementor' ),
+					'Tuesday'   => esc_html__( 'Tuesday', 'powerpack-lite-for-elementor' ),
+					'Wednesday' => esc_html__( 'Wednesday', 'powerpack-lite-for-elementor' ),
+					'Thursday'  => esc_html__( 'Thursday', 'powerpack-lite-for-elementor' ),
+					'Friday'    => esc_html__( 'Friday', 'powerpack-lite-for-elementor' ),
+					'Saturday'  => esc_html__( 'Saturday', 'powerpack-lite-for-elementor' ),
+					'Sunday'    => esc_html__( 'Sunday', 'powerpack-lite-for-elementor' ),
 				),
 			)
 		);
@@ -212,11 +212,11 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater->add_control(
 			'closed',
 			array(
-				'label'        => esc_html__( 'Closed?', 'powerpack' ),
+				'label'        => esc_html__( 'Closed?', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => esc_html__( 'No', 'powerpack' ),
-				'label_off'    => esc_html__( 'Yes', 'powerpack' ),
+				'label_on'     => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'no',
 			)
 		);
@@ -224,7 +224,7 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater->add_control(
 			'opening_hours',
 			array(
-				'label'     => esc_html__( 'Opening Hours', 'powerpack' ),
+				'label'     => esc_html__( 'Opening Hours', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '09:00',
 				'options'   => $hours,
@@ -237,7 +237,7 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater->add_control(
 			'closing_hours',
 			array(
-				'label'     => esc_html__( 'Closing Hours', 'powerpack' ),
+				'label'     => esc_html__( 'Closing Hours', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '17:00',
 				'options'   => $hours,
@@ -250,11 +250,11 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater->add_control(
 			'closed_text',
 			array(
-				'label'       => esc_html__( 'Closed Text', 'powerpack' ),
+				'label'       => esc_html__( 'Closed Text', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => false,
-				'placeholder' => esc_html__( 'Closed', 'powerpack' ),
-				'default'     => esc_html__( 'Closed', 'powerpack' ),
+				'placeholder' => esc_html__( 'Closed', 'powerpack-lite-for-elementor' ),
+				'default'     => esc_html__( 'Closed', 'powerpack-lite-for-elementor' ),
 				'conditions'  => array(
 					'terms' => array(
 						array(
@@ -270,11 +270,11 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater->add_control(
 			'highlight',
 			array(
-				'label'        => esc_html__( 'Highlight', 'powerpack' ),
+				'label'        => esc_html__( 'Highlight', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -282,7 +282,7 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater->add_control(
 			'highlight_bg',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -297,7 +297,7 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater->add_control(
 			'highlight_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -356,9 +356,9 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater_custom->add_control(
 			'day',
 			array(
-				'label'   => esc_html__( 'Day', 'powerpack' ),
+				'label'   => esc_html__( 'Day', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Monday', 'powerpack' ),
+				'default' => esc_html__( 'Monday', 'powerpack-lite-for-elementor' ),
 				'ai'      => [
 					'active' => false,
 				],
@@ -368,11 +368,11 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater_custom->add_control(
 			'closed',
 			array(
-				'label'        => esc_html__( 'Closed?', 'powerpack' ),
+				'label'        => esc_html__( 'Closed?', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => esc_html__( 'No', 'powerpack' ),
-				'label_off'    => esc_html__( 'Yes', 'powerpack' ),
+				'label_on'     => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'no',
 			)
 		);
@@ -380,7 +380,7 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater_custom->add_control(
 			'time',
 			array(
-				'label'     => esc_html__( 'Time', 'powerpack' ),
+				'label'     => esc_html__( 'Time', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '09:00 AM - 05:00 PM',
 				'ai'        => [
@@ -395,11 +395,11 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater_custom->add_control(
 			'closed_text',
 			array(
-				'label'       => esc_html__( 'Closed Text', 'powerpack' ),
+				'label'       => esc_html__( 'Closed Text', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => false,
-				'placeholder' => esc_html__( 'Closed', 'powerpack' ),
-				'default'     => esc_html__( 'Closed', 'powerpack' ),
+				'placeholder' => esc_html__( 'Closed', 'powerpack-lite-for-elementor' ),
+				'default'     => esc_html__( 'Closed', 'powerpack-lite-for-elementor' ),
 				'conditions'  => array(
 					'terms' => array(
 						array(
@@ -415,11 +415,11 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater_custom->add_control(
 			'highlight',
 			array(
-				'label'        => esc_html__( 'Highlight', 'powerpack' ),
+				'label'        => esc_html__( 'Highlight', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -427,7 +427,7 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater_custom->add_control(
 			'highlight_bg',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -442,7 +442,7 @@ class Business_Hours extends Powerpack_Widget {
 		$repeater_custom->add_control(
 			'highlight_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -461,28 +461,28 @@ class Business_Hours extends Powerpack_Widget {
 				'type'        => Controls_Manager::REPEATER,
 				'default'     => array(
 					array(
-						'day' => esc_html__( 'Monday', 'powerpack' ),
+						'day' => esc_html__( 'Monday', 'powerpack-lite-for-elementor' ),
 					),
 					array(
-						'day' => esc_html__( 'Tuesday', 'powerpack' ),
+						'day' => esc_html__( 'Tuesday', 'powerpack-lite-for-elementor' ),
 					),
 					array(
-						'day' => esc_html__( 'Wednesday', 'powerpack' ),
+						'day' => esc_html__( 'Wednesday', 'powerpack-lite-for-elementor' ),
 					),
 					array(
-						'day' => esc_html__( 'Thursday', 'powerpack' ),
+						'day' => esc_html__( 'Thursday', 'powerpack-lite-for-elementor' ),
 					),
 					array(
-						'day' => esc_html__( 'Friday', 'powerpack' ),
+						'day' => esc_html__( 'Friday', 'powerpack-lite-for-elementor' ),
 					),
 					array(
-						'day'             => esc_html__( 'Saturday', 'powerpack' ),
+						'day'             => esc_html__( 'Saturday', 'powerpack-lite-for-elementor' ),
 						'closed'          => 'yes',
 						'highlight'       => 'yes',
 						'highlight_color' => '#bc1705',
 					),
 					array(
-						'day'             => esc_html__( 'Sunday', 'powerpack' ),
+						'day'             => esc_html__( 'Sunday', 'powerpack-lite-for-elementor' ),
 						'closed'          => 'yes',
 						'highlight'       => 'yes',
 						'highlight_color' => '#bc1705',
@@ -499,11 +499,11 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'hours_format',
 			array(
-				'label'        => esc_html__( '24 Hours Format?', 'powerpack' ),
+				'label'        => esc_html__( '24 Hours Format?', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'business_timings' => 'predefined',
@@ -514,12 +514,12 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'days_format',
 			array(
-				'label'     => esc_html__( 'Days Format', 'powerpack' ),
+				'label'     => esc_html__( 'Days Format', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'long',
 				'options'   => array(
-					'long'  => esc_html__( 'Long', 'powerpack' ),
-					'short' => esc_html__( 'Short', 'powerpack' ),
+					'long'  => esc_html__( 'Long', 'powerpack-lite-for-elementor' ),
+					'short' => esc_html__( 'Short', 'powerpack-lite-for-elementor' ),
 				),
 				'condition' => array(
 					'business_timings' => 'predefined',
@@ -543,7 +543,7 @@ class Business_Hours extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -576,7 +576,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_rows_style',
 			[
-				'label'             => esc_html__( 'Rows Style', 'powerpack' ),
+				'label'             => esc_html__( 'Rows Style', 'powerpack-lite-for-elementor' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -586,14 +586,14 @@ class Business_Hours extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_row_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'row_bg_color_normal',
 			[
-				'label'             => esc_html__( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -607,14 +607,14 @@ class Business_Hours extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_row_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'row_bg_color_hover',
 			[
-				'label'             => esc_html__( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -629,11 +629,11 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'stripes',
 			[
-				'label'             => esc_html__( 'Striped Rows', 'powerpack' ),
+				'label'             => esc_html__( 'Striped Rows', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SWITCHER,
 				'default'           => 'no',
-				'label_on'          => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'         => esc_html__( 'No', 'powerpack' ),
+				'label_on'          => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'         => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'      => 'yes',
 				'separator'         => 'before',
 			]
@@ -644,7 +644,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_even',
 			[
-				'label'                 => esc_html__( 'Even Row', 'powerpack' ),
+				'label'                 => esc_html__( 'Even Row', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'stripes' => 'yes',
 				],
@@ -654,7 +654,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'row_even_bg_color',
 			[
-				'label'             => esc_html__( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '#f5f5f5',
 				'selectors'         => [
@@ -669,7 +669,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'row_even_text_color',
 			[
-				'label'             => esc_html__( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -686,7 +686,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_odd',
 			[
-				'label'                 => esc_html__( 'Odd Row', 'powerpack' ),
+				'label'                 => esc_html__( 'Odd Row', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'stripes' => 'yes',
 				],
@@ -696,7 +696,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'row_odd_bg_color',
 			[
-				'label'             => esc_html__( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '#ffffff',
 				'selectors'         => [
@@ -711,7 +711,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'row_odd_text_color',
 			[
-				'label'             => esc_html__( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -730,7 +730,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'rows_padding',
 			[
-				'label'             => esc_html__( 'Padding', 'powerpack' ),
+				'label'             => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default'           => [
@@ -751,7 +751,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'rows_margin',
 			[
-				'label'             => esc_html__( 'Margin Bottom', 'powerpack' ),
+				'label'             => esc_html__( 'Margin Bottom', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'range'             => [
 					'px' => [
@@ -770,7 +770,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'closed_row_heading',
 			[
-				'label'             => esc_html__( 'Closed Row', 'powerpack' ),
+				'label'             => esc_html__( 'Closed Row', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::HEADING,
 				'separator'         => 'before',
 			]
@@ -779,7 +779,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'closed_row_bg_color',
 			[
-				'label'             => esc_html__( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -791,7 +791,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'closed_row_day_color',
 			[
-				'label'             => esc_html__( 'Day Color', 'powerpack' ),
+				'label'             => esc_html__( 'Day Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -803,7 +803,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'closed_row_tex_color',
 			[
-				'label'             => esc_html__( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -815,7 +815,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'divider_heading',
 			[
-				'label'             => esc_html__( 'Rows Divider', 'powerpack' ),
+				'label'             => esc_html__( 'Rows Divider', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::HEADING,
 				'separator'         => 'before',
 			]
@@ -824,16 +824,16 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'rows_divider_style',
 			[
-				'label'                => esc_html__( 'Divider Style', 'powerpack' ),
+				'label'                => esc_html__( 'Divider Style', 'powerpack-lite-for-elementor' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'none',
 				'options'              => [
-					'none'      => esc_html__( 'None', 'powerpack' ),
-					'solid'     => esc_html__( 'Solid', 'powerpack' ),
-					'dashed'    => esc_html__( 'Dashed', 'powerpack' ),
-					'dotted'    => esc_html__( 'Dotted', 'powerpack' ),
-					'groove'    => esc_html__( 'Groove', 'powerpack' ),
-					'ridge'     => esc_html__( 'Ridge', 'powerpack' ),
+					'none'      => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
+					'solid'     => esc_html__( 'Solid', 'powerpack-lite-for-elementor' ),
+					'dashed'    => esc_html__( 'Dashed', 'powerpack-lite-for-elementor' ),
+					'dotted'    => esc_html__( 'Dotted', 'powerpack-lite-for-elementor' ),
+					'groove'    => esc_html__( 'Groove', 'powerpack-lite-for-elementor' ),
+					'ridge'     => esc_html__( 'Ridge', 'powerpack-lite-for-elementor' ),
 				],
 				'selectors'         => [
 					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row:not(:last-child)' => 'border-bottom-style: {{VALUE}}',
@@ -844,7 +844,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'rows_divider_color',
 			[
-				'label'             => esc_html__( 'Divider Color', 'powerpack' ),
+				'label'             => esc_html__( 'Divider Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -859,7 +859,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'rows_divider_weight',
 			[
-				'label'             => esc_html__( 'Divider Weight', 'powerpack' ),
+				'label'             => esc_html__( 'Divider Weight', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'default'           => [ 'size' => 1 ],
 				'range'             => [
@@ -889,7 +889,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_business_hours_style',
 			[
-				'label'             => esc_html__( 'Business Hours', 'powerpack' ),
+				'label'             => esc_html__( 'Business Hours', 'powerpack-lite-for-elementor' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -899,14 +899,14 @@ class Business_Hours extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_hours_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'title_heading',
 			[
-				'label'             => esc_html__( 'Day', 'powerpack' ),
+				'label'             => esc_html__( 'Day', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::HEADING,
 				'separator'         => 'before',
 			]
@@ -915,19 +915,19 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'day_alignment',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -941,7 +941,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'day_color',
 			[
-				'label'             => esc_html__( 'Color', 'powerpack' ),
+				'label'             => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -954,7 +954,7 @@ class Business_Hours extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'              => 'title_typography',
-				'label'             => esc_html__( 'Typography', 'powerpack' ),
+				'label'             => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'            => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -965,7 +965,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'hours_heading',
 			[
-				'label'             => esc_html__( 'Hours', 'powerpack' ),
+				'label'             => esc_html__( 'Hours', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::HEADING,
 				'separator'         => 'before',
 			]
@@ -974,19 +974,19 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'hours_alignment',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -1000,7 +1000,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'hours_color',
 			[
-				'label'             => esc_html__( 'Color', 'powerpack' ),
+				'label'             => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1013,7 +1013,7 @@ class Business_Hours extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'              => 'hours_typography',
-				'label'             => esc_html__( 'Typography', 'powerpack' ),
+				'label'             => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'            => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1026,14 +1026,14 @@ class Business_Hours extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_hours_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'day_color_hover',
 			[
-				'label'             => esc_html__( 'Day Color', 'powerpack' ),
+				'label'             => esc_html__( 'Day Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1045,7 +1045,7 @@ class Business_Hours extends Powerpack_Widget {
 		$this->add_control(
 			'hours_color_hover',
 			[
-				'label'             => esc_html__( 'Hours Color', 'powerpack' ),
+				'label'             => esc_html__( 'Hours Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -1093,13 +1093,13 @@ class Business_Hours extends Powerpack_Widget {
 	 */
 	protected function get_predefined_days( $day ) {
 		$days = array(
-			'Monday'    => esc_html__( 'Monday', 'powerpack' ),
-			'Tuesday'   => esc_html__( 'Tuesday', 'powerpack' ),
-			'Wednesday' => esc_html__( 'Wednesday', 'powerpack' ),
-			'Thursday'  => esc_html__( 'Thursday', 'powerpack' ),
-			'Friday'    => esc_html__( 'Friday', 'powerpack' ),
-			'Saturday'  => esc_html__( 'Saturday', 'powerpack' ),
-			'Sunday'    => esc_html__( 'Sunday', 'powerpack' ),
+			'Monday'    => esc_html__( 'Monday', 'powerpack-lite-for-elementor' ),
+			'Tuesday'   => esc_html__( 'Tuesday', 'powerpack-lite-for-elementor' ),
+			'Wednesday' => esc_html__( 'Wednesday', 'powerpack-lite-for-elementor' ),
+			'Thursday'  => esc_html__( 'Thursday', 'powerpack-lite-for-elementor' ),
+			'Friday'    => esc_html__( 'Friday', 'powerpack-lite-for-elementor' ),
+			'Saturday'  => esc_html__( 'Saturday', 'powerpack-lite-for-elementor' ),
+			'Sunday'    => esc_html__( 'Sunday', 'powerpack-lite-for-elementor' ),
 		);
 
 		if ( ! empty( $day ) ) {
@@ -1165,7 +1165,7 @@ class Business_Hours extends Powerpack_Widget {
 						if ( $item['closed_text'] ) {
 							$this->print_unescaped_setting( 'closed_text', 'business_hours', $index );
 						} else {
-							esc_attr_e( 'Closed', 'powerpack' );
+							esc_attr_e( 'Closed', 'powerpack-lite-for-elementor' );
 						}
 					} ?>
 				</span>
@@ -1214,7 +1214,7 @@ class Business_Hours extends Powerpack_Widget {
 							if ( $item['closed_text'] ) {
 								$this->print_unescaped_setting( 'closed_text', 'business_hours_custom', $index );
 							} else {
-								esc_attr_e( 'Closed', 'powerpack' );
+								esc_attr_e( 'Closed', 'powerpack-lite-for-elementor' );
 							}
 						}
 						?>
@@ -1298,7 +1298,7 @@ class Business_Hours extends Powerpack_Widget {
 								<# if ( item.closed_text != '' ) { #>
 									{{ item.closed_text }}
 								<# } else { #>
-									<?php esc_attr_e( 'Closed', 'powerpack' ); ?>
+									<?php esc_attr_e( 'Closed', 'powerpack-lite-for-elementor' ); ?>
 								<# } #>
 							<# } #>
 						</span>
@@ -1324,7 +1324,7 @@ class Business_Hours extends Powerpack_Widget {
 								<# if ( item.closed_text != '' ) { #>
 									{{ item.closed_text }}
 								<# } else { #>
-									<?php esc_attr_e( 'Closed', 'powerpack' ); ?>
+									<?php esc_attr_e( 'Closed', 'powerpack-lite-for-elementor' ); ?>
 								<# } #>
 							<# } #>
 						</span>

@@ -122,19 +122,19 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label'                 => esc_html__( 'Content', 'powerpack' ),
+				'label'                 => esc_html__( 'Content', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'content_type',
 			[
-				'label'                 => esc_html__( 'Content Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Content Type', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => false,
 				'options'               => [
-					'content'   => esc_html__( 'Content', 'powerpack' ),
-					'template'  => esc_html__( 'Template', 'powerpack' ),
+					'content'   => esc_html__( 'Content', 'powerpack-lite-for-elementor' ),
+					'template'  => esc_html__( 'Template', 'powerpack-lite-for-elementor' ),
 				],
 				'default'               => 'content',
 			]
@@ -146,7 +146,7 @@ class Content_Reveal extends Powerpack_Widget {
 				'label'                 => '',
 				'type'                  => Controls_Manager::WYSIWYG,
 				'dynamic'               => [ 'active' => true ],
-				'default'               => __( "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 'powerpack' ),
+				'default'               => __( "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'content_type' => 'content',
 				],
@@ -156,7 +156,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'template',
 			array(
-				'label'       => esc_html__( 'Choose Template', 'powerpack' ),
+				'label'       => esc_html__( 'Choose Template', 'powerpack-lite-for-elementor' ),
 				'type'        => 'pp-query',
 				'label_block' => false,
 				'multiple'    => false,
@@ -170,7 +170,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'separator',
 			[
-				'label'                 => esc_html__( 'Show Separator', 'powerpack' ),
+				'label'                 => esc_html__( 'Show Separator', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
 				'return_value'          => 'yes',
@@ -183,19 +183,19 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_settings',
 			[
-				'label'                 => esc_html__( 'Settings', 'powerpack' ),
+				'label'                 => esc_html__( 'Settings', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'default_content_state',
 			[
-				'label'                 => esc_html__( 'Default State', 'powerpack' ),
+				'label'                 => esc_html__( 'Default State', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => false,
 				'options'               => [
-					'reveal'   => esc_html__( 'Reveal', 'powerpack' ),
-					'unreveal' => esc_html__( 'Unreveal', 'powerpack' ),
+					'reveal'   => esc_html__( 'Reveal', 'powerpack-lite-for-elementor' ),
+					'unreveal' => esc_html__( 'Unreveal', 'powerpack-lite-for-elementor' ),
 				],
 				'default'               => 'unreveal',
 				'frontend_available'    => true,
@@ -205,8 +205,8 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'scroll_top',
 			[
-				'label'                 => esc_html__( 'Scroll Top', 'powerpack' ),
-				'description'           => esc_html__( 'Enable this option to scroll to top of content when Read Less button is clicked', 'powerpack' ),
+				'label'                 => esc_html__( 'Scroll Top', 'powerpack-lite-for-elementor' ),
+				'description'           => esc_html__( 'Enable this option to scroll to top of content when Read Less button is clicked', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
 				'return_value'          => 'yes',
@@ -216,7 +216,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'speed_unreveal',
 			[
-				'label'                 => esc_html__( 'Transition Speed', 'powerpack' ),
+				'label'                 => esc_html__( 'Transition Speed', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'dynamic'               => [ 'active' => true ],
 				'default'               => [
@@ -235,12 +235,12 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'visible_type',
 			[
-				'label'                 => esc_html__( 'Content Visibility By', 'powerpack' ),
+				'label'                 => esc_html__( 'Content Visibility By', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'pixels',
 				'options'               => [
-					'lines'  => esc_html__( 'Lines', 'powerpack' ),
-					'pixels' => esc_html__( 'Pixels', 'powerpack' ),
+					'lines'  => esc_html__( 'Lines', 'powerpack-lite-for-elementor' ),
+					'pixels' => esc_html__( 'Pixels', 'powerpack-lite-for-elementor' ),
 				],
 				'condition'             => [
 					'content_type' => 'content',
@@ -251,7 +251,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'visible_amount',
 			[
-				'label'                 => esc_html__( 'Visible Amount (px)', 'powerpack' ),
+				'label'                 => esc_html__( 'Visible Amount (px)', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'dynamic'               => [ 'active' => true ],
 				'default'               => [
@@ -298,7 +298,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'visible_lines',
 			[
-				'label'                 => esc_html__( 'Visible Amount (lines)', 'powerpack' ),
+				'label'                 => esc_html__( 'Visible Amount (lines)', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'dynamic'               => [ 'active' => true ],
 				'default'               => [
@@ -320,7 +320,7 @@ class Content_Reveal extends Powerpack_Widget {
 			'content_valid_warning',
 			[
 				'type'                  => Controls_Manager::RAW_HTML,
-				'raw'                   => esc_html__( 'Make sure your WYSIWYG content is valid HTML.', 'powerpack' ),
+				'raw'                   => esc_html__( 'Make sure your WYSIWYG content is valid HTML.', 'powerpack-lite-for-elementor' ),
 				'content_classes'       => 'elementor-panel-alert elementor-panel-alert-warning',
 				'condition'             => [
 					'visible_type' => 'lines',
@@ -333,27 +333,27 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_button',
 			[
-				'label'                 => esc_html__( 'Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Button', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'button_align',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'center',
 				'options'               => [
 					'left'  => [
-						'title'     => esc_html__( 'Left', 'powerpack' ),
+						'title'     => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-h-align-left',
 					],
 					'center'        => [
-						'title'     => esc_html__( 'Center', 'powerpack' ),
+						'title'     => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-h-align-center',
 					],
 					'right'         => [
-						'title'     => esc_html__( 'Right', 'powerpack' ),
+						'title'     => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-h-align-right',
 					],
 				],
@@ -372,24 +372,24 @@ class Content_Reveal extends Powerpack_Widget {
 
 		$this->start_controls_tab(
 			'tab_button_closed', [
-				'label'                 => esc_html__( 'Content Unreveal', 'powerpack' ),
+				'label'                 => esc_html__( 'Content Unreveal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_closed',
 			[
-				'label'                 => esc_html__( 'Label', 'powerpack' ),
+				'label'                 => esc_html__( 'Label', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [ 'active' => true ],
-				'default'               => esc_html__( 'Read More', 'powerpack' ),
+				'default'               => esc_html__( 'Read More', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_icon_closed',
 			[
-				'label'                 => esc_html__( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::ICONS,
 				'label_block'           => false,
 				'skin'                  => 'inline',
@@ -404,24 +404,24 @@ class Content_Reveal extends Powerpack_Widget {
 
 		$this->start_controls_tab(
 			'tab_button_open', [
-				'label'                 => esc_html__( 'Content Reveal', 'powerpack' ),
+				'label'                 => esc_html__( 'Content Reveal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_open',
 			[
-				'label'                 => esc_html__( 'Label', 'powerpack' ),
+				'label'                 => esc_html__( 'Label', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [ 'active' => true ],
-				'default'               => esc_html__( 'Read Less', 'powerpack' ),
+				'default'               => esc_html__( 'Read Less', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_icon_open',
 			[
-				'label'                 => esc_html__( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::ICONS,
 				'label_block'           => false,
 				'skin'                  => 'inline',
@@ -438,12 +438,12 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_icon_position',
 			[
-				'label'                 => esc_html__( 'Icon Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Position', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'after',
 				'options'               => [
-					'after'     => esc_html__( 'After', 'powerpack' ),
-					'before'    => esc_html__( 'Before', 'powerpack' ),
+					'after'     => esc_html__( 'After', 'powerpack-lite-for-elementor' ),
+					'before'    => esc_html__( 'Before', 'powerpack-lite-for-elementor' ),
 				],
 				'conditions'            => [
 					'relation'  => 'or',
@@ -475,7 +475,7 @@ class Content_Reveal extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_upgrade_powerpack',
 				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
+					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack-lite-for-elementor' ) ),
 					'tab'   => Controls_Manager::TAB_CONTENT,
 				)
 			);
@@ -485,7 +485,7 @@ class Content_Reveal extends Powerpack_Widget {
 				array(
 					'label'           => '',
 					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				)
 			);
@@ -496,7 +496,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_style_content',
 			[
-				'label'                 => esc_html__( 'Content', 'powerpack' ),
+				'label'                 => esc_html__( 'Content', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -504,23 +504,23 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'text_align',
 			[
-				'label'                 => esc_html__( 'Text Align', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Align', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 					'justify'   => [
-						'title' => esc_html__( 'Justify', 'powerpack' ),
+						'title' => esc_html__( 'Justify', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-justify',
 					],
 				],
@@ -534,7 +534,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'content_color',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-content' => 'color: {{VALUE}};',
@@ -545,7 +545,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'content_background',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-content' => 'background-color: {{VALUE}};',
@@ -564,7 +564,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'content_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default'               => [
@@ -581,7 +581,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_separator_style',
 			[
-				'label'                 => esc_html__( 'Separator', 'powerpack' ),
+				'label'                 => esc_html__( 'Separator', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'separator' => 'yes',
@@ -592,7 +592,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'separator_height',
 			[
-				'label'                 => esc_html__( 'Height', 'powerpack' ),
+				'label'                 => esc_html__( 'Height', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'dynamic'               => [ 'active' => true ],
@@ -632,7 +632,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_button_style',
 			[
-				'label'                 => esc_html__( 'Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Button', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -640,15 +640,15 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_size',
 			[
-				'label'                 => esc_html__( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'md',
 				'options'               => [
-					'xs' => esc_html__( 'Extra Small', 'powerpack' ),
-					'sm' => esc_html__( 'Small', 'powerpack' ),
-					'md' => esc_html__( 'Medium', 'powerpack' ),
-					'lg' => esc_html__( 'Large', 'powerpack' ),
-					'xl' => esc_html__( 'Extra Large', 'powerpack' ),
+					'xs' => esc_html__( 'Extra Small', 'powerpack-lite-for-elementor' ),
+					'sm' => esc_html__( 'Small', 'powerpack-lite-for-elementor' ),
+					'md' => esc_html__( 'Medium', 'powerpack-lite-for-elementor' ),
+					'lg' => esc_html__( 'Large', 'powerpack-lite-for-elementor' ),
+					'xl' => esc_html__( 'Extra Large', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -656,7 +656,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_spacing',
 			[
-				'label'                 => esc_html__( 'Button Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'dynamic'               => [ 'active' => true ],
@@ -678,7 +678,7 @@ class Content_Reveal extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-content-reveal-button-inner',
 				'conditions'            => [
 					'relation'  => 'or',
@@ -703,14 +703,14 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#ffffff',
 				'selectors'             => [
@@ -737,7 +737,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_icon_color',
 			[
-				'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -764,7 +764,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_background',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'global'                => [
@@ -780,7 +780,7 @@ class Content_Reveal extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-content-reveal-button-inner',
@@ -790,7 +790,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -812,14 +812,14 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner:hover' => 'color: {{VALUE}};',
@@ -845,7 +845,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_icon_color_hover',
 			[
-				'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -873,7 +873,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_background_hover',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -887,7 +887,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-content-reveal-button-inner:hover' => 'border-color: {{VALUE}};',
@@ -901,7 +901,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default'               => [
@@ -917,7 +917,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_style_heading',
 			[
-				'label'                 => esc_html__( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'conditions'            => [
@@ -941,7 +941,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_icon_size',
 			[
-				'label'                 => esc_html__( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
@@ -977,7 +977,7 @@ class Content_Reveal extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_icon_spacing',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [

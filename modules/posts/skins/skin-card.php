@@ -29,6 +29,6 @@ class Skin_Card extends Skin_Base {
 	 * @return string Skin title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Card', 'powerpack' );
+		return esc_html__( 'Card', 'powerpack-lite-for-elementor' );
 	}
 }

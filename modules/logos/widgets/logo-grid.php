@@ -117,7 +117,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_logo_grid',
 			[
-				'label' => esc_html__( 'Logo Grid', 'powerpack' ),
+				'label' => esc_html__( 'Logo Grid', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -125,12 +125,12 @@ class Logo_Grid extends Powerpack_Widget {
 
 		$repeater->start_controls_tabs( 'items_repeater' );
 
-		$repeater->start_controls_tab( 'tab_content', [ 'label' => esc_html__( 'Content', 'powerpack' ) ] );
+		$repeater->start_controls_tab( 'tab_content', [ 'label' => esc_html__( 'Content', 'powerpack-lite-for-elementor' ) ] );
 
 			$repeater->add_control(
 				'logo_image',
 				[
-					'label'             => esc_html__( 'Image', 'powerpack' ),
+					'label'             => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 					'type'              => Controls_Manager::MEDIA,
 					'dynamic'           => [
 						'active'   => true,
@@ -144,7 +144,7 @@ class Logo_Grid extends Powerpack_Widget {
 			$repeater->add_control(
 				'title',
 				[
-					'label'             => esc_html__( 'Title', 'powerpack' ),
+					'label'             => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 					'type'              => Controls_Manager::TEXT,
 					'dynamic'           => [
 						'active'   => true,
@@ -155,7 +155,7 @@ class Logo_Grid extends Powerpack_Widget {
 			$repeater->add_control(
 				'link',
 				[
-					'label'             => esc_html__( 'Link', 'powerpack' ),
+					'label'             => esc_html__( 'Link', 'powerpack-lite-for-elementor' ),
 					'type'              => Controls_Manager::URL,
 					'dynamic'           => [
 						'active'   => true,
@@ -169,17 +169,17 @@ class Logo_Grid extends Powerpack_Widget {
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_style', [ 'label' => esc_html__( 'Style', 'powerpack' ) ] );
+		$repeater->start_controls_tab( 'tab_style', [ 'label' => esc_html__( 'Style', 'powerpack-lite-for-elementor' ) ] );
 
 			$repeater->add_control(
 				'custom_style',
 				[
-					'label'             => esc_html__( 'Custom Style', 'powerpack' ),
+					'label'             => esc_html__( 'Custom Style', 'powerpack-lite-for-elementor' ),
 					'type'              => Controls_Manager::SWITCHER,
-					'description'       => esc_html__( 'Add custom styles which will affect only this item', 'powerpack' ),
+					'description'       => esc_html__( 'Add custom styles which will affect only this item', 'powerpack-lite-for-elementor' ),
 					'default'           => '',
-					'label_on'          => esc_html__( 'On', 'powerpack' ),
-					'label_off'         => esc_html__( 'Off', 'powerpack' ),
+					'label_on'          => esc_html__( 'On', 'powerpack-lite-for-elementor' ),
+					'label_off'         => esc_html__( 'Off', 'powerpack-lite-for-elementor' ),
 					'return_value'      => 'yes',
 				]
 			);
@@ -187,12 +187,12 @@ class Logo_Grid extends Powerpack_Widget {
 			$repeater->add_control(
 				'custom_style_target',
 				[
-					'label'                => esc_html__( 'Apply Styles To', 'powerpack' ),
+					'label'                => esc_html__( 'Apply Styles To', 'powerpack-lite-for-elementor' ),
 					'type'                 => Controls_Manager::SELECT,
 					'default'              => 'container',
 					'options'              => [
-						'logo'      => esc_html__( 'Logo Image', 'powerpack' ),
-						'container' => esc_html__( 'Logo Container', 'powerpack' ),
+						'logo'      => esc_html__( 'Logo Image', 'powerpack-lite-for-elementor' ),
+						'container' => esc_html__( 'Logo Container', 'powerpack-lite-for-elementor' ),
 					],
 					'condition'          => [
 						'custom_style' => 'yes',
@@ -203,7 +203,7 @@ class Logo_Grid extends Powerpack_Widget {
 			$repeater->add_control(
 				'custom_logo_wrapper_bg',
 				[
-					'label'              => esc_html__( 'Background Color', 'powerpack' ),
+					'label'              => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 					'type'               => Controls_Manager::COLOR,
 					'default'            => '',
 					'selectors'          => [
@@ -218,16 +218,16 @@ class Logo_Grid extends Powerpack_Widget {
 			$repeater->add_control(
 				'custom_logo_wrapper_border_type',
 				[
-					'label'                => esc_html__( 'Border Type', 'powerpack' ),
+					'label'                => esc_html__( 'Border Type', 'powerpack-lite-for-elementor' ),
 					'type'                 => Controls_Manager::SELECT,
 					'default'              => '',
 					'options'              => [
-						''       => esc_html__( 'None', 'powerpack' ),
-						'solid'  => esc_html__( 'Solid', 'powerpack' ),
-						'double' => esc_html__( 'Double', 'powerpack' ),
-						'dotted' => esc_html__( 'Dotted', 'powerpack' ),
-						'dashed' => esc_html__( 'Dashed', 'powerpack' ),
-						'groove' => esc_html__( 'Groove', 'powerpack' ),
+						''       => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
+						'solid'  => esc_html__( 'Solid', 'powerpack-lite-for-elementor' ),
+						'double' => esc_html__( 'Double', 'powerpack-lite-for-elementor' ),
+						'dotted' => esc_html__( 'Dotted', 'powerpack-lite-for-elementor' ),
+						'dashed' => esc_html__( 'Dashed', 'powerpack-lite-for-elementor' ),
+						'groove' => esc_html__( 'Groove', 'powerpack-lite-for-elementor' ),
 					],
 					'selectors'             => [
 						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-logo-grid-item-custom, {{WRAPPER}} {{CURRENT_ITEM}} .pp-logo-grid-item-custom' => 'border-style: {{VALUE}};',
@@ -241,7 +241,7 @@ class Logo_Grid extends Powerpack_Widget {
 			$repeater->add_control(
 				'custom_logo_border_width',
 				[
-					'label'                 => esc_html__( 'Border Width', 'powerpack' ),
+					'label'                 => esc_html__( 'Border Width', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::SLIDER,
 					'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 					'range'                 => [
@@ -263,7 +263,7 @@ class Logo_Grid extends Powerpack_Widget {
 			$repeater->add_control(
 				'custom_logo_wrapper_border_color',
 				[
-					'label'              => esc_html__( 'Border Color', 'powerpack' ),
+					'label'              => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 					'type'               => Controls_Manager::COLOR,
 					'default'            => '',
 					'selectors'          => [
@@ -283,7 +283,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'pp_logos',
 			[
-				'label'     => esc_html__( 'Add Logos', 'powerpack' ),
+				'label'     => esc_html__( 'Add Logos', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::REPEATER,
 				'default'   => [
 					[
@@ -310,11 +310,11 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'show_title',
 			[
-				'label'                 => esc_html__( 'Show Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Show Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'separator'             => 'before',
 			]
@@ -323,19 +323,19 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'title_html_tag',
 			[
-				'label'                => esc_html__( 'Title HTML Tag', 'powerpack' ),
+				'label'                => esc_html__( 'Title HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'h4',
 				'options'              => [
-					'h1'     => esc_html__( 'H1', 'powerpack' ),
-					'h2'     => esc_html__( 'H2', 'powerpack' ),
-					'h3'     => esc_html__( 'H3', 'powerpack' ),
-					'h4'     => esc_html__( 'H4', 'powerpack' ),
-					'h5'     => esc_html__( 'H5', 'powerpack' ),
-					'h6'     => esc_html__( 'H6', 'powerpack' ),
-					'div'    => esc_html__( 'div', 'powerpack' ),
-					'span'   => esc_html__( 'span', 'powerpack' ),
-					'p'      => esc_html__( 'p', 'powerpack' ),
+					'h1'     => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
+					'h2'     => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
+					'h3'     => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
+					'h4'     => esc_html__( 'H4', 'powerpack-lite-for-elementor' ),
+					'h5'     => esc_html__( 'H5', 'powerpack-lite-for-elementor' ),
+					'h6'     => esc_html__( 'H6', 'powerpack-lite-for-elementor' ),
+					'div'    => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
+					'span'   => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
+					'p'      => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
 				],
 				'condition'             => [
 					'show_title'   => 'yes',
@@ -346,11 +346,11 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'randomize',
 			[
-				'label'                 => esc_html__( 'Randomize Logos', 'powerpack' ),
+				'label'                 => esc_html__( 'Randomize Logos', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -361,7 +361,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label'                 => esc_html__( 'Columns', 'powerpack' ),
+				'label'                 => esc_html__( 'Columns', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => '3',
 				'tablet_default'        => '2',
@@ -374,7 +374,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'logos_spacing',
 			[
-				'label'                 => esc_html__( 'Logos Gap', 'powerpack' ),
+				'label'                 => esc_html__( 'Logos Gap', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [ 'size' => 10 ],
@@ -393,21 +393,21 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'logos_vertical_align',
 			[
-				'label'                 => esc_html__( 'Vertical Align', 'powerpack' ),
+				'label'                 => esc_html__( 'Vertical Align', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'default'               => 'top',
 				'options'               => [
 					'top'          => [
-						'title'    => esc_html__( 'Top', 'powerpack' ),
+						'title'    => esc_html__( 'Top', 'powerpack-lite-for-elementor' ),
 						'icon'     => 'eicon-v-align-top',
 					],
 					'middle'       => [
-						'title'    => esc_html__( 'Center', 'powerpack' ),
+						'title'    => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'     => 'eicon-v-align-middle',
 					],
 					'bottom'       => [
-						'title'    => esc_html__( 'Bottom', 'powerpack' ),
+						'title'    => esc_html__( 'Bottom', 'powerpack-lite-for-elementor' ),
 						'icon'     => 'eicon-v-align-bottom',
 					],
 				],
@@ -425,20 +425,20 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'logos_horizontal_align',
 			[
-				'label'                 => esc_html__( 'Horizontal Align', 'powerpack' ),
+				'label'                 => esc_html__( 'Horizontal Align', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'center'           => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-center',
 					],
 					'right'            => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
@@ -458,7 +458,7 @@ class Logo_Grid extends Powerpack_Widget {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'                  => 'image',
-				'label'                 => esc_html__( 'Image Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Image Size', 'powerpack-lite-for-elementor' ),
 				'default'               => 'full',
 			]
 		);
@@ -466,7 +466,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'logos_width',
 			[
-				'label'             => esc_html__( 'Image Width', 'powerpack' ),
+				'label'             => esc_html__( 'Image Width', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'             => [
@@ -500,7 +500,7 @@ class Logo_Grid extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -530,7 +530,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_logos_style',
 			[
-				'label'                 => esc_html__( 'Logos', 'powerpack' ),
+				'label'                 => esc_html__( 'Logos', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -540,7 +540,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_logos_normal',
 			[
-				'label'             => esc_html__( 'Normal', 'powerpack' ),
+				'label'             => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -548,7 +548,7 @@ class Logo_Grid extends Powerpack_Widget {
 			Group_Control_Background::get_type(),
 			[
 				'name'                  => 'logo_bg',
-				'label'                 => esc_html__( 'Background', 'powerpack' ),
+				'label'                 => esc_html__( 'Background', 'powerpack-lite-for-elementor' ),
 				'types'                 => [ 'classic', 'gradient' ],
 				'exclude'               => array( 'image' ),
 				'selector'              => '{{WRAPPER}} .pp-logo-wrap',
@@ -559,7 +559,7 @@ class Logo_Grid extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'logo_border',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-logo-wrap',
@@ -569,7 +569,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'logo_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -581,7 +581,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'logo_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
@@ -593,11 +593,11 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'grayscale_normal',
 			[
-				'label'             => esc_html__( 'Grayscale', 'powerpack' ),
+				'label'             => esc_html__( 'Grayscale', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SWITCHER,
 				'default'           => 'no',
-				'label_on'          => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'         => esc_html__( 'No', 'powerpack' ),
+				'label_on'          => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'         => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'      => 'yes',
 			]
 		);
@@ -605,7 +605,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'opacity_normal',
 			[
-				'label'             => esc_html__( 'Opacity', 'powerpack' ),
+				'label'             => esc_html__( 'Opacity', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'range'             => [
 					'px' => [
@@ -634,7 +634,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_logos_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -642,7 +642,7 @@ class Logo_Grid extends Powerpack_Widget {
 			Group_Control_Background::get_type(),
 			[
 				'name'                  => 'logos_bg_hover',
-				'label'                 => esc_html__( 'Background', 'powerpack' ),
+				'label'                 => esc_html__( 'Background', 'powerpack-lite-for-elementor' ),
 				'types'                 => [ 'classic', 'gradient' ],
 				'exclude'               => array( 'image' ),
 				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover',
@@ -653,7 +653,7 @@ class Logo_Grid extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'logo_border_hover',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover',
@@ -663,7 +663,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'translate',
 			[
-				'label'                 => esc_html__( 'Slide', 'powerpack' ),
+				'label'                 => esc_html__( 'Slide', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -681,11 +681,11 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'grayscale_hover',
 			[
-				'label'             => esc_html__( 'Grayscale', 'powerpack' ),
+				'label'             => esc_html__( 'Grayscale', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SWITCHER,
 				'default'           => 'no',
-				'label_on'          => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'         => esc_html__( 'No', 'powerpack' ),
+				'label_on'          => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'         => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'      => 'yes',
 			]
 		);
@@ -693,7 +693,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'opacity_hover',
 			[
-				'label'             => esc_html__( 'Opacity', 'powerpack' ),
+				'label'             => esc_html__( 'Opacity', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'range'             => [
 					'px' => [
@@ -728,7 +728,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_logo_title_style',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'show_title'   => 'yes',
@@ -739,7 +739,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'title_color',
 			[
-				'label'              => esc_html__( 'Color', 'powerpack' ),
+				'label'              => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::COLOR,
 				'default'            => '',
 				'selectors'          => [
@@ -755,7 +755,7 @@ class Logo_Grid extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'title_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -769,7 +769,7 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'title_spacing',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [

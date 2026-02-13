@@ -51,7 +51,7 @@ class Request_Parameter extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return esc_html__( ' Request Parameter', 'powerpack' );
+		return esc_html__( ' Request Parameter', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -67,7 +67,7 @@ class Request_Parameter extends Condition {
 			'type'        => Controls_Manager::TEXTAREA,
 			'default'     => '',
 			'placeholder' => '',
-			'description' => esc_html__( 'Enter each request parameter on a new line as pairs of param=value or param1=value1&amp;param2=value2.', 'powerpack' ),
+			'description' => esc_html__( 'Enter each request parameter on a new line as pairs of param=value or param1=value1&amp;param2=value2.', 'powerpack-lite-for-elementor' ),
 			'ai'          => [
 				'active' => false,
 			],

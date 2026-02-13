@@ -21,13 +21,13 @@ class WPML_PP_Buttons extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'text':
-				return esc_html__( 'Buttons - Button Text', 'powerpack' );
+				return esc_html__( 'Buttons - Button Text', 'powerpack-lite-for-elementor' );
 			case 'icon_text':
-				return esc_html__( 'Buttons - Button Icon Text', 'powerpack' );
+				return esc_html__( 'Buttons - Button Icon Text', 'powerpack-lite-for-elementor' );
 			case 'tooltip_content':
-				return esc_html__( 'Buttons - Button Tooltip Content', 'powerpack' );
+				return esc_html__( 'Buttons - Button Tooltip Content', 'powerpack-lite-for-elementor' );
 			case 'url':
-				return esc_html__( 'Buttons - Button Link', 'powerpack' );
+				return esc_html__( 'Buttons - Button Link', 'powerpack-lite-for-elementor' );
 			default:
 				return '';
 		}

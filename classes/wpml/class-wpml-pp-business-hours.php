@@ -17,7 +17,7 @@ class WPML_PP_Business_Hours extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'closed_text':
-				return esc_html__( 'Business Hours - Closed Text', 'powerpack' );
+				return esc_html__( 'Business Hours - Closed Text', 'powerpack-lite-for-elementor' );
 
 			default:
 				return '';
@@ -56,13 +56,13 @@ class WPML_PP_Business_Hours_Custom extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'day':
-				return esc_html__( 'Business Hours - Day', 'powerpack' );
+				return esc_html__( 'Business Hours - Day', 'powerpack-lite-for-elementor' );
 
 			case 'time':
-				return esc_html__( 'Business Hours - Time', 'powerpack' );
+				return esc_html__( 'Business Hours - Time', 'powerpack-lite-for-elementor' );
 
 			case 'closed_text':
-				return esc_html__( 'Business Hours - Closed Text', 'powerpack' );
+				return esc_html__( 'Business Hours - Closed Text', 'powerpack-lite-for-elementor' );
 
 			default:
 				return '';

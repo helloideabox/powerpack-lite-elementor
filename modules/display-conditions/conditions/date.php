@@ -51,7 +51,7 @@ class Date extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Current Date', 'powerpack' );
+		return __( 'Current Date', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -68,7 +68,7 @@ class Date extends Condition {
 		$default_interval   = $default_date_start . ' to ' . $default_date_end;
 
 		return [
-			'label'             => __( 'In interval', 'powerpack' ),
+			'label'             => __( 'In interval', 'powerpack-lite-for-elementor' ),
 			'type'              => \Elementor\Controls_Manager::DATE_TIME,
 			'picker_options'    => [
 				'enableTime'    => false,

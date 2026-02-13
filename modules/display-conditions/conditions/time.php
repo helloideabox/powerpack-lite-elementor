@@ -51,7 +51,7 @@ class Time extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Time of Day', 'powerpack' );
+		return __( 'Time of Day', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -64,7 +64,7 @@ class Time extends Condition {
 	 */
 	public function get_value_control() {
 		return [
-			'label'     => __( 'Before', 'powerpack' ),
+			'label'     => __( 'Before', 'powerpack-lite-for-elementor' ),
 			'type'      => \Elementor\Controls_Manager::DATE_TIME,
 			'picker_options' => [
 				'dateFormat'    => 'H:i',

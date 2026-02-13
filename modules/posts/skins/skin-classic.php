@@ -29,6 +29,6 @@ class Skin_Classic extends Skin_Base {
 	 * @return string Skin title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Classic', 'powerpack' );
+		return esc_html__( 'Classic', 'powerpack-lite-for-elementor' );
 	}
 }

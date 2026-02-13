@@ -108,14 +108,14 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_contact_form',
 			[
-				'label'                 => esc_html__( 'Contact Form', 'powerpack' ),
+				'label'                 => esc_html__( 'Contact Form', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'contact_form_list',
 			[
-				'label'                 => esc_html__( 'Contact Form', 'powerpack' ),
+				'label'                 => esc_html__( 'Contact Form', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => true,
 				'options'               => PP_Helper::get_contact_forms( 'Contact_Form_7' ),
@@ -126,10 +126,10 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'form_title',
 			[
-				'label'                 => esc_html__( 'Form Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Form Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
-				'label_on'              => esc_html__( 'On', 'powerpack' ),
-				'label_off'             => esc_html__( 'Off', 'powerpack' ),
+				'label_on'              => esc_html__( 'On', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Off', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -137,7 +137,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'form_title_text',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'label_block'           => true,
 				'default'               => '',
@@ -150,10 +150,10 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'form_description',
 			[
-				'label'                 => esc_html__( 'Form Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Form Description', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
-				'label_on'              => esc_html__( 'On', 'powerpack' ),
-				'label_off'             => esc_html__( 'Off', 'powerpack' ),
+				'label_on'              => esc_html__( 'On', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Off', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -161,7 +161,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'form_description_text',
 			[
-				'label'                 => esc_html__( 'Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXTAREA,
 				'default'               => '',
 				'condition'             => [
@@ -173,11 +173,11 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'labels_switch',
 			[
-				'label'                 => esc_html__( 'Labels', 'powerpack' ),
+				'label'                 => esc_html__( 'Labels', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => esc_html__( 'Show', 'powerpack' ),
-				'label_off'             => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'              => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -193,19 +193,19 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_errors',
 			[
-				'label'                 => esc_html__( 'Errors', 'powerpack' ),
+				'label'                 => esc_html__( 'Errors', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'error_messages',
 			[
-				'label'                 => esc_html__( 'Error Messages', 'powerpack' ),
+				'label'                 => esc_html__( 'Error Messages', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'show',
 				'options'               => [
-					'show'          => esc_html__( 'Show', 'powerpack' ),
-					'hide'          => esc_html__( 'Hide', 'powerpack' ),
+					'show'          => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+					'hide'          => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				],
 				'selectors_dictionary'  => [
 					'show'          => 'block',
@@ -220,12 +220,12 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'validation_errors',
 			[
-				'label'                 => esc_html__( 'Validation Errors', 'powerpack' ),
+				'label'                 => esc_html__( 'Validation Errors', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'show',
 				'options'               => [
-					'show'          => esc_html__( 'Show', 'powerpack' ),
-					'hide'          => esc_html__( 'Hide', 'powerpack' ),
+					'show'          => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+					'hide'          => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				],
 				'selectors_dictionary'  => [
 					'show'          => 'block',
@@ -245,7 +245,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_upgrade_powerpack',
 				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
+					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack-lite-for-elementor' ) ),
 					'tab'   => Controls_Manager::TAB_CONTENT,
 				)
 			);
@@ -255,7 +255,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 				array(
 					'label'           => '',
 					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				)
 			);
@@ -276,7 +276,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_fields_title_description',
 			[
-				'label'                 => esc_html__( 'Title & Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Title & Description', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -284,19 +284,19 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'heading_alignment',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -310,7 +310,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'title_heading',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -319,7 +319,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'title_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -332,7 +332,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'title_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -343,7 +343,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'description_heading',
 			[
-				'label'                 => esc_html__( 'Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -352,7 +352,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'description_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -365,7 +365,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'description_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -384,7 +384,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_fields_style',
 			[
-				'label'                 => esc_html__( 'Input & Textarea', 'powerpack' ),
+				'label'                 => esc_html__( 'Input & Textarea', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -394,14 +394,14 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_fields_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'field_bg',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -413,7 +413,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'field_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -425,7 +425,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'input_spacing',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
@@ -448,7 +448,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
@@ -460,7 +460,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'text_indent',
 			[
-				'label'                 => esc_html__( 'Text Indent', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Indent', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -484,7 +484,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'input_width',
 			[
-				'label'                 => esc_html__( 'Input Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Input Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -503,7 +503,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'textarea_width',
 			[
-				'label'                 => esc_html__( 'Textarea Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Textarea Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -523,7 +523,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'field_border',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .pp-contact-form-7 .wpcf7-form-control.wpcf7-textarea, {{WRAPPER}} .pp-contact-form-7 .wpcf7-form-control.wpcf7-select',
@@ -534,7 +534,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'field_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -547,7 +547,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'field_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -570,14 +570,14 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_fields_focus',
 			[
-				'label'                 => esc_html__( 'Focus', 'powerpack' ),
+				'label'                 => esc_html__( 'Focus', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'field_bg_focus',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -590,7 +590,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'input_border_focus',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .wpcf7-form input:focus, {{WRAPPER}} .pp-contact-form-7 .wpcf7-form textarea:focus',
@@ -620,7 +620,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_label_style',
 			[
-				'label'                 => esc_html__( 'Labels', 'powerpack' ),
+				'label'                 => esc_html__( 'Labels', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'labels_switch'   => 'yes',
@@ -631,7 +631,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'text_color_label',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-contact-form-7 .wpcf7-form label, {{WRAPPER}} .pp-contact-form-7 .wpcf7-form:not(input)' => 'color: {{VALUE}}',
@@ -645,7 +645,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'label_spacing',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -668,7 +668,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'typography_label',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -689,7 +689,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_placeholder_style',
 			[
-				'label'                 => esc_html__( 'Placeholder', 'powerpack' ),
+				'label'                 => esc_html__( 'Placeholder', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -697,11 +697,11 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'placeholder_switch',
 			[
-				'label'                 => esc_html__( 'Show Placeholder', 'powerpack' ),
+				'label'                 => esc_html__( 'Show Placeholder', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -709,7 +709,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'text_color_placeholder',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'selectors'             => [
 					'{{WRAPPER}} .pp-contact-form-7 .wpcf7-form-control::placeholder' => 'color: {{VALUE}}; opacity: 1;',
@@ -724,7 +724,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'typography_placeholder',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -746,7 +746,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_radio_checkbox_style',
 			[
-				'label'                 => esc_html__( 'Radio & Checkbox', 'powerpack' ),
+				'label'                 => esc_html__( 'Radio & Checkbox', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -754,10 +754,10 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'custom_radio_checkbox',
 			[
-				'label'                 => esc_html__( 'Custom Styles', 'powerpack' ),
+				'label'                 => esc_html__( 'Custom Styles', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -765,7 +765,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'radio_checkbox_size',
 			[
-				'label'                 => esc_html__( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
@@ -793,7 +793,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'radio_checkbox_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
 				],
@@ -803,7 +803,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_color',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -818,7 +818,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'radio_checkbox_border_width',
 			[
-				'label'                 => esc_html__( 'Border Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -840,7 +840,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_border_color',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -855,7 +855,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'checkbox_heading',
 			[
-				'label'                 => esc_html__( 'Checkbox', 'powerpack' ),
+				'label'                 => esc_html__( 'Checkbox', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
@@ -866,7 +866,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'checkbox_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -881,7 +881,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'radio_heading',
 			[
-				'label'                 => esc_html__( 'Radio Buttons', 'powerpack' ),
+				'label'                 => esc_html__( 'Radio Buttons', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
@@ -892,7 +892,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'radio_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -909,7 +909,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'radio_checkbox_checked',
 			[
-				'label'                 => esc_html__( 'Checked', 'powerpack' ),
+				'label'                 => esc_html__( 'Checked', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'custom_radio_checkbox' => 'yes',
 				],
@@ -919,7 +919,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_color_checked',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -945,7 +945,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_submit_button_style',
 			[
-				'label'                 => esc_html__( 'Submit Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Submit Button', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -953,20 +953,20 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_align',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'left',
 				'options'               => [
 					'left'        => [
-						'title'   => esc_html__( 'Left', 'powerpack' ),
+						'title'   => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'    => 'eicon-h-align-left',
 					],
 					'center'      => [
-						'title'   => esc_html__( 'Center', 'powerpack' ),
+						'title'   => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'    => 'eicon-h-align-center',
 					],
 					'right'       => [
-						'title'   => esc_html__( 'Right', 'powerpack' ),
+						'title'   => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'    => 'eicon-h-align-right',
 					],
 				],
@@ -983,12 +983,12 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'button_width_type',
 			[
-				'label'                 => esc_html__( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'custom',
 				'options'               => [
-					'full-width'    => esc_html__( 'Full Width', 'powerpack' ),
-					'custom'        => esc_html__( 'Custom', 'powerpack' ),
+					'full-width'    => esc_html__( 'Full Width', 'powerpack-lite-for-elementor' ),
+					'custom'        => esc_html__( 'Custom', 'powerpack-lite-for-elementor' ),
 				],
 				'prefix_class'          => 'pp-contact-form-7-button-',
 			]
@@ -997,7 +997,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_width',
 			[
-				'label'                 => esc_html__( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
@@ -1025,14 +1025,14 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_bg_color_normal',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1044,7 +1044,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_normal',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1057,7 +1057,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border_normal',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .wpcf7-form input[type="submit"]',
 			]
@@ -1066,7 +1066,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -1078,7 +1078,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
@@ -1090,7 +1090,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_margin',
 			[
-				'label'                 => esc_html__( 'Margin Top', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin Top', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -1110,7 +1110,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'button_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1133,14 +1133,14 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_bg_color_hover',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1152,7 +1152,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1164,7 +1164,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1187,7 +1187,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_error_style',
 			[
-				'label'                 => esc_html__( 'Errors', 'powerpack' ),
+				'label'                 => esc_html__( 'Errors', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1195,7 +1195,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'error_messages_heading',
 			[
-				'label'                 => esc_html__( 'Error Messages', 'powerpack' ),
+				'label'                 => esc_html__( 'Error Messages', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'condition'             => [
 					'error_messages' => 'show',
@@ -1208,7 +1208,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_error_messages_alert',
 			[
-				'label'                 => esc_html__( 'Alert', 'powerpack' ),
+				'label'                 => esc_html__( 'Alert', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'error_messages' => 'show',
 				],
@@ -1218,7 +1218,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'error_alert_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1234,7 +1234,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'error_alert_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1248,7 +1248,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'error_alert_spacing',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -1272,7 +1272,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_error_messages_fields',
 			[
-				'label'                 => esc_html__( 'Fields', 'powerpack' ),
+				'label'                 => esc_html__( 'Fields', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'error_messages' => 'show',
 				],
@@ -1282,7 +1282,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'error_field_bg_color',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1297,7 +1297,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'error_field_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1313,7 +1313,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'error_field_border',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .wpcf7-not-valid',
@@ -1330,7 +1330,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'validation_errors_heading',
 			[
-				'label'                 => esc_html__( 'Validation Errors', 'powerpack' ),
+				'label'                 => esc_html__( 'Validation Errors', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -1342,7 +1342,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'validation_errors_bg_color',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1357,7 +1357,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_control(
 			'validation_errors_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1373,7 +1373,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'validation_errors_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1389,7 +1389,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'validation_errors_border',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-contact-form-7 .wpcf7-validation-errors',
@@ -1402,7 +1402,7 @@ class Contact_Form_7 extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'validation_errors_margin',
 			[
-				'label'                 => esc_html__( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
@@ -1465,11 +1465,11 @@ class Contact_Form_7 extends Powerpack_Widget {
 				</div>
 				<?php
 			} else {
-				$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', 'powerpack' ), esc_attr( $this->get_title() ) );
+				$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', 'powerpack-lite-for-elementor' ), esc_attr( $this->get_title() ) );
 
 				echo esc_attr( $this->render_editor_placeholder(
 					[
-						'title' => esc_html__( 'No Contact Form Selected!', 'powerpack' ),
+						'title' => esc_html__( 'No Contact Form Selected!', 'powerpack-lite-for-elementor' ),
 						'body' => $placeholder,
 					]
 				) );

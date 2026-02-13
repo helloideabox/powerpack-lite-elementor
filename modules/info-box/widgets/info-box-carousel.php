@@ -180,7 +180,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_info_boxes',
 			[
-				'label'                     => esc_html__( 'Info Boxes', 'powerpack' ),
+				'label'                     => esc_html__( 'Info Boxes', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -188,69 +188,69 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		$repeater->start_controls_tabs( 'items_repeater' );
 
-		$repeater->start_controls_tab( 'tab_content', [ 'label' => esc_html__( 'Content', 'powerpack' ) ] );
+		$repeater->start_controls_tab( 'tab_content', [ 'label' => esc_html__( 'Content', 'powerpack-lite-for-elementor' ) ] );
 
 			$repeater->add_control(
 				'title',
 				[
-					'label'                 => esc_html__( 'Title', 'powerpack' ),
+					'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::TEXT,
 					'dynamic'               => [
 						'active'   => true,
 					],
-					'default'               => esc_html__( 'Title', 'powerpack' ),
+					'default'               => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
 			$repeater->add_control(
 				'subtitle',
 				[
-					'label'                 => esc_html__( 'Subtitle', 'powerpack' ),
+					'label'                 => esc_html__( 'Subtitle', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::TEXT,
 					'dynamic'               => [
 						'active'   => true,
 					],
-					'default'               => esc_html__( 'Subtitle', 'powerpack' ),
+					'default'               => esc_html__( 'Subtitle', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
 			$repeater->add_control(
 				'description',
 				[
-					'label'                 => esc_html__( 'Description', 'powerpack' ),
+					'label'                 => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::WYSIWYG,
 					'dynamic'               => [
 						'active'   => true,
 					],
-					'default'               => esc_html__( 'Enter info box description', 'powerpack' ),
+					'default'               => esc_html__( 'Enter info box description', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_icon', [ 'label' => esc_html__( 'Icon', 'powerpack' ) ] );
+		$repeater->start_controls_tab( 'tab_icon', [ 'label' => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ) ] );
 
 			$repeater->add_control(
 				'icon_type',
 				[
-					'label'                 => esc_html__( 'Type', 'powerpack' ),
+					'label'                 => esc_html__( 'Type', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::CHOOSE,
 					'label_block'           => false,
 					'options'               => [
 						'none'  => [
-							'title' => esc_html__( 'None', 'powerpack' ),
+							'title' => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
 							'icon'  => 'eicon-ban',
 						],
 						'icon'  => [
-							'title' => esc_html__( 'Icon', 'powerpack' ),
+							'title' => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 							'icon'  => 'eicon-star',
 						],
 						'image' => [
-							'title' => esc_html__( 'Image', 'powerpack' ),
+							'title' => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 							'icon'  => 'eicon-image-bold',
 						],
 						'text'  => [
-							'title' => esc_html__( 'Text', 'powerpack' ),
+							'title' => esc_html__( 'Text', 'powerpack-lite-for-elementor' ),
 							'icon'  => 'eicon-font',
 						],
 					],
@@ -261,7 +261,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			$repeater->add_control(
 				'selected_icon',
 				[
-					'label'                 => esc_html__( 'Icon', 'powerpack' ),
+					'label'                 => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::ICONS,
 					'label_block'           => true,
 					'default'               => [
@@ -278,7 +278,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			$repeater->add_control(
 				'icon_text',
 				[
-					'label'                 => esc_html__( 'Text', 'powerpack' ),
+					'label'                 => esc_html__( 'Text', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::TEXT,
 					'dynamic'               => [
 						'active'   => true,
@@ -293,7 +293,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			$repeater->add_control(
 				'image',
 				[
-					'label'                 => esc_html__( 'Image', 'powerpack' ),
+					'label'                 => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::MEDIA,
 					'dynamic'               => [
 						'active'   => true,
@@ -309,20 +309,20 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_link', [ 'label' => esc_html__( 'Link', 'powerpack' ) ] );
+		$repeater->start_controls_tab( 'tab_link', [ 'label' => esc_html__( 'Link', 'powerpack-lite-for-elementor' ) ] );
 
 		$repeater->add_control(
 			'link_type',
 			[
-				'label'                 => esc_html__( 'Link Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Link Type', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'none',
 				'options'               => [
-					'none'      => esc_html__( 'None', 'powerpack' ),
-					'box'       => esc_html__( 'Box', 'powerpack' ),
-					'icon'      => esc_html__( 'Image/Icon', 'powerpack' ),
-					'title'     => esc_html__( 'Title', 'powerpack' ),
-					'button'    => esc_html__( 'Button', 'powerpack' ),
+					'none'      => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
+					'box'       => esc_html__( 'Box', 'powerpack-lite-for-elementor' ),
+					'icon'      => esc_html__( 'Image/Icon', 'powerpack-lite-for-elementor' ),
+					'title'     => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
+					'button'    => esc_html__( 'Button', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -330,7 +330,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$repeater->add_control(
 			'link',
 			[
-				'label'                 => esc_html__( 'Link', 'powerpack' ),
+				'label'                 => esc_html__( 'Link', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::URL,
 				'dynamic'               => [
 					'active'   => true,
@@ -347,11 +347,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$repeater->add_control(
 			'button_visible',
 			[
-				'label'        => esc_html__( 'Show Button', 'powerpack' ),
+				'label'        => esc_html__( 'Show Button', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => [
 					'link_type' => 'box',
@@ -362,12 +362,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$repeater->add_control(
 			'button_text',
 			[
-				'label'                 => esc_html__( 'Button Text', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Text', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'default'               => esc_html__( 'Get Started', 'powerpack' ),
+				'default'               => esc_html__( 'Get Started', 'powerpack-lite-for-elementor' ),
 				'conditions'            => [
 					'relation' => 'or',
 					'terms' => [
@@ -399,7 +399,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$repeater->add_control(
 			'select_button_icon',
 			[
-				'label'                 => esc_html__( 'Button Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Icon', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::ICONS,
 				'label_block'           => true,
 				'fa4compatibility'      => 'button_icon',
@@ -434,12 +434,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$repeater->add_control(
 			'button_icon_position',
 			[
-				'label'                 => esc_html__( 'Icon Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Position', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'after',
 				'options'               => [
-					'before'    => esc_html__( 'Before', 'powerpack' ),
-					'after'     => esc_html__( 'After', 'powerpack' ),
+					'before'    => esc_html__( 'Before', 'powerpack-lite-for-elementor' ),
+					'after'     => esc_html__( 'After', 'powerpack-lite-for-elementor' ),
 				],
 				'conditions'            => [
 					'relation' => 'or',
@@ -495,13 +495,13 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'type'      => Controls_Manager::REPEATER,
 				'default'   => [
 					[
-						'title' => esc_html__( 'Info Box 1', 'powerpack' ),
+						'title' => esc_html__( 'Info Box 1', 'powerpack-lite-for-elementor' ),
 					],
 					[
-						'title' => esc_html__( 'Info Box 2', 'powerpack' ),
+						'title' => esc_html__( 'Info Box 2', 'powerpack-lite-for-elementor' ),
 					],
 					[
-						'title' => esc_html__( 'Info Box 3', 'powerpack' ),
+						'title' => esc_html__( 'Info Box 3', 'powerpack-lite-for-elementor' ),
 					],
 				],
 				'fields'        => $repeater->get_controls(),
@@ -512,12 +512,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'layout',
 			[
-				'label'                 => esc_html__( 'Layout', 'powerpack' ),
+				'label'                 => esc_html__( 'Layout', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'carousel',
 				'options'               => [
-					'grid'     => esc_html__( 'Grid', 'powerpack' ),
-					'carousel' => esc_html__( 'Carousel', 'powerpack' ),
+					'grid'     => esc_html__( 'Grid', 'powerpack-lite-for-elementor' ),
+					'carousel' => esc_html__( 'Carousel', 'powerpack-lite-for-elementor' ),
 				],
 				'separator'             => 'before',
 			]
@@ -526,7 +526,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'columns',
 			array(
-				'label'              => esc_html__( 'Columns', 'powerpack' ),
+				'label'              => esc_html__( 'Columns', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SELECT,
 				'default'            => '3',
 				'tablet_default'     => '2',
@@ -552,7 +552,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'                  => 'thumbnail',
-				'label'                 => esc_html__( 'Image Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Image Size', 'powerpack-lite-for-elementor' ),
 				'default'               => 'full',
 			]
 		);
@@ -560,11 +560,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'divider_title_switch',
 			[
-				'label'                 => esc_html__( 'Title Separator', 'powerpack' ),
+				'label'                 => esc_html__( 'Title Separator', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => esc_html__( 'On', 'powerpack' ),
-				'label_off'             => esc_html__( 'Off', 'powerpack' ),
+				'label_on'              => esc_html__( 'On', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Off', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -572,19 +572,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'title_html_tag',
 			[
-				'label'                 => esc_html__( 'Title HTML Tag', 'powerpack' ),
+				'label'                 => esc_html__( 'Title HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'h4',
 				'options'               => [
-					'h1'     => esc_html__( 'H1', 'powerpack' ),
-					'h2'     => esc_html__( 'H2', 'powerpack' ),
-					'h3'     => esc_html__( 'H3', 'powerpack' ),
-					'h4'     => esc_html__( 'H4', 'powerpack' ),
-					'h5'     => esc_html__( 'H5', 'powerpack' ),
-					'h6'     => esc_html__( 'H6', 'powerpack' ),
-					'div'    => esc_html__( 'div', 'powerpack' ),
-					'span'   => esc_html__( 'span', 'powerpack' ),
-					'p'      => esc_html__( 'p', 'powerpack' ),
+					'h1'     => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
+					'h2'     => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
+					'h3'     => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
+					'h4'     => esc_html__( 'H4', 'powerpack-lite-for-elementor' ),
+					'h5'     => esc_html__( 'H5', 'powerpack-lite-for-elementor' ),
+					'h6'     => esc_html__( 'H6', 'powerpack-lite-for-elementor' ),
+					'div'    => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
+					'span'   => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
+					'p'      => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -592,19 +592,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'sub_title_html_tag',
 			[
-				'label'                 => esc_html__( 'Subtitle HTML Tag', 'powerpack' ),
+				'label'                 => esc_html__( 'Subtitle HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'h5',
 				'options'               => [
-					'h1'     => esc_html__( 'H1', 'powerpack' ),
-					'h2'     => esc_html__( 'H2', 'powerpack' ),
-					'h3'     => esc_html__( 'H3', 'powerpack' ),
-					'h4'     => esc_html__( 'H4', 'powerpack' ),
-					'h5'     => esc_html__( 'H5', 'powerpack' ),
-					'h6'     => esc_html__( 'H6', 'powerpack' ),
-					'div'    => esc_html__( 'div', 'powerpack' ),
-					'span'   => esc_html__( 'span', 'powerpack' ),
-					'p'      => esc_html__( 'p', 'powerpack' ),
+					'h1'     => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
+					'h2'     => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
+					'h3'     => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
+					'h4'     => esc_html__( 'H4', 'powerpack-lite-for-elementor' ),
+					'h5'     => esc_html__( 'H5', 'powerpack-lite-for-elementor' ),
+					'h6'     => esc_html__( 'H6', 'powerpack-lite-for-elementor' ),
+					'div'    => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
+					'span'   => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
+					'p'      => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -612,11 +612,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'equal_height_boxes',
 			[
-				'label'                 => esc_html__( 'Equal Height Boxes', 'powerpack' ),
+				'label'                 => esc_html__( 'Equal Height Boxes', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => esc_html__( 'On', 'powerpack' ),
-				'label_off'             => esc_html__( 'Off', 'powerpack' ),
+				'label_on'              => esc_html__( 'On', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Off', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'frontend_available'    => true,
 			]
@@ -633,7 +633,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_carousel_settings',
 			[
-				'label'                 => esc_html__( 'Carousel Settings', 'powerpack' ),
+				'label'                 => esc_html__( 'Carousel Settings', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'layout' => 'carousel',
 				],
@@ -643,16 +643,16 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'carousel_effect',
 			[
-				'label'                 => esc_html__( 'Effect', 'powerpack' ),
-				'description'           => esc_html__( 'Sets transition effect', 'powerpack' ),
+				'label'                 => esc_html__( 'Effect', 'powerpack-lite-for-elementor' ),
+				'description'           => esc_html__( 'Sets transition effect', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'slide',
 				'options'               => [
-					'slide'     => esc_html__( 'Slide', 'powerpack' ),
-					'fade'      => esc_html__( 'Fade', 'powerpack' ),
-					'cube'      => esc_html__( 'Cube', 'powerpack' ),
-					'coverflow' => esc_html__( 'Coverflow', 'powerpack' ),
-					'flip'      => esc_html__( 'Flip', 'powerpack' ),
+					'slide'     => esc_html__( 'Slide', 'powerpack-lite-for-elementor' ),
+					'fade'      => esc_html__( 'Fade', 'powerpack-lite-for-elementor' ),
+					'cube'      => esc_html__( 'Cube', 'powerpack-lite-for-elementor' ),
+					'coverflow' => esc_html__( 'Coverflow', 'powerpack-lite-for-elementor' ),
+					'flip'      => esc_html__( 'Flip', 'powerpack-lite-for-elementor' ),
 				],
 				'condition'             => [
 					'layout' => 'carousel',
@@ -663,8 +663,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'items',
 			[
-				'label'                 => esc_html__( 'Visible Items', 'powerpack' ),
-				'description'           => esc_html__( 'Number of slides visible at the same time on slider\'s container).', 'powerpack' ),
+				'label'                 => esc_html__( 'Visible Items', 'powerpack-lite-for-elementor' ),
+				'description'           => esc_html__( 'Number of slides visible at the same time on slider\'s container).', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [ 'size' => 3 ],
 				'tablet_default'        => [ 'size' => 2 ],
@@ -688,8 +688,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'margin',
 			[
-				'label'                 => esc_html__( 'Items Gap', 'powerpack' ),
-				'description'           => esc_html__( 'Distance between slides (in px)', 'powerpack' ),
+				'label'                 => esc_html__( 'Items Gap', 'powerpack-lite-for-elementor' ),
+				'description'           => esc_html__( 'Distance between slides (in px)', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [ 'size' => 10 ],
 				'tablet_default'        => [ 'size' => 10 ],
@@ -712,8 +712,8 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'slider_speed',
 			[
-				'label'                 => esc_html__( 'Transition Duration', 'powerpack' ),
-				'description'           => esc_html__( 'Duration of transition between slides (in ms)', 'powerpack' ),
+				'label'                 => esc_html__( 'Transition Duration', 'powerpack-lite-for-elementor' ),
+				'description'           => esc_html__( 'Duration of transition between slides (in ms)', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [ 'size' => 500 ],
 				'range'                 => [
@@ -734,11 +734,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'autoplay',
 			[
-				'label'                 => esc_html__( 'Autoplay', 'powerpack' ),
+				'label'                 => esc_html__( 'Autoplay', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'separator'             => 'before',
 				'condition'             => [
@@ -750,12 +750,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'pause_on_hover',
 			[
-				'label'                 => esc_html__( 'Pause on Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Pause on Hover', 'powerpack-lite-for-elementor' ),
 				'description'           => '',
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'frontend_available'    => true,
 				'condition'             => [
@@ -768,12 +768,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'pause_on_interaction',
 			[
-				'label'                 => esc_html__( 'Pause on Interaction', 'powerpack' ),
-				'description'           => esc_html__( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
+				'label'                 => esc_html__( 'Pause on Interaction', 'powerpack-lite-for-elementor' ),
+				'description'           => esc_html__( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'frontend_available'    => true,
 				'condition'             => [
@@ -786,7 +786,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'autoplay_speed',
 			[
-				'label'                 => esc_html__( 'Autoplay Speed', 'powerpack' ),
+				'label'                 => esc_html__( 'Autoplay Speed', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [ 'size' => 3000 ],
 				'range'                 => [
@@ -807,12 +807,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'infinite_loop',
 			[
-				'label'                 => esc_html__( 'Infinite Loop', 'powerpack' ),
-				'description'           => esc_html__( 'Enables continuous loop mode', 'powerpack' ),
+				'label'                 => esc_html__( 'Infinite Loop', 'powerpack-lite-for-elementor' ),
+				'description'           => esc_html__( 'Enables continuous loop mode', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'          => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'         => esc_html__( 'No', 'powerpack' ),
+				'label_on'          => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'         => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'      => 'yes',
 				'condition'             => [
 					'layout' => 'carousel',
@@ -823,7 +823,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'centered_slides',
 			[
-				'label'                 => esc_html__( 'Centered Slides', 'powerpack' ),
+				'label'                 => esc_html__( 'Centered Slides', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'separator'             => 'before',
 				'condition'             => [
@@ -835,12 +835,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'grab_cursor',
 			[
-				'label'                 => esc_html__( 'Grab Cursor', 'powerpack' ),
-				'description'           => esc_html__( 'Shows grab cursor when you hover over the slider', 'powerpack' ),
+				'label'                 => esc_html__( 'Grab Cursor', 'powerpack-lite-for-elementor' ),
+				'description'           => esc_html__( 'Shows grab cursor when you hover over the slider', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => esc_html__( 'Show', 'powerpack' ),
-				'label_off'             => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'              => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'condition'             => [
 					'layout' => 'carousel',
@@ -851,7 +851,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'navigation_heading',
 			[
-				'label'                 => esc_html__( 'Navigation', 'powerpack' ),
+				'label'                 => esc_html__( 'Navigation', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -863,11 +863,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows',
 			[
-				'label'                 => esc_html__( 'Arrows', 'powerpack' ),
+				'label'                 => esc_html__( 'Arrows', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'condition'             => [
 					'layout' => 'carousel',
@@ -878,11 +878,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots',
 			[
-				'label'                 => esc_html__( 'Pagination', 'powerpack' ),
+				'label'                 => esc_html__( 'Pagination', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'yes',
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'condition'             => [
 					'layout' => 'carousel',
@@ -893,12 +893,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'pagination_type',
 			[
-				'label'                 => esc_html__( 'Pagination Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Pagination Type', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'bullets',
 				'options'               => [
-					'bullets'  => esc_html__( 'Dots', 'powerpack' ),
-					'fraction' => esc_html__( 'Fraction', 'powerpack' ),
+					'bullets'  => esc_html__( 'Dots', 'powerpack-lite-for-elementor' ),
+					'fraction' => esc_html__( 'Fraction', 'powerpack-lite-for-elementor' ),
 				],
 				'condition'             => [
 					'layout' => 'carousel',
@@ -910,13 +910,13 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'direction',
 			[
-				'label'                 => esc_html__( 'Direction', 'powerpack' ),
+				'label'                 => esc_html__( 'Direction', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'left',
 				'options'               => [
-					'auto'  => esc_html__( 'Auto', 'powerpack' ),
-					'left'  => esc_html__( 'Left', 'powerpack' ),
-					'right' => esc_html__( 'Right', 'powerpack' ),
+					'auto'  => esc_html__( 'Auto', 'powerpack-lite-for-elementor' ),
+					'left'  => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
+					'right' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 				],
 				'separator'             => 'before',
 				'condition'             => [
@@ -943,7 +943,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -979,7 +979,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_layout_style',
 			array(
-				'label' => esc_html__( 'Layout', 'powerpack' ),
+				'label' => esc_html__( 'Layout', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -987,23 +987,23 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 					'justify'   => [
-						'title' => esc_html__( 'Justified', 'powerpack' ),
+						'title' => esc_html__( 'Justified', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-justify',
 					],
 				],
@@ -1017,7 +1017,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'columns_gap',
 			array(
-				'label'          => esc_html__( 'Columns Gap', 'powerpack' ),
+				'label'          => esc_html__( 'Columns Gap', 'powerpack-lite-for-elementor' ),
 				'type'           => Controls_Manager::SLIDER,
 				'size_units'     => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'default'        => array(
@@ -1047,7 +1047,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'rows_gap',
 			array(
-				'label'          => esc_html__( 'Rows Gap', 'powerpack' ),
+				'label'          => esc_html__( 'Rows Gap', 'powerpack-lite-for-elementor' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => array(
 					'size' => 20,
@@ -1085,7 +1085,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_info_box_style',
 			[
-				'label'                 => esc_html__( 'Box', 'powerpack' ),
+				'label'                 => esc_html__( 'Box', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1103,7 +1103,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'info_box_border',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'separator'             => 'before',
@@ -1114,7 +1114,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'info_box_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -1126,7 +1126,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'info_box_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'separator'             => 'before',
@@ -1147,7 +1147,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_info_box_icon_style',
 			[
-				'label'                 => esc_html__( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1155,16 +1155,16 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'icon_position',
 			[
-				'label'                 => esc_html__( 'Icon Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Position', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'above-title',
 				'options'               => [
-					'above-title' => esc_html__( 'Above Title', 'powerpack' ),
-					'below-title' => esc_html__( 'Below Title', 'powerpack' ),
-					'left-title'  => esc_html__( 'Left of Title', 'powerpack' ),
-					'right-title' => esc_html__( 'Right of Title', 'powerpack' ),
-					'left'        => esc_html__( 'Left of Title and Description', 'powerpack' ),
-					'right'       => esc_html__( 'Right of Title and Description', 'powerpack' ),
+					'above-title' => esc_html__( 'Above Title', 'powerpack-lite-for-elementor' ),
+					'below-title' => esc_html__( 'Below Title', 'powerpack-lite-for-elementor' ),
+					'left-title'  => esc_html__( 'Left of Title', 'powerpack-lite-for-elementor' ),
+					'right-title' => esc_html__( 'Right of Title', 'powerpack-lite-for-elementor' ),
+					'left'        => esc_html__( 'Left of Title and Description', 'powerpack-lite-for-elementor' ),
+					'right'       => esc_html__( 'Right of Title and Description', 'powerpack-lite-for-elementor' ),
 				],
 				'prefix_class'          => 'pp-info-box-',
 				'render_type'           => 'template',
@@ -1174,20 +1174,20 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'icon_vertical_position',
 			[
-				'label'                => esc_html__( 'Vertical Align', 'powerpack' ),
+				'label'                => esc_html__( 'Vertical Align', 'powerpack-lite-for-elementor' ),
 				'type'                 => Controls_Manager::CHOOSE,
 				'default'              => 'top',
 				'options'              => [
 					'top'    => [
-						'title' => esc_html__( 'Top', 'powerpack' ),
+						'title' => esc_html__( 'Top', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => esc_html__( 'Middle', 'powerpack' ),
+						'title' => esc_html__( 'Middle', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => esc_html__( 'Bottom', 'powerpack' ),
+						'title' => esc_html__( 'Bottom', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-v-align-bottom',
 					],
 				],
@@ -1209,7 +1209,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label'                 => esc_html__( 'Icon Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -1230,14 +1230,14 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_icon_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_color_normal',
 			[
-				'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -1253,7 +1253,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'icon_bg_color_normal',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1266,7 +1266,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'icon_border',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-info-box-icon',
@@ -1276,7 +1276,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -1288,7 +1288,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_rotation',
 			[
-				'label'                 => esc_html__( 'Icon Rotation', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Rotation', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -1307,7 +1307,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -1326,7 +1326,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_margin',
 			[
-				'label'                 => esc_html__( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'placeholder'           => [
@@ -1346,14 +1346,14 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_icon_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_color_hover',
 			[
-				'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1366,7 +1366,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'icon_bg_color_hover',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1378,7 +1378,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'icon_border_color_hover',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1390,7 +1390,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_rotation_hover',
 			[
-				'label'                 => esc_html__( 'Icon Rotation', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Rotation', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -1409,7 +1409,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'icon_animation',
 			[
-				'label'                 => esc_html__( 'Icon Animation', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Animation', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -1421,7 +1421,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'icon_image_heading',
 			[
-				'label'                 => esc_html__( 'Icon Image', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Image', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -1430,7 +1430,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_img_width',
 			[
-				'label'                 => esc_html__( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -1453,7 +1453,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'icon_text_heading',
 			[
-				'label'                 => esc_html__( 'Icon Text', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Text', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -1463,7 +1463,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'icon_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1482,7 +1482,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_info_box_title_style',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1490,7 +1490,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'title_color',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -1506,7 +1506,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'title_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
@@ -1526,7 +1526,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Text_Shadow::get_type(),
 			array(
 				'name'                  => 'title_text_shadow',
-				'label'                 => esc_html__( 'Text Shadow', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Shadow', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-info-box-title',
 			)
 		);
@@ -1534,7 +1534,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'title_margin',
 			[
-				'label'                 => esc_html__( 'Margin Bottom', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin Bottom', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size'  => 20,
@@ -1561,7 +1561,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'subtitle_heading',
 			[
-				'label'                 => esc_html__( 'Sub Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Sub Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -1570,7 +1570,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -1586,7 +1586,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'subtitle_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				],
@@ -1606,7 +1606,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Text_Shadow::get_type(),
 			array(
 				'name'                  => 'subtitle_text_shadow',
-				'label'                 => esc_html__( 'Text Shadow', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Shadow', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-info-box-subtitle',
 			)
 		);
@@ -1614,7 +1614,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'subtitle_margin',
 			[
-				'label'                 => esc_html__( 'Margin Bottom', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin Bottom', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size'  => 20,
@@ -1649,7 +1649,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_title_divider_style',
 			[
-				'label'                 => esc_html__( 'Title Separator', 'powerpack' ),
+				'label'                 => esc_html__( 'Title Separator', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'divider_title_switch' => 'yes',
@@ -1660,15 +1660,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'divider_title_border_type',
 			[
-				'label'                 => esc_html__( 'Border Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Type', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'solid',
 				'options'               => [
-					'none'      => esc_html__( 'None', 'powerpack' ),
-					'solid'     => esc_html__( 'Solid', 'powerpack' ),
-					'double'    => esc_html__( 'Double', 'powerpack' ),
-					'dotted'    => esc_html__( 'Dotted', 'powerpack' ),
-					'dashed'    => esc_html__( 'Dashed', 'powerpack' ),
+					'none'      => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
+					'solid'     => esc_html__( 'Solid', 'powerpack-lite-for-elementor' ),
+					'double'    => esc_html__( 'Double', 'powerpack-lite-for-elementor' ),
+					'dotted'    => esc_html__( 'Dotted', 'powerpack-lite-for-elementor' ),
+					'dashed'    => esc_html__( 'Dashed', 'powerpack-lite-for-elementor' ),
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-info-box-divider' => 'border-bottom-style: {{VALUE}}',
@@ -1682,7 +1682,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_title_width',
 			[
-				'label'                 => esc_html__( 'Border Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size'  => 30,
@@ -1712,7 +1712,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_title_border_height',
 			[
-				'label'                 => esc_html__( 'Border Height', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Height', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size'  => 2,
@@ -1737,7 +1737,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'divider_title_border_color',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1752,19 +1752,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_title_align',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -1781,7 +1781,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_title_margin',
 			[
-				'label'                 => esc_html__( 'Margin Bottom', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin Bottom', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size'  => 20,
@@ -1819,7 +1819,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_info_description_style',
 			[
-				'label'                 => esc_html__( 'Description', 'powerpack' ),
+				'label'                 => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1827,7 +1827,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'description_color',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -1843,7 +1843,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'description_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				],
@@ -1854,7 +1854,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'description_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
@@ -1866,7 +1866,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'description_margin',
 			[
-				'label'                 => esc_html__( 'Margin Bottom', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin Bottom', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size'  => 0,
@@ -1901,7 +1901,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_info_box_button_style',
 			[
-				'label'                 => esc_html__( 'Button', 'powerpack' ),
+				'label'                 => esc_html__( 'Button', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1909,15 +1909,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'button_size',
 			[
-				'label'                 => esc_html__( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'md',
 				'options'               => [
-					'xs' => esc_html__( 'Extra Small', 'powerpack' ),
-					'sm' => esc_html__( 'Small', 'powerpack' ),
-					'md' => esc_html__( 'Medium', 'powerpack' ),
-					'lg' => esc_html__( 'Large', 'powerpack' ),
-					'xl' => esc_html__( 'Extra Large', 'powerpack' ),
+					'xs' => esc_html__( 'Extra Small', 'powerpack-lite-for-elementor' ),
+					'sm' => esc_html__( 'Small', 'powerpack-lite-for-elementor' ),
+					'md' => esc_html__( 'Medium', 'powerpack-lite-for-elementor' ),
+					'lg' => esc_html__( 'Large', 'powerpack-lite-for-elementor' ),
+					'xl' => esc_html__( 'Extra Large', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -1927,14 +1927,14 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color_normal',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1947,7 +1947,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'button_bg_color_normal',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -1963,7 +1963,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border_normal',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-info-box-button',
@@ -1973,7 +1973,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -1986,7 +1986,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'button_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1997,7 +1997,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
@@ -2017,7 +2017,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'info_box_button_icon_heading',
 			[
-				'label'                 => esc_html__( 'Button Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Button Icon', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -2029,7 +2029,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_icon_margin',
 			[
-				'label'                 => esc_html__( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'placeholder'           => [
@@ -2052,14 +2052,14 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2072,7 +2072,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'button_bg_color_hover',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2084,7 +2084,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2096,7 +2096,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label'                 => esc_html__( 'Animation', 'powerpack' ),
+				'label'                 => esc_html__( 'Animation', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -2123,7 +2123,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_arrows_style',
 			[
-				'label'                 => esc_html__( 'Arrows', 'powerpack' ),
+				'label'                 => esc_html__( 'Arrows', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'arrows'        => 'yes',
@@ -2134,7 +2134,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'select_arrow',
 			array(
-				'label'                  => esc_html__( 'Choose Arrow', 'powerpack' ),
+				'label'                  => esc_html__( 'Choose Arrow', 'powerpack-lite-for-elementor' ),
 				'type'                   => Controls_Manager::ICONS,
 				'fa4compatibility'       => 'arrow',
 				'label_block'            => false,
@@ -2171,7 +2171,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_size',
 			[
-				'label'                 => esc_html__( 'Arrows Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Arrows Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [ 'size' => '22' ],
 				'range'                 => [
@@ -2191,7 +2191,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'left_arrow_position',
 			[
-				'label'                 => esc_html__( 'Align Left Arrow', 'powerpack' ),
+				'label'                 => esc_html__( 'Align Left Arrow', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -2210,7 +2210,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'right_arrow_position',
 			[
-				'label'                 => esc_html__( 'Align Right Arrow', 'powerpack' ),
+				'label'                 => esc_html__( 'Align Right Arrow', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -2231,14 +2231,14 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_arrows_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'arrows_bg_color_normal',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2250,7 +2250,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_color_normal',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2263,7 +2263,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'arrows_border_normal',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-slider-arrow',
@@ -2273,7 +2273,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_border_radius_normal',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -2287,14 +2287,14 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_arrows_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'arrows_bg_color_hover',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2306,7 +2306,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_color_hover',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2318,7 +2318,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_border_color_hover',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2334,7 +2334,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
@@ -2355,7 +2355,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_dots_style',
 			[
-				'label'                 => esc_html__( 'Pagination: Dots', 'powerpack' ),
+				'label'                 => esc_html__( 'Pagination: Dots', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2367,11 +2367,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_position',
 			[
-				'label'                 => esc_html__( 'Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Position', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'inside'     => esc_html__( 'Inside', 'powerpack' ),
-					'outside'    => esc_html__( 'Outside', 'powerpack' ),
+					'inside'     => esc_html__( 'Inside', 'powerpack-lite-for-elementor' ),
+					'outside'    => esc_html__( 'Outside', 'powerpack-lite-for-elementor' ),
 				],
 				'default'               => 'outside',
 				'condition'             => [
@@ -2384,7 +2384,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_size',
 			[
-				'label'                 => esc_html__( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -2407,7 +2407,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_spacing',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -2432,7 +2432,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_dots_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'dots'              => 'yes',
 					'pagination_type'   => 'bullets',
@@ -2443,7 +2443,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_color_normal',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2459,7 +2459,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'active_dot_color_normal',
 			[
-				'label'                 => esc_html__( 'Active Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Active Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2476,7 +2476,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'dots_border_normal',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .swiper-pagination-bullet',
@@ -2490,7 +2490,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_border_radius_normal',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -2506,7 +2506,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dots_margin',
 			[
-				'label'                 => esc_html__( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'allowed_dimensions'    => 'vertical',
@@ -2531,7 +2531,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_dots_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'dots'              => 'yes',
 					'pagination_type'   => 'bullets',
@@ -2542,7 +2542,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_color_hover',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2558,7 +2558,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'dots_border_color_hover',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2586,7 +2586,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_fraction_style',
 			[
-				'label'                 => esc_html__( 'Pagination: Fraction', 'powerpack' ),
+				'label'                 => esc_html__( 'Pagination: Fraction', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'dots'              => 'yes',
@@ -2598,7 +2598,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$this->add_control(
 			'fraction_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -2615,7 +2615,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'fraction_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],

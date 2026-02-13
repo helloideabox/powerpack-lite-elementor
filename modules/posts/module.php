@@ -112,7 +112,7 @@ class Module extends Module_Base {
 		}
 		
 		$data = array(
-			'message'    => __( 'Saved', 'powerpack' ),
+			'message'    => __( 'Saved', 'powerpack-lite-for-elementor' ),
 			'ID'         => '',
 			'skin_id'    => '',
 			'html'       => '',

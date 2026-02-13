@@ -17,7 +17,7 @@ class WPML_PP_Progress_Bar extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'text':
-				return esc_html__( 'Progress Bar - Label (Multiple)', 'powerpack' );
+				return esc_html__( 'Progress Bar - Label (Multiple)', 'powerpack-lite-for-elementor' );
 			default:
 				return '';
 		}

@@ -29,6 +29,6 @@ class Skin_Creative extends Skin_Base {
 	 * @return string Skin title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Creative', 'powerpack' );
+		return esc_html__( 'Creative', 'powerpack-lite-for-elementor' );
 	}
 }

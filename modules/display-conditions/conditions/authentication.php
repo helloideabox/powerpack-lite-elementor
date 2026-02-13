@@ -51,7 +51,7 @@ class Authentication extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Login Status', 'powerpack' );
+		return __( 'Login Status', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -68,7 +68,7 @@ class Authentication extends Condition {
 			'default'       => 'authenticated',
 			'label_block'   => true,
 			'options'       => [
-				'authenticated' => __( 'Logged in', 'powerpack' ),
+				'authenticated' => __( 'Logged in', 'powerpack-lite-for-elementor' ),
 			],
 		];
 	}

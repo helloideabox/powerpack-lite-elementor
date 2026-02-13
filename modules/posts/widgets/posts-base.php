@@ -117,7 +117,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_query',
 			array(
-				'label'     => esc_html__( 'Query', 'powerpack' ),
+				'label'     => esc_html__( 'Query', 'powerpack-lite-for-elementor' ),
 				'condition' => $condition,
 			)
 		);
@@ -125,23 +125,23 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'query_type',
 			array(
-				'label'       => esc_html__( 'Query Type', 'powerpack' ),
+				'label'       => esc_html__( 'Query Type', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'custom',
 				'options'     => array(
-					'main'   => esc_html__( 'Main Query', 'powerpack' ),
-					'custom' => esc_html__( 'Custom Query', 'powerpack' ),
+					'main'   => esc_html__( 'Main Query', 'powerpack-lite-for-elementor' ),
+					'custom' => esc_html__( 'Custom Query', 'powerpack-lite-for-elementor' ),
 				),
 			)
 		);
 
 		$post_types            = PP_Posts_Helper::get_post_types();
-		$post_types['related'] = esc_html__( 'Related', 'powerpack' );
+		$post_types['related'] = esc_html__( 'Related', 'powerpack-lite-for-elementor' );
 
 		$this->add_control(
 			'post_type',
 			array(
-				'label'     => esc_html__( 'Post Type', 'powerpack' ),
+				'label'     => esc_html__( 'Post Type', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => $post_types,
 				'default'   => 'post',
@@ -188,15 +188,15 @@ abstract class Posts_Base extends Powerpack_Widget {
 							$index . '_' . $post_type_slug . '_filter_type',
 							array(
 								/* translators: %s Label */
-								'label'       => sprintf( esc_html__( '%s Filter Type', 'powerpack' ), $tax->label ),
+								'label'       => sprintf( esc_html__( '%s Filter Type', 'powerpack-lite-for-elementor' ), $tax->label ),
 								'type'        => Controls_Manager::SELECT,
 								'default'     => 'IN',
 								'label_block' => true,
 								'options'     => array(
 									/* translators: %s label */
-									'IN'     => sprintf( esc_html__( 'Include %s', 'powerpack' ), $tax->label ),
+									'IN'     => sprintf( esc_html__( 'Include %s', 'powerpack-lite-for-elementor' ), $tax->label ),
 									/* translators: %s label */
-									'NOT IN' => sprintf( esc_html__( 'Exclude %s', 'powerpack' ), $tax->label ),
+									'NOT IN' => sprintf( esc_html__( 'Exclude %s', 'powerpack-lite-for-elementor' ), $tax->label ),
 								),
 								'separator'   => 'before',
 								'condition'   => array(
@@ -233,14 +233,14 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'author_filter_type',
 			array(
-				'label'       => esc_html__( 'Authors Filter Type', 'powerpack' ),
+				'label'       => esc_html__( 'Authors Filter Type', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'author__in',
 				'label_block' => true,
 				'separator'   => 'before',
 				'options'     => array(
-					'author__in'     => esc_html__( 'Include Authors', 'powerpack' ),
-					'author__not_in' => esc_html__( 'Exclude Authors', 'powerpack' ),
+					'author__in'     => esc_html__( 'Include Authors', 'powerpack-lite-for-elementor' ),
+					'author__not_in' => esc_html__( 'Exclude Authors', 'powerpack-lite-for-elementor' ),
 				),
 				'condition'   => array(
 					'query_type' => 'custom',
@@ -252,7 +252,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'authors',
 			array(
-				'label'       => esc_html__( 'Authors', 'powerpack' ),
+				'label'       => esc_html__( 'Authors', 'powerpack-lite-for-elementor' ),
 				'type'        => 'pp-query',
 				'label_block' => true,
 				'multiple'    => true,
@@ -269,16 +269,16 @@ abstract class Posts_Base extends Powerpack_Widget {
 				$post_type_slug . '_filter_type',
 				array(
 					/* translators: %s: post type label */
-					'label'       => sprintf( esc_html__( '%s Filter Type', 'powerpack' ), $post_type_label ),
+					'label'       => sprintf( esc_html__( '%s Filter Type', 'powerpack-lite-for-elementor' ), $post_type_label ),
 					'type'        => Controls_Manager::SELECT,
 					'default'     => 'post__not_in',
 					'label_block' => true,
 					'separator'   => 'before',
 					'options'     => array(
 						/* translators: %s: post type label */
-						'post__in'     => sprintf( esc_html__( 'Include %s', 'powerpack' ), $post_type_label ),
+						'post__in'     => sprintf( esc_html__( 'Include %s', 'powerpack-lite-for-elementor' ), $post_type_label ),
 						/* translators: %s: post type label */
-						'post__not_in' => sprintf( esc_html__( 'Exclude %s', 'powerpack' ), $post_type_label ),
+						'post__not_in' => sprintf( esc_html__( 'Exclude %s', 'powerpack-lite-for-elementor' ), $post_type_label ),
 					),
 					'condition'   => array(
 						'query_type' => 'custom',
@@ -325,7 +325,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_related_include',
 			array(
-				'label'     => esc_html__( 'Include', 'powerpack' ),
+				'label'     => esc_html__( 'Include', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					'query_type' => 'custom',
 					'post_type'  => 'related',
@@ -336,14 +336,14 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'related_include_by',
 			array(
-				'label'       => esc_html__( 'Include By', 'powerpack' ),
+				'label'       => esc_html__( 'Include By', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT2,
 				'default'     => '',
 				'label_block' => true,
 				'multiple'    => true,
 				'options'     => array(
-					'terms'   => esc_html__( 'Term', 'powerpack' ),
-					'authors' => esc_html__( 'Author', 'powerpack' ),
+					'terms'   => esc_html__( 'Term', 'powerpack-lite-for-elementor' ),
+					'authors' => esc_html__( 'Author', 'powerpack-lite-for-elementor' ),
 				),
 				'condition'   => array(
 					'query_type' => 'custom',
@@ -355,7 +355,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'related_filter_include',
 			array(
-				'label'       => esc_html__( 'Term', 'powerpack' ),
+				'label'       => esc_html__( 'Term', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT2,
 				'default'     => '',
 				'label_block' => true,
@@ -374,7 +374,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_related_exclude',
 			array(
-				'label'     => esc_html__( 'Exclude', 'powerpack' ),
+				'label'     => esc_html__( 'Exclude', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					'query_type' => 'custom',
 					'post_type'  => 'related',
@@ -385,14 +385,14 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'related_exclude_by',
 			array(
-				'label'       => esc_html__( 'Exclude By', 'powerpack' ),
+				'label'       => esc_html__( 'Exclude By', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT2,
 				'default'     => '',
 				'label_block' => true,
 				'multiple'    => true,
 				'options'     => array(
-					'current_post' => esc_html__( 'Current Post', 'powerpack' ),
-					'authors'      => esc_html__( 'Author', 'powerpack' ),
+					'current_post' => esc_html__( 'Current Post', 'powerpack-lite-for-elementor' ),
+					'authors'      => esc_html__( 'Author', 'powerpack-lite-for-elementor' ),
 				),
 				'condition'   => array(
 					'query_type' => 'custom',
@@ -407,12 +407,12 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'related_fallback',
 			array(
-				'label'       => esc_html__( 'Fallback', 'powerpack' ),
-				'description' => esc_html__( 'Displayed if no relevant results are found.', 'powerpack' ),
+				'label'       => esc_html__( 'Fallback', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'Displayed if no relevant results are found.', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'options'     => array(
-					'none'   => esc_html__( 'None', 'powerpack' ),
-					'recent' => esc_html__( 'Recent Posts', 'powerpack' ),
+					'none'   => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
+					'recent' => esc_html__( 'Recent Posts', 'powerpack-lite-for-elementor' ),
 				),
 				'default'     => 'none',
 				'label_block' => false,
@@ -427,16 +427,16 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'select_date',
 			array(
-				'label'       => esc_html__( 'Date', 'powerpack' ),
+				'label'       => esc_html__( 'Date', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'options'     => array(
-					'anytime' => esc_html__( 'All', 'powerpack' ),
-					'today'   => esc_html__( 'Past Day', 'powerpack' ),
-					'week'    => esc_html__( 'Past Week', 'powerpack' ),
-					'month'   => esc_html__( 'Past Month', 'powerpack' ),
-					'quarter' => esc_html__( 'Past Quarter', 'powerpack' ),
-					'year'    => esc_html__( 'Past Year', 'powerpack' ),
-					'exact'   => esc_html__( 'Custom', 'powerpack' ),
+					'anytime' => esc_html__( 'All', 'powerpack-lite-for-elementor' ),
+					'today'   => esc_html__( 'Past Day', 'powerpack-lite-for-elementor' ),
+					'week'    => esc_html__( 'Past Week', 'powerpack-lite-for-elementor' ),
+					'month'   => esc_html__( 'Past Month', 'powerpack-lite-for-elementor' ),
+					'quarter' => esc_html__( 'Past Quarter', 'powerpack-lite-for-elementor' ),
+					'year'    => esc_html__( 'Past Year', 'powerpack-lite-for-elementor' ),
+					'exact'   => esc_html__( 'Custom', 'powerpack-lite-for-elementor' ),
 				),
 				'default'     => 'anytime',
 				'label_block' => false,
@@ -451,12 +451,12 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'date_before',
 			array(
-				'label'       => esc_html__( 'Before', 'powerpack' ),
-				'description' => esc_html__( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'powerpack' ),
+				'label'       => esc_html__( 'Before', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::DATE_TIME,
 				'label_block' => false,
 				'multiple'    => false,
-				'placeholder' => esc_html__( 'Choose', 'powerpack' ),
+				'placeholder' => esc_html__( 'Choose', 'powerpack-lite-for-elementor' ),
 				'condition'   => array(
 					'query_type'  => 'custom',
 					'select_date' => 'exact',
@@ -467,12 +467,12 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'date_after',
 			array(
-				'label'       => esc_html__( 'After', 'powerpack' ),
-				'description' => esc_html__( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'powerpack' ),
+				'label'       => esc_html__( 'After', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::DATE_TIME,
 				'label_block' => false,
 				'multiple'    => false,
-				'placeholder' => esc_html__( 'Choose', 'powerpack' ),
+				'placeholder' => esc_html__( 'Choose', 'powerpack-lite-for-elementor' ),
 				'condition'   => array(
 					'query_type'  => 'custom',
 					'select_date' => 'exact',
@@ -483,11 +483,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'order',
 			array(
-				'label'     => esc_html__( 'Order', 'powerpack' ),
+				'label'     => esc_html__( 'Order', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'DESC' => esc_html__( 'Descending', 'powerpack' ),
-					'ASC'  => esc_html__( 'Ascending', 'powerpack' ),
+					'DESC' => esc_html__( 'Descending', 'powerpack-lite-for-elementor' ),
+					'ASC'  => esc_html__( 'Ascending', 'powerpack-lite-for-elementor' ),
 				),
 				'default'   => 'DESC',
 				'separator' => 'before',
@@ -500,18 +500,18 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'orderby',
 			array(
-				'label'     => esc_html__( 'Order By', 'powerpack' ),
+				'label'     => esc_html__( 'Order By', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'date'          => esc_html__( 'Date', 'powerpack' ),
-					'modified'      => esc_html__( 'Last Modified Date', 'powerpack' ),
-					'rand'          => esc_html__( 'Random', 'powerpack' ),
-					'comment_count' => esc_html__( 'Comment Count', 'powerpack' ),
-					'title'         => esc_html__( 'Title', 'powerpack' ),
-					'ID'            => esc_html__( 'Post ID', 'powerpack' ),
-					'author'        => esc_html__( 'Post Author', 'powerpack' ),
-					'menu_order'    => esc_html__( 'Menu Order', 'powerpack' ),
-					'relevance'     => esc_html__( 'Relevance', 'powerpack' ),
+					'date'          => esc_html__( 'Date', 'powerpack-lite-for-elementor' ),
+					'modified'      => esc_html__( 'Last Modified Date', 'powerpack-lite-for-elementor' ),
+					'rand'          => esc_html__( 'Random', 'powerpack-lite-for-elementor' ),
+					'comment_count' => esc_html__( 'Comment Count', 'powerpack-lite-for-elementor' ),
+					'title'         => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
+					'ID'            => esc_html__( 'Post ID', 'powerpack-lite-for-elementor' ),
+					'author'        => esc_html__( 'Post Author', 'powerpack-lite-for-elementor' ),
+					'menu_order'    => esc_html__( 'Menu Order', 'powerpack-lite-for-elementor' ),
+					'relevance'     => esc_html__( 'Relevance', 'powerpack-lite-for-elementor' ),
 				),
 				'default'   => 'date',
 				'condition' => array(
@@ -523,11 +523,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'sticky_posts',
 			array(
-				'label'        => esc_html__( 'Sticky Posts', 'powerpack' ),
+				'label'        => esc_html__( 'Sticky Posts', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 				'condition'    => array(
@@ -539,11 +539,11 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'all_sticky_posts',
 			array(
-				'label'        => esc_html__( 'Show Only Sticky Posts', 'powerpack' ),
+				'label'        => esc_html__( 'Show Only Sticky Posts', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'query_type'   => 'custom',
@@ -555,8 +555,8 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'offset',
 			array(
-				'label'       => esc_html__( 'Offset', 'powerpack' ),
-				'description' => esc_html__( 'Use this setting to skip this number of initial posts', 'powerpack' ),
+				'label'       => esc_html__( 'Offset', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'Use this setting to skip this number of initial posts', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::NUMBER,
 				'default'     => '',
 				'min'         => 0,
@@ -570,13 +570,13 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'exclude_current',
 			array(
-				'label'        => esc_html__( 'Exclude Current Post', 'powerpack' ),
+				'label'        => esc_html__( 'Exclude Current Post', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'default'      => '',
-				'description'  => esc_html__( 'Enable this option to remove current post from the query.', 'powerpack' ),
+				'description'  => esc_html__( 'Enable this option to remove current post from the query.', 'powerpack-lite-for-elementor' ),
 				'condition'    => array(
 					'query_type' => 'custom',
 				),
@@ -586,10 +586,10 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'avoid_duplicates',
 			[
-				'label'       => esc_html__( 'Avoid Duplicates', 'powerpack' ),
+				'label'       => esc_html__( 'Avoid Duplicates', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SWITCHER,
 				'default'     => '',
-				'description' => esc_html__( 'Set to Yes to avoid duplicate posts from showing up on the page. This only affects the frontend.', 'powerpack' ),
+				'description' => esc_html__( 'Set to Yes to avoid duplicate posts from showing up on the page. This only affects the frontend.', 'powerpack-lite-for-elementor' ),
 				'condition'   => array(
 					'query_type' => 'custom',
 				),
@@ -599,8 +599,8 @@ abstract class Posts_Base extends Powerpack_Widget {
 		$this->add_control(
 			'query_id',
 			array(
-				'label'       => esc_html__( 'Query ID', 'powerpack' ),
-				'description' => esc_html__( 'Give your Query a custom unique id to allow server side filtering', 'powerpack' ),
+				'label'       => esc_html__( 'Query ID', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'Give your Query a custom unique id to allow server side filtering', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'ai'          => [
@@ -614,7 +614,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 			$this->add_control(
 				'heading_nothing_found',
 				array(
-					'label'     => esc_html__( 'If Nothing Found!', 'powerpack' ),
+					'label'     => esc_html__( 'If Nothing Found!', 'powerpack-lite-for-elementor' ),
 					'type'      => Controls_Manager::HEADING,
 					'separator' => 'before',
 				)
@@ -623,20 +623,20 @@ abstract class Posts_Base extends Powerpack_Widget {
 			$this->add_control(
 				'nothing_found_message',
 				array(
-					'label'   => esc_html__( 'Nothing Found Message', 'powerpack' ),
+					'label'   => esc_html__( 'Nothing Found Message', 'powerpack-lite-for-elementor' ),
 					'type'    => Controls_Manager::TEXTAREA,
 					'rows'    => 3,
-					'default' => esc_html__( 'It seems we can\'t find what you\'re looking for.', 'powerpack' ),
+					'default' => esc_html__( 'It seems we can\'t find what you\'re looking for.', 'powerpack-lite-for-elementor' ),
 				)
 			);
 
 			$this->add_control(
 				'show_search_form',
 				array(
-					'label'        => esc_html__( 'Show Search Form', 'powerpack' ),
+					'label'        => esc_html__( 'Show Search Form', 'powerpack-lite-for-elementor' ),
 					'type'         => Controls_Manager::SWITCHER,
-					'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-					'label_off'    => esc_html__( 'No', 'powerpack' ),
+					'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+					'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 					'return_value' => 'yes',
 					'default'      => '',
 				)

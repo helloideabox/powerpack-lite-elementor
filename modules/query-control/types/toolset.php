@@ -33,7 +33,7 @@ class Toolset extends Meta_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Toolset', 'powerpack' );
+		return __( 'Toolset', 'powerpack-lite-for-elementor' );
 	}
 
 	/**

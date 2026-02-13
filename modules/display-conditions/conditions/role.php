@@ -51,7 +51,7 @@ class Role extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'User Role', 'powerpack' );
+		return __( 'User Role', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -67,7 +67,7 @@ class Role extends Condition {
 
 		return [
 			'type'          => Controls_Manager::SELECT,
-			'description'   => __( 'Warning: This condition applies only to logged in visitors.', 'powerpack' ),
+			'description'   => __( 'Warning: This condition applies only to logged in visitors.', 'powerpack-lite-for-elementor' ),
 			'default'       => 'subscriber',
 			'label_block'   => true,
 			'options'       => $wp_roles->get_names(),

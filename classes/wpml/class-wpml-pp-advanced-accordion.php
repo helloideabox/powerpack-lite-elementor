@@ -19,9 +19,9 @@ class WPML_PP_Advanced_Accordion extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'tab_title':
-				return esc_html__( 'Advanced Accordion - Item Title', 'powerpack' );
+				return esc_html__( 'Advanced Accordion - Item Title', 'powerpack-lite-for-elementor' );
 			case 'accordion_content':
-				return esc_html__( 'Advanced Accordion - Item Content', 'powerpack' );
+				return esc_html__( 'Advanced Accordion - Item Content', 'powerpack-lite-for-elementor' );
 			default:
 				return '';
 		}

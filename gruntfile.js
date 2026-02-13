@@ -3,7 +3,7 @@ module.exports = function( grunt ) {
 	'use strict';
 
 	const pluginName = 'powerpack-lite-for-elementor';
-	const textDomain = 'powerpack';
+	const textDomain = 'powerpack-lite-for-elementor';
 	const buildPath = 'build/' + pluginName + '/';
 	const sass = require( 'sass' );
 	const pkg = grunt.file.readJSON( 'package.json' );
@@ -178,7 +178,7 @@ module.exports = function( grunt ) {
 		addtextdomain: {
 			options: {
 				textdomain: textDomain,
-				updateDomains: ['power-pack', 'bb-powerpack', 'elementor']  // List of text domains to replace.
+				updateDomains: [ 'powerpack', 'power-pack', 'bb-powerpack', 'elementor']  // List of text domains to replace.
 			},
 			target: {
 				files: {

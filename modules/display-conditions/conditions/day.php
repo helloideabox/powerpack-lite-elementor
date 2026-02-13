@@ -51,7 +51,7 @@ class Day extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Day of Week', 'powerpack' );
+		return __( 'Day of Week', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -64,16 +64,16 @@ class Day extends Condition {
 	 */
 	public function get_value_control() {
 		return [
-			'label'             => __( 'Day(s)', 'powerpack' ),
+			'label'             => __( 'Day(s)', 'powerpack-lite-for-elementor' ),
 			'type'              => \Elementor\Controls_Manager::SELECT2,
 			'options' => [
-				'1' => __( 'Monday', 'powerpack' ),
-				'2' => __( 'Tuesday', 'powerpack' ),
-				'3' => __( 'Wednesday', 'powerpack' ),
-				'4' => __( 'Thursday', 'powerpack' ),
-				'5' => __( 'Friday', 'powerpack' ),
-				'6' => __( 'Saturday', 'powerpack' ),
-				'0' => __( 'Sunday', 'powerpack' ),
+				'1' => __( 'Monday', 'powerpack-lite-for-elementor' ),
+				'2' => __( 'Tuesday', 'powerpack-lite-for-elementor' ),
+				'3' => __( 'Wednesday', 'powerpack-lite-for-elementor' ),
+				'4' => __( 'Thursday', 'powerpack-lite-for-elementor' ),
+				'5' => __( 'Friday', 'powerpack-lite-for-elementor' ),
+				'6' => __( 'Saturday', 'powerpack-lite-for-elementor' ),
+				'0' => __( 'Sunday', 'powerpack-lite-for-elementor' ),
 			],
 			'multiple'          => true,
 			'label_block'       => true,

@@ -143,16 +143,16 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_before_image',
 			[
-				'label'             => esc_html__( 'Before Image', 'powerpack' ),
+				'label'             => esc_html__( 'Before Image', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'before_label',
 			[
-				'label'             => esc_html__( 'Label', 'powerpack' ),
+				'label'             => esc_html__( 'Label', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::TEXT,
-				'default'           => esc_html__( 'Before', 'powerpack' ),
+				'default'           => esc_html__( 'Before', 'powerpack-lite-for-elementor' ),
 				'dynamic'           => array(
 					'active' => true,
 				),
@@ -162,7 +162,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'before_image',
 			[
-				'label'             => esc_html__( 'Image', 'powerpack' ),
+				'label'             => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::MEDIA,
 				'dynamic'           => [
 					'active'   => true,
@@ -192,16 +192,16 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_after_image',
 			[
-				'label'             => esc_html__( 'After Image', 'powerpack' ),
+				'label'             => esc_html__( 'After Image', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'after_label',
 			[
-				'label'             => esc_html__( 'Label', 'powerpack' ),
+				'label'             => esc_html__( 'Label', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::TEXT,
-				'default'           => esc_html__( 'After', 'powerpack' ),
+				'default'           => esc_html__( 'After', 'powerpack-lite-for-elementor' ),
 				'dynamic'           => array(
 					'active' => true,
 				),
@@ -211,7 +211,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'after_image',
 			[
-				'label'             => esc_html__( 'Image', 'powerpack' ),
+				'label'             => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::MEDIA,
 				'dynamic'           => [
 					'active'   => true,
@@ -241,14 +241,14 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_settings',
 			[
-				'label'             => esc_html__( 'Settings', 'powerpack' ),
+				'label'             => esc_html__( 'Settings', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'visible_ratio',
 			[
-				'label'                 => esc_html__( 'Visible Ratio', 'powerpack' ),
+				'label'                 => esc_html__( 'Visible Ratio', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => '',
 				'range'                 => [
@@ -264,12 +264,12 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'orientation',
 			[
-				'label'                 => esc_html__( 'Orientation', 'powerpack' ),
+				'label'                 => esc_html__( 'Orientation', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'horizontal',
 				'options'               => [
-					'vertical'      => esc_html__( 'Vertical', 'powerpack' ),
-					'horizontal'    => esc_html__( 'Horizontal', 'powerpack' ),
+					'vertical'      => esc_html__( 'Vertical', 'powerpack-lite-for-elementor' ),
+					'horizontal'    => esc_html__( 'Horizontal', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -277,12 +277,12 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'move_slider',
 			[
-				'label'                 => esc_html__( 'Move Slider', 'powerpack' ),
+				'label'                 => esc_html__( 'Move Slider', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'drag',
 				'options'               => [
-					'drag'          => esc_html__( 'Drag', 'powerpack' ),
-					'mouse_move'    => esc_html__( 'Mouse Move', 'powerpack' ),
+					'drag'          => esc_html__( 'Drag', 'powerpack-lite-for-elementor' ),
+					'mouse_move'    => esc_html__( 'Mouse Move', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -290,11 +290,11 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'overlay',
 			[
-				'label'             => esc_html__( 'Overlay', 'powerpack' ),
+				'label'             => esc_html__( 'Overlay', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SWITCHER,
 				'default'           => 'yes',
-				'label_on'          => esc_html__( 'Show', 'powerpack' ),
-				'label_off'         => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'          => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'         => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value'      => 'yes',
 			]
 		);
@@ -317,7 +317,7 @@ class Image_Comparison extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -350,7 +350,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_overlay_style',
 			[
-				'label'             => esc_html__( 'Overlay', 'powerpack' ),
+				'label'             => esc_html__( 'Overlay', 'powerpack-lite-for-elementor' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 				'condition'         => [
 					'overlay'  => 'yes',
@@ -363,7 +363,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_overlay_normal',
 			[
-				'label'             => esc_html__( 'Normal', 'powerpack' ),
+				'label'             => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -384,7 +384,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_overlay_hover',
 			[
-				'label'             => esc_html__( 'Hover', 'powerpack' ),
+				'label'             => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -414,7 +414,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_handle_style',
 			[
-				'label'             => esc_html__( 'Handle', 'powerpack' ),
+				'label'             => esc_html__( 'Handle', 'powerpack-lite-for-elementor' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -422,7 +422,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'handle_icon',
 			array(
-				'label'                  => esc_html__( 'Choose Icon', 'powerpack' ),
+				'label'                  => esc_html__( 'Choose Icon', 'powerpack-lite-for-elementor' ),
 				'type'                   => Controls_Manager::ICONS,
 				'label_block'            => false,
 				'default'                => array(
@@ -447,7 +447,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'handle_icon_size',
 			[
-				'label'             => esc_html__( 'Icon Size', 'powerpack' ),
+				'label'             => esc_html__( 'Icon Size', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'size_units'        => [ 'px', 'em', 'rem', 'custom' ],
 				'default'           => [
@@ -476,7 +476,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'handle_width',
 			[
-				'label'             => esc_html__( 'Width', 'powerpack' ),
+				'label'             => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'size_units'        => [ 'px', 'em', 'rem', 'custom' ],
 				'default'           => [
@@ -500,7 +500,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'handle_height',
 			[
-				'label'             => esc_html__( 'Height', 'powerpack' ),
+				'label'             => esc_html__( 'Height', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'size_units'        => [ 'px', 'em', 'rem', 'custom' ],
 				'default'           => [
@@ -526,14 +526,14 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_handle_normal',
 			[
-				'label'             => esc_html__( 'Normal', 'powerpack' ),
+				'label'             => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'handle_icon_color',
 			[
-				'label'             => esc_html__( 'Icon Color', 'powerpack' ),
+				'label'             => esc_html__( 'Icon Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -556,7 +556,7 @@ class Image_Comparison extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'handle_border',
-				'label'             => esc_html__( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .pp-comparison-handle',
@@ -567,7 +567,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'handle_border_radius',
 			[
-				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
@@ -589,14 +589,14 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_handle_hover',
 			[
-				'label'             => esc_html__( 'Hover', 'powerpack' ),
+				'label'             => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'handle_icon_color_hover',
 			[
-				'label'             => esc_html__( 'Icon Color', 'powerpack' ),
+				'label'             => esc_html__( 'Icon Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -618,7 +618,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'handle_border_color_hover',
 			[
-				'label'             => esc_html__( 'Border Color', 'powerpack' ),
+				'label'             => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -641,7 +641,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_divider_style',
 			[
-				'label'             => esc_html__( 'Divider', 'powerpack' ),
+				'label'             => esc_html__( 'Divider', 'powerpack-lite-for-elementor' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -649,7 +649,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'divider_color',
 			[
-				'label'             => esc_html__( 'Color', 'powerpack' ),
+				'label'             => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -661,7 +661,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_width',
 			[
-				'label'             => esc_html__( 'Width', 'powerpack' ),
+				'label'             => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'           => [
@@ -697,7 +697,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_label_style',
 			[
-				'label'             => esc_html__( 'Label', 'powerpack' ),
+				'label'             => esc_html__( 'Label', 'powerpack-lite-for-elementor' ),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -705,21 +705,21 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'label_horizontal_position',
 			[
-				'label'                 => esc_html__( 'Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Position', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'default'               => 'top',
 				'options'               => [
 					'top'          => [
-						'title'    => esc_html__( 'Top', 'powerpack' ),
+						'title'    => esc_html__( 'Top', 'powerpack-lite-for-elementor' ),
 						'icon'     => 'eicon-v-align-top',
 					],
 					'middle'       => [
-						'title'    => esc_html__( 'Middle', 'powerpack' ),
+						'title'    => esc_html__( 'Middle', 'powerpack-lite-for-elementor' ),
 						'icon'     => 'eicon-v-align-middle',
 					],
 					'bottom'       => [
-						'title'    => esc_html__( 'Bottom', 'powerpack' ),
+						'title'    => esc_html__( 'Bottom', 'powerpack-lite-for-elementor' ),
 						'icon'     => 'eicon-v-align-bottom',
 					],
 				],
@@ -741,20 +741,20 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'label_vertical_position',
 			[
-				'label'                 => esc_html__( 'Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Position', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'center'           => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-center',
 					],
 					'right'            => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
@@ -777,7 +777,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'label_align',
 			[
-				'label'             => esc_html__( 'Align', 'powerpack' ),
+				'label'             => esc_html__( 'Align', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SLIDER,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'             => [
@@ -802,7 +802,7 @@ class Image_Comparison extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'              => 'label_typography',
-				'label'             => esc_html__( 'Typography', 'powerpack' ),
+				'label'             => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'            => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -816,14 +816,14 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_label_before',
 			[
-				'label'             => esc_html__( 'Before', 'powerpack' ),
+				'label'             => esc_html__( 'Before', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'label_text_color_before',
 			[
-				'label'             => esc_html__( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -835,7 +835,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'label_bg_color_before',
 			[
-				'label'             => esc_html__( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -848,7 +848,7 @@ class Image_Comparison extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'label_border',
-				'label'             => esc_html__( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .pp-comparison-label-before > span',
@@ -858,7 +858,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'label_border_radius',
 			[
-				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
@@ -872,14 +872,14 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_label_after',
 			[
-				'label'             => esc_html__( 'After', 'powerpack' ),
+				'label'             => esc_html__( 'After', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'label_text_color_after',
 			[
-				'label'             => esc_html__( 'Text Color', 'powerpack' ),
+				'label'             => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -891,7 +891,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'label_bg_color_after',
 			[
-				'label'             => esc_html__( 'Background Color', 'powerpack' ),
+				'label'             => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -904,7 +904,7 @@ class Image_Comparison extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'label_border_after',
-				'label'             => esc_html__( 'Border', 'powerpack' ),
+				'label'             => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .pp-comparison-label-after > span',
@@ -914,7 +914,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_control(
 			'label_border_radius_after',
 			[
-				'label'             => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'             => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'         => [
@@ -930,7 +930,7 @@ class Image_Comparison extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'label_padding',
 			[
-				'label'             => esc_html__( 'Padding', 'powerpack' ),
+				'label'             => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'         => [

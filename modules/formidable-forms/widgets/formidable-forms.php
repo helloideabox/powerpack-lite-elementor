@@ -107,14 +107,14 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_formidable_forms',
 			array(
-				'label' => esc_html__( 'Formidable Forms', 'powerpack' ),
+				'label' => esc_html__( 'Formidable Forms', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'contact_form_list',
 			array(
-				'label'       => esc_html__( 'Contact Form', 'powerpack' ),
+				'label'       => esc_html__( 'Contact Form', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'label_block' => true,
 				'options'     => PP_Helper::get_contact_forms( 'Formidable_Forms' ),
@@ -125,10 +125,10 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'custom_title_description',
 			array(
-				'label'        => esc_html__( 'Custom Title & Description', 'powerpack' ),
+				'label'        => esc_html__( 'Custom Title & Description', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -136,11 +136,11 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_title',
 			array(
-				'label'        => esc_html__( 'Title', 'powerpack' ),
+				'label'        => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Show', 'powerpack' ),
-				'label_off'    => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'     => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'custom_title_description!' => 'yes',
@@ -151,11 +151,11 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_description',
 			array(
-				'label'        => esc_html__( 'Description', 'powerpack' ),
+				'label'        => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Show', 'powerpack' ),
-				'label_off'    => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'     => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'custom_title_description!' => 'yes',
@@ -166,7 +166,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_title_custom',
 			array(
-				'label'       => esc_html__( 'Title', 'powerpack' ),
+				'label'       => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default'     => '',
@@ -179,7 +179,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_description_custom',
 			array(
-				'label'     => esc_html__( 'Description', 'powerpack' ),
+				'label'     => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXTAREA,
 				'default'   => '',
 				'condition' => array(
@@ -191,11 +191,11 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'labels_switch',
 			array(
-				'label'        => esc_html__( 'Labels', 'powerpack' ),
+				'label'        => esc_html__( 'Labels', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Show', 'powerpack' ),
-				'label_off'    => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'     => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'prefix_class' => 'pp-formidable-forms-labels-',
 			)
@@ -204,11 +204,11 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'placeholder_switch',
 			array(
-				'label'        => esc_html__( 'Placeholder', 'powerpack' ),
+				'label'        => esc_html__( 'Placeholder', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Show', 'powerpack' ),
-				'label_off'    => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'     => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -225,19 +225,19 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_errors',
 			array(
-				'label' => esc_html__( 'Errors', 'powerpack' ),
+				'label' => esc_html__( 'Errors', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'error_messages',
 			array(
-				'label'                => esc_html__( 'Error Messages', 'powerpack' ),
+				'label'                => esc_html__( 'Error Messages', 'powerpack-lite-for-elementor' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'show',
 				'options'              => array(
-					'show' => esc_html__( 'Show', 'powerpack' ),
-					'hide' => esc_html__( 'Hide', 'powerpack' ),
+					'show' => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+					'hide' => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				),
 				'selectors_dictionary' => array(
 					'show' => 'block',
@@ -266,7 +266,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => __( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -300,7 +300,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_upgrade_powerpack',
 				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
+					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack-lite-for-elementor' ) ),
 					'tab'   => Controls_Manager::TAB_CONTENT,
 				)
 			);
@@ -310,7 +310,7 @@ class Formidable_Forms extends Powerpack_Widget {
 				array(
 					'label'           => '',
 					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				)
 			);
@@ -332,7 +332,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_form_title_style',
 			array(
-				'label' => esc_html__( 'Title & Description', 'powerpack' ),
+				'label' => esc_html__( 'Title & Description', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -340,19 +340,19 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'heading_alignment',
 			array(
-				'label'     => esc_html__( 'Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 				),
@@ -366,7 +366,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'title_heading',
 			array(
-				'label'     => esc_html__( 'Title', 'powerpack' ),
+				'label'     => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -375,7 +375,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_title_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -388,7 +388,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'form_title_typography',
-				'label'    => esc_html__( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector' => '{{WRAPPER}} .pp-contact-form-title, {{WRAPPER}} .pp-formidable-forms .frm_form_title',
 			)
 		);
@@ -396,7 +396,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'form_title_margin',
 			array(
-				'label'              => esc_html__( 'Margin', 'powerpack' ),
+				'label'              => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::DIMENSIONS,
 				'size_units'         => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'allowed_dimensions' => 'vertical',
@@ -415,7 +415,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'description_heading',
 			array(
-				'label'     => esc_html__( 'Description', 'powerpack' ),
+				'label'     => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -424,7 +424,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_description_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -437,7 +437,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'form_description_typography',
-				'label'    => esc_html__( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -448,7 +448,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'form_description_margin',
 			array(
-				'label'              => esc_html__( 'Margin', 'powerpack' ),
+				'label'              => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::DIMENSIONS,
 				'size_units'         => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'allowed_dimensions' => 'vertical',
@@ -476,7 +476,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_label_style',
 			array(
-				'label' => esc_html__( 'Labels & Sections', 'powerpack' ),
+				'label' => esc_html__( 'Labels & Sections', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -484,7 +484,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'section_label_heading',
 			array(
-				'label'     => esc_html__( 'Label', 'powerpack' ),
+				'label'     => esc_html__( 'Label', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -493,7 +493,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'text_color_label',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-formidable-forms .form-field label,
@@ -507,7 +507,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'typography_label',
-				'label'    => esc_html__( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -520,7 +520,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'section_style_heading',
 			array(
-				'label'     => esc_html__( 'Section', 'powerpack' ),
+				'label'     => esc_html__( 'Section', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -529,7 +529,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'text_color_section_heading',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-formidable-forms .frm_section_heading.form-field h3' => 'color: {{VALUE}}',
@@ -540,19 +540,19 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'text_section_heading_input_alignment',
 			array(
-				'label'     => esc_html__( 'Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 				),
@@ -567,7 +567,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'text_typography_section_heading',
-				'label'    => esc_html__( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -579,7 +579,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'border_section_heading',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-formidable-forms .frm_section_heading.form-field h3',
@@ -589,7 +589,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'border_radius_section_heading',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -601,7 +601,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_padding_section_heading',
 			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
@@ -623,7 +623,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_fields_style',
 			array(
-				'label' => esc_html__( 'Input & Textarea', 'powerpack' ),
+				'label' => esc_html__( 'Input & Textarea', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -631,19 +631,19 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'input_alignment',
 			array(
-				'label'     => esc_html__( 'Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 				),
@@ -659,14 +659,14 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_fields_normal',
 			array(
-				'label' => esc_html__( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'field_bg_color',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -678,7 +678,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'field_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -691,7 +691,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'field_border',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-formidable-forms .form-field input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-formidable-forms .form-field textarea, {{WRAPPER}} .pp-formidable-forms .form-field select',
@@ -702,7 +702,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'field_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -714,7 +714,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'text_indent',
 			array(
-				'label'      => esc_html__( 'Text Indent', 'powerpack' ),
+				'label'      => esc_html__( 'Text Indent', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -739,7 +739,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'input_width',
 			array(
-				'label'      => esc_html__( 'Input Width', 'powerpack' ),
+				'label'      => esc_html__( 'Input Width', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -758,7 +758,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'input_height',
 			array(
-				'label'      => esc_html__( 'Input Height', 'powerpack' ),
+				'label'      => esc_html__( 'Input Height', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -777,7 +777,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'textarea_width',
 			array(
-				'label'      => esc_html__( 'Textarea Width', 'powerpack' ),
+				'label'      => esc_html__( 'Textarea Width', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -796,7 +796,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'textarea_height',
 			array(
-				'label'      => esc_html__( 'Textarea Height', 'powerpack' ),
+				'label'      => esc_html__( 'Textarea Height', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -815,7 +815,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -828,7 +828,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_spacing',
 			array(
-				'label'      => esc_html__( 'Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -848,7 +848,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'field_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -871,14 +871,14 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_fields_focus',
 			array(
-				'label' => esc_html__( 'Focus', 'powerpack' ),
+				'label' => esc_html__( 'Focus', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'focus_field_bg_color',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -890,7 +890,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'focus_field_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -903,7 +903,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'focus_input_border',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-formidable-forms .form-field input:focus, {{WRAPPER}} .pp-formidable-forms .form-field textarea:focus',
@@ -936,7 +936,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_field_description_style',
 			array(
-				'label' => esc_html__( 'Field Description', 'powerpack' ),
+				'label' => esc_html__( 'Field Description', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -944,7 +944,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'field_description_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-formidable-forms .form-field .frm_description' => 'color: {{VALUE}}',
@@ -956,7 +956,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'field_description_typography',
-				'label'    => esc_html__( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector' => '{{WRAPPER}} .pp-formidable-forms .form-field .frm_description',
 			)
 		);
@@ -964,7 +964,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'field_description_spacing',
 			array(
-				'label'      => esc_html__( 'Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -993,7 +993,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_placeholder_style',
 			array(
-				'label'     => esc_html__( 'Placeholder', 'powerpack' ),
+				'label'     => esc_html__( 'Placeholder', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'placeholder_switch' => 'yes',
@@ -1004,7 +1004,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'text_color_placeholder',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-formidable-forms .form-field input::-webkit-input-placeholder, {{WRAPPER}} .pp-formidable-forms .form-field textarea::-webkit-input-placeholder' => 'color: {{VALUE}}',
@@ -1028,7 +1028,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_radio_checkbox_style',
 			array(
-				'label' => esc_html__( 'Radio & Checkbox', 'powerpack' ),
+				'label' => esc_html__( 'Radio & Checkbox', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1036,10 +1036,10 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'custom_radio_checkbox',
 			array(
-				'label'        => esc_html__( 'Custom Styles', 'powerpack' ),
+				'label'        => esc_html__( 'Custom Styles', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -1047,7 +1047,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'radio_checkbox_size',
 			array(
-				'label'      => esc_html__( 'Size', 'powerpack' ),
+				'label'      => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'    => array(
@@ -1074,7 +1074,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'radio_checkbox_typography_label',
-				'label'    => esc_html__( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1087,7 +1087,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'radio_checkbox_normal',
 			array(
-				'label'     => esc_html__( 'Normal', 'powerpack' ),
+				'label'     => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					'custom_radio_checkbox' => 'yes',
 				),
@@ -1097,7 +1097,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_color',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1112,7 +1112,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_color_label',
 			array(
-				'label'     => esc_html__( 'Label Color', 'powerpack' ),
+				'label'     => esc_html__( 'Label Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-formidable-forms .form-field.vertical_radio .frm_opt_container label' => 'color: {{VALUE}}',
@@ -1123,7 +1123,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'radio_checkbox_border_width',
 			array(
-				'label'      => esc_html__( 'Border Width', 'powerpack' ),
+				'label'      => esc_html__( 'Border Width', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -1145,7 +1145,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_border_color',
 			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1160,7 +1160,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'checkbox_heading',
 			array(
-				'label'     => esc_html__( 'Checkbox', 'powerpack' ),
+				'label'     => esc_html__( 'Checkbox', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1172,7 +1172,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'checkbox_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -1187,7 +1187,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_heading',
 			array(
-				'label'     => esc_html__( 'Radio Buttons', 'powerpack' ),
+				'label'     => esc_html__( 'Radio Buttons', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1199,7 +1199,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -1216,7 +1216,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'radio_checkbox_checked',
 			array(
-				'label'     => esc_html__( 'Checked', 'powerpack' ),
+				'label'     => esc_html__( 'Checked', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					'custom_radio_checkbox' => 'yes',
 				),
@@ -1226,7 +1226,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'radio_checkbox_color_checked',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1255,7 +1255,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_submit_button_style',
 			array(
-				'label' => esc_html__( 'Submit Button', 'powerpack' ),
+				'label' => esc_html__( 'Submit Button', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1263,19 +1263,19 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_align',
 			array(
-				'label'     => esc_html__( 'Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-center',
 					),
 					'right'  => array(
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-right',
 					),
 				),
@@ -1293,12 +1293,12 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_width_type',
 			array(
-				'label'        => esc_html__( 'Width', 'powerpack' ),
+				'label'        => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SELECT,
 				'default'      => 'custom',
 				'options'      => array(
-					'full-width' => esc_html__( 'Full Width', 'powerpack' ),
-					'custom'     => esc_html__( 'Custom', 'powerpack' ),
+					'full-width' => esc_html__( 'Full Width', 'powerpack-lite-for-elementor' ),
+					'custom'     => esc_html__( 'Custom', 'powerpack-lite-for-elementor' ),
 				),
 				'prefix_class' => 'pp-formidable-forms-button-',
 			)
@@ -1307,7 +1307,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_width',
 			array(
-				'label'      => esc_html__( 'Width', 'powerpack' ),
+				'label'      => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'    => array(
@@ -1335,14 +1335,14 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			array(
-				'label' => esc_html__( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'button_bg_color_normal',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1354,7 +1354,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_normal',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1367,7 +1367,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'button_border_normal',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-formidable-forms .frm_submit .frm_button_submit',
@@ -1377,7 +1377,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -1389,7 +1389,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
@@ -1401,7 +1401,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_margin',
 			array(
-				'label'      => esc_html__( 'Margin Top', 'powerpack' ),
+				'label'      => esc_html__( 'Margin Top', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -1421,7 +1421,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'button_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -1444,14 +1444,14 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			array(
-				'label' => esc_html__( 'Hover', 'powerpack' ),
+				'label' => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'button_bg_color_hover',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1463,7 +1463,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_text_color_hover',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1475,7 +1475,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'button_border_color_hover',
 			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1501,7 +1501,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_error_style',
 			array(
-				'label'     => esc_html__( 'Errors', 'powerpack' ),
+				'label'     => esc_html__( 'Errors', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'error_messages' => 'show',
@@ -1512,7 +1512,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'form_error_message_heading',
 			array(
-				'label'     => esc_html__( 'Form Error Message', 'powerpack' ),
+				'label'     => esc_html__( 'Form Error Message', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'condition' => array(
 					'error_messages' => 'show',
@@ -1523,7 +1523,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'error_message_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1538,7 +1538,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'error_message_background_color',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1554,7 +1554,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'error_message_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'  => '{{WRAPPER}} .pp-formidable-forms .frm_error_style',
 				'condition' => array(
 					'error_messages' => 'show',
@@ -1566,7 +1566,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'error_message_border',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-formidable-forms .frm_error_style',
@@ -1579,7 +1579,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'error_message_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -1594,7 +1594,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'error_field_heading',
 			array(
-				'label'     => esc_html__( 'Error Field', 'powerpack' ),
+				'label'     => esc_html__( 'Error Field', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1607,7 +1607,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'error_field_border',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-formidable-forms .frm_blank_field input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-formidable-forms .frm_blank_field textarea, {{WRAPPER}} .pp-formidable-forms .frm_blank_field select',
@@ -1617,7 +1617,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'error_field_label_heading',
 			array(
-				'label'     => esc_html__( 'Error Field Label', 'powerpack' ),
+				'label'     => esc_html__( 'Error Field Label', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1629,7 +1629,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'error_field_label_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1645,7 +1645,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'error_field_label_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'  => '{{WRAPPER}} .pp-formidable-forms .frm_blank_field .frm_primary_label',
 				'condition' => array(
 					'error_messages' => 'show',
@@ -1656,7 +1656,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'error_field_message_heading',
 			array(
-				'label'     => esc_html__( 'Error Field Message', 'powerpack' ),
+				'label'     => esc_html__( 'Error Field Message', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1668,7 +1668,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'error_label_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1684,7 +1684,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'error_field_message_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'  => '{{WRAPPER}} .pp-formidable-forms .frm_error',
 				'condition' => array(
 					'error_messages' => 'show',
@@ -1705,7 +1705,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_confirmation_style',
 			array(
-				'label' => esc_html__( 'Confirmation Message', 'powerpack' ),
+				'label' => esc_html__( 'Confirmation Message', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1713,19 +1713,19 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'confirmation_alignment',
 			array(
-				'label'     => esc_html__( 'Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 				),
@@ -1740,7 +1740,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'confirmation_typography',
-				'label'    => esc_html__( 'Typography', 'powerpack' ),
+				'label'    => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector' => '{{WRAPPER}} .pp-formidable-forms .frm_message',
 			)
 		);
@@ -1748,7 +1748,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'confirmation_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1760,7 +1760,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'confirmation_bg_color',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1773,7 +1773,7 @@ class Formidable_Forms extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'confirmation_border',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-formidable-forms .frm_message',
@@ -1783,7 +1783,7 @@ class Formidable_Forms extends Powerpack_Widget {
 		$this->add_control(
 			'confirmation_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -1850,11 +1850,11 @@ class Formidable_Forms extends Powerpack_Widget {
 				</div>
 				<?php
 			} else {
-				$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', 'powerpack' ), esc_attr( $this->get_title() ) );
+				$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', 'powerpack-lite-for-elementor' ), esc_attr( $this->get_title() ) );
 
 				echo $this->render_editor_placeholder(
 					array(
-						'title' => esc_html__( 'No Contact Form Selected!', 'powerpack' ),
+						'title' => esc_html__( 'No Contact Form Selected!', 'powerpack-lite-for-elementor' ),
 						'body'  => $placeholder,
 					)
 				);

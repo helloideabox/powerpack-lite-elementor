@@ -51,7 +51,7 @@ class Search_Bot extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Search Bots', 'powerpack' );
+		return __( 'Search Bots', 'powerpack-lite-for-elementor' );
 	}
 
 	/**

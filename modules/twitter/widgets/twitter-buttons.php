@@ -72,22 +72,22 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_buttons',
 			array(
-				'label' => esc_html__( 'Buttons', 'powerpack' ),
+				'label' => esc_html__( 'Buttons', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'button_type',
 			array(
-				'label'   => esc_html__( 'Type', 'powerpack' ),
+				'label'   => esc_html__( 'Type', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'share',
 				'options' => array(
-					'share'   => esc_html__( 'Share', 'powerpack' ),
-					'follow'  => esc_html__( 'Follow', 'powerpack' ),
-					'mention' => esc_html__( 'Mention', 'powerpack' ),
-					'hashtag' => esc_html__( 'Hashtag', 'powerpack' ),
-					'message' => esc_html__( 'Message', 'powerpack' ),
+					'share'   => esc_html__( 'Share', 'powerpack-lite-for-elementor' ),
+					'follow'  => esc_html__( 'Follow', 'powerpack-lite-for-elementor' ),
+					'mention' => esc_html__( 'Mention', 'powerpack-lite-for-elementor' ),
+					'hashtag' => esc_html__( 'Hashtag', 'powerpack-lite-for-elementor' ),
+					'message' => esc_html__( 'Message', 'powerpack-lite-for-elementor' ),
 				),
 			)
 		);
@@ -95,7 +95,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'profile',
 			array(
-				'label'     => esc_html__( 'Profile URL or Username', 'powerpack' ),
+				'label'     => esc_html__( 'Profile URL or Username', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'ai'        => [
@@ -110,7 +110,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'recipient_id',
 			array(
-				'label'     => esc_html__( 'Recipient ID', 'powerpack' ),
+				'label'     => esc_html__( 'Recipient ID', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'ai'        => [
@@ -125,7 +125,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'default_text',
 			array(
-				'label'     => esc_html__( 'Default Text', 'powerpack' ),
+				'label'     => esc_html__( 'Default Text', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'condition' => array(
@@ -137,7 +137,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'hashtag_url',
 			array(
-				'label'     => esc_html__( 'Hashtag URL or #hashtag', 'powerpack' ),
+				'label'     => esc_html__( 'Hashtag URL or #hashtag', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'ai'        => [
@@ -152,7 +152,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'via',
 			array(
-				'label'     => esc_html__( 'Via (twitter handler)', 'powerpack' ),
+				'label'     => esc_html__( 'Via (twitter handler)', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'ai'        => [
@@ -167,7 +167,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'share_text',
 			array(
-				'label'     => esc_html__( 'Custom Share Text', 'powerpack' ),
+				'label'     => esc_html__( 'Custom Share Text', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'condition' => array(
@@ -179,7 +179,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'share_url',
 			array(
-				'label'     => esc_html__( 'Custom Share URL', 'powerpack' ),
+				'label'     => esc_html__( 'Custom Share URL', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'ai'        => [
@@ -194,10 +194,10 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'show_count',
 			array(
-				'label'        => esc_html__( 'Show Count', 'powerpack' ),
+				'label'        => esc_html__( 'Show Count', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'no',
 				'condition'    => array(
@@ -209,10 +209,10 @@ class Twitter_Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'large_button',
 			array(
-				'label'        => esc_html__( 'Large Button', 'powerpack' ),
+				'label'        => esc_html__( 'Large Button', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'no',
 			)
@@ -231,7 +231,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -297,31 +297,31 @@ class Twitter_Buttons extends Powerpack_Widget {
 				switch ( $type ) {
 					case 'share':
 						?>
-						<a href="https://twitter.com/share" class="twitter-share-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Share', 'powerpack' ); ?></a>
+						<a href="https://twitter.com/share" class="twitter-share-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Share', 'powerpack-lite-for-elementor' ); ?></a>
 						<?php
 						break;
 
 					case 'follow':
 						?>
-						<a href="https://twitter.com/<?php echo esc_attr( $profile ); ?>" class="twitter-follow-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Follow', 'powerpack' ); ?></a>
+						<a href="https://twitter.com/<?php echo esc_attr( $profile ); ?>" class="twitter-follow-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Follow', 'powerpack-lite-for-elementor' ); ?></a>
 						<?php
 						break;
 
 					case 'mention':
 						?>
-						<a href="https://twitter.com/intent/tweet?screen_name=<?php echo esc_attr( $profile ); ?>" class="twitter-mention-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Mention', 'powerpack' ); ?></a>
+						<a href="https://twitter.com/intent/tweet?screen_name=<?php echo esc_attr( $profile ); ?>" class="twitter-mention-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Mention', 'powerpack-lite-for-elementor' ); ?></a>
 						<?php
 						break;
 
 					case 'hashtag':
 						?>
-						<a href="https://twitter.com/intent/tweet?button_hashtag=<?php echo esc_attr( $hashtag ); ?>" class="twitter-hashtag-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Hashtag', 'powerpack' ); ?></a>
+						<a href="https://twitter.com/intent/tweet?button_hashtag=<?php echo esc_attr( $hashtag ); ?>" class="twitter-hashtag-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Hashtag', 'powerpack-lite-for-elementor' ); ?></a>
 						<?php
 						break;
 
 					case 'message':
 						?>
-						<a href="https://twitter.com/messages/compose?recipient_id=<?php echo esc_attr( $recipient_id ); ?><?php echo ! empty( $default_text ) ? '&text=' . esc_html( $default_text ) : ''; ?>" class="twitter-dm-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Message', 'powerpack' ); ?></a>
+						<a href="https://twitter.com/messages/compose?recipient_id=<?php echo esc_attr( $recipient_id ); ?><?php echo ! empty( $default_text ) ? '&text=' . esc_html( $default_text ) : ''; ?>" class="twitter-dm-button" <?php $this->print_render_attribute_string( 'tweet' ); ?>><?php esc_html_e( 'Message', 'powerpack-lite-for-elementor' ); ?></a>
 						<?php
 						break;
 				}

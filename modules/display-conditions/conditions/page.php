@@ -52,7 +52,7 @@ class Page extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Page', 'powerpack' );
+		return __( 'Page', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -69,8 +69,8 @@ class Page extends Condition {
 			'default'           => '',
 			'multiple'          => true,
 			'label_block'       => true,
-			'placeholder'       => __( 'Any', 'powerpack' ),
-			'description'       => __( 'Leave blank for any page.', 'powerpack' ),
+			'placeholder'       => __( 'Any', 'powerpack-lite-for-elementor' ),
+			'description'       => __( 'Leave blank for any page.', 'powerpack-lite-for-elementor' ),
 			'query_type'        => 'posts',
 			'object_type'       => 'page',
 		];

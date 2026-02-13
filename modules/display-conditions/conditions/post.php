@@ -51,7 +51,7 @@ class Post extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Post', 'powerpack' );
+		return __( 'Post', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -69,8 +69,8 @@ class Post extends Condition {
 			'default'           => '',
 			'multiple'          => true,
 			'label_block'       => true,
-			'placeholder'       => __( 'Any', 'powerpack' ),
-			'description'       => __( 'Leave blank for any post.', 'powerpack' ),
+			'placeholder'       => __( 'Any', 'powerpack-lite-for-elementor' ),
+			'description'       => __( 'Leave blank for any post.', 'powerpack-lite-for-elementor' ),
 			'query_type'        => 'posts',
 			'object_type'       => 'post',
 		];

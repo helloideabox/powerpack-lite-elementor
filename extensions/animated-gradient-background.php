@@ -65,7 +65,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 	 * @since 2.6.0
 	 **/
 	public static function get_description() {
-		return esc_html__( 'Add Animated Gradient Background to sections allowing you to show gradient Animated background for sections.', 'powerpack' );
+		return esc_html__( 'Add Animated Gradient Background to sections allowing you to show gradient Animated background for sections.', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -106,7 +106,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 			$section_name,
 			array(
 				'tab'   => Controls_Manager::TAB_STYLE,
-				'label' => esc_html__( 'PowerPack Background', 'powerpack' ),
+				'label' => esc_html__( 'PowerPack Background', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
@@ -155,7 +155,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		$element->add_control(
 			'pp_animated_gradient_bg_heading',
 			array(
-				'label'              => esc_html__( 'Animated Gradient Background', 'powerpack' ),
+				'label'              => esc_html__( 'Animated Gradient Background', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::HEADING,
 				'default'            => '',
 				'separator'          => 'before',
@@ -166,10 +166,10 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 			'pp_animated_gradient_bg_enable',
 			[
 				'type'         => Controls_Manager::SWITCHER,
-				'label'        => esc_html__( 'Enable Animated Gradient Background', 'powerpack' ),
+				'label'        => esc_html__( 'Enable Animated Gradient Background', 'powerpack-lite-for-elementor' ),
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'prefix_class' => 'pp-animated-gradient-bg-',
 				'render_type'  => 'template',
@@ -179,7 +179,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		$element->add_control(
 			'pp_animated_gradient_bg_angle',
 			[
-				'label'      => esc_html__( 'Angle', 'powerpack' ),
+				'label'      => esc_html__( 'Angle', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'deg' ],
 				'range'      => [
@@ -204,7 +204,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		$repeater->add_control(
 			'pp_animated_gradient_bg_color',
 			[
-				'label' => esc_html__( 'Add Color', 'powerpack' ),
+				'label' => esc_html__( 'Add Color', 'powerpack-lite-for-elementor' ),
 				'type'  => Controls_Manager::COLOR,
 			]
 		);
@@ -212,7 +212,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		$element->add_control(
 			'pp_animated_gradient_bg_color_list',
 			[
-				'label'       => esc_html__( 'Color', 'powerpack' ),
+				'label'       => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'title_field' => 'Color {{{pp_animated_gradient_bg_color}}}',

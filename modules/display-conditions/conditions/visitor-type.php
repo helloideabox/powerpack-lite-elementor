@@ -46,7 +46,7 @@ class Visitor_Type extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Visitor Type', 'powerpack' );
+		return __( 'Visitor Type', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -60,12 +60,12 @@ class Visitor_Type extends Condition {
 	public function get_value_control() {
 		return [
 			'type'          => Controls_Manager::SELECT,
-			'description'   => __( 'Warning: This condition applies only to logged in visitors.', 'powerpack' ),
+			'description'   => __( 'Warning: This condition applies only to logged in visitors.', 'powerpack-lite-for-elementor' ),
 			'default'       => 'new',
 			'label_block'   => true,
 			'options'       => array(
-				'new'       => __( 'First Time Visitor', 'powerpack' ),
-				'returning' => __( 'Returning Visitor', 'powerpack' ),
+				'new'       => __( 'First Time Visitor', 'powerpack-lite-for-elementor' ),
+				'returning' => __( 'Returning Visitor', 'powerpack-lite-for-elementor' ),
 			),
 		];
 	}

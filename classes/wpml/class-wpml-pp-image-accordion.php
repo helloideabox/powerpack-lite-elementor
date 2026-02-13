@@ -21,13 +21,13 @@ class WPML_PP_Image_Accordion extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'title':
-				return esc_html__( 'Image Accordion - Item Title', 'powerpack' );
+				return esc_html__( 'Image Accordion - Item Title', 'powerpack-lite-for-elementor' );
 			case 'description':
-				return esc_html__( 'Image Accordion - Item Description', 'powerpack' );
+				return esc_html__( 'Image Accordion - Item Description', 'powerpack-lite-for-elementor' );
 			case 'button_text':
-				return esc_html__( 'Image Accordion - Button Text', 'powerpack' );
+				return esc_html__( 'Image Accordion - Button Text', 'powerpack-lite-for-elementor' );
 			case 'url':
-				return esc_html__( 'Image Accordion - Button Link', 'powerpack' );
+				return esc_html__( 'Image Accordion - Button Link', 'powerpack-lite-for-elementor' );
 			default:
 				return '';
 		}

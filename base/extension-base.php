@@ -197,7 +197,7 @@ class Extension_Base {
 			$section_name,
 			[
 				'tab'   => Controls_Manager::TAB_ADVANCED,
-				'label' => esc_html__( 'PowerPack', 'powerpack' ),
+				'label' => esc_html__( 'PowerPack', 'powerpack-lite-for-elementor' ),
 			]
 		);
 

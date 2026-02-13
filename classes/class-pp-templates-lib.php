@@ -145,7 +145,7 @@ class PP_Templates_Lib {
 			$editor_post_id = absint( $data['editor_post_id'] );
 
 			if ( ! get_post( $editor_post_id ) ) {
-				throw new \Exception( esc_html__( 'Post not found.', 'powerpack' ) );
+				throw new \Exception( esc_html__( 'Post not found.', 'powerpack-lite-for-elementor' ) );
 			}
 
 			Plugin::$instance->db->switch_to_post( $editor_post_id );
@@ -325,7 +325,7 @@ class PP_Templates_Lib {
 		}
 
 		if ( empty( $license_key ) ) {
-			return new \WP_Error( 'no_license', esc_html__( 'License is not active.', 'powerpack' ) );
+			return new \WP_Error( 'no_license', esc_html__( 'License is not active.', 'powerpack-lite-for-elementor' ) );
 		}
 
 		$args = [
@@ -395,8 +395,8 @@ class PP_Templates_Lib {
 		?>
 		<script type="text/template" id="tmpl-elementor-template-library-header-actions-pp">
 			<div id="elementor-template-library-header-sync" class="elementor-templates-modal__header__item">
-				<i class="eicon-sync" aria-hidden="true" title="<?php esc_attr_e( 'Sync Templates', 'powerpack' ); ?>"></i>
-				<span class="elementor-screen-only"><?php echo esc_html__( 'Sync Templates', 'powerpack' ); ?></span>
+				<i class="eicon-sync" aria-hidden="true" title="<?php esc_attr_e( 'Sync Templates', 'powerpack-lite-for-elementor' ); ?>"></i>
+				<span class="elementor-screen-only"><?php echo esc_html__( 'Sync Templates', 'powerpack-lite-for-elementor' ); ?></span>
 			</div>
 		</script>
 		<script type="text/template" id="tmpl-elementor-templates-modal__header__logo_pp">
@@ -422,11 +422,11 @@ class PP_Templates_Lib {
 						<# if ( 'new_page' === activeType ) { #>
 							<div id="elementor-template-library-order">
 								<input type="radio" id="elementor-template-library-order-new" class="elementor-template-library-order-input" name="elementor-template-library-order" value="date">
-								<label for="elementor-template-library-order-new" class="elementor-template-library-order-label"><?php echo esc_html__( 'New', 'powerpack' ); ?></label>
+								<label for="elementor-template-library-order-new" class="elementor-template-library-order-label"><?php echo esc_html__( 'New', 'powerpack-lite-for-elementor' ); ?></label>
 								<input type="radio" id="elementor-template-library-order-trend" class="elementor-template-library-order-input" name="elementor-template-library-order" value="trendIndex">
-								<label for="elementor-template-library-order-trend" class="elementor-template-library-order-label"><?php echo esc_html__( 'Trend', 'powerpack' ); ?></label>
+								<label for="elementor-template-library-order-trend" class="elementor-template-library-order-label"><?php echo esc_html__( 'Trend', 'powerpack-lite-for-elementor' ); ?></label>
 								<input type="radio" id="elementor-template-library-order-popular" class="elementor-template-library-order-input" name="elementor-template-library-order" value="popularityIndex">
-								<label for="elementor-template-library-order-popular" class="elementor-template-library-order-label"><?php echo esc_html__( 'Popular', 'powerpack' ); ?></label>
+								<label for="elementor-template-library-order-popular" class="elementor-template-library-order-label"><?php echo esc_html__( 'Popular', 'powerpack-lite-for-elementor' ); ?></label>
 							</div>
 						<# } else {
 							var config = pp_templates_lib.templates.getConfig( activeType );
@@ -448,14 +448,14 @@ class PP_Templates_Lib {
 							<input id="elementor-template-library-filter-my-favorites" type="checkbox"{{{ checked }}}>
 							<label id="elementor-template-library-filter-my-favorites-label" for="elementor-template-library-filter-my-favorites">
 								<i class="eicon" aria-hidden="true"></i>
-								<?php echo esc_html__( 'My Favorites', 'powerpack' ); ?>
+								<?php echo esc_html__( 'My Favorites', 'powerpack-lite-for-elementor' ); ?>
 							</label>
 						</div>
 					</div>
 				<# } #>
 				<div id="elementor-template-library-filter-text-wrapper">
-					<label for="elementor-template-library-filter-text" class="elementor-screen-only"><?php echo esc_html__( 'Search Templates:', 'powerpack' ); ?></label>
-					<input id="elementor-template-library-filter-text" placeholder="<?php echo esc_attr__( 'Search', 'powerpack' ); ?>">
+					<label for="elementor-template-library-filter-text" class="elementor-screen-only"><?php echo esc_html__( 'Search Templates:', 'powerpack-lite-for-elementor' ); ?></label>
+					<input id="elementor-template-library-filter-text" placeholder="<?php echo esc_attr__( 'Search', 'powerpack-lite-for-elementor' ); ?>">
 					<i class="eicon-search"></i>
 				</div>
 			</div>
@@ -463,7 +463,7 @@ class PP_Templates_Lib {
 			<# if ( 'powerpack' === activeSource ) { #>
 				<div id="elementor-template-library-footer-banner">
 					<img class="elementor-nerd-box-icon" src="<?php echo esc_url( ELEMENTOR_ASSETS_URL . 'images/information.svg' ); ?>" />
-					<div class="elementor-excerpt"><?php echo esc_html__( 'Stay tuned! More awesome templates coming real soon.', 'powerpack' ); ?></div>
+					<div class="elementor-excerpt"><?php echo esc_html__( 'Stay tuned! More awesome templates coming real soon.', 'powerpack-lite-for-elementor' ); ?></div>
 				</div>
 			<# } #>
 		</script>
@@ -485,7 +485,7 @@ class PP_Templates_Lib {
 					<input id="elementor-template-library-template-{{ template_id }}-favorite-input" class="elementor-template-library-template-favorite-input" type="checkbox"{{ favorite ? " checked" : "" }}>
 					<label for="elementor-template-library-template-{{ template_id }}-favorite-input" class="elementor-template-library-template-favorite-label">
 						<i class="eicon-heart-o" aria-hidden="true"></i>
-						<span class="elementor-screen-only"><?php echo esc_html__( 'Favorite', 'powerpack' ); ?></span>
+						<span class="elementor-screen-only"><?php echo esc_html__( 'Favorite', 'powerpack-lite-for-elementor' ); ?></span>
 					</label>
 				</div>
 			</div>
@@ -493,13 +493,13 @@ class PP_Templates_Lib {
 		<script type="text/template" id="tmpl-elementor-template-library-get-pro-button-pp">
 			<a class="elementor-template-library-template-action elementor-button elementor-go-pro" href="https://powerpackelements.com/pricing/?utm_source=panel-library&utm_campaign=gopro&utm_medium=wp-dash" target="_blank">
 				<i class="eicon-external-link-square" aria-hidden="true"></i>
-				<span class="elementor-button-title"><?php echo esc_html__( 'Go Pro', 'powerpack' ); ?></span>
+				<span class="elementor-button-title"><?php echo esc_html__( 'Go Pro', 'powerpack-lite-for-elementor' ); ?></span>
 			</a>
 		</script>
 		<script type="text/template" id="tmpl-elementor-pro-template-library-activate-license-button-pp">
 			<a class="elementor-template-library-template-action elementor-button elementor-go-pro" href="<?php echo PP_Admin_Settings::get_form_action(); ?>" target="_blank">
 				<i class="eicon-external-link-square"></i>
-				<span class="elementor-button-title"><?php _e( 'Activate License', 'powerpack' ); ?></span>
+				<span class="elementor-button-title"><?php _e( 'Activate License', 'powerpack-lite-for-elementor' ); ?></span>
 			</a>
 		</script>
 		<?php

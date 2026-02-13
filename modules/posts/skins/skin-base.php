@@ -89,12 +89,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'layout',
 			array(
-				'label'   => esc_html__( 'Layout', 'powerpack' ),
+				'label'   => esc_html__( 'Layout', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => array(
-					'grid'     => esc_html__( 'Grid', 'powerpack' ),
-					'masonry'  => esc_html__( 'Masonry', 'powerpack' ),
-					'carousel' => esc_html__( 'Carousel', 'powerpack' ),
+					'grid'     => esc_html__( 'Grid', 'powerpack-lite-for-elementor' ),
+					'masonry'  => esc_html__( 'Masonry', 'powerpack-lite-for-elementor' ),
+					'carousel' => esc_html__( 'Carousel', 'powerpack-lite-for-elementor' ),
 				),
 				'default' => 'grid',
 			)
@@ -103,7 +103,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'columns',
 			array(
-				'label'              => esc_html__( 'Columns', 'powerpack' ),
+				'label'              => esc_html__( 'Columns', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SELECT,
 				'default'            => '3',
 				'tablet_default'     => '2',
@@ -126,11 +126,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'equal_height',
 			array(
-				'label'        => esc_html__( 'Equal Height', 'powerpack' ),
+				'label'        => esc_html__( 'Equal Height', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'prefix_class' => 'pp-equal-height-',
 				'render_type'  => 'template',
@@ -146,7 +146,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_slider_options',
 			array(
-				'label'     => esc_html__( 'Carousel Options', 'powerpack' ),
+				'label'     => esc_html__( 'Carousel Options', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_CONTENT,
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -157,13 +157,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'carousel_effect',
 			[
-				'label'              => esc_html__( 'Effect', 'powerpack' ),
-				'description'        => esc_html__( 'Sets transition effect', 'powerpack' ),
+				'label'              => esc_html__( 'Effect', 'powerpack-lite-for-elementor' ),
+				'description'        => esc_html__( 'Sets transition effect', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SELECT,
 				'default'            => 'slide',
 				'options'            => [
-					'slide' => esc_html__( 'Slide', 'powerpack' ),
-					'fade'  => esc_html__( 'Fade', 'powerpack' ),
+					'slide' => esc_html__( 'Slide', 'powerpack-lite-for-elementor' ),
+					'fade'  => esc_html__( 'Fade', 'powerpack-lite-for-elementor' ),
 				],
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -178,8 +178,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'slides_to_scroll',
 			array(
 				'type'               => Controls_Manager::SELECT,
-				'label'              => esc_html__( 'Slides to Scroll', 'powerpack' ),
-				'description'        => esc_html__( 'Set how many slides are scrolled per swipe.', 'powerpack' ),
+				'label'              => esc_html__( 'Slides to Scroll', 'powerpack-lite-for-elementor' ),
+				'description'        => esc_html__( 'Set how many slides are scrolled per swipe.', 'powerpack-lite-for-elementor' ),
 				'options'            => $slides_per_view,
 				'default'            => '1',
 				'tablet_default'     => '1',
@@ -195,7 +195,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'animation_speed',
 			array(
-				'label'              => esc_html__( 'Animation Speed', 'powerpack' ),
+				'label'              => esc_html__( 'Animation Speed', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::NUMBER,
 				'default'            => 600,
 				'condition'          => array(
@@ -207,11 +207,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'arrows',
 			array(
-				'label'              => esc_html__( 'Arrows', 'powerpack' ),
+				'label'              => esc_html__( 'Arrows', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
-				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'          => esc_html__( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -222,11 +222,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'dots',
 			array(
-				'label'              => esc_html__( 'Dots', 'powerpack' ),
+				'label'              => esc_html__( 'Dots', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'no',
-				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'          => esc_html__( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -237,11 +237,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'autoplay',
 			array(
-				'label'              => esc_html__( 'Autoplay', 'powerpack' ),
+				'label'              => esc_html__( 'Autoplay', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
-				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'          => esc_html__( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -252,7 +252,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'autoplay_speed',
 			array(
-				'label'              => esc_html__( 'Autoplay Speed', 'powerpack' ),
+				'label'              => esc_html__( 'Autoplay Speed', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::NUMBER,
 				'default'            => 3000,
 				'condition'          => array(
@@ -265,11 +265,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pause_on_hover',
 			array(
-				'label'              => esc_html__( 'Pause on Hover', 'powerpack' ),
+				'label'              => esc_html__( 'Pause on Hover', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
-				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'          => esc_html__( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'condition'          => array(
 					$this->get_control_id( 'layout' )   => 'carousel',
@@ -281,11 +281,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'infinite_loop',
 			array(
-				'label'              => esc_html__( 'Infinite Loop', 'powerpack' ),
+				'label'              => esc_html__( 'Infinite Loop', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
-				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'          => esc_html__( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -296,11 +296,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'adaptive_height',
 			array(
-				'label'              => esc_html__( 'Adaptive Height', 'powerpack' ),
+				'label'              => esc_html__( 'Adaptive Height', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
-				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'          => esc_html__( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -311,11 +311,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'center_mode',
 			[
-				'label'                 => esc_html__( 'Center Mode', 'powerpack' ),
+				'label'                 => esc_html__( 'Center Mode', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'             => esc_html__( 'No', 'powerpack' ),
+				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 			]
 		);
@@ -323,17 +323,17 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'direction',
 			array(
-				'label'              => esc_html__( 'Direction', 'powerpack' ),
+				'label'              => esc_html__( 'Direction', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::CHOOSE,
 				'label_block'        => false,
 				'toggle'             => false,
 				'options'            => array(
 					'left'  => array(
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-left',
 					),
 					'right' => array(
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-right',
 					),
 				),
@@ -352,7 +352,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_filters',
 			array(
-				'label'     => esc_html__( 'Filters', 'powerpack' ),
+				'label'     => esc_html__( 'Filters', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_CONTENT,
 				'condition' => array(
 					'post_type!'                       => 'related',
@@ -364,10 +364,10 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'show_filters',
 			array(
-				'label'        => esc_html__( 'Show Filters', 'powerpack' ),
+				'label'        => esc_html__( 'Show Filters', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'no',
 				'condition'    => array(
@@ -382,7 +382,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				'condition'    => array(
 					'post_type!'                            => 'related',
@@ -406,7 +406,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_search_form',
 			array(
-				'label'     => esc_html__( 'Search Form', 'powerpack' ),
+				'label'     => esc_html__( 'Search Form', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => array( 'grid', 'masonry' ),
 				),
@@ -416,11 +416,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'show_ajax_search_form',
 			array(
-				'label'              => esc_html__( 'Show Search Form', 'powerpack' ),
+				'label'              => esc_html__( 'Show Search Form', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => '',
-				'label_on'           => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'          => esc_html__( 'No', 'powerpack' ),
+				'label_on'           => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'condition'          => array(
 					$this->get_control_id( 'layout' ) => array( 'grid', 'masonry' ),
@@ -433,7 +433,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				'condition'    => array(
 					$this->get_control_id( 'layout' )                => array( 'grid', 'masonry' ),
@@ -452,18 +452,18 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_terms',
 			array(
-				'label'     => esc_html__( 'Post Terms', 'powerpack' ),
+				'label'     => esc_html__( 'Post Terms', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'post_terms',
 			array(
-				'label'        => esc_html__( 'Show Post Terms', 'powerpack' ),
+				'label'        => esc_html__( 'Show Post Terms', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -490,7 +490,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				$this->add_control(
 					'tax_badge_' . $post_type_slug,
 					array(
-						'label'     => esc_html__( 'Select Taxonomy', 'powerpack' ),
+						'label'     => esc_html__( 'Select Taxonomy', 'powerpack-lite-for-elementor' ),
 						'type'      => Controls_Manager::SELECT2,
 						'options'   => $related_tax,
 						'multiple'  => true,
@@ -507,7 +507,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'max_terms',
 			array(
-				'label'       => esc_html__( 'Max Terms to Show', 'powerpack' ),
+				'label'       => esc_html__( 'Max Terms to Show', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::NUMBER,
 				'default'     => 1,
 				'condition'   => array(
@@ -520,11 +520,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'post_taxonomy_link',
 			array(
-				'label'        => esc_html__( 'Link to Taxonomy', 'powerpack' ),
+				'label'        => esc_html__( 'Link to Taxonomy', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					$this->get_control_id( 'post_terms' ) => 'yes',
@@ -535,7 +535,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'post_terms_separator',
 			array(
-				'label'     => esc_html__( 'Terms Separator', 'powerpack' ),
+				'label'     => esc_html__( 'Terms Separator', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => ',',
 				'selectors' => array(
@@ -557,18 +557,18 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_image',
 			array(
-				'label'     => esc_html__( 'Image', 'powerpack' ),
+				'label'     => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'show_thumbnail',
 			array(
-				'label'        => esc_html__( 'Show Image', 'powerpack' ),
+				'label'        => esc_html__( 'Show Image', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -576,11 +576,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'thumbnail_link',
 			array(
-				'label'        => esc_html__( 'Link to Post', 'powerpack' ),
+				'label'        => esc_html__( 'Link to Post', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					$this->get_control_id( 'show_thumbnail' ) => 'yes',
@@ -591,7 +591,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'thumbnail_link_target',
 			array(
-				'label' => esc_html__( 'Open in a New Tab', 'powerpack' ),
+				'label' => esc_html__( 'Open in a New Tab', 'powerpack-lite-for-elementor' ),
 				'type'  => Controls_Manager::SWITCHER,
 				'condition' => array(
 					$this->get_control_id( 'show_thumbnail' ) => 'yes',
@@ -603,11 +603,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'thumbnail_custom_height',
 			array(
-				'label'        => esc_html__( 'Custom Height', 'powerpack' ),
+				'label'        => esc_html__( 'Custom Height', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'ratio',
 				'prefix_class' => 'pp-posts-thumbnail-',
 				'condition'    => array(
@@ -619,7 +619,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'thumbnail_ratio',
 			array(
-				'label'          => esc_html__( 'Image Ratio', 'powerpack' ),
+				'label'          => esc_html__( 'Image Ratio', 'powerpack-lite-for-elementor' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => array(
 					'size' => 1,
@@ -651,7 +651,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			Group_Control_Image_Size::get_type(),
 			array(
 				'name'      => 'thumbnail',
-				'label'     => esc_html__( 'Image Size', 'powerpack' ),
+				'label'     => esc_html__( 'Image Size', 'powerpack-lite-for-elementor' ),
 				'default'   => 'large',
 				'exclude'   => array( 'custom' ),
 				'condition' => array(
@@ -663,11 +663,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'thumbnail_location',
 			array(
-				'label'     => esc_html__( 'Image Location', 'powerpack' ),
+				'label'     => esc_html__( 'Image Location', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'inside'  => esc_html__( 'Inside Content Container', 'powerpack' ),
-					'outside' => esc_html__( 'Outside Content Container', 'powerpack' ),
+					'inside'  => esc_html__( 'Inside Content Container', 'powerpack-lite-for-elementor' ),
+					'outside' => esc_html__( 'Outside Content Container', 'powerpack-lite-for-elementor' ),
 				),
 				'default'   => 'outside',
 				'condition' => array(
@@ -679,13 +679,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'fallback_image',
 			array(
-				'label'       => esc_html__( 'Fallback Image', 'powerpack' ),
-				'description' => esc_html__( 'If a featured image is not available in post, it will display the first image from the post or default image placeholder or a custom image. You can choose None to do not display the fallback image.', 'powerpack' ),
+				'label'       => esc_html__( 'Fallback Image', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'If a featured image is not available in post, it will display the first image from the post or default image placeholder or a custom image. You can choose None to do not display the fallback image.', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'options'     => array(
-					'none'    => esc_html__( 'None', 'powerpack' ),
-					'default' => esc_html__( 'Default', 'powerpack' ),
-					'custom'  => esc_html__( 'Custom', 'powerpack' ),
+					'none'    => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
+					'default' => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
+					'custom'  => esc_html__( 'Custom', 'powerpack-lite-for-elementor' ),
 				),
 				'default'     => 'default',
 				'condition'   => array(
@@ -697,7 +697,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'fallback_image_custom',
 			array(
-				'label'     => esc_html__( 'Fallback Image Custom', 'powerpack' ),
+				'label'     => esc_html__( 'Fallback Image Custom', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::MEDIA,
 				'dynamic'   => array(
 					'active' => true,
@@ -719,18 +719,18 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_post_title',
 			array(
-				'label'     => esc_html__( 'Title', 'powerpack' ),
+				'label'     => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'post_title',
 			array(
-				'label'        => esc_html__( 'Post Title', 'powerpack' ),
+				'label'        => esc_html__( 'Post Title', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -738,11 +738,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'post_title_link',
 			array(
-				'label'        => esc_html__( 'Link to Post', 'powerpack' ),
+				'label'        => esc_html__( 'Link to Post', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					$this->get_control_id( 'post_title' ) => 'yes',
@@ -753,7 +753,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'post_title_link_target',
 			array(
-				'label' => esc_html__( 'Open in a New Tab', 'powerpack' ),
+				'label' => esc_html__( 'Open in a New Tab', 'powerpack-lite-for-elementor' ),
 				'type'  => Controls_Manager::SWITCHER,
 				'condition' => array(
 					$this->get_control_id( 'post_title' ) => 'yes',
@@ -765,19 +765,19 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'title_html_tag',
 			array(
-				'label'     => esc_html__( 'HTML Tag', 'powerpack' ),
+				'label'     => esc_html__( 'HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'h2',
 				'options'   => array(
-					'h1'   => esc_html__( 'H1', 'powerpack' ),
-					'h2'   => esc_html__( 'H2', 'powerpack' ),
-					'h3'   => esc_html__( 'H3', 'powerpack' ),
-					'h4'   => esc_html__( 'H4', 'powerpack' ),
-					'h5'   => esc_html__( 'H5', 'powerpack' ),
-					'h6'   => esc_html__( 'H6', 'powerpack' ),
-					'div'  => esc_html__( 'div', 'powerpack' ),
-					'span' => esc_html__( 'span', 'powerpack' ),
-					'p'    => esc_html__( 'p', 'powerpack' ),
+					'h1'   => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
+					'h2'   => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
+					'h3'   => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
+					'h4'   => esc_html__( 'H4', 'powerpack-lite-for-elementor' ),
+					'h5'   => esc_html__( 'H5', 'powerpack-lite-for-elementor' ),
+					'h6'   => esc_html__( 'H6', 'powerpack-lite-for-elementor' ),
+					'div'  => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
+					'span' => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
+					'p'    => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
 				),
 				'condition' => array(
 					$this->get_control_id( 'post_title' ) => 'yes',
@@ -788,11 +788,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'post_title_separator',
 			array(
-				'label'        => esc_html__( 'Title Separator', 'powerpack' ),
+				'label'        => esc_html__( 'Title Separator', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					$this->get_control_id( 'post_title' ) => 'yes',
@@ -810,18 +810,18 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_post_excerpt',
 			array(
-				'label'     => esc_html__( 'Content', 'powerpack' ),
+				'label'     => esc_html__( 'Content', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'show_excerpt',
 			array(
-				'label'        => esc_html__( 'Show Content', 'powerpack' ),
+				'label'        => esc_html__( 'Show Content', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -829,13 +829,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'content_type',
 			array(
-				'label'     => esc_html__( 'Content Type', 'powerpack' ),
+				'label'     => esc_html__( 'Content Type', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'excerpt',
 				'options'   => array(
-					'excerpt' => esc_html__( 'Excerpt', 'powerpack' ),
-					'content' => esc_html__( 'Limited Content', 'powerpack' ),
-					'full'    => esc_html__( 'Full Content', 'powerpack' ),
+					'excerpt' => esc_html__( 'Excerpt', 'powerpack-lite-for-elementor' ),
+					'content' => esc_html__( 'Limited Content', 'powerpack-lite-for-elementor' ),
+					'full'    => esc_html__( 'Full Content', 'powerpack-lite-for-elementor' ),
 				),
 				'condition' => array(
 					$this->get_control_id( 'show_excerpt' ) => 'yes',
@@ -846,7 +846,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'excerpt_length',
 			array(
-				'label'     => esc_html__( 'Excerpt Length', 'powerpack' ),
+				'label'     => esc_html__( 'Excerpt Length', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 20,
 				'min'       => 0,
@@ -861,9 +861,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'content_length',
 			array(
-				'label'       => esc_html__( 'Content Length', 'powerpack' ),
-				'title'       => esc_html__( 'Words', 'powerpack' ),
-				'description' => esc_html__( 'Number of words to be displayed from the post content', 'powerpack' ),
+				'label'       => esc_html__( 'Content Length', 'powerpack-lite-for-elementor' ),
+				'title'       => esc_html__( 'Words', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'Number of words to be displayed from the post content', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::NUMBER,
 				'default'     => 30,
 				'min'         => 0,
@@ -885,18 +885,18 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_post_meta',
 			array(
-				'label'     => esc_html__( 'Meta', 'powerpack' ),
+				'label'     => esc_html__( 'Meta', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'post_meta',
 			array(
-				'label'        => esc_html__( 'Post Meta', 'powerpack' ),
+				'label'        => esc_html__( 'Post Meta', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -904,7 +904,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'post_meta_separator',
 			array(
-				'label'     => esc_html__( 'Post Meta Separator', 'powerpack' ),
+				'label'     => esc_html__( 'Post Meta Separator', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '-',
 				'selectors' => array(
@@ -919,7 +919,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'heading_post_author',
 			array(
-				'label'     => esc_html__( 'Post Author', 'powerpack' ),
+				'label'     => esc_html__( 'Post Author', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -931,11 +931,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'show_author',
 			array(
-				'label'        => esc_html__( 'Show Post Author', 'powerpack' ),
+				'label'        => esc_html__( 'Show Post Author', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					$this->get_control_id( 'post_meta' ) => 'yes',
@@ -946,11 +946,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'author_link',
 			array(
-				'label'        => esc_html__( 'Link to Author', 'powerpack' ),
+				'label'        => esc_html__( 'Link to Author', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					$this->get_control_id( 'post_meta' )   => 'yes',
@@ -962,7 +962,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'select_author_icon',
 			array(
-				'label'            => esc_html__( 'Author Icon', 'powerpack' ),
+				'label'            => esc_html__( 'Author Icon', 'powerpack-lite-for-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'label_block'      => false,
 				'fa4compatibility' => $this->get_control_id( 'author_icon' ),
@@ -988,7 +988,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'author_prefix',
 			array(
-				'label'     => esc_html__( 'Prefix', 'powerpack' ),
+				'label'     => esc_html__( 'Prefix', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'condition' => array(
@@ -1001,7 +1001,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'heading_post_date',
 			array(
-				'label'     => esc_html__( 'Post Date', 'powerpack' ),
+				'label'     => esc_html__( 'Post Date', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1013,11 +1013,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'show_date',
 			array(
-				'label'        => esc_html__( 'Show Post Date', 'powerpack' ),
+				'label'        => esc_html__( 'Show Post Date', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					$this->get_control_id( 'post_meta' ) => 'yes',
@@ -1028,11 +1028,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'date_link',
 			array(
-				'label'        => esc_html__( 'Link to Post', 'powerpack' ),
+				'label'        => esc_html__( 'Link to Post', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					$this->get_control_id( 'post_meta' ) => 'yes',
@@ -1044,13 +1044,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'date_format',
 			array(
-				'label'     => esc_html__( 'Date Type', 'powerpack' ),
+				'label'     => esc_html__( 'Date Type', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					''         => esc_html__( 'Published Date', 'powerpack' ),
-					'ago'      => esc_html__( 'Time Ago', 'powerpack' ),
-					'modified' => esc_html__( 'Last Modified Date', 'powerpack' ),
-					'key'      => esc_html__( 'Custom Meta Key', 'powerpack' ),
+					''         => esc_html__( 'Published Date', 'powerpack-lite-for-elementor' ),
+					'ago'      => esc_html__( 'Time Ago', 'powerpack-lite-for-elementor' ),
+					'modified' => esc_html__( 'Last Modified Date', 'powerpack-lite-for-elementor' ),
+					'key'      => esc_html__( 'Custom Meta Key', 'powerpack-lite-for-elementor' ),
 				),
 				'default'   => '',
 				'condition' => array(
@@ -1063,8 +1063,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'date_meta_key',
 			array(
-				'label'       => esc_html__( 'Custom Meta Key', 'powerpack' ),
-				'description' => esc_html__( 'Display the post date stored in custom meta key.', 'powerpack' ),
+				'label'       => esc_html__( 'Custom Meta Key', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'Display the post date stored in custom meta key.', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => false,
 				'default'     => '',
@@ -1082,15 +1082,15 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'date_format_select',
 			array(
-				'label'     => esc_html__( 'Date Format', 'powerpack' ),
+				'label'     => esc_html__( 'Date Format', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					''       => esc_html__( 'Default', 'powerpack' ),
+					''       => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
 					'F j, Y' => gmdate( 'F j, Y' ),
 					'Y-m-d'  => gmdate( 'Y-m-d' ),
 					'm/d/Y'  => gmdate( 'm/d/Y' ),
 					'd/m/Y'  => gmdate( 'd/m/Y' ),
-					'custom' => esc_html__( 'Custom', 'powerpack' ),
+					'custom' => esc_html__( 'Custom', 'powerpack-lite-for-elementor' ),
 				),
 				'default'   => '',
 				'condition' => array(
@@ -1104,10 +1104,10 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'date_custom_format',
 			array(
-				'label'       => esc_html__( 'Custom Format', 'powerpack' ),
+				'label'       => esc_html__( 'Custom Format', 'powerpack-lite-for-elementor' ),
 				'description' => sprintf(
 					/* translators: 1: Link opening tag, 2: 2: Link closing tag. */
-					esc_html__( 'Refer to PHP date formats %1$shere%2$s', 'powerpack' ),
+					esc_html__( 'Refer to PHP date formats %1$shere%2$s', 'powerpack-lite-for-elementor' ),
 					sprintf( '<a href="%s" target="_blank">', 'https://wordpress.org/support/article/formatting-date-and-time/' ),
 					'</a>'
 				),
@@ -1129,7 +1129,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'select_date_icon',
 			array(
-				'label'            => esc_html__( 'Date Icon', 'powerpack' ),
+				'label'            => esc_html__( 'Date Icon', 'powerpack-lite-for-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'label_block'      => false,
 				'fa4compatibility' => $this->get_control_id( 'date_icon' ),
@@ -1156,7 +1156,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'date_prefix',
 			array(
-				'label'     => esc_html__( 'Prefix', 'powerpack' ),
+				'label'     => esc_html__( 'Prefix', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '',
 				'condition' => array(
@@ -1169,7 +1169,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'heading_post_comments',
 			array(
-				'label'     => esc_html__( 'Post Comments', 'powerpack' ),
+				'label'     => esc_html__( 'Post Comments', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1181,11 +1181,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'show_comments',
 			array(
-				'label'        => esc_html__( 'Show Post Comments', 'powerpack' ),
+				'label'        => esc_html__( 'Show Post Comments', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					$this->get_control_id( 'post_meta' ) => 'yes',
@@ -1196,11 +1196,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'hide_empty_comments',
 			array(
-				'label'        => esc_html__( 'Hide if Empty', 'powerpack' ),
+				'label'        => esc_html__( 'Hide if Empty', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					$this->get_control_id( 'post_meta' ) => 'yes',
@@ -1212,7 +1212,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'select_comments_icon',
 			array(
-				'label'            => esc_html__( 'Comments Icon', 'powerpack' ),
+				'label'            => esc_html__( 'Comments Icon', 'powerpack-lite-for-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'label_block'      => false,
 				'fa4compatibility' => $this->get_control_id( 'comments_icon' ),
@@ -1246,18 +1246,18 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_button',
 			array(
-				'label' => esc_html__( 'Read More Button', 'powerpack' ),
+				'label' => esc_html__( 'Read More Button', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'show_button',
 			array(
-				'label'        => esc_html__( 'Show Button', 'powerpack' ),
+				'label'        => esc_html__( 'Show Button', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -1265,12 +1265,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_text',
 			array(
-				'label'     => esc_html__( 'Button Text', 'powerpack' ),
+				'label'     => esc_html__( 'Button Text', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'dynamic'   => array(
 					'active' => true,
 				),
-				'default'   => esc_html__( 'Read More', 'powerpack' ),
+				'default'   => esc_html__( 'Read More', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
 				),
@@ -1280,7 +1280,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'select_button_icon',
 			array(
-				'label'            => esc_html__( 'Button Icon', 'powerpack' ),
+				'label'            => esc_html__( 'Button Icon', 'powerpack-lite-for-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => $this->get_control_id( 'button_icon' ),
 				'condition'        => array(
@@ -1292,12 +1292,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_icon_position',
 			array(
-				'label'     => esc_html__( 'Icon Position', 'powerpack' ),
+				'label'     => esc_html__( 'Icon Position', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'after',
 				'options'   => array(
-					'after'  => esc_html__( 'After', 'powerpack' ),
-					'before' => esc_html__( 'Before', 'powerpack' ),
+					'after'  => esc_html__( 'After', 'powerpack-lite-for-elementor' ),
+					'before' => esc_html__( 'Before', 'powerpack-lite-for-elementor' ),
 				),
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
@@ -1309,10 +1309,10 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_alignment',
 			[
-				'label'       => esc_html__( 'Automatically Align Buttons', 'powerpack' ),
+				'label'       => esc_html__( 'Automatically Align Buttons', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SWITCHER,
-				'label_on'    => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'   => esc_html__( 'No', 'powerpack' ),
+				'label_on'    => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'   => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'default'     => '',
 				'render_type' => 'template',
 				'condition'   => [
@@ -1325,7 +1325,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_link_target',
 			array(
-				'label'     => esc_html__( 'Open in a New Tab', 'powerpack' ),
+				'label'     => esc_html__( 'Open in a New Tab', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
@@ -1340,7 +1340,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_pagination',
 			array(
-				'label'     => esc_html__( 'Pagination', 'powerpack' ),
+				'label'     => esc_html__( 'Pagination', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
 				),
@@ -1350,15 +1350,15 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_type',
 			array(
-				'label'     => esc_html__( 'Pagination', 'powerpack' ),
+				'label'     => esc_html__( 'Pagination', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'none',
 				'options'   => array(
-					'none'                  => esc_html__( 'None', 'powerpack' ),
-					'numbers'               => esc_html__( 'Numbers', 'powerpack' ),
-					'numbers_and_prev_next' => esc_html__( 'Numbers', 'powerpack' ) . ' + ' . esc_html__( 'Previous/Next', 'powerpack' ),
-					'load_more'             => esc_html__( 'Load More Button', 'powerpack' ),
-					'infinite'              => esc_html__( 'Infinite', 'powerpack' ),
+					'none'                  => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
+					'numbers'               => esc_html__( 'Numbers', 'powerpack-lite-for-elementor' ),
+					'numbers_and_prev_next' => esc_html__( 'Numbers', 'powerpack-lite-for-elementor' ) . ' + ' . esc_html__( 'Previous/Next', 'powerpack-lite-for-elementor' ),
+					'load_more'             => esc_html__( 'Load More Button', 'powerpack-lite-for-elementor' ),
+					'infinite'              => esc_html__( 'Infinite', 'powerpack-lite-for-elementor' ),
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
@@ -1371,7 +1371,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This pagination option is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => esc_html__( 'This pagination option is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				'condition'       => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
@@ -1386,13 +1386,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_position',
 			array(
-				'label'     => esc_html__( 'Pagination Position', 'powerpack' ),
+				'label'     => esc_html__( 'Pagination Position', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'bottom',
 				'options'   => array(
-					'top'        => esc_html__( 'Top', 'powerpack' ),
-					'bottom'     => esc_html__( 'Bottom', 'powerpack' ),
-					'top-bottom' => esc_html__( 'Top', 'powerpack' ) . ' + ' . esc_html__( 'Bottom', 'powerpack' ),
+					'top'        => esc_html__( 'Top', 'powerpack-lite-for-elementor' ),
+					'bottom'     => esc_html__( 'Bottom', 'powerpack-lite-for-elementor' ),
+					'top-bottom' => esc_html__( 'Top', 'powerpack-lite-for-elementor' ) . ' + ' . esc_html__( 'Bottom', 'powerpack-lite-for-elementor' ),
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
@@ -1407,7 +1407,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_ajax',
 			array(
-				'label'     => esc_html__( 'Ajax Pagination', 'powerpack' ),
+				'label'     => esc_html__( 'Ajax Pagination', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'condition' => array(
@@ -1423,7 +1423,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_page_limit',
 			array(
-				'label'     => esc_html__( 'Page Limit', 'powerpack' ),
+				'label'     => esc_html__( 'Page Limit', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 5,
 				'condition' => array(
@@ -1439,7 +1439,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_numbers_shorten',
 			array(
-				'label'     => esc_html__( 'Shorten', 'powerpack' ),
+				'label'     => esc_html__( 'Shorten', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => '',
 				'condition' => array(
@@ -1455,8 +1455,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_prev_label',
 			array(
-				'label'     => esc_html__( 'Previous Label', 'powerpack' ),
-				'default'   => esc_html__( '&laquo; Previous', 'powerpack' ),
+				'label'     => esc_html__( 'Previous Label', 'powerpack-lite-for-elementor' ),
+				'default'   => esc_html__( '&laquo; Previous', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
 					$this->get_control_id( 'pagination_type' ) => 'numbers_and_prev_next',
@@ -1467,8 +1467,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_next_label',
 			array(
-				'label'     => esc_html__( 'Next Label', 'powerpack' ),
-				'default'   => esc_html__( 'Next &raquo;', 'powerpack' ),
+				'label'     => esc_html__( 'Next Label', 'powerpack-lite-for-elementor' ),
+				'default'   => esc_html__( 'Next &raquo;', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
 					$this->get_control_id( 'pagination_type' ) => 'numbers_and_prev_next',
@@ -1479,19 +1479,19 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_align',
 			array(
-				'label'     => esc_html__( 'Alignment', 'powerpack' ),
+				'label'     => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right'  => array(
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -1523,14 +1523,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_order',
 			array(
-				'label'     => esc_html__( 'Order', 'powerpack' ),
+				'label'     => esc_html__( 'Order', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'content_parts_order_heading',
 			array(
-				'label' => esc_html__( 'Content Parts', 'powerpack' ),
+				'label' => esc_html__( 'Content Parts', 'powerpack-lite-for-elementor' ),
 				'type'  => Controls_Manager::HEADING,
 			)
 		);
@@ -1538,7 +1538,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'thumbnail_order',
 			array(
-				'label'     => esc_html__( 'Thumbnail', 'powerpack' ),
+				'label'     => esc_html__( 'Thumbnail', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 1,
 				'min'       => 1,
@@ -1554,7 +1554,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'terms_order',
 			array(
-				'label'     => esc_html__( 'Terms', 'powerpack' ),
+				'label'     => esc_html__( 'Terms', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 1,
 				'min'       => 1,
@@ -1569,7 +1569,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'title_order',
 			array(
-				'label'     => esc_html__( 'Title', 'powerpack' ),
+				'label'     => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 1,
 				'min'       => 1,
@@ -1584,7 +1584,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'meta_order',
 			array(
-				'label'     => esc_html__( 'Meta', 'powerpack' ),
+				'label'     => esc_html__( 'Meta', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 1,
 				'min'       => 1,
@@ -1599,7 +1599,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'excerpt_order',
 			array(
-				'label'     => esc_html__( 'Excerpt', 'powerpack' ),
+				'label'     => esc_html__( 'Excerpt', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 1,
 				'min'       => 1,
@@ -1614,7 +1614,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_order',
 			array(
-				'label'     => esc_html__( 'Read More Button', 'powerpack' ),
+				'label'     => esc_html__( 'Read More Button', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 1,
 				'min'       => 1,
@@ -1629,7 +1629,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'meta_order_heading',
 			array(
-				'label'     => esc_html__( 'Post Meta', 'powerpack' ),
+				'label'     => esc_html__( 'Post Meta', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1641,7 +1641,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'author_order',
 			array(
-				'label'     => esc_html__( 'Author', 'powerpack' ),
+				'label'     => esc_html__( 'Author', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 1,
 				'min'       => 1,
@@ -1657,7 +1657,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'date_order',
 			array(
-				'label'     => esc_html__( 'Date', 'powerpack' ),
+				'label'     => esc_html__( 'Date', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 1,
 				'min'       => 1,
@@ -1673,7 +1673,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'comments_order',
 			array(
-				'label'     => esc_html__( 'Comments', 'powerpack' ),
+				'label'     => esc_html__( 'Comments', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 1,
 				'min'       => 1,
@@ -1710,7 +1710,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			$this->start_controls_section(
 				'section_help_docs',
 				array(
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				)
 			);
 
@@ -1743,7 +1743,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			$this->start_controls_section(
 				'section_upgrade_powerpack',
 				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', esc_html__( 'Get PowerPack Pro', 'powerpack' ) ),
+					'label' => apply_filters( 'upgrade_powerpack_title', esc_html__( 'Get PowerPack Pro', 'powerpack-lite-for-elementor' ) ),
 					'tab'   => Controls_Manager::TAB_CONTENT,
 				)
 			);
@@ -1753,7 +1753,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				array(
 					'label'           => '',
 					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				)
 			);
@@ -1774,7 +1774,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_layout_style',
 			array(
-				'label' => esc_html__( 'Layout', 'powerpack' ),
+				'label' => esc_html__( 'Layout', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1782,7 +1782,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'posts_horizontal_spacing',
 			array(
-				'label'      => esc_html__( 'Column Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Column Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -1805,7 +1805,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'posts_vertical_spacing',
 			array(
-				'label'      => esc_html__( 'Row Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Row Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -1837,7 +1837,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_post_box_style',
 			array(
-				'label' => esc_html__( 'Box', 'powerpack' ),
+				'label' => esc_html__( 'Box', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1847,14 +1847,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_post_box_normal',
 			array(
-				'label' => esc_html__( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'post_box_bg',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1867,7 +1867,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'post_box_border',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-post',
@@ -1877,7 +1877,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'post_box_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -1889,7 +1889,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'post_box_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
@@ -1911,14 +1911,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_post_box_hover',
 			array(
-				'label' => esc_html__( 'Hover', 'powerpack' ),
+				'label' => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'post_box_bg_hover',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1930,7 +1930,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'post_box_border_color_hover',
 			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1960,7 +1960,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_post_content_style',
 			array(
-				'label' => esc_html__( 'Content Container', 'powerpack' ),
+				'label' => esc_html__( 'Content Container', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1968,20 +1968,20 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'post_content_align',
 			array(
-				'label'       => esc_html__( 'Alignment', 'powerpack' ),
+				'label'       => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options'     => array(
 					'left'   => array(
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 				),
@@ -1995,7 +1995,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'post_content_bg',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2007,7 +2007,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'post_content_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -2019,7 +2019,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'post_content_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
@@ -2038,7 +2038,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_image_style',
 			array(
-				'label'     => esc_html__( 'Image', 'powerpack' ),
+				'label'     => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					$this->get_control_id( 'show_thumbnail' ) => 'yes',
@@ -2049,7 +2049,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'img_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -2064,7 +2064,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'image_spacing',
 			array(
-				'label'      => esc_html__( 'Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -2089,7 +2089,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'normal',
 			array(
-				'label'     => esc_html__( 'Normal', 'powerpack' ),
+				'label'     => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'show_thumbnail' ) => 'yes',
 				),
@@ -2135,7 +2135,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'hover',
 			array(
-				'label'     => esc_html__( 'Hover', 'powerpack' ),
+				'label'     => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'show_thumbnail' ) => 'yes',
 				),
@@ -2167,7 +2167,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'thumbnail_hover_animation',
 			[
-				'label' => esc_html__( 'Hover Animation', 'powerpack' ),
+				'label' => esc_html__( 'Hover Animation', 'powerpack-lite-for-elementor' ),
 				'type' => Controls_Manager::HOVER_ANIMATION,
 				'condition' => array(
 					$this->get_control_id( 'show_thumbnail' ) => 'yes',
@@ -2189,7 +2189,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			array(
-				'label'     => esc_html__( 'Title', 'powerpack' ),
+				'label'     => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					$this->get_control_id( 'post_title' ) => 'yes',
@@ -2200,7 +2200,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'title_color',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -2217,7 +2217,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'title_color_hover',
 			array(
-				'label'     => esc_html__( 'Hover Color', 'powerpack' ),
+				'label'     => esc_html__( 'Hover Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -2236,7 +2236,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'title_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
@@ -2261,7 +2261,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'title_margin_bottom',
 			array(
-				'label'      => esc_html__( 'Bottom Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Bottom Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -2286,7 +2286,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'title_separator_heading',
 			array(
-				'label'     => esc_html__( 'Separator', 'powerpack' ),
+				'label'     => esc_html__( 'Separator', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -2299,20 +2299,20 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'title_separator_align',
 			array(
-				'label'       => esc_html__( 'Alignment', 'powerpack' ),
+				'label'       => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options'     => array(
 					'flex-start'   => array(
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'flex-end'  => array(
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 				),
@@ -2346,7 +2346,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'title_separator_height',
 			array(
-				'label'      => esc_html__( 'Separator Height', 'powerpack' ),
+				'label'      => esc_html__( 'Separator Height', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'default'    => array(
@@ -2373,7 +2373,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'title_separator_width',
 			array(
-				'label'      => esc_html__( 'Separator Width', 'powerpack' ),
+				'label'      => esc_html__( 'Separator Width', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'default'    => array(
@@ -2405,7 +2405,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'title_separator_margin_bottom',
 			array(
-				'label'      => esc_html__( 'Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'default'    => array(
@@ -2438,7 +2438,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_terms_style',
 			array(
-				'label'     => esc_html__( 'Post Terms', 'powerpack' ),
+				'label'     => esc_html__( 'Post Terms', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					$this->get_control_id( 'post_terms' ) => 'yes',
@@ -2450,7 +2450,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'terms_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				],
@@ -2464,7 +2464,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'terms_margin_bottom',
 			array(
-				'label'      => esc_html__( 'Bottom Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Bottom Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'default'    => array(
@@ -2489,7 +2489,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'terms_gap',
 			array(
-				'label'      => esc_html__( 'Terms Gap', 'powerpack' ),
+				'label'      => esc_html__( 'Terms Gap', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'default'    => array(
@@ -2516,14 +2516,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'terms_style_normal',
 			array(
-				'label' => esc_html__( 'Normal', 'powerpack' ),
+				'label' => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'terms_bg_color',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-post-terms' => 'background: {{VALUE}}',
@@ -2537,7 +2537,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'terms_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2552,7 +2552,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'terms_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -2567,7 +2567,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'terms_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
@@ -2584,14 +2584,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'terms_style_hover',
 			array(
-				'label' => esc_html__( 'Hover', 'powerpack' ),
+				'label' => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'terms_bg_color_hover',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-post-terms:hover' => 'background: {{VALUE}}',
@@ -2605,7 +2605,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'terms_text_color_hover',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2630,7 +2630,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_excerpt_style',
 			array(
-				'label'     => esc_html__( 'Content', 'powerpack' ),
+				'label'     => esc_html__( 'Content', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					$this->get_control_id( 'show_excerpt' ) => 'yes',
@@ -2641,7 +2641,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'excerpt_color',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -2659,7 +2659,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'excerpt_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				],
@@ -2673,7 +2673,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'excerpt_margin_bottom',
 			array(
-				'label'      => esc_html__( 'Bottom Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Bottom Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -2706,7 +2706,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_meta_style',
 			array(
-				'label'     => esc_html__( 'Meta', 'powerpack' ),
+				'label'     => esc_html__( 'Meta', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					$this->get_control_id( 'post_meta' ) => 'yes',
@@ -2717,7 +2717,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'meta_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2732,7 +2732,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'meta_links_color',
 			array(
-				'label'     => esc_html__( 'Links Color', 'powerpack' ),
+				'label'     => esc_html__( 'Links Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2747,7 +2747,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'meta_links_color_hover',
 			array(
-				'label'     => esc_html__( 'Links Hover Color', 'powerpack' ),
+				'label'     => esc_html__( 'Links Hover Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2763,7 +2763,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'meta_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				],
@@ -2777,7 +2777,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'meta_items_spacing',
 			array(
-				'label'      => esc_html__( 'Meta Items Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Meta Items Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -2802,7 +2802,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'meta_margin_bottom',
 			array(
-				'label'      => esc_html__( 'Bottom Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Bottom Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -2836,7 +2836,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_button_style',
 			array(
-				'label'     => esc_html__( 'Read More Button', 'powerpack' ),
+				'label'     => esc_html__( 'Read More Button', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
@@ -2847,15 +2847,15 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_size',
 			array(
-				'label'     => esc_html__( 'Size', 'powerpack' ),
+				'label'     => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'sm',
 				'options'   => array(
-					'xs' => esc_html__( 'Extra Small', 'powerpack' ),
-					'sm' => esc_html__( 'Small', 'powerpack' ),
-					'md' => esc_html__( 'Medium', 'powerpack' ),
-					'lg' => esc_html__( 'Large', 'powerpack' ),
-					'xl' => esc_html__( 'Extra Large', 'powerpack' ),
+					'xs' => esc_html__( 'Extra Small', 'powerpack-lite-for-elementor' ),
+					'sm' => esc_html__( 'Small', 'powerpack-lite-for-elementor' ),
+					'md' => esc_html__( 'Medium', 'powerpack-lite-for-elementor' ),
+					'lg' => esc_html__( 'Large', 'powerpack-lite-for-elementor' ),
+					'xl' => esc_html__( 'Extra Large', 'powerpack-lite-for-elementor' ),
 				),
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
@@ -2867,7 +2867,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'button_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack' ),
+				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -2883,7 +2883,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			array(
-				'label'     => esc_html__( 'Normal', 'powerpack' ),
+				'label'     => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
 				),
@@ -2893,7 +2893,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_bg_color_normal',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -2911,7 +2911,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_text_color_normal',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -2927,7 +2927,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'button_border_normal',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-posts-button',
@@ -2940,7 +2940,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'button_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -2955,7 +2955,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'button_margin',
 			array(
-				'label'      => esc_html__( 'Margin', 'powerpack' ),
+				'label'      => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
@@ -2970,7 +2970,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'button_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
@@ -2996,7 +2996,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'read_more_button_icon_style_heading',
 			array(
-				'label'     => esc_html__( 'Button Icon', 'powerpack' ),
+				'label'     => esc_html__( 'Button Icon', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -3009,7 +3009,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_icon_spacing',
 			array(
-				'label'      => esc_html__( 'Icon Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Icon Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -3033,7 +3033,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			array(
-				'label'     => esc_html__( 'Hover', 'powerpack' ),
+				'label'     => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
 				),
@@ -3043,7 +3043,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_bg_color_hover',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3058,7 +3058,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_text_color_hover',
 			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3073,7 +3073,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_border_color_hover',
 			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3088,7 +3088,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'button_animation',
 			array(
-				'label'     => esc_html__( 'Animation', 'powerpack' ),
+				'label'     => esc_html__( 'Animation', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HOVER_ANIMATION,
 				'condition' => array(
 					$this->get_control_id( 'show_button' ) => 'yes',
@@ -3117,7 +3117,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_arrows_style',
 			array(
-				'label'     => esc_html__( 'Arrows', 'powerpack' ),
+				'label'     => esc_html__( 'Arrows', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -3129,7 +3129,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'select_arrow',
 			array(
-				'label'                  => esc_html__( 'Choose Arrow', 'powerpack' ),
+				'label'                  => esc_html__( 'Choose Arrow', 'powerpack-lite-for-elementor' ),
 				'type'                   => Controls_Manager::ICONS,
 				'fa4compatibility'       => 'arrow',
 				'label_block'            => false,
@@ -3170,7 +3170,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'arrows_size',
 			array(
-				'label'      => esc_html__( 'Arrows Size', 'powerpack' ),
+				'label'      => esc_html__( 'Arrows Size', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'default'    => array( 'size' => '22' ),
@@ -3194,7 +3194,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'arrows_position',
 			array(
-				'label'      => esc_html__( 'Align Arrows', 'powerpack' ),
+				'label'      => esc_html__( 'Align Arrows', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -3220,7 +3220,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_arrows_normal',
 			array(
-				'label'     => esc_html__( 'Normal', 'powerpack' ),
+				'label'     => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 					$this->get_control_id( 'arrows' ) => 'yes',
@@ -3231,7 +3231,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'arrows_bg_color_normal',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3247,7 +3247,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'arrows_color_normal',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3264,7 +3264,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'arrows_border_normal',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-slider-arrow',
@@ -3278,7 +3278,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'arrows_border_radius_normal',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -3296,7 +3296,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_arrows_hover',
 			array(
-				'label'     => esc_html__( 'Hover', 'powerpack' ),
+				'label'     => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 					$this->get_control_id( 'arrows' ) => 'yes',
@@ -3307,7 +3307,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'arrows_bg_color_hover',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3323,7 +3323,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'arrows_color_hover',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3339,7 +3339,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'arrows_border_color_hover',
 			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3359,7 +3359,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'arrows_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
@@ -3380,7 +3380,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_dots_style',
 			array(
-				'label'     => esc_html__( 'Dots', 'powerpack' ),
+				'label'     => esc_html__( 'Dots', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
@@ -3392,11 +3392,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'dots_position',
 			[
-				'label'                 => esc_html__( 'Position', 'powerpack' ),
+				'label'                 => esc_html__( 'Position', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'inside'     => esc_html__( 'Inside', 'powerpack' ),
-					'outside'    => esc_html__( 'Outside', 'powerpack' ),
+					'inside'     => esc_html__( 'Inside', 'powerpack-lite-for-elementor' ),
+					'outside'    => esc_html__( 'Outside', 'powerpack-lite-for-elementor' ),
 				],
 				'default'               => 'outside',
 				'condition' => array(
@@ -3409,7 +3409,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'dots_size',
 			array(
-				'label'      => esc_html__( 'Size', 'powerpack' ),
+				'label'      => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -3432,7 +3432,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'dots_spacing',
 			array(
-				'label'      => esc_html__( 'Spacing', 'powerpack' ),
+				'label'      => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -3457,7 +3457,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_dots_normal',
 			array(
-				'label'     => esc_html__( 'Normal', 'powerpack' ),
+				'label'     => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 					$this->get_control_id( 'dots' )   => 'yes',
@@ -3468,7 +3468,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'dots_color_normal',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3485,7 +3485,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'dots_border_normal',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet',
@@ -3499,7 +3499,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'dots_border_radius_normal',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -3515,7 +3515,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'dots_margin',
 			array(
-				'label'              => esc_html__( 'Margin', 'powerpack' ),
+				'label'              => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::DIMENSIONS,
 				'size_units'         => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'allowed_dimensions' => 'vertical',
@@ -3540,7 +3540,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_dots_active',
 			array(
-				'label'     => esc_html__( 'Active', 'powerpack' ),
+				'label'     => esc_html__( 'Active', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 					$this->get_control_id( 'dots' )   => 'yes',
@@ -3551,7 +3551,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'dots_color_active',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3567,7 +3567,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'dots_border_color_active',
 			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3585,7 +3585,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_dots_hover',
 			array(
-				'label'     => esc_html__( 'Hover', 'powerpack' ),
+				'label'     => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout' ) => 'carousel',
 					$this->get_control_id( 'dots' )   => 'yes',
@@ -3596,7 +3596,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'dots_color_hover',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3612,7 +3612,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'dots_border_color_hover',
 			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3636,7 +3636,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_pagination_style',
 			array(
-				'label'     => esc_html__( 'Pagination', 'powerpack' ),
+				'label'     => esc_html__( 'Pagination', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
@@ -3648,7 +3648,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'pagination_margin_top',
 			array(
-				'label'      => esc_html__( 'Gap between Posts & Pagination', 'powerpack' ),
+				'label'      => esc_html__( 'Gap between Posts & Pagination', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'default'    => array(
@@ -3691,7 +3691,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_pagination_normal',
 			array(
-				'label'     => esc_html__( 'Normal', 'powerpack' ),
+				'label'     => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
 					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
@@ -3702,7 +3702,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_link_bg_color_normal',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3718,7 +3718,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_color',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a' => 'color: {{VALUE}};',
@@ -3734,7 +3734,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'pagination_link_border_normal',
-				'label'       => esc_html__( 'Border', 'powerpack' ),
+				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-posts-pagination .page-numbers, {{WRAPPER}} .pp-posts-pagination a',
@@ -3748,7 +3748,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'pagination_link_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
@@ -3764,7 +3764,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'pagination_link_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
@@ -3794,7 +3794,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_pagination_hover',
 			array(
-				'label'     => esc_html__( 'Hover', 'powerpack' ),
+				'label'     => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
 					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
@@ -3805,7 +3805,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_link_bg_color_hover',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3821,7 +3821,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_color_hover',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-posts-pagination a:hover' => 'color: {{VALUE}};',
@@ -3836,7 +3836,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_border_color_hover',
 			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-posts-pagination a:hover' => 'border-color: {{VALUE}};',
@@ -3865,7 +3865,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_pagination_active',
 			array(
-				'label'     => esc_html__( 'Active', 'powerpack' ),
+				'label'     => esc_html__( 'Active', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
 					$this->get_control_id( 'pagination_type' ) => array( 'numbers', 'numbers_and_prev_next' ),
@@ -3876,7 +3876,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_link_bg_color_active',
 			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -3892,7 +3892,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_color_active',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-posts-pagination .page-numbers.current' => 'color: {{VALUE}};',
@@ -3907,7 +3907,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'pagination_border_color_active',
 			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack' ),
+				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-posts-pagination .page-numbers.current' => 'border-color: {{VALUE}};',
@@ -3938,7 +3938,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'pagination_spacing',
 			array(
-				'label'      => esc_html__( 'Space Between', 'powerpack' ),
+				'label'      => esc_html__( 'Space Between', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'separator'  => 'before',
@@ -3967,7 +3967,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'heading_loader',
 			array(
-				'label'     => esc_html__( 'Loader', 'powerpack' ),
+				'label'     => esc_html__( 'Loader', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -3980,7 +3980,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_control(
 			'loader_color',
 			array(
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-loader:after, {{WRAPPER}} .pp-posts-loader:after' => 'border-bottom-color: {{VALUE}}; border-top-color: {{VALUE}};',
@@ -3995,7 +3995,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'loader_size',
 			array(
-				'label'      => esc_html__( 'Size', 'powerpack' ),
+				'label'      => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem', 'custom' ),
 				'range'      => array(
@@ -4286,7 +4286,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		}
 
 		if ( 'ago' === $date_type ) {
-			$date = sprintf( _x( '%s ago', '%s = human-readable time difference', 'powerpack' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+			$date = sprintf( _x( '%s ago', '%s = human-readable time difference', 'powerpack-lite-for-elementor' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
 		} elseif ( 'modified' === $date_type ) {
 			$date = get_the_modified_date( $date_format, get_the_ID() );
 		} elseif ( 'key' === $date_type ) {
@@ -4601,11 +4601,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				echo apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 				wp_link_pages( [
-					'before' => '<div class="page-links elementor-page-links"><span class="page-links-title elementor-page-links-title">' . esc_html__( 'Pages:', 'powerpack' ) . '</span>',
+					'before' => '<div class="page-links elementor-page-links"><span class="page-links-title elementor-page-links-title">' . esc_html__( 'Pages:', 'powerpack-lite-for-elementor' ) . '</span>',
 					'after' => '</div>',
 					'link_before' => '<span>',
 					'link_after' => '</span>',
-					'pagelink' => '<span class="screen-reader-text">' . esc_html__( 'Page', 'powerpack' ) . ' </span>%',
+					'pagelink' => '<span class="screen-reader-text">' . esc_html__( 'Page', 'powerpack-lite-for-elementor' ) . ' </span>%',
 					'separator' => '<span class="screen-reader-text">, </span>',
 				] );
 
@@ -4766,7 +4766,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'title'      => $title_attribute,
 				'aria-label' => apply_filters( 'ppe_posts_button_aria_label', sprintf(
 					/* translators: Aria-label describing the read more button */
-					esc_attr__( 'Read more about %1$s', 'powerpack' ),
+					esc_attr__( 'Read more about %1$s', 'powerpack-lite-for-elementor' ),
 					$title_attribute
 				), get_the_ID() ),
 			)
@@ -4953,7 +4953,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				$pagination_type = 'ajax';
 			}
 			?>
-			<nav class="pp-posts-pagination pp-posts-pagination-<?php echo esc_attr( $pagination_type ); ?> elementor-pagination" role="navigation" aria-label="<?php esc_attr_e( 'Pagination', 'powerpack' ); ?>" data-total="<?php echo esc_html( $total_pages_pagination ); ?>">
+			<nav class="pp-posts-pagination pp-posts-pagination-<?php echo esc_attr( $pagination_type ); ?> elementor-pagination" role="navigation" aria-label="<?php esc_attr_e( 'Pagination', 'powerpack-lite-for-elementor' ); ?>" data-total="<?php echo esc_html( $total_pages_pagination ); ?>">
 				<?php echo implode( PHP_EOL, $links ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</nav>
 			<?php

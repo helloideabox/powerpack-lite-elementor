@@ -35,11 +35,11 @@ class Group_Control_Transition extends Group_Control_Base {
 	 */
 	public static function get_transition_effects() {
 		return [
-			'linear' 		=> esc_html__( 'Linear', 'powerpack' ),
-			'ease'			=> esc_html__( 'Ease', 'powerpack' ),
-			'ease-in' 		=> esc_html__( 'Ease In', 'powerpack' ),
-			'ease-out' 		=> esc_html__( 'Ease Out', 'powerpack' ),
-			'ease-in-out' 	=> esc_html__( 'Ease In Out', 'powerpack' ),
+			'linear' 		=> esc_html__( 'Linear', 'powerpack-lite-for-elementor' ),
+			'ease'			=> esc_html__( 'Ease', 'powerpack-lite-for-elementor' ),
+			'ease-in' 		=> esc_html__( 'Ease In', 'powerpack-lite-for-elementor' ),
+			'ease-out' 		=> esc_html__( 'Ease Out', 'powerpack-lite-for-elementor' ),
+			'ease-in-out' 	=> esc_html__( 'Ease In Out', 'powerpack-lite-for-elementor' ),
 		];
 	}
 
@@ -51,11 +51,11 @@ class Group_Control_Transition extends Group_Control_Base {
 		$controls = [];
 
 		$controls['property'] = [
-			'label'			=> _x( 'Property', 'Transition Control', 'powerpack' ),
+			'label'			=> _x( 'Property', 'Transition Control', 'powerpack-lite-for-elementor' ),
 			'type' 			=> Controls_Manager::SELECT,
 			'default' 		=> 'all',
 			'options'		=> [
-				'all'		=> esc_html__( 'All', 'powerpack' ),
+				'all'		=> esc_html__( 'All', 'powerpack-lite-for-elementor' ),
 			],
 			'selectors' => [
 				'{{SELECTOR}}' => 'transition-property: {{VALUE}}',
@@ -63,7 +63,7 @@ class Group_Control_Transition extends Group_Control_Base {
 		];
 
 		$controls['function'] = [
-			'label'			=> _x( 'Effect', 'Transition Control', 'powerpack' ),
+			'label'			=> _x( 'Effect', 'Transition Control', 'powerpack-lite-for-elementor' ),
 			'type' 			=> Controls_Manager::SELECT,
 			'default' 		=> 'linear',
 			'options'		=> self::get_transition_effects(),
@@ -73,7 +73,7 @@ class Group_Control_Transition extends Group_Control_Base {
 		];
 
 		$controls['duration'] = [
-			'label'			=> _x( 'Duration', 'Transition Control', 'powerpack' ),
+			'label'			=> _x( 'Duration', 'Transition Control', 'powerpack-lite-for-elementor' ),
 			'type' 			=> Controls_Manager::NUMBER,
 			'default' 		=> 0.25,
 			'min' 			=> 0.05,
@@ -85,7 +85,7 @@ class Group_Control_Transition extends Group_Control_Base {
 		];
 
 		$controls['delay'] = [
-			'label'			=> _x( 'Delay', 'Transition Control', 'powerpack' ),
+			'label'			=> _x( 'Delay', 'Transition Control', 'powerpack-lite-for-elementor' ),
 			'type' 			=> Controls_Manager::NUMBER,
 			'default' 		=> 0,
 			'min' 			=> 0,
@@ -134,7 +134,7 @@ class Group_Control_Transition extends Group_Control_Base {
 		return [
 			'popover' => [
 				'starter_name' 	=> 'transition',
-				'starter_title' => _x( 'Transition', 'Transition Control', 'powerpack' ),
+				'starter_title' => _x( 'Transition', 'Transition Control', 'powerpack-lite-for-elementor' ),
 			],
 		];
 	}

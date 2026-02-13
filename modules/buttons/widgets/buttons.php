@@ -130,7 +130,7 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_list',
 			[
-				'label'                 => esc_html__( 'Buttons', 'powerpack' ),
+				'label'                 => esc_html__( 'Buttons', 'powerpack-lite-for-elementor' ),
 			]
 		);
 		$repeater = new Repeater();
@@ -140,17 +140,17 @@ class Buttons extends Powerpack_Widget {
 			$repeater->start_controls_tab(
 				'button_general',
 				[
-					'label' => esc_html__( 'Content', 'powerpack' ),
+					'label' => esc_html__( 'Content', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
 			$repeater->add_control(
 				'text',
 				[
-					'label'             => esc_html__( 'Text', 'powerpack' ),
+					'label'             => esc_html__( 'Text', 'powerpack-lite-for-elementor' ),
 					'type'              => Controls_Manager::TEXT,
-					'default'           => esc_html__( 'Button #1', 'powerpack' ),
-					'placeholder'       => esc_html__( 'Button #1', 'powerpack' ),
+					'default'           => esc_html__( 'Button #1', 'powerpack-lite-for-elementor' ),
+					'placeholder'       => esc_html__( 'Button #1', 'powerpack-lite-for-elementor' ),
 					'dynamic'           => [
 						'active' => true,
 					],
@@ -159,26 +159,26 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'pp_icon_type',
 				[
-					'label'             => esc_html__( 'Icon Type', 'powerpack' ),
+					'label'             => esc_html__( 'Icon Type', 'powerpack-lite-for-elementor' ),
 					'type'              => Controls_Manager::CHOOSE,
 					'label_block'       => false,
 					'toggle'            => false,
 					'default'           => 'icon',
 					'options'           => [
 						'none'  => [
-							'title' => esc_html__( 'None', 'powerpack' ),
+							'title' => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
 							'icon'  => 'eicon-ban',
 						],
 						'icon'  => [
-							'title' => esc_html__( 'Icon', 'powerpack' ),
+							'title' => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 							'icon'  => 'eicon-star',
 						],
 						'image' => [
-							'title' => esc_html__( 'Image', 'powerpack' ),
+							'title' => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 							'icon'  => 'eicon-image-bold',
 						],
 						'text'  => [
-							'title' => esc_html__( 'Text', 'powerpack' ),
+							'title' => esc_html__( 'Text', 'powerpack-lite-for-elementor' ),
 							'icon'  => 'eicon-font',
 						],
 					],
@@ -187,7 +187,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'selected_icon',
 				[
-					'label'             => esc_html__( 'Icon', 'powerpack' ),
+					'label'             => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 					'type'              => Controls_Manager::ICONS,
 					'label_block'       => true,
 					'default'           => [
@@ -203,7 +203,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'icon_img',
 				[
-					'label'             => esc_html__( 'Image', 'powerpack' ),
+					'label'             => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 					'label_block'       => true,
 					'type'              => Controls_Manager::MEDIA,
 					'default'           => [
@@ -221,7 +221,7 @@ class Buttons extends Powerpack_Widget {
 				Group_Control_Image_Size::get_type(),
 				array(
 					'name'      => 'icon_img',
-					'label'     => esc_html__( 'Image Size', 'powerpack' ),
+					'label'     => esc_html__( 'Image Size', 'powerpack-lite-for-elementor' ),
 					'default'   => 'full',
 					'condition' => array(
 						'pp_icon_type' => 'image',
@@ -231,10 +231,10 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'icon_text',
 				[
-					'label'             => esc_html__( 'Icon Text', 'powerpack' ),
+					'label'             => esc_html__( 'Icon Text', 'powerpack-lite-for-elementor' ),
 					'label_block'       => false,
 					'type'              => Controls_Manager::TEXT,
-					'default'           => esc_html__( '1', 'powerpack' ),
+					'default'           => esc_html__( '1', 'powerpack-lite-for-elementor' ),
 					'dynamic'           => [
 						'active'  => true,
 					],
@@ -247,21 +247,21 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'has_tooltip',
 				[
-					'label'         => esc_html__( 'Enable Tooltip', 'powerpack' ),
+					'label'         => esc_html__( 'Enable Tooltip', 'powerpack-lite-for-elementor' ),
 					'type'          => Controls_Manager::SWITCHER,
 					'default'       => 'no',
-					'yes'       => esc_html__( 'Yes', 'powerpack' ),
-					'no'        => esc_html__( 'No', 'powerpack' ),
+					'yes'       => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+					'no'        => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
 			$repeater->add_control(
 				'tooltip_content',
 				[
-					'label'         => esc_html__( 'Tooltip Content', 'powerpack' ),
+					'label'         => esc_html__( 'Tooltip Content', 'powerpack-lite-for-elementor' ),
 					'type'          => Controls_Manager::TEXTAREA,
-					'default'       => esc_html__( 'I am a tooltip for a button', 'powerpack' ),
-					'placeholder'   => esc_html__( 'I am a tooltip for a button', 'powerpack' ),
+					'default'       => esc_html__( 'I am a tooltip for a button', 'powerpack-lite-for-elementor' ),
+					'placeholder'   => esc_html__( 'I am a tooltip for a button', 'powerpack-lite-for-elementor' ),
 					'rows'          => 5,
 					'condition'     => [
 						'has_tooltip'   => 'yes',
@@ -272,20 +272,20 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'link',
 				[
-					'label'             => esc_html__( 'Link', 'powerpack' ),
+					'label'             => esc_html__( 'Link', 'powerpack-lite-for-elementor' ),
 					'type'              => Controls_Manager::URL,
 					'dynamic'           => [
 						'active'  => true,
 					],
 					'label_block'       => true,
-					'placeholder'       => esc_html__( 'http://your-link.com', 'powerpack' ),
+					'placeholder'       => esc_html__( 'http://your-link.com', 'powerpack-lite-for-elementor' ),
 				]
 			);
 			$repeater->add_control(
 				'css_id',
 				[
-					'label'       => esc_html__( 'CSS ID', 'powerpack' ),
-					'title'       => esc_html__( 'Add your custom ID WITHOUT the # key. e.g: my-id', 'powerpack' ),
+					'label'       => esc_html__( 'CSS ID', 'powerpack-lite-for-elementor' ),
+					'title'       => esc_html__( 'Add your custom ID WITHOUT the # key. e.g: my-id', 'powerpack-lite-for-elementor' ),
 					'label_block' => false,
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => [
@@ -299,8 +299,8 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'css_classes',
 				[
-					'label'       => esc_html__( 'CSS Classes', 'powerpack' ),
-					'title'       => esc_html__( 'Add your custom class WITHOUT the dot. e.g: my-class', 'powerpack' ),
+					'label'       => esc_html__( 'CSS Classes', 'powerpack-lite-for-elementor' ),
+					'title'       => esc_html__( 'Add your custom class WITHOUT the dot. e.g: my-class', 'powerpack-lite-for-elementor' ),
 					'label_block' => false,
 					'type'        => Controls_Manager::TEXT,
 					'dynamic'     => [
@@ -317,24 +317,24 @@ class Buttons extends Powerpack_Widget {
 			$repeater->start_controls_tab(
 				'button_layout_tab',
 				[
-					'label' => esc_html__( 'Layout', 'powerpack' ),
+					'label' => esc_html__( 'Layout', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
 			$repeater->add_control(
 				'single_button_size',
 				[
-					'label'                 => esc_html__( 'Button Size', 'powerpack' ),
+					'label'                 => esc_html__( 'Button Size', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::SELECT,
 					'default'               => 'default',
 					'options'               => [
-						'default' => esc_html__( 'Default', 'powerpack' ),
-						'xs' => esc_html__( 'Extra Small', 'powerpack' ),
-						'sm' => esc_html__( 'Small', 'powerpack' ),
-						'md' => esc_html__( 'Medium', 'powerpack' ),
-						'lg' => esc_html__( 'Large', 'powerpack' ),
-						'xl' => esc_html__( 'Extra Large', 'powerpack' ),
-						'custom' => esc_html__( 'Custom', 'powerpack' ),
+						'default' => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
+						'xs' => esc_html__( 'Extra Small', 'powerpack-lite-for-elementor' ),
+						'sm' => esc_html__( 'Small', 'powerpack-lite-for-elementor' ),
+						'md' => esc_html__( 'Medium', 'powerpack-lite-for-elementor' ),
+						'lg' => esc_html__( 'Large', 'powerpack-lite-for-elementor' ),
+						'xl' => esc_html__( 'Extra Large', 'powerpack-lite-for-elementor' ),
+						'custom' => esc_html__( 'Custom', 'powerpack-lite-for-elementor' ),
 					],
 				]
 			);
@@ -342,7 +342,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_responsive_control(
 				'single_button_width',
 				[
-					'label'                 => esc_html__( 'Button Width', 'powerpack' ),
+					'label'                 => esc_html__( 'Button Width', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::SLIDER,
 					'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 					'range'                 => [
@@ -364,7 +364,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_responsive_control(
 				'single_button_padding',
 				[
-					'label'                 => esc_html__( 'Padding', 'powerpack' ),
+					'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
 					'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 					'selectors'             => [
@@ -378,7 +378,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->start_controls_tab(
 				'button_style_tabs',
 				[
-					'label' => esc_html__( 'Style', 'powerpack' ),
+					'label' => esc_html__( 'Style', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -386,7 +386,7 @@ class Buttons extends Powerpack_Widget {
 				Group_Control_Typography::get_type(),
 				[
 					'name'                  => 'single_title_typography',
-					'label'                 => esc_html__( 'Button Typography', 'powerpack' ),
+					'label'                 => esc_html__( 'Button Typography', 'powerpack-lite-for-elementor' ),
 					'global'                => [
 						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 					],
@@ -405,7 +405,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_responsive_control(
 				'single_icon_size',
 				[
-					'label'                 => esc_html__( 'Icon Size', 'powerpack' ),
+					'label'                 => esc_html__( 'Icon Size', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::SLIDER,
 					'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 					'range'                 => [
@@ -428,7 +428,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_normal_options',
 				[
-					'label'     => esc_html__( 'Normal', 'powerpack' ),
+					'label'     => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 					'type'      => Controls_Manager::HEADING,
 					'separator' => 'after',
 				]
@@ -436,7 +436,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_button_bg_color',
 				[
-					'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -447,7 +447,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_text_color',
 				[
-					'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -458,7 +458,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_icon_color',
 				[
-					'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Icon Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -471,7 +471,7 @@ class Buttons extends Powerpack_Widget {
 				Group_Control_Border::get_type(),
 				[
 					'name'                  => 'single_button_border',
-					'label'                 => esc_html__( 'Border', 'powerpack' ),
+					'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 					'placeholder'           => '1px',
 					'default'               => '1px',
 					'selector'              => '{{WRAPPER}} {{CURRENT_ITEM}}.pp-button',
@@ -480,7 +480,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_button_border_radius',
 				[
-					'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+					'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
 					'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 					'selectors'             => [
@@ -492,7 +492,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_hover_options',
 				[
-					'label' => esc_html__( 'Hover', 'powerpack' ),
+					'label' => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 					'type'  => Controls_Manager::HEADING,
 					'separator' => 'after',
 				]
@@ -501,7 +501,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_button_bg_color_hover',
 				[
-					'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -513,7 +513,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_text_color_hover',
 				[
-					'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -525,7 +525,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_icon_color_hover',
 				[
-					'label'                 => esc_html__( 'Icon Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Icon Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -538,7 +538,7 @@ class Buttons extends Powerpack_Widget {
 			$repeater->add_control(
 				'single_border_color_hover',
 				[
-					'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -554,17 +554,17 @@ class Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'buttons',
 			[
-				'label'       => esc_html__( 'Buttons', 'powerpack' ),
+				'label'       => esc_html__( 'Buttons', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::REPEATER,
 				'show_label'  => true,
 				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ text }}}',
 				'default'     => [
 					[
-						'text' => esc_html__( 'Button #1', 'powerpack' ),
+						'text' => esc_html__( 'Button #1', 'powerpack-lite-for-elementor' ),
 					],
 					[
-						'text' => esc_html__( 'Button #2', 'powerpack' ),
+						'text' => esc_html__( 'Button #2', 'powerpack-lite-for-elementor' ),
 					],
 				],
 			]
@@ -575,7 +575,7 @@ class Buttons extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_upgrade_powerpack',
 				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack' ) ),
+					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack-lite-for-elementor' ) ),
 					'tab'   => Controls_Manager::TAB_CONTENT,
 				)
 			);
@@ -585,7 +585,7 @@ class Buttons extends Powerpack_Widget {
 				array(
 					'label'           => '',
 					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				)
 			);
@@ -599,29 +599,29 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'button_layout',
 			[
-				'label' => esc_html__( 'Layout', 'powerpack' ),
+				'label' => esc_html__( 'Layout', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'button_size',
 			[
-				'label'                 => esc_html__( 'Buttons Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Buttons Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'sm',
 				'options'               => [
-					'xs' => esc_html__( 'Extra Small', 'powerpack' ),
-					'sm' => esc_html__( 'Small', 'powerpack' ),
-					'md' => esc_html__( 'Medium', 'powerpack' ),
-					'lg' => esc_html__( 'Large', 'powerpack' ),
-					'xl' => esc_html__( 'Extra Large', 'powerpack' ),
+					'xs' => esc_html__( 'Extra Small', 'powerpack-lite-for-elementor' ),
+					'sm' => esc_html__( 'Small', 'powerpack-lite-for-elementor' ),
+					'md' => esc_html__( 'Medium', 'powerpack-lite-for-elementor' ),
+					'lg' => esc_html__( 'Large', 'powerpack-lite-for-elementor' ),
+					'xl' => esc_html__( 'Extra Large', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
 		$this->add_responsive_control(
 			'button_spacing',
 			[
-				'label'                 => esc_html__( 'Buttons Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Buttons Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => array(  'px', 'em', 'rem', 'custom' ),
 				'default'               => [
@@ -642,24 +642,24 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'vertical_align',
 			[
-				'label'                 => esc_html__( 'Vertical Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Vertical Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'middle',
 				'options'               => [
 					'top'           => [
-						'title'     => esc_html__( 'Top', 'powerpack' ),
+						'title'     => esc_html__( 'Top', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-v-align-top',
 					],
 					'middle'        => [
-						'title'     => esc_html__( 'Middle', 'powerpack' ),
+						'title'     => esc_html__( 'Middle', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-v-align-middle',
 					],
 					'bottom'        => [
-						'title'     => esc_html__( 'Bottom', 'powerpack' ),
+						'title'     => esc_html__( 'Bottom', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-v-align-bottom',
 					],
 					'stretch'       => [
-						'title'     => esc_html__( 'Stretch', 'powerpack' ),
+						'title'     => esc_html__( 'Stretch', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-v-align-stretch',
 					],
 				],
@@ -670,24 +670,24 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_align',
 			[
-				'label'                 => esc_html__( 'Horizontal Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Horizontal Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'left',
 				'options'               => [
 					'left'          => [
-						'title'     => esc_html__( 'Left', 'powerpack' ),
+						'title'     => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-h-align-left',
 					],
 					'center'        => [
-						'title'     => esc_html__( 'Center', 'powerpack' ),
+						'title'     => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-h-align-center',
 					],
 					'right'         => [
-						'title'     => esc_html__( 'Right', 'powerpack' ),
+						'title'     => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-h-align-right',
 					],
 					'stretch'       => [
-						'title'     => esc_html__( 'Stretch', 'powerpack' ),
+						'title'     => esc_html__( 'Stretch', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-h-align-stretch',
 					],
 				],
@@ -698,24 +698,24 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_align',
 			[
-				'label'                 => esc_html__( 'Content Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Content Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'left',
 				'options'               => [
 					'left'          => [
-						'title'     => esc_html__( 'Left', 'powerpack' ),
+						'title'     => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-h-align-left',
 					],
 					'center'        => [
-						'title'     => esc_html__( 'Center', 'powerpack' ),
+						'title'     => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-h-align-center',
 					],
 					'right'         => [
-						'title'     => esc_html__( 'Right', 'powerpack' ),
+						'title'     => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-h-align-right',
 					],
 					'stretch'       => [
-						'title'     => esc_html__( 'Stretch', 'powerpack' ),
+						'title'     => esc_html__( 'Stretch', 'powerpack-lite-for-elementor' ),
 						'icon'      => 'eicon-h-align-stretch',
 					],
 				],
@@ -737,15 +737,15 @@ class Buttons extends Powerpack_Widget {
 		$this->add_control(
 			'stack_on',
 			[
-				'label'                 => esc_html__( 'Stack on', 'powerpack' ),
+				'label'                 => esc_html__( 'Stack on', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'none',
-				'description'           => esc_html__( 'Choose a breakpoint where the buttons will stack.', 'powerpack' ),
+				'description'           => esc_html__( 'Choose a breakpoint where the buttons will stack.', 'powerpack-lite-for-elementor' ),
 				'options'               => [
-					'none'    => esc_html__( 'None', 'powerpack' ),
-					'desktop' => esc_html__( 'Desktop', 'powerpack' ),
-					'tablet'  => esc_html__( 'Tablet', 'powerpack' ),
-					'mobile'  => esc_html__( 'Mobile', 'powerpack' ),
+					'none'    => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
+					'desktop' => esc_html__( 'Desktop', 'powerpack-lite-for-elementor' ),
+					'tablet'  => esc_html__( 'Tablet', 'powerpack-lite-for-elementor' ),
+					'mobile'  => esc_html__( 'Mobile', 'powerpack-lite-for-elementor' ),
 				],
 				'prefix_class'          => 'pp-buttons-stack-',
 			]
@@ -754,7 +754,7 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors'             => [
@@ -772,7 +772,7 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_info_box_button_style',
 			[
-				'label'                 => esc_html__( 'Styling', 'powerpack' ),
+				'label'                 => esc_html__( 'Styling', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -780,7 +780,7 @@ class Buttons extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'button_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -801,14 +801,14 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 			$this->add_control(
 				'button_bg_color_normal',
 				[
-					'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'global'                => [
 						'default' => Global_Colors::COLOR_ACCENT,
@@ -822,7 +822,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'button_text_color_normal',
 				[
-					'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '#ffffff',
 					'selectors'             => [
@@ -834,7 +834,7 @@ class Buttons extends Powerpack_Widget {
 				Group_Control_Border::get_type(),
 				[
 					'name'                  => 'button_border_normal',
-					'label'                 => esc_html__( 'Border', 'powerpack' ),
+					'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 					'placeholder'           => '1px',
 					'default'               => '1px',
 					'selector'              => '{{WRAPPER}} .pp-button',
@@ -843,7 +843,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_responsive_control(
 				'button_border_radius',
 				[
-					'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+					'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::DIMENSIONS,
 					'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 					'selectors'             => [
@@ -864,14 +864,14 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 			$this->add_control(
 				'button_bg_color_hover',
 				[
-					'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -882,7 +882,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'button_text_color_hover',
 				[
-					'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -893,7 +893,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'button_border_color_hover',
 				[
-					'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -911,7 +911,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'button_animation',
 				[
-					'label'                 => esc_html__( 'Animation', 'powerpack' ),
+					'label'                 => esc_html__( 'Animation', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::HOVER_ANIMATION,
 				]
 			);
@@ -928,7 +928,7 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_icon_style',
 			[
-				'label'                 => esc_html__( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -937,7 +937,7 @@ class Buttons extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'icon_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -947,21 +947,21 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_position',
 			[
-				'label'             => esc_html__( 'Icon Position', 'powerpack' ),
+				'label'             => esc_html__( 'Icon Position', 'powerpack-lite-for-elementor' ),
 				'type'              => Controls_Manager::SELECT,
 				'default'           => 'before',
 				'options'           => [
-					'after'     => esc_html__( 'After', 'powerpack' ),
-					'before'    => esc_html__( 'Before', 'powerpack' ),
-					'top'       => esc_html__( 'Top', 'powerpack' ),
-					'bottom'    => esc_html__( 'Bottom', 'powerpack' ),
+					'after'     => esc_html__( 'After', 'powerpack-lite-for-elementor' ),
+					'before'    => esc_html__( 'Before', 'powerpack-lite-for-elementor' ),
+					'top'       => esc_html__( 'Top', 'powerpack-lite-for-elementor' ),
+					'bottom'    => esc_html__( 'Bottom', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label'                 => esc_html__( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default'               => [
@@ -982,7 +982,7 @@ class Buttons extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_spacing',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'               => [
@@ -1007,13 +1007,13 @@ class Buttons extends Powerpack_Widget {
 			$this->start_controls_tab(
 				'tab_icon_normal',
 				[
-					'label'                 => esc_html__( 'Normal', 'powerpack' ),
+					'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 				]
 			);
 			$this->add_control(
 				'icon_color',
 				[
-					'label'                 => esc_html__( 'Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -1028,14 +1028,14 @@ class Buttons extends Powerpack_Widget {
 			$this->start_controls_tab(
 				'tab_icon_hover',
 				[
-					'label'                 => esc_html__( 'Hover', 'powerpack' ),
+					'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
 			$this->add_control(
 				'icon_color_hover',
 				[
-					'label'                 => esc_html__( 'Color', 'powerpack' ),
+					'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
@@ -1059,7 +1059,7 @@ class Buttons extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_tooltip_style',
 			[
-				'label'     => esc_html__( 'Tooltip', 'powerpack' ),
+				'label'     => esc_html__( 'Tooltip', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1067,14 +1067,14 @@ class Buttons extends Powerpack_Widget {
 			$this->add_responsive_control(
 				'tooltips_position',
 				[
-					'label'     => esc_html__( 'Tooltip Position', 'powerpack' ),
+					'label'     => esc_html__( 'Tooltip Position', 'powerpack-lite-for-elementor' ),
 					'type'      => Controls_Manager::SELECT,
 					'default'   => 'above',
 					'options'   => [
-						'above'     => esc_html__( 'Above', 'powerpack' ),
-						'below'     => esc_html__( 'Below', 'powerpack' ),
-						'left'      => esc_html__( 'Left', 'powerpack' ),
-						'right'     => esc_html__( 'Right', 'powerpack' ),
+						'above'     => esc_html__( 'Above', 'powerpack-lite-for-elementor' ),
+						'below'     => esc_html__( 'Below', 'powerpack-lite-for-elementor' ),
+						'left'      => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
+						'right'     => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 					],
 				]
 			);
@@ -1082,20 +1082,20 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'tooltips_align',
 				[
-					'label'     => esc_html__( 'Text Align', 'powerpack' ),
+					'label'     => esc_html__( 'Text Align', 'powerpack-lite-for-elementor' ),
 					'type'      => Controls_Manager::CHOOSE,
 					'default'   => ' center',
 					'options'   => [
 						'left'      => [
-							'title' => esc_html__( 'Left', 'powerpack' ),
+							'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 							'icon'  => 'eicon-text-align-left',
 						],
 						'center'    => [
-							'title' => esc_html__( 'Center', 'powerpack' ),
+							'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 							'icon'  => 'eicon-text-align-center',
 						],
 						'right'     => [
-							'title' => esc_html__( 'Right', 'powerpack' ),
+							'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 							'icon'  => 'eicon-text-align-right',
 						],
 					],
@@ -1108,7 +1108,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'tooltips_background_color',
 				[
-					'label'     => esc_html__( 'Background Color', 'powerpack' ),
+					'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#000000',
 					'selectors' => [
@@ -1124,7 +1124,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_control(
 				'tooltips_color',
 				[
-					'label'     => esc_html__( 'Color', 'powerpack' ),
+					'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#ffffff',
 					'selectors' => [
@@ -1148,7 +1148,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_responsive_control(
 				'tooltips_border_radius',
 				[
-					'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+					'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 					'selectors'  => [
@@ -1160,7 +1160,7 @@ class Buttons extends Powerpack_Widget {
 			$this->add_responsive_control(
 				'tooltips_padding',
 				[
-					'label'      => esc_html__( 'Padding', 'powerpack' ),
+					'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 					'selectors'  => [

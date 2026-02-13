@@ -52,7 +52,7 @@ class Author_Archive extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Author', 'powerpack' );
+		return __( 'Author', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -66,8 +66,8 @@ class Author_Archive extends Condition {
 	public function get_value_control() {
 		return [
 			'type'                  => 'pp-query',
-			'placeholder'           => __( 'Any', 'powerpack' ),
-			'description'           => __( 'Leave blank for all authors.', 'powerpack' ),
+			'placeholder'           => __( 'Any', 'powerpack-lite-for-elementor' ),
+			'description'           => __( 'Leave blank for all authors.', 'powerpack-lite-for-elementor' ),
 			'label_block'           => true,
 			'multiple'              => true,
 			'query_type'            => 'authors',

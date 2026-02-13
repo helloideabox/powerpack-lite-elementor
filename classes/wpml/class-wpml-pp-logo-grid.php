@@ -19,9 +19,9 @@ class WPML_PP_Logo_Grid extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'title':
-				return esc_html__( 'Logo Carousel - Logo Title', 'powerpack' );
+				return esc_html__( 'Logo Carousel - Logo Title', 'powerpack-lite-for-elementor' );
 			case 'url':
-				return esc_html__( 'Logo Carousel - Link', 'powerpack' );
+				return esc_html__( 'Logo Carousel - Link', 'powerpack-lite-for-elementor' );
 			default:
 				return '';
 		}

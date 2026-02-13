@@ -64,7 +64,7 @@ class Extension_Wrapper_Link extends Extension_Base {
 	 * @since 2.4.0
 	 **/
 	public static function get_description() {
-		return esc_html__( 'Adds link around sections, columns and widgets.', 'powerpack' );
+		return esc_html__( 'Adds link around sections, columns and widgets.', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -133,11 +133,11 @@ class Extension_Wrapper_Link extends Extension_Base {
 		$element->add_control(
 			'pp_wrapper_link_enable',
 			array(
-				'label'        => esc_html__( 'Wrapper Link', 'powerpack' ),
+				'label'        => esc_html__( 'Wrapper Link', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 			)
@@ -146,7 +146,7 @@ class Extension_Wrapper_Link extends Extension_Base {
 		$element->add_control(
 			'pp_wrapper_link',
 			[
-				'label'        => esc_html__( 'Link', 'powerpack' ),
+				'label'        => esc_html__( 'Link', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::URL,
 				'dynamic'      => [
 					'active' => true,

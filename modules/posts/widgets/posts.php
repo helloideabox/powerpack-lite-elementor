@@ -87,7 +87,7 @@ class Posts extends Posts_Base {
 		$this->start_controls_section(
 			'section_skin_field',
 			array(
-				'label' => esc_html__( 'Layout', 'powerpack' ),
+				'label' => esc_html__( 'Layout', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
@@ -96,7 +96,7 @@ class Posts extends Posts_Base {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This skin is available in PowerPack Pro.', 'powerpack' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => esc_html__( 'This skin is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				'condition'       => array(
 					'_skin!' => 'classic',
@@ -107,7 +107,7 @@ class Posts extends Posts_Base {
 		$this->add_control(
 			'posts_per_page',
 			array(
-				'label'     => esc_html__( 'Posts Per Page', 'powerpack' ),
+				'label'     => esc_html__( 'Posts Per Page', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 6,
 				'condition' => array(

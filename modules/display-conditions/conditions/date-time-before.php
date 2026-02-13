@@ -51,7 +51,7 @@ class Date_Time_Before extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Current Date & Time', 'powerpack' );
+		return __( 'Current Date & Time', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -66,7 +66,7 @@ class Date_Time_Before extends Condition {
 		$default_date = date( 'Y-m-d H:i', strtotime( '+3 day' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) );
 
 		return [
-			'label'     => __( 'Before', 'powerpack' ),
+			'label'     => __( 'Before', 'powerpack-lite-for-elementor' ),
 			'type'      => \Elementor\Controls_Manager::DATE_TIME,
 			'picker_options' => [
 				'enableTime'    => true,

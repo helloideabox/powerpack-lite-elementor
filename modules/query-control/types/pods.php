@@ -33,7 +33,7 @@ class Pods extends Meta_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Pods', 'powerpack' );
+		return __( 'Pods', 'powerpack-lite-for-elementor' );
 	}
 
 	/**

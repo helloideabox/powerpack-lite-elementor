@@ -51,7 +51,7 @@ class Os extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Operating System', 'powerpack' );
+		return __( 'Operating System', 'powerpack-lite-for-elementor' );
 	}
 
 	/**

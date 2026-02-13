@@ -51,7 +51,7 @@ class Static_Page extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Static Page', 'powerpack' );
+		return __( 'Static Page', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -68,10 +68,10 @@ class Static_Page extends Condition {
 			'default'       => 'home',
 			'label_block'   => true,
 			'options'       => [
-				'home'      => __( 'Homepage', 'powerpack' ),
-				'static'    => __( 'Front Page', 'powerpack' ),
-				'blog'      => __( 'Blog', 'powerpack' ),
-				'404'       => __( '404 Page', 'powerpack' ),
+				'home'      => __( 'Homepage', 'powerpack-lite-for-elementor' ),
+				'static'    => __( 'Front Page', 'powerpack-lite-for-elementor' ),
+				'blog'      => __( 'Blog', 'powerpack-lite-for-elementor' ),
+				'404'       => __( '404 Page', 'powerpack-lite-for-elementor' ),
 			],
 		];
 	}

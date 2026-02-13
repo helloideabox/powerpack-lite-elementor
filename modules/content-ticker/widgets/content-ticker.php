@@ -141,18 +141,18 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_general',
 			array(
-				'label' => __( 'General', 'powerpack' ),
+				'label' => __( 'General', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'source',
 			array(
-				'label'   => __( 'Source', 'powerpack' ),
+				'label'   => __( 'Source', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => array(
-					'custom' => __( 'Custom', 'powerpack' ),
-					'posts'  => __( 'Posts', 'powerpack' ),
+					'custom' => __( 'Custom', 'powerpack-lite-for-elementor' ),
+					'posts'  => __( 'Posts', 'powerpack-lite-for-elementor' ),
 				),
 				'default' => 'posts',
 			)
@@ -161,13 +161,13 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'link_type',
 			array(
-				'label'   => __( 'Link Type', 'powerpack' ),
+				'label'   => __( 'Link Type', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => array(
-					''      => __( 'None', 'powerpack' ),
-					'title' => __( 'Title', 'powerpack' ),
-					'image' => __( 'Image', 'powerpack' ),
-					'both'  => __( 'Title + Image', 'powerpack' ),
+					''      => __( 'None', 'powerpack-lite-for-elementor' ),
+					'title' => __( 'Title', 'powerpack-lite-for-elementor' ),
+					'image' => __( 'Image', 'powerpack-lite-for-elementor' ),
+					'both'  => __( 'Title + Image', 'powerpack-lite-for-elementor' ),
 				),
 				'default' => '',
 			)
@@ -176,7 +176,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'posts_count',
 			array(
-				'label'     => __( 'Posts Count', 'powerpack' ),
+				'label'     => __( 'Posts Count', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 4,
 				'condition' => array(
@@ -188,11 +188,11 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'post_image',
 			array(
-				'label'        => __( 'Post Image', 'powerpack' ),
+				'label'        => __( 'Post Image', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'show',
-				'label_on'     => __( 'Show', 'powerpack' ),
-				'label_off'    => __( 'Hide', 'powerpack' ),
+				'label_on'     => __( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'    => __( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'show',
 				'condition'    => array(
 					'source' => 'posts',
@@ -204,7 +204,7 @@ class Content_Ticker extends Powerpack_Widget {
 			Group_Control_Image_Size::get_type(),
 			array(
 				'name'      => 'image_size',
-				'label'     => __( 'Image Size', 'powerpack' ),
+				'label'     => __( 'Image Size', 'powerpack-lite-for-elementor' ),
 				'default'   => 'medium_large',
 				'condition' => array(
 					'source'     => 'posts',
@@ -216,19 +216,19 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'title_html_tag',
 			array(
-				'label'   => __( 'Title HTML Tag', 'powerpack' ),
+				'label'   => __( 'Title HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'h3',
 				'options' => array(
-					'h1'   => __( 'H1', 'powerpack' ),
-					'h2'   => __( 'H2', 'powerpack' ),
-					'h3'   => __( 'H3', 'powerpack' ),
-					'h4'   => __( 'H4', 'powerpack' ),
-					'h5'   => __( 'H5', 'powerpack' ),
-					'h6'   => __( 'H6', 'powerpack' ),
-					'div'  => __( 'div', 'powerpack' ),
-					'span' => __( 'span', 'powerpack' ),
-					'p'    => __( 'p', 'powerpack' ),
+					'h1'   => __( 'H1', 'powerpack-lite-for-elementor' ),
+					'h2'   => __( 'H2', 'powerpack-lite-for-elementor' ),
+					'h3'   => __( 'H3', 'powerpack-lite-for-elementor' ),
+					'h4'   => __( 'H4', 'powerpack-lite-for-elementor' ),
+					'h5'   => __( 'H5', 'powerpack-lite-for-elementor' ),
+					'h6'   => __( 'H6', 'powerpack-lite-for-elementor' ),
+					'div'  => __( 'div', 'powerpack-lite-for-elementor' ),
+					'span' => __( 'span', 'powerpack-lite-for-elementor' ),
+					'p'    => __( 'p', 'powerpack-lite-for-elementor' ),
 				),
 			)
 		);
@@ -248,7 +248,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_post_meta',
 			array(
-				'label'     => __( 'Post Meta', 'powerpack' ),
+				'label'     => __( 'Post Meta', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					'source' => 'posts',
 				),
@@ -258,11 +258,11 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'post_meta',
 			array(
-				'label'              => __( 'Post Meta', 'powerpack' ),
+				'label'              => __( 'Post Meta', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => '',
-				'label_on'           => __( 'Show', 'powerpack' ),
-				'label_off'          => __( 'Hide', 'powerpack' ),
+				'label_on'           => __( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'          => __( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'frontend_available' => true,
 				'condition'          => array(
@@ -274,11 +274,11 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'post_date',
 			array(
-				'label'              => __( 'Date', 'powerpack' ),
+				'label'              => __( 'Date', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => '',
-				'label_on'           => __( 'Show', 'powerpack' ),
-				'label_off'          => __( 'Hide', 'powerpack' ),
+				'label_on'           => __( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'          => __( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'condition'          => array(
 					'source'    => 'posts',
@@ -290,11 +290,11 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'post_time',
 			array(
-				'label'              => __( 'Time', 'powerpack' ),
+				'label'              => __( 'Time', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => '',
-				'label_on'           => __( 'Show', 'powerpack' ),
-				'label_off'          => __( 'Hide', 'powerpack' ),
+				'label_on'           => __( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'          => __( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'condition'          => array(
 					'source'    => 'posts',
@@ -306,7 +306,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'datetime_separator',
 			array(
-				'label'       => __( 'Date Time Separator', 'powerpack' ),
+				'label'       => __( 'Date Time Separator', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => false,
 				'default'     => 'at',
@@ -320,7 +320,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'datetime_icon',
 			array(
-				'label'            => __( 'Date Time Icon', 'powerpack' ),
+				'label'            => __( 'Date Time Icon', 'powerpack-lite-for-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'label_block'      => false,
 				'skin'             => 'inline',
@@ -379,7 +379,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'post_author',
 			array(
-				'label'              => __( 'Author', 'powerpack' ),
+				'label'              => __( 'Author', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
 				'return_value'       => 'yes',
@@ -394,7 +394,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'select_author_icon',
 			array(
-				'label'            => __( 'Author Icon', 'powerpack' ),
+				'label'            => __( 'Author Icon', 'powerpack-lite-for-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'author_icon',
 				'label_block'      => false,
@@ -431,7 +431,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'post_category',
 			array(
-				'label'              => __( 'Category', 'powerpack' ),
+				'label'              => __( 'Category', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
 				'return_value'       => 'yes',
@@ -446,7 +446,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'select_category_icon',
 			array(
-				'label'            => __( 'Category Icon', 'powerpack' ),
+				'label'            => __( 'Category Icon', 'powerpack-lite-for-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'category_icon',
 				'label_block'      => false,
@@ -489,7 +489,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_ticker_items',
 			array(
-				'label'     => __( 'Ticker Items', 'powerpack' ),
+				'label'     => __( 'Ticker Items', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					'source' => 'custom',
 				),
@@ -500,12 +500,12 @@ class Content_Ticker extends Powerpack_Widget {
 
 		$repeater->start_controls_tabs( 'ticker_items_tabs' );
 
-		$repeater->start_controls_tab( 'tab_ticker_items_content', array( 'label' => __( 'Content', 'powerpack' ) ) );
+		$repeater->start_controls_tab( 'tab_ticker_items_content', array( 'label' => __( 'Content', 'powerpack-lite-for-elementor' ) ) );
 
 			$repeater->add_control(
 				'ticker_title',
 				array(
-					'label'       => __( 'Title', 'powerpack' ),
+					'label'       => __( 'Title', 'powerpack-lite-for-elementor' ),
 					'type'        => Controls_Manager::TEXT,
 					'label_block' => false,
 					'default'     => '',
@@ -515,7 +515,7 @@ class Content_Ticker extends Powerpack_Widget {
 			$repeater->add_control(
 				'link',
 				array(
-					'label'       => __( 'Link', 'powerpack' ),
+					'label'       => __( 'Link', 'powerpack-lite-for-elementor' ),
 					'type'        => Controls_Manager::URL,
 					'dynamic'     => array(
 						'active'     => true,
@@ -533,16 +533,16 @@ class Content_Ticker extends Powerpack_Widget {
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_ticker_items_image', array( 'label' => __( 'Image', 'powerpack' ) ) );
+		$repeater->start_controls_tab( 'tab_ticker_items_image', array( 'label' => __( 'Image', 'powerpack-lite-for-elementor' ) ) );
 
 		$repeater->add_control(
 			'ticker_image',
 			array(
-				'label'        => __( 'Show Image', 'powerpack' ),
+				'label'        => __( 'Show Image', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -550,7 +550,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$repeater->add_control(
 			'image',
 			array(
-				'label'      => __( 'Choose Image', 'powerpack' ),
+				'label'      => __( 'Choose Image', 'powerpack-lite-for-elementor' ),
 				'type'       => \Elementor\Controls_Manager::MEDIA,
 				'default'    => array(
 					'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -597,16 +597,16 @@ class Content_Ticker extends Powerpack_Widget {
 				'type'        => Controls_Manager::REPEATER,
 				'default'     => array(
 					array(
-						'ticker_title' => __( 'Content Ticker Item 1', 'powerpack' ),
+						'ticker_title' => __( 'Content Ticker Item 1', 'powerpack-lite-for-elementor' ),
 					),
 					array(
-						'ticker_title' => __( 'Content Ticker Item 2', 'powerpack' ),
+						'ticker_title' => __( 'Content Ticker Item 2', 'powerpack-lite-for-elementor' ),
 					),
 					array(
-						'ticker_title' => __( 'Content Ticker Item 3', 'powerpack' ),
+						'ticker_title' => __( 'Content Ticker Item 3', 'powerpack-lite-for-elementor' ),
 					),
 					array(
-						'ticker_title' => __( 'Content Ticker Item 4', 'powerpack' ),
+						'ticker_title' => __( 'Content Ticker Item 4', 'powerpack-lite-for-elementor' ),
 					),
 				),
 				'fields'      => $repeater->get_controls(),
@@ -632,7 +632,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_post_query',
 			array(
-				'label'     => __( 'Query', 'powerpack' ),
+				'label'     => __( 'Query', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					'source' => 'posts',
 				),
@@ -642,7 +642,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'post_type',
 			array(
-				'label'     => __( 'Post Type', 'powerpack' ),
+				'label'     => __( 'Post Type', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => PP_Posts_Helper::get_post_types(),
 				'default'   => 'post',
@@ -686,15 +686,15 @@ class Content_Ticker extends Powerpack_Widget {
 							$index . '_' . $post_type_slug . '_filter_type',
 							array(
 								/* translators: %s Label */
-								'label'       => sprintf( __( '%s Filter Type', 'powerpack' ), $tax->label ),
+								'label'       => sprintf( __( '%s Filter Type', 'powerpack-lite-for-elementor' ), $tax->label ),
 								'type'        => Controls_Manager::SELECT,
 								'default'     => 'IN',
 								'label_block' => true,
 								'options'     => array(
 									/* translators: %s label */
-									'IN'     => sprintf( __( 'Include %s', 'powerpack' ), $tax->label ),
+									'IN'     => sprintf( __( 'Include %s', 'powerpack-lite-for-elementor' ), $tax->label ),
 									/* translators: %s label */
-									'NOT IN' => sprintf( __( 'Exclude %s', 'powerpack' ), $tax->label ),
+									'NOT IN' => sprintf( __( 'Exclude %s', 'powerpack-lite-for-elementor' ), $tax->label ),
 								),
 								'separator'   => 'before',
 								'condition'   => array(
@@ -749,14 +749,14 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'author_filter_type',
 			array(
-				'label'       => __( 'Authors Filter Type', 'powerpack' ),
+				'label'       => __( 'Authors Filter Type', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'author__in',
 				'label_block' => true,
 				'separator'   => 'before',
 				'options'     => array(
-					'author__in'     => __( 'Include Authors', 'powerpack' ),
-					'author__not_in' => __( 'Exclude Authors', 'powerpack' ),
+					'author__in'     => __( 'Include Authors', 'powerpack-lite-for-elementor' ),
+					'author__not_in' => __( 'Exclude Authors', 'powerpack-lite-for-elementor' ),
 				),
 				'condition'   => array(
 					'source' => 'posts',
@@ -767,7 +767,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'authors',
 			array(
-				'label'       => __( 'Authors', 'powerpack' ),
+				'label'       => __( 'Authors', 'powerpack-lite-for-elementor' ),
 				'type'        => 'pp-query',
 				'label_block' => true,
 				'multiple'    => true,
@@ -793,14 +793,14 @@ class Content_Ticker extends Powerpack_Widget {
 			$this->add_control(
 				$post_type_slug . '_filter_type',
 				array(
-					'label'       => sprintf( __( '%s Filter Type', 'powerpack' ), $post_type_label ),
+					'label'       => sprintf( __( '%s Filter Type', 'powerpack-lite-for-elementor' ), $post_type_label ),
 					'type'        => Controls_Manager::SELECT,
 					'default'     => 'post__not_in',
 					'label_block' => true,
 					'separator'   => 'before',
 					'options'     => array(
-						'post__in'     => sprintf( __( 'Include %s', 'powerpack' ), $post_type_label ),
-						'post__not_in' => sprintf( __( 'Exclude %s', 'powerpack' ), $post_type_label ),
+						'post__in'     => sprintf( __( 'Include %s', 'powerpack-lite-for-elementor' ), $post_type_label ),
+						'post__not_in' => sprintf( __( 'Exclude %s', 'powerpack-lite-for-elementor' ), $post_type_label ),
 					),
 					'condition'   => array(
 						'source'    => 'posts',
@@ -848,16 +848,16 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'select_date',
 			array(
-				'label'       => __( 'Date', 'powerpack' ),
+				'label'       => __( 'Date', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'options'     => array(
-					'anytime' => __( 'All', 'powerpack' ),
-					'today'   => __( 'Past Day', 'powerpack' ),
-					'week'    => __( 'Past Week', 'powerpack' ),
-					'month'   => __( 'Past Month', 'powerpack' ),
-					'quarter' => __( 'Past Quarter', 'powerpack' ),
-					'year'    => __( 'Past Year', 'powerpack' ),
-					'exact'   => __( 'Custom', 'powerpack' ),
+					'anytime' => __( 'All', 'powerpack-lite-for-elementor' ),
+					'today'   => __( 'Past Day', 'powerpack-lite-for-elementor' ),
+					'week'    => __( 'Past Week', 'powerpack-lite-for-elementor' ),
+					'month'   => __( 'Past Month', 'powerpack-lite-for-elementor' ),
+					'quarter' => __( 'Past Quarter', 'powerpack-lite-for-elementor' ),
+					'year'    => __( 'Past Year', 'powerpack-lite-for-elementor' ),
+					'exact'   => __( 'Custom', 'powerpack-lite-for-elementor' ),
 				),
 				'default'     => 'anytime',
 				'label_block' => false,
@@ -872,12 +872,12 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'date_before',
 			array(
-				'label'       => __( 'Before', 'powerpack' ),
-				'description' => __( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'powerpack' ),
+				'label'       => __( 'Before', 'powerpack-lite-for-elementor' ),
+				'description' => __( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::DATE_TIME,
 				'label_block' => false,
 				'multiple'    => false,
-				'placeholder' => __( 'Choose', 'powerpack' ),
+				'placeholder' => __( 'Choose', 'powerpack-lite-for-elementor' ),
 				'condition'   => array(
 					'source'      => 'posts',
 					'select_date' => 'exact',
@@ -888,12 +888,12 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'date_after',
 			array(
-				'label'       => __( 'After', 'powerpack' ),
-				'description' => __( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'powerpack' ),
+				'label'       => __( 'After', 'powerpack-lite-for-elementor' ),
+				'description' => __( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::DATE_TIME,
 				'label_block' => false,
 				'multiple'    => false,
-				'placeholder' => __( 'Choose', 'powerpack' ),
+				'placeholder' => __( 'Choose', 'powerpack-lite-for-elementor' ),
 				'condition'   => array(
 					'source'      => 'posts',
 					'select_date' => 'exact',
@@ -904,11 +904,11 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'order',
 			array(
-				'label'     => __( 'Order', 'powerpack' ),
+				'label'     => __( 'Order', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'DESC' => __( 'Descending', 'powerpack' ),
-					'ASC'  => __( 'Ascending', 'powerpack' ),
+					'DESC' => __( 'Descending', 'powerpack-lite-for-elementor' ),
+					'ASC'  => __( 'Ascending', 'powerpack-lite-for-elementor' ),
 				),
 				'default'   => 'DESC',
 				'separator' => 'before',
@@ -921,16 +921,16 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'orderby',
 			array(
-				'label'     => __( 'Order By', 'powerpack' ),
+				'label'     => __( 'Order By', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'date'          => __( 'Date', 'powerpack' ),
-					'modified'      => __( 'Last Modified Date', 'powerpack' ),
-					'rand'          => __( 'Random', 'powerpack' ),
-					'comment_count' => __( 'Comment Count', 'powerpack' ),
-					'title'         => __( 'Title', 'powerpack' ),
-					'ID'            => __( 'Post ID', 'powerpack' ),
-					'author'        => __( 'Post Author', 'powerpack' ),
+					'date'          => __( 'Date', 'powerpack-lite-for-elementor' ),
+					'modified'      => __( 'Last Modified Date', 'powerpack-lite-for-elementor' ),
+					'rand'          => __( 'Random', 'powerpack-lite-for-elementor' ),
+					'comment_count' => __( 'Comment Count', 'powerpack-lite-for-elementor' ),
+					'title'         => __( 'Title', 'powerpack-lite-for-elementor' ),
+					'ID'            => __( 'Post ID', 'powerpack-lite-for-elementor' ),
+					'author'        => __( 'Post Author', 'powerpack-lite-for-elementor' ),
 				),
 				'default'   => 'date',
 				'condition' => array(
@@ -942,11 +942,11 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'sticky_posts',
 			array(
-				'label'        => __( 'Sticky Posts', 'powerpack' ),
+				'label'        => __( 'Sticky Posts', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'separator'    => 'before',
 				'condition'    => array(
@@ -958,11 +958,11 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'all_sticky_posts',
 			array(
-				'label'        => __( 'Show Only Sticky Posts', 'powerpack' ),
+				'label'        => __( 'Show Only Sticky Posts', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'source'       => 'posts',
@@ -974,8 +974,8 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'offset',
 			array(
-				'label'       => __( 'Offset', 'powerpack' ),
-				'description' => __( 'Use this setting to skip this number of initial posts', 'powerpack' ),
+				'label'       => __( 'Offset', 'powerpack-lite-for-elementor' ),
+				'description' => __( 'Use this setting to skip this number of initial posts', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::NUMBER,
 				'default'     => '',
 				'separator'   => 'before',
@@ -1000,18 +1000,18 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_heading',
 			array(
-				'label' => __( 'Header', 'powerpack' ),
+				'label' => __( 'Header', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'show_heading',
 			array(
-				'label'        => __( 'Show Heading', 'powerpack' ),
+				'label'        => __( 'Show Heading', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -1019,9 +1019,9 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'heading',
 			array(
-				'label'     => __( 'Heading Text', 'powerpack' ),
+				'label'     => __( 'Heading Text', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => __( 'Trending Now', 'powerpack' ),
+				'default'   => __( 'Trending Now', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					'show_heading' => 'yes',
 				),
@@ -1031,7 +1031,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'selected_icon',
 			array(
-				'label'            => __( 'Icon', 'powerpack' ),
+				'label'            => __( 'Icon', 'powerpack-lite-for-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'heading_icon',
 				'default'          => array(
@@ -1047,18 +1047,18 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'heading_icon_position',
 			array(
-				'label'       => __( 'Icon Position', 'powerpack' ),
+				'label'       => __( 'Icon Position', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'toggle'      => false,
 				'default'     => 'left',
 				'options'     => array(
 					'left'  => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => __( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-left',
 					),
 					'right' => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => __( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-right',
 					),
 				),
@@ -1068,11 +1068,11 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'heading_arrow',
 			array(
-				'label'        => __( 'Arrow', 'powerpack' ),
+				'label'        => __( 'Arrow', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'show_heading' => 'yes',
@@ -1095,20 +1095,20 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_additional_options',
 			array(
-				'label' => __( 'Ticker Settings', 'powerpack' ),
+				'label' => __( 'Ticker Settings', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'ticker_effect',
 			array(
-				'label'       => __( 'Effect', 'powerpack' ),
-				'description' => __( 'Sets transition effect', 'powerpack' ),
+				'label'       => __( 'Effect', 'powerpack-lite-for-elementor' ),
+				'description' => __( 'Sets transition effect', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'fade',
 				'options'     => array(
-					'slide' => __( 'Slide', 'powerpack' ),
-					'fade'  => __( 'Fade', 'powerpack' ),
+					'slide' => __( 'Slide', 'powerpack-lite-for-elementor' ),
+					'fade'  => __( 'Fade', 'powerpack-lite-for-elementor' ),
 				),
 			)
 		);
@@ -1116,8 +1116,8 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'slider_speed',
 			array(
-				'label'       => __( 'Slider Speed', 'powerpack' ),
-				'description' => __( 'Duration of transition between slides (in ms)', 'powerpack' ),
+				'label'       => __( 'Slider Speed', 'powerpack-lite-for-elementor' ),
+				'description' => __( 'Duration of transition between slides (in ms)', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
 				'default'     => array( 'size' => 400 ),
 				'range'       => array(
@@ -1134,11 +1134,11 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'autoplay',
 			array(
-				'label'              => __( 'Autoplay', 'powerpack' ),
+				'label'              => __( 'Autoplay', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
-				'label_on'           => __( 'Yes', 'powerpack' ),
-				'label_off'          => __( 'No', 'powerpack' ),
+				'label_on'           => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'frontend_available' => true,
 			)
@@ -1147,12 +1147,12 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'pause_on_interaction',
 			array(
-				'label'        => __( 'Pause on Interaction', 'powerpack' ),
-				'description'  => __( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack' ),
+				'label'        => __( 'Pause on Interaction', 'powerpack-lite-for-elementor' ),
+				'description'  => __( 'Disables autoplay completely on first interaction with the carousel.', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'condition'    => array(
 					'autoplay' => 'yes',
@@ -1163,7 +1163,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'autoplay_speed',
 			array(
-				'label'              => __( 'Autoplay Speed', 'powerpack' ),
+				'label'              => __( 'Autoplay Speed', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::NUMBER,
 				'default'            => 3000,
 				'min'                => 500,
@@ -1179,11 +1179,11 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'loop',
 			array(
-				'label'              => __( 'Infinite Loop', 'powerpack' ),
+				'label'              => __( 'Infinite Loop', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
-				'label_on'           => __( 'Yes', 'powerpack' ),
-				'label_off'          => __( 'No', 'powerpack' ),
+				'label_on'           => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'frontend_available' => true,
 			)
@@ -1192,12 +1192,12 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'grab_cursor',
 			array(
-				'label'              => __( 'Grab Cursor', 'powerpack' ),
-				'description'        => __( 'Shows grab cursor when you hover over the slider', 'powerpack' ),
+				'label'              => __( 'Grab Cursor', 'powerpack-lite-for-elementor' ),
+				'description'        => __( 'Shows grab cursor when you hover over the slider', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => '',
-				'label_on'           => __( 'Yes', 'powerpack' ),
-				'label_off'          => __( 'No', 'powerpack' ),
+				'label_on'           => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'       => 'yes',
 				'frontend_available' => true,
 			)
@@ -1206,7 +1206,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'navigation_heading',
 			array(
-				'label'     => __( 'Navigation', 'powerpack' ),
+				'label'     => __( 'Navigation', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -1215,11 +1215,11 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'arrows',
 			array(
-				'label'        => __( 'Arrows', 'powerpack' ),
+				'label'        => __( 'Arrows', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'label_on'     => __( 'Yes', 'powerpack' ),
-				'label_off'    => __( 'No', 'powerpack' ),
+				'label_on'     => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 			)
 		);
@@ -1240,7 +1240,7 @@ class Content_Ticker extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => __( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -1274,7 +1274,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_heading_style',
 			array(
-				'label'     => __( 'Header', 'powerpack' ),
+				'label'     => __( 'Header', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'show_heading' => 'yes',
@@ -1285,19 +1285,19 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'heading_alignment',
 			array(
-				'label'     => __( 'Alignment', 'powerpack' ),
+				'label'     => __( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => __( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-lign-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => __( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-lign-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => __( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-lign-right',
 					),
 				),
@@ -1309,7 +1309,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'heading_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => __( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1321,7 +1321,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'heading_bg',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => __( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1337,7 +1337,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'heading_color',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => __( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => array(
@@ -1354,7 +1354,7 @@ class Content_Ticker extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'heading_border',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => __( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-content-ticker-heading',
@@ -1368,7 +1368,7 @@ class Content_Ticker extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'heading_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
+				'label'    => __( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector' => '{{WRAPPER}} .pp-content-ticker-heading',
 			)
 		);
@@ -1376,7 +1376,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'heading_width',
 			array(
-				'label'      => __( 'Width', 'powerpack' ),
+				'label'      => __( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'range'      => array(
 					'px' => array(
@@ -1410,7 +1410,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_content_ticker_style',
 			array(
-				'label' => __( 'Content', 'powerpack' ),
+				'label' => __( 'Content', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1418,7 +1418,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'content_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => __( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1429,12 +1429,12 @@ class Content_Ticker extends Powerpack_Widget {
 
 		$this->start_controls_tabs( 'content_tabs' );
 
-		$this->start_controls_tab( 'tab_content_normal', array( 'label' => __( 'Normal', 'powerpack' ) ) );
+		$this->start_controls_tab( 'tab_content_normal', array( 'label' => __( 'Normal', 'powerpack-lite-for-elementor' ) ) );
 
 		$this->add_control(
 			'content_bg',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => __( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1447,7 +1447,7 @@ class Content_Ticker extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'content_border',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => __( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-content-ticker-container',
@@ -1457,7 +1457,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'content_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => __( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -1469,7 +1469,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'heading_title',
 			array(
-				'label'     => __( 'Title', 'powerpack' ),
+				'label'     => __( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -1478,7 +1478,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'title_text_color',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => __( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1491,7 +1491,7 @@ class Content_Ticker extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'title_typography',
-				'label'    => __( 'Typography', 'powerpack' ),
+				'label'    => __( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector' => '{{WRAPPER}} .pp-content-ticker-item-title',
 			)
 		);
@@ -1499,7 +1499,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'title_margin_bottom',
 			array(
-				'label'      => __( 'Bottom Spacing', 'powerpack' ),
+				'label'      => __( 'Bottom Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'range'      => array(
 					'px' => array(
@@ -1518,7 +1518,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'heading_meta',
 			array(
-				'label'     => __( 'Post Meta', 'powerpack' ),
+				'label'     => __( 'Post Meta', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -1531,7 +1531,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'meta_color',
 			array(
-				'label'     => __( 'Text Color', 'powerpack' ),
+				'label'     => __( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1549,7 +1549,7 @@ class Content_Ticker extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => 'meta_typography',
-				'label'     => __( 'Typography', 'powerpack' ),
+				'label'     => __( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'  => '{{WRAPPER}} .pp-content-ticker-meta',
 				'condition' => array(
 					'source'    => 'posts',
@@ -1561,7 +1561,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'meta_items_spacing',
 			array(
-				'label'     => __( 'Items Spacing', 'powerpack' ),
+				'label'     => __( 'Items Spacing', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'default'   => array(
 					'size' => '',
@@ -1584,12 +1584,12 @@ class Content_Ticker extends Powerpack_Widget {
 
 		$this->end_controls_tab();
 
-		$this->start_controls_tab( 'tab_content_hover', array( 'label' => __( 'Hover', 'powerpack' ) ) );
+		$this->start_controls_tab( 'tab_content_hover', array( 'label' => __( 'Hover', 'powerpack-lite-for-elementor' ) ) );
 
 		$this->add_control(
 			'content_bg_hover',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => __( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1601,7 +1601,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'content_border_color_hover',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => __( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1613,7 +1613,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'content_title_color_hover',
 			array(
-				'label'     => __( 'Title Color', 'powerpack' ),
+				'label'     => __( 'Title Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1625,7 +1625,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'meta_color_hover',
 			array(
-				'label'     => __( 'Post Meta Color', 'powerpack' ),
+				'label'     => __( 'Post Meta Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1657,7 +1657,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_image_style',
 			array(
-				'label' => __( 'Image', 'powerpack' ),
+				'label' => __( 'Image', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -1666,7 +1666,7 @@ class Content_Ticker extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'image_border',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => __( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-content-ticker-image',
@@ -1676,7 +1676,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'image_border_radius',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => __( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -1688,7 +1688,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_width',
 			array(
-				'label'      => __( 'Width', 'powerpack' ),
+				'label'      => __( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'range'      => array(
 					'px' => array(
@@ -1707,7 +1707,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'image_margin',
 			array(
-				'label'       => __( 'Margin', 'powerpack' ),
+				'label'       => __( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::DIMENSIONS,
 				'size_units'  => array( 'px', '%' ),
 				'placeholder' => array(
@@ -1738,7 +1738,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_arrows_style',
 			array(
-				'label'     => __( 'Arrows', 'powerpack' ),
+				'label'     => __( 'Arrows', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'arrows' => 'yes',
@@ -1749,7 +1749,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'select_arrow',
 			array(
-				'label'                  => __( 'Choose Arrow', 'powerpack' ),
+				'label'                  => __( 'Choose Arrow', 'powerpack-lite-for-elementor' ),
 				'type'                   => Controls_Manager::ICONS,
 				'fa4compatibility'       => 'arrow',
 				'label_block'            => false,
@@ -1786,7 +1786,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_size',
 			array(
-				'label'      => __( 'Arrows Size', 'powerpack' ),
+				'label'      => __( 'Arrows Size', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array( 'size' => '22' ),
 				'range'      => array(
@@ -1808,14 +1808,14 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_arrows_normal',
 			array(
-				'label' => __( 'Normal', 'powerpack' ),
+				'label' => __( 'Normal', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'arrows_bg_color_normal',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => __( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1827,7 +1827,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_color_normal',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => __( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1840,7 +1840,7 @@ class Content_Ticker extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'arrows_border_normal',
-				'label'       => __( 'Border', 'powerpack' ),
+				'label'       => __( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .elementor-swiper-button',
@@ -1850,7 +1850,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_border_radius_normal',
 			array(
-				'label'      => __( 'Border Radius', 'powerpack' ),
+				'label'      => __( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -1864,14 +1864,14 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_arrows_hover',
 			array(
-				'label' => __( 'Hover', 'powerpack' ),
+				'label' => __( 'Hover', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'arrows_bg_color_hover',
 			array(
-				'label'     => __( 'Background Color', 'powerpack' ),
+				'label'     => __( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1883,7 +1883,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_color_hover',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => __( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1895,7 +1895,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_control(
 			'arrows_border_color_hover',
 			array(
-				'label'     => __( 'Border Color', 'powerpack' ),
+				'label'     => __( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1911,7 +1911,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_spacing',
 			array(
-				'label'      => __( 'Spacing', 'powerpack' ),
+				'label'      => __( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array( 'size' => '' ),
 				'range'      => array(
@@ -1932,7 +1932,7 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'arrows_padding',
 			array(
-				'label'      => __( 'Padding', 'powerpack' ),
+				'label'      => __( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(

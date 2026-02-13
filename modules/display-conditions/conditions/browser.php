@@ -51,7 +51,7 @@ class Browser extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Browser', 'powerpack' );
+		return __( 'Browser', 'powerpack-lite-for-elementor' );
 	}
 
 	/**

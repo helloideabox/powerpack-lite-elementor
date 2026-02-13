@@ -14,7 +14,7 @@ $usage_tracking     = false;
 		<tr valign="top">
 			<th scope="row" valign="top">
 				<label for="pp_allowed_tracking">
-				<?php esc_html_e( 'Allow usage tracking?', 'powerpack' ); ?>
+				<?php esc_html_e( 'Allow usage tracking?', 'powerpack-lite-for-elementor' ); ?>
 				</label>
 			</th>
 			<td>
@@ -29,7 +29,7 @@ $usage_tracking     = false;
 						/>
 					</label>
 				</p>
-				<p class="description"><?php _e( 'Allow PowerPack to anonymously track how this plugin is used and help us make the plugin better. Opt-in to tracking and our newsletter. No sensitive data is tracked.', 'powerpack' ); ?></p>
+				<p class="description"><?php _e( 'Allow PowerPack to anonymously track how this plugin is used and help us make the plugin better. Opt-in to tracking and our newsletter. No sensitive data is tracked.', 'powerpack-lite-for-elementor' ); ?></p>
 			</td>
 		</tr>
 	</table>
@@ -38,15 +38,15 @@ $usage_tracking     = false;
 
 <div class="pp-settings-section">
 	<div class="pp-settings-section-header">
-		<h3 class="pp-settings-section-title"><?php _e( 'Widgets', 'powerpack' ); ?></h3>
+		<h3 class="pp-settings-section-title"><?php _e( 'Widgets', 'powerpack-lite-for-elementor' ); ?></h3>
 	</div>
 	<div class="pp-settings-section-content">
-		<button type="button" class="button toggle-all-widgets"><?php _e( 'Toggle All', 'powerpack' ); ?></button>
+		<button type="button" class="button toggle-all-widgets"><?php _e( 'Toggle All', 'powerpack-lite-for-elementor' ); ?></button>
 		<div class="pp-modules-manager-filters">
 			<select class="pp-modules-manager-filter">
-				<option value=""><?php esc_html_e( 'Filter: All Widgets', 'powerpack' ); ?></option>
-				<option value="used"<?php echo 'used' == $current_filter ? ' selected' : ''; ?>><?php esc_html_e( 'Filter: Used Widgets', 'powerpack' ); ?></option>
-				<option value="notused"<?php echo 'notused' == $current_filter ? ' selected' : ''; ?>><?php esc_html_e( 'Filter: Not Used Widgets', 'powerpack' ); ?></option>
+				<option value=""><?php esc_html_e( 'Filter: All Widgets', 'powerpack-lite-for-elementor' ); ?></option>
+				<option value="used"<?php echo 'used' == $current_filter ? ' selected' : ''; ?>><?php esc_html_e( 'Filter: Used Widgets', 'powerpack-lite-for-elementor' ); ?></option>
+				<option value="notused"<?php echo 'notused' == $current_filter ? ' selected' : ''; ?>><?php esc_html_e( 'Filter: Not Used Widgets', 'powerpack-lite-for-elementor' ); ?></option>
 			</select>
 		</div>
 		<table class="form-table pp-settings-elements-grid">

@@ -51,7 +51,7 @@ class User extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Current User', 'powerpack' );
+		return __( 'Current User', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -66,8 +66,8 @@ class User extends Condition {
 		return [
 			'type'          => 'pp-query',
 			'default'       => '',
-			'placeholder'   => __( 'Any', 'powerpack' ),
-			'description'   => __( 'Works only when visitor is a logged in user. Leave blank for all users.', 'powerpack' ),
+			'placeholder'   => __( 'Any', 'powerpack-lite-for-elementor' ),
+			'description'   => __( 'Works only when visitor is a logged in user. Leave blank for all users.', 'powerpack-lite-for-elementor' ),
 			'multiple'      => true,
 			'label_block'   => true,
 			'query_type'    => 'users',

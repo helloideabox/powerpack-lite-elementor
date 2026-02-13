@@ -152,20 +152,20 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_progress',
 			[
-				'label' => esc_html__( 'Progress Bar', 'powerpack' ),
+				'label' => esc_html__( 'Progress Bar', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'type',
 			[
-				'label'              => esc_html__( 'Type', 'powerpack' ),
+				'label'              => esc_html__( 'Type', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SELECT,
 				'options'            => [
-					'line'        => esc_html__( 'Horizontal Line', 'powerpack' ),
-					'vertical'    => esc_html__( 'Vertical Line', 'powerpack' ),
-					'circle'      => esc_html__( 'Circle', 'powerpack' ),
-					'circle_half' => esc_html__( 'Half Circle', 'powerpack' ),
+					'line'        => esc_html__( 'Horizontal Line', 'powerpack-lite-for-elementor' ),
+					'vertical'    => esc_html__( 'Vertical Line', 'powerpack-lite-for-elementor' ),
+					'circle'      => esc_html__( 'Circle', 'powerpack-lite-for-elementor' ),
+					'circle_half' => esc_html__( 'Half Circle', 'powerpack-lite-for-elementor' ),
 					//'dots'        => esc_html__( 'Dots', 'powerpack' ),
 				],
 				'default'            => 'line',
@@ -176,7 +176,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dot_size',
 			array(
-				'label'              => __( 'Dots Size', 'powerpack' ),
+				'label'              => __( 'Dots Size', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SLIDER,
 				'range'              => array(
 					'px' => array(
@@ -202,7 +202,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'dot_spacing',
 			array(
-				'label'              => __( 'Spacing', 'powerpack' ),
+				'label'              => __( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SLIDER,
 				'range'              => array(
 					'px' => array(
@@ -240,11 +240,11 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'labels_type',
 			[
-				'label'     => esc_html__( 'Labels Type', 'powerpack' ),
+				'label'     => esc_html__( 'Labels Type', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => [
-					'single'   => __( 'Single', 'powerpack' ),
-					'multiple' => __( 'Multiple', 'powerpack' ),
+					'single'   => __( 'Single', 'powerpack-lite-for-elementor' ),
+					'multiple' => __( 'Multiple', 'powerpack-lite-for-elementor' ),
 				],
 				'default'   => 'single',
 				'condition' => array(
@@ -256,20 +256,20 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'align',
 			array(
-				'label'                => __( 'Alignment', 'powerpack' ),
+				'label'                => __( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                 => Controls_Manager::CHOOSE,
 				'default'              => '',
 				'options'              => array(
 					'left'   => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => __( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => __( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => __( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-right',
 					),
 				),
@@ -293,21 +293,21 @@ class Progress_Bar extends Powerpack_Widget {
 		$repeater->add_control(
 			'text',
 			array(
-				'label'       => __( 'Label', 'powerpack' ),
+				'label'       => __( 'Label', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [
 					'active' => true,
 				],
 				'label_block' => true,
-				'placeholder' => __( 'label', 'powerpack' ),
-				'default'     => __( 'label', 'powerpack' ),
+				'placeholder' => __( 'label', 'powerpack-lite-for-elementor' ),
+				'default'     => __( 'label', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$repeater->add_control(
 			'number',
 			array(
-				'label'   => __( 'Percentage', 'powerpack' ),
+				'label'   => __( 'Percentage', 'powerpack-lite-for-elementor' ),
 				'dynamic' => [
 					'active' => true,
 				],
@@ -319,11 +319,11 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'labels',
 			array(
-				'label'     => __( 'Label', 'powerpack' ),
+				'label'     => __( 'Label', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::REPEATER,
 				'default'   => array(
 					array(
-						'text'   => __( 'Label', 'powerpack' ),
+						'text'   => __( 'Label', 'powerpack-lite-for-elementor' ),
 						'number' => 50,
 					),
 				),
@@ -338,7 +338,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'display_percentage_labels',
 			array(
-				'label'       => esc_html__( 'Display Labels Percentage', 'powerpack' ),
+				'label'       => esc_html__( 'Display Labels Percentage', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SWITCHER,
 				'default'     => 'yes',
 				'condition'   => array(
@@ -351,13 +351,13 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'labels_indicator',
 			array(
-				'label'     => __( 'Labels Indicator', 'powerpack' ),
+				'label'     => __( 'Labels Indicator', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'line_pin',
 				'options'   => array(
-					''         => __( 'None', 'powerpack' ),
-					'line_pin' => __( 'Pin', 'powerpack' ),
-					'arrow'    => __( 'Arrow', 'powerpack' ),
+					''         => __( 'None', 'powerpack-lite-for-elementor' ),
+					'line_pin' => __( 'Pin', 'powerpack-lite-for-elementor' ),
+					'arrow'    => __( 'Arrow', 'powerpack-lite-for-elementor' ),
 				),
 				'condition' => array(
 					'labels_type' => 'multiple',
@@ -369,19 +369,19 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'labels_align',
 			array(
-				'label'     => __( 'Labels Alignment', 'powerpack' ),
+				'label'     => __( 'Labels Alignment', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => __( 'Left', 'powerpack' ),
+						'title' => __( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'powerpack' ),
+						'title' => __( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'powerpack' ),
+						'title' => __( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					),
 				),
@@ -396,12 +396,12 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'bar_label',
 			[
-				'label'       => __( 'Label', 'powerpack' ),
+				'label'       => __( 'Label', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [
 					'active' => true,
 				],
-				'default'     => __( 'Web design', 'powerpack' ),
+				'default'     => __( 'Web design', 'powerpack-lite-for-elementor' ),
 				'label_block' => true,
 				'conditions'  => [
 					'relation' => 'or',
@@ -424,7 +424,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'title_tag',
 			[
-				'label'      => esc_html__( 'Label HTML Tag', 'powerpack' ),
+				'label'      => esc_html__( 'Label HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SELECT,
 				'options'    => [
 					'h1'   => 'H1',
@@ -459,7 +459,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'percentage',
 			[
-				'label'       => esc_html__( 'Percentage', 'powerpack' ),
+				'label'       => esc_html__( 'Percentage', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::NUMBER,
 				'label_block' => false,
 				'dynamic'     => [
@@ -472,10 +472,10 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'display_percentage',
 			[
-				'label'        => esc_html__( 'Display Percentage', 'powerpack' ),
+				'label'        => esc_html__( 'Display Percentage', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'powerpack' ),
-				'label_off'    => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'     => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'default'      => 'yes',
 				'conditions'   => [
 					'relation' => 'or',
@@ -498,12 +498,12 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'percentage_position',
 			array(
-				'label'     => __( 'Percentage Position', 'powerpack' ),
+				'label'     => __( 'Percentage Position', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'before',
 				'options'   => array(
-					'before' => __( 'Before', 'powerpack' ),
-					'after'  => __( 'After', 'powerpack' ),
+					'before' => __( 'Before', 'powerpack-lite-for-elementor' ),
+					'after'  => __( 'After', 'powerpack-lite-for-elementor' ),
 				),
 				'conditions'   => [
 					'relation' => 'and',
@@ -546,14 +546,14 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'bar_style',
 			array(
-				'label'     => __( 'Style', 'powerpack' ),
+				'label'     => __( 'Style', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'solid',
 				'options'   => array(
-					'solid'    => __( 'Solid', 'powerpack' ),
-					'striped'  => __( 'Striped', 'powerpack' ),
-					'gradient' => __( 'Animated Gradient', 'powerpack' ),
-					'rainbow'  => __( 'Rainbow', 'powerpack' ),
+					'solid'    => __( 'Solid', 'powerpack-lite-for-elementor' ),
+					'striped'  => __( 'Striped', 'powerpack-lite-for-elementor' ),
+					'gradient' => __( 'Animated Gradient', 'powerpack-lite-for-elementor' ),
+					'rainbow'  => __( 'Rainbow', 'powerpack-lite-for-elementor' ),
 				),
 				'condition' => array(
 					'type' => [ 'line', 'vertical' ],
@@ -564,7 +564,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'striped_animation',
 			array(
-				'label'     => __( 'Animated', 'powerpack' ),
+				'label'     => __( 'Animated', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => array(
 					'bar_style' => 'striped',
@@ -578,7 +578,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$repeater_gradient->add_control(
 			'gradient_color',
 			array(
-				'label'   => esc_html__( 'Color', 'powerpack' ),
+				'label'   => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::COLOR,
 				'default' => '',
 			)
@@ -587,7 +587,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'gradient_colors',
 			array(
-				'label'              => __( 'Gradient Colors', 'powerpack' ),
+				'label'              => __( 'Gradient Colors', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::REPEATER,
 				'default'            => array(
 					array( 'gradient_color' => '#6EC1E4' ),
@@ -606,10 +606,10 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'show_suffix',
 			[
-				'label'        => esc_html__( 'Show Prefix/Suffix', 'powerpack' ),
+				'label'        => esc_html__( 'Show Prefix/Suffix', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'powerpack' ),
-				'label_off'    => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'     => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'show',
 				'default'      => 'show',
 				'condition'    => array(
@@ -622,12 +622,12 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'half_circle_prefix',
 			array(
-				'label'     => __( 'Prefix Label', 'powerpack' ),
+				'label'     => __( 'Prefix Label', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'dynamic'   => [
 					'active' => true,
 				],
-				'default'   => __( '0%', 'powerpack' ),
+				'default'   => __( '0%', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					'type'        => 'circle_half',
 					'show_suffix' => 'show',
@@ -638,12 +638,12 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'half_circle_suffix',
 			array(
-				'label'     => __( 'Suffix Label', 'powerpack' ),
+				'label'     => __( 'Suffix Label', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'dynamic'   => [
 					'active' => true,
 				],
-				'default'   => __( '100%', 'powerpack' ),
+				'default'   => __( '100%', 'powerpack-lite-for-elementor' ),
 				'condition' => array(
 					'type'        => 'circle_half',
 					'show_suffix' => 'show',
@@ -654,7 +654,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'bar_speed',
 			array(
-				'label'              => __( 'Speed (ms)', 'powerpack' ),
+				'label'              => __( 'Speed (ms)', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::NUMBER,
 				'default'            => 1500,
 				'frontend_available' => true,
@@ -683,7 +683,7 @@ class Progress_Bar extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				array(
-					'label' => __( 'Help Docs', 'powerpack' ),
+					'label' => __( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				)
 			);
 
@@ -718,7 +718,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_progress_style',
 			[
-				'label' => esc_html__( 'Progress Bar', 'powerpack' ),
+				'label' => esc_html__( 'Progress Bar', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -726,7 +726,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'bar_size',
 			[
-				'label'      => esc_html__( 'Thickness', 'powerpack' ),
+				'label'      => esc_html__( 'Thickness', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'    => [
@@ -746,7 +746,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'vertical_bar_height',
 			[
-				'label'      => esc_html__( 'Height', 'powerpack' ),
+				'label'      => esc_html__( 'Height', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'      => [
@@ -772,7 +772,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'bar_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'    => [
@@ -791,7 +791,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'circle_size',
 			[
-				'label'      => esc_html__( 'Size', 'powerpack' ),
+				'label'      => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range'      => [
@@ -819,7 +819,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'circle_border_width',
 			array(
-				'label'     => __( 'Border Width', 'powerpack' ),
+				'label'     => __( 'Border Width', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-progress-fill, {{WRAPPER}} .pp-bar-circle-inner' => 'border-width: {{SIZE}}{{UNIT}}',
@@ -833,7 +833,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'background_color_title',
 			array(
-				'label'     => __( 'Background', 'powerpack' ),
+				'label'     => __( 'Background', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -868,7 +868,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'circle_bg_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'powerpack' ),
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pp-bar-circle-inner' => 'border-color: {{VALUE}};',
@@ -883,7 +883,7 @@ class Progress_Bar extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'bar_border',
-				'label'     => esc_html__( 'Border', 'powerpack' ),
+				'label'     => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'selector'  => '{{WRAPPER}} .pp-progress-line, {{WRAPPER}} .pp-vertical-bar',
 				'condition' => array(
 					'type' => [ 'line', 'vertical' ],
@@ -905,7 +905,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'bar_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'powerpack' ),
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', 'rem', '%', 'custom' ],
 				'selectors'  => [
@@ -920,7 +920,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'fill_title',
 			array(
-				'label'     => __( 'Fill', 'powerpack' ),
+				'label'     => __( 'Fill', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -959,7 +959,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'circle_color',
 			[
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -985,7 +985,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => esc_html__( 'Labels', 'powerpack' ),
+				'label' => esc_html__( 'Labels', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -993,8 +993,8 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'label_spacing',
 			array(
-				'label'       => __( 'Spacing', 'powerpack' ),
-				'description' => __( 'Spacing between label, percentage and bar', 'powerpack' ),
+				'label'       => __( 'Spacing', 'powerpack-lite-for-elementor' ),
+				'description' => __( 'Spacing between label, percentage and bar', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default'     => [
@@ -1016,7 +1016,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'label_heading_style',
 			array(
-				'label' => __( 'Label', 'powerpack' ),
+				'label' => __( 'Label', 'powerpack-lite-for-elementor' ),
 				'type'  => Controls_Manager::HEADING,
 			)
 		);
@@ -1024,7 +1024,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'powerpack' ),
+				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -1057,7 +1057,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'percentage_heading_style',
 			array(
-				'label'      => __( 'Percentage', 'powerpack' ),
+				'label'      => __( 'Percentage', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::HEADING,
 				'separator'  => 'before',
 				'conditions' => [
@@ -1081,7 +1081,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'bar_counter_color',
 			[
-				'label'      => esc_html__( 'Color', 'powerpack' ),
+				'label'      => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::COLOR,
 				'selectors'  => [
 					'{{WRAPPER}} .pp-progress-count, {{WRAPPER}} .pppb-percentage' => 'color: {{VALUE}};',
@@ -1165,7 +1165,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_suffix',
 			[
-				'label'     => esc_html__( 'Prefix/Suffix', 'powerpack' ),
+				'label'     => esc_html__( 'Prefix/Suffix', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'type'        => 'circle_half',
@@ -1177,7 +1177,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'bar_suffix_color',
 			[
-				'label'     => esc_html__( 'Color', 'powerpack' ),
+				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pp-progress-bar-hf-label-left, {{WRAPPER}} .pp-progress-bar-hf-label-right' => 'color: {{VALUE}};',
@@ -1216,7 +1216,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->start_controls_section(
 			'labels_indicator_section',
 			array(
-				'label'     => __( 'Indicator', 'powerpack' ),
+				'label'     => __( 'Indicator', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'labels_type'       => 'multiple',
@@ -1228,7 +1228,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_control(
 			'indicator_color',
 			array(
-				'label'     => __( 'Color', 'powerpack' ),
+				'label'     => __( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => array(
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -1246,7 +1246,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'indicator_pin_size',
 			array(
-				'label'      => __( 'Size', 'powerpack' ),
+				'label'      => __( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => array(
@@ -1264,7 +1264,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'indicator_arrow_size',
 			array(
-				'label'      => __( 'Size', 'powerpack' ),
+				'label'      => __( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => array(
@@ -1281,7 +1281,7 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'indicator_pin_height',
 			array(
-				'label'      => __( 'Height', 'powerpack' ),
+				'label'      => __( 'Height', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => array(

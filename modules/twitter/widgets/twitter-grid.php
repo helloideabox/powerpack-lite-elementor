@@ -72,14 +72,14 @@ class Twitter_Grid extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_grid',
 			array(
-				'label' => esc_html__( 'Grid', 'powerpack' ),
+				'label' => esc_html__( 'Grid', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'url',
 			array(
-				'label'   => esc_html__( 'Collection URL', 'powerpack' ),
+				'label'   => esc_html__( 'Collection URL', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '',
 				'ai'      => [
@@ -91,10 +91,10 @@ class Twitter_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'footer',
 			array(
-				'label'        => esc_html__( 'Show Footer?', 'powerpack' ),
+				'label'        => esc_html__( 'Show Footer?', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			)
@@ -103,7 +103,7 @@ class Twitter_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'width',
 			array(
-				'label'      => esc_html__( 'Width', 'powerpack' ),
+				'label'      => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array(
 					'unit' => 'px',
@@ -122,7 +122,7 @@ class Twitter_Grid extends Powerpack_Widget {
 		$this->add_control(
 			'tweet_limit',
 			array(
-				'label'       => esc_html__( 'Tweet Limit', 'powerpack' ),
+				'label'       => esc_html__( 'Tweet Limit', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::NUMBER,
 				'label_block' => false,
 				'min'         => 1,
@@ -144,7 +144,7 @@ class Twitter_Grid extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 

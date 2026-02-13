@@ -19,9 +19,9 @@ class WPML_PP_Pricing_Table extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'feature_text':
-				return esc_html__( 'Price Table - Feature Text', 'powerpack' );
+				return esc_html__( 'Price Table - Feature Text', 'powerpack-lite-for-elementor' );
 			case 'tooltip_content':
-				return esc_html__( 'Price Table - Tooltip Content', 'powerpack' );
+				return esc_html__( 'Price Table - Tooltip Content', 'powerpack-lite-for-elementor' );
 			default:
 				return '';
 		}

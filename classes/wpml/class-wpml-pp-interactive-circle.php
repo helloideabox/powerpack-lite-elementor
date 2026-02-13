@@ -19,11 +19,11 @@ class WPML_PP_Interactive_Circle extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'tab_label':
-				return esc_html__( 'Interactive Circle - Tab Label', 'powerpack' );
+				return esc_html__( 'Interactive Circle - Tab Label', 'powerpack-lite-for-elementor' );
 			case 'item_title':
-				return esc_html__( 'Interactive Circle - Item Title', 'powerpack' );
+				return esc_html__( 'Interactive Circle - Item Title', 'powerpack-lite-for-elementor' );
 			case 'item_content':
-				return esc_html__( 'Interactive Circle - Item Content', 'powerpack' );
+				return esc_html__( 'Interactive Circle - Item Content', 'powerpack-lite-for-elementor' );
 			default:
 				return '';
 		}

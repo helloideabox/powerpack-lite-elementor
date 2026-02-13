@@ -21,13 +21,13 @@ class WPML_PP_Image_Hotspots extends WPML_Elementor_Module_With_Items {
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'hotspot_admin_label':
-				return esc_html__( 'Image Hotspots - Admin Label', 'powerpack' );
+				return esc_html__( 'Image Hotspots - Admin Label', 'powerpack-lite-for-elementor' );
 			case 'hotspot_text':
-				return esc_html__( 'Image Hotspots - Text', 'powerpack' );
+				return esc_html__( 'Image Hotspots - Text', 'powerpack-lite-for-elementor' );
 			case 'url':
-				return esc_html__( 'Image Hotspots - Link', 'powerpack' );
+				return esc_html__( 'Image Hotspots - Link', 'powerpack-lite-for-elementor' );
 			case 'tooltip_content':
-				return esc_html__( 'Image Hotspots - Tooltip Content', 'powerpack' );
+				return esc_html__( 'Image Hotspots - Tooltip Content', 'powerpack-lite-for-elementor' );
 			default:
 				return '';
 		}

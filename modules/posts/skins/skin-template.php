@@ -29,6 +29,6 @@ class Skin_Template extends Skin_Base {
 	 * @return string Skin title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Saved Template', 'powerpack' );
+		return esc_html__( 'Saved Template', 'powerpack-lite-for-elementor' );
 	}
 }

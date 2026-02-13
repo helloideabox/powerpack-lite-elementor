@@ -72,14 +72,14 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_timeline',
 			array(
-				'label' => esc_html__( 'Timeline', 'powerpack' ),
+				'label' => esc_html__( 'Timeline', 'powerpack-lite-for-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'username',
 			array(
-				'label'   => esc_html__( 'User Name', 'powerpack' ),
+				'label'   => esc_html__( 'User Name', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '',
 				'ai'      => [
@@ -91,12 +91,12 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'theme',
 			array(
-				'label'   => esc_html__( 'Theme', 'powerpack' ),
+				'label'   => esc_html__( 'Theme', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'light',
 				'options' => array(
-					'light' => esc_html__( 'Light', 'powerpack' ),
-					'dark'  => esc_html__( 'Dark', 'powerpack' ),
+					'light' => esc_html__( 'Light', 'powerpack-lite-for-elementor' ),
+					'dark'  => esc_html__( 'Dark', 'powerpack-lite-for-elementor' ),
 				),
 			)
 		);
@@ -104,10 +104,10 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'show_replies',
 			array(
-				'label'        => esc_html__( 'Show Replies', 'powerpack' ),
+				'label'        => esc_html__( 'Show Replies', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'powerpack' ),
-				'label_off'    => esc_html__( 'No', 'powerpack' ),
+				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'no',
 			)
@@ -116,15 +116,15 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'layout',
 			array(
-				'label'    => esc_html__( 'Layout', 'powerpack' ),
+				'label'    => esc_html__( 'Layout', 'powerpack-lite-for-elementor' ),
 				'type'     => Controls_Manager::SELECT2,
 				'default'  => '',
 				'options'  => array(
-					'noheader'    => esc_html__( 'No Header', 'powerpack' ),
-					'nofooter'    => esc_html__( 'No Footer', 'powerpack' ),
-					'noborders'   => esc_html__( 'No Borders', 'powerpack' ),
-					'transparent' => esc_html__( 'Transparent', 'powerpack' ),
-					'noscrollbar' => esc_html__( 'No Scroll Bar', 'powerpack' ),
+					'noheader'    => esc_html__( 'No Header', 'powerpack-lite-for-elementor' ),
+					'nofooter'    => esc_html__( 'No Footer', 'powerpack-lite-for-elementor' ),
+					'noborders'   => esc_html__( 'No Borders', 'powerpack-lite-for-elementor' ),
+					'transparent' => esc_html__( 'Transparent', 'powerpack-lite-for-elementor' ),
+					'noscrollbar' => esc_html__( 'No Scroll Bar', 'powerpack-lite-for-elementor' ),
 				),
 				'multiple' => true,
 			)
@@ -133,7 +133,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'width',
 			array(
-				'label'      => esc_html__( 'Width', 'powerpack' ),
+				'label'      => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array(
 					'unit' => 'px',
@@ -151,7 +151,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'height',
 			array(
-				'label'      => esc_html__( 'Height', 'powerpack' ),
+				'label'      => esc_html__( 'Height', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'default'    => array(
 					'unit' => 'px',
@@ -170,7 +170,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'tweet_limit',
 			array(
-				'label'       => esc_html__( 'Tweet Limit', 'powerpack' ),
+				'label'       => esc_html__( 'Tweet Limit', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::NUMBER,
 				'label_block' => false,
 				'min'         => 1,
@@ -182,7 +182,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'link_color',
 			array(
-				'label'   => esc_html__( 'Link Color', 'powerpack' ),
+				'label'   => esc_html__( 'Link Color', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::COLOR,
 				'default' => '',
 			)
@@ -191,7 +191,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$this->add_control(
 			'border_color',
 			array(
-				'label'   => esc_html__( 'Border Color', 'powerpack' ),
+				'label'   => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::COLOR,
 				'default' => '',
 			)
@@ -210,7 +210,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -271,7 +271,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		$user = $settings['username'];
 		?>
 		<div class="pp-twitter-timeline" <?php $this->print_render_attribute_string( 'timeline' ); ?>>
-			<a class="twitter-timeline" href="https://twitter.com/<?php echo esc_attr( $user ); ?>" <?php $this->print_render_attribute_string( 'timeline' ); ?>><?php esc_html_e( 'Tweets by', 'powerpack' ); ?> <?php echo esc_html( $user ); ?></a>
+			<a class="twitter-timeline" href="https://twitter.com/<?php echo esc_attr( $user ); ?>" <?php $this->print_render_attribute_string( 'timeline' ); ?>><?php esc_html_e( 'Tweets by', 'powerpack-lite-for-elementor' ); ?> <?php echo esc_html( $user ); ?></a>
 		</div>
 		<?php
 	}

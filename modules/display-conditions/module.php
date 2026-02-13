@@ -68,22 +68,22 @@ class Module extends Module_Base {
 	public function get_groups() {
 		return [
 			self::USER_GROUP => [
-				'label' => __( 'User', 'powerpack' ),
+				'label' => __( 'User', 'powerpack-lite-for-elementor' ),
 			],
 			self::SINGLE_GROUP => [
-				'label' => __( 'Singular', 'powerpack' ),
+				'label' => __( 'Singular', 'powerpack-lite-for-elementor' ),
 			],
 			self::ARCHIVE_GROUP => [
-				'label' => __( 'Archive', 'powerpack' ),
+				'label' => __( 'Archive', 'powerpack-lite-for-elementor' ),
 			],
 			self::DATE_TIME_GROUP => [
-				'label' => __( 'Date & Time', 'powerpack' ),
+				'label' => __( 'Date & Time', 'powerpack-lite-for-elementor' ),
 			],
 			self::ACF_GROUP => [
-				'label' => __( 'Advanced Custom Fields', 'powerpack' ),
+				'label' => __( 'Advanced Custom Fields', 'powerpack-lite-for-elementor' ),
 			],
 			self::MISC_GROUP => [
-				'label' => __( 'Misc', 'powerpack' ),
+				'label' => __( 'Misc', 'powerpack-lite-for-elementor' ),
 			],
 		];
 	}
@@ -354,11 +354,11 @@ class Module extends Module_Base {
 		$element->add_control(
 			'pp_display_conditions_enable',
 			[
-				'label'                     => __( 'Display Conditions', 'powerpack' ),
+				'label'                     => __( 'Display Conditions', 'powerpack-lite-for-elementor' ),
 				'type'                      => Controls_Manager::SWITCHER,
 				'default'                   => '',
-				'label_on'                  => __( 'Yes', 'powerpack' ),
-				'label_off'                 => __( 'No', 'powerpack' ),
+				'label_on'                  => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'                 => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'              => 'yes',
 				'frontend_available'        => true,
 			]
@@ -367,12 +367,12 @@ class Module extends Module_Base {
 		$element->add_control(
 			'pp_display_conditions_output',
 			[
-				'label'                 => __( 'Output HTML', 'powerpack' ),
-				'description'           => sprintf( __( 'If enabled, the HTML code will exist on the page but the %s will be hidden using CSS.', 'powerpack' ), $element_type ),
+				'label'                 => __( 'Output HTML', 'powerpack-lite-for-elementor' ),
+				'description'           => sprintf( __( 'If enabled, the HTML code will exist on the page but the %s will be hidden using CSS.', 'powerpack-lite-for-elementor' ), $element_type ),
 				'default'               => '',
 				'type'                  => Controls_Manager::SWITCHER,
-				'label_on'              => __( 'Yes', 'powerpack' ),
-				'label_off'             => __( 'No', 'powerpack' ),
+				'label_on'              => __( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'             => __( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'frontend_available'    => true,
 				'condition'             => [
@@ -384,12 +384,12 @@ class Module extends Module_Base {
 		$element->add_control(
 			'pp_display_conditions_relation',
 			[
-				'label'                     => __( 'Display on', 'powerpack' ),
+				'label'                     => __( 'Display on', 'powerpack-lite-for-elementor' ),
 				'type'                      => Controls_Manager::SELECT,
 				'default'                   => 'all',
 				'options'                   => [
-					'all'       => __( 'All conditions met', 'powerpack' ),
-					'any'       => __( 'Any condition met', 'powerpack' ),
+					'all'       => __( 'All conditions met', 'powerpack-lite-for-elementor' ),
+					'any'       => __( 'Any condition met', 'powerpack-lite-for-elementor' ),
 				],
 				'condition'                 => [
 					'pp_display_conditions_enable' => 'yes',
@@ -418,8 +418,8 @@ class Module extends Module_Base {
 				'default'           => 'is',
 				'label_block'       => true,
 				'options'           => [
-					'is'        => __( 'Is', 'powerpack' ),
-					'not'       => __( 'Is not', 'powerpack' ),
+					'is'        => __( 'Is', 'powerpack-lite-for-elementor' ),
+					'not'       => __( 'Is not', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -429,7 +429,7 @@ class Module extends Module_Base {
 		$element->add_control(
 			'pp_display_conditions',
 			[
-				'label'     => __( 'Conditions', 'powerpack' ),
+				'label'     => __( 'Conditions', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::REPEATER,
 				'default'   => [
 					[

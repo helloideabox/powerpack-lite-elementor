@@ -143,14 +143,14 @@ class Counter extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_counter',
 			[
-				'label'                 => esc_html__( 'Counter', 'powerpack' ),
+				'label'                 => esc_html__( 'Counter', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'starting_number',
 			[
-				'label'                 => esc_html__( 'Starting Number', 'powerpack' ),
+				'label'                 => esc_html__( 'Starting Number', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::NUMBER,
 				'dynamic'               => [
 					'active'   => true,
@@ -162,7 +162,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'ending_number',
 			[
-				'label'                 => esc_html__( 'Ending Number', 'powerpack' ),
+				'label'                 => esc_html__( 'Ending Number', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::NUMBER,
 				'dynamic'               => [
 					'active'   => true,
@@ -174,7 +174,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'number_prefix',
 			[
-				'label'                 => esc_html__( 'Number Prefix', 'powerpack' ),
+				'label'                 => esc_html__( 'Number Prefix', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
@@ -188,7 +188,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'number_suffix',
 			[
-				'label'                 => esc_html__( 'Number Suffix', 'powerpack' ),
+				'label'                 => esc_html__( 'Number Suffix', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
@@ -202,11 +202,11 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'num_divider',
 			[
-				'label'                 => esc_html__( 'Number Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Number Divider', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => esc_html__( 'On', 'powerpack' ),
-				'label_off'             => esc_html__( 'Off', 'powerpack' ),
+				'label_on'              => esc_html__( 'On', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Off', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'condition'             => [
 					'counter_layout'    => [
@@ -222,18 +222,18 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'thousand_separator',
 			[
-				'label'     => esc_html__( 'Thousand Separator', 'powerpack' ),
+				'label'     => esc_html__( 'Thousand Separator', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
-				'label_on'  => esc_html__( 'Show', 'powerpack' ),
-				'label_off' => esc_html__( 'Hide', 'powerpack' ),
+				'label_on'  => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
+				'label_off' => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'thousand_separator_char',
 			[
-				'label'     => esc_html__( 'Separator', 'powerpack' ),
+				'label'     => esc_html__( 'Separator', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => [
 					''  => 'Default',
@@ -251,7 +251,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'icon_heading',
 			[
-				'label'                 => esc_html__( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -260,21 +260,21 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'pp_icon_type',
 			[
-				'label'                 => esc_html__( 'Icon Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Type', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'toggle'                => false,
 				'options'               => [
 					'none'        => [
-						'title'   => esc_html__( 'None', 'powerpack' ),
+						'title'   => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
 						'icon'    => 'eicon-ban',
 					],
 					'icon'        => [
-						'title'   => esc_html__( 'Icon', 'powerpack' ),
+						'title'   => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 						'icon'    => 'eicon-star',
 					],
 					'image'       => [
-						'title'   => esc_html__( 'Image', 'powerpack' ),
+						'title'   => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 						'icon'    => 'eicon-image-bold',
 					],
 				],
@@ -285,7 +285,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'icon',
 			[
-				'label'                 => esc_html__( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::ICONS,
 				'fa4compatibility'      => 'counter_icon',
 				'default'               => [
@@ -301,7 +301,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'icon_image',
 			[
-				'label'                 => esc_html__( 'Image', 'powerpack' ),
+				'label'                 => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::MEDIA,
 				'default'               => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -327,11 +327,11 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'icon_divider',
 			[
-				'label'                 => esc_html__( 'Icon Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Divider', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => 'no',
-				'label_on'              => esc_html__( 'On', 'powerpack' ),
-				'label_off'             => esc_html__( 'Off', 'powerpack' ),
+				'label_on'              => esc_html__( 'On', 'powerpack-lite-for-elementor' ),
+				'label_off'             => esc_html__( 'Off', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'condition'             => [
 					'pp_icon_type!'     => 'none',
@@ -343,7 +343,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'title_heading',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -352,31 +352,31 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'counter_title',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'default'               => esc_html__( 'Counter Title', 'powerpack' ),
+				'default'               => esc_html__( 'Counter Title', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'title_html_tag',
 			[
-				'label'                => esc_html__( 'Title HTML Tag', 'powerpack' ),
+				'label'                => esc_html__( 'Title HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'div',
 				'options'              => [
-					'h1'     => esc_html__( 'H1', 'powerpack' ),
-					'h2'     => esc_html__( 'H2', 'powerpack' ),
-					'h3'     => esc_html__( 'H3', 'powerpack' ),
-					'h4'     => esc_html__( 'H4', 'powerpack' ),
-					'h5'     => esc_html__( 'H5', 'powerpack' ),
-					'h6'     => esc_html__( 'H6', 'powerpack' ),
-					'div'    => esc_html__( 'div', 'powerpack' ),
-					'span'   => esc_html__( 'span', 'powerpack' ),
-					'p'      => esc_html__( 'p', 'powerpack' ),
+					'h1'     => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
+					'h2'     => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
+					'h3'     => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
+					'h4'     => esc_html__( 'H4', 'powerpack-lite-for-elementor' ),
+					'h5'     => esc_html__( 'H5', 'powerpack-lite-for-elementor' ),
+					'h6'     => esc_html__( 'H6', 'powerpack-lite-for-elementor' ),
+					'div'    => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
+					'span'   => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
+					'p'      => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
 				],
 				'condition'             => [
 					'counter_title!'    => '',
@@ -387,7 +387,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'counter_subtitle',
 			[
-				'label'                 => esc_html__( 'Subtitle', 'powerpack' ),
+				'label'                 => esc_html__( 'Subtitle', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
@@ -399,19 +399,19 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'subtitle_html_tag',
 			[
-				'label'                => esc_html__( 'Subtitle HTML Tag', 'powerpack' ),
+				'label'                => esc_html__( 'Subtitle HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'div',
 				'options'              => [
-					'h1'     => esc_html__( 'H1', 'powerpack' ),
-					'h2'     => esc_html__( 'H2', 'powerpack' ),
-					'h3'     => esc_html__( 'H3', 'powerpack' ),
-					'h4'     => esc_html__( 'H4', 'powerpack' ),
-					'h5'     => esc_html__( 'H5', 'powerpack' ),
-					'h6'     => esc_html__( 'H6', 'powerpack' ),
-					'div'    => esc_html__( 'div', 'powerpack' ),
-					'span'   => esc_html__( 'span', 'powerpack' ),
-					'p'      => esc_html__( 'p', 'powerpack' ),
+					'h1'     => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
+					'h2'     => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
+					'h3'     => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
+					'h4'     => esc_html__( 'H4', 'powerpack-lite-for-elementor' ),
+					'h5'     => esc_html__( 'H5', 'powerpack-lite-for-elementor' ),
+					'h6'     => esc_html__( 'H6', 'powerpack-lite-for-elementor' ),
+					'div'    => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
+					'span'   => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
+					'p'      => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
 				],
 				'condition'             => [
 					'counter_subtitle!' => '',
@@ -421,13 +421,13 @@ class Counter extends Powerpack_Widget {
 
 		$layouts = array();
 		for ( $x = 1; $x <= 10; $x++ ) {
-			$layouts[ 'layout-' . $x ] = esc_html__( 'Layout', 'powerpack' ) . ' ' . $x;
+			$layouts[ 'layout-' . $x ] = esc_html__( 'Layout', 'powerpack-lite-for-elementor' ) . ' ' . $x;
 		}
 
 		$this->add_control(
 			'counter_layout',
 			[
-				'label'                => esc_html__( 'Layout', 'powerpack' ),
+				'label'                => esc_html__( 'Layout', 'powerpack-lite-for-elementor' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'layout-1',
 				'options'              => $layouts,
@@ -438,7 +438,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'counter_speed',
 			[
-				'label'                 => esc_html__( 'Counter Speed', 'powerpack' ) . ' (ms)',
+				'label'                 => esc_html__( 'Counter Speed', 'powerpack-lite-for-elementor' ) . ' (ms)',
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => '',
 				'default'               => [ 'size' => 1500 ],
@@ -455,23 +455,23 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'counter_align',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 					'justify'   => [
-						'title' => esc_html__( 'Justified', 'powerpack' ),
+						'title' => esc_html__( 'Justified', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-justify',
 					],
 				],
@@ -499,7 +499,7 @@ class Counter extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -532,7 +532,7 @@ class Counter extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_counter_icon_style',
 			[
-				'label'                 => esc_html__( 'Icon', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'pp_icon_type!' => 'none',
@@ -544,7 +544,7 @@ class Counter extends Powerpack_Widget {
 			Group_Control_Background::get_type(),
 			[
 				'name'                  => 'counter_icon_bg',
-				'label'                 => esc_html__( 'Background', 'powerpack' ),
+				'label'                 => esc_html__( 'Background', 'powerpack-lite-for-elementor' ),
 				'types'                 => [ 'none', 'classic', 'gradient' ],
 				'condition'             => [
 					'pp_icon_type!' => 'none',
@@ -556,7 +556,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'counter_icon_color',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'global'                => [
@@ -575,7 +575,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'counter_icon_size',
 			[
-				'label'                 => esc_html__( 'Size', 'powerpack' ),
+				'label'                 => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -601,7 +601,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'counter_icon_img_width',
 			[
-				'label'                 => esc_html__( 'Image Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Image Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range'                 => [
@@ -627,7 +627,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'counter_icon_rotation',
 			[
-				'label'                 => esc_html__( 'Rotation', 'powerpack' ),
+				'label'                 => esc_html__( 'Rotation', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => '',
 				'range'                 => [
@@ -650,7 +650,7 @@ class Counter extends Powerpack_Widget {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'counter_icon_border',
-				'label'                 => esc_html__( 'Border', 'powerpack' ),
+				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .pp-counter-icon',
@@ -663,7 +663,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'counter_icon_border_radius',
 			[
-				'label'                 => esc_html__( 'Border Radius', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'             => [
@@ -678,7 +678,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'counter_icon_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'placeholder'           => [
@@ -699,7 +699,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'counter_icon_margin',
 			[
-				'label'                 => esc_html__( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'placeholder'           => [
@@ -720,7 +720,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'icon_divider_heading',
 			[
-				'label'                 => esc_html__( 'Icon Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Icon Divider', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -733,14 +733,14 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'icon_divider_type',
 			[
-				'label'                     => esc_html__( 'Divider Type', 'powerpack' ),
+				'label'                     => esc_html__( 'Divider Type', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'solid',
 				'options'               => [
-					'solid'     => esc_html__( 'Solid', 'powerpack' ),
-					'double'    => esc_html__( 'Double', 'powerpack' ),
-					'dotted'    => esc_html__( 'Dotted', 'powerpack' ),
-					'dashed'    => esc_html__( 'Dashed', 'powerpack' ),
+					'solid'     => esc_html__( 'Solid', 'powerpack-lite-for-elementor' ),
+					'double'    => esc_html__( 'Double', 'powerpack-lite-for-elementor' ),
+					'dotted'    => esc_html__( 'Dotted', 'powerpack-lite-for-elementor' ),
+					'dashed'    => esc_html__( 'Dashed', 'powerpack-lite-for-elementor' ),
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-counter-icon-divider' => 'border-bottom-style: {{VALUE}}',
@@ -755,7 +755,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_divider_height',
 			[
-				'label'                 => esc_html__( 'Height', 'powerpack' ),
+				'label'                 => esc_html__( 'Height', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
@@ -781,7 +781,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_divider_width',
 			[
-				'label'                 => esc_html__( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default'               => [
@@ -812,7 +812,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'icon_divider_color',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -828,7 +828,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'icon_divider_margin',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -863,7 +863,7 @@ class Counter extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_counter_num_style',
 			[
-				'label'                 => esc_html__( 'Number', 'powerpack' ),
+				'label'                 => esc_html__( 'Number', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -871,7 +871,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'counter_num_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -913,7 +913,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'counter_num_margin',
 			[
-				'label'                 => esc_html__( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'placeholder'           => [
@@ -931,7 +931,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'number_prefix_heading',
 			[
-				'label'                 => esc_html__( 'Number Prefix', 'powerpack' ),
+				'label'                 => esc_html__( 'Number Prefix', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -943,7 +943,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'number_prefix_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -959,7 +959,7 @@ class Counter extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'number_prefix_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-counter-number-prefix',
 				'condition'             => [
 					'number_prefix!' => '',
@@ -970,7 +970,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'number_suffix_heading',
 			[
-				'label'                 => esc_html__( 'Number Suffix', 'powerpack' ),
+				'label'                 => esc_html__( 'Number Suffix', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -982,7 +982,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'section_number_suffix_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -998,7 +998,7 @@ class Counter extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'section_number_suffix_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-counter-number-suffix',
 				'condition'             => [
 					'number_suffix!' => '',
@@ -1016,7 +1016,7 @@ class Counter extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_number_divider_style',
 			[
-				'label'                 => esc_html__( 'Number Divider', 'powerpack' ),
+				'label'                 => esc_html__( 'Number Divider', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'num_divider'       => 'yes',
@@ -1033,14 +1033,14 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'num_divider_type',
 			[
-				'label'                 => esc_html__( 'Divider Type', 'powerpack' ),
+				'label'                 => esc_html__( 'Divider Type', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'solid',
 				'options'               => [
-					'solid'     => esc_html__( 'Solid', 'powerpack' ),
-					'double'    => esc_html__( 'Double', 'powerpack' ),
-					'dotted'    => esc_html__( 'Dotted', 'powerpack' ),
-					'dashed'    => esc_html__( 'Dashed', 'powerpack' ),
+					'solid'     => esc_html__( 'Solid', 'powerpack-lite-for-elementor' ),
+					'double'    => esc_html__( 'Double', 'powerpack-lite-for-elementor' ),
+					'dotted'    => esc_html__( 'Dotted', 'powerpack-lite-for-elementor' ),
+					'dashed'    => esc_html__( 'Dashed', 'powerpack-lite-for-elementor' ),
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-counter-num-divider' => 'border-bottom-style: {{VALUE}}',
@@ -1060,7 +1060,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'num_divider_height',
 			[
-				'label'                 => esc_html__( 'Height', 'powerpack' ),
+				'label'                 => esc_html__( 'Height', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', 'em', 'rem', 'custom' ],
 				'default'               => [
@@ -1091,7 +1091,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'num_divider_width',
 			[
-				'label'                 => esc_html__( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default'               => [
@@ -1127,7 +1127,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'num_divider_color',
 			[
-				'label'                 => esc_html__( 'Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1148,7 +1148,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'num_divider_margin',
 			[
-				'label'                 => esc_html__( 'Spacing', 'powerpack' ),
+				'label'                 => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'                 => [
@@ -1188,7 +1188,7 @@ class Counter extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_counter_title_style',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 				'condition'             => [
 					'counter_title!' => '',
@@ -1199,7 +1199,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'counter_title_bg_color',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1214,7 +1214,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'title_style_heading',
 			[
-				'label'                 => esc_html__( 'Title', 'powerpack' ),
+				'label'                 => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -1226,7 +1226,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'counter_title_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -1245,7 +1245,7 @@ class Counter extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'counter_title_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'selector'              => '{{WRAPPER}} .pp-counter-title',
 				'global'                => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -1275,7 +1275,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'subtitle_style_heading',
 			[
-				'label'                 => esc_html__( 'Subtitle', 'powerpack' ),
+				'label'                 => esc_html__( 'Subtitle', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 				'condition'             => [
@@ -1287,7 +1287,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_control(
 			'counter_subtitle_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -1306,7 +1306,7 @@ class Counter extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'counter_subtitle_typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				],
@@ -1342,7 +1342,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'counter_title_margin',
 			[
-				'label'                 => esc_html__( 'Margin', 'powerpack' ),
+				'label'                 => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'placeholder'           => [
@@ -1364,7 +1364,7 @@ class Counter extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'counter_title_padding',
 			[
-				'label'                 => esc_html__( 'Padding', 'powerpack' ),
+				'label'                 => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'placeholder'           => [

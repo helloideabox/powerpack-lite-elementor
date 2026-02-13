@@ -109,32 +109,32 @@ class Link_Effects extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_link_effects',
 			[
-				'label'                 => esc_html__( 'Link Effects', 'powerpack' ),
+				'label'                 => esc_html__( 'Link Effects', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'text',
 			[
-				'label'                 => esc_html__( 'Text', 'powerpack' ),
+				'label'                 => esc_html__( 'Text', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'label_block'           => true,
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'default'               => esc_html__( 'Click Here', 'powerpack' ),
+				'default'               => esc_html__( 'Click Here', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'secondary_text',
 			[
-				'label'                 => esc_html__( 'Secondary Text', 'powerpack' ),
+				'label'                 => esc_html__( 'Secondary Text', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'default'               => esc_html__( 'Click Here', 'powerpack' ),
+				'default'               => esc_html__( 'Click Here', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'effect'    => 'effect-9',
 				],
@@ -144,7 +144,7 @@ class Link_Effects extends Powerpack_Widget {
 		$this->add_control(
 			'link',
 			[
-				'label'                 => esc_html__( 'Link', 'powerpack' ),
+				'label'                 => esc_html__( 'Link', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::URL,
 				'dynamic'               => [
 					'active'   => true,
@@ -159,30 +159,30 @@ class Link_Effects extends Powerpack_Widget {
 		$this->add_control(
 			'effect',
 			[
-				'label'                 => esc_html__( 'Effect', 'powerpack' ),
+				'label'                 => esc_html__( 'Effect', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'effect-1'  => esc_html__( 'Bottom Border Slides In', 'powerpack' ),
-					'effect-2'  => esc_html__( 'Bottom Border Slides Out', 'powerpack' ),
-					'effect-3'  => esc_html__( 'Brackets', 'powerpack' ),
-					'effect-4'  => esc_html__( '3D Rolling Cube', 'powerpack' ),
-					'effect-5'  => esc_html__( 'Same Word Slide In', 'powerpack' ),
-					'effect-6'  => esc_html__( 'Right Angle Slides Down over Title', 'powerpack' ),
-					'effect-7'  => esc_html__( 'Second Border Slides Up', 'powerpack' ),
-					'effect-8'  => esc_html__( 'Border Slight Translate', 'powerpack' ),
-					'effect-9'  => esc_html__( 'Second Text and Borders', 'powerpack' ),
-					'effect-10' => esc_html__( 'Push Out', 'powerpack' ),
-					'effect-11' => esc_html__( 'Text Fill', 'powerpack' ),
-					'effect-12' => esc_html__( 'Circle', 'powerpack' ),
-					'effect-13' => esc_html__( 'Three Circles', 'powerpack' ),
-					'effect-14' => esc_html__( 'Border Switch', 'powerpack' ),
-					'effect-15' => esc_html__( 'Scale Down', 'powerpack' ),
-					'effect-16' => esc_html__( 'Fall Down', 'powerpack' ),
-					'effect-17' => esc_html__( 'Move Up and Push Border', 'powerpack' ),
-					'effect-18' => esc_html__( 'Cross', 'powerpack' ),
-					'effect-19' => esc_html__( '3D Side', 'powerpack' ),
-					'effect-20' => esc_html__( 'Unfold', 'powerpack' ),
-					'effect-21' => esc_html__( 'Borders Slight Translate', 'powerpack' ),
+					'effect-1'  => esc_html__( 'Bottom Border Slides In', 'powerpack-lite-for-elementor' ),
+					'effect-2'  => esc_html__( 'Bottom Border Slides Out', 'powerpack-lite-for-elementor' ),
+					'effect-3'  => esc_html__( 'Brackets', 'powerpack-lite-for-elementor' ),
+					'effect-4'  => esc_html__( '3D Rolling Cube', 'powerpack-lite-for-elementor' ),
+					'effect-5'  => esc_html__( 'Same Word Slide In', 'powerpack-lite-for-elementor' ),
+					'effect-6'  => esc_html__( 'Right Angle Slides Down over Title', 'powerpack-lite-for-elementor' ),
+					'effect-7'  => esc_html__( 'Second Border Slides Up', 'powerpack-lite-for-elementor' ),
+					'effect-8'  => esc_html__( 'Border Slight Translate', 'powerpack-lite-for-elementor' ),
+					'effect-9'  => esc_html__( 'Second Text and Borders', 'powerpack-lite-for-elementor' ),
+					'effect-10' => esc_html__( 'Push Out', 'powerpack-lite-for-elementor' ),
+					'effect-11' => esc_html__( 'Text Fill', 'powerpack-lite-for-elementor' ),
+					'effect-12' => esc_html__( 'Circle', 'powerpack-lite-for-elementor' ),
+					'effect-13' => esc_html__( 'Three Circles', 'powerpack-lite-for-elementor' ),
+					'effect-14' => esc_html__( 'Border Switch', 'powerpack-lite-for-elementor' ),
+					'effect-15' => esc_html__( 'Scale Down', 'powerpack-lite-for-elementor' ),
+					'effect-16' => esc_html__( 'Fall Down', 'powerpack-lite-for-elementor' ),
+					'effect-17' => esc_html__( 'Move Up and Push Border', 'powerpack-lite-for-elementor' ),
+					'effect-18' => esc_html__( 'Cross', 'powerpack-lite-for-elementor' ),
+					'effect-19' => esc_html__( '3D Side', 'powerpack-lite-for-elementor' ),
+					'effect-20' => esc_html__( 'Unfold', 'powerpack-lite-for-elementor' ),
+					'effect-21' => esc_html__( 'Borders Slight Translate', 'powerpack-lite-for-elementor' ),
 				],
 				'default'               => 'effect-1',
 			]
@@ -191,19 +191,19 @@ class Link_Effects extends Powerpack_Widget {
 		$this->add_control(
 			'html_tag',
 			array(
-				'label'   => esc_html__( 'HTML Tag', 'powerpack' ),
+				'label'   => esc_html__( 'HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'div',
 				'options' => array(
-					'h1'   => esc_html__( 'H1', 'powerpack' ),
-					'h2'   => esc_html__( 'H2', 'powerpack' ),
-					'h3'   => esc_html__( 'H3', 'powerpack' ),
-					'h4'   => esc_html__( 'H4', 'powerpack' ),
-					'h5'   => esc_html__( 'H5', 'powerpack' ),
-					'h6'   => esc_html__( 'H6', 'powerpack' ),
-					'div'  => esc_html__( 'div', 'powerpack' ),
-					'span' => esc_html__( 'span', 'powerpack' ),
-					'p'    => esc_html__( 'p', 'powerpack' ),
+					'h1'   => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
+					'h2'   => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
+					'h3'   => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
+					'h4'   => esc_html__( 'H4', 'powerpack-lite-for-elementor' ),
+					'h5'   => esc_html__( 'H5', 'powerpack-lite-for-elementor' ),
+					'h6'   => esc_html__( 'H6', 'powerpack-lite-for-elementor' ),
+					'div'  => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
+					'span' => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
+					'p'    => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
 				),
 			)
 		);
@@ -211,23 +211,23 @@ class Link_Effects extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 					'justify'   => [
-						'title' => esc_html__( 'Justified', 'powerpack' ),
+						'title' => esc_html__( 'Justified', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-justify',
 					],
 				],
@@ -253,7 +253,7 @@ class Link_Effects extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -285,7 +285,7 @@ class Link_Effects extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_style',
 			[
-				'label'                 => esc_html__( 'Link Effects', 'powerpack' ),
+				'label'                 => esc_html__( 'Link Effects', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -294,7 +294,7 @@ class Link_Effects extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
@@ -305,7 +305,7 @@ class Link_Effects extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'divider_title_width',
 			[
-				'label'                 => esc_html__( 'Width', 'powerpack' ),
+				'label'                 => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SLIDER,
 				'default'               => [
 					'size'  => 200,
@@ -333,14 +333,14 @@ class Link_Effects extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_link_normal',
 			[
-				'label'                 => esc_html__( 'Normal', 'powerpack' ),
+				'label'                 => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'link_color_normal',
 			[
-				'label'                 => esc_html__( 'Link Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Link Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -352,7 +352,7 @@ class Link_Effects extends Powerpack_Widget {
 		$this->add_control(
 			'background_color_normal',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -364,7 +364,7 @@ class Link_Effects extends Powerpack_Widget {
 		$this->add_control(
 			'link_border_color',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -382,14 +382,14 @@ class Link_Effects extends Powerpack_Widget {
 		$this->start_controls_tab(
 			'tab_link_hover',
 			[
-				'label'                 => esc_html__( 'Hover', 'powerpack' ),
+				'label'                 => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'link_color_hover',
 			[
-				'label'                 => esc_html__( 'Link Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Link Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -401,7 +401,7 @@ class Link_Effects extends Powerpack_Widget {
 		$this->add_control(
 			'background_color_hover',
 			[
-				'label'                 => esc_html__( 'Background Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -413,7 +413,7 @@ class Link_Effects extends Powerpack_Widget {
 		$this->add_control(
 			'link_border_color_hover',
 			[
-				'label'                 => esc_html__( 'Border Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [

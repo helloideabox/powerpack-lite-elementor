@@ -240,7 +240,7 @@ $settings     = PP_Admin_Settings::get_settings();
 			<span>
 			<?php
 				$admin_label = 'PowerPack';
-				echo sprintf( esc_html__( '%s Settings', 'powerpack' ), $admin_label );
+				echo sprintf( esc_html__( '%s Settings', 'powerpack-lite-for-elementor' ), $admin_label );
 			?>
 			</span>
 		</h3>
@@ -248,7 +248,7 @@ $settings     = PP_Admin_Settings::get_settings();
 			<?php self::render_tabs( $current_tab ); ?>
 		</div>
 		<div class="pp-settings-version wp-clearfix">
-			<span><?php echo sprintf( esc_html__( 'Version %s', 'powerpack' ), POWERPACK_ELEMENTS_LITE_VER ); ?></span>
+			<span><?php echo sprintf( esc_html__( 'Version %s', 'powerpack-lite-for-elementor' ), POWERPACK_ELEMENTS_LITE_VER ); ?></span>
 		</div>
 	</div>
 
@@ -263,26 +263,26 @@ $settings     = PP_Admin_Settings::get_settings();
 			<div class="pro-upgrade-banner">
 				<div class="banner-inner">
 					<div class="banner-image"><img src="<?php echo POWERPACK_ELEMENTS_LITE_URL . 'assets/images/pp-elements-logo.svg'; ?>" /></div>
-					<h3 class="banner-title-1"><?php _e( 'Get access to more premium widgets and features.', 'powerpack' ); ?></h3>
-					<h3 class="banner-title-2"><?php _e( 'Upgrade to <strong>PowerPack Pro</strong> and get', 'powerpack' ); ?></h3>
+					<h3 class="banner-title-1"><?php _e( 'Get access to more premium widgets and features.', 'powerpack-lite-for-elementor' ); ?></h3>
+					<h3 class="banner-title-2"><?php _e( 'Upgrade to <strong>PowerPack Pro</strong> and get', 'powerpack-lite-for-elementor' ); ?></h3>
 					<ul>
-						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'More Widgets', 'powerpack' ); ?></li>
-						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'WooCommerce Widgets', 'powerpack' ); ?></li>
-						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'White Label Branding', 'powerpack' ); ?></li>
-						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'Expert Support', 'powerpack' ); ?></li>
-						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'Lifetime package available', 'powerpack' ); ?></li>
+						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'More Widgets', 'powerpack-lite-for-elementor' ); ?></li>
+						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'WooCommerce Widgets', 'powerpack-lite-for-elementor' ); ?></li>
+						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'White Label Branding', 'powerpack-lite-for-elementor' ); ?></li>
+						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'Expert Support', 'powerpack-lite-for-elementor' ); ?></li>
+						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'Lifetime package available', 'powerpack-lite-for-elementor' ); ?></li>
 					</ul>
-					<div class="banner-action"><a href="https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-settings&utm_campaign=pp-pro-upgrade" class="pp-button" target="_blank" title="<?php _e( 'Upgrade to PowerPack Pro', 'powerpack' ); ?>"><?php _e( 'Upgrade Now', 'powerpack' ); ?></a></div>
+					<div class="banner-action"><a href="https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-settings&utm_campaign=pp-pro-upgrade" class="pp-button" target="_blank" title="<?php _e( 'Upgrade to PowerPack Pro', 'powerpack-lite-for-elementor' ); ?>"><?php _e( 'Upgrade Now', 'powerpack-lite-for-elementor' ); ?></a></div>
 				</div>
 			</div>
 		</div>
 
 		<br />
-		<h2><?php esc_html_e( 'Support', 'powerpack' ); ?></h2>
+		<h2><?php esc_html_e( 'Support', 'powerpack-lite-for-elementor' ); ?></h2>
 		<p>
 			<?php
 				$support_link = 'https://powerpackelements.com/contact/';
-				esc_html_e( 'For submitting any support queries, feedback, bug reports or feature requests, please visit', 'powerpack' ); ?> <a href="<?php echo $support_link; ?>" target="_blank"><?php esc_html_e( 'this link', 'powerpack' ); ?></a>
+				esc_html_e( 'For submitting any support queries, feedback, bug reports or feature requests, please visit', 'powerpack-lite-for-elementor' ); ?> <a href="<?php echo $support_link; ?>" target="_blank"><?php esc_html_e( 'this link', 'powerpack-lite-for-elementor' ); ?></a>
 		</p>
 	</div>
 </div>

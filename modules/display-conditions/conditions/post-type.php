@@ -52,7 +52,7 @@ class Post_Type extends Condition {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Post Type', 'powerpack' );
+		return __( 'Post Type', 'powerpack-lite-for-elementor' );
 	}
 
 	/**
@@ -67,8 +67,8 @@ class Post_Type extends Condition {
 		return [
 			'type'          => Controls_Manager::SELECT2,
 			'default'       => '',
-			'placeholder'   => __( 'Any', 'powerpack' ),
-			'description'   => __( 'Leave blank or select all for any post type.', 'powerpack' ),
+			'placeholder'   => __( 'Any', 'powerpack-lite-for-elementor' ),
+			'description'   => __( 'Leave blank or select all for any post type.', 'powerpack-lite-for-elementor' ),
 			'label_block'   => true,
 			'multiple'      => true,
 			'options'       => PP_Posts_Helper::get_post_types(),

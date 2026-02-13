@@ -120,28 +120,28 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->start_controls_section(
 			'section_heading',
 			[
-				'label'                 => esc_html__( 'Fancy Heading', 'powerpack' ),
+				'label'                 => esc_html__( 'Fancy Heading', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'heading_text',
 			[
-				'label'                 => esc_html__( 'Heading', 'powerpack' ),
+				'label'                 => esc_html__( 'Heading', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::TEXTAREA,
 				'dynamic'               => [
 					'active'   => true,
 				],
 				'label_block'           => true,
 				'rows'                  => 2,
-				'default'               => esc_html__( 'Add Your Heading Text Here', 'powerpack' ),
+				'default'               => esc_html__( 'Add Your Heading Text Here', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'link',
 			[
-				'label'                 => esc_html__( 'Link', 'powerpack' ),
+				'label'                 => esc_html__( 'Link', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::URL,
 				'dynamic'               => [
 					'active'        => true,
@@ -157,20 +157,20 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->add_control(
 			'heading_html_tag',
 			[
-				'label'                 => esc_html__( 'HTML Tag', 'powerpack' ),
+				'label'                 => esc_html__( 'HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => false,
 				'default'               => 'h2',
 				'options'               => [
-					'h1'     => esc_html__( 'H1', 'powerpack' ),
-					'h2'     => esc_html__( 'H2', 'powerpack' ),
-					'h3'     => esc_html__( 'H3', 'powerpack' ),
-					'h4'     => esc_html__( 'H4', 'powerpack' ),
-					'h5'     => esc_html__( 'H5', 'powerpack' ),
-					'h6'     => esc_html__( 'H6', 'powerpack' ),
-					'div'    => esc_html__( 'div', 'powerpack' ),
-					'span'   => esc_html__( 'span', 'powerpack' ),
-					'p'      => esc_html__( 'p', 'powerpack' ),
+					'h1'     => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
+					'h2'     => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
+					'h3'     => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
+					'h4'     => esc_html__( 'H4', 'powerpack-lite-for-elementor' ),
+					'h5'     => esc_html__( 'H5', 'powerpack-lite-for-elementor' ),
+					'h6'     => esc_html__( 'H6', 'powerpack-lite-for-elementor' ),
+					'div'    => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
+					'span'   => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
+					'p'      => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
 				],
 			]
 		);
@@ -178,24 +178,24 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'                 => esc_html__( 'Alignment', 'powerpack' ),
+				'label'                 => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'powerpack' ),
+						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'powerpack' ),
+						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'powerpack' ),
+						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'powerpack' ),
+						'title' => esc_html__( 'Justified', 'powerpack-lite-for-elementor' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
@@ -224,7 +224,7 @@ class Fancy_Heading extends Powerpack_Widget {
 			$this->start_controls_section(
 				'section_help_docs',
 				[
-					'label' => esc_html__( 'Help Docs', 'powerpack' ),
+					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -257,7 +257,7 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->start_controls_section(
 			'heading_section_style',
 			[
-				'label'                 => esc_html__( 'Fancy Heading', 'powerpack' ),
+				'label'                 => esc_html__( 'Fancy Heading', 'powerpack-lite-for-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -266,7 +266,7 @@ class Fancy_Heading extends Powerpack_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'typography',
-				'label'                 => esc_html__( 'Typography', 'powerpack' ),
+				'label'                 => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'                => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
@@ -293,11 +293,11 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->add_control(
 			'heading_fill',
 			[
-				'label'                 => esc_html__( 'Fill', 'powerpack' ),
+				'label'                 => esc_html__( 'Fill', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'options'               => [
-					'solid'     => esc_html__( 'Color', 'powerpack' ),
-					'gradient'  => esc_html__( 'Background', 'powerpack' ),
+					'solid'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
+					'gradient'  => esc_html__( 'Background', 'powerpack-lite-for-elementor' ),
 				],
 				'default'               => 'solid',
 				'prefix_class'          => 'pp-heading-fill-',
@@ -321,7 +321,7 @@ class Fancy_Heading extends Powerpack_Widget {
 		$this->add_control(
 			'heading_text_color',
 			[
-				'label'                 => esc_html__( 'Text Color', 'powerpack' ),
+				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
 				'global'                => [
 					'default' => Global_Colors::COLOR_PRIMARY,

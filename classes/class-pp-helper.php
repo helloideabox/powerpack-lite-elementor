@@ -385,14 +385,14 @@ class PP_Helper {
 
 		// Contact Forms List
 		if ( ! empty( $contact_forms ) ) {
-			$options[0] = esc_html__( 'Select a Contact Form', 'powerpack' );
+			$options[0] = esc_html__( 'Select a Contact Form', 'powerpack-lite-for-elementor' );
 			foreach ( $contact_forms as $form_id => $form_title ) {
 				$options[ $form_id ] = $form_title;
 			}
 		}
 
 		if ( empty( $options ) ) {
-			$options[0] = esc_html__( 'No contact forms found!', 'powerpack' );
+			$options[0] = esc_html__( 'No contact forms found!', 'powerpack-lite-for-elementor' );
 		}
 
 		return $options;
