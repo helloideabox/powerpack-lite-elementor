@@ -2477,7 +2477,12 @@ class Gravity_Forms extends Powerpack_Widget {
 					$form_title       = ( 'yes' == $settings['form_title'] ) ? 'true' : 'false';
 					$form_description = ( 'yes' == $settings['form_description'] ) ? 'true' : 'false';
 					$form_ajax        = ( 'yes' == $settings['form_ajax'] ) ? 'true' : 'false';
-					$shortcode_attrs  = apply_filters( 'pp_gf_shortcode_atts', '', absint( $settings['contact_form_list'] ) );
+					$shortcode_attrs  = PP_Helper::apply_deprecated_filter(
+						'pp_gf_shortcode_atts',
+						'powerpack_elements_gf_shortcode_atts',
+						'',
+						array( $form_id )
+					);
 
 					echo do_shortcode( '[gravityform id="' . absint( $form_id ) . '" title="' . $form_title . '" description="' . $form_description . '" ajax="' . $form_ajax . '"' . ' ' . $shortcode_attrs . ']' );
 					?>

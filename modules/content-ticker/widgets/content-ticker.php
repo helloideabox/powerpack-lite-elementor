@@ -2224,13 +2224,13 @@ class Content_Ticker extends Powerpack_Widget {
 						$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
 						?>
 						<<?php echo esc_html( $title_tag ); ?> class="pp-content-ticker-item-title">
-						<?php
-						if ( ( 'title' === $settings['link_type'] || 'both' === $settings['link_type'] ) && $item['link']['url'] ) {
-							printf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( $link_key ), $item['ticker_title'] );
-						} else {
-							echo wp_kses_post( $item['ticker_title'] );
-						}
-						?>
+						<?php if ( ( 'title' === $settings['link_type'] || 'both' === $settings['link_type'] ) && $item['link']['url'] ) : ?>
+							<a <?php $this->print_render_attribute_string( $link_key ); ?>>
+								<?php echo esc_html( $item['ticker_title'] ); ?>
+							</a>
+						<?php else : ?>
+							<?php echo wp_kses_post( $item['ticker_title'] ); ?>
+						<?php endif; ?>
 						</<?php echo esc_html( $title_tag ); ?>>
 						<?php
 					}
@@ -2328,7 +2328,7 @@ class Content_Ticker extends Powerpack_Widget {
 								<?php
 								if ( 'image' === $settings['link_type'] || 'both' === $settings['link_type'] ) {
 									?>
-									<a href="<?php echo get_permalink(); ?>">
+									<a href="<?php echo esc_url( get_permalink() ); ?>">
 										<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php wp_kses_post( $image_alt ); ?>">
 									</a>
 									<?php
@@ -2345,13 +2345,13 @@ class Content_Ticker extends Powerpack_Widget {
 							$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
 							?>
 							<<?php echo esc_html( $title_tag ); ?> class="pp-content-ticker-item-title">
-							<?php
-							if ( 'title' === $settings['link_type'] || 'both' === $settings['link_type'] ) {
-								printf( '<a href="%1$s">%2$s</a>', get_permalink(), get_the_title() );
-							} else {
-								the_title();
-							}
-							?>
+							<?php if ( 'title' === $settings['link_type'] || 'both' === $settings['link_type'] ) : ?>
+								<a href="<?php echo esc_url( get_permalink() ); ?>">
+									<?php echo esc_html( get_the_title() ); ?>
+								</a>
+							<?php else : ?>
+								<?php the_title(); ?>
+							<?php endif; ?>
 							</<?php echo esc_html( $title_tag ); ?>>
 							<?php
 							if ( 'yes' === $settings['post_meta'] ) { ?>
@@ -2368,7 +2368,7 @@ class Content_Ticker extends Powerpack_Widget {
 												the_date();
 											}
 											if ( 'yes' === $settings['post_date'] && 'yes' === $settings['post_time'] ) {
-												echo ' ' . $settings['datetime_separator'] . ' ';
+												echo ' ' . esc_html( $settings['datetime_separator'] ) . ' ';
 											}
 											if ( 'yes' === $settings['post_time'] ) {
 												the_time();

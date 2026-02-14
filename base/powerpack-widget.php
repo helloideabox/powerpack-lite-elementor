@@ -47,6 +47,8 @@ abstract class Powerpack_Widget extends Widget_Base {
 	}
 
 	public function upgrade_powerpack_message() {
+		$upgrade_url = 'https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-widget-upgrade-section&utm_campaign=pp-pro-upgrade';
+
 		$upgrade_message = sprintf(
 			/* translators: 1: Opening anchor tag, 2: Closing anchor tag. */
 			__(

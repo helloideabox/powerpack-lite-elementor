@@ -44,7 +44,7 @@ if ( did_action( 'elementor/loaded' ) ) {
  *
  * @since 1.0
  */
-function pp_elements_lite_is_elementor_installed() {
+function powerpack_elements_lite_is_elementor_installed() {
 	$file_path = 'elementor/elementor.php';
 	$installed_plugins = get_plugins();
 	return isset( $installed_plugins[ $file_path ] );
@@ -56,10 +56,10 @@ function pp_elements_lite_is_elementor_installed() {
  *
  * @since 1.0
  */
-function pp_elements_lite_fail_load() {
+function powerpack_elements_lite_fail_load() {
     $plugin = 'elementor/elementor.php';
 
-	if ( pp_elements_lite_is_elementor_installed() ) {
+	if ( powerpack_elements_lite_is_elementor_installed() ) {
 		if ( ! current_user_can( 'activate_plugins' ) ) {
 			return;
 		}
@@ -88,9 +88,17 @@ function pp_elements_lite_fail_load() {
 		$button_text = __( 'Install Elementor', 'powerpack-lite-for-elementor' );
 	}
 
-	$button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
-    
-    printf( '<div class="error"><p>%1$s</p>%2$s</div>', esc_html( $message ), $button );
+	$button = sprintf(
+		'<p><a href="%1$s" class="button-primary">%2$s</a></p>',
+		esc_url( $activation_url ),
+		esc_html( $button_text )
+	);
+	?>
+	<div class="notice notice-error">
+		<p><?php echo esc_html( $message ); ?></p>
+		<?php echo wp_kses_post( $button ); ?>
+	</div>
+	<?php
 }
 
 /**
@@ -100,7 +108,7 @@ function pp_elements_lite_fail_load() {
  * @since 1.0
  *
  */
-function pp_elements_lite_fail_load_out_of_date() {
+function powerpack_elements_lite_fail_load_out_of_date() {
     if ( ! current_user_can( 'update_plugins' ) ) {
 		return;
 	}
@@ -124,7 +132,7 @@ function pp_elements_lite_fail_load_out_of_date() {
  * @since 1.0
  *
  */
-function pp_elements_lite_fail_php() {
+function powerpack_elements_lite_fail_php() {
 	$message = sprintf(
 		/* translators: %s: Minimum required PHP version number. */
 		esc_html__(
@@ -145,30 +153,30 @@ function pp_elements_lite_fail_php() {
  *
  * @since 1.0
  */
-function pp_elements_lite_deactivate() {
+function powerpack_elements_lite_deactivate() {
 	deactivate_plugins( plugin_basename( __FILE__ ) );
 }
 
-add_action( 'plugins_loaded', 'pp_elements_lite_init' );
+add_action( 'plugins_loaded', 'powerpack_elements_lite_init' );
 
-function pp_elements_lite_init() {
+function powerpack_elements_lite_init() {
     // Notice if the Elementor is not active
 	if ( ! did_action( 'elementor/loaded' ) ) {
-		add_action( 'admin_notices', 'pp_elements_lite_fail_load' );
+		add_action( 'admin_notices', 'powerpack_elements_lite_fail_load' );
 		return;
 	}
 
 	// Check for required Elementor version
 	if ( ! version_compare( ELEMENTOR_VERSION, POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED, '>=' ) ) {
-		add_action( 'admin_notices', 'pp_elements_lite_fail_load_out_of_date' );
-		add_action( 'admin_init', 'pp_elements_lite_deactivate' );
+		add_action( 'admin_notices', 'powerpack_elements_lite_fail_load_out_of_date' );
+		add_action( 'admin_init', 'powerpack_elements_lite_deactivate' );
 		return;
 	}
     
     // Check for required PHP version
 	if ( ! version_compare( PHP_VERSION, POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED, '>=' ) ) {
-		add_action( 'admin_notices', 'pp_elements_lite_fail_php' );
-		add_action( 'admin_init', 'pp_elements_lite_deactivate' );
+		add_action( 'admin_notices', 'powerpack_elements_lite_fail_php' );
+		add_action( 'admin_init', 'powerpack_elements_lite_deactivate' );
 		return;
 	}
 
@@ -200,19 +208,38 @@ if ( ! function_exists( 'is_pp_elements_active' ) ) {
  *
  * @since 1.4.4
  */
-function pp_elements_lite_add_plugin_page_settings_link( $links ) {
-	$links[] = '<a href="' . admin_url( 'admin.php?page=powerpack-settings' ) . '">' . __('Settings', 'powerpack-lite-for-elementor') . '</a>';
+function powerpack_elements_lite_add_plugin_page_settings_link( $links ) {
+
+	$settings_url = admin_url( 'admin.php?page=powerpack-settings' );
+
+	$links[] = sprintf(
+		'<a href="%1$s">%2$s</a>',
+		esc_url( $settings_url ),
+		esc_html__( 'Settings', 'powerpack-lite-for-elementor' )
+	);
+
 	return $links;
 }
-add_filter('plugin_action_links_' . POWERPACK_ELEMENTS_LITE_BASE, 'pp_elements_lite_add_plugin_page_settings_link');
 
- 
-function pp_add_description_links( $plugin_meta, $plugin_file ) {
+add_filter( 'plugin_action_links_' . POWERPACK_ELEMENTS_LITE_BASE, 'powerpack_elements_lite_add_plugin_page_settings_link' );
+
+function powerpack_elements_add_description_links( $plugin_meta, $plugin_file ) {
 
 	if ( POWERPACK_ELEMENTS_LITE_BASE === $plugin_file ) {
+
 		$row_meta = [
-			'docs' => '<a href="https://powerpackelements.com/docs/?utm_source=doclink&utm_medium=widget&utm_campaign=lite" aria-label="' . esc_attr( __( 'View PowerPack Documentation', 'powerpack-lite-for-elementor' ) ) . '" target="_blank">' . __( 'Docs & FAQs', 'powerpack-lite-for-elementor' ) . '</a>',
-			'ideo' => '<a href="https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite" aria-label="' . esc_attr( __( 'Go Pro', 'powerpack-lite-for-elementor' ) ) . '" target="_blank" style="font-weight:bold;">' . __( 'Go Pro', 'powerpack-lite-for-elementor' ) . '</a>',
+			'docs' => sprintf(
+				'<a href="%1$s" aria-label="%2$s" target="_blank" rel="noopener noreferrer">%3$s</a>',
+				esc_url( 'https://powerpackelements.com/docs/?utm_source=doclink&utm_medium=widget&utm_campaign=lite' ),
+				esc_attr__( 'View PowerPack Documentation', 'powerpack-lite-for-elementor' ),
+				esc_html__( 'Docs & FAQs', 'powerpack-lite-for-elementor' )
+			),
+			'pro'  => sprintf(
+				'<a href="%1$s" aria-label="%2$s" target="_blank" rel="noopener noreferrer" style="font-weight:bold;">%3$s</a>',
+				esc_url( 'https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite' ),
+				esc_attr__( 'Upgrade to PowerPack Pro', 'powerpack-lite-for-elementor' ),
+				esc_html__( 'Go Pro', 'powerpack-lite-for-elementor' )
+			),
 		];
 
 		$plugin_meta = array_merge( $plugin_meta, $row_meta );
@@ -221,4 +248,4 @@ function pp_add_description_links( $plugin_meta, $plugin_file ) {
 	return $plugin_meta;
 }
 
-add_filter( 'plugin_row_meta', 'pp_add_description_links', 10, 4 );
+add_filter( 'plugin_row_meta', 'powerpack_elements_add_description_links', 10, 4 );

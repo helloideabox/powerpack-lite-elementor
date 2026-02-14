@@ -1558,10 +1558,10 @@ class Fluent_Forms extends Powerpack_Widget {
 					esc_html( $this->get_title() )
 				);
 
-				echo wp_kses_post( $this->render_editor_placeholder( [
+				$this->render_editor_placeholder( [
 					'title' => esc_html__( 'No Contact Form Selected!', 'powerpack-lite-for-elementor' ),
 					'body' => $placeholder,
-				] ) );
+				] );
 			}
 		}
 	}

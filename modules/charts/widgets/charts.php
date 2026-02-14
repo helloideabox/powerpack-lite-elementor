@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\Charts\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 
 // Elementor Classes
 use Elementor\Widget_Base;
@@ -2114,8 +2115,21 @@ class Charts extends Powerpack_Widget {
 		$datasets = $this->get_datasets( $settings, $chart_type );
 		$options  = $this->get_chart_options( $settings, $chart_type );
 
-		$datasets = apply_filters( 'pp_chart_datasets', $datasets );
-		$options  = apply_filters( 'pp_chart_options', $options );
+		$datasets = PP_Helper::apply_deprecated_filter(
+			'pp_chart_datasets',
+			'powerpack_elements_chart_datasets',
+			$datasets,
+			[],
+			'2.9.0'
+		);
+
+		$options = PP_Helper::apply_deprecated_filter(
+			'pp_chart_options',
+			'powerpack_elements_chart_options',
+			$options,
+			[],
+			'2.9.0'
+		);
 
 		$this->add_render_attribute( 'wrapper', 'class', 'pp-chart-wrapper' );
 		$this->add_render_attribute( 'wrapper', 'data-id', esc_attr( uniqid('chart') ) );
@@ -2131,7 +2145,7 @@ class Charts extends Powerpack_Widget {
 			]) )
 		);
 		?>
-		<div <?php echo $this->get_render_attribute_string('wrapper'); ?>></div>
+		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
 		<?php
 	}
 

@@ -4136,7 +4136,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			$terms = array_slice( $terms, 0, $max_terms );
 		}
 
-		$terms = apply_filters( 'ppe_posts_terms', $terms );
+		$terms = PP_Helper::apply_deprecated_filter(
+			'ppe_posts_terms',
+			'powerpack_elements_posts_terms',
+			$terms,
+			[],
+			'x.x.x'
+		);
 
 		$link_terms = $this->get_instance_value( 'post_taxonomy_link' );
 
@@ -4145,8 +4151,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		} else {
 			$format = '<span class="pp-post-term">%1$s</span>';
 		}
+
+		PP_Helper::do_deprecated_action(
+			'ppe_before_single_post_terms',
+			'powerpack_elements_before_single_post_terms',
+			[ get_the_ID(), $settings ],
+			'x.x.x'
+		);
 		?>
-		<?php do_action( 'ppe_before_single_post_terms', get_the_ID(), $settings ); ?>
 		<div class="pp-post-terms-wrap">
 			<span class="pp-post-terms">
 				<?php
@@ -4154,12 +4166,22 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					printf( wp_kses_post( $format ), esc_attr( $term->name ), esc_url( get_term_link( (int) $term->term_id ) ) );
 				}
 
-				do_action( 'ppe_single_post_terms', get_the_ID(), $settings );
+				PP_Helper::do_deprecated_action(
+					'ppe_single_post_terms',
+					'powerpack_elements_single_post_terms',
+					[ get_the_ID(), $settings ],
+					'x.x.x'
+				);
 				?>
 			</span>
 		</div>
-		<?php do_action( 'ppe_after_single_post_terms', get_the_ID(), $settings ); ?>
 		<?php
+		PP_Helper::do_deprecated_action(
+			'ppe_after_single_post_terms',
+			'powerpack_elements_after_single_post_terms',
+			[ get_the_ID(), $settings ],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -4190,13 +4212,21 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			return;
 		}
 
+		$post_id          = get_the_ID();
+		$item_type        = sanitize_key( $item_type );
 		$item_icon        = $this->get_instance_value( $item_type . '_icon' );
 		$select_item_icon = $this->get_instance_value( 'select_' . $item_type . '_icon' );
 
 		$migrated = isset( $settings['__fa4_migrated'][ $skin . '_select_' . $item_type . '_icon' ] );
 		$is_new   = empty( $settings[ $skin . '_' . $item_type . '_icon' ] ) && Icons_Manager::is_migration_allowed();
+
+		PP_Helper::do_deprecated_action(
+			"ppe_before_single_post_{$item_type}",
+			"powerpack_elements_before_single_post_{$item_type}",
+			[ $post_id, $settings ],
+			'x.x.x'
+		);
 		?>
-		<?php do_action( 'ppe_before_single_post_' . $item_type, get_the_ID(), $settings ); ?>
 		<span class="pp-post-<?php echo esc_attr( $item_type ); ?>">
 			<?php
 			if ( $item_icon || ! empty( $select_item_icon['value'] ) ) { ?>
@@ -4252,7 +4282,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			</span>
 		</span>
 		<span class="pp-meta-separator"></span>
-		<?php do_action( 'ppe_after_single_post_' . $item_type, get_the_ID(), $settings ); ?>
+		<?php
+		PP_Helper::do_deprecated_action(
+			"ppe_after_single_post_{$item_type}",
+			"powerpack_elements_after_single_post_{$item_type}",
+			[ $post_id, $settings ],
+			'x.x.x'
+		);
+		?>
 		<?php
 	}
 
@@ -4275,6 +4312,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access protected
 	 */
 	protected function get_post_comments() {
+		$post_id = get_the_ID();
+
 		/**
 		 * Comments Filter
 		 *
@@ -4285,7 +4324,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		 * @param int       get_the_id()    The post ID
 		 */
 		$comments = get_comments_number_text();
-		$comments = apply_filters( 'ppe_posts_comments', $comments, get_the_ID() );
+		$comments = PP_Helper::apply_deprecated_filter(
+			'ppe_posts_comments',
+			'powerpack_elements_posts_comments',
+			$comments,
+			[ $post_id ],
+			'x.x.x'
+		);
+
 		return $comments;
 	}
 
@@ -4299,6 +4345,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$date_format = $this->get_instance_value( 'date_format_select' );
 		$date_custom_format = $this->get_instance_value( 'date_custom_format' );
 		$date = '';
+		$post_id = get_the_ID();
 
 		if ( 'custom' === $date_format && $date_custom_format ) {
 			$date_format = $date_custom_format;
@@ -4339,7 +4386,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			$date = get_the_date( $date_format );
 		}
 
-		return apply_filters( 'ppe_posts_date', $date, get_the_ID() );
+		return PP_Helper::apply_deprecated_filter(
+			'ppe_posts_date',
+			'powerpack_elements_posts_date',
+			$date,
+			[ $post_id ],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -4429,6 +4482,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			return;
 		}
 
+		$post_id    = get_the_ID();
 		$post_title = get_the_title();
 		/**
 		 * Post Title Filter
@@ -4439,22 +4493,47 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		 * @param string    $post_title     The original text
 		 * @param int       get_the_id()    The post ID
 		 */
-		$post_title = apply_filters( 'ppe_posts_title', $post_title, get_the_ID() );
+		$post_title = PP_Helper::apply_deprecated_filter(
+			'ppe_posts_title',
+			'powerpack_elements_posts_title',
+			$post_title,
+			[ $post_id ],
+			'x.x.x'
+		);
 		if ( $post_title ) {
 			?>
-			<?php do_action( 'ppe_before_single_post_title', get_the_ID(), $settings ); ?>
+			<?php
+			PP_Helper::do_deprecated_action(
+				'ppe_before_single_post_title',
+				'powerpack_elements_before_single_post_title',
+				[ get_the_ID(), $settings ],
+				'x.x.x'
+			);
+			?>
 			<<?php PP_Helper::print_validated_html_tag( $title_tag ); ?> class="pp-post-title">
 				<?php
 				if ( 'yes' === $title_link ) {
-					$title_link_atts = array();
+					$title_link_atts = [];
 
-					$title_link_atts['href'] = apply_filters( 'ppe_posts_title_link', get_the_permalink(), get_the_ID() );
+					$title_link_atts['href'] = PP_Helper::apply_deprecated_filter(
+						'ppe_posts_title_link',
+						'powerpack_elements_posts_title_link',
+						get_the_permalink(),
+						[ $post_id ],
+						'x.x.x'
+					);
 
 					if ( 'yes' === $title_link_target ) {
 						$title_link_atts['target'] = '_blank';
 					}
 
-					$title_link_atts = apply_filters( 'ppe_posts_title_link_atts', $title_link_atts, $title_link_atts );
+					$title_link_atts = PP_Helper::apply_deprecated_filter(
+						'ppe_posts_title_link_atts',
+						'powerpack_elements_posts_title_link_atts',
+						$title_link_atts,
+						[ $post_id ],
+						'x.x.x'
+					);
 
 					$this->parent->add_render_attribute( $title_link_key, $title_link_atts );
 
@@ -4474,7 +4553,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			}
 		}
 
-		do_action( 'ppe_after_single_post_title', get_the_ID(), $settings );
+		PP_Helper::do_deprecated_action(
+			'ppe_after_single_post_title',
+			'powerpack_elements_after_single_post_title',
+			[ get_the_ID(), $settings ],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -4491,6 +4575,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$image_wrap_key = 'image-wrap-' . get_the_ID();
 		$image_link     = $this->get_instance_value( 'thumbnail_link' );
 		$thumbnail_html = $this->get_post_thumbnail();
+		$post_id        = get_the_ID();
 
 		if ( empty( $thumbnail_html ) ) {
 			return;
@@ -4503,7 +4588,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			$image_wrap_tag    = 'a';
 			$image_link_target = $this->get_instance_value( 'thumbnail_link_target' );
 
-			$image_link_atts['href'] = apply_filters( 'ppe_posts_image_link', get_the_permalink(), get_the_ID() );
+			$image_link_atts['href'] = PP_Helper::apply_deprecated_filter(
+				'ppe_posts_image_link',
+				'powerpack_elements_posts_image_link',
+				get_the_permalink(),
+				[ $post_id ],
+				'x.x.x'
+			);
 
 			if ( 'yes' === $image_link_target ) {
 				$image_link_atts['target'] = '_blank';
@@ -4511,12 +4602,23 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 			$image_link_atts['title'] = the_title_attribute( 'echo=0' );
 
-			$image_link_atts = apply_filters( 'ppe_posts_image_link_atts', $image_link_atts, $image_link_atts );
+			$image_link_atts = PP_Helper::apply_deprecated_filter(
+				'ppe_posts_image_link_atts',
+				'powerpack_elements_posts_image_link_atts',
+				$image_link_atts,
+				[ $post_id ],
+				'x.x.x'
+			);
 
 			$this->parent->add_render_attribute( $image_wrap_key, $image_link_atts );
 		}
 
-		do_action( 'ppe_before_single_post_thumbnail', get_the_ID(), $settings );
+		PP_Helper::do_deprecated_action(
+			'ppe_before_single_post_thumbnail',
+			'powerpack_elements_before_single_post_thumbnail',
+			[ get_the_ID(), $settings ],
+			'x.x.x'
+		);
 		?>
 		<div class="pp-post-thumbnail">
 			<<?php PP_Helper::print_validated_html_tag( $image_wrap_tag ); ?> <?php $this->parent->print_render_attribute_string( $image_wrap_key ) ?>>
@@ -4524,7 +4626,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			</<?php PP_Helper::print_validated_html_tag( $image_wrap_tag ); ?>>
 		</div>
 		<?php
-		do_action( 'ppe_after_single_post_thumbnail', get_the_ID(), $settings );
+		PP_Helper::do_deprecated_action(
+			'ppe_after_single_post_thumbnail',
+			'powerpack_elements_after_single_post_thumbnail',
+			[ get_the_ID(), $settings ],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -4660,9 +4767,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		PP_Helper::elementor()->editor->set_edit_mode( $is_edit_mode );
 
 		if ( $with_wrapper ) {
-			echo '<div class="elementor-post__content">' . balanceTags( $content, true ) . '</div>';  // XSS ok.
+			echo '<div class="elementor-post__content">';
+			echo wp_kses_post( balanceTags( $content, true ) );
+			echo '</div>';
 		} else {
-			echo $content; // XSS ok.
+			echo wp_kses_post( $content );
 		}
 
 		$level--;
@@ -4694,15 +4803,34 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		if ( 'excerpt' === $content_type && 0 === $excerpt_length ) {
 			return;
 		}
+
+		PP_Helper::do_deprecated_action(
+			'ppe_before_single_post_excerpt',
+			'powerpack_elements_before_single_post_excerpt',
+			[ get_the_ID(), $settings ],
+			'x.x.x'
+		);
 		?>
-		<?php do_action( 'ppe_before_single_post_excerpt', get_the_ID(), $settings ); ?>
 		<div class="pp-post-excerpt">
 			<?php
 			if ( 'full' === $content_type ) {
 				$this->render_post_content( false, false );
 			} elseif ( 'content' === $content_type ) {
 				$more = '...';
-				$post_content = wp_trim_words( get_the_content(), $content_length, apply_filters( 'pp_posts_content_limit_more', $more ) );
+				$more = PP_Helper::apply_deprecated_filter(
+					'pp_posts_content_limit_more',
+					'powerpack_elements_posts_content_limit_more',
+					$more,
+					[],
+					'x.x.x'
+				);
+
+				$post_content = wp_trim_words(
+					get_the_content(),
+					$content_length,
+					$more
+				);
+
 				echo wp_kses_post( $post_content );
 			} else {
 				add_filter( 'excerpt_length', array( $this, 'pp_excerpt_length_filter' ), 20 );
@@ -4715,8 +4843,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			}
 			?>
 		</div>
-		<?php do_action( 'ppe_after_single_post_excerpt', get_the_ID(), $settings ); ?>
 		<?php
+		PP_Helper::do_deprecated_action(
+			'ppe_after_single_post_excerpt',
+			'powerpack_elements_after_single_post_excerpt',
+			[ get_the_ID(), $settings ],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -4790,18 +4923,36 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		$title_attribute = the_title_attribute( 'echo=0' );
 
+		$post_id = get_the_ID();
+
+		$button_link = PP_Helper::apply_deprecated_filter(
+			'ppe_posts_button_link',
+			'powerpack_elements_posts_button_link',
+			get_the_permalink(),
+			[ $post_id ],
+			'x.x.x'
+		);
+
+		$aria_label = PP_Helper::apply_deprecated_filter(
+			'ppe_posts_button_aria_label',
+			'powerpack_elements_posts_button_aria_label',
+			sprintf(
+				/* translators: %s: Post title for aria label. */
+				__( 'Read more about %s', 'powerpack-lite-for-elementor' ),
+				$title_attribute
+			),
+			[ $post_id ],
+			'x.x.x'
+		);
+
 		$this->parent->add_render_attribute(
-			'button-' . get_the_ID(),
-			array(
+			'button-' . $post_id,
+			[
 				'class'      => implode( ' ', $classes ),
-				'href'       => apply_filters( 'ppe_posts_button_link', get_the_permalink(), get_the_ID() ),
+				'href'       => $button_link,
 				'title'      => $title_attribute,
-				'aria-label' => apply_filters( 'ppe_posts_button_aria_label', sprintf(
-					/* translators: Aria-label describing the read more button */
-					esc_attr__( 'Read more about %1$s', 'powerpack-lite-for-elementor' ),
-					$title_attribute
-				), get_the_ID() ),
-			)
+				'aria-label' => $aria_label,
+			]
 		);
 
 		if ( 'yes' === $button_link_target ) {
@@ -4817,9 +4968,21 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		 * @param string    $button_text    The original text
 		 * @param int       get_the_id()    The post ID
 		 */
-		$button_text = apply_filters( 'ppe_posts_button_text', $button_text, get_the_ID() );
+		$button_text = PP_Helper::apply_deprecated_filter(
+			'ppe_posts_button_text',
+			'powerpack_elements_posts_button_text',
+			$button_text,
+			[ get_the_ID() ],
+			'x.x.x'
+		);
+
+		PP_Helper::do_deprecated_action(
+			'ppe_before_single_post_button',
+			'powerpack_elements_before_single_post_button',
+			[ get_the_ID(), $settings ],
+			'x.x.x'
+		);
 		?>
-		<?php do_action( 'ppe_before_single_post_button', get_the_ID(), $settings ); ?>
 		<a <?php $this->parent->print_render_attribute_string( 'button-' . get_the_ID() ); ?>>
 			<?php if ( 'before' === $button_icon_position ) {
 				$this->render_button_icon();
@@ -4833,8 +4996,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				$this->render_button_icon();
 			} ?>
 		</a>
-		<?php do_action( 'ppe_after_single_post_button', get_the_ID(), $settings ); ?>
 		<?php
+		PP_Helper::do_deprecated_action(
+			'ppe_after_single_post_button',
+			'powerpack_elements_after_single_post_button',
+			[ get_the_ID(), $settings ],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -5013,7 +5181,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			$classes[] = 'pp-posts-infinite-scroll';
 		}
 
-		return apply_filters( 'ppe_posts_outer_wrap_classes', $classes );
+		return PP_Helper::apply_deprecated_filter(
+			'ppe_posts_outer_wrap_classes',
+			'powerpack_elements_posts_outer_wrap_classes',
+			$classes,
+			[],
+			'x.x.x'
+		);
 	}
 
 	public function get_posts_wrap_classes() {
@@ -5040,7 +5214,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			$classes[] = 'pp-posts-grid';
 		}
 
-		return apply_filters( 'ppe_posts_wrap_classes', $classes );
+		return PP_Helper::apply_deprecated_filter(
+			'ppe_posts_wrap_classes',
+			'powerpack_elements_posts_wrap_classes',
+			$classes,
+			[],
+			'x.x.x'
+		);
 	}
 
 	public function get_item_wrap_classes() {
@@ -5109,7 +5289,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		if ( 'yes' === $post_meta ) {
 			?>
-			<?php do_action( 'ppe_before_single_post_meta', get_the_ID(), $settings ); ?>
+			<?php
+			PP_Helper::do_deprecated_action(
+				'ppe_before_single_post_meta',
+				'powerpack_elements_before_single_post_meta',
+				[ get_the_ID(), $settings ],
+				'x.x.x'
+			);
+			?>
 			<div class="pp-post-meta">
 				<?php
 					$meta_items = $this->get_ordered_items( Module::get_meta_items() );
@@ -5133,7 +5320,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				?>
 			</div>
 			<?php
-			do_action( 'ppe_after_single_post_meta', get_the_ID(), $settings );
+			PP_Helper::do_deprecated_action(
+				'ppe_after_single_post_meta',
+				'powerpack_elements_after_single_post_meta',
+				[ get_the_ID(), $settings ],
+				'x.x.x'
+			);
 		}
 	}
 
@@ -5151,10 +5343,22 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$post_meta          = $this->get_instance_value( 'post_meta' );
 		$thumbnail_location = $this->get_instance_value( 'thumbnail_location' );
 
-		do_action( 'ppe_before_single_post_wrap', get_the_ID(), $settings );
+		PP_Helper::do_deprecated_action(
+			'ppe_before_single_post_wrap',
+			'powerpack_elements_before_single_post_wrap',
+			[ get_the_ID(), $settings ],
+			'x.x.x'
+		);
 		?>
 		<div <?php post_class( $this->get_item_wrap_classes() ); ?>>
-			<?php do_action( 'ppe_before_single_post', get_the_ID(), $settings ); ?>
+			<?php
+			PP_Helper::do_deprecated_action(
+				'ppe_before_single_post',
+				'powerpack_elements_before_single_post',
+				[ get_the_ID(), $settings ],
+				'x.x.x'
+			);
+			?>
 			<div class="<?php echo esc_attr( $this->get_item_classes() ); ?>">
 				<?php
 				if ( 'outside' === $thumbnail_location ) {
@@ -5162,7 +5366,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				}
 				?>
 
-				<?php do_action( 'ppe_before_single_post_content', get_the_ID(), $settings ); ?>
+				<?php
+				PP_Helper::do_deprecated_action(
+					'ppe_before_single_post_content',
+					'powerpack_elements_before_single_post_content',
+					[ get_the_ID(), $settings ],
+					'x.x.x'
+				);
+				?>
 
 				<div class="pp-post-content-wrap">
 					<div class="pp-post-content">
@@ -5201,12 +5412,31 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					?>
 				</div>
 
-				<?php do_action( 'ppe_after_single_post_content', get_the_ID(), $settings ); ?>
+				<?php
+				PP_Helper::do_deprecated_action(
+					'ppe_after_single_post_content',
+					'powerpack_elements_after_single_post_content',
+					[ get_the_ID(), $settings ],
+					'x.x.x'
+				);
+				?>
 			</div>
-			<?php do_action( 'ppe_after_single_post', get_the_ID(), $settings ); ?>
+			<?php
+			PP_Helper::do_deprecated_action(
+				'ppe_after_single_post',
+				'powerpack_elements_after_single_post',
+				[ get_the_ID(), $settings ],
+				'x.x.x'
+			);
+			?>
 		</div>
 		<?php
-		do_action( 'ppe_after_single_post_wrap', get_the_ID(), $settings );
+		PP_Helper::do_deprecated_action(
+			'ppe_after_single_post_wrap',
+			'powerpack_elements_after_single_post_wrap',
+			[ get_the_ID(), $settings ],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -5504,11 +5734,21 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			return;
 		}
 
-		do_action( 'ppe_before_posts_outer_wrap', $settings );
+		PP_Helper::do_deprecated_action(
+			'ppe_before_posts_outer_wrap',
+			'powerpack_elements_before_posts_outer_wrap',
+			[ $settings ],
+			'x.x.x'
+		);
 		?>
 		<div <?php echo wp_kses_post( $this->parent->get_render_attribute_string( 'posts-container' ) ); ?>>
 			<?php
-			do_action( 'ppe_before_posts_wrap', $settings );
+			PP_Helper::do_deprecated_action(
+				'ppe_before_posts_wrap',
+				'powerpack_elements_before_posts_wrap',
+				[ $settings ],
+				'x.x.x'
+			);
 
 			$i = 1;
 
@@ -5550,7 +5790,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				$this->render_arrows();
 			?>
 
-			<?php do_action( 'ppe_after_posts_wrap', $settings ); ?>
+			<?php
+			PP_Helper::do_deprecated_action(
+				'ppe_after_posts_wrap',
+				'powerpack_elements_after_posts_wrap',
+				[ $settings ],
+				'x.x.x'
+			);
+			?>
 
 			<?php if ( 'load_more' === $pagination_type || 'infinite' === $pagination_type ) { ?>
 			<div class="pp-posts-loader"></div>
@@ -5577,7 +5824,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			<?php } ?>
 		</div>
 
-		<?php do_action( 'ppe_after_posts_outer_wrap', $settings ); ?>
+		<?php
+		PP_Helper::do_deprecated_action(
+			'ppe_after_posts_outer_wrap',
+			'powerpack_elements_after_posts_outer_wrap',
+			[ $settings ],
+			'x.x.x'
+		);
+		?>
 
 		<?php
 		if ( \Elementor\Plugin::instance()->editor->is_edit_mode() ) {

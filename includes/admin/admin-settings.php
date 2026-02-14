@@ -241,16 +241,7 @@ $settings     = PP_Admin_Settings::get_settings();
 	<div class="pp-settings-header">
 		<h3>
 			<span class="dashicons dashicons-admin-settings"></span>
-			<span>
-			<?php
-				$admin_label = 'PowerPack';
-				printf(
-				/* translators: %s: Plugin label. */
-				esc_html__( '%s Settings', 'powerpack-lite-for-elementor' ),
-				$admin_label
-				);
-			?>
-			</span>
+			<span><?php esc_html_e( 'PowerPack Settings', 'powerpack-lite-for-elementor' ); ?></span>
 		</h3>
 		<div class="pp-settings-tabs wp-clearfix">
 			<?php self::render_tabs( $current_tab ); ?>
@@ -258,8 +249,11 @@ $settings     = PP_Admin_Settings::get_settings();
 		<div class="pp-settings-version wp-clearfix">
 			<span>
 				<?php
-				/* translators: %s: Plugin version number. */
-				printf( esc_html__( 'Version %s', 'powerpack-lite-for-elementor' ), POWERPACK_ELEMENTS_LITE_VER );
+				printf(
+					/* translators: %s: Plugin version number. */
+					esc_html__( 'Version %s', 'powerpack-lite-for-elementor' ),
+					esc_html( POWERPACK_ELEMENTS_LITE_VER )
+				);
 				?>
 			</span>
 		</div>
@@ -269,15 +263,37 @@ $settings     = PP_Admin_Settings::get_settings();
 		<h2 class="pp-notices-target"></h2>
 		<?php \PowerpackElementsLite\Classes\PP_Admin_Settings::render_update_message(); ?>
 		<div class="pp-settings-form-wrap">
-			<form method="post" id="pp-settings-form" action="<?php echo self::get_form_action( '&tab=' . $current_tab ); ?>">
+			<?php
+			$tab = sanitize_key( $current_tab );
+
+			$form_action = add_query_arg(
+				array(
+					'tab' => $tab,
+				),
+				self::get_form_action()
+			);
+			?>
+			<form method="post" id="pp-settings-form" action="<?php echo esc_url( $form_action ); ?>">
 				<?php self::render_setting_page(); ?>
 				<?php submit_button(); ?>
 			</form>
 			<div class="pro-upgrade-banner">
 				<div class="banner-inner">
-					<div class="banner-image"><img src="<?php echo POWERPACK_ELEMENTS_LITE_URL . 'assets/images/pp-elements-logo.svg'; ?>" /></div>
-					<h3 class="banner-title-1"><?php _e( 'Get access to more premium widgets and features.', 'powerpack-lite-for-elementor' ); ?></h3>
-					<h3 class="banner-title-2"><?php _e( 'Upgrade to <strong>PowerPack Pro</strong> and get', 'powerpack-lite-for-elementor' ); ?></h3>
+					<?php $logo_url = POWERPACK_ELEMENTS_LITE_URL . 'assets/images/pp-elements-logo.svg'; ?>
+
+					<div class="banner-image">
+						<img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php esc_attr_e( 'PowerPack Elements Logo', 'powerpack-lite-for-elementor' ); ?>" />
+					</div>
+					<h3 class="banner-title-1"><?php esc_html_e( 'Get access to more premium widgets and features.', 'powerpack-lite-for-elementor' ); ?></h3>
+					<h3 class="banner-title-2">
+						<?php
+						printf(
+							/* translators: %s: Pro version name wrapped in strong tag. */
+							esc_html__( 'Upgrade to %s and get', 'powerpack-lite-for-elementor' ),
+							'<strong>' . esc_html__( 'PowerPack Pro', 'powerpack-lite-for-elementor' ) . '</strong>'
+						);
+						?>
+					</h3>
 					<ul>
 						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'More Widgets', 'powerpack-lite-for-elementor' ); ?></li>
 						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'WooCommerce Widgets', 'powerpack-lite-for-elementor' ); ?></li>
@@ -285,7 +301,13 @@ $settings     = PP_Admin_Settings::get_settings();
 						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'Expert Support', 'powerpack-lite-for-elementor' ); ?></li>
 						<li><span class="dashicons dashicons-yes"></span><?php esc_html_e( 'Lifetime package available', 'powerpack-lite-for-elementor' ); ?></li>
 					</ul>
-					<div class="banner-action"><a href="https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-settings&utm_campaign=pp-pro-upgrade" class="pp-button" target="_blank" title="<?php _e( 'Upgrade to PowerPack Pro', 'powerpack-lite-for-elementor' ); ?>"><?php _e( 'Upgrade Now', 'powerpack-lite-for-elementor' ); ?></a></div>
+					<?php $upgrade_url = 'https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-settings&utm_campaign=pp-pro-upgrade'; ?>
+
+					<div class="banner-action">
+						<a href="<?php echo esc_url( $upgrade_url ); ?>" class="pp-button" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e( 'Upgrade to PowerPack Pro', 'powerpack-lite-for-elementor' ); ?>">
+							<?php esc_html_e( 'Upgrade Now', 'powerpack-lite-for-elementor' ); ?>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -294,8 +316,20 @@ $settings     = PP_Admin_Settings::get_settings();
 		<h2><?php esc_html_e( 'Support', 'powerpack-lite-for-elementor' ); ?></h2>
 		<p>
 			<?php
-				$support_link = 'https://powerpackelements.com/contact/';
-				esc_html_e( 'For submitting any support queries, feedback, bug reports or feature requests, please visit', 'powerpack-lite-for-elementor' ); ?> <a href="<?php echo $support_link; ?>" target="_blank"><?php esc_html_e( 'this link', 'powerpack-lite-for-elementor' ); ?></a>
+			$support_link = 'https://powerpackelements.com/contact/';
+
+			printf(
+				wp_kses_post(
+					/* translators: %s: Support page link. */
+					__( 'For submitting any support queries, feedback, bug reports or feature requests, please visit %s.', 'powerpack-lite-for-elementor' )
+				),
+				sprintf(
+					'<a href="%1$s" target="_blank" rel="noopener noreferrer">%2$s</a>',
+					esc_url( $support_link ),
+					esc_html__( 'this link', 'powerpack-lite-for-elementor' )
+				)
+			);
+			?>
 		</p>
 	</div>
 </div>

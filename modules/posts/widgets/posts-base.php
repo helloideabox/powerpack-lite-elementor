@@ -661,7 +661,14 @@ abstract class Posts_Base extends Powerpack_Widget {
 
 		if ( 'main' === $settings['query_type'] ) {
 			$current_query_vars = $GLOBALS['wp_query']->query_vars;
-			return apply_filters( "ppe_{$widget_type}_query_args", $current_query_vars, $settings );
+
+			return PP_Helper::apply_deprecated_filter(
+				"ppe_{$widget_type}_query_args",
+				"powerpack_elements_{$widget_type}_query_args",
+				$current_query_vars,
+				array( $settings ),
+				'x.x.x'
+			);
 		}
 
 		$query_args = array(
@@ -964,7 +971,13 @@ abstract class Posts_Base extends Powerpack_Widget {
 			$query_args['post__not_in'] = $post__not_in;
 		}
 
-		return apply_filters( "ppe_{$widget_type}_query_args", $query_args, $settings );
+		return PP_Helper::apply_deprecated_filter(
+			"ppe_{$widget_type}_query_args",
+			"powerpack_elements_{$widget_type}_query_args",
+			$query_args,
+			array( $settings ),
+			'x.x.x'
+		);
 	}
 
 	/**

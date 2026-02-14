@@ -158,7 +158,7 @@ class PP_Templates_Lib {
 		$result = call_user_func( [ __CLASS__, $ajax_request ], $data );
 
 		if ( is_wp_error( $result ) ) {
-			throw new \Exception( $result->get_error_message() );
+			throw new \Exception( esc_html( $result->get_error_message() ) );
 		}
 
 		return $result;
@@ -501,9 +501,9 @@ class PP_Templates_Lib {
 			</a>
 		</script>
 		<script type="text/template" id="tmpl-elementor-pro-template-library-activate-license-button-pp">
-			<a class="elementor-template-library-template-action elementor-button elementor-go-pro" href="<?php echo PP_Admin_Settings::get_form_action(); ?>" target="_blank">
+			<a class="elementor-template-library-template-action elementor-button elementor-go-pro" href="<?php echo esc_url( PP_Admin_Settings::get_form_action() ); ?>" target="_blank" rel="noopener noreferrer">
 				<i class="eicon-external-link-square"></i>
-				<span class="elementor-button-title"><?php _e( 'Activate License', 'powerpack-lite-for-elementor' ); ?></span>
+				<span class="elementor-button-title"><?php esc_html_e( 'Activate License', 'powerpack-lite-for-elementor' ); ?></span>
 			</a>
 		</script>
 		<?php

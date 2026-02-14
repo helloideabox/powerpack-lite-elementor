@@ -73,7 +73,7 @@ class Extensions_Manager {
 	 * @return bool
 	 */
 	public function is_extension_disabled( $extension = '' ) {
-		$enabled_extensions = pp_elements_lite_get_enabled_extensions();
+		$enabled_extensions = powerpack_elements_lite_get_enabled_extensions();
 		$enabled_extensions[] = 'pp-upgrade-pro';
 
 		if ( ! is_array( $enabled_extensions ) ) {

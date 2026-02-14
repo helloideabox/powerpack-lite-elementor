@@ -116,7 +116,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	 */
 	protected function add_actions() {
 
-		$widgets = pp_elements_lite_get_enabled_modules();
+		$widgets = powerpack_elements_lite_get_enabled_modules();
 
 		foreach ( $widgets as $widget ) {
 			if ( 'pp-hotspots' === $widget ) {

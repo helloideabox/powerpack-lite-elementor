@@ -1468,27 +1468,38 @@ class Progress_Bar extends Powerpack_Widget {
 			$direction = is_rtl() ? 'right' : 'left';
 
 			foreach ( $settings['labels'] as $item ) {
-				$number            = ( ! empty( $item['number'] ) && is_numeric( $item['number'] ) ) ? (int) $item['number'] : 0;
-				$text              = esc_html( $item['text'] );
-				$number_percentage = esc_attr( $number . '%' );
+
+				$number = ( ! empty( $item['number'] ) && is_numeric( $item['number'] ) )
+					? (int) $item['number']
+					: 0;
+
+				$text = ! empty( $item['text'] )
+					? $item['text']
+					: '';
 
 				if ( 'vertical' === $settings['type'] ) {
-					$direction_style = 'top:' . (100 - $number) . '%;';
+					$direction_style = 'top:' . ( 100 - $number ) . '%;';
 				} else {
-					$direction_style = esc_attr( $direction . ':' . $number . '%;' );
+					$direction_style = $direction . ':' . $number . '%;';
 				}
 
-            	$indicator_markup = $this->get_indicator_markup( $settings['labels_indicator'] );
+				$indicator_markup = $this->get_indicator_markup( $settings['labels_indicator'] );
+				?>
 
-				$label_content = '<p class="pp-bar-center-label">' . $text;
+				<div class="pp-bar-label" style="<?php echo esc_attr( $direction_style ); ?>">
+					<p class="pp-bar-center-label">
+						<?php echo esc_html( $text ); ?>
 
-				if ( 'yes' === $settings['display_percentage_labels'] ) {
-					$label_content .= ' <span class="pppb-percentage">' . $number_percentage . '</span>';
-				}
+						<?php if ( 'yes' === $settings['display_percentage_labels'] ) : ?>
+							<span class="pppb-percentage">
+								<?php echo esc_html( $number . '%' ); ?>
+							</span>
+						<?php endif; ?>
+					</p>
 
-				$label_content .= '</p>';
-
-				echo '<div class="pp-bar-label" style="' . esc_attr( $direction_style ) . '">' . $label_content . $indicator_markup . '</div>';
+					<?php echo wp_kses_post( $indicator_markup ); ?>
+				</div>
+				<?php
 			}
 			?>
 		</div>

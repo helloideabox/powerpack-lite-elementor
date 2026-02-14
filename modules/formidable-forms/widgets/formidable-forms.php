@@ -1821,7 +1821,7 @@ class Formidable_Forms extends Powerpack_Widget {
 
 		if ( class_exists( 'FrmForm' ) ) {
 			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
-				<div <?php echo $this->get_render_attribute_string( 'contact-form' ); ?>>
+				<div <?php $this->print_render_attribute_string( 'contact-form' ); ?>>
 					<?php if ( 'yes' === $settings['custom_title_description'] ) { ?>
 						<div class="pp-formidable-forms-heading">
 							<?php if ( $settings['form_title_custom'] ) { ?>
@@ -1831,7 +1831,7 @@ class Formidable_Forms extends Powerpack_Widget {
 							<?php } ?>
 							<?php if ( $settings['form_description_custom'] ) { ?>
 								<div class="pp-contact-form-description pp-formidable-forms-description">
-									<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); ?>
+									<?php \Elementor\Utils::print_unescaped_internal_string( $this->parse_text_editor( $settings['form_description_custom'] ) ); ?>
 								</div>
 							<?php } ?>
 						</div>
@@ -1859,7 +1859,7 @@ class Formidable_Forms extends Powerpack_Widget {
 					esc_html( $this->get_title() )
 				);
 
-				echo $this->render_editor_placeholder(
+				$this->render_editor_placeholder(
 					array(
 						'title' => esc_html__( 'No Contact Form Selected!', 'powerpack-lite-for-elementor' ),
 						'body'  => $placeholder,

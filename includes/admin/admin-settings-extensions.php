@@ -3,12 +3,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-$extensions         = pp_elements_lite_get_extensions();
-$enabled_extensions = pp_elements_lite_get_enabled_extensions();
+$extensions         = powerpack_elements_lite_get_extensions();
+$enabled_extensions = powerpack_elements_lite_get_enabled_extensions();
 ?>
 <div class="pp-settings-section">
 	<div class="pp-settings-section-header">
-		<h3 class="pp-settings-section-title"><?php _e( 'Extensions', 'powerpack-lite-for-elementor' ); ?></h3>
+		<h3 class="pp-settings-section-title"><?php esc_html_e( 'Extensions', 'powerpack-lite-for-elementor' ); ?></h3>
 	</div>
 	<div class="pp-settings-section-content">
 		<table class="form-table pp-settings-elements-grid">
@@ -25,18 +25,18 @@ $enabled_extensions = pp_elements_lite_get_enabled_extensions();
 				?>
 			<tr valign="top">
 				<th>
-					<label for="<?php echo $extension_name; ?>">
-						<?php echo $extension_title; ?>
+					<label for="<?php echo esc_attr( $extension_name ); ?>">
+						<?php echo esc_html( $extension_title ); ?>
 					</label>
 				</th>
 				<td>
 					<label class="pp-admin-field-toggle">
 						<input
-							id="<?php echo $extension_name; ?>"
+							id="<?php echo esc_attr( $extension_name ); ?>"
 							name="pp_enabled_extensions[]"
 							type="checkbox"
-							value="<?php echo $extension_name; ?>"
-							<?php echo $extension_enabled ? ' checked="checked"' : ''; ?>
+							value="<?php echo esc_attr( $extension_name ); ?>"
+							<?php checked( $extension_enabled ); ?>
 						/>
 						<span class="pp-admin-field-toggle-slider" aria-hidden="true"></span>
 					</label>

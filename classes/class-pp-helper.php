@@ -212,7 +212,7 @@ class PP_Helper {
 				$widgets = self::$widgets_list;
 			}
 
-			$saved_widgets = pp_elements_lite_get_enabled_modules();
+			$saved_widgets = powerpack_elements_lite_get_enabled_modules();
 
 			if ( is_array( $widgets ) ) {
 
@@ -348,8 +348,8 @@ class PP_Helper {
 	 * @access public
 	 */
 	public static function get_contact_forms( $plugin = '' ) {
-		$options       = array();
-		$contact_forms = array();
+		$options       = [];
+		$contact_forms = [];
 
 		// Contact Form 7
 		if ( 'Contact_Form_7' == $plugin && function_exists( 'wpcf7' ) ) {
@@ -369,11 +369,11 @@ class PP_Helper {
 
 		// Fluent Forms
 		if ( 'Fluent_Forms' == $plugin && function_exists( 'wpFluentForm' ) ) {
-			global $wpdb;
+			$fluent_forms = \FluentForm\App\Models\Form::select( array( 'id', 'title' ) )
+				->orderBy( 'id', 'DESC' )
+				->get();
 
-			$fluent_forms = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}fluentform_forms" );
-
-			if ( $fluent_forms ) {
+			if ( ! empty( $fluent_forms ) ) {
 				foreach ( $fluent_forms as $form ) {
 					$contact_forms[ $form->id ] = $form->title;
 				}
@@ -382,7 +382,7 @@ class PP_Helper {
 
 		// Formidable Forms
 		if ( 'Formidable_Forms' == $plugin && class_exists( 'FrmForm' ) ) {
-			$formidable_forms = \FrmForm::get_published_forms( array(), 999, 'exclude' );
+			$formidable_forms = \FrmForm::get_published_forms( [], 999, 'exclude' );
 			if ( count( $formidable_forms ) ) {
 				foreach ( $formidable_forms as $form ) {
 					$contact_forms[ $form->id ] = $form->name;
@@ -586,6 +586,28 @@ class PP_Helper {
 					<?php endif; ?>
 				</div>
 			<?php }
+		}
+	}
+
+	public static function apply_deprecated_filter( $old_hook, $new_hook, $value, $args = [], $version = 'x.x.x' ) {
+
+		$value = apply_filters_ref_array( $new_hook, array_merge( array( $value ), $args ) );
+
+		if ( has_filter( $old_hook ) ) {
+			_deprecated_hook( esc_html( $old_hook ), esc_html( $version ), esc_html( $new_hook ) );
+			$value = apply_filters_ref_array( $old_hook, array_merge( array( $value ), $args ) );
+		}
+
+		return $value;
+	}
+
+	public static function do_deprecated_action( $old_hook, $new_hook, $args = [], $version = '2.9.0' ) {
+
+		do_action_ref_array( $new_hook, $args );
+
+		if ( has_action( $old_hook ) ) {
+			_deprecated_hook( esc_html( $old_hook ), esc_html( $version ), esc_html( $new_hook ) );
+			do_action_ref_array( $old_hook, $args );
 		}
 	}
 }

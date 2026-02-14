@@ -763,4 +763,4 @@ class PP_Elements_WPML {
 	}
 }
 
-$pp_elements_wpml = new PP_Elements_WPML();
+$powerpack_elements_wpml = new PP_Elements_WPML();

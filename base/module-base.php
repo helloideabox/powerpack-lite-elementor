@@ -99,7 +99,7 @@ abstract class Module_Base {
 	}
 
 	public static function is_widget_active( $widget = '' ) {
-		$enabled_modules = pp_elements_lite_get_enabled_modules();
+		$enabled_modules = powerpack_elements_lite_get_enabled_modules();
 
 		if ( in_array( $widget, $enabled_modules ) ) {
 			return true;

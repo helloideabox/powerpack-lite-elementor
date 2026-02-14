@@ -205,8 +205,14 @@ final class PP_Admin_Settings {
 				if ( isset( $data['cap'] ) && ! current_user_can( $data['cap'] ) ) {
 					continue;
 				}
+
+				$tab_key   = isset( $data['key'] ) ? $data['key'] : '';
+				$tab_title = isset( $data['title'] ) ? $data['title'] : '';
+				$is_active = ( $current_tab === $tab_key ) ? ' nav-tab-active' : '';
 				?>
-				<a href="<?php echo self::get_form_action( '&tab=' . esc_attr( $data['key'] ) ); ?>" class="nav-tab<?php echo ( $current_tab == $data['key'] ? ' nav-tab-active' : '' ); ?>"><span><?php echo $data['title']; ?></span></a>
+				<a href="<?php echo esc_url( self::get_form_action( '&tab=' . rawurlencode( $tab_key ) ) ); ?>" class="nav-tab<?php echo esc_attr( $is_active ); ?>">
+					<span><?php echo esc_html( $tab_title ); ?></span>
+				</a>
 				<?php
 			}
 		}
@@ -338,7 +344,6 @@ final class PP_Admin_Settings {
 		self::save_modules();
 		self::save_extensions();
 		self::save_integration();
-		self::save_tracking();
 
 		do_action( 'pp_admin_after_settings_saved' );
 	}
@@ -381,17 +386,6 @@ final class PP_Admin_Settings {
 			update_option( 'pp_elementor_extensions', $_POST['pp_enabled_extensions'] );
 		} else {
 			update_option( 'pp_elementor_extensions', 'disabled' );
-		}
-	}
-
-	private static function save_tracking() {
-		if ( ! isset( $_POST['pp-modules-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-modules-settings-nonce'], 'pp-modules-settings' ) ) {
-			return;
-		}
-		if ( isset( $_POST['pp_allowed_tracking'] ) ) {
-			self::update_option( 'pp_allowed_tracking', sanitize_text_field( $_POST['pp_allowed_tracking'] ), true );
-		} else {
-			self::delete_option( 'pp_allowed_tracking' );
 		}
 	}
 
