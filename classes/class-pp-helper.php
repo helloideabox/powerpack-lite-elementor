@@ -444,6 +444,23 @@ class PP_Helper {
 	}
 
 	/**
+	 * Returns user agent.
+	 *
+	 * @since 2.1.0
+	 * @return string
+	 */
+	private function get_user_agent() {
+
+		if ( empty( $_SERVER['HTTP_USER_AGENT'] ) ) {
+			return '';
+		}
+
+		return sanitize_text_field(
+			wp_unslash( $_SERVER['HTTP_USER_AGENT'] )
+		);
+	}
+
+	/**
 	 * Get Client IP address
 	 *
 	 * @since 2.1.0
