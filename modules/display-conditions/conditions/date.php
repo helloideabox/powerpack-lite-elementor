@@ -63,9 +63,19 @@ class Date extends Condition {
 	 * @return string
 	 */
 	public function get_value_control() {
-		$default_date_start = date( 'Y-m-d', strtotime( '-3 day' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) );
-		$default_date_end   = date( 'Y-m-d', strtotime( '+3 day' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) );
-		$default_interval   = $default_date_start . ' to ' . $default_date_end;
+		$current_timestamp  = current_time( 'timestamp' );
+
+		$default_date_start = wp_date(
+			'Y-m-d',
+			$current_timestamp - ( 3 * DAY_IN_SECONDS )
+		);
+
+		$default_date_end = wp_date(
+			'Y-m-d',
+			$current_timestamp + ( 3 * DAY_IN_SECONDS )
+		);
+
+		$default_interval = $default_date_start . ' to ' . $default_date_end;
 
 		return [
 			'label'             => __( 'In interval', 'powerpack-lite-for-elementor' ),
@@ -91,46 +101,35 @@ class Date extends Condition {
 	 * @param mixed     $value      The control value to check
 	 */
 	public function check( $name, $operator, $value ) {
-		// Default returned bool to false
-		$show = false;
 
-		// Split control valur into two dates
+		if ( empty( $value ) ) {
+			return false;
+		}
+
+		// Normalize and split interval
 		$intervals = explode( 'to', preg_replace( '/\s+/', '', $value ) );
 
-		// Make sure the explode return an array with exactly 2 indexes
-		if ( ! is_array( $intervals ) || 2 !== count( $intervals ) ) {
-			return;
+		if ( 2 !== count( $intervals ) ) {
+			return false;
 		}
 
-		// Set start and end dates
-		$today = new \DateTime();
-		$start = \DateTime::createFromFormat( 'Y-m-d', $intervals[0] );
-		$end   = \DateTime::createFromFormat( 'Y-m-d', $intervals[1] );
+		list( $start, $end ) = $intervals;
 
-		// Check vars
-		if ( ! $start || ! $end ) { // Make sure it's a date
-			return;
+		// Validate dates
+		if (
+			! \DateTime::createFromFormat( 'Y-m-d', $start ) ||
+			! \DateTime::createFromFormat( 'Y-m-d', $end )
+		) {
+			return false;
 		}
 
-		if ( function_exists( 'wp_timezone' ) ) {
-			$timezone = wp_timezone();
+		// Get today's date in site timezone
+		$today_date = wp_date( 'Y-m-d', current_time( 'timestamp' ) );
 
-			// Set timezone
-			$today->setTimeZone( $timezone );
-		}
-
-		// Get timestamps for comparison
-		$start_ts = $start->format( 'U' );
-		$end_ts   = $end->format( 'U' );
-		$today_ts = $today->format( 'U' ) + $today->getOffset(); // Adding the offset
-
-		// Convert date into 'Y-m-d' format.
-		$start_date = gmdate( 'Y-m-d', $start_ts );
-		$end_date   = gmdate( 'Y-m-d', $end_ts );
-		$today_date = gmdate( 'Y-m-d', $today_ts );
-
-		// Check that user date is between start & end
-		$show = ( ( $today_date >= $start_date ) && ( $today_date <= $end_date ) );
+		$show = (
+			$today_date >= $start &&
+			$today_date <= $end
+		);
 
 		return $this->compare( $show, true, $operator );
 	}

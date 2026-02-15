@@ -63,7 +63,11 @@ class Date_Time_Before extends Condition {
 	 * @return string
 	 */
 	public function get_value_control() {
-		$default_date = date( 'Y-m-d H:i', strtotime( '+3 day' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) );
+		// $default_date = date( 'Y-m-d H:i', strtotime( '+3 day' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) );
+		$default_date = wp_date(
+			'Y-m-d H:i',
+			current_time( 'timestamp' ) + ( 3 * DAY_IN_SECONDS )
+		);
 
 		return [
 			'label'     => __( 'Before', 'powerpack-lite-for-elementor' ),
@@ -88,30 +92,23 @@ class Date_Time_Before extends Condition {
 	 * @param mixed     $value      The control value to check
 	 */
 	public function check( $name, $operator, $value ) {
-		// Default returned bool to false
-		$show = false;
 
-		$today = new \DateTime();
-		$date = \DateTime::createFromFormat( 'Y-m-d H:i', $value );
-
-		// Check vars
-		if ( ! $date ) { // Make sure it's a date
-			return;
+		if ( empty( $value ) ) {
+			return false;
 		}
 
-		if ( function_exists( 'wp_timezone' ) ) {
-			$timezone = wp_timezone();
+		// Convert selected date to timestamp
+		$selected_timestamp = strtotime( $value, current_time( 'timestamp' ) );
 
-			// Set timezone
-			$today->setTimeZone( $timezone );
+		if ( ! $selected_timestamp ) {
+			return false;
 		}
 
-		// Get tijmestamps for comparison
-		$date_ts    = $date->format( 'U' );
-		$today_ts   = $today->format( 'U' ) + $today->getOffset(); // Adding the offset
+		// Get current site timestamp
+		$current_timestamp = current_time( 'timestamp' );
 
-		// Check that today is before specified date
-		$show = $today_ts < $date_ts;
+		// Check if current time is before selected date
+		$show = $current_timestamp < $selected_timestamp;
 
 		return $this->compare( $show, true, $operator );
 	}

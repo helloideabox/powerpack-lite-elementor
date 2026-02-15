@@ -4341,11 +4341,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access protected
 	 */
 	protected function get_post_date( $date_link = '' ) {
-		$date_type = $this->get_instance_value( 'date_format' );
-		$date_format = $this->get_instance_value( 'date_format_select' );
+		$date_type         = $this->get_instance_value( 'date_format' );
+		$date_format       = $this->get_instance_value( 'date_format_select' );
 		$date_custom_format = $this->get_instance_value( 'date_custom_format' );
-		$date = '';
-		$post_id = get_the_ID();
+		$date              = '';
+		$post_id           = get_the_ID();
 
 		if ( 'custom' === $date_format && $date_custom_format ) {
 			$date_format = $date_custom_format;
@@ -4376,7 +4376,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			}
 
 			if ( $date ) {
-				$date = date( $date_format, strtotime( $date ) );
+				$timestamp = mysql2date( 'U', $date );
+
+				if ( $timestamp ) {
+					$date = wp_date( $date_format, $timestamp );
+				}
 			}
 		} else {
 			$date = get_the_date( $date_format );
