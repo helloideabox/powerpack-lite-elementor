@@ -444,53 +444,17 @@ class PP_Helper {
 	}
 
 	/**
-	 * Returns user agent.
-	 *
-	 * @since 2.1.0
-	 * @return string
-	 */
-	public static function get_user_agent() {
-		$user_agent = $_SERVER['HTTP_USER_AGENT'];
-
-		if ( false !== stripos( $user_agent, 'Chrome' ) ) {
-			return 'chrome';
-		} elseif ( false !== stripos( $user_agent, 'Safari' ) ) {
-			return 'safari';
-		} elseif ( false !== stripos( $user_agent, 'Firefox' ) ) {
-			return 'firefox';
-		} elseif ( false !== stripos( $user_agent, 'MSIE' ) ) {
-			return 'ie';
-		} elseif ( false !== stripos( $user_agent, 'Trident/7.0; rv:11.0' ) ) {
-			return 'ie';
-		}
-
-		return;
-	}
-
-	/**
 	 * Get Client IP address
 	 *
 	 * @since 2.1.0
 	 * @return string
 	 */
 	public static function get_client_ip() {
-		$keys = array(
-			'HTTP_CLIENT_IP',
-			'HTTP_X_FORWARDED_FOR',
-			'HTTP_X_FORWARDED',
-			'HTTP_X_CLUSTER_CLIENT_IP',
-			'HTTP_FORWARDED_FOR',
-			'HTTP_FORWARDED',
-			'REMOTE_ADDR',
-		);
 
-		foreach ( $keys as $key ) {
-			if ( isset( $_SERVER[ $key ] ) && filter_var( $_SERVER[ $key ], FILTER_VALIDATE_IP ) ) {
-				return $_SERVER[ $key ];
-			}
+		if ( class_exists( '\Elementor\Utils' ) ) {
+			return \Elementor\Utils::get_client_ip();
 		}
 
-		// fallback IP address.
 		return '127.0.0.1';
 	}
 
