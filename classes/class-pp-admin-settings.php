@@ -1,6 +1,8 @@
 <?php
 namespace PowerpackElementsLite\Classes;
 
+use PowerpackElementsLite\Classes\PP_Helper;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -173,29 +175,37 @@ final class PP_Admin_Settings {
 	public static function get_tabs() {
 		$settings = self::get_settings();
 
-		return apply_filters( 'pp_elements_lite_admin_settings_tabs', array(
-			'modules'   => array(
-				'title'     => esc_html__( 'Elements', 'powerpack-lite-for-elementor' ),
-				'show'      => true,
-				'cap'       => 'edit_posts',
-				'file'      => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-modules.php',
-				'priority'  => 150,
-			),
-			'extensions'   => array(
-				'title'     => esc_html__( 'Extensions', 'powerpack-lite-for-elementor' ),
-				'show'      => true,
-				'cap'       => 'edit_posts',
-				'file'      => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-extensions.php',
-				'priority'  => 200,
-			),
-			'integration'   => array(
-				'title'         => esc_html__( 'Integration', 'powerpack-lite-for-elementor' ),
-				'show'          => true,
-				'cap'           => ! is_network_admin() ? 'manage_options' : 'manage_network_plugins',
-				'file'          => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-integration.php',
-				'priority'      => 300,
-			),
-		) );
+		$tabs = [
+			'modules' => [
+				'title'    => esc_html__( 'Elements', 'powerpack-lite-for-elementor' ),
+				'show'     => true,
+				'cap'      => 'edit_posts',
+				'file'     => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-modules.php',
+				'priority' => 150,
+			],
+			'extensions' => [
+				'title'    => esc_html__( 'Extensions', 'powerpack-lite-for-elementor' ),
+				'show'     => true,
+				'cap'      => 'edit_posts',
+				'file'     => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-extensions.php',
+				'priority' => 200,
+			],
+			'integration' => [
+				'title'    => esc_html__( 'Integration', 'powerpack-lite-for-elementor' ),
+				'show'     => true,
+				'cap'      => ! is_network_admin() ? 'manage_options' : 'manage_network_plugins',
+				'file'     => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-integration.php',
+				'priority' => 300,
+			],
+		];
+
+		return PP_Helper::apply_deprecated_filter(
+			'pp_elements_lite_admin_settings_tabs',
+			'powerpack_lite_for_elementor_admin_settings_tabs',
+			$tabs,
+			[],
+			'x.x.x'
+		);
 	}
 
 	public static function render_tabs( $current_tab ) {
@@ -376,7 +386,12 @@ final class PP_Admin_Settings {
 		self::save_extensions();
 		self::save_integration();
 
-		do_action( 'pp_admin_after_settings_saved' );
+		PP_Helper::do_deprecated_action(
+			'pp_admin_after_settings_saved',
+			'powerpack_elements_admin_after_settings_saved',
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
