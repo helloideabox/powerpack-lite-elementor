@@ -4,12 +4,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function powerpack_elements_lite_render_modules_settings() {
-	$current_filter = isset( $_GET['show'] ) ? $_GET['show'] : '';
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reading filter parameter, not processing form submission.
+	$current_filter = isset( $_GET['show'] ) ? sanitize_key( wp_unslash( $_GET['show'] ) ) : ''; 
+
 	if ( 'notused' === $current_filter || 'used' === $current_filter ) {
 		$modules = powerpack_elements_lite_get_filter_modules( $current_filter );
 	} else {
 		$modules = powerpack_elements_lite_get_modules();
 	}
+
 	$enabled_modules = powerpack_elements_lite_get_enabled_modules();
 	?>
 

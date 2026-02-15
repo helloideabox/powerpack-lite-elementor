@@ -1,6 +1,8 @@
 <?php
 namespace PowerpackElementsLite\Classes;
 
+use PowerpackElementsLite\Classes\PP_Helper;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -345,7 +347,13 @@ class PP_Config {
 			);
 		}
 
-		return apply_filters( 'pp_elements_widget_info', self::$widget_info );
+		return PP_Helper::apply_deprecated_filter(
+			'pp_elements_widget_info',
+			'powerpack_elements_widget_info',
+			self::$widget_info,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -613,7 +621,13 @@ class PP_Config {
 			);
 		}
 
-		return apply_filters( 'pp_elements_lite_pro_widgets', self::$pro_widgets );
+		return PP_Helper::apply_deprecated_filter(
+			'pp_elements_lite_pro_widgets',
+			'powerpack_elements_pro_widgets',
+			self::$pro_widgets,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -777,7 +791,13 @@ class PP_Config {
 			),
 		);
 
-		return apply_filters( 'pp_elements_lite_help_links', self::$help_docs );
+		return PP_Helper::apply_deprecated_filter(
+			'pp_elements_lite_help_links',
+			'powerpack_elements_help_links',
+			self::$help_docs,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**

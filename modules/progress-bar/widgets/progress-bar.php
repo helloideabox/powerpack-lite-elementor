@@ -1352,7 +1352,7 @@ class Progress_Bar extends Powerpack_Widget {
 			}
 
 			if ( 'multiple' === $settings['labels_type'] && ( 'line' === $type || 'vertical' === $type || 'dots' === $type ) ) {
-				echo $this->render_labels();
+				$this->render_labels();
 			}
 
 			switch ( $type ) :
@@ -1460,14 +1460,12 @@ class Progress_Bar extends Powerpack_Widget {
 		} elseif ( 'line_pin' === $settings['labels_indicator'] ) {
 			$indicator = 'pin';
 		}
-
-		ob_start();
 		?>
 		<div class="pp-bar-container-label pp-bar-indicator-<?php echo esc_attr( $indicator ); ?> pp-bar-indicator-align-<?php echo esc_attr( $settings['labels_align'] ); ?>">
 			<?php
 			$direction = is_rtl() ? 'right' : 'left';
 
-			foreach ( $settings['labels'] as $item ) {
+			foreach ( $settings['labels'] as $item ) :
 
 				$number = ( ! empty( $item['number'] ) && is_numeric( $item['number'] ) )
 					? (int) $item['number']
@@ -1477,15 +1475,12 @@ class Progress_Bar extends Powerpack_Widget {
 					? $item['text']
 					: '';
 
-				if ( 'vertical' === $settings['type'] ) {
-					$direction_style = 'top:' . ( 100 - $number ) . '%;';
-				} else {
-					$direction_style = $direction . ':' . $number . '%;';
-				}
+				$direction_style = ( 'vertical' === $settings['type'] )
+					? 'top:' . ( 100 - $number ) . '%;'
+					: $direction . ':' . $number . '%;';
 
 				$indicator_markup = $this->get_indicator_markup( $settings['labels_indicator'] );
 				?>
-
 				<div class="pp-bar-label" style="<?php echo esc_attr( $direction_style ); ?>">
 					<p class="pp-bar-center-label">
 						<?php echo esc_html( $text ); ?>
@@ -1499,12 +1494,9 @@ class Progress_Bar extends Powerpack_Widget {
 
 					<?php echo wp_kses_post( $indicator_markup ); ?>
 				</div>
-				<?php
-			}
-			?>
+			<?php endforeach; ?>
 		</div>
 		<?php
-		return ob_get_clean();
 	}
 
 	/**

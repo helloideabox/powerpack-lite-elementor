@@ -234,7 +234,7 @@ use PowerpackElementsLite\Classes\PP_Admin_Settings;
 </style>
 <?php
 function powerpack_elements_lite_render_admin_settings() {
-	$current_tab  = isset( $_REQUEST['tab'] ) ? esc_attr( $_REQUEST['tab'] ) : 'general';
+	$current_tab = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : 'general'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	$settings     = PP_Admin_Settings::get_settings();
 	?>
 	<div class="wrap pp-settings-wrap">

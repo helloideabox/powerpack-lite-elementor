@@ -432,13 +432,17 @@ class PowerpackLitePlugin {
 			true
 		);
 
-		$pp_localize = apply_filters(
+		$localize_data = PP_Helper::apply_deprecated_filter(
 			'pp_elements_lite_js_localize',
-			array(
+			'powerpack_elements_js_localize',
+			[
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
-			)
+			],
+			[],
+			'x.x.x'
 		);
-		wp_localize_script( 'jquery', 'pp', $pp_localize );
+
+		wp_localize_script( 'jquery', 'pp', $localize_data );
 	}
 
 	/**

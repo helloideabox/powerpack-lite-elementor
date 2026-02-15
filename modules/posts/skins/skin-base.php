@@ -4662,9 +4662,12 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		if ( ( \Elementor\Plugin::instance()->editor->is_edit_mode() ) || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
 			$limit = $this->pp_excerpt_length_filter();
 		} else {
+			// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core WordPress hook.
 			$limit = apply_filters( 'excerpt_length', 20 );
 		}
 		$excerpt = explode( ' ', get_the_excerpt(), $limit + 1 );
+
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core WordPress hook.
 		$excerpt_more = apply_filters( 'excerpt_more', 20 );
 
 		if ( count( $excerpt ) >= $limit ) {
@@ -4741,7 +4744,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 				/** This filter is documented in wp-includes/post-template.php */
 				// PHPCS - `get_the_content` is safe.
-				echo apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core WordPress hook.
+				$content = apply_filters( 'the_content', get_the_content() );
+
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Content is already escaped by the_content.
+				echo $content;
 
 				wp_link_pages( [
 					'before' => '<div class="page-links elementor-page-links"><span class="page-links-title elementor-page-links-title">' . esc_html__( 'Pages:', 'powerpack-lite-for-elementor' ) . '</span>',
@@ -4762,6 +4769,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				return;
 			} else {
 				PP_Helper::elementor()->frontend->remove_content_filters();
+				// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core WordPress hook.
 				$content = apply_filters( 'the_content', $content );
 				PP_Helper::elementor()->frontend->restore_content_filters();
 			}

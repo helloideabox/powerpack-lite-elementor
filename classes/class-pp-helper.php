@@ -104,7 +104,13 @@ class PP_Helper {
 			$widget_name = self::$widgets_list[ $slug ]['name'];
 		}
 
-		return apply_filters( 'pp_elements_lite_widget_name', $widget_name );
+		return self::apply_deprecated_filter(
+			'pp_elements_lite_widget_name',
+			'powerpack_elements_widget_name',
+			$widget_name,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -124,7 +130,13 @@ class PP_Helper {
 			$widget_name = self::$widgets_list[ $slug ]['title'];
 		}
 
-		return apply_filters( 'pp_elements_lite_widget_title', $widget_name );
+		return self::apply_deprecated_filter(
+			'pp_elements_lite_widget_title',
+			'powerpack_elements_widget_title',
+			$widget_name,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -144,7 +156,13 @@ class PP_Helper {
 			$widget_categories = self::$widgets_list[ $slug ]['categories'];
 		}
 
-		return apply_filters( 'pp_elements_lite_widget_categories', $widget_categories );
+		return self::apply_deprecated_filter(
+			'pp_elements_lite_widget_categories',
+			'powerpack_elements_widget_categories',
+			$widget_categories,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -164,7 +182,13 @@ class PP_Helper {
 			$widget_icon = self::$widgets_list[ $slug ]['icon'];
 		}
 
-		return apply_filters( 'pp_elements_lite_widget_icon', $widget_icon );
+		return self::apply_deprecated_filter(
+			'pp_elements_lite_widget_icon',
+			'powerpack_elements_widget_icon',
+			$widget_icon,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -184,7 +208,13 @@ class PP_Helper {
 			$widget_keywords = self::$widgets_list[ $slug ]['keywords'];
 		}
 
-		return apply_filters( 'pp_elements_lite_widget_keywords', $widget_keywords );
+		return self::apply_deprecated_filter(
+			'pp_elements_lite_widget_keywords',
+			'powerpack_elements_widget_keywords',
+			$widget_keywords,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**

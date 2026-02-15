@@ -100,25 +100,60 @@ function powerpack_elements_lite_get_enabled_modules() {
 	}
 }
 
-function powerpack_elements_lite_get_filter_modules( $staus = '' ) {
+function powerpack_elements_lite_get_filter_modules( $status = '' ) {
 	global $wpdb;
 
 	$modules          = [];
 	$get_used_widgets = [];
 	$all_widget_list  = powerpack_elements_lite_get_modules();
 
-	$post_ids = $wpdb->get_col(
-		'SELECT `post_id` FROM `' . $wpdb->postmeta . '`
-				WHERE `meta_key` = \'_elementor_version\';'
-	);
+	$cache_key   = 'pp_elementor_post_ids';
+	$cache_group = 'powerpack';
 
-	if ( ! empty( $post_ids ) ) {
-		foreach ( $post_ids as $post_id ) {
-			if ( 'revision' === get_post_type( $post_id ) ) {
-				continue;
-			}
+	$post_ids = wp_cache_get( $cache_key, $cache_group );
 
-			$get_used_widgets[] = powerpack_elements_lite_check_widget_used_status( $all_widget_list, $post_id );
+	if ( false === $post_ids ) {
+
+		$query = new WP_Query(
+			[
+				'post_type'              => 'any',
+				'post_status'            => 'any',
+				'fields'                 => 'ids',
+				'posts_per_page'         => -1,
+				'no_found_rows'          => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+				'meta_query'             => [
+					[
+						'key'     => '_elementor_version',
+						'compare' => 'EXISTS',
+					],
+				],
+			]
+		);
+
+		$post_ids = $query->posts;
+
+		wp_cache_set( $cache_key, $post_ids, $cache_group );
+	}
+
+	if ( empty( $post_ids ) ) {
+		return $modules;
+	}
+
+	foreach ( $post_ids as $post_id ) {
+
+		if ( 'revision' === get_post_type( $post_id ) ) {
+			continue;
+		}
+
+		$used = powerpack_elements_lite_check_widget_used_status(
+			$all_widget_list,
+			$post_id
+		);
+
+		if ( ! empty( $used ) ) {
+			$get_used_widgets = array_merge( $get_used_widgets, $used );
 		}
 	}
 
@@ -126,26 +161,26 @@ function powerpack_elements_lite_get_filter_modules( $staus = '' ) {
 		return $modules;
 	}
 
-	foreach ( $get_used_widgets as $get_used_widget ) {
-		if ( ! empty( $get_used_widget ) ) {
-			foreach ( $get_used_widget as $key => $value ) {
-				if ( ! array_key_exists( $value, $modules ) ) {
-					if ( isset( $all_widget_list[ $value ] ) ) {
-						$modules[ $value ] = $all_widget_list[ $value ];
-					}
-				}
-			}
+	$get_used_widgets = array_unique( $get_used_widgets );
+
+	foreach ( $get_used_widgets as $widget_key ) {
+		if ( isset( $all_widget_list[ $widget_key ] ) ) {
+			$modules[ $widget_key ] = $all_widget_list[ $widget_key ];
 		}
 	}
+
 	asort( $modules );
+
 	update_option( 'pp_elementor_used_modules', $modules );
 
 	$notused_modules = array_diff_key( $all_widget_list, $modules );
+
 	asort( $notused_modules );
+
 	update_option( 'pp_elementor_notused_modules', $notused_modules );
 
-	if ( 'notused' === $staus ) {
-		$modules = $notused_modules;
+	if ( 'notused' === $status ) {
+		return $notused_modules;
 	}
 
 	return $modules;

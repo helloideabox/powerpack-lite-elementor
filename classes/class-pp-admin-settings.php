@@ -53,10 +53,9 @@ final class PP_Admin_Settings {
 
 			$page = '';
 
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			if ( isset( $_GET['page'] ) ) {
-				$page = sanitize_text_field(
-					wp_unslash( $_GET['page'] )
-				);
+				$page = sanitize_text_field( wp_unslash( $_GET['page'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			}
 
 			if ( 'powerpack-settings' === $page ) {
@@ -130,7 +129,11 @@ final class PP_Admin_Settings {
 			foreach ( self::$errors as $message ) {
 				echo '<div class="error"><p>' . esc_html( $message ) . '</p></div>';
 			}
-		} elseif ( ! empty( $_POST ) && ! isset( $_POST['email'] ) ) {
+		}
+		
+		// Check for settings-updated parameter in URL
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( isset( $_GET['settings-updated'] ) && 'true' === $_GET['settings-updated'] ) {
 			echo '<div class="updated"><p>' . esc_html__( 'Settings updated!', 'powerpack-lite-for-elementor' ) . '</p></div>';
 		}
 	}
@@ -279,17 +282,15 @@ final class PP_Admin_Settings {
 
 		$current_tab = 'modules';
 
-		if ( isset( $_GET['tab'] ) ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$tab_param = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : '';
 
-			$tab = sanitize_text_field(
-				wp_unslash( $_GET['tab'] )
-			);
-
+		if ( ! empty( $tab_param ) ) {
 			$tabs = self::get_tabs();
 
 			// Whitelist validation
-			if ( isset( $tabs[ $tab ] ) ) {
-				$current_tab = $tab;
+			if ( isset( $tabs[ $tab_param ] ) ) {
+				$current_tab = $tab_param;
 			}
 		}
 
@@ -382,9 +383,18 @@ final class PP_Admin_Settings {
 			return;
 		} */
 
-		self::save_modules();
-		self::save_extensions();
-		self::save_integration();
+		// Track if any settings were saved
+		$modules_saved = false;
+		$extensions_saved = false;
+		$integration_saved = false;
+
+		// Save settings (each method does its own nonce verification)
+		$modules_saved = self::save_modules();
+		$extensions_saved = self::save_extensions();
+		$integration_saved = self::save_integration();
+
+		// Check if any settings were actually saved
+		$settings_saved = $modules_saved || $extensions_saved || $integration_saved;
 
 		PP_Helper::do_deprecated_action(
 			'pp_admin_after_settings_saved',
@@ -392,6 +402,21 @@ final class PP_Admin_Settings {
 			[],
 			'x.x.x'
 		);
+
+		// Redirect with success message if settings were saved
+		if ( $settings_saved && empty( self::$errors ) ) {
+			$redirect_url = add_query_arg(
+				array(
+					'page' => 'powerpack-settings',
+					'tab' => self::get_current_tab(),
+					'settings-updated' => 'true',
+				),
+				admin_url( 'admin.php' )
+			);
+			
+			wp_safe_redirect( $redirect_url );
+			exit;
+		}
 	}
 
 	/**
@@ -440,6 +465,8 @@ final class PP_Admin_Settings {
 				$override_checked
 			);
 		}
+
+		return true;
 	}
 
 	private static function save_modules() {
@@ -483,6 +510,8 @@ final class PP_Admin_Settings {
 
 			update_site_option( 'pp_elementor_modules', 'disabled' );
 		}
+
+		return true;
 	}
 
 	public static function save_extensions() {
@@ -526,6 +555,8 @@ final class PP_Admin_Settings {
 
 			update_option( 'pp_elementor_extensions', 'disabled' );
 		}
+
+		return true;
 	}
 
 	/**

@@ -25,7 +25,7 @@ define( 'POWERPACK_ELEMENTS_LITE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_BASE', plugin_basename( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_URL', plugins_url( '/', __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED', '3.5.0' );
-define( 'POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED', '5.6' );
+define( 'POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED', '7.4' );
 
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/helper-functions.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/feedback/class-pp-tracking.php';
@@ -144,8 +144,11 @@ function powerpack_elements_lite_fail_php() {
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 
-	if ( isset( $_GET['activate'] ) ) 
+	// Remove the activate parameter from the URL to prevent "Plugin activated" message.
+	// phpcs:disable WordPress.Security.NonceVerification.Recommended
+	if ( isset( $_GET['activate'] ) ) {
 		unset( $_GET['activate'] );
+	}
 }
 
 /**

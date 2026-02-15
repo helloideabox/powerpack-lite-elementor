@@ -155,7 +155,7 @@ class UsageTracking {
 	 */
 	public function hook_notices() {
 		$action = isset( $_GET['pp_admin_action'] ) ? sanitize_key( wp_unslash( $_GET['pp_admin_action'] ) ) : '';
-		$nonce  = isset( $_GET['_nonce'] ) ? wp_unslash( $_GET['_nonce'] ) : '';
+		$nonce  = isset( $_GET['_nonce'] ) ? sanitize_text_field( wp_unslash( $_GET['_nonce'] ) ) : '';
 
 		if ( $action && $nonce && wp_verify_nonce( $nonce, 'pp_admin_notice_nonce' ) ) {
 			switch ( $action ) {
@@ -231,8 +231,16 @@ class UsageTracking {
 	public function send_checkin( $override = false, $ignore_last_checkin = false ) {
 		$home_url = trailingslashit( home_url() );
 
+		$disable_tracking = PP_Helper::apply_deprecated_filter(
+			'pp_disable_tracking_checkin',
+			'powerpack_elements_disable_tracking_checkin',
+			false,
+			[],
+			'x.x.x'
+		);
+
 		// Allows us to stop our own site from checking in, and a filter for our additional sites.
-		if ( $this->site_url === $home_url || apply_filters( 'pp_disable_tracking_checkin', false ) ) {
+		if ( $this->site_url === $home_url || $disable_tracking ) {
 			return false;
 		}
 
