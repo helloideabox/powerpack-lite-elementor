@@ -40,6 +40,7 @@ final class PP_Admin_Settings {
 	 * @return void
 	 */
 	public static function init_hooks() {
+
 		if ( ! is_admin() ) {
 			return;
 		}
@@ -47,8 +48,16 @@ final class PP_Admin_Settings {
 		add_action( 'admin_menu', __CLASS__ . '::menu', 601 );
 
 		if ( current_user_can( 'manage_options' ) ) {
-			if ( isset( $_REQUEST['page'] ) && 'powerpack-settings' == $_REQUEST['page'] ) {
-				//add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
+
+			$page = '';
+
+			if ( isset( $_GET['page'] ) ) {
+				$page = sanitize_text_field(
+					wp_unslash( $_GET['page'] )
+				);
+			}
+
+			if ( 'powerpack-settings' === $page ) {
 				self::save();
 			}
 		}
@@ -257,7 +266,22 @@ final class PP_Admin_Settings {
 	 * Get current tab.
 	 */
 	public static function get_current_tab() {
-		$current_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'modules';
+
+		$current_tab = 'modules';
+
+		if ( isset( $_GET['tab'] ) ) {
+
+			$tab = sanitize_text_field(
+				wp_unslash( $_GET['tab'] )
+			);
+
+			$tabs = self::get_tabs();
+
+			// Whitelist validation
+			if ( isset( $tabs[ $tab ] ) ) {
+				$current_tab = $tab;
+			}
+		}
 
 		return $current_tab;
 	}
@@ -308,13 +332,20 @@ final class PP_Admin_Settings {
 	 * @param mixed $value The value to update.
 	 * @return mixed
 	 */
-	public static function update_option( $key, $value, $network_override = true ) {
+	public static function update_option( $key, $value, $network_override = true, $override_checked = false ) {
+
 		if ( is_network_admin() ) {
+
 			update_site_option( $key, $value );
-		} elseif ( $network_override && is_multisite() && ! isset( $_POST['pp_override_ms'] ) ) {
-			// Delete the option if network overrides are allowed and the override checkbox isn't checked.
+
+		} elseif ( $network_override && is_multisite() && ! $override_checked ) {
+
+			// Delete the option if network overrides are allowed
+			// and the override checkbox isn't checked.
 			delete_option( $key );
+
 		} else {
+
 			update_option( $key, $value );
 		}
 	}
@@ -356,35 +387,128 @@ final class PP_Admin_Settings {
 	 * @return void
 	 */
 	private static function save_integration() {
-		if ( ! isset( $_POST['pp-integration-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-integration-settings-nonce'], 'pp-integration-settings' ) ) {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
+		if ( empty( $_POST['pp-integration-settings-nonce'] ) ) {
+			return;
+		}
+
+		$nonce = sanitize_text_field(
+			wp_unslash( $_POST['pp-integration-settings-nonce'] )
+		);
+
+		if ( ! wp_verify_nonce( $nonce, 'pp-integration-settings' ) ) {
+			return;
+		}
+
+		$override_checked = false;
+
+		if ( isset( $_POST['pp_override_ms'] ) ) {
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			$override_checked = (bool) wp_unslash( $_POST['pp_override_ms'] );
+		}
+
 		if ( isset( $_POST['pp_instagram_access_token'] ) ) {
-			self::update_option( 'pp_instagram_access_token', trim( $_POST['pp_instagram_access_token'] ), false );
+
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			$token = wp_unslash( $_POST['pp_instagram_access_token'] );
+
+			$token = sanitize_text_field( trim( $token ) );
+
+			self::update_option(
+				'pp_instagram_access_token',
+				$token,
+				false,
+				$override_checked
+			);
 		}
 	}
 
 	private static function save_modules() {
-		if ( ! isset( $_POST['pp-modules-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-modules-settings-nonce'], 'pp-modules-settings' ) ) {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
-		if ( isset( $_POST['pp_enabled_modules'] ) ) {
-			update_site_option( 'pp_elementor_modules', $_POST['pp_enabled_modules'] );
+		if ( empty( $_POST['pp-modules-settings-nonce'] ) ) {
+			return;
+		}
+
+		$nonce = sanitize_text_field(
+			wp_unslash( $_POST['pp-modules-settings-nonce'] )
+		);
+
+		if ( ! wp_verify_nonce( $nonce, 'pp-modules-settings' ) ) {
+			return;
+		}
+
+		if ( ! empty( $_POST['pp_enabled_modules'] ) ) {
+
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			$raw_modules = wp_unslash( $_POST['pp_enabled_modules'] );
+
+			if ( is_array( $raw_modules ) ) {
+
+				$modules = array_map(
+					'sanitize_text_field',
+					$raw_modules
+				);
+
+			} else {
+
+				$modules = sanitize_text_field( $raw_modules );
+			}
+
+			update_site_option( 'pp_elementor_modules', $modules );
+
 		} else {
+
 			update_site_option( 'pp_elementor_modules', 'disabled' );
 		}
 	}
 
 	public static function save_extensions() {
-		if ( ! isset( $_POST['pp-extensions-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-extensions-settings-nonce'], 'pp-extensions-settings' ) ) {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		if ( ! isset( $_POST['pp-extensions-settings-nonce'] ) ) {
+			return;
+		}
+
+		$nonce = sanitize_text_field(
+			wp_unslash( $_POST['pp-extensions-settings-nonce'] )
+		);
+
+		if ( ! wp_verify_nonce( $nonce, 'pp-extensions-settings' ) ) {
 			return;
 		}
 
 		if ( isset( $_POST['pp_enabled_extensions'] ) ) {
-			update_option( 'pp_elementor_extensions', $_POST['pp_enabled_extensions'] );
+
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			$raw_extensions = wp_unslash( $_POST['pp_enabled_extensions'] );
+
+			if ( is_array( $raw_extensions ) ) {
+
+				$extensions = array_map(
+					'sanitize_text_field',
+					$raw_extensions
+				);
+
+			} else {
+
+				$extensions = sanitize_text_field( $raw_extensions );
+			}
+
+			update_option( 'pp_elementor_extensions', $extensions );
+
 		} else {
+
 			update_option( 'pp_elementor_extensions', 'disabled' );
 		}
 	}
