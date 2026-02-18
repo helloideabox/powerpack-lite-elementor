@@ -76,6 +76,20 @@ class Dual_Heading extends Powerpack_Widget {
 		return false;
 	}
 
+	/**
+	 * Get style dependencies.
+	 *
+	 * Retrieve the list of style dependencies the widget requires.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Widget style dependencies.
+	 */
+	public function get_style_depends(): array {
+		return [ 'widget-pp-dual-heading' ];
+	}
+
 	public function has_widget_inner_wrapper(): bool {
 		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
@@ -188,10 +202,13 @@ class Dual_Heading extends Powerpack_Widget {
 					'inline' => esc_html__( 'Inline', 'powerpack-lite-for-elementor' ),
 					'block'  => esc_html__( 'Block', 'powerpack-lite-for-elementor' ),
 				],
+				'selectors_dictionary'  => [
+					'inline' => 'row',
+					'block'  => 'column',
+				],
 				'prefix_class'          => 'pp-dual-heading-',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-first-text' => 'display: inline-block;',
-					'{{WRAPPER}} .pp-second-text' => 'display: {{VALUE}};',
+					'{{WRAPPER}} .pp-dual-heading' => 'flex-direction: {{VALUE}};',
 				],
 			]
 		);
@@ -245,8 +262,7 @@ class Dual_Heading extends Powerpack_Widget {
 					'unit' => 'px',
 				],
 				'selectors'             => [
-					'{{WRAPPER}}.pp-dual-heading-inline .pp-second-text' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.pp-dual-heading-block .pp-second-text' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-dual-heading' => 'gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);

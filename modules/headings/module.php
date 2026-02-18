@@ -33,6 +33,13 @@ class Module extends Module_Base {
 	 */
 	public function register_styles() {
 		wp_register_style(
+			'widget-pp-dual-heading',
+			$this->get_css_assets_url( 'widget-dual-heading', null, true, true ),
+			[],
+			POWERPACK_ELEMENTS_LITE_VER
+		);
+
+		wp_register_style(
 			'widget-pp-fancy-heading',
 			$this->get_css_assets_url( 'widget-fancy-heading', null, true, true ),
 			[],

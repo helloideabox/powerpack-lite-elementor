@@ -1,3 +1,7 @@
+== 2.9.10 ==
+Release date: 
+* Enhancement: Dual Heading - Improved CSS of the widget
+
 == 2.9.9 ==
 Release date: February 11, 2026
 * Fix: Counter - Ending number was using default value when 0 was used
