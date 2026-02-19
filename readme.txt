@@ -215,7 +215,7 @@ For more details, please review our [Privacy Policy](https://powerpackelements.c
 
 ## Disclaimer
 
-PowerPack Lite for Elementor is an independent product developed by IdeaBox Creations and BloomPixel. It is not affiliated with, endorsed by, sponsored by, or officially associated with Elementor Ltd.
+PowerPack Lite for Elementor is an independent product developed by IdeaBox Creations. It is not affiliated with, endorsed by, sponsored by, or officially associated with Elementor Ltd.
 
 “Elementor” is a registered trademark of Elementor Ltd. The use of the term “Elementor” within this plugin name and description is strictly for identification and compatibility purposes only, to indicate that this plugin extends functionality of the Elementor page builder.
 
