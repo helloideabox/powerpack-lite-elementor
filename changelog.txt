@@ -1,6 +1,7 @@
 == 2.9.10 ==
 Release date: 
 * Enhancement: Dual Heading - Improved CSS of the widget
+* Enhancement: Improved the code to make it more secure
 
 == 2.9.9 ==
 Release date: February 11, 2026
