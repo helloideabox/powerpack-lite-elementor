@@ -254,6 +254,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.9.10 - February 20, 2026 =
+* 	Enhancement: Dual Heading - Improved CSS of the widget
+* 	Enhancement: Improved the code to make it more secure
+
 = 2.9.9 - February 11, 2026 =
 * 	Fix: Counter - Ending number was using default value when 0 was used
 * 	Fix: Fluent Forms - Fixed width issue when prefix is set
