@@ -367,15 +367,22 @@ class Module extends Module_Base {
 		$element->add_control(
 			'pp_display_conditions_output',
 			[
-				'label'                 => __( 'Output HTML', 'powerpack-lite-for-elementor' ),
-				'description'           => sprintf( __( 'If enabled, the HTML code will exist on the page but the %s will be hidden using CSS.', 'powerpack-lite-for-elementor' ), $element_type ),
-				'default'               => '',
-				'type'                  => Controls_Manager::SWITCHER,
-				'label_on'              => __( 'Yes', 'powerpack-lite-for-elementor' ),
-				'label_off'             => __( 'No', 'powerpack-lite-for-elementor' ),
-				'return_value'          => 'yes',
-				'frontend_available'    => true,
-				'condition'             => [
+				'label'              => esc_html__( 'Output HTML', 'powerpack-lite-for-elementor' ),
+				'description'        => sprintf(
+					/* translators: %s: Element type (e.g., section, column, widget). */
+					esc_html__(
+						'If enabled, the HTML code will exist on the page but the %s will be hidden using CSS.',
+						'powerpack-lite-for-elementor'
+					),
+					esc_html( $element_type )
+				),
+				'default'            => '',
+				'type'               => Controls_Manager::SWITCHER,
+				'label_on'           => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'          => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
+				'return_value'       => 'yes',
+				'frontend_available' => true,
+				'condition'          => [
 					'pp_display_conditions_enable' => 'yes',
 				],
 			]

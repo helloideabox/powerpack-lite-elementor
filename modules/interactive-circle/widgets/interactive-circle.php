@@ -164,15 +164,17 @@ class Interactive_Circle extends Powerpack_Widget {
 
 		$this->add_control(
 			'show_source_notice',
-			[
+			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => PP_Helper::get_pro_feature_notice(
+					esc_html__( 'This feature is available in PowerPack Pro.', 'powerpack-lite-for-elementor' )
+				),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				'condition'       => [
+				'condition'       => array(
 					'source' => 'posts',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
@@ -1374,7 +1376,8 @@ class Interactive_Circle extends Powerpack_Widget {
 		?>
 		<div class="pp-circle-content-title"><?php echo wp_kses_post( $item['item_title'] ); ?></div>
 		<?php
-		echo wpautop( wp_kses_post( $item['item_content'] ) );
+		$content = wpautop( $item['item_content'] );
+		echo wp_kses_post( $content );
 
 		if ( $icon_type && 'end' === $settings['content_icon_location'] ) {
 			$this->render_content_icon( $item, $icon_type );
@@ -1392,9 +1395,31 @@ class Interactive_Circle extends Powerpack_Widget {
 				foreach ( $items as $index => $item ) :
 					$item_count = $index + 1;
 					$is_active  = $index === $active_tab ? 'active' : '';
+
+					$circle_item_setting_key = $this->get_repeater_setting_key( 'item', 'circle_items', $index );
+					$circle_tab_setting_key  = $this->get_repeater_setting_key( 'tab', 'circle_items', $index );
+
+					$this->add_render_attribute( $circle_tab_setting_key, [
+						'id'              => 'pp-circle-item-' . $item_count,
+						'class'           => [
+							'pp-circle-tab',
+							$is_active
+						],
+						'aria-controls' => 'pp-interactive-' . esc_attr( $item_count ),
+						'tabindex'      => '0',
+					] );
+
+					$this->add_render_attribute( $circle_item_setting_key, [
+						'id'              => 'pp-circle-item-' . $item_count,
+						'class'           => [
+							'pp-circle-tab-content',
+							'pp-circle-item-' . $item_count . ' ' . $is_active
+						],
+						'aria-labelledby' => 'pp-circle-item-' . esc_attr( $item_count ),
+					] );
 					?>
 					<div class="pp-circle-item elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
-						<div aria-controls="pp-interactive-<?php echo esc_attr( $item_count ); ?>" tabindex="0" class="pp-circle-tab <?php echo $is_active; ?>" id="pp-circle-item-<?php echo $item_count; ?>">
+						<div <?php $this->print_render_attribute_string( $circle_tab_setting_key ); ?>>
 							<?php if ( in_array( $settings['skin'], [ 'skin-3', 'skin-4'] ) ) { ?>
 								<div class="pp-circle-icon-shapes">
 									<div class="pp-shape-1"></div>
@@ -1407,7 +1432,7 @@ class Interactive_Circle extends Powerpack_Widget {
 								</div>
 							</div>
 						</div>
-						<div id="pp-interactive-<?php echo esc_attr( $item_count ); ?>" aria-labelledby="pp-circle-item-<?php echo esc_attr( $item_count ); ?>" class="pp-circle-tab-content pp-circle-item-<?php echo $item_count . ' ' . $is_active; ?>">
+						<div <?php $this->print_render_attribute_string( $circle_item_setting_key ); ?>>
 							<div class="pp-circle-content">
 								<?php $this->render_circle_content( $item ); ?>
 							</div>
@@ -1423,16 +1448,35 @@ class Interactive_Circle extends Powerpack_Widget {
 		$settings   = $this->get_settings_for_display();
 		$active_tab = ( '' !== $settings['active_tab'] ) ? $settings['active_tab'] : 1;
 		$active_tab = $active_tab - 1;
+		$item_count = absint( $item_count );
 		?>
 		<div class="pp-circle-info">
-			<div class="pp-circle-inner" data-items="<?php echo $item_count; ?>">
+			<div class="pp-circle-inner" data-items="<?php echo esc_attr( $item_count ); ?>">
 				<?php
 				foreach ( $items as $index => $item ) :
 					$item_count = $index + 1;
 					$is_active  = $index === $active_tab ? 'active' : '';
+
+					$tab_content_setting_key = $this->get_repeater_setting_key( 'item', 'half_items', $index );
+					$tab_setting_key = $this->get_repeater_setting_key( 'tab', 'half_items', $index );
+
+					$this->add_render_attribute( $tab_content_setting_key, 'class', [
+						'pp-circle-tab-content',
+						'pp-circle-item-' . $item_count . ' ' . $is_active
+					] );
+
+					$this->add_render_attribute( $tab_setting_key, [
+						'id'              => 'pp-circle-item-' . $item_count,
+						'class'           => [
+							'pp-circle-tab',
+							$is_active
+						],
+						'aria-controls' => 'pp-interactive-' . esc_attr( $item_count ),
+						'tabindex'      => '0',
+					] );
 					?>
 					<div class="pp-circle-item elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
-						<div aria-controls="pp-interactive-<?php echo esc_attr( $item_count ); ?>" tabindex="0" class="pp-circle-tab <?php echo $is_active; ?>" id="pp-circle-item-<?php echo $item_count; ?>">
+						<div <?php $this->print_render_attribute_string( $tab_setting_key ); ?>>
 							<div class="pp-circle-icon-shapes">
 								<div class="pp-shape-1"></div>
 								<div class="pp-shape-2"></div>
@@ -1443,7 +1487,7 @@ class Interactive_Circle extends Powerpack_Widget {
 								</div>
 							</div>
 						</div>
-						<div class="pp-circle-tab-content pp-circle-item-<?php echo $item_count . ' ' . $is_active; ?>">
+						<div <?php $this->print_render_attribute_string( $tab_content_setting_key ); ?>>
 							<div id="pp-interactive<?php echo esc_attr( $item_count ); ?>" aria-labelledby="pp-circle-item-<?php echo esc_attr( $item_count ); ?>" class="pp-circle-content">
 								<?php $this->render_circle_content( $item ); ?>
 							</div>

@@ -104,7 +104,13 @@ class PP_Helper {
 			$widget_name = self::$widgets_list[ $slug ]['name'];
 		}
 
-		return apply_filters( 'pp_elements_lite_widget_name', $widget_name );
+		return self::apply_deprecated_filter(
+			'pp_elements_lite_widget_name',
+			'powerpack_elements_widget_name',
+			$widget_name,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -124,7 +130,13 @@ class PP_Helper {
 			$widget_name = self::$widgets_list[ $slug ]['title'];
 		}
 
-		return apply_filters( 'pp_elements_lite_widget_title', $widget_name );
+		return self::apply_deprecated_filter(
+			'pp_elements_lite_widget_title',
+			'powerpack_elements_widget_title',
+			$widget_name,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -144,7 +156,13 @@ class PP_Helper {
 			$widget_categories = self::$widgets_list[ $slug ]['categories'];
 		}
 
-		return apply_filters( 'pp_elements_lite_widget_categories', $widget_categories );
+		return self::apply_deprecated_filter(
+			'pp_elements_lite_widget_categories',
+			'powerpack_elements_widget_categories',
+			$widget_categories,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -164,7 +182,13 @@ class PP_Helper {
 			$widget_icon = self::$widgets_list[ $slug ]['icon'];
 		}
 
-		return apply_filters( 'pp_elements_lite_widget_icon', $widget_icon );
+		return self::apply_deprecated_filter(
+			'pp_elements_lite_widget_icon',
+			'powerpack_elements_widget_icon',
+			$widget_icon,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -184,7 +208,13 @@ class PP_Helper {
 			$widget_keywords = self::$widgets_list[ $slug ]['keywords'];
 		}
 
-		return apply_filters( 'pp_elements_lite_widget_keywords', $widget_keywords );
+		return self::apply_deprecated_filter(
+			'pp_elements_lite_widget_keywords',
+			'powerpack_elements_widget_keywords',
+			$widget_keywords,
+			[],
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -212,7 +242,7 @@ class PP_Helper {
 				$widgets = self::$widgets_list;
 			}
 
-			$saved_widgets = pp_elements_lite_get_enabled_modules();
+			$saved_widgets = powerpack_elements_lite_get_enabled_modules();
 
 			if ( is_array( $widgets ) ) {
 
@@ -280,6 +310,51 @@ class PP_Helper {
 	}
 
 	/**
+	 * Get upgrade notice HTML.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return string
+	 */
+	public static function get_upgrade_notice() {
+
+		$upgrade_url = 'https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-widget-upgrade-section&utm_campaign=pp-pro-upgrade';
+
+		$upgrade_message = sprintf(
+			/* translators: 1: Opening anchor tag, 2: Closing anchor tag. */
+			__(
+				'Upgrade to %1$sPro Version%2$s for 90+ widgets, exciting extensions and advanced features.',
+				'powerpack-lite-for-elementor'
+			),
+			'<a href="' . $upgrade_url . '" target="_blank" rel="noopener">',
+			'</a>'
+		);
+
+		return wp_kses_post(
+			apply_filters( 'upgrade_powerpack_message', $upgrade_message )
+		);
+	}
+
+	/**
+	 * Get full Pro feature notice.
+	 *
+	 * @param string $message Optional prefix message.
+	 * @since x.x.x
+	 *
+	 * @return string
+	 */
+	public static function get_pro_feature_notice( $message = '' ) {
+
+		$prefix = '';
+
+		if ( ! empty( $message ) ) {
+			$prefix = esc_html( $message ) . ' ';
+		}
+
+		return $prefix . self::get_upgrade_notice();
+	}
+
+	/**
 	 * Check if script debug is enabled.
 	 *
 	 * @since 2.1.0
@@ -303,8 +378,8 @@ class PP_Helper {
 	 * @access public
 	 */
 	public static function get_contact_forms( $plugin = '' ) {
-		$options       = array();
-		$contact_forms = array();
+		$options       = [];
+		$contact_forms = [];
 
 		// Contact Form 7
 		if ( 'Contact_Form_7' == $plugin && function_exists( 'wpcf7' ) ) {
@@ -324,11 +399,11 @@ class PP_Helper {
 
 		// Fluent Forms
 		if ( 'Fluent_Forms' == $plugin && function_exists( 'wpFluentForm' ) ) {
-			global $wpdb;
+			$fluent_forms = \FluentForm\App\Models\Form::select( array( 'id', 'title' ) )
+				->orderBy( 'id', 'DESC' )
+				->get();
 
-			$fluent_forms = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}fluentform_forms" );
-
-			if ( $fluent_forms ) {
+			if ( ! empty( $fluent_forms ) ) {
 				foreach ( $fluent_forms as $form ) {
 					$contact_forms[ $form->id ] = $form->title;
 				}
@@ -337,7 +412,7 @@ class PP_Helper {
 
 		// Formidable Forms
 		if ( 'Formidable_Forms' == $plugin && class_exists( 'FrmForm' ) ) {
-			$formidable_forms = \FrmForm::get_published_forms( array(), 999, 'exclude' );
+			$formidable_forms = \FrmForm::get_published_forms( [], 999, 'exclude' );
 			if ( count( $formidable_forms ) ) {
 				foreach ( $formidable_forms as $form ) {
 					$contact_forms[ $form->id ] = $form->name;
@@ -404,22 +479,15 @@ class PP_Helper {
 	 * @since 2.1.0
 	 * @return string
 	 */
-	public static function get_user_agent() {
-		$user_agent = $_SERVER['HTTP_USER_AGENT'];
+	private function get_user_agent() {
 
-		if ( false !== stripos( $user_agent, 'Chrome' ) ) {
-			return 'chrome';
-		} elseif ( false !== stripos( $user_agent, 'Safari' ) ) {
-			return 'safari';
-		} elseif ( false !== stripos( $user_agent, 'Firefox' ) ) {
-			return 'firefox';
-		} elseif ( false !== stripos( $user_agent, 'MSIE' ) ) {
-			return 'ie';
-		} elseif ( false !== stripos( $user_agent, 'Trident/7.0; rv:11.0' ) ) {
-			return 'ie';
+		if ( empty( $_SERVER['HTTP_USER_AGENT'] ) ) {
+			return '';
 		}
 
-		return;
+		return sanitize_text_field(
+			wp_unslash( $_SERVER['HTTP_USER_AGENT'] )
+		);
 	}
 
 	/**
@@ -429,23 +497,11 @@ class PP_Helper {
 	 * @return string
 	 */
 	public static function get_client_ip() {
-		$keys = array(
-			'HTTP_CLIENT_IP',
-			'HTTP_X_FORWARDED_FOR',
-			'HTTP_X_FORWARDED',
-			'HTTP_X_CLUSTER_CLIENT_IP',
-			'HTTP_FORWARDED_FOR',
-			'HTTP_FORWARDED',
-			'REMOTE_ADDR',
-		);
 
-		foreach ( $keys as $key ) {
-			if ( isset( $_SERVER[ $key ] ) && filter_var( $_SERVER[ $key ], FILTER_VALIDATE_IP ) ) {
-				return $_SERVER[ $key ];
-			}
+		if ( class_exists( '\Elementor\Utils' ) ) {
+			return \Elementor\Utils::get_client_ip();
 		}
 
-		// fallback IP address.
 		return '127.0.0.1';
 	}
 
@@ -541,6 +597,28 @@ class PP_Helper {
 					<?php endif; ?>
 				</div>
 			<?php }
+		}
+	}
+
+	public static function apply_deprecated_filter( $old_hook, $new_hook, $value, $args = [], $version = 'x.x.x' ) {
+
+		$value = apply_filters_ref_array( $new_hook, array_merge( array( $value ), $args ) );
+
+		if ( has_filter( $old_hook ) ) {
+			_deprecated_hook( esc_html( $old_hook ), esc_html( $version ), esc_html( $new_hook ) );
+			$value = apply_filters_ref_array( $old_hook, array_merge( array( $value ), $args ) );
+		}
+
+		return $value;
+	}
+
+	public static function do_deprecated_action( $old_hook, $new_hook, $args = [], $version = '2.9.0' ) {
+
+		do_action_ref_array( $new_hook, $args );
+
+		if ( has_action( $old_hook ) ) {
+			_deprecated_hook( esc_html( $old_hook ), esc_html( $version ), esc_html( $new_hook ) );
+			do_action_ref_array( $old_hook, $args );
 		}
 	}
 }

@@ -1352,7 +1352,7 @@ class Progress_Bar extends Powerpack_Widget {
 			}
 
 			if ( 'multiple' === $settings['labels_type'] && ( 'line' === $type || 'vertical' === $type || 'dots' === $type ) ) {
-				echo $this->render_labels();
+				$this->render_labels();
 			}
 
 			switch ( $type ) :
@@ -1460,40 +1460,43 @@ class Progress_Bar extends Powerpack_Widget {
 		} elseif ( 'line_pin' === $settings['labels_indicator'] ) {
 			$indicator = 'pin';
 		}
-
-		ob_start();
 		?>
 		<div class="pp-bar-container-label pp-bar-indicator-<?php echo esc_attr( $indicator ); ?> pp-bar-indicator-align-<?php echo esc_attr( $settings['labels_align'] ); ?>">
 			<?php
 			$direction = is_rtl() ? 'right' : 'left';
 
-			foreach ( $settings['labels'] as $item ) {
-				$number            = ( ! empty( $item['number'] ) && is_numeric( $item['number'] ) ) ? (int) $item['number'] : 0;
-				$text              = esc_html( $item['text'] );
-				$number_percentage = esc_attr( $number . '%' );
+			foreach ( $settings['labels'] as $item ) :
 
-				if ( 'vertical' === $settings['type'] ) {
-					$direction_style = 'top:' . (100 - $number) . '%;';
-				} else {
-					$direction_style = esc_attr( $direction . ':' . $number . '%;' );
-				}
+				$number = ( ! empty( $item['number'] ) && is_numeric( $item['number'] ) )
+					? (int) $item['number']
+					: 0;
 
-            	$indicator_markup = $this->get_indicator_markup( $settings['labels_indicator'] );
+				$text = ! empty( $item['text'] )
+					? $item['text']
+					: '';
 
-				$label_content = '<p class="pp-bar-center-label">' . $text;
+				$direction_style = ( 'vertical' === $settings['type'] )
+					? 'top:' . ( 100 - $number ) . '%;'
+					: $direction . ':' . $number . '%;';
 
-				if ( 'yes' === $settings['display_percentage_labels'] ) {
-					$label_content .= ' <span class="pppb-percentage">' . $number_percentage . '</span>';
-				}
+				$indicator_markup = $this->get_indicator_markup( $settings['labels_indicator'] );
+				?>
+				<div class="pp-bar-label" style="<?php echo esc_attr( $direction_style ); ?>">
+					<p class="pp-bar-center-label">
+						<?php echo esc_html( $text ); ?>
 
-				$label_content .= '</p>';
+						<?php if ( 'yes' === $settings['display_percentage_labels'] ) : ?>
+							<span class="pppb-percentage">
+								<?php echo esc_html( $number . '%' ); ?>
+							</span>
+						<?php endif; ?>
+					</p>
 
-				echo '<div class="pp-bar-label" style="' . esc_attr( $direction_style ) . '">' . $label_content . $indicator_markup . '</div>';
-			}
-			?>
+					<?php echo wp_kses_post( $indicator_markup ); ?>
+				</div>
+			<?php endforeach; ?>
 		</div>
 		<?php
-		return ob_get_clean();
 	}
 
 	/**

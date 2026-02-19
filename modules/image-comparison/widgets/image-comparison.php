@@ -949,8 +949,7 @@ class Image_Comparison extends Powerpack_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function get_image_src( $position ) {
-		$settings = $this->get_settings_for_display();
+	protected function get_image_src( $settings, $position ) {
 
 		$image_id  = apply_filters( 'wpml_object_id', $settings[ $position . '_image' ]['id'], 'attachment', true );
 		$image_url = '';
@@ -965,6 +964,108 @@ class Image_Comparison extends Powerpack_Widget {
 	}
 
 	/**
+	 * Render before/after image.
+	 *
+	 * @param string $type Image type (before|after).
+	 */
+	private function render_image( $settings, $type ) {
+
+		if ( empty( $settings[ $type . '_image' ]['url'] ) ) {
+			return;
+		}
+
+		$image_data = $settings[ $type . '_image' ];
+		$image_url  = $this->get_image_src( $settings, $type );
+
+		$attribute_key = $type . '-image';
+
+		$this->add_render_attribute(
+			$attribute_key,
+			[
+				'src'   => esc_url( $image_url ),
+				'alt'   => esc_attr( Control_Media::get_image_alt( $image_data ) ),
+				'title' => esc_attr( Control_Media::get_image_title( $image_data ) ),
+				'class' => 'pp-' . esc_attr( $type ) . '-img',
+			]
+		);
+		?>
+
+		<div class="pp-<?php echo esc_attr( $type ); ?>-image">
+			<img <?php $this->print_render_attribute_string( $attribute_key ); ?> />
+		</div>
+
+		<?php
+	}
+
+	/**
+	 * Render comparison handle.
+	 *
+	 * @param array  $settings    Widget settings.
+	 * @param string $orientation Layout orientation.
+	 */
+	private function render_handle( $settings, $orientation ) {
+
+		if ( empty( $settings['handle_icon']['value'] ) ) {
+			return;
+		}
+
+		$icon = $settings['handle_icon'];
+
+		if ( 'horizontal' === $orientation ) {
+			$before_icon = str_replace( 'right', 'left', $icon );
+			$after_icon  = $icon;
+		} else {
+			$before_icon = str_replace( 'right', 'up', $icon );
+			$after_icon  = str_replace( 'right', 'down', $icon );
+		}
+		?>
+
+		<div class="pp-comparison-handle">
+			<?php
+			Icons_Manager::render_icon( $before_icon, [ 'aria-hidden' => 'true' ] );
+			Icons_Manager::render_icon( $after_icon, [ 'aria-hidden' => 'true' ] );
+			?>
+		</div>
+
+		<?php
+	}
+
+	/**
+	 * Render overlay and labels.
+	 *
+	 * @param array $settings Widget settings.
+	 */
+	private function render_overlay( $settings ) {
+
+		$overlay_enabled = ( isset( $settings['overlay'] ) && 'yes' === $settings['overlay'] );
+
+		if ( ! $overlay_enabled && empty( $settings['before_label'] ) && empty( $settings['after_label'] ) ) {
+			return;
+		}
+
+		if ( $overlay_enabled ) :
+			?>
+			<div class="pp-image-comparison-overlay">
+		<?php endif; ?>
+
+		<?php if ( ! empty( $settings['before_label'] ) ) : ?>
+			<div class="pp-comparison-label pp-comparison-label-before">
+				<span><?php echo esc_html( $settings['before_label'] ); ?></span>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $settings['after_label'] ) ) : ?>
+			<div class="pp-comparison-label pp-comparison-label-after">
+				<span><?php echo esc_html( $settings['after_label'] ); ?></span>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( $overlay_enabled ) : ?>
+			</div>
+		<?php endif;
+	}
+
+	/**
 	 * Render image comparison widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -974,82 +1075,40 @@ class Image_Comparison extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
+		$orientation   = ! empty( $settings['orientation'] ) ? $settings['orientation'] : 'vertical';
+		$move_slider   = ! empty( $settings['move_slider'] ) ? $settings['move_slider'] : '';
+		$visible_ratio = ! empty( $settings['visible_ratio']['size'] ) ? $settings['visible_ratio']['size'] : '0.5';
+
 		$widget_options = [
-			'visible_ratio'      => ! empty( $settings['visible_ratio']['size'] ) ? $settings['visible_ratio']['size'] : '0.5',
-			'orientation'        => ( $settings['orientation'] ) ? $settings['orientation'] : 'vertical',
-			'slider_on_hover'    => 'mouse_move' === $settings['move_slider'] ? true : false,
-			'slider_with_handle' => 'drag' === $settings['move_slider'] ? true : false,
-			'slider_with_click'  => 'mouse_click' === $settings['move_slider'] ? true : false,
+			'visible_ratio'      => $visible_ratio,
+			'orientation'        => $orientation,
+			'slider_on_hover'    => ( 'mouse_move' === $move_slider ),
+			'slider_with_handle' => ( 'drag' === $move_slider ),
+			'slider_with_click'  => ( 'mouse_click' === $move_slider ),
 		];
 
-		$this->add_render_attribute( 'image-comparison', [
-			'class'         => [ 'pp-image-comparison', 'pp-image-comparison-' . $settings['orientation'] ],
-			'id'            => 'pp-image-comparison-' . esc_attr( $this->get_id() ),
-			'data-settings' => wp_json_encode( $widget_options ),
-		] );
+		$this->add_render_attribute(
+			'wrapper',
+			[
+				'class'         => [
+					'pp-image-comparison',
+					'pp-image-comparison-' . esc_attr( $orientation ),
+				],
+				'id'            => 'pp-image-comparison-' . esc_attr( $this->get_id() ),
+				'data-settings' => wp_json_encode( $widget_options ),
+			]
+		);
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'image-comparison' ) ); ?>>
+
+		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
+
 			<?php
-			if ( ! empty( $settings['before_image'] ) ) :
-				echo '<div class="pp-before-image">';
-				$img_url = $this->get_image_src('before');
-
-				$this->add_render_attribute( 'before-image', 'src', esc_url( $img_url ) );
-				$this->add_render_attribute( 'before-image', 'alt', Control_Media::get_image_alt( $settings['before_image'] ) );
-				$this->add_render_attribute( 'before-image', 'title', Control_Media::get_image_title( $settings['before_image'] ) );
-				$this->add_render_attribute( 'before-image', 'class', 'pp-before-img' );
-
-				printf( '<img %s />', $this->get_render_attribute_string( 'before-image' ) );
-				echo '</div>';
-			endif;
-
-			if ( ! empty( $settings['after_image'] ) ) :
-				echo '<div class="pp-after-image">';
-				$img_url = $this->get_image_src('after');
-
-				$this->add_render_attribute( 'after-image', 'src', esc_url( $img_url ) );
-				$this->add_render_attribute( 'after-image', 'alt', Control_Media::get_image_alt( $settings['after_image'] ) );
-				$this->add_render_attribute( 'after-image', 'title', Control_Media::get_image_title( $settings['after_image'] ) );
-				$this->add_render_attribute( 'after-image', 'class', 'pp-after-img' );
-
-				printf( '<img %s />', $this->get_render_attribute_string( 'after-image' ) );
-				echo '</div>';
-			endif;
-
-			echo '<div class="pp-comparison-handle">';
-			if ( ! empty( $settings['handle_icon']['value'] ) ) {
-				if ( 'horizontal' === $settings['orientation'] ) {
-					$after_icon = $settings['handle_icon'];
-					$before_icon = str_replace( 'right', 'left', $settings['handle_icon'] );
-				} else {
-					$after_icon = $settings['handle_icon'];
-					$after_icon = str_replace( 'right', 'down', $settings['handle_icon'] );
-					$before_icon = str_replace( 'right', 'up', $settings['handle_icon'] );
-				}
-
-				Icons_Manager::render_icon( $before_icon, [ 'aria-hidden' => 'true' ] );
-				Icons_Manager::render_icon( $after_icon, [ 'aria-hidden' => 'true' ] );
-			}
-			echo '</div>';
-
-			if ( 'yes' === $settings['overlay'] ) {
-				echo '<div class="pp-image-comparison-overlay">';
-			}
-				if ( '' !== $settings['before_label'] ) {
-					echo '<div class="pp-comparison-label pp-comparison-label-before">';
-						echo '<span>'. esc_html( $settings['before_label'] ) .'</span>';
-					echo '</div>';
-				}
-
-				if ( '' !== $settings['after_label'] ) {
-					echo '<div class="pp-comparison-label pp-comparison-label-after">';
-						echo '<span>'. esc_html( $settings['after_label'] ) .'</span>';
-					echo '</div>';
-				}
-			if ( 'yes' === $settings['overlay'] ) {
-				echo '</div>';
-			}
+			$this->render_image( $settings, 'before' );
+			$this->render_image( $settings, 'after' );
+			$this->render_handle( $settings, $orientation );
+			$this->render_overlay( $settings );
 			?>
+
 		</div>
 		<?php
 	}

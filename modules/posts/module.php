@@ -84,54 +84,97 @@ class Module extends Module_Base {
 	}
 	
 	public function get_post_data() {
-
 		check_ajax_referer( 'pp-posts-widget-nonce', 'nonce' );
-		
-		$post_id   = $_POST['page_id'];
-		$widget_id = $_POST['widget_id'];
-		$filter  = isset( $_POST['category'] ) ? $_POST['category'] : '';
-		$filter   = str_replace( '.', '', $filter );
-		$taxonomy_filter  = isset( $_POST['taxonomy'] ) ? $_POST['taxonomy'] : '';
-		$taxonomy_filter   = str_replace( '.', '', $taxonomy_filter );
-		$search_filter  = isset( $_POST['search'] ) ? $_POST['search'] : '';
+
+		// Validate + sanitize page_id
+		$post_id = 0;
+		if ( isset( $_POST['page_id'] ) ) {
+			$post_id = absint( wp_unslash( $_POST['page_id'] ) );
+		}
+
+		// Validate + sanitize widget_id
+		$widget_id = '';
+		if ( isset( $_POST['widget_id'] ) ) {
+			$widget_id = sanitize_text_field(
+				wp_unslash( $_POST['widget_id'] )
+			);
+		}
+
+		// Category filter
+		$filter = '';
+		if ( isset( $_POST['category'] ) ) {
+			$filter = sanitize_text_field(
+				wp_unslash( $_POST['category'] )
+			);
+			$filter = str_replace( '.', '', $filter );
+		}
+
+		// Taxonomy filter
+		$taxonomy_filter = '';
+		if ( isset( $_POST['taxonomy'] ) ) {
+			$taxonomy_filter = sanitize_text_field(
+				wp_unslash( $_POST['taxonomy'] )
+			);
+			$taxonomy_filter = str_replace( '.', '', $taxonomy_filter );
+		}
+
+		// Search filter
+		$search_filter = '';
+		if ( isset( $_POST['search'] ) ) {
+			$search_filter = sanitize_text_field(
+				wp_unslash( $_POST['search'] )
+			);
+		}
+
+		// Early return if required data missing
+		if ( ! $post_id || empty( $widget_id ) ) {
+			wp_send_json_error( __( 'Invalid request.', 'powerpack-lite-for-elementor' ) );
+		}
 
 		$elementor = \Elementor\Plugin::$instance;
-		$meta      = $elementor->documents->get( $post_id )->get_elements_data();
+
+		$document = $elementor->documents->get( $post_id );
+
+		if ( ! $document ) {
+			wp_send_json_error( __( 'Invalid document.', 'powerpack-lite-for-elementor' ) );
+		}
+
+		$meta = $document->get_elements_data();
 
 		$widget_data = $this->find_element_recursive( $meta, $widget_id );
 
 		if ( isset( $widget_data['templateID'] ) ) {
-			$template_data = \Elementor\Plugin::$instance->templates_manager->get_template_data( [
-				'source' 		=> 'local',
-				'template_id' 	=> $widget_data['templateID'],
+			$template_data = $elementor->templates_manager->get_template_data( [
+				'source'      => 'local',
+				'template_id' => absint( $widget_data['templateID'] ),
 			] );
 
 			if ( is_array( $template_data ) && isset( $template_data['content'] ) ) {
 				$widget_data = $template_data['content'][0];
 			}
 		}
-		
-		$data = array(
+
+		$data = [
 			'message'    => __( 'Saved', 'powerpack-lite-for-elementor' ),
 			'ID'         => '',
 			'skin_id'    => '',
 			'html'       => '',
 			'pagination' => '',
-		);
-		
-		if ( null != $widget_data ) {
-			
-			// Restore default values.
-			$widget = $elementor->elements_manager->create_element_instance( $widget_data );
-			$skin = $widget->get_current_skin();
-			$skin_body = $skin->render_ajax_post_body( $filter, $taxonomy_filter, $search_filter );
+		];
+
+		if ( null !== $widget_data ) {
+
+			$widget     = $elementor->elements_manager->create_element_instance( $widget_data );
+			$skin       = $widget->get_current_skin();
+			$skin_body  = $skin->render_ajax_post_body( $filter, $taxonomy_filter, $search_filter );
 			$pagination = $skin->render_ajax_pagination();
-		
+
 			$data['ID']         = $widget->get_id();
 			$data['skin_id']    = $widget->get_current_skin_id();
-			$data['html']		= $skin_body;
+			$data['html']       = $skin_body;
 			$data['pagination'] = $pagination;
 		}
+
 		wp_send_json_success( $data );
 	}
 

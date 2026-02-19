@@ -661,7 +661,14 @@ abstract class Posts_Base extends Powerpack_Widget {
 
 		if ( 'main' === $settings['query_type'] ) {
 			$current_query_vars = $GLOBALS['wp_query']->query_vars;
-			return apply_filters( "ppe_{$widget_type}_query_args", $current_query_vars, $settings );
+
+			return PP_Helper::apply_deprecated_filter(
+				"ppe_{$widget_type}_query_args",
+				"powerpack_elements_{$widget_type}_query_args",
+				$current_query_vars,
+				array( $settings ),
+				'x.x.x'
+			);
 		}
 
 		$query_args = array(
@@ -964,7 +971,13 @@ abstract class Posts_Base extends Powerpack_Widget {
 			$query_args['post__not_in'] = $post__not_in;
 		}
 
-		return apply_filters( "ppe_{$widget_type}_query_args", $query_args, $settings );
+		return PP_Helper::apply_deprecated_filter(
+			"ppe_{$widget_type}_query_args",
+			"powerpack_elements_{$widget_type}_query_args",
+			$query_args,
+			array( $settings ),
+			'x.x.x'
+		);
 	}
 
 	/**
@@ -1073,34 +1086,52 @@ abstract class Posts_Base extends Powerpack_Widget {
 		}
 
 		if ( 'yes' === $pagination_ajax || 'load_more' === $pagination_type || 'infinite' === $pagination_type ) {
-			if ( isset( $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'pp-posts-widget-nonce' ) ) {
+
+			$nonce = '';
+			if ( isset( $_POST['nonce'] ) ) {
+				$nonce = sanitize_text_field(
+					wp_unslash( $_POST['nonce'] )
+				);
+			}
+
+			if ( $nonce && wp_verify_nonce( $nonce, 'pp-posts-widget-nonce' ) ) {
+
 				if ( isset( $_POST['page_number'] ) && '' !== $_POST['page_number'] ) {
-					return $_POST['page_number'];
+
+					$page_number = absint(
+						wp_unslash( $_POST['page_number'] )
+					);
+
+					return $page_number;
 				}
 			}
 
 			// Check the 'paged' query var.
 			$paged_qv = $wp_the_query->get( 'paged' );
-
 			if ( is_numeric( $paged_qv ) ) {
-				return $paged_qv;
+				return (int) $paged_qv;
 			}
 
 			// Check the 'page' query var.
 			$page_qv = $wp_the_query->get( 'page' );
-
 			if ( is_numeric( $page_qv ) ) {
-				return $page_qv;
+				return (int) $page_qv;
 			}
 
-			// Check the $paged global?
+			// Check the $paged global.
 			if ( is_numeric( $paged ) ) {
-				return $paged;
+				return (int) $paged;
 			}
 
 			return 0;
+
 		} else {
-			return max( 1, get_query_var( 'paged' ), get_query_var( 'page' ) );
+
+			return max(
+				1,
+				(int) get_query_var( 'paged' ),
+				(int) get_query_var( 'page' )
+			);
 		}
 	}
 

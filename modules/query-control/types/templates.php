@@ -37,7 +37,7 @@ class Templates extends Type_Base {
 	public function get_autocomplete_values( array $data ) {
 		$results = [];
 
-		$document_types = pp_lite_get_elementor()->documents->get_document_types( [
+		$document_types = powerpack_elements_lite_get_elementor()->documents->get_document_types( [
 			'show_in_library' => true,
 		] );
 
@@ -59,7 +59,7 @@ class Templates extends Type_Base {
 		$query = new \WP_Query( $query_params );
 
 		foreach ( $query->posts as $post ) {
-			$document = pp_lite_get_elementor()->documents->get( $post->ID );
+			$document = powerpack_elements_lite_get_elementor()->documents->get( $post->ID );
 			if ( ! $document )
 				continue;
 
@@ -89,7 +89,7 @@ class Templates extends Type_Base {
 		]);
 
 		foreach ( $query->posts as $post ) {
-			$document = pp_lite_get_elementor()->documents->get( $post->ID );
+			$document = powerpack_elements_lite_get_elementor()->documents->get( $post->ID );
 			if ( ! $document )
 				continue;
 

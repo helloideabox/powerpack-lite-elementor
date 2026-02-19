@@ -92,28 +92,62 @@ class Request_Parameter extends Condition {
 			return $this->compare( $show, true, $operator );
 		}
 
-		$request_uri = esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+		$request_uri = esc_url_raw(
+			wp_unslash( $_SERVER['REQUEST_URI'] )
+		);
+
 		$url = wp_parse_url( $request_uri );
 
-		if ( isset( $url['query'] ) && ! empty( $url['query'] ) ) {
-			$query_params = explode( '&', $url['query'] );
+		if ( empty( $url['query'] ) ) {
+			return $this->compare( $show, true, $operator );
+		}
 
-			$value = str_replace( '&', "\n", sanitize_textarea_field( $value ) );
-			$value = explode( "\n", $value );
+		$current_query = [];
+		wp_parse_str( $url['query'], $current_query );
 
-			if ( ! empty( $value ) ) {
-				foreach ( $value as $index => $param ) {
-					if ( ! empty( $param ) ) {
-						$is_strict = strpos( $param, '=' );
-						if ( ! $is_strict ) {
-							$value[ $index ] = $value[ $index ] . '=' . rawurlencode( $_GET[ $param ] );
-						}
+		$value = sanitize_textarea_field( $value );
+		$value = str_replace( '&', "\n", $value );
+		$value = explode( "\n", $value );
+
+		$matched = false;
+
+		foreach ( $value as $param ) {
+
+			$param = trim( $param );
+
+			if ( empty( $param ) ) {
+				continue;
+			}
+
+			if ( false !== strpos( $param, '=' ) ) {
+
+				list( $key, $expected ) = array_map( 'trim', explode( '=', $param, 2 ) );
+
+				$key      = sanitize_key( $key );
+				$expected = sanitize_text_field( $expected );
+
+				if ( isset( $current_query[ $key ] ) ) {
+
+					$current_value = sanitize_text_field( $current_query[ $key ] );
+
+					if ( (string) $current_value === (string) $expected ) {
+						$matched = true;
+						break;
 					}
 				}
 
-				$show = ! empty( array_intersect( $value, $query_params ) );
+			} else {
+
+				$key = sanitize_key( $param );
+
+				if ( isset( $current_query[ $key ] ) ) {
+					$matched = true;
+					break;
+				}
 			}
 		}
+
+		$show = $matched;
 
 		return $this->compare( $show, true, $operator );
 	}

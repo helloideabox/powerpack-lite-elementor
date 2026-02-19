@@ -1,6 +1,12 @@
 <?php
 namespace PowerpackElementsLite\Classes;
 
+use PowerpackElementsLite\Classes\PP_Helper;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Handles logic for the admin settings page.
  *
@@ -36,6 +42,7 @@ final class PP_Admin_Settings {
 	 * @return void
 	 */
 	public static function init_hooks() {
+
 		if ( ! is_admin() ) {
 			return;
 		}
@@ -43,8 +50,15 @@ final class PP_Admin_Settings {
 		add_action( 'admin_menu', __CLASS__ . '::menu', 601 );
 
 		if ( current_user_can( 'manage_options' ) ) {
-			if ( isset( $_REQUEST['page'] ) && 'powerpack-settings' == $_REQUEST['page'] ) {
-				//add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
+
+			$page = '';
+
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( isset( $_GET['page'] ) ) {
+				$page = sanitize_text_field( wp_unslash( $_GET['page'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			}
+
+			if ( 'powerpack-settings' === $page ) {
 				self::save();
 			}
 		}
@@ -115,7 +129,11 @@ final class PP_Admin_Settings {
 			foreach ( self::$errors as $message ) {
 				echo '<div class="error"><p>' . esc_html( $message ) . '</p></div>';
 			}
-		} elseif ( ! empty( $_POST ) && ! isset( $_POST['email'] ) ) {
+		}
+		
+		// Check for settings-updated parameter in URL
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( isset( $_GET['settings-updated'] ) && 'true' === $_GET['settings-updated'] ) {
 			echo '<div class="updated"><p>' . esc_html__( 'Settings updated!', 'powerpack-lite-for-elementor' ) . '</p></div>';
 		}
 	}
@@ -160,29 +178,37 @@ final class PP_Admin_Settings {
 	public static function get_tabs() {
 		$settings = self::get_settings();
 
-		return apply_filters( 'pp_elements_lite_admin_settings_tabs', array(
-			'modules'   => array(
-				'title'     => esc_html__( 'Elements', 'powerpack-lite-for-elementor' ),
-				'show'      => true,
-				'cap'       => 'edit_posts',
-				'file'      => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-modules.php',
-				'priority'  => 150,
-			),
-			'extensions'   => array(
-				'title'     => esc_html__( 'Extensions', 'powerpack-lite-for-elementor' ),
-				'show'      => true,
-				'cap'       => 'edit_posts',
-				'file'      => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-extensions.php',
-				'priority'  => 200,
-			),
-			'integration'   => array(
-				'title'         => esc_html__( 'Integration', 'powerpack-lite-for-elementor' ),
-				'show'          => true,
-				'cap'           => ! is_network_admin() ? 'manage_options' : 'manage_network_plugins',
-				'file'          => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-integration.php',
-				'priority'      => 300,
-			),
-		) );
+		$tabs = [
+			'modules' => [
+				'title'    => esc_html__( 'Elements', 'powerpack-lite-for-elementor' ),
+				'show'     => true,
+				'cap'      => 'edit_posts',
+				'file'     => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-modules.php',
+				'priority' => 150,
+			],
+			'extensions' => [
+				'title'    => esc_html__( 'Extensions', 'powerpack-lite-for-elementor' ),
+				'show'     => true,
+				'cap'      => 'edit_posts',
+				'file'     => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-extensions.php',
+				'priority' => 200,
+			],
+			'integration' => [
+				'title'    => esc_html__( 'Integration', 'powerpack-lite-for-elementor' ),
+				'show'     => true,
+				'cap'      => ! is_network_admin() ? 'manage_options' : 'manage_network_plugins',
+				'file'     => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-integration.php',
+				'priority' => 300,
+			],
+		];
+
+		return PP_Helper::apply_deprecated_filter(
+			'pp_elements_lite_admin_settings_tabs',
+			'powerpack_lite_for_elementor_admin_settings_tabs',
+			$tabs,
+			[],
+			'x.x.x'
+		);
 	}
 
 	public static function render_tabs( $current_tab ) {
@@ -201,8 +227,14 @@ final class PP_Admin_Settings {
 				if ( isset( $data['cap'] ) && ! current_user_can( $data['cap'] ) ) {
 					continue;
 				}
+
+				$tab_key   = isset( $data['key'] ) ? $data['key'] : '';
+				$tab_title = isset( $data['title'] ) ? $data['title'] : '';
+				$is_active = ( $current_tab === $tab_key ) ? ' nav-tab-active' : '';
 				?>
-				<a href="<?php echo self::get_form_action( '&tab=' . esc_attr( $data['key'] ) ); ?>" class="nav-tab<?php echo ( $current_tab == $data['key'] ? ' nav-tab-active' : '' ); ?>"><span><?php echo $data['title']; ?></span></a>
+				<a href="<?php echo esc_url( self::get_form_action( '&tab=' . rawurlencode( $tab_key ) ) ); ?>" class="nav-tab<?php echo esc_attr( $is_active ); ?>">
+					<span><?php echo esc_html( $tab_title ); ?></span>
+				</a>
 				<?php
 			}
 		}
@@ -247,7 +279,20 @@ final class PP_Admin_Settings {
 	 * Get current tab.
 	 */
 	public static function get_current_tab() {
-		$current_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'modules';
+
+		$current_tab = 'modules';
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$tab_param = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : '';
+
+		if ( ! empty( $tab_param ) ) {
+			$tabs = self::get_tabs();
+
+			// Whitelist validation
+			if ( isset( $tabs[ $tab_param ] ) ) {
+				$current_tab = $tab_param;
+			}
+		}
 
 		return $current_tab;
 	}
@@ -298,13 +343,20 @@ final class PP_Admin_Settings {
 	 * @param mixed $value The value to update.
 	 * @return mixed
 	 */
-	public static function update_option( $key, $value, $network_override = true ) {
+	public static function update_option( $key, $value, $network_override = true, $override_checked = false ) {
+
 		if ( is_network_admin() ) {
+
 			update_site_option( $key, $value );
-		} elseif ( $network_override && is_multisite() && ! isset( $_POST['pp_override_ms'] ) ) {
-			// Delete the option if network overrides are allowed and the override checkbox isn't checked.
+
+		} elseif ( $network_override && is_multisite() && ! $override_checked ) {
+
+			// Delete the option if network overrides are allowed
+			// and the override checkbox isn't checked.
 			delete_option( $key );
+
 		} else {
+
 			update_option( $key, $value );
 		}
 	}
@@ -331,12 +383,40 @@ final class PP_Admin_Settings {
 			return;
 		} */
 
-		self::save_modules();
-		self::save_extensions();
-		self::save_integration();
-		self::save_tracking();
+		// Track if any settings were saved
+		$modules_saved = false;
+		$extensions_saved = false;
+		$integration_saved = false;
 
-		do_action( 'pp_admin_after_settings_saved' );
+		// Save settings (each method does its own nonce verification)
+		$modules_saved = self::save_modules();
+		$extensions_saved = self::save_extensions();
+		$integration_saved = self::save_integration();
+
+		// Check if any settings were actually saved
+		$settings_saved = $modules_saved || $extensions_saved || $integration_saved;
+
+		PP_Helper::do_deprecated_action(
+			'pp_admin_after_settings_saved',
+			'powerpack_elements_admin_after_settings_saved',
+			[],
+			'x.x.x'
+		);
+
+		// Redirect with success message if settings were saved
+		if ( $settings_saved && empty( self::$errors ) ) {
+			$redirect_url = add_query_arg(
+				array(
+					'page' => 'powerpack-settings',
+					'tab' => self::get_current_tab(),
+					'settings-updated' => 'true',
+				),
+				admin_url( 'admin.php' )
+			);
+			
+			wp_safe_redirect( $redirect_url );
+			exit;
+		}
 	}
 
 	/**
@@ -347,48 +427,136 @@ final class PP_Admin_Settings {
 	 * @return void
 	 */
 	private static function save_integration() {
-		if ( ! isset( $_POST['pp-integration-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-integration-settings-nonce'], 'pp-integration-settings' ) ) {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
+		}
+
+		if ( empty( $_POST['pp-integration-settings-nonce'] ) ) {
+			return;
+		}
+
+		$nonce = sanitize_text_field(
+			wp_unslash( $_POST['pp-integration-settings-nonce'] )
+		);
+
+		if ( ! wp_verify_nonce( $nonce, 'pp-integration-settings' ) ) {
+			return;
+		}
+
+		$override_checked = false;
+
+		if ( isset( $_POST['pp_override_ms'] ) ) {
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			$override_checked = (bool) wp_unslash( $_POST['pp_override_ms'] );
 		}
 
 		if ( isset( $_POST['pp_instagram_access_token'] ) ) {
-			self::update_option( 'pp_instagram_access_token', trim( $_POST['pp_instagram_access_token'] ), false );
+
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			$token = wp_unslash( $_POST['pp_instagram_access_token'] );
+
+			$token = sanitize_text_field( trim( $token ) );
+
+			self::update_option(
+				'pp_instagram_access_token',
+				$token,
+				false,
+				$override_checked
+			);
 		}
+
+		return true;
 	}
 
 	private static function save_modules() {
-		if ( ! isset( $_POST['pp-modules-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-modules-settings-nonce'], 'pp-modules-settings' ) ) {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
-		if ( isset( $_POST['pp_enabled_modules'] ) ) {
-			update_site_option( 'pp_elementor_modules', $_POST['pp_enabled_modules'] );
+		if ( empty( $_POST['pp-modules-settings-nonce'] ) ) {
+			return;
+		}
+
+		$nonce = sanitize_text_field(
+			wp_unslash( $_POST['pp-modules-settings-nonce'] )
+		);
+
+		if ( ! wp_verify_nonce( $nonce, 'pp-modules-settings' ) ) {
+			return;
+		}
+
+		if ( ! empty( $_POST['pp_enabled_modules'] ) ) {
+
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			$raw_modules = wp_unslash( $_POST['pp_enabled_modules'] );
+
+			if ( is_array( $raw_modules ) ) {
+
+				$modules = array_map(
+					'sanitize_text_field',
+					$raw_modules
+				);
+
+			} else {
+
+				$modules = sanitize_text_field( $raw_modules );
+			}
+
+			update_site_option( 'pp_elementor_modules', $modules );
+
 		} else {
+
 			update_site_option( 'pp_elementor_modules', 'disabled' );
 		}
+
+		return true;
 	}
 
 	public static function save_extensions() {
-		if ( ! isset( $_POST['pp-extensions-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-extensions-settings-nonce'], 'pp-extensions-settings' ) ) {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		if ( ! isset( $_POST['pp-extensions-settings-nonce'] ) ) {
+			return;
+		}
+
+		$nonce = sanitize_text_field(
+			wp_unslash( $_POST['pp-extensions-settings-nonce'] )
+		);
+
+		if ( ! wp_verify_nonce( $nonce, 'pp-extensions-settings' ) ) {
 			return;
 		}
 
 		if ( isset( $_POST['pp_enabled_extensions'] ) ) {
-			update_option( 'pp_elementor_extensions', $_POST['pp_enabled_extensions'] );
+
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			$raw_extensions = wp_unslash( $_POST['pp_enabled_extensions'] );
+
+			if ( is_array( $raw_extensions ) ) {
+
+				$extensions = array_map(
+					'sanitize_text_field',
+					$raw_extensions
+				);
+
+			} else {
+
+				$extensions = sanitize_text_field( $raw_extensions );
+			}
+
+			update_option( 'pp_elementor_extensions', $extensions );
+
 		} else {
+
 			update_option( 'pp_elementor_extensions', 'disabled' );
 		}
-	}
 
-	private static function save_tracking() {
-		if ( ! isset( $_POST['pp-modules-settings-nonce'] ) || ! wp_verify_nonce( $_POST['pp-modules-settings-nonce'], 'pp-modules-settings' ) ) {
-			return;
-		}
-		if ( isset( $_POST['pp_allowed_tracking'] ) ) {
-			self::update_option( 'pp_allowed_tracking', sanitize_text_field( $_POST['pp_allowed_tracking'] ), true );
-		} else {
-			self::delete_option( 'pp_allowed_tracking' );
-		}
+		return true;
 	}
 
 	/**

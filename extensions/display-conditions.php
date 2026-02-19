@@ -124,7 +124,7 @@ class Extension_Display_Conditions extends Extension_Base {
 	}
 
 	protected function render_editor_notice( $settings ) {
-		?><span><?php _e( 'This widget is displayed conditionally.', 'powerpack-lite-for-elementor' ); ?></span>
+		?><span><?php esc_html_e( 'This widget is displayed conditionally.', 'powerpack-lite-for-elementor' ); ?></span>
 		<?php
 	}
 }

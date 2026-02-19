@@ -310,7 +310,7 @@ class Formidable_Forms extends Powerpack_Widget {
 				array(
 					'label'           => '',
 					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( __( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+					'raw'             => PP_Helper::get_upgrade_notice(),
 					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				)
 			);
@@ -1821,7 +1821,7 @@ class Formidable_Forms extends Powerpack_Widget {
 
 		if ( class_exists( 'FrmForm' ) ) {
 			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
-				<div <?php echo $this->get_render_attribute_string( 'contact-form' ); ?>>
+				<div <?php $this->print_render_attribute_string( 'contact-form' ); ?>>
 					<?php if ( 'yes' === $settings['custom_title_description'] ) { ?>
 						<div class="pp-formidable-forms-heading">
 							<?php if ( $settings['form_title_custom'] ) { ?>
@@ -1831,7 +1831,7 @@ class Formidable_Forms extends Powerpack_Widget {
 							<?php } ?>
 							<?php if ( $settings['form_description_custom'] ) { ?>
 								<div class="pp-contact-form-description pp-formidable-forms-description">
-									<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); ?>
+									<?php \Elementor\Utils::print_unescaped_internal_string( $this->parse_text_editor( $settings['form_description_custom'] ) ); ?>
 								</div>
 							<?php } ?>
 						</div>
@@ -1850,9 +1850,16 @@ class Formidable_Forms extends Powerpack_Widget {
 				</div>
 				<?php
 			} else {
-				$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', 'powerpack-lite-for-elementor' ), esc_attr( $this->get_title() ) );
+				$placeholder = sprintf(
+					/* translators: %s: Widget title. */
+					esc_html__(
+						'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.',
+						'powerpack-lite-for-elementor'
+					),
+					esc_html( $this->get_title() )
+				);
 
-				echo $this->render_editor_placeholder(
+				$this->render_editor_placeholder(
 					array(
 						'title' => esc_html__( 'No Contact Form Selected!', 'powerpack-lite-for-elementor' ),
 						'body'  => $placeholder,

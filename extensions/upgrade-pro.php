@@ -86,7 +86,20 @@ class Extension_Upgrade_Pro extends Extension_Base {
 			array(
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => apply_filters(
+					'upgrade_powerpack_message',
+					wp_kses_post(
+						sprintf(
+							/* translators: 1: Opening anchor tag, 2: Closing anchor tag. */
+							__(
+								'Upgrade to %1$sPro Version%2$s for 90+ widgets, exciting extensions and advanced features.',
+								'powerpack-lite-for-elementor'
+							),
+							'<a href="https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-widget-upgrade-section&utm_campaign=pp-pro-upgrade" target="_blank" rel="noopener">',
+							'</a>'
+						)
+					)
+				),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 			)
 		);
@@ -103,7 +116,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	 */
 	protected function add_actions() {
 
-		$widgets = pp_elements_lite_get_enabled_modules();
+		$widgets = powerpack_elements_lite_get_enabled_modules();
 
 		foreach ( $widgets as $widget ) {
 			if ( 'pp-hotspots' === $widget ) {

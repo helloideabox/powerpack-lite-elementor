@@ -1068,7 +1068,14 @@ class Random_Image extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 
 		if ( ! $settings['wp_gallery'] ) {
-			$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose some images.', 'powerpack-lite-for-elementor' ), esc_attr( $this->get_title() ) );
+			$placeholder = sprintf(
+				/* translators: %s: Widget title. */
+				esc_html__(
+					'Click here to edit the "%1$s" settings and choose some images.',
+					'powerpack-lite-for-elementor'
+				),
+				esc_html( $this->get_title() )
+			);
 
 			echo esc_attr( $this->render_editor_placeholder(
 				array(

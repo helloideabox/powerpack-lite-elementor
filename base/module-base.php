@@ -30,7 +30,11 @@ abstract class Module_Base {
 	 */
 	public function __clone() {
 		// Cloning instances of the class is forbidden
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'powerpack-lite-for-elementor' ), '1.0.0' );
+		_doing_it_wrong(
+			__FUNCTION__,
+			esc_html__( 'Cheatin&#8217; huh?', 'powerpack-lite-for-elementor' ),
+			'1.0.0'
+		);
 	}
 
 	/**
@@ -41,7 +45,11 @@ abstract class Module_Base {
 	 */
 	public function __wakeup() {
 		// Unserializing instances of the class is forbidden
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'powerpack-lite-for-elementor' ), '1.0.0' );
+		_doing_it_wrong(
+			__FUNCTION__,
+			esc_html__( 'Cheatin&#8217; huh?', 'powerpack-lite-for-elementor' ),
+			'1.0.0'
+		);
 	}
 
 	public static function is_active() {
@@ -91,7 +99,7 @@ abstract class Module_Base {
 	}
 
 	public static function is_widget_active( $widget = '' ) {
-		$enabled_modules = pp_elements_lite_get_enabled_modules();
+		$enabled_modules = powerpack_elements_lite_get_enabled_modules();
 
 		if ( in_array( $widget, $enabled_modules ) ) {
 			return true;

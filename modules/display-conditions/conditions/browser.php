@@ -103,30 +103,43 @@ class Browser extends Condition {
 	 */
 	public function check( $name, $operator, $value ) {
 		$browsers = [
-			'ie'            => [
-				'MSIE',
-				'Trident',
-			],
-			'firefox'       => 'Firefox',
-			'chrome'        => 'Chrome',
-			'opera_mini'    => 'Opera Mini',
-			'opera'         => 'Opera',
-			'safari'        => 'Safari',
+			'ie'         => [ 'MSIE', 'Trident' ],
+			'firefox'    => 'Firefox',
+			'chrome'     => 'Chrome',
+			'opera_mini' => 'Opera Mini',
+			'opera'      => 'Opera',
+			'safari'     => 'Safari',
 		];
+
+		// Validate browser key
+		if ( ! isset( $browsers[ $value ] ) ) {
+			return $this->compare( false, true, $operator );
+		}
+
+		$user_agent = $this->get_user_agent();
+
+		if ( empty( $user_agent ) ) {
+			return $this->compare( false, true, $operator );
+		}
 
 		$show = false;
 
 		if ( 'ie' === $value ) {
-			if ( false !== strpos( $_SERVER['HTTP_USER_AGENT'], $browsers[ $value ][0] ) || false !== strpos( $_SERVER['HTTP_USER_AGENT'], $browsers[ $value ][1] ) ) {
-				$show = true;
-			}
+
+			$show =
+				false !== strpos( $user_agent, $browsers['ie'][0] ) ||
+				false !== strpos( $user_agent, $browsers['ie'][1] );
+
 		} else {
-			if ( false !== strpos( $_SERVER['HTTP_USER_AGENT'], $browsers[ $value ] ) ) {
+
+			if ( false !== strpos( $user_agent, $browsers[ $value ] ) ) {
+
 				$show = true;
 
-				// Additional check for Chrome that returns Safari
+				// Safari & Firefox detection correction
 				if ( 'safari' === $value || 'firefox' === $value ) {
-					if ( false !== strpos( $_SERVER['HTTP_USER_AGENT'], 'Chrome' ) ) {
+
+					if ( false !== strpos( $user_agent, 'Chrome' ) ) {
 						$show = false;
 					}
 				}

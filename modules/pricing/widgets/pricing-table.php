@@ -2989,10 +2989,22 @@ class Pricing_Table extends Powerpack_Widget {
 	private function render_currency_symbol( $symbol, $location ) {
 		$currency_position = $this->get_settings( 'currency_position' );
 		$location_setting = ! empty( $currency_position ) ? $currency_position : 'before';
-		if ( ! empty( $symbol ) && $location === $location_setting ) {
-			$symbol = apply_filters( 'ppe_pricing_table_currency', $symbol, $this->get_id() );
 
-			echo '<span class="pp-pricing-table-price-prefix">' . $symbol . '</span>';
+		if ( ! empty( $symbol ) && $location === $location_setting ) {
+			$widget_id = $this->get_id();
+
+			$symbol = PP_Helper::apply_deprecated_filter(
+				'ppe_pricing_table_currency',
+				'powerpack_elements_pricing_table_currency',
+				$symbol,
+				array( $widget_id ),
+				'x.x.x'
+			);
+			?>
+			<span class="pp-pricing-table-price-prefix">
+				<?php echo esc_html( html_entity_decode( $symbol, ENT_QUOTES, 'UTF-8' ) ); ?>
+			</span>
+			<?php
 		}
 	}
 

@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\Charts\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
+use PowerpackElementsLite\Classes\PP_Helper;
 
 // Elementor Classes
 use Elementor\Widget_Base;
@@ -149,7 +150,12 @@ class Charts extends Powerpack_Widget {
 			[
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'This chart type is available in PowerPack Pro.', 'powerpack-lite-for-elementor' ) . ' ' . apply_filters( 'upgrade_powerpack_message', sprintf( esc_html__( 'Upgrade to %1$s Pro Version %2$s for 90+ widgets, exciting extensions and advanced features.', 'powerpack-lite-for-elementor' ), '<a href="#" target="_blank" rel="noopener">', '</a>' ) ),
+				'raw'             => PP_Helper::get_pro_feature_notice(
+					esc_html__(
+						'This chart type is available in PowerPack Pro.',
+						'powerpack-lite-for-elementor'
+					)
+				),
 				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
 				'condition'       => [
 					'chart_type!' => [ 'line', 'bar' ],
@@ -2087,7 +2093,14 @@ class Charts extends Powerpack_Widget {
 		$chart_type = $this->get_chart_type();
 
 		if ( 'radar' === $chart_type || 'pie' === $chart_type || 'doughnut' === $chart_type || 'polarArea' === $chart_type || 'bubble' === $chart_type ) {
-			$placeholder = sprintf( esc_html__( 'Click here to edit the "%1$s" settings and choose one of the available chart types fron the Chart Type option.', 'powerpack-lite-for-elementor' ), esc_attr( $this->get_title() ) );
+			$placeholder = sprintf(
+				/* translators: %s: Widget title. */
+				esc_html__(
+					'Click here to edit the "%1$s" settings and choose one of the available chart types from the Chart Type option.',
+					'powerpack-lite-for-elementor'
+				),
+				esc_html( $this->get_title() )
+			);
 
 			echo esc_attr( $this->render_editor_placeholder(
 				[
@@ -2102,8 +2115,21 @@ class Charts extends Powerpack_Widget {
 		$datasets = $this->get_datasets( $settings, $chart_type );
 		$options  = $this->get_chart_options( $settings, $chart_type );
 
-		$datasets = apply_filters( 'pp_chart_datasets', $datasets );
-		$options  = apply_filters( 'pp_chart_options', $options );
+		$datasets = PP_Helper::apply_deprecated_filter(
+			'pp_chart_datasets',
+			'powerpack_elements_chart_datasets',
+			$datasets,
+			[],
+			'x.x.x'
+		);
+
+		$options = PP_Helper::apply_deprecated_filter(
+			'pp_chart_options',
+			'powerpack_elements_chart_options',
+			$options,
+			[],
+			'x.x.x'
+		);
 
 		$this->add_render_attribute( 'wrapper', 'class', 'pp-chart-wrapper' );
 		$this->add_render_attribute( 'wrapper', 'data-id', esc_attr( uniqid('chart') ) );
@@ -2119,7 +2145,7 @@ class Charts extends Powerpack_Widget {
 			]) )
 		);
 		?>
-		<div <?php echo $this->get_render_attribute_string('wrapper'); ?>></div>
+		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
 		<?php
 	}
 

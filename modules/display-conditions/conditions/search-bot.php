@@ -84,9 +84,23 @@ class Search_Bot extends Condition {
 	 */
 	public function check( $name, $operator, $value ) {
 		$search_bot = [
-			'all_search_bots'        => '(nuhk)|(Googlebot)|(Yammybot)|(Openbot)|(Slurp/cat)|(msnbot)|(ia_archiver)',
+			'all_search_bots' => '(nuhk)|(Googlebot)|(Yammybot)|(Openbot)|(Slurp/cat)|(msnbot)|(ia_archiver)',
 		];
 
-		return $this->compare( preg_match( '@' . $search_bot[ $value ] . '@', $_SERVER['HTTP_USER_AGENT'] ), true, $operator );
+		$user_agent = $this->get_user_agent();
+
+		if ( ! isset( $search_bot[ $value ] ) ) {
+			return $this->compare( false, true, $operator );
+		}
+
+		$pattern = '@' . $search_bot[ $value ] . '@i';
+
+		$is_match = false;
+
+		if ( ! empty( $user_agent ) ) {
+			$is_match = (bool) preg_match( $pattern, $user_agent );
+		}
+
+		return $this->compare( $is_match, true, $operator );
 	}
 }

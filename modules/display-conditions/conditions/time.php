@@ -88,24 +88,36 @@ class Time extends Condition {
 	 * @param mixed     $value      The control value to check
 	 */
 	public function check( $name, $operator, $value ) {
-		// Split control valur into two dates
-		$time   = date( 'H:i', strtotime( preg_replace( '/\s+/', '', $value ) ) );
-		$now    = date( 'H:i', strtotime( 'now' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) );
 
-		// Default returned bool to false
-		$show   = false;
-
-		// Check vars
-		if ( \DateTime::createFromFormat( 'H:i', $time ) === false ) { // Make sure it's a valid DateTime format
-			return;
+		if ( empty( $value ) ) {
+			return false;
 		}
 
-		// Convert to timestamp
-		$time_ts    = strtotime( $time );
-		$now_ts     = strtotime( $now );
+		// Clean value
+		$time = preg_replace( '/\s+/', '', $value );
 
-		// Check that user date is between start & end
-		$show = ( $now_ts < $time_ts );
+		// Validate format
+		if ( ! \DateTime::createFromFormat( 'H:i', $time ) ) {
+			return false;
+		}
+
+		// Current site timestamp
+		$current_timestamp = current_time( 'timestamp' );
+
+		// Get today's date in site timezone
+		$today_date = wp_date( 'Y-m-d', $current_timestamp );
+
+		// Build full datetime string using site timezone
+		$selected_datetime = $today_date . ' ' . $time;
+
+		// Convert to timestamp
+		$selected_timestamp = strtotime( $selected_datetime );
+
+		if ( ! $selected_timestamp ) {
+			return false;
+		}
+
+		$show = $current_timestamp < $selected_timestamp;
 
 		return $this->compare( $show, true, $operator );
 	}
