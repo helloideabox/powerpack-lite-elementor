@@ -115,10 +115,7 @@ function powerpack_elements_lite_fail_load_out_of_date() {
 
 	$message = sprintf(
 		/* translators: %s: Minimum required Elementor version number. */
-		esc_html__(
-			'PowerPack requires Elementor version at least %s. Please update Elementor to continue.',
-			'powerpack-lite-for-elementor'
-		),
+		esc_html__( 'PowerPack requires Elementor version at least %s. Please update Elementor to continue.', 'powerpack-lite-for-elementor' ),
 		POWERPACK_ELEMENTS_LITE_ELEMENTOR_VERSION_REQUIRED
 	);
 
@@ -135,10 +132,7 @@ function powerpack_elements_lite_fail_load_out_of_date() {
 function powerpack_elements_lite_fail_php() {
 	$message = sprintf(
 		/* translators: %s: Minimum required PHP version number. */
-		esc_html__(
-			'PowerPack requires PHP version %s+ to work properly. The plugin is deactivated for now.',
-			'powerpack-lite-for-elementor'
-		),
+		esc_html__( 'PowerPack requires PHP version %s+ to work properly. The plugin is deactivated for now.', 'powerpack-lite-for-elementor' ),
 		POWERPACK_ELEMENTS_LITE_PHP_VERSION_REQUIRED
 	);
 
