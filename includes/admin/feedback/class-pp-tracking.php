@@ -236,7 +236,7 @@ class UsageTracking {
 			'powerpack_elements_disable_tracking_checkin',
 			false,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 
 		// Allows us to stop our own site from checking in, and a filter for our additional sites.

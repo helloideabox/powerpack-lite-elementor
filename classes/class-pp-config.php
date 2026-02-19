@@ -352,7 +352,7 @@ class PP_Config {
 			'powerpack_elements_widget_info',
 			self::$widget_info,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -626,7 +626,7 @@ class PP_Config {
 			'powerpack_elements_pro_widgets',
 			self::$pro_widgets,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -796,7 +796,7 @@ class PP_Config {
 			'powerpack_elements_help_links',
 			self::$help_docs,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 

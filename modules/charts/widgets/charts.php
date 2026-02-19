@@ -2120,7 +2120,7 @@ class Charts extends Powerpack_Widget {
 			'powerpack_elements_chart_datasets',
 			$datasets,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 
 		$options = PP_Helper::apply_deprecated_filter(
@@ -2128,7 +2128,7 @@ class Charts extends Powerpack_Widget {
 			'powerpack_elements_chart_options',
 			$options,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 
 		$this->add_render_attribute( 'wrapper', 'class', 'pp-chart-wrapper' );

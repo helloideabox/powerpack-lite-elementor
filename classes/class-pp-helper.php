@@ -109,7 +109,7 @@ class PP_Helper {
 			'powerpack_elements_widget_name',
 			$widget_name,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -135,7 +135,7 @@ class PP_Helper {
 			'powerpack_elements_widget_title',
 			$widget_name,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -161,7 +161,7 @@ class PP_Helper {
 			'powerpack_elements_widget_categories',
 			$widget_categories,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -187,7 +187,7 @@ class PP_Helper {
 			'powerpack_elements_widget_icon',
 			$widget_icon,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -213,7 +213,7 @@ class PP_Helper {
 			'powerpack_elements_widget_keywords',
 			$widget_keywords,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -312,7 +312,7 @@ class PP_Helper {
 	/**
 	 * Get upgrade notice HTML.
 	 *
-	 * @since x.x.x
+	 * @since 2.9.10
 	 *
 	 * @return string
 	 */
@@ -339,7 +339,7 @@ class PP_Helper {
 	 * Get full Pro feature notice.
 	 *
 	 * @param string $message Optional prefix message.
-	 * @since x.x.x
+	 * @since 2.9.10
 	 *
 	 * @return string
 	 */
@@ -600,7 +600,7 @@ class PP_Helper {
 		}
 	}
 
-	public static function apply_deprecated_filter( $old_hook, $new_hook, $value, $args = [], $version = 'x.x.x' ) {
+	public static function apply_deprecated_filter( $old_hook, $new_hook, $value, $args = [], $version = '2.9.10' ) {
 
 		$value = apply_filters_ref_array( $new_hook, array_merge( array( $value ), $args ) );
 

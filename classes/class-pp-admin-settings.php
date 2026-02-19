@@ -207,7 +207,7 @@ final class PP_Admin_Settings {
 			'powerpack_lite_for_elementor_admin_settings_tabs',
 			$tabs,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -400,7 +400,7 @@ final class PP_Admin_Settings {
 			'pp_admin_after_settings_saved',
 			'powerpack_elements_admin_after_settings_saved',
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 
 		// Redirect with success message if settings were saved

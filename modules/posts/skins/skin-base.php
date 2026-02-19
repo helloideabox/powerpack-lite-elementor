@@ -4141,7 +4141,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'powerpack_elements_posts_terms',
 			$terms,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 
 		$link_terms = $this->get_instance_value( 'post_taxonomy_link' );
@@ -4156,7 +4156,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_before_single_post_terms',
 			'powerpack_elements_before_single_post_terms',
 			[ get_the_ID(), $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 		?>
 		<div class="pp-post-terms-wrap">
@@ -4170,7 +4170,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					'ppe_single_post_terms',
 					'powerpack_elements_single_post_terms',
 					[ get_the_ID(), $settings ],
-					'x.x.x'
+					'2.9.10'
 				);
 				?>
 			</span>
@@ -4180,7 +4180,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_after_single_post_terms',
 			'powerpack_elements_after_single_post_terms',
 			[ get_the_ID(), $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -4224,7 +4224,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			"ppe_before_single_post_{$item_type}",
 			"powerpack_elements_before_single_post_{$item_type}",
 			[ $post_id, $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 		?>
 		<span class="pp-post-<?php echo esc_attr( $item_type ); ?>">
@@ -4287,7 +4287,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			"ppe_after_single_post_{$item_type}",
 			"powerpack_elements_after_single_post_{$item_type}",
 			[ $post_id, $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 		?>
 		<?php
@@ -4329,7 +4329,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'powerpack_elements_posts_comments',
 			$comments,
 			[ $post_id ],
-			'x.x.x'
+			'2.9.10'
 		);
 
 		return $comments;
@@ -4395,7 +4395,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'powerpack_elements_posts_date',
 			$date,
 			[ $post_id ],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -4502,7 +4502,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'powerpack_elements_posts_title',
 			$post_title,
 			[ $post_id ],
-			'x.x.x'
+			'2.9.10'
 		);
 		if ( $post_title ) {
 			?>
@@ -4511,7 +4511,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'ppe_before_single_post_title',
 				'powerpack_elements_before_single_post_title',
 				[ get_the_ID(), $settings ],
-				'x.x.x'
+				'2.9.10'
 			);
 			?>
 			<<?php PP_Helper::print_validated_html_tag( $title_tag ); ?> class="pp-post-title">
@@ -4524,7 +4524,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 						'powerpack_elements_posts_title_link',
 						get_the_permalink(),
 						[ $post_id ],
-						'x.x.x'
+						'2.9.10'
 					);
 
 					if ( 'yes' === $title_link_target ) {
@@ -4536,7 +4536,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 						'powerpack_elements_posts_title_link_atts',
 						$title_link_atts,
 						[ $post_id ],
-						'x.x.x'
+						'2.9.10'
 					);
 
 					$this->parent->add_render_attribute( $title_link_key, $title_link_atts );
@@ -4561,7 +4561,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_after_single_post_title',
 			'powerpack_elements_after_single_post_title',
 			[ get_the_ID(), $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -4597,7 +4597,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'powerpack_elements_posts_image_link',
 				get_the_permalink(),
 				[ $post_id ],
-				'x.x.x'
+				'2.9.10'
 			);
 
 			if ( 'yes' === $image_link_target ) {
@@ -4611,7 +4611,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'powerpack_elements_posts_image_link_atts',
 				$image_link_atts,
 				[ $post_id ],
-				'x.x.x'
+				'2.9.10'
 			);
 
 			$this->parent->add_render_attribute( $image_wrap_key, $image_link_atts );
@@ -4621,7 +4621,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_before_single_post_thumbnail',
 			'powerpack_elements_before_single_post_thumbnail',
 			[ get_the_ID(), $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 		?>
 		<div class="pp-post-thumbnail">
@@ -4634,7 +4634,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_after_single_post_thumbnail',
 			'powerpack_elements_after_single_post_thumbnail',
 			[ get_the_ID(), $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -4820,7 +4820,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_before_single_post_excerpt',
 			'powerpack_elements_before_single_post_excerpt',
 			[ get_the_ID(), $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 		?>
 		<div class="pp-post-excerpt">
@@ -4834,7 +4834,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					'powerpack_elements_posts_content_limit_more',
 					$more,
 					[],
-					'x.x.x'
+					'2.9.10'
 				);
 
 				$post_content = wp_trim_words(
@@ -4860,7 +4860,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_after_single_post_excerpt',
 			'powerpack_elements_after_single_post_excerpt',
 			[ get_the_ID(), $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -4942,7 +4942,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'powerpack_elements_posts_button_link',
 			get_the_permalink(),
 			[ $post_id ],
-			'x.x.x'
+			'2.9.10'
 		);
 
 		$aria_label = PP_Helper::apply_deprecated_filter(
@@ -4954,7 +4954,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				$title_attribute
 			),
 			[ $post_id ],
-			'x.x.x'
+			'2.9.10'
 		);
 
 		$this->parent->add_render_attribute(
@@ -4985,14 +4985,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'powerpack_elements_posts_button_text',
 			$button_text,
 			[ get_the_ID() ],
-			'x.x.x'
+			'2.9.10'
 		);
 
 		PP_Helper::do_deprecated_action(
 			'ppe_before_single_post_button',
 			'powerpack_elements_before_single_post_button',
 			[ get_the_ID(), $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 		?>
 		<a <?php $this->parent->print_render_attribute_string( 'button-' . get_the_ID() ); ?>>
@@ -5013,7 +5013,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_after_single_post_button',
 			'powerpack_elements_after_single_post_button',
 			[ get_the_ID(), $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -5198,7 +5198,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'powerpack_elements_posts_outer_wrap_classes',
 			$classes,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -5231,7 +5231,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'powerpack_elements_posts_wrap_classes',
 			$classes,
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -5306,7 +5306,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'ppe_before_single_post_meta',
 				'powerpack_elements_before_single_post_meta',
 				[ get_the_ID(), $settings ],
-				'x.x.x'
+				'2.9.10'
 			);
 			?>
 			<div class="pp-post-meta">
@@ -5336,7 +5336,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'ppe_after_single_post_meta',
 				'powerpack_elements_after_single_post_meta',
 				[ get_the_ID(), $settings ],
-				'x.x.x'
+				'2.9.10'
 			);
 		}
 	}
@@ -5359,7 +5359,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_before_single_post_wrap',
 			'powerpack_elements_before_single_post_wrap',
 			[ get_the_ID(), $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 		?>
 		<div <?php post_class( $this->get_item_wrap_classes() ); ?>>
@@ -5368,7 +5368,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'ppe_before_single_post',
 				'powerpack_elements_before_single_post',
 				[ get_the_ID(), $settings ],
-				'x.x.x'
+				'2.9.10'
 			);
 			?>
 			<div class="<?php echo esc_attr( $this->get_item_classes() ); ?>">
@@ -5383,7 +5383,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					'ppe_before_single_post_content',
 					'powerpack_elements_before_single_post_content',
 					[ get_the_ID(), $settings ],
-					'x.x.x'
+					'2.9.10'
 				);
 				?>
 
@@ -5429,7 +5429,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					'ppe_after_single_post_content',
 					'powerpack_elements_after_single_post_content',
 					[ get_the_ID(), $settings ],
-					'x.x.x'
+					'2.9.10'
 				);
 				?>
 			</div>
@@ -5438,7 +5438,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'ppe_after_single_post',
 				'powerpack_elements_after_single_post',
 				[ get_the_ID(), $settings ],
-				'x.x.x'
+				'2.9.10'
 			);
 			?>
 		</div>
@@ -5447,7 +5447,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_after_single_post_wrap',
 			'powerpack_elements_after_single_post_wrap',
 			[ get_the_ID(), $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 
@@ -5750,7 +5750,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_before_posts_outer_wrap',
 			'powerpack_elements_before_posts_outer_wrap',
 			[ $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 		?>
 		<div <?php echo wp_kses_post( $this->parent->get_render_attribute_string( 'posts-container' ) ); ?>>
@@ -5759,7 +5759,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'ppe_before_posts_wrap',
 				'powerpack_elements_before_posts_wrap',
 				[ $settings ],
-				'x.x.x'
+				'2.9.10'
 			);
 
 			$i = 1;
@@ -5807,7 +5807,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'ppe_after_posts_wrap',
 				'powerpack_elements_after_posts_wrap',
 				[ $settings ],
-				'x.x.x'
+				'2.9.10'
 			);
 			?>
 
@@ -5841,7 +5841,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'ppe_after_posts_outer_wrap',
 			'powerpack_elements_after_posts_outer_wrap',
 			[ $settings ],
-			'x.x.x'
+			'2.9.10'
 		);
 		?>
 

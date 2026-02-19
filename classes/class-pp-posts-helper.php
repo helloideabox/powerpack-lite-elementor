@@ -166,7 +166,7 @@ class PP_Posts_Helper {
 			'powerpack_elements_post_loop_taxonomies',
 			$data,
 			[ $taxonomies, $post_type ],
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 

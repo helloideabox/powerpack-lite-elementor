@@ -667,7 +667,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 				"powerpack_elements_{$widget_type}_query_args",
 				$current_query_vars,
 				array( $settings ),
-				'x.x.x'
+				'2.9.10'
 			);
 		}
 
@@ -976,7 +976,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 			"powerpack_elements_{$widget_type}_query_args",
 			$query_args,
 			array( $settings ),
-			'x.x.x'
+			'2.9.10'
 		);
 	}
 

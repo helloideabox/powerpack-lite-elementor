@@ -439,7 +439,7 @@ class PowerpackLitePlugin {
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
 			],
 			[],
-			'x.x.x'
+			'2.9.10'
 		);
 
 		wp_localize_script( 'jquery', 'pp', $localize_data );

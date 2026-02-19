@@ -2998,7 +2998,7 @@ class Pricing_Table extends Powerpack_Widget {
 				'powerpack_elements_pricing_table_currency',
 				$symbol,
 				array( $widget_id ),
-				'x.x.x'
+				'2.9.10'
 			);
 			?>
 			<span class="pp-pricing-table-price-prefix">
