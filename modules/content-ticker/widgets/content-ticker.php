@@ -2329,12 +2329,12 @@ class Content_Ticker extends Powerpack_Widget {
 								if ( 'image' === $settings['link_type'] || 'both' === $settings['link_type'] ) {
 									?>
 									<a href="<?php echo esc_url( get_permalink() ); ?>">
-										<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php wp_kses_post( $image_alt ); ?>">
+										<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php echo wp_kses_post( $image_alt ); ?>">
 									</a>
 									<?php
 								} else {
 									?>
-									<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php wp_kses_post( $image_alt ); ?>">
+									<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php echo wp_kses_post( $image_alt ); ?>">
 									<?php
 								}
 								?>
