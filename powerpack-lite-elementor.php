@@ -10,8 +10,8 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: powerpack-lite-for-elementor
  * Domain Path: /languages
- * Elementor tested up to: 3.35.0
- * Elementor Pro tested up to: 3.35.0
+ * Elementor tested up to: 4.0.0
+ * Elementor Pro tested up to: 4.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
