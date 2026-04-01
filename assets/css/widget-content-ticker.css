@@ -127,6 +127,9 @@
   margin-right: 15px;
   width: 40px;
 }
+.pp-content-ticker-image img {
+  vertical-align: middle;
+}
 
 .pp-content-ticker-meta {
   font-size: 14px;
