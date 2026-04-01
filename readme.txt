@@ -254,7 +254,8 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-= 2.9.11 - March 31, 2026 =
+= 2.9.11 - April 1, 2026 =
+*	Enhancement: Content Ticker - Optimized post image HTML output
 *	Enhancement: Tested compatibility with Elementor 4.0.0
 
 = 2.9.10 - February 20, 2026 =
