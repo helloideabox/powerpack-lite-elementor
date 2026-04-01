@@ -366,14 +366,14 @@ class PP_Config {
 	public static function get_pro_widgets() {
 		if ( null === self::$pro_widgets ) {
 			self::$pro_widgets = array(
-				array(
+				'Advanced_Menu'        => array(
 					'name'       => 'pp-advanced-menu',
 					'title'      => esc_html__( 'Advanced Menu', 'powerpack-lite-for-elementor' ),
 					'categories' => '["powerpack-elements"]',
 					'keywords'   => array( 'powerpack', 'menu', 'navigation' ),
 					'icon'       => 'ppicon-advanced-menu power-pack-admin-icon',
 				),
-				array(
+				'Advanced_Tabs'        => array(
 					'name'       => 'pp-advanced-tabs',
 					'title'      => esc_html__( 'Advanced Tabs', 'powerpack-lite-for-elementor' ),
 					'categories' => '["powerpack-elements"]',
