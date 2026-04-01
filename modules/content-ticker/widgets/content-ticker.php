@@ -2301,14 +2301,23 @@ class Content_Ticker extends Powerpack_Widget {
 				$posts_query->the_post();
 
 				$item_key = 'content-ticker-item' . $i;
+				$post_type_name = $settings['post_type'];
 
-				if ( has_post_thumbnail() ) {
-					$image_id     = get_post_thumbnail_id( get_the_ID() );
-					$thumb_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image_size', $settings );
-					$image_alt    = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+				if ( has_post_thumbnail() || 'attachment' === $post_type_name ) {
+
+					if ( 'attachment' === $post_type_name ) {
+						$image_id = get_the_ID();
+					} else {
+						$image_id = get_post_thumbnail_id( get_the_ID() );
+					}
+
+					$thumb_url           = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image_size', $settings );
+					$image_alt           = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+					$image_html_settings = array_merge( $settings, [ 'image_size' => [ 'id' => $image_id, 'url' => $thumb_url ] ] );
 				} else {
-					$thumb_url = '';
-					$image_alt    = '';
+					$thumb_url           = '';
+					$image_alt           = '';
+					$image_html_settings = [];
 				}
 
 				$this->add_render_attribute(
@@ -2329,12 +2338,12 @@ class Content_Ticker extends Powerpack_Widget {
 								if ( 'image' === $settings['link_type'] || 'both' === $settings['link_type'] ) {
 									?>
 									<a href="<?php echo esc_url( get_permalink() ); ?>">
-										<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php wp_kses_post( $image_alt ); ?>">
+										<?php echo Group_Control_Image_Size::get_attachment_image_html( $image_html_settings, 'image_size' ); ?>
 									</a>
 									<?php
 								} else {
 									?>
-									<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php wp_kses_post( $image_alt ); ?>">
+									<?php echo Group_Control_Image_Size::get_attachment_image_html( $image_html_settings, 'image_size' ); ?>
 									<?php
 								}
 								?>

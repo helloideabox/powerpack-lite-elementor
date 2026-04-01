@@ -1,5 +1,6 @@
 == 2.9.11 ==
-Release date: March 31, 2026
+Release date: April 1, 2026
+* Enhancement: Content Ticker - Optimized post image HTML output
 * Enhancement: Tested compatibility with Elementor 4.0.0
 
 == 2.9.10 ==
