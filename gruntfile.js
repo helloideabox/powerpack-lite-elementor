@@ -223,27 +223,6 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Generate POT files.
-		makepot: {
-			options: {
-				type: 'wp-plugin',
-				domainPath: 'languages',
-				potHeaders: {
-					poedit: true,                   // Includes common Poedit headers.
-                	'x-poedit-keywordslist': true   // Include a list of all possible gettext functions.
-				}
-			},
-			dist: {
-				options: {
-					potFilename: 'powerpack.pot',
-					exclude: [
-						'node_modules/.*',
-						'vendor/.*',
-					]
-				}
-			}
-		},
-
 		// PHP Code Sniffer.
 		phpcs: {
 			options: {
@@ -427,8 +406,7 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'i18n', [
 		'addtextdomain',
-		'checktextdomain',
-		'makepot'
+		'checktextdomain'
 	] );
 
 	// Bump Version - `grunt version-bump --ver=<version-number>`

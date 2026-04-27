@@ -260,6 +260,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 *	Enhancement: Random Image - Added Instagram-style image filter presets
 *	Enhancement: Updated accessibility for carousels and sliders
 *	Enhancement: Optimized image filter CSS loading to reduce frontend payload
+*	Development: Removed bundled languages directory and POT generation in favor of translations from translate.wordpress.org
 
 = 2.9.11 - April 1, 2026 =
 *	Enhancement: Content Ticker - Optimized post image HTML output
