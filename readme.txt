@@ -262,6 +262,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 *	Enhancement: Optimized image filter CSS loading to reduce frontend payload
 *	Fix: Interactive Circle - Animations stylesheet was not loading due to missing style handle registration
 *	Development: Removed bundled languages directory and POT generation in favor of translations from translate.wordpress.org
+*	Development: Removed orphaned duplicate copies of jquery.event.move from assets/js/
 
 = 2.9.11 - April 1, 2026 =
 *	Enhancement: Content Ticker - Optimized post image HTML output
