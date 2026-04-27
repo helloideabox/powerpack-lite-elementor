@@ -1,0 +1,111 @@
+.pp-marquee {
+	overflow: hidden;
+	visibility: hidden;
+	--direction: 1;
+	--speed: 50;
+	--items-gap: 20px;
+	--fields-layout: row;
+	--fields-gap: 10px;
+	--pause-on-hover: false;
+	&:hover {
+		.pp-marquee-animation {
+			animation-play-state: var(--poh, running) !important;
+		}
+	}
+	.pp-marquee-img {
+		object-fit: cover;
+		object-position: center center;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pp-marquee .pp-marquee-animation {
+		animation: none !important;
+	}
+}
+.pp-marquee-vertical {
+	.pp-marquee-animation {
+		flex-direction: column;
+		animation: slidingY calc(var(--pp-est-speed, 10) * 1s * 50 / var(--speed)) linear infinite;
+	}
+	.pp-marquee-item {
+		flex-direction: column;
+	}
+	.pp-marquee-separator {
+		display: block;
+		margin-block-start: var(--items-gap);
+		margin-inline-start: initial;
+	}
+}
+.pp-marquee.showing {
+	visibility: visible;
+}
+.pp-marquee-animation {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: var(--items-gap);
+	animation: sliding calc(var(--pp-est-speed, 10) * 1s * 50 / var(--speed)) linear infinite;
+	animation-play-state: var(--poh, paused);
+}
+.pp-marquee-item {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+.pp-marquee-fields {
+	display: flex;
+	flex-direction: var(--fields-layout, row);
+	align-items: center;
+	gap: var(--fields-gap, 10px);
+	text-decoration: none;
+}
+.pp-marquee-content {
+	display: flex;
+	align-items: center;
+}
+.pp-marquee-text {
+	transition: all 0.3s cubic-bezier(0.33, 0, 0.25, 1);
+}
+.pp-marquee-separator {
+	display: inline-block;
+	font-size: var(--separator-size, 0.8em);
+	color: var(--separator-color);
+	vertical-align: middle;
+	margin-inline-start: var(--items-gap);
+	transition: all 0.3s cubic-bezier(0.33, 0, 0.25, 1);
+	i {
+		transform: rotate(var(--separator-rotate, 0deg));
+	}
+	svg {
+		height: var(--separator-size, auto);
+		fill: var(--separator-color);
+		transform: rotate(var(--separator-rotate, 0deg));
+	}
+}
+.pp-marquee-separator-image {
+	line-height: 0;
+	img {
+		display: inline-block;
+		vertical-align: middle;
+		max-width: 100%;
+		height: var(--separator-size, auto);
+		transform: rotate(var(--separator-rotate, 0deg));
+	}
+}
+
+@keyframes sliding {
+	0% {
+	transform: translateX(0);
+	}
+	100% {
+	transform: translateX(calc(-1 * var(--direction, 1) * 100% / var(--total, 2)));
+	}
+}
+@keyframes slidingY {
+	0% {
+	transform: translateY(0);
+	}
+	100% {
+	transform: translateY(calc(-1 * var(--direction, 1) * 100% / var(--total, 2)));
+	}
+}

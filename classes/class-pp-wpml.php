@@ -584,6 +584,26 @@ class PP_Elements_WPML {
 				],
 			],
 		];
+		$widgets['pp-marquee']              = [
+			'conditions' => [ 'widgetType' => 'pp-marquee' ],
+			'fields'     => [
+				[
+					'field'       => 'marquee_text',
+					'type'        => esc_html__( 'Marquee - Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'AREA',
+				],
+				[
+					'field'       => 'separator_text',
+					'type'        => esc_html__( 'Marquee - Separator Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				'item_link' => [
+					'field'       => 'url',
+					'type'        => esc_html__( 'Marquee - Item URL', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINK',
+				],
+			],
+		];
 		$widgets[ 'pp-team-member' ]          = [
 			'conditions' => [ 'widgetType' => 'pp-team-member' ],
 			'fields'     => [

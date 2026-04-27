@@ -274,6 +274,16 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
+			'pp-marquee',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-marquee' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
 			'pp-chartjs',
 			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/chartjs/chart.umd.min.js',
 			array(

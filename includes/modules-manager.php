@@ -40,6 +40,7 @@ class Modules_Manager {
 			'interactive-circle',
 			'link-effects',
 			'logos',
+			'marquee',
 			'posts',
 			'pricing',
 			'progress-bar',

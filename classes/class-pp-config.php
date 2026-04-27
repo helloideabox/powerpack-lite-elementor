@@ -239,6 +239,13 @@ class PP_Config {
 					'keywords'   => array( 'powerpack', 'logo', 'image' ),
 					'icon'       => 'ppicon-logo-grid power-pack-admin-icon',
 				),
+				'Marquee'              => array(
+					'name'       => 'pp-marquee',
+					'title'      => esc_html__( 'Marquee', 'powerpack-lite-for-elementor' ),
+					'categories' => array( 'powerpack-elements' ),
+					'keywords'   => array( 'powerpack', 'marquee', 'image', 'text', 'slider' ),
+					'icon'       => 'eicon-news-ticker power-pack-admin-icon',
+				),
 				'Ninja_Forms'          => array(
 					'name'       => 'pp-ninja-forms',
 					'title'      => esc_html__( 'Ninja Forms', 'powerpack-lite-for-elementor' ),
@@ -737,6 +744,10 @@ class PP_Config {
 			// Logo Grid.
 			'Logo_Grid'         => array(
 				esc_html__( 'Widget Overview', 'powerpack-lite-for-elementor' ) => 'https://powerpackelements.com/docs/powerpack/widgets/logo-grid/logo-grid-widget-overview/' . $utm_suffix,
+			),
+			// Marquee.
+			'Marquee'           => array(
+				esc_html__( 'Widget Overview', 'powerpack-lite-for-elementor' ) => 'https://powerpackelements.com/docs/marquee-widget-for-elementor-overview/' . $utm_suffix,
 			),
 			// One Page Navigation.
 			'Onepage_Nav'       => array(

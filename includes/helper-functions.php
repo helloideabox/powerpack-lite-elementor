@@ -26,6 +26,7 @@ function powerpack_elements_lite_get_modules() {
 		'pp-promo-box'              => esc_html__( 'Promo Box', 'powerpack-lite-for-elementor' ),
 		'pp-logo-carousel'          => esc_html__( 'Logo Carousel', 'powerpack-lite-for-elementor' ),
 		'pp-logo-grid'              => esc_html__( 'Logo Grid', 'powerpack-lite-for-elementor' ),
+		'pp-marquee'                => esc_html__( 'Marquee', 'powerpack-lite-for-elementor' ),
 		'pp-image-comparison'       => esc_html__( 'Image Comparison', 'powerpack-lite-for-elementor' ),
 		'pp-instafeed'              => esc_html__( 'Instagram Feed', 'powerpack-lite-for-elementor' ),
 		'pp-interactive-circle'     => esc_html__( 'Interactive Circle', 'powerpack-lite-for-elementor' ),
