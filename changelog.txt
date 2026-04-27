@@ -1,6 +1,7 @@
 == 2.10.0 ==
 Release date: April 27, 2026
 * New: Marquee widget
+* Enhancement: Advanced Charts - Added option to import chart data from CSV file
 
 == 2.9.11 ==
 Release date: April 1, 2026

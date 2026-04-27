@@ -256,6 +256,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 2.10.0 - April 27, 2026 =
 *	New: Marquee widget
+*	Enhancement: Advanced Charts - Added option to import chart data from CSV file
 
 = 2.9.11 - April 1, 2026 =
 *	Enhancement: Content Ticker - Optimized post image HTML output

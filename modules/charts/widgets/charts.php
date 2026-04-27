@@ -215,6 +215,149 @@ class Charts extends Powerpack_Widget {
 			],
 		);
 
+		$this->add_control(
+			'source',
+			[
+				'label'   => esc_html__( 'Source', 'powerpack-lite-for-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'custom',
+				'options' => [
+					'custom'        => esc_html__( 'Custom', 'powerpack-lite-for-elementor' ),
+					'csv'           => esc_html__( 'CSV', 'powerpack-lite-for-elementor' ),
+					'google-sheets' => esc_html__( 'Google Sheets (Pro)', 'powerpack-lite-for-elementor' ),
+				],
+			]
+		);
+
+		$this->add_control(
+			'csv_source',
+			[
+				'label'     => esc_html__( 'Source', 'powerpack-lite-for-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'manual',
+				'options'   => [
+					'manual' => esc_html__( 'Manual', 'powerpack-lite-for-elementor' ),
+					'file'   => esc_html__( 'CSV File', 'powerpack-lite-for-elementor' ),
+				],
+				'condition' => [
+					'source' => 'csv',
+				],
+			]
+		);
+
+		$this->add_control(
+			'csv_file',
+			[
+				'label'     => esc_html__( 'Upload a CSV File', 'powerpack-lite-for-elementor' ),
+				'type'      => Controls_Manager::MEDIA,
+				'condition' => [
+					'source'     => 'csv',
+					'csv_source' => 'file',
+				],
+			]
+		);
+
+		$this->add_control(
+			'csv_data',
+			[
+				'label'     => esc_html__( 'CSV Text', 'powerpack-lite-for-elementor' ),
+				'type'      => Controls_Manager::TEXTAREA,
+				'default'   => '',
+				'rows'      => 8,
+				'condition' => [
+					'source'     => 'csv',
+					'csv_source' => 'manual',
+				],
+			]
+		);
+
+		$this->add_control(
+			'google_sheets_pro_notice',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => PP_Helper::get_pro_feature_notice(
+					esc_html__(
+						'Google Sheets import is available in PowerPack Pro.',
+						'powerpack-lite-for-elementor'
+					)
+				),
+				'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
+				'condition'       => [
+					'source' => 'google-sheets',
+				],
+			]
+		);
+
+		$repeater_colors = new Repeater();
+
+		$repeater_colors->add_control(
+			'dataset_label',
+			[
+				'label'   => esc_html__( 'Label', 'powerpack-lite-for-elementor' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Label', 'powerpack-lite-for-elementor' ),
+				'dynamic' => [ 'active' => true ],
+			]
+		);
+
+		$repeater_colors->add_control(
+			'bg_color',
+			[
+				'label'   => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
+				'type'    => Controls_Manager::COLOR,
+				'default' => 'rgb(0 0 0 / 50%)',
+			]
+		);
+
+		$repeater_colors->add_control(
+			'border_color',
+			[
+				'label'   => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
+				'type'    => Controls_Manager::COLOR,
+				'default' => 'rgb(0 0 0 / 50%)',
+			]
+		);
+
+		$repeater_colors->add_control(
+			'fill',
+			[
+				'label'       => esc_html__( 'Fill', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::SWITCHER,
+				'default'     => '',
+				'description' => esc_html__( 'Fill option is supported by Line and Radar charts only', 'powerpack-lite-for-elementor' ),
+				'separator'   => 'before',
+			]
+		);
+
+		$repeater_colors->add_control(
+			'border_dash',
+			[
+				'label'       => esc_html__( 'Border Dash', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::SWITCHER,
+				'description' => esc_html__( 'Border Dash option is supported by Line and Radar charts only', 'powerpack-lite-for-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'dataset_colors',
+			[
+				'label'       => esc_html__( 'Dataset Colors', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::REPEATER,
+				'fields'      => $repeater_colors->get_controls(),
+				'default'     => [
+					[
+						'dataset_label' => esc_html__( 'Data 1', 'powerpack-lite-for-elementor' ),
+						'bg_color'      => '#EC6E8599',
+						'border_color'  => '#EC6E85',
+					],
+				],
+				'title_field' => '{{{ dataset_label }}}',
+				'condition'   => [
+					'source' => 'csv',
+				],
+			]
+		);
+
 		// Line, Bar and Radar Area Chart Data
 		$repeater = new Repeater();
 
@@ -328,6 +471,7 @@ class Charts extends Powerpack_Widget {
 				'title_field' => '{{{ dataset_label }}}',
 				'condition'   => [
 					'chart_type' => [ 'line', 'bar' ],
+					'source'     => 'custom',
 				],
 			]
 		);
@@ -2138,7 +2282,7 @@ class Charts extends Powerpack_Widget {
 			wp_json_encode( array_filter([
 				'type'    => $chart_type,
 				'data'    => [
-					'labels'   => explode( ',', $settings['labels'] ),
+					'labels'   => $this->get_labels(),
 					'datasets' => $datasets,
 				],
 				'options' => $options,
@@ -2161,14 +2305,175 @@ class Charts extends Powerpack_Widget {
 	}
 	
 	protected function get_datasets( $settings, $chart_type ) {
+		$source   = isset( $settings['source'] ) ? $settings['source'] : 'custom';
 		$datasets = [];
 
-		$chart_datasets = $settings['chart_dataset'];
+		if ( 'csv' === $source ) {
+			$sheet_data       = $this->get_csv_data();
+			$dynamic_settings = isset( $settings['dataset_colors'] ) ? $settings['dataset_colors'] : [];
+			$color_index      = 0;
+			$chart_datasets   = [];
+
+			if ( ! empty( $sheet_data['data'] ) ) {
+				$header_row = $sheet_data['data'][0];
+
+				for ( $col = 1, $cols = count( $header_row ); $col < $cols; $col++ ) {
+					$chart_data = [];
+
+					foreach ( $sheet_data['data'] as $index => $row ) {
+						if ( 0 === $index ) {
+							continue;
+						}
+
+						$chart_data[] = isset( $row[ $col ] ) ? $row[ $col ] : 0;
+					}
+
+					$dataset = [
+						'dataset_label' => $header_row[ $col ],
+						'dataset_data'  => implode( ',', $chart_data ),
+					];
+
+					$default_color = $this->get_default_color( $color_index );
+
+					if ( array_key_exists( $col - 1, $dynamic_settings ) ) {
+						$dataset['bg_color']     = ! empty( $dynamic_settings[ $col - 1 ]['bg_color'] ) ? $dynamic_settings[ $col - 1 ]['bg_color'] : $default_color;
+						$dataset['border_color'] = ! empty( $dynamic_settings[ $col - 1 ]['border_color'] ) ? $dynamic_settings[ $col - 1 ]['border_color'] : $default_color;
+						$dataset['fill']         = ! empty( $dynamic_settings[ $col - 1 ]['fill'] ) ? $dynamic_settings[ $col - 1 ]['fill'] : '';
+						$dataset['border_dash']  = ! empty( $dynamic_settings[ $col - 1 ]['border_dash'] ) ? $dynamic_settings[ $col - 1 ]['border_dash'] : '';
+					} else {
+						$dataset['bg_color']     = $default_color;
+						$dataset['border_color'] = $default_color;
+						$dataset['fill']         = '';
+						$dataset['border_dash']  = '';
+					}
+
+					$chart_datasets[] = $dataset;
+				}
+			}
+
+			foreach ( $chart_datasets as $item ) {
+				$datasets[] = $this->get_chart_dataset( $settings, $chart_type, $item );
+			}
+
+			return $datasets;
+		}
+
+		$chart_datasets = isset( $settings['chart_dataset'] ) ? $settings['chart_dataset'] : [];
 		foreach ( $chart_datasets as $item ) {
 			$datasets[] = $this->get_chart_dataset( $settings, $chart_type, $item );
 		}
 
 		return $datasets;
+	}
+
+	/**
+	 * Get the labels for the chart's X axis.
+	 *
+	 * Returns either the custom comma-separated list or the first column
+	 * of the parsed CSV (when source is 'csv').
+	 *
+	 * @access protected
+	 * @return array
+	 */
+	protected function get_labels() {
+		$settings = $this->get_settings_for_display();
+		$source   = isset( $settings['source'] ) ? $settings['source'] : 'custom';
+
+		if ( 'csv' === $source ) {
+			$csv_data = $this->get_csv_data();
+			return ! empty( $csv_data['labels'] ) ? $csv_data['labels'] : [];
+		}
+
+		return isset( $settings['labels'] ) ? explode( ',', $settings['labels'] ) : [];
+	}
+
+	/**
+	 * Default fallback colors used when a CSV column has no matching
+	 * Dataset Colors repeater row configured.
+	 *
+	 * @access public
+	 * @param  int $color_index Mutated counter that picks the next color.
+	 * @return string
+	 */
+	public function get_default_color( &$color_index ) {
+		static $default_colors = [ '#FF6384', '#36A2EB', '#FFCD56', '#F09640' ];
+
+		$color = $default_colors[ $color_index % count( $default_colors ) ];
+		$color_index++;
+
+		return $color;
+	}
+
+	/**
+	 * Fetch CSV data from a CSV file URL or pasted CSV text.
+	 *
+	 * @access protected
+	 * @return array{labels: array, data: array}
+	 */
+	protected function get_csv_data() {
+		$settings = $this->get_settings_for_display();
+		$empty    = [ 'labels' => [], 'data' => [] ];
+
+		if ( ! isset( $settings['source'] ) || 'csv' !== $settings['source'] ) {
+			return $empty;
+		}
+
+		$csv_source = isset( $settings['csv_source'] ) ? $settings['csv_source'] : 'manual';
+		$csv_url    = ! empty( $settings['csv_file']['url'] ) ? $settings['csv_file']['url'] : '';
+		$body       = '';
+
+		if ( 'file' === $csv_source && '' !== $csv_url ) {
+			if ( '.csv' !== strtolower( substr( $csv_url, -4 ) ) ) {
+				return $empty;
+			}
+
+			$response = wp_remote_get(
+				$csv_url,
+				[
+					'sslverify' => false,
+				]
+			);
+
+			if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
+				return $empty;
+			}
+
+			$body = wp_remote_retrieve_body( $response );
+		} elseif ( 'manual' === $csv_source ) {
+			$body = isset( $settings['csv_data'] ) ? $settings['csv_data'] : '';
+		}
+
+		if ( '' === trim( (string) $body ) ) {
+			return $empty;
+		}
+
+		$rows     = [];
+		$labels   = [];
+		$lines    = preg_split( "/\r\n|\n|\r/", $body );
+
+		foreach ( $lines as $line ) {
+			if ( '' === trim( $line ) ) {
+				continue;
+			}
+			$rows[] = str_getcsv( $line );
+		}
+
+		if ( count( $rows ) < 2 ) {
+			return $empty;
+		}
+
+		// First column from data rows (skip header) becomes axis labels.
+		foreach ( $rows as $index => $row ) {
+			if ( 0 === $index ) {
+				continue;
+			}
+			$labels[] = isset( $row[0] ) ? $row[0] : '';
+		}
+
+		return [
+			'labels' => $labels,
+			'data'   => $rows,
+		];
 	}
 
 	protected function get_chart_dataset( $settings, $chart_type, $item ) {
