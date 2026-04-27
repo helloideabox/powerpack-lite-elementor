@@ -254,7 +254,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-= 2.10.0 - April 27, 2026 =
+= 2.10.0 - April 28, 2026 =
 *	New: Marquee widget
 *	Enhancement: Advanced Charts - Added option to import chart data from CSV file
 *	Enhancement: Random Image - Added Instagram-style image filter presets
