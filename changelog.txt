@@ -2,6 +2,9 @@
 Release date: April 27, 2026
 * New: Marquee widget
 * Enhancement: Advanced Charts - Added option to import chart data from CSV file
+* Enhancement: Random Image - Added Instagram-style image filter presets
+* Enhancement: Updated accessibility for carousels and sliders
+* Enhancement: Optimized image filter CSS loading to reduce frontend payload
 
 == 2.9.11 ==
 Release date: April 1, 2026

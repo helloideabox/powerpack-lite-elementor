@@ -170,13 +170,53 @@
 					this.togglePauseOnHover(true);
 				}
 
+				// Initial slide ARIA state for screen readers / keyboard users.
+				var slideIndex = 1;
+				this.elements.$swiperSlide.each( function () {
+					$( this ).attr( 'aria-roledescription', 'slide' );
+
+					if ( 1 === slideIndex ) {
+						$( this ).attr( {
+							'aria-hidden': 'false',
+							'tabindex': '0',
+						} );
+					} else {
+						$( this ).attr( {
+							'aria-hidden': 'true',
+							'tabindex': '-1',
+						} );
+					}
+					slideIndex++;
+				} );
+
+				this.swiper.on( 'slideChange', function () {
+					if ( 'yes' === elementSettings.equal_height_boxes ) {
+						this.setEqualHeight();
+					}
+
+					var slides      = this.elements.$swiperContainer.find( '.swiper-slide' );
+					var activeIndex = this.swiper.realIndex;
+
+					slides.each( function ( index, slide ) {
+						if ( index === activeIndex ) {
+							slide.setAttribute( 'aria-hidden', 'false' );
+							slide.setAttribute( 'tabindex', '0' );
+						} else {
+							slide.setAttribute( 'aria-hidden', 'true' );
+							slide.setAttribute( 'tabindex', '-1' );
+						}
+					} );
+				}.bind( this ) );
+
 				if ( 'yes' === elementSettings.equal_height_boxes ) {
 					this.setEqualHeight();
-
-					this.swiper.on('slideChange', function() {
-						this.setEqualHeight();
-					}.bind(this) );
 				}
+
+				// Keyboard navigation.
+				this.elements.$swiperContainer.on( 'keydown', function ( e ) {
+					if ( 'ArrowRight' === e.key ) { this.swiper.slideNext(); }
+					if ( 'ArrowLeft'  === e.key ) { this.swiper.slidePrev(); }
+				}.bind( this ) );
 
 				this.initFancybox();
 			}

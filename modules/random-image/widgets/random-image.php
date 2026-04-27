@@ -98,9 +98,23 @@ class Random_Image extends Powerpack_Widget {
 	 * @return array Widget styles dependencies.
 	 */
 	public function get_style_depends() {
-		return [
-			'widget-pp-random-image'
-		];
+		$styles = [ 'widget-pp-random-image' ];
+
+		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+			$styles[] = 'pp-image-filters';
+			return $styles;
+		}
+
+		$settings = $this->get_settings_for_display();
+
+		$has_filter = ( ! empty( $settings['image_filter'] ) && 'normal' !== $settings['image_filter'] )
+			|| ( ! empty( $settings['image_filter_hover'] ) && 'normal' !== $settings['image_filter_hover'] );
+
+		if ( $has_filter ) {
+			$styles[] = 'pp-image-filters';
+		}
+
+		return $styles;
 	}
 
 	public function has_widget_inner_wrapper(): bool {
@@ -527,6 +541,17 @@ class Random_Image extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_control(
+			'image_filter',
+			[
+				'label'        => esc_html__( 'Image Filter', 'powerpack-lite-for-elementor' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'normal',
+				'options'      => $this->image_filters(),
+				'prefix_class' => 'pp-ins-',
+			]
+		);
+
 		$this->end_controls_tab();
 
 		$this->start_controls_tab( 'hover',
@@ -558,6 +583,17 @@ class Random_Image extends Powerpack_Widget {
 			[
 				'name' => 'css_filters_hover',
 				'selector' => '{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image',
+			]
+		);
+
+		$this->add_control(
+			'image_filter_hover',
+			[
+				'label'        => esc_html__( 'Image Filter', 'powerpack-lite-for-elementor' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'normal',
+				'options'      => $this->image_filters( true ),
+				'prefix_class' => 'pp-ins-hover-',
 			]
 		);
 
@@ -1091,15 +1127,22 @@ class Random_Image extends Powerpack_Widget {
 		$has_caption = '' !== $settings['caption'];
 		$link        = '';
 		$attachment  = get_post( $image_id );
+		$has_filter  = ( ! empty( $settings['image_filter'] ) && 'normal' !== $settings['image_filter'] )
+			|| ( ! empty( $settings['image_filter_hover'] ) && 'normal' !== $settings['image_filter_hover'] );
 
 		$image = array(
 			'id'  => $image_id,
 			'url' => Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image', $settings ),
 		);
 
+		$wrapper_classes = [ 'pp-random-image-wrap' ];
+		if ( $has_filter ) {
+			$wrapper_classes[] = 'pp-ins-filter-hover';
+		}
+
 		$this->add_render_attribute( [
 			'wrapper' => [
-				'class' => 'pp-random-image-wrap',
+				'class' => $wrapper_classes,
 			],
 			'figure' => [
 				'class' => [
@@ -1122,6 +1165,10 @@ class Random_Image extends Powerpack_Widget {
 				],
 			],
 		] );
+
+		if ( $has_filter ) {
+			$this->add_render_attribute( 'image_target', 'class', [ 'pp-random-image-target', 'pp-ins-filter-target' ] );
+		}
 
 		if ( '' !== $settings['hover_animation'] ) {
 			$this->add_render_attribute( 'image', 'class', 'elementor-animation-' . $settings['hover_animation'] );
@@ -1161,6 +1208,10 @@ class Random_Image extends Powerpack_Widget {
 
 			<?php
 			$image_html = '<img ' . $this->get_render_attribute_string( 'image' ) . '/>';
+
+			if ( $has_filter ) {
+				$image_html = '<div ' . $this->get_render_attribute_string( 'image_target' ) . '>' . $image_html . '</div>';
+			}
 
 			if ( $link ) {
 				if ( 'over_image' === $settings['caption_position'] ) {

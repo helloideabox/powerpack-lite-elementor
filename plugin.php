@@ -154,6 +154,13 @@ class PowerpackLitePlugin {
 			array(),
 			POWERPACK_ELEMENTS_LITE_VER
 		);
+
+		wp_register_style(
+			'pp-image-filters',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'image-filters' . $suffix . '.css',
+			array(),
+			POWERPACK_ELEMENTS_LITE_VER
+		);
 	}
 
 	public function register_style_scripts() {
