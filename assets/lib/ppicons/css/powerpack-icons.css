@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ppicon-marquee:before {
+    content: "\f001";
+}
 .ppicon-advanced-charts:before {
   content: "\e900";
 }
