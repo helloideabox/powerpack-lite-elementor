@@ -234,8 +234,15 @@ class Dual_Heading extends Powerpack_Widget {
 					],
 				],
 				'default'               => '',
+				'selectors_dictionary'  => [
+					'left'   => 'start',
+					'center' => 'center',
+					'right'  => 'end',
+				],
 				'selectors'             => [
-					'{{WRAPPER}}'   => 'text-align: {{VALUE}};',
+					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}}.pp-dual-heading-inline .pp-dual-heading' => 'justify-content: {{VALUE}};',
+					'{{WRAPPER}}.pp-dual-heading-block .pp-dual-heading'  => 'align-items: {{VALUE}};',
 				],
 			]
 		);
