@@ -1,5 +1,5 @@
 == 2.10.1 ==
-Release date: May 4, 2026
+Release date: May 6, 2026
 * Fix: Dual Heading - Second heading overflowed adjacent columns in narrow layouts and the Alignment option did not apply to individual headings
 
 == 2.10.0 ==
