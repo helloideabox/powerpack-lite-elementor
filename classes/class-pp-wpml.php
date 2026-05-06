@@ -29,6 +29,45 @@ class PP_Elements_WPML {
 			'fields'            => [],
 			'integration-class' => 'WPML_PP_Buttons',
 		];
+		$widgets['pp-charts']               = [
+			'conditions'        => [ 'widgetType' => 'pp-charts' ],
+			'fields'            => [
+				[
+					'field'       => 'labels',
+					'type'        => esc_html__( 'Charts - Labels', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'AREA',
+				],
+				[
+					'field'       => 'chart_title',
+					'type'        => esc_html__( 'Charts - Chart Title', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'x_axis_title',
+					'type'        => esc_html__( 'Charts - X-Axis Title', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'y_axis_title',
+					'type'        => esc_html__( 'Charts - Y-Axis Title', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'y_axis_labels_prefix',
+					'type'        => esc_html__( 'Charts - Y-Axis Labels Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'y_axis_labels_suffix',
+					'type'        => esc_html__( 'Charts - Y-Axis Labels Suffix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+			],
+			'integration-class' => [
+				'WPML_PP_Charts_Dataset_Colors',
+				'WPML_PP_Charts_Dataset',
+			],
+		];
 		$widgets[ 'pp-contact-form-7' ]       = [
 			'conditions' => [ 'widgetType' => 'pp-contact-form-7' ],
 			'fields'     => [
@@ -50,6 +89,11 @@ class PP_Elements_WPML {
 				[
 					'field'       => 'heading',
 					'type'        => esc_html__( 'Content Ticker - Heading Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'datetime_separator',
+					'type'        => esc_html__( 'Content Ticker - Date Time Separator', 'powerpack-lite-for-elementor' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -126,12 +170,12 @@ class PP_Elements_WPML {
 				[
 					'field'       => 'first_text',
 					'type'        => esc_html__( 'Dual Heading - First Text', 'powerpack-lite-for-elementor' ),
-					'editor_type' => 'LINE'
+					'editor_type' => 'AREA',
 				],
 				[
 					'field'       => 'second_text',
 					'type'        => esc_html__( 'Dual Heading - Second Text', 'powerpack-lite-for-elementor' ),
-					'editor_type' => 'LINE'
+					'editor_type' => 'AREA',
 				],
 				'link' => [
 					'field'       => 'url',
@@ -146,7 +190,7 @@ class PP_Elements_WPML {
 				[
 					'field'       => 'heading_text',
 					'type'        => esc_html__( 'Fancy Heading - Heading Text', 'powerpack-lite-for-elementor' ),
-					'editor_type' => 'LINE',
+					'editor_type' => 'AREA',
 				],
 				'link' => [
 					'field'       => 'url',
@@ -368,18 +412,18 @@ class PP_Elements_WPML {
 			'fields'     => [
 				[
 					'field'       => 'insta_link_title',
-					'type'        => esc_html__( 'Instafeed - Link Title', 'powerpack-lite-for-elementor' ),
-					'editor_type' => 'LINE'
+					'type'        => esc_html__( 'Instagram Feed - Link Title', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
 				],
 				'insta_profile_url' => [
 					'field'       => 'url',
-					'type'        => esc_html__( 'Instafeed - Instagram Profile URL', 'powerpack-lite-for-elementor' ),
-					'editor_type' => 'LINK'
+					'type'        => esc_html__( 'Instagram Feed - Instagram Profile URL', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'load_more_button_text',
-					'type'        => esc_html__( 'Instafeed - Load More Button Text', 'powerpack-lite-for-elementor' ),
-					'editor_type' => 'LINE'
+					'type'        => esc_html__( 'Instagram Feed - Load More Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
 				],
 			],
 		];
@@ -447,8 +491,78 @@ class PP_Elements_WPML {
 					'editor_type' => 'LINE',
 				],
 				[
+					'field'       => 'card_post_terms_separator',
+					'type'        => esc_html__( 'Posts: Card - Terms Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'checkerboard_post_terms_separator',
+					'type'        => esc_html__( 'Posts: Checkerboard - Terms Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'creative_post_terms_separator',
+					'type'        => esc_html__( 'Posts: Creative - Terms Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'event_post_terms_separator',
+					'type'        => esc_html__( 'Posts: Event - Terms Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'news_post_terms_separator',
+					'type'        => esc_html__( 'Posts: News - Terms Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'overlap_post_terms_separator',
+					'type'        => esc_html__( 'Posts: Overlap - Terms Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'portfolio_post_terms_separator',
+					'type'        => esc_html__( 'Posts: Portfolio - Terms Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
 					'field'       => 'classic_post_meta_separator',
 					'type'        => esc_html__( 'Posts: Classic - Post Meta Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'card_post_meta_separator',
+					'type'        => esc_html__( 'Posts: Card - Post Meta Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'checkerboard_post_meta_separator',
+					'type'        => esc_html__( 'Posts: Checkerboard - Post Meta Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'creative_post_meta_separator',
+					'type'        => esc_html__( 'Posts: Creative - Post Meta Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'event_post_meta_separator',
+					'type'        => esc_html__( 'Posts: Event - Post Meta Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'news_post_meta_separator',
+					'type'        => esc_html__( 'Posts: News - Post Meta Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'overlap_post_meta_separator',
+					'type'        => esc_html__( 'Posts: Overlap - Post Meta Separator', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'portfolio_post_meta_separator',
+					'type'        => esc_html__( 'Posts: Portfolio - Post Meta Separator', 'powerpack-lite-for-elementor' ),
 					'editor_type' => 'LINE',
 				],
 				[
@@ -457,8 +571,78 @@ class PP_Elements_WPML {
 					'editor_type' => 'LINE',
 				],
 				[
+					'field'       => 'card_author_prefix',
+					'type'        => esc_html__( 'Posts: Card - Author Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'checkerboard_author_prefix',
+					'type'        => esc_html__( 'Posts: Checkerboard - Author Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'creative_author_prefix',
+					'type'        => esc_html__( 'Posts: Creative - Author Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'event_author_prefix',
+					'type'        => esc_html__( 'Posts: Event - Author Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'news_author_prefix',
+					'type'        => esc_html__( 'Posts: News - Author Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'overlap_author_prefix',
+					'type'        => esc_html__( 'Posts: Overlap - Author Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'portfolio_author_prefix',
+					'type'        => esc_html__( 'Posts: Portfolio - Author Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
 					'field'       => 'classic_date_prefix',
 					'type'        => esc_html__( 'Posts: Classic - Date Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'card_date_prefix',
+					'type'        => esc_html__( 'Posts: Card - Date Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'checkerboard_date_prefix',
+					'type'        => esc_html__( 'Posts: Checkerboard - Date Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'creative_date_prefix',
+					'type'        => esc_html__( 'Posts: Creative - Date Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'event_date_prefix',
+					'type'        => esc_html__( 'Posts: Event - Date Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'news_date_prefix',
+					'type'        => esc_html__( 'Posts: News - Date Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'overlap_date_prefix',
+					'type'        => esc_html__( 'Posts: Overlap - Date Prefix', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'portfolio_date_prefix',
+					'type'        => esc_html__( 'Posts: Portfolio - Date Prefix', 'powerpack-lite-for-elementor' ),
 					'editor_type' => 'LINE',
 				],
 				[
@@ -467,13 +651,118 @@ class PP_Elements_WPML {
 					'editor_type' => 'LINE',
 				],
 				[
+					'field'       => 'card_button_text',
+					'type'        => esc_html__( 'Posts: Card - Read More Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'checkerboard_button_text',
+					'type'        => esc_html__( 'Posts: Checkerboard - Read More Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'creative_button_text',
+					'type'        => esc_html__( 'Posts: Creative - Read More Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'event_button_text',
+					'type'        => esc_html__( 'Posts: Event - Read More Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'news_button_text',
+					'type'        => esc_html__( 'Posts: News - Read More Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'overlap_button_text',
+					'type'        => esc_html__( 'Posts: Overlap - Read More Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'portfolio_button_text',
+					'type'        => esc_html__( 'Posts: Portfolio - Read More Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
 					'field'       => 'classic_pagination_prev_label',
 					'type'        => esc_html__( 'Posts: Classic - Pagination Prev Label', 'powerpack-lite-for-elementor' ),
 					'editor_type' => 'LINE',
 				],
 				[
+					'field'       => 'card_pagination_prev_label',
+					'type'        => esc_html__( 'Posts: Card - Pagination Prev Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'checkerboard_pagination_prev_label',
+					'type'        => esc_html__( 'Posts: Checkerboard - Pagination Prev Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'creative_pagination_prev_label',
+					'type'        => esc_html__( 'Posts: Creative - Pagination Prev Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'event_pagination_prev_label',
+					'type'        => esc_html__( 'Posts: Event - Pagination Prev Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'news_pagination_prev_label',
+					'type'        => esc_html__( 'Posts: News - Pagination Prev Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'overlap_pagination_prev_label',
+					'type'        => esc_html__( 'Posts: Overlap - Pagination Prev Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'portfolio_pagination_prev_label',
+					'type'        => esc_html__( 'Posts: Portfolio - Pagination Prev Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
 					'field'       => 'classic_pagination_next_label',
 					'type'        => esc_html__( 'Posts: Classic - Pagination Next Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'card_pagination_next_label',
+					'type'        => esc_html__( 'Posts: Card - Pagination Next Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'checkerboard_pagination_next_label',
+					'type'        => esc_html__( 'Posts: Checkerboard - Pagination Next Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'creative_pagination_next_label',
+					'type'        => esc_html__( 'Posts: Creative - Pagination Next Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'event_pagination_next_label',
+					'type'        => esc_html__( 'Posts: Event - Pagination Next Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'news_pagination_next_label',
+					'type'        => esc_html__( 'Posts: News - Pagination Next Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'overlap_pagination_next_label',
+					'type'        => esc_html__( 'Posts: Overlap - Pagination Next Label', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'portfolio_pagination_next_label',
+					'type'        => esc_html__( 'Posts: Portfolio - Pagination Next Label', 'powerpack-lite-for-elementor' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -529,10 +818,15 @@ class PP_Elements_WPML {
 				[
 					'field'       => 'table_additional_info',
 					'type'        => esc_html__( 'Pricing Table - Additional Info', 'powerpack-lite-for-elementor' ),
-					'editor_type' => 'AREA'
+					'editor_type' => 'AREA',
+				],
+				[
+					'field'       => 'currency_symbol_custom',
+					'type'        => esc_html__( 'Pricing Table - Custom Currency Symbol', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
 				],
 			],
-			'integration-class' => 'WPML_PP_Pricing_Table'
+			'integration-class' => 'WPML_PP_Pricing_Table',
 		];
 		$widgets[ 'pp-promo-box' ]            = [
 			'conditions' => [ 'widgetType' => 'pp-promo-box' ],
@@ -585,24 +879,20 @@ class PP_Elements_WPML {
 			],
 		];
 		$widgets['pp-marquee']              = [
-			'conditions' => [ 'widgetType' => 'pp-marquee' ],
-			'fields'     => [
-				[
-					'field'       => 'marquee_text',
-					'type'        => esc_html__( 'Marquee - Text', 'powerpack-lite-for-elementor' ),
-					'editor_type' => 'AREA',
-				],
+			'conditions'        => [ 'widgetType' => 'pp-marquee' ],
+			'fields'            => [
 				[
 					'field'       => 'separator_text',
 					'type'        => esc_html__( 'Marquee - Separator Text', 'powerpack-lite-for-elementor' ),
 					'editor_type' => 'LINE',
 				],
-				'item_link' => [
+				'posts_link' => [
 					'field'       => 'url',
-					'type'        => esc_html__( 'Marquee - Item URL', 'powerpack-lite-for-elementor' ),
-					'editor_type' => 'LINK',
+					'type'        => esc_html__( 'Marquee - Posts Link', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
 				],
 			],
+			'integration-class' => 'WPML_PP_Marquee',
 		];
 		$widgets[ 'pp-team-member' ]          = [
 			'conditions' => [ 'widgetType' => 'pp-team-member' ],
@@ -766,6 +1056,7 @@ class PP_Elements_WPML {
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-advanced-accordion.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-business-hours.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-buttons.php';
+		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-charts.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-content-ticker.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-image-hotspots.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-icon-list.php';
@@ -774,6 +1065,7 @@ class PP_Elements_WPML {
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-info-list.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-logo-carousel.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-logo-grid.php';
+		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-marquee.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-price-menu.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-pricing-table.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-team-member.php';

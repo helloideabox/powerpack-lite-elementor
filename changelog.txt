@@ -1,3 +1,8 @@
+== 2.10.2 ==
+Release date: May 6, 2026
+* Enhancement: WPML - Added translation support for Advanced Charts and Marquee widgets
+* Enhancement: WPML - Added missing translation for other widgets
+
 == 2.10.1 ==
 Release date: May 6, 2026
 * Fix: Dual Heading - Second heading overflowed adjacent columns in narrow layouts and the Alignment option did not apply to individual headings
