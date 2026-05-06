@@ -83,6 +83,7 @@ PowerPack adds a carefully selected set of essential addons for Elementor users 
 38. [**Interactive Circle**](https://powerpackelements.com/elementor-widgets/interactive-circle/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - This widget lets you showcase content on your website in beautiful and eye-catchy circular layouts without using any additional HTML code and CSS.
 39. [**Progress Bar**](https://powerpackelements.com/elementor-widgets/progress-bar/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Add interactive Progress Bars to your website. Showcase progress with horizontal, vertical, circular bars, and more using this versatile widget.
 40. [**Charts**](https://powerpackelements.com/elementor-widgets/advanced-charts/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Add interactive charts to your Elementor website. Display data in different interactive chart layouts such as Lines and Bars.
+41. [**Marquee**](https://powerpackelements.com/elementor-widgets/marquee/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Create eye-catching scrolling marquees with text, images, or icons. Customize speed, direction, gap, and pause-on-hover behavior to highlight announcements, logos, or featured content.
 
 ## CREATIVE EXTENSIONS - FREE
 
