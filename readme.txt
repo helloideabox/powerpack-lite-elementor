@@ -257,6 +257,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 2.10.1 - May 6, 2026 =
 *	Fix: Dual Heading - Second heading overflowed adjacent columns in narrow layouts and the Alignment option did not apply to individual headings
+*	Development: Removed unused JS files
 
 = 2.10.0 - April 28, 2026 =
 *	New: Marquee widget
