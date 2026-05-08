@@ -255,7 +255,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-= 2.10.2 - May 6, 2026 =
+= 2.10.2 - May 8, 2026 =
 *	Enhancement: WPML - Added translation support for Advanced Charts and Marquee widgets
 *	Enhancement: WPML - Added missing translation for other widgets
 
