@@ -1,5 +1,6 @@
-== x.x.x ==
+== 2.10.3 ==
 Release date: TBD
+* Enhancement: Tested compatibility with WordPress 7.0
 * Fix: Fatal error "Undefined constant ELEMENTOR_VERSION" on the admin Plugins page when Elementor was not active
 
 == 2.10.2 ==
