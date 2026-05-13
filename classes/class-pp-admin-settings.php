@@ -163,7 +163,7 @@ final class PP_Admin_Settings {
 		$func        = __CLASS__ . '::render';
 
 		if ( current_user_can( 'manage_options' ) ) {
-			if ( version_compare( ELEMENTOR_VERSION, '3.35.0', '>=' ) ) {
+			if ( defined( '\ELEMENTOR_VERSION' ) && version_compare( \ELEMENTOR_VERSION, '3.35.0', '>=' ) ) {
 				add_submenu_page( 'elementor-home', $title, $title, $cap, $slug, $func );
 			} else {
 				add_submenu_page( 'elementor', $title, $title, $cap, $slug, $func );

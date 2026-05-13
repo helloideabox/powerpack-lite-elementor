@@ -1,3 +1,7 @@
+== x.x.x ==
+Release date: TBD
+* Fix: Fatal error "Undefined constant ELEMENTOR_VERSION" on the admin Plugins page when Elementor was not active
+
 == 2.10.2 ==
 Release date: May 8, 2026
 * Enhancement: WPML - Added translation support for Advanced Charts and Marquee widgets
