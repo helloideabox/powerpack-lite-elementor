@@ -255,6 +255,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.10.3 - May 14, 2026 =
+*	Enhancement: Tested compatibility with WordPress 7.0
+*	Fix: Fatal error "Undefined constant ELEMENTOR_VERSION" on the admin Plugins page when Elementor was not active
+
 = 2.10.2 - May 8, 2026 =
 *	Enhancement: WPML - Added translation support for Advanced Charts and Marquee widgets
 *	Enhancement: WPML - Added missing translation for other widgets

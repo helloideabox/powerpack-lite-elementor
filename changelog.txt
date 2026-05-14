@@ -1,5 +1,5 @@
 == 2.10.3 ==
-Release date: TBD
+Release date: May 14, 2026
 * Enhancement: Tested compatibility with WordPress 7.0
 * Fix: Fatal error "Undefined constant ELEMENTOR_VERSION" on the admin Plugins page when Elementor was not active
 
