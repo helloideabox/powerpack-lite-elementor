@@ -1046,7 +1046,9 @@ class Content_Reveal extends Powerpack_Widget {
 					return;
 				}
 
-				$output = \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $settings['template'] );
+				$template_id = apply_filters( 'wpml_object_id', $settings['template'], 'elementor_library', true );
+
+				$output = \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $template_id );
 				break;
 
 			default:

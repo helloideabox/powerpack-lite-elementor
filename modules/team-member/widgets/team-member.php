@@ -1942,6 +1942,10 @@ class Team_Member extends Powerpack_Widget {
 		$link_key = 'link';
 
 		if ( ! empty( $settings['image']['url'] ) ) {
+			if ( ! empty( $settings['image']['id'] ) ) {
+				$settings['image']['id'] = apply_filters( 'wpml_object_id', $settings['image']['id'], 'attachment', true );
+			}
+
 			if ( 'image' === $settings['link_type'] && $settings['link']['url'] ) {
 				?>
 				<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>><?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings ) ); ?></a>

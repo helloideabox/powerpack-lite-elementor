@@ -2925,7 +2925,8 @@ class Team_Member_Carousel extends Powerpack_Widget {
 								<div class="pp-tm-image"> 
 									<?php
 									if ( $item['team_member_image']['url'] ) {
-										$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['team_member_image']['id'], 'thumbnail', $settings );
+										$image_id  = apply_filters( 'wpml_object_id', $item['team_member_image']['id'], 'attachment', true );
+										$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'thumbnail', $settings );
 
 										if ( $image_url ) {
 											$image_html = '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( Control_Media::get_image_alt( $item['team_member_image'] ) ) . '">';

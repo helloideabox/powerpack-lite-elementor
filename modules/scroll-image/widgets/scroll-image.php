@@ -495,6 +495,10 @@ class Scroll_Image extends Powerpack_Widget {
 			return;
 		}
 
+		if ( ! empty( $settings['image']['id'] ) ) {
+			$settings['image']['id'] = apply_filters( 'wpml_object_id', $settings['image']['id'], 'attachment', true );
+		}
+
 		$link_url = $settings['link']['url'];
 
 		if ( '' !== $settings['link']['url'] ) {

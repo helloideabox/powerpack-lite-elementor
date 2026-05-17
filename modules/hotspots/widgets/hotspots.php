@@ -1108,6 +1108,10 @@ class Hotspots extends Powerpack_Widget {
 			return;
 		}
 
+		if ( ! empty( $settings['image']['id'] ) ) {
+			$settings['image']['id'] = apply_filters( 'wpml_object_id', $settings['image']['id'], 'attachment', true );
+		}
+
 		$tooltip_settings = array(
 			'always_open' => $settings['tooltip_always_open'],
 			'trigger'     => ( $settings['tooltip_trigger'] ) ? $settings['tooltip_trigger'] : 'hover',

@@ -1200,7 +1200,8 @@ class Price_Menu extends Powerpack_Widget {
 									<?php
 									if ( ! empty( $item['image']['url'] ) ) :
 										$image = $item['image'];
-										$image_url = Group_Control_Image_Size::get_attachment_image_src( $image['id'], 'image_size', $settings );
+										$image_id = apply_filters( 'wpml_object_id', $image['id'], 'attachment', true );
+										$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image_size', $settings );
 
 										if ( $image_url ) {
 											echo '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( Control_Media::get_image_alt( $item['image'] ) ) . '">';
