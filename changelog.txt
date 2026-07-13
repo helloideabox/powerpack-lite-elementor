@@ -1,3 +1,7 @@
+== 2.10.5 ==
+Release date: TBD
+* Fix: WPML - Custom Cursor "Cursor Text" was not translatable when the Custom Cursor extension was applied to a container, section, or column
+
 == 2.10.4 ==
 Release date: May 26, 2026
 * Fix: WPML - Content Reveal template was not translated on the frontend when Content Type was set to Template

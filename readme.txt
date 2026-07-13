@@ -255,6 +255,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.10.5 - TBD =
+*	Fix: WPML - Custom Cursor "Cursor Text" was not translatable when the Custom Cursor extension was applied to a container, section, or column
+
 = 2.10.4 - May 26, 2026 =
 *	Fix: WPML - Content Reveal template was not translated on the frontend when Content Type was set to Template
 *	Fix: WPML - Image Hotspots, Price Menu, Scroll Image, Team Member, and Team Member Carousel images were not replaced with their translations on translated pages

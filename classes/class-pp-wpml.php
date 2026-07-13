@@ -1047,6 +1047,33 @@ class PP_Elements_WPML {
 			'integration-class' => 'WPML_PP_Interactive_Circle',
 		];
 
+		/**
+		 * Extension fields (Advanced > PowerPack).
+		 *
+		 * The Custom Cursor extension is a "common" extension: it adds its
+		 * controls to containers, sections, columns and all widgets (see
+		 * extensions/custom-cursor.php). Its "Cursor Text" field is therefore
+		 * not tied to a single widget, so it cannot be registered for
+		 * translation with a widgetType condition alone. Register it against
+		 * each element type using an elType condition so it is translatable at
+		 * the container/section/column level too, not only when a widget is
+		 * added inside the element.
+		 */
+		$extension_fields = [
+			[
+				'field'       => 'pp_custom_cursor_text',
+				'type'        => esc_html__( 'Custom Cursor - Cursor Text', 'powerpack-lite-for-elementor' ),
+				'editor_type' => 'LINE',
+			],
+		];
+
+		foreach ( [ 'container', 'section', 'column', 'widget' ] as $el_type ) {
+			$widgets[ 'pp-extensions-' . $el_type ] = [
+				'conditions' => [ 'elType' => $el_type ],
+				'fields'     => $extension_fields,
+			];
+		}
+
 		$this->init_classes();
 		
 		return $widgets;
