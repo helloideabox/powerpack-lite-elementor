@@ -7,6 +7,7 @@ use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
+use Elementor\Control_Media;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
@@ -887,6 +888,7 @@ class Flipbox extends Powerpack_Widget {
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-icon-image, {{WRAPPER}} .pp-flipbox-icon-image i' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-flipbox-icon-image svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
 				],
 				'condition'             => [
 					'icon_type' => 'icon',
@@ -1304,6 +1306,7 @@ class Flipbox extends Powerpack_Widget {
 				],
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-icon-image-back, {{WRAPPER}} .pp-flipbox-icon-image-back i' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-flipbox-icon-image-back svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
 				],
 				'condition'             => [
 					'icon_type_back'    => 'icon',
@@ -1712,6 +1715,7 @@ class Flipbox extends Powerpack_Widget {
 				'default'               => '',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-flipbox-button:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-flipbox-button:hover .pp-button-icon svg' => 'fill: {{VALUE}}',
 				],
 				'condition'             => [
 					'link_type'    => 'button',
@@ -1810,7 +1814,7 @@ class Flipbox extends Powerpack_Widget {
 								$flipbox_image_url = ( empty( $flipbox_image_url ) ) ? $flipbox_image['url'] : $flipbox_image_url;
 							?>
 							<?php if ( $flipbox_image_url ) { ?>
-								<img src="<?php echo esc_url( $flipbox_image_url ); ?>" alt="">
+								<img src="<?php echo esc_url( $flipbox_image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $flipbox_image ) ); ?>">
 							<?php } ?>
 						<?php } elseif ( 'text' === $settings['icon_type'] ) { ?>
 							<span class="pp-icon-text">
@@ -1870,7 +1874,7 @@ class Flipbox extends Powerpack_Widget {
 					'icon-image-back',
 					[
 						'src'   => $flipbox_back_image_url,
-						'alt'   => 'flipbox-image',
+						'alt'   => Control_Media::get_image_alt( $flipbox_image_back ),
 					]
 				);
 			} elseif ( 'icon' === $settings['icon_type_back'] ) {

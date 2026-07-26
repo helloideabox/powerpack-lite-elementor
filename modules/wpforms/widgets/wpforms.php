@@ -498,6 +498,7 @@ class WPforms extends Powerpack_Widget {
 				'default'           => '',
 				'selectors'         => [
 					'{{WRAPPER}} .pp-wpforms .wpforms-field input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .pp-wpforms .wpforms-container .wpforms-form .choices__inner, {{WRAPPER}} .pp-wpforms .wpforms-field textarea, {{WRAPPER}} .pp-wpforms .wpforms-field select' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-wpforms .wpforms-container .wpforms-form .wpforms-field.wpforms-field-select-style-modern .choices .choices__inner .choices__list--single .choices__item--selectable' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -791,6 +792,11 @@ class WPforms extends Powerpack_Widget {
 				'type'              => Controls_Manager::COLOR,
 				'selectors'         => [
 					'{{WRAPPER}} .pp-wpforms .wpforms-field input::-webkit-input-placeholder, {{WRAPPER}} .pp-wpforms .wpforms-field textarea::-webkit-input-placeholder' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-wpforms .wpforms-field input::-moz-placeholder, {{WRAPPER}} .pp-wpforms .wpforms-field textarea::-moz-placeholder' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-wpforms .wpforms-field input:-ms-input-placeholder, {{WRAPPER}} .pp-wpforms .wpforms-field textarea:-ms-input-placeholder' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-wpforms .wpforms-field input::placeholder, {{WRAPPER}} .pp-wpforms .wpforms-field textarea::placeholder' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-wpforms .wpforms-field select option.placeholder' => 'color: {{VALUE}}; opacity: 1;',
+					'{{WRAPPER}} .pp-wpforms .wpforms-container .wpforms-form .wpforms-field.wpforms-field-select-style-modern .choices .choices__inner .choices__list--single .choices__placeholder' => 'color: {{VALUE}}; opacity: 1;',
 				],
 				'condition'             => [
 					'placeholder_switch'   => 'yes',

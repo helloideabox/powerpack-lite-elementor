@@ -255,6 +255,14 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 2.10.5 - TBD =
+*	Fix: Flip Box - Button hover Text Color was not applied to the button's SVG icon
+*	Fix: Flip Box - Image used a hardcoded alt attribute instead of the Media Library Alt Text, failing accessibility checks
+*	Fix: Flip Box - Custom SVG icons were not sized by the Icon Size control
+*	Fix: WPForms - Placeholder color was not applied to the Modern dropdown placeholder or in non-WebKit browsers
+*	Fix: WPForms - Selected value in the Modern dropdown did not use the field Text Color
+*	Fix: WPForms - Default browser focus outline remained visible on fields even when the Focus Border was set to None
+
 = 2.10.4 - May 26, 2026 =
 *	Fix: WPML - Content Reveal template was not translated on the frontend when Content Type was set to Template
 *	Fix: WPML - Image Hotspots, Price Menu, Scroll Image, Team Member, and Team Member Carousel images were not replaced with their translations on translated pages
