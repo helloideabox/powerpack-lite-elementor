@@ -59,11 +59,14 @@ final class PP_Admin_Settings {
 			}
 
 			if ( 'powerpack-settings' === $page ) {
-				self::save();
+				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 			}
 		}
 
 		add_action( 'admin_init', __CLASS__ . '::refresh_instagram_access_token' );
+
+		// Late, so it runs after the filter it is undoing.
+		add_filter( 'admin_footer_text', __CLASS__ . '::admin_footer_text', 100 );
 	}
 
 	/**
@@ -73,8 +76,278 @@ final class PP_Admin_Settings {
 	 * @return void
 	 */
 	public static function styles_scripts() {
-		// Styles
-		//wp_enqueue_style( 'pp-admin-settings', POWERPACK_ELEMENTS_LITE_URL . 'assets/css/admin-settings.css', array(), POWERPACK_ELEMENTS_LITE_VER );
+		$settings   = self::get_settings();
+		$asset_path = POWERPACK_ELEMENTS_LITE_PATH . 'assets/build/settings/index.asset.php';
+
+		if ( ! file_exists( $asset_path ) ) {
+			return;
+		}
+
+		$asset = include $asset_path;
+
+		wp_enqueue_script(
+			'pp-settings-app',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/build/settings/index.js',
+			$asset['dependencies'],
+			$asset['version'],
+			true
+		);
+
+		wp_enqueue_style(
+			'pp-settings-app',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/build/settings/style-index.css',
+			array( 'wp-components' ),
+			$asset['version']
+		);
+
+		wp_style_add_data( 'pp-settings-app', 'rtl', 'replace' );
+
+		/*
+		 * Follow the colour scheme the user picked on their profile. The
+		 * override is scoped to the screen and also covers
+		 * '--wp-admin-theme-color', so the block components rendered inside it
+		 * — switches, buttons — pick up the same accent as our own chrome.
+		 */
+		$scheme_colors = self::get_admin_scheme_colors();
+
+		if ( ! empty( $scheme_colors ) ) {
+			$soft = ! empty( $scheme_colors['soft'] ) ? sprintf( '--ppe-primary-color-soft:%s;', esc_attr( $scheme_colors['soft'] ) ) : '';
+
+			wp_add_inline_style(
+				'pp-settings-app',
+				sprintf(
+					'.pp-settings{--ppe-primary-color:%1$s;--ppe-primary-color-light:%2$s;--wp-admin-theme-color:%1$s;%3$s}',
+					esc_attr( $scheme_colors['primary'] ),
+					esc_attr( $scheme_colors['light'] ),
+					$soft
+				)
+			);
+		}
+
+		wp_set_script_translations( 'pp-settings-app', 'powerpack-lite-for-elementor', POWERPACK_ELEMENTS_LITE_PATH . 'languages' );
+
+		wp_enqueue_style(
+			'powerpack-icons',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/ppicons/css/powerpack-icons.css',
+			array(),
+			POWERPACK_ELEMENTS_LITE_VER
+		);
+
+		$docs_link    = ! empty( $settings['docs_link'] ) ? $settings['docs_link'] : 'https://powerpackelements.com/docs/';
+		$support_link = ! empty( $settings['support_link'] ) ? $settings['support_link'] : 'https://powerpackelements.com/contact/';
+
+		/*
+		 * The upgrade prompt names PowerPack Pro, so it is withheld once the
+		 * license is active, and whenever the plugin has been rebranded — a
+		 * white labelled install should not be advertising someone else.
+		 */
+		$show_upgrade = 'valid' !== self::get_option( 'pp_license_status' ) && empty( $settings['plugin_name'] );
+
+		wp_add_inline_script(
+			'pp-settings-app',
+			'window.ppSettingsBootstrap = ' . wp_json_encode( array(
+				'adminLabel'   => self::get_admin_label(),
+				'version'      => POWERPACK_ELEMENTS_LITE_VER,
+
+				/*
+				 * Which edition is running. PowerPack Lite is a separate
+				 * plugin, so this file only ever executes in Pro — but sending
+				 * it rather than hardcoding it in the bundle keeps the two
+				 * builds able to share one settings app.
+				 */
+				'isPro'        => false,
+				'hideLogo'     => false,
+				'docsLink'     => $docs_link,
+				'supportLink'  => $support_link,
+				'showSupport'  => 'on' !== $settings['hide_support'],
+				'showUpgrade'  => true,
+
+				'upgradeUrl'   => self::get_upgrade_url(),
+
+				// Sent with the page so a dismissed checklist never flashes up
+				// before a request comes back to say it was dismissed.
+			) ) . ';',
+			'before'
+		);
+
+		/*
+		 * Hand the first responses to the client with the page, so the screen
+		 * paints without a request waterfall.
+		 */
+		$preload = rest_preload_api_request( array(), '/powerpack/v1/settings' );
+		$preload = rest_preload_api_request( $preload, '/powerpack/v1/modules' );
+
+		wp_add_inline_script(
+			'wp-api-fetch',
+			sprintf(
+				'wp.apiFetch.use( wp.apiFetch.createPreloadingMiddleware( %s ) );',
+				wp_json_encode( $preload )
+			),
+			'after'
+		);
+
+		if ( isset( $settings['plugin_short_name'] ) && '' !== $settings['plugin_short_name'] ) {
+			$short_name  = $settings['plugin_short_name'];
+			$custom_css  = '.elementor-element [class*="power-pack-"]:after {';
+			$custom_css .= 'content: "' . $short_name . '"; }';
+			wp_add_inline_style( 'powerpack-editor', $custom_css );
+		}
+	}
+
+	/**
+	 * Accent colours from the current user's admin colour scheme.
+	 *
+	 * Core does not expose the scheme through a CSS custom property — the
+	 * scheme stylesheets only consume '--wp-admin-theme-color', which is set
+	 * once to the default. The registered palettes do carry it though, and the
+	 * highlight is consistently the second to last swatch across every scheme
+	 * core ships, whether the palette has three entries or four.
+	 *
+	 * @since x.x.x
+	 * @return array Empty when the scheme is unknown, otherwise 'primary' and 'light'.
+	 */
+	private static function get_admin_scheme_colors() {
+		global $_wp_admin_css_colors;
+
+		$scheme = get_user_option( 'admin_color' );
+
+		if ( empty( $scheme ) || empty( $_wp_admin_css_colors[ $scheme ]->colors ) ) {
+			return array();
+		}
+
+		$colors = array_values( (array) $_wp_admin_css_colors[ $scheme ]->colors );
+		$count  = count( $colors );
+
+		if ( $count < 2 ) {
+			return array();
+		}
+
+		return array(
+			'primary' => $colors[ $count - 2 ],
+			'light'   => $colors[ $count - 1 ],
+			'soft'    => self::hex_to_rgba( $colors[ $count - 2 ], 0.1 ),
+		);
+	}
+
+	/**
+	 * Convert a hex colour to an rgba() string.
+	 *
+	 * Used for the tinted backgrounds behind active and hovered navigation, so
+	 * they follow the accent instead of staying a fixed blue.
+	 *
+	 * @since x.x.x
+	 * @param string $hex   Hex colour, with or without the leading hash.
+	 * @param float  $alpha Alpha channel.
+	 * @return string Empty when the colour cannot be parsed.
+	 */
+	private static function hex_to_rgba( $hex, $alpha ) {
+		$hex = ltrim( (string) $hex, '#' );
+
+		if ( 3 === strlen( $hex ) ) {
+			$hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+		}
+
+		if ( ! preg_match( '/^[0-9a-f]{6}$/i', $hex ) ) {
+			return '';
+		}
+
+		return sprintf(
+			'rgba(%d, %d, %d, %s)',
+			hexdec( substr( $hex, 0, 2 ) ),
+			hexdec( substr( $hex, 2, 2 ) ),
+			hexdec( substr( $hex, 4, 2 ) ),
+			$alpha
+		);
+	}
+
+	/**
+	 * Render the settings screen mount point.
+	 *
+	 * Everything below this node is rendered by the React app in
+	 * assets/build/settings. The noscript message matters: without it a failed
+	 * bundle leaves an administrator staring at an empty page with no clue why.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public static function render() {
+		if ( ! file_exists( POWERPACK_ELEMENTS_LITE_PATH . 'assets/build/settings/index.asset.php' ) ) {
+			?>
+			<div class="wrap">
+				<div class="notice notice-error">
+					<p><?php esc_html_e( 'The PowerPack settings screen has not been built. Run "npm install" followed by "npm run build:settings" in the plugin directory.', 'powerpack-lite-for-elementor' ); ?></p>
+				</div>
+			</div>
+			<?php
+			return;
+		}
+		?>
+		<div class="wrap pp-settings-wrap">
+			<div id="pp-settings-root"></div>
+			<noscript>
+				<div class="notice notice-error">
+					<p><?php esc_html_e( 'The PowerPack settings screen needs JavaScript. Please enable it and reload this page.', 'powerpack-lite-for-elementor' ); ?></p>
+				</div>
+			</noscript>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Where every "upgrade" link on the screen points.
+	 *
+	 * One place, and filterable: the free edition and any affiliate build need
+	 * their own, and a URL repeated at each call site drifts.
+	 *
+	 * @since x.x.x
+	 * @param array $args Optional query arguments, for campaign tagging.
+	 * @return string
+	 */
+	public static function get_upgrade_url( $args = [] ) {
+		$url = apply_filters( 'pp_settings_upgrade_url', 'https://powerpackelements.com/upgrade/' );
+
+		return empty( $args ) ? $url : add_query_arg( $args, $url );
+	}
+
+	/**
+	 * Restore the default admin footer on this plugin's screens.
+	 *
+	 * Elementor replaces the footer on any screen whose id contains its own
+	 * name, and this screen is a submenu of Elementor's, so it inherited a
+	 * request to review a different plugin. WordPress's own text is put back
+	 * rather than the line being emptied, so the footer keeps the shape every
+	 * other admin page has.
+	 *
+	 * @since x.x.x
+	 * @param string $text Footer text.
+	 * @return string
+	 */
+	public static function admin_footer_text( $text ) {
+		if ( ! self::is_settings_screen() ) {
+			return $text;
+		}
+
+		return '<span id="footer-thankyou">' . sprintf(
+			/* translators: %s: WordPress.org link. */
+			esc_html__( 'Thank you for creating with %s.', 'powerpack-lite-for-elementor' ),
+			'<a href="https://wordpress.org/">WordPress</a>'
+		) . '</span>';
+	}
+
+	/**
+	 * Whether the screen being rendered belongs to this plugin.
+	 *
+	 * @since x.x.x
+	 * @return bool
+	 */
+	private static function is_settings_screen() {
+		if ( ! function_exists( 'get_current_screen' ) ) {
+			return false;
+		}
+
+		$screen = get_current_screen();
+
+		return $screen && false !== strpos( $screen->id, 'powerpack-settings' );
 	}
 
 	/**
@@ -118,36 +391,7 @@ final class PP_Admin_Settings {
 		return 'PowerPack';
 	}
 
-	/**
-	 * Renders the update message.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public static function render_update_message() {
-		if ( ! empty( self::$errors ) ) {
-			foreach ( self::$errors as $message ) {
-				echo '<div class="error"><p>' . esc_html( $message ) . '</p></div>';
-			}
-		}
-		
-		// Check for settings-updated parameter in URL
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		if ( isset( $_GET['settings-updated'] ) && 'true' === $_GET['settings-updated'] ) {
-			echo '<div class="updated"><p>' . esc_html__( 'Settings updated!', 'powerpack-lite-for-elementor' ) . '</p></div>';
-		}
-	}
 
-	/**
-	 * Adds an error message to be rendered.
-	 *
-	 * @since 1.0.0
-	 * @param string $message The error message to add.
-	 * @return void
-	 */
-	public static function add_error( $message ) {
-		self::$errors[] = $message;
-	}
 
 	/**
 	 * Renders the admin settings menu.
@@ -171,131 +415,9 @@ final class PP_Admin_Settings {
 		}
 	}
 
-	public static function render() {
-		include POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings.php';
-	}
 
-	public static function get_tabs() {
-		$settings = self::get_settings();
 
-		$tabs = [
-			'modules' => [
-				'title'    => esc_html__( 'Elements', 'powerpack-lite-for-elementor' ),
-				'show'     => true,
-				'cap'      => 'edit_posts',
-				'file'     => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-modules.php',
-				'priority' => 150,
-			],
-			'extensions' => [
-				'title'    => esc_html__( 'Extensions', 'powerpack-lite-for-elementor' ),
-				'show'     => true,
-				'cap'      => 'edit_posts',
-				'file'     => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-extensions.php',
-				'priority' => 200,
-			],
-			'integration' => [
-				'title'    => esc_html__( 'Integration', 'powerpack-lite-for-elementor' ),
-				'show'     => true,
-				'cap'      => ! is_network_admin() ? 'manage_options' : 'manage_network_plugins',
-				'file'     => POWERPACK_ELEMENTS_LITE_PATH . 'includes/admin/admin-settings-integration.php',
-				'priority' => 300,
-			],
-		];
 
-		return PP_Helper::apply_deprecated_filter(
-			'pp_elements_lite_admin_settings_tabs',
-			'powerpack_lite_for_elementor_admin_settings_tabs',
-			$tabs,
-			[],
-			'2.9.10'
-		);
-	}
-
-	public static function render_tabs( $current_tab ) {
-		$tabs = self::get_tabs();
-		$sorted_data = array();
-
-		foreach ( $tabs as $key => $data ) {
-			$data['key'] = $key;
-			$sorted_data[ $data['priority'] ] = $data;
-		}
-
-		ksort( $sorted_data );
-
-		foreach ( $sorted_data as $data ) {
-			if ( $data['show'] ) {
-				if ( isset( $data['cap'] ) && ! current_user_can( $data['cap'] ) ) {
-					continue;
-				}
-
-				$tab_key   = isset( $data['key'] ) ? $data['key'] : '';
-				$tab_title = isset( $data['title'] ) ? $data['title'] : '';
-				$is_active = ( $current_tab === $tab_key ) ? ' nav-tab-active' : '';
-				?>
-				<a href="<?php echo esc_url( self::get_form_action( '&tab=' . rawurlencode( $tab_key ) ) ); ?>" class="nav-tab<?php echo esc_attr( $is_active ); ?>">
-					<span><?php echo esc_html( $tab_title ); ?></span>
-				</a>
-				<?php
-			}
-		}
-	}
-
-	public static function render_setting_page() {
-		$tabs = self::get_tabs();
-		$current_tab = self::get_current_tab();
-
-		if ( isset( $tabs[ $current_tab ] ) ) {
-			$no_setting_file_msg = esc_html__( 'Setting page file could not be located.', 'powerpack-lite-for-elementor' );
-
-			if ( ! isset( $tabs[ $current_tab ]['file'] ) || empty( $tabs[ $current_tab ]['file'] ) ) {
-				echo esc_html( $no_setting_file_msg );
-				return;
-			}
-
-			if ( ! file_exists( $tabs[ $current_tab ]['file'] ) ) {
-				echo esc_html( $no_setting_file_msg );
-				return;
-			}
-
-			$render = ! isset( $tabs[ $current_tab ]['show'] ) ? true : $tabs[ $current_tab ]['show'];
-			$cap = 'manage_options';
-
-			if ( isset( $tabs[ $current_tab ]['cap'] ) && ! empty( $tabs[ $current_tab ]['cap'] ) ) {
-				$cap = $tabs[ $current_tab ]['cap'];
-			} else {
-				$cap = ! is_network_admin() ? 'manage_options' : 'manage_network_plugins';
-			}
-
-			if ( ! $render || ! current_user_can( $cap ) ) {
-				esc_html_e( 'You do not have permission to view this setting.', 'powerpack-lite-for-elementor' );
-				return;
-			}
-
-			include $tabs[ $current_tab ]['file'];
-		}
-	}
-
-	/**
-	 * Get current tab.
-	 */
-	public static function get_current_tab() {
-
-		$current_tab = 'modules';
-
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$tab_param = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : '';
-
-		if ( ! empty( $tab_param ) ) {
-			$tabs = self::get_tabs();
-
-			// Whitelist validation
-			if ( isset( $tabs[ $tab_param ] ) ) {
-				$current_tab = $tab_param;
-			}
-		}
-
-		return $current_tab;
-	}
 
 	/**
 	 * Renders the action for a form.
@@ -305,7 +427,24 @@ final class PP_Admin_Settings {
 	 * @return void
 	 */
 	public static function get_form_action( $type = '' ) {
-		return esc_url( admin_url( '/admin.php?page=powerpack-settings' . $type ) );
+		$panel = '';
+
+		if ( preg_match( '/&tab=([a-z_-]+)/', $type, $matches ) ) {
+			$map   = [
+				'modules'     => 'elements',
+				'extensions'  => 'extensions',
+				'integration' => 'integration',
+			];
+			$slug  = $matches[1];
+			$panel = isset( $map[ $slug ] ) ? $map[ $slug ] : $slug;
+			$type  = str_replace( $matches[0], '', $type );
+		}
+
+		$url = is_network_admin()
+			? network_admin_url( '/admin.php?page=powerpack-settings' . $type )
+			: admin_url( '/admin.php?page=powerpack-settings' . $type );
+
+		return esc_url( $url ) . ( $panel ? '#' . $panel : '' );
 	}
 
 	/**
@@ -377,187 +516,9 @@ final class PP_Admin_Settings {
 		}
 	}
 
-	public static function save() {
-		// Only admins can save settings.
-		/* if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		} */
 
-		// Track if any settings were saved
-		$modules_saved = false;
-		$extensions_saved = false;
-		$integration_saved = false;
 
-		// Save settings (each method does its own nonce verification)
-		$modules_saved = self::save_modules();
-		$extensions_saved = self::save_extensions();
-		$integration_saved = self::save_integration();
 
-		// Check if any settings were actually saved
-		$settings_saved = $modules_saved || $extensions_saved || $integration_saved;
-
-		PP_Helper::do_deprecated_action(
-			'pp_admin_after_settings_saved',
-			'powerpack_elements_admin_after_settings_saved',
-			[],
-			'2.9.10'
-		);
-
-		// Redirect with success message if settings were saved
-		if ( $settings_saved && empty( self::$errors ) ) {
-			$redirect_url = add_query_arg(
-				array(
-					'page' => 'powerpack-settings',
-					'tab' => self::get_current_tab(),
-					'settings-updated' => 'true',
-				),
-				admin_url( 'admin.php' )
-			);
-			
-			wp_safe_redirect( $redirect_url );
-			exit;
-		}
-	}
-
-	/**
-	 * Saves integrations.
-	 *
-	 * @since 2.5.4
-	 * @access private
-	 * @return void
-	 */
-	private static function save_integration() {
-
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-
-		if ( empty( $_POST['pp-integration-settings-nonce'] ) ) {
-			return;
-		}
-
-		$nonce = sanitize_text_field(
-			wp_unslash( $_POST['pp-integration-settings-nonce'] )
-		);
-
-		if ( ! wp_verify_nonce( $nonce, 'pp-integration-settings' ) ) {
-			return;
-		}
-
-		$override_checked = false;
-
-		if ( isset( $_POST['pp_override_ms'] ) ) {
-			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			$override_checked = (bool) wp_unslash( $_POST['pp_override_ms'] );
-		}
-
-		if ( isset( $_POST['pp_instagram_access_token'] ) ) {
-
-			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			$token = wp_unslash( $_POST['pp_instagram_access_token'] );
-
-			$token = sanitize_text_field( trim( $token ) );
-
-			self::update_option(
-				'pp_instagram_access_token',
-				$token,
-				false,
-				$override_checked
-			);
-		}
-
-		return true;
-	}
-
-	private static function save_modules() {
-
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-
-		if ( empty( $_POST['pp-modules-settings-nonce'] ) ) {
-			return;
-		}
-
-		$nonce = sanitize_text_field(
-			wp_unslash( $_POST['pp-modules-settings-nonce'] )
-		);
-
-		if ( ! wp_verify_nonce( $nonce, 'pp-modules-settings' ) ) {
-			return;
-		}
-
-		if ( ! empty( $_POST['pp_enabled_modules'] ) ) {
-
-			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			$raw_modules = wp_unslash( $_POST['pp_enabled_modules'] );
-
-			if ( is_array( $raw_modules ) ) {
-
-				$modules = array_map(
-					'sanitize_text_field',
-					$raw_modules
-				);
-
-			} else {
-
-				$modules = sanitize_text_field( $raw_modules );
-			}
-
-			update_site_option( 'pp_elementor_modules', $modules );
-
-		} else {
-
-			update_site_option( 'pp_elementor_modules', 'disabled' );
-		}
-
-		return true;
-	}
-
-	public static function save_extensions() {
-
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-
-		if ( ! isset( $_POST['pp-extensions-settings-nonce'] ) ) {
-			return;
-		}
-
-		$nonce = sanitize_text_field(
-			wp_unslash( $_POST['pp-extensions-settings-nonce'] )
-		);
-
-		if ( ! wp_verify_nonce( $nonce, 'pp-extensions-settings' ) ) {
-			return;
-		}
-
-		if ( isset( $_POST['pp_enabled_extensions'] ) ) {
-
-			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			$raw_extensions = wp_unslash( $_POST['pp_enabled_extensions'] );
-
-			if ( is_array( $raw_extensions ) ) {
-
-				$extensions = array_map(
-					'sanitize_text_field',
-					$raw_extensions
-				);
-
-			} else {
-
-				$extensions = sanitize_text_field( $raw_extensions );
-			}
-
-			update_option( 'pp_elementor_extensions', $extensions );
-
-		} else {
-
-			update_option( 'pp_elementor_extensions', 'disabled' );
-		}
-
-		return true;
-	}
 
 	/**
 	* Refresh instagram token after 30 days.

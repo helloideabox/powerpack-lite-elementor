@@ -11,15 +11,18 @@
 		"> 2%"
 	],
 	"scripts": {
-		"build": "grunt",
+		"build": "npm run build:settings && grunt",
 		"build-watch": "grunt watch",
 		"makepot": "grunt makepot",
 		"css": "grunt css",
 		"release": "grunt release",
 		"copy": "grunt copy",
-		"ver-bump": "grunt version-bump --ver"
+		"ver-bump": "grunt version-bump --ver",
+		"build:settings": "wp-scripts build src/settings/index.js --output-path=assets/build/settings",
+		"start:settings": "wp-scripts start src/settings/index.js --output-path=assets/build/settings"
 	},
 	"devDependencies": {
+		"@wordpress/scripts": "^30.27.0",
 		"autoprefixer": "^9.7.4",
 		"baseline-browser-mapping": "^2.10.23",
 		"grunt": "^1.5.3",
@@ -42,5 +45,9 @@
 		"sass": "^1.79.3",
 		"stylelint": "^13.13.1",
 		"stylelint-config-wordpress": "^17.0.0"
+	},
+	"dependencies": {
+		"@babel/runtime": "^7.29.7",
+		"@wordpress/icons": "^10.32.0"
 	}
 }

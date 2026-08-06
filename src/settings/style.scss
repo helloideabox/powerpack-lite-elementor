@@ -1,0 +1,2123 @@
+/**
+ * Settings screen styles.
+ *
+ * Scoped under .pp-settings so nothing leaks into the rest of wp-admin.
+ */
+
+/*
+ * Palette carried over from assets/css/admin-settings.css so the React screen
+ * and the rest of the plugin's admin UI stay visually identical.
+ */
+/*
+ * Two greys, with different jobs. $pp-border draws the edge of a surface;
+ * $pp-divider draws a rule *inside* one, and has to be lighter or every card
+ * looks subdivided. Before this there were three — #e2e8f0, #f2f2f2 and #eee
+ * — with no rule about which went where.
+ */
+$pp-border: #e2e8f0;
+$pp-divider: #f2f2f2;
+
+/*
+ * A fill for small recessed surfaces on white — the segmented control's track,
+ * a tertiary button, a hover. Not the page: see .pp-settings below.
+ */
+$pp-bg: #f6f7f8;
+$pp-accent: #2563eb;
+$pp-accent-light: #137fec;
+$pp-heading: #1d2327;
+
+/*
+ * Text ramp, chosen against the three backgrounds this screen actually uses:
+ * white, the #fcfdfe card footer, and the #f6f7f8 segmented control. Every
+ * step clears 4.5:1 on all three.
+ *
+ *   $pp-text   secondary UI — navigation, filters, category list   5.43:1
+ *   $pp-muted  help text, counts, meta links, the version pill      4.83:1
+ *
+ * The previous values did not: #94a3b8 read at 2.56:1 and #919191 at 3.08:1,
+ * which is what made the help text and the Demo/Docs links hard to read.
+ */
+$pp-text: #5f6b7a;
+$pp-muted: #6b7280;
+
+/*
+ * wp-admin gives .wrap a 10px top and 2px left margin. This screen runs edge
+ * to edge, so both are dropped — the negative margin on .pp-settings below
+ * then cancels the 20px padding on #wpcontent.
+ */
+.pp-settings-wrap {
+	margin: 0;
+}
+
+.pp-settings {
+	/*
+	 * Three steps and a pill, nested largest to smallest: a section contains a
+	 * card contains a control. Before this there were six values for rounded
+	 * rectangles and four more for shapes meant to be fully round, so cards
+	 * sitting next to each other were rounded differently.
+	 */
+	--pp-radius-sm: 5px;
+	--pp-radius: 8px;
+	--pp-radius-lg: 12px;
+	--pp-radius-pill: 999px;
+	--ppe-primary-color: #{$pp-accent};
+	--ppe-primary-color-light: #{$pp-accent-light};
+	--ppe-text-color: #{$pp-text};
+	--ppe-text-muted: #{$pp-muted};
+	--ppe-border-color: #{$pp-border};
+	--ppe-primary-color-soft: rgb(59 130 246 / 10%);
+
+	margin: 0 0 0 -20px;
+
+	/*
+	 * The page takes wp-admin's own background rather than naming a colour.
+	 * This screen runs edge to edge, so its background meets the dashboard's
+	 * below the panel and beside the footer; any near-miss shows as a seam
+	 * there. Inheriting cannot miss, and it keeps up with whatever WordPress
+	 * changes the value to — none of the admin colour schemes touch it.
+	 */
+	background: transparent;
+	min-height: calc(100vh - 32px);
+
+	// Room for the save bar, which is fixed and would otherwise cover the last
+	// control. It is only mounted while something is unsaved, so the space is
+	// only reserved then.
+	&.has-save-bar {
+		padding-bottom: 80px;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	&--loading {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 60vh;
+	}
+
+	&__save {
+		position: fixed;
+		bottom: 0;
+		left: 160px;
+		right: 0;
+		z-index: 20;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 12px;
+		padding: 12px 24px;
+		background: #fff;
+		border-top: 1px solid $pp-border;
+		box-shadow: 0 -2px 12px rgb(15 23 42 / 6%);
+
+		// Slides in when there is something to save, and back out once there
+		// is not. 'both' holds the final frame so it does not snap back before
+		// React unmounts it.
+		animation: pp-save-in 200ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+
+		&.is-leaving {
+			animation: pp-save-out 200ms cubic-bezier(0.4, 0, 1, 1) both;
+			pointer-events: none;
+		}
+
+		@media (max-width: 960px) {
+			left: 36px;
+		}
+
+		@media (max-width: 782px) {
+			left: 0;
+		}
+	}
+
+	&__dirty {
+		margin-right: auto;
+		font-size: 13px;
+		color: #646970;
+	}
+
+	&__save.is-dirty &__dirty {
+		color: #1d2327;
+		font-weight: 600;
+	}
+}
+
+/*
+ * Pinned to the corner the Save button sits in, so the confirmation appears
+ * where the click just happened. It outranks the save bar deliberately: the
+ * bar is sliding out as this arrives, and the message reads as taking its
+ * place rather than queueing behind it.
+ */
+.pp-settings__toast {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	z-index: 30;
+	max-width: min(420px, calc(100vw - 48px));
+
+	.components-snackbar {
+		margin: 0;
+	}
+
+	@media (max-width: 782px) {
+		right: 12px;
+		bottom: 12px;
+	}
+}
+
+@keyframes pp-save-in {
+	from {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes pp-save-out {
+	from {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	to {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+}
+
+/*
+ * Respect the system setting. The bar still appears and disappears, it just
+ * does so without travelling.
+ */
+@media (prefers-reduced-motion: reduce) {
+	.pp-settings__save,
+	.pp-settings__save.is-leaving {
+		animation-duration: 1ms;
+	}
+}
+
+/* ---------------------------------------------------------------------------
+ * Screen header
+ *
+ * Ported from the previous settings screen. The title is an h1 here rather
+ * than the original h3 — same appearance, but the page gets a real heading.
+ * ------------------------------------------------------------------------ */
+
+.pp-admin-settings-header {
+	background: #f9fafb;
+	overflow: hidden;
+}
+
+.pp-admin-settings-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	flex-wrap: wrap;
+	padding: 20px;
+	background: #fff;
+	border-bottom: 1px solid $pp-border;
+
+	h1 {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 6px;
+		font-size: 18px;
+		font-weight: 400;
+		margin: 0;
+		padding: 0;
+		line-height: 1.3;
+	}
+
+	h1 span:not(.version) {
+		font-weight: 500;
+	}
+
+	.ppicon-powerpack-small {
+		color: var(--ppe-primary-color);
+		font-size: 28px;
+	}
+
+	/*
+	 * Which edition this is. PowerPack ships a Lite plugin under a similar
+	 * name and the two are routinely confused; the version alone does not tell
+	 * them apart.
+	 *
+	 * Gold rather than the accent, for two reasons. The accent is this
+	 * screen's action colour — every button and link uses it — so a solid
+	 * accent pill would read as something to click. And the accent follows the
+	 * admin colour scheme, which puts the contrast of white text on it outside
+	 * this stylesheet's control; these two are fixed and measure 7.9:1.
+	 */
+	.pp-edition {
+		font-size: 10px;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		line-height: 1.8;
+		padding: 2px 8px;
+		border-radius: var(--pp-radius-pill);
+		background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+		color: #422006;
+		box-shadow: 0 1px 2px rgb(180 83 9 / 25%);
+	}
+
+	/*
+	 * A pill, like the other counts and statuses on this screen. It was grey
+	 * text at #a2a2a2, which measured 2.55:1 on white — under half what small
+	 * text needs — and read as disabled rather than secondary.
+	 */
+	.version {
+		font-size: 11px;
+		font-weight: 500;
+		line-height: 1.6;
+		padding: 2px 8px;
+		border-radius: var(--pp-radius-pill);
+		background: $pp-bg;
+		border: 1px solid $pp-border;
+		color: var(--ppe-text-muted);
+	}
+}
+
+.pp-admin-settings-topbar-nav {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pp-admin-settings-topbar-nav-item {
+	display: inline-block;
+	margin: 0;
+
+	a {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		text-decoration: none;
+		padding: 7px 12px;
+		border-radius: var(--pp-radius-pill);
+		background: transparent;
+		color: var(--ppe-text-color);
+		font-size: 13px;
+		transition-duration: 0.2s;
+
+		&:hover,
+		&:focus {
+			background: var(--ppe-primary-color-soft);
+			color: var(--ppe-primary-color);
+		}
+	}
+
+	.dashicons {
+		font-size: 16px;
+		width: 16px;
+		height: 16px;
+	}
+}
+
+/* ---------------------------------------------------------------------------
+ * Sidebar navigation
+ *
+ * Ported from the previous tab list. Tabs are buttons rather than links with
+ * the wp-admin .nav-tab class: they switch panels in place, and using a plain
+ * class avoids overriding wp-admin's tab chrome only to hide it again.
+ * ------------------------------------------------------------------------ */
+
+.pp-admin-settings-body {
+	display: flex;
+	align-items: stretch;
+	background: transparent;
+	color: var(--ppe-text-color);
+
+	@media (max-width: 782px) {
+		flex-direction: column;
+	}
+}
+
+.pp-admin-settings-tabs-container {
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	border-right: 1px solid var(--ppe-border-color);
+	padding-top: 25px;
+	width: 260px;
+	flex: 0 0 260px;
+
+	@media (max-width: 782px) {
+		width: 100%;
+		flex: 1 1 auto;
+		border-right: 0;
+		border-bottom: 1px solid var(--ppe-border-color);
+		padding-top: 0;
+	}
+}
+
+.pp-admin-settings-tabs {
+	display: flex;
+	flex-direction: column;
+	padding: 0 20px;
+
+	/*
+	 * Follows the panel down. Sticking the list rather than the column it sits
+	 * in keeps the column stretched to the body's full height — otherwise the
+	 * white background and its right border stop wherever the list ends.
+	 * 32px is the admin bar, which is fixed at this width.
+	 */
+	position: sticky;
+	top: 32px;
+	max-height: calc(100vh - 32px);
+	overflow-y: auto;
+
+	@media (max-width: 782px) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding: 12px;
+
+		// The admin bar is not fixed on small screens, so nothing to stick to.
+		position: static;
+		max-height: none;
+	}
+}
+
+.pp-settings-tab {
+	appearance: none;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	width: 100%;
+	background: none;
+	border: 0;
+	border-radius: var(--pp-radius-sm);
+	box-shadow: none;
+	color: var(--ppe-text-color);
+	cursor: pointer;
+
+	// 14px lines the navigation up with section titles. At 16px it was the
+	// largest text on the screen after the panel title, for the least
+	// important content on it.
+	font-size: 14px;
+	font-weight: 500;
+	padding: 10px;
+	margin: 0 0 6px;
+	text-align: left;
+
+	svg {
+		fill: currentColor;
+		flex: 0 0 auto;
+	}
+
+	&:hover,
+	&:focus {
+		color: var(--ppe-primary-color);
+
+		svg {
+			fill: currentColor;
+		}
+	}
+
+	&.is-active {
+		background: var(--ppe-primary-color-soft);
+		color: var(--ppe-primary-color);
+
+		svg {
+			fill: currentColor;
+		}
+	}
+
+	@media (max-width: 782px) {
+		width: auto;
+		font-size: 13px;
+		margin-bottom: 0;
+	}
+}
+
+/*
+ * No padding here: the panel head is full-bleed against the content column,
+ * and each panel pads its own body.
+ */
+.pp-admin-settings-content {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * Panel head
+ * ------------------------------------------------------------------------ */
+
+/*
+ * The title sits on the canvas rather than in a banner, so the panels below
+ * carry all the surface.
+ */
+.pp-panel-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px 24px;
+	padding: 24px 24px 0;
+	background: transparent;
+}
+
+.pp-panel-title {
+	font-size: 1.375rem;
+	font-weight: 650;
+	letter-spacing: -0.02em;
+	line-height: 1.25;
+	margin: 0;
+	padding: 0;
+	color: $pp-heading;
+}
+
+.pp-panel-head-aside {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.pp-panel-body {
+	padding: 24px;
+	display: grid;
+	gap: 16px;
+	align-content: start;
+
+	@media (max-width: 782px) {
+		padding: 16px;
+	}
+}
+
+/*
+ * Form panels are centred within a readable measure. Elements is exempt: its
+ * card grid earns the full width, and it opts out by carrying the --split
+ * modifier instead.
+ */
+.pp-panel-head.is-constrained,
+.pp-panel-body:not(.pp-panel-body--split) {
+	width: 100%;
+	max-width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*
+ * Elements splits the body: category list on the lead edge, everything else
+ * beside it. The list uses the same surface treatment as the panel nav.
+ */
+.pp-panel-body--split {
+	grid-template-columns: 220px minmax(0, 1fr);
+	gap: 24px;
+	align-items: start;
+
+	@media (max-width: 1200px) {
+		grid-template-columns: 180px minmax(0, 1fr);
+		gap: 16px;
+	}
+
+	@media (max-width: 960px) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.pp-panel-main {
+	min-width: 0;
+	display: grid;
+	gap: 16px;
+	align-content: start;
+}
+
+.pp-category-nav {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 8px;
+	background: #fff;
+	border: 1px solid var(--ppe-border-color);
+	border-radius: var(--pp-radius);
+	position: sticky;
+	top: 52px;
+
+	@media (max-width: 960px) {
+		position: static;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+.pp-category-nav-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	appearance: none;
+	background: none;
+	border: 0;
+	border-radius: var(--pp-radius-sm);
+	cursor: pointer;
+	padding: 8px 10px;
+	text-align: left;
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--ppe-text-color);
+	transition: background 0.12s ease, color 0.12s ease;
+
+	/*
+	 * Colour only, like the panel tabs. Tinting on hover as well as when
+	 * active meant the two states looked the same, so hovering down the list
+	 * kept suggesting the section had changed.
+	 */
+	&:hover,
+	&:focus {
+		color: var(--ppe-primary-color);
+	}
+
+	/*
+	 * Follows the scroll position, so the list says where you are rather than
+	 * only where you can go. Weight stays put: this highlight moves on scroll,
+	 * and re-measuring the text would nudge the count on every change.
+	 */
+	&.is-active {
+		background: var(--ppe-primary-color-soft);
+		color: var(--ppe-primary-color);
+
+		.pp-category-nav-count {
+			color: inherit;
+		}
+	}
+
+	@media (max-width: 960px) {
+		width: auto;
+	}
+}
+
+.pp-category-nav-name {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.pp-category-nav-count {
+	margin-left: auto;
+	font-size: 11px;
+	font-weight: 500;
+	color: var(--ppe-text-muted);
+	white-space: nowrap;
+}
+
+.pp-category-nav-empty {
+	margin: 0;
+	padding: 8px 10px;
+	font-size: 12px;
+	color: var(--ppe-text-muted);
+}
+
+.pp-panel-loading {
+	display: flex;
+	justify-content: center;
+	padding: 60px 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * Skeleton placeholders
+ *
+ * One bone, sized by modifier. The shapes are set here rather than inline so
+ * a change to a real control's height has one place to follow.
+ * ------------------------------------------------------------------------ */
+
+.pp-skeleton {
+	display: block;
+	flex: 0 0 auto;
+	border-radius: var(--pp-radius-sm);
+	background: linear-gradient(90deg, #e8ecf1 25%, #f3f6f9 37%, #e8ecf1 63%);
+	background-size: 400% 100%;
+	animation: pp-skeleton-shimmer 1.4s ease infinite;
+
+	&--text {
+		height: 12px;
+	}
+
+	&--count {
+		width: 26px;
+		height: 12px;
+	}
+
+	&--heading {
+		width: 150px;
+		height: 14px;
+	}
+
+	&--icon {
+		width: 20px;
+		height: 20px;
+		border-radius: var(--pp-radius-sm);
+	}
+
+	&--link {
+		width: 42px;
+		height: 12px;
+	}
+
+	&--switch {
+		width: 36px;
+		height: 20px;
+		border-radius: var(--pp-radius-pill);
+	}
+
+	&--button {
+		width: 92px;
+		height: 30px;
+		border-radius: var(--pp-radius-sm);
+	}
+
+	&--search {
+		flex: 1 1 200px;
+		min-width: 170px;
+		max-width: 260px;
+		height: 38px;
+		border-radius: var(--pp-radius);
+	}
+
+	&--seg {
+		width: 250px;
+		height: 38px;
+		border-radius: var(--pp-radius);
+	}
+}
+
+/*
+ * The shimmer says "still working"; without it a grey grid reads as content
+ * that has finished loading badly. Movement only, so it can be dropped.
+ */
+@keyframes pp-skeleton-shimmer {
+	from {
+		background-position: 100% 50%;
+	}
+
+	to {
+		background-position: 0 50%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pp-skeleton {
+		animation: none;
+		background: #e8ecf1;
+	}
+}
+
+// Placeholder rows are not interactive, whatever the class they borrow.
+.pp-is-loading .pp-category-nav-item {
+	cursor: default;
+}
+
+/* Upgrade prompt, pinned to the bottom of the sidebar. */
+.pp-modules-upgrade-section-container {
+	border-top: 1px solid var(--ppe-border-color);
+	margin-top: auto;
+	padding: 20px;
+}
+
+.pp-modules-upgrade-section {
+	background-color: var(--ppe-primary-color);
+	background-image: linear-gradient(
+		to bottom right,
+		var(--ppe-primary-color-light),
+		var(--ppe-primary-color)
+	);
+	border-radius: var(--pp-radius);
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 6px;
+	padding: 20px;
+}
+
+.pp-modules-upgrade-title {
+	font-size: 0.95em;
+	color: #fff;
+	margin: 0;
+	opacity: 0.8;
+	text-transform: uppercase;
+}
+
+.pp-upgrade-button {
+	background-color: #fff;
+	border-radius: var(--pp-radius-sm);
+	color: var(--ppe-primary-color);
+	display: inline-block;
+	font-weight: 500;
+	margin-top: 5px;
+	padding: 6px 8px;
+	text-decoration: none;
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+}
+
+.pp-section,
+.pp-settings-section {
+	background: #fff;
+	border: 1px solid $pp-border;
+
+	// The outer step: a section holds cards, which hold controls.
+	border-radius: var(--pp-radius-lg);
+	margin-bottom: 16px;
+}
+
+.pp-section__header,
+.pp-settings-section-header {
+	// Positioned so the caret can be centred against the whole header rather
+	// than against the title line alone.
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	// Row gap first: this is a wrapping flex row, so a single `gap` would also
+	// space the description away from the title it belongs to.
+	gap: 4px 12px;
+	padding: 14px 20px;
+	border-bottom: 1px solid $pp-border;
+	flex-wrap: wrap;
+
+	h3 {
+		font-size: 14px;
+		margin: 0;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		min-width: 0;
+	}
+
+	p {
+		margin: 0;
+		color: var(--ppe-text-color);
+		font-size: 13px;
+		flex-basis: 100%;
+	}
+}
+
+// A collapsed section keeps its header rule only when something follows it.
+.pp-settings-section.is-collapsed .pp-settings-section-header {
+	border-bottom: 0;
+}
+
+.pp-settings-section-title {
+	flex: 1 1 auto;
+}
+
+/*
+ * The disclosure button fills the heading so the whole header row is the hit
+ * target, which is what makes "click the header to collapse" true.
+ */
+.pp-section-toggle {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	appearance: none;
+	background: none;
+	border: 0;
+
+	// The caret is lifted out of the flow and centred on the header, so the
+	// title has to keep the space it used to occupy.
+	padding: 0 0 0 26px;
+	margin: 0;
+
+	// WCAG 2.5.8 wants 24px in both directions; the text alone gave it 18.
+	min-height: 24px;
+	cursor: pointer;
+	font: inherit;
+	color: inherit;
+	text-align: left;
+}
+
+/*
+ * Taken out of the title line and centred on the header instead, so a section
+ * with a description gets one caret sitting between the two lines rather than
+ * one pinned to the title.
+ */
+.pp-section-caret {
+	position: absolute;
+	left: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+	color: var(--ppe-text-color);
+	transition: transform 0.15s ease;
+}
+
+.pp-settings-section.is-collapsed .pp-section-caret {
+	transform: translateY(-50%) rotate(-90deg);
+}
+
+.pp-section-title-text {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.pp-section-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex: 0 0 auto;
+}
+
+/*
+ * The description sits directly under the title so the two read as one block.
+ * The indent matches the title's, clearing the caret; it cannot be nested
+ * inside the button because a description may contain a link.
+ */
+.pp-section-description {
+	margin: 0;
+	padding-left: 26px;
+	color: var(--ppe-text-color);
+	font-size: 13px;
+	flex-basis: 100%;
+}
+
+.pp-section__body,
+.pp-settings-section-content {
+	padding: 20px;
+	display: grid;
+	gap: 24px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Field layout
+ *
+ * One arrangement for every panel: a row holds fields, which sit side by side,
+ * or groups, which render as cards. A single-entry row is simply full width,
+ * which is why the same class covers both cases.
+ * ------------------------------------------------------------------------ */
+
+.pp-field-row {
+	display: grid;
+	grid-template-columns: repeat( auto-fit, minmax( 0, 1fr ) );
+	gap: 24px;
+	align-items: start;
+
+	// Below this the columns get too narrow to type in comfortably.
+	@media (max-width: 900px) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.pp-field-group {
+	background: #fff;
+	border: 1px solid $pp-border;
+	border-radius: var(--pp-radius);
+	padding: 1.5rem;
+	display: grid;
+	gap: 20px;
+	align-content: start;
+}
+
+/*
+ * Brand mark beside a group title. Sized to the cap height of the text rather
+ * than the line box, so it reads as part of the heading.
+ */
+.pp-field-group-icon {
+	display: inline-flex;
+	flex: 0 0 auto;
+	align-items: center;
+	justify-content: center;
+
+	/*
+	 * The tinted disc from the previous screen, now taking its colour from the
+	 * service it names rather than an approximation of it: Facebook was a
+	 * generic #2563eb and Google was red, which is not one of Google's colours
+	 * at all. Each disc is its mark's own colour at low alpha.
+	 */
+	border-radius: var(--pp-radius-pill);
+	padding: 0.4rem;
+	background-color: rgb(24 119 242 / 12%);
+	color: #1877f2;
+
+	// Blue leads Google's own mark, so the disc follows it; the G itself
+	// carries all four colours and takes none from here.
+	&.is-google {
+		background-color: rgb(66 133 244 / 12%);
+	}
+
+	&.is-yelp {
+		background-color: rgb(255 26 26 / 12%);
+		color: #ff1a1a;
+	}
+
+	svg {
+		width: 16px;
+		height: 16px;
+		display: block;
+		fill: currentColor;
+	}
+}
+
+.pp-field-group-title {
+	border-bottom: 1px solid $pp-divider;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	// Matches the section title above it. It was #666, which made a nested
+	// heading read as less important rather than one level down.
+	font-size: 14px;
+	font-weight: 600;
+	color: $pp-heading;
+	margin: 0;
+	padding: 0 0 0.8rem;
+}
+
+/* Switch rows, as used for extensions and taxonomies on the old screen. */
+.pp-toggle-list {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-top: 4px;
+}
+
+.pp-toggle-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	label {
+		margin: 0;
+	}
+
+	.components-form-toggle {
+		flex: 0 0 auto;
+	}
+}
+
+.pp-toggle-item-content {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.pp-toggle-label {
+	cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------------
+ * One label treatment, one help treatment
+ *
+ * A field's label was rendering three ways depending on which control drew it:
+ * wp-components' 11px uppercase grey, our 13px sentence-case grey on list
+ * fields, and 13px sentence-case near-black on switches. Everything converges
+ * on the switch treatment.
+ *
+ * Sentence case over the uppercase micro-caps because labels here run long —
+ * "Overlay Header Background", "reCAPTCHA v3 Secret Key" — and uppercase costs
+ * legibility exactly where the string is hardest to scan. Switch rows are also
+ * the most common labelled control on the screen, so this moves the fewest
+ * things.
+ *
+ * Two label classes are involved, not one: TextControl and ComboboxControl use
+ * .components-base-control__label, while SelectControl and everything else
+ * built on InputControl use .components-input-control__label. Styling only the
+ * first leaves every select still shouting in uppercase.
+ * ------------------------------------------------------------------------ */
+
+@mixin pp-field-label {
+	display: block;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.4;
+	color: $pp-heading;
+	text-transform: none;
+	letter-spacing: normal;
+	margin-bottom: 6px;
+}
+
+.pp-settings-section-content,
+.pp-field-group {
+	.pp-field__label,
+	.pp-toggle-label {
+		@include pp-field-label;
+	}
+
+	// A switch label sits beside its control, so it needs no gap beneath.
+	.pp-toggle-label {
+		margin-bottom: 0;
+	}
+
+	.components-base-control__help,
+	.pp-settings-description {
+		font-size: 12px;
+		line-height: 1.5;
+		font-weight: 400;
+		color: var(--ppe-text-muted);
+		margin: 4px 0 0;
+	}
+
+	/*
+	 * wp-components labels need more weight than a plain descendant selector
+	 * carries. Emotion repeats its generated class three times, so the rule it
+	 * has to beat sits at (0,3,0); the app-root scope below takes this to
+	 * (0,3,1). Without it colour lands but size and casing do not, which is a
+	 * confusing half-application to debug.
+	 *
+	 * If a future wp-components repeats the class a fourth time this stops
+	 * winning — tests/audit reports it as two variants for one role.
+	 */
+}
+
+.pp-settings .pp-settings-section-content,
+.pp-settings .pp-field-group {
+	label.components-base-control__label,
+	label.components-input-control__label {
+		@include pp-field-label;
+	}
+
+	.pp-toggle-item-content .pp-settings-description {
+		margin-top: 2px;
+	}
+
+	/*
+	 * Inputs, nudged toward the shapes the rest of the plugin's admin UI uses.
+	 *
+	 * 40px, not 32: ComboboxControl has no 32px size, so a row pairing a text
+	 * field with a searchable select had two different heights. Raising the
+	 * plain inputs is the only way to make the pair match, and it is the size
+	 * WordPress is moving everything to anyway (__next40pxDefaultSize).
+	 */
+	.components-text-control__input,
+	.components-textarea-control__input,
+	.components-select-control__input {
+		border-radius: var(--pp-radius);
+		box-shadow: none;
+	}
+
+	.components-text-control__input,
+	.components-select-control__input {
+		min-height: 40px;
+	}
+
+	/*
+	 * The combobox draws its border on the container, not the input, so the
+	 * radius belongs there — and nothing may set a height on the input inside:
+	 * the container is already 40px, and a 40px input within its 38px content
+	 * box overflows and paints over the bottom border.
+	 */
+	.components-combobox-control__suggestions-container {
+		border-radius: var(--pp-radius);
+	}
+
+	.components-base-control__field {
+		margin-bottom: 0;
+	}
+}
+
+/*
+ * Same type as the count in the category list — both show the same number, so
+ * they should not be two different sizes and weights. Only the container
+ * differs: a pill reads well beside a heading, while a pill per row would be
+ * heavy in the narrow list.
+ */
+.pp-category-count {
+	background: #e0e7ef;
+	color: $pp-heading;
+	font-size: 11px;
+	font-weight: 500;
+	padding: 2px 8px;
+	border-radius: var(--pp-radius-pill);
+	min-width: 24px;
+	text-align: center;
+}
+
+.pp-field {
+	// Width comes from the row it sits in: a field sharing a row gets half,
+	// one on its own gets the section. Capping it here left single fields
+	// stranded at a fixed width inside a much wider panel.
+	min-width: 0;
+
+	/*
+	 * Titles the list below it, so it takes the rule a field group's own title
+	 * takes — the label and its action read as a heading for the rows rather
+	 * than as the first of them.
+	 */
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		margin-bottom: 14px;
+		padding-bottom: 0.8rem;
+		border-bottom: 1px solid $pp-divider;
+	}
+
+	&__label {
+		font-weight: 500;
+		font-size: 13px;
+	}
+
+	// Sits with the control's help text, so it matches it.
+	&__link {
+		margin: 8px 0 0;
+		font-size: 12px;
+	}
+
+	/*
+	 * A note that is only a link is a target in its own right, not a link
+	 * inside a sentence, so it needs the 24px the text alone does not give it.
+	 */
+	&__note > .components-external-link:only-child {
+		display: inline-flex;
+		align-items: center;
+		min-height: 24px;
+	}
+
+	/*
+	 * A field notice trails either the help text or the Clear/Verify row, and
+	 * the component's own margins assume it is stacked in a notice list rather
+	 * than tucked under a control.
+	 */
+	.components-notice {
+		margin: 14px 0 0;
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: 8px;
+		flex-wrap: wrap;
+
+		/*
+		 * Give these buttons a resting shape. As tertiary variants they were
+		 * bare text until hover, so the padding appeared from nowhere and the
+		 * row read as stray links rather than controls.
+		 */
+		.components-button.is-tertiary {
+			height: 30px;
+			padding: 0 10px;
+			border-radius: var(--pp-radius-sm);
+			font-size: 12px;
+			background: $pp-bg;
+			border: 1px solid $pp-border;
+
+			&:hover:not(:disabled) {
+				background: #fff;
+				border-color: var(--ppe-border-color);
+			}
+		}
+
+		// Destructive reads as a caution at rest, not only on hover.
+		.components-button.is-tertiary.is-destructive {
+			color: #b32d2e;
+			background: #fcedeb;
+			border-color: #f0bdb6;
+
+			&:hover:not(:disabled) {
+				background: #f9dcd9;
+				border-color: #e0a49b;
+				color: #8a2321;
+			}
+		}
+	}
+
+	&__note {
+		font-size: 12px;
+		color: #646970;
+	}
+
+	&--list,
+	&--toggle {
+		max-width: none;
+	}
+}
+
+.pp-verdict {
+	font-size: 12px;
+
+	&--ok {
+		color: #007017;
+	}
+
+	&--bad {
+		color: #b32d2e;
+	}
+
+	&--unknown {
+		color: #996800;
+	}
+}
+
+.pp-toggle-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 8px 20px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Widget library
+ *
+ * Structure and styling mirror the original module manager, so the switches,
+ * cards and category bar look exactly as they did before the rewrite.
+ * ------------------------------------------------------------------------ */
+
+/* ---------------------------------------------------------------------------
+ * Elements toolbar
+ *
+ * Sticky under the admin bar, so search, the usage filter and the category
+ * jumplist stay reachable however far down the library you are.
+ * ------------------------------------------------------------------------ */
+
+.pp-toolbar {
+	position: sticky;
+	top: 42px;
+	z-index: 12;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 12px;
+	padding: 12px 16px;
+	background: #fff;
+	border: 1px solid $pp-border;
+	border-radius: var(--pp-radius);
+
+	@media (max-width: 782px) {
+		position: static;
+	}
+}
+
+.pp-toolbar-actions {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin-left: auto;
+}
+
+/* -- search --------------------------------------------------------------- */
+/*
+ * Kept narrow so it shares a row with the filter rather than pushing it down.
+ * The column is only ~660px wide once the nav and card padding are removed.
+ */
+.pp-search {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex: 1 1 200px;
+	min-width: 170px;
+	max-width: 260px;
+
+	> .dashicons-search {
+		position: absolute;
+		left: 9px;
+		color: var(--ppe-text-muted);
+		font-size: 18px;
+		width: 18px;
+		height: 18px;
+		pointer-events: none;
+	}
+}
+
+/*
+ * Selector carries the element as well as the class: wp-admin styles
+ * input[type="search"] directly, which would otherwise outrank a bare class
+ * and drop the padding that keeps text clear of the icon.
+ */
+input.pp-search-input {
+	width: 100%;
+	min-height: 38px;
+	padding: 6px 32px 6px 36px;
+	margin: 0;
+	border: 1px solid $pp-border;
+	border-radius: var(--pp-radius);
+	box-shadow: none;
+	font-size: 13px;
+	line-height: 1.4;
+
+	&:focus {
+		border-color: var(--ppe-primary-color);
+		box-shadow: 0 0 0 1px var(--ppe-primary-color);
+		outline: none;
+	}
+
+	/*
+	 * Suppress the browser's own clear affordance. It appears on hover and
+	 * focus only, so alongside our always-visible button the field showed two
+	 * crosses that behave differently.
+	 */
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-decoration {
+		appearance: none;
+		display: none;
+	}
+}
+
+.pp-search-clear {
+	position: absolute;
+	right: 5px;
+	display: flex;
+	appearance: none;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	color: var(--ppe-text-muted);
+	padding: 2px;
+	border-radius: 50%;
+
+	.dashicons {
+		font-size: 16px;
+		width: 16px;
+		height: 16px;
+	}
+
+	&:hover {
+		color: $pp-heading;
+		background: $pp-bg;
+	}
+}
+
+/* -- segmented usage filter ----------------------------------------------- */
+/*
+ * Sized to match the search field beside it: the buttons are 32px, and the
+ * container's 2px padding plus 1px border on each side brings it to 38.
+ */
+.pp-seg {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	padding: 2px;
+	background: $pp-bg;
+	border: 1px solid $pp-border;
+	border-radius: var(--pp-radius);
+}
+
+.pp-seg-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	appearance: none;
+	background: none;
+	border: 0;
+	border-radius: var(--pp-radius-sm);
+	cursor: pointer;
+	min-height: 32px;
+	padding: 0 14px;
+	font-size: 12px;
+
+	/*
+	 * It had none: focusing it changed nothing at all, so a keyboard user
+	 * moving through the toolbar could not tell where they were. wp-admin's
+	 * own ring, since these sit in a wp-admin screen.
+	 */
+	&:focus-visible {
+		outline: 2px solid var(--ppe-primary-color);
+		outline-offset: 1px;
+	}
+
+	// Constant across states. Going 550 → 650 on selection re-measured the
+	// text, so the buttons shifted sideways as you clicked between them. The
+	// white pill and the darker text carry the state on their own.
+	font-weight: 600;
+	color: var(--ppe-text-color);
+	white-space: nowrap;
+	transition: background 0.12s ease, color 0.12s ease;
+
+	&:hover:not(:disabled) {
+		color: $pp-heading;
+	}
+
+	&.is-active {
+		background: #fff;
+		color: $pp-heading;
+		box-shadow: 0 1px 2px rgb(15 23 42 / 6%);
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: default;
+	}
+}
+
+.pp-seg-n {
+	font-size: 11px;
+	color: var(--ppe-text-muted);
+}
+
+/* -- filter summary and empty state --------------------------------------- */
+.pp-filter-summary {
+	margin: 0;
+	font-size: 13px;
+	color: var(--ppe-text-color);
+
+	.components-button.is-link {
+		font-size: 13px;
+	}
+}
+
+.pp-empty {
+	display: grid;
+	justify-items: center;
+	text-align: center;
+	gap: 12px;
+	padding: 48px 16px;
+	background: #fff;
+	border: 1px solid $pp-border;
+	border-radius: var(--pp-radius);
+	color: var(--ppe-text-color);
+}
+
+.pp-empty-mark {
+	width: 44px;
+	height: 44px;
+	border-radius: var(--pp-radius);
+	border: 2px dashed $pp-border;
+	display: grid;
+	place-items: center;
+	color: var(--ppe-text-muted);
+
+	.dashicons {
+		font-size: 20px;
+		width: 20px;
+		height: 20px;
+	}
+}
+
+.pp-empty-title {
+	font-size: 15px;
+	font-weight: 600;
+	color: $pp-heading;
+}
+
+.pp-empty-desc {
+	font-size: 13px;
+	max-width: 44ch;
+	margin: 0;
+}
+
+.pp-modules-manager-section-content {
+	padding: 20px;
+}
+
+/*
+ * Keep a jumped-to category clear of the sticky toolbar and the admin bar
+ * above it, rather than landing underneath them.
+ */
+.pp-panel-body .pp-settings-section {
+	scroll-margin-top: 150px;
+}
+
+.pp-modules {
+	display: grid;
+
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+	// 12px, not 14: at a 1440px viewport the grid is 686px wide, and three
+	// 220px tracks with 14px gaps need 688. Two pixels was the difference
+	// between three columns and two very wide ones.
+	gap: 12px;
+}
+
+.pp-modules-table-element {
+	background: #fff;
+	border: 1px solid $pp-border;
+	border-radius: var(--pp-radius);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/*
+ * A widget the current edition does not ship. Held back rather than greyed
+ * out: the card is still worth reading — that is the whole point of listing it
+ * — so only the icon and name recede, and the Pro link is the one bright thing
+ * on it.
+ */
+.pp-modules-table-element.is-pro {
+	.pp-module-icon,
+	.pp-modules-table-element-name {
+		opacity: 0.75;
+	}
+}
+
+/*
+ * The same gold as the header badge, and a link rather than a label: it has
+ * somewhere to go. Sized to clear the 24px target minimum, which the text on
+ * its own does not.
+ */
+.pp-module-pro {
+	display: inline-flex;
+	align-items: center;
+	min-height: 24px;
+	padding: 2px 10px;
+	border-radius: var(--pp-radius-pill);
+	background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+	color: #422006;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	text-decoration: none;
+	box-shadow: 0 1px 2px rgb(180 83 9 / 25%);
+
+	&:hover,
+	&:focus {
+		color: #422006;
+		box-shadow: 0 1px 4px rgb(180 83 9 / 40%);
+	}
+}
+
+.pp-modules-table-element-content {
+	padding: 15px;
+}
+
+.pp-modules-table-element-header {
+	margin-bottom: 15px;
+
+	.pp-module-icon {
+		font-size: 24px;
+
+		// Matches the widget name below it, so the card reads as one block
+		// rather than an accent mark with a caption.
+		color: $pp-heading;
+	}
+}
+
+.pp-modules-table-element-name {
+	color: $pp-heading;
+	font-weight: 500;
+}
+
+/*
+ * A widget card is a name; an extension card is a name and an explanation. The
+ * description sits under the name in the same body, so the footer stays pinned
+ * to the bottom whatever the text length.
+ */
+.pp-modules-table-element-content .pp-settings-description {
+	margin: 6px 0 0;
+}
+
+.pp-modules-table-element-footer {
+	background-color: rgb(248 250 252 / 50%);
+	border-top: 1px solid $pp-divider;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 10px 15px;
+}
+
+.pp-modules-table-element-footer-links {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.pp-module-link {
+	color: var(--ppe-text-muted);
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	min-height: 24px;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: 500;
+	transition: color 0.12s ease;
+
+	svg {
+		fill: currentColor;
+		flex: 0 0 auto;
+	}
+
+	// Follows the admin colour scheme rather than the fixed blue it used to be.
+	&:hover,
+	&:focus {
+		color: var(--ppe-primary-color);
+	}
+}
+
+/*
+ * The switch is @wordpress/components' FormToggle, styled by wp-components.
+ * Only layout is set here — nothing about its appearance is overridden.
+ */
+.pp-modules-table-element-footer .components-form-toggle {
+	flex: 0 0 auto;
+	margin: 0;
+}
+
+.toggle-all-widgets {
+	flex: 0 0 auto;
+}
+
+/* ---------------------------------------------------------------------------
+ * Welcome
+ *
+ * Built from the same parts as every other panel — the section card, the
+ * bordered tile, the status pill — so the landing screen looks like the rest
+ * of the plugin rather than an advert bolted to the front of it.
+ * ------------------------------------------------------------------------ */
+
+/*
+ * Quiet by design. Dismissing is a shortcut for people who already know what
+ * they are doing, not something to talk anyone into.
+ */
+.pp-home-dismiss {
+	appearance: none;
+	background: none;
+	border: 0;
+	padding: 4px;
+	margin: -4px;
+	font: inherit;
+	font-size: 13px;
+	color: var(--ppe-text-muted);
+	cursor: pointer;
+
+	&:hover,
+	&:focus-visible {
+		color: var(--ppe-primary-color);
+		text-decoration: underline;
+	}
+}
+
+/* Setup checklist */
+.pp-home-steps {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.pp-home-step {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin: 0;
+	padding: 14px 0;
+	border-bottom: 1px solid $pp-divider;
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	&:last-child {
+		padding-bottom: 0;
+		border-bottom: 0;
+	}
+}
+
+/*
+ * An outline until it is filled: a checklist is only readable at a glance if
+ * done and not-done differ in shape as well as colour.
+ */
+.pp-home-step-mark {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	border: 1.5px solid #cbd5e1;
+	color: #fff;
+
+	.is-done & {
+		background: #007017;
+		border-color: #007017;
+	}
+
+	svg {
+		fill: currentColor;
+	}
+}
+
+.pp-home-step-body {
+	display: grid;
+	gap: 2px;
+	min-width: 0;
+	flex: 1 1 auto;
+}
+
+.pp-home-step-title {
+	font-size: 13px;
+	font-weight: 500;
+	color: $pp-heading;
+
+	.is-done & {
+		color: var(--ppe-text-color);
+	}
+}
+
+.pp-home-step-text {
+	font-size: 12px;
+	color: var(--ppe-text-muted);
+}
+
+.pp-home-step-state {
+	flex: 0 0 auto;
+	font-size: 12px;
+	font-weight: 500;
+	color: #007017;
+}
+
+.pp-home-step-action {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	min-height: 24px;
+	flex: 0 0 auto;
+	appearance: none;
+	background: none;
+	border: 0;
+	padding: 0;
+	font: inherit;
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--ppe-primary-color);
+	cursor: pointer;
+
+	&:hover,
+	&:focus-visible {
+		text-decoration: underline;
+	}
+
+	svg {
+		fill: currentColor;
+	}
+}
+
+/* At a glance */
+.pp-home-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 16px;
+}
+
+.pp-home-stat {
+	appearance: none;
+	display: grid;
+	gap: 4px;
+	justify-items: start;
+	text-align: left;
+	padding: 18px;
+	background: #fff;
+	border: 1px solid $pp-border;
+	border-radius: var(--pp-radius);
+	cursor: pointer;
+	font: inherit;
+	transition: border-color 0.15s ease;
+
+	&:hover,
+	&:focus-visible {
+		border-color: var(--ppe-primary-color);
+	}
+}
+
+.pp-home-stat-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 34px;
+	height: 34px;
+	margin-bottom: 6px;
+	border-radius: var(--pp-radius);
+	background: var(--ppe-primary-color-soft);
+	color: var(--ppe-primary-color);
+}
+
+.pp-home-stat-label {
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	color: var(--ppe-text-muted);
+}
+
+.pp-home-stat-value {
+	font-size: 20px;
+	font-weight: 600;
+	color: $pp-heading;
+	line-height: 1.3;
+}
+
+.pp-home-stat-detail {
+	font-size: 13px;
+	color: var(--ppe-text-color);
+}
+
+.pp-home-stat-cta {
+	margin-top: 8px;
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--ppe-primary-color);
+}
+
+/*
+ * The one prompt on the screen, so it is allowed to look like one. It only
+ * appears when there is something concrete to act on.
+ */
+.pp-home-tip {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin-top: 16px;
+	padding: 16px;
+	border: 1px solid #bfdbfe;
+	border-radius: var(--pp-radius);
+	background: #f5f9ff;
+
+	.dashicons {
+		flex: 0 0 auto;
+		color: var(--ppe-primary-color);
+	}
+
+	p {
+		margin: 0 0 10px;
+		font-size: 13px;
+		color: #1e3a5f;
+		line-height: 1.6;
+	}
+}
+
+.pp-home-tip-body {
+	min-width: 0;
+}
+
+/* What's new */
+.pp-home-more {
+	font-size: 13px;
+	color: var(--ppe-primary-color);
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+}
+
+.pp-home-changes {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.pp-home-change {
+	position: relative;
+	margin: 0;
+	padding-left: 20px;
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--ppe-text-color);
+
+	// One colour per kind: added, improved, fixed, and everything else.
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 6px;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #94a3b8;
+	}
+
+	&.is-new::before {
+		background: #22c55e;
+	}
+
+	&.is-enhancement::before {
+		background: #3b82f6;
+	}
+
+	&.is-fix::before {
+		background: #f59e0b;
+	}
+}
+
+/* Help */
+.pp-home-resources {
+	display: grid;
+
+	// 200, not 260: the section is about 930px wide, and at 260 the four cards
+	// broke as three with a stray fourth beneath them.
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 12px;
+}
+
+.pp-home-resource {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 14px 16px;
+	border: 1px solid $pp-border;
+	border-radius: var(--pp-radius);
+	background: #fff;
+	text-decoration: none;
+	transition: border-color 0.15s ease;
+
+	&:hover,
+	&:focus-visible {
+		border-color: var(--ppe-primary-color);
+	}
+
+	.dashicons {
+		flex: 0 0 auto;
+		margin-top: 1px;
+		color: var(--ppe-primary-color);
+	}
+}
+
+.pp-home-resource-body {
+	display: grid;
+	gap: 2px;
+	min-width: 0;
+}
+
+.pp-home-resource-title {
+	font-size: 13px;
+	font-weight: 600;
+	color: $pp-heading;
+}
+
+.pp-home-resource-text {
+	font-size: 13px;
+	color: var(--ppe-text-color);
+}
+
+/*
+ * Reading material, in the paired cards the Integration panel uses. Two lists
+ * crammed under the Help cards read as an afterthought; given a card each and
+ * a section of their own they read as a shelf.
+ */
+/*
+ * Stretched rather than start-aligned: a two-item list beside a two-post list
+ * leaves one card noticeably shorter, and a short card floating next to a tall
+ * one reads as a rendering fault.
+ */
+.pp-home-learn {
+	align-items: stretch;
+}
+
+.pp-home-learn .pp-field-group {
+	// The card title already carries its own rule and padding, so the group's
+	// usual gap would double the space under it.
+	gap: 0;
+	align-content: start;
+
+	.pp-field-group-title {
+		margin-bottom: 4px;
+	}
+
+	.pp-home-more {
+		margin-left: auto;
+		font-weight: 400;
+	}
+}
+
+.pp-home-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	min-width: 0;
+
+	li {
+		margin: 0;
+		border-bottom: 1px solid $pp-divider;
+
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+
+	a {
+		display: flex;
+		align-items: flex-start;
+		gap: 8px;
+		padding: 10px 0;
+		font-size: 13px;
+		color: #334155;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: var(--ppe-primary-color);
+		}
+	}
+
+	.dashicons {
+		flex: 0 0 auto;
+		margin-top: 1px;
+		font-size: 16px;
+		width: 16px;
+		height: 16px;
+		color: var(--ppe-primary-color);
+	}
+}
+
+.pp-home-list-text {
+	display: grid;
+	gap: 1px;
+	min-width: 0;
+	line-height: 1.5;
+}
+
+.pp-home-list-meta {
+	font-size: 12px;
+	color: var(--ppe-text-muted);
+}
+
+/*
+ * The component ships a 5px top margin, meant for a spinner standing on its
+ * own in a block of text. Inside a button that pushes it below the baseline of
+ * the label beside it, so it is reset wherever a button holds one. Three
+ * classes deep to outrank the emotion rule that sets it.
+ */
+.pp-settings .components-button .components-spinner {
+	margin: 0 4px 0 0;
+}
+
+/*
+ * One pill, four states. Each carries a tinted fill and a matching outline
+ * rather than colour alone: the difference between "not activated yet" and
+ * "expired" is the whole point of the badge, and a fill on its own left them
+ * reading as the same pale shape.
+ */
+.pp-license-status {
+	font-size: 12px;
+	font-weight: 600;
+	border-radius: var(--pp-radius-pill);
+	padding: 3px 10px;
+	background: #fff;
+	border: 1px solid $pp-border;
+	color: #4b5563;
+
+	&.is-valid {
+		background: #edfaef;
+		border-color: #86d992;
+		color: #007017;
+	}
+
+	// Amber, not red: the key is fine, it simply is not activated here.
+	&.is-inactive {
+		background: #fefce8;
+		border-color: #eab308;
+		color: #854d0e;
+	}
+
+	&.is-expired {
+		background: #fef2f2;
+		border-color: #f0a3a3;
+		color: #c02b2c;
+	}
+}

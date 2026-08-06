@@ -1,0 +1,434 @@
+/**
+ * Settings screen shell: navigation, dirty tracking, and saving.
+ *
+ * Saving submits only what changed. That is not an optimisation — it is what
+ * makes it impossible for one panel to blank another panel's options, which is
+ * the failure mode the old self-posting form had.
+ */
+
+import { __, sprintf, _n } from '@wordpress/i18n';
+import { useState, useEffect, useCallback, useRef } from '@wordpress/element';
+import { Button, Notice, Spinner, Snackbar } from '@wordpress/components';
+import { Icon } from '@wordpress/icons';
+import { fetchSettings, saveSettings, fetchTemplates } from '../api';
+import { PANELS, FIELD_META } from '../panels';
+import { PANEL_ICONS } from '../icons';
+import SettingsPanel from './SettingsPanel';
+import ModulesPanel from './ModulesPanel';
+
+const boot = window.ppSettingsBootstrap || {};
+
+/**
+ * Panels that are not driven by the generic renderer.
+ *
+ * 'group' is the registry group the panel's settings live in, where that
+ * differs from the panel key. The key is what the URL shows, so it follows the
+ * tab's name rather than the internal one: the widget library stores its list
+ * in an option called 'modules', but nothing on screen has ever used that word.
+ */
+const SPECIAL = {
+	welcome: { title: () => __( 'Welcome', 'powerpack-lite-for-elementor' ) },
+	elements: { title: () => __( 'Elements', 'powerpack-lite-for-elementor' ), group: 'modules' },
+	license: { title: () => __( 'License', 'powerpack-lite-for-elementor' ) },
+};
+
+/** Navigation order, by group key. */
+const ORDER = [ 'elements', 'extensions', 'integration' ];
+
+/**
+ * Which panel the URL is asking for.
+ *
+ * @return {string} A panel key from ORDER, falling back to Elements.
+ */
+const panelFromHash = () => {
+	const fromHash = window.location.hash.replace( /^#/, '' );
+
+	return ORDER.includes( fromHash ) ? fromHash : 'elements';
+};
+
+export default function App() {
+	const [ payload, setPayload ] = useState( null );
+	const [ changes, setChanges ] = useState( {} );
+	const [ templates, setTemplates ] = useState( {} );
+	const [ saving, setSaving ] = useState( false );
+	const [ error, setError ] = useState( null );
+	const [ toast, setToast ] = useState( null );
+	const [ active, setActive ] = useState( panelFromHash );
+
+	// The save bar animates both ways, so it has to outlive the state that
+	// summons it: on the way out it stays mounted until the slide finishes.
+	const [ saveBar, setSaveBar ] = useState( { mounted: false, leaving: false } );
+	const lastDirtyCount = useRef( 0 );
+
+	useEffect( () => {
+		fetchSettings()
+			.then( setPayload )
+			.catch( ( err ) => setError( err.message ) );
+	}, [] );
+
+	/*
+	 * Follow the URL, not just read it once on mount. Without this the browser
+	 * Back button moves the hash but leaves the previous panel on screen, and
+	 * pasting a link with a hash into an already-open tab does nothing.
+	 *
+	 * Unsaved edits survive the switch: they live in `changes`, which spans
+	 * panels, so navigating away and back loses nothing.
+	 */
+	useEffect( () => {
+		const onHashChange = () => setActive( panelFromHash() );
+
+		window.addEventListener( 'hashchange', onHashChange );
+
+		return () => window.removeEventListener( 'hashchange', onHashChange );
+	}, [] );
+
+	// Template pickers declare which collection they need; fetch each once.
+	useEffect( () => {
+		if ( ! payload ) {
+			return;
+		}
+
+		const needed = new Set();
+
+		Object.keys( payload.fields ).forEach( ( key ) => {
+			const meta = FIELD_META[ key ];
+			if ( meta?.templates ) {
+				needed.add( meta.templates );
+			}
+		} );
+
+		needed.forEach( ( type ) => {
+			if ( templates[ type ] ) {
+				return;
+			}
+
+			fetchTemplates( type )
+				.then( ( result ) =>
+					setTemplates( ( previous ) => ( { ...previous, [ type ]: result.groups } ) )
+				)
+				.catch( () =>
+					setTemplates( ( previous ) => ( { ...previous, [ type ]: [] } ) )
+				);
+		} );
+	}, [ payload ] ); // eslint-disable-line react-hooks/exhaustive-deps
+
+	const dirtyCount = Object.keys( changes ).length;
+
+	// Computed here rather than beside the markup so the animation effect below
+	// runs on every render, ahead of the loading and error returns.
+	const wantSaveBar = dirtyCount > 0 && 'license' !== active;
+
+	useEffect( () => {
+		if ( wantSaveBar ) {
+			setSaveBar( { mounted: true, leaving: false } );
+			return undefined;
+		}
+
+		let timer;
+
+		setSaveBar( ( previous ) => {
+			if ( ! previous.mounted ) {
+				return previous;
+			}
+
+			// Keep it on screen until the slide-out finishes.
+			timer = setTimeout( () => setSaveBar( { mounted: false, leaving: false } ), 200 );
+
+			return { mounted: true, leaving: true };
+		} );
+
+		return () => clearTimeout( timer );
+	}, [ wantSaveBar ] );
+
+	// Guard against losing edits to a stray navigation.
+	useEffect( () => {
+		if ( ! dirtyCount ) {
+			return undefined;
+		}
+
+		const warn = ( event ) => {
+			event.preventDefault();
+			event.returnValue = '';
+		};
+
+		window.addEventListener( 'beforeunload', warn );
+
+		return () => window.removeEventListener( 'beforeunload', warn );
+	}, [ dirtyCount ] );
+
+	const onChange = useCallback( ( key, value ) => {
+		setChanges( ( previous ) => ( { ...previous, [ key ]: value } ) );
+	}, [] );
+
+	const navigate = ( key ) => {
+		setActive( key );
+		window.location.hash = key;
+	};
+
+	const save = async () => {
+		if ( ! dirtyCount ) {
+			return;
+		}
+
+		setSaving( true );
+		setError( null );
+
+		try {
+			const result = await saveSettings( changes );
+
+			setPayload( result );
+			setChanges( {} );
+
+			const ignored = Object.keys( result.skipped || {} ).length;
+
+			setToast(
+				ignored
+					? sprintf(
+							/* translators: %d: number of fields that were not saved. */
+							_n(
+								'Settings saved. %d field was left unchanged.',
+								'Settings saved. %d fields were left unchanged.',
+								ignored,
+								'powerpack-lite-for-elementor'
+							),
+							ignored
+					  )
+					: __( 'Settings saved.', 'powerpack-lite-for-elementor' )
+			);
+		} catch ( err ) {
+			setError( err.message );
+		}
+
+		setSaving( false );
+	};
+
+	if ( error && ! payload ) {
+		return (
+			<div className="pp-settings">
+				<Notice status="error" isDismissible={ false }>
+					{ error }
+				</Notice>
+			</div>
+		);
+	}
+
+	if ( ! payload ) {
+		return (
+			<div className="pp-settings pp-settings--loading">
+				<Spinner />
+			</div>
+		);
+	}
+
+	const settings = payload.settings || {};
+	const fields = payload.fields || {};
+
+	// White label can hide whole panels, so visibility is derived from the
+	// current values rather than baked in at page load.
+	const value = ( key ) =>
+		Object.prototype.hasOwnProperty.call( changes, key ) ? changes[ key ] : settings[ key ];
+
+	const hidden = new Set();
+
+	if ( value( 'hide_integration_tab' ) === 'on' ) {
+		hidden.add( 'integration' );
+	}
+
+	if ( settings.hide_wl_settings === 'on' ) {
+		hidden.add( 'white_label' );
+	}
+
+	const available = ORDER.filter( ( key ) => {
+		if ( hidden.has( key ) ) {
+			return false;
+		}
+
+		if ( SPECIAL[ key ] ) {
+			return payload.groups.includes( SPECIAL[ key ].group || key );
+		}
+
+		return payload.groups.includes( key );
+	} );
+
+	const current = available.includes( active ) ? active : available[ 0 ];
+	const panel = PANELS.find( ( item ) => item.group === current );
+
+	// Hold the last real count so the label does not blink to zero mid-exit.
+	if ( dirtyCount > 0 ) {
+		lastDirtyCount.current = dirtyCount;
+	}
+
+	const shownDirtyCount = dirtyCount > 0 ? dirtyCount : lastDirtyCount.current;
+
+	return (
+		<div className={ `pp-settings${ saveBar.mounted ? ' has-save-bar' : '' }` }>
+			<div className="pp-admin-settings-header">
+				<div className="pp-admin-settings-head">
+					<h1>
+						{ ! boot.hideLogo && (
+							<span className="ppicon-powerpack-small" aria-hidden="true" />
+						) }
+						<span>{ boot.adminLabel || 'PowerPack' }</span>
+
+						{ /*
+						  * The gaps between these are drawn by flexbox, which
+						  * leaves the heading's text as one run — "PowerPackPro
+						  * v2.13.5" to anything reading it rather than looking
+						  * at it. The spaces are explicit for that reason.
+						  */ }
+						{ boot.isPro && (
+							<>
+								{ ' ' }
+								<span className="pp-edition">{ __( 'Pro', 'powerpack-lite-for-elementor' ) }</span>
+							</>
+						) }
+						{ boot.version && (
+							<>
+								{ ' ' }
+								<span className="version">v{ boot.version }</span>
+							</>
+						) }
+					</h1>
+
+					<ul className="pp-admin-settings-topbar-nav">
+						{ boot.docsLink && (
+							<li className="pp-admin-settings-topbar-nav-item">
+								<a href={ boot.docsLink } target="_blank" rel="noopener noreferrer">
+									<span
+										className="dashicons dashicons-editor-help"
+										aria-hidden="true"
+									/>
+									{ __( 'Documentation', 'powerpack-lite-for-elementor' ) }
+								</a>
+							</li>
+						) }
+						{ boot.showSupport && boot.supportLink && (
+							<li className="pp-admin-settings-topbar-nav-item">
+								<a href={ boot.supportLink } target="_blank" rel="noopener noreferrer">
+									<span className="dashicons dashicons-email" aria-hidden="true" />
+									{ __( 'Support', 'powerpack-lite-for-elementor' ) }
+								</a>
+							</li>
+						) }
+					</ul>
+				</div>
+			</div>
+
+			<div className="pp-admin-settings-body">
+				<div className="pp-admin-settings-tabs-container">
+					<nav
+						className="pp-admin-settings-tabs"
+						aria-label={ __( 'Settings sections', 'powerpack-lite-for-elementor' ) }
+					>
+						{ available.map( ( key ) => {
+							const item = SPECIAL[ key ] || PANELS.find( ( p ) => p.group === key );
+
+							return (
+								<button
+									type="button"
+									key={ key }
+									className={ `pp-settings-tab${
+										key === current ? ' is-active' : ''
+									}` }
+									aria-current={ key === current ? 'page' : undefined }
+									onClick={ () => navigate( key ) }
+								>
+									{ PANEL_ICONS[ key ] && (
+										<Icon icon={ PANEL_ICONS[ key ] } size={ 20 } />
+									) }
+									<span>{ item ? item.title() : key }</span>
+								</button>
+							);
+						} ) }
+					</nav>
+
+					{ boot.showUpgrade && (
+						<div className="pp-modules-upgrade-section-container">
+							<div className="pp-modules-upgrade-section">
+								<h2 className="pp-modules-upgrade-title">
+									{ __( 'Pro Features', 'powerpack-lite-for-elementor' ) }
+								</h2>
+								<div className="pp-modules-upgrade-text">
+									{ __( 'Unlock more with PowerPack Pro', 'powerpack-lite-for-elementor' ) }
+								</div>
+								<a
+									href={ boot.upgradeUrl || 'https://powerpackelements.com/upgrade/' }
+									className="pp-upgrade-link pp-upgrade-button"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									{ __( 'Upgrade Now', 'powerpack-lite-for-elementor' ) }
+								</a>
+							</div>
+						</div>
+					) }
+				</div>
+
+				<main className="pp-admin-settings-content">
+					{ error && (
+						<Notice status="error" onRemove={ () => setError( null ) }>
+							{ error }
+						</Notice>
+					) }
+
+					{ current === 'elements' && (
+						<ModulesPanel settings={ settings } changes={ changes } onChange={ onChange } />
+					) }
+
+					{ panel && (
+						<SettingsPanel
+							panel={ panel }
+							fields={ fields }
+							settings={ settings }
+							changes={ changes }
+							templates={ templates }
+							onChange={ onChange }
+						/>
+					) }
+				</main>
+			</div>
+
+			{ saveBar.mounted && (
+				<footer
+					className={ `pp-settings__save is-dirty${ saveBar.leaving ? ' is-leaving' : '' }` }
+					aria-hidden={ saveBar.leaving }
+				>
+					<span className="pp-settings__dirty">
+						{ sprintf(
+							/* translators: %d: number of unsaved changes. */
+							_n( '%d unsaved change', '%d unsaved changes', shownDirtyCount, 'powerpack-lite-for-elementor' ),
+							shownDirtyCount
+						) }
+					</span>
+
+					<Button
+						variant="tertiary"
+						disabled={ saving || saveBar.leaving }
+						onClick={ () => setChanges( {} ) }
+					>
+						{ __( 'Discard', 'powerpack-lite-for-elementor' ) }
+					</Button>
+
+					<Button
+						variant="primary"
+						disabled={ saving || saveBar.leaving }
+						onClick={ save }
+					>
+						{ saving ? <Spinner /> : __( 'Save Changes', 'powerpack-lite-for-elementor' ) }
+					</Button>
+				</footer>
+			) }
+
+			{ /*
+			  * Snackbar carries no positioning of its own — in the editor a
+			  * SnackbarList places it. Left in the flow it rendered at the foot
+			  * of the document, well below the fold.
+			  */ }
+			{ toast && (
+				<div className="pp-settings__toast">
+					<Snackbar onRemove={ () => setToast( null ) }>{ toast }</Snackbar>
+				</div>
+			) }
+		</div>
+	);
+}

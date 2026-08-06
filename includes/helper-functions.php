@@ -3,76 +3,50 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+/**
+ * Every widget this plugin ships and this site can actually use.
+ *
+ * Derived from the catalogue rather than listed again here. The two were
+ * maintained separately and had drifted: this list carried 'pp-link-effects'
+ * and 'pp-hotspots', which no widget answers to — the catalogue registers them
+ * as 'pa-link-effects' and 'pp-image-hotspots' — so neither name could ever
+ * enable anything.
+ *
+ * PP_Helper::get_widgets_list() is what drops the paid edition's widgets, which
+ * the catalogue also carries so the settings screen can promote them.
+ *
+ * @since x.x.x
+ * @return array
+ */
 function powerpack_elements_lite_get_modules() {
-	$modules = array(
-		'pp-advanced-accordion'     => esc_html__( 'Advanced Accordion', 'powerpack-lite-for-elementor' ),
-		'pp-link-effects'           => esc_html__( 'Link Effects', 'powerpack-lite-for-elementor' ),
-		'pp-divider'                => esc_html__( 'Divider', 'powerpack-lite-for-elementor' ),
-		'pp-flipbox'                => esc_html__( 'Flipbox', 'powerpack-lite-for-elementor' ),
-		'pp-image-accordion'        => esc_html__( 'Image Accordion', 'powerpack-lite-for-elementor' ),
-		'pp-info-box'               => esc_html__( 'Info Box', 'powerpack-lite-for-elementor' ),
-		'pp-info-box-carousel'      => esc_html__( 'Info Grid & Carousel', 'powerpack-lite-for-elementor' ),
-		'pp-info-list'              => esc_html__( 'Info List', 'powerpack-lite-for-elementor' ),
-		'pp-info-table'             => esc_html__( 'Info Table', 'powerpack-lite-for-elementor' ),
-		'pp-pricing-table'          => esc_html__( 'Pricing Table', 'powerpack-lite-for-elementor' ),
-		'pp-price-menu'             => esc_html__( 'Price Menu', 'powerpack-lite-for-elementor' ),
-		'pp-business-hours'         => esc_html__( 'Business Hours', 'powerpack-lite-for-elementor' ),
-		'pp-team-member'            => esc_html__( 'Team Member', 'powerpack-lite-for-elementor' ),
-		'pp-team-member-carousel'   => esc_html__( 'Team Member Carousel', 'powerpack-lite-for-elementor' ),
-		'pp-counter'                => esc_html__( 'Counter', 'powerpack-lite-for-elementor' ),
-		'pp-hotspots'               => esc_html__( 'Image Hotspots', 'powerpack-lite-for-elementor' ),
-		'pp-icon-list'              => esc_html__( 'Icon List', 'powerpack-lite-for-elementor' ),
-		'pp-dual-heading'           => esc_html__( 'Dual Heading', 'powerpack-lite-for-elementor' ),
-		'pp-promo-box'              => esc_html__( 'Promo Box', 'powerpack-lite-for-elementor' ),
-		'pp-logo-carousel'          => esc_html__( 'Logo Carousel', 'powerpack-lite-for-elementor' ),
-		'pp-logo-grid'              => esc_html__( 'Logo Grid', 'powerpack-lite-for-elementor' ),
-		'pp-marquee'                => esc_html__( 'Marquee', 'powerpack-lite-for-elementor' ),
-		'pp-image-comparison'       => esc_html__( 'Image Comparison', 'powerpack-lite-for-elementor' ),
-		'pp-instafeed'              => esc_html__( 'Instagram Feed', 'powerpack-lite-for-elementor' ),
-		'pp-interactive-circle'     => esc_html__( 'Interactive Circle', 'powerpack-lite-for-elementor' ),
-		'pp-progress-bar'           => esc_html__( 'Progress Bar', 'powerpack-lite-for-elementor' ),
-		'pp-content-ticker'         => esc_html__( 'Content Ticker', 'powerpack-lite-for-elementor' ),
-		'pp-scroll-image'           => esc_html__( 'Scroll Image', 'powerpack-lite-for-elementor' ),
-		'pp-buttons'                => esc_html__( 'Buttons', 'powerpack-lite-for-elementor' ),
-		'pp-twitter-buttons'        => esc_html__( 'Twitter Buttons', 'powerpack-lite-for-elementor' ),
-		'pp-twitter-grid'           => esc_html__( 'Twitter Grid', 'powerpack-lite-for-elementor' ),
-		'pp-twitter-timeline'       => esc_html__( 'Twitter Timeline', 'powerpack-lite-for-elementor' ),
-		'pp-twitter-tweet'          => esc_html__( 'Twitter Tweet', 'powerpack-lite-for-elementor' ),
-		'pp-fancy-heading'          => esc_html__( 'Fancy Heading', 'powerpack-lite-for-elementor' ),
-		'pp-posts'                  => esc_html__( 'Posts', 'powerpack-lite-for-elementor' ),
-		'pp-content-reveal'         => esc_html__( 'Content Reveal', 'powerpack-lite-for-elementor' ),
-		'pp-random-image'           => esc_html__( 'Random Image', 'powerpack-lite-for-elementor' ),
-		'pp-charts'                 => esc_html__( 'Advanced Charts', 'powerpack-lite-for-elementor' ),
-	);
+	/*
+	 * Form stylers are only offered when the form plugin they style is here.
+	 * Nothing is gained by putting a Gravity Forms switch in front of someone
+	 * who does not have Gravity Forms.
+	 */
+	$requires = [
+		'pp-contact-form-7'   => 'wpcf7',
+		'pp-gravity-forms'    => 'GFCommon',
+		'pp-ninja-forms'      => 'Ninja_Forms',
+		'pp-wpforms'          => 'wpforms',
+		'pp-formidable-forms' => 'FrmForm',
+		'pp-fluent-forms'     => 'wpFluentForm',
+	];
 
-	// Contact Form 7
-	if ( function_exists( 'wpcf7' ) ) {
-		$modules['pp-contact-form-7'] = esc_html__( 'Contact Form 7', 'powerpack-lite-for-elementor' );
-	}
+	$modules = [];
 
-	// Gravity Forms
-	if ( class_exists( 'GFCommon' ) ) {
-		$modules['pp-gravity-forms'] = esc_html__( 'Gravity Forms', 'powerpack-lite-for-elementor' );
-	}
+	foreach ( \PowerpackElementsLite\Classes\PP_Helper::get_widgets_list() as $widget ) {
+		if ( empty( $widget['name'] ) ) {
+			continue;
+		}
 
-	// Ninja Forms
-	if ( class_exists( 'Ninja_Forms' ) ) {
-		$modules['pp-ninja-forms'] = esc_html__( 'Ninja Forms', 'powerpack-lite-for-elementor' );
-	}
+		$name = $widget['name'];
 
-	// WPForms
-	if ( function_exists( 'wpforms' ) ) {
-		$modules['pp-wpforms'] = esc_html__( 'WPForms', 'powerpack-lite-for-elementor' );
-	}
+		if ( isset( $requires[ $name ] ) && ! function_exists( $requires[ $name ] ) && ! class_exists( $requires[ $name ] ) ) {
+			continue;
+		}
 
-	// Formidable Forms
-	if ( class_exists( 'FrmForm' ) ) {
-		$modules['pp-formidable-forms'] = esc_html__( 'Formidable Forms', 'powerpack-lite-for-elementor' );
-	}
-
-	// Fluent Forms
-	if ( function_exists( 'wpFluentForm' ) ) {
-		$modules['pp-fluent-forms'] = esc_html__( 'Fluent Forms', 'powerpack-lite-for-elementor' );
+		$modules[ $name ] = $widget['title'];
 	}
 
 	ksort( $modules );

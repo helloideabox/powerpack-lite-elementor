@@ -75,13 +75,34 @@ class PP_Helper {
 	/**
 	 * Get widgets list.
 	 *
+	 * The widgets this edition actually ships — which is not the whole
+	 * catalogue. PP_Config::get_widget_info() also carries the paid edition's
+	 * widgets so the settings screen and the editor can promote them, and this
+	 * is the one place they are dropped. Everything downstream registers
+	 * widgets or decides what a save is allowed to enable, and neither may see
+	 * a widget whose class this plugin does not contain.
+	 *
 	 * @since 2.3.0
 	 * @return array()
 	 */
 	public static function get_widgets_list() {
 
 		if ( ! isset( self::$widgets_list ) ) {
-			self::$widgets_list = PP_Config::get_widget_info();
+			// The catalogue is grouped by category; every caller below wants it
+			// keyed by widget, so it is flattened once here.
+			$widgets_list = [];
+
+			foreach ( PP_Config::get_widget_info() as $widgets ) {
+				foreach ( $widgets as $key => $widget ) {
+					if ( ! empty( $widget['is_pro'] ) ) {
+						continue;
+					}
+
+					$widgets_list[ $key ] = $widget;
+				}
+			}
+
+			self::$widgets_list = $widgets_list;
 		}
 
 		return apply_filters( 'ppe_lite_widgets_list', self::$widgets_list );
@@ -96,7 +117,7 @@ class PP_Helper {
 	 */
 	public static function get_widget_name( $slug = '' ) {
 
-		self::$widgets_list = PP_Config::get_widget_info();
+		self::$widgets_list = self::get_widgets_list();
 
 		$widget_name = '';
 
@@ -122,7 +143,7 @@ class PP_Helper {
 	 */
 	public static function get_widget_title( $slug = '' ) {
 
-		self::$widgets_list = PP_Config::get_widget_info();
+		self::$widgets_list = self::get_widgets_list();
 
 		$widget_name = '';
 
@@ -148,7 +169,7 @@ class PP_Helper {
 	 */
 	public static function get_widget_categories( $slug = '' ) {
 
-		self::$widgets_list = PP_Config::get_widget_info();
+		self::$widgets_list = self::get_widgets_list();
 
 		$widget_categories = '';
 
@@ -174,7 +195,7 @@ class PP_Helper {
 	 */
 	public static function get_widget_icon( $slug = '' ) {
 
-		self::$widgets_list = PP_Config::get_widget_info();
+		self::$widgets_list = self::get_widgets_list();
 
 		$widget_icon = '';
 
@@ -200,7 +221,7 @@ class PP_Helper {
 	 */
 	public static function get_widget_keywords( $slug = '' ) {
 
-		self::$widgets_list = PP_Config::get_widget_info();
+		self::$widgets_list = self::get_widgets_list();
 
 		$widget_keywords = '';
 

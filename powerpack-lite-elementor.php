@@ -33,6 +33,26 @@ require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-config.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-posts-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
+/*
+ * The settings screen is shared with the paid edition, and reaches the widget
+ * library through plain pp_* functions that both editions would declare. Two
+ * declarations of one name is a fatal, so this edition only brings its half
+ * when the paid one is not installed — which is also the only time its screen
+ * would be shown.
+ *
+ * The guard at the top of this file catches the case where the paid edition
+ * loaded first; this one catches the reverse.
+ */
+if ( ! function_exists( 'is_plugin_active' ) ) {
+	include_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+
+if ( ! defined( 'POWERPACK_ELEMENTS_VER' ) && ! is_plugin_active( 'powerpack-elements/powerpack-elements.php' ) ) {
+	require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/settings-compat.php';
+	require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-settings-registry.php';
+	require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-settings-rest-controller.php';
+}
+
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
 if ( did_action( 'elementor/loaded' ) ) {
 	require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-templates-lib.php';
