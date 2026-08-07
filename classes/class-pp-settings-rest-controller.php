@@ -308,6 +308,19 @@ final class PP_Settings_REST_Controller {
 				}
 			}
 
+			/*
+			 * Choices the paid edition has and this one does not. Sent so the
+			 * screen can show them, never merged into 'choices' — that list is
+			 * what a save is validated against.
+			 */
+			if ( ! empty( $field['pro'] ) && is_callable( $field['pro'] ) ) {
+				$pro = array_map( [ __CLASS__, 'plain_text' ], (array) call_user_func( $field['pro'] ) );
+
+				if ( ! empty( $pro ) ) {
+					$descriptor['pro'] = $pro;
+				}
+			}
+
 			$fields[ $key ]           = $descriptor;
 			$groups[ $field['group'] ] = true;
 		}

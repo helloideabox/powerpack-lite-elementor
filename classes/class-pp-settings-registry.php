@@ -128,6 +128,13 @@ final class PP_Settings_Registry {
 			// Per-choice documentation links, suppressed by white label like
 			// every other docs link on the screen.
 			'docs'     => [ __NAMESPACE__ . '\PP_Config', 'get_extension_docs' ],
+
+			/*
+			 * Shown on the screen but absent from 'choices', so the sanitiser
+			 * drops them on save whatever the browser sends. The listing is a
+			 * preview; there is nothing to store.
+			 */
+			'pro'      => [ __NAMESPACE__ . '\PP_Config', 'get_pro_extensions' ],
 			'default'  => self::NONE_SELECTED,
 		];
 

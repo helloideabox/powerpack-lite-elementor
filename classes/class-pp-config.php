@@ -1000,6 +1000,13 @@ class PP_Config {
 				'pp-wrapper-link'                 => 'wrapper-link',
 				'pp-animated-gradient-background' => 'animated-gradient-background',
 				'pp-custom-cursor'                => 'custom-cursor',
+
+				// Paid edition only. Listed so the preview cards can link to
+				// what the extension does before anyone buys it.
+				'pp-background-effects'           => 'background-effects',
+				'pp-tooltips'                     => 'tooltip',
+				'pp-presets-style'                => 'presets',
+				'pp-magic-wand'                   => 'magic-wand',
 			];
 
 			self::$extension_docs = [];
@@ -1010,6 +1017,32 @@ class PP_Config {
 		}
 
 		return apply_filters( 'pp_elements_lite_extension_docs', self::$extension_docs );
+	}
+
+	/**
+	 * The extensions only the paid edition ships.
+	 *
+	 * Deliberately kept out of powerpack_elements_lite_get_extensions(), which
+	 * is both the list of what this plugin offers and the allowlist a save is
+	 * validated against. A name that is not in it can be shown but never
+	 * stored, which is what makes listing these safe.
+	 *
+	 * The widget catalogue solves the same problem with an 'is_pro' flag on one
+	 * list, because widgets carry a row of their own. Extensions are a plain
+	 * name => title map shared with the registry, so a second list is the
+	 * smaller change.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return array Extension slug => title.
+	 */
+	public static function get_pro_extensions() {
+		return [
+			'pp-background-effects' => esc_html__( 'Background Effects', 'powerpack-lite-for-elementor' ),
+			'pp-tooltips'           => esc_html__( 'Tooltips', 'powerpack-lite-for-elementor' ),
+			'pp-presets-style'      => esc_html__( 'Presets', 'powerpack-lite-for-elementor' ),
+			'pp-magic-wand'         => esc_html__( 'Magic Wand (Copy/Paste)', 'powerpack-lite-for-elementor' ),
+		];
 	}
 
 	/**

@@ -96,6 +96,22 @@ const EXTENSION_HELP = {
 		__( 'Make a whole section, container or widget clickable as one link.', 'powerpack-lite-for-elementor' ),
 	'pp-custom-cursor': () =>
 		__( 'Replace the mouse cursor with an icon, image or text over chosen elements.', 'powerpack-lite-for-elementor' ),
+
+	// Paid edition only. Described here so their cards read like the rest.
+	'pp-background-effects': () =>
+		__(
+			'Animated section backgrounds — particles, fog, waves, snow and others.',
+			'powerpack-lite-for-elementor'
+		),
+	'pp-tooltips': () =>
+		__( 'Attach a tooltip to any element, shown on hover or on click.', 'powerpack-lite-for-elementor' ),
+	'pp-presets-style': () =>
+		__( 'One-click style presets on supported PowerPack widgets.', 'powerpack-lite-for-elementor' ),
+	'pp-magic-wand': () =>
+		__(
+			'Copy a section from one site and paste it into another, bringing its images with it.',
+			'powerpack-lite-for-elementor'
+		),
 };
 
 /**

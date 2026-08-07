@@ -24,6 +24,10 @@ import { LINK_ICONS } from '../icons';
 import { verifyCredential } from '../api';
 import ToggleSwitch from './ToggleSwitch';
 
+const boot = window.ppSettingsBootstrap || {};
+
+const UPGRADE_URL = boot.upgradeUrl || 'https://powerpackelements.com/upgrade/';
+
 /**
  * A standing caveat attached to a field.
  *
@@ -150,10 +154,18 @@ function SecretField( { fieldKey, meta, stored, edited, isDirty, onChange } ) {
  * An empty selection is submitted as an empty array; the server turns that into
  * the 'disabled' sentinel it has always stored.
  */
-function ListField( { fieldKey, meta, choices, docs, value, onChange } ) {
+function ListField( { fieldKey, meta, choices, docs, pro, value, onChange } ) {
 	const selected = Array.isArray( value ) ? value : [];
 	const all = Object.keys( choices );
 	const allOn = all.length > 0 && all.every( ( key ) => selected.includes( key ) );
+
+	/*
+	 * Choices the paid edition has and this one does not, listed after the rest
+	 * so the screen reads as one library. Kept out of `all` deliberately: every
+	 * count and bulk action here is a promise about what can be switched, and
+	 * the server drops these on save whatever the browser sends.
+	 */
+	const paid = pro ? Object.keys( pro ) : [];
 
 	const toggle = ( key, checked ) => {
 		const next = checked
@@ -171,7 +183,7 @@ function ListField( { fieldKey, meta, choices, docs, value, onChange } ) {
 	 */
 	const itemHelp = meta.itemHelp || {};
 	const links = docs || {};
-	const asCards = all.some( ( key ) => itemHelp[ key ] );
+	const asCards = all.concat( paid ).some( ( key ) => itemHelp[ key ] );
 
 	/*
 	 * A section that declares toggleAll puts the button in its own header, next
@@ -252,6 +264,55 @@ function ListField( { fieldKey, meta, choices, docs, value, onChange } ) {
 										label={ choices[ key ] }
 										onChange={ ( checked ) => toggle( key, checked ) }
 									/>
+								</div>
+							</div>
+						);
+					} ) }
+
+					{ paid.map( ( key ) => {
+						const help = itemHelp[ key ];
+						const href = links[ key ];
+
+						return (
+							<div className="pp-modules-table-element is-pro" key={ key }>
+								<div className="pp-modules-table-element-content">
+									<div className="pp-modules-table-element-name">{ pro[ key ] }</div>
+									{ help && (
+										<p className="pp-settings-description">{ help() }</p>
+									) }
+								</div>
+
+								<div className="pp-modules-table-element-footer">
+									<div className="pp-modules-table-element-footer-links">
+										{ href && (
+											<a
+												href={ href }
+												className="pp-module-link pp-module-docs"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												<Icon icon={ LINK_ICONS.docs } size={ 16 } />
+												<span className="pp-module-link-text">
+													{ __( 'Docs', 'powerpack-lite-for-elementor' ) }
+												</span>
+											</a>
+										) }
+									</div>
+
+									{ /*
+									  * A link where the switch would be, as on a
+									  * paid widget's card. There is nothing to
+									  * toggle here, and the one thing worth doing
+									  * is finding out what it costs.
+									  */ }
+									<a
+										className="pp-module-pro"
+										href={ `${ UPGRADE_URL }?utm_source=lite-settings&utm_medium=wp-dash&utm_campaign=extensions` }
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{ __( 'Pro', 'powerpack-lite-for-elementor' ) }
+									</a>
 								</div>
 							</div>
 						);
@@ -388,6 +449,7 @@ export default function Field( {
 				meta={ meta }
 				choices={ descriptor.choices || {} }
 				docs={ descriptor.docs }
+				pro={ descriptor.pro }
 				value={ current }
 				onChange={ onChange }
 			/>
