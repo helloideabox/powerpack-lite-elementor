@@ -56,7 +56,11 @@ export function deriveEnabled( { isDirty, edited, saved, categories = [] } ) {
 }
 
 /**
- * Every widget name in the catalogue.
+ * Every widget name in the catalogue, including any this build cannot switch.
+ *
+ * The free edition lists the paid edition's widgets so the library reads as one
+ * library. They are searchable and grouped like any other, so counts about what
+ * is *on screen* — "Search 76 widgets" — want this one.
  *
  * @param {Array} categories Catalogue from GET /modules.
  * @return {string[]} Widget names.
@@ -64,6 +68,24 @@ export function deriveEnabled( { isDirty, edited, saved, categories = [] } ) {
 export function allWidgetNames( categories = [] ) {
 	return categories.flatMap( ( category ) =>
 		( category.widgets || [] ).map( ( widget ) => widget.name )
+	);
+}
+
+/**
+ * The widget names this build actually ships.
+ *
+ * Counts about what is *switched on* want this one instead. "71 of 76 available
+ * in the editor" was wrong in both halves: a paid widget is neither enabled nor
+ * enableable, so it belongs in neither the figure nor the total.
+ *
+ * @param {Array} categories Catalogue from GET /modules.
+ * @return {string[]} Widget names, minus anything marked as paid.
+ */
+export function shippedWidgetNames( categories = [] ) {
+	return categories.flatMap( ( category ) =>
+		( category.widgets || [] )
+			.filter( ( widget ) => ! widget.isPro )
+			.map( ( widget ) => widget.name )
 	);
 }
 

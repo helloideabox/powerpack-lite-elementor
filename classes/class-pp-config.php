@@ -34,6 +34,13 @@ class PP_Config {
 	public static $help_docs = null;
 
 	/**
+	 * Extension documentation links.
+	 *
+	 * @var extension_docs
+	 */
+	public static $extension_docs = null;
+
+	/**
 	 * Get Widget List.
 	 *
 	 * @since 2.1.0
@@ -729,7 +736,7 @@ class PP_Config {
 					],
 				],
 				'WooCommerce Elements'  => [
-					'Woo_Add_To_Cart'    => [
+					'Woo_Add_To_Cart'               => [
 						'name'       => 'pp-woo-add-to-cart',
 						'title'      => esc_html__( 'Woo - Add To Cart', 'powerpack-lite-for-elementor' ),
 						'categories' => [ 'powerpack-elements' ],
@@ -738,7 +745,7 @@ class PP_Config {
 						'demo'       => 'https://powerpackelements.com/woocommerce-elementor-widgets/add-to-cart-button/' . $utm_suffix,
 						'is_pro'     => true,
 					],
-					'Woo_Cart'           => [
+					'Woo_Cart'                      => [
 						'name'       => 'pp-woo-cart',
 						'title'      => esc_html__( 'Woo - Cart', 'powerpack-lite-for-elementor' ),
 						'categories' => [ 'powerpack-elements' ],
@@ -747,7 +754,7 @@ class PP_Config {
 						'demo'       => 'https://powerpackelements.com/woocommerce-elementor-widgets/cart-widget/' . $utm_suffix,
 						'is_pro'     => true,
 					],
-					'Woo_Categories'     => [
+					'Woo_Categories'                => [
 						'name'       => 'pp-woo-categories',
 						'title'      => esc_html__( 'Woo - Categories', 'powerpack-lite-for-elementor' ),
 						'categories' => [ 'powerpack-elements' ],
@@ -756,7 +763,7 @@ class PP_Config {
 						'demo'       => 'https://powerpackelements.com/woocommerce-elementor-widgets/categories-widget/' . $utm_suffix,
 						'is_pro'     => true,
 					],
-					'Woo_Checkout'       => [
+					'Woo_Checkout'                  => [
 						'name'       => 'pp-woo-checkout',
 						'title'      => esc_html__( 'Woo - Checkout', 'powerpack-lite-for-elementor' ),
 						'categories' => [ 'powerpack-elements' ],
@@ -765,7 +772,7 @@ class PP_Config {
 						'demo'       => 'https://powerpackelements.com/woocommerce-elementor-widgets/checkout-widget/' . $utm_suffix,
 						'is_pro'     => true,
 					],
-					'Woo_Mini_Cart'      => [
+					'Woo_Mini_Cart'                 => [
 						'name'       => 'pp-woo-mini-cart',
 						'title'      => esc_html__( 'Woo - Mini Cart', 'powerpack-lite-for-elementor' ),
 						'categories' => [ 'powerpack-elements' ],
@@ -774,7 +781,7 @@ class PP_Config {
 						'demo'       => 'https://powerpackelements.com/woocommerce-elementor-widgets/mini-cart-widget/' . $utm_suffix,
 						'is_pro'     => true,
 					],
-					'Woo_Offcanvas_Cart' => [
+					'Woo_Offcanvas_Cart'            => [
 						'name'       => 'pp-woo-offcanvas-cart',
 						'title'      => esc_html__( 'Woo - Off Canvas Cart', 'powerpack-lite-for-elementor' ),
 						'categories' => [ 'powerpack-elements' ],
@@ -783,13 +790,135 @@ class PP_Config {
 						'demo'       => 'https://powerpackelements.com/woocommerce-elementor-widgets/off-canvas-cart-widget/' . $utm_suffix,
 						'is_pro'     => true,
 					],
-					'Woo_Products'       => [
+					'Woo_Products'                  => [
 						'name'       => 'pp-woo-products',
 						'title'      => esc_html__( 'Woo - Products', 'powerpack-lite-for-elementor' ),
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-woo-products power-pack-admin-icon',
 						'demo'       => 'https://powerpackelements.com/woocommerce-elementor-widgets/product-grid/' . $utm_suffix,
+						'is_pro'     => true,
+					],
+					'Woo_My_Account'                => [
+						'name'       => 'pp-woo-my-account',
+						'title'      => esc_html__( 'Woo - My Account', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-my-account power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-elementor-widgets/my-account-widget/' . $utm_suffix,
+						'is_pro'     => true,
+					],
+					'Woo_Single_Product'            => [
+						'name'       => 'pp-woo-single-product',
+						'title'      => esc_html__( 'Woo - Single Product', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-woo-single-product power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-elementor-widgets/single-product/' . $utm_suffix,
+						'is_pro'     => true,
+					],
+					'Woo_Product_Tabs'              => [
+						'name'       => 'pp-woo-product-tabs',
+						'title'      => esc_html__( 'Woo - Product Tabs', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-product-tabs power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Product_Title'             => [
+						'name'       => 'pp-woo-product-title',
+						'title'      => esc_html__( 'Woo - Product Title', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-product-title power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Product_Meta'              => [
+						'name'       => 'pp-woo-product-meta',
+						'title'      => esc_html__( 'Woo - Product Meta', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-product-meta power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Product_Price'             => [
+						'name'       => 'pp-woo-product-price',
+						'title'      => esc_html__( 'Woo - Product Price', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-product-price power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Product_Rating'            => [
+						'name'       => 'pp-woo-product-rating',
+						'title'      => esc_html__( 'Woo - Product Rating', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-product-rating power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Product_Stock'             => [
+						'name'       => 'pp-woo-product-stock',
+						'title'      => esc_html__( 'Woo - Product Stock', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-product-stock power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Product_Short_Description' => [
+						'name'       => 'pp-woo-product-short-description',
+						'title'      => esc_html__( 'Woo - Product Short Description', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-product-short-desc power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Product_Content'           => [
+						'name'       => 'pp-woo-product-content',
+						'title'      => esc_html__( 'Woo - Product Content', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-product-content power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Product_Images'            => [
+						'name'       => 'pp-woo-product-images',
+						'title'      => esc_html__( 'Woo - Product Images', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-product-images power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Product_Reviews'           => [
+						'name'       => 'pp-woo-product-reviews',
+						'title'      => esc_html__( 'Woo - Product Reviews', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-product-reviews power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Product_Upsell'            => [
+						'name'       => 'pp-woo-product-upsell',
+						'title'      => esc_html__( 'Woo - Product Upsell', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-product-upsell power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Add_To_Cart_Notification'  => [
+						'name'       => 'pp-woo-add-to-cart-notification',
+						'title'      => esc_html__( 'Woo - Add to Cart Notification', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-woo-add-to-cart-notification power-pack-admin-icon',
+						'is_pro'     => true,
+					],
+					'Woo_Archive_Description'       => [
+						'name'       => 'pp-woo-archive-description',
+						'title'      => esc_html__( 'Woo - Archive Description', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'woocommerce' ],
+						'icon'       => 'ppicon-woo-archive-description power-pack-admin-icon',
 						'is_pro'     => true,
 					],
 				],
@@ -847,6 +976,40 @@ class PP_Config {
 			[],
 			'2.9.10'
 		);
+	}
+
+	/**
+	 * Get the documentation URL for each extension.
+	 *
+	 * Keyed the way powerpack_elements_lite_get_extensions() keys its list. An
+	 * extension registered through a filter has no entry here and simply shows
+	 * no link, so the two lists never have to be kept in step.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return array Extension slug => documentation URL.
+	 */
+	public static function get_extension_docs() {
+		if ( null === self::$extension_docs ) {
+			$utm_suffix = '?utm_source=widget&utm_medium=panel&utm_campaign=userkb';
+			$base       = 'https://powerpackelements.com/doc-category/';
+
+			// Doc category slugs, which do not all match the extension slug.
+			$slugs = [
+				'pp-display-conditions'           => 'display-conditions',
+				'pp-wrapper-link'                 => 'wrapper-link',
+				'pp-animated-gradient-background' => 'animated-gradient-background',
+				'pp-custom-cursor'                => 'custom-cursor',
+			];
+
+			self::$extension_docs = [];
+
+			foreach ( $slugs as $extension => $slug ) {
+				self::$extension_docs[ $extension ] = $base . $slug . '/' . $utm_suffix;
+			}
+		}
+
+		return apply_filters( 'pp_elements_lite_extension_docs', self::$extension_docs );
 	}
 
 	/**

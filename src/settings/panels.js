@@ -65,12 +65,22 @@ export const PANELS = [
 			},
 		],
 	},
+	{
+		group: 'advanced',
+		title: () => __( 'Advanced', 'powerpack-lite-for-elementor' ),
+		sections: [
+			{
+				title: () => __( 'Data Management', 'powerpack-lite-for-elementor' ),
+				fields: [ 'pp_delete_data_on_uninstall' ],
+			},
+		],
+	},
 ];
 
 /**
  * What each extension does.
  *
- * Keyed by the slug pp_get_extensions() uses. The list is filterable, so an
+ * Keyed by the slug powerpack_elements_lite_get_extensions() uses. The list is filterable, so an
  * extension added by a third party simply has no entry and renders as a name
  * on its own.
  */
@@ -111,6 +121,16 @@ export const FIELD_META = {
 					'powerpack-lite-for-elementor'
 				),
 				'https://powerpackelements.com/docs/powerpack/widgets/instagram-feed/how-to-get-instagram-access-token/'
+			),
+	},
+
+	// Advanced.
+	pp_delete_data_on_uninstall: {
+		label: () => __( 'Delete Data on Uninstall', 'powerpack-lite-for-elementor' ),
+		help: () =>
+			__(
+				'Remove all plugin settings when the plugin is deleted. Deactivating never removes anything, and your content is never touched.',
+				'powerpack-lite-for-elementor'
 			),
 	},
 };

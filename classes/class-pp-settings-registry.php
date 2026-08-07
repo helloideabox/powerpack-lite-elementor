@@ -29,7 +29,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Sentinel written when a list field has nothing selected.
 	 *
-	 * An empty array is NOT equivalent: pp_get_enabled_extensions() and friends
+	 * An empty array is NOT equivalent: powerpack_elements_lite_get_enabled_extensions() and friends
 	 * treat a missing or non-'disabled' value as "everything enabled".
 	 */
 	const NONE_SELECTED = 'disabled';
@@ -113,7 +113,7 @@ final class PP_Settings_Registry {
 			'type'     => 'list',
 			'strategy' => self::ON_EMPTY_SENTINEL,
 			'cap'      => 'edit_posts',
-			'choices'  => 'pp_get_modules',
+			'choices'  => 'powerpack_elements_lite_get_modules',
 			'default'  => self::NONE_SELECTED,
 		];
 
@@ -123,7 +123,11 @@ final class PP_Settings_Registry {
 			'type'     => 'list',
 			'strategy' => self::ON_EMPTY_SENTINEL,
 			'cap'      => 'edit_posts',
-			'choices'  => 'pp_get_extensions',
+			'choices'  => 'powerpack_elements_lite_get_extensions',
+
+			// Per-choice documentation links, suppressed by white label like
+			// every other docs link on the screen.
+			'docs'     => [ __NAMESPACE__ . '\PP_Config', 'get_extension_docs' ],
 			'default'  => self::NONE_SELECTED,
 		];
 
@@ -142,6 +146,21 @@ final class PP_Settings_Registry {
 			'secret'           => true,
 			'network_override' => false,
 			'default'          => '',
+		];
+
+		/*
+		 * Advanced.
+		 *
+		 * Read by uninstall.php, which runs with the plugin unloaded and so
+		 * keeps its own copy of the key list. Keep the two in step.
+		 */
+		$fields['pp_delete_data_on_uninstall'] = [
+			'group'    => 'advanced',
+			'store'    => 'option',
+			'type'     => 'boolean',
+			'strategy' => self::ON_EMPTY_DELETE,
+			'cap'      => 'manage_options',
+			'default'  => false,
 		];
 
 		return $fields;

@@ -35,6 +35,7 @@ run() {
 
 echo "Unit (no WordPress required)"
 run "catalogue" unit-catalogue.php
+run "coexistence" unit-coexistence.php
 
 echo
 if [ "$failed" -eq 0 ]; then

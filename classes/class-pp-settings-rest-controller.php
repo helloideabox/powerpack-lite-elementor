@@ -28,6 +28,9 @@ final class PP_Settings_REST_Controller {
 	 */
 	const REST_NAMESPACE = 'powerpack/v1';
 
+	/** User meta recording that the setup checklist has been dismissed. */
+	const SETUP_DISMISSED_META = 'pp_lite_welcome_setup_dismissed';
+
 	/**
 	 * How long a credential verification verdict is cached.
 	 */
@@ -123,6 +126,25 @@ final class PP_Settings_REST_Controller {
 			],
 		] );
 
+		register_rest_route( self::REST_NAMESPACE, '/welcome/dismiss-setup', [
+			'methods'             => \WP_REST_Server::CREATABLE,
+			'callback'            => [ __CLASS__, 'dismiss_setup' ],
+			'permission_callback' => [ __CLASS__, 'can_edit_posts' ],
+		] );
+
+		register_rest_route( self::REST_NAMESPACE, '/welcome', [
+			'methods'             => \WP_REST_Server::READABLE,
+			'callback'            => [ __CLASS__, 'get_welcome' ],
+			'permission_callback' => [ __CLASS__, 'can_edit_posts' ],
+			'args'                => [
+				'posts' => [
+					'type'              => 'boolean',
+					'default'           => true,
+					'description'       => 'Include blog posts. Fetching them makes a remote request.',
+					'sanitize_callback' => 'rest_sanitize_boolean',
+				],
+			],
+		] );
 	}
 
 	/* ---------------------------------------------------------------------
@@ -346,8 +368,8 @@ final class PP_Settings_REST_Controller {
 	 */
 	public static function get_modules() {
 		$widget_info = PP_Config::get_widget_info();
-		$all_modules = pp_get_modules();
-		$enabled     = pp_get_enabled_modules_lookup();
+		$all_modules = powerpack_elements_lite_get_modules();
+		$enabled     = powerpack_elements_lite_get_enabled_modules_lookup();
 		$wl          = PP_Admin_Settings::get_settings();
 		$show_demo   = 'on' !== ( $wl['hide_demo_links'] ?? 'off' );
 		$show_docs   = 'on' !== ( $wl['hide_docs_links'] ?? 'off' );
@@ -402,7 +424,7 @@ final class PP_Settings_REST_Controller {
 
 		return rest_ensure_response( [
 			'categories' => $categories,
-			'stats'      => pp_get_modules_stats(),
+			'stats'      => powerpack_elements_lite_get_modules_stats(),
 		] );
 	}
 
@@ -430,7 +452,7 @@ final class PP_Settings_REST_Controller {
 			}
 		}
 
-		$all = array_keys( pp_get_modules() );
+		$all = array_keys( powerpack_elements_lite_get_modules() );
 
 		// Reading documents needs Elementor. Without it, report the whole
 		// library as unclassified rather than as unused, which would be a lie.
@@ -443,7 +465,7 @@ final class PP_Settings_REST_Controller {
 			] );
 		}
 
-		$used = array_values( array_intersect( $all, array_keys( (array) pp_get_filter_modules( 'used' ) ) ) );
+		$used = array_values( array_intersect( $all, array_keys( (array) powerpack_elements_lite_get_filter_modules( 'used' ) ) ) );
 
 		$payload = [
 			'available' => true,
@@ -472,6 +494,189 @@ final class PP_Settings_REST_Controller {
 	 */
 	private static function plain_text( $text ) {
 		return html_entity_decode( (string) $text, ENT_QUOTES, get_bloginfo( 'charset' ) );
+	}
+
+	/* ---------------------------------------------------------------------
+	 * Welcome
+	 * ------------------------------------------------------------------ */
+
+	/**
+	 * Content for the Welcome panel: the latest release and recent posts.
+	 *
+	 * Both are read here rather than in the browser — the changelog is a file on
+	 * disk, and the blog lives on another origin, so a client side fetch would
+	 * be blocked.
+	 *
+	 * @since x.x.x
+	 * @param \WP_REST_Request $request Request.
+	 * @return \WP_REST_Response
+	 */
+	public static function get_welcome( $request ) {
+		/*
+		 * The changelog is a local file; the posts are a remote request that can
+		 * take seconds on a cold cache. A caller that only wants release notes
+		 * should not wait for the blog, so it can opt out.
+		 */
+		$posts = $request->get_param( 'posts' ) ? self::blog_posts() : [];
+
+		return rest_ensure_response( [
+			'changelog' => self::changelog_entries( 2 ),
+			'posts'     => $posts,
+		] );
+	}
+
+	/**
+	 * Hide the setup checklist for the current user.
+	 *
+	 * Per user rather than per site: one administrator deciding they are done
+	 * with the checklist should not take it away from their colleagues.
+	 *
+	 * @since x.x.x
+	 * @return \WP_REST_Response
+	 */
+	public static function dismiss_setup() {
+		update_user_meta( get_current_user_id(), self::SETUP_DISMISSED_META, 1 );
+
+		return rest_ensure_response( [ 'dismissed' => true ] );
+	}
+
+	/**
+	 * The most recent releases, parsed from changelog.txt.
+	 *
+	 * Reading the shipped file keeps the panel honest: the alternative is
+	 * hand-written release notes in a template, which go stale the first time
+	 * someone forgets to update them.
+	 *
+	 * @since x.x.x
+	 * @param int $limit How many releases to return.
+	 * @return array
+	 */
+	private static function changelog_entries( $limit = 2 ) {
+		$path = POWERPACK_ELEMENTS_LITE_PATH . 'changelog.txt';
+
+		if ( ! is_readable( $path ) ) {
+			return [];
+		}
+
+		$lines   = explode( "\n", (string) file_get_contents( $path ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$entries = [];
+		$current = null;
+
+		foreach ( $lines as $line ) {
+			$line = trim( $line );
+
+			if ( preg_match( '/^==\s*(.+?)\s*==$/', $line, $matches ) ) {
+				if ( $current ) {
+					$entries[] = $current;
+
+					if ( count( $entries ) >= $limit ) {
+						return $entries;
+					}
+				}
+
+				$current = [
+					'version' => $matches[1],
+					'date'    => '',
+					'items'   => [],
+				];
+
+				continue;
+			}
+
+			if ( ! $current ) {
+				continue;
+			}
+
+			if ( preg_match( '/^Release date:\s*(.*)$/i', $line, $matches ) ) {
+				$current['date'] = trim( $matches[1] );
+
+				continue;
+			}
+
+			if ( 0 !== strpos( $line, '*' ) ) {
+				continue;
+			}
+
+			$text = trim( ltrim( $line, '*' ) );
+
+			/*
+			 * The prefix is the plugin's own convention and it is what the
+			 * coloured dot in front of each line means. It is not one word per
+			 * kind: the file has used "Fix" and "Fixed" interchangeably for
+			 * years, and "Added" as often as "New".
+			 */
+			$type = 'other';
+
+			if ( preg_match( '/^([A-Za-z]+)\s*:/', $text, $matches ) ) {
+				$label = strtolower( $matches[1] );
+
+				if ( in_array( $label, [ 'new', 'added' ], true ) ) {
+					$type = 'new';
+				} elseif ( in_array( $label, [ 'enhancement', 'tweak' ], true ) ) {
+					$type = 'enhancement';
+				} elseif ( in_array( $label, [ 'fix', 'fixed', 'hotfix' ], true ) ) {
+					$type = 'fix';
+				}
+			}
+
+			$current['items'][] = [
+				'type' => $type,
+				'text' => $text,
+			];
+		}
+
+		if ( $current && count( $entries ) < $limit ) {
+			$entries[] = $current;
+		}
+
+		return $entries;
+	}
+
+	/**
+	 * Recent posts from the plugin's site.
+	 *
+	 * Failure is silent and is not cached: a site that cannot reach the blog
+	 * should not retry on every page load, but it should recover once it can.
+	 *
+	 * @since x.x.x
+	 * @return array
+	 */
+	private static function blog_posts() {
+		$cached = get_transient( 'pp_lite_welcome_posts' );
+
+		if ( is_array( $cached ) ) {
+			return $cached;
+		}
+
+		$response = wp_remote_get(
+			'https://powerpackelements.com/wp-json/wp/v2/posts?per_page=2&_fields=id,title,link,excerpt,date,_links,_embedded&_embed=wp:featuredmedia',
+			[ 'timeout' => 10 ]
+		);
+
+		if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
+			return [];
+		}
+
+		$body = json_decode( wp_remote_retrieve_body( $response ), true );
+
+		if ( ! is_array( $body ) ) {
+			return [];
+		}
+
+		$posts = [];
+
+		foreach ( $body as $post ) {
+			$posts[] = [
+				'title'   => isset( $post['title']['rendered'] ) ? self::plain_text( $post['title']['rendered'] ) : '',
+				'link'    => isset( $post['link'] ) ? esc_url_raw( $post['link'] ) : '',
+				'excerpt' => isset( $post['excerpt']['rendered'] ) ? wp_trim_words( self::plain_text( wp_strip_all_tags( $post['excerpt']['rendered'] ) ), 20, '…' ) : '',
+				'date'    => isset( $post['date'] ) ? date_i18n( get_option( 'date_format' ), strtotime( $post['date'] ) ) : '',
+			];
+		}
+
+		set_transient( 'pp_lite_welcome_posts', $posts, 12 * HOUR_IN_SECONDS );
+
+		return $posts;
 	}
 }
 

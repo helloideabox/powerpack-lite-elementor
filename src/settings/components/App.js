@@ -15,6 +15,9 @@ import { PANELS, FIELD_META } from '../panels';
 import { PANEL_ICONS } from '../icons';
 import SettingsPanel from './SettingsPanel';
 import ModulesPanel from './ModulesPanel';
+import WelcomePanel from './WelcomePanel';
+import LicensePanel from './LicensePanel';
+import WhiteLabelPanel from './WhiteLabelPanel';
 
 const boot = window.ppSettingsBootstrap || {};
 
@@ -30,20 +33,36 @@ const SPECIAL = {
 	welcome: { title: () => __( 'Welcome', 'powerpack-lite-for-elementor' ) },
 	elements: { title: () => __( 'Elements', 'powerpack-lite-for-elementor' ), group: 'modules' },
 	license: { title: () => __( 'License', 'powerpack-lite-for-elementor' ) },
+	white_label: { title: () => __( 'White Label', 'powerpack-lite-for-elementor' ) },
 };
 
 /** Navigation order, by group key. */
-const ORDER = [ 'elements', 'extensions', 'integration' ];
+const ORDER = [
+	'welcome',
+	'elements',
+	'extensions',
+	'integration',
+	'advanced',
+	'license',
+	'white_label',
+];
+
+/*
+ * Panels with no settings behind them. Welcome reads the other panels; License
+ * and White Label show what the paid edition offers and are not editable here.
+ * They are always in the nav, because there is no group to gate them on.
+ */
+const PREVIEW_ONLY = [ 'welcome', 'license', 'white_label' ];
 
 /**
  * Which panel the URL is asking for.
  *
- * @return {string} A panel key from ORDER, falling back to Elements.
+ * @return {string} A panel key from ORDER, falling back to Welcome.
  */
 const panelFromHash = () => {
 	const fromHash = window.location.hash.replace( /^#/, '' );
 
-	return ORDER.includes( fromHash ) ? fromHash : 'elements';
+	return ORDER.includes( fromHash ) ? fromHash : 'welcome';
 };
 
 export default function App() {
@@ -60,11 +79,36 @@ export default function App() {
 	const [ saveBar, setSaveBar ] = useState( { mounted: false, leaving: false } );
 	const lastDirtyCount = useRef( 0 );
 
+	const noticesSlot = useRef( null );
+
 	useEffect( () => {
 		fetchSettings()
 			.then( setPayload )
 			.catch( ( err ) => setError( err.message ) );
 	}, [] );
+
+	/*
+	 * WordPress fires admin_notices above the whole screen, which on this page
+	 * puts our own notices over the header rather than under it. PHP renders
+	 * them hidden at the top of the wrap and this moves the node into place.
+	 *
+	 * Moved rather than re-serialised through the bootstrap: a notice is markup
+	 * this plugin already generated, and passing it through JSON only to inject
+	 * it back with dangerouslySetInnerHTML would add an escaping decision with
+	 * nothing to gain. React does not render children into the slot, so nothing
+	 * here contends with it.
+	 *
+	 * Runs on every render because the slot only exists once the settings have
+	 * loaded, and the first render is the loading spinner.
+	 */
+	useEffect( () => {
+		const source = document.querySelector( '.pp-settings-wrap > .pp-settings-notices' );
+
+		if ( source && noticesSlot.current && source.parentNode !== noticesSlot.current ) {
+			noticesSlot.current.appendChild( source );
+			source.removeAttribute( 'hidden' );
+		}
+	} );
 
 	/*
 	 * Follow the URL, not just read it once on mount. Without this the browser
@@ -243,6 +287,15 @@ export default function App() {
 			return false;
 		}
 
+		/*
+		 * Welcome summarises the other panels rather than owning settings of its
+		 * own, and License and White Label preview settings this edition does
+		 * not have. None of the three has a group to check for.
+		 */
+		if ( PREVIEW_ONLY.includes( key ) ) {
+			return true;
+		}
+
 		if ( SPECIAL[ key ] ) {
 			return payload.groups.includes( SPECIAL[ key ].group || key );
 		}
@@ -314,6 +367,14 @@ export default function App() {
 				</div>
 			</div>
 
+			{ /*
+			  * Where this plugin's own admin notices end up. They are rendered
+			  * by PHP above the screen, where WordPress fires admin_notices, and
+			  * moved here on mount — see the effect above. React never renders
+			  * children into this node, so owning it from outside is safe.
+			  */ }
+			<div className="pp-admin-settings-notices" ref={ noticesSlot } />
+
 			<div className="pp-admin-settings-body">
 				<div className="pp-admin-settings-tabs-container">
 					<nav
@@ -342,26 +403,13 @@ export default function App() {
 						} ) }
 					</nav>
 
-					{ boot.showUpgrade && (
-						<div className="pp-modules-upgrade-section-container">
-							<div className="pp-modules-upgrade-section">
-								<h2 className="pp-modules-upgrade-title">
-									{ __( 'Pro Features', 'powerpack-lite-for-elementor' ) }
-								</h2>
-								<div className="pp-modules-upgrade-text">
-									{ __( 'Unlock more with PowerPack Pro', 'powerpack-lite-for-elementor' ) }
-								</div>
-								<a
-									href={ boot.upgradeUrl || 'https://powerpackelements.com/upgrade/' }
-									className="pp-upgrade-link pp-upgrade-button"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									{ __( 'Upgrade Now', 'powerpack-lite-for-elementor' ) }
-								</a>
-							</div>
-						</div>
-					) }
+					{ /*
+					  * No upgrade panel under the navigation. What the paid
+					  * edition adds is said once, in full, on the Welcome panel,
+					  * and again on the two panels that preview it — a fourth
+					  * copy pinned to every screen is nagging rather than
+					  * informing.
+					  */ }
 				</div>
 
 				<main className="pp-admin-settings-content">
@@ -371,9 +419,22 @@ export default function App() {
 						</Notice>
 					) }
 
+					{ current === 'welcome' && (
+						<WelcomePanel
+							settings={ settings }
+							changes={ changes }
+							groups={ payload.groups }
+							onNavigate={ navigate }
+						/>
+					) }
+
 					{ current === 'elements' && (
 						<ModulesPanel settings={ settings } changes={ changes } onChange={ onChange } />
 					) }
+
+					{ current === 'license' && <LicensePanel /> }
+
+					{ current === 'white_label' && <WhiteLabelPanel /> }
 
 					{ panel && (
 						<SettingsPanel

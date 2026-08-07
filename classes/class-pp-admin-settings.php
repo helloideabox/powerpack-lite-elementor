@@ -47,6 +47,9 @@ final class PP_Admin_Settings {
 			return;
 		}
 
+		// Remove all third party plugins notices, keeping this plugin's own.
+		add_action( 'in_admin_header', __CLASS__ . '::remove_all_notices', PHP_INT_MAX );
+
 		add_action( 'admin_menu', __CLASS__ . '::menu', 601 );
 
 		if ( current_user_can( 'manage_options' ) ) {
@@ -67,6 +70,104 @@ final class PP_Admin_Settings {
 
 		// Late, so it runs after the filter it is undoing.
 		add_filter( 'admin_footer_text', __CLASS__ . '::admin_footer_text', 100 );
+	}
+
+	/**
+	 * This plugin's own admin notices, captured for the settings screen.
+	 *
+	 * @since x.x.x
+	 * @var string
+	 */
+	private static $notices = '';
+
+	/**
+	 * Clear the screen of notices, keeping this plugin's own.
+	 *
+	 * Every plugin on the site writes to admin_notices, and a settings screen
+	 * that opens under three unrelated banners is not a settings screen anyone
+	 * can read. They are all dropped here — but dropping ours with them meant a
+	 * licence warning or an update prompt never reached the one screen where it
+	 * is relevant, so ours are rendered first and kept.
+	 *
+	 * They are held rather than printed because WordPress fires admin_notices
+	 * above the whole page. render() puts them in the markup and the settings
+	 * app moves them below its header, which is where they belong.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public static function remove_all_notices() {
+		if ( ! isset( $_REQUEST['page'] ) || 'powerpack-settings' !== $_REQUEST['page'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			return;
+		}
+
+		self::$notices = self::capture_own_notices();
+
+		remove_all_actions( 'admin_notices' );
+		remove_all_actions( 'all_admin_notices' );
+	}
+
+	/**
+	 * Render this plugin's notices and return the markup.
+	 *
+	 * Priority order is preserved, because a notice registered late is meant to
+	 * appear after one registered early.
+	 *
+	 * @since x.x.x
+	 * @return string
+	 */
+	private static function capture_own_notices() {
+		global $wp_filter;
+
+		$html = '';
+
+		foreach ( [ 'admin_notices', 'all_admin_notices' ] as $hook ) {
+			if ( empty( $wp_filter[ $hook ] ) ) {
+				continue;
+			}
+
+			$callbacks = $wp_filter[ $hook ]->callbacks;
+			ksort( $callbacks );
+
+			foreach ( $callbacks as $group ) {
+				foreach ( $group as $registered ) {
+					if ( ! self::is_own_notice( $registered['function'] ) ) {
+						continue;
+					}
+
+					ob_start();
+					call_user_func( $registered['function'] );
+					$html .= ob_get_clean();
+				}
+			}
+		}
+
+		return trim( $html );
+	}
+
+	/**
+	 * Whether a notice callback belongs to this plugin.
+	 *
+	 * Attribution is by name, which is as much as the hook records. A closure
+	 * carries no name and is treated as someone else's: showing a third party
+	 * notice inside this plugin's chrome is the worse of the two mistakes.
+	 *
+	 * @since x.x.x
+	 * @param callable $callback Registered callback.
+	 * @return bool
+	 */
+	private static function is_own_notice( $callback ) {
+		if ( is_string( $callback ) ) {
+			return 0 === strpos( $callback, 'pp_' ) || 0 === strpos( $callback, 'powerpack' );
+		}
+
+		if ( is_array( $callback ) && isset( $callback[0] ) ) {
+			$class = is_object( $callback[0] ) ? get_class( $callback[0] ) : (string) $callback[0];
+
+			return false !== stripos( $class, 'PowerpackElements' );
+		}
+
+		return false;
 	}
 
 	/**
@@ -150,22 +251,25 @@ final class PP_Admin_Settings {
 				'version'      => POWERPACK_ELEMENTS_LITE_VER,
 
 				/*
-				 * Which edition is running. PowerPack Lite is a separate
-				 * plugin, so this file only ever executes in Pro — but sending
-				 * it rather than hardcoding it in the bundle keeps the two
-				 * builds able to share one settings app.
+				 * Which edition is running. The paid edition is a separate
+				 * plugin, so this file only ever executes in the free one — but
+				 * sending it rather than hardcoding it in the bundle keeps the
+				 * two builds able to share one settings app.
 				 */
 				'isPro'        => false,
 				'hideLogo'     => false,
 				'docsLink'     => $docs_link,
 				'supportLink'  => $support_link,
 				'showSupport'  => 'on' !== $settings['hide_support'],
-				'showUpgrade'  => true,
 
+				// Where every "upgrade" link on the screen points. There is no
+				// longer a flag beside it: the panels that sell the paid edition
+				// are the ones that describe it, and each decides for itself.
 				'upgradeUrl'   => self::get_upgrade_url(),
 
 				// Sent with the page so a dismissed checklist never flashes up
 				// before a request comes back to say it was dismissed.
+				'setupDone'    => (bool) get_user_meta( get_current_user_id(), PP_Settings_REST_Controller::SETUP_DISMISSED_META, true ),
 			) ) . ';',
 			'before'
 		);
@@ -283,6 +387,19 @@ final class PP_Admin_Settings {
 		}
 		?>
 		<div class="wrap pp-settings-wrap">
+			<?php
+			/*
+			 * Hidden until the app has moved it below the header. Without the
+			 * attribute a notice would flash at the top of the page on every
+			 * load, in the position this is trying to move it out of.
+			 *
+			 * Not escaped: this is notice markup the plugin itself just
+			 * rendered, captured verbatim from its own callbacks.
+			 */
+			if ( '' !== self::$notices ) {
+				echo '<div class="pp-settings-notices" hidden>' . self::$notices . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+			?>
 			<div id="pp-settings-root"></div>
 			<noscript>
 				<div class="notice notice-error">

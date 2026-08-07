@@ -718,49 +718,6 @@ $pp-muted: #6b7280;
 	cursor: default;
 }
 
-/* Upgrade prompt, pinned to the bottom of the sidebar. */
-.pp-modules-upgrade-section-container {
-	border-top: 1px solid var(--ppe-border-color);
-	margin-top: auto;
-	padding: 20px;
-}
-
-.pp-modules-upgrade-section {
-	background-color: var(--ppe-primary-color);
-	background-image: linear-gradient(
-		to bottom right,
-		var(--ppe-primary-color-light),
-		var(--ppe-primary-color)
-	);
-	border-radius: var(--pp-radius);
-	color: #fff;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 6px;
-	padding: 20px;
-}
-
-.pp-modules-upgrade-title {
-	font-size: 0.95em;
-	color: #fff;
-	margin: 0;
-	opacity: 0.8;
-	text-transform: uppercase;
-}
-
-.pp-upgrade-button {
-	background-color: #fff;
-	border-radius: var(--pp-radius-sm);
-	color: var(--ppe-primary-color);
-	display: inline-block;
-	font-weight: 500;
-	margin-top: 5px;
-	padding: 6px 8px;
-	text-decoration: none;
-	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
-}
-
 .pp-section,
 .pp-settings-section {
 	background: #fff;
@@ -1535,42 +1492,57 @@ input.pp-search-input {
 }
 
 /*
- * A widget the current edition does not ship. Held back rather than greyed
- * out: the card is still worth reading — that is the whole point of listing it
- * — so only the icon and name recede, and the Pro link is the one bright thing
- * on it.
+ * A widget the current edition does not ship. The card reads as unavailable
+ * rather than merely different — a flat off-white surface, a lighter edge, and
+ * the icon and name held back, which is the language a disabled control uses.
+ * It stays legible, because being read is the whole point of listing it, but it
+ * no longer competes with the widgets the panel exists to manage.
+ *
+ * The previous version did the opposite: a gold gradient badge on a white card
+ * pulled the eye straight past the free widgets around it.
  */
 .pp-modules-table-element.is-pro {
+	background: #fafbfc;
+	border-color: #e9edf2;
+
+	.pp-modules-table-element-footer {
+		background: transparent;
+	}
+
 	.pp-module-icon,
 	.pp-modules-table-element-name {
-		opacity: 0.75;
+		opacity: 0.6;
 	}
 }
 
 /*
- * The same gold as the header badge, and a link rather than a label: it has
- * somewhere to go. Sized to clear the 24px target minimum, which the text on
- * its own does not.
+ * Amber lettering on an amber wash rather than a solid gold pill: it marks the
+ * card without becoming the loudest thing on the screen. 4.9:1 against its own
+ * background.
+ *
+ * Still 24px tall despite reading as much smaller — it is a link, and that is
+ * the minimum target size, so the weight comes off through colour and type
+ * rather than height.
  */
 .pp-module-pro {
 	display: inline-flex;
 	align-items: center;
 	min-height: 24px;
-	padding: 2px 10px;
+	padding: 2px 8px;
 	border-radius: var(--pp-radius-pill);
-	background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-	color: #422006;
+	background: rgb(245 158 11 / 12%);
+	color: #a16207;
 	font-size: 10px;
-	font-weight: 700;
-	letter-spacing: 0.06em;
+	font-weight: 600;
+	letter-spacing: 0.04em;
 	text-transform: uppercase;
 	text-decoration: none;
-	box-shadow: 0 1px 2px rgb(180 83 9 / 25%);
+	transition: background-color 0.15s ease;
 
 	&:hover,
-	&:focus {
-		color: #422006;
-		box-shadow: 0 1px 4px rgb(180 83 9 / 40%);
+	&:focus-visible {
+		background: rgb(245 158 11 / 22%);
+		color: #854d0e;
 	}
 }
 
@@ -2119,5 +2091,293 @@ input.pp-search-input {
 		background: #fef2f2;
 		border-color: #f0a3a3;
 		color: #c02b2c;
+	}
+}
+
+/* ---------------------------------------------------------------------------
+ * Panels previewing settings this edition does not have.
+ *
+ * The preview reads as unavailable rather than broken: full contrast on the
+ * labels, because they are the information, and a flat grey wash on the drawn
+ * controls, because they are only a picture of one. Nothing here is focusable,
+ * so there are no focus or hover states to define.
+ * ------------------------------------------------------------------------ */
+
+.pp-locked-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 3px 10px;
+	border-radius: var(--pp-radius-pill);
+	background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+	color: #422006;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	box-shadow: 0 1px 2px rgb(180 83 9 / 25%);
+
+	svg {
+		fill: currentColor;
+	}
+}
+
+.pp-locked-offer {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+	padding: 22px 24px;
+	border: 1px solid $pp-border;
+	border-radius: var(--pp-radius-lg);
+	background: #fff;
+}
+
+.pp-locked-offer-body {
+	flex: 1 1 320px;
+	min-width: 0;
+}
+
+.pp-locked-offer-title {
+	margin: 0 0 6px;
+	font-size: 16px;
+	font-weight: 600;
+	color: $pp-heading;
+}
+
+.pp-locked-offer-text {
+	margin: 0;
+	color: $pp-text;
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+.pp-locked-offer-points {
+	display: grid;
+	gap: 4px;
+	margin: 12px 0 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		position: relative;
+		margin: 0;
+		padding-left: 22px;
+		color: $pp-text;
+		font-size: 13px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 6px;
+			left: 4px;
+			width: 8px;
+			height: 8px;
+			border-radius: var(--pp-radius-pill);
+			background: var(--ppe-primary-color);
+		}
+	}
+}
+
+.pp-locked-offer-button {
+	flex: 0 0 auto;
+	padding: 10px 20px;
+	border-radius: var(--pp-radius-sm);
+	background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+	color: #422006;
+	font-size: 13px;
+	font-weight: 600;
+	text-decoration: none;
+	box-shadow: 0 1px 2px rgb(180 83 9 / 25%);
+
+	&:hover,
+	&:focus-visible {
+		color: #422006;
+		box-shadow: 0 2px 6px rgb(180 83 9 / 40%);
+	}
+}
+
+.pp-locked-rows {
+	display: grid;
+}
+
+/*
+ * Two settings side by side, the same pairing the real fields use. A pair drops
+ * to one column at the same width the real ones do, so the two screens break at
+ * the same place.
+ */
+.pp-locked-pair {
+	display: grid;
+	grid-template-columns: repeat( auto-fit, minmax( 0, 1fr ) );
+	gap: 12px 24px;
+	padding: 12px 0;
+	border-bottom: 1px solid $pp-divider;
+
+	&:last-child {
+		border-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	@media (max-width: 900px) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	// Inside a pair the rows are the columns, so they carry no rule of their own.
+	.pp-locked-row {
+		padding: 0;
+		border-bottom: 0;
+	}
+}
+
+.pp-locked-row {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	padding: 12px 0;
+	border-bottom: 1px solid $pp-divider;
+
+	&:last-child {
+		border-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	/*
+	 * A box goes under its label, not beside it — which is where the real
+	 * fields put it, and the only way two of them fit side by side in a pair.
+	 * A switch stays on the label's line, again as the real ones do.
+	 */
+	&.is-text,
+	&.is-select {
+		display: grid;
+		gap: 8px;
+		align-items: start;
+	}
+}
+
+.pp-locked-row-body {
+	flex: 1 1 auto;
+	display: grid;
+	gap: 2px;
+	min-width: 0;
+}
+
+.pp-locked-row-label {
+	font-size: 13px;
+	font-weight: 600;
+	color: $pp-heading;
+}
+
+.pp-locked-row-text {
+	font-size: 12px;
+	line-height: 1.5;
+	color: $pp-muted;
+}
+
+/*
+ * The drawn control. Flat, unfocusable and aria-hidden — it exists so the row
+ * reads as a setting rather than a bullet point.
+ */
+.pp-locked-ghost {
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	background: #f1f3f5;
+	border: 1px solid $pp-border;
+	color: $pp-muted;
+
+	&.is-toggle {
+		width: 36px;
+		height: 20px;
+		padding: 2px;
+		border-radius: var(--pp-radius-pill);
+	}
+
+	&.is-text,
+	&.is-select {
+		width: 100%;
+		height: 34px;
+		padding: 0 10px;
+		border-radius: var(--pp-radius-sm);
+		font-size: 12px;
+	}
+
+	&.is-select::after {
+		content: "";
+		margin-left: auto;
+		border: 4px solid transparent;
+		border-top-color: $pp-muted;
+		transform: translateY(2px);
+	}
+}
+
+.pp-locked-ghost-knob {
+	width: 14px;
+	height: 14px;
+	border-radius: var(--pp-radius-pill);
+	background: #c9ced4;
+}
+
+.pp-locked-ghost-text {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.pp-locked-footnote {
+	margin: 16px 0 0;
+	color: $pp-muted;
+	font-size: 12px;
+	text-align: center;
+}
+
+/* A resource card that is a statement rather than a link. */
+.pp-home-resource.is-static {
+	background: #fcfdfe;
+
+	&:hover {
+		border-color: $pp-border;
+	}
+}
+
+/*
+ * The review ask. One line, at the very bottom, styled down: it is a request,
+ * not a setting, and it should be easy to read past.
+ */
+.pp-home-review {
+	margin: 20px 0 0;
+	color: $pp-muted;
+	font-size: 12px;
+	text-align: center;
+}
+
+/*
+ * This plugin's own admin notices, moved out from above the screen header.
+ *
+ * WordPress margins on .notice assume it sits directly under the page title, so
+ * they are replaced here: the gap belongs between the header and the notice,
+ * and between notices, not around each one.
+ */
+.pp-admin-settings-notices {
+	&:not(:empty) {
+		padding: 16px 20px 0;
+	}
+
+	.pp-settings-notices > .notice,
+	.pp-settings-notices > .updated,
+	.pp-settings-notices > .error {
+		margin: 0 0 12px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }

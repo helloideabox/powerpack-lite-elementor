@@ -15,9 +15,40 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+/*
+ * The paid edition supersedes this one, so when both are active only the paid
+ * one runs. Both may stay active: this file simply stops here, before defining
+ * a constant, including a file, or declaring anything at all.
+ *
+ * The answer is read from the active plugin list rather than from a constant
+ * the paid edition sets, because a constant only answers once that edition has
+ * already loaded, and which of the two WordPress loads first is decided by the
+ * order of a stored option. Reading the list answers the same either way, which
+ * is what lets the paid edition run without knowing this plugin exists.
+ *
+ * The plugin is matched on its own file name, so installing it into a
+ * differently named folder still counts.
+ */
 if ( defined( 'POWERPACK_ELEMENTS_VER' ) ) {
 	return;
 }
+
+$pp_lite_active_plugins = (array) get_option( 'active_plugins', array() );
+
+if ( is_multisite() ) {
+	$pp_lite_active_plugins = array_merge(
+		$pp_lite_active_plugins,
+		array_keys( (array) get_site_option( 'active_sitewide_plugins', array() ) )
+	);
+}
+
+foreach ( $pp_lite_active_plugins as $pp_lite_active_plugin ) {
+	if ( 'powerpack-elements.php' === basename( $pp_lite_active_plugin ) ) {
+		return;
+	}
+}
+
+unset( $pp_lite_active_plugins, $pp_lite_active_plugin );
 
 define( 'POWERPACK_ELEMENTS_LITE_VER', '2.10.4' );
 define( 'POWERPACK_ELEMENTS_LITE_PATH', plugin_dir_path( __FILE__ ) );
@@ -33,25 +64,9 @@ require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-config.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-posts-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
-/*
- * The settings screen is shared with the paid edition, and reaches the widget
- * library through plain pp_* functions that both editions would declare. Two
- * declarations of one name is a fatal, so this edition only brings its half
- * when the paid one is not installed — which is also the only time its screen
- * would be shown.
- *
- * The guard at the top of this file catches the case where the paid edition
- * loaded first; this one catches the reverse.
- */
-if ( ! function_exists( 'is_plugin_active' ) ) {
-	include_once ABSPATH . 'wp-admin/includes/plugin.php';
-}
-
-if ( ! defined( 'POWERPACK_ELEMENTS_VER' ) && ! is_plugin_active( 'powerpack-elements/powerpack-elements.php' ) ) {
-	require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/settings-compat.php';
-	require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-settings-registry.php';
-	require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-settings-rest-controller.php';
-}
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/settings-helpers.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-settings-registry.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-settings-rest-controller.php';
 
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
 if ( did_action( 'elementor/loaded' ) ) {

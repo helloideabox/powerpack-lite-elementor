@@ -65,14 +65,28 @@ function powerpack_elements_lite_get_extensions() {
 	return $extensions;
 }
 
+/**
+ * The widgets that are switched on, as a list of names.
+ *
+ * Three shapes reach here. An unsaved option is false, and means every widget
+ * is on. The string 'disabled' is what the old settings screen wrote when every
+ * widget was switched off — it is not an array either, so it used to fall
+ * through to "everything on" and turn the whole library back on. Anything else
+ * is the stored list.
+ *
+ * @since x.x.x
+ * @return array
+ */
 function powerpack_elements_lite_get_enabled_modules() {
 	$enabled_modules = \PowerpackElementsLite\Classes\PP_Admin_Settings::get_option( 'pp_elementor_modules', true );
 
-	if ( ! is_array( $enabled_modules ) ) {
-		return array_keys( powerpack_elements_lite_get_modules() );
-	} else {
-		return $enabled_modules;
+	if ( 'disabled' === $enabled_modules ) {
+		$enabled_modules = [];
+	} elseif ( ! is_array( $enabled_modules ) ) {
+		$enabled_modules = array_keys( powerpack_elements_lite_get_modules() );
 	}
+
+	return apply_filters( 'pp_elementor_enabled_modules', $enabled_modules );
 }
 
 function powerpack_elements_lite_get_filter_modules( $status = '' ) {
