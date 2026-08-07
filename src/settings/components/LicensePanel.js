@@ -75,7 +75,7 @@ export default function LicensePanel() {
 			] }
 			footnote={ createInterpolateElement(
 				__(
-					'Already bought Pro? Download it from <account>your account</account> and activate it — the key goes on this panel there.',
+					'Already bought Pro? Download it from <account>your account</account> and activate it. The key goes on this panel there.',
 					'powerpack-lite-for-elementor'
 				),
 				{

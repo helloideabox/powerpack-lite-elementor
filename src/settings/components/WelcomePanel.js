@@ -321,7 +321,7 @@ export default function WelcomePanel( { settings, changes, groups, onNavigate } 
 				proWidgets
 			),
 			text: __(
-				'Tabs, timelines, pricing tables, galleries, sliders and the rest — greyed out on the Elements panel so you can see exactly which.',
+				'Tabs, timelines, pricing tables, galleries, sliders and more. They sit greyed out on the Elements panel, so you can see exactly which ones.',
 				'powerpack-lite-for-elementor'
 			),
 		},

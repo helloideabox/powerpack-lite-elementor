@@ -172,6 +172,26 @@ export default function SettingsPanel( {
 
 			<div className="pp-panel-body">
 				{ sections.map( ( section, index ) => {
+					/*
+					 * A section may name a component instead of listing fields,
+					 * for the few things that are not a stored setting. The
+					 * version rollback is the case in point: it posts out of
+					 * this app entirely rather than into the settings payload.
+					 */
+					if ( section.component ) {
+						const Custom = section.component;
+
+						return (
+							<Section
+								key={ index }
+								title={ section.title ? section.title() : null }
+								description={ section.description ? section.description() : null }
+							>
+								<Custom />
+							</Section>
+						);
+					}
+
 					const rows = ( section.rows || section.fields || [] )
 						.map( ( row, rowIndex ) => {
 							// A bare entry takes the full width; an array shares it.

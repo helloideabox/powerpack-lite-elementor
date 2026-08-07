@@ -73,6 +73,50 @@ final class PP_Admin_Settings {
 	}
 
 	/**
+	 * How many widgets are marked as belonging to the paid edition.
+	 *
+	 * @since x.x.x
+	 * @return int
+	 */
+	private static function count_pro_widgets() {
+		$count = 0;
+
+		foreach ( PP_Config::get_widget_info() as $widgets ) {
+			foreach ( $widgets as $widget ) {
+				if ( ! empty( $widget['is_pro'] ) ) {
+					$count++;
+				}
+			}
+		}
+
+		return $count;
+	}
+
+	/**
+	 * What the Advanced panel needs to offer a rollback.
+	 *
+	 * An empty 'versions' is the signal to render nothing: the user cannot
+	 * update plugins, the site has file modification switched off, or the
+	 * directory had nothing older to offer.
+	 *
+	 * @since x.x.x
+	 * @return array
+	 */
+	private static function rollback_bootstrap() {
+		if ( ! PP_Rollback::is_available() ) {
+			return [ 'versions' => [] ];
+		}
+
+		return [
+			'versions' => PP_Rollback::get_versions(),
+			'current'  => POWERPACK_ELEMENTS_LITE_VER,
+			'url'      => PP_Rollback::get_action_url(),
+			'action'   => PP_Rollback::ACTION,
+			'nonce'    => PP_Rollback::get_nonce(),
+		];
+	}
+
+	/**
 	 * This plugin's own admin notices, captured for the settings screen.
 	 *
 	 * @since x.x.x
@@ -270,6 +314,21 @@ final class PP_Admin_Settings {
 				// Sent with the page so a dismissed checklist never flashes up
 				// before a request comes back to say it was dismissed.
 				'setupDone'    => (bool) get_user_meta( get_current_user_id(), PP_Settings_REST_Controller::SETUP_DISMISSED_META, true ),
+
+				/*
+				 * Reinstalling an earlier release. Sent with the page rather
+				 * than fetched, because the version list is a cached remote
+				 * call and the panel would otherwise spinner on every visit for
+				 * something almost nobody opens.
+				 */
+				'rollback'     => self::rollback_bootstrap(),
+
+				/*
+				 * How many widgets the paid edition adds. Counted from the
+				 * catalogue rather than written into the sidebar, so the figure
+				 * cannot quietly stop being true the next time a widget ships.
+				 */
+				'proWidgets'   => self::count_pro_widgets(),
 			) ) . ';',
 			'before'
 		);

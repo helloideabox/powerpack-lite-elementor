@@ -12,6 +12,7 @@
  */
 
 import { __ } from '@wordpress/i18n';
+import RollbackField from './components/RollbackField';
 import { createInterpolateElement } from '@wordpress/element';
 import { ExternalLink } from '@wordpress/components';
 
@@ -73,6 +74,15 @@ export const PANELS = [
 				title: () => __( 'Data Management', 'powerpack-lite-for-elementor' ),
 				fields: [ 'pp_delete_data_on_uninstall' ],
 			},
+			{
+				title: () => __( 'Version Control', 'powerpack-lite-for-elementor' ),
+				description: () =>
+					__(
+						'Something break after an update? Go back to an earlier release. Try it on a staging site first if you have one.',
+						'powerpack-lite-for-elementor'
+					),
+				component: RollbackField,
+			},
 		],
 	},
 ];
@@ -100,7 +110,7 @@ const EXTENSION_HELP = {
 	// Paid edition only. Described here so their cards read like the rest.
 	'pp-background-effects': () =>
 		__(
-			'Animated section backgrounds — particles, fog, waves, snow and others.',
+			'Animated section backgrounds like particles, fog, waves and snow.',
 			'powerpack-lite-for-elementor'
 		),
 	'pp-tooltips': () =>

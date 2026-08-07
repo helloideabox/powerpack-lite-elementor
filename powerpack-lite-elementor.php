@@ -67,6 +67,7 @@ require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/settings-helpers.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-settings-registry.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-settings-rest-controller.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-rollback.php';
 
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
 if ( did_action( 'elementor/loaded' ) ) {

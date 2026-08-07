@@ -16,7 +16,7 @@ export default function WhiteLabelPanel() {
 			campaign="white-label"
 			headline={ __( 'Ship this plugin under your own name', 'powerpack-lite-for-elementor' ) }
 			description={ __(
-				'White labelling renames the plugin everywhere a client would see it — the plugins list, the admin menu, the editor panel — and hides the parts that point back to us. Built for agencies handing a site over.',
+				'White labelling renames the plugin everywhere a client would see it: the plugins list, the admin menu, the editor panel. It also hides the bits that point back to us. Built for agencies handing a site over.',
 				'powerpack-lite-for-elementor'
 			) }
 			points={ [

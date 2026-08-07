@@ -436,7 +436,7 @@ export default function ModulesPanel( { settings, changes, onChange } ) {
 								{ 'notused' === filter
 									? __( 'Every widget is in use somewhere on this site.', 'powerpack-lite-for-elementor' )
 									: __(
-											'Try a shorter word, or check the Extensions panel — some features extend existing elements rather than adding a widget.',
+											'Try a shorter word, or have a look at the Extensions panel. Some features add controls to elements you already use instead of adding a widget.',
 											'powerpack-lite-for-elementor'
 									  ) }
 							</p>

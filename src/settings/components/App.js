@@ -396,12 +396,48 @@ export default function App() {
 					</nav>
 
 					{ /*
-					  * No upgrade panel under the navigation. What the paid
-					  * edition adds is said once, in full, on the Welcome panel,
-					  * and again on the two panels that preview it — a fourth
-					  * copy pinned to every screen is nagging rather than
-					  * informing.
+					  * Says what the upgrade is, not just that there is one. A
+					  * bare "Go Pro" button asks for a decision without giving
+					  * anything to decide on; the widget count comes from the
+					  * catalogue, so it stays true as widgets ship.
 					  */ }
+					<div className="pp-sidebar-upgrade">
+						<span className="pp-sidebar-upgrade-badge">
+							{ __( 'Pro', 'powerpack-lite-for-elementor' ) }
+						</span>
+
+						<p className="pp-sidebar-upgrade-title">
+							{ boot.proWidgets
+								? sprintf(
+										/* translators: %d: number of additional widgets. */
+										_n(
+											'%d more widget',
+											'%d more widgets',
+											boot.proWidgets,
+											'powerpack-lite-for-elementor'
+										),
+										boot.proWidgets
+								  )
+								: __( 'More widgets in Pro', 'powerpack-lite-for-elementor' ) }
+						</p>
+
+						<p className="pp-sidebar-upgrade-text">
+							{ __(
+								'Plus the header, footer and WooCommerce builders, white labelling, and support straight from the team.',
+								'powerpack-lite-for-elementor'
+							) }
+						</p>
+
+						<a
+							className="pp-sidebar-upgrade-button"
+							href={ `${ boot.upgradeUrl ||
+								'https://powerpackelements.com/upgrade/' }?utm_source=lite-settings&utm_medium=wp-dash&utm_campaign=sidebar` }
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{ __( 'See what’s in Pro', 'powerpack-lite-for-elementor' ) }
+						</a>
+					</div>
 				</div>
 
 				<main className="pp-admin-settings-content">
