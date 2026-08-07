@@ -367,14 +367,6 @@ export default function App() {
 				</div>
 			</div>
 
-			{ /*
-			  * Where this plugin's own admin notices end up. They are rendered
-			  * by PHP above the screen, where WordPress fires admin_notices, and
-			  * moved here on mount — see the effect above. React never renders
-			  * children into this node, so owning it from outside is safe.
-			  */ }
-			<div className="pp-admin-settings-notices" ref={ noticesSlot } />
-
 			<div className="pp-admin-settings-body">
 				<div className="pp-admin-settings-tabs-container">
 					<nav
@@ -413,6 +405,20 @@ export default function App() {
 				</div>
 
 				<main className="pp-admin-settings-content">
+					{ /*
+					  * Where this plugin's own admin notices end up. They are
+					  * rendered by PHP above the screen, where WordPress fires
+					  * admin_notices, and moved here on mount — see the effect
+					  * above. React never renders children into this node, so
+					  * owning it from outside is safe.
+					  *
+					  * In the content column rather than across the whole screen:
+					  * a notice belongs with what it is about, and every panel
+					  * opens with its title, so this is the one place that reads
+					  * as "before the page" on all of them.
+					  */ }
+					<div className="pp-admin-settings-notices" ref={ noticesSlot } />
+
 					{ error && (
 						<Notice status="error" onRemove={ () => setError( null ) }>
 							{ error }

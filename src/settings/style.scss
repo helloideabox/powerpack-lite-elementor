@@ -2367,8 +2367,13 @@ input.pp-search-input {
  * and between notices, not around each one.
  */
 .pp-admin-settings-notices {
+	/*
+	 * Aligned with .pp-panel-head, which follows it: same 24px gutters, and a
+	 * 24px lead-in that the panel head's own top padding then repeats as the
+	 * gap between the two.
+	 */
 	&:not(:empty) {
-		padding: 16px 20px 0;
+		padding: 24px 24px 0;
 	}
 
 	.pp-settings-notices > .notice,
