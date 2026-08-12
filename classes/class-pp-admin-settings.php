@@ -75,7 +75,7 @@ final class PP_Admin_Settings {
 	/**
 	 * How many widgets are marked as belonging to the paid edition.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return int
 	 */
 	private static function count_pro_widgets() {
@@ -99,7 +99,7 @@ final class PP_Admin_Settings {
 	 * update plugins, the site has file modification switched off, or the
 	 * directory had nothing older to offer.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return array
 	 */
 	private static function rollback_bootstrap() {
@@ -119,7 +119,7 @@ final class PP_Admin_Settings {
 	/**
 	 * This plugin's own admin notices, captured for the settings screen.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @var string
 	 */
 	private static $notices = '';
@@ -137,7 +137,7 @@ final class PP_Admin_Settings {
 	 * above the whole page. render() puts them in the markup and the settings
 	 * app moves them below its header, which is where they belong.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return void
 	 */
 	public static function remove_all_notices() {
@@ -157,7 +157,7 @@ final class PP_Admin_Settings {
 	 * Priority order is preserved, because a notice registered late is meant to
 	 * appear after one registered early.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return string
 	 */
 	private static function capture_own_notices() {
@@ -196,7 +196,7 @@ final class PP_Admin_Settings {
 	 * carries no name and is treated as someone else's: showing a third party
 	 * notice inside this plugin's chrome is the worse of the two mistakes.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param callable $callback Registered callback.
 	 * @return bool
 	 */
@@ -366,7 +366,7 @@ final class PP_Admin_Settings {
 	 * highlight is consistently the second to last swatch across every scheme
 	 * core ships, whether the palette has three entries or four.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return array Empty when the scheme is unknown, otherwise 'primary' and 'light'.
 	 */
 	private static function get_admin_scheme_colors() {
@@ -398,7 +398,7 @@ final class PP_Admin_Settings {
 	 * Used for the tinted backgrounds behind active and hovered navigation, so
 	 * they follow the accent instead of staying a fixed blue.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $hex   Hex colour, with or without the leading hash.
 	 * @param float  $alpha Alpha channel.
 	 * @return string Empty when the colour cannot be parsed.
@@ -475,7 +475,7 @@ final class PP_Admin_Settings {
 	 * One place, and filterable: the free edition and any affiliate build need
 	 * their own, and a URL repeated at each call site drifts.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param array $args Optional query arguments, for campaign tagging.
 	 * @return string
 	 */
@@ -494,7 +494,7 @@ final class PP_Admin_Settings {
 	 * rather than the line being emptied, so the footer keeps the shape every
 	 * other admin page has.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $text Footer text.
 	 * @return string
 	 */
@@ -513,7 +513,7 @@ final class PP_Admin_Settings {
 	/**
 	 * Whether the screen being rendered belongs to this plugin.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return bool
 	 */
 	private static function is_settings_screen() {

@@ -3,7 +3,7 @@
  * Plugin Name: PowerPack Lite for Elementor
  * Plugin URI: https://powerpackelements.com
  * Description: Extend Elementor Page Builder with 40+ Creative Widgets and exciting extensions.
- * Version: 2.10.4
+ * Version: 3.0.0
  * Author: PowerPack Addons Team - IdeaBox Creations
  * Author URI: http://ideabox.io/
  * License: GNU General Public License v2.0
@@ -50,7 +50,7 @@ foreach ( $pp_lite_active_plugins as $pp_lite_active_plugin ) {
 
 unset( $pp_lite_active_plugins, $pp_lite_active_plugin );
 
-define( 'POWERPACK_ELEMENTS_LITE_VER', '2.10.4' );
+define( 'POWERPACK_ELEMENTS_LITE_VER', '3.0.0' );
 define( 'POWERPACK_ELEMENTS_LITE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_BASE', plugin_basename( __FILE__ ) );
 define( 'POWERPACK_ELEMENTS_LITE_URL', plugins_url( '/', __FILE__ ) );
@@ -64,10 +64,10 @@ require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-config.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-posts-helper.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-wpml.php';
-require_once POWERPACK_ELEMENTS_LITE_PATH . 'includes/settings-helpers.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-settings-registry.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-settings-rest-controller.php';
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-rollback.php';
+require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/class-pp-widgets-notice.php';
 
 require_once POWERPACK_ELEMENTS_LITE_PATH . 'plugin.php';
 if ( did_action( 'elementor/loaded' ) ) {

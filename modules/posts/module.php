@@ -250,7 +250,7 @@ class Module extends Module_Base {
 		wp_register_style(
 			'widget-pp-posts',
 			$this->get_css_assets_url( 'widget-posts', null, true, true ),
-			[ 'pp-elementor-grid' ],
+			[],
 			POWERPACK_ELEMENTS_LITE_VER
 		);
 	}

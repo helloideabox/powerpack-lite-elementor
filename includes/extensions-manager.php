@@ -38,8 +38,15 @@ class Extensions_Manager {
 		$available_extensions = $this->available_extensions;
 
 		foreach ( $available_extensions as $index => $extension_id ) {
-			$extension_filename = str_replace( '_', '-', $extension_id );
 			$extension_name = str_replace( '-', '_', $extension_id );
+
+			// Skip extension if it's disabled in admin settings. Checked before
+			// the file is required so a disabled extension costs nothing to parse.
+			if ( $this->is_extension_disabled( $extension_name ) ) {
+				continue;
+			}
+
+			$extension_filename = str_replace( '_', '-', $extension_id );
 
 			$extension_filename = POWERPACK_ELEMENTS_LITE_PATH . "extensions/{$extension_filename}.php";
 
@@ -51,11 +58,6 @@ class Extensions_Manager {
 
 			if ( ! $this->is_available( $extension_name ) ) {
 				unset( $this->available_extensions[ $index ] );
-			}
-
-			// Skip extension if it's disabled in admin settings
-			if ( $this->is_extension_disabled( $extension_name ) ) {
-				continue;
 			}
 
 			$this->register_extension( $extension_id, new $class_name() );

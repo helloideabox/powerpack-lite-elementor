@@ -18,6 +18,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Extension_Display_Conditions extends Extension_Base {
 
 	/**
+	 * Name of the extension's controls section
+	 *
+	 * @since 3.0.0
+	 */
+	const SECTION_NAME = 'section_pp_display_conditions';
+
+	/**
 	 * Is Common Extension
 	 *
 	 * Defines if the current extension is common for all element types or not
@@ -84,31 +91,45 @@ class Extension_Display_Conditions extends Extension_Base {
 		// Activate sections for widgets
 		add_action( 'elementor/element/common/_section_style/after_section_end', function( $element, $args ) {
 
-			$this->add_common_sections( $element, $args );
+			$this->add_section( $element );
 
 		}, 1, 2 );
 
 		// Activate sections for columns
 		add_action( 'elementor/element/column/section_advanced/after_section_end', function( $element, $args ) {
 
-			$this->add_common_sections( $element, $args );
+			$this->add_section( $element );
 
 		}, 1, 2 );
 
 		// Activate sections for sections
 		add_action( 'elementor/element/section/section_advanced/after_section_end', function( $element, $args ) {
 
-			$this->add_common_sections( $element, $args );
+			$this->add_section( $element );
 
 		}, 1, 2 );
 
 		// Activate sections for containers
 		add_action( 'elementor/element/container/section_layout/after_section_end', function( $element, $args ) {
 
-			$this->add_common_sections( $element, $args );
+			$this->add_section( $element );
 
 		}, 1, 2 );
 
+	}
+
+	/**
+	 * Add the extension's controls section
+	 *
+	 * @since 3.0.0
+	 *
+	 * @access private
+	 *
+	 * @param \Elementor\Controls_Stack $element The element the section is added to.
+	 */
+	private function add_section( $element ) {
+
+		$this->add_extension_section( $element, self::SECTION_NAME, esc_html__( 'Display Conditions', 'powerpack-lite-for-elementor' ) );
 	}
 
 	/**

@@ -58,7 +58,6 @@ class Twitter_Grid extends Powerpack_Widget {
 	public function get_script_depends() {
 		return array(
 			'pp-jquery-plugin',
-			'jquery-cookie',
 			'twitter-widgets',
 			'pp-twitter',
 		);
@@ -133,37 +132,6 @@ class Twitter_Grid extends Powerpack_Widget {
 
 		$this->end_controls_section();
 
-		$help_docs = PP_Config::get_widget_help_links( 'Twitter_Grid' );
-		if ( ! empty( $help_docs ) ) {
-			/**
-			 * Content Tab: Docs Links
-			 *
-			 * @since 2.4.1
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_help_docs',
-				[
-					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
-				]
-			);
-
-			$hd_counter = 1;
-			foreach ( $help_docs as $hd_title => $hd_link ) {
-				$this->add_control(
-					'help_doc_' . $hd_counter,
-					[
-						'type'            => Controls_Manager::RAW_HTML,
-						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
-						'content_classes' => 'pp-editor-doc-links',
-					]
-				);
-
-				$hd_counter++;
-			}
-
-			$this->end_controls_section();
-		}
 
 	}
 

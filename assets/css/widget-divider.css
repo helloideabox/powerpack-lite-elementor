@@ -34,7 +34,7 @@
   border: 0;
   border-color: #000;
   border-bottom-width: 4px;
-  border-top-width: 0px;
+  border-top-width: 0;
   display: inline-block;
   width: 80px;
   height: 0;
@@ -43,9 +43,13 @@
 
 /**-- Vertical --**/
 .pp-divider-vertical {
-  border: 0;
   display: inline-block;
-  border-left: 2px solid #000;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #000;
   padding-bottom: 50px;
 }
 
@@ -90,4 +94,63 @@
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
   margin: 0 20px;
+}
+
+/**-- SVG / Pattern Divider --**/
+.pp-widget-divider--separator-type-pattern .pp-divider-horizontal {
+  border: none !important;
+  height: var(--pp-divider-pattern-height, 20px);
+  background-color: currentcolor;
+  -webkit-mask-image: var(--divider-pattern-url);
+  mask-image: var(--divider-pattern-url);
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: var(--pp-divider-pattern-size, 20px) 100%;
+  mask-size: var(--pp-divider-pattern-size, 20px) 100%;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+.pp-widget-divider--separator-type-pattern .pp-divider-vertical {
+  border: none !important;
+  padding-bottom: 0;
+  width: var(--pp-divider-pattern-height, 20px);
+  background-color: currentcolor;
+  -webkit-mask-image: var(--divider-pattern-url);
+  mask-image: var(--divider-pattern-url);
+  -webkit-mask-repeat: repeat-y;
+  mask-repeat: repeat-y;
+  -webkit-mask-size: 100% var(--pp-divider-pattern-size, 20px);
+  mask-size: 100% var(--pp-divider-pattern-size, 20px);
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+.pp-widget-divider--separator-type-pattern .divider-border {
+  border: none !important;
+  height: var(--pp-divider-pattern-height, 20px);
+  display: block;
+  width: 100%;
+  background-color: currentcolor;
+  -webkit-mask-image: var(--divider-pattern-url);
+  mask-image: var(--divider-pattern-url);
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: var(--pp-divider-pattern-size, 20px) 100%;
+  mask-size: var(--pp-divider-pattern-size, 20px) 100%;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+.pp-widget-divider--separator-type-pattern.pp-widget-divider--no-spacing .pp-divider-horizontal,
+.pp-widget-divider--separator-type-pattern.pp-widget-divider--no-spacing .divider-border {
+  -webkit-mask-size: auto 100%;
+  mask-size: auto 100%;
+}
+.pp-widget-divider--separator-type-pattern.pp-widget-divider--no-spacing .pp-divider-vertical {
+  -webkit-mask-size: 100% auto;
+  mask-size: 100% auto;
+}
+.pp-widget-divider--separator-type-pattern.pp-widget-divider--bg-round .pp-divider-horizontal,
+.pp-widget-divider--separator-type-pattern.pp-widget-divider--bg-round .pp-divider-vertical,
+.pp-widget-divider--separator-type-pattern.pp-widget-divider--bg-round .divider-border {
+  -webkit-mask-repeat: space;
+  mask-repeat: space;
 }

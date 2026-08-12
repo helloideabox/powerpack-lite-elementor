@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * PP_Helper::get_widgets_list() is what drops the paid edition's widgets, which
  * the catalogue also carries so the settings screen can promote them.
  *
- * @since x.x.x
+ * @since 3.0.0
  * @return array
  */
 function powerpack_elements_lite_get_modules() {
@@ -74,7 +74,7 @@ function powerpack_elements_lite_get_extensions() {
  * through to "everything on" and turn the whole library back on. Anything else
  * is the stored list.
  *
- * @since x.x.x
+ * @since 3.0.0
  * @return array
  */
 function powerpack_elements_lite_get_enabled_modules() {
@@ -87,6 +87,113 @@ function powerpack_elements_lite_get_enabled_modules() {
 	}
 
 	return apply_filters( 'pp_elementor_enabled_modules', $enabled_modules );
+}
+
+/**
+ * The widgets that are switched on, as a lookup table.
+ *
+ * The stored option is a plain list of widget names, but the "nothing saved
+ * yet" fallback above builds its list from the catalogue, which is keyed by
+ * name. Both shapes are flattened here to 'name => true'.
+ *
+ * Module_Base::is_widget_active() runs once per widget on every registration
+ * pass, and now once more per module before the module is booted at all, so
+ * this is one of the hottest paths in the plugin. The option is read and
+ * filtered once per request, and membership becomes a single isset() instead
+ * of an in_array() scan over the whole library.
+ *
+ * @since 3.0.0
+ * @param bool $reset Internal. Flush the cached lookup, see
+ *                    powerpack_elements_lite_flush_enabled_modules_cache().
+ * @return array Map of enabled widget name => true.
+ */
+function powerpack_elements_lite_get_enabled_modules_lookup( $reset = false ) {
+	static $lookup = null;
+
+	if ( $reset ) {
+		$lookup = null;
+
+		return [];
+	}
+
+	if ( null !== $lookup ) {
+		return $lookup;
+	}
+
+	$enabled_modules = powerpack_elements_lite_get_enabled_modules();
+	$lookup          = [];
+
+	if ( is_array( $enabled_modules ) ) {
+		foreach ( $enabled_modules as $key => $value ) {
+			$module_name = is_int( $key ) ? $value : $key;
+
+			if ( is_string( $module_name ) ) {
+				$lookup[ $module_name ] = true;
+			}
+		}
+	}
+
+	return $lookup;
+}
+
+/**
+ * Flush the cached enabled widgets lookup.
+ *
+ * Hooked to the option writes so a settings save is picked up within the same
+ * request that performed it. The site option hooks matter on multisite, where
+ * PP_Admin_Settings::get_option() may read the network copy.
+ *
+ * @since 3.0.0
+ * @return void
+ */
+function powerpack_elements_lite_flush_enabled_modules_cache() {
+	powerpack_elements_lite_get_enabled_modules_lookup( true );
+}
+add_action( 'add_option_pp_elementor_modules', 'powerpack_elements_lite_flush_enabled_modules_cache' );
+add_action( 'update_option_pp_elementor_modules', 'powerpack_elements_lite_flush_enabled_modules_cache' );
+add_action( 'delete_option_pp_elementor_modules', 'powerpack_elements_lite_flush_enabled_modules_cache' );
+add_action( 'add_site_option_pp_elementor_modules', 'powerpack_elements_lite_flush_enabled_modules_cache' );
+add_action( 'update_site_option_pp_elementor_modules', 'powerpack_elements_lite_flush_enabled_modules_cache' );
+add_action( 'delete_site_option_pp_elementor_modules', 'powerpack_elements_lite_flush_enabled_modules_cache' );
+
+/**
+ * The enabled widget names, limited to widgets this plugin still ships.
+ *
+ * Names left behind by widgets that have since been removed or that this site
+ * cannot use are dropped, so counts always line up with the current library.
+ *
+ * @since 3.0.0
+ * @return array
+ */
+function powerpack_elements_lite_get_enabled_module_names() {
+	$all_modules = array_keys( powerpack_elements_lite_get_modules() );
+	$enabled     = array_keys( powerpack_elements_lite_get_enabled_modules_lookup() );
+
+	return array_values( array_intersect( $all_modules, $enabled ) );
+}
+
+/**
+ * Counts for the widget library, used to decide whether it is worth nudging
+ * someone to switch off widgets their site is not using.
+ *
+ * @since 3.0.0
+ * @return array {
+ *     @type int $total    Widgets this plugin ships that this site can use.
+ *     @type int $enabled  Widgets switched on.
+ *     @type int $disabled Widgets switched off.
+ *     @type int $percent  Percentage of the library switched on, rounded.
+ * }
+ */
+function powerpack_elements_lite_get_modules_stats() {
+	$total   = count( powerpack_elements_lite_get_modules() );
+	$enabled = count( powerpack_elements_lite_get_enabled_module_names() );
+
+	return [
+		'total'    => $total,
+		'enabled'  => $enabled,
+		'disabled' => max( 0, $total - $enabled ),
+		'percent'  => $total > 0 ? (int) round( ( $enabled / $total ) * 100 ) : 0,
+	];
 }
 
 function powerpack_elements_lite_get_filter_modules( $status = '' ) {
@@ -226,3 +333,26 @@ function powerpack_elements_lite_get_enabled_extensions() {
 function powerpack_elements_lite_get_elementor() {
 	return \Elementor\Plugin::$instance;
 }
+
+/**
+ * Send "upgrade" on the settings screen to the page that sells the paid edition.
+ *
+ * The settings app, its REST controller and the settings registry are the same
+ * code as the paid edition's, which is why the destination arrives through a
+ * filter rather than being written into the screen itself.
+ *
+ * Everything this file declares is prefixed for this plugin alone, and this
+ * plugin's copy of the shared code calls these names rather than the paid
+ * edition's. That is deliberate, and it is the whole reason both plugins can be
+ * active at once: two declarations of one function name is a fatal, and which of
+ * the two declares first depends on the order WordPress happens to load them in.
+ * With no name in common there is nothing to collide, and the paid edition needs
+ * to know nothing about this one.
+ *
+ * @since 3.0.0
+ * @return string
+ */
+function powerpack_elements_lite_settings_upgrade_url() {
+	return 'https://powerpackelements.com/upgrade/';
+}
+add_filter( 'pp_settings_upgrade_url', 'powerpack_elements_lite_settings_upgrade_url' );

@@ -59,7 +59,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->register_button_controls();
 		$this->register_pagination_controls();
 		$this->register_content_order();
-		$this->register_content_help_docs();
 		$this->register_content_upgrade_pro_controls();
 	}
 
@@ -119,7 +118,11 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					'8' => '8',
 				),
 				'prefix_class'       => 'elementor-grid%s-',
-				'render_type'        => 'template',
+				'selectors'          => array(
+					// Exposed as a CSS var so the masonry script can read the current-device
+					// column count reliably (grid uses Elementor core's .elementor-grid columns).
+					'{{WRAPPER}} .pp-posts' => '--pp-gallery-columns: {{VALUE}};',
+				),
 			)
 		);
 
@@ -1695,48 +1698,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->end_controls_section();
 	}
 
-	/**
-	 * Content Tab: Help Docs
-	 *
-	 * @since 2.1.0
-	 * @access protected
-	 */
-	protected function register_content_help_docs() {
-
-		$help_docs = PP_Config::get_widget_help_links( 'Posts' );
-
-		if ( ! empty( $help_docs ) ) {
-
-			/**
-			 * Content Tab: Help Docs
-			 *
-			 * @since 2.1.0
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_help_docs',
-				array(
-					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
-				)
-			);
-
-			$hd_counter = 1;
-			foreach ( $help_docs as $hd_title => $hd_link ) {
-				$this->add_control(
-					'help_doc_' . $hd_counter,
-					array(
-						'type'            => Controls_Manager::RAW_HTML,
-						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
-						'content_classes' => 'pp-editor-doc-links',
-					)
-				);
-
-				$hd_counter++;
-			}
-
-			$this->end_controls_section();
-		}
-	}
 
 	/**
 	 * Content Tab: Upgrade pro section
@@ -1815,8 +1776,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'selectors'  => array(
 					'{{WRAPPER}}' => '--grid-column-gap: {{SIZE}}{{UNIT}}',
-					'{{WRAPPER}} .pp-posts:not(.elementor-grid)' => 'margin-left: -{{SIZE}}{{UNIT}}',
-					'{{WRAPPER}} .pp-posts:not(.elementor-grid) .pp-post-wrap' => 'padding-left: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -1838,7 +1797,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				),
 				'selectors'  => array(
 					'{{WRAPPER}}' => '--grid-row-gap: {{SIZE}}{{UNIT}}',
-					'{{WRAPPER}} .pp-elementor-grid .pp-grid-item-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				),
 				'condition' => array(
 					$this->get_control_id( 'layout!' ) => 'carousel',
@@ -5219,7 +5177,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			$classes[] = 'pp-swiper-slider';
 			$classes[] = 'swiper';
 		} elseif ( 'masonry' === $layout ) {
-			$classes[] = 'pp-elementor-grid';
+			$classes[] = 'pp-posts-masonry';
 			$classes[] = 'pp-posts-grid';
 		} else {
 			$classes[] = 'elementor-grid';
@@ -5496,6 +5454,9 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		$effect = ( $this->get_instance_value('carousel_effect') ) ? $this->get_instance_value('carousel_effect') : 'slide';
 
+		$col_spacing   = $this->get_instance_value( 'posts_horizontal_spacing' );
+		$space_between = ( isset( $col_spacing['size'] ) && '' !== $col_spacing['size'] ) ? $col_spacing['size'] : 25;
+
 		if ( 'slide' === $effect ) {
 			$slides_to_show          = ( ! empty( $this->get_instance_value( 'columns' ) ) ) ? absint( $this->get_instance_value( 'columns' ) ) : 3;
 			$slides_to_show_tablet   = ( ! empty( $this->get_instance_value( 'columns_tablet' ) ) ) ? absint( $this->get_instance_value( 'columns_tablet' ) ) : 2;
@@ -5522,6 +5483,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'speed'            => ( $animation_speed ) ? absint( $animation_speed ) : 600,
 			'slides_per_view'  => $slides_to_show,
 			'slides_to_scroll' => $slides_to_scroll,
+			'space_between'    => $space_between,
 			'centered_slides'  => ( 'yes' === $center_mode ),
 			'loop'             => ( 'yes' === $infinite_loop ),
 		];
@@ -5568,6 +5530,15 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 				if ( ( ! empty( $this->get_instance_value( 'slides_to_scroll_'  . $device ) ) ) ) {
 					$slider_options['slides_to_scroll_' . $device] = absint( $this->get_instance_value( 'slides_to_scroll_'  . $device ) );
+				}
+			}
+
+			// Per-breakpoint slide gap for every active breakpoint (incl. custom ones).
+			if ( 'desktop' !== $device ) {
+				$device_spacing = $this->get_instance_value( 'posts_horizontal_spacing_' . $device );
+
+				if ( isset( $device_spacing['size'] ) && '' !== $device_spacing['size'] ) {
+					$slider_options[ 'space_between_' . $device ] = $device_spacing['size'];
 				}
 			}
 		}
@@ -5844,63 +5815,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'2.9.10'
 		);
 		?>
-
-		<?php
-		if ( \Elementor\Plugin::instance()->editor->is_edit_mode() ) {
-
-			if ( 'masonry' === $layout ) {
-				$this->render_editor_script();
-			}
-		}
-	}
-
-	/**
-	 * Get masonry script.
-	 *
-	 * Returns the post masonry script.
-	 *
-	 * @since 1.7.0
-	 * @access public
-	 */
-	public function render_editor_script() {
-		$settings = $this->parent->get_settings_for_display();
-		$layout   = $this->get_instance_value( 'layout' );
-
-		if ( 'masonry' !== $layout ) {
-			return;
-		}
-
-		$layout = 'masonry';
-
-		?>
-		<script type="text/javascript">
-
-			jQuery( document ).ready( function( $ ) {
-				$( '.pp-posts-grid' ).each( function() {
-
-					var $node_id 	= '<?php echo esc_attr( $this->parent->get_id() ); ?>',
-						$scope 		= $( '[data-id="' + $node_id + '"]' ),
-						$selector 	= $(this);
-
-					if ( $selector.closest( $scope ).length < 1 ) {
-						return;
-					}
-
-					$selector.imagesLoaded( function() {
-
-						$isotopeObj = $selector.isotope({
-							layoutMode: '<?php echo esc_attr( $layout ); ?>',
-							itemSelector: '.pp-grid-item-wrap',
-						});
-
-						$selector.find( '.pp-grid-item-wrap' ).resize( function() {
-							$isotopeObj.isotope( 'layout' );
-						});
-					});
-				});
-			});
-
-		</script>
 		<?php
 	}
 }

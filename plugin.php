@@ -142,13 +142,6 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_style(
-			'pp-elementor-grid',
-			POWERPACK_ELEMENTS_LITE_URL . $path . 'elementor-grid' . $suffix . '.css',
-			array(),
-			POWERPACK_ELEMENTS_LITE_VER
-		);
-
-		wp_register_style(
 			'pp-swiper',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-swiper' . $suffix . '.css',
 			array(),
@@ -272,6 +265,7 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-instafeed' . $suffix . '.js',
 			array(
 				'jquery',
+				'pp-masonry',
 			),
 			POWERPACK_ELEMENTS_LITE_VER,
 			true
@@ -358,12 +352,12 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
-			'isotope',
-			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/isotope/isotope.pkgd' . $suffix . '.js',
+			'pp-masonry',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-masonry' . $suffix . '.js',
 			array(
 				'jquery',
 			),
-			'0.5.3',
+			POWERPACK_ELEMENTS_LITE_VER,
 			true
 		);
 
@@ -402,6 +396,7 @@ class PowerpackLitePlugin {
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-posts' . $suffix . '.js',
 			[
 				'jquery',
+				'pp-masonry',
 			],
 			POWERPACK_ELEMENTS_LITE_VER,
 			true

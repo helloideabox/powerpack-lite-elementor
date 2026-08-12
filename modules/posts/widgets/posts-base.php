@@ -41,7 +41,6 @@ abstract class Posts_Base extends Powerpack_Widget {
 	public function get_script_depends() {
 		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
 			return [
-				'isotope',
 				'imagesloaded',
 				'swiper',
 				'powerpack-pp-posts',
@@ -56,7 +55,7 @@ abstract class Posts_Base extends Powerpack_Widget {
 		}
 
 		if ( 'masonry' === $settings['classic_layout'] ) {
-			$scripts = array_merge( $scripts, [ 'isotope', 'imagesloaded', 'powerpack-pp-posts' ] );
+			$scripts = array_merge( $scripts, [ 'imagesloaded', 'powerpack-pp-posts' ] );
 		}
 
 		if ( 'none' !== $settings['classic_pagination_type'] ) {
@@ -80,7 +79,6 @@ abstract class Posts_Base extends Powerpack_Widget {
 			return [
 				'e-swiper',
 				'pp-swiper',
-				'pp-elementor-grid',
 				'widget-pp-posts'
 			];
 		}
@@ -90,8 +88,6 @@ abstract class Posts_Base extends Powerpack_Widget {
 
 		if ( 'carousel' === $settings['classic_layout'] ) {
 			array_push( $styles, 'e-swiper', 'pp-swiper' );
-		} else {
-			array_push( $styles, 'pp-elementor-grid' );
 		}
 
 		return $styles;

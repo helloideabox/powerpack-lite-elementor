@@ -6,6 +6,7 @@
 					selectors: {
 						swiperContainer: '.pp-swiper-slider',
 						swiperSlide: '.swiper-slide',
+						feed: '.pp-instafeed-grid',
 					},
 					slidesPerView: {
 						widescreen: 3,
@@ -25,6 +26,7 @@
 				return {
 					$swiperContainer: this.$element.find( selectors.swiperContainer ),
 					$swiperSlide: this.$element.find( selectors.swiperSlide ),
+					$feed: this.$element.find( selectors.feed ),
 				};
 			}
 
@@ -167,13 +169,40 @@
 			}
 
 			initMasonryLayout() {
-				const grid = $('#pp-instafeed-' + this.getID()).imagesLoaded( function() {
+				const self = this;
 
-					grid.masonry({
-						itemSelector    : '.pp-feed-item',
-						percentPosition : true
-					});
-				});
+				this.masonry = new PPMasonry( {
+					container: this.elements.$feed[0],
+					itemSelector: '.pp-feed-item',
+				} );
+
+				this.masonry.observeResize();
+
+				// Measure once images are loaded, then keep it in sync as (lazy) images resolve.
+				this.elements.$feed.imagesLoaded( function () {
+					self.masonry.setReady();
+					self.masonry.layout();
+				} );
+
+				this.elements.$feed.find('img').on('load', function () {
+					self.masonry.layoutIfReady();
+				} );
+			}
+
+			onElementChange() {
+				if ( this.masonry && 'masonry' === this.getElementSettings('feed_layout') ) {
+					setTimeout( () => this.masonry.layout() );
+				}
+			}
+
+			onDestroy() {
+				if ( this.masonry ) {
+					this.masonry.destroy();
+				}
+
+				if ( super.onDestroy ) {
+					super.onDestroy();
+				}
 			}
 
 			async initSlider() {

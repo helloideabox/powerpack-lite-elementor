@@ -15,7 +15,7 @@
  * other's data.
  *
  * @package PowerPackElementsLite
- * @since x.x.x
+ * @since 3.0.0
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
@@ -25,7 +25,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 /**
  * Option keys written by the plugin.
  *
- * @since x.x.x
+ * @since 3.0.0
  * @return array
  */
 function powerpack_elements_lite_uninstall_option_keys() {
@@ -58,7 +58,7 @@ function powerpack_elements_lite_uninstall_option_keys() {
 /**
  * User meta keys written by the plugin.
  *
- * @since x.x.x
+ * @since 3.0.0
  * @return array
  */
 function powerpack_elements_lite_uninstall_user_meta_keys() {
@@ -70,7 +70,7 @@ function powerpack_elements_lite_uninstall_user_meta_keys() {
 /**
  * Delete every trace of the plugin from the current site.
  *
- * @since x.x.x
+ * @since 3.0.0
  * @return void
  */
 function powerpack_elements_lite_uninstall_site() {
@@ -105,7 +105,7 @@ function powerpack_elements_lite_uninstall_site() {
  * Defaults to false: keeping data is the safe default, so an accidental delete
  * of the plugin never destroys a site's configuration.
  *
- * @since x.x.x
+ * @since 3.0.0
  * @return bool
  */
 function powerpack_elements_lite_uninstall_opted_in() {

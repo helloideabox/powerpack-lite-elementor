@@ -7,6 +7,22 @@
 	right: 0;
 	bottom: 0;
 }
+// Masonry layout — items are absolutely positioned by the posts script; the
+// container is sized via an explicit height, so the flow-based negative gutter
+// margin must be neutralised. A CSS-grid fallback keeps the correct column count
+// visible in the brief window before the script runs (e.g. switching to masonry
+// in the editor), instead of collapsing to a single full-width column.
+.pp-posts.pp-posts-masonry {
+	position: relative;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	display: grid;
+	grid-template-columns: repeat(var(--pp-gallery-columns, 3), 1fr);
+	// The gap doubles as the pre-script gutter (no item padding needed, so no
+	// load-in shift) and the source the masonry script reads back for its column/
+	// row gaps via getComputedStyle().column-gap / .row-gap.
+	gap: var(--grid-row-gap, 0px) var(--grid-column-gap, 0px);
+}
 .pp-icon {
 	display: inline-block;
 	line-height: 1;

@@ -3,6 +3,15 @@
   min-height: 2px;
 }
 
+.pp-instafeed-grid.pp-instafeed-masonry {
+  position: relative;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(var(--pp-gallery-columns, 5), 1fr);
+  gap: var(--grid-row-gap, 0px) var(--grid-column-gap, 0px);
+}
+
 .pp-media-overlay {
   position: absolute;
   top: 0;

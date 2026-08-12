@@ -108,7 +108,6 @@ class Info_List extends Powerpack_Widget {
 	protected function register_controls() {
 		/* Content Tab */
 		$this->register_content_list_items_controls();
-		$this->register_content_help_docs_controls();
 
 		/* Style Tab */
 		$this->register_style_list_controls();
@@ -398,42 +397,6 @@ class Info_List extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	protected function register_content_help_docs_controls() {
-
-		$help_docs = PP_Config::get_widget_help_links( 'Info_List' );
-
-		if ( ! empty( $help_docs ) ) {
-
-			/**
-			 * Content Tab: Help Docs
-			 *
-			 * @since 1.4.8
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_help_docs',
-				array(
-					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
-				)
-			);
-
-			$hd_counter = 1;
-			foreach ( $help_docs as $hd_title => $hd_link ) {
-				$this->add_control(
-					'help_doc_' . $hd_counter,
-					array(
-						'type'            => Controls_Manager::RAW_HTML,
-						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
-						'content_classes' => 'pp-editor-doc-links',
-					)
-				);
-
-				$hd_counter++;
-			}
-
-			$this->end_controls_section();
-		}
-	}
 
 	/*-----------------------------------------------------------------------------------*/
 	/*	STYLE TAB

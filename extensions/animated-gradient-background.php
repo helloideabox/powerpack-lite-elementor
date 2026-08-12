@@ -22,6 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Extension_Animated_Gradient_Background extends Extension_Base {
 
 	/**
+	 * Name of the extension's controls section
+	 *
+	 * @since 3.0.0
+	 */
+	const SECTION_NAME = 'section_pp_animated_gradient_bg';
+
+	/**
 	 * Is Common Extension
 	 *
 	 * Defines if the current extension is common for all element types or not
@@ -91,27 +98,12 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 	 */
 	protected function add_gradient_background_animation_sections( $element, $args ) {
 
-		// The name of the section
-		$section_name = 'section_powerpack_elements_background_effects';
-
-		// Check if this section exists
-		$section_exists = \Elementor\Plugin::instance()->controls_manager->get_control_from_stack( $element->get_unique_name(), $section_name );
-
-		if ( ! is_wp_error( $section_exists ) ) {
-			// We can't and should try to add this section to the stack
-			return false;
-		}
-
-		$element->start_controls_section(
-			$section_name,
-			array(
-				'tab'   => Controls_Manager::TAB_STYLE,
-				'label' => esc_html__( 'PowerPack Background', 'powerpack-lite-for-elementor' ),
-			)
+		$this->add_extension_section(
+			$element,
+			self::SECTION_NAME,
+			esc_html__( 'Animated Gradient Background', 'powerpack-lite-for-elementor' ),
+			Controls_Manager::TAB_STYLE
 		);
-
-		$element->end_controls_section();
-
 	}
 
 	/**
@@ -151,16 +143,6 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 	 * @access private
 	 */
 	private function add_controls( $element, $args ) {
-
-		$element->add_control(
-			'pp_animated_gradient_bg_heading',
-			array(
-				'label'              => esc_html__( 'Animated Gradient Background', 'powerpack-lite-for-elementor' ),
-				'type'               => Controls_Manager::HEADING,
-				'default'            => '',
-				'separator'          => 'before',
-			)
-		);
 
 		$element->add_control(
 			'pp_animated_gradient_bg_enable',
@@ -252,7 +234,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 
 		// Activate controls for rows
 		add_action(
-			'elementor/element/section/section_powerpack_elements_background_effects/before_section_end',
+			'elementor/element/section/' . self::SECTION_NAME . '/before_section_end',
 			function( $element, $args ) {
 				$this->add_controls( $element, $args );
 			},
@@ -262,7 +244,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 
 		// Activate controls for containers
 		add_action(
-			'elementor/element/container/section_powerpack_elements_background_effects/before_section_end',
+			'elementor/element/container/' . self::SECTION_NAME . '/before_section_end',
 			function( $element, $args ) {
 				$this->add_controls( $element, $args );
 			},

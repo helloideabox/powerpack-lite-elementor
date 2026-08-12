@@ -130,7 +130,6 @@ class Progress_Bar extends Powerpack_Widget {
 	protected function register_controls() {
 		/* Content Tab */
 		$this->register_content_progress_controls();
-		$this->register_content_help_docs_controls();
 
 		/* Style Tab */
 		$this->register_style_progress_controls();
@@ -664,46 +663,6 @@ class Progress_Bar extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	/**
-	 * Register Help Docs Controls in Content tab
-	 *
-	 * @return void
-	 */
-	protected function register_content_help_docs_controls() {
-		$help_docs = PP_Config::get_widget_help_links( 'Progress_Bar' );
-
-		if ( ! empty( $help_docs ) ) {
-
-			/**
-			 * Content Tab: Help Docs
-			 *
-			 * @since 2.8.0
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_help_docs',
-				array(
-					'label' => __( 'Help Docs', 'powerpack-lite-for-elementor' ),
-				)
-			);
-
-			$hd_counter = 1;
-			foreach ( $help_docs as $hd_title => $hd_link ) {
-				$this->add_control(
-					'help_doc_' . $hd_counter,
-					array(
-						'type'            => Controls_Manager::RAW_HTML,
-						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
-						'content_classes' => 'pp-editor-doc-links',
-					)
-				);
-
-				$hd_counter++;
-			}
-
-			$this->end_controls_section();
-		}
-	}
 
 	/**
 	 * Register progress bar controls in Style tab

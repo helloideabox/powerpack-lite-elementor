@@ -109,7 +109,6 @@ class Instafeed extends Powerpack_Widget {
 	public function get_script_depends() {
 		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
 			return [
-				'isotope',
 				'imagesloaded',
 				'swiper',
 				'pp-instafeed',
@@ -120,7 +119,7 @@ class Instafeed extends Powerpack_Widget {
 		$scripts = [];
 
 		if ( 'masonry' === $settings['feed_layout'] ) {
-			array_push( $scripts, 'isotope', 'imagesloaded', 'pp-instafeed' );
+			array_push( $scripts, 'imagesloaded', 'pp-instafeed' );
 		}
 
 		if ( 'carousel' === $settings['feed_layout'] ) {
@@ -189,7 +188,6 @@ class Instafeed extends Powerpack_Widget {
 		$this->register_content_carousel_settings_controls();
 
 		/* Content Tab: Help Docs */
-		$this->register_content_help_docs();
 
 		/* Style Tab: Layout */
 		$this->register_style_layout_controls();
@@ -426,6 +424,9 @@ class Instafeed extends Powerpack_Widget {
 				),
 				'selectors'      => array(
 					'{{WRAPPER}} .pp-instagram-feed-grid .pp-feed-item' => 'width: calc( 100% / {{VALUE}} )',
+					// Exposed as a CSS var so the masonry script can read the current-device
+					// column count reliably.
+					'{{WRAPPER}} .pp-instafeed-grid' => '--pp-gallery-columns: {{VALUE}};',
 				),
 				'render_type'    => 'template',
 				'condition'      => array(
@@ -901,48 +902,6 @@ class Instafeed extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	/**
-	 * Content Tab: Help Docs
-	 *
-	 * @since 1.4.8
-	 * @access protected
-	 */
-	protected function register_content_help_docs() {
-
-		$help_docs = PP_Config::get_widget_help_links( 'Instafeed' );
-
-		if ( ! empty( $help_docs ) ) {
-
-			/**
-			 * Content Tab: Help Docs
-			 *
-			 * @since 1.4.8
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_help_docs',
-				array(
-					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
-				)
-			);
-
-			$hd_counter = 1;
-			foreach ( $help_docs as $hd_title => $hd_link ) {
-				$this->add_control(
-					'help_doc_' . $hd_counter,
-					array(
-						'type'            => Controls_Manager::RAW_HTML,
-						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
-						'content_classes' => 'pp-editor-doc-links',
-					)
-				);
-
-				$hd_counter++;
-			}
-
-			$this->end_controls_section();
-		}
-	}
 
 	/*-----------------------------------------------------------------------------------*/
 	/* STYLE TAB
@@ -985,8 +944,9 @@ class Instafeed extends Powerpack_Widget {
 					'unit' => 'px',
 				),
 				'selectors'      => array(
-					'{{WRAPPER}} .pp-instafeed-grid .pp-feed-item' => 'padding-left: calc({{SIZE}}{{UNIT}}/2); padding-right: calc({{SIZE}}{{UNIT}}/2);',
-					'{{WRAPPER}} .pp-instafeed-grid' => 'margin-left: calc(-{{SIZE}}{{UNIT}}/2); margin-right: calc(-{{SIZE}}{{UNIT}}/2);',
+					'{{WRAPPER}}' => '--grid-column-gap: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instafeed-grid:not(.pp-instafeed-masonry) .pp-feed-item' => 'padding-left: calc({{SIZE}}{{UNIT}}/2); padding-right: calc({{SIZE}}{{UNIT}}/2);',
+					'{{WRAPPER}} .pp-instafeed-grid:not(.pp-instafeed-masonry)' => 'margin-left: calc(-{{SIZE}}{{UNIT}}/2); margin-right: calc(-{{SIZE}}{{UNIT}}/2);',
 				),
 				'render_type'    => 'template',
 				'condition'      => array(
@@ -1017,7 +977,8 @@ class Instafeed extends Powerpack_Widget {
 					'unit' => 'px',
 				),
 				'selectors'      => array(
-					'{{WRAPPER}} .pp-instafeed-grid .pp-feed-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}' => '--grid-row-gap: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instafeed-grid:not(.pp-instafeed-masonry) .pp-feed-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				),
 				'render_type'    => 'template',
 				'condition'      => array(
@@ -3151,6 +3112,10 @@ class Instafeed extends Powerpack_Widget {
 				'class' => 'pp-instafeed-grid',
 			)
 		);
+
+		if ( 'masonry' === $settings['feed_layout'] ) {
+			$this->add_render_attribute( 'insta-feed', 'class', 'pp-instafeed-masonry' );
+		}
 
 		$this->add_render_attribute( 'container-wrap', 'class', 'pp-insta-feed-inner' );
 

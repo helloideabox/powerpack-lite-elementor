@@ -9,6 +9,7 @@ namespace PowerpackElementsLite\Base;
 
 use Elementor\Widget_Base;
 use PowerpackElementsLite\Classes\PP_Helper;
+use PowerpackElementsLite\Classes\PP_Admin_Settings;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -121,6 +122,31 @@ abstract class Powerpack_Widget extends Widget_Base {
 	 */
 	public function get_widget_keywords( $slug = '' ) {
 		return PP_Helper::get_widget_keywords( $slug );
+	}
+
+	/**
+	 * Get the widget documentation URL used by Elementor's "Need Help?" link.
+	 *
+	 * The catalogue key matches the widget class name for every widget but one,
+	 * so it is derived from the class rather than repeated in each widget. Pass
+	 * $slug from a widget whose class name and catalogue key differ.
+	 *
+	 * @since 3.0.0
+	 * @param string $slug Optional. Catalogue key. Defaults to the class name.
+	 * @return string
+	 */
+	public function get_custom_help_url( $slug = '' ) {
+		$settings = PP_Admin_Settings::get_settings();
+
+		if ( isset( $settings['hide_support'] ) && 'on' === $settings['hide_support'] ) {
+			return '';
+		}
+
+		if ( '' === $slug ) {
+			$slug = ( new \ReflectionClass( $this ) )->getShortName();
+		}
+
+		return (string) PP_Helper::get_widget_docs( $slug );
 	}
 
 	/**

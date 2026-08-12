@@ -181,7 +181,6 @@ class Random_Image extends Powerpack_Widget {
 
 		/* Content Tab */
 		$this->register_content_gallery_controls();
-		$this->register_content_help_docs_controls();
 
 		/* Style Tab */
 		$this->register_style_image_controls();
@@ -342,42 +341,6 @@ class Random_Image extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	protected function register_content_help_docs_controls() {
-
-		$help_docs = PP_Config::get_widget_help_links( 'Random_Image' );
-
-		if ( ! empty( $help_docs ) ) {
-
-			/**
-			 * Content Tab: Help Docs
-			 *
-			 * @since 2.3.0
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_help_docs',
-				[
-					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
-				]
-			);
-
-			$hd_counter = 1;
-			foreach ( $help_docs as $hd_title => $hd_link ) {
-				$this->add_control(
-					'help_doc_' . $hd_counter,
-					[
-						'type'            => Controls_Manager::RAW_HTML,
-						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
-						'content_classes' => 'pp-editor-doc-links',
-					]
-				);
-
-				$hd_counter++;
-			}
-
-			$this->end_controls_section();
-		}
-	}
 
 	/*-----------------------------------------------------------------------------------*/
 	/*	STYLE TAB
@@ -1191,7 +1154,12 @@ class Random_Image extends Powerpack_Widget {
 				$this->add_render_attribute( 'link', 'href', $link['url'] );
 			} elseif ( 'custom' === $settings['link_to'] ) {
 				$link        = $settings['link'];
-				$link_custom = get_post_meta( $image_id, 'pp-custom-link', true );
+				// This meta is printed as an href, and is written by the paid edition's
+				// attachment field, so a value stored before that field was sanitized may
+				// still hold an unsafe protocol. Filtered on the way out with
+				// esc_url_raw() rather than esc_url(), which the attribute escaping
+				// applied downstream would encode a second time.
+				$link_custom = esc_url_raw( get_post_meta( $image_id, 'pp-custom-link', true ) );
 
 				if ( '' !== $link_custom ) {
 					$link['url'] = $link_custom;

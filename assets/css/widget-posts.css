@@ -6,6 +6,15 @@
   bottom: 0;
 }
 
+.pp-posts.pp-posts-masonry {
+  position: relative;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(var(--pp-gallery-columns, 3), 1fr);
+  gap: var(--grid-row-gap, 0px) var(--grid-column-gap, 0px);
+}
+
 .pp-icon {
   display: inline-block;
   line-height: 1;

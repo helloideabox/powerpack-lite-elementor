@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Value shapes here are load-bearing: they are read at render time by widgets
  * across the plugin, so they must not drift. See the notes on each field.
  *
- * @since x.x.x
+ * @since 3.0.0
  */
 final class PP_Settings_Registry {
 
@@ -66,7 +66,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Get the full field map.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return array Map of field key => descriptor.
 	 */
 	public static function get_fields() {
@@ -96,7 +96,7 @@ final class PP_Settings_Registry {
 	 *             members for 'list'.
 	 *   default   Value returned when nothing is stored.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return array
 	 */
 	private static function define_fields() {
@@ -176,7 +176,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Get a single field descriptor.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $key Field key.
 	 * @return array|null
 	 */
@@ -189,7 +189,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Get all field keys belonging to a group.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $group Group name.
 	 * @return array
 	 */
@@ -208,7 +208,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Get the list of registered groups.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return array
 	 */
 	public static function get_groups() {
@@ -224,7 +224,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Whether the current user may read and write a field.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $key     Field key.
 	 * @param bool   $network Whether the request is in a network admin context.
 	 * @return bool
@@ -244,7 +244,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Read a field value.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $key     Field key.
 	 * @param bool   $network Whether the request is in a network admin context.
 	 * @return mixed
@@ -282,7 +282,7 @@ final class PP_Settings_Registry {
 	 * mask, omits the field unless the user edits it, and clears a key by
 	 * sending an explicit null.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $key     Field key.
 	 * @param bool   $network Whether the request is in a network admin context.
 	 * @return mixed
@@ -301,7 +301,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Mask a credential down to its last four characters.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $value Raw value.
 	 * @return string
 	 */
@@ -327,7 +327,7 @@ final class PP_Settings_Registry {
 	 * and written in a single read-modify-write so that one group's save cannot
 	 * drop another's values.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param array $payload Map of field key => submitted value.
 	 * @param array $args    {
 	 *     @type bool $network Whether the request is in a network admin context.
@@ -399,7 +399,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Coerce a submitted value into its stored shape.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param mixed $value   Submitted value.
 	 * @param array $field   Field descriptor.
 	 * @param mixed $stored  Currently stored value, for rules that must not
@@ -480,7 +480,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Whether a submitted value means "on".
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param mixed $value Submitted value.
 	 * @return bool
 	 */
@@ -499,7 +499,7 @@ final class PP_Settings_Registry {
 	 * the array after the pp_elements_admin_settings filter has run, so seeding
 	 * a save from it persists whatever a filter injected.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return array
 	 */
 	private static function get_settings_array() {
@@ -511,7 +511,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Merge values into pp_elementor_settings.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param array $values Map of sub-key => value.
 	 * @return void
 	 */
@@ -528,7 +528,7 @@ final class PP_Settings_Registry {
 	 * explicitly rather than calling is_network_admin() — which is always false
 	 * during a REST request.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $key              Option key.
 	 * @param bool   $network_override Whether a site value may override the network one.
 	 * @param bool   $network          Whether the request is in a network admin context.
@@ -565,7 +565,7 @@ final class PP_Settings_Registry {
 	 * writes the flag, so the branch is dropped here; the corresponding read
 	 * fallback is preserved in read_option().
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $key              Option key.
 	 * @param mixed  $value            Value to store.
 	 * @param bool   $network_override Whether a site value may override the network one.
@@ -591,7 +591,7 @@ final class PP_Settings_Registry {
 	/**
 	 * Delete an option.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $key     Option key.
 	 * @param bool   $network Whether the request is in a network admin context.
 	 * @return void

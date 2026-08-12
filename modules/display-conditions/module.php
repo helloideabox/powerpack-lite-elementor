@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\DisplayConditions;
 
 use PowerpackElementsLite\Base\Module_Base;
+use PowerpackElementsLite\Extensions\Extension_Display_Conditions;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -153,6 +154,7 @@ class Module extends Module_Base {
 			'device_type',
 			'search_bot',
 			'request_parameter',
+			'url_string',
 		];
 
 		foreach ( $available_conditions as $condition_name ) {
@@ -249,23 +251,25 @@ class Module extends Module_Base {
 	 * @access protected
 	 */
 	public function add_actions() {
+		$section_name = Extension_Display_Conditions::SECTION_NAME;
+
 		// Activate controls for widgets
-		add_action( 'elementor/element/common/section_powerpack_elements_advanced/before_section_end', function( $element, $args ) {
+		add_action( 'elementor/element/common/' . $section_name . '/before_section_end', function( $element, $args ) {
 			$this->add_controls( $element, $args );
 		}, 10, 2 );
 
 		// Activate controls for columns
-		add_action( 'elementor/element/column/section_powerpack_elements_advanced/before_section_end', function( $element, $args ) {
+		add_action( 'elementor/element/column/' . $section_name . '/before_section_end', function( $element, $args ) {
 			$this->add_controls( $element, $args );
 		}, 10, 2 );
 
 		// Activate controls for sections
-		add_action( 'elementor/element/section/section_powerpack_elements_advanced/before_section_end', function( $element, $args ) {
+		add_action( 'elementor/element/section/' . $section_name . '/before_section_end', function( $element, $args ) {
 			$this->add_controls( $element, $args );
 		}, 10, 2 );
 
 		// Activate controls for containers
-		add_action( 'elementor/element/container/section_powerpack_elements_advanced/before_section_end', function( $element, $args ) {
+		add_action( 'elementor/element/container/' . $section_name . '/before_section_end', function( $element, $args ) {
 			$this->add_controls( $element, $args );
 		}, 10, 2 );
 

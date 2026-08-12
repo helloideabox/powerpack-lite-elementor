@@ -120,7 +120,6 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->register_query_section_controls();
 		$this->register_content_heading_controls();
 		$this->register_content_ticker_settings_controls();
-		$this->register_content_help_docs_controls();
 
 		/* Style Tab */
 		$this->register_style_heading_controls();
@@ -1239,40 +1238,6 @@ class Content_Ticker extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	protected function register_content_help_docs_controls() {
-
-		$help_docs = PP_Config::get_widget_help_links( 'Content_Ticker' );
-		if ( ! empty( $help_docs ) ) {
-			/**
-			 * Content Tab: Docs Links
-			 *
-			 * @since 2.4.1
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_help_docs',
-				[
-					'label' => __( 'Help Docs', 'powerpack-lite-for-elementor' ),
-				]
-			);
-
-			$hd_counter = 1;
-			foreach ( $help_docs as $hd_title => $hd_link ) {
-				$this->add_control(
-					'help_doc_' . $hd_counter,
-					[
-						'type'            => Controls_Manager::RAW_HTML,
-						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
-						'content_classes' => 'pp-editor-doc-links',
-					]
-				);
-
-				$hd_counter++;
-			}
-
-			$this->end_controls_section();
-		}
-	}
 
 	/**
 	 * Register Content Ticker Heading Controls in Style Tabs.

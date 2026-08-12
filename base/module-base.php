@@ -78,20 +78,36 @@ abstract class Module_Base {
 	}
 
 	public function __construct() {
-		$this->reflection = new \ReflectionClass( $this );
-
 		add_action( 'elementor/widgets/register', array( $this, 'init_widgets' ) );
+	}
+
+	/**
+	 * Reflection for the concrete module class.
+	 *
+	 * Built on first use rather than in the constructor: it is only needed while
+	 * registering widgets, and every module is constructed on every request.
+	 *
+	 * @since 3.0.0
+	 * @return \ReflectionClass
+	 */
+	protected function get_reflection() {
+		if ( null === $this->reflection ) {
+			$this->reflection = new \ReflectionClass( $this );
+		}
+
+		return $this->reflection;
 	}
 
 	public function init_widgets() {
 		$widgets_manager = \Elementor\Plugin::instance()->widgets_manager;
+		$namespace       = $this->get_reflection()->getNamespaceName();
 
 		foreach ( $this->get_widgets() as $widget ) {
 			$widget_name     = strtolower( $widget );
 			$widget_filename = 'pp-' . str_replace( '_', '-', $widget_name );
 
 			if ( $this->is_widget_active( $widget_filename ) ) {
-				$class_name = $this->reflection->getNamespaceName() . '\Widgets\\' . $widget;
+				$class_name = $namespace . '\Widgets\\' . $widget;
 
 				$widgets_manager->register( new $class_name() );
 			}
@@ -99,13 +115,9 @@ abstract class Module_Base {
 	}
 
 	public static function is_widget_active( $widget = '' ) {
-		$enabled_modules = powerpack_elements_lite_get_enabled_modules();
+		$enabled_modules = powerpack_elements_lite_get_enabled_modules_lookup();
 
-		if ( in_array( $widget, $enabled_modules ) ) {
-			return true;
-		}
-
-		return false;
+		return isset( $enabled_modules[ $widget ] );
 	}
 
 	/**

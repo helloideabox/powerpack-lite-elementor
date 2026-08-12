@@ -37,6 +37,18 @@ class WPforms extends Powerpack_Widget {
 	}
 
 	/**
+	 * This widget's class name does not match its catalogue key, so the key has
+	 * to be named here for the "Need Help?" link to resolve.
+	 *
+	 * @since 3.0.0
+	 * @param string $slug Optional. Catalogue key.
+	 * @return string
+	 */
+	public function get_custom_help_url( $slug = 'WP_Forms' ) {
+		return parent::get_custom_help_url( $slug );
+	}
+
+	/**
 	 * Get widget keywords.
 	 *
 	 * Retrieve the list of keywords the widget belongs to.
@@ -215,39 +227,6 @@ class WPforms extends Powerpack_Widget {
 
 		$this->end_controls_section();
 
-		$help_docs = PP_Config::get_widget_help_links( 'WP_Forms' );
-
-		if ( ! empty( $help_docs ) ) {
-
-			/**
-			 * Content Tab: Help Docs
-			 *
-			 * @since 1.4.15
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_help_docs',
-				[
-					'label' => esc_html__( 'Help Docs', 'powerpack-lite-for-elementor' ),
-				]
-			);
-
-			$hd_counter = 1;
-			foreach ( $help_docs as $hd_title => $hd_link ) {
-				$this->add_control(
-					'help_doc_' . $hd_counter,
-					[
-						'type'            => Controls_Manager::RAW_HTML,
-						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
-						'content_classes' => 'pp-editor-doc-links',
-					]
-				);
-
-				$hd_counter++;
-			}
-
-			$this->end_controls_section();
-		}
 
 		/*-----------------------------------------------------------------------------------*/
 		/*	STYLE TAB

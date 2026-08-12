@@ -174,16 +174,21 @@ class Extension_Base {
 	}
 
 	/**
-	 * Add Actions
+	 * Add extension section
 	 *
-	 * @since 0.1.0
+	 * Registers a dedicated controls section for the extension on the given element.
 	 *
-	 * @access private
+	 * @since 3.0.0
+	 *
+	 * @access protected
+	 *
+	 * @param \Elementor\Controls_Stack $element      The element the section is added to.
+	 * @param string                    $section_name Unique name of the section.
+	 * @param string                    $label        Section title. Must be escaped by the caller.
+	 * @param string                    $tab          Optional. Panel tab the section belongs to.
+	 * @return bool False if the section already exists on the element.
 	 */
-	final protected function add_common_sections( $element, $args ) {
-
-		// The name of the section
-		$section_name = 'section_powerpack_elements_advanced';
+	final protected function add_extension_section( $element, $section_name, $label, $tab = Controls_Manager::TAB_ADVANCED ) {
 
 		// Check if this section exists
 		$section_exists = \Elementor\Plugin::instance()->controls_manager->get_control_from_stack( $element->get_unique_name(), $section_name );
@@ -196,13 +201,31 @@ class Extension_Base {
 		$element->start_controls_section(
 			$section_name,
 			[
-				'tab'   => Controls_Manager::TAB_ADVANCED,
-				'label' => esc_html__( 'PowerPack', 'powerpack-lite-for-elementor' ),
+				'tab'   => $tab,
+				'label' => self::get_section_title( $label ),
 			]
 		);
 
 		$element->end_controls_section();
 
+		return true;
+	}
+
+	/**
+	 * Get section title
+	 *
+	 * Prefixes an extension section title with the PowerPack logo.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @access public
+	 *
+	 * @param string $label Section title. Must be escaped by the caller.
+	 * @return string
+	 */
+	public static function get_section_title( $label ) {
+
+		return '<i class="ppicon-powerpack-small pp-panel-heading-logo" aria-hidden="true"></i>' . $label;
 	}
 
 	/**

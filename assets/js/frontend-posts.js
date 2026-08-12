@@ -211,16 +211,50 @@
 			}
 
 			initMasonryLayout() {
-				const selector = this.$element.find( '.pp-posts' ),
-					layout = this.getLayout();
+				const self = this;
 
-				this.$element.imagesLoaded( function(e) {
-					selector.isotope({
-						layoutMode: layout,
-						itemSelector: '.pp-grid-item-wrap',
-					});
+				this.masonry = new PPMasonry( {
+					container: this.elements.$posts[0],
+					itemSelector: '.pp-grid-item-wrap',
+				} );
 
-				});
+				this.masonry.observeResize();
+
+				// Measure once images are loaded, then keep it in sync as (lazy) images resolve.
+				this.$element.imagesLoaded( function () {
+					self.masonry.setReady();
+					self.masonry.layout();
+				} );
+
+				this.elements.$posts.find('img').on('load', function () {
+					self.masonry.layoutIfReady();
+				} );
+			}
+
+			onElementChange() {
+				const layout = this.getLayout();
+
+				if ( 'masonry' === layout ) {
+					if ( this.masonry ) {
+						setTimeout( () => this.masonry.layout() );
+					}
+				} else if ( 'carousel' === layout && this.swiper ) {
+					// Keep the Swiper gap in sync with the (live) Column Spacing var while editing,
+					// since the slide gap is Swiper's spaceBetween rather than CSS padding.
+					const gap = parseFloat( getComputedStyle( this.elements.$posts[0] ).getPropertyValue('--grid-column-gap') ) || 0;
+					this.swiper.params.spaceBetween = gap;
+					this.swiper.update();
+				}
+			}
+
+			onDestroy() {
+				if ( this.masonry ) {
+					this.masonry.destroy();
+				}
+
+				if ( super.onDestroy ) {
+					super.onDestroy();
+				}
 			}
 
 			initFilters() {
@@ -611,16 +645,12 @@
 						self.setPostsCount( $obj.page_number );
 
 						if ( 'coupon' !== $obj.ajax_for ) {
-							let layout = $container.find( '.pp-posts' ).data( 'layout' ),
-								selector = $container.find( '.pp-posts' );
+							let layout = $container.find( '.pp-posts' ).data( 'layout' );
 
-							if ( 'masonry' == layout ) {
+							if ( 'masonry' == layout && self.masonry ) {
 								$container.imagesLoaded( function() {
-									selector.isotope( 'reloadItems' );
-									selector.isotope({
-										layoutMode: layout,
-										itemSelector: '.pp-grid-item-wrap',
-									});
+									self.masonry.setReady();
+									self.masonry.layout();
 								});
 							}
 						}

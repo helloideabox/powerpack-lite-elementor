@@ -213,6 +213,26 @@ class PP_Helper {
 	}
 
 	/**
+	 * Provide Widget Docs URL
+	 *
+	 * @param string $slug Module slug.
+	 * @return string
+	 * @since 3.0.0
+	 */
+	public static function get_widget_docs( $slug = '' ) {
+
+		self::$widgets_list = self::get_widgets_list();
+
+		$widget_docs = '';
+
+		if ( isset( self::$widgets_list[ $slug ]['docs'] ) ) {
+			$widget_docs = self::$widgets_list[ $slug ]['docs'];
+		}
+
+		return apply_filters( 'pp_elements_lite_widget_docs', $widget_docs );
+	}
+
+	/**
 	 * Provide Widget Name
 	 *
 	 * @param string $slug Module slug.

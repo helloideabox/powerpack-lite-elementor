@@ -29,6 +29,8 @@ function apply_filters_ref_array( $h, $a ) { return $a[0]; }
 function wp_json_encode( $v ) { return json_encode( $v ); }
 function _deprecated_hook( ...$a ) {}
 function has_filter( ...$a ) { return false; }
+// helper-functions.php registers the enabled-modules cache flush on load.
+function add_action( ...$a ) {}
 
 require_once dirname( __DIR__ ) . '/classes/class-pp-helper.php';
 require_once dirname( __DIR__ ) . '/classes/class-pp-config.php';

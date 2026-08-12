@@ -42,6 +42,26 @@ const FILTERS = [
 	{ id: 'notused', label: () => __( 'Not used', 'powerpack-lite-for-elementor' ) },
 ];
 
+/**
+ * The filter asked for in the URL, if any.
+ *
+ * The unused-widgets notice links here with `show=notused`, so it can hand
+ * someone straight to the widgets it is talking about instead of dropping them
+ * on the full list. Anything the filter list does not offer is ignored, as is
+ * `all`, which is where the panel starts anyway.
+ *
+ * @return {?string} Filter id, or null for none.
+ */
+const requestedFilter = () => {
+	try {
+		const show = new URLSearchParams( window.location.search ).get( 'show' );
+
+		return 'all' !== show && FILTERS.some( ( { id } ) => id === show ) ? show : null;
+	} catch ( e ) {
+		return null;
+	}
+};
+
 export default function ModulesPanel( { settings, changes, onChange } ) {
 	const [ data, setData ] = useState( null );
 	const [ error, setError ] = useState( null );
@@ -124,6 +144,20 @@ export default function ModulesPanel( { settings, changes, onChange } ) {
 	const usedSet = useMemo( () => new Set( usage?.used || [] ), [ usage ] );
 	const usageReady = !! usage?.available;
 	const term = search.trim().toLowerCase();
+
+	/*
+	 * A filter asked for in the URL is held back until the usage scan lands.
+	 * Applied any earlier, nothing is known to be used yet, so "Not used" would
+	 * match the entire library and claim every widget is idle.
+	 */
+	const pendingFilter = useRef( requestedFilter() );
+
+	useEffect( () => {
+		if ( usageReady && pendingFilter.current ) {
+			setFilter( pendingFilter.current );
+			pendingFilter.current = null;
+		}
+	}, [ usageReady ] );
 
 	/*
 	 * Derived above the loading and error returns, because the scroll spy

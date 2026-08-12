@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Rollback handler.
  *
- * @since x.x.x
+ * @since 3.0.0
  */
 final class PP_Rollback {
 
@@ -51,7 +51,7 @@ final class PP_Rollback {
 	/**
 	 * Register the hook.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return void
 	 */
 	public static function init() {
@@ -67,7 +67,7 @@ final class PP_Rollback {
 	 * administrators at all, so the panel simply does not offer this there
 	 * rather than offering something that would fail at the last step.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return bool
 	 */
 	public static function is_available() {
@@ -95,7 +95,7 @@ final class PP_Rollback {
 	 * Cached against the running version, so the list refreshes on update
 	 * without anything having to remember to clear it.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return array List of version strings.
 	 */
 	public static function get_versions() {
@@ -129,7 +129,7 @@ final class PP_Rollback {
 	/**
 	 * Ask WordPress.org which versions of this plugin exist.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return array
 	 */
 	private static function versions_from_directory() {
@@ -162,7 +162,7 @@ final class PP_Rollback {
 	/**
 	 * Where to download a given version from.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $version Version to fetch.
 	 * @return string Package URL, or '' when there is none.
 	 */
@@ -178,7 +178,7 @@ final class PP_Rollback {
 	 * Taken from the folder rather than written down, so an install in a
 	 * renamed directory still asks the directory about the right plugin.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return string
 	 */
 	private static function get_slug() {
@@ -195,7 +195,7 @@ final class PP_Rollback {
 	 * 'amp;_wpnonce'. The nonce goes in the form as a field instead, which is
 	 * the ordinary shape for a POST anyway.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return string
 	 */
 	public static function get_action_url() {
@@ -205,7 +205,7 @@ final class PP_Rollback {
 	/**
 	 * A nonce for the form.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return string
 	 */
 	public static function get_nonce() {
@@ -215,7 +215,7 @@ final class PP_Rollback {
 	/**
 	 * Run a rollback, then end the request on the updater's own page.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return void
 	 */
 	public static function handle() {
@@ -254,7 +254,7 @@ final class PP_Rollback {
 	/**
 	 * Point the updater at an older package and let it run.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $version Version to install.
 	 * @return void
 	 */
@@ -292,7 +292,7 @@ final class PP_Rollback {
 	/**
 	 * The version being installed, while a rollback is running.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @var string
 	 */
 	private static $installing = '';
@@ -300,7 +300,7 @@ final class PP_Rollback {
 	/**
 	 * Say which version is going in, not that it is the newest.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $translation Translated text.
 	 * @param string $text        Original text.
 	 * @param string $domain      Text domain.
@@ -327,7 +327,7 @@ final class PP_Rollback {
 	 * on its own schedule, and the next check will correctly report the real
 	 * latest release as an available update.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $version Version to install.
 	 * @return void
 	 */

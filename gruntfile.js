@@ -187,6 +187,7 @@ module.exports = function( grunt ) {
 						'**/*.php',
 						'!node_modules/**',
 						'!vendor/**',
+						'!tests/**',       // The test harness stubs the i18n functions; rewriting their signatures breaks it
 					]
 				}
 			}
@@ -218,6 +219,7 @@ module.exports = function( grunt ) {
 					'**/*.php',               // Include all files
 					'!node_modules/**',       // Exclude node_modules/
 					'!vendor/**',             // Exclude vendor/
+					'!tests/**',              // Exclude the test harness, which is not shipped and stubs the i18n functions
 				],
 				expand: true
 			}

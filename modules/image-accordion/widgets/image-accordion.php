@@ -473,37 +473,6 @@ class Image_Accordion extends Powerpack_Widget {
 
 		$this->end_controls_section();
 
-		$help_docs = PP_Config::get_widget_help_links( 'Image_Accordion' );
-		if ( ! empty( $help_docs ) ) {
-			/**
-			 * Content Tab: Docs Links
-			 *
-			 * @since 2.4.1
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_help_docs',
-				[
-					'label' => __( 'Help Docs', 'powerpack-lite-for-elementor' ),
-				]
-			);
-
-			$hd_counter = 1;
-			foreach ( $help_docs as $hd_title => $hd_link ) {
-				$this->add_control(
-					'help_doc_' . $hd_counter,
-					[
-						'type'            => Controls_Manager::RAW_HTML,
-						'raw'             => sprintf( '%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>' ),
-						'content_classes' => 'pp-editor-doc-links',
-					]
-				);
-
-				$hd_counter++;
-			}
-
-			$this->end_controls_section();
-		}
 
 		/*-----------------------------------------------------------------------------------*/
 		/*	Style Tab

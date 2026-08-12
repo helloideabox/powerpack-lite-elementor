@@ -1,6 +1,14 @@
 #elementor-panel-category-power-pack .icon {
     max-height: 43px;
 }
+.elementor-panel-heading-title .pp-panel-heading-logo {
+    color: #4949D7;
+    font-size: 14px;
+    line-height: 1;
+    -webkit-margin-end: 6px;
+            margin-inline-end: 6px;
+    vertical-align: -2px;
+}
 .elementor-element [class*="power-pack-"]:after {
     background: transparent;
     border-width: 0 1px 1px 0;

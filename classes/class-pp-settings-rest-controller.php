@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *   verification and license checks are separate, explicit endpoints, so a
  *   Facebook or Google outage can never block an unrelated setting from saving.
  *
- * @since x.x.x
+ * @since 3.0.0
  */
 final class PP_Settings_REST_Controller {
 
@@ -53,7 +53,7 @@ final class PP_Settings_REST_Controller {
 	/**
 	 * Register the hook.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return void
 	 */
 	public static function init() {
@@ -72,7 +72,7 @@ final class PP_Settings_REST_Controller {
 	/**
 	 * Register all routes.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return void
 	 */
 	public static function register_routes() {
@@ -158,7 +158,7 @@ final class PP_Settings_REST_Controller {
 	 * registry on both read and write, so a user who passes here still only
 	 * sees and writes the groups they are entitled to.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param \WP_REST_Request $request Request.
 	 * @return bool|\WP_Error
 	 */
@@ -177,7 +177,7 @@ final class PP_Settings_REST_Controller {
 	/**
 	 * Capability gate for the widget library.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return bool|\WP_Error
 	 */
 	public static function can_edit_posts() {
@@ -187,7 +187,7 @@ final class PP_Settings_REST_Controller {
 	/**
 	 * Capability gate for administrator only endpoints.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return bool|\WP_Error
 	 */
 	public static function can_manage() {
@@ -197,7 +197,7 @@ final class PP_Settings_REST_Controller {
 	/**
 	 * Standard forbidden response.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return \WP_Error
 	 */
 	private static function forbidden() {
@@ -215,7 +215,7 @@ final class PP_Settings_REST_Controller {
 	/**
 	 * Read every setting the current user is entitled to.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param \WP_REST_Request $request Request.
 	 * @return \WP_REST_Response
 	 */
@@ -228,7 +228,7 @@ final class PP_Settings_REST_Controller {
 	/**
 	 * Apply a partial settings update.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param \WP_REST_Request $request Request.
 	 * @return \WP_REST_Response|\WP_Error
 	 */
@@ -263,7 +263,7 @@ final class PP_Settings_REST_Controller {
 	 * which is why the client must omit an unedited credential from its payload
 	 * rather than echoing the mask back.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param bool $network Whether to operate on network wide options.
 	 * @return array
 	 */
@@ -336,7 +336,7 @@ final class PP_Settings_REST_Controller {
 	/**
 	 * Resolve a field's allowed values into a label map the client can render.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param array $field Field descriptor.
 	 * @return array|null
 	 */
@@ -376,7 +376,7 @@ final class PP_Settings_REST_Controller {
 	 * is a display concern only: classification would ride along on each widget
 	 * here, and the submitted list stays complete either way.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return \WP_REST_Response
 	 */
 	public static function get_modules() {
@@ -450,7 +450,7 @@ final class PP_Settings_REST_Controller {
 	 * background once the catalogue is up, and the answer is cached so the next
 	 * visit is instant.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param \WP_REST_Request $request Request.
 	 * @return \WP_REST_Response
 	 */
@@ -501,7 +501,7 @@ final class PP_Settings_REST_Controller {
 	 * JSON client has the same problem for the opposite reason. Escaping is the
 	 * consumer's job, so the API hands over plain text.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param string $text Possibly escaped label.
 	 * @return string
 	 */
@@ -520,7 +520,7 @@ final class PP_Settings_REST_Controller {
 	 * disk, and the blog lives on another origin, so a client side fetch would
 	 * be blocked.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param \WP_REST_Request $request Request.
 	 * @return \WP_REST_Response
 	 */
@@ -544,7 +544,7 @@ final class PP_Settings_REST_Controller {
 	 * Per user rather than per site: one administrator deciding they are done
 	 * with the checklist should not take it away from their colleagues.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return \WP_REST_Response
 	 */
 	public static function dismiss_setup() {
@@ -560,7 +560,7 @@ final class PP_Settings_REST_Controller {
 	 * hand-written release notes in a template, which go stale the first time
 	 * someone forgets to update them.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @param int $limit How many releases to return.
 	 * @return array
 	 */
@@ -651,7 +651,7 @@ final class PP_Settings_REST_Controller {
 	 * Failure is silent and is not cached: a site that cannot reach the blog
 	 * should not retry on every page load, but it should recover once it can.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 * @return array
 	 */
 	private static function blog_posts() {
