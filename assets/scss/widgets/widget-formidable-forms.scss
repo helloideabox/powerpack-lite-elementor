@@ -1,21 +1,29 @@
 @import "forms";
 
 .pp-formidable-forms {
+
 	.frm_form_field {
+
 		.frm_primary_label {
 			display: none;
 		}
 	}
+
     &-labels-yes {
+
         .pp-formidable-forms {
+
 			.frm_primary_label {
 				display: block;
 			}
         }
     }
 }
+
 .pp-custom-radio-checkbox {
+
     .form-field {
+
         input[type="checkbox"],
         input[type="radio"] {
             border-style: solid;
@@ -28,9 +36,13 @@
         }
     }
 }
+
 .pp-formidable-forms-button-full-width {
+
 	.pp-formidable-forms {
+
 		.frm_submit {
+
 			.frm_button_submit {
 				width: 100%;
 			}

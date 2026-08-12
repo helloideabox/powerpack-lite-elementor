@@ -32,12 +32,14 @@ module.exports = function( grunt ) {
 		},
 
 		// Sass linting with Stylelint.
+		// The two exclusions are dead partials: nothing imports them and no
+		// stylesheet is built from them, so they are left as-is rather than
+		// reformatted to satisfy the linter.
 		stylelint: {
-			options: {
-				configFile: '.stylelintrc'
-			},
 			all: [
-				'<%= dirs.css %>/*.scss'
+				'<%= dirs.scss %>/**/*.scss',
+				'!<%= dirs.scss %>/lib/_animate.scss',
+				'!<%= dirs.scss %>/variables/_magnific-popup.scss'
 			]
 		},
 
@@ -248,7 +250,7 @@ module.exports = function( grunt ) {
 					'!.gitattributes',
 					'!.editorconfig',
 					'!.jshintrc',
-					'!.stylelintrc',
+					'!.stylelintrc.json',
 					'!*.sh',
 					'!*.map',
 					'!*.zip',
@@ -267,6 +269,8 @@ module.exports = function( grunt ) {
                     '!bin/**',
 					'!vendor/**',
 					'!build/**',
+					'!src/**',
+					'!tests/**',
 					'!assets/*.scss',
 					'!assets/**/*.map',
 					'!*~'
@@ -278,7 +282,7 @@ module.exports = function( grunt ) {
 		compress: {
             main: {
                 options: {
-                    archive: pluginName + '.zip',
+                    archive: pluginName + '-<%= pkg.version %>.zip',
                     mode: 'zip'
                 },
                 files: [
@@ -358,7 +362,7 @@ module.exports = function( grunt ) {
 	// Load NPM tasks to be used here.
 	grunt.loadNpmTasks( 'grunt-sass' );
 	grunt.loadNpmTasks( 'grunt-rtlcss' );
-	grunt.loadNpmTasks( 'grunt-postcss' );
+	grunt.loadNpmTasks( '@lodder/grunt-postcss' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 	grunt.loadNpmTasks( 'grunt-checktextdomain' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
@@ -386,6 +390,7 @@ module.exports = function( grunt ) {
 	] );
 
 	grunt.registerTask( 'css', [
+		'stylelint',
 		'sass',
 		'rtlcss',
 		'postcss',

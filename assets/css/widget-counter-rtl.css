@@ -76,7 +76,7 @@
           align-items: flex-start;
 }
 .pp-counter-layout-7 .pp-counter-title-wrap, .pp-counter-layout-8 .pp-counter-title-wrap {
-  text-align: right;
+  text-align: start;
 }
 .pp-counter-layout-8 {
   -webkit-box-orient: horizontal;
@@ -90,7 +90,7 @@
           align-items: flex-end;
 }
 .pp-counter-layout-8 .pp-counter-title-wrap {
-  text-align: left;
+  text-align: end;
 }
 .pp-counter .pp-icon-title-wrap .pp-counter-title {
   display: inline-block;

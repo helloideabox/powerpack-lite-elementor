@@ -21,7 +21,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  float: left;
+  float: inline-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   text-align: center;

@@ -108,7 +108,21 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	}
 
 	/**
+	 * Names of the widgets the section has already been added to.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @var array
+	 */
+	private $handled = [];
+
+	/**
 	 * Add Actions
+	 *
+	 * The section used to be hung off the per-widget "Help Docs" section, which
+	 * Elementor's native "Need Help?" link replaced in 3.0.0. Widgets no longer
+	 * share a named section to attach to, so the generic end-of-section action
+	 * is used instead and the notice is added once per widget.
 	 *
 	 * @since 2.4.1
 	 *
@@ -117,6 +131,7 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	protected function add_actions() {
 
 		$widgets = powerpack_elements_lite_get_enabled_modules();
+		$names   = [];
 
 		foreach ( $widgets as $widget ) {
 			if ( 'pp-hotspots' === $widget ) {
@@ -127,10 +142,20 @@ class Extension_Upgrade_Pro extends Extension_Base {
 				$widget = 'pa-link-effects';
 			}
 
-			add_action( 'elementor/element/' . $widget . '/section_help_docs/after_section_end', function( $element, $args ) {
-					$this->add_controls( $element, $args );
-			}, 10, 2 );
+			$names[ $widget ] = true;
 		}
+
+		add_action( 'elementor/element/after_section_end', function( $element, $section_id, $args ) use ( $names ) {
+			$name = $element->get_name();
+
+			if ( ! isset( $names[ $name ] ) || isset( $this->handled[ $name ] ) ) {
+				return;
+			}
+
+			$this->handled[ $name ] = true;
+
+			$this->add_controls( $element, $args );
+		}, 10, 3 );
 
 	}
 }

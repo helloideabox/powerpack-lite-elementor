@@ -62,8 +62,8 @@
   padding: 3px;
   vertical-align: middle;
 }
-.pp-custom-radio-checkbox input[type=checkbox]:before,
-.pp-custom-radio-checkbox input[type=radio]:before {
+.pp-custom-radio-checkbox input[type=checkbox]::before,
+.pp-custom-radio-checkbox input[type=radio]::before {
   content: "";
   width: 100%;
   height: 100%;
@@ -71,8 +71,8 @@
   margin: 0;
   display: block;
 }
-.pp-custom-radio-checkbox input[type=checkbox]:checked:before,
-.pp-custom-radio-checkbox input[type=radio]:checked:before {
+.pp-custom-radio-checkbox input[type=checkbox]:checked::before,
+.pp-custom-radio-checkbox input[type=radio]:checked::before {
   background: #999;
   -webkit-transition: all 0.25s linear 0s;
   transition: all 0.25s linear 0s;
@@ -80,7 +80,7 @@
 .pp-custom-radio-checkbox input[type=radio] {
   border-radius: 50%;
 }
-.pp-custom-radio-checkbox input[type=radio]:before {
+.pp-custom-radio-checkbox input[type=radio]::before {
   border-radius: 50%;
 }
 
@@ -93,15 +93,21 @@
 }
 .pp-gravity-form .gform_wrapper .gform_footer input.button,
 .pp-gravity-form .gform_wrapper .gform_footer input[type=submit],
+.pp-gravity-form .gform_wrapper .gform_footer button[type=submit],
 .pp-gravity-form .gform_wrapper .gform_page_footer input.button,
-.pp-gravity-form .gform_wrapper .gform_page_footer input[type=submit] {
+.pp-gravity-form .gform_wrapper .gform_page_footer input[type=submit],
+.pp-gravity-form .gform_wrapper .gform_page_footer button[type=submit] {
   margin: 0;
 }
-.pp-gravity-form .gform_wrapper .gform_page_footer input[type=button] {
-  margin-left: 4px;
+.pp-gravity-form .gform_wrapper .gform_page_footer .gform_previous_button,
+.pp-gravity-form .gform_wrapper .gform_page_footer .gform_next_button {
+  -webkit-margin-end: 4px;
+          margin-inline-end: 4px;
 }
-.pp-gravity-form .gform_wrapper .gform_page_footer input[type=submit] {
-  margin-right: 4px;
+.pp-gravity-form .gform_wrapper .gform_page_footer input[type=submit],
+.pp-gravity-form .gform_wrapper .gform_page_footer button[type=submit] {
+  -webkit-margin-start: 4px;
+          margin-inline-start: 4px;
 }
 .pp-gravity-form.title-description-hide .gform_heading {
   display: none;
@@ -111,9 +117,13 @@
   display: none;
 }
 .pp-gravity-form .gform_footer input[type=submit],
-.pp-gravity-form .gform_footer input[type=button],
+.pp-gravity-form .gform_footer button[type=submit],
+.pp-gravity-form .gform_footer .gform_previous_button,
+.pp-gravity-form .gform_footer .gform_next_button,
 .pp-gravity-form .gform_page_footer input[type=submit],
-.pp-gravity-form .gform_page_footer input[type=button] {
+.pp-gravity-form .gform_page_footer button[type=submit],
+.pp-gravity-form .gform_page_footer .gform_previous_button,
+.pp-gravity-form .gform_page_footer .gform_next_button {
   background: #428bca;
   border: none;
   color: #fff;
@@ -122,14 +132,20 @@
 }
 
 .pp-gravity-form-button-full-width .gform_wrapper .gform_footer input[type=submit],
-.pp-gravity-form-button-full-width .gform_wrapper .gform_page_footer input[type=submit] {
+.pp-gravity-form-button-full-width .gform_wrapper .gform_footer button[type=submit],
+.pp-gravity-form-button-full-width .gform_wrapper .gform_page_footer input[type=submit],
+.pp-gravity-form-button-full-width .gform_wrapper .gform_page_footer button[type=submit],
+.pp-gravity-form-button-full-width .gform_wrapper .gfield--type-submit input[type=submit],
+.pp-gravity-form-button-full-width .gform_wrapper .gfield--type-submit button[type=submit] {
   width: 100% !important;
 }
-.pp-gravity-form-button-full-width .gform_wrapper .gform_page_footer input[type=submit] {
+.pp-gravity-form-button-full-width .gform_wrapper .gform_page_footer input[type=submit],
+.pp-gravity-form-button-full-width .gform_wrapper .gform_page_footer button[type=submit] {
   margin-top: 20px;
 }
 
-.pp-gravity-form-pagination-buttons-full-width .gform_wrapper .gform_page_footer input[type=button] {
+.pp-gravity-form-pagination-buttons-full-width .gform_wrapper .gform_page_footer .gform_previous_button,
+.pp-gravity-form-pagination-buttons-full-width .gform_wrapper .gform_page_footer .gform_next_button {
   margin-top: 20px;
   width: 100%;
 }
@@ -145,11 +161,11 @@
 .pp-gravity-form .gform_wrapper .pp-gf-select-custom {
   position: relative;
 }
-.pp-gravity-form .gform_wrapper .pp-gf-select-custom:after {
-  content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNMjAxLjQgMzQyLjZjMTIuNSAxMi41IDMyLjggMTIuNSA0NS4zIDBsMTYwLTE2MGMxMi41LTEyLjUgMTIuNS0zMi44IDAtNDUuM3MtMzIuOC0xMi41LTQ1LjMgMEwyMjQgMjc0LjcgODYuNiAxMzcuNGMtMTIuNS0xMi41LTMyLjgtMTIuNS00NS4zIDBzLTEyLjUgMzIuOCAwIDQ1LjNsMTYwIDE2MHoiLz48L3N2Zz4=");
+.pp-gravity-form .gform_wrapper .pp-gf-select-custom::after {
+  content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNMjAxLjQgMzQyLjZjMTIuNSAxMi41IDMyLjggMTIuNSA0NS4zIDBsMTYwLTE2MGMxMi41LTEyLjUgMTIuNS0zMi44IDAtNDUuM3MtMzIuOC0xMi41LTQ1LjMgMEwyMjQgMjc0LjcgODYuNiAxMzcuNGMtMTIuNS0xMi41LTMyLjgtMTIuNS00NS4zIDBzLTEyLjUgMzIuOCAwIDQ1LjNsMTYwIDE2MHoiLz48L3N2Zz4=);
   pointer-events: none;
   position: absolute;
-  left: 0.8em;
+  inset-inline-end: 0.8em;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);

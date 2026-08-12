@@ -17,97 +17,110 @@
 			}
 
 			bindEvents() {
-				const $type = this.getElementSettings('accordion_type'),
-					$speed  = this.getElementSettings('toggle_speed');
+				const accordionType = this.getElementSettings( 'accordion_type' ),
+					speed         = this.getElementSettings( 'toggle_speed' );
 
-				// Open default actived tab
-				this.elements.$title.each(function() {
-					if ( $(this).hasClass('pp-accordion-tab-active-default') ) {
-						$(this).addClass('pp-accordion-tab-show pp-accordion-tab-active');
-						$(this).next().slideDown($speed);
+				this.eventNamespace = '.ppAdvancedAccordion-' + this.getID();
+
+				// Open default active tab.
+				this.elements.$title.each( function() {
+					if ( $( this ).hasClass( 'pp-accordion-tab-active-default' ) ) {
+						$( this ).addClass( 'pp-accordion-tab-show pp-accordion-tab-active' );
+						$( this ).closest( '.pp-accordion-item' ).children( '.pp-accordion-tab-content' ).slideDown( speed );
 					}
-				});
+				} );
 
-				// Remove multiple click event for nested accordion
-				this.elements.$title.unbind('click');
+				// Detach any previous handlers (handles nested accordions and editor re-renders).
+				this.elements.$title.off( this.eventNamespace );
 
-				this.elements.$title.on( 'click keypress', function(e) {
-					e.preventDefault();
-
-					var validClick = ( e.which == 1 || e.which == 13 || e.which == 32 || e.which == undefined ) ? true : false;
-
-					if ( ! validClick ) {
+				this.elements.$title.on( 'click' + this.eventNamespace + ' keydown' + this.eventNamespace, function( e ) {
+					if ( 'keydown' === e.type && 'Enter' !== e.key && ' ' !== e.key ) {
 						return;
 					}
+					e.preventDefault();
 
-					var $this     = $(this),
-						$item     = $this.parent(),
-						container = $this.closest('.pp-advanced-accordion'),
-						item      = $this.closest('.pp-accordion-item'),
-						title     = container.find('.pp-accordion-tab-title'),
-						content   = container.find('.pp-accordion-tab-content');
+					var $this       = $( this ),
+						container   = $this.closest( '.pp-advanced-accordion' ),
+						item        = $this.closest( '.pp-accordion-item' ),
+						content     = item.children( '.pp-accordion-tab-content' ),
+						allTitles   = container.find( '.pp-accordion-tab-title' ),
+						allContents = container.find( '.pp-accordion-tab-content' );
 
-					$(document).trigger('ppe-accordion-switched', [ $item ]);
+					$( document ).trigger( 'ppe-accordion-switched', [ item ] );
 
-					if ( 'accordion' === $type ) {
-						title.removeClass('pp-accordion-tab-active-default');
-						content.removeClass('pp-accordion-tab-active-default');
+					if ( 'accordion' === accordionType ) {
+						allTitles.removeClass( 'pp-accordion-tab-active-default' );
+						allContents.removeClass( 'pp-accordion-tab-active-default' );
 
-						if ( $this.hasClass('pp-accordion-tab-show') ) {
-							item.removeClass('pp-accordion-item-active');
-							$this.removeClass('pp-accordion-tab-show pp-accordion-tab-active');
-							$this.attr('aria-expanded', 'false');
-							$this.next().slideUp($speed);
+						if ( $this.hasClass( 'pp-accordion-tab-show' ) ) {
+							item.removeClass( 'pp-accordion-item-active' );
+							$this.removeClass( 'pp-accordion-tab-show pp-accordion-tab-active' );
+							$this.attr( 'aria-expanded', 'false' );
+							content.slideUp( speed );
 						} else {
-							container.find('.pp-accordion-item').removeClass('pp-accordion-item-active');
-							title.removeClass('pp-accordion-tab-show pp-accordion-tab-active');
-							content.slideUp($speed);
-							$this.toggleClass('pp-accordion-tab-show pp-accordion-tab-active');
-							title.attr('aria-expanded', 'false');
-							item.toggleClass('pp-accordion-item-active');
-
-							if ( $this.hasClass('pp-accordion-tab-title') ) {
-								$this.attr('aria-expanded', 'true');
-							}
-
-							$this.next().slideToggle($speed);
+							container.find( '.pp-accordion-item' ).removeClass( 'pp-accordion-item-active' );
+							allTitles.removeClass( 'pp-accordion-tab-show pp-accordion-tab-active' ).attr( 'aria-expanded', 'false' );
+							allContents.slideUp( speed );
+							$this.addClass( 'pp-accordion-tab-show pp-accordion-tab-active' );
+							$this.attr( 'aria-expanded', 'true' );
+							item.addClass( 'pp-accordion-item-active' );
+							content.slideDown( speed );
 						}
 					} else {
-						// For acccordion type 'toggle'
-						if ( $this.hasClass('pp-accordion-tab-show') ) {
-							$this.removeClass('pp-accordion-tab-show pp-accordion-tab-active');
-							$this.next().slideUp($speed);
+						// Toggle mode.
+						if ( $this.hasClass( 'pp-accordion-tab-show' ) ) {
+							$this.removeClass( 'pp-accordion-tab-show pp-accordion-tab-active' );
+							$this.attr( 'aria-expanded', 'false' );
+							item.removeClass( 'pp-accordion-item-active' );
+							content.slideUp( speed );
 						} else {
-							$this.addClass('pp-accordion-tab-show pp-accordion-tab-active');
-							$this.next().slideDown($speed);
+							$this.addClass( 'pp-accordion-tab-show pp-accordion-tab-active' );
+							$this.attr( 'aria-expanded', 'true' );
+							item.addClass( 'pp-accordion-item-active' );
+							content.slideDown( speed );
 						}
 					}
-				});
+				} );
 
-				// Trigger filter by hash parameter in URL.
+				// Trigger on initial hash in URL.
 				this.onHashchange();
 
-				// Trigger filter on hash change in URL.
-				$(window).on( 'hashchange', function() {
-					this.onHashchange();
-				}.bind(this) );
+				// Re-bind hashchange listener (namespaced to this widget instance to avoid accumulation).
+				$( window ).off( 'hashchange' + this.eventNamespace ).on( 'hashchange' + this.eventNamespace, this.onHashchange.bind( this ) );
+			}
+
+			unbindEvents() {
+				if ( ! this.eventNamespace ) {
+					return;
+				}
+				$( window ).off( 'hashchange' + this.eventNamespace );
+				if ( this.elements && this.elements.$title ) {
+					this.elements.$title.off( this.eventNamespace );
+				}
 			}
 
 			onHashchange() {
-				if ( location.hash && $(location.hash).length > 0 ) {
-					var element = $(location.hash + '.pp-accordion-tab-title');
-		
-					if ( element && element.length > 0 ) {
-						location.href = '#';
-						$('html, body').animate({
-							scrollTop: ( element.parents('.pp-accordion-item').offset().top - 50 ) + 'px'
-						}, 500, function() {
-							if ( ! element.parents('.pp-accordion-item').hasClass('pp-accordion-item-active') ) {
-								element.trigger('click');
-							}
-						});
-					}
+				if ( ! location.hash || ! $( location.hash ).length ) {
+					return;
 				}
+
+				var element = $( location.hash + '.pp-accordion-tab-title' );
+
+				if ( ! element.length ) {
+					return;
+				}
+
+				if ( window.history && window.history.replaceState ) {
+					window.history.replaceState( null, '', window.location.pathname + window.location.search );
+				}
+
+				$( 'html, body' ).animate( {
+					scrollTop: ( element.parents( '.pp-accordion-item' ).offset().top - 50 ) + 'px',
+				}, 500, function() {
+					if ( ! element.parents( '.pp-accordion-item' ).hasClass( 'pp-accordion-item-active' ) ) {
+						element.trigger( 'click' );
+					}
+				} );
 			}
 		}
 

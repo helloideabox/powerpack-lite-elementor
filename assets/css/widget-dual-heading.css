@@ -9,3 +9,9 @@
           align-items: baseline;
   gap: 6px;
 }
+.pp-dual-heading .pp-first-text {
+  white-space: normal;
+}
+.pp-dual-heading .pp-second-text {
+  white-space: nowrap;
+}

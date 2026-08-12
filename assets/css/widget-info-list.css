@@ -82,8 +82,8 @@
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.pp-info-list-icon-left.pp-info-list-icon-vertical-top .pp-info-list-item:first-child .pp-infolist-icon-wrapper:before,
-.pp-info-list-icon-right.pp-info-list-icon-vertical-top .pp-info-list-item:first-child .pp-infolist-icon-wrapper:before {
+.pp-info-list-icon-left.pp-info-list-icon-vertical-top .pp-info-list-item:first-child .pp-infolist-icon-wrapper::before,
+.pp-info-list-icon-right.pp-info-list-icon-vertical-top .pp-info-list-item:first-child .pp-infolist-icon-wrapper::before {
   display: none;
 }
 .pp-info-list-icon-left.pp-info-list-icon-vertical-bottom .pp-info-list-item-inner,
@@ -92,8 +92,8 @@
       -ms-flex-align: end;
           align-items: flex-end;
 }
-.pp-info-list-icon-left.pp-info-list-icon-vertical-bottom .pp-info-list-item:last-child .pp-infolist-icon-wrapper:after,
-.pp-info-list-icon-right.pp-info-list-icon-vertical-bottom .pp-info-list-item:last-child .pp-infolist-icon-wrapper:after {
+.pp-info-list-icon-left.pp-info-list-icon-vertical-bottom .pp-info-list-item:last-child .pp-infolist-icon-wrapper::after,
+.pp-info-list-icon-right.pp-info-list-icon-vertical-bottom .pp-info-list-item:last-child .pp-infolist-icon-wrapper::after {
   display: none;
 }
 
@@ -107,7 +107,7 @@
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.pp-info-list-icon-top.pp-info-list-icon-horizontal-left .pp-info-list-item:first-child .pp-infolist-icon-wrapper:before {
+.pp-info-list-icon-top.pp-info-list-icon-horizontal-left .pp-info-list-item:first-child .pp-infolist-icon-wrapper::before {
   display: none;
 }
 .pp-info-list-icon-top.pp-info-list-icon-horizontal-right .pp-info-list-item-inner {
@@ -115,28 +115,31 @@
       -ms-flex-align: end;
           align-items: flex-end;
 }
-.pp-info-list-icon-top.pp-info-list-icon-horizontal-right .pp-info-list-item:last-child .pp-infolist-icon-wrapper:after {
+.pp-info-list-icon-top.pp-info-list-icon-horizontal-right .pp-info-list-item:last-child .pp-infolist-icon-wrapper::after {
   display: none;
 }
 
 .pp-info-list-icon-left .pp-infolist-icon-wrapper {
-  margin-right: 10px;
+  -webkit-margin-end: 10px;
+          margin-inline-end: 10px;
 }
-.pp-info-list-icon-left .pp-info-list-connector .pp-infolist-icon-wrapper:before {
+.pp-info-list-icon-left .pp-info-list-connector .pp-infolist-icon-wrapper::before {
   content: "";
-  border-right: 1px solid #000;
+  -webkit-border-end: 1px solid #000;
+          border-inline-end: 1px solid #000;
   height: 1500px;
   bottom: 14px;
-  left: 6.5px;
+  inset-inline-start: 6.5px;
   position: absolute;
   width: 1px;
 }
-.pp-info-list-icon-left .pp-info-list-connector .pp-infolist-icon-wrapper:after {
+.pp-info-list-icon-left .pp-info-list-connector .pp-infolist-icon-wrapper::after {
   content: "";
-  border-right: 1px solid #000;
+  -webkit-border-end: 1px solid #000;
+          border-inline-end: 1px solid #000;
   height: 1500px;
   top: 14px;
-  left: 6.5px;
+  inset-inline-start: 6.5px;
   position: absolute;
   width: 1px;
 }
@@ -145,37 +148,40 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  text-align: right;
+  text-align: end;
 }
 .pp-info-list-icon-right .pp-infolist-icon-wrapper {
-  margin-left: 10px;
+  -webkit-margin-start: 10px;
+          margin-inline-start: 10px;
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
 }
-.pp-info-list-icon-right .pp-info-list-connector .pp-infolist-icon-wrapper:before {
+.pp-info-list-icon-right .pp-info-list-connector .pp-infolist-icon-wrapper::before {
   content: "";
-  border-left: 1px solid #000;
+  -webkit-border-start: 1px solid #000;
+          border-inline-start: 1px solid #000;
   height: 1500px;
   bottom: 14px;
-  right: 6.5px;
+  inset-inline-end: 6.5px;
   position: absolute;
   width: 1px;
 }
-.pp-info-list-icon-right .pp-info-list-connector .pp-infolist-icon-wrapper:after {
+.pp-info-list-icon-right .pp-info-list-connector .pp-infolist-icon-wrapper::after {
   content: "";
-  border-left: 1px solid #000;
+  -webkit-border-start: 1px solid #000;
+          border-inline-start: 1px solid #000;
   height: 1500px;
   top: 14px;
-  right: 6.5px;
+  inset-inline-end: 6.5px;
   position: absolute;
   width: 1px;
 }
 
-.pp-info-list-connector.pp-info-list-corners-hide .pp-info-list-item:first-child .pp-infolist-icon-wrapper:before {
+.pp-info-list-connector.pp-info-list-corners-hide .pp-info-list-item:first-child .pp-infolist-icon-wrapper::before {
   display: none;
 }
-.pp-info-list-connector.pp-info-list-corners-hide .pp-info-list-item:last-child .pp-infolist-icon-wrapper:after {
+.pp-info-list-connector.pp-info-list-corners-hide .pp-info-list-item:last-child .pp-infolist-icon-wrapper::after {
   display: none;
 }
 
@@ -197,29 +203,30 @@
   text-align: center;
 }
 .pp-info-list-icon-top .pp-list-items .pp-info-list-item:last-child {
-  margin-right: 0 !important;
+  -webkit-margin-end: 0 !important;
+          margin-inline-end: 0 !important;
 }
 .pp-info-list-icon-top .pp-infolist-icon-wrapper {
   margin-bottom: 10px;
   vertical-align: top;
 }
-.pp-info-list-icon-top .pp-info-list-connector .pp-infolist-icon-wrapper:before {
+.pp-info-list-icon-top .pp-info-list-connector .pp-infolist-icon-wrapper::before {
   content: "";
   border-top: 1px solid #000;
   height: 1px;
   top: 6.5px;
-  left: auto;
-  right: 14px;
+  inset-inline-start: auto;
+  inset-inline-end: 14px;
   position: absolute;
   width: 1500px;
 }
-.pp-info-list-icon-top .pp-info-list-connector .pp-infolist-icon-wrapper:after {
+.pp-info-list-icon-top .pp-info-list-connector .pp-infolist-icon-wrapper::after {
   content: "";
   border-top: 1px solid #000;
   height: 1px;
-  left: 14px;
+  inset-inline-start: 14px;
   top: 6.5px;
-  right: auto;
+  inset-inline-end: auto;
   position: absolute;
   width: 1500px;
 }
@@ -242,11 +249,14 @@
   display: inline-flex;
 }
 .pp-info-list-item .pp-info-list-button .pp-button-icon {
-  margin-right: 10px;
+  -webkit-margin-end: 10px;
+          margin-inline-end: 10px;
 }
 .pp-info-list-item .pp-info-list-button-icon-after .pp-button-icon {
-  margin-left: 10px;
-  margin-right: 0;
+  -webkit-margin-start: 10px;
+          margin-inline-start: 10px;
+  -webkit-margin-end: 0;
+          margin-inline-end: 0;
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
@@ -269,24 +279,26 @@
   }
   .pp-info-list-stack-tablet.pp-info-list-icon-top .pp-infolist-icon-wrapper {
     margin-bottom: 0;
-    margin-right: 10px;
+    -webkit-margin-end: 10px;
+            margin-inline-end: 10px;
   }
-  .pp-info-list-stack-tablet.pp-info-list-icon-top .pp-infolist-icon-wrapper:before {
+  .pp-info-list-stack-tablet.pp-info-list-icon-top .pp-infolist-icon-wrapper::before {
     content: "";
-    border-right: 1px solid #000;
+    -webkit-border-end: 1px solid #000;
+            border-inline-end: 1px solid #000;
     height: 1500px;
     bottom: 14px;
-    left: 6.5px;
+    inset-inline-start: 6.5px;
     position: absolute;
     width: 1px;
     top: auto;
   }
-  .pp-info-list-stack-tablet.pp-info-list-icon-top .pp-infolist-icon-wrapper:after {
+  .pp-info-list-stack-tablet.pp-info-list-icon-top .pp-infolist-icon-wrapper::after {
     content: "";
-    border-right: 1px solid #000;
+    -webkit-border-end: 1px solid #000;
+            border-inline-end: 1px solid #000;
     height: 1500px;
-    top: 14px;
-    left: 6.5px;
+    inset-inline-start: 6.5px;
     position: absolute;
     width: 1px;
     top: auto;
@@ -309,24 +321,26 @@
   }
   .pp-info-list-stack-mobile.pp-info-list-icon-top .pp-infolist-icon-wrapper {
     margin-bottom: 0;
-    margin-right: 10px;
+    -webkit-margin-end: 10px;
+            margin-inline-end: 10px;
   }
-  .pp-info-list-stack-mobile.pp-info-list-icon-top .pp-infolist-icon-wrapper:before {
+  .pp-info-list-stack-mobile.pp-info-list-icon-top .pp-infolist-icon-wrapper::before {
     content: "";
-    border-right: 1px solid #000;
+    -webkit-border-end: 1px solid #000;
+            border-inline-end: 1px solid #000;
     height: 1500px;
     bottom: 14px;
-    left: 6.5px;
+    inset-inline-start: 6.5px;
     position: absolute;
     width: 1px;
     top: auto;
   }
-  .pp-info-list-stack-mobile.pp-info-list-icon-top .pp-infolist-icon-wrapper:after {
+  .pp-info-list-stack-mobile.pp-info-list-icon-top .pp-infolist-icon-wrapper::after {
     content: "";
-    border-right: 1px solid #000;
+    -webkit-border-end: 1px solid #000;
+            border-inline-end: 1px solid #000;
     height: 1500px;
-    top: 14px;
-    left: 6.5px;
+    inset-inline-start: 6.5px;
     position: absolute;
     width: 1px;
     top: auto;

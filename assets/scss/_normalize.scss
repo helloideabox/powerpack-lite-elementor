@@ -4,7 +4,8 @@ div[class*=' pa-'] {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.clearfix:after {
+
+.clearfix::after {
     clear: both;
     content: "";
     font-size: 0;
@@ -12,6 +13,7 @@ div[class*=' pa-'] {
     display: block;
     visibility: hidden;
 }
+
 .pp-icon {
 	display: inline-block;
 	line-height: 1;
@@ -20,6 +22,7 @@ div[class*=' pa-'] {
     -o-transition: all .3s;
     transition: all .3s;
 }
+
 .pp-icon i,
 .pp-icon svg {
     width: 1em;
@@ -27,6 +30,7 @@ div[class*=' pa-'] {
     position: relative;
     display: block;
 }
+
 .pp-no-trans {
 	-webkit-transition: none;
     -o-transition: none;

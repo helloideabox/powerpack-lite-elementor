@@ -24,7 +24,7 @@
 .pp-flipbox-icon-image,
 .pp-flipbox-icon-image-back {
   display: inline-block;
-  margin: 0 auto 0px auto;
+  margin: 0 auto 0 auto;
   line-height: 1;
 }
 .pp-flipbox-icon-image img,
@@ -61,8 +61,8 @@
 .pp-flipbox-back {
   text-align: center;
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  inset-inline-start: 0;
   width: 100%;
   height: 100%;
 }
@@ -80,8 +80,8 @@
 .pp-flipbox-back .pp-flipbox-box-link {
   position: absolute;
   top: 0;
-  right: 0;
-  left: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   bottom: 0;
 }
 
@@ -192,24 +192,24 @@
 
 .pp-animate-push.pp-direction-left .pp-flipbox-back,
 .pp-animate-slide.pp-direction-left .pp-flipbox-back {
-  right: 100%;
+  inset-inline-start: 100%;
 }
 
 .pp-animate-push.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-back,
 .pp-animate-slide.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-back {
-  right: 0;
+  inset-inline-start: 0;
 }
 
 .pp-animate-push.pp-direction-right .pp-flipbox-back,
 .pp-animate-slide.pp-direction-right .pp-flipbox-back {
-  right: auto;
-  left: 100%;
+  inset-inline-start: auto;
+  inset-inline-end: 100%;
 }
 
 .pp-animate-push.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-back,
 .pp-animate-slide.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-back {
-  right: auto;
-  left: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
 }
 
 /*--- Push + Slide Above ---*/
@@ -222,11 +222,11 @@
 }
 
 .pp-animate-push.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-front {
-  right: -100%;
+  inset-inline-start: -100%;
 }
 
 .pp-animate-push.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-front {
-  right: 100%;
+  inset-inline-start: 100%;
 }
 
 /*--- Zoom In ---*/

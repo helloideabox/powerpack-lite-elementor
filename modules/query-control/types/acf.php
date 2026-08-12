@@ -143,6 +143,7 @@ class Acf extends Meta_Base {
 			'textual' => [
 				'text',
 				'textarea',
+				'wysiwyg',
 				'number',
 				'range',
 				'email',
@@ -152,6 +153,9 @@ class Acf extends Meta_Base {
 			'date' => [
 				'date_picker',
 				'date_time_picker',
+			],
+			'image' => [
+				'image',
 			],
 			'option' => [
 				'select',

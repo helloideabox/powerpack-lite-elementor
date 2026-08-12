@@ -62,8 +62,8 @@
   padding: 3px;
   vertical-align: middle;
 }
-.pp-custom-radio-checkbox input[type=checkbox]:before,
-.pp-custom-radio-checkbox input[type=radio]:before {
+.pp-custom-radio-checkbox input[type=checkbox]::before,
+.pp-custom-radio-checkbox input[type=radio]::before {
   content: "";
   width: 100%;
   height: 100%;
@@ -71,8 +71,8 @@
   margin: 0;
   display: block;
 }
-.pp-custom-radio-checkbox input[type=checkbox]:checked:before,
-.pp-custom-radio-checkbox input[type=radio]:checked:before {
+.pp-custom-radio-checkbox input[type=checkbox]:checked::before,
+.pp-custom-radio-checkbox input[type=radio]:checked::before {
   background: #999;
   -webkit-transition: all 0.25s linear 0s;
   transition: all 0.25s linear 0s;
@@ -80,7 +80,7 @@
 .pp-custom-radio-checkbox input[type=radio] {
   border-radius: 50%;
 }
-.pp-custom-radio-checkbox input[type=radio]:before {
+.pp-custom-radio-checkbox input[type=radio]::before {
   border-radius: 50%;
 }
 

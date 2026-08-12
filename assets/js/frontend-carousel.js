@@ -20,10 +20,13 @@
 			}
 
 			getDefaultElements() {
-				const selectors = this.getSettings( 'selectors' );
+				const selectors = this.getSettings( 'selectors' ),
+					$swiperContainer = this.$element.find( selectors.swiperContainer );
+
 				return {
-					$swiperContainer: this.$element.find( selectors.swiperContainer ),
-					$swiperSlide: this.$element.find( selectors.swiperSlide ),
+					$swiperContainer: $swiperContainer,
+					// Scoped to the slider so slides of any nested carousel are not counted as slides.
+					$swiperSlide: $swiperContainer.find( selectors.swiperSlide ),
 				};
 			}
 

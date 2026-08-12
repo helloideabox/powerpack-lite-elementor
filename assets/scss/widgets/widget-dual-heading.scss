@@ -3,4 +3,12 @@
     flex-wrap: wrap;
     align-items: baseline;
     gap: 6px;
+
+	.pp-first-text {
+		white-space: normal;
+	}
+
+	.pp-second-text {
+		white-space: nowrap;
+	}
 }

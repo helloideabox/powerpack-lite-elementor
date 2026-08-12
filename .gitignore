@@ -33,6 +33,13 @@ composer.lock
 package-lock.json
 yarn.lock
 
+# The compiled settings screen bundle in /assets/build/ is committed, not
+# ignored: the plugin ships from the repository, and `grunt release` only
+# copies the working tree, so an uncommitted bundle means a release built
+# without running `npm run build:settings` would ship a blank settings screen.
+# Rebuild with `npm run build:settings` and commit the result alongside the
+# source change.
+
 # OS X metadata
 .DS_Store
 .idea/

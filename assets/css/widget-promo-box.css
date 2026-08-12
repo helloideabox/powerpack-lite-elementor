@@ -34,7 +34,7 @@
 .pp-promo-box .pp-promo-box-bg {
   position: absolute;
   height: 100%;
-  left: 0;
+  inset-inline-start: 0;
   top: 0;
   width: 100%;
   -webkit-transition: transform 0.25s linear 0s;

@@ -1,13 +1,13 @@
 @-webkit-keyframes pp-circle-item-start {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
   }
 }
 @keyframes pp-circle-item-start {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
   }
 }
 .pp-circle-skin-1.pp-circle-animation-bounce-in .pp-circle-tab,
@@ -83,7 +83,7 @@
 @-webkit-keyframes pp-skin-2-rotate {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%) rotate(700deg);
             transform: translate(50%, -50%) rotate(700deg);
   }
@@ -96,7 +96,7 @@
 @keyframes pp-skin-2-rotate {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%) rotate(700deg);
             transform: translate(50%, -50%) rotate(700deg);
   }
@@ -139,13 +139,13 @@
 @-webkit-keyframes pp-skin-2-spin {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
   20% {
     top: 30%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
@@ -158,13 +158,13 @@
 @keyframes pp-skin-2-spin {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
   20% {
     top: 30%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
@@ -183,7 +183,7 @@
 @-webkit-keyframes pp-skin-3-bounce-in {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
@@ -196,7 +196,7 @@
 @keyframes pp-skin-3-bounce-in {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
@@ -225,12 +225,12 @@
 }
 @-webkit-keyframes pp-3-anim-1-shape-2-animation {
   0% {
-    right: 50%;
+    inset-inline-start: 50%;
   }
 }
 @keyframes pp-3-anim-1-shape-2-animation {
   0% {
-    right: 50%;
+    inset-inline-start: 50%;
   }
 }
 .pp-circle-skin-3.pp-circle-animation-bounce-in .pp-circle-tab .pp-shape-1 {
@@ -246,7 +246,7 @@
 @-webkit-keyframes pp-skin-3-rotate {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
@@ -259,7 +259,7 @@
 @keyframes pp-skin-3-rotate {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
@@ -306,12 +306,12 @@
 }
 @-webkit-keyframes pp-3-anim-2-shape-2-animation {
   0% {
-    right: 50%;
+    inset-inline-start: 50%;
   }
 }
 @keyframes pp-3-anim-2-shape-2-animation {
   0% {
-    right: 50%;
+    inset-inline-start: 50%;
   }
 }
 @-webkit-keyframes pp-3-anim-2-circle-content-animation {
@@ -367,7 +367,7 @@
 @-webkit-keyframes pp-3-anim-3-btn-animation {
   30% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%) rotate(-180deg);
             transform: translate(50%, -50%) rotate(-180deg);
   }
@@ -376,7 +376,7 @@
 @keyframes pp-3-anim-3-btn-animation {
   30% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%) rotate(-180deg);
             transform: translate(50%, -50%) rotate(-180deg);
   }
@@ -393,12 +393,12 @@
 }
 @-webkit-keyframes pp-3-anim-3-shape-2-animation {
   30% {
-    right: 50%;
+    inset-inline-start: 50%;
   }
 }
 @keyframes pp-3-anim-3-shape-2-animation {
   30% {
-    right: 50%;
+    inset-inline-start: 50%;
   }
 }
 @-webkit-keyframes pp-3-anim-3-circle-content-animation {
@@ -436,7 +436,7 @@
 @-webkit-keyframes pp-skin-4-bounce {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
@@ -449,7 +449,7 @@
 @keyframes pp-skin-4-bounce {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
@@ -468,7 +468,7 @@
 @-webkit-keyframes pp-4-anim-2-btn-animation {
   40% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%) rotate(-180deg);
             transform: translate(50%, -50%) rotate(-180deg);
   }
@@ -477,7 +477,7 @@
 @keyframes pp-4-anim-2-btn-animation {
   40% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%) rotate(-180deg);
             transform: translate(50%, -50%) rotate(-180deg);
   }
@@ -490,7 +490,7 @@
 @-webkit-keyframes pp-skin-4-spin {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
@@ -503,7 +503,7 @@
 @keyframes pp-skin-4-spin {
   0% {
     top: 50%;
-    right: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
   }
@@ -558,236 +558,236 @@
   @-webkit-keyframes pp-desktop-skin-2-items-6 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   @keyframes pp-desktop-skin-2-items-6 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="6"] .pp-circle-item #pp-circle-item-2 {
-    right: 2%;
+    inset-inline-start: 2%;
     -webkit-animation: pp-desktop-skin-2-items-6 2s forwards;
             animation: pp-desktop-skin-2-items-6 2s forwards;
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="6"] .pp-circle-item #pp-circle-item-5 {
-    right: 98%;
+    inset-inline-start: 98%;
     -webkit-animation: pp-desktop-skin-2-items-6 2s forwards;
             animation: pp-desktop-skin-2-items-6 2s forwards;
   }
   @-webkit-keyframes pp-desktop-skin-2-items-7 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   @keyframes pp-desktop-skin-2-items-7 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="7"] #pp-circle-item-2 {
-    right: 2%;
+    inset-inline-start: 2%;
     -webkit-animation: pp-desktop-skin-2-items-7 2s forwards;
             animation: pp-desktop-skin-2-items-7 2s forwards;
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="7"] #pp-circle-item-3 {
-    right: 13.3%;
+    inset-inline-start: 13.3%;
     -webkit-animation: pp-desktop-skin-2-items-7 2s forwards;
             animation: pp-desktop-skin-2-items-7 2s forwards;
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="7"] #pp-circle-item-5 {
-    right: 85.7%;
+    inset-inline-start: 85.7%;
     -webkit-animation: pp-desktop-skin-2-items-7 2s forwards;
             animation: pp-desktop-skin-2-items-7 2s forwards;
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="7"] #pp-circle-item-6 {
-    right: 96%;
+    inset-inline-start: 96%;
     -webkit-animation: pp-desktop-skin-2-items-7 2s forwards;
             animation: pp-desktop-skin-2-items-7 2s forwards;
   }
   @-webkit-keyframes pp-a1p2di8dv-item-2-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 40%;
-      right: 2%;
+      inset-inline-start: 2%;
     }
   }
   @keyframes pp-a1p2di8dv-item-2-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 40%;
-      right: 2%;
+      inset-inline-start: 2%;
     }
   }
   @-webkit-keyframes pp-a1p2di8dv-item-3-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 16%;
-      right: 6.9%;
+      inset-inline-start: 6.9%;
     }
   }
   @keyframes pp-a1p2di8dv-item-3-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 16%;
-      right: 6.9%;
+      inset-inline-start: 6.9%;
     }
   }
   @-webkit-keyframes pp-a1p2di8dv-item-4-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 2.9%;
-      right: 33.6%;
+      inset-inline-start: 33.6%;
     }
   }
   @keyframes pp-a1p2di8dv-item-4-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 2.9%;
-      right: 33.6%;
+      inset-inline-start: 33.6%;
     }
   }
   @-webkit-keyframes pp-a1p2di8dv-item-5-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 3%;
-      right: 65.4%;
+      inset-inline-start: 65.4%;
     }
   }
   @keyframes pp-a1p2di8dv-item-5-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 3%;
-      right: 65.4%;
+      inset-inline-start: 65.4%;
     }
   }
   @-webkit-keyframes pp-a1p2di8dv-item-6-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 16%;
-      right: 93.1%;
+      inset-inline-start: 93.1%;
     }
   }
   @keyframes pp-a1p2di8dv-item-6-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 16%;
-      right: 93.1%;
+      inset-inline-start: 93.1%;
     }
   }
   @-webkit-keyframes pp-a1p2di8dv-item-7-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 40%;
-      right: 97%;
+      inset-inline-start: 97%;
     }
   }
   @keyframes pp-a1p2di8dv-item-7-animation {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 40%;
-      right: 97%;
+      inset-inline-start: 97%;
     }
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-2 {
-    right: 2%;
+    inset-inline-start: 2%;
     -webkit-animation: pp-a1p2di8dv-item-2-animation 2s;
             animation: pp-a1p2di8dv-item-2-animation 2s;
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-3 {
     top: 16%;
-    right: 6.9%;
+    inset-inline-start: 6.9%;
     -webkit-animation: pp-a1p2di8dv-item-3-animation 2s;
             animation: pp-a1p2di8dv-item-3-animation 2s;
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-4 {
     top: 2.9%;
-    right: 33.6%;
+    inset-inline-start: 33.6%;
     -webkit-animation: pp-a1p2di8dv-item-4-animation 2s;
             animation: pp-a1p2di8dv-item-4-animation 2s;
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-5 {
     top: 3%;
-    right: 65.4%;
+    inset-inline-start: 65.4%;
     -webkit-animation: pp-a1p2di8dv-item-5-animation 2s;
             animation: pp-a1p2di8dv-item-5-animation 2s;
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-6 {
-    right: 93.1%;
+    inset-inline-start: 93.1%;
     -webkit-animation: pp-a1p2di8dv-item-6-animation 2s;
             animation: pp-a1p2di8dv-item-6-animation 2s;
   }
   .pp-circle-skin-2.pp-circle-desktop-view [data-items="8"] #pp-circle-item-7 {
-    right: 97%;
+    inset-inline-start: 97%;
     -webkit-animation: pp-a1p2di8dv-item-7-animation 2s;
             animation: pp-a1p2di8dv-item-7-animation 2s;
   }
   @-webkit-keyframes pp-desktop-spin-skin-2-items-1 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 0%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   @keyframes pp-desktop-spin-skin-2-items-1 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     100% {
       top: 0%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   .pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="1"] #pp-circle-item-1 {
@@ -797,21 +797,21 @@
   @-webkit-keyframes pp-desktop-spin-skin-2-items-2 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   @keyframes pp-desktop-spin-skin-2-items-2 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   .pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="2"] #pp-circle-item-1,
@@ -822,21 +822,21 @@
   @-webkit-keyframes pp-desktop-spin-skin-2-items-3 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   @keyframes pp-desktop-spin-skin-2-items-3 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   .pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="3"] #pp-circle-item-1,
@@ -848,21 +848,21 @@
   @-webkit-keyframes pp-desktop-spin-skin-2-items-4 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   @keyframes pp-desktop-spin-skin-2-items-4 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   .pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="4"] #pp-circle-item-1,
@@ -875,21 +875,21 @@
   @-webkit-keyframes pp-desktop-spin-skin-2-items-5 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   @keyframes pp-desktop-spin-skin-2-items-5 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   .pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="5"] #pp-circle-item-1,
@@ -903,21 +903,21 @@
   @-webkit-keyframes pp-desktop-spin-skin-2-items-6 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   @keyframes pp-desktop-spin-skin-2-items-6 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   .pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="6"] #pp-circle-item-1,
@@ -932,21 +932,21 @@
   @-webkit-keyframes pp-desktop-spin-skin-2-items-7 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   @keyframes pp-desktop-spin-skin-2-items-7 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   .pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="7"] #pp-circle-item-1,
@@ -962,21 +962,21 @@
   @-webkit-keyframes pp-desktop-spin-skin-2-items-8 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   @keyframes pp-desktop-spin-skin-2-items-8 {
     0% {
       top: 50%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
     20% {
       top: 30%;
-      right: 50%;
+      inset-inline-start: 50%;
     }
   }
   .pp-circle-skin-2.pp-circle-desktop-view.pp-circle-animation-spin [data-items="8"] #pp-circle-item-1,

@@ -14,22 +14,37 @@
   width: 100%;
 }
 
+.pp-progress-bar-line .pp-progress-line {
+  margin-top: var(--pp-label-spacing, 10px);
+}
+
+.pp-progress-bar-vertical .pp-progress-bar-wrapper {
+  gap: var(--pp-label-spacing, 10px);
+}
+
 .pp-progress-label {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 5px;
+  color: var(--pp-label-color, inherit);
 }
 
 .pp-progress-bar-line .pp-progress-count,
 .pp-progress-bar-dots .pp-progress-count {
-  float: left;
+  float: inline-end;
+}
+
+.pp-progress-count,
+.pp-bar-label-percentage {
+  color: var(--pp-count-color, inherit);
 }
 
 .pp-progress-line {
   position: relative;
-  height: 20px;
+  height: var(--pp-bar-thickness, 30px);
+  line-height: var(--pp-bar-thickness, 30px);
   background-color: #e0e0e0;
-  border-radius: 10px;
+  border-radius: var(--pp-bar-radius, 10px);
   overflow: hidden;
 }
 
@@ -39,6 +54,7 @@
   width: 0;
   -webkit-transition: width 1s ease;
   transition: width 1s ease;
+  border-radius: var(--pp-bar-radius, 10px);
 }
 
 .pp-progress-bar-striped .pp-progress-fill {
@@ -69,8 +85,8 @@
   }
 }
 .pp-progress-bar-rainbow .pp-progress-fill {
-  background: -webkit-gradient(linear, left top, right top, from(#9400d3), color-stop(#4b0082), color-stop(#0000ff), color-stop(#00ff00), color-stop(#ffff00), color-stop(#ff7f00), to(#ff0000));
-  background: linear-gradient(-270deg, #9400d3, #4b0082, #0000ff, #00ff00, #ffff00, #ff7f00, #ff0000);
+  background: -webkit-gradient(linear, left top, right top, from(#9400d3), color-stop(#4b0082), color-stop(#00f), color-stop(#0f0), color-stop(#ff0), color-stop(#ff7f00), to(#f00));
+  background: linear-gradient(-270deg, #9400d3, #4b0082, #00f, #0f0, #ff0, #ff7f00, #f00);
   -webkit-animation: pp-rainbow 5s ease infinite;
           animation: pp-rainbow 5s ease infinite;
   background-size: 500% 500%;
@@ -112,12 +128,12 @@
 
 .pp-bar-container-label p:first-of-type {
   margin: 0;
-  float: right;
+  float: inline-start;
 }
 
 .pp-bar-container-label p:nth-of-type(2) {
   margin: 0;
-  float: left;
+  float: inline-end;
 }
 
 .pp-bar-indicator-align-left .pp-bar-center-label {
@@ -131,48 +147,58 @@
 }
 
 .pp-bar-indicator-pin.pp-bar-indicator-align-left .pp-bar-center-label {
-  margin-right: 0.5px;
+  -webkit-margin-start: calc(var(--pp-indicator-pin-size, 1px) / 2);
+          margin-inline-start: calc(var(--pp-indicator-pin-size, 1px) / 2);
 }
 
 .pp-bar-indicator-pin.pp-bar-indicator-align-right .pp-bar-center-label {
-  margin-right: -0.5px;
+  -webkit-margin-start: calc(var(--pp-indicator-pin-size, 1px) / -2);
+          margin-inline-start: calc(var(--pp-indicator-pin-size, 1px) / -2);
 }
 
 .pp-bar-indicator-arrow.pp-bar-indicator-align-left .pp-bar-center-label {
-  margin-right: 7px;
+  -webkit-margin-start: var(--pp-indicator-arrow-size, 7px);
+          margin-inline-start: var(--pp-indicator-arrow-size, 7px);
 }
 
 .pp-bar-indicator-arrow.pp-bar-indicator-align-right .pp-bar-center-label {
-  margin-right: -7px;
+  -webkit-margin-start: calc(var(--pp-indicator-arrow-size, 7px) * -1);
+          margin-inline-start: calc(var(--pp-indicator-arrow-size, 7px) * -1);
 }
 
 .pp-bar-label {
   position: relative;
-  float: right;
+  float: inline-start;
   width: 0;
-  right: 50%;
+  inset-inline-start: 50%;
 }
 
 .pp-bar-center-label {
   position: relative;
   white-space: nowrap;
+  color: var(--pp-label-color, inherit);
 }
 
 .pp-bar-label-arrow {
   height: 15px;
-  right: 50%;
+  inset-inline-start: 50%;
   display: inline-block;
-  border-right: 7px solid transparent;
-  border-left: 7px solid transparent;
-  border-top: 11px solid;
+  -webkit-border-start: var(--pp-indicator-arrow-size, 7px) solid transparent;
+          border-inline-start: var(--pp-indicator-arrow-size, 7px) solid transparent;
+  -webkit-border-end: var(--pp-indicator-arrow-size, 7px) solid transparent;
+          border-inline-end: var(--pp-indicator-arrow-size, 7px) solid transparent;
+  border-top: var(--pp-indicator-arrow-size, 11px) solid;
+  color: var(--pp-indicator-color, inherit);
   -webkit-transform: translateX(50%);
           transform: translateX(50%);
 }
 
 .pp-bar-label-pin {
-  border-right: 1px solid;
+  border-inline-start-width: var(--pp-indicator-pin-size, 1px);
+  border-inline-start-style: solid;
+  border-color: var(--pp-indicator-color, currentColor);
   height: 12px;
-  right: 50%;
+  inset-inline-start: 50%;
   display: inline-block;
 }
 
@@ -206,7 +232,8 @@
 .pp-progress-bar-vertical .pp-bar-container-label {
   position: absolute;
   height: 100%;
-  margin-right: 25px;
+  -webkit-margin-start: 25px;
+          margin-inline-start: 25px;
   overflow: visible;
 }
 .pp-progress-bar-vertical .pp-bar-label {
@@ -234,8 +261,8 @@
 
 .pp-bar-circle-wrapper {
   position: relative;
-  width: 160px;
-  height: 160px;
+  width: var(--pp-circle-size, 200px);
+  height: var(--pp-circle-size, 200px);
   border-radius: 50%;
   overflow: hidden;
 }
@@ -243,19 +270,21 @@
 .pp-bar-circle {
   position: absolute;
   top: 0;
-  right: 0;
+  inset-inline-start: 0;
   width: 100%;
   height: 100%;
   clip-path: inset(0 0 0 50%);
 }
 .pp-bar-circle .pp-progress-fill {
   position: absolute;
-  right: 0;
+  inset-inline-start: 0;
   top: 0;
   height: 100%;
   width: 100%;
   background: none;
-  border: 10px solid #00aaff;
+  border-style: solid;
+  border-width: var(--pp-circle-border-width, 10px);
+  border-color: var(--pp-circle-fill-color, #0af);
   border-radius: 50%;
   clip-path: inset(0 50% 0 0);
 }
@@ -272,12 +301,15 @@
 .pp-bar-circle-inner {
   height: 100%;
   width: 100%;
-  border: 10px solid #e0e0e0;
+  border-style: solid;
+  border-width: var(--pp-circle-border-width, 10px);
+  border-color: var(--pp-circle-track-color, #e0e0e0);
   border-radius: 50%;
 }
 
 .pp-progress-bar-circle_half .pp-progress-circle-half {
-  height: 80px;
+  width: var(--pp-circle-size, 200px);
+  height: calc(var(--pp-circle-size, 200px) / 2);
   overflow: hidden;
   position: relative;
 }
@@ -294,13 +326,18 @@
   bottom: 0;
   -webkit-transform: translateY(0);
           transform: translateY(0);
-  width: 160px;
+  width: var(--pp-circle-size, 200px);
 }
 .pp-progress-bar-circle_half .pp-progress-bar-hf-labels {
-  width: 160px;
+  width: var(--pp-circle-size, 200px);
 }
 .pp-progress-bar-circle_half .pp-progress-bar-hf-labels .pp-progress-bar-hf-label-right {
-  float: left;
+  float: inline-end;
+}
+
+.pp-progress-bar-hf-label-left,
+.pp-progress-bar-hf-label-right {
+  color: var(--pp-suffix-color, inherit);
 }
 
 .pp-bar-circle-content {
@@ -314,9 +351,10 @@
 
 .pp-vertical-bar {
   position: relative;
-  width: 20px;
+  width: var(--pp-bar-thickness, 30px);
   height: 150px;
   background-color: #e0e0e0;
+  border-radius: var(--pp-bar-radius, 10px);
   overflow: hidden;
 }
 .pp-vertical-bar .pp-progress-fill {
@@ -324,6 +362,7 @@
   height: 0;
   -webkit-transition: height 1s ease;
   transition: height 1s ease;
+  border-radius: var(--pp-bar-radius, 10px);
 }
 
 .pp-progress-dots .pp-progress-fill {
@@ -347,7 +386,7 @@
 .pp-progress-dots .segment-inner {
   position: absolute;
   top: 0;
-  right: 0;
+  inset-inline-start: 0;
   height: 100%;
   background-color: #6ec1e4;
 }

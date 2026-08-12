@@ -23,7 +23,7 @@
   }
 
   @else if $position == 'horizontal' {
-    left: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translate(-50%);
@@ -31,7 +31,7 @@
 
   @else if $position == 'both' {
     top: 50%;
-    left: 50%;
+    inset-inline-start: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -60,7 +60,8 @@
 // Clearfix
 //--------------------------------------------//
 @mixin clearfix() {
-    &:after {
+
+    &::after {
         content: "";
         display: table;
         clear: both;
@@ -81,9 +82,9 @@
     display: block;
     position: $type;
     top: $top;
-    right: $right;
+    inset-inline-end: $right;
     bottom: $bottom;
-    left: $left;
+    inset-inline-start: $left;
 }
 
 // Transition
@@ -96,18 +97,20 @@
 // Black Transparency
 //--------------------------------------------//
 @function black($opacity: 0.4) {
+
     @return rgba(0, 0, 0, $opacity);
 }
 
 // White Transparency
 //--------------------------------------------//
 @function white($opacity: 0.4) {
+
     @return rgba(255, 255, 255, $opacity);
 }
 
 // Box Shadow
 //--------------------------------------------//
-@mixin box-shadow($horizontal: 0px, $vertical: 1px, $blur: 10px, $spread: 0, $opacity: 0.5) {
+@mixin box-shadow($horizontal: 0, $vertical: 1px, $blur: 10px, $spread: 0, $opacity: 0.5) {
     -webkit-box-shadow: $horizontal $vertical $blur $spread rgba(0, 0, 0, $opacity);
     -moz-box-shadow: $horizontal $vertical $blur $spread rgba(0, 0, 0, $opacity);
     box-shadow: $horizontal $vertical $blur $spread rgba(0, 0, 0, $opacity);

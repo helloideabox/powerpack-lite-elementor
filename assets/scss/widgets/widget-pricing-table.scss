@@ -6,6 +6,7 @@
 	text-align: center;
     transition: all .3s;
 }
+
 .pp-icon i,
 .pp-icon svg {
     width: 1em;
@@ -13,65 +14,85 @@
     position: relative;
     display: block;
 }
+
 .pp-pricing-table {
     overflow: hidden;
     text-align: center;
+
     @include transition();
+
     &-container {
         position: relative;
     }
+
     &.horizontal-table {
         display: flex;
+
         .pp-pricing-table-head,
         .pp-pricing-table-footer,
         .pp-pricing-table-features {
             flex: 1;
         }
     }
+
     &-align {
+
         &-left {
+
             .pp-pricing-table,
 			&.pp-pricing-table-price-duration-wrap .pp-pricing-table-price-duration {
-                text-align: left;
+                text-align: start;
             }
+
             .pp-pricing-table-price {
                 justify-content: flex-start;
             }
         }
+
         &-right {
+
             .pp-pricing-table,
 			&.pp-pricing-table-price-duration-wrap .pp-pricing-table-price-duration {
-                text-align: right;
+                text-align: end;
             }
+
             .pp-pricing-table-price {
                 justify-content: flex-end;
             }
         }
     }
+
     &-head {
         background: #7a7a7a;
         padding: 30px;
     }
+
     .pp-pricing-table-icon {
         display: inline-block;
     }
+
     .pp-pricing-table-title-wrap {
+
         .pp-pricing-table-title {
             margin-bottom: 0;
         }
+
         .pp-pricing-table-subtitle {
             margin-bottom: 0;
         }
     }
+
     .pp-pricing-table-price {
         font-size: 40px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-inline-start: auto;
+        margin-inline-end: auto;
         padding: 30px;
     }
+
 	&-price-value {
 		display: flex;
 	}
+
 	&-after-price {
         align-items: flex-start;
 		align-self: stretch;
@@ -80,45 +101,57 @@
         flex-wrap: wrap;
         text-align: start;
 	}
+
     &-fractional-part {
 		font-size: .4em;
 		line-height: 1;
     }
+
     .pp-pricing-table-features {
         list-style: none;
         margin: 0;
         padding: 0 30px;
+
         li {
             margin: 0;
             padding: 0;
+
             &:last-child {
                 border-bottom: 0;
             }
         }
+
         .excluded {
             text-decoration: line-through;
         }
     }
+
     .pp-pricing-table-price-prefix,
     .pp-pricing-table-price-duration {
         font-size: 0.4em;
         line-height: 1;
-        text-align: left;
+        text-align: start;
     }
+
     .pp-pricing-table-price-prefix {
         align-self: flex-start;
     }
+
     .pp-pricing-table-price-duration {
         align-self: flex-end;
     }
+
     .pp-pricing-table-price-original .pp-pricing-table-price-prefix {
         font-size: 1em;
         margin: 0;
     }
+
     &-price-duration-wrap {
+
         .pp-pricing-table-price {
             flex-wrap: wrap;
         }
+
         .pp-pricing-table-price-duration {
             text-align: center;
             width: 100%;
@@ -128,6 +161,7 @@
     .pp-pricing-table-price-value {
         line-height: .9;
     }
+
     &-price,
     &-price-wrap {
         display: flex;
@@ -135,6 +169,7 @@
         align-items: center;
         width: 100%;
     }
+
     &-price-original {
         display: inline-flex;
         font-size: 0.5em;
@@ -143,10 +178,12 @@
         text-decoration: line-through;
     }
 }
+
 .pp-pricing-table-feature-content {
     display: inline-flex;
     align-items: center;
 }
+
 .pp-pricing-table-ribbon {
     color: #fff;
     font-size: 13px;
@@ -156,64 +193,78 @@
     text-transform: uppercase;
     top: 0;
     z-index: 2;
+
     &-inner {
         background: #61ce70;
     }
+
     &-1 {
         position: absolute;
         top: 0;
         width: 150px;
         overflow: hidden;
         height: 150px;
+
         &.pp-pricing-table-ribbon-right {
-            left: auto;
-            right: 0;
+            inset-inline-start: auto;
+            inset-inline-end: 0;
             transform: rotate(90deg);
         }
+
         &.pp-pricing-table-ribbon-left {
-            left: 0;
-            right: auto;
+            inset-inline-start: 0;
+            inset-inline-end: auto;
             transform: rotate(0);
         }
+
         .pp-pricing-table-ribbon-inner {
             text-align: center;
-            left: 0;
+            inset-inline-start: 0;
             width: 200%;
             transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
             margin-top: 35px;
             line-height: 2;
         }
     }
+
     &-2 {
         border-radius: 50%;
         line-height: 4em;
         min-height: 4em;
         min-width: 4em;
+
         .pp-pricing-table-ribbon-inner {
             background: #61ce70;
             border-radius: 50%;
         }
+
         &.pp-pricing-table-ribbon-right {
             transform: translateX(38%) translateY(-38%)
         }
+
         &.pp-pricing-table-ribbon-left {
             transform: translateX(-38%) translateY(-38%)
         }
     }
+
     &-right {
-        right: 0;
+        inset-inline-end: 0;
     }
+
     &-left {
-        left: 0;
+        inset-inline-start: 0;
     }
+
     &-3 {
         background: #61ce70;
         top: 10%;
+
         .pp-pricing-table-ribbon-inner {
             padding: 3px 18px;
         }
-        &:before,
-        &:after {
+
+        &::before,
+        &::after {
             border-bottom: 8px solid transparent;
             content: '';
             display: block;
@@ -222,36 +273,45 @@
             width: 0;
             top: 100%;
         }
+
         &.pp-pricing-table-ribbon-right {
             border-radius: 3px 3px 0 3px;
-            right: -8px;
-            &:before,
-            &:after {
-                right: 0;
+            inset-inline-end: -8px;
+
+            &::before,
+            &::after {
+                inset-inline-end: 0;
             }
-            &:before {
-                border-left: 8px solid #61ce70;
+
+            &::before {
+                border-inline-start: 8px solid #61ce70;
             }
-            &:after {
-                border-left: 8px solid rgba(0,0,0,0.2);
+
+            &::after {
+                border-inline-start: 8px solid rgba(0,0,0,0.2);
             }
         }
+
         &.pp-pricing-table-ribbon-left {
             border-radius: 3px 3px 3px 0;
-            left: -8px;
-            &:before,
-            &:after {
-                left: 0;
+            inset-inline-start: -8px;
+
+            &::before,
+            &::after {
+                inset-inline-start: 0;
             }
-            &:before {
-                border-right: 8px solid #61ce70;
+
+            &::before {
+                border-inline-end: 8px solid #61ce70;
             }
-            &:after {
-                border-right: 8px solid rgba(0,0,0,0.2);
+
+            &::after {
+                border-inline-end: 8px solid rgba(0,0,0,0.2);
             }
         }
     }
 }
+
 .pp-tooltip-click {
 	cursor: pointer;
 }

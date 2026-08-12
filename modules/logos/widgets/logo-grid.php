@@ -73,6 +73,14 @@ class Logo_Grid extends Powerpack_Widget {
 		return parent::get_widget_keywords( 'Logo_Grid' );
 	}
 
+	/**
+	 * Whether the widget renders dynamic content.
+	 *
+	 * @since 2.10.19
+	 * @access protected
+	 *
+	 * @return bool False — content depends only on widget settings.
+	 */
 	protected function is_dynamic_content(): bool {
 		return false;
 	}
@@ -91,6 +99,17 @@ class Logo_Grid extends Powerpack_Widget {
 		return [ 'widget-pp-logo-grid' ];
 	}
 
+	/**
+	 * Whether the widget should be wrapped in an inner wrapper element.
+	 *
+	 * Disabled when Elementor's "Optimized Markup" experiment is active so the
+	 * widget output participates in the leaner DOM.
+	 *
+	 * @since 2.11.8
+	 * @access public
+	 *
+	 * @return bool
+	 */
 	public function has_widget_inner_wrapper(): bool {
 		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
@@ -112,6 +131,11 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->register_style_title_controls();
 	}
 
+	/**
+	 * Register the Logo Grid content section controls.
+	 *
+	 * @access protected
+	 */
 	protected function register_content_logo_grid_controls() {
 		$this->start_controls_section(
 			'section_logo_grid',
@@ -351,6 +375,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
 				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
+				'description'           => esc_html__( 'Shuffles the order on every page load. If page caching is active, the cached version will keep a fixed order until the cache is refreshed.', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -484,11 +509,15 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-
 	/*-----------------------------------------------------------------------------------*/
 	/*	STYLE TAB
 	/*-----------------------------------------------------------------------------------*/
 
+	/**
+	 * Register the Logos style section controls.
+	 *
+	 * @access protected
+	 */
 	protected function register_style_logos_controls() {
 		$this->start_controls_section(
 			'section_logos_style',
@@ -513,7 +542,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'name'                  => 'logo_bg',
 				'label'                 => esc_html__( 'Background', 'powerpack-lite-for-elementor' ),
 				'types'                 => [ 'classic', 'gradient' ],
-				'exclude'               => array( 'image' ),
+				'exclude'               => [ 'image' ],
 				'selector'              => '{{WRAPPER}} .pp-logo-wrap',
 			]
 		);
@@ -607,7 +636,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'name'                  => 'logos_bg_hover',
 				'label'                 => esc_html__( 'Background', 'powerpack-lite-for-elementor' ),
 				'types'                 => [ 'classic', 'gradient' ],
-				'exclude'               => array( 'image' ),
+				'exclude'               => [ 'image' ],
 				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover',
 			]
 		);
@@ -687,6 +716,11 @@ class Logo_Grid extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Register the Title style section controls.
+	 *
+	 * @access protected
+	 */
 	protected function register_style_title_controls() {
 		$this->start_controls_section(
 			'section_logo_title_style',
@@ -801,50 +835,26 @@ class Logo_Grid extends Powerpack_Widget {
 							$this->add_render_attribute( $item_wrap_setting_key, 'class', 'pp-logo-grid-item-custom' );
 						}
 					}
+
+					$has_link = ! empty( $item['link']['url'] );
+
+					if ( $has_link ) {
+						$this->add_link_attributes( $link_setting_key, $item['link'] );
+					}
 					?>
 					<div <?php $this->print_render_attribute_string( $item_wrap_setting_key ); ?>>
 						<div <?php $this->print_render_attribute_string( $item_setting_key ); ?>>
-						<?php
-						if ( '' !== $item['link']['url'] ) {
-							$this->add_link_attributes( $link_setting_key, $item['link'] );
-						}
-
-						if ( ! empty( $item['link']['url'] ) ) {
-							?>
-							<a <?php $this->print_render_attribute_string( $link_setting_key ); ?>>
-							<?php
-						}
-
-						echo wp_kses_post( $this->render_image( $item, $settings ) );
-
-						if ( '' !== $item['link']['url'] ) { ?>
-							</a>
-							<?php
-						}
-						?>
+							<?php echo wp_kses_post( $this->maybe_wrap_in_link( $this->render_image( $item, $settings ), $link_setting_key, $has_link ) ); ?>
 						</div>
 						<?php
-						if ( 'yes' == $settings['show_title'] ) {
-							if ( '' !== $item['title'] ) {
-								$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
-								?>
-								<<?php echo esc_html( $title_tag ); ?> class="pp-logo-title">
-								<?php
-								if ( '' !== $item['link']['url'] ) { ?>
-									<a <?php $this->print_render_attribute_string( $link_setting_key ); ?>>
-									<?php
-								}
-
-								echo wp_kses_post( $item['title'] );
-
-								if ( '' !== $item['link']['url'] ) { ?>
-									</a>
-									<?php
-								}
-								?>
-								</<?php echo esc_html( $title_tag ); ?>>
-								<?php
-							}
+						if ( 'yes' === $settings['show_title'] && '' !== $item['title'] ) {
+							$title_tag  = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+							$title_html = $this->maybe_wrap_in_link( esc_html( $item['title'] ), $link_setting_key, $has_link );
+							printf(
+								'<%1$s class="pp-logo-title">%2$s</%1$s>',
+								esc_html( $title_tag ),
+								wp_kses_post( $title_html )
+							);
 						}
 						?>
 					</div>
@@ -857,25 +867,53 @@ class Logo_Grid extends Powerpack_Widget {
 	}
 
 	/**
-	 *  Render Image HTML.
+	 * Wrap already-escaped HTML in the item's anchor when a link is set.
 	 *
-	 *  @param string $item image attributes.
-	 *  @param string $instance settings object instance.
+	 * Caller is responsible for escaping `$content`; the anchor attributes are
+	 * built from a render-attribute key, which Elementor escapes on output.
+	 *
+	 * @since 3.0.0
+	 * @access protected
+	 *
+	 * @param string $content          Already-escaped HTML to wrap.
+	 * @param string $link_setting_key Render-attribute key holding anchor attributes.
+	 * @param bool   $has_link         Whether `$content` should be wrapped.
+	 *
+	 * @return string
+	 */
+	protected function maybe_wrap_in_link( $content, $link_setting_key, $has_link ) {
+		if ( ! $has_link ) {
+			return $content;
+		}
+
+		return sprintf(
+			'<a %1$s>%2$s</a>',
+			$this->get_render_attribute_string( $link_setting_key ),
+			$content
+		);
+	}
+
+	/**
+	 * Render image HTML for a single logo grid item.
 	 *
 	 * @access protected
+	 *
+	 * @param array $item     Repeater item data.
+	 * @param array $instance Widget settings.
+	 *
+	 * @return string Image HTML.
 	 */
 	protected function render_image( $item, $instance ) {
 
-		$image_id   = apply_filters( 'wpml_object_id', $item['logo_image']['id'], 'attachment', true );
-		$image_size = $instance['image_size'];
-		$image_alt  = esc_attr( Control_Media::get_image_alt( $item['logo_image'] ) );
-		$image_url  = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image', $instance );
+		$image_id  = apply_filters( 'wpml_object_id', $item['logo_image']['id'], 'attachment', true );
+		$image_alt = Control_Media::get_image_alt( $item['logo_image'] );
+		$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image', $instance );
 
 		if ( ! $image_url ) {
 			$image_url = $item['logo_image']['url'];
 		}
 
-		return sprintf( '<img src="%s" alt="%s" />', $image_url, esc_attr( $image_alt ) );
+		return sprintf( '<img src="%s" alt="%s" />', esc_url( $image_url ), esc_attr( $image_alt ) );
 	}
 
 	/**
@@ -911,20 +949,36 @@ class Logo_Grid extends Powerpack_Widget {
 				<# if ( item.logo_image.url != '' ) { #>
 					<#
 						var item_wrap_custom_style_class = '',
-							item_custom_style_class = '';
+							item_custom_style_class = '',
+							linkAttrs = '';
 
-						if ( item.custom_style == 'yes' ) {
-							if ( item.custom_style_target == 'logo' ) {
-								var item_custom_style_class = 'pp-logo-grid-item-custom';
+						if ( 'yes' === item.custom_style ) {
+							if ( 'logo' === item.custom_style_target ) {
+								item_custom_style_class = 'pp-logo-grid-item-custom';
 							} else {
-								var item_wrap_custom_style_class = 'pp-logo-grid-item-custom';
+								item_wrap_custom_style_class = 'pp-logo-grid-item-custom';
+							}
+						}
+
+						if ( item.link && item.link.url ) {
+							var rel = '';
+							linkAttrs = ' href="' + _.escape( item.link.url ) + '"';
+							if ( item.link.is_external ) {
+								linkAttrs += ' target="_blank"';
+								rel = 'noopener';
+							}
+							if ( item.link.nofollow ) {
+								rel = ( rel ? rel + ' ' : '' ) + 'nofollow';
+							}
+							if ( rel ) {
+								linkAttrs += ' rel="' + rel + '"';
 							}
 						}
 					#>
 					<div class="elementor-grid-item elementor-repeater-item-{{ item._id }} {{ item_wrap_custom_style_class }}">
 						<div class="pp-logo-wrap {{ item_custom_style_class }}">
 							<# if ( item.link && item.link.url ) { #>
-								<a href="{{ _.escape( item.link.url ) }}">
+								<a{{{ linkAttrs }}}>
 							<# } #>
 							<#
 							if ( item.logo_image && item.logo_image.id ) {
@@ -947,21 +1001,21 @@ class Logo_Grid extends Powerpack_Widget {
 								var image_url = item.logo_image.url;
 							}
 							#>
-							<img src="{{ _.escape( image_url ) }}" alt="{{ item.title }}" />
+							<img src="{{ _.escape( image_url ) }}" alt="{{ item.logo_image.alt || '' }}" />
 
 							<# if ( item.link && item.link.url ) { #>
 								</a>
 							<# } #>
 						</div>
 						<#
-							if ( 'yes' == settings.show_title ) {
+							if ( 'yes' === settings.show_title ) {
 								if ( item.title != '' ) {
-									var title = item.title;
+									var title = _.escape( item.title );
 
-									view.addRenderAttribute( 'title' + i, 'class', 'pp-logo-grid-title' );
+									view.addRenderAttribute( 'title' + i, 'class', 'pp-logo-title' );
 
 									if ( item.link && item.link.url ) {
-										title = '<a href="' + _.escape( item.link.url ) + '">' + item.title + '</a>';
+										title = '<a' + linkAttrs + '>' + title + '</a>';
 									}
 
 									var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ),

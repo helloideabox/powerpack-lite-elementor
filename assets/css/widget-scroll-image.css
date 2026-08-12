@@ -1,8 +1,8 @@
 .pp-media-overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   bottom: 0;
   -webkit-transition: all 0.25s linear 0s;
   transition: all 0.25s linear 0s;
@@ -11,8 +11,8 @@
 .pp-media-content {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   bottom: 0;
 }
 
@@ -88,7 +88,7 @@
   position: absolute;
   height: auto;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   text-align: center;
   z-index: 5;
   -webkit-transform: translate(-50%, -50%);
@@ -120,7 +120,7 @@
   display: inline-block;
   speak: none;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
@@ -148,8 +148,8 @@
 
 @-webkit-keyframes pp-scroll-vertical {
   0% {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
   100% {
     -webkit-transform: translateY(5px);
@@ -159,8 +159,8 @@
 
 @keyframes pp-scroll-vertical {
   0% {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
   100% {
     -webkit-transform: translateY(5px);
@@ -169,8 +169,8 @@
 }
 @-webkit-keyframes pp-scroll-horizontal {
   0% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
   100% {
     -webkit-transform: translateX(5px);
@@ -179,8 +179,8 @@
 }
 @keyframes pp-scroll-horizontal {
   0% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
   100% {
     -webkit-transform: translateX(5px);

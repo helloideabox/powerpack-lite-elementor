@@ -1417,6 +1417,55 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Get the CSS selectors targeting the form's submit button.
+	 *
+	 * Gravity Forms renders the submit button as an `input` up to version 2.x and as a
+	 * `button` from version 3.0, in the form footer, the last page footer, or - when the
+	 * submit button is placed as a field - inside the fields grid.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param string $suffix Optional. Appended to each selector, e.g. ':hover'.
+	 * @return string Comma separated list of selectors.
+	 */
+	protected function get_submit_button_selector( $suffix = '' ) {
+		$containers = [ '.gform_footer', '.gform_page_footer', '.gfield--type-submit' ];
+		$buttons    = [ 'input[type="submit"]', 'button[type="submit"]' ];
+		$selectors  = [];
+
+		foreach ( $containers as $container ) {
+			foreach ( $buttons as $button ) {
+				$selectors[] = '{{WRAPPER}} .pp-gravity-form .gform_wrapper ' . $container . ' ' . $button . $suffix;
+			}
+		}
+
+		return implode( ', ', $selectors );
+	}
+
+	/**
+	 * Get the CSS selectors targeting the previous and next pagination buttons.
+	 *
+	 * The button classes are matched instead of the element type, so that both the `input`
+	 * markup used up to Gravity Forms 2.x and the `button` markup used from version 3.0 are
+	 * covered without also matching the Save and Continue button.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param string $suffix Optional. Appended to each selector, e.g. ':hover'.
+	 * @return string Comma separated list of selectors.
+	 */
+	protected function get_pagination_button_selector( $suffix = '' ) {
+		$buttons   = [ 'input[type="button"]', '.gform_previous_button', '.gform_next_button' ];
+		$selectors = [];
+
+		foreach ( $buttons as $button ) {
+			$selectors[] = '{{WRAPPER}} .pp-gravity-form .gform_page_footer ' . $button . $suffix;
+		}
+
+		return implode( ', ', $selectors );
+	}
+
 	protected function register_style_submit_button_controls() {
 		/**
 		 * Style Tab: Submit Button
@@ -1498,9 +1547,7 @@ class Gravity_Forms extends Powerpack_Widget {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'width: {{SIZE}}{{UNIT}}',
+					$this->get_submit_button_selector() => 'width: {{SIZE}}{{UNIT}}',
 				),
 				'condition'  => array(
 					'button_width_type' => 'custom',
@@ -1524,9 +1571,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'background-color: {{VALUE}}',
+					$this->get_submit_button_selector() => 'background-color: {{VALUE}}',
 				),
 			)
 		);
@@ -1538,9 +1583,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
-                    {{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'color: {{VALUE}}',
+					$this->get_submit_button_selector() => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -1552,9 +1595,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]',
+				'selector'    => $this->get_submit_button_selector(),
 			)
 		);
 
@@ -1565,9 +1606,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					$this->get_submit_button_selector() => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1579,9 +1618,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					$this->get_submit_button_selector() => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1600,9 +1637,7 @@ class Gravity_Forms extends Powerpack_Widget {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]' => 'margin-top: {{SIZE}}{{UNIT}}',
+					$this->get_submit_button_selector() => 'margin-top: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -1615,9 +1650,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
-				'selector'  => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]',
+				'selector'  => $this->get_submit_button_selector(),
 				'separator' => 'before',
 			)
 		);
@@ -1626,9 +1659,7 @@ class Gravity_Forms extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name'      => 'button_box_shadow',
-				'selector'  => '{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"],
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]',
+				'selector'  => $this->get_submit_button_selector(),
 				'separator' => 'before',
 			)
 		);
@@ -1649,9 +1680,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"]:hover,
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"]:hover,
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]:hover' => 'background-color: {{VALUE}}',
+					$this->get_submit_button_selector( ':hover' ) => 'background-color: {{VALUE}}',
 				),
 			)
 		);
@@ -1663,9 +1692,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"]:hover,
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"]:hover,
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]:hover' => 'color: {{VALUE}}',
+					$this->get_submit_button_selector( ':hover' ) => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -1677,9 +1704,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_footer input[type="submit"]:hover,
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gform_page_footer input[type="submit"]:hover,
-					{{WRAPPER}} .pp-gravity-form .gform_wrapper .gfield--type-submit input[type="submit"]:hover' => 'border-color: {{VALUE}}',
+					$this->get_submit_button_selector( ':hover' ) => 'border-color: {{VALUE}}',
 				),
 			)
 		);
@@ -1737,7 +1762,7 @@ class Gravity_Forms extends Powerpack_Widget {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]' => 'width: {{SIZE}}{{UNIT}}',
+					$this->get_pagination_button_selector() => 'width: {{SIZE}}{{UNIT}}',
 				),
 				'condition'  => array(
 					'pagination_buttons_width_type' => 'custom',
@@ -1761,7 +1786,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]' => 'background-color: {{VALUE}}',
+					$this->get_pagination_button_selector() => 'background-color: {{VALUE}}',
 				),
 			)
 		);
@@ -1773,7 +1798,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]' => 'color: {{VALUE}}',
+					$this->get_pagination_button_selector() => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -1785,7 +1810,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]',
+				'selector'    => $this->get_pagination_button_selector(),
 			)
 		);
 
@@ -1796,7 +1821,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					$this->get_pagination_button_selector() => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1808,7 +1833,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					$this->get_pagination_button_selector() => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1827,7 +1852,7 @@ class Gravity_Forms extends Powerpack_Widget {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]' => 'margin-top: {{SIZE}}{{UNIT}}',
+					$this->get_pagination_button_selector() => 'margin-top: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -1840,7 +1865,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
-				'selector'  => '{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]',
+				'selector'  => $this->get_pagination_button_selector(),
 				'separator' => 'before',
 			)
 		);
@@ -1849,7 +1874,7 @@ class Gravity_Forms extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name'      => 'pagination_buttons_box_shadow',
-				'selector'  => '{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]',
+				'selector'  => $this->get_pagination_button_selector(),
 				'separator' => 'before',
 			)
 		);
@@ -1870,7 +1895,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]:hover' => 'background-color: {{VALUE}}',
+					$this->get_pagination_button_selector( ':hover' ) => 'background-color: {{VALUE}}',
 				),
 			)
 		);
@@ -1882,7 +1907,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]:hover' => 'color: {{VALUE}}',
+					$this->get_pagination_button_selector( ':hover' ) => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -1894,7 +1919,7 @@ class Gravity_Forms extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-gravity-form .gform_page_footer input[type="button"]:hover' => 'border-color: {{VALUE}}',
+					$this->get_pagination_button_selector( ':hover' ) => 'border-color: {{VALUE}}',
 				),
 			)
 		);

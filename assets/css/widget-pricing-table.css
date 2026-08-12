@@ -36,7 +36,7 @@
           flex: 1;
 }
 .pp-pricing-table-align-left .pp-pricing-table, .pp-pricing-table-align-left.pp-pricing-table-price-duration-wrap .pp-pricing-table-price-duration {
-  text-align: left;
+  text-align: start;
 }
 .pp-pricing-table-align-left .pp-pricing-table-price {
   -webkit-box-pack: start;
@@ -44,7 +44,7 @@
           justify-content: flex-start;
 }
 .pp-pricing-table-align-right .pp-pricing-table, .pp-pricing-table-align-right.pp-pricing-table-price-duration-wrap .pp-pricing-table-price-duration {
-  text-align: right;
+  text-align: end;
 }
 .pp-pricing-table-align-right .pp-pricing-table-price {
   -webkit-box-pack: end;
@@ -66,8 +66,10 @@
 }
 .pp-pricing-table .pp-pricing-table-price {
   font-size: 40px;
-  margin-left: auto;
-  margin-right: auto;
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+  -webkit-margin-end: auto;
+          margin-inline-end: auto;
   padding: 30px;
 }
 .pp-pricing-table-price-value {
@@ -115,7 +117,7 @@
 .pp-pricing-table .pp-pricing-table-price-duration {
   font-size: 0.4em;
   line-height: 1;
-  text-align: left;
+  text-align: start;
 }
 .pp-pricing-table .pp-pricing-table-price-prefix {
   -ms-flex-item-align: start;
@@ -193,20 +195,20 @@
   height: 150px;
 }
 .pp-pricing-table-ribbon-1.pp-pricing-table-ribbon-right {
-  left: auto;
-  right: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 .pp-pricing-table-ribbon-1.pp-pricing-table-ribbon-left {
-  left: 0;
-  right: auto;
+  inset-inline-start: 0;
+  inset-inline-end: auto;
   -webkit-transform: rotate(0);
           transform: rotate(0);
 }
 .pp-pricing-table-ribbon-1 .pp-pricing-table-ribbon-inner {
   text-align: center;
-  left: 0;
+  inset-inline-start: 0;
   width: 200%;
   -webkit-transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
           transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
@@ -232,10 +234,10 @@
           transform: translateX(-38%) translateY(-38%);
 }
 .pp-pricing-table-ribbon-right {
-  right: 0;
+  inset-inline-end: 0;
 }
 .pp-pricing-table-ribbon-left {
-  left: 0;
+  inset-inline-start: 0;
 }
 .pp-pricing-table-ribbon-3 {
   background: #61ce70;
@@ -244,7 +246,7 @@
 .pp-pricing-table-ribbon-3 .pp-pricing-table-ribbon-inner {
   padding: 3px 18px;
 }
-.pp-pricing-table-ribbon-3:before, .pp-pricing-table-ribbon-3:after {
+.pp-pricing-table-ribbon-3::before, .pp-pricing-table-ribbon-3::after {
   border-bottom: 8px solid transparent;
   content: "";
   display: block;
@@ -255,29 +257,33 @@
 }
 .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right {
   border-radius: 3px 3px 0 3px;
-  right: -8px;
+  inset-inline-end: -8px;
 }
-.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right:before, .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right:after {
-  right: 0;
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right::before, .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right::after {
+  inset-inline-end: 0;
 }
-.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right:before {
-  border-left: 8px solid #61ce70;
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right::before {
+  -webkit-border-start: 8px solid #61ce70;
+          border-inline-start: 8px solid #61ce70;
 }
-.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right:after {
-  border-left: 8px solid rgba(0, 0, 0, 0.2);
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right::after {
+  -webkit-border-start: 8px solid rgba(0, 0, 0, 0.2);
+          border-inline-start: 8px solid rgba(0, 0, 0, 0.2);
 }
 .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left {
   border-radius: 3px 3px 3px 0;
-  left: -8px;
+  inset-inline-start: -8px;
 }
-.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left:before, .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left:after {
-  left: 0;
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left::before, .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left::after {
+  inset-inline-start: 0;
 }
-.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left:before {
-  border-right: 8px solid #61ce70;
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left::before {
+  -webkit-border-end: 8px solid #61ce70;
+          border-inline-end: 8px solid #61ce70;
 }
-.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left:after {
-  border-right: 8px solid rgba(0, 0, 0, 0.2);
+.pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left::after {
+  -webkit-border-end: 8px solid rgba(0, 0, 0, 0.2);
+          border-inline-end: 8px solid rgba(0, 0, 0, 0.2);
 }
 
 .pp-tooltip-click {

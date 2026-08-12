@@ -60,22 +60,25 @@
 }
 
 .pp-content-ticker-heading-icon {
-  margin-left: 5px;
+  -webkit-margin-end: 5px;
+          margin-inline-end: 5px;
 }
 .pp-content-ticker-heading-icon-right {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
-  margin-right: 5px;
-  margin-left: 0;
+  -webkit-margin-start: 5px;
+          margin-inline-start: 5px;
+  -webkit-margin-end: 0;
+          margin-inline-end: 0;
 }
 
-.pp-content-ticker-heading-arrow .pp-content-ticker-heading:after {
+.pp-content-ticker-heading-arrow .pp-content-ticker-heading::after {
   content: "";
   position: absolute;
-  left: -20px;
+  inset-inline-end: -20px;
   border: 10px solid transparent;
-  border-right-color: #333;
+  border-inline-start-color: #333;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -101,7 +104,7 @@
           align-items: center;
 }
 .pp-content-ticker .swiper-wrapper .swiper-slide {
-  text-align: right;
+  text-align: start;
 }
 .pp-content-ticker .pp-content-ticker-item-title {
   font-size: 20px;
@@ -124,7 +127,8 @@
 .pp-content-ticker-image {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  margin-left: 15px;
+  -webkit-margin-end: 15px;
+          margin-inline-end: 15px;
   width: 40px;
 }
 .pp-content-ticker-image img {
@@ -142,8 +146,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-right: 10px;
-  padding-left: 10px;
+  -webkit-padding-start: 10px;
+          padding-inline-start: 10px;
+  -webkit-padding-end: 10px;
+          padding-inline-end: 10px;
 }
 .pp-content-ticker-navigation .elementor-swiper-button-next,
 .pp-content-ticker-navigation .elementor-swiper-button-prev {
@@ -160,14 +166,15 @@
   width: auto;
 }
 .pp-content-ticker-navigation .elementor-swiper-button-prev {
-  margin-left: 6px;
+  -webkit-margin-end: 6px;
+          margin-inline-end: 6px;
 }
 
 @media only screen and (max-width: 767px) {
   .pp-content-ticker-heading {
     width: 100% !important;
   }
-  .pp-content-ticker-heading-arrow .pp-content-ticker-heading:after {
+  .pp-content-ticker-heading-arrow .pp-content-ticker-heading::after {
     display: none;
   }
   .pp-content-ticker-container {

@@ -6,8 +6,8 @@
 .pp-media-overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   bottom: 0;
   -webkit-transition: all 0.25s linear 0s;
   transition: all 0.25s linear 0s;
@@ -62,7 +62,8 @@
   overflow: hidden;
 }
 .pp-image-accordion-item:last-child {
-  margin-right: 0 !important;
+  -webkit-margin-end: 0 !important;
+          margin-inline-end: 0 !important;
 }
 
 .pp-image-accordion-active {
@@ -166,7 +167,8 @@
   background-color: transparent;
 }
 .pp-image-accordion-orientation-horizontal .pp-image-accordion-item {
-  margin-right: 0 !important;
+  -webkit-margin-end: 0 !important;
+          margin-inline-end: 0 !important;
 }
 
 @media (max-width: 1024px) {
@@ -180,7 +182,8 @@
     background-color: transparent;
   }
   .pp-image-accordion-stack-on-tablet .pp-image-accordion-item {
-    margin-right: 0 !important;
+    -webkit-margin-end: 0 !important;
+            margin-inline-end: 0 !important;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -194,6 +197,7 @@
     background-color: transparent;
   }
   .pp-image-accordion-stack-on-mobile .pp-image-accordion-item {
-    margin-right: 0 !important;
+    -webkit-margin-end: 0 !important;
+            margin-inline-end: 0 !important;
   }
 }
