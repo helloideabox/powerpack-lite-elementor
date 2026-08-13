@@ -278,52 +278,34 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 3.0.0 - TBD =
 Important: After updating, please go to Elementor > Tools > Regenerate Files & Data and click "Regenerate Files" to flush the CSS cache. The Posts and Instagram Feed grids no longer use the plugin's own grid stylesheet, and several widgets now drive their styles through CSS variables.
+
 *	New: Slide Menu widget - Turns a WordPress menu into multi-level navigation, with sub-menus that slide in as panels or expand in place as an accordion
 *	New: Event Calendar widget - Shows your events in a month calendar, with per-event time, speaker, location, image and description, and a details popup on click
-*	New: Redesigned PowerPack admin panel with a new left sidebar navigation and a Welcome tab
+*	New: Redesigned PowerPack admin panel
 *	New: Display Condition: URL string
 *	Enhancement: Divider - Added SVG pattern divider styles
 *	Enhancement: Replaced per-widget "Help Docs" section with Elementor's native "Need Help?" link
-*	Enhancement: Extensions - Each extension now has its own control section in the Elementor panel, named after the extension and marked with the PowerPack logo, instead of sharing the common "PowerPack" and "PowerPack Background" sections
+*	Enhancement: Extensions - Each extension now has its own control section in the Elementor panel, named after the extension and marked with the PowerPack logo
 *	Enhancement: Posts, Instagram Feed - Replaced the Isotope library with a lightweight built-in masonry engine that works inside the Elementor editor, lays out instantly with no page refresh or load-in shift, and reduces page weight
-*	Enhancement: Posts - Carousel slides are now spaced with the slider's own gap setting instead of item padding, and the gap stays live while editing
 *	Enhancement: Standardised the grid layout of Posts on Elementor's native CSS grid and removed the legacy grid stylesheet
-*	Enhancement: Modules whose widgets are all disabled are no longer loaded, and disabled extensions are no longer read from disk, so a trimmed widget library costs less on every request
-*	Enhancement: PowerPack settings - The Elements tab now has a search box, a category list, widget icons, and demo and documentation links on every widget
-*	Enhancement: PowerPack settings - The Extensions tab now uses the same cards as the Elements tab, and each extension explains what it does and links to its documentation
-*	Enhancement: PowerPack settings - Every tab has its own URL, so the browser Back and Forward buttons move between tabs and a tab can be bookmarked
-*	Enhancement: PowerPack settings - Longer tabs are split into collapsible sections, with a section list that follows your scroll position
 *	Enhancement: PowerPack settings - The screen now follows the Admin Color Scheme set in your WordPress profile
-*	Enhancement: PowerPack settings - PowerPack's own notices are now shown on the settings screen below the header. Notices from unrelated plugins are still kept off it
-*	Enhancement: PowerPack settings - Added a notice suggesting you turn off widgets your site is not using, linking to the Elements tab filtered to unused widgets
 *	Enhancement: PowerPack settings - Added the option to roll back to an earlier release
 *	Enhancement: Advanced Accordion - Improved accessibility of the toggle keyboard handling, so a panel opens on Enter and Space only
-*	Enhancement: Query control - ACF wysiwyg and image fields can now be selected as a custom field source
-*	Fix: Gravity Forms - Submit button and pagination button styles were not applied with Gravity Forms 3.0, which renders the buttons as button elements instead of inputs
-*	Fix: Advanced Accordion - Panels containing shortcodes or embeds were rendered without running the content filters, so the raw shortcode was shown
-*	Fix: Advanced Accordion - Two accordions on one page, or a custom Tab ID containing characters that are not valid in an HTML id, produced duplicate or invalid element IDs
+*	Fix: Gravity Forms - Submit button and pagination button styles were not applied with Gravity Forms 3.0
 *	Fix: Advanced Accordion - The active toggle icon was rendered with the closed icon's classes, so both states looked the same
 *	Fix: Advanced Accordion - Toggle Icon hover Color leaked onto every accordion on the page, not just the one it was set on
-*	Fix: Advanced Accordion - Clicking a title in a nested accordion also toggled the panel of the accordion containing it
-*	Fix: Logo Grid - The link's Open in new window and Add nofollow options had no effect on the editor preview, and the title link dropped them on the frontend
-*	Fix: Logo Grid - Editor preview used the logo title as the image alt text and applied the wrong class to the title, so it looked different from the frontend
 *	Fix: Team Member - Divider after Description was stored with a value that is not a valid switcher state
-*	Fix: Twitter Timeline, Twitter Tweet - Editor preview did not refresh when widget settings changed, because both widgets asked for a script handle that does not exist
+*	Fix: Twitter Timeline, Twitter Tweet - Editor preview did not refresh when widget settings changed
 *	Fix: Flip Box - Button hover Text Color was not applied to the button's SVG icon
 *	Fix: Flip Box - Image used a hardcoded alt attribute instead of the Media Library Alt Text, failing accessibility checks
 *	Fix: Flip Box - Custom SVG icons were not sized by the Icon Size control
 *	Fix: WPForms - Placeholder color was not applied to the Modern dropdown placeholder or in non-WebKit browsers
 *	Fix: WPForms - Selected value in the Modern dropdown did not use the field Text Color
 *	Fix: WPForms - Default browser focus outline remained visible on fields even when the Focus Border was set to None
-*	Fix: Elements - Saving the Elements tab no longer drops widget selections the catalogue has stopped offering
-*	Security Fix: Random Image - The PowerPack custom link on an attachment was printed without a protocol check
 *	Development: The PowerPack settings screen is now a React application backed by a REST API, replacing the old PHP screen and its form handlers
 *	Development: Removed the Isotope library
 *	Development: Removed the unused jquery-cookie reference from the Twitter widgets
 *	Development: Removed the leftover Slick slider styles from the shared slider stylesheet
-*	Development: Widget stylesheets now use CSS logical properties, so right-to-left layouts follow the text direction rather than a separate mirrored stylesheet
-*	Development: Progress Bar - Style controls now set CSS variables instead of writing a rule per selector
-*	Development: Updated the build toolchain - Stylelint 16 with the WordPress config, PostCSS 8 and Autoprefixer 10, and Sass linting is now part of the CSS build
 
 = 2.10.4 - May 26, 2026 =
 *	Fix: WPML - Content Reveal template was not translated on the frontend when Content Type was set to Template
