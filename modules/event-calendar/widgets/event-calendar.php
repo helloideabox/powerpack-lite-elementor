@@ -2,7 +2,7 @@
 namespace PowerpackElementsLite\Modules\EventCalendar\Widgets;
 
 use PowerpackElementsLite\Base\Powerpack_Widget;
-use PowerpackElementsLite\Classes\PP_Event_Calendar_Helper;
+use PowerpackElementsLite\Classes\PP_Helper;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
@@ -987,7 +987,7 @@ class Event_Calendar extends Powerpack_Widget {
 			[
 				'label'              => esc_html__( 'Timezone', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::SELECT2,
-				'options'            => PP_Event_Calendar_Helper::get_timezones(),
+				'options'            => PP_Helper::get_timezones(),
 				'default'            => ( '' !== get_option( 'timezone_string' ) ) ? get_option( 'timezone_string' ) : 'UTC',
 				'label_block'        => true,
 				'frontend_available' => true,
@@ -2527,11 +2527,11 @@ class Event_Calendar extends Powerpack_Widget {
 		foreach ( $settings['events'] as $index => $item ) {
 
 			if ( isset( $item['all_day'] ) && 'yes' === $item['all_day'] ) {
-				$start = PP_Event_Calendar_Helper::get_timezones_converted_date( $item['start_event_allday'], 'Y-m-d', $settings['timezone'] );
-				$end   = PP_Event_Calendar_Helper::get_timezones_converted_date( $item['end_event_allday'], 'Y-m-d', $settings['timezone'] );
+				$start = PP_Helper::get_timezones_converted_date( $item['start_event_allday'], 'Y-m-d', $settings['timezone'] );
+				$end   = PP_Helper::get_timezones_converted_date( $item['end_event_allday'], 'Y-m-d', $settings['timezone'] );
 			} else {
-				$start = PP_Event_Calendar_Helper::get_timezones_converted_date( $item['start_event'], 'Y-m-d H:i:s', $settings['timezone'] );
-				$end   = PP_Event_Calendar_Helper::get_timezones_converted_date( $item['end_event'], 'Y-m-d H:i:s', $settings['timezone'] );
+				$start = PP_Helper::get_timezones_converted_date( $item['start_event'], 'Y-m-d H:i:s', $settings['timezone'] );
+				$end   = PP_Helper::get_timezones_converted_date( $item['end_event'], 'Y-m-d H:i:s', $settings['timezone'] );
 			}
 
 			$details_link = ! empty( $item['event_url']['url'] ) ? esc_url( $item['event_url']['url'] ) : '';
