@@ -239,8 +239,8 @@ class PP_Config {
 						'keywords'    => [ 'powerpack', 'menu', 'navigation' ],
 						'icon'        => 'ppicon-slide-menu power-pack-admin-icon',
 						'default_off' => true,
-						'demo'        => '',
-						'docs'        => '',
+						'demo'        => 'https://powerpackelements.com/elementor-widgets/slide-menu/' . $utm_suffix,
+						'docs'        => 'https://powerpackelements.com/doc-category/slide-menu/' . $utm_suffix,
 					],
 					'Team_Member'          => [
 						'name'       => 'pp-team-member',
@@ -843,6 +843,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-product-tabs power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Product_Title'             => [
@@ -851,6 +852,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-product-title power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Product_Meta'              => [
@@ -859,6 +861,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-product-meta power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Product_Price'             => [
@@ -867,6 +870,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-product-price power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Product_Rating'            => [
@@ -875,6 +879,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-product-rating power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Product_Stock'             => [
@@ -883,6 +888,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-product-stock power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Product_Short_Description' => [
@@ -891,6 +897,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-product-short-desc power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Product_Content'           => [
@@ -899,6 +906,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-product-content power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Product_Images'            => [
@@ -907,6 +915,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-product-images power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Product_Reviews'           => [
@@ -915,6 +924,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-product-reviews power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Product_Upsell'            => [
@@ -923,6 +933,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-product-upsell power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Add_To_Cart_Notification'  => [
@@ -931,6 +942,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-woo-add-to-cart-notification power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 					'Woo_Archive_Description'       => [
@@ -939,6 +951,7 @@ class PP_Config {
 						'categories' => [ 'powerpack-elements' ],
 						'keywords'   => [ 'powerpack', 'woocommerce' ],
 						'icon'       => 'ppicon-woo-archive-description power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/woocommerce-builder/' . $utm_suffix,
 						'is_pro'     => true,
 					],
 				],
