@@ -311,6 +311,37 @@ class PowerpackLitePlugin {
 			true
 		);
 
+		// Event Calendar widget. FullCalendar 6 injects its own CSS from the
+		// bundle, so it is registered as a script only.
+		wp_register_script(
+			'fullcalendar',
+			POWERPACK_ELEMENTS_LITE_URL . 'assets/lib/fullcalendar/index.global' . $suffix . '.js',
+			array(),
+			'6.1.19',
+			true
+		);
+
+		wp_register_script(
+			'pp-event-calendar',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-event-calendar' . $suffix . '.js',
+			array(
+				'jquery',
+				'fullcalendar',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
+			'pp-slide-menu',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'pp-slide-menu' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
 		wp_register_script(
 			'pp-scroll-image',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-scroll-image' . $suffix . '.js',

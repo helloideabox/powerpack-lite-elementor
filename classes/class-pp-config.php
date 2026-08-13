@@ -132,6 +132,15 @@ class PP_Config {
 						'demo'       => 'https://powerpackelements.com/elementor-widgets/dual-heading/' . $utm_suffix,
 						'docs'       => 'https://powerpackelements.com/doc-category/dual-heading/' . $utm_suffix,
 					],
+					'Event_Calendar'       => [
+						'name'       => 'pp-event-calendar',
+						'title'      => esc_html__( 'Event Calendar', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'calendar', 'event', 'events', 'schedule', 'agenda', 'fullcalendar' ],
+						'icon'       => 'ppicon-calendar power-pack-admin-icon',
+						'demo'       => 'https://powerpackelements.com/elementor-widgets/event-calendar/' . $utm_suffix,
+						'docs'       => 'https://powerpackelements.com/doc-category/event-calendar/' . $utm_suffix,
+					],
 					'Icon_List'            => [
 						'name'       => 'pp-icon-list',
 						'title'      => esc_html__( 'Icon List', 'powerpack-lite-for-elementor' ),
@@ -221,6 +230,15 @@ class PP_Config {
 						'icon'       => 'ppicon-promo-box power-pack-admin-icon',
 						'demo'       => 'https://powerpackelements.com/elementor-widgets/promo-box/' . $utm_suffix,
 						'docs'       => 'https://powerpackelements.com/doc-category/promo-box/' . $utm_suffix,
+					],
+					'Slide_Menu'           => [
+						'name'       => 'pp-slide-menu',
+						'title'      => esc_html__( 'Slide Menu', 'powerpack-lite-for-elementor' ),
+						'categories' => [ 'powerpack-elements' ],
+						'keywords'   => [ 'powerpack', 'menu', 'navigation' ],
+						'icon'       => 'ppicon-slide-menu power-pack-admin-icon',
+						'demo'       => '',
+						'docs'       => '',
 					],
 					'Team_Member'          => [
 						'name'       => 'pp-team-member',

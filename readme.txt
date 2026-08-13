@@ -84,6 +84,8 @@ PowerPack adds a carefully selected set of essential addons for Elementor users 
 39. [**Progress Bar**](https://powerpackelements.com/elementor-widgets/progress-bar/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Add interactive Progress Bars to your website. Showcase progress with horizontal, vertical, circular bars, and more using this versatile widget.
 40. [**Charts**](https://powerpackelements.com/elementor-widgets/advanced-charts/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Add interactive charts to your Elementor website. Display data in different interactive chart layouts such as Lines and Bars.
 41. [**Marquee**](https://powerpackelements.com/elementor-widgets/marquee/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Create eye-catching scrolling marquees with text, images, or icons. Customize speed, direction, gap, and pause-on-hover behavior to highlight announcements, logos, or featured content.
+42. [**Slide Menu**](https://powerpackelements.com/elementor-widgets/slide-menu/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Turn any WordPress menu into a multi-level navigation where sub-menus slide in as panels or expand as an accordion. Ideal for mobile and off-canvas navigation.
+43. [**Event Calendar**](https://powerpackelements.com/elementor-widgets/event-calendar/?utm_medium=powerpack-lite&utm_source=repo-readme&utm_campaign=repo-demo-link) - Display your events in a month calendar. Add each event with its own time, speaker, location, image and description, and show the details in a popup on click.
 
 ## CREATIVE EXTENSIONS - FREE
 
@@ -214,6 +216,15 @@ Data is transmitted only after explicit user consent. No data is collected autom
 
 For more details, please review our [Privacy Policy](https://powerpackelements.com/privacy-policy/) and [Terms of Service](https://powerpackelements.com/terms-conditions/).
 
+## Bundled Third-Party Libraries
+
+PowerPack Lite bundles the following open source libraries. Each one is enqueued only on pages using a widget that needs it.
+
+- **[FullCalendar](https://fullcalendar.io/)** 6.1.19 (Standard Bundle) - MIT license. Used by the Event Calendar widget. Source: [github.com/fullcalendar/fullcalendar](https://github.com/fullcalendar/fullcalendar)
+- **[Chart.js](https://www.chartjs.org/)** 4.5.0 - MIT license. Used by the Charts widget. Source: [github.com/chartjs/Chart.js](https://github.com/chartjs/Chart.js)
+- **[Tooltipster](https://calebjacob.github.io/tooltipster/)** 4.2.8 - MIT license. Used by the Buttons, Image Hotspots and Pricing Table widgets. Source: [github.com/iamceege/tooltipster](https://github.com/iamceege/tooltipster)
+- **[jquery.event.move](https://github.com/stephband/jquery.event.move)** 2.0.0 - MIT license. Used by the Image Comparison widget.
+
 ## Disclaimer
 
 PowerPack Lite for Elementor is an independent product developed by IdeaBox Creations. It is not affiliated with, endorsed by, sponsored by, or officially associated with Elementor Ltd.
@@ -257,6 +268,8 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 3.0.0 - TBD =
 Important: After updating, please go to Elementor > Tools > Regenerate Files & Data and click "Regenerate Files" to flush the CSS cache. The Posts and Instagram Feed grids no longer use the plugin's own grid stylesheet, and several widgets now drive their styles through CSS variables.
+*	New: Slide Menu widget - Turns a WordPress menu into multi-level navigation, with sub-menus that slide in as panels or expand in place as an accordion
+*	New: Event Calendar widget - Shows your events in a month calendar, with per-event time, speaker, location, image and description, and a details popup on click
 *	New: Redesigned PowerPack admin panel with a new left sidebar navigation and a Welcome tab
 *	New: Display Condition: URL string
 *	Enhancement: Divider - Added SVG pattern divider styles

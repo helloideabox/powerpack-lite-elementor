@@ -1,6 +1,8 @@
 == 3.0.0 ==
 Release date: TBD
 Important: After updating, please go to Elementor > Tools > Regenerate Files & Data and click "Regenerate Files" to flush the CSS cache. The Posts and Instagram Feed grids no longer use the plugin's own grid stylesheet, and several widgets now drive their styles through CSS variables.
+* New: Slide Menu widget - Turns a WordPress menu into multi-level navigation, with sub-menus that slide in as panels or expand in place as an accordion
+* New: Event Calendar widget - Shows your events in a month calendar, with per-event time, speaker, location, image and description, and a details popup on click
 * New: Redesigned PowerPack admin panel with a new left sidebar navigation and a Welcome tab
 * New: Display Condition: URL string
 * Enhancement: Divider - Added SVG pattern divider styles
