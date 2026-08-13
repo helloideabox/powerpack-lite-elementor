@@ -9,8 +9,8 @@
  * License: GNU General Public License v2.0
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: powerpack-lite-for-elementor
- * Elementor tested up to: 4.0.0
- * Elementor Pro tested up to: 4.0.0
+ * Elementor tested up to: 4.2.0
+ * Elementor Pro tested up to: 4.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
