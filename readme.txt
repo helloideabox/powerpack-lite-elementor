@@ -276,7 +276,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-= 3.0.0 - TBD =
+= 3.0.0 - August 13, 2026 =
 Important: After updating, please go to Elementor > Tools > Regenerate Files & Data and click "Regenerate Files" to flush the CSS cache. The Posts and Instagram Feed grids no longer use the plugin's own grid stylesheet, and several widgets now drive their styles through CSS variables.
 
 *	New: Slide Menu widget - Turns a WordPress menu into multi-level navigation, with sub-menus that slide in as panels or expand in place as an accordion

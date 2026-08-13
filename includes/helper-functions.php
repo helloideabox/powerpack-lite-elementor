@@ -75,7 +75,7 @@ function powerpack_elements_lite_get_extensions() {
  * This reads the same filtered list the catalogue accessors use, so a paid
  * widget carrying the flag can never reach the default set.
  *
- * @since x.x.x
+ * @since 3.0.0
  *
  * @return array List of widget names.
  */
