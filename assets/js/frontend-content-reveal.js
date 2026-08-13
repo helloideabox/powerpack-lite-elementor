@@ -8,7 +8,7 @@
 						content: '.pp-content-reveal-content',
 						saparator: '.pp-content-reveal-saparator',
 						button: '.pp-content-reveal-button-inner',
-						buttonWrapper: '.pp-content-reveal-button-wrapper',
+						buttonWrapper: '.pp-content-reveal-buttons-wrapper',
 					},
 				};
 			}
@@ -40,7 +40,7 @@
 
 				if ( contentVisibility == 'lines' ) {
 					if ( contentHeightLines == '0' ) {
-						contentWrapperHeight = contentWrapper.outerHeight();
+						contentWrapperHeight = this.elements.$contentWrapper.outerHeight();
 					} else {
 						contentWrapperHeight = (parseInt(contentLineHeight, 10) * contentHeightLines) + parseInt(contentPaddingTop, 10);
 

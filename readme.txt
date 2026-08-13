@@ -276,6 +276,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 3.0.1 - TBD =
+*	Fix: Content Reveal - Toggle button remained visible when the content was shorter than the visible lines limit
+*	Fix: Content Reveal - Setting Visible Amount to 0 lines threw a JavaScript error and left the toggle button unresponsive
+
 = 3.0.0 - August 13, 2026 =
 Important: After updating, please go to Elementor > Tools > Regenerate Files & Data and click "Regenerate Files" to flush the CSS cache. The Posts and Instagram Feed grids no longer use the plugin's own grid stylesheet, and several widgets now drive their styles through CSS variables.
 
