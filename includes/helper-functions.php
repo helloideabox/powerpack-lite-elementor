@@ -66,13 +66,39 @@ function powerpack_elements_lite_get_extensions() {
 }
 
 /**
+ * Widgets that ship switched off.
+ *
+ * Read from the 'default_off' flag in the catalogue, so the fact lives next to
+ * the widget it describes and cannot drift out of sync with a rename the way a
+ * separate list of names does.
+ *
+ * This reads the same filtered list the catalogue accessors use, so a paid
+ * widget carrying the flag can never reach the default set.
+ *
+ * @since x.x.x
+ *
+ * @return array List of widget names.
+ */
+function powerpack_elements_lite_get_default_off_modules() {
+	$default_off = [];
+
+	foreach ( \PowerpackElementsLite\Classes\PP_Helper::get_widgets_list() as $widget ) {
+		if ( ! empty( $widget['default_off'] ) && ! empty( $widget['name'] ) ) {
+			$default_off[] = $widget['name'];
+		}
+	}
+
+	return $default_off;
+}
+
+/**
  * The widgets that are switched on, as a list of names.
  *
  * Three shapes reach here. An unsaved option is false, and means every widget
- * is on. The string 'disabled' is what the old settings screen wrote when every
- * widget was switched off — it is not an array either, so it used to fall
- * through to "everything on" and turn the whole library back on. Anything else
- * is the stored list.
+ * that does not ship switched off is on. The string 'disabled' is what the old
+ * settings screen wrote when every widget was switched off — it is not an array
+ * either, so it used to fall through to "everything on" and turn the whole
+ * library back on. Anything else is the stored list.
  *
  * @since 3.0.0
  * @return array
@@ -83,7 +109,12 @@ function powerpack_elements_lite_get_enabled_modules() {
 	if ( 'disabled' === $enabled_modules ) {
 		$enabled_modules = [];
 	} elseif ( ! is_array( $enabled_modules ) ) {
-		$enabled_modules = array_keys( powerpack_elements_lite_get_modules() );
+		$enabled_modules = array_values(
+			array_diff(
+				array_keys( powerpack_elements_lite_get_modules() ),
+				powerpack_elements_lite_get_default_off_modules()
+			)
+		);
 	}
 
 	return apply_filters( 'pp_elementor_enabled_modules', $enabled_modules );
