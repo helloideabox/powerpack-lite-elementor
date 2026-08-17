@@ -352,6 +352,19 @@ $pp-muted: #6b7280;
 	width: 260px;
 	flex: 0 0 260px;
 
+	/*
+	 * Folded to icons on exactly the range where WordPress folds its own admin
+	 * menu — 783px to 960px. Matching the breakpoint matters more than the
+	 * number itself: the two navigations sit side by side, so a fold of ours at
+	 * any other width would leave the screen with two sidebars in disagreement
+	 * about how much room there is. Below 783px WordPress puts its labels back
+	 * and so does the rule further down, which turns this column into a row.
+	 */
+	@media (min-width: 783px) and (max-width: 960px) {
+		width: 56px;
+		flex: 0 0 56px;
+	}
+
 	@media (max-width: 782px) {
 		width: 100%;
 		flex: 1 1 auto;
@@ -376,6 +389,26 @@ $pp-muted: #6b7280;
 	top: 32px;
 	max-height: calc(100vh - 32px);
 	overflow-y: auto;
+
+	@media (min-width: 783px) and (max-width: 960px) {
+		padding: 0 8px;
+
+		// The flyout labels below have to cross the column's edge, which a
+		// scroll container would clip. A column of icons is short enough not to
+		// need the scroll it gives up.
+		overflow: visible;
+		max-height: none;
+
+		/*
+		 * Sticky makes this a stacking context, so the flyout's own z-index
+		 * only orders it against the other tabs — against the panel it is this
+		 * value that counts. Without it the nav stacks at auto and everything
+		 * positioned later in the content column, the Elements toolbar at 12
+		 * among them, paints over a label as it crosses. Below the save bar's
+		 * 20, which is the one thing that should cover the nav.
+		 */
+		z-index: 15;
+	}
 
 	@media (max-width: 782px) {
 		flex-direction: row;
@@ -430,6 +463,49 @@ $pp-muted: #6b7280;
 
 		svg {
 			fill: currentColor;
+		}
+	}
+
+	/*
+	 * Icon only, on WordPress's own fold range. The label is not dropped: it is
+	 * the button's accessible name, and a nav of unnamed buttons would be a
+	 * worse trade than the width it saves. It is moved out of the button and
+	 * shown on hover and on keyboard focus, the way the folded admin menu shows
+	 * its own — opacity rather than visibility or display, so it stays readable
+	 * to a screen reader while it is off.
+	 */
+	@media (min-width: 783px) and (max-width: 960px) {
+		position: relative;
+		justify-content: center;
+		gap: 0;
+		padding: 10px 0;
+
+		> span {
+			position: absolute;
+			top: 50%;
+			left: 100%;
+
+			// Over the tabs below it only; the nav carries the level that puts
+			// it over the panel.
+			z-index: 1;
+			transform: translateY(-50%);
+			margin-left: 8px;
+			padding: 5px 10px;
+			border-radius: var(--pp-radius-sm);
+			background: $pp-heading;
+			color: #fff;
+			font-size: 12px;
+			font-weight: 500;
+			white-space: nowrap;
+			pointer-events: none;
+			box-shadow: 0 2px 8px rgb(15 23 42 / 15%);
+			opacity: 0;
+			transition: opacity 0.12s ease;
+		}
+
+		&:hover > span,
+		&:focus-visible > span {
+			opacity: 1;
 		}
 	}
 
@@ -677,18 +753,32 @@ $pp-muted: #6b7280;
 		border-radius: var(--pp-radius-sm);
 	}
 
+	/*
+	 * These two stand in for the search field and the usage filter, so they
+	 * follow them across the breakpoint: full width, and off the flex basis
+	 * that becomes a height once the toolbar stacks.
+	 */
 	&--search {
 		flex: 1 1 200px;
 		min-width: 170px;
 		max-width: 260px;
 		height: 38px;
 		border-radius: var(--pp-radius);
+
+		@media (max-width: 782px) {
+			flex: 0 0 auto;
+			max-width: none;
+		}
 	}
 
 	&--seg {
 		width: 250px;
 		height: 38px;
 		border-radius: var(--pp-radius);
+
+		@media (max-width: 782px) {
+			width: auto;
+		}
 	}
 }
 
@@ -726,6 +816,42 @@ $pp-muted: #6b7280;
 	// The outer step: a section holds cards, which hold controls.
 	border-radius: var(--pp-radius-lg);
 	margin-bottom: 16px;
+}
+
+/*
+ * The section another screen has just sent the reader to.
+ *
+ * Fades out on its own rather than staying: it answers "which of these did I
+ * come here for", which is a question that stops being asked a moment after
+ * arriving. Drawn with an outline so nothing moves — a border would shift the
+ * section by a pixel as it lands and again as it goes.
+ */
+.pp-settings-section.is-marked {
+	outline: 2px solid var(--ppe-primary-color);
+	outline-offset: 2px;
+	animation: pp-section-mark-out 2s ease forwards;
+}
+
+@keyframes pp-section-mark-out {
+	0%,
+	60% {
+		outline-color: var(--ppe-primary-color);
+	}
+
+	100% {
+		outline-color: transparent;
+	}
+}
+
+/*
+ * No fade, but still a mark. Dropping the animation entirely leaves the
+ * outline up for as long as the class is set, which is the same two seconds —
+ * it just goes in one step instead of easing away.
+ */
+@media (prefers-reduced-motion: reduce) {
+	.pp-settings-section.is-marked {
+		animation: none;
+	}
 }
 
 .pp-section__header,
@@ -1248,6 +1374,17 @@ $pp-muted: #6b7280;
 
 	@media (max-width: 782px) {
 		position: static;
+
+		/*
+		 * The sidebar is a row above the panel from here down, so the toolbar
+		 * has the screen's full width and nothing to share the row with. Its
+		 * three parts take a row each and stretch into it: side by side at this
+		 * width the search field was down to its 170px minimum and the filter
+		 * was wrapping mid-group, with the two buttons stranded on their own
+		 * line under it either way.
+		 */
+		flex-direction: column;
+		align-items: stretch;
 	}
 }
 
@@ -1256,6 +1393,17 @@ $pp-muted: #6b7280;
 	align-items: center;
 	gap: 4px;
 	margin-left: auto;
+
+	/*
+	 * The row is theirs alone below 783px, so the margin that pushes the pair to
+	 * the far end of a shared row goes; they start from the lead edge like the
+	 * search field and the filter above them. The buttons keep the width of
+	 * their labels — two half-row buttons read as a choice between two halves of
+	 * the screen rather than as two actions.
+	 */
+	@media (max-width: 782px) {
+		margin-left: 0;
+	}
 }
 
 /* -- search --------------------------------------------------------------- */
@@ -1279,6 +1427,20 @@ $pp-muted: #6b7280;
 		width: 18px;
 		height: 18px;
 		pointer-events: none;
+	}
+
+	@media (max-width: 782px) {
+		// The cap above exists to keep the field off the filter beside it. On a
+		// row of its own there is nothing to keep it off.
+		max-width: none;
+
+		/*
+		 * The toolbar's main axis is vertical here, which turns the 200px basis
+		 * above into a height: the field grew to 200px tall with a 38px input
+		 * floating in the middle of it. Nothing to distribute on a row of its
+		 * own, so the basis goes back to the content.
+		 */
+		flex: 0 0 auto;
 	}
 }
 
@@ -1353,6 +1515,19 @@ input.pp-search-input {
 	background: $pp-bg;
 	border: 1px solid $pp-border;
 	border-radius: var(--pp-radius);
+
+	/*
+	 * Below 783px the track spans its row — inline-flex would size it to its
+	 * buttons — but the buttons inside keep hugging their labels. Stretching
+	 * them to share the row set the labels adrift from each other, which read
+	 * as separate filters rather than one control to choose within. Wrapping
+	 * because the widest label is "Used on this site", which together with the
+	 * other two would sooner overflow the pill on a phone than fit across it.
+	 */
+	@media (max-width: 782px) {
+		display: flex;
+		flex-wrap: wrap;
+	}
 }
 
 .pp-seg-btn {
@@ -1546,11 +1721,139 @@ input.pp-search-input {
 	}
 }
 
+/*
+ * The header's right-hand side, and a place for anything else about a widget's
+ * state to join it.
+ */
+.pp-module-flags {
+	display: flex;
+	align-items: center;
+	flex: none;
+	gap: 6px;
+}
+
+/*
+ * The integration control, in its two shapes.
+ *
+ * Quiet by default: a widget whose key is already in place is in no particular
+ * state, so this is a bare cog that stays out of the way of the widget's name.
+ */
+.pp-module-setup {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: none;
+	gap: 4px;
+	padding: 0;
+
+	// The cog is drawn at 16px but has to be clickable at 24, which is the
+	// smallest target that can be hit reliably. The widget's own icon beside
+	// it is already this tall, so the header does not grow to allow for it.
+	min-width: 24px;
+	min-height: 24px;
+	border: 0;
+	border-radius: var(--pp-radius-pill);
+	background: none;
+	color: var(--ppe-text-muted);
+	cursor: pointer;
+	font-family: inherit;
+	transition: color 0.12s ease, background-color 0.12s ease;
+
+	svg {
+		fill: currentColor;
+		flex: 0 0 auto;
+	}
+
+	&:hover,
+	&:focus {
+		color: var(--ppe-primary-color);
+	}
+
+	/*
+	 * Loud when the widget cannot work without a key it has not got, which is
+	 * the reason someone switches a widget on and finds nothing happens. Amber
+	 * rather than the panel's blue: this is a job to do, not news.
+	 *
+	 * Never colour alone: this shape carries a word and the quiet one does
+	 * not, so the states stay apart on a greyscale screen.
+	 */
+	&.is-needed {
+		padding: 2px 8px;
+		background: rgb(153 104 0 / 10%);
+		color: #8a5d00;
+
+		&:hover,
+		&:focus {
+			background: rgb(153 104 0 / 18%);
+			color: #7a5200;
+		}
+	}
+}
+
+.pp-module-setup-text {
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	line-height: 1.6;
+	text-transform: uppercase;
+}
+
+/*
+ * The cog's label, in the same dark pill the folded sidebar uses. Shown on
+ * hover and on keyboard focus both — the native title attribute this replaces
+ * only ever managed the first.
+ *
+ * To the left, not the right: the cog sits against the card's right edge and
+ * the card clips what leaves it, so the only free space is inward. The header
+ * row it reaches across is empty on every other count.
+ */
+.pp-module-setup-tip {
+	position: absolute;
+	top: 50%;
+	right: 100%;
+	z-index: 1;
+	transform: translateY(-50%);
+	margin-right: 8px;
+	padding: 5px 10px;
+	border-radius: var(--pp-radius-sm);
+	background: $pp-heading;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: normal;
+	line-height: 1.4;
+	text-align: right;
+	text-transform: none;
+
+	/*
+	 * Sized to its text, then held to what the card can show. Left to wrap
+	 * rather than kept on one line: the strings here are short in English and
+	 * a longer translation would otherwise run under the card's clip instead
+	 * of taking a second line.
+	 */
+	width: max-content;
+	max-width: 150px;
+	pointer-events: none;
+	box-shadow: 0 2px 8px rgb(15 23 42 / 15%);
+	opacity: 0;
+	transition: opacity 0.12s ease;
+}
+
+.pp-module-setup:hover .pp-module-setup-tip,
+.pp-module-setup:focus-visible .pp-module-setup-tip {
+	opacity: 1;
+}
+
 .pp-modules-table-element-content {
 	padding: 15px;
 }
 
 .pp-modules-table-element-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 8px;
 	margin-bottom: 15px;
 
 	.pp-module-icon {
@@ -1586,6 +1889,13 @@ input.pp-search-input {
 	padding: 10px 15px;
 }
 
+/*
+ * Deliberately not wrapping. At the narrowest column there are 145px here and
+ * two labelled links take 133 of them, so anything that wraps makes the card
+ * taller — and a grid row is as tall as its tallest card, which stretches
+ * every other card beside it. Anything that will not fit belongs in the header
+ * instead, which has room to spare across the row.
+ */
 .pp-modules-table-element-footer-links {
 	display: flex;
 	align-items: center;
@@ -1599,6 +1909,7 @@ input.pp-search-input {
 	gap: 5px;
 	min-height: 24px;
 	text-decoration: none;
+	white-space: nowrap;
 	font-size: 12px;
 	font-weight: 500;
 	transition: color 0.12s ease;

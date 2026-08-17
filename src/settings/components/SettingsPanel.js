@@ -11,11 +11,15 @@
  */
 
 import { __ } from '@wordpress/i18n';
+import { useEffect, useRef, useState } from '@wordpress/element';
 import Field from './Field';
 import PanelHead from './PanelHead';
 import Section from './Section';
 import { BRAND_ICONS } from '../icons';
 import { FIELD_META } from '../panels';
+
+/** How long a section stays marked after being linked to, in ms. */
+const HIGHLIGHT_MS = 2000;
 
 /**
  * Flatten a row definition to the field keys it contains.
@@ -35,7 +39,51 @@ export default function SettingsPanel( {
 	changes,
 	templates,
 	onChange,
+	view = '',
 } ) {
+	const sectionRefs = useRef( {} );
+
+	/*
+	 * The section another panel pointed at. Held in state rather than read
+	 * from `view` directly so the mark can be dropped once it has been seen:
+	 * the address bar stops naming the view almost immediately, but the
+	 * component is not re-rendered by that, and a highlight left on would
+	 * still be there the next time this panel is opened.
+	 */
+	const [ marked, setMarked ] = useState( '' );
+
+	useEffect( () => {
+		if ( ! view ) {
+			return undefined;
+		}
+
+		const node = sectionRefs.current[ view ];
+
+		if ( ! node ) {
+			return undefined;
+		}
+
+		node.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+		setMarked( view );
+
+		const timer = setTimeout( () => setMarked( '' ), HIGHLIGHT_MS );
+
+		return () => clearTimeout( timer );
+	}, [ view, panel.group ] );
+
+	/**
+	 * Ref callback for a section, when it is one that can be linked to.
+	 *
+	 * Sections without a slug — the "Other" catch-all below, and every section
+	 * on a panel nothing points into — get no callback at all, rather than one
+	 * that files them all under the same undefined key.
+	 *
+	 * @param {string|undefined} slug Section slug.
+	 * @return {Function|undefined} Ref callback.
+	 */
+	const refFor = ( slug ) =>
+		slug ? ( node ) => ( sectionRefs.current[ slug ] = node ) : undefined;
+
 	const inGroup = Object.keys( fields ).filter(
 		( key ) => fields[ key ].group === panel.group
 	);
@@ -184,6 +232,9 @@ export default function SettingsPanel( {
 						return (
 							<Section
 								key={ index }
+								slug={ section.slug }
+								sectionRef={ refFor( section.slug ) }
+								isMarked={ !! section.slug && marked === section.slug }
 								title={ section.title ? section.title() : null }
 								description={ section.description ? section.description() : null }
 							>
@@ -217,6 +268,9 @@ export default function SettingsPanel( {
 					return (
 						<Section
 							key={ index }
+							slug={ section.slug }
+							sectionRef={ refFor( section.slug ) }
+							isMarked={ !! section.slug && marked === section.slug }
 							title={ section.title ? section.title() : null }
 							description={ section.description ? section.description() : null }
 							actions={

@@ -27,15 +27,25 @@ export default function Section( {
 	children,
 	sectionRef,
 	slug,
+	isMarked = false,
 	defaultOpen = true,
 } ) {
 	const [ open, setOpen ] = useState( defaultOpen );
 	const [ regionId ] = useState( () => `pp-section-${ ++sequence }` );
 
+	// Set when another screen has just sent the reader here, so the section
+	// they were promised is the one they see rather than whatever the scroll
+	// happened to land on.
+	const mark = isMarked ? ' is-marked' : '';
+
 	// Sections without a title have nothing to click, so they never collapse.
 	if ( ! title ) {
 		return (
-			<div className="pp-settings-section" ref={ sectionRef } data-pp-slug={ slug }>
+			<div
+				className={ `pp-settings-section${ mark }` }
+				ref={ sectionRef }
+				data-pp-slug={ slug }
+			>
 				<div className="pp-settings-section-content">{ children }</div>
 			</div>
 		);
@@ -43,7 +53,7 @@ export default function Section( {
 
 	return (
 		<div
-			className={ `pp-settings-section${ open ? '' : ' is-collapsed' }` }
+			className={ `pp-settings-section${ open ? '' : ' is-collapsed' }${ mark }` }
 			ref={ sectionRef }
 			data-pp-slug={ slug }
 		>

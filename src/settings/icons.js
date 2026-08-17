@@ -18,6 +18,7 @@ import {
 	store,
 	login,
 	key,
+	cog,
 	tool,
 	brush,
 	external,
@@ -30,10 +31,15 @@ import {
  * Docs uses a page rather than the question mark: a "?" reads as contextual
  * help, while these link out to written documentation — which is also what the
  * document-file glyph they replace was saying.
+ *
+ * Setup is a cog rather than the globe the Integration panel wears in the
+ * navigation. Beside Demo and Docs it has to say "there is something to do
+ * here", and the globe next to two outbound links would read as a third one.
  */
 export const LINK_ICONS = {
 	demo: external,
 	docs: page,
+	setup: cog,
 };
 
 export const PANEL_ICONS = {

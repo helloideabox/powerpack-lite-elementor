@@ -103,8 +103,18 @@ export default function ModulesSkeleton() {
 					<div className="pp-toolbar">
 						<span className="pp-skeleton pp-skeleton--search" />
 						<span className="pp-skeleton pp-skeleton--seg" />
-						<span className="pp-skeleton pp-skeleton--button" />
-						<span className="pp-skeleton pp-skeleton--button" />
+
+						{ /*
+						  * Grouped like the real pair, which is what pushes them
+						  * to the far end of the row on a wide screen and gives
+						  * them a shared row of their own on a narrow one. Loose,
+						  * they sat mid-row here and stacked one per row there —
+						  * a placeholder for a toolbar that never appears.
+						  */ }
+						<div className="pp-toolbar-actions">
+							<span className="pp-skeleton pp-skeleton--button" />
+							<span className="pp-skeleton pp-skeleton--button" />
+						</div>
 					</div>
 
 					<SectionBone cards={ 6 } seed={ 0 } />

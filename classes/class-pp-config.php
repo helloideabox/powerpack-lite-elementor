@@ -43,6 +43,11 @@ class PP_Config {
 	/**
 	 * Get Widget List.
 	 *
+	 * A widget that cannot work until credentials are entered carries an
+	 * 'integration' key naming the Integration panel section that holds them.
+	 * The Elements screen turns it into a link, and reports whether the section
+	 * has been filled in — see PP_Settings_REST_Controller::integration_groups().
+	 *
 	 * @since 2.1.0
 	 *
 	 * @return array The Widget List.
@@ -654,13 +659,14 @@ class PP_Config {
 				],
 				'Social Media Elements' => [
 					'Instafeed'        => [
-						'name'       => 'pp-instafeed',
-						'title'      => esc_html__( 'Instagram Feed', 'powerpack-lite-for-elementor' ),
-						'categories' => [ 'powerpack-elements' ],
-						'keywords'   => [ 'powerpack', 'instagram' ],
-						'icon'       => 'ppicon-instagram-feed power-pack-admin-icon',
-						'demo'       => 'https://powerpackelements.com/elementor-widgets/instagram-feed/' . $utm_suffix,
-						'docs'       => 'https://powerpackelements.com/doc-category/instagram-feed/' . $utm_suffix,
+						'name'        => 'pp-instafeed',
+						'title'       => esc_html__( 'Instagram Feed', 'powerpack-lite-for-elementor' ),
+						'categories'  => [ 'powerpack-elements' ],
+						'keywords'    => [ 'powerpack', 'instagram' ],
+						'icon'        => 'ppicon-instagram-feed power-pack-admin-icon',
+						'integration' => 'instagram-feed',
+						'demo'        => 'https://powerpackelements.com/elementor-widgets/instagram-feed/' . $utm_suffix,
+						'docs'        => 'https://powerpackelements.com/doc-category/instagram-feed/' . $utm_suffix,
 					],
 					'Twitter_Buttons'  => [
 						'name'       => 'pp-twitter-buttons',

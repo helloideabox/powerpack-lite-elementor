@@ -55,14 +55,18 @@ const ORDER = [
 const PREVIEW_ONLY = [ 'welcome', 'license', 'white_label' ];
 
 /**
- * Which panel the URL is asking for.
+ * Which panel the URL is asking for, and what it wants shown once there.
  *
- * @return {string} A panel key from ORDER, falling back to Welcome.
+ * The second segment of '#panel/view' is an instruction for the panel rather
+ * than a panel of its own — the section to scroll to, in the one case that
+ * uses it today.
+ *
+ * @return {Object} panel, a key from ORDER falling back to Welcome, and view.
  */
-const panelFromHash = () => {
-	const fromHash = window.location.hash.replace( /^#/, '' );
+const routeFromHash = () => {
+	const [ panel, view ] = window.location.hash.replace( /^#/, '' ).split( '/' );
 
-	return ORDER.includes( fromHash ) ? fromHash : 'welcome';
+	return ORDER.includes( panel ) ? { panel, view: view || '' } : { panel: 'welcome', view: '' };
 };
 
 export default function App() {
@@ -72,7 +76,11 @@ export default function App() {
 	const [ saving, setSaving ] = useState( false );
 	const [ error, setError ] = useState( null );
 	const [ toast, setToast ] = useState( null );
-	const [ active, setActive ] = useState( panelFromHash );
+	const [ route, setRoute ] = useState( routeFromHash );
+
+	// The panel half of the route, which is all most of this component cares
+	// about.
+	const active = route.panel;
 
 	// The save bar animates both ways, so it has to outlive the state that
 	// summons it: on the way out it stays mounted until the slide finishes.
@@ -119,12 +127,29 @@ export default function App() {
 	 * panels, so navigating away and back loses nothing.
 	 */
 	useEffect( () => {
-		const onHashChange = () => setActive( panelFromHash() );
+		const onHashChange = () => setRoute( routeFromHash() );
 
 		window.addEventListener( 'hashchange', onHashChange );
 
 		return () => window.removeEventListener( 'hashchange', onHashChange );
 	}, [] );
+
+	/*
+	 * A view is an instruction, not a location. Once the panel has been handed
+	 * it the address bar goes back to naming the panel alone, so reloading or
+	 * coming back later does not silently re-apply it. replaceState rather than
+	 * assigning the hash: this must not fire hashchange and start the round
+	 * again.
+	 */
+	useEffect( () => {
+		if ( ! route.view ) {
+			return;
+		}
+
+		const { pathname, search } = window.location;
+
+		window.history.replaceState( null, '', `${ pathname }${ search }#${ route.panel }` );
+	}, [ route ] );
 
 	// Template pickers declare which collection they need; fetch each once.
 	useEffect( () => {
@@ -204,9 +229,9 @@ export default function App() {
 		setChanges( ( previous ) => ( { ...previous, [ key ]: value } ) );
 	}, [] );
 
-	const navigate = ( key ) => {
-		setActive( key );
-		window.location.hash = key;
+	const navigate = ( key, view = '' ) => {
+		setRoute( { panel: key, view } );
+		window.location.hash = view ? `${ key }/${ view }` : key;
 	};
 
 	const save = async () => {
@@ -471,7 +496,13 @@ export default function App() {
 					) }
 
 					{ current === 'elements' && (
-						<ModulesPanel settings={ settings } changes={ changes } onChange={ onChange } />
+						<ModulesPanel
+							settings={ settings }
+							changes={ changes }
+							onChange={ onChange }
+							panels={ available }
+							onNavigate={ navigate }
+						/>
 					) }
 
 					{ current === 'license' && <LicensePanel /> }
@@ -486,6 +517,7 @@ export default function App() {
 							changes={ changes }
 							templates={ templates }
 							onChange={ onChange }
+							view={ route.view }
 						/>
 					) }
 				</main>

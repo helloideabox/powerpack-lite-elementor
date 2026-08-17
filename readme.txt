@@ -276,7 +276,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-= 3.0.1 - TBD =
+= 3.0.1 - August 17, 2026 =
+*	Enhancement: WPML - Added translation support for the Event Calendar and Slide Menu widgets
+*	Enhancement: WPML - Added translation support for the Custom Cursor and Wrapper Link extensions
+*	Enhancement: PowerPack settings - The Elements tab now links each widget that needs an API key to its Integration settings
 *	Fix: Content Reveal - Toggle button remained visible when the content was shorter than the visible lines limit
 *	Fix: Content Reveal - Setting Visible Amount to 0 lines threw a JavaScript error and left the toggle button unresponsive
 

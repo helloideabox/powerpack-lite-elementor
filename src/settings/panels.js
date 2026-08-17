@@ -54,8 +54,18 @@ export const PANELS = [
 	{
 		group: 'integration',
 		title: () => __( 'Integration', 'powerpack-lite-for-elementor' ),
+
+		/*
+		 * The slug below is a link target, not decoration. The widget library
+		 * sends people here with '#integration/<slug>' and the section is
+		 * scrolled to and briefly marked; the other half of the pair lives in
+		 * PP_Settings_REST_Controller::integration_groups(). It is written out
+		 * rather than derived from the title because a title is translated and
+		 * a link target cannot be.
+		 */
 		sections: [
 			{
+				slug: 'instagram-feed',
 				title: () => __( 'Instagram Feed', 'powerpack-lite-for-elementor' ),
 				description: () =>
 					__(

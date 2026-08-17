@@ -386,6 +386,7 @@ final class PP_Settings_REST_Controller {
 		$wl          = PP_Admin_Settings::get_settings();
 		$show_demo   = 'on' !== ( $wl['hide_demo_links'] ?? 'off' );
 		$show_docs   = 'on' !== ( $wl['hide_docs_links'] ?? 'off' );
+		$integration = self::integration_state();
 
 		ksort( $widget_info );
 
@@ -413,14 +414,17 @@ final class PP_Settings_REST_Controller {
 					continue;
 				}
 
+				$section = isset( $widget_data['integration'] ) ? $widget_data['integration'] : '';
+
 				$items[] = [
-					'name'    => $name,
-					'title'   => self::plain_text( isset( $widget_data['title'] ) ? $widget_data['title'] : ucfirst( $widget_key ) ),
-					'icon'    => isset( $widget_data['icon'] ) ? $widget_data['icon'] : '',
-					'demo'    => $show_demo && ! empty( $widget_data['demo'] ) ? $widget_data['demo'] : '',
-					'docs'    => $show_docs && ! empty( $widget_data['docs'] ) ? $widget_data['docs'] : '',
-					'enabled' => ! $is_pro && isset( $enabled[ $name ] ),
-					'isPro'   => $is_pro,
+					'name'        => $name,
+					'title'       => self::plain_text( isset( $widget_data['title'] ) ? $widget_data['title'] : ucfirst( $widget_key ) ),
+					'icon'        => isset( $widget_data['icon'] ) ? $widget_data['icon'] : '',
+					'demo'        => $show_demo && ! empty( $widget_data['demo'] ) ? $widget_data['demo'] : '',
+					'docs'        => $show_docs && ! empty( $widget_data['docs'] ) ? $widget_data['docs'] : '',
+					'enabled'     => ! $is_pro && isset( $enabled[ $name ] ),
+					'isPro'       => $is_pro,
+					'integration' => isset( $integration[ $section ] ) ? $integration[ $section ] : null,
 				];
 			}
 
@@ -439,6 +443,94 @@ final class PP_Settings_REST_Controller {
 			'categories' => $categories,
 			'stats'      => powerpack_elements_lite_get_modules_stats(),
 		] );
+	}
+
+	/**
+	 * The Integration panel's credential sections, as the catalogue sees them.
+	 *
+	 * Keyed by the slug a widget names in its 'integration' key, which is also
+	 * the slug the Integration panel gives that section — the two halves of the
+	 * link, one in PHP and one in panels.js. Renaming a slug means renaming it
+	 * in both places or the link lands on the panel without scrolling anywhere.
+	 *
+	 * 'groups' mirrors how the section is drawn: each inner array is one set of
+	 * credentials that has to be complete to be usable, and any one of them
+	 * being complete configures the section.
+	 *
+	 * 'required' is whether the widget is inert without it. The Instagram Feed
+	 * has nothing to show without a token, so it is worth flagging on an
+	 * untouched site; a credential a widget merely benefits from would get a
+	 * link but never a warning.
+	 *
+	 * @since x.x.x
+	 * @return array Slug => [ required, groups ].
+	 */
+	private static function integration_groups() {
+		return [
+			'instagram-feed' => [
+				'required' => true,
+				'groups'   => [ [ 'pp_instagram_access_token' ] ],
+			],
+		];
+	}
+
+	/**
+	 * Whether each integration section has been filled in.
+	 *
+	 * Only ever booleans: the catalogue is readable by anyone who may edit
+	 * posts, while the credentials themselves are behind manage_options, so a
+	 * user who cannot open the Integration panel is told nothing about it and
+	 * offered no link to it. The same goes for an install that has hidden the
+	 * panel — there is nowhere for the link to go.
+	 *
+	 * @since x.x.x
+	 * @return array Slug => [ section, configured, required ], empty when the
+	 *               panel is out of reach.
+	 */
+	private static function integration_state() {
+		$wl = PP_Admin_Settings::get_settings();
+
+		if ( 'on' === ( $wl['hide_integration_tab'] ?? 'off' ) ) {
+			return [];
+		}
+
+		$state = [];
+
+		foreach ( self::integration_groups() as $slug => $section ) {
+			$keys = array_merge( ...$section['groups'] );
+
+			foreach ( $keys as $key ) {
+				if ( ! PP_Settings_Registry::current_user_can( $key ) ) {
+					continue 2;
+				}
+			}
+
+			$configured = false;
+
+			foreach ( $section['groups'] as $group ) {
+				$complete = true;
+
+				foreach ( $group as $key ) {
+					if ( '' === trim( (string) PP_Settings_Registry::read( $key ) ) ) {
+						$complete = false;
+						break;
+					}
+				}
+
+				if ( $complete ) {
+					$configured = true;
+					break;
+				}
+			}
+
+			$state[ $slug ] = [
+				'section'    => $slug,
+				'configured' => $configured,
+				'required'   => $section['required'],
+			];
+		}
+
+		return $state;
 	}
 
 	/**

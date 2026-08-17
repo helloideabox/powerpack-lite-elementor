@@ -36,6 +36,94 @@ const KEY = 'pp_elementor_modules';
  */
 const shortName = ( name ) => name.replace( /\s*Elements$/, '' ).trim() || name;
 
+/**
+ * Whether a widget is missing credentials it cannot work without.
+ *
+ * Only the credentials a widget genuinely needs count — flagging optional ones
+ * would put a standing warning on a correctly configured site, which teaches
+ * people to ignore it. The server decides which is which; this only reads the
+ * answer.
+ *
+ * @param {Object} widget Widget from the catalogue.
+ * @return {boolean} Whether to say so on the card.
+ */
+const needsSetup = ( widget ) =>
+	!! widget.integration && widget.integration.required && ! widget.integration.configured;
+
+/**
+ * The integration control in a card header.
+ *
+ * Two shapes, because the two states are not equally interesting. A widget
+ * still waiting for a key it cannot work without says so in words and in
+ * amber, sitting alongside anything else worth reading. One that has its key
+ * needs no announcement and shrinks to a cog — still there to be clicked when
+ * someone wants to change the key, but not competing with the widget's own
+ * name for attention.
+ *
+ * Never colour alone: the state that matters carries the word "Setup", and the
+ * quiet state is a different shape rather than the same shape in a duller
+ * grey.
+ *
+ * @param {Object}   props        Props.
+ * @param {Object}   props.widget Widget from the catalogue.
+ * @param {Function} props.onOpen Opens this widget's Integration section.
+ * @return {JSX.Element} The control.
+ */
+function SetupFlag( { widget, onOpen } ) {
+	const needed = needsSetup( widget );
+
+	/*
+	 * Says which widget, because a button reached on its own — by tab, or by a
+	 * screen reader listing the buttons on the page — is otherwise one of
+	 * several identical "Setup"s. The tooltip beside it does not need the
+	 * name: anyone who can see the tooltip can see which card it is pinned to.
+	 */
+	const label = sprintf(
+		needed
+			? /* translators: %s: widget name. */
+			  __( '%s: setup needed', 'powerpack-lite-for-elementor' )
+			: /* translators: %s: widget name. */
+			  __( '%s: integration settings', 'powerpack-lite-for-elementor' ),
+		widget.title
+	);
+
+	const tip = needed
+		? __( 'Setup needed', 'powerpack-lite-for-elementor' )
+		: __( 'Integration settings', 'powerpack-lite-for-elementor' );
+
+	return (
+		<button
+			type="button"
+			className={ `pp-module-setup${ needed ? ' is-needed' : '' }` }
+			/*
+			 * No title attribute alongside the tooltip below, or a hover draws
+			 * both. The one dropped is the native one: it never appears on
+			 * keyboard focus, waits a second or two before it does appear, and
+			 * cannot be styled to match the sidebar's.
+			 */
+			aria-label={ label }
+			onClick={ onOpen }
+		>
+			<Icon icon={ LINK_ICONS.setup } size={ needed ? 12 : 16 } />
+			{ needed && (
+				<span className="pp-module-setup-text">
+					{ __( 'Setup', 'powerpack-lite-for-elementor' ) }
+				</span>
+			) }
+
+			{ /*
+			  * Hidden from assistive technology, because aria-label above is
+			  * already the button's name and a tooltip repeating it would be
+			  * read out twice. This is the sighted half of the same message —
+			  * which is why it may be the shorter wording.
+			  */ }
+			<span className="pp-module-setup-tip" aria-hidden="true">
+				{ tip }
+			</span>
+		</button>
+	);
+}
+
 const FILTERS = [
 	{ id: 'all', label: () => __( 'All', 'powerpack-lite-for-elementor' ) },
 	{ id: 'used', label: () => __( 'Used on this site', 'powerpack-lite-for-elementor' ) },
@@ -62,7 +150,13 @@ const requestedFilter = () => {
 	}
 };
 
-export default function ModulesPanel( { settings, changes, onChange } ) {
+export default function ModulesPanel( {
+	settings,
+	changes,
+	onChange,
+	panels = [],
+	onNavigate,
+} ) {
 	const [ data, setData ] = useState( null );
 	const [ error, setError ] = useState( null );
 	const [ search, setSearch ] = useState( '' );
@@ -239,6 +333,14 @@ export default function ModulesPanel( { settings, changes, onChange } ) {
 
 		return () => observer.disconnect();
 	}, [ slugKey ] );
+
+	/*
+	 * The Integration panel may be switched off by a white label install, and
+	 * the server only describes a widget's credentials to someone allowed to
+	 * read them — so a link is offered only when there is somewhere to send
+	 * them and something for them to do when they arrive.
+	 */
+	const canReachIntegration = panels.includes( 'integration' ) && !! onNavigate;
 
 	const commit = ( set ) => onChange( KEY, Array.from( set ) );
 
@@ -518,6 +620,32 @@ export default function ModulesPanel( { settings, changes, onChange } ) {
 													<span className="pp-module-icon">
 														<i className={ widget.icon } aria-hidden="true" />
 													</span>
+													{ /*
+													  * The header's right-hand side,
+													  * empty on most cards. What sits
+													  * here is status — what state this
+													  * widget is in — as against the
+													  * footer, which is where its links
+													  * live. The footer also has no
+													  * room: two labelled links already
+													  * fill it at the narrowest column,
+													  * so a third one wrapped, and a
+													  * grid row is as tall as its
+													  * tallest card.
+													  */ }
+													<div className="pp-module-flags">
+														{ canReachIntegration && widget.integration && (
+															<SetupFlag
+																widget={ widget }
+																onOpen={ () =>
+																	onNavigate(
+																		'integration',
+																		widget.integration.section
+																	)
+																}
+															/>
+														) }
+													</div>
 												</div>
 												<div className="pp-modules-table-element-name">
 													{ widget.title }

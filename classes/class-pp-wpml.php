@@ -6,8 +6,47 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class PP_Elements_WPML {
+	/**
+	 * Controls added by PowerPack extensions.
+	 *
+	 * These live on Elementor's 'common' element, so they exist on every widget
+	 * rather than on one widget type. WPML keys translatable fields by widget
+	 * type, so they are appended to every registered widget instead.
+	 *
+	 * @since x.x.x
+	 * @var array
+	 */
+	private $extension_fields = [];
+
     public function __construct() {
 		add_filter( 'wpml_elementor_widgets_to_translate', array( $this, 'translate_fields' ) );
+	}
+
+	/**
+	 * Get the translatable fields added by PowerPack extensions.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return array
+	 */
+	private function get_extension_fields() {
+		if ( empty( $this->extension_fields ) ) {
+			$this->extension_fields = [
+				[
+					'field'       => 'pp_custom_cursor_text',
+					'type'        => esc_html__( 'PowerPack Custom Cursor - Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				'pp_wrapper_link' => [
+					'field'       => 'url',
+					'field_id'    => 'pp_wrapper_link_url',
+					'type'        => esc_html__( 'PowerPack Wrapper Link - URL', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINK',
+				],
+			];
+		}
+
+		return $this->extension_fields;
 	}
 
 	public function translate_fields ( $widgets ) {
@@ -1046,9 +1085,72 @@ class PP_Elements_WPML {
 			'fields'     => [],
 			'integration-class' => 'WPML_PP_Interactive_Circle',
 		];
+		$widgets['pp-event-calendar'] = [
+			'conditions'        => [ 'widgetType' => 'pp-event-calendar' ],
+			'fields'            => [
+				[
+					'field'       => 'allday_text',
+					'type'        => esc_html__( 'Event Calendar - All Day Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'read_more_text',
+					'type'        => esc_html__( 'Event Calendar - Read More Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'prev_button_text',
+					'type'        => esc_html__( 'Event Calendar - Previous Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'next_button_text',
+					'type'        => esc_html__( 'Event Calendar - Next Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'prev_year_button_text',
+					'type'        => esc_html__( 'Event Calendar - Previous Year Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'next_year_button_text',
+					'type'        => esc_html__( 'Event Calendar - Next Year Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+			],
+			'integration-class' => [
+				'WPML_PP_Event_Calendar_Events',
+				'WPML_PP_Event_Calendar_Popup_Fields',
+			],
+		];
+		$widgets['pp-slide-menu'] = [
+			'conditions' => [ 'widgetType' => 'pp-slide-menu' ],
+			'fields'     => [
+				[
+					'field'       => 'back_text',
+					'type'        => esc_html__( 'Slide Menu - Back Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
+			],
+		];
 
 		$this->init_classes();
-		
+
+		// PowerPack extensions attach their controls to Elementor's 'common' element,
+		// so they can appear on any widget. WPML matches translatable fields by widget
+		// type, so the extension fields are appended to every registered widget. Fields
+		// with no value on a given widget are skipped by WPML at registration time.
+		$extension_fields = $this->get_extension_fields();
+
+		foreach ( $widgets as $widget_type => $widget ) {
+			if ( ! isset( $widget['fields'] ) || ! is_array( $widget['fields'] ) ) {
+				continue;
+			}
+
+			$widgets[ $widget_type ]['fields'] = array_merge( $widget['fields'], $extension_fields );
+		}
+
 		return $widgets;
 	}
 	
@@ -1058,6 +1160,7 @@ class PP_Elements_WPML {
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-buttons.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-charts.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-content-ticker.php';
+		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-event-calendar.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-image-hotspots.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-icon-list.php';
 		require_once POWERPACK_ELEMENTS_LITE_PATH . 'classes/wpml/class-wpml-pp-image-accordion.php';
