@@ -13,7 +13,7 @@ class PP_Elements_WPML {
 	 * rather than on one widget type. WPML keys translatable fields by widget
 	 * type, so they are appended to every registered widget instead.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.1
 	 * @var array
 	 */
 	private $extension_fields = [];
@@ -25,7 +25,7 @@ class PP_Elements_WPML {
 	/**
 	 * Get the translatable fields added by PowerPack extensions.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.1
 	 *
 	 * @return array
 	 */

@@ -3,7 +3,7 @@
 /**
  * Translation support for the Event Calendar widget's manually added events.
  *
- * @since x.x.x
+ * @since 3.0.1
  */
 class WPML_PP_Event_Calendar_Events extends WPML_Elementor_Module_With_Items {
 
@@ -63,7 +63,7 @@ class WPML_PP_Event_Calendar_Events extends WPML_Elementor_Module_With_Items {
 /**
  * Translation support for the Event Calendar popup's header field labels.
  *
- * @since x.x.x
+ * @since 3.0.1
  */
 class WPML_PP_Event_Calendar_Popup_Fields extends WPML_Elementor_Module_With_Items {
 

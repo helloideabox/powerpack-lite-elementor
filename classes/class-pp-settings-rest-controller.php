@@ -462,7 +462,7 @@ final class PP_Settings_REST_Controller {
 	 * untouched site; a credential a widget merely benefits from would get a
 	 * link but never a warning.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.1
 	 * @return array Slug => [ required, groups ].
 	 */
 	private static function integration_groups() {
@@ -483,7 +483,7 @@ final class PP_Settings_REST_Controller {
 	 * offered no link to it. The same goes for an install that has hidden the
 	 * panel — there is nowhere for the link to go.
 	 *
-	 * @since x.x.x
+	 * @since 3.0.1
 	 * @return array Slug => [ section, configured, required ], empty when the
 	 *               panel is out of reach.
 	 */
