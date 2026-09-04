@@ -4,20 +4,30 @@
 			getDefaultSettings() {
 				return {
 					selectors: {
+						accordion: '.pp-advanced-accordion',
+						item: '.pp-accordion-item',
 						title: '.pp-accordion-tab-title',
+						content: '.pp-accordion-tab-content',
 					},
 				};
 			}
 
 			getDefaultElements() {
-				const selectors = this.getSettings( 'selectors' );
+				const selectors = this.getSettings( 'selectors' ),
+					$accordion = this.$element.find( selectors.accordion ).first();
+
 				return {
-					$title: this.$element.find( selectors.title ),
+					$accordion: $accordion,
+					// Only this accordion's own titles. An accordion nested inside a tab's
+					// content (e.g. via a saved template) is driven by its own handler, so
+					// binding to its titles here would toggle them twice per click.
+					$title: $accordion.children( selectors.item ).children( selectors.title ),
 				};
 			}
 
 			bindEvents() {
-				const accordionType = this.getElementSettings( 'accordion_type' ),
+				const selectors = this.getSettings( 'selectors' ),
+					accordionType = this.getElementSettings( 'accordion_type' ),
 					speed         = this.getElementSettings( 'toggle_speed' );
 
 				this.eventNamespace = '.ppAdvancedAccordion-' + this.getID();
@@ -26,7 +36,7 @@
 				this.elements.$title.each( function() {
 					if ( $( this ).hasClass( 'pp-accordion-tab-active-default' ) ) {
 						$( this ).addClass( 'pp-accordion-tab-show pp-accordion-tab-active' );
-						$( this ).closest( '.pp-accordion-item' ).children( '.pp-accordion-tab-content' ).slideDown( speed );
+						$( this ).closest( selectors.item ).children( selectors.content ).slideDown( speed );
 					}
 				} );
 
@@ -40,11 +50,13 @@
 					e.preventDefault();
 
 					var $this       = $( this ),
-						container   = $this.closest( '.pp-advanced-accordion' ),
-						item        = $this.closest( '.pp-accordion-item' ),
-						content     = item.children( '.pp-accordion-tab-content' ),
-						allTitles   = container.find( '.pp-accordion-tab-title' ),
-						allContents = container.find( '.pp-accordion-tab-content' );
+						container   = $this.closest( selectors.accordion ),
+						item        = $this.closest( selectors.item ),
+						content     = item.children( selectors.content ),
+						// Direct children only, so a nested accordion's tabs are left alone.
+						allItems    = container.children( selectors.item ),
+						allTitles   = allItems.children( selectors.title ),
+						allContents = allItems.children( selectors.content );
 
 					$( document ).trigger( 'ppe-accordion-switched', [ item ] );
 
@@ -58,7 +70,7 @@
 							$this.attr( 'aria-expanded', 'false' );
 							content.slideUp( speed );
 						} else {
-							container.find( '.pp-accordion-item' ).removeClass( 'pp-accordion-item-active' );
+							allItems.removeClass( 'pp-accordion-item-active' );
 							allTitles.removeClass( 'pp-accordion-tab-show pp-accordion-tab-active' ).attr( 'aria-expanded', 'false' );
 							allContents.slideUp( speed );
 							$this.addClass( 'pp-accordion-tab-show pp-accordion-tab-active' );
@@ -104,9 +116,16 @@
 					return;
 				}
 
-				var element = $( location.hash + '.pp-accordion-tab-title' );
+				var selectors = this.getSettings( 'selectors' ),
+					element   = $( location.hash + selectors.title );
 
 				if ( ! element.length ) {
+					return;
+				}
+
+				var item = element.closest( selectors.item );
+
+				if ( ! item.length ) {
 					return;
 				}
 
@@ -115,9 +134,9 @@
 				}
 
 				$( 'html, body' ).animate( {
-					scrollTop: ( element.parents( '.pp-accordion-item' ).offset().top - 50 ) + 'px',
+					scrollTop: ( item.offset().top - 50 ) + 'px',
 				}, 500, function() {
-					if ( ! element.parents( '.pp-accordion-item' ).hasClass( 'pp-accordion-item-active' ) ) {
+					if ( ! item.hasClass( 'pp-accordion-item-active' ) ) {
 						element.trigger( 'click' );
 					}
 				} );

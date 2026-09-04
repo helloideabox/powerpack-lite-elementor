@@ -1852,7 +1852,7 @@ class Team_Member extends Powerpack_Widget {
 
 	protected function render_description() {
 		$settings = $this->get_settings_for_display();
-		$this->add_inline_editing_attributes( 'team_member_description', 'basic' );
+		$this->add_inline_editing_attributes( 'team_member_description', 'advanced' );
 		$this->add_render_attribute( 'team_member_description', 'class', 'pp-tm-description' );
 
 		if ( 'yes' === $settings['team_member_description_switch'] ) {

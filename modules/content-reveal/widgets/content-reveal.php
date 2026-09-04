@@ -257,10 +257,11 @@ class Content_Reveal extends Powerpack_Widget {
 				'default'               => [
 					'size'  => 50,
 				],
+				'description'           => esc_html__( 'Set this to 0 to keep the content fully hidden and show only the button.', 'powerpack-lite-for-elementor' ),
 				'range'                 => [
 					'px'        => [
 						'max' => 200,
-						'min' => 10,
+						'min' => 0,
 					],
 				],
 				'selectors'             => [
@@ -304,10 +305,11 @@ class Content_Reveal extends Powerpack_Widget {
 				'default'               => [
 					'size'  => 2,
 				],
+				'description'           => esc_html__( 'Set this to 0 to keep the content fully hidden and show only the button.', 'powerpack-lite-for-elementor' ),
 				'range'                 => [
 					'px'    => [
 						'max' => 20,
-						'min' => 1,
+						'min' => 0,
 					],
 				],
 				'condition'             => [
@@ -1084,7 +1086,10 @@ class Content_Reveal extends Powerpack_Widget {
 			$this->add_render_attribute( 'wrapper', 'data-scroll-top', 'yes' );
 		}
 
-		if ( ( 'content' === $settings['content_type'] && 'pixels' === $settings['visible_type'] && $settings['visible_amount']['size'] ) || ( 'template' === $settings['content_type'] && $settings['visible_amount']['size'] ) ) {
+		// A visible amount of 0 is valid - it hides the content entirely - so check for a number, not for truthiness.
+		$has_visible_amount = is_numeric( $settings['visible_amount']['size'] );
+
+		if ( $has_visible_amount && ( 'template' === $settings['content_type'] || ( 'content' === $settings['content_type'] && 'pixels' === $settings['visible_type'] ) ) ) {
 			$this->add_render_attribute( 'wrapper', 'data-content-height', $settings['visible_amount']['size'] );
 		}
 

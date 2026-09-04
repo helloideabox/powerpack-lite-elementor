@@ -276,6 +276,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 3.0.2 - TBD =
+*	Enhancement: Content Reveal - Visible Amount can now be set to 0, in pixels or lines, to keep the content fully hidden and show only the toggle button
+*	Fix: Content Reveal - Setting Visible Amount to 0 pixels left the content stuck open, as the toggle button no longer collapsed it
+*	Fix: Advanced Accordion - An accordion nested inside another accordion collapsed immediately when one of its tabs was clicked
+
 = 3.0.1 - August 17, 2026 =
 *	Enhancement: WPML - Added translation support for the Event Calendar and Slide Menu widgets
 *	Enhancement: WPML - Added translation support for the Custom Cursor and Wrapper Link extensions

@@ -32,19 +32,23 @@
 					contentLineHeight     = this.elements.$contentWrapper.find('.pp-content-reveal-content p').css('line-height'),
 					contentPaddingTop 	  = this.elements.$content.css('padding-top');
 
-				var contentWrapperHeight;
+				var contentWrapperHeight,
+					visibleLines = parseInt( contentHeightLines, 10 );
 
 				if ( 'reveal' === defaultContentState ) {
 					this.elements.$saparator.hide();
 				}
 
 				if ( contentVisibility == 'lines' ) {
-					if ( contentHeightLines == '0' ) {
+					if ( isNaN( visibleLines ) ) {
 						contentWrapperHeight = this.elements.$contentWrapper.outerHeight();
 					} else {
-						contentWrapperHeight = (parseInt(contentLineHeight, 10) * contentHeightLines) + parseInt(contentPaddingTop, 10);
+						// A visible amount of 0 lines collapses the content completely, leaving only the button.
+						contentWrapperHeight = visibleLines > 0 ? ( parseInt(contentLineHeight, 10) * visibleLines ) + parseInt(contentPaddingTop, 10) : 0;
 
-						if ( 'unreveal' === defaultContentState ) {
+						if ( isNaN( contentWrapperHeight ) ) {
+							contentWrapperHeight = this.elements.$contentWrapper.outerHeight();
+						} else if ( 'unreveal' === defaultContentState ) {
 							this.elements.$contentWrapper.css( 'height', (contentWrapperHeight + 'px') );
 						}
 					}
@@ -70,7 +74,7 @@
 					};
 
 					$elems.each( function( index ) {
-						if ( counter < contentHeightLines ) {
+						if ( counter < visibleLines ) {
 
 							var lineHeight 	= getLineHeight( this ),
 								lines 		= $(this).outerHeight() / lineHeight,
@@ -82,7 +86,7 @@
 
 								for( i = 1; i <= lines; i++ ) { 
 
-									if ( counter < contentHeightLines ) {
+									if ( counter < visibleLines ) {
 										_mHeight += lineHeight;
 
 										counter++;
@@ -106,11 +110,13 @@
 						this.elements.$saparator.hide();
 					}
 				} else {
-					if ( 'unreveal' === defaultContentState ) {
-						this.elements.$contentWrapper.css( 'height', (contentHeightCustom + 'px') );
-					}
+					contentWrapperHeight = parseInt( contentHeightCustom, 10 );
 
-					contentWrapperHeight = contentHeightCustom;
+					if ( isNaN( contentWrapperHeight ) ) {
+						contentWrapperHeight = this.elements.$contentWrapper.outerHeight();
+					} else if ( 'unreveal' === defaultContentState ) {
+						this.elements.$contentWrapper.css( 'height', (contentWrapperHeight + 'px') );
+					}
 				}
 
 				this.elements.$button.on( 'click', this.contentToggle.bind( this, contentWrapperHeight ) );
