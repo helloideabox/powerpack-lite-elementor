@@ -649,7 +649,7 @@ class Event_Calendar extends Powerpack_Widget {
 				'default'     => 'event_time',
 				'label_block' => true,
 				'options'     => [
-					'event_time'     => esc_html__( 'Event Time', 'powerpack-lite-for-elementor' ),
+					'event_time'     => esc_html__( 'Event Date & Time', 'powerpack-lite-for-elementor' ),
 					'event_speaker'  => esc_html__( 'Event Speaker', 'powerpack-lite-for-elementor' ),
 					'event_location' => esc_html__( 'Event Location', 'powerpack-lite-for-elementor' ),
 				],
@@ -683,6 +683,91 @@ class Event_Calendar extends Powerpack_Widget {
 			]
 		);
 
+		$format_help = sprintf(
+			/* translators: 1: example format, 2: opening link tag, 3: closing link tag */
+			esc_html__( 'Uses the same format characters as the WordPress date and time settings, e.g. %1$s. %2$sFormat reference%3$s', 'powerpack-lite-for-elementor' ),
+			'<code>M jS</code>',
+			'<a href="https://wordpress.org/documentation/article/customize-date-and-time-format/" target="_blank" rel="noopener">',
+			'</a>'
+		);
+
+		$repeater_popup->add_control(
+			'field_date_format',
+			[
+				'label'     => esc_html__( 'Date Format', 'powerpack-lite-for-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => '',
+				'options'   => [
+					''          => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
+					/* translators: %s: today's date in the site's date format */
+					'site'      => sprintf( esc_html__( 'Default (%s)', 'powerpack-lite-for-elementor' ), date_i18n( get_option( 'date_format' ) ) ),
+					'M j'       => date_i18n( 'M j' ),
+					'F j'       => date_i18n( 'F j' ),
+					'D, M j'    => date_i18n( 'D, M j' ),
+					'l, F j, Y' => date_i18n( 'l, F j, Y' ),
+					'custom'    => esc_html__( 'Custom', 'powerpack-lite-for-elementor' ),
+				],
+				'condition' => [
+					'field_type' => 'event_time',
+				],
+			]
+		);
+
+		$repeater_popup->add_control(
+			'field_date_custom_format',
+			[
+				'label'       => esc_html__( 'Custom Date Format', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => 'M jS',
+				'ai'          => [
+					'active' => false,
+				],
+				'description' => $format_help,
+				'condition'   => [
+					'field_type'        => 'event_time',
+					'field_date_format' => 'custom',
+				],
+			]
+		);
+
+		$repeater_popup->add_control(
+			'field_time_format',
+			[
+				'label'     => esc_html__( 'Time Format', 'powerpack-lite-for-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'site',
+				'options'   => [
+					'none'   => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
+					/* translators: %s: the current time in the site's time format */
+					'site'   => sprintf( esc_html__( 'Default (%s)', 'powerpack-lite-for-elementor' ), date_i18n( get_option( 'time_format' ) ) ),
+					'g:i a'  => date_i18n( 'g:i a' ),
+					'g:i A'  => date_i18n( 'g:i A' ),
+					'H:i'    => date_i18n( 'H:i' ),
+					'custom' => esc_html__( 'Custom', 'powerpack-lite-for-elementor' ),
+				],
+				'condition' => [
+					'field_type' => 'event_time',
+				],
+			]
+		);
+
+		$repeater_popup->add_control(
+			'field_time_custom_format',
+			[
+				'label'       => esc_html__( 'Custom Time Format', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => 'g:i A',
+				'ai'          => [
+					'active' => false,
+				],
+				'description' => $format_help,
+				'condition'   => [
+					'field_type'        => 'event_time',
+					'field_time_format' => 'custom',
+				],
+			]
+		);
+
 		$repeater_popup->add_control(
 			'field_icon',
 			[
@@ -701,7 +786,7 @@ class Event_Calendar extends Powerpack_Widget {
 				'default'               => [
 					[
 						'field_type'  => 'event_time',
-						'field_title' => esc_html__( 'Event Time', 'powerpack-lite-for-elementor' ),
+						'field_title' => esc_html__( 'Event Date & Time', 'powerpack-lite-for-elementor' ),
 						'field_icon'  => [
 							'value'   => 'fas fa-clock',
 							'library' => 'fa-solid',
@@ -727,7 +812,7 @@ class Event_Calendar extends Powerpack_Widget {
 				'fields'             => $repeater_popup->get_controls(),
 				'title_field'        => sprintf(
 					'{{{ "event_time" === field_type ? "%1$s" : ( "event_speaker" === field_type ? "%2$s" : ( "event_location" === field_type ? "%3$s" : field_type ) ) }}}',
-					esc_js( esc_html__( 'Event Time', 'powerpack-lite-for-elementor' ) ),
+					esc_js( esc_html__( 'Event Date & Time', 'powerpack-lite-for-elementor' ) ),
 					esc_js( esc_html__( 'Event Speaker', 'powerpack-lite-for-elementor' ) ),
 					esc_js( esc_html__( 'Event Location', 'powerpack-lite-for-elementor' ) )
 				),
@@ -1252,6 +1337,42 @@ class Event_Calendar extends Powerpack_Widget {
 		);
 
 		$this->add_control(
+			'toolbar_bg_color',
+			[
+				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .pp-event-calendar-container .fc-header-toolbar, {{WRAPPER}} .pp-event-calendar-container .fc-footer-toolbar' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'toolbar_padding',
+			[
+				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .pp-event-calendar-container .fc-header-toolbar, {{WRAPPER}} .pp-event-calendar-container .fc-footer-toolbar' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toolbar_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .pp-event-calendar-container .fc-header-toolbar, {{WRAPPER}} .pp-event-calendar-container .fc-footer-toolbar' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
 			'toolbar_title_heading',
 			[
 				'label'     => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
@@ -1682,7 +1803,7 @@ class Event_Calendar extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .fc-scrollgrid-sync-table tbody tr .fc-scrollgrid-sync-inner a,{{WRAPPER}} tr.fc-list-event td' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .fc-scrollgrid-sync-table tbody tr .fc-scrollgrid-sync-inner a:not(.fc-event),{{WRAPPER}} tr.fc-list-event td' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1733,8 +1854,8 @@ class Event_Calendar extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}}.pp-event-calendar-rows--even .fc-scrollgrid-sync-table tbody tr:nth-child(even) .fc-scrollgrid-sync-inner a' => 'color: {{VALUE}}',
-					'{{WRAPPER}}.pp-event-calendar-rows--odd .fc-scrollgrid-sync-table tbody tr:nth-child(odd) .fc-scrollgrid-sync-inner a' => 'color: {{VALUE}}',
+					'{{WRAPPER}}.pp-event-calendar-rows--even .fc-scrollgrid-sync-table tbody tr:nth-child(even) .fc-scrollgrid-sync-inner a:not(.fc-event)' => 'color: {{VALUE}}',
+					'{{WRAPPER}}.pp-event-calendar-rows--odd .fc-scrollgrid-sync-table tbody tr:nth-child(odd) .fc-scrollgrid-sync-inner a:not(.fc-event)' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'calendar_striped_rows' => [ 'even', 'odd' ],
@@ -1808,7 +1929,7 @@ class Event_Calendar extends Powerpack_Widget {
 				],
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .fc-scrollgrid-sync-table td .fc-scrollgrid-sync-inner a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .fc-scrollgrid-sync-table td .fc-scrollgrid-sync-inner a:not(.fc-event)' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1841,7 +1962,7 @@ class Event_Calendar extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .fc-scrollgrid-sync-table td:hover .fc-scrollgrid-sync-inner a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .fc-scrollgrid-sync-table td:hover .fc-scrollgrid-sync-inner a:not(.fc-event)' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1878,7 +1999,7 @@ class Event_Calendar extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .pp-event-calendar-container .fc-scrollgrid td.fc-day-today a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-event-calendar-container .fc-scrollgrid td.fc-day-today a:not(.fc-event)' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1911,7 +2032,7 @@ class Event_Calendar extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .pp-event-calendar-container .fc-scrollgrid td.fc-day-past a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-event-calendar-container .fc-scrollgrid td.fc-day-past a:not(.fc-event)' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1944,7 +2065,7 @@ class Event_Calendar extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .pp-event-calendar-container .fc-scrollgrid td.fc-day-other a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-event-calendar-container .fc-scrollgrid td.fc-day-other a:not(.fc-event)' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -2011,7 +2132,22 @@ class Event_Calendar extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
+					// Block events read the variable; dot events have no color of their own.
 					'{{WRAPPER}} .pp-event-calendar-container' => '--fc-event-text-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-event-calendar-container .fc-daygrid-dot-event' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'event_bg_color_normal',
+			[
+				'label'       => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::COLOR,
+				'default'     => '',
+				'description' => esc_html__( 'Applies to events shown as a dot. Block events are filled with the Event Color.', 'powerpack-lite-for-elementor' ),
+				'selectors'   => [
+					'{{WRAPPER}} .pp-event-calendar-container .fc-daygrid-dot-event' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2042,9 +2178,23 @@ class Event_Calendar extends Powerpack_Widget {
 			[
 				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
+				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .pp-event-calendar-container .fc-event:hover' => '--fc-event-text-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-event-calendar-container .fc-event:hover, {{WRAPPER}} .pp-event-calendar-container .fc-event:focus-visible' => '--fc-event-text-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-event-calendar-container .fc-daygrid-dot-event:hover, {{WRAPPER}} .pp-event-calendar-container .fc-daygrid-dot-event:focus-visible' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'event_bg_color_hover',
+			[
+				'label'       => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::COLOR,
+				'default'     => '',
+				'description' => esc_html__( 'Applies to events shown as a dot.', 'powerpack-lite-for-elementor' ),
+				'selectors'   => [
+					'{{WRAPPER}} .pp-event-calendar-container .fc-daygrid-dot-event:hover, {{WRAPPER}} .pp-event-calendar-container .fc-daygrid-dot-event:focus-visible' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2276,7 +2426,7 @@ class Event_Calendar extends Powerpack_Widget {
 				'exclude'  => [
 					'font_family',
 				],
-				'selector' => '{{WRAPPER}} .pp-event-calendar-popup-wrapper p.pp-event-calendar-popup-desc',
+				'selector' => '{{WRAPPER}} .pp-event-calendar-popup-wrapper .pp-event-calendar-popup-desc',
 			]
 		);
 
@@ -2286,7 +2436,29 @@ class Event_Calendar extends Powerpack_Widget {
 				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .pp-event-calendar-popup-wrapper p.pp-event-calendar-popup-desc' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-event-calendar-popup-wrapper .pp-event-calendar-popup-desc' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'event_popup_desc_link_color',
+			[
+				'label'     => esc_html__( 'Link Color', 'powerpack-lite-for-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pp-event-calendar-popup-wrapper .pp-event-calendar-popup-desc a' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'event_popup_desc_link_color_hover',
+			[
+				'label'     => esc_html__( 'Link Hover Color', 'powerpack-lite-for-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pp-event-calendar-popup-wrapper .pp-event-calendar-popup-desc a:hover, {{WRAPPER}} .pp-event-calendar-popup-wrapper .pp-event-calendar-popup-desc a:focus-visible' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -2570,6 +2742,36 @@ class Event_Calendar extends Powerpack_Widget {
 	}
 
 	/**
+	 * Resolve the date or time format an Event Date & Time popup field uses.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @param array  $field Popup header field (repeater item).
+	 * @param string $type  'date' or 'time'.
+	 * @return string PHP date format, or '' to leave that part out.
+	 */
+	protected function get_popup_field_format( $field, $type ) {
+		$key = 'field_' . $type . '_format';
+
+		// Rows saved before the format controls existed keep showing the time only.
+		if ( ! empty( $field[ $key ] ) ) {
+			$format = $field[ $key ];
+		} else {
+			$format = 'time' === $type ? 'site' : '';
+		}
+
+		if ( 'site' === $format ) {
+			return get_option( $type . '_format' );
+		}
+
+		if ( 'custom' === $format ) {
+			return ! empty( $field[ 'field_' . $type . '_custom_format' ] ) ? $field[ 'field_' . $type . '_custom_format' ] : '';
+		}
+
+		return 'none' === $format ? '' : $format;
+	}
+
+	/**
 	 * Print the event popup markup.
 	 *
 	 * @since 3.0.0
@@ -2581,8 +2783,19 @@ class Event_Calendar extends Powerpack_Widget {
 		ob_start();
 
 		$event_popup_layout = $settings['event_popup_layout'];
+
+		// Month, weekday and am/pm names for the Event Date & Time field, in the site language.
+		global $wp_locale;
+
+		$date_i18n = [
+			'months'        => array_values( $wp_locale->month ),
+			'monthsShort'   => array_values( $wp_locale->month_abbrev ),
+			'weekdays'      => array_values( $wp_locale->weekday ),
+			'weekdaysShort' => array_values( $wp_locale->weekday_abbrev ),
+			'meridiem'      => $wp_locale->meridiem,
+		];
 		?>
-		<div class="pp-event-calendar-popup-wrapper pp-event-calendar-popup-<?php echo esc_attr( $event_popup_layout ); ?>">
+		<div class="pp-event-calendar-popup-wrapper pp-event-calendar-popup-<?php echo esc_attr( $event_popup_layout ); ?>" data-date-i18n="<?php echo esc_attr( wp_json_encode( $date_i18n ) ); ?>">
 			<div class="pp-event-calendar-popup">
 				<?php if ( ! empty( $settings['popup_close_icon']['value'] ) ) { ?>
 					<span class="pp-event-calendar-popup-close pp-icon">
@@ -2629,6 +2842,17 @@ class Event_Calendar extends Powerpack_Widget {
 
 											$this->add_render_attribute( 'popup-field-wrap-' . $index, 'class', $field_wrap_class );
 											$this->add_render_attribute( 'popup-field-' . $index, 'class', [ 'pp-event-calendar-event-detail', $field_class ] );
+
+											if ( 'event_time' === $field_type ) {
+												$this->add_render_attribute(
+													'popup-field-' . $index,
+													[
+														'data-date-format' => $this->get_popup_field_format( $field, 'date' ),
+														'data-time-format' => $this->get_popup_field_format( $field, 'time' ),
+														'data-allday-text' => ! empty( $field['field_allday_text'] ) ? $field['field_allday_text'] : '',
+													]
+												);
+											}
 											?>
 											<li <?php $this->print_render_attribute_string( 'popup-field-wrap-' . $index ); ?>>
 												<div class="pp-event-calendar-popup-field-icon">

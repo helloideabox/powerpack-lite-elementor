@@ -431,6 +431,21 @@ class Divider extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_control(
+			'aria_label',
+			[
+				'label'                 => esc_html__( 'Accessible Label', 'powerpack-lite-for-elementor' ),
+				'type'                  => Controls_Manager::TEXT,
+				'dynamic'               => [
+					'active' => true,
+				],
+				'placeholder'           => esc_html__( 'e.g. Section separator', 'powerpack-lite-for-elementor' ),
+				'description'           => esc_html__( 'Optional. Announced by screen readers (VoiceOver, NVDA, JAWS) for this divider. Leave empty for a generic "separator" announcement.', 'powerpack-lite-for-elementor' ),
+				'label_block'           => true,
+				'separator'             => 'before',
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -1088,6 +1103,19 @@ class Divider extends Powerpack_Widget {
 			$this->add_render_attribute( 'wrapper', 'style', '--divider-pattern-url: url("data:image/svg+xml,' . $this->svg_to_data_uri( $svg_code ) . '");' );
 		}
 
+		$orientation = ( 'plain' === $settings['divider_type'] && 'vertical' === $settings['divider_direction'] )
+			? 'vertical'
+			: 'horizontal';
+
+		$this->add_render_attribute( 'wrapper', [
+			'role'            => 'separator',
+			'aria-orientation' => $orientation,
+		] );
+
+		if ( ! empty( $settings['aria_label'] ) ) {
+			$this->add_render_attribute( 'wrapper', 'aria-label', $settings['aria_label'] );
+		}
+
 		$classes = [ 'pp-divider' ];
 
 		if ( $settings['divider_direction'] ) {
@@ -1097,7 +1125,15 @@ class Divider extends Powerpack_Widget {
 
 		$this->add_render_attribute( 'divider', 'class', $classes );
 
-		$this->add_render_attribute( 'divider-content', 'class', [ 'pp-divider-' . $settings['divider_type'], 'pp-icon' ] );
+		$content_classes = [ 'pp-divider-' . $settings['divider_type'] ];
+
+		if ( 'icon' === $settings['divider_type'] ) {
+			$content_classes[] = 'pp-icon';
+
+			$this->add_render_attribute( 'divider-content', 'aria-hidden', 'true' );
+		}
+
+		$this->add_render_attribute( 'divider-content', 'class', $content_classes );
 
 		$this->add_inline_editing_attributes( 'divider_text', 'none' );
 		$this->add_render_attribute( 'divider_text', 'class', 'pp-divider-' . $settings['divider_type'] );
@@ -1132,7 +1168,7 @@ class Divider extends Powerpack_Widget {
 			} else { ?>
 				<div class="divider-text-container">
 					<div class="divider-text-wrap">
-						<span class="pp-divider-border-wrap divider-border-left">
+						<span class="pp-divider-border-wrap divider-border-left" aria-hidden="true">
 							<span class="divider-border"></span>
 						</span>
 						<span class="pp-divider-content">
@@ -1157,10 +1193,16 @@ class Divider extends Powerpack_Widget {
 									</span>
 									<?php
 								}
-							} elseif ( 'image' === $settings['divider_type'] ) { ?>
+							} elseif ( 'image' === $settings['divider_type'] ) {
+								$image      = $settings['divider_image'];
+								$image_alt  = ! empty( $image['id'] ) ? get_post_meta( $image['id'], '_wp_attachment_image_alt', true ) : '';
+
+								if ( empty( $image_alt ) ) {
+									$this->add_render_attribute( 'divider-content', 'aria-hidden', 'true' );
+								}
+								?>
 								<span <?php $this->print_render_attribute_string( 'divider-content' ); ?>>
 									<?php
-									$image = $settings['divider_image'];
 									if ( $image['url'] ) {
 										echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'divider_image' ) );
 									}
@@ -1168,7 +1210,7 @@ class Divider extends Powerpack_Widget {
 								</span>
 							<?php } ?>
 						</span>
-						<span class="pp-divider-border-wrap divider-border-right">
+						<span class="pp-divider-border-wrap divider-border-right" aria-hidden="true">
 							<span class="divider-border"></span>
 						</span>
 					</div>
@@ -1494,6 +1536,7 @@ class Divider extends Powerpack_Widget {
 			migrated = elementor.helpers.isIconMigrated( settings, 'icon' );   
 
 		var imageUrl = false;
+		var imageIsDecorative = true;
 
 		if ( '' !== settings.divider_image.url ) {
 			var image = {
@@ -1506,8 +1549,18 @@ class Divider extends Powerpack_Widget {
 
 			var imageUrl = elementor.imagesManager.getImageUrl( image );
 
-			var imageHtml = '<img src="' + _.escape( imageUrl ) + '" alt="divider" />';
+			// Use the real attachment alt text when available; otherwise treat
+			// the image as decorative (empty alt) instead of a meaningless
+			// hardcoded "divider" label.
+			var imageAlt = settings.divider_image.alt || '';
+			imageIsDecorative = '' === imageAlt;
+
+			var imageHtml = '<img src="' + _.escape( imageUrl ) + '" alt="' + _.escape( imageAlt ) + '" />';
 		}
+
+		var ppOrientation = ( 'plain' === settings.divider_type && 'vertical' === settings.divider_direction )
+			? 'vertical'
+			: 'horizontal';
 
 		var ppSvgPatterns = {
 			curly:          { shape: '<path d="M0,21c3.3,0,8.3-0.9,15.7-7.1c6.6-5.4,4.4-9.3,2.4-10.3c-3.4-1.8-7.7,1.3-7.3,8.8C11.2,20,17.1,21,24,21"/>', group: 'line',    viewBox: '0 0 24 24',  preserveAspectRatio: false },
@@ -1569,13 +1622,13 @@ class Divider extends Powerpack_Widget {
 			ppWrapperStyle = '--divider-pattern-url: url("data:image/svg+xml,' + ppEncoded + '");';
 		}
 		#>
-		<div class="pp-divider-wrap"<# if ( ppWrapperStyle ) { #> style="{{ ppWrapperStyle }}"<# } #>>
+		<div class="pp-divider-wrap" role="separator" aria-orientation="{{ ppOrientation }}"<# if ( settings.aria_label ) { #> aria-label="{{ settings.aria_label }}"<# } #><# if ( ppWrapperStyle ) { #> style="{{ ppWrapperStyle }}"<# } #>>
 			<# if ( settings.divider_type == 'plain' ) { #>
 				<div class="pp-divider pp-divider-{{ settings.divider_direction }} {{ settings.divider_direction }} pp-divider-{{ settings.divider_style }} {{ settings.divider_style }} "></div>
 			<# } else { #>
 				<div class="divider-text-container">
 					<div class="divider-text-wrap">
-						<span class="pp-divider-border-wrap divider-border-left">
+						<span class="pp-divider-border-wrap divider-border-left" aria-hidden="true">
 							<span class="divider-border"></span>
 						</span>
 						<span class="pp-divider-content">
@@ -1585,7 +1638,7 @@ class Divider extends Powerpack_Widget {
 									{{ settings.divider_text }}
 								</{{ textHTMLTag }}>
 							<# } else if ( settings.divider_type == 'icon' && settings.divider_icon != '' ) { #>
-								<span class="pp-divider-{{ settings.divider_type }} pp-icon">
+								<span class="pp-divider-{{ settings.divider_type }} pp-icon" aria-hidden="true">
 									<# if ( settings.divider_icon || settings.icon ) { #>
 										<# if ( iconHTML && iconHTML.rendered && ( ! settings.divider_icon || migrated ) ) { #>
 											{{{ iconHTML.value }}}
@@ -1596,11 +1649,11 @@ class Divider extends Powerpack_Widget {
 								</span>
 							<# } else if ( settings.divider_type == 'image' ) { #>
 								<# if ( imageUrl ) { #>
-									<span class="pp-divider-{{ settings.divider_type }}">{{{ imageHtml }}}</span>
+									<span class="pp-divider-{{ settings.divider_type }}"<# if ( imageIsDecorative ) { #> aria-hidden="true"<# } #>>{{{ imageHtml }}}</span>
 								<# } #>
 							<# } #>
 						</span>
-						<span class="pp-divider-border-wrap divider-border-right">
+						<span class="pp-divider-border-wrap divider-border-right" aria-hidden="true">
 							<span class="divider-border"></span>
 						</span>
 					</div>

@@ -18,6 +18,8 @@
   top: 50%;
   width: 1.8182em;
   height: 1.8182em;
+  min-width: 24px;
+  min-height: 24px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   z-index: 1;
@@ -99,11 +101,15 @@
   background: #000;
 }
 
-.pp-slider-arrow,
-.pp-slider-arrow:focus,
-.swiper-pagination-bullet,
-.swiper-pagination-bullet:focus {
-  outline: 0;
+.pp-slider-arrow:focus:not(:focus-visible),
+.swiper-pagination-bullet:focus:not(:focus-visible) {
+  outline: none;
+}
+.pp-slider-arrow:focus-visible,
+.swiper-pagination-bullet:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+  z-index: 2;
 }
 
 .pp-swiper-slider-pagination-outside .swiper-pagination {

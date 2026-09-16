@@ -22,6 +22,12 @@
     }
 }
 
+// The handle sits above the overlay rather than inside it, so :focus-within has to be
+// asked of the widget. Gives the keyboard the same cue the pointer gets on hover.
+.pp-image-comparison:focus-within .pp-image-comparison-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .pp-before-image img,
 .pp-after-image img {
     max-width: 100%;
@@ -86,6 +92,20 @@
         fill: currentcolor;
         width: auto;
         height: 1em;
+    }
+
+    // The handle is the widget's only control, and it sits over an arbitrary photo.
+    // `outline` is the ring that always shows: the Handle > Box Shadow control writes
+    // box-shadow on this same element, so the dark backing below is an enhancement only.
+    &:focus-visible {
+        outline: 2px solid #FFF;
+        outline-offset: 3px;
+        box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.8);
+    }
+
+    // The click-to-position path focuses the handle; do not ring it for a mouse user.
+    &:focus:not(:focus-visible) {
+        outline: none;
     }
 }
 

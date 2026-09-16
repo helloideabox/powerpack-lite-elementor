@@ -709,7 +709,7 @@ class Price_Menu extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => '',
+				'default'               => '#FFFFFF',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-restaurant-menu-style-powerpack .pp-restaurant-menu-price' => 'color: {{VALUE}}',
 				],
@@ -1137,9 +1137,13 @@ class Price_Menu extends Powerpack_Widget {
 		if ( $settings['menu_style'] ) {
 			$this->add_render_attribute( 'price-menu', 'class', 'pp-restaurant-menu-' . $settings['menu_style'] );
 		}
+
+		$this->add_render_attribute( 'price-menu-items', 'class', 'pp-restaurant-menu-items' );
+		$this->add_render_attribute( 'price-menu-items', 'role', 'list' );
+		$this->add_render_attribute( 'price-menu-items', 'aria-label', esc_html__( 'Price menu', 'powerpack-lite-for-elementor' ) );
 		?>
 		<div <?php $this->print_render_attribute_string( 'price-menu' ); ?>>
-			<div class="pp-restaurant-menu-items">
+			<div <?php $this->print_render_attribute_string( 'price-menu-items' ); ?>>
 				<?php foreach ( $settings['menu_items'] as $index => $item ) : ?>
 					<?php
 						$title_key = $this->get_repeater_setting_key( 'menu_title', 'menu_items', $index );
@@ -1158,7 +1162,7 @@ class Price_Menu extends Powerpack_Widget {
 						$this->add_render_attribute( $original_price_key, 'class', 'pp-restaurant-menu-price-original' );
 						$this->add_inline_editing_attributes( $original_price_key, 'none' );
 					?>
-					<div class="pp-restaurant-menu-item-wrap">
+					<div class="pp-restaurant-menu-item-wrap" role="listitem">
 						<div class="pp-restaurant-menu-item">
 							<?php if ( 'yes' === $item['image_switch'] ) { ?>
 								<div class="pp-restaurant-menu-image">
@@ -1168,12 +1172,23 @@ class Price_Menu extends Powerpack_Widget {
 										$image_id = apply_filters( 'wpml_object_id', $image['id'], 'attachment', true );
 										$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image_size', $settings );
 
-										if ( $image_url ) {
-											echo '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( Control_Media::get_image_alt( $item['image'] ) ) . '">';
-										} else {
-											echo '<img src="' . esc_url( $item['image']['url'] ) . '">';
+										if ( ! $image_url ) {
+											$image_url = $item['image']['url'];
 										}
+
+										$image_key = $this->get_repeater_setting_key( 'menu_image', 'menu_items', $index );
+
+										$this->add_render_attribute(
+											$image_key,
+											[
+												'src' => esc_url( $image_url ),
+												'alt' => Control_Media::get_image_alt( $image ),
+											],
+											null,
+											true
+										);
 										?>
+										<img <?php $this->print_render_attribute_string( $image_key ); ?>>
 									<?php endif; ?>
 								</div>
 							<?php } ?>
@@ -1209,28 +1224,19 @@ class Price_Menu extends Powerpack_Widget {
 									}
 
 									if ( 'yes' === $settings['title_price_connector'] ) { ?>
-										<span class="pp-price-title-connector"></span>
+										<span class="pp-price-title-connector" aria-hidden="true"></span>
 										<?php
 									}
 
 									if ( 'style-1' === $settings['menu_style'] || 'style-5' === $settings['menu_style'] ) { ?>
 										<?php if ( ! empty( $item['menu_price'] ) ) { ?>
-											<span class="pp-restaurant-menu-price">
-												<?php if ( 'yes' === $item['discount'] ) { ?>
-													<span <?php $this->print_render_attribute_string( $original_price_key ); ?>>
-														<?php $this->print_unescaped_setting( 'original_price', 'menu_items', $index ); ?>
-													</span>
-												<?php } ?>
-												<span <?php $this->print_render_attribute_string( $discount_price_key ); ?>>
-													<?php $this->print_unescaped_setting( 'menu_price', 'menu_items', $index ); ?>
-												</span>
-											</span>
+											<?php $this->render_menu_price( $item, $index, $original_price_key, $discount_price_key ); ?>
 										<?php } ?>
 									<?php } ?>
 								</div>
 
 								<?php if ( 'yes' === $settings['title_separator'] ) { ?>
-									<div class="pp-price-menu-divider-wrap">
+									<div class="pp-price-menu-divider-wrap" aria-hidden="true">
 										<div class="pp-price-menu-divider"></div>
 									</div>
 								<?php } ?>
@@ -1247,16 +1253,7 @@ class Price_Menu extends Powerpack_Widget {
 
 								<?php if ( 'style-1' !== $settings['menu_style'] && 'style-5' !== $settings['menu_style'] ) { ?>
 									<?php if ( '' !== $item['menu_price'] ) { ?>
-										<span class="pp-restaurant-menu-price">
-											<?php if ( 'yes' === $item['discount'] ) { ?>
-												<span <?php $this->print_render_attribute_string( $original_price_key ); ?>>
-													<?php $this->print_unescaped_setting( 'original_price', 'menu_items', $index ); ?>
-												</span>
-											<?php } ?>
-											<span <?php $this->print_render_attribute_string( $discount_price_key ); ?>>
-												<?php $this->print_unescaped_setting( 'menu_price', 'menu_items', $index ); ?>
-											</span>
-										</span>
+										<?php $this->render_menu_price( $item, $index, $original_price_key, $discount_price_key ); ?>
 									<?php } ?>
 								<?php } ?>
 							</div>
@@ -1269,6 +1266,40 @@ class Price_Menu extends Powerpack_Widget {
 		<?php
 	}
 
+	/**
+	 * Render a menu item's price, with visually hidden labels that tell screen
+	 * reader users which value is the original price and which is the sale price.
+	 *
+	 * The strikethrough on the original price is CSS-only, so it is not exposed
+	 * in the accessibility tree; without these labels the two prices are read as
+	 * one undifferentiated string.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @param array  $item               Repeater item settings.
+	 * @param int    $index              Repeater item index.
+	 * @param string $original_price_key Render attribute key for the original price.
+	 * @param string $discount_price_key Render attribute key for the current price.
+	 */
+	protected function render_menu_price( $item, $index, $original_price_key, $discount_price_key ) {
+		$discounted = ( 'yes' === $item['discount'] && ! empty( $item['original_price'] ) );
+		?>
+		<span class="pp-restaurant-menu-price">
+			<?php if ( $discounted ) { ?>
+				<span class="pp-visually-hidden"><?php echo esc_html__( 'Original price:', 'powerpack-lite-for-elementor' ); ?> </span>
+				<span <?php $this->print_render_attribute_string( $original_price_key ); ?>>
+					<?php $this->print_unescaped_setting( 'original_price', 'menu_items', $index ); ?>
+				</span>
+				<span class="pp-visually-hidden"> <?php echo esc_html__( 'Sale price:', 'powerpack-lite-for-elementor' ); ?> </span>
+			<?php } ?>
+			<span <?php $this->print_render_attribute_string( $discount_price_key ); ?>>
+				<?php $this->print_unescaped_setting( 'menu_price', 'menu_items', $index ); ?>
+			</span>
+		</span>
+		<?php
+	}
+
 	protected function content_template() {
 		?>
 		<#
@@ -1278,7 +1309,10 @@ class Price_Menu extends Powerpack_Widget {
 				if ( item.menu_price != '' ) { #>
 					<span class="pp-restaurant-menu-price">
 						<#
-							if ( item.discount == 'yes' ) {
+							if ( item.discount == 'yes' && item.original_price != '' ) { #>
+								<span class="pp-visually-hidden"><?php echo esc_html__( 'Original price:', 'powerpack-lite-for-elementor' ); ?> </span>
+								<#
+
 								var original_price = item.original_price;
 
 								view.addRenderAttribute( 'menu_items.' + ($i - 1) + '.original_price', 'class', 'pp-restaurant-menu-price-original' );
@@ -1288,6 +1322,10 @@ class Price_Menu extends Powerpack_Widget {
 								var original_price_html = '<span' + ' ' + view.getRenderAttributeString( 'menu_items.' + ($i - 1) + '.original_price' ) + '>' + original_price + '</span>';
 
 								print( original_price_html );
+
+								#>
+								<span class="pp-visually-hidden"> <?php echo esc_html__( 'Sale price:', 'powerpack-lite-for-elementor' ); ?> </span>
+								<#
 							}
 
 							var menu_price = item.menu_price;
@@ -1311,15 +1349,15 @@ class Price_Menu extends Powerpack_Widget {
 
 				view.addInlineEditingAttributes( 'menu_items.' + ($i - 1) + '.menu_title' );
 
-				var title_html = '<div' + ' ' + view.getRenderAttributeString( 'menu_items.' + ($i - 1) + '.menu_title' ) + '>' + title + '</div>';
+				var title_html = '<span' + ' ' + view.getRenderAttributeString( 'menu_items.' + ($i - 1) + '.menu_title' ) + '>' + title + '</span>';
 
 				print( title_html );
 			}
 		#>
 		<div class="pp-restaurant-menu pp-restaurant-menu-{{ settings.menu_style }}">
-			<div class="pp-restaurant-menu-items">
+			<div class="pp-restaurant-menu-items" role="list" aria-label="<?php echo esc_attr__( 'Price menu', 'powerpack-lite-for-elementor' ); ?>">
 				<# _.each( settings.menu_items, function( item ) { #>
-					<div class="pp-restaurant-menu-item-wrap">
+					<div class="pp-restaurant-menu-item-wrap" role="listitem">
 						<div class="pp-restaurant-menu-item">
 							<# if ( item.image_switch == 'yes' ) { #>
 								<div class="pp-restaurant-menu-image">
@@ -1334,7 +1372,7 @@ class Price_Menu extends Powerpack_Widget {
 										};
 										var image_url = elementor.imagesManager.getImageUrl( image );
 										#>
-										<img src="{{ _.escape( image_url ) }}" />
+										<img src="{{ _.escape( image_url ) }}" alt="{{ item.image.alt ? item.image.alt : '' }}" />
 									<# } #>
 								</div>
 							<# } #>
@@ -1355,7 +1393,7 @@ class Price_Menu extends Powerpack_Widget {
 									<# }
 
 									if ( settings.title_price_connector == 'yes' ) { #>
-										<span class="pp-price-title-connector"></span>
+										<span class="pp-price-title-connector" aria-hidden="true"></span>
 									<# }
 
 									if ( settings.menu_style == 'style-1' || settings.menu_style == 'style-5' ) {
@@ -1364,7 +1402,7 @@ class Price_Menu extends Powerpack_Widget {
 								</div>
 
 								<# if ( settings.title_separator == 'yes' ) { #>
-									<div class="pp-price-menu-divider-wrap">
+									<div class="pp-price-menu-divider-wrap" aria-hidden="true">
 										<div class="pp-price-menu-divider"></div>
 									</div>
 								<# }

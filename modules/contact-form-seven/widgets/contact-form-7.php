@@ -69,6 +69,17 @@ class Contact_Form_7 extends Powerpack_Widget {
 		return false;
 	}
 
+	/**
+	 * Get script dependencies.
+	 *
+	 * @access public
+	 *
+	 * @return array Widget script dependencies.
+	 */
+	public function get_script_depends(): array {
+		return [ 'pp-contact-form-7' ];
+	}
+
 	public function has_widget_inner_wrapper(): bool {
 		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
@@ -141,6 +152,27 @@ class Contact_Form_7 extends Powerpack_Widget {
 				'type'                  => Controls_Manager::TEXT,
 				'label_block'           => true,
 				'default'               => '',
+				'condition'             => [
+					'form_title'   => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'title_tag',
+			[
+				'label'                 => esc_html__( 'Title HTML Tag', 'powerpack-lite-for-elementor' ),
+				'type'                  => Controls_Manager::SELECT,
+				'options'               => [
+					'h1'    => 'H1',
+					'h2'    => 'H2',
+					'h3'    => 'H3',
+					'h4'    => 'H4',
+					'h5'    => 'H5',
+					'h6'    => 'H6',
+				],
+				'default'               => 'h3',
+				'description'           => esc_html__( 'Choose the heading level that fits this form\'s position in the page outline, so screen reader users navigating by heading get an accurate structure.', 'powerpack-lite-for-elementor' ),
 				'condition'             => [
 					'form_title'   => 'yes',
 				],
@@ -1445,23 +1477,50 @@ class Contact_Form_7 extends Powerpack_Widget {
 		}
 
 		if ( function_exists( 'wpcf7' ) ) {
-			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
+			if ( ! empty( $settings['contact_form_list'] ) ) {
+
+				$widget_id = $this->get_id();
+				$has_title = ( 'yes' === $settings['form_title'] && $settings['form_title_text'] );
+				$has_desc  = ( 'yes' === $settings['form_description'] && $settings['form_description_text'] );
+				$title_id  = 'pp-cf7-title-' . $widget_id;
+				$desc_id   = 'pp-cf7-desc-' . $widget_id;
+
+				$title_tag = ! empty( $settings['title_tag'] ) ? $settings['title_tag'] : 'h3';
+				$allowed_title_tags = [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ];
+				if ( ! in_array( $title_tag, $allowed_title_tags, true ) ) {
+					$title_tag = 'h3';
+				}
+
+				// Accessible name for the <form> element itself (VoiceOver/NVDA/JAWS
+				// announce this when the user lands on the form via the forms/landmarks
+				// rotor). Falls back to the widget title when no custom title is set.
+				// Requires Contact Form 7 5.7+ (older versions ignore html_title safely).
+				$form_accessible_name = $has_title ? $settings['form_title_text'] : $this->get_title();
+				?>
 				<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'contact-form' ) ); ?>>
-					<?php if ( 'yes' === $settings['form_title'] || 'yes' === $settings['form_description'] ) { ?>
+					<?php if ( $has_title || $has_desc ) { ?>
 						<div class="pp-contact-form-7-heading">
-							<?php if ( 'yes' === $settings['form_title'] && $settings['form_title_text'] ) { ?>
-								<h3 class="pp-contact-form-title pp-contact-form-7-title">
-									<?php echo esc_attr( $settings['form_title_text'] ); ?>
-								</h3>
+							<?php if ( $has_title ) { ?>
+								<<?php echo esc_attr( $title_tag ); ?> id="<?php echo esc_attr( $title_id ); ?>" class="pp-contact-form-title pp-contact-form-7-title">
+									<?php echo esc_html( $settings['form_title_text'] ); ?>
+								</<?php echo esc_attr( $title_tag ); ?>>
 							<?php } ?>
-							<?php if ( 'yes' === $settings['form_description'] && $settings['form_description_text'] ) { ?>
-								<div class="pp-contact-form-description pp-contact-form-7-description">
+							<?php if ( $has_desc ) { ?>
+								<div id="<?php echo esc_attr( $desc_id ); ?>" class="pp-contact-form-description pp-contact-form-7-description">
 									<?php echo wp_kses_post( $this->parse_text_editor( $settings['form_description_text'] ) ); ?>
 								</div>
 							<?php } ?>
 						</div>
 					<?php } ?>
-					<?php echo do_shortcode( '[contact-form-7 id="' . $settings['contact_form_list'] . '" ]' ); ?>
+					<?php
+					echo do_shortcode(
+						sprintf(
+							'[contact-form-7 id="%1$s" html_title="%2$s"]',
+							esc_attr( $settings['contact_form_list'] ),
+							esc_attr( $form_accessible_name )
+						)
+					);
+					?>
 				</div>
 				<?php
 			} else {

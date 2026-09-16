@@ -428,3 +428,45 @@
     width: 100%;
   }
 }
+.elementor-element.elementor-widget-pp-info-box-carousel {
+  --swiper-pagination-bullet-horizontal-gap: 9px;
+}
+
+.elementor-widget-pp-info-box-carousel .swiper-pagination-bullet {
+  position: relative;
+}
+.elementor-widget-pp-info-box-carousel .swiper-pagination-bullet::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  inset-inline-start: 50%;
+  width: 24px;
+  height: 24px;
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.elementor-widget-pp-info-box-carousel .pp-info-box > a:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: -2px;
+}
+.elementor-widget-pp-info-box-carousel a.pp-info-box-title-container:focus-visible,
+.elementor-widget-pp-info-box-carousel .pp-info-box-icon-wrap a:focus-visible,
+.elementor-widget-pp-info-box-carousel a.pp-info-box-button:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+.elementor-widget-pp-info-box-carousel .pp-info-box > a:focus:not(:focus-visible),
+.elementor-widget-pp-info-box-carousel a.pp-info-box-title-container:focus:not(:focus-visible),
+.elementor-widget-pp-info-box-carousel .pp-info-box-icon-wrap a:focus:not(:focus-visible),
+.elementor-widget-pp-info-box-carousel a.pp-info-box-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .elementor-widget-pp-info-box-carousel .swiper-wrapper {
+    -webkit-transition-duration: 0ms !important;
+            transition-duration: 0ms !important;
+  }
+}

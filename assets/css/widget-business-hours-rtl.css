@@ -1,3 +1,32 @@
+.pp-business-hours .pp-visually-hidden, .pp-skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.pp-skip-link:focus {
+  position: static;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: 6px 12px;
+  margin: 0 0 8px;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: #fff;
+  color: #1a1a1a;
+  border: 2px solid #1a1a1a;
+  border-radius: 2px;
+  text-decoration: underline;
+}
+
 .pp-business-hours .pp-business-day,
 .pp-business-hours .pp-business-timing {
   float: right;
@@ -5,4 +34,7 @@
 }
 .pp-business-hours .pp-business-timing {
   text-align: end;
+}
+.pp-business-hours .pp-business-hours-row.pp-today .pp-business-day {
+  font-weight: 700;
 }

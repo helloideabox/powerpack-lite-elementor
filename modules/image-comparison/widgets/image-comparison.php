@@ -9,7 +9,6 @@ use PowerpackElementsLite\Classes\PP_Config;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
-use Elementor\Control_Media;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
@@ -356,7 +355,9 @@ class Image_Comparison extends Powerpack_Widget {
 			[
 				'name'              => 'overlay_background_hover',
 				'types'             => [ 'classic', 'gradient' ],
-				'selector'          => '{{WRAPPER}} .pp-image-comparison-overlay:hover',
+				// Keyboard focus gets the same treatment as hover. The handle sits above
+				// the overlay rather than inside it, so :focus-within is asked of the widget.
+				'selector'          => '{{WRAPPER}} .pp-image-comparison-overlay:hover, {{WRAPPER}} .pp-image-comparison:focus-within .pp-image-comparison-overlay',
 				'condition'         => [
 					'overlay'  => 'yes',
 				],
@@ -448,7 +449,8 @@ class Image_Comparison extends Powerpack_Widget {
 				],
 				'range'             => [
 					'px' => [
-						'min' => 20,
+						// The handle is the only control; 24 is the WCAG 2.5.8 floor.
+						'min' => 24,
 						'max' => 100,
 					],
 				],
@@ -472,7 +474,8 @@ class Image_Comparison extends Powerpack_Widget {
 				],
 				'range'             => [
 					'px' => [
-						'min' => 20,
+						// The handle is the only control; 24 is the WCAG 2.5.8 floor.
+						'min' => 24,
 						'max' => 100,
 					],
 				],
@@ -927,18 +930,57 @@ class Image_Comparison extends Powerpack_Widget {
 	}
 
 	/**
+	 * Build an image's accessible name.
+	 *
+	 * Only part of each image is on screen at a time, so the name has to say which side it
+	 * is. Control_Media::get_image_alt() falls back to the attachment caption and then its
+	 * post title, which is normally the file name, so only an alt the author actually
+	 * wrote is used here.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @param array  $settings Widget settings.
+	 * @param string $position 'before' or 'after'.
+	 * @param string $label    The side's label, already defaulted.
+	 * @return string
+	 */
+	protected function get_image_a11y_alt( $settings, $position, $label ) {
+		$image = $settings[ $position . '_image' ];
+		$alt   = '';
+
+		if ( ! empty( $image['id'] ) ) {
+			$alt = trim( (string) get_post_meta( $image['id'], '_wp_attachment_image_alt', true ) );
+		} elseif ( ! empty( $image['alt'] ) ) {
+			$alt = trim( $image['alt'] );
+		}
+
+		if ( '' === $alt ) {
+			return $label;
+		}
+
+		return sprintf(
+			/* translators: 1: the image's label, for example Before. 2: the image's alt text. */
+			esc_attr__( '%1$s: %2$s', 'powerpack-lite-for-elementor' ),
+			$label,
+			$alt
+		);
+	}
+
+	/**
 	 * Render before/after image.
 	 *
-	 * @param string $type Image type (before|after).
+	 * @param array  $settings Widget settings.
+	 * @param string $type     Image type (before|after).
+	 * @param string $label    The side's label, already defaulted.
 	 */
-	private function render_image( $settings, $type ) {
+	private function render_image( $settings, $type, $label ) {
 
 		if ( empty( $settings[ $type . '_image' ]['url'] ) ) {
 			return;
 		}
 
-		$image_data = $settings[ $type . '_image' ];
-		$image_url  = $this->get_image_src( $settings, $type );
+		$image_url = $this->get_image_src( $settings, $type );
 
 		$attribute_key = $type . '-image';
 
@@ -946,8 +988,7 @@ class Image_Comparison extends Powerpack_Widget {
 			$attribute_key,
 			[
 				'src'   => esc_url( $image_url ),
-				'alt'   => esc_attr( Control_Media::get_image_alt( $image_data ) ),
-				'title' => esc_attr( Control_Media::get_image_title( $image_data ) ),
+				'alt'   => $this->get_image_a11y_alt( $settings, $type, $label ),
 				'class' => 'pp-' . esc_attr( $type ) . '-img',
 			]
 		);
@@ -967,26 +1008,26 @@ class Image_Comparison extends Powerpack_Widget {
 	 * @param string $orientation Layout orientation.
 	 */
 	private function render_handle( $settings, $orientation ) {
+		// The handle is the keyboard slider, so it is rendered even without an icon.
+		$icon = ! empty( $settings['handle_icon']['value'] ) ? $settings['handle_icon'] : '';
 
-		if ( empty( $settings['handle_icon']['value'] ) ) {
-			return;
-		}
-
-		$icon = $settings['handle_icon'];
-
-		if ( 'horizontal' === $orientation ) {
-			$before_icon = str_replace( 'right', 'left', $icon );
-			$after_icon  = $icon;
-		} else {
-			$before_icon = str_replace( 'right', 'up', $icon );
-			$after_icon  = str_replace( 'right', 'down', $icon );
+		if ( $icon ) {
+			if ( 'horizontal' === $orientation ) {
+				$before_icon = str_replace( 'right', 'left', $icon );
+				$after_icon  = $icon;
+			} else {
+				$before_icon = str_replace( 'right', 'up', $icon );
+				$after_icon  = str_replace( 'right', 'down', $icon );
+			}
 		}
 		?>
 
-		<div class="pp-comparison-handle">
+		<div <?php $this->print_render_attribute_string( 'comparison-handle' ); ?>>
 			<?php
-			Icons_Manager::render_icon( $before_icon, [ 'aria-hidden' => 'true' ] );
-			Icons_Manager::render_icon( $after_icon, [ 'aria-hidden' => 'true' ] );
+			if ( $icon ) {
+				Icons_Manager::render_icon( $before_icon, [ 'aria-hidden' => 'true' ] );
+				Icons_Manager::render_icon( $after_icon, [ 'aria-hidden' => 'true' ] );
+			}
 			?>
 		</div>
 
@@ -1011,14 +1052,19 @@ class Image_Comparison extends Powerpack_Widget {
 			<div class="pp-image-comparison-overlay">
 		<?php endif; ?>
 
-		<?php if ( ! empty( $settings['before_label'] ) ) : ?>
-			<div class="pp-comparison-label pp-comparison-label-before">
+		<?php
+		// The labels already name the images; announcing them again here would repeat
+		// "Before" with nothing to attach it to. They are also faded out with opacity,
+		// which AT ignores, so they would be read out while invisible on screen.
+		if ( ! empty( $settings['before_label'] ) ) :
+			?>
+			<div class="pp-comparison-label pp-comparison-label-before" aria-hidden="true">
 				<span><?php echo esc_html( $settings['before_label'] ); ?></span>
 			</div>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $settings['after_label'] ) ) : ?>
-			<div class="pp-comparison-label pp-comparison-label-after">
+			<div class="pp-comparison-label pp-comparison-label-after" aria-hidden="true">
 				<span><?php echo esc_html( $settings['after_label'] ); ?></span>
 			</div>
 		<?php endif; ?>
@@ -1042,6 +1088,9 @@ class Image_Comparison extends Powerpack_Widget {
 		$move_slider   = ! empty( $settings['move_slider'] ) ? $settings['move_slider'] : '';
 		$visible_ratio = ! empty( $settings['visible_ratio']['size'] ) ? $settings['visible_ratio']['size'] : '0.5';
 
+		$is_vertical   = 'vertical' === $orientation;
+		$ratio_percent = max( 0, min( 100, round( (float) $visible_ratio * 100 ) ) );
+
 		$widget_options = [
 			'visible_ratio'      => $visible_ratio,
 			'orientation'        => $orientation,
@@ -1049,6 +1098,19 @@ class Image_Comparison extends Powerpack_Widget {
 			'slider_with_handle' => ( 'drag' === $move_slider ),
 			'slider_with_click'  => ( 'mouse_click' === $move_slider ),
 		];
+
+		// The labels are the only thing that says which image is which, so they name the
+		// images too. A cleared label still leaves a side to name, hence the fallbacks.
+		$before_name = ! empty( $settings['before_label'] ) ? $settings['before_label'] : esc_html__( 'Before', 'powerpack-lite-for-elementor' );
+		$after_name  = ! empty( $settings['after_label'] ) ? $settings['after_label'] : esc_html__( 'After', 'powerpack-lite-for-elementor' );
+
+		// {percent} is swapped for the live value by the script on every move.
+		$value_text = sprintf(
+			/* translators: 1: the before image's label. 2: a token the script replaces with the current percentage. */
+			esc_attr__( '%1$s %2$s%% visible', 'powerpack-lite-for-elementor' ),
+			$before_name,
+			'{percent}'
+		);
 
 		$this->add_render_attribute(
 			'wrapper',
@@ -1059,6 +1121,24 @@ class Image_Comparison extends Powerpack_Widget {
 				],
 				'id'            => 'pp-image-comparison-' . esc_attr( $this->get_id() ),
 				'data-settings' => wp_json_encode( $widget_options ),
+				'role'          => 'group',
+				'aria-label'    => $this->get_title(),
+			]
+		);
+
+		$this->add_render_attribute(
+			'comparison-handle',
+			[
+				'class'            => 'pp-comparison-handle',
+				'role'             => 'slider',
+				'tabindex'         => '0',
+				'aria-label'       => esc_attr__( 'Image comparison slider', 'powerpack-lite-for-elementor' ),
+				'aria-orientation' => $is_vertical ? 'vertical' : 'horizontal',
+				'aria-valuemin'    => '0',
+				'aria-valuemax'    => '100',
+				'aria-valuenow'    => (string) $ratio_percent,
+				'aria-valuetext'   => str_replace( '{percent}', $ratio_percent, $value_text ),
+				'data-value-text'  => $value_text,
 			]
 		);
 		?>
@@ -1066,8 +1146,8 @@ class Image_Comparison extends Powerpack_Widget {
 		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
 
 			<?php
-			$this->render_image( $settings, 'before' );
-			$this->render_image( $settings, 'after' );
+			$this->render_image( $settings, 'before', $before_name );
+			$this->render_image( $settings, 'after', $after_name );
 			$this->render_handle( $settings, $orientation );
 			$this->render_overlay( $settings );
 			?>
@@ -1091,8 +1171,14 @@ class Image_Comparison extends Powerpack_Widget {
 			var slider_on_hover     = ( settings.move_slider == 'mouse_move' ) ? true : false;
 			var slider_with_handle  = ( settings.move_slider == 'drag' ) ? true : false;
 			var slider_with_click   = ( settings.move_slider == 'mouse_click' ) ? true : false;
+
+			var is_vertical  = ( 'vertical' === settings.orientation );
+			var before_name  = settings.before_label ? settings.before_label : '<?php echo esc_js( __( 'Before', 'powerpack-lite-for-elementor' ) ); ?>';
+			var after_name   = settings.after_label ? settings.after_label : '<?php echo esc_js( __( 'After', 'powerpack-lite-for-elementor' ) ); ?>';
+			var ratio_pct    = Math.round( Math.max( 0, Math.min( 1, parseFloat( visible_ratio ) || 0 ) ) * 100 );
+			var value_text   = '<?php echo esc_js( __( '{name} {percent}% visible', 'powerpack-lite-for-elementor' ) ); ?>'.replace( '{name}', before_name );
 		#>
-		<div class="pp-image-comparison pp-image-comparison-{{ settings.orientation }}" data-settings='{ "visible_ratio":{{ visible_ratio }},"orientation":"{{ settings.orientation }}","before_label":"{{ settings.before_label }}","after_label":"{{ settings.after_label }}","slider_on_hover":{{ slider_on_hover }},"slider_with_handle":{{ slider_with_handle }},"slider_with_click":{{ slider_with_click }} }'>
+		<div class="pp-image-comparison pp-image-comparison-{{ settings.orientation }}" role="group" aria-label="<?php echo esc_attr( $this->get_title() ); ?>" data-settings='{ "visible_ratio":{{ visible_ratio }},"orientation":"{{ settings.orientation }}","before_label":"{{ settings.before_label }}","after_label":"{{ settings.after_label }}","slider_on_hover":{{ slider_on_hover }},"slider_with_handle":{{ slider_with_handle }},"slider_with_click":{{ slider_with_click }} }'>
 			<# if ( settings.before_image.url != '' ) { #>
 				<div class="pp-before-image">
 					<#
@@ -1105,7 +1191,7 @@ class Image_Comparison extends Powerpack_Widget {
 					};
 					var before_image_url = elementor.imagesManager.getImageUrl( before_image );
 					#>
-					<img src="{{ _.escape( before_image_url ) }}" class="pp-before-img">
+					<img src="{{ _.escape( before_image_url ) }}" alt="{{ before_name }}" class="pp-before-img">
 				</div>
 			<# } #>
 
@@ -1121,11 +1207,11 @@ class Image_Comparison extends Powerpack_Widget {
 					};
 					var after_image_url = elementor.imagesManager.getImageUrl( after_image );
 					#>
-					<img src="{{ _.escape( after_image_url ) }}" class="pp-after-img">
+					<img src="{{ _.escape( after_image_url ) }}" alt="{{ after_name }}" class="pp-after-img">
 				</div>
 			<# } #>
 
-			<div class="pp-comparison-handle">
+			<div class="pp-comparison-handle" role="slider" tabindex="0" aria-label="<?php echo esc_attr__( 'Image comparison slider', 'powerpack-lite-for-elementor' ); ?>" aria-orientation="{{ is_vertical ? 'vertical' : 'horizontal' }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ ratio_pct }}" aria-valuetext="{{ value_text.replace( '{percent}', ratio_pct ) }}" data-value-text="{{ value_text }}">
 				<#
 				if ( settings.handle_icon.value ) {
 					if ( 'horizontal' === settings.orientation ) {
@@ -1148,14 +1234,14 @@ class Image_Comparison extends Powerpack_Widget {
 				<div class="pp-image-comparison-overlay">
 			<# } #>
 				<# if ( settings.before_label != '' ) { #>
-					<div class="pp-comparison-label pp-comparison-label-before">
-						<span>{{{ settings.before_label }}}</span>
+					<div class="pp-comparison-label pp-comparison-label-before" aria-hidden="true">
+						<span>{{ settings.before_label }}</span>
 					</div>
 				<# } #>
 
 				<# if ( settings.after_label != '' ) { #>
-					<div class="pp-comparison-label pp-comparison-label-after">
-						<span>{{{ settings.after_label }}}</span>
+					<div class="pp-comparison-label pp-comparison-label-after" aria-hidden="true">
+						<span>{{ settings.after_label }}</span>
 					</div>
 				<# } #>
 			<# if ( 'yes' === settings.overlay ) { #>

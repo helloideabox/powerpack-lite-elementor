@@ -64,6 +64,19 @@ class Formidable_Forms extends Powerpack_Widget {
 		return [ 'widget-pp-formidable-forms' ];
 	}
 
+	/**
+	 * Get script dependencies.
+	 *
+	 * Retrieve the list of script dependencies the widget requires.
+	 *
+	 * @access public
+	 *
+	 * @return array Widget script dependencies.
+	 */
+	public function get_script_depends(): array {
+		return [ 'pp-formidable-forms' ];
+	}
+
 	public function has_widget_inner_wrapper(): bool {
 		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
@@ -173,6 +186,27 @@ class Formidable_Forms extends Powerpack_Widget {
 					'custom_title_description' => 'yes',
 				),
 			)
+		);
+
+		$this->add_control(
+			'title_tag',
+			[
+				'label'       => esc_html__( 'Title HTML Tag', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::SELECT,
+				'options'     => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+				],
+				'default'     => 'h3',
+				'description' => esc_html__( 'Choose the heading level that fits this form\'s position in the page outline, so screen reader users navigating by heading get an accurate structure.', 'powerpack-lite-for-elementor' ),
+				'condition'   => [
+					'custom_title_description' => 'yes',
+				],
+			]
 		);
 
 		$this->add_control(
@@ -1784,17 +1818,31 @@ class Formidable_Forms extends Powerpack_Widget {
 		}
 
 		if ( class_exists( 'FrmForm' ) ) {
-			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
+			if ( ! empty( $settings['contact_form_list'] ) ) {
+				$widget_id = $this->get_id();
+				$has_title = ( 'yes' === $settings['custom_title_description'] && ! empty( $settings['form_title_custom'] ) );
+				$has_desc  = ( 'yes' === $settings['custom_title_description'] && ! empty( $settings['form_description_custom'] ) );
+				$title_id  = 'pp-formidable-form-title-' . $widget_id;
+				$desc_id   = 'pp-formidable-form-desc-' . $widget_id;
+
+				$title_tag = PP_Helper::validate_html_tag( ! empty( $settings['title_tag'] ) ? $settings['title_tag'] : 'h3' );
+
+				// Not escaped here: Elementor runs esc_attr() on every render attribute on output.
+				$this->add_render_attribute( 'contact-form', [
+					'role'       => 'region',
+					'aria-label' => $has_title ? $settings['form_title_custom'] : $this->get_title(),
+				] );
+				?>
 				<div <?php $this->print_render_attribute_string( 'contact-form' ); ?>>
-					<?php if ( 'yes' === $settings['custom_title_description'] ) { ?>
+					<?php if ( $has_title || $has_desc ) { ?>
 						<div class="pp-formidable-forms-heading">
-							<?php if ( $settings['form_title_custom'] ) { ?>
-								<h3 class="pp-contact-form-title pp-formidable-forms-title">
-									<?php echo esc_attr( $settings['form_title_custom'] ); ?>
-								</h3>
+							<?php if ( $has_title ) { ?>
+								<<?php PP_Helper::print_validated_html_tag( $title_tag ); ?> id="<?php echo esc_attr( $title_id ); ?>" class="pp-contact-form-title pp-formidable-forms-title">
+									<?php echo esc_html( $settings['form_title_custom'] ); ?>
+								</<?php PP_Helper::print_validated_html_tag( $title_tag ); ?>>
 							<?php } ?>
-							<?php if ( $settings['form_description_custom'] ) { ?>
-								<div class="pp-contact-form-description pp-formidable-forms-description">
+							<?php if ( $has_desc ) { ?>
+								<div id="<?php echo esc_attr( $desc_id ); ?>" class="pp-contact-form-description pp-formidable-forms-description">
 									<?php \Elementor\Utils::print_unescaped_internal_string( $this->parse_text_editor( $settings['form_description_custom'] ) ); ?>
 								</div>
 							<?php } ?>

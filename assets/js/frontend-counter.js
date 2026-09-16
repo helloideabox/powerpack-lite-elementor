@@ -19,6 +19,8 @@
 			}
 
 			bindEvents() {
+				this.prefersReducedMotion = !! ( window.matchMedia && window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches );
+
 				this.intersectionObserver = elementorModules.utils.Scroll.scrollObserver({
 					callback: event => {
 						if (event.isInViewport) {
@@ -28,6 +30,10 @@
 
 							if (decimalDigits) {
 								data.rounding = decimalDigits[1].length;
+							}
+
+							if ( this.prefersReducedMotion ) {
+								data.duration = 0;
 							}
 
 							this.elements.$counterNumber.numerator(data);

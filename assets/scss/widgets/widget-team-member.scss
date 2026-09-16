@@ -42,11 +42,12 @@
         display: inline-block;
     }
 
-    .pp-tm:hover {
+    .pp-tm:hover,
+    .pp-tm:focus-within {
 
         .pp-tm-overlay-content-wrap {
             opacity: 1;
-            visibility: visible;
+            pointer-events: auto;
         }
     }
 
@@ -73,7 +74,10 @@
     bottom: 0;
     z-index: 1;
     opacity: 0;
-    visibility: hidden;
+    // Hidden with opacity rather than visibility so the overlay text and links
+    // stay in the accessibility tree and in the tab order; focus on a link
+    // inside brings the overlay back visually via :focus-within above.
+    pointer-events: none;
 
     @include transition($target: all, $time: 0.25s, $timing-function: linear);
 
@@ -98,6 +102,15 @@
     }
 }
 
+.pp-tm-wrapper .pp-tm-social-links .pp-tm-social-link {
+    // WCAG 2.5.8 - keep the pointer target at 24x24 even at small icon sizes.
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    min-height: 24px;
+}
+
 .pp-tm-social-icon-wrap {
     display: inline-flex;
 
@@ -116,4 +129,56 @@
 	p:last-child {
 		margin-bottom: 0;
 	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pp-tm-overlay-content-wrap,
+    .pp-tm-social-icon-wrap,
+    .pp-icon {
+        transition: none;
+    }
+}
+
+// The arrows' and dots' focus rings come from pp-swiper.scss. These are this
+// widget's own links, which nothing else covers.
+.elementor-widget-pp-team-member-carousel {
+
+    .pp-tm-name a:focus-visible,
+    .pp-tm-social-links a:focus-visible,
+    .pp-tm-image a:focus-visible {
+        outline: 2px solid #1a73e8;
+        outline-offset: 2px;
+    }
+
+    .pp-tm-name a:focus:not(:focus-visible),
+    .pp-tm-social-links a:focus:not(:focus-visible),
+    .pp-tm-image a:focus:not(:focus-visible) {
+        outline: none;
+    }
+
+    // WCAG 2.5.8: the dots default to 8px. Keep whatever size the author chose and
+    // hang a 24px hit area off it, so the target passes without the design changing.
+    .swiper-pagination-bullet {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            inset-inline-start: 50%;
+            width: 24px;
+            height: 24px;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .elementor-widget-pp-team-member-carousel .swiper-wrapper {
+        transition-duration: 0ms !important;
+    }
 }

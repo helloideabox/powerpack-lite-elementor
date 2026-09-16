@@ -20,6 +20,10 @@
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+.pp-advanced-accordion .pp-accordion-tab-title-wrap {
+  margin: 0;
+  padding: 0;
+}
 .pp-advanced-accordion .pp-accordion-tab-title {
   padding: 15px;
   font-size: 1rem;
@@ -37,6 +41,13 @@
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+}
+.pp-advanced-accordion .pp-accordion-tab-title:focus {
+  outline: 2px solid transparent;
+}
+.pp-advanced-accordion .pp-accordion-tab-title:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: -2px;
 }
 .pp-advanced-accordion.pp-toggle-icon-align-left .pp-accordion-tab-title {
   -webkit-box-orient: horizontal;
@@ -82,6 +93,9 @@
 .pp-accordion-tab-content.pp-accordion-tab-active {
   display: block;
 }
+.pp-accordion-tab-content[hidden] {
+  display: none !important;
+}
 
 .pp-accordion-item {
   overflow: hidden;
@@ -102,4 +116,14 @@
   display: inline-block;
   -webkit-margin-end: 10px;
           margin-inline-end: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-advanced-accordion,
+  .pp-advanced-accordion .pp-accordion-item,
+  .pp-advanced-accordion .pp-accordion-tab-title,
+  .pp-advanced-accordion .pp-icon {
+    -webkit-transition: none;
+    transition: none;
+  }
 }

@@ -1074,7 +1074,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-feed-item:hover .pp-if-img' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-feed-item:hover .pp-if-img, {{WRAPPER}} .pp-instagram-feed .pp-feed-item:focus-within .pp-if-img' => 'border-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1365,7 +1365,7 @@ class Instafeed extends Powerpack_Widget {
 				'exclude'  => array(
 					'image',
 				),
-				'selector' => '{{WRAPPER}} .pp-instagram-feed .pp-feed-item:hover .pp-overlay-container',
+				'selector' => '{{WRAPPER}} .pp-instagram-feed .pp-feed-item:hover .pp-overlay-container, {{WRAPPER}} .pp-instagram-feed .pp-feed-item:focus-within .pp-overlay-container',
 			)
 		);
 
@@ -1382,7 +1382,7 @@ class Instafeed extends Powerpack_Widget {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-feed-item:hover .pp-overlay-container' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-feed-item:hover .pp-overlay-container, {{WRAPPER}} .pp-instagram-feed .pp-feed-item:focus-within .pp-overlay-container' => 'opacity: {{SIZE}};',
 				),
 			)
 		);
@@ -1537,8 +1537,8 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed-title-wrap a:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .pp-instagram-feed-title-wrap a:hover .pp-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed-title-wrap a:hover, {{WRAPPER}} .pp-instagram-feed-title-wrap a:focus-visible' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed-title-wrap a:hover .pp-icon svg, {{WRAPPER}} .pp-instagram-feed-title-wrap a:focus-visible .pp-icon svg' => 'fill: {{VALUE}};',
 				),
 				'condition' => array(
 					'insta_profile_link' => 'yes',
@@ -1553,7 +1553,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed-title-wrap:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed-title-wrap:hover, {{WRAPPER}} .pp-instagram-feed-title-wrap:focus-within' => 'background: {{VALUE}};',
 				),
 				'condition' => array(
 					'insta_profile_link' => 'yes',
@@ -1568,7 +1568,7 @@ class Instafeed extends Powerpack_Widget {
 				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-instagram-feed-title-wrap:hover',
+				'selector'    => '{{WRAPPER}} .pp-instagram-feed-title-wrap:hover, {{WRAPPER}} .pp-instagram-feed-title-wrap:focus-within',
 			)
 		);
 
@@ -1579,7 +1579,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed-title-wrap:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instagram-feed-title-wrap:hover, {{WRAPPER}} .pp-instagram-feed-title-wrap:focus-within' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1715,7 +1715,7 @@ class Instafeed extends Powerpack_Widget {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-slider-arrow' => 'font-size: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -1734,7 +1734,7 @@ class Instafeed extends Powerpack_Widget {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instagram-feed .elementor-swiper-button-prev' => 'left: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -1753,7 +1753,7 @@ class Instafeed extends Powerpack_Widget {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instagram-feed .elementor-swiper-button-next' => 'right: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -1774,7 +1774,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-slider-arrow' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1786,7 +1786,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-slider-arrow' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -1798,7 +1798,7 @@ class Instafeed extends Powerpack_Widget {
 				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .pp-instagram-feed .pp-swiper-button',
+				'selector'    => '{{WRAPPER}} .pp-instagram-feed .pp-slider-arrow',
 			)
 		);
 
@@ -1809,7 +1809,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-slider-arrow' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1830,7 +1830,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-slider-arrow:hover, {{WRAPPER}} .pp-instagram-feed .pp-slider-arrow:focus-visible' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1842,7 +1842,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-slider-arrow:hover, {{WRAPPER}} .pp-instagram-feed .pp-slider-arrow:focus-visible' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -1854,7 +1854,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-slider-arrow:hover, {{WRAPPER}} .pp-instagram-feed .pp-slider-arrow:focus-visible' => 'border-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1870,7 +1870,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-instagram-feed .pp-swiper-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pp-instagram-feed .pp-slider-arrow' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 				'separator'  => 'before',
 			)
@@ -2089,7 +2089,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-pagination-bullet:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .swiper-pagination-bullet:hover, {{WRAPPER}} .pp-instagram-feed .swiper-pagination-bullet:focus-visible' => 'background: {{VALUE}};',
 				),
 				'condition' => array(
 					'feed_layout'     => 'carousel',
@@ -2106,7 +2106,7 @@ class Instafeed extends Powerpack_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .pp-instagram-feed .swiper-pagination-bullet:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-instagram-feed .swiper-pagination-bullet:hover, {{WRAPPER}} .pp-instagram-feed .swiper-pagination-bullet:focus-visible' => 'border-color: {{VALUE}};',
 				),
 				'condition' => array(
 					'feed_layout'     => 'carousel',
@@ -2964,25 +2964,35 @@ class Instafeed extends Powerpack_Widget {
 
 		$this->add_render_attribute( 'title-icon', 'class', 'pp-icon pp-icon-' . $settings['insta_title_icon_position'] );
 
-		if ( 'yes' === $settings['insta_profile_link'] && $settings['insta_link_title'] ) { ?>
+		if ( 'yes' === $settings['insta_profile_link'] && $settings['insta_link_title'] ) {
+			// An anchor with no href is neither focusable nor a link, so the title is plain text when the URL is cleared.
+			$tag = ! empty( $settings['insta_profile_url']['url'] ) ? 'a' : 'span';
+			?>
 			<span class="pp-instagram-feed-title-wrap">
-				<a <?php $this->print_render_attribute_string( 'instagram-profile-link' ); ?>>
+				<<?php echo esc_html( $tag ); ?> <?php $this->print_render_attribute_string( 'instagram-profile-link' ); ?>>
 					<span class="pp-instagram-feed-title">
 						<?php
 						if ( 'before_title' === $settings['insta_title_icon_position'] ) {
 							$this->render_title_icon();
 						}
 
-						echo esc_attr( $settings['insta_link_title'] );
+						echo esc_html( $settings['insta_link_title'] );
 
 						if ( 'after_title' === $settings['insta_title_icon_position'] ) {
 							$this->render_title_icon();
 						}
+
+						if ( 'a' === $tag && ! empty( $settings['insta_profile_url']['is_external'] ) ) {
+							?>
+							<span class="pp-screen-only elementor-screen-only"><?php esc_html_e( '(opens in a new tab)', 'powerpack-lite-for-elementor' ); ?></span>
+							<?php
+						}
 						?>
 					</span>
-				</a>
+				</<?php echo esc_html( $tag ); ?>>
 			</span>
-		<?php }
+			<?php
+		}
 	}
 
 	protected function get_cache_duration() {
@@ -3144,6 +3154,24 @@ class Instafeed extends Powerpack_Widget {
 
 			$slider_options = $this->get_swiper_slider_settings( $settings, false );
 
+			/*
+			 * Swiper 8 registers its a11y module with enabled:true, so without this flag the
+			 * arrows, bullets and slides are already named, in Swiper's own hardcoded English,
+			 * which addElLabel() writes straight over the translated aria-label rendered in PHP.
+			 * The flag swaps in PP_Helper::get_carousel_a11y_strings().
+			 */
+			$slider_options['a11y'] = 'yes';
+
+			// The region holds the slides, the dots, the arrows and the status message.
+			$this->add_render_attribute(
+				'container-wrap',
+				[
+					'role'                 => 'region',
+					'aria-roledescription' => esc_attr__( 'carousel', 'powerpack-lite-for-elementor' ),
+					'aria-label'           => esc_attr__( 'Instagram feed', 'powerpack-lite-for-elementor' ),
+				]
+			);
+
 			$this->add_render_attribute(
 				'insta-feed-container',
 				array(
@@ -3195,6 +3223,13 @@ class Instafeed extends Powerpack_Widget {
 
 			return;
 		}
+
+		$total = count( $gallery );
+
+		// The carousel's slides are groups inside a region; the grid and masonry are a plain list of posts.
+		if ( 'carousel' !== $settings['feed_layout'] ) {
+			$this->add_render_attribute( 'insta-feed', 'role', 'list' );
+		}
 		?>
 		<div <?php $this->print_render_attribute_string( 'insta-feed-wrap' ); ?>>
 			<div <?php $this->print_render_attribute_string( 'container-wrap' ); ?>>
@@ -3207,7 +3242,19 @@ class Instafeed extends Powerpack_Widget {
 							$this->add_render_attribute( $item_key, 'class', 'pp-feed-item' );
 
 							if ( 'carousel' === $settings['feed_layout'] ) {
-								$this->add_render_attribute( $item_key, 'class', 'swiper-slide' );
+								$this->add_render_attribute(
+									$item_key,
+									[
+										'class'                => 'swiper-slide',
+										// aria-roledescription is ignored on a generic div, so the group role has to come with it.
+										'role'                 => 'group',
+										'aria-roledescription' => esc_attr__( 'slide', 'powerpack-lite-for-elementor' ),
+										/* translators: 1: slide number, 2: total slides */
+										'aria-label'           => sprintf( esc_html__( 'Slide %1$s of %2$s', 'powerpack-lite-for-elementor' ), $index + 1, $total ),
+									]
+								);
+							} else {
+								$this->add_render_attribute( $item_key, 'role', 'listitem' );
 							}
 							?>
 							<div <?php $this->print_render_attribute_string( $item_key ); ?>>
@@ -3224,6 +3271,14 @@ class Instafeed extends Powerpack_Widget {
 				$this->render_dots();
 
 				$this->render_arrows();
+
+				if ( 'carousel' === $settings['feed_layout'] ) {
+					printf(
+						'<div class="pp-screen-only elementor-screen-only" aria-live="polite" aria-atomic="true" id="pp-instafeed-status-%1$s">%2$s</div>',
+						esc_attr( $this->get_id() ),
+						esc_html( PP_Helper::get_slide_status_text( 1, $total ) )
+					);
+				}
 				?>
 			</div>
 		</div>
@@ -3237,72 +3292,83 @@ class Instafeed extends Powerpack_Widget {
 	 * @return void
 	 */
 	protected function render_image_thumbnail( $item, $index ) {
-		$settings        = $this->get_settings();
-		$thumbnail_url   = $this->get_insta_image_url( $item, $this->get_insta_image_size() );
-		$thumbnail_alt   = $item['caption'];
-		$thumbnail_title = $item['caption'];
-		//$likes           = $item['likes'];
-		//$comments        = $item['comments'];
-		$image_key       = $this->get_repeater_setting_key( 'image', 'insta', $index );
-		$link_key        = $this->get_repeater_setting_key( 'link', 'image', $index );
-		$item_link       = '';
+		$settings      = $this->get_settings();
+		$thumbnail_url = $this->get_insta_image_url( $item, $this->get_insta_image_size() );
+		$caption       = $item['caption'];
+		$image_key     = $this->get_repeater_setting_key( 'image', 'insta', $index );
+		$link_key      = $this->get_repeater_setting_key( 'link', 'image', $index );
+		$caption_shown = ( 'yes' === $settings['insta_caption'] && '' !== $caption );
+		$has_link      = ( 'yes' === $settings['insta_image_popup'] || 'yes' === $settings['insta_image_link'] );
+		$item_link     = '';
+		$new_tab       = '';
 
 		$this->add_render_attribute( $image_key, 'src', $thumbnail_url );
 
-		if ( '' !== $thumbnail_alt ) {
-			$this->add_render_attribute( $image_key, 'alt', $thumbnail_alt );
-		}
-
-		if ( '' !== $thumbnail_title ) {
-			$this->add_render_attribute( $image_key, 'title', $thumbnail_title );
-		}
+		/*
+		 * The caption is the only text Instagram gives us, so it is either the image's
+		 * alt or the visible caption, never both: inside one link the two are joined
+		 * into the link's name and read twice. A post with no caption still gets an
+		 * explicit empty alt, so the image is not announced as its CDN filename.
+		 *
+		 * No title attribute: it repeated the alt word for word, and only a mouse could reach it.
+		 */
+		$this->add_render_attribute( $image_key, 'alt', $caption_shown ? '' : $caption );
 
 		if ( 'yes' === $settings['insta_image_popup'] ) {
-
 			$item_link = $this->get_insta_image_url( $item, 'high' );
 
 			$this->add_render_attribute( $link_key, [
 				'data-elementor-open-lightbox'      => 'yes',
-				'data-elementor-lightbox-title'     => $thumbnail_alt,
+				'data-elementor-lightbox-title'     => $caption,
 				'data-elementor-lightbox-slideshow' => 'pp-ig-' . $this->get_id(),
+				// The link opens Elementor's lightbox dialog rather than navigating.
+				'aria-haspopup'                     => 'dialog',
 			] );
-
-			/*if ( $this->_is_edit_mode ) {
-				$this->add_render_attribute( $link_key, 'class', 'elementor-clickable' );
-			}*/
-
 		} elseif ( 'yes' === $settings['insta_image_link'] ) {
 			$item_link = $item['link'];
 
-			$this->add_render_attribute( $link_key, 'target', '_blank' );
+			$this->add_render_attribute( $link_key, [
+				'target' => '_blank',
+				'rel'    => 'noopener noreferrer',
+			] );
+
+			// Nothing else tells a screen reader user that the tab is about to change.
+			$new_tab = '<span class="pp-screen-only elementor-screen-only">' . esc_html__( '(opens in a new tab)', 'powerpack-lite-for-elementor' ) . '</span>';
 		}
 
 		$this->add_render_attribute( $link_key, 'href', $item_link );
 
-		$image_html = '<div class="pp-if-img">';
-		$image_html .= '<div class="pp-overlay-container pp-media-overlay">';
-		if ( 'yes' === $settings['insta_caption'] ) {
-			$image_html .= '<div class="pp-insta-caption">' . $thumbnail_alt . '</div>';
-		}
-		/* if ( 'yes' === $settings['insta_comments'] || 'yes' === $settings['insta_likes'] ) {
-			$image_html .= '<div class="pp-insta-icons">';
-			if ( 'yes' === $settings['insta_comments'] ) {
-				$image_html .= '<span class="comments"><i class="pp-if-icon fa fa-comment"></i> ' . $comments . '</span>';
-			}
-			if ( 'yes' === $settings['insta_likes'] ) {
-				$image_html .= '<span class="likes"><i class="pp-if-icon fa fa-heart"></i> ' . $likes . '</span>';
-			}
-			$image_html .= '</div>';
-		} */
-		$image_html .= '</div>';
-		$image_html .= '<img ' . $this->get_render_attribute_string( $image_key ) . '/>';
-		$image_html .= '</div>';
-
-		if ( 'yes' === $settings['insta_image_popup'] || 'yes' === $settings['insta_image_link'] ) {
-			$image_html = '<a ' . $this->get_render_attribute_string( $link_key ) . '>' . $image_html . '</a>';
+		// With no caption the link holds nothing but a decorative image, so it would be announced as its URL.
+		if ( $has_link && '' === $caption ) {
+			$this->add_render_attribute(
+				$link_key,
+				'aria-label',
+				/* translators: %d: position of the post in the feed */
+				sprintf( esc_html__( 'Instagram post %d', 'powerpack-lite-for-elementor' ), $index + 1 )
+			);
 		}
 
-		echo wp_kses_post( $image_html );
+		/*
+		 * Printed through the render attribute strings rather than built up and passed
+		 * through wp_kses_post(), which strips aria-haspopup from the link.
+		 */
+		if ( $has_link ) {
+			?><a <?php $this->print_render_attribute_string( $link_key ); ?>><?php
+		}
+		?>
+		<div class="pp-if-img">
+			<div class="pp-overlay-container pp-media-overlay">
+				<?php if ( $caption_shown ) { ?>
+					<div class="pp-insta-caption"><?php echo wp_kses_post( $caption ); ?></div>
+				<?php } ?>
+			</div>
+			<img <?php $this->print_render_attribute_string( $image_key ); ?> />
+		</div>
+		<?php
+		if ( $has_link ) {
+			echo wp_kses_post( $new_tab );
+			?></a><?php
+		}
 	}
 
 	/**

@@ -1870,6 +1870,18 @@ class Flipbox extends Powerpack_Widget {
 				$this->add_render_attribute( 'box-link', 'class', 'pp-flipbox-box-link' );
 
 				$this->add_link_attributes( 'box-link', $settings['link'] );
+
+				$box_link_label = ! empty( $settings['title_back'] ) ? wp_strip_all_tags( $settings['title_back'] ) : '';
+
+				if ( empty( $box_link_label ) && ! empty( $settings['description_back'] ) ) {
+					$box_link_label = wp_strip_all_tags( $settings['description_back'] );
+				}
+
+				if ( empty( $box_link_label ) ) {
+					$box_link_label = esc_html__( 'Learn more', 'powerpack-lite-for-elementor' );
+				}
+
+				$this->add_render_attribute( 'box-link', 'aria-label', esc_attr( $box_link_label ) );
 				?>
 				<a <?php $this->print_render_attribute_string( 'box-link' ); ?>></a>
 			<?php } ?>
@@ -1973,6 +1985,16 @@ class Flipbox extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 		$flipbox_if_html_tag = 'div';
 
+		$accessible_label = ! empty( $settings['title_front'] ) ? wp_strip_all_tags( $settings['title_front'] ) : '';
+
+		if ( empty( $accessible_label ) && ! empty( $settings['description_front'] ) ) {
+			$accessible_label = wp_strip_all_tags( $settings['description_front'] );
+		}
+
+		if ( empty( $accessible_label ) ) {
+			$accessible_label = esc_html__( 'Flip box', 'powerpack-lite-for-elementor' );
+		}
+
 		$this->add_render_attribute(
 			[
 				'flipbox-card' => [
@@ -1981,16 +2003,24 @@ class Flipbox extends Powerpack_Widget {
 					],
 				],
 				'flipbox-container' => [
-					'class' => [
+					'class'                 => [
 						'pp-flipbox-container',
 						'pp-animate-' . esc_attr( $settings['flip_effect'] ),
 						'pp-direction-' . esc_attr( $settings['flip_direction'] ),
 					],
+					'tabindex'              => '0',
+					'role'                  => 'group',
+					'aria-roledescription'  => esc_attr__( 'flip card', 'powerpack-lite-for-elementor' ),
+					'aria-label'            => esc_attr( $accessible_label ),
+					'aria-describedby'      => $this->get_id() . '-pp-flipbox-hint',
 				],
 			]
 		);
 		?>
 		<div <?php $this->print_render_attribute_string( 'flipbox-container' ); ?>>
+			<span id="<?php echo esc_attr( $this->get_id() ); ?>-pp-flipbox-hint" class="pp-flipbox-sr-hint">
+				<?php esc_html_e( 'Use Tab or hover to reveal the back of this card.', 'powerpack-lite-for-elementor' ); ?>
+			</span>
 			<div <?php $this->print_render_attribute_string( 'flipbox-card' ); ?>>
 				<?php
 					// Front
@@ -2021,12 +2051,27 @@ class Flipbox extends Powerpack_Widget {
 				],
 			} );
 
+			var flipboxAccessibleLabel = settings.title_front ? settings.title_front.replace( /(<([^>]+)>)/gi, '' ) : '';
+
+			if ( ! flipboxAccessibleLabel && settings.description_front ) {
+				flipboxAccessibleLabel = settings.description_front.replace( /(<([^>]+)>)/gi, '' );
+			}
+
+			if ( ! flipboxAccessibleLabel ) {
+				flipboxAccessibleLabel = '<?php echo esc_js( __( 'Flip box', 'powerpack-lite-for-elementor' ) ); ?>';
+			}
+
 			view.addRenderAttribute( 'flipbox-container', {
 				'class': [
 					'pp-flipbox-container',
 					'pp-animate-' + settings.flip_effect,
 					'pp-direction-' + settings.flip_direction
 				],
+				'tabindex': '0',
+				'role': 'group',
+				'aria-roledescription': '<?php echo esc_js( __( 'flip card', 'powerpack-lite-for-elementor' ) ); ?>',
+				'aria-label': flipboxAccessibleLabel,
+				'aria-describedby': view.model.get( 'id' ) + '-pp-flipbox-hint',
 			} );
 
 			function render_button_icon() {
@@ -2149,6 +2194,18 @@ class Flipbox extends Powerpack_Widget {
 					if ( 'box' === settings.link_type && settings.link.url ) {
 						view.addRenderAttribute( 'box-link', 'class', 'pp-flipbox-box-link' );
 						view.addRenderAttribute( 'box-link', 'href', settings.link.url );
+
+						var boxLinkLabel = settings.title_back ? settings.title_back.replace( /(<([^>]+)>)/gi, '' ) : '';
+
+						if ( ! boxLinkLabel && settings.description_back ) {
+							boxLinkLabel = settings.description_back.replace( /(<([^>]+)>)/gi, '' );
+						}
+
+						if ( ! boxLinkLabel ) {
+							boxLinkLabel = '<?php echo esc_js( __( 'Learn more', 'powerpack-lite-for-elementor' ) ); ?>';
+						}
+
+						view.addRenderAttribute( 'box-link', 'aria-label', boxLinkLabel );
 						#>
 						<a <{{{ view.getRenderAttributeString( 'box-link' ) }}}></a>
 					<# } #>
@@ -2218,6 +2275,7 @@ class Flipbox extends Powerpack_Widget {
 			}
 		#>
 		<div {{{ view.getRenderAttributeString( 'flipbox-container' ) }}}>
+			<span id="{{ view.model.get( 'id' ) }}-pp-flipbox-hint" class="pp-flipbox-sr-hint"><?php echo esc_js( __( 'Use Tab or hover to reveal the back of this card.', 'powerpack-lite-for-elementor' ) ); ?></span>
 			<div {{{ view.getRenderAttributeString( 'flipbox-card' ) }}}>
 				<#
 					render_front();

@@ -97,6 +97,7 @@
 
 .pp-content-ticker {
   overflow: hidden;
+  margin: -4px;
 }
 .pp-content-ticker .swiper-wrapper {
   -webkit-box-align: center;
@@ -104,6 +105,9 @@
           align-items: center;
 }
 .pp-content-ticker .swiper-wrapper .swiper-slide {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 4px;
   text-align: start;
 }
 .pp-content-ticker .pp-content-ticker-item-title {
@@ -164,12 +168,52 @@
   -webkit-transform: none;
           transform: none;
   width: auto;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-inline-size: 24px;
+  min-block-size: 24px;
 }
 .pp-content-ticker-navigation .elementor-swiper-button-prev {
   -webkit-margin-end: 6px;
           margin-inline-end: 6px;
 }
 
+.pp-content-ticker-navigation-auto:not(:focus-within) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-content-ticker-navigation-auto:not(:focus-within) {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    -webkit-padding-start: 10px;
+            padding-inline-start: 10px;
+    -webkit-padding-end: 10px;
+            padding-inline-end: 10px;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+  }
+}
 @media only screen and (max-width: 767px) {
   .pp-content-ticker-heading {
     width: 100% !important;
@@ -187,5 +231,28 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+.pp-content-ticker-container .pp-slider-arrow:focus,
+.pp-content-ticker-container .pp-slider-arrow:focus-visible,
+.pp-content-ticker-container .pp-content-ticker-item-title:focus,
+.pp-content-ticker-container .pp-content-ticker-item-title:focus-visible,
+.pp-content-ticker-container .pp-content-ticker-item-title a:focus,
+.pp-content-ticker-container .pp-content-ticker-item-title a:focus-visible,
+.pp-content-ticker-container a:focus,
+.pp-content-ticker-container a:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-content-ticker-container,
+  .pp-content-ticker-container .swiper-wrapper,
+  .pp-content-ticker-container .swiper-slide,
+  .pp-content-ticker-container .pp-content-ticker-item {
+    -webkit-transition-duration: 0.001ms !important;
+            transition-duration: 0.001ms !important;
+    -webkit-animation-duration: 0.001ms !important;
+            animation-duration: 0.001ms !important;
   }
 }

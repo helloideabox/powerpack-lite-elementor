@@ -1038,7 +1038,14 @@ class Business_Hours extends Powerpack_Widget {
 		$settings = $this->get_settings();
 
 		$this->add_render_attribute( 'business-hours', 'class', 'pp-business-hours' );
+		$this->add_render_attribute( 'business-hours', 'role', 'list' );
+		$this->add_render_attribute( 'business-hours', 'aria-label', esc_attr__( 'Business Hours', 'powerpack-lite-for-elementor' ) );
+
+		$skip_target_id = 'pp-bh-end-' . esc_attr( $this->get_id() );
 		?>
+		<a href="#<?php echo esc_attr( $skip_target_id ); ?>" class="pp-skip-link">
+			<?php esc_html_e( 'Skip business hours list', 'powerpack-lite-for-elementor' ); ?>
+		</a>
 		<div <?php $this->print_render_attribute_string( 'business-hours' ); ?>>
 			<?php
 			if ( 'predefined' === $settings['business_timings'] ) {
@@ -1048,7 +1055,22 @@ class Business_Hours extends Powerpack_Widget {
 			}
 			?>
 		</div>
+		<span id="<?php echo esc_attr( $skip_target_id ); ?>" tabindex="-1"></span>
 		<?php
+	}
+
+	/**
+	 * Get today's day name (site timezone aware).
+	 *
+	 * Used to mark the current day for assistive technology (aria-current)
+	 * without requiring any JavaScript.
+	 *
+	 * @access protected
+	 *
+	 * @return string Full day name, e.g. 'Monday'.
+	 */
+	protected function get_today_day_name() {
+		return function_exists( 'current_time' ) ? current_time( 'l' ) : gmdate( 'l' );
 	}
 
 	/**
@@ -1081,10 +1103,13 @@ class Business_Hours extends Powerpack_Widget {
 	 */
 	protected function render_business_hours_predefined() {
 		$settings = $this->get_settings();
+		$today    = $this->get_today_day_name();
 		$i = 1;
 		foreach ( $settings['business_hours'] as $index => $item ) : ?>
 			<?php
 			$row_setting_key = $this->get_repeater_setting_key( 'row', 'business_hours', $index );
+			$is_today         = ( $item['day'] === $today );
+
 			$this->add_render_attribute( $row_setting_key, 'class', [
 				'pp-business-hours-row',
 				'clearfix',
@@ -1094,43 +1119,48 @@ class Business_Hours extends Powerpack_Widget {
 			if ( 'no' !== $item['closed'] ) {
 				$this->add_render_attribute( $row_setting_key, 'class', 'row-closed' );
 			}
+
+			if ( $is_today ) {
+				$this->add_render_attribute( $row_setting_key, 'class', 'pp-today' );
+				$this->add_render_attribute( $row_setting_key, 'aria-current', 'date' );
+			}
+
+			$this->add_render_attribute( $row_setting_key, 'role', 'listitem' );
 			?>
 			<div <?php $this->print_render_attribute_string( $row_setting_key ); ?>>
 				<span class="pp-business-day">
 					<?php
 					if ( 'long' === $settings['days_format'] ) {
-						echo esc_attr( ucwords( $this->get_predefined_days( $item['day'] ) ) );
+						echo esc_html( ucwords( $this->get_predefined_days( $item['day'] ) ) );
 					} else {
-						echo esc_attr( ucwords( substr( $item['day'], 0, 3 ) ) );
+						echo esc_html( ucwords( substr( $item['day'], 0, 3 ) ) );
+					}
+					if ( $is_today ) {
+						?>
+						<span class="pp-visually-hidden"> <?php esc_html_e( '(Today)', 'powerpack-lite-for-elementor' ); ?></span>
+						<?php
 					}
 					?>
 				</span>
 				<span class="pp-business-timing">
-					<?php if ( 'no' === $item['closed'] ) { ?>
-						<span class="pp-opening-hours">
-							<?php
-							if ( 'yes' === $settings['hours_format'] ) {
-								echo esc_attr( $item['opening_hours'] );
-							} else {
-								echo esc_attr( gmdate( 'g:i A', strtotime( $item['opening_hours'] ) ) );
-							}
-							?>
-						</span>
-						-
-						<span class="pp-closing-hours">
-							<?php
-							if ( 'yes' === $settings['hours_format'] ) {
-								echo esc_attr( $item['closing_hours'] );
-							} else {
-								echo esc_attr( gmdate( 'g:i A', strtotime( $item['closing_hours'] ) ) );
-							}
-							?>
-						</span>
+					<?php if ( 'no' === $item['closed'] ) {
+						$open_raw  = $item['opening_hours'];
+						$close_raw = $item['closing_hours'];
+
+						if ( 'yes' === $settings['hours_format'] ) {
+							$open_display  = $open_raw;
+							$close_display = $close_raw;
+						} else {
+							$open_display  = gmdate( 'g:i A', strtotime( $open_raw ) );
+							$close_display = gmdate( 'g:i A', strtotime( $close_raw ) );
+						}
+						?>
+						<time class="pp-opening-hours" datetime="<?php echo esc_attr( $open_raw ); ?>"><?php echo esc_html( $open_display ); ?></time><span aria-hidden="true"> - </span><span class="pp-visually-hidden"><?php esc_html_e( 'to', 'powerpack-lite-for-elementor' ); ?> </span><time class="pp-closing-hours" datetime="<?php echo esc_attr( $close_raw ); ?>"><?php echo esc_html( $close_display ); ?></time>
 					<?php } else {
 						if ( $item['closed_text'] ) {
 							$this->print_unescaped_setting( 'closed_text', 'business_hours', $index );
 						} else {
-							esc_attr_e( 'Closed', 'powerpack-lite-for-elementor' );
+							esc_html_e( 'Closed', 'powerpack-lite-for-elementor' );
 						}
 					} ?>
 				</span>
@@ -1162,24 +1192,26 @@ class Business_Hours extends Powerpack_Widget {
 				if ( 'no' !== $item['closed'] ) {
 					$this->add_render_attribute( $row_setting_key, 'class', 'row-closed' );
 				}
+
+				$this->add_render_attribute( $row_setting_key, 'role', 'listitem' );
 				?>
 				<div <?php $this->print_render_attribute_string( $row_setting_key ); ?>>
 					<?php if ( $item['day'] ) { ?>
 						<span class="pp-business-day">
 							<?php
-								echo esc_attr( $item['day'] );
+								echo esc_html( $item['day'] );
 							?>
 						</span>
 					<?php } ?>
 					<span class="pp-business-timing">
 						<?php
 						if ( 'no' === $item['closed'] && $item['time'] ) {
-							echo esc_attr( $item['time'] );
+							echo esc_html( $item['time'] );
 						} else {
 							if ( $item['closed_text'] ) {
 								$this->print_unescaped_setting( 'closed_text', 'business_hours_custom', $index );
 							} else {
-								esc_attr_e( 'Closed', 'powerpack-lite-for-elementor' );
+								esc_html_e( 'Closed', 'powerpack-lite-for-elementor' );
 							}
 						}
 						?>
@@ -1229,41 +1261,51 @@ class Business_Hours extends Powerpack_Widget {
 				return formatted_time;
 			}
 
+			function pp_getTodayDayName() {
+				var days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
+				return days[ new Date().getDay() ];
+			}
+
 			function business_hours_predefined_template() {
+				var today = pp_getTodayDayName();
 				_.each( settings.business_hours, function( item ) { #>
 					<#
-						var closed = ( item.closed != 'no' ) ? 'row-closed' : '';
+						var closed   = ( item.closed != 'no' ) ? 'row-closed' : '';
+						var isToday  = ( item.day == today );
+						var todayCls = isToday ? 'pp-today' : '';
+						var ariaCur  = isToday ? 'aria-current="date"' : '';
 					#>
-					<div class="pp-business-hours-row clearfix elementor-repeater-item-{{ item._id }} {{ closed }}">
+					<div class="pp-business-hours-row clearfix elementor-repeater-item-{{ item._id }} {{ closed }} {{ todayCls }}" role="listitem" {{{ ariaCur }}}>
 						<span class="pp-business-day">
 							<# if ( settings.days_format == 'long' ) { #>
 								{{ item.day }}
 							<# } else { #>
 								{{ item.day.substring(0,3) }}
 							<# } #>
+							<# if ( isToday ) { #>
+								<span class="pp-visually-hidden"> <?php esc_html_e( '(Today)', 'powerpack-lite-for-elementor' ); ?></span>
+							<# } #>
 						</span>
 						<span class="pp-business-timing">
 							<# if ( item.closed == 'no' ) { #>
-								<span class="pp-opening-hours">
+								<time class="pp-opening-hours">
 									<# if ( settings.hours_format == 'yes' ) { #>
 										{{ item.opening_hours }}
 									<# } else { #>
 										{{ pp_timeTo12HrFormat( item.opening_hours ) }}
 									<# } #>
-								</span>
-								-
-								<span class="pp-closing-hours">
+								</time><span aria-hidden="true"> - </span><span class="pp-visually-hidden"><?php esc_html_e( 'to', 'powerpack-lite-for-elementor' ); ?> </span><time class="pp-closing-hours">
 									<# if ( settings.hours_format == 'yes' ) { #>
 										{{ item.closing_hours }}
 									<# } else { #>
 										{{ pp_timeTo12HrFormat( item.closing_hours ) }}
 									<# } #>
-								</span>
+								</time>
 							<# } else { #>
 								<# if ( item.closed_text != '' ) { #>
 									{{ item.closed_text }}
 								<# } else { #>
-									<?php esc_attr_e( 'Closed', 'powerpack-lite-for-elementor' ); ?>
+									<?php esc_html_e( 'Closed', 'powerpack-lite-for-elementor' ); ?>
 								<# } #>
 							<# } #>
 						</span>
@@ -1276,7 +1318,7 @@ class Business_Hours extends Powerpack_Widget {
 					<#
 						var closed = ( item.closed != 'no' ) ? 'row-closed' : '';
 					#>
-					<div class="pp-business-hours-row clearfix elementor-repeater-item-{{ item._id }} {{ closed }}">
+					<div class="pp-business-hours-row clearfix elementor-repeater-item-{{ item._id }} {{ closed }}" role="listitem">
 						<# if ( item.day != '' ) { #>
 							<span class="pp-business-day">
 								{{ item.day }}
@@ -1289,7 +1331,7 @@ class Business_Hours extends Powerpack_Widget {
 								<# if ( item.closed_text != '' ) { #>
 									{{ item.closed_text }}
 								<# } else { #>
-									<?php esc_attr_e( 'Closed', 'powerpack-lite-for-elementor' ); ?>
+									<?php esc_html_e( 'Closed', 'powerpack-lite-for-elementor' ); ?>
 								<# } #>
 							<# } #>
 						</span>
@@ -1297,7 +1339,7 @@ class Business_Hours extends Powerpack_Widget {
 				<# } );
 			}
 		#>
-		<div class="pp-business-hours">
+		<div class="pp-business-hours" role="list" aria-label="<?php echo esc_attr__( 'Business Hours', 'powerpack-lite-for-elementor' ); ?>">
 			<#
 				if ( settings.business_timings == 'predefined' ) {
 					business_hours_predefined_template();

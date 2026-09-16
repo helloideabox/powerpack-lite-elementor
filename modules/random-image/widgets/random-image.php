@@ -264,18 +264,18 @@ class Random_Image extends Powerpack_Widget {
 
 		$this->add_control(
 			'caption_position',
-			array(
+			[
 				'label'     => esc_html__( 'Caption Position', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'below_image',
-				'options'   => array(
+				'options'   => [
 					'over_image'  => esc_html__( 'Over Image', 'powerpack-lite-for-elementor' ),
 					'below_image' => esc_html__( 'Below Image', 'powerpack-lite-for-elementor' ),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'caption!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
@@ -310,15 +310,15 @@ class Random_Image extends Powerpack_Widget {
 
 		$this->add_control(
 			'important_note',
-			array(
+			[
 				'label'           => '',
 				'type'            => Controls_Manager::RAW_HTML,
 				'raw'             => esc_html__( 'To add a different link to each image, add custom link in the media uploader.', 'powerpack-lite-for-elementor' ),
 				'content_classes' => 'pp-editor-info',
-				'condition'       => array(
+				'condition'       => [
 					'link_to' => 'custom',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
@@ -536,7 +536,7 @@ class Random_Image extends Powerpack_Widget {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image, {{WRAPPER}} .pp-random-image-wrap:focus-within .pp-random-image' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -545,7 +545,7 @@ class Random_Image extends Powerpack_Widget {
 			Group_Control_Css_Filter::get_type(),
 			[
 				'name' => 'css_filters_hover',
-				'selector' => '{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image',
+				'selector' => '{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image, {{WRAPPER}} .pp-random-image-wrap:focus-within .pp-random-image',
 			]
 		);
 
@@ -985,7 +985,7 @@ class Random_Image extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image-caption' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image-caption, {{WRAPPER}} .pp-random-image-wrap:focus-within .pp-random-image-caption' => 'color: {{VALUE}};',
 				],
 				'condition'             => [
 					'caption!'   => '',
@@ -1000,7 +1000,7 @@ class Random_Image extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image-caption' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image-caption, {{WRAPPER}} .pp-random-image-wrap:focus-within .pp-random-image-caption' => 'background-color: {{VALUE}};',
 				],
 				'condition'             => [
 					'caption!'   => '',
@@ -1015,7 +1015,7 @@ class Random_Image extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image-caption' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image-caption, {{WRAPPER}} .pp-random-image-wrap:focus-within .pp-random-image-caption' => 'border-color: {{VALUE}};',
 				],
 				'condition'             => [
 					'caption!'   => '',
@@ -1028,7 +1028,7 @@ class Random_Image extends Powerpack_Widget {
 			[
 				'name'                  => 'caption_text_shadow_hover',
 				'label'                 => esc_html__( 'Text Shadow', 'powerpack-lite-for-elementor' ),
-				'selector'              => '{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image-caption',
+				'selector'              => '{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image-caption, {{WRAPPER}} .pp-random-image-wrap:focus-within .pp-random-image-caption',
 				'condition'             => [
 					'caption!'   => '',
 				],
@@ -1048,7 +1048,7 @@ class Random_Image extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image-caption' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .pp-random-image-wrap:hover .pp-random-image-caption, {{WRAPPER}} .pp-random-image-wrap:focus-within .pp-random-image-caption' => 'opacity: {{SIZE}};',
 				],
 				'condition'             => [
 					'caption!'         => '',
@@ -1088,19 +1088,31 @@ class Random_Image extends Powerpack_Widget {
 		$index       = ( $count > 1 ) ? wp_rand( 0, $count - 1 ) : 0;
 		$image_id    = apply_filters( 'wpml_object_id', $settings['wp_gallery'][ $index ]['id'], 'attachment', true );
 		$has_caption = '' !== $settings['caption'];
-		$link        = '';
+		$link        = [];
+		$has_link    = false;
 		$attachment  = get_post( $image_id );
 		$has_filter  = ( ! empty( $settings['image_filter'] ) && 'normal' !== $settings['image_filter'] )
 			|| ( ! empty( $settings['image_filter_hover'] ) && 'normal' !== $settings['image_filter_hover'] );
 
-		$image = array(
+		// The stretched overlay anchor only exists to keep the absolutely positioned caption from
+		// swallowing clicks, so it is only needed when a caption is actually rendered over the image.
+		$caption_over = $has_caption && 'over_image' === $settings['caption_position'];
+
+		$image = [
 			'id'  => $image_id,
 			'url' => Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image', $settings ),
-		);
+		];
+
+		// Control_Media::get_image_alt() returns an esc_attr()'d string and Elementor escapes render
+		// attributes again on output, so decode once to keep the accessible name from double escaping.
+		$image_alt = wp_specialchars_decode( Control_Media::get_image_alt( $image ), ENT_QUOTES );
 
 		$wrapper_classes = [ 'pp-random-image-wrap' ];
 		if ( $has_filter ) {
 			$wrapper_classes[] = 'pp-ins-filter-hover';
+		}
+		if ( $caption_over ) {
+			$wrapper_classes[] = 'pp-random-image-caption-over';
 		}
 
 		$this->add_render_attribute( [
@@ -1117,7 +1129,7 @@ class Random_Image extends Powerpack_Widget {
 			'image' => [
 				'class' => 'elementor-image pp-random-image',
 				'src' => Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image', $settings ),
-				'alt' => esc_attr( Control_Media::get_image_alt( $image ) ),
+				'alt' => $image_alt,
 			],
 			'caption' => [
 				'class' => [
@@ -1138,10 +1150,11 @@ class Random_Image extends Powerpack_Widget {
 		}
 
 		if ( 'none' !== $settings['link_to'] ) {
+			$this->add_render_attribute( 'link', 'class', 'pp-random-image-link' );
+
 			if ( 'file' === $settings['link_to'] ) {
 				$link = $settings['wp_gallery'][ $index ];
 				$this->add_render_attribute( 'link', [
-					'class' => 'pp-random-image-link',
 					'data-elementor-open-lightbox' => $settings['open_lightbox'],
 				] );
 
@@ -1167,6 +1180,30 @@ class Random_Image extends Powerpack_Widget {
 
 				$this->add_link_attributes( 'link', $link );
 			}
+
+			// An anchor without an href has no link role, so only render one for a real destination.
+			$has_link = ! empty( $link['url'] );
+		}
+
+		if ( $has_link ) {
+			$caption_text = trim( wp_strip_all_tags( $this->render_image_caption( $attachment ) ) );
+
+			if ( 'file' === $settings['link_to'] && '' !== $caption_text ) {
+				$this->add_render_attribute( 'link', 'data-elementor-lightbox-title', $caption_text );
+			}
+
+			// The over-image anchor is rendered empty (click overlay), so it always needs an
+			// accessible name. The wrapping anchor only needs one when the image alt is empty.
+			if ( $caption_over || '' === $image_alt ) {
+				$link_label = ( '' !== $caption_text ) ? $caption_text : $image_alt;
+
+				if ( '' === $link_label ) {
+					// Not escaped here: Elementor runs esc_attr() on every render attribute on output.
+					$link_label = __( 'View image', 'powerpack-lite-for-elementor' );
+				}
+
+				$this->add_render_attribute( 'link', 'aria-label', $link_label );
+			}
 		}
 		?>
 		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
@@ -1181,8 +1218,8 @@ class Random_Image extends Powerpack_Widget {
 				$image_html = '<div ' . $this->get_render_attribute_string( 'image_target' ) . '>' . $image_html . '</div>';
 			}
 
-			if ( $link ) {
-				if ( 'over_image' === $settings['caption_position'] ) {
+			if ( $has_link ) {
+				if ( $caption_over ) {
 					$image_html = '<a ' . $this->get_render_attribute_string( 'link' ) . '></a>' . $image_html;
 				} else {
 					$image_html = '<a ' . $this->get_render_attribute_string( 'link' ) . '>' . $image_html . '</a>';
@@ -1192,13 +1229,13 @@ class Random_Image extends Powerpack_Widget {
 			echo wp_kses_post( $image_html );
 			?>
 			<?php if ( $has_caption ) { ?>
-				<?php if ( 'over_image' === $settings['caption_position'] ) { ?>
+				<?php if ( $caption_over ) { ?>
 				<div class="pp-gallery-image-content pp-media-content">
 				<?php } ?>
 				<figcaption <?php echo wp_kses_post( $this->get_render_attribute_string( 'caption' ) ); ?>>
 					<?php echo wp_kses_post( $this->render_image_caption( $attachment ) ); ?>
 				</figcaption>
-				<?php if ( 'over_image' === $settings['caption_position'] ) { ?>
+				<?php if ( $caption_over ) { ?>
 				</div>
 				<?php } ?>
 			</figure>

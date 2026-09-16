@@ -364,3 +364,13 @@ corresponds to the arrow we want to display */
 .pp-tooltip-container {
   display: none;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .tooltipster-base,
+  .tooltipster-base .tooltipster-box {
+    -webkit-animation: none !important;
+            animation: none !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+}

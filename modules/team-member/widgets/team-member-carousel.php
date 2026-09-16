@@ -2865,10 +2865,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 		$this->add_render_attribute(
 			'team-member-carousel',
-			array(
-				'class' => array( 'pp-tm-wrapper', 'pp-tm-carousel', 'pp-swiper-slider', 'swiper' ),
+			[
+				'class' => [ 'pp-tm-wrapper', 'pp-tm-carousel', 'pp-swiper-slider', 'swiper' ],
 				'id'    => 'swiper-container-' . esc_attr( $this->get_id() ),
-			)
+			]
 		);
 
 		if ( 'auto' === $settings['direction'] ) {
@@ -2883,32 +2883,69 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 		$slider_options = $this->get_swiper_slider_settings( $settings, false );
 
+		/*
+		 * Opts this widget into Swiper's a11y module, which is what makes the
+		 * div[role=button] arrows answer Enter and Space, gives the pagination bullets a
+		 * role and a tab stop, and sets aria-disabled at either end. Flagged per widget so
+		 * the other carousels sharing this script keep their current behaviour; the
+		 * messages themselves come from PP_Helper::get_carousel_a11y_strings().
+		 */
+		$slider_options['a11y'] = 'yes';
+
 		$this->add_render_attribute(
 			'team-member-carousel',
-			array(
+			[
 				'data-slider-settings' => wp_json_encode( $slider_options ),
-			)
+				'role'                 => 'region',
+				'aria-roledescription' => esc_attr__( 'carousel', 'powerpack-lite-for-elementor' ),
+				'aria-label'           => esc_attr__( 'Team members carousel', 'powerpack-lite-for-elementor' ),
+			]
 		);
 		?>
 		<div <?php $this->print_render_attribute_string( 'team-member-carousel-wrap' ); ?>>
 			<div <?php $this->print_render_attribute_string( 'team-member-carousel' ); ?>>
 				<div class="swiper-wrapper">
-					<?php foreach ( $settings['team_member_details'] as $index => $item ) : ?>
-						<div class="swiper-slide">
+					<?php
+					$total_members = count( $settings['team_member_details'] );
+
+					foreach ( $settings['team_member_details'] as $index => $item ) :
+						$slide_key = $this->get_repeater_setting_key( 'slide', 'team_member_details', $index );
+
+						$this->add_render_attribute(
+							$slide_key,
+							[
+								'class'                => 'swiper-slide',
+								// aria-roledescription is ignored on a generic div, so the group role has to come with it.
+								'role'                 => 'group',
+								'aria-roledescription' => esc_attr__( 'slide', 'powerpack-lite-for-elementor' ),
+								/* translators: 1: slide number, 2: total slides */
+								'aria-label'           => sprintf( esc_html__( 'Slide %1$d of %2$d', 'powerpack-lite-for-elementor' ), $index + 1, $total_members ),
+							]
+						);
+						?>
+						<div <?php $this->print_render_attribute_string( $slide_key ); ?>>
 							<div class="pp-tm">
 								<div class="pp-tm-image"> 
 									<?php
 									if ( $item['team_member_image']['url'] ) {
 										$image_id  = apply_filters( 'wpml_object_id', $item['team_member_image']['id'], 'attachment', true );
 										$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'thumbnail', $settings );
+										$is_linked = ( 'image' === $item['link_type'] && $item['link']['url'] );
+										$image_alt = Control_Media::get_image_alt( $item['team_member_image'] );
 
-										if ( $image_url ) {
-											$image_html = '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( Control_Media::get_image_alt( $item['team_member_image'] ) ) . '">';
-										} else {
-											$image_html = '<img src="' . esc_url( $item['team_member_image']['url'] ) . '">';
+										/*
+										 * The name is announced from the heading right below, so an unlinked
+										 * photo is decorative. A linked one has to carry the name, or the
+										 * link ends up with no accessible name at all.
+										 */
+										if ( '' === $image_alt && $is_linked ) {
+											$image_alt = $item['team_member_name'];
 										}
 
-										if ( 'image' === $item['link_type'] && $item['link']['url'] ) {
+										$image_src  = $image_url ? $image_url : $item['team_member_image']['url'];
+										$image_html = '<img src="' . esc_url( $image_src ) . '" alt="' . esc_attr( $image_alt ) . '">';
+
+										if ( $is_linked ) {
 
 											$link_key = $this->get_repeater_setting_key( 'link', 'team_member_image', $index );
 
@@ -2930,10 +2967,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 												<?php
 												if ( 'yes' === $settings['member_social_links'] ) {
 													if ( 'social_icons' === $settings['overlay_content'] ) {
-														$this->member_social_links( $item );
+														$this->member_social_links( $item, $index );
 													} elseif ( 'all_content' === $settings['overlay_content'] ) {
 														if ( 'before_desc' === $settings['social_links_position'] ) {
-															$this->member_social_links( $item );
+															$this->member_social_links( $item, $index );
 														}
 													}
 												}
@@ -2944,7 +2981,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 												if ( 'yes' === $settings['member_social_links'] && 'all_content' === $settings['overlay_content'] ) {
 													if ( 'after_desc' === $settings['social_links_position'] ) {
-														$this->member_social_links( $item );
+														$this->member_social_links( $item, $index );
 													}
 												}
 												?>
@@ -2961,10 +2998,10 @@ class Team_Member_Carousel extends Powerpack_Widget {
 									if ( 'yes' === $settings['member_social_links'] && ( 'none' === $settings['overlay_content'] || 'content' === $settings['overlay_content'] ) ) {
 										if ( 'none' === $settings['overlay_content'] ) {
 											if ( 'before_desc' === $settings['social_links_position'] ) {
-												$this->member_social_links( $item );
+												$this->member_social_links( $item, $index );
 											}
 										} else {
-											$this->member_social_links( $item );
+											$this->member_social_links( $item, $index );
 										}
 									}
 
@@ -2974,7 +3011,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 									if ( 'yes' === $settings['member_social_links'] && ( 'none' === $settings['overlay_content'] || 'content' === $settings['overlay_content'] ) ) {
 										if ( 'after_desc' === $settings['social_links_position'] && 'none' === $settings['overlay_content'] ) {
-											$this->member_social_links( $item );
+											$this->member_social_links( $item, $index );
 										}
 									}
 									?>
@@ -2983,6 +3020,15 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						</div>
 					<?php endforeach; ?>
 				</div>
+				<?php
+				$total = count( $settings['team_member_details'] );
+
+				printf(
+					'<div class="pp-screen-only elementor-screen-only" aria-live="polite" aria-atomic="true" id="pp-tm-carousel-status-%1$s">%2$s</div>',
+					esc_attr( $this->get_id() ),
+					esc_html( PP_Helper::get_slide_status_text( 1, $total ) )
+				);
+				?>
 			</div>
 			<?php
 				$this->render_dots();
@@ -3063,6 +3109,39 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		}
 	}
 
+	/**
+	 * Human-readable label for a social network.
+	 *
+	 * The social links hold nothing but an aria-hidden icon, so without this their
+	 * accessible name is empty and a screen reader falls back to reading the URL.
+	 *
+	 * @since x.x.x
+	 * @param string $network_name Network slug.
+	 * @access private
+	 * @return string
+	 */
+	private static function get_network_label( $network_name ) {
+		$labels = [
+			'facebook'  => esc_html__( 'Facebook', 'powerpack-lite-for-elementor' ),
+			'x-twitter' => esc_html__( 'X', 'powerpack-lite-for-elementor' ),
+			'instagram' => esc_html__( 'Instagram', 'powerpack-lite-for-elementor' ),
+			'linkedin'  => esc_html__( 'LinkedIn', 'powerpack-lite-for-elementor' ),
+			'youtube'   => esc_html__( 'YouTube', 'powerpack-lite-for-elementor' ),
+			'pinterest' => esc_html__( 'Pinterest', 'powerpack-lite-for-elementor' ),
+			'dribbble'  => esc_html__( 'Dribbble', 'powerpack-lite-for-elementor' ),
+			'flickr'    => esc_html__( 'Flickr', 'powerpack-lite-for-elementor' ),
+			'tumblr'    => esc_html__( 'Tumblr', 'powerpack-lite-for-elementor' ),
+			'tiktok'    => esc_html__( 'TikTok', 'powerpack-lite-for-elementor' ),
+			'github'    => esc_html__( 'GitHub', 'powerpack-lite-for-elementor' ),
+			'vimeo'     => esc_html__( 'Vimeo', 'powerpack-lite-for-elementor' ),
+			'xing'      => esc_html__( 'Xing', 'powerpack-lite-for-elementor' ),
+			'envelope'  => esc_html__( 'Email', 'powerpack-lite-for-elementor' ),
+			'phone'     => esc_html__( 'Phone', 'powerpack-lite-for-elementor' ),
+		];
+
+		return isset( $labels[ $network_name ] ) ? $labels[ $network_name ] : ucfirst( $network_name );
+	}
+
 	private static function render_share_icon( $network_name ) {
 		$network_icon_data = self::get_network_icon_data( $network_name );
 
@@ -3077,9 +3156,18 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		\Elementor\Utils::print_unescaped_internal_string( $icon );
 	}
 
-	private function member_social_links( $item ) {
+	/**
+	 * Render one member's social links.
+	 *
+	 * @param array $item  Repeater item.
+	 * @param int   $index Position of the member in the repeater. Render attribute keys
+	 *                     have to include it: add_render_attribute() appends to a key it
+	 *                     has already seen, so a key built from the icon position alone
+	 *                     collides between members and their values pile up.
+	 */
+	private function member_social_links( $item, $index = 0 ) {
 		$settings = $this->get_settings_for_display();
-		$social_links = array();
+		$social_links = [];
 
 		( $item['facebook_url'] ) ? $social_links['facebook']   = $item['facebook_url'] : '';
 		( $item['twitter_url'] ) ? $social_links['x-twitter']   = $item['twitter_url'] : '';
@@ -3098,13 +3186,14 @@ class Team_Member_Carousel extends Powerpack_Widget {
 		( $item['phone'] ) ? $social_links['phone']             = $item['phone'] : '';
 		?>
 		<div class="pp-tm-social-links-wrap">
-			<ul class="pp-tm-social-links">
+			<?php // Explicit role: list-style:none strips the implicit list role in Safari/VoiceOver. ?>
+			<ul class="pp-tm-social-links" role="list">
 				<?php
 				$i = 0;
 				foreach ( $social_links as $icon_id => $icon_url ) {
 					$network_name = $icon_id;
 
-					$icon_wrap_key = 'icon_wrap' . $i;
+					$icon_wrap_key = 'icon_wrap' . $index . '_' . $i;
 					$this->add_render_attribute( $icon_wrap_key, 'class', 'pp-tm-social-icon-wrap' );
 
 					if ( 'button' === $settings['social_links_style'] ) {
@@ -3116,24 +3205,56 @@ class Team_Member_Carousel extends Powerpack_Widget {
 					}
 
 					if ( $icon_url ) {
-						$social_link_url = esc_url( $icon_url );
+						// Raw rather than esc_url: add_render_attribute escapes for output, and
+						// esc_url's entity encoding would then be encoded a second time.
+						$social_link_url = esc_url_raw( $icon_url );
 
 						if ( 'envelope' === $icon_id ) {
-							$social_link_url = "mailto:" . sanitize_email( $icon_url );
+							$social_link_url = 'mailto:' . sanitize_email( $icon_url );
 						} elseif ( 'phone' === $icon_id ) {
-							$social_link_url = "tel:" . esc_attr( $icon_url );
+							$social_link_url = 'tel:' . $icon_url;
 						}
 
-						$link_target = $settings['links_target'];
+						$link_key      = 'social_link' . $index . '_' . $i;
+						$new_window    = ( '_blank' === $settings['links_target'] );
+						$network_label = self::get_network_label( $network_name );
+
+						$link_label = $item['team_member_name']
+							/* translators: 1: team member name, 2: social network name */
+							? sprintf( esc_html__( '%1$s on %2$s', 'powerpack-lite-for-elementor' ), $item['team_member_name'], $network_label )
+							: $network_label;
+
+						$this->add_render_attribute(
+							$link_key,
+							[
+								// Carries the 24x24 minimum target size shared with the Team Member widget.
+								'class'      => 'pp-tm-social-link',
+								'href'       => $social_link_url,
+								'aria-label' => $link_label,
+							]
+						);
+
+						if ( $new_window ) {
+							$this->add_render_attribute(
+								$link_key,
+								[
+									'target' => '_blank',
+									'rel'    => 'noopener noreferrer',
+								]
+							);
+						}
 						?>
 						<li>
-							<a href="<?php echo $social_link_url; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" target="<?php echo esc_attr( $link_target ); ?>">
+							<a <?php $this->print_render_attribute_string( $link_key ); ?>>
 								<span <?php $this->print_render_attribute_string( $icon_wrap_key ); ?>>
 									<?php self::render_share_icon( $network_name ); ?>
 								</span>
+								<?php if ( $new_window ) : ?>
+									<span class="pp-screen-only elementor-screen-only"><?php echo esc_html__( '(opens in a new tab)', 'powerpack-lite-for-elementor' ); ?></span>
+								<?php endif; ?>
 							</a>
 						</li>
-						<?php	
+						<?php
 					}
 					$i++;
 				}
@@ -3205,6 +3326,28 @@ class Team_Member_Carousel extends Powerpack_Widget {
 				return iconObj;
 			}
 
+			function get_social_network_label( icon ) {
+				var labels = {
+					facebook:  '<?php echo esc_js( __( 'Facebook', 'powerpack-lite-for-elementor' ) ); ?>',
+					twitter:   '<?php echo esc_js( __( 'X', 'powerpack-lite-for-elementor' ) ); ?>',
+					instagram: '<?php echo esc_js( __( 'Instagram', 'powerpack-lite-for-elementor' ) ); ?>',
+					linkedin:  '<?php echo esc_js( __( 'LinkedIn', 'powerpack-lite-for-elementor' ) ); ?>',
+					youtube:   '<?php echo esc_js( __( 'YouTube', 'powerpack-lite-for-elementor' ) ); ?>',
+					pinterest: '<?php echo esc_js( __( 'Pinterest', 'powerpack-lite-for-elementor' ) ); ?>',
+					dribbble:  '<?php echo esc_js( __( 'Dribbble', 'powerpack-lite-for-elementor' ) ); ?>',
+					flickr:    '<?php echo esc_js( __( 'Flickr', 'powerpack-lite-for-elementor' ) ); ?>',
+					tumblr:    '<?php echo esc_js( __( 'Tumblr', 'powerpack-lite-for-elementor' ) ); ?>',
+					tiktok:    '<?php echo esc_js( __( 'TikTok', 'powerpack-lite-for-elementor' ) ); ?>',
+					github:    '<?php echo esc_js( __( 'GitHub', 'powerpack-lite-for-elementor' ) ); ?>',
+					vimeo:     '<?php echo esc_js( __( 'Vimeo', 'powerpack-lite-for-elementor' ) ); ?>',
+					xing:      '<?php echo esc_js( __( 'Xing', 'powerpack-lite-for-elementor' ) ); ?>',
+					email:     '<?php echo esc_js( __( 'Email', 'powerpack-lite-for-elementor' ) ); ?>',
+					phone:     '<?php echo esc_js( __( 'Phone', 'powerpack-lite-for-elementor' ) ); ?>'
+				};
+
+				return labels[ icon ] ? labels[ icon ] : icon.charAt( 0 ).toUpperCase() + icon.slice( 1 );
+			}
+
 			function render_social_icon_html( item, index, icon ) {
 				var icon_url_var = `${icon}_url`,
 					icon_url = item[icon_url_var],
@@ -3242,8 +3385,13 @@ class Team_Member_Carousel extends Powerpack_Widget {
 								'elementor-social-icon-' + social,
 							] );
 						}
+						// The link holds nothing but an aria-hidden icon, so it needs an explicit name.
+						var networkLabel = get_social_network_label( icon ),
+							linkLabel = item.team_member_name
+								? '<?php echo esc_js( /* translators: 1: team member name, 2: social network name */ __( '%1$s on %2$s', 'powerpack-lite-for-elementor' ) ); ?>'.replace( '%1$s', item.team_member_name ).replace( '%2$s', networkLabel )
+								: networkLabel;
 						#>
-						<a href="{{ url }}">
+						<a class="pp-tm-social-link" href="{{ url }}" aria-label="{{ linkLabel }}">
 							<span {{{ view.getRenderAttributeString( iconWrapKey ) }}}>
 								<#
 								var iconObj = get_social_icon_obj( icon );
@@ -3262,7 +3410,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 			function member_social_links_template( item ) { #>
 				<div class="pp-tm-social-links-wrap">
-					<ul class="pp-tm-social-links">
+					<ul class="pp-tm-social-links" role="list">
 						<#
 						var social_links = [
 							'facebook',
@@ -3385,11 +3533,11 @@ class Team_Member_Carousel extends Powerpack_Widget {
 							var pp_prev_arrow = 'fa fa-angle-left';
 						}
 						#>
-						<div class="pp-slider-arrow elementor-swiper-button-next">
-							<i class="{{ pp_next_arrow }}"></i>
+						<div class="pp-slider-arrow elementor-swiper-button-next" role="button" tabindex="0" aria-label="<?php echo esc_attr__( 'Next slide', 'powerpack-lite-for-elementor' ); ?>">
+							<i class="{{ pp_next_arrow }}" aria-hidden="true"></i>
 						</div>
-						<div class="pp-slider-arrow elementor-swiper-button-prev">
-							<i class="{{ pp_prev_arrow }}"></i>
+						<div class="pp-slider-arrow elementor-swiper-button-prev" role="button" tabindex="0" aria-label="<?php echo esc_attr__( 'Previous slide', 'powerpack-lite-for-elementor' ); ?>">
+							<i class="{{ pp_prev_arrow }}" aria-hidden="true"></i>
 						</div>
 						<#
 					}
@@ -3421,12 +3569,24 @@ class Team_Member_Carousel extends Powerpack_Widget {
 			var slider_options = get_slider_settings( settings );
 
 			view.addRenderAttribute( 'container', 'data-slider-settings', JSON.stringify( slider_options ) );
+
+			view.addRenderAttribute( 'container', {
+				'role': 'region',
+				'aria-roledescription': '<?php echo esc_js( __( 'carousel', 'powerpack-lite-for-elementor' ) ); ?>',
+				'aria-label': '<?php echo esc_js( __( 'Team members carousel', 'powerpack-lite-for-elementor' ) ); ?>'
+			} );
+
+			var total_members = settings.team_member_details.length,
+				slide_label_tpl = '<?php echo esc_js( /* translators: 1: slide number, 2: total slides */ __( 'Slide %1$s of %2$s', 'powerpack-lite-for-elementor' ) ); ?>';
 		#>
 		<div class="swiper-container-wrap swiper-container-wrap-dots-{{ settings.dots_position }}">
 			<div {{{ view.getRenderAttributeString( 'container' ) }}}>
 				<div class="swiper-wrapper">
-					<# _.each( settings.team_member_details, function( item ) { #>
-						<div class="swiper-slide">
+					<# _.each( settings.team_member_details, function( item, slide_index ) {
+						// aria-roledescription is ignored on a generic div, so the group role has to come with it.
+						var slide_label = slide_label_tpl.replace( '%1$s', slide_index + 1 ).replace( '%2$s', total_members );
+					#>
+						<div class="swiper-slide" role="group" aria-roledescription="<?php echo esc_attr__( 'slide', 'powerpack-lite-for-elementor' ); ?>" aria-label="{{ slide_label }}">
 							<div class="pp-tm">
 								<div class="pp-tm-image">
 									<#
@@ -3441,9 +3601,19 @@ class Team_Member_Carousel extends Powerpack_Widget {
 
 											var image_url = elementor.imagesManager.getImageUrl( image );
 
-											var imageHtml = '<img src="' + _.escape( image_url ) + '" />';
+											var is_linked = ( item.link_type == 'image' && item.link.url != '' ),
+												image_alt = item.team_member_image.alt || '';
 
-											if ( item.link_type == 'image' && item.link.url != '' ) {
+											// An unlinked photo is decorative — the name is announced from the
+											// heading below. A linked one has to carry the name, or the link
+											// ends up with no accessible name at all.
+											if ( '' === image_alt && is_linked ) {
+												image_alt = item.team_member_name;
+											}
+
+											var imageHtml = '<img src="' + _.escape( image_url ) + '" alt="' + _.escape( image_alt ) + '" />';
+
+											if ( is_linked ) {
 												imageHtml = '<a href="' + _.escape( item.link.url ) + '">' + imageHtml + '</a>';
 											}
 

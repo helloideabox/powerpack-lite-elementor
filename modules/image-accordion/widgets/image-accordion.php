@@ -368,7 +368,7 @@ class Image_Accordion extends Powerpack_Widget {
 					'unit' => 'px',
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .pp-image-accordion' => 'height: {{SIZE}}px',
+					'{{WRAPPER}} .pp-image-accordion' => 'height: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -579,7 +579,7 @@ class Image_Accordion extends Powerpack_Widget {
 			[
 				'label'                 => esc_html__( 'Overlay Color', 'powerpack-lite-for-elementor' ),
 				'type'                  => Controls_Manager::COLOR,
-				'default'               => 'rgba(0,0,0,0.5)',
+				'default'               => 'rgba(0,0,0,0.55)',
 				'selectors'             => [
 					'{{WRAPPER}} .pp-image-accordion-item:hover .pp-image-accordion-overlay' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .pp-image-accordion-item.pp-image-accordion-active .pp-image-accordion-overlay' => 'background-color: {{VALUE}};',
@@ -1143,17 +1143,38 @@ class Image_Accordion extends Powerpack_Widget {
 			'id'    => 'pp-image-accordion-' . $this->get_id(),
 		] );
 
-		if ( ! empty( $settings['accordion_items'] ) ) { ?>
+		if ( ! empty( $settings['accordion_items'] ) ) {
+			$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+			?>
 			<div <?php $this->print_render_attribute_string( 'image-accordion' ); ?>>
 				<?php foreach ( $settings['accordion_items'] as $index => $item ) { ?>
 					<?php
 					$item_key    = $this->get_repeater_setting_key( 'item', 'accordion_items', $index );
 					$overlay_key = $this->get_repeater_setting_key( 'container_link', 'accordion_items', $index );
+					$trigger_key = $this->get_repeater_setting_key( 'trigger', 'accordion_items', $index );
+					$image_key   = $this->get_repeater_setting_key( 'image', 'accordion_items', $index );
+					$content_key = $this->get_repeater_setting_key( 'content', 'accordion_items', $index );
 					$overlay_tag = 'div';
 					$add_link    = false;
+					$item_uid    = $this->get_id() . '-' . $item['_id'];
+					$title_id    = 'pp-image-accordion-title-' . $item_uid;
+					$content_id  = 'pp-image-accordion-content-' . $item_uid;
+					$desc_id     = 'pp-image-accordion-description-' . $item_uid;
+					$is_active   = ! empty( $settings['active_tab'] ) && (int) $settings['active_tab'] - 1 === $index;
+					$image_alt   = '';
+
+					// The trigger is named by the title, so an item without one still needs a name.
+					$title_text = '' !== trim( wp_strip_all_tags( $item['title'] ) )
+						? $item['title']
+						/* translators: %d: item number, one based */
+						: sprintf( esc_html__( 'Item %d', 'powerpack-lite-for-elementor' ), $index + 1 );
 
 					$this->add_render_attribute( $item_key, 'class', [ 'pp-image-accordion-item', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) ] );
 					$this->add_render_attribute( $overlay_key, 'class', [ 'pp-image-accordion-overlay', 'pp-media-overlay' ] );
+					$this->add_render_attribute( $content_key, [
+						'class' => 'pp-image-accordion-content-wrap',
+						'id'    => $content_id,
+					] );
 
 					if ( $item['image']['url'] ) {
 
@@ -1167,20 +1188,30 @@ class Image_Accordion extends Powerpack_Widget {
 						$this->add_render_attribute( $item_key, [
 							'style' => 'background-image: url(' . esc_url( $image_url ) . ');',
 						] );
+
+						// Only an alt the author wrote. Control_Media::get_image_alt() falls back to the
+						// attachment title (usually a file name), which would voice decorative images.
+						$image_alt = $image_id
+							? trim( (string) get_post_meta( $image_id, '_wp_attachment_image_alt', true ) )
+							: ( ! empty( $item['image']['alt'] ) ? trim( $item['image']['alt'] ) : '' );
 					}
-
-					$content_key = $this->get_repeater_setting_key( 'content', 'accordion_items', $index );
-
-					$this->add_render_attribute( $content_key, 'class', 'pp-image-accordion-content-wrap' );
 
 					if ( 'yes' === $item['show_button'] && ! empty( $item['link']['url'] ) ) {
 						$add_link      = true;
 						$apply_link_on = ( $item['apply_link_on'] ) ? $item['apply_link_on'] : 'button';
 
-						if ( $add_link && 'container' === $apply_link_on ) {
+						if ( 'container' === $apply_link_on ) {
 							$overlay_tag = 'a';
 
 							$this->add_link_attributes( $overlay_key, $item['link'] );
+
+							// Its text sits in visibility:hidden content until the item opens, which
+							// does not count towards a name, so point at it explicitly.
+							$this->add_render_attribute( $overlay_key, 'aria-labelledby', $title_id );
+
+							if ( ! empty( $item['description'] ) ) {
+								$this->add_render_attribute( $overlay_key, 'aria-describedby', $desc_id );
+							}
 						} else {
 							$button_key = $this->get_repeater_setting_key( 'button', 'accordion_items', $index );
 
@@ -1199,29 +1230,56 @@ class Image_Accordion extends Powerpack_Widget {
 						}
 					}
 
-					if ( $settings['active_tab'] ) {
-						$tab_count = $settings['active_tab'] - 1;
+					// A container link is the item's control itself, and a button cannot sit inside a link.
+					if ( 'a' !== $overlay_tag ) {
+						$this->add_render_attribute( $trigger_key, [
+							'class'         => 'pp-image-accordion-trigger',
+							'role'          => 'button',
+							'tabindex'      => '0',
+							'aria-expanded' => $is_active ? 'true' : 'false',
+							'aria-controls' => $content_id,
+						] );
+					}
 
-						if ( $index === $tab_count ) {
-							$this->add_render_attribute( $item_key, [
-								'class' => 'pp-image-accordion-active',
-								'style' => 'flex: 3 1 0;',
-							] );
-							$this->add_render_attribute( $content_key, [
-								'class' => 'pp-image-accordion-content-active',
-							] );
-						}
+					if ( '' !== $image_alt ) {
+						$this->add_render_attribute( $image_key, [
+							'class'      => 'pp-image-accordion-image',
+							'role'       => 'img',
+							'aria-label' => $image_alt,
+						] );
+					}
+
+					if ( $is_active ) {
+						$this->add_render_attribute( $item_key, [
+							'class' => 'pp-image-accordion-active',
+							'style' => 'flex: 3 1 0;',
+						] );
+						$this->add_render_attribute( $content_key, [
+							'class' => 'pp-image-accordion-content-active',
+						] );
 					}
 					?>
 					<div <?php $this->print_render_attribute_string( $item_key ); ?>>
-						<<?php echo esc_html( $overlay_tag ) ?> <?php $this->print_render_attribute_string( $overlay_key ); ?>>
+						<?php if ( '' !== $image_alt ) { ?>
+							<span <?php $this->print_render_attribute_string( $image_key ); ?>></span>
+						<?php } ?>
+						<<?php echo esc_html( $overlay_tag ); ?> <?php $this->print_render_attribute_string( $overlay_key ); ?>>
+							<?php // Screen reader copy of the title: keeps every item's heading in the headings list while its content is hidden. ?>
+							<<?php echo esc_html( $title_tag ); ?> class="pp-image-accordion-heading">
+								<?php if ( 'a' !== $overlay_tag ) { ?>
+									<span <?php $this->print_render_attribute_string( $trigger_key ); ?>>
+								<?php } ?>
+									<span id="<?php echo esc_attr( $title_id ); ?>" class="elementor-screen-only"><?php echo wp_kses_post( $title_text ); ?></span>
+								<?php if ( 'a' !== $overlay_tag ) { ?>
+									</span>
+								<?php } ?>
+							</<?php echo esc_html( $title_tag ); ?>>
 							<div <?php $this->print_render_attribute_string( $content_key ); ?>>
 								<div class="pp-image-accordion-content">
-									<?php $title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] ); ?>
-									<<?php echo esc_html( $title_tag ); ?> class="pp-image-accordion-title">
+									<<?php echo esc_html( $title_tag ); ?> class="pp-image-accordion-title" aria-hidden="true">
 										<?php echo wp_kses_post( $item['title'] ); ?>
 									</<?php echo esc_html( $title_tag ); ?>>
-									<div class="pp-image-accordion-description">
+									<div id="<?php echo esc_attr( $desc_id ); ?>" class="pp-image-accordion-description">
 										<?php echo $this->parse_text_editor( $item['description'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 									</div>
 								</div>
@@ -1247,7 +1305,7 @@ class Image_Accordion extends Powerpack_Widget {
 									</div>
 								<?php } ?>
 							</div>
-						</<?php echo esc_html( $overlay_tag ) ?>>
+						</<?php echo esc_html( $overlay_tag ); ?>>
 					</div>
 				<?php } ?>
 			</div>

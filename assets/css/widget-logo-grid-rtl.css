@@ -46,3 +46,11 @@
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
 }
+.pp-logo-grid.grayscale-normal .elementor-grid-item:focus-within img {
+  -webkit-filter: none;
+          filter: none;
+}
+.pp-logo-grid.grayscale-hover .elementor-grid-item:focus-within img {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}

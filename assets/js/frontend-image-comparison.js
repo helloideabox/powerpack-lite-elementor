@@ -1,5 +1,8 @@
 (function ($) {
 	$(window).on( 'elementor/frontend/init', () => {
+		const STEP = 1,
+			STEP_LARGE = 10;
+
 		class ImageComparisonWidget extends elementorModules.frontend.handlers.Base {
 			getDefaultSettings() {
 				return {
@@ -22,158 +25,173 @@
 				};
 			}
 
+			unbindEvents() {
+				this.eventNamespace = '.ppImageComparison-' + this.getID();
+
+				this.elements.$handle.off( this.eventNamespace );
+				this.elements.$container.off( this.eventNamespace );
+			}
+
 			bindEvents() {
+				this.unbindEvents();
+
 				const container = this.elements.$container,
 					settings = container.data('settings'),
 					handle = this.elements.$handle,
-					afterImg = this.elements.$afterImg,
-					visibleRatio = settings.visible_ratio,
-					startPosition = parseFloat(visibleRatio * 100);
+					ns = this.eventNamespace;
 
-				if ( 'horizontal' === settings.orientation ) {
-					handle.css('left', startPosition + '%');
-					afterImg.css('left', startPosition + '%');
-					afterImg.find('img').css('right', startPosition + '%');
+				this.isVertical = 'vertical' === settings.orientation;
+				this.valueText = handle.attr('data-value-text') || '';
+				this.suppressClick = false;
 
-					handle.on('move', (event) => {
-						this.handleHorizontalMove(event, container, handle, afterImg);
-					});
-				} else {
-					handle.css('top', startPosition + '%');
-					afterImg.css('top', startPosition + '%');
-					afterImg.find('img').css('bottom', startPosition + '%');
+				this.setRatio( parseFloat( settings.visible_ratio ) * 100 );
 
-					handle.on('move', (event) => {
-						this.handleVerticalMove(event, container, handle, afterImg);
-					});
-				}
+				handle.on( 'move' + ns, ( event ) => {
+					this.setRatio( this.pointToRatio( event.pageX, event.pageY ) );
+				} );
+
+				// A drag finishes with a click on the container; it must not re-run the click path.
+				handle.on( 'moveend' + ns, () => {
+					this.suppressClick = true;
+					setTimeout( () => {
+						this.suppressClick = false;
+					}, 0 );
+				} );
+
+				handle.on( 'keydown' + ns, ( event ) => this.onKeydown( event ) );
 
 				if ( settings.slider_on_hover ) {
-					container.on('mousemove', (event) => {
-						this.handleHover(event, container, handle, afterImg, settings);
-					});
+					container.on( 'mousemove' + ns, ( event ) => {
+						this.setRatio( this.pointToRatio( event.pageX, event.pageY ) );
+					} );
+				} else {
+					// WCAG 2.5.7: the divider has to be positionable with a single pointer
+					// without dragging, so a click or tap on the image moves it there.
+					container.on( 'click' + ns, ( event ) => {
+						if ( this.suppressClick ) {
+							return;
+						}
+
+						this.setRatio( this.pointToRatio( event.pageX, event.pageY ) );
+
+						// So the arrow keys carry on from wherever the tap landed.
+						if ( ! handle[0].contains( event.target ) ) {
+							handle.trigger( 'focus' );
+						}
+					} );
+				}
+			}
+
+			pointToRatio( pageX, pageY ) {
+				const container = this.elements.$container,
+					offset = container.offset();
+
+				if ( this.isVertical ) {
+					return ( ( pageY - offset.top ) / container.outerHeight() ) * 100;
+				}
+
+				return ( ( pageX - offset.left ) / container.outerWidth() ) * 100;
+			}
+
+			setRatio( ratio ) {
+				const handle = this.elements.$handle,
+					afterImg = this.elements.$afterImg;
+
+				ratio = Math.max( 0, Math.min( 100, ratio ) );
+				this.ratio = ratio;
+
+				// Percentages rather than pixels: the same value is what aria-valuenow
+				// publishes and what the arrow keys step. At 0 and 100 the handle's own
+				// negative margin still centres it on the edge, as the old pixel
+				// edge-case branch did, and the container's overflow clips the rest.
+				if ( this.isVertical ) {
+					handle.css( { top: ratio + '%', bottom: 'auto' } );
+					afterImg.css( { top: ratio + '%', bottom: 'auto' } );
+					afterImg.find('img').css( 'bottom', ratio + '%' );
+				} else {
+					handle.css( { left: ratio + '%', right: 'auto' } );
+					afterImg.css( { left: ratio + '%', right: 'auto' } );
+					afterImg.find('img').css( 'right', ratio + '%' );
+				}
+
+				const rounded = Math.round( ratio );
+
+				handle.attr( 'aria-valuenow', rounded );
+
+				if ( this.valueText ) {
+					handle.attr( 'aria-valuetext', this.valueText.replace( '{percent}', rounded ) );
 				}
 
 				this.hideLabels();
 			}
 
-			handleHorizontalMove(event, container, handle, afterImg) {
-				let overlayWidth = event.pageX - container.offset().left;
+			onKeydown( event ) {
+				// Legacy key names from older browsers.
+				const key = event.key.replace( /^(Left|Right|Up|Down)$/, 'Arrow$1' ),
+					// Mapped to what the user sees move, not to a fixed axis.
+					less = this.isVertical ? 'ArrowUp' : 'ArrowLeft',
+					more = this.isVertical ? 'ArrowDown' : 'ArrowRight';
 
-				handle.css({ left: 'auto', right: 'auto' });
-				afterImg.css({ left: 'auto', right: 'auto' });
+				let ratio = this.ratio;
 
-				if ( overlayWidth > 0 && overlayWidth < container.outerWidth() ) {
-					handle.css('left', overlayWidth);
-					afterImg.css('left', overlayWidth);
-					afterImg.find('img').css('right', overlayWidth);
-				} else {
-					this.handleEdgeCases(overlayWidth, container, handle, afterImg, 'horizontal');
+				switch ( key ) {
+					case less:
+						ratio -= STEP;
+						break;
+					case more:
+						ratio += STEP;
+						break;
+					case 'PageDown':
+						ratio -= STEP_LARGE;
+						break;
+					case 'PageUp':
+						ratio += STEP_LARGE;
+						break;
+					case 'Home':
+						ratio = 0;
+						break;
+					case 'End':
+						ratio = 100;
+						break;
+					default:
+						return; // The perpendicular arrows still scroll the page.
 				}
 
-				this.hideLabels();
-			}
-
-			handleVerticalMove(event, container, handle, afterImg) {
-				let overlayHeight = event.pageY - container.offset().top;
-
-				// Reset
-				handle.css({ top: 'auto', bottom: 'auto' });
-				afterImg.css({ top: 'auto', bottom: 'auto' });
-
-				if ( overlayHeight > 0 && overlayHeight < container.outerHeight() ) {
-					handle.css('top', overlayHeight);
-					afterImg.css('top', overlayHeight);
-					afterImg.find('img').css('bottom', overlayHeight);
-				} else {
-					this.handleEdgeCases(overlayHeight, container, handle, afterImg, 'vertical');
-				}
-
-				this.hideLabels();
-			}
-
-			handleEdgeCases(overlayDimension, container, handle, afterImg, orientation) {
-				if ( 'horizontal' === orientation ) {
-					if ( overlayDimension <= 0 ) {
-						handle.css('left', 0);
-						afterImg.css('left', 0);
-						afterImg.find('img').css('right', 0);
-					} else if ( overlayDimension >= container.outerWidth() ) {
-						handle.css('right', -handle.outerWidth() / 2);
-						afterImg.css('right', 0);
-						afterImg.find('img').css('right', '100%');
-					}
-				} else {
-					if ( overlayDimension <= 0 ) {
-						handle.css('top', 0);
-						afterImg.css('top', 0);
-						afterImg.find('img').css('bottom', 0);
-					} else if ( overlayDimension >= container.outerHeight() ) {
-						handle.css('bottom', -handle.outerHeight() / 2);
-						afterImg.css('bottom', 0);
-						afterImg.find('img').css('bottom', '100%');
-					}
-				}
-			}
-
-			handleHover(event, container, handle, afterImg, settings) {
-				if ('horizontal' === settings.orientation) {
-					let overlayWidth = event.pageX - container.offset().left;
-					handle.css('left', overlayWidth);
-					afterImg.css('left', overlayWidth);
-					afterImg.find('img').css('right', overlayWidth);
-				} else {
-					let overlayHeight = event.pageY - container.offset().top;
-					handle.css('top', overlayHeight);
-					afterImg.css('top', overlayHeight);
-					afterImg.find('img').css('bottom', overlayHeight);
-				}
-
-				this.hideLabels();
+				event.preventDefault();
+				this.setRatio( ratio );
 			}
 
 			hideLabels() {
 				const container = this.elements.$container,
-					settings = container.data('settings'),
-					handle = this.elements.$handle;
+					handle = this.elements.$handle,
+					vertical = this.isVertical,
+					labelBefore = container.find('.pp-comparison-label-before span'),
+					labelAfter = container.find('.pp-comparison-label-after span');
 
-				let labelOne = container.find('.pp-comparison-label-before span'),
-					labelTwo = container.find('.pp-comparison-label-after span');
-
-				if ( !labelOne.length && !labelTwo.length ) {
+				if ( ! labelBefore.length && ! labelAfter.length ) {
 					return;
 				}
 
-				if ( 'horizontal' === settings.orientation ) {
-					let labelOneOffset = labelOne.position().left + labelOne.outerWidth(),
-						labelTwoOffset = labelTwo.position().left + labelTwo.outerWidth();
+				// .css() reports the computed pixel value even though a percentage was set.
+				const handlePos = parseInt( handle.css( vertical ? 'top' : 'left' ), 10 ),
+					containerSize = vertical ? container.outerHeight() : container.outerWidth();
 
-					if ( labelOneOffset + 15 >= parseInt(handle.css('left'), 10) ) {
-						labelOne.stop().css('opacity', 0);
-					} else {
-						labelOne.stop().css('opacity', 1);
-					}
+				// Each label is tested on its own: one can be cleared while the other is
+				// set, and position() on an empty set throws.
+				if ( labelBefore.length ) {
+					const end = vertical
+						? labelBefore.position().top + labelBefore.outerHeight()
+						: labelBefore.position().left + labelBefore.outerWidth();
 
-					if ( (container.outerWidth() - (labelTwoOffset + 15)) <= parseInt(handle.css('left'), 10) ) {
-						labelTwo.stop().css('opacity', 0);
-					} else {
-						labelTwo.stop().css('opacity', 1);
-					}
-				} else {
-					let labelOneOffset = labelOne.position().top + labelOne.outerHeight(),
-						labelTwoOffset = labelTwo.position().top + labelTwo.outerHeight();
+					labelBefore.stop().css( 'opacity', end + 15 >= handlePos ? 0 : 1 );
+				}
 
-					if ( labelOneOffset + 15 >= parseInt(handle.css('top'), 10) ) {
-						labelOne.stop().css('opacity', 0);
-					} else {
-						labelOne.stop().css('opacity', 1);
-					}
+				if ( labelAfter.length ) {
+					const end = vertical
+						? labelAfter.position().top + labelAfter.outerHeight()
+						: labelAfter.position().left + labelAfter.outerWidth();
 
-					if ( (container.outerHeight() - (labelTwoOffset + 15)) <= parseInt(handle.css('top'), 10) ) {
-						labelTwo.stop().css('opacity', 0);
-					} else {
-						labelTwo.stop().css('opacity', 1);
-					}
+					labelAfter.stop().css( 'opacity', ( containerSize - ( end + 15 ) ) <= handlePos ? 0 : 1 );
 				}
 			}
 		}

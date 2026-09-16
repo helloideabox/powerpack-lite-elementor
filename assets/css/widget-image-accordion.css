@@ -40,8 +40,8 @@
   transition: none;
 }
 .pp-image-accordion .pp-image-accordion-button {
-  -webkit-transition: all 0.25s linear 0s;
-  transition: all 0.25s linear 0s;
+  -webkit-transition: all 0.25s linear 0s, visibility 0s;
+  transition: all 0.25s linear 0s, visibility 0s;
 }
 
 .pp-image-accordion-item {
@@ -100,10 +100,43 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-height: 100%;
   visibility: hidden;
 }
 .pp-image-accordion-content-wrap p:last-child {
   margin-bottom: 0;
+}
+
+.pp-image-accordion-content-scroll {
+  overflow-y: auto;
+}
+
+.pp-image-accordion-heading {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.pp-image-accordion-trigger {
+  position: absolute;
+  inset: 0;
+  display: block;
+  cursor: pointer;
+}
+
+.pp-image-accordion-image {
+  position: absolute;
+  inset: 0;
+}
+
+.pp-image-accordion-trigger:focus-visible,
+a.pp-image-accordion-overlay:focus-visible,
+.pp-image-accordion-content-scroll:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+  -webkit-box-shadow: inset 0 0 0 4px #000;
+          box-shadow: inset 0 0 0 4px #000;
 }
 
 .pp-image-accordion-content-wrap * {
@@ -139,8 +172,8 @@
   visibility: visible;
   -webkit-transform: none !important;
           transform: none !important;
-  -webkit-transition: all 0.3s 0.3s;
-  transition: all 0.3s 0.3s;
+  -webkit-transition: all 0.3s 0.3s, visibility 0s;
+  transition: all 0.3s 0.3s, visibility 0s;
 }
 
 .pp-image-accordion-on-hover .pp-image-accordion-item:hover {
@@ -153,8 +186,8 @@
   visibility: visible;
   -webkit-transform: none;
           transform: none;
-  -webkit-transition: all 0.3s 0.3s;
-  transition: all 0.3s 0.3s;
+  -webkit-transition: all 0.3s 0.3s, visibility 0s;
+  transition: all 0.3s 0.3s, visibility 0s;
 }
 
 .pp-image-accordion-orientation-horizontal .pp-image-accordion {
@@ -184,6 +217,23 @@
   .pp-image-accordion-stack-on-tablet .pp-image-accordion-item {
     -webkit-margin-end: 0 !important;
             margin-inline-end: 0 !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pp-image-accordion-item,
+  .pp-image-accordion-overlay,
+  .pp-image-accordion-content-wrap *,
+  .pp-image-accordion .pp-image-accordion-button {
+    -webkit-transition: none !important;
+    transition: none !important;
+    -webkit-animation: none !important;
+            animation: none !important;
+  }
+  .pp-image-accordion-title,
+  .pp-image-accordion-description,
+  .pp-image-accordion-button-wrap {
+    -webkit-transform: none;
+            transform: none;
   }
 }
 @media only screen and (max-width: 767px) {

@@ -1554,7 +1554,7 @@ class Promo_Box extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-promo-box-button:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-promo-box-button:hover, {{WRAPPER}} .pp-promo-box-button:focus-visible' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -1566,7 +1566,7 @@ class Promo_Box extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-promo-box-button:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pp-promo-box-button:hover, {{WRAPPER}} .pp-promo-box-button:focus-visible' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1578,7 +1578,7 @@ class Promo_Box extends Powerpack_Widget {
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .pp-promo-box-button:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .pp-promo-box-button:hover, {{WRAPPER}} .pp-promo-box-button:focus-visible' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -1595,7 +1595,7 @@ class Promo_Box extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'button_box_shadow_hover',
-				'selector'              => '{{WRAPPER}} .pp-promo-box-button:hover',
+				'selector'              => '{{WRAPPER}} .pp-promo-box-button:hover, {{WRAPPER}} .pp-promo-box-button:focus-visible',
 			]
 		);
 
@@ -1721,7 +1721,7 @@ class Promo_Box extends Powerpack_Widget {
 							$heading_html_tag = PP_Helper::validate_html_tag( $settings['heading_html_tag'] );
 							?>
 							<<?php echo esc_html( $heading_html_tag ); ?> <?php $this->print_render_attribute_string( 'heading' ); ?>>
-								<?php echo esc_attr( $settings['heading'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<?php echo esc_html( $settings['heading'] ); ?>
 							</<?php echo esc_html( $heading_html_tag ); ?>>
 							<?php
 						}
@@ -1730,7 +1730,7 @@ class Promo_Box extends Powerpack_Widget {
 							<div class="pp-promo-box-heading-divider-wrap">
 								<div class="pp-promo-box-heading-divider">
 									<?php if ( 'image' === $settings['divider_heading_type'] && $settings['divider_title_image']['url'] ) { ?>
-										<img src="<?php echo esc_url( $settings['divider_title_image']['url'] ); ?>">
+										<img src="<?php echo esc_url( $settings['divider_title_image']['url'] ); ?>" alt="">
 									<?php } ?>
 								</div>
 							</div>
@@ -1745,7 +1745,7 @@ class Promo_Box extends Powerpack_Widget {
 							$subheading_html_tag = PP_Helper::validate_html_tag( $settings['sub_heading_html_tag'] );
 							?>
 							<<?php echo esc_html( $subheading_html_tag ); ?> <?php $this->print_render_attribute_string( 'sub_heading' ); ?>>
-								<?php echo esc_attr( $settings['sub_heading'] ); ?>
+								<?php echo esc_html( $settings['sub_heading'] ); ?>
 							</<?php echo esc_html( $subheading_html_tag ); ?>>
 							<?php
 						}
@@ -1754,7 +1754,7 @@ class Promo_Box extends Powerpack_Widget {
 							<div class="pp-promo-box-subheading-divider-wrap">
 								<div class="pp-promo-box-subheading-divider">
 									<?php if ( 'image' === $settings['divider_subheading_type'] && $settings['divider_subheading_image']['url'] ) { ?>
-										<img src="<?php echo esc_url( $settings['divider_subheading_image']['url'] ); ?>">
+										<img src="<?php echo esc_url( $settings['divider_subheading_image']['url'] ); ?>" alt="">
 									<?php } ?>
 								</div>
 							</div>
@@ -1778,11 +1778,14 @@ class Promo_Box extends Powerpack_Widget {
 
 						if ( 'yes' === $settings['button_switch'] ) {
 							if ( '' !== $settings['button_text'] ) {
+								// Without a URL an anchor is not focusable and exposes no link role,
+								// so fall back to a non-interactive element instead of a dead link.
+								$button_tag = ! empty( $settings['link']['url'] ) ? 'a' : 'span';
 								?>
 								<div class="pp-promo-box-footer">
-									<a <?php $this->print_render_attribute_string( 'button_text' ); ?>>
-										<?php echo esc_attr( $settings['button_text'] ); ?>
-									</a>
+									<<?php echo esc_html( $button_tag ); ?> <?php $this->print_render_attribute_string( 'button_text' ); ?>>
+										<?php echo esc_html( $settings['button_text'] ); ?>
+									</<?php echo esc_html( $button_tag ); ?>>
 								</div>
 								<?php
 							}
@@ -1833,7 +1836,7 @@ class Promo_Box extends Powerpack_Widget {
 								};
 								var image_url = elementor.imagesManager.getImageUrl( image );
 								#>
-								<img src="{{ _.escape( image_url ) }}" />
+								<img src="{{ _.escape( image_url ) }}" alt="{{ settings.icon_image.alt || '' }}" />
 							</span>
 						<# } #>
 					</span>
@@ -1873,7 +1876,7 @@ class Promo_Box extends Powerpack_Widget {
 								<div class="pp-promo-box-heading-divider">
 									<# if ( settings.divider_heading_type == 'image' ) { #>
 										<# if ( settings.divider_title_image.url != '' ) { #>
-											<img src="{{ _.escape( settings.divider_title_image.url ) }}">
+											<img src="{{ _.escape( settings.divider_title_image.url ) }}" alt="">
 										<# } #>
 									<# } #>
 								</div>
@@ -1904,7 +1907,7 @@ class Promo_Box extends Powerpack_Widget {
 								<div class="pp-promo-box-subheading-divider">
 									<# if ( settings.divider_subheading_type == 'image' ) { #>
 										<# if ( settings.divider_subheading_image.url != '' ) { #>
-											<img src="{{ _.escape( settings.divider_subheading_image.url ) }}">
+											<img src="{{ _.escape( settings.divider_subheading_image.url ) }}" alt="">
 										<# } #>
 									<# } #>
 								</div>
@@ -1945,7 +1948,9 @@ class Promo_Box extends Powerpack_Widget {
 
 										view.addInlineEditingAttributes( 'button_text' );
 
-										var button_html = '<a href="' + _.escape( settings.link.url ) + '"' + ' ' + view.getRenderAttributeString( 'button_text' ) + '>' + button_text + '</a>';
+										var button_tag  = settings.link.url ? 'a' : 'span',
+											button_href = settings.link.url ? ' href="' + _.escape( settings.link.url ) + '"' : '',
+											button_html = '<' + button_tag + button_href + ' ' + view.getRenderAttributeString( 'button_text' ) + '>' + button_text + '</' + button_tag + '>';
 
 										print( button_html );
 									#>

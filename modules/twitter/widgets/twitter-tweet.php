@@ -156,16 +156,72 @@ class Twitter_Tweet extends Powerpack_Widget {
 
 		$this->add_control(
 			'link_color',
-			array(
-				'label'   => esc_html__( 'Link Color', 'powerpack-lite-for-elementor' ),
-				'type'    => Controls_Manager::COLOR,
-				'default' => '',
-			)
+			[
+				'label'       => esc_html__( 'Link Color', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'Applies to links, mentions and hashtags inside the embed.', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::COLOR,
+				'default'     => '',
+			]
 		);
 
 		$this->end_controls_section();
 
+	}
 
+	/**
+	 * Convert the site locale to a language tag the X/Twitter embed accepts.
+	 *
+	 * get_locale() returns WordPress locales such as `de_DE` or `pt_BR`, while the
+	 * embed's data-lang expects BCP-47-style tags (`de`, `pt`, `zh-cn`). An
+	 * unrecognised value is dropped and the embed silently falls back to English,
+	 * leaving its UI chrome in the wrong language inside a translated page.
+	 *
+	 * @since x.x.x
+	 *
+	 * @access protected
+	 *
+	 * @return string Language tag for the embed's data-lang attribute.
+	 */
+	protected function get_embed_lang() {
+		$locale = strtolower( str_replace( '_', '-', get_locale() ) );
+
+		// Regional variants the embed distinguishes; everything else uses the
+		// primary subtag only.
+		$regional = [ 'zh-cn', 'zh-tw' ];
+
+		if ( ! in_array( $locale, $regional, true ) ) {
+			$locale = strtok( $locale, '-' );
+		}
+
+		/**
+		 * Filters the language tag passed to the X/Twitter embed.
+		 *
+		 * @since x.x.x
+		 *
+		 * @param string $locale Language tag derived from the site locale.
+		 */
+		return apply_filters( 'powerpack_twitter_embed_lang', $locale );
+	}
+
+	/**
+	 * Normalize a tweet URL to a host the embed script can parse.
+	 *
+	 * The bundled assets/js/twitter-widgets.js predates the x.com rename and
+	 * matches status URLs with a twitter.com-only pattern, so a URL copied from
+	 * X's current UI is claimed by the scanner but yields no tweet ID and the
+	 * embed silently never renders. twitter.com still redirects to x.com, and
+	 * twitter.com is what the official oEmbed markup uses, so rewriting the host
+	 * is safe for the fallback link as well.
+	 *
+	 * @since x.x.x
+	 *
+	 * @access protected
+	 *
+	 * @param string $url Tweet URL as entered by the author.
+	 * @return string Tweet URL with a parseable host.
+	 */
+	protected function get_embed_url( $url ) {
+		return preg_replace( '#^(https?://)(?:www\.)?x\.com/#i', '$1twitter.com/', $url );
 	}
 
 	protected function render() {
@@ -176,7 +232,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 			array(
 				'data-theme' => esc_attr( $settings['theme'] ),
 				'data-align' => esc_attr( $settings['alignment'] ),
-				'data-lang'  => get_locale(),
+				'data-lang'  => $this->get_embed_lang(),
 			)
 		);
 
@@ -192,12 +248,18 @@ class Twitter_Tweet extends Powerpack_Widget {
 			$this->add_render_attribute( 'tweet', 'data-link-color', esc_attr( $settings['link_color'] ) );
 		}
 
-		$url = ( $settings['tweet_url'] ) ? $settings['tweet_url'] : '';
+		$url = ( $settings['tweet_url'] ) ? $this->get_embed_url( $settings['tweet_url'] ) : '';
 
 		if ( $url ) {
+			// The anchor is the only thing that exists until widgets.js swaps the
+			// blockquote for its iframe — and all that exists if that script is
+			// blocked. It must never render empty.
+			$link_text = esc_html__( 'View post on X', 'powerpack-lite-for-elementor' );
+
+			$this->add_render_attribute( 'tweet_link', 'href', esc_url( $url ) );
 			?>
 			<div class="pp-twitter-tweet" <?php $this->print_render_attribute_string( 'tweet' ); ?>>
-				<blockquote class="twitter-tweet" <?php $this->print_render_attribute_string( 'tweet' ); ?>><a href="<?php echo esc_url( $url ); ?>"></a></blockquote>
+				<blockquote class="twitter-tweet" <?php $this->print_render_attribute_string( 'tweet' ); ?>><a <?php $this->print_render_attribute_string( 'tweet_link' ); ?>><?php echo esc_html( $link_text ); ?></a></blockquote>
 			</div>
 			<?php
 		}

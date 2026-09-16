@@ -37,6 +37,20 @@
   display: -ms-flexbox;
   display: flex;
 }
+.pp-buttons-group .pp-button:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+  -webkit-box-shadow: 0 0 0 2px #fff;
+          box-shadow: 0 0 0 2px #fff;
+}
+.pp-buttons-group .pp-button:focus:not(:focus-visible) {
+  outline: none;
+}
+@media (forced-colors: active) {
+  .pp-buttons-group .pp-button:focus-visible {
+    outline-color: Highlight;
+  }
+}
 
 .pp-button-content-wrapper .pp-button-content-inner {
   display: -webkit-box;
@@ -78,6 +92,23 @@
   width: 40px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .pp-buttons-group a,
+  .pp-buttons-group .pp-icon,
+  .pp-buttons-group .pp-icon i,
+  .pp-buttons-group .pp-icon svg {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .pp-buttons-group .pp-button[class*=elementor-animation-]:hover,
+  .pp-buttons-group .pp-button[class*=elementor-animation-]:focus,
+  .pp-buttons-group .pp-button[class*=elementor-animation-]:active {
+    -webkit-animation: none;
+            animation: none;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
 .pp-button-content-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -505,7 +505,7 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover' => 'background: {{VALUE}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover, {{WRAPPER}} {{CURRENT_ITEM}}.pp-button:focus-visible' => 'background: {{VALUE}};',
 					],
 				]
 			);
@@ -517,7 +517,7 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover' => 'color: {{VALUE}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover, {{WRAPPER}} {{CURRENT_ITEM}}.pp-button:focus-visible' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -529,8 +529,8 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover .pp-icon' => 'color: {{VALUE}};',
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover .pp-icon svg' => 'fill: {{VALUE}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover .pp-icon, {{WRAPPER}} {{CURRENT_ITEM}}.pp-button:focus-visible .pp-icon' => 'color: {{VALUE}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover .pp-icon svg, {{WRAPPER}} {{CURRENT_ITEM}}.pp-button:focus-visible .pp-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -542,7 +542,7 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} {{CURRENT_ITEM}}.pp-button:hover, {{WRAPPER}} {{CURRENT_ITEM}}.pp-button:focus-visible' => 'border-color: {{VALUE}};',
 					],
 				]
 			);
@@ -875,7 +875,7 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} .pp-button:hover' => 'background: {{VALUE}};',
+						'{{WRAPPER}} .pp-button:hover, {{WRAPPER}} .pp-button:focus-visible' => 'background: {{VALUE}};',
 					],
 				]
 			);
@@ -886,7 +886,7 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} .pp-button:hover' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .pp-button:hover, {{WRAPPER}} .pp-button:focus-visible' => 'color: {{VALUE}}',
 					],
 				]
 			);
@@ -897,7 +897,7 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} .pp-button:hover' => 'border-color: {{VALUE}}',
+						'{{WRAPPER}} .pp-button:hover, {{WRAPPER}} .pp-button:focus-visible' => 'border-color: {{VALUE}}',
 					],
 				]
 			);
@@ -1039,8 +1039,8 @@ class Buttons extends Powerpack_Widget {
 					'type'                  => Controls_Manager::COLOR,
 					'default'               => '',
 					'selectors'             => [
-						'{{WRAPPER}} .pp-button:hover .pp-icon' => 'color: {{VALUE}};',
-						'{{WRAPPER}} .pp-button:hover .pp-icon svg' => 'fill: {{VALUE}};',
+						'{{WRAPPER}} .pp-button:hover .pp-icon, {{WRAPPER}} .pp-button:focus-visible .pp-icon' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .pp-button:hover .pp-icon svg, {{WRAPPER}} .pp-button:focus-visible .pp-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -1219,6 +1219,30 @@ class Buttons extends Powerpack_Widget {
 				// Link
 				if ( ! empty( $item['link']['url'] ) ) {
 					$this->add_link_attributes( $button_key, $item['link'] );
+				} else {
+					$this->add_render_attribute(
+						$button_key,
+						[
+							'role'     => 'button',
+							'tabindex' => '0',
+						]
+					);
+				}
+
+				// Accessible name when there is no visible text: tooltip text, else a numbered fallback.
+				$tooltip_text       = ( 'yes' === $item['has_tooltip'] && ! empty( $item['tooltip_content'] ) ) ? trim( wp_strip_all_tags( $item['tooltip_content'] ) ) : '';
+				$label_from_tooltip = false;
+
+				if ( empty( $item['text'] ) ) {
+					if ( '' !== $tooltip_text ) {
+						$accessible_name    = $tooltip_text;
+						$label_from_tooltip = true;
+					} else {
+						/* translators: %d: Button position within the group. */
+						$accessible_name = sprintf( __( 'Button %d', 'powerpack-lite-for-elementor' ), $i );
+					}
+
+					$this->add_render_attribute( $button_key, 'aria-label', $accessible_name );
 				}
 
 				// Icon Position
@@ -1258,6 +1282,7 @@ class Buttons extends Powerpack_Widget {
 						array(
 							'class' => [ 'pp-tooltip-content', 'pp-tooltip-content-' . $this->get_id() ],
 							'id'    => 'pp-tooltip-content-' . $tooltip_content_id,
+							'role'  => 'tooltip',
 						)
 					);
 
@@ -1314,6 +1339,11 @@ class Buttons extends Powerpack_Widget {
 							'data-tooltip-content' => '#pp-tooltip-content-' . $tooltip_content_id,
 						]
 					);
+
+					// Skip the description when the tooltip already is the name, so it is not read twice.
+					if ( ! $label_from_tooltip ) {
+						$this->add_render_attribute( $button_key, 'aria-describedby', 'pp-tooltip-content-' . $tooltip_content_id );
+					}
 				}
 
 				$this->add_render_attribute( $content_inner_key, 'class', [
@@ -1338,7 +1368,7 @@ class Buttons extends Powerpack_Widget {
 									$is_new = ! isset( $item['icon'] ) && $migration_allowed;
 
 									if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) ) { ?>
-										<span class="pp-button-icon pp-icon">
+										<span class="pp-button-icon pp-icon" aria-hidden="true">
 											<?php
 											if ( $is_new || $migrated ) {
 												Icons_Manager::render_icon( $item['selected_icon'], [
@@ -1354,13 +1384,13 @@ class Buttons extends Powerpack_Widget {
 									}
 								} elseif ( 'image' === $item['pp_icon_type'] ) {
 									if ( ! empty( $item['icon_img']['url'] ) ) { ?>
-										<span class="pp-button-icon pp-button-icon-image">
+										<span class="pp-button-icon pp-button-icon-image" aria-hidden="true">
 											<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $item, 'icon_img', 'icon_img' ) ); ?>
 										</span>
 										<?php
 									}
 								} elseif ( 'text' === $item['pp_icon_type'] ) { ?>
-									<span class="pp-button-icon pp-button-icon-number">
+									<span class="pp-button-icon pp-button-icon-number" aria-hidden="true">
 										<?php echo esc_attr( $item['icon_text'] ); ?>
 									</span>
 									<?php
@@ -1507,6 +1537,7 @@ class Buttons extends Powerpack_Widget {
 					{
 						'class': [ 'pp-tooltip-content', 'pp-tooltip-content-' + tooltipContentId ],
 						'id': 'pp-tooltip-content-' + tooltipContentId,
+						'role': 'tooltip',
 					}
 				);
 
@@ -1547,6 +1578,23 @@ class Buttons extends Powerpack_Widget {
 					if ( item.link.nofollow ) {
 						view.addRenderAttribute( button_key, 'rel', 'nofollow' );
 					}
+				} else {
+					view.addRenderAttribute( button_key, {
+						'role': 'button',
+						'tabindex': '0',
+					} );
+				}
+
+				var tooltipText = ( 'yes' === item.has_tooltip && item.tooltip_content ) ? jQuery( '<div>' ).html( item.tooltip_content ).text().trim() : '',
+					labelFromTooltip = false;
+
+				if ( ! item.text ) {
+					labelFromTooltip = '' !== tooltipText;
+					view.addRenderAttribute( button_key, 'aria-label', labelFromTooltip ? tooltipText : '<?php /* translators: %d: Button position within the group. */ echo esc_js( __( 'Button %d', 'powerpack-lite-for-elementor' ) ); ?>'.replace( '%d', i ) );
+				}
+
+				if ( 'yes' === item.has_tooltip && item.tooltip_content && ! labelFromTooltip ) {
+					view.addRenderAttribute( button_key, 'aria-describedby', 'pp-tooltip-content-' + tooltipContentId );
 				}
 
 				view.addRenderAttribute(
@@ -1565,7 +1613,7 @@ class Buttons extends Powerpack_Widget {
 							<# if ( item.pp_icon_type != 'none' ) { #>
 								<# if ( item.pp_icon_type == 'icon' ) { #>
 									<# if ( item.button_icon || item.selected_icon.value ) { #>
-										<span class="pp-button-icon pp-icon">
+										<span class="pp-button-icon pp-icon" aria-hidden="true">
 											<#
 												iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );
 												migrated[ index ] = elementor.helpers.isIconMigrated( item, 'selected_icon' );
@@ -1580,7 +1628,7 @@ class Buttons extends Powerpack_Widget {
 									<# } #>
 								<# } else if ( item.pp_icon_type == 'image' ) { #>
 									<# if ( item.icon_img.url != '' ) { #>
-										<span class="pp-button-icon pp-button-icon-image">
+										<span class="pp-button-icon pp-button-icon-image" aria-hidden="true">
 											<#
 											var image = {
 												id: item.icon_img.id,
@@ -1596,7 +1644,7 @@ class Buttons extends Powerpack_Widget {
 										</span>
 									<# } #>
 								<# } else if ( item.pp_icon_type == 'text' ) { #>
-									<span class="pp-button-icon pp-button-icon-number">
+									<span class="pp-button-icon pp-button-icon-number" aria-hidden="true">
 										{{{ item.icon_text }}}
 									</span>
 								<# } #>

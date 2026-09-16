@@ -393,7 +393,8 @@ class Logo_Carousel extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Pause on Hover', 'powerpack-lite-for-elementor' ),
 				'description'           => '',
 				'type'                  => Controls_Manager::SWITCHER,
-				'default'               => '',
+				// WCAG 2.2.2: autoplay is on by default, so the pointer user's way to stop it is too.
+				'default'               => 'yes',
 				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
 				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
@@ -1497,6 +1498,15 @@ class Logo_Carousel extends Powerpack_Widget {
 			$slider_options['show_arrows'] = true;
 		}
 
+		/*
+		 * Swiper 8 registers its a11y module with enabled:true, so without this flag the
+		 * arrows, bullets and slides are already named — in Swiper's own hardcoded English,
+		 * which addElLabel() writes straight over the translated aria-label rendered in PHP.
+		 * The flag swaps in PP_Helper::get_carousel_a11y_strings() and adds the slide
+		 * roledescription Swiper leaves null by default.
+		 */
+		$slider_options['a11y'] = 'yes';
+
 		$breakpoints = PP_Helper::elementor()->breakpoints->get_active_breakpoints();
 
 		foreach ( $breakpoints as $device => $breakpoint ) {
@@ -1557,6 +1567,9 @@ class Logo_Carousel extends Powerpack_Widget {
 						'pp-swiper-slider',
 						'swiper'
 					],
+					'role'                 => 'region',
+					'aria-roledescription' => esc_attr__( 'carousel', 'powerpack-lite-for-elementor' ),
+					'aria-label'           => esc_attr__( 'Logo carousel', 'powerpack-lite-for-elementor' ),
 				]
 			]
 		);
@@ -1595,38 +1608,94 @@ class Logo_Carousel extends Powerpack_Widget {
 					shuffle( $logos );
 				}
 
+				$total = count( $logos );
+
 				foreach ( $logos as $index => $item ) :
 					$logo_link_setting_key = $this->get_repeater_setting_key( 'logo_link', 'logos', $index );
 
-					if ( $item['logo_carousel_slide'] ) : ?>
-							<div class="swiper-slide">
+					if ( $item['logo_carousel_slide'] ) :
+						$slide_key = $this->get_repeater_setting_key( 'slide', 'carousel_slides', $index );
+
+						$this->add_render_attribute(
+							$slide_key,
+							[
+								'class'                => 'swiper-slide',
+								// aria-roledescription is ignored on a generic div, so the group role has to come with it.
+								'role'                 => 'group',
+								'aria-roledescription' => esc_attr__( 'slide', 'powerpack-lite-for-elementor' ),
+								/* translators: 1: slide number, 2: total slides */
+								'aria-label'           => sprintf( esc_html__( 'Slide %1$s of %2$s', 'powerpack-lite-for-elementor' ), $index + 1, $total ),
+							]
+						);
+
+						$has_link    = ! empty( $item['link']['url'] );
+						$title_shown = ( 'yes' === $settings['show_title'] && '' !== $item['logo_title'] );
+						// The name the visible title contributes, which is empty when the title is hidden or is markup alone.
+						$logo_title  = $title_shown ? trim( wp_strip_all_tags( $item['logo_title'] ) ) : '';
+						?>
+							<div <?php $this->print_render_attribute_string( $slide_key ); ?>>
 								<div class="pp-lc-logo-wrap">
 									<div class="pp-lc-logo">
 										<?php
 										if ( '' !== $item['logo_carousel_slide']['url'] ) {
-											if ( '' !== $item['link']['url'] ) {
-												$this->add_link_attributes( $logo_link_setting_key, $item['link'] );
-											}
-
-											if ( ! empty( $item['link']['url'] ) ) { ?>
-												<a <?php $this->print_render_attribute_string( $logo_link_setting_key ); ?>>
-												<?php
-											}
-
-											$image_id = apply_filters( 'wpml_object_id', $item['logo_carousel_slide']['id'], 'attachment', true );
+											$image_id  = apply_filters( 'wpml_object_id', $item['logo_carousel_slide']['id'], 'attachment', true );
 											$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'thumbnail', $settings );
+											$image_alt = Control_Media::get_image_alt( $item['logo_carousel_slide'] );
 
-											if ( $image_url ) {
-												?>
-												<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $item['logo_carousel_slide'] ) ); ?>">
-												<?php
-											} else {
-												?>
-												<img src="<?php echo esc_url( $item['logo_carousel_slide']['url'] ); ?>">
-												<?php
+											// An external URL or a deleted attachment has no registered size to resolve.
+											if ( ! $image_url ) {
+												$image_url = $item['logo_carousel_slide']['url'];
 											}
 
-											if ( ! empty( $item['link']['url'] ) ) { ?>
+											/*
+											 * A logo stands for the name of the company it belongs to, so an
+											 * attachment uploaded without alt text — the usual case for a logo
+											 * file — falls back to the title the author typed, and a linked one
+											 * with neither falls back to a generic name rather than leaving the
+											 * anchor to be announced as its own URL. Where the title is shown
+											 * beside the logo it already carries that name, so the image is
+											 * left to whatever alt the author set on the attachment.
+											 */
+											if ( '' === $image_alt && '' === $logo_title ) {
+												$image_alt = trim( wp_strip_all_tags( $item['logo_title'] ) );
+
+												if ( '' === $image_alt && $has_link ) {
+													$image_alt = __( 'Logo', 'powerpack-lite-for-elementor' );
+												}
+											}
+
+											if ( $has_link ) {
+												$logo_image_link_key = $logo_link_setting_key . '-image';
+
+												$this->add_link_attributes( $logo_image_link_key, $item['link'] );
+
+												if ( '' !== $logo_title ) {
+													/*
+													 * The title below links to the same place and carries a real
+													 * name, so keeping both would give every logo two tab stops
+													 * to one destination. The image link stays clickable for a
+													 * pointer and leaves the tab order and the accessibility tree.
+													 */
+													$this->add_render_attribute(
+														$logo_image_link_key,
+														[
+															'tabindex'    => '-1',
+															'aria-hidden' => 'true',
+														]
+													);
+												}
+												?>
+												<a <?php $this->print_render_attribute_string( $logo_image_link_key ); ?>>
+												<?php
+											}
+											?>
+											<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+											<?php
+											if ( $has_link ) {
+												if ( '' === $logo_title ) {
+													echo $this->get_new_tab_notice( $item['link'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+												}
+												?>
 												</a>
 												<?php
 											}
@@ -1634,26 +1703,27 @@ class Logo_Carousel extends Powerpack_Widget {
 										?>
 									</div>
 									<?php
-									if ( 'yes' == $settings['show_title'] ) {
-										if ( '' !== $item['logo_title'] ) {
-											$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+									if ( $title_shown ) {
+										$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+										?>
+										<<?php echo esc_html( $title_tag ); ?> class="pp-logo-title">
+										<?php
+										if ( $has_link ) {
+											$this->add_link_attributes( $logo_link_setting_key, $item['link'] );
 											?>
-											<<?php echo esc_html( $title_tag ); ?> class="pp-logo-title">
-											<?php
-											if ( ! empty( $item['link']['url'] ) ) {
-												?>
-												<a <?php $this->print_render_attribute_string( $logo_link_setting_key ); ?>>
-												<?php
-											}
-											echo wp_kses_post( $item['logo_title'] );
-											if ( '' !== $item['link']['url'] ) { ?>
-												</a>
-												<?php
-											}
-											?>
-											</<?php echo esc_html( $title_tag ); ?>>
+											<a <?php $this->print_render_attribute_string( $logo_link_setting_key ); ?>>
 											<?php
 										}
+										echo wp_kses_post( $item['logo_title'] );
+										if ( $has_link ) {
+											echo $this->get_new_tab_notice( $item['link'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+											?>
+											</a>
+											<?php
+										}
+										?>
+										</<?php echo esc_html( $title_tag ); ?>>
+										<?php
 									}
 									?>
 								</div>
@@ -1667,10 +1737,36 @@ class Logo_Carousel extends Powerpack_Widget {
 					$this->render_dots();
 
 					$this->render_arrows();
+
+					printf(
+						'<div class="pp-screen-only elementor-screen-only" aria-live="polite" aria-atomic="true" id="pp-logo-carousel-status-%1$s">%2$s</div>',
+						esc_attr( $this->get_id() ),
+						esc_html( PP_Helper::get_slide_status_text( 1, $total ) )
+					);
 				?>
 			</div>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Visually hidden warning for a link that opens in a new tab.
+	 *
+	 * Nothing else tells a screen reader user that the tab is about to change, and
+	 * the link text itself is the author's, so the notice rides inside the link.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @param array $link The repeater item's link setting.
+	 * @return string The notice markup, or an empty string where the link stays in place.
+	 */
+	protected function get_new_tab_notice( $link ) {
+		if ( empty( $link['is_external'] ) ) {
+			return '';
+		}
+
+		return '<span class="pp-screen-only elementor-screen-only">' . esc_html__( '(opens in a new tab)', 'powerpack-lite-for-elementor' ) . '</span>';
 	}
 
 	/**
@@ -1742,11 +1838,11 @@ class Logo_Carousel extends Powerpack_Widget {
 					var prev_arrow = 'fa fa-angle-left';
 				}
 				#>
-				<div class="pp-slider-arrow elementor-swiper-button-next">
-					<i class="{{ next_arrow }}"></i>
+				<div class="pp-slider-arrow elementor-swiper-button-next" role="button" tabindex="0" aria-label="<?php echo esc_attr__( 'Next slide', 'powerpack-lite-for-elementor' ); ?>">
+					<i class="{{ next_arrow }}" aria-hidden="true"></i>
 				</div>
-				<div class="pp-slider-arrow elementor-swiper-button-prev">
-					<i class="{{ prev_arrow }}"></i>
+				<div class="pp-slider-arrow elementor-swiper-button-prev" role="button" tabindex="0" aria-label="<?php echo esc_attr__( 'Previous slide', 'powerpack-lite-for-elementor' ); ?>">
+					<i class="{{ prev_arrow }}" aria-hidden="true"></i>
 				</div>
 				<#
 			}
@@ -1797,6 +1893,9 @@ class Logo_Carousel extends Powerpack_Widget {
 				sliderOptions.show_arrows = true;
 			}
 
+			// Matches slider_settings(): without it Swiper's own English labels overwrite the translated ones.
+			sliderOptions.a11y = 'yes';
+
 			breakpoints = elementorFrontend.config.responsive.activeBreakpoints;
 			Object.keys(breakpoints).forEach(breakpointName => {
 				if ( 'tablet' === breakpointName || 'mobile' === breakpointName ) {
@@ -1828,6 +1927,9 @@ class Logo_Carousel extends Powerpack_Widget {
 			'container',
 			{
 				'class': [ 'pp-logo-carousel', 'pp-swiper-slider', 'swiper' ],
+				'role': 'region',
+				'aria-roledescription': '<?php echo esc_js( __( 'carousel', 'powerpack-lite-for-elementor' ) ); ?>',
+				'aria-label': '<?php echo esc_js( __( 'Logo carousel', 'powerpack-lite-for-elementor' ) ); ?>',
 			}
 		);
 
@@ -1853,18 +1955,34 @@ class Logo_Carousel extends Powerpack_Widget {
 		var slider_options = get_slider_settings( settings );
 
 		view.addRenderAttribute( 'container', 'data-slider-settings', JSON.stringify( slider_options ) );
+
+		var total_logos     = ( settings.carousel_slides || [] ).length,
+			slide_label_tpl = '<?php echo esc_js( /* translators: 1: slide number, 2: total slides */ __( 'Slide %1$s of %2$s', 'powerpack-lite-for-elementor' ) ); ?>',
+			generic_logo    = '<?php echo esc_js( __( 'Logo', 'powerpack-lite-for-elementor' ) ); ?>';
 		#>
 		<div {{{ view.getRenderAttributeString( 'wrapper' ) }}}>
 			<div {{{ view.getRenderAttributeString( 'container' ) }}}>
 				<div class="swiper-wrapper">
-					<# _.each( settings.carousel_slides, function( item ) { #>
+					<# _.each( settings.carousel_slides, function( item, slide_index ) {
+						// aria-roledescription is ignored on a generic div, so the group role has to come with it.
+						var slide_label = slide_label_tpl.replace( '%1$s', slide_index + 1 ).replace( '%2$s', total_logos ),
+							has_link    = !! ( item.link && item.link.url ),
+							title_shown = ( 'yes' == settings.show_title && item.logo_title ),
+							logo_title  = title_shown ? item.logo_title : '';
+					#>
 						<# if ( item.logo_carousel_slide ) { #>
-							<div class="swiper-slide">
+							<div class="swiper-slide" role="group" aria-roledescription="<?php echo esc_attr__( 'slide', 'powerpack-lite-for-elementor' ); ?>" aria-label="{{ slide_label }}">
 								<div class="pp-lc-logo-wrap">
 									<div class="pp-lc-logo">
 										<# if ( item.logo_carousel_slide.url != '' ) { #>
-											<# if ( item.link && item.link.url ) { #>
-												<a href="{{ _.escape( item.link.url ) }}">
+											<#
+											// The title beside the logo already names it, so the image link there
+											// would be a second tab stop to the same place.
+											var image_link_attrs = ( logo_title ) ? ' tabindex="-1" aria-hidden="true"' : '',
+												image_alt        = ( logo_title ) ? '' : ( item.logo_title || ( has_link ? generic_logo : '' ) );
+											#>
+											<# if ( has_link ) { #>
+												<a href="{{ _.escape( item.link.url ) }}"{{{ image_link_attrs }}}>
 											<# } #>
 											<#
 											if ( item.logo_carousel_slide && item.logo_carousel_slide.id ) {
@@ -1887,26 +2005,24 @@ class Logo_Carousel extends Powerpack_Widget {
 												var image_url = item.logo_carousel_slide.url;
 											}
 											#>
-											<img src="{{ _.escape( image_url ) }}" />
+											<img src="{{ _.escape( image_url ) }}" alt="{{ image_alt }}" />
 
-											<# if ( item.link && item.link.url ) { #>
+											<# if ( has_link ) { #>
 												</a>
 											<# } #>
 										<# } #>
 									</div>
-									<# if ( 'yes' == settings.show_title ) { #>
-										<# if ( item.logo_title ) { #>
-											<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
-											<{{{ titleHTMLTag }}} class="pp-logo-grid-title">
-												<# if ( item.link && item.link.url ) { #>
-													<a href="{{ _.escape( item.link.url ) }}">
-												<# } #>
-													{{ item.logo_title }}
-												<# if ( item.link && item.link.url ) { #>
-													</a>
-												<# } #>
-											</{{{ titleHTMLTag }}}>
-										<# } #>
+									<# if ( title_shown ) { #>
+										<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
+										<{{{ titleHTMLTag }}} class="pp-logo-title">
+											<# if ( has_link ) { #>
+												<a href="{{ _.escape( item.link.url ) }}">
+											<# } #>
+												{{ item.logo_title }}
+											<# if ( has_link ) { #>
+												</a>
+											<# } #>
+										</{{{ titleHTMLTag }}}>
 									<# } #>
 								</div>
 							</div>

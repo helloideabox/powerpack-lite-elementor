@@ -185,7 +185,7 @@
   z-index: 2;
 }
 .pp-pricing-table-ribbon-inner {
-  background: #61ce70;
+  background: #2e7d32;
 }
 .pp-pricing-table-ribbon-1 {
   position: absolute;
@@ -222,7 +222,7 @@
   min-width: 4em;
 }
 .pp-pricing-table-ribbon-2 .pp-pricing-table-ribbon-inner {
-  background: #61ce70;
+  background: #2e7d32;
   border-radius: 50%;
 }
 .pp-pricing-table-ribbon-2.pp-pricing-table-ribbon-right {
@@ -240,7 +240,7 @@
   inset-inline-start: 0;
 }
 .pp-pricing-table-ribbon-3 {
-  background: #61ce70;
+  background: #2e7d32;
   top: 10%;
 }
 .pp-pricing-table-ribbon-3 .pp-pricing-table-ribbon-inner {
@@ -263,8 +263,8 @@
   inset-inline-end: 0;
 }
 .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right::before {
-  -webkit-border-start: 8px solid #61ce70;
-          border-inline-start: 8px solid #61ce70;
+  -webkit-border-start: 8px solid #2e7d32;
+          border-inline-start: 8px solid #2e7d32;
 }
 .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-right::after {
   -webkit-border-start: 8px solid rgba(0, 0, 0, 0.2);
@@ -278,8 +278,8 @@
   inset-inline-start: 0;
 }
 .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left::before {
-  -webkit-border-end: 8px solid #61ce70;
-          border-inline-end: 8px solid #61ce70;
+  -webkit-border-end: 8px solid #2e7d32;
+          border-inline-end: 8px solid #2e7d32;
 }
 .pp-pricing-table-ribbon-3.pp-pricing-table-ribbon-left::after {
   -webkit-border-end: 8px solid rgba(0, 0, 0, 0.2);
@@ -288,4 +288,38 @@
 
 .pp-tooltip-click {
   cursor: pointer;
+}
+
+button.pp-pricing-table-tooltip-icon {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font: inherit;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  line-height: 1;
+  min-height: 24px;
+  min-width: 24px;
+  padding: 0;
+}
+
+.pp-pricing-table-feature-content:focus-visible,
+button.pp-pricing-table-tooltip-icon:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+.pp-pricing-table-price-original del {
+  text-decoration: inherit;
 }

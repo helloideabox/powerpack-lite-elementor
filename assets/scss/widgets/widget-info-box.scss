@@ -443,3 +443,60 @@
         }
     }
 }
+
+.elementor-element.elementor-widget-pp-info-box-carousel {
+    --swiper-pagination-bullet-horizontal-gap: 9px;
+}
+
+.elementor-widget-pp-info-box-carousel {
+
+    // The overlay raises the hit area to 24px without touching the painted dot, and
+    // min-width/min-height keep it at the dot's own size once the author sets a bigger one.
+    .swiper-pagination-bullet {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            inset-inline-start: 50%;
+            width: 24px;
+            height: 24px;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    // A theme that clears the outline leaves the card, title, icon and button links with
+    // no focus indicator at all. Draw one whenever focus arrives by keyboard, and suppress
+    // it for pointer focus so clicking looks exactly as it did. The card link fills the
+    // slide, which the carousel clips, so its ring is drawn inside the edge.
+    .pp-info-box > a:focus-visible {
+        outline: 2px solid #1a73e8;
+        outline-offset: -2px;
+    }
+
+    a.pp-info-box-title-container:focus-visible,
+    .pp-info-box-icon-wrap a:focus-visible,
+    a.pp-info-box-button:focus-visible {
+        outline: 2px solid #1a73e8;
+        outline-offset: 2px;
+    }
+
+    .pp-info-box > a:focus:not(:focus-visible),
+    a.pp-info-box-title-container:focus:not(:focus-visible),
+    .pp-info-box-icon-wrap a:focus:not(:focus-visible),
+    a.pp-info-box-button:focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+// The carousel script already holds autoplay back under reduced motion. The transition
+// the author set still ran on every arrow and dot press; this is what stops that.
+@media (prefers-reduced-motion: reduce) {
+
+    .elementor-widget-pp-info-box-carousel .swiper-wrapper {
+        transition-duration: 0ms !important;
+    }
+}

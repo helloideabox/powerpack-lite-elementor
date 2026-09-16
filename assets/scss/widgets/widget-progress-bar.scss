@@ -368,3 +368,16 @@
 		transform-origin: 0;
 	}
 }
+
+@media (prefers-reduced-motion: reduce) {
+
+	.pp-progress-bar-active .pp-progress-fill,
+	.pp-progress-bar-rainbow .pp-progress-fill {
+		animation: none;
+	}
+
+	.pp-progress-fill,
+	.pp-vertical-bar .pp-progress-fill {
+		transition: none;
+	}
+}

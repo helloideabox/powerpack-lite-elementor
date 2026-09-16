@@ -752,7 +752,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Pause on Hover', 'powerpack-lite-for-elementor' ),
 				'description'           => '',
 				'type'                  => Controls_Manager::SWITCHER,
-				'default'               => '',
+				// WCAG 2.2.2: autoplay is on by default, so out of the box a pointer user needs
+				// some way to stop it. Keyboard users get the same from the unconditional
+				// pause-on-focus in the carousel script.
+				'default'               => 'yes',
 				'label_on'              => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
 				'label_off'             => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
@@ -2694,6 +2697,15 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			}
 		}
 
+		/*
+		 * Opts this widget into Swiper's a11y module, which is what makes the
+		 * div[role=button] arrows answer Enter and Space, gives the pagination bullets a
+		 * role, a tab stop and aria-current, and sets aria-disabled at either end. Flagged
+		 * per widget so the other carousels sharing this script keep their current
+		 * behaviour; the messages come from PP_Helper::get_carousel_a11y_strings().
+		 */
+		$slider_options['a11y'] = 'yes';
+
 		return $slider_options;
 	}
 
@@ -2737,6 +2749,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				[
 					'class'                => [ 'pp-info-box-carousel', 'pp-swiper-slider', 'swiper' ],
 					'data-slider-settings' => wp_json_encode( $slider_options ),
+					'role'                 => 'region',
+					'aria-roledescription' => esc_attr__( 'carousel', 'powerpack-lite-for-elementor' ),
+					'aria-label'           => esc_attr__( 'Info boxes carousel', 'powerpack-lite-for-elementor' ),
 				]
 			);
 
@@ -2748,9 +2763,6 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 			$this->add_render_attribute( 'info-box', 'class', 'swiper-slide' );
 		}
-
-		$title_container_tag = 'div';
-		$button_html_tag     = 'div';
 
 		$this->add_render_attribute( 'info-box-button', 'class', [
 			'pp-info-box-button',
@@ -2775,11 +2787,36 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				<div class="swiper-wrapper">
 			<?php endif; ?>
 
-			<?php foreach ( $settings['pp_info_boxes'] as $index => $item ) :
+			<?php
+			$total_boxes = count( $settings['pp_info_boxes'] );
+
+			foreach ( $settings['pp_info_boxes'] as $index => $item ) :
+				/*
+				 * Reset per item. Declared once outside the loop these only ever took a value,
+				 * so the first item to link its title or its button turned every later item's
+				 * title container into an <a> with no href.
+				 */
+				$title_container_tag = 'div';
+				$button_html_tag     = 'div';
+
 				$title_container_setting_key = $this->get_repeater_setting_key( 'title_container', 'info_boxes', $index );
 				$link_setting_key = $this->get_repeater_setting_key( 'link', 'info_boxes', $index );
+				$slide_setting_key = $this->get_repeater_setting_key( 'slide', 'info_boxes', $index );
 
 				$this->add_render_attribute( $title_container_setting_key, 'class', 'pp-info-box-title-container' );
+
+				if ( 'carousel' === $settings['layout'] ) {
+					$this->add_render_attribute(
+						$slide_setting_key,
+						[
+							// aria-roledescription is ignored on a generic div, so the group role has to come with it.
+							'role'                 => 'group',
+							'aria-roledescription' => esc_attr__( 'slide', 'powerpack-lite-for-elementor' ),
+							/* translators: 1: slide number, 2: total slides */
+							'aria-label'           => sprintf( esc_html__( 'Slide %1$s of %2$s', 'powerpack-lite-for-elementor' ), $index + 1, $total_boxes ),
+						]
+					);
+				}
 
 				if ( 'none' !== $item['link_type'] && ! empty( $item['link']['url'] ) ) {
 					$this->add_link_attributes( $link_setting_key, $item['link'] );
@@ -2794,7 +2831,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					}
 				}
 				?>
-				<div <?php $this->print_render_attribute_string( 'info-box' ); ?>>
+				<div <?php $this->print_render_attribute_string( 'info-box' ); ?> <?php $this->print_render_attribute_string( $slide_setting_key ); ?>>
 					<?php if ( 'box' === $item['link_type'] ) : ?>
 						<a <?php $this->print_render_attribute_string( $link_setting_key ); ?>>
 					<?php endif; ?>
@@ -2837,10 +2874,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 						<?php if ( 'button' === $item['link_type'] || ( 'box' === $item['link_type'] && 'yes' === $item['button_visible'] ) ) : ?>
 							<div class="pp-info-box-footer">
-								<<?php echo esc_html( $button_html_tag ); ?> <?php $this->print_render_attribute_string( 'info-box-button' ); ?>
-									<?php if ( 'button' === $item['link_type'] ) : ?>
-										<?php $this->print_render_attribute_string( $link_setting_key ); ?>
-									<?php endif; ?>
+								<<?php echo esc_html( $button_html_tag ); ?> <?php $this->print_render_attribute_string( 'info-box-button' ); ?><?php if ( 'button' === $item['link_type'] ) : ?> <?php $this->print_render_attribute_string( $link_setting_key ); ?><?php endif; ?>>
 									<?php
 									if ( 'before' === $item['button_icon_position'] ) {
 										$this->render_infobox_button_icon( $item );
@@ -2855,6 +2889,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
 									if ( 'after' === $item['button_icon_position'] ) {
 										$this->render_infobox_button_icon( $item );
 									}
+
+									if ( 'button' === $item['link_type'] ) {
+										echo wp_kses_post( $this->get_new_tab_notice( $item['link'] ) );
+									}
 									?>
 								</<?php echo esc_html( $button_html_tag ); ?>>
 							</div>
@@ -2862,6 +2900,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					</div>
 
 					<?php if ( 'box' === $item['link_type'] ) : ?>
+							<?php echo wp_kses_post( $this->get_new_tab_notice( $item['link'] ) ); ?>
 						</a>
 					<?php endif; ?>
 				</div>
@@ -2870,6 +2909,19 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			<?php if ( 'carousel' === $settings['layout'] ) : ?>
 				</div>
 				<?php
+				/*
+				 * Swiper only speaks to keyboard users. This is what tells everyone else which
+				 * slide is showing; the carousel script rewrites it from the same msgid on every
+				 * move the user asked for, and points the arrows at it with aria-describedby.
+				 * Without it the script also leaves Swiper's own aria-live on the slides
+				 * wrapper, which reads the whole slide out again on every move.
+				 */
+				printf(
+					'<div class="pp-screen-only elementor-screen-only" aria-live="polite" aria-atomic="true" id="pp-info-box-carousel-status-%1$s">%2$s</div>',
+					esc_attr( $this->get_id() ),
+					esc_html( PP_Helper::get_slide_status_text( 1, count( $settings['pp_info_boxes'] ) ) )
+				);
+
 				$this->render_dots();
 				$this->render_arrows();
 			endif; ?>
@@ -2896,6 +2948,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					<<?php echo esc_html( $title_tag ); ?> class="pp-info-box-title">
 						<?php echo wp_kses_post( $item['title'] ); ?>
 					</<?php echo esc_html( $title_tag ); ?>>
+					<?php
+					if ( 'a' === $title_container_tag ) {
+						echo wp_kses_post( $this->get_new_tab_notice( $item['link'] ) );
+					}
+					?>
 				</<?php echo esc_html( $title_container_tag ); ?>>
 				<?php
 			}
@@ -2943,6 +3000,33 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		$migrated = isset( $item['__fa4_migrated']['selected_icon'] );
 		$is_new = ! isset( $item['icon'] ) && $migration_allowed;
 
+		if ( 'icon' === $item['link_type'] && 'icon' === $item['icon_type'] ) {
+			/*
+			 * The anchor holds nothing but an aria-hidden icon, so without a name of its own
+			 * it reaches a screen reader as an empty link. The box's own title is the only
+			 * thing on the card that says where the link goes.
+			 */
+			$icon_link_label = trim( wp_strip_all_tags( $item['title'] ) );
+
+			if ( '' === $icon_link_label ) {
+				$icon_link_label = trim( wp_strip_all_tags( $item['subtitle'] ) );
+			}
+
+			if ( '' === $icon_link_label ) {
+				$icon_link_label = esc_html__( 'Read more', 'powerpack-lite-for-elementor' );
+			}
+
+			/*
+			 * aria-label wins over anything inside the anchor, so the notice the other link
+			 * types print as a child element has to be part of the name here.
+			 */
+			if ( ! empty( $item['link']['is_external'] ) ) {
+				$icon_link_label .= ' ' . esc_html__( '(opens in a new tab)', 'powerpack-lite-for-elementor' );
+			}
+
+			$this->add_render_attribute( $link_setting_key, 'aria-label', $icon_link_label );
+		}
+
 		if ( ! empty( $item['icon'] ) || ( ! empty( $item['selected_icon']['value'] ) && $is_new ) || ! empty( $item['image']['url'] ) || '' !== $item['icon_text'] ) {
 			?>
 			<div class="pp-info-box-icon-wrap">
@@ -2961,16 +3045,20 @@ class Info_Box_Carousel extends Powerpack_Widget {
 						<?php
 						if ( ! empty( $item['image']['url'] ) ) {
 							$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['image']['id'], 'thumbnail', $settings );
+							$image_alt = Control_Media::get_image_alt( $item['image'] );
 
-							if ( $image_url ) {
-								?>
-								<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $item['image'] ) ); ?>">
-								<?php
-							} else {
-								?>
-								<img src="<?php echo esc_url( $item['image']['url'] ); ?>">
-								<?php
+							/*
+							 * The title is announced from the heading below, so an unlinked image is
+							 * decorative and keeps its empty alt. A linked one has to carry a name, or
+							 * the link has none at all. The fallback branch used to print no alt
+							 * attribute whatsoever, which has a screen reader read out the filename.
+							 */
+							if ( '' === $image_alt && 'icon' === $item['link_type'] ) {
+								$image_alt = trim( wp_strip_all_tags( $item['title'] ) );
 							}
+							?>
+							<img src="<?php echo esc_url( $image_url ? $image_url : $item['image']['url'] ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+							<?php
 						}
 						?>
 					<?php } elseif ( 'text' === $item['icon_type'] ) {
@@ -3018,6 +3106,23 @@ class Info_Box_Carousel extends Powerpack_Widget {
 			</span>
 			<?php
 		}
+	}
+
+	/**
+	 * The screen-reader note a link that opens in a new tab carries.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @param array $link The repeater item's link setting.
+	 * @return string The notice markup, or an empty string where the link stays in place.
+	 */
+	protected function get_new_tab_notice( $link ) {
+		if ( empty( $link['is_external'] ) ) {
+			return '';
+		}
+
+		return '<span class="pp-screen-only elementor-screen-only">' . esc_html__( '(opens in a new tab)', 'powerpack-lite-for-elementor' ) . '</span>';
 	}
 
 	/**
@@ -3137,6 +3242,12 @@ class Info_Box_Carousel extends Powerpack_Widget {
 				return sliderOptions;
 			};
 
+			// The title is a rich text control, so anything taken from it for an alt or an
+			// aria-label has to come out as plain text.
+			function stripTags( value ) {
+				return ( value || '' ).replace( /<[^>]*>/g, '' ).trim();
+			}
+
 			function dots_template() {
 				if ( settings.dots == 'yes' ) {
 					#>
@@ -3163,11 +3274,11 @@ class Info_Box_Carousel extends Powerpack_Widget {
 							var prev_arrow = 'fa fa-angle-left';
 						}
 						#>
-						<div class="pp-slider-arrow elementor-swiper-button-next">
-							<i class="{{ next_arrow }}"></i>
+						<div class="pp-slider-arrow elementor-swiper-button-next" role="button" tabindex="0" aria-label="<?php echo esc_attr__( 'Next slide', 'powerpack-lite-for-elementor' ); ?>">
+							<i class="{{ next_arrow }}" aria-hidden="true"></i>
 						</div>
-						<div class="pp-slider-arrow elementor-swiper-button-prev">
-							<i class="{{ prev_arrow }}"></i>
+						<div class="pp-slider-arrow elementor-swiper-button-prev" role="button" tabindex="0" aria-label="<?php echo esc_attr__( 'Previous slide', 'powerpack-lite-for-elementor' ); ?>">
+							<i class="{{ prev_arrow }}" aria-hidden="true"></i>
 						</div>
 						<#
 					}
@@ -3207,6 +3318,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 							<{{{ titleHTMLTag }}} class="pp-info-box-title">
 							{{ item.title }}
 							</{{{ titleHTMLTag }}}>
+							<# if ( 'a' === $title_container_tag && item.link.is_external ) { #>
+								<span class="pp-screen-only elementor-screen-only"><?php echo esc_html__( '(opens in a new tab)', 'powerpack-lite-for-elementor' ); ?></span>
+							<# } #>
 							</{{{ $title_container_tag }}}>
 							<#
 						}
@@ -3252,8 +3366,14 @@ class Info_Box_Carousel extends Powerpack_Widget {
 									model: view.getEditModel()
 								};
 								var image_url = elementor.imagesManager.getImageUrl( image );
+
+								/*
+								 * The title is announced from the heading below, so an unlinked image is
+								 * decorative. A linked one has to carry a name, or the link has none.
+								 */
+								var imageAlt = ( "icon" === item.link_type ) ? stripTags( item.title ) : "";
 								#>
-								<img src="{{{ image_url }}}" />
+								<img src="{{{ image_url }}}" alt="{{ imageAlt }}" />
 							<# } else if ( item.icon_type == 'text' ) { #>
 								{{{ item.icon_text }}}
 							<# } #>
@@ -3292,7 +3412,10 @@ class Info_Box_Carousel extends Powerpack_Widget {
                     'container',
                     {
                         'class': [ 'pp-info-box-carousel', 'pp-swiper-slider', 'swiper', 'swiper-container-wrap-dots-' + settings.dots_position ],
-                        'data-slider-settings': JSON.stringify( slider_options )
+                        'data-slider-settings': JSON.stringify( slider_options ),
+                        'role': 'region',
+                        'aria-roledescription': '<?php echo esc_js( __( 'carousel', 'powerpack-lite-for-elementor' ) ); ?>',
+                        'aria-label': '<?php echo esc_js( __( 'Info boxes carousel', 'powerpack-lite-for-elementor' ) ); ?>'
                     }
                 );
 
@@ -3327,10 +3450,22 @@ class Info_Box_Carousel extends Powerpack_Widget {
 		<div {{{ view.getRenderAttributeString( 'container' ) }}}>
 			<# if ( settings.layout == 'carousel' ) { #><div class="swiper-wrapper"><# } #>
 			<#
-				var i = 1;
+				var i = 1,
+					totalBoxes = settings.pp_info_boxes.length,
+					slideLabelTpl = '<?php echo esc_js( /* translators: 1: slide number, 2: total slides */ __( 'Slide %1$s of %2$s', 'powerpack-lite-for-elementor' ) ); ?>';
 
 				_.each( settings.pp_info_boxes, function( item, index ) {
-					
+
+					/*
+					 * Reset per item. Left standing, the first item to link its title or its
+					 * button turned every later item's title container into an <a> with no href.
+					 */
+					$title_container_tag = 'div';
+					$button_html_tag = 'div';
+
+					// aria-roledescription is ignored on a generic div, so the group role has to come with it.
+					var slideLabel = slideLabelTpl.replace( '%1$s', index + 1 ).replace( '%2$s', totalBoxes );
+
 					view.addRenderAttribute( 'title-container' + i, 'class', 'pp-info-box-title-container' );
 
 					if ( item.link_type != 'none' ) {
@@ -3355,8 +3490,22 @@ class Info_Box_Carousel extends Powerpack_Widget {
 							}
 						}
 					}
+
+					if ( item.link_type == 'icon' && item.icon_type == 'icon' ) {
+						/*
+						 * The anchor holds nothing but an aria-hidden icon, so without a name of
+						 * its own it reaches a screen reader as an empty link.
+						 */
+						var iconLinkLabel = stripTags( item.title ) || stripTags( item.subtitle ) || '<?php echo esc_js( __( 'Read more', 'powerpack-lite-for-elementor' ) ); ?>';
+
+						if ( item.link.is_external ) {
+							iconLinkLabel += ' <?php echo esc_js( __( '(opens in a new tab)', 'powerpack-lite-for-elementor' ) ); ?>';
+						}
+
+						view.addRenderAttribute( 'link' + i, 'aria-label', iconLinkLabel );
+					}
 				#>
-				<div {{{ view.getRenderAttributeString( 'info-box' ) }}}>
+				<div {{{ view.getRenderAttributeString( 'info-box' ) }}}<# if ( settings.layout == 'carousel' ) { #> role="group" aria-roledescription="<?php echo esc_attr__( 'slide', 'powerpack-lite-for-elementor' ); ?>" aria-label="{{ slideLabel }}"<# } #>>
 					<# if ( item.link_type == 'box' ) { #>
 						<a {{{ view.getRenderAttributeString( 'link' + i ) }}}>
 					<# } #>
@@ -3395,7 +3544,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 							<# } #>
 							<# if ( item.link_type == 'button' || ( item.link_type == 'box' && item.button_visible == 'yes' ) ) { #>
 								<div class="pp-info-box-footer">
-									<{{{ $button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' ) }}}>
+									<{{{ $button_html_tag }}} {{{ view.getRenderAttributeString( 'info-box-button' ) }}}<# if ( item.link_type == 'button' ) { #> {{{ view.getRenderAttributeString( 'link' + i ) }}}<# } #>>
 										<# if ( item.button_icon_position == 'before' ) { #>
 											<# button_icon_template( item, index ); #>
 										<# } #>
@@ -3407,16 +3556,25 @@ class Info_Box_Carousel extends Powerpack_Widget {
 										<# if ( item.button_icon_position == 'after' ) { #>
 											<# button_icon_template( item, index ); #>
 										<# } #>
+										<# if ( item.link_type == 'button' && item.link.is_external ) { #>
+											<span class="pp-screen-only elementor-screen-only"><?php echo esc_html__( '(opens in a new tab)', 'powerpack-lite-for-elementor' ); ?></span>
+										<# } #>
 									</{{{ $button_html_tag }}}>
 								</div>
 							<# } #>
 						</div>
 					<# if ( item.link_type == 'box' ) { #>
+							<# if ( item.link.is_external ) { #>
+								<span class="pp-screen-only elementor-screen-only"><?php echo esc_html__( '(opens in a new tab)', 'powerpack-lite-for-elementor' ); ?></span>
+							<# } #>
 						</a>
 					<# } #>
 				</div>
 			<# i++ } ); #>
-			<# if ( settings.layout == 'carousel' ) { #></div><# } #>
+			<# if ( settings.layout == 'carousel' ) { #>
+				</div>
+				<div class="pp-screen-only elementor-screen-only" aria-live="polite" aria-atomic="true" id="pp-info-box-carousel-status-{{ view.getID() }}">{{ slideLabelTpl.replace( '%1$s', 1 ).replace( '%2$s', settings.pp_info_boxes.length ) }}</div>
+			<# } #>
 			<#
 			if ( settings.layout == 'carousel' ) {
 				dots_template();

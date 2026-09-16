@@ -399,3 +399,15 @@
             transform-origin: 100%;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .pp-progress-bar-active .pp-progress-fill,
+  .pp-progress-bar-rainbow .pp-progress-fill {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .pp-progress-fill,
+  .pp-vertical-bar .pp-progress-fill {
+    -webkit-transition: none;
+    transition: none;
+  }
+}

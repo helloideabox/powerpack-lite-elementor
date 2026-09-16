@@ -63,6 +63,29 @@
   cursor: pointer;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  min-width: 24px;
+  min-height: 24px;
+}
+.pp-content-reveal-button-inner:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+  -webkit-box-shadow: 0 0 0 2px #fff;
+          box-shadow: 0 0 0 2px #fff;
+}
+.pp-content-reveal-button-inner:focus:not(:focus-visible) {
+  outline: none;
+}
+@media (forced-colors: active) {
+  .pp-content-reveal-button-inner:focus-visible {
+    outline-color: Highlight;
+  }
 }
 
 .pp-content-reveal-button {
@@ -108,4 +131,13 @@
 }
 .pp-content-revealed .pp-content-reveal-button-closed {
   display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-content-reveal-content-wrapper,
+  .pp-content-reveal-button-inner,
+  .pp-button-icon {
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
 }

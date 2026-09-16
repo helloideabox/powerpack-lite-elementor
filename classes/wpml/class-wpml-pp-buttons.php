@@ -10,12 +10,12 @@ class WPML_PP_Buttons extends WPML_Elementor_Module_With_Items {
 	}
 
 	public function get_fields() {
-		return array( 
+		return [
 			'text',
 			'icon_text',
 			'tooltip_content',
-			'link' => array( 'url' ),
-		);
+			'link' => [ 'url' ],
+		];
 	}
 
 	protected function get_title( $field ) {

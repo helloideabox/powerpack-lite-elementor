@@ -25,6 +25,10 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.pp-image-comparison:focus-within .pp-image-comparison-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .pp-before-image img,
 .pp-after-image img {
   max-width: 100%;
@@ -103,6 +107,15 @@
   fill: currentcolor;
   width: auto;
   height: 1em;
+}
+.pp-comparison-handle:focus-visible {
+  outline: 2px solid #FFF;
+  outline-offset: 3px;
+  -webkit-box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.8);
+}
+.pp-comparison-handle:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .pp-image-comparison-vertical .pp-after-image img {

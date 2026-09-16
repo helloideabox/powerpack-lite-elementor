@@ -49,3 +49,41 @@
         }
     }
 }
+
+.elementor-widget-pp-logo-carousel {
+
+    // WCAG 1.4.11: the shared #ccc default sits at 1.6:1 on a white page, under the 3:1
+    // a control needs to be identifiable. #949494 is the lightest grey that clears it, so
+    // the dots stay light without disappearing. A colour set on the Dots control still
+    // wins, since Elementor prints that one with the element class in front.
+    .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+        background: #949494;
+    }
+
+    // WCAG 2.5.8: 8px dots with 4px margins give a 16px target. The overlay raises the
+    // hit area to 24px without touching the painted dot or the spacing the author configured.
+    .swiper-pagination-bullet {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            inset-inline-start: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 24px;
+            min-height: 24px;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+// Autoplay is already held back in the script; this is the travel an arrow press or a
+// dot still animates.
+@media (prefers-reduced-motion: reduce) {
+
+    .elementor-widget-pp-logo-carousel .swiper-wrapper {
+        transition-duration: 0ms !important;
+    }
+}

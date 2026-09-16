@@ -231,6 +231,31 @@ class Interactive_Circle extends Powerpack_Widget {
 			]
 		);
 
+		/**
+		 * HTML tag for the content title, so it can be a real heading.
+		 *
+		 * @since x.x.x
+		 */
+		$this->add_control(
+			'title_html_tag',
+			[
+				'label'   => esc_html__( 'Title HTML Tag', 'powerpack-lite-for-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'div',
+				'options' => [
+					'h1'   => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
+					'h2'   => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
+					'h3'   => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
+					'h4'   => esc_html__( 'H4', 'powerpack-lite-for-elementor' ),
+					'h5'   => esc_html__( 'H5', 'powerpack-lite-for-elementor' ),
+					'h6'   => esc_html__( 'H6', 'powerpack-lite-for-elementor' ),
+					'div'  => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
+					'span' => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
+					'p'    => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
+				],
+			]
+		);
+
 		$this->add_control(
 			'content_icon_type',
 			[
@@ -1303,35 +1328,43 @@ class Interactive_Circle extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
-	protected function render_tab_icon( $item ) {
+	protected function render_tab_icon( $item, $item_count = 1 ) {
 		$settings       = $this->get_settings_for_display();
-		$show_btn_icon  = isset( $settings['tabs_icon'] ) && 'yes' === $settings['tabs_icon'];
-		$icon_type      = isset( $item['tab_icon_type'] ) ? $item['tab_icon_type'] : 'icon';
-		$show_btn_title = isset( $settings['tabs_title'] ) && 'yes' === $settings['tabs_title'];
+		$show_btn_icon  = 'yes' === $settings['tabs_icon'];
+		$icon_type      = ! empty( $item['tab_icon_type'] ) ? $item['tab_icon_type'] : 'icon';
+		$show_btn_title = 'yes' === $settings['tabs_title'];
 
 		if ( $show_btn_icon ) {
 			if ( 'icon' === $icon_type ) {
-				Icons_Manager::render_icon( $item['tab_icon'] );
-			} elseif ( 'image' === $icon_type ) {
-				if ( ! empty( $item['tab_icon_image']['url'] ) ) {
-					$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['tab_icon_image']['id'], 'image', $settings );
+				Icons_Manager::render_icon( $item['tab_icon'], [ 'aria-hidden' => 'true' ] );
+			} elseif ( 'image' === $icon_type && ! empty( $item['tab_icon_image']['url'] ) ) {
+				$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['tab_icon_image']['id'], 'image', $settings );
 
-					if ( $image_url ) {
-						?>
-						<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $item['tab_icon_image'] ) ); ?>">
-						<?php
-					} else {
-						?>
-						<img src="<?php echo esc_url( $item['tab_icon_image']['url'] ); ?>">
-						<?php
-					}
+				if ( ! $image_url ) {
+					$image_url = $item['tab_icon_image']['url'];
 				}
+				?>
+				<img src="<?php echo esc_url( $image_url ); ?>" alt="" aria-hidden="true">
+				<?php
 			}
 		}
 
-		if ( $show_btn_title ) {
-			echo '<span class="pp-circle-tab-text">' . esc_html( $item['tab_label'] ) . '</span>';
+		// The label is the tab's accessible name, so it is always printed:
+		// visibly when the title is on, otherwise for screen readers only.
+		$tab_label = trim( wp_strip_all_tags( $item['tab_label'] ) );
+		$is_hidden = ! $show_btn_title || '' === $tab_label;
+
+		if ( '' === $tab_label ) {
+			$tab_label = trim( wp_strip_all_tags( $item['item_title'] ) );
 		}
+
+		if ( '' === $tab_label ) {
+			/* translators: %d: item number. */
+			$tab_label = sprintf( esc_html__( 'Item %d', 'powerpack-lite-for-elementor' ), $item_count );
+		}
+		?>
+		<span class="pp-circle-tab-text<?php echo $is_hidden ? ' elementor-screen-only' : ''; ?>"><?php echo esc_html( $tab_label ); ?></span>
+		<?php
 	}
 
 	protected function render_content_icon( $item, $icon_type ) {
@@ -1343,38 +1376,30 @@ class Interactive_Circle extends Powerpack_Widget {
 				<?php Icons_Manager::render_icon( $item['tab_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 			</div>
 			<?php
-		} elseif ( 'image' === $icon_type ) {
-			if ( ! empty( $item['tab_image']['url'] ) ) {
-				?>
-				<div class="pp-circle-content-image">
-					<?php
-					$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['tab_image']['id'], 'image', $settings );
+		} elseif ( 'image' === $icon_type && ! empty( $item['tab_image']['url'] ) ) {
+			$image_url = Group_Control_Image_Size::get_attachment_image_src( $item['tab_image']['id'], 'image', $settings );
 
-					if ( $image_url ) {
-						?>
-						<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $item['tab_image'] ) ); ?>">
-						<?php
-					} else {
-						?>
-						<img src="<?php echo esc_url( $item['tab_image']['url'] ); ?>">
-						<?php
-					}
-					?>
-				</div>
-				<?php
+			if ( ! $image_url ) {
+				$image_url = $item['tab_image']['url'];
 			}
+			?>
+			<div class="pp-circle-content-image">
+				<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $item['tab_image'] ) ); ?>">
+			</div>
+			<?php
 		}
 	}
 
 	protected function render_circle_content( $item ) {
 		$settings  = $this->get_settings_for_display();
 		$icon_type = $settings['content_icon_type'];
+		$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
 
 		if ( $icon_type && 'start' === $settings['content_icon_location'] ) {
 			$this->render_content_icon( $item, $icon_type );
 		}
 		?>
-		<div class="pp-circle-content-title"><?php echo wp_kses_post( $item['item_title'] ); ?></div>
+		<<?php echo esc_attr( $title_tag ); ?> class="pp-circle-content-title"><?php echo wp_kses_post( $item['item_title'] ); ?></<?php echo esc_attr( $title_tag ); ?>>
 		<?php
 		$content = wpautop( $item['item_content'] );
 		echo wp_kses_post( $content );
@@ -1382,6 +1407,61 @@ class Interactive_Circle extends Powerpack_Widget {
 		if ( $icon_type && 'end' === $settings['content_icon_location'] ) {
 			$this->render_content_icon( $item, $icon_type );
 		}
+	}
+
+	/**
+	 * Add the render attributes for one tab and its panel.
+	 *
+	 * IDs are scoped to the widget instance so several Interactive Circles on
+	 * one page never share them. The tab is a disclosure button rather than an
+	 * ARIA tab because each panel sits beside its tab inside the same item,
+	 * which a tablist does not allow.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param int  $item_count 1-based item number.
+	 * @param bool $is_active  Whether the item is open by default.
+	 * @return array Render attribute keys for the `tab` and the `panel`.
+	 */
+	protected function add_tab_render_attributes( $item_count, $is_active ) {
+		$keys = [
+			'tab'   => 'circle_tab_' . $item_count,
+			'panel' => 'circle_panel_' . $item_count,
+		];
+
+		$tab_id   = 'pp-circle-tab-' . $this->get_id() . '-' . $item_count;
+		$panel_id = 'pp-circle-panel-' . $this->get_id() . '-' . $item_count;
+
+		$this->add_render_attribute(
+			$keys['tab'],
+			[
+				'id'            => $tab_id,
+				'class'         => [ 'pp-circle-tab', 'pp-circle-tab-' . $item_count ],
+				'role'          => 'button',
+				'tabindex'      => '0',
+				'aria-controls' => $panel_id,
+				'aria-expanded' => $is_active ? 'true' : 'false',
+				'data-index'    => $item_count,
+			]
+		);
+
+		$this->add_render_attribute(
+			$keys['panel'],
+			[
+				'id'              => $panel_id,
+				'class'           => [ 'pp-circle-tab-content', 'pp-circle-item-' . $item_count ],
+				'role'            => 'group',
+				'aria-labelledby' => $tab_id,
+				'data-index'      => $item_count,
+			]
+		);
+
+		if ( $is_active ) {
+			$this->add_render_attribute( $keys['tab'], 'class', 'active' );
+			$this->add_render_attribute( $keys['panel'], 'class', 'active' );
+		}
+
+		return $keys;
 	}
 
 	protected function render_skin_circle( $items, $item_count ) {
@@ -1394,45 +1474,23 @@ class Interactive_Circle extends Powerpack_Widget {
 				<?php
 				foreach ( $items as $index => $item ) :
 					$item_count = $index + 1;
-					$is_active  = $index === $active_tab ? 'active' : '';
-
-					$circle_item_setting_key = $this->get_repeater_setting_key( 'item', 'circle_items', $index );
-					$circle_tab_setting_key  = $this->get_repeater_setting_key( 'tab', 'circle_items', $index );
-
-					$this->add_render_attribute( $circle_tab_setting_key, [
-						'id'              => 'pp-circle-item-' . $item_count,
-						'class'           => [
-							'pp-circle-tab',
-							$is_active
-						],
-						'aria-controls' => 'pp-interactive-' . esc_attr( $item_count ),
-						'tabindex'      => '0',
-					] );
-
-					$this->add_render_attribute( $circle_item_setting_key, [
-						'id'              => 'pp-circle-item-' . $item_count,
-						'class'           => [
-							'pp-circle-tab-content',
-							'pp-circle-item-' . $item_count . ' ' . $is_active
-						],
-						'aria-labelledby' => 'pp-circle-item-' . esc_attr( $item_count ),
-					] );
+					$keys       = $this->add_tab_render_attributes( $item_count, $index === $active_tab );
 					?>
 					<div class="pp-circle-item elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
-						<div <?php $this->print_render_attribute_string( $circle_tab_setting_key ); ?>>
-							<?php if ( in_array( $settings['skin'], [ 'skin-3', 'skin-4'] ) ) { ?>
-								<div class="pp-circle-icon-shapes">
+						<div <?php $this->print_render_attribute_string( $keys['tab'] ); ?>>
+							<?php if ( in_array( $settings['skin'], [ 'skin-3', 'skin-4' ], true ) ) { ?>
+								<div class="pp-circle-icon-shapes" aria-hidden="true">
 									<div class="pp-shape-1"></div>
 									<div class="pp-shape-2"></div>
 								</div>
 							<?php } ?>
 							<div class="pp-circle-tab-icon">
 								<div class="pp-circle-icon-inner">
-									<?php $this->render_tab_icon( $item ); ?>
+									<?php $this->render_tab_icon( $item, $item_count ); ?>
 								</div>
 							</div>
 						</div>
-						<div <?php $this->print_render_attribute_string( $circle_item_setting_key ); ?>>
+						<div <?php $this->print_render_attribute_string( $keys['panel'] ); ?>>
 							<div class="pp-circle-content">
 								<?php $this->render_circle_content( $item ); ?>
 							</div>
@@ -1455,40 +1513,22 @@ class Interactive_Circle extends Powerpack_Widget {
 				<?php
 				foreach ( $items as $index => $item ) :
 					$item_count = $index + 1;
-					$is_active  = $index === $active_tab ? 'active' : '';
-
-					$tab_content_setting_key = $this->get_repeater_setting_key( 'item', 'half_items', $index );
-					$tab_setting_key = $this->get_repeater_setting_key( 'tab', 'half_items', $index );
-
-					$this->add_render_attribute( $tab_content_setting_key, 'class', [
-						'pp-circle-tab-content',
-						'pp-circle-item-' . $item_count . ' ' . $is_active
-					] );
-
-					$this->add_render_attribute( $tab_setting_key, [
-						'id'              => 'pp-circle-item-' . $item_count,
-						'class'           => [
-							'pp-circle-tab',
-							$is_active
-						],
-						'aria-controls' => 'pp-interactive-' . esc_attr( $item_count ),
-						'tabindex'      => '0',
-					] );
+					$keys       = $this->add_tab_render_attributes( $item_count, $index === $active_tab );
 					?>
 					<div class="pp-circle-item elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
-						<div <?php $this->print_render_attribute_string( $tab_setting_key ); ?>>
-							<div class="pp-circle-icon-shapes">
+						<div <?php $this->print_render_attribute_string( $keys['tab'] ); ?>>
+							<div class="pp-circle-icon-shapes" aria-hidden="true">
 								<div class="pp-shape-1"></div>
 								<div class="pp-shape-2"></div>
 							</div>
 							<div class="pp-circle-tab-icon">
 								<div class="pp-circle-tab-icon-inner">
-									<?php $this->render_tab_icon( $item ); ?>
+									<?php $this->render_tab_icon( $item, $item_count ); ?>
 								</div>
 							</div>
 						</div>
-						<div <?php $this->print_render_attribute_string( $tab_content_setting_key ); ?>>
-							<div id="pp-interactive<?php echo esc_attr( $item_count ); ?>" aria-labelledby="pp-circle-item-<?php echo esc_attr( $item_count ); ?>" class="pp-circle-content">
+						<div <?php $this->print_render_attribute_string( $keys['panel'] ); ?>>
+							<div class="pp-circle-content">
 								<?php $this->render_circle_content( $item ); ?>
 							</div>
 						</div>

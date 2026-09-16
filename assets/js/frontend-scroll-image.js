@@ -9,7 +9,6 @@
 					selectors: {
 						container: '.pp-image-scroll-container',
 						overlay: '.pp-image-scroll-overlay',
-						scrollOverlay: '.pp-image-scroll-overlay',
 						verticalScroll: '.pp-image-scroll-vertical',
 						imageScroll: '.pp-image-scroll-image img',
 					},
@@ -21,7 +20,6 @@
 				return {
 					$container: this.$element.find( selectors.container ),
 					$overlay: this.$element.find( selectors.overlay ),
-					$scrollOverlay: this.$element.find( selectors.scrollOverlay ),
 					$verticalScroll: this.$element.find( selectors.verticalScroll ),
 					$imageScroll: this.$element.find( selectors.imageScroll ),
 				};
@@ -44,8 +42,11 @@
 						this.elements.$verticalScroll.addClass('pp-image-scroll-ver');
 					} else {
 						scrollElement.imagesLoaded(function() {
-							this.elements.$scrollOverlay.css( { 'width': imageScroll.width(), 'height': imageScroll.height() } );
-						});
+							this.elements.$overlay.css( {
+								'width': this.elements.$imageScroll.width(),
+								'height': this.elements.$imageScroll.height(),
+							} );
+						}.bind( this ));
 					}
 				} else {
 					if ( reverse === 'yes' ) {
@@ -60,15 +61,19 @@
 						this.elements.$verticalScroll.removeClass('pp-image-scroll-ver');
 					}
 
-					scrollElement.mouseenter(function() {
-						scrollElement.removeClass('pp-container-scroll-instant');
-						this.setTransform();
-						reverse === 'yes' ? this.endTransform() : this.startTransform();
-					}.bind( this ));
-		
-					scrollElement.mouseleave(function() {
-						reverse === 'yes' ? this.startTransform() : this.endTransform();
-					}.bind( this ));
+					const enter = function() {
+							scrollElement.removeClass('pp-container-scroll-instant');
+							this.setTransform();
+							reverse === 'yes' ? this.endTransform() : this.startTransform();
+						}.bind( this ),
+						leave = function() {
+							reverse === 'yes' ? this.startTransform() : this.endTransform();
+						}.bind( this );
+
+					// Keyboard users get the same reveal as hover: without focusin/focusout
+					// the concealed part of the image is unreachable without a pointer.
+					scrollElement.on( 'mouseenter focusin', enter );
+					scrollElement.on( 'mouseleave focusout', leave );
 				}
 			}
 

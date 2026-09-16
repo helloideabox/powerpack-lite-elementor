@@ -27,6 +27,27 @@
 
 	.pp-button {
         display: flex;
+
+		// Accessibility: a white ring hugging the button inside a black outline. Every colour
+		// reaches at least 4.5:1 against black or white, so one of the two always shows,
+		// whatever the button fill or page background (the label colour cannot promise that).
+		&:focus-visible {
+			outline: 2px solid #000;
+			outline-offset: 2px;
+			box-shadow: 0 0 0 2px #fff;
+		}
+
+		&:focus:not(:focus-visible) {
+			outline: none;
+		}
+
+		// Forced colours drop box-shadow, so let the outline carry the system highlight.
+		@media (forced-colors: active) {
+
+			&:focus-visible {
+				outline-color: Highlight;
+			}
+		}
 	}
 }
 
@@ -59,6 +80,23 @@
 
 	img {
 		width: 40px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.pp-buttons-group a,
+	.pp-buttons-group .pp-icon,
+	.pp-buttons-group .pp-icon i,
+	.pp-buttons-group .pp-icon svg {
+		transition: none;
+	}
+
+	.pp-buttons-group .pp-button[class*="elementor-animation-"]:hover,
+	.pp-buttons-group .pp-button[class*="elementor-animation-"]:focus,
+	.pp-buttons-group .pp-button[class*="elementor-animation-"]:active {
+		animation: none;
+		transform: none;
 	}
 }
 

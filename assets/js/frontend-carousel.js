@@ -100,7 +100,7 @@
 					watchSlidesProgress:        true,
 					preventClicksPropagation:   false,
 					slideToClickedSlide:        true,
-					handleElementorBreakpoints: true
+					handleElementorBreakpoints: true,
 				};
 
 				if ( 'fade' === this.getEffect() ) {
@@ -129,6 +129,45 @@
 					};
 				}
 
+				/*
+				 * Opt-in per widget, via `a11y` in data-slider-settings. The a11y module is what makes the
+				 * div[role=button] arrows answer Enter and Space — a div does not synthesise
+				 * a click from those the way a native button does — and what gives the
+				 * pagination bullets a role and a tab stop. It also sets aria-disabled at
+				 * either end.
+				 *
+				 * Swiper's keyboard module rides the same opt-in: it listens on the document,
+				 * so enabling it everywhere would let an arrow key pressed anywhere on the
+				 * page move every carousel currently on screen.
+				 */
+				if ( 'yes' === sliderSettings.a11y ) {
+					const i18n = this.getI18n();
+
+					swiperOptions.a11y = {
+						enabled:                    true,
+						prevSlideMessage:           i18n.prevSlide  || 'Previous slide',
+						nextSlideMessage:           i18n.nextSlide  || 'Next slide',
+						firstSlideMessage:          i18n.firstSlide || 'This is the first slide',
+						lastSlideMessage:           i18n.lastSlide  || 'This is the last slide',
+						paginationBulletMessage:    i18n.paginationBullet || 'Go to slide {{index}}',
+						slideLabelMessage:          i18n.slideLabel || 'Slide {{index}} of {{slidesLength}}',
+						slideRole:                  'group',
+						itemRoleDescriptionMessage: i18n.slideRoleDescription || 'slide',
+					};
+
+					/*
+					 * A widget can keep the strings and still turn this off with `keyboard: 'no'`.
+					 * The module ignores preventDefault(), so a widget with its own arrow-key
+					 * handling (the Image Slider's thumbnails) would move twice per key.
+					 */
+					if ( 'no' !== sliderSettings.keyboard ) {
+						swiperOptions.keyboard = {
+							enabled:        true,
+							onlyInViewport: true,
+						};
+					}
+				}
+
 				if ('cube' !== this.getEffect()) {
 					const breakpointsSettings = {},
 					breakpoints = elementorFrontend.config.responsive.activeBreakpoints;
@@ -147,7 +186,7 @@
 					swiperOptions.breakpoints = breakpointsSettings;
 				}
 
-				if ( !this.isEdit && sliderSettings.autoplay ) {
+				if ( !this.isEdit && sliderSettings.autoplay && ! this.isMotionReduced() ) {
 					swiperOptions.autoplay = {
 						delay: sliderSettings.autoplay_speed,
 						disableOnInteraction: !!sliderSettings.pause_on_interaction
@@ -157,8 +196,96 @@
 				return swiperOptions;
 			}
 
+			getI18n() {
+				return ( 'undefined' !== typeof ppCarouselScript && ppCarouselScript.i18n )
+					? ppCarouselScript.i18n
+					: {};
+			}
+
+			prefersReducedMotion() {
+				return !! ( window.matchMedia && window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches );
+			}
+
+			/**
+			 * Autoplay and slide animation are decorative, so an explicit system-level
+			 * request for reduced motion is always honoured — there is no author opt-out.
+			 */
+			isMotionReduced() {
+				return this.prefersReducedMotion();
+			}
+
 			bindEvents() {
 				this.initSlider();
+			}
+
+			/**
+			 * Slides that are off screen have to leave the accessibility tree and the tab order
+			 * together. Keying off the active index alone hid slides that were plainly visible
+			 * whenever slidesPerView was above one — with the default of three, two of the three
+			 * members on screen were erased for screen readers while their links stayed tabbable.
+			 * watchSlidesProgress already maintains the class this reads.
+			 */
+			syncSlideVisibility() {
+				const $slides = this.elements.$swiperContainer.find( '.swiper-slide' );
+
+				// Effects such as cube never set the visibility class. Hiding every slide
+				// because none is marked visible would be far worse than hiding none.
+				const hasVisibilityClass = $slides.filter( '.swiper-slide-visible' ).length > 0;
+
+				$slides.each( function() {
+					// A slide is never itself a control, so it should hold no tabindex at all.
+					this.removeAttribute( 'tabindex' );
+
+					if ( ! hasVisibilityClass || this.classList.contains( 'swiper-slide-visible' ) ) {
+						this.removeAttribute( 'aria-hidden' );
+						this.removeAttribute( 'inert' );
+					} else {
+						this.setAttribute( 'aria-hidden', 'true' );
+						// inert is what actually takes the links inside out of the tab order;
+						// aria-hidden on its own is what created the mismatch.
+						this.setAttribute( 'inert', '' );
+					}
+				} );
+			}
+
+			/**
+			 * Announces the slide position, but only where the user asked for the move.
+			 */
+			announceSlidePosition() {
+				if ( ! this.userNavigated ) {
+					return;
+				}
+
+				this.userNavigated = false;
+
+				const statusFormat = this.getI18n().slideStatus || 'Showing Slide %1$s of %2$s';
+
+				let statusText = statusFormat
+					.replace( '%1$s', this.swiper.realIndex + 1 )
+					.replace( '%2$s', this.getSlidesCount() );
+
+				/*
+				 * Widgets that name their slides say which one is showing: the Content
+				 * Ticker prints data-image-label from the item title and renders the first
+				 * slide's status with that label already appended — without this the label
+				 * would disappear on the first move. Carousels with nothing meaningful to
+				 * name announce the position alone.
+				 */
+				const slideLabel = this.elements.$swiperContainer
+					.find( '.swiper-slide-active' )
+					.attr( 'data-image-label' );
+
+				if ( slideLabel ) {
+					statusText += ': ' + slideLabel;
+				}
+
+				/*
+				 * [aria-live] and not the class alone: .pp-screen-only is a plain visually
+				 * hidden marker, and slides carry their own — the "(opens in a new tab)"
+				 * note on external links — which a bare descendant match overwrites with
+				 * the slide count.
+				 */
+				this.elements.$swiperContainer.find( '.pp-screen-only[aria-live]' ).text( statusText );
 			}
 
 			async initSlider() {
@@ -169,57 +296,114 @@
 
 				this.thumbsNav();
 
-				if ('yes' === elementSettings.pause_on_hover) {
+				/*
+				 * params.autoplay.enabled, not the widget setting: it is true only where the
+				 * autoplay actually started, so never in the editor and never once reduced
+				 * motion has held it back. Swiper's autoplay.start() has no such guard, so a
+				 * resume bound on a slider that is not autoplaying would start one.
+				 */
+				const autoplayStarted = !! ( this.swiper.params.autoplay && this.swiper.params.autoplay.enabled );
+
+				if ( autoplayStarted && 'yes' === elementSettings.pause_on_hover ) {
 					this.togglePauseOnHover(true);
 				}
 
-				// Initial slide ARIA state for screen readers / keyboard users.
-				var slideIndex = 1;
-				this.elements.$swiperSlide.each( function () {
-					$( this ).attr( 'aria-roledescription', 'slide' );
+				if ( autoplayStarted ) {
+					this.togglePauseOnFocus(true);
+				}
 
-					if ( 1 === slideIndex ) {
-						$( this ).attr( {
-							'aria-hidden': 'false',
-							'tabindex': '0',
-						} );
-					} else {
-						$( this ).attr( {
-							'aria-hidden': 'true',
-							'tabindex': '-1',
-						} );
+				if ( 'yes' === elementSettings.equal_height_boxes ) {
+					this.setEqualHeight();
+				}
+
+				this.syncSlideVisibility();
+
+				// Autoplay must not speak. A position announcement answers the user having
+				// navigated; on a timer it just interrupts whatever they are reading, every
+				// few seconds, for as long as the page is open.
+				this.userNavigated = false;
+
+				/*
+				 * Swiper emits navigationNext/navigationPrev only after slideNext() has run, by
+				 * which time slideChange has already come and gone, so a flag set from those
+				 * events was always one move behind and the first arrow press announced
+				 * nothing. paginationUpdate was worse: it fires on autoplay moves too. Marking
+				 * the intent on the way down, in the capture phase, gets there first.
+				 */
+				const controls = '.pp-slider-arrow, .swiper-pagination-bullet';
+
+				const markNavigated = ( e ) => {
+					const onControl = e.target.closest && e.target.closest( controls );
+
+					if ( 'keydown' === e.type ) {
+						const isSliderArrowKey = ( 'ArrowLeft' === e.key || 'ArrowRight' === e.key ) && e.target === this.elements.$swiperContainer[0];
+						const isActivation     = onControl && ( 'Enter' === e.key || ' ' === e.key );
+
+						if ( ! isSliderArrowKey && ! isActivation ) {
+							return;
+						}
+					} else if ( ! onControl ) {
+						return;
 					}
-					slideIndex++;
+
+					this.userNavigated = true;
+				};
+
+				this.$element[0].addEventListener( 'pointerdown', markNavigated, true );
+				this.$element[0].addEventListener( 'keydown', markNavigated, true );
+
+				// A swipe is deliberate too, and touchEnd lands before the transition.
+				this.swiper.on( 'touchEnd', () => {
+					this.userNavigated = true;
 				} );
+
+				/*
+				 * The status region belongs to the widget, so take its id from the DOM rather
+				 * than rebuilding it here: a widget that renders no status then leaves its
+				 * arrows alone instead of pointing them at an element that does not exist.
+				 */
+				const statusId = this.elements.$swiperContainer.find( '.pp-screen-only[aria-live]' ).attr( 'id' );
+
+				if ( statusId ) {
+					/*
+					 * Swiper points the arrows' aria-controls at the slides wrapper, which is
+					 * correct and stays; the status region only describes the result. Swiper
+					 * also makes that wrapper a polite live region, which would read the new
+					 * slide a second time on top of the status announcement.
+					 */
+					this.$element.find(
+						'.elementor-swiper-button-prev, .elementor-swiper-button-next, ' +
+						'.swiper-button-prev-' + this.getID() + ', .swiper-button-next-' + this.getID()
+					).attr( 'aria-describedby', statusId );
+
+					this.swiper.$wrapperEl.attr( 'aria-live', 'off' );
+				}
 
 				this.swiper.on( 'slideChange', function () {
 					if ( 'yes' === elementSettings.equal_height_boxes ) {
 						this.setEqualHeight();
 					}
 
-					var slides      = this.elements.$swiperContainer.find( '.swiper-slide' );
-					var activeIndex = this.swiper.realIndex;
-
-					slides.each( function ( index, slide ) {
-						if ( index === activeIndex ) {
-							slide.setAttribute( 'aria-hidden', 'false' );
-							slide.setAttribute( 'tabindex', '0' );
-						} else {
-							slide.setAttribute( 'aria-hidden', 'true' );
-							slide.setAttribute( 'tabindex', '-1' );
-						}
-					} );
+					this.announceSlidePosition();
 				}.bind( this ) );
 
-				if ( 'yes' === elementSettings.equal_height_boxes ) {
-					this.setEqualHeight();
-				}
+				// Swiper settles which slides are on screen only once the movement is over.
+				this.swiper.on( 'slideChangeTransitionEnd resize breakpoint', () => {
+					this.syncSlideVisibility();
+				} );
 
-				// Keyboard navigation.
+				// Keyboard navigation. Scoped to the container itself: while it was bound to
+				// every descendant, arrow keys pressed inside a slide's own links and text
+				// moved the whole carousel out from under the user.
 				this.elements.$swiperContainer.on( 'keydown', function ( e ) {
+					if ( e.target !== e.currentTarget ) { return; }
 					if ( 'ArrowRight' === e.key ) { this.swiper.slideNext(); }
 					if ( 'ArrowLeft'  === e.key ) { this.swiper.slidePrev(); }
 				}.bind( this ) );
+
+				// No Enter/Space handler on the arrows here: Swiper's a11y module, on by default
+				// in Elementor's Swiper 8, already moves the slider from those keys. Firing a
+				// click as well moved it twice per press wherever the loop was off.
 
 				this.initFancybox();
 			}
@@ -250,16 +434,55 @@
 
 			togglePauseOnHover(toggleOn) {
 				if (toggleOn) {
-					this.elements.$swiperContainer.on({
+					this.$element.on({
 						mouseenter: () => {
-							this.swiper.autoplay.stop();
+							if (this.swiper && this.swiper.autoplay && this.swiper.autoplay.running) {
+								this.swiper.autoplay.stop();
+							}
 						},
 						mouseleave: () => {
-							this.swiper.autoplay.start();
+							// Focus inside still holds the pause. Resuming here would move the slide
+							// on and make it inert, dropping that focus to the body.
+							if ( this.$element[0].contains( document.activeElement ) ) {
+								return;
+							}
+
+							if (this.swiper && this.swiper.autoplay && !this.swiper.autoplay.running) {
+								this.swiper.autoplay.start();
+							}
 						}
 					});
 				} else {
-					this.elements.$swiperContainer.off('mouseenter mouseleave');
+					this.$element.off('mouseenter mouseleave');
+				}
+			}
+
+			togglePauseOnFocus(toggleOn) {
+				if (toggleOn) {
+					this.$element.on({
+						focusin: () => {
+							if (this.swiper && this.swiper.autoplay && this.swiper.autoplay.running) {
+								this.swiper.autoplay.stop();
+							}
+						},
+						focusout: ( e ) => {
+							// Moving between two controls inside the widget is not leaving it.
+							if ( e.relatedTarget && this.$element[0].contains( e.relatedTarget ) ) {
+								return;
+							}
+
+							// A pointer still resting on the widget holds the hover pause.
+							if ( 'yes' === this.getElementSettings( 'pause_on_hover' ) && this.$element[0].matches( ':hover' ) ) {
+								return;
+							}
+
+							if (this.swiper && this.swiper.autoplay && !this.swiper.autoplay.running) {
+								this.swiper.autoplay.start();
+							}
+						}
+					});
+				} else {
+					this.$element.off('focusin focusout');
 				}
 			}
 

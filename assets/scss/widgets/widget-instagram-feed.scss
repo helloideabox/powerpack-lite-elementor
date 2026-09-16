@@ -144,7 +144,9 @@
             opacity: 0;
         }
 
-        .pp-feed-item:hover {
+        // A keyboard reaches the item through the link inside it, so the reveal answers focus too.
+        .pp-feed-item:hover,
+        .pp-feed-item:focus-within {
 
             .pp-overlay-container {
                 opacity: 1;
@@ -254,5 +256,41 @@
         margin-inline-end: 10px;
         font-size: 20px;
         color: #e14e4e;
+    }
+}
+
+.elementor-widget-pp-instafeed {
+
+    // WCAG 1.4.11: the shared #ccc dot is 1.6:1 on white. This needs the element class in
+    // front to win, since Elementor prints its own rules that way.
+    .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+        background: #949494;
+    }
+
+    // WCAG 2.5.8: 8px dots with 4px margins give a 16px target. The overlay raises the
+    // hit area to 24px without touching the painted dot or the spacing the author configured.
+    .swiper-pagination-bullet {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            inset-inline-start: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 24px;
+            min-height: 24px;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+// Autoplay is already held back in the script; this is the travel an arrow press or a
+// dot still animates.
+@media (prefers-reduced-motion: reduce) {
+
+    .elementor-widget-pp-instafeed .swiper-wrapper {
+        transition-duration: 0ms !important;
     }
 }

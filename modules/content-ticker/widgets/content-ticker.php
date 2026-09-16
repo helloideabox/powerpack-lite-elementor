@@ -26,6 +26,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Content_Ticker extends Powerpack_Widget {
 
 	/**
+	 * Number of rendered items, used in the initial slide status.
+	 *
+	 * @since x.x.x
+	 * @var int
+	 */
+	public $total_slides = 1;
+
+	/**
+	 * Plain-text title of the first item, appended to the initial slide status.
+	 *
+	 * @since x.x.x
+	 * @var string
+	 */
+	public $first_slide_label = '';
+
+	/**
 	 * Retrieve content ticker widget name.
 	 *
 	 * @access public
@@ -1955,9 +1971,13 @@ class Content_Ticker extends Powerpack_Widget {
 			$slider_options['pause_on_interaction'] = ( 'yes' === $settings['pause_on_interaction'] ) ? 'yes' : '';
 		}
 
-		if ( 'yes' === $settings['arrows'] ) {
-			$slider_options['show_arrows'] = true;
-		}
+		// Always on: with the Arrows setting off they still render for keyboard users (see render()).
+		$slider_options['show_arrows'] = true;
+
+		// Translated Swiper a11y strings. Swiper's keyboard module listens on the whole document,
+		// so arrow keys pressed while reading the page would move the ticker.
+		$slider_options['a11y']     = 'yes';
+		$slider_options['keyboard'] = 'no';
 
 		$this->add_render_attribute(
 			'content-ticker',
@@ -1977,7 +1997,30 @@ class Content_Ticker extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
+		$has_heading = ( 'yes' === $settings['show_heading'] && $settings['heading'] );
+		$heading_id  = 'pp-content-ticker-heading-' . $this->get_id();
+
+		$this->first_slide_label = '';
+
 		$this->add_render_attribute( 'content-ticker-container', 'class', 'pp-content-ticker-container' );
+		$this->add_render_attribute( 'content-ticker-container', 'role', 'region' );
+		$this->add_render_attribute( 'content-ticker-container', 'aria-roledescription', __( 'carousel', 'powerpack-lite-for-elementor' ) );
+
+		// The visible heading names the region, so two tickers on one page are told apart.
+		if ( $has_heading ) {
+			$this->add_render_attribute( 'content-ticker-container', 'aria-labelledby', $heading_id );
+		} else {
+			$this->add_render_attribute( 'content-ticker-container', 'aria-label', __( 'Content Ticker', 'powerpack-lite-for-elementor' ) );
+		}
+
+		$this->add_render_attribute( 'content-ticker-navigation', 'class', 'pp-content-ticker-navigation' );
+
+		// Arrows switched off still render so keyboard users can reach every item. While autoplay
+		// runs they stay hidden until focused; without autoplay they are the only way to the other
+		// items, so they stay visible.
+		if ( 'yes' !== $settings['arrows'] && 'yes' === $settings['autoplay'] ) {
+			$this->add_render_attribute( 'content-ticker-navigation', 'class', 'pp-content-ticker-navigation-auto' );
+		}
 
 		if ( 'yes' === $settings['show_heading'] && 'yes' === $settings['heading_arrow'] ) {
 			$this->add_render_attribute( 'content-ticker-container', 'class', 'pp-content-ticker-heading-arrow' );
@@ -2014,8 +2057,8 @@ class Content_Ticker extends Powerpack_Widget {
 		$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
 		$is_new   = ! isset( $settings['heading_icon'] ) && Icons_Manager::is_migration_allowed();
 		?>
-		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'content-ticker-container' ) ); ?>>
-			<?php if ( 'yes' === $settings['show_heading'] && $settings['heading'] ) { ?>
+		<div <?php $this->print_render_attribute_string( 'content-ticker-container' ); ?>>
+			<?php if ( $has_heading ) { ?>
 				<div class="pp-content-ticker-heading">
 					<?php if ( $has_icon ) { ?>
 						<?php
@@ -2044,7 +2087,7 @@ class Content_Ticker extends Powerpack_Widget {
 							?>
 						</span>
 					<?php } ?>
-					<span class="pp-content-ticker-heading-text">
+					<span class="pp-content-ticker-heading-text" id="<?php echo esc_attr( $heading_id ); ?>">
 						<?php echo wp_kses_post( $settings['heading'] ); ?>
 					</span>
 				</div>
@@ -2060,9 +2103,16 @@ class Content_Ticker extends Powerpack_Widget {
 						}
 						?>
 					</div>
+					<?php
+					printf(
+						'<div class="pp-screen-only elementor-screen-only pp-content-ticker-status" aria-live="polite" id="pp-content-ticker-status-%1$s">%2$s</div>',
+						esc_attr( $this->get_id() ),
+						esc_html( PP_Helper::get_slide_status_text( 1, $this->total_slides, $this->first_slide_label ) )
+					);
+					?>
 				</div>
 			</div>
-			<div class="pp-content-ticker-navigation">
+			<div <?php $this->print_render_attribute_string( 'content-ticker-navigation' ); ?>>
 				<?php
 					$this->render_arrows();
 				?>
@@ -2079,62 +2129,42 @@ class Content_Ticker extends Powerpack_Widget {
 	 * @access protected
 	 */
 	protected function render_arrows() {
-		$settings = $this->get_settings_for_display();
+		$settings = $this->get_settings();
 
-		$migration_allowed = Icons_Manager::is_migration_allowed();
+		$args = [
+			'classes' => [ 'elementor-icon', 'elementor-swiper-button', 'elementor-swiper-button-{dir}', 'swiper-button-{dir}-{id}' ],
+		];
 
-		if ( ! isset( $settings['arrow'] ) && ! Icons_Manager::is_migration_allowed() ) {
-			// add old default.
-			$settings['arrow'] = 'fa fa-angle-right';
+		// With the setting off the arrows still render (render() decides whether they show), so the
+		// toggle is bypassed and the icon falls back to the control's default.
+		if ( 'yes' !== $settings['arrows'] ) {
+			$args['toggle'] = '';
+			$args['icon']   = ( ! empty( $settings['select_arrow']['value'] ) && ! empty( $settings['select_arrow']['library'] ) )
+				? $settings['select_arrow']
+				: [
+					'value'   => 'fas fa-angle-right',
+					'library' => 'fa-solid',
+				];
 		}
 
-		$has_icon = ! empty( $settings['arrow'] );
+		PP_Helper::render_arrows( $this, $args );
+	}
 
-		if ( ! $has_icon && ! empty( $settings['select_arrow']['value'] ) ) {
-			$has_icon = true;
-		}
-
-		if ( ! empty( $settings['arrow'] ) ) {
-			$this->add_render_attribute( 'arrow-icon', 'class', $settings['arrow'] );
-			$this->add_render_attribute( 'arrow-icon', 'aria-hidden', 'true' );
-		}
-
-		$migrated = isset( $settings['__fa4_migrated']['select_arrow'] );
-		$is_new = ! isset( $settings['arrow'] ) && $migration_allowed;
-
-		if ( 'yes' === $settings['arrows'] ) {
-			?>
-			<?php
-			if ( $has_icon ) {
-				if ( $is_new || $migrated ) {
-					$next_arrow = $settings['select_arrow'];
-					$prev_arrow = str_replace( 'right', 'left', $settings['select_arrow'] );
-				} else {
-					$pa_next_arrow = $settings['arrow'];
-					$pa_prev_arrow = str_replace( 'right', 'left', $settings['arrow'] );
-				}
-			} else {
-				$pa_next_arrow = 'fa fa-angle-right';
-				$pa_prev_arrow = 'fa fa-angle-left';
-			}
-
-			if ( ! empty( $settings['arrow'] ) || ( ! empty( $settings['select_arrow']['value'] ) && $is_new ) ) { ?>
-				<div class="pp-slider-arrow elementor-icon elementor-swiper-button elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
-					<?php if ( $is_new || $migrated ) :
-						Icons_Manager::render_icon( $prev_arrow, [ 'aria-hidden' => 'true' ] );
-					else : ?>
-						<i <?php $this->print_render_attribute_string( 'arrow-icon' ); ?>></i>
-					<?php endif; ?>
-				</div>
-				<div class="pp-slider-arrow elementor-icon elementor-swiper-button elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
-					<?php if ( $is_new || $migrated ) :
-						Icons_Manager::render_icon( $next_arrow, [ 'aria-hidden' => 'true' ] );
-					else : ?>
-						<i <?php $this->print_render_attribute_string( 'arrow-icon' ); ?>></i>
-					<?php endif; ?>
-				</div>
-			<?php }
-		}
+	/**
+	 * Accessible label for a slide, from the same string Swiper's a11y module is given,
+	 * so the label reads the same before and after the carousel initialises.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @param int $index Position of the slide, counted from 1.
+	 * @param int $total Number of slides.
+	 *
+	 * @return string Unescaped label.
+	 */
+	protected function get_slide_label( $index, $total ) {
+		/* translators: the {{index}} and {{slidesLength}} placeholders are replaced by Swiper */
+		return str_replace( [ '{{index}}', '{{slidesLength}}' ], [ $index, $total ], __( 'Slide {{index}} of {{slidesLength}}', 'powerpack-lite-for-elementor' ) );
 	}
 
 	/**
@@ -2149,32 +2179,57 @@ class Content_Ticker extends Powerpack_Widget {
 
 		$i = 1;
 
+		$this->total_slides = count( $settings['items'] );
+
 		foreach ( $settings['items'] as $index => $item ) {
-			$item_key  = $this->get_repeater_setting_key( 'item', 'items', $index );
-			$link_key  = $this->get_repeater_setting_key( 'link', 'items', $index );
+			$item_key   = $this->get_repeater_setting_key( 'item', 'items', $index );
+			$link_key   = $this->get_repeater_setting_key( 'link', 'items', $index );
+			$title_key  = $this->get_repeater_setting_key( 'ticker_title', 'items', $index );
+			$item_label = wp_strip_all_tags( $item['ticker_title'] );
+
+			if ( 1 === $i ) {
+				$this->first_slide_label = $item_label;
+			}
 
 			$this->add_render_attribute(
 				$item_key,
-				'class',
-				array(
-					'pp-content-ticker-item',
-					'swiper-slide',
-					'elementor-repeater-item-' . esc_attr( $item['_id'] ),
-				)
+				[
+					'class'                => [
+						'pp-content-ticker-item',
+						'swiper-slide',
+						'elementor-repeater-item-' . esc_attr( $item['_id'] ),
+					],
+					'role'                 => 'group',
+					'aria-roledescription' => __( 'slide', 'powerpack-lite-for-elementor' ),
+					'aria-label'           => $this->get_slide_label( $index + 1, $this->total_slides ),
+					// Read by the carousel script to name the item in the slide status.
+					'data-image-label'     => $item_label,
+				]
 			);
 
 			if ( '' !== $settings['link_type'] ) {
 				$this->add_link_attributes( $link_key, $item['link'] );
 			}
 			?>
-			<div <?php echo wp_kses_post( $this->get_render_attribute_string( $item_key ) ); ?>>
+			<div <?php $this->print_render_attribute_string( $item_key ); ?>>
 				<div class="pp-content-ticker-content">
 					<?php if ( 'yes' === $item['ticker_image'] && '' !== $item['image']['url'] ) { ?>
 						<div class="pp-content-ticker-image">
 							<?php
 							if ( ( 'image' === $settings['link_type'] || 'both' === $settings['link_type'] ) && '' !== $item['link']['url'] ) {
+								$img_link_key = 'img-link-' . $index;
+								$this->add_link_attributes( $img_link_key, $item['link'] );
+
+								// With Title + Image both links go to the same place, so the image link
+								// is left out of the tab order and the accessibility tree.
+								if ( 'both' === $settings['link_type'] ) {
+									$this->add_render_attribute( $img_link_key, 'aria-hidden', 'true' );
+									$this->add_render_attribute( $img_link_key, 'tabindex', '-1' );
+								} else {
+									$this->add_render_attribute( $img_link_key, 'aria-label', '' !== $item_label ? $item_label : __( 'View item', 'powerpack-lite-for-elementor' ) );
+								}
 								?>
-								<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>>
+								<a <?php $this->print_render_attribute_string( $img_link_key ); ?>>
 									<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $item ) ); ?>
 								</a>
 								<?php
@@ -2187,9 +2242,17 @@ class Content_Ticker extends Powerpack_Widget {
 					<?php
 					if ( '' !== $item['ticker_title'] ) {
 						$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+
+						$this->add_render_attribute(
+							$title_key,
+							[
+								'class' => 'pp-content-ticker-item-title',
+								'id'    => 'pp-content-ticker-item-title-' . $this->get_id() . '-' . $index,
+							]
+						);
 						?>
-						<<?php echo esc_html( $title_tag ); ?> class="pp-content-ticker-item-title">
-						<?php if ( ( 'title' === $settings['link_type'] || 'both' === $settings['link_type'] ) && $item['link']['url'] ) : ?>
+						<<?php echo esc_html( $title_tag ); ?> <?php $this->print_render_attribute_string( $title_key ); ?>>
+						<?php if ( ( 'title' === $settings['link_type'] || 'both' === $settings['link_type'] ) && ! empty( $item['link']['url'] ) ) : ?>
 							<a <?php $this->print_render_attribute_string( $link_key ); ?>>
 								<?php echo esc_html( $item['ticker_title'] ); ?>
 							</a>
@@ -2285,24 +2348,37 @@ class Content_Ticker extends Powerpack_Widget {
 					$image_html_settings = [];
 				}
 
+				$item_label = wp_strip_all_tags( get_the_title() );
+
+				if ( 1 === $i ) {
+					$this->first_slide_label = $item_label;
+				}
+
 				$this->add_render_attribute(
 					$item_key,
-					'class',
-					array(
-						'pp-content-ticker-item',
-						'swiper-slide',
-						'pp-content-ticker-item-' . intval( $i ),
-					)
+					[
+						'class'                => [
+							'pp-content-ticker-item',
+							'swiper-slide',
+							'pp-content-ticker-item-' . intval( $i ),
+						],
+						'role'                 => 'group',
+						'aria-roledescription' => __( 'slide', 'powerpack-lite-for-elementor' ),
+						'aria-label'           => $this->get_slide_label( $i, $posts_query->post_count ),
+						// Read by the carousel script to name the item in the slide status.
+						'data-image-label'     => $item_label,
+					]
 				);
 				?>
-				<div <?php echo wp_kses_post( $this->get_render_attribute_string( $item_key ) ); ?>>
+				<div <?php $this->print_render_attribute_string( $item_key ); ?>>
 					<div class="pp-content-ticker-content">
 						<?php if ( 'show' === $settings['post_image'] && '' !== $thumb_url ) { ?>
 							<div class="pp-content-ticker-image">
 								<?php
 								if ( 'image' === $settings['link_type'] || 'both' === $settings['link_type'] ) {
+									$is_both = ( 'both' === $settings['link_type'] );
 									?>
-									<a href="<?php echo esc_url( get_permalink() ); ?>">
+									<a href="<?php echo esc_url( get_permalink() ); ?>"<?php if ( $is_both ) { ?> aria-hidden="true" tabindex="-1"<?php } else { ?> aria-label="<?php echo esc_attr( $item_label ); ?>"<?php } ?>>
 										<?php echo Group_Control_Image_Size::get_attachment_image_html( $image_html_settings, 'image_size' ); ?>
 									</a>
 									<?php
@@ -2316,11 +2392,14 @@ class Content_Ticker extends Powerpack_Widget {
 						<?php } ?>
 						<div class="pp-content-ticker-item-title-wrap">
 							<?php
-							$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+							$title_tag     = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
+							$post_title_id = 'pp-content-ticker-item-title-' . $this->get_id() . '-' . get_the_ID();
+							$meta_id       = 'pp-content-ticker-meta-' . $this->get_id() . '-' . get_the_ID();
+							$has_meta      = ( 'yes' === $settings['post_meta'] );
 							?>
-							<<?php echo esc_html( $title_tag ); ?> class="pp-content-ticker-item-title">
+							<<?php echo esc_html( $title_tag ); ?> class="pp-content-ticker-item-title" id="<?php echo esc_attr( $post_title_id ); ?>">
 							<?php if ( 'title' === $settings['link_type'] || 'both' === $settings['link_type'] ) : ?>
-								<a href="<?php echo esc_url( get_permalink() ); ?>">
+								<a href="<?php echo esc_url( get_permalink() ); ?>"<?php if ( $has_meta ) { ?> aria-describedby="<?php echo esc_attr( $meta_id ); ?>"<?php } ?>>
 									<?php echo esc_html( get_the_title() ); ?>
 								</a>
 							<?php else : ?>
@@ -2328,10 +2407,11 @@ class Content_Ticker extends Powerpack_Widget {
 							<?php endif; ?>
 							</<?php echo esc_html( $title_tag ); ?>>
 							<?php
-							if ( 'yes' === $settings['post_meta'] ) { ?>
-								<div class="pp-content-ticker-meta">
+							if ( $has_meta ) { ?>
+								<div class="pp-content-ticker-meta" id="<?php echo esc_attr( $meta_id ); ?>">
 									<?php if ( 'yes' === $settings['post_date'] || 'yes' === $settings['post_time'] ) { ?>
 										<span class="pp-content-ticker-item-datetime">
+											<span class="elementor-screen-only"><?php esc_html_e( 'Published:', 'powerpack-lite-for-elementor' ); ?></span>
 											<?php if ( ! empty( $settings['datetime_icon']['value'] ) ) { ?>
 												<span class="pp-content-ticker-meta-icon pp-icon">
 													<?php Icons_Manager::render_icon( $settings['datetime_icon'], array( 'aria-hidden' => 'true' ) ); ?>
@@ -2339,7 +2419,7 @@ class Content_Ticker extends Powerpack_Widget {
 											<?php } ?>
 											<?php
 											if ( 'yes' === $settings['post_date'] ) {
-												the_date();
+												echo esc_html( get_the_date() );
 											}
 											if ( 'yes' === $settings['post_date'] && 'yes' === $settings['post_time'] ) {
 												echo ' ' . esc_html( $settings['datetime_separator'] ) . ' ';
@@ -2365,6 +2445,7 @@ class Content_Ticker extends Powerpack_Widget {
 													?>
 												</span>
 											<?php } ?>
+											<span class="elementor-screen-only"><?php esc_html_e( 'Author:', 'powerpack-lite-for-elementor' ); ?></span>
 											<span class="pp-content-ticker-meta-text">
 												<?php echo get_the_author(); ?>
 											</span>
@@ -2385,6 +2466,7 @@ class Content_Ticker extends Powerpack_Widget {
 													?>
 												</span>
 											<?php } ?>
+											<span class="elementor-screen-only"><?php esc_html_e( 'Category:', 'powerpack-lite-for-elementor' ); ?></span>
 											<span class="pp-content-ticker-meta-text">
 												<?php
 												$category = get_the_category();
@@ -2404,6 +2486,9 @@ class Content_Ticker extends Powerpack_Widget {
 				$i++;
 			endwhile;
 		endif;
+
+		$this->total_slides = $i - 1;
+
 		wp_reset_postdata();
 	}
 

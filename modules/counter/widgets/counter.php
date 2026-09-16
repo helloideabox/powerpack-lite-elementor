@@ -1363,12 +1363,27 @@ class Counter extends Powerpack_Widget {
 		$ending_number = ( '' !== $settings['ending_number'] ) ? (int) $settings['ending_number'] : 250;
 		$counter_speed = ( $settings['counter_speed']['size'] ) ? $settings['counter_speed']['size'] : 1500;
 
+		$accessible_number_text = trim(
+			( $settings['number_prefix'] ? $settings['number_prefix'] . ' ' : '' ) .
+			$ending_number .
+			( $settings['number_suffix'] ? ' ' . $settings['number_suffix'] : '' )
+		);
+
+		$accessible_text = trim(
+			$accessible_number_text .
+			( $settings['counter_title'] ? ' ' . $settings['counter_title'] : '' ) .
+			( $settings['counter_subtitle'] ? ' ' . $settings['counter_subtitle'] : '' )
+		);
+
 		$this->add_render_attribute([
 			'counter' => [
 				'class' => [
 					'pp-counter',
 					'pp-counter-' . $settings['counter_layout'],
 				],
+				'tabindex'   => '0',
+				'role'       => 'group',
+				'aria-label' => $accessible_text,
 			],
 			'counter-number' => [
 				'class'           => 'pp-counter-number pp-counter-number-' . esc_attr( $this->get_id() ),
@@ -1548,7 +1563,7 @@ class Counter extends Powerpack_Widget {
 		$is_new = ! isset( $settings['counter_icon'] ) && Icons_Manager::is_migration_allowed();
 
 		if ( 'icon' === $settings['pp_icon_type'] ) { ?>
-			<span class="pp-counter-icon-wrap">
+			<span class="pp-counter-icon-wrap" aria-hidden="true">
 				<span class="pp-counter-icon pp-icon">
 					<?php
 					if ( $is_new || $migrated ) {
@@ -1562,10 +1577,13 @@ class Counter extends Powerpack_Widget {
 			<?php
 		} elseif ( 'image' === $settings['pp_icon_type'] ) {
 			$image = $settings['icon_image'];
-			if ( $image['url'] ) { ?>
-				<span class="pp-counter-icon-wrap">
+			if ( $image['url'] ) {
+				$image_settings = $settings;
+				$image_settings['icon_image']['alt'] = '';
+				?>
+				<span class="pp-counter-icon-wrap" aria-hidden="true">
 					<span class="pp-counter-icon pp-counter-icon-img">
-						<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'icon_image' ) ); ?>
+						<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $image_settings, 'image', 'icon_image' ) ); ?>
 					</span>
 				</span>
 			<?php }
@@ -1591,7 +1609,7 @@ class Counter extends Powerpack_Widget {
 	private function render_counter_number() {
 		$settings = $this->get_settings_for_display();
 		?>
-		<div class="pp-counter-number-wrap">
+		<div class="pp-counter-number-wrap" aria-hidden="true">
 			<?php
 			if ( $settings['number_prefix'] ) { ?>
 				<span class="pp-counter-number-prefix">
@@ -1634,7 +1652,7 @@ class Counter extends Powerpack_Widget {
 			$this->add_inline_editing_attributes( 'counter_subtitle', 'none' );
 			$this->add_render_attribute( 'counter_subtitle', 'class', 'pp-counter-subtitle' );
 			?>
-			<div class="pp-counter-title-wrap">
+			<div class="pp-counter-title-wrap" aria-hidden="true">
 				<?php
 				if ( $settings['counter_title'] ) {
 					$title_tag = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
@@ -1669,13 +1687,21 @@ class Counter extends Powerpack_Widget {
 	protected function content_template() {
 		?>
 		<#
+			var accessibleNumberText = ( ( settings.number_prefix ? settings.number_prefix + ' ' : '' ) +
+				settings.ending_number +
+				( settings.number_suffix ? ' ' + settings.number_suffix : '' ) ).trim();
+
+			var accessibleText = ( accessibleNumberText +
+				( settings.counter_title ? ' ' + settings.counter_title : '' ) +
+				( settings.counter_subtitle ? ' ' + settings.counter_subtitle : '' ) ).trim();
+
 			function icon_template() {
 				var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' ),
 					migrated = elementor.helpers.isIconMigrated( settings, 'icon' );
 		   
 				if ( settings.pp_icon_type == 'icon' ) {
 					if ( settings.counter_icon || settings.icon ) { #>
-						<span class="pp-counter-icon-wrap">
+						<span class="pp-counter-icon-wrap" aria-hidden="true">
 							<span class="pp-counter-icon pp-icon">
 								<# if ( iconHTML && iconHTML.rendered && ( ! settings.counter_icon || migrated ) ) { #>
 								{{{ iconHTML.value }}}
@@ -1688,7 +1714,7 @@ class Counter extends Powerpack_Widget {
 					}
 				} else if ( settings.pp_icon_type == 'image' ) {
 					if ( settings.icon_image.url != '' ) { #>
-						<span class="pp-counter-icon-wrap">
+						<span class="pp-counter-icon-wrap" aria-hidden="true">
 							<span class="pp-counter-icon pp-counter-icon-img">
 								<#
 								var image = {
@@ -1701,7 +1727,7 @@ class Counter extends Powerpack_Widget {
 
 								var imageUrl = elementor.imagesManager.getImageUrl( image );
 								#>
-								<img src="{{ _.escape( imageUrl ) }}" />
+								<img src="{{ _.escape( imageUrl ) }}" alt="" />
 							</span>
 						</span>
 						<#
@@ -1719,7 +1745,7 @@ class Counter extends Powerpack_Widget {
 			}
 						   
 			function number_template() { #>
-				<div class="pp-counter-number-wrap">
+				<div class="pp-counter-number-wrap" aria-hidden="true">
 					<#
 						var duration = ( settings.counter_speed.size ) ? settings.counter_speed.size : '1500';
 
@@ -1769,7 +1795,7 @@ class Counter extends Powerpack_Widget {
 			function title_template() {
 				if ( settings.counter_title != '' || settings.counter_subtitle != '' ) {
 					#>
-					<div class="pp-counter-title-wrap">
+					<div class="pp-counter-title-wrap" aria-hidden="true">
 						<#
 						if ( settings.counter_title != '' ) {
 							var title = settings.counter_title;
@@ -1804,7 +1830,7 @@ class Counter extends Powerpack_Widget {
 		#>
 
 		<div class="pp-counter-container">
-			<div class="pp-counter pp-counter-{{ settings.counter_layout }}">
+			<div class="pp-counter pp-counter-{{ settings.counter_layout }}" tabindex="0" role="group" aria-label="{{ accessibleText }}">
 				<# if ( settings.counter_layout == 'layout-1' || settings.counter_layout == 'layout-5' || settings.counter_layout == 'layout-6' ) { #>
 					<# icon_template(); #>
 

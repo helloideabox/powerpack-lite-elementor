@@ -18,6 +18,14 @@
     height: auto;
     transition: all 0.3s ease-in-out;
 
+    // The chosen heading tag wraps the trigger so the item keeps its heading
+    // semantics; it carries no styling of its own, only a margin reset so a
+    // theme's heading margins do not push the panels apart.
+    .pp-accordion-tab-title-wrap {
+        margin: 0;
+        padding: 0;
+    }
+
     .pp-accordion-tab-title {
         padding: 15px;
         font-size: 1rem;
@@ -25,9 +33,24 @@
         line-height: 1;
         transition: all 0.3s ease-in-out;
         display: flex;
-		justify-content: space-between;
-		align-items: center;
+        justify-content: space-between;
+        align-items: center;
         cursor: pointer;
+
+        &:focus {
+            outline: 2px solid transparent;
+        }
+
+        // Drawn inside the title's own box. A positive outline-offset puts the ring
+        // outside the border box, where .pp-accordion-item's overflow:hidden clips it
+        // away entirely — the title fills that clip box exactly. An inset ring also
+        // sits on the title's own background, which is what currentcolor contrasts
+        // against. The author's border-radius is left alone so focus does not reshape
+        // the header; the outline follows that radius on its own.
+        &:focus-visible {
+            outline: 2px solid currentcolor;
+            outline-offset: -2px;
+        }
     }
 
     &.pp-toggle-icon-align-left {
@@ -41,48 +64,64 @@
 
 .pp-accordion-toggle-icon {
     display: inline-flex;
-	transition: none;
-	z-index: 10;
+    transition: none;
+    z-index: 10;
 }
 
 .pp-accordion-item .pp-accordion-toggle-icon-open,
 .pp-accordion-tab-show .pp-accordion-toggle-icon-close,
 .pp-accordion-tab-active-default .pp-accordion-toggle-icon-close {
-	display: none;
+    display: none;
 }
 
 .pp-accordion-tab-show .pp-accordion-toggle-icon-open,
 .pp-accordion-tab-active-default .pp-accordion-toggle-icon-open {
-	display: inline-block;
+    display: inline-block;
 }
 
 .pp-accordion-tab-content {
-	display: none;
-	padding: 15px;
-	box-sizing: border-box;
-	font-size: 1rem;
-	line-height: 1.7;
+    display: none;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    line-height: 1.7;
 
-	p:last-child {
-		margin: 0;
-	}
+    p:last-child {
+        margin: 0;
+    }
 
-	&.pp-accordion-tab-active {
-		display: block;
-	}
+    &.pp-accordion-tab-active {
+        display: block;
+    }
+
+    &[hidden] {
+        display: none !important;
+    }
 }
 
 .pp-accordion-item {
-	overflow: hidden;
+    overflow: hidden;
     transition: all 0.3s ease-in-out;
 }
 
 .pp-accordion-title-icon {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .pp-accordion-tab-icon {
     display: inline-block;
     margin-inline-end: 10px;
+}
+
+// The open/close transitions are decorative, so a system-level request for reduced
+// motion is always honoured; there is no author opt-out.
+@media (prefers-reduced-motion: reduce) {
+
+    .pp-advanced-accordion,
+    .pp-advanced-accordion .pp-accordion-item,
+    .pp-advanced-accordion .pp-accordion-tab-title,
+    .pp-advanced-accordion .pp-icon {
+        transition: none;
+    }
 }

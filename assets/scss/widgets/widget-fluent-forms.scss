@@ -5,7 +5,16 @@
 	.ff-el-group {
 
 		.ff-el-input--label {
-			display: none;
+			position: absolute !important;
+			width: 1px !important;
+			height: 1px !important;
+			margin: -1px !important;
+			padding: 0 !important;
+			overflow: hidden !important;
+			clip: rect(0, 0, 0, 0) !important;
+			clip-path: inset(50%) !important;
+			border: 0 !important;
+			white-space: nowrap !important;
 		}
 	}
 
@@ -14,10 +23,40 @@
         .pp-fluent-forms {
 
 			.ff-el-input--label {
+				position: static !important;
+				width: auto !important;
+				height: auto !important;
+				margin: 0 !important;
+				overflow: visible !important;
+				clip: auto !important;
+				clip-path: none !important;
+				white-space: normal !important;
 				display: block;
 			}
         }
     }
+
+	input:focus-visible,
+	textarea:focus-visible,
+	select:focus-visible,
+	button:focus-visible,
+	.ff-btn-submit:focus-visible {
+		outline: 2px solid Highlight;
+		outline-offset: 2px;
+	}
+
+	.ff-message-success:focus,
+	.ff-errors-in-stack:focus {
+		outline: none;
+	}
+}
+
+.pp-fluent-forms-title {
+	margin-bottom: 10px;
+}
+
+.pp-fluent-forms-description {
+	margin-bottom: 20px;
 }
 
 .pp-fluent-forms-form-button-full-width {
@@ -54,6 +93,23 @@
             padding: 3px;
 			top: -1px;
             appearance: none;
+
+			&:focus-visible {
+				outline: 2px solid Highlight;
+				outline-offset: 2px;
+			}
         }
     }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.pp-fluent-forms {
+
+		&,
+		* {
+			transition: none !important;
+			animation: none !important;
+		}
+	}
 }

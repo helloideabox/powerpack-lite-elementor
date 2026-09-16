@@ -58,4 +58,14 @@
             }
         }
     }
+
+    // Keyboard focus gets the same reveal as hover. Focus can sit on the title link,
+    // which is outside .pp-logo-wrap, so the whole item is the scope.
+    &.grayscale-normal .elementor-grid-item:focus-within img {
+        filter: none;
+    }
+
+    &.grayscale-hover .elementor-grid-item:focus-within img {
+        filter: grayscale(100%);
+    }
 }

@@ -119,31 +119,78 @@
 					}
 				}
 
-				this.elements.$button.on( 'click', this.contentToggle.bind( this, contentWrapperHeight ) );
+				this.elements.$button.on( 'click keydown', ( e ) => {
+					if ( 'keydown' === e.type ) {
+						const isActivationKey = 'Enter' === e.key || ' ' === e.key || 'Spacebar' === e.key || 'Space' === e.code;
+
+						if ( ! isActivationKey ) {
+							return;
+						}
+					}
+
+					e.preventDefault();
+					this.contentToggle( contentWrapperHeight );
+				} );
+
+				// Tabbing onto a link or field in the clipped part expands the content, so focus is never on something hidden.
+				this.elements.$content.on( 'focusin', ( e ) => {
+					if ( this.elements.$button.hasClass( 'pp-content-revealed' ) || ! this.elements.$buttonWrapper.is( ':visible' ) ) {
+						return;
+					}
+
+					const wrapper = this.elements.$contentWrapper[0],
+						// Measured from the content's top: focus has already scrolled the overflow:hidden
+						// wrapper to the target, so its position against the wrapper reads as in view.
+						targetBottom = e.target.getBoundingClientRect().bottom - this.elements.$content[0].getBoundingClientRect().top;
+
+					if ( targetBottom > wrapper.clientHeight ) {
+						wrapper.scrollTop = 0;
+						this.contentToggle( contentWrapperHeight );
+					}
+				} );
 			}
 
-			contentToggle( contentWrapperHeight, e ) {
-				const speedUnreveal    = this.elements.$contentWrapper.data('speed') * 1000,
+			contentToggle( contentWrapperHeight ) {
+				const prefersReducedMotion = window.matchMedia && window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches,
+					speedUnreveal      = prefersReducedMotion ? 0 : this.elements.$contentWrapper.data('speed') * 1000,
 					contentOuterHeight = this.elements.$content.outerHeight(),
-					scrollTop          = this.elements.$contentWrapper.data('scroll-top');
-
-				e.preventDefault();
+					scrollTop          = this.elements.$contentWrapper.data('scroll-top'),
+					$wrapper           = this.elements.$contentWrapper,
+					$button            = this.elements.$button;
 
 				this.elements.$saparator.slideToggle(speedUnreveal);
-				this.elements.$button.toggleClass('pp-content-revealed');
+				$button.toggleClass('pp-content-revealed');
 
-				if ( this.elements.$button.hasClass('pp-content-revealed') ) {
-					this.elements.$contentWrapper.animate({ height: ( contentOuterHeight + 'px') }, speedUnreveal);
+				const isExpanded = $button.hasClass('pp-content-revealed'),
+					ariaLabel    = $button.attr( isExpanded ? 'data-aria-label-open' : 'data-aria-label-closed' );
+
+				$button.attr( 'aria-expanded', isExpanded ? 'true' : 'false' );
+
+				// Only the icon-only state carries an aria-label; a state with visible text is named by that text.
+				if ( ariaLabel ) {
+					$button.attr( 'aria-label', ariaLabel );
 				} else {
-					this.elements.$contentWrapper.animate({ height: ( contentWrapperHeight + 'px') }, speedUnreveal);
+					$button.removeAttr( 'aria-label' );
+				}
+
+				if ( isExpanded ) {
+					$wrapper.stop().animate({ height: ( contentOuterHeight + 'px') }, speedUnreveal, () => {
+						// Drop the fixed height so zoom, text spacing and reflow cannot clip the open content.
+						$wrapper.addClass( 'pp-content-revealed-wrapper' ).css( 'height', '' );
+					});
+				} else {
+					$wrapper.stop()
+						.css( 'height', $wrapper.outerHeight() + 'px' )
+						.removeClass( 'pp-content-revealed-wrapper' )
+						.animate({ height: ( contentWrapperHeight + 'px') }, speedUnreveal);
 
 					if ( scrollTop == 'yes' ) {
 						$('html, body').animate({
-							scrollTop: ( this.elements.$contentWrapper.offset().top - 50 ) + 'px'
-						});
+							scrollTop: ( $wrapper.offset().top - 50 ) + 'px'
+						}, speedUnreveal);
 					}
 				}
-		   	}
+			}
 		}
 
 		elementorFrontend.elementsHandler.attachHandler( 'pp-content-reveal', ContentRevealWidget );

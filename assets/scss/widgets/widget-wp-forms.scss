@@ -21,8 +21,21 @@
                 padding: 3px;
             }
 
-            .wpforms-field-label {
-                display: none;
+            // WPForms resets outline on every descendant of the form at the same
+            // specificity as a plain widget class, so the focus ring is scoped this
+            // deep to make sure it wins.
+            input:focus-visible,
+            textarea:focus-visible,
+            select:focus-visible,
+            button:focus-visible,
+            .wpforms-submit:focus-visible,
+            .wpforms-page-button:focus-visible,
+            .choices__inner:focus-visible {
+                // currentcolor is the control's own text colour, which already has
+                // to contrast with the control, so the ring cannot fall under 3:1
+                // the way a fixed colour or a translucent system colour can.
+                outline: 2px solid currentcolor;
+                outline-offset: 2px;
             }
 
             .wpforms-field-name {
@@ -41,35 +54,110 @@
                 max-width: 100% !important;
             }
 
-            input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]):focus,
-            textarea:focus,
-            select:focus {
+            input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]):focus:not(:focus-visible),
+            textarea:focus:not(:focus-visible),
+            select:focus:not(:focus-visible) {
                 outline: none;
             }
         }
 
-        .wpforms-form .choices.is-focused .choices__inner {
+        .wpforms-form .choices.is-focused:not(:focus-within) .choices__inner {
             outline: none;
         }
     }
 
-    &-labels-yes {
+    // Containers that receive focus programmatically, so the announcement is not
+    // accompanied by a focus ring on a block of text the user did not tab to.
+    .wpforms-confirmation-container-full:focus,
+    .wpforms-confirmation-container:focus,
+    .wpforms-error-container:focus {
+        outline: none;
+    }
 
-        .wpforms-container {
+    &.pp-custom-radio-checkbox {
 
-            .wpforms-form {
+        .wpforms-container .wpforms-form {
 
-                .wpforms-field-label {
-                    display: block;
+            input[type="checkbox"],
+            input[type="radio"] {
+
+                &:focus-visible {
+                    outline: 2px solid currentcolor;
+                    outline-offset: 2px;
+                }
+
+                // Default checked indicator has to clear 3:1 against the track.
+                &:checked::before {
+                    background: #333;
+                }
+            }
+
+            // Custom sizing can take the control under the 24px target size, so
+            // keep the row it shares with its label at least that tall.
+            .wpforms-field-radio,
+            .wpforms-field-checkbox,
+            .wpforms-field-payment-multiple,
+            .wpforms-field-payment-checkbox {
+
+                ul li {
+                    min-height: 24px;
                 }
             }
         }
     }
 }
 
+// Labels and error messages the widget hides stay in the accessibility tree.
+.pp-wpforms-labels-no .pp-wpforms .wpforms-container .wpforms-form .wpforms-field-label,
+.pp-wpforms-errors-hide .pp-wpforms label.wpforms-error {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    clip-path: inset(50%) !important;
+    border: 0 !important;
+    white-space: nowrap !important;
+}
+
 .pp-wpforms-form-button-full-width {
 
     .wpforms-submit-container .wpforms-submit {
         width: 100%;
+    }
+}
+
+@media (forced-colors: active) {
+
+    .pp-wpforms .wpforms-container .wpforms-form {
+
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible,
+        button:focus-visible,
+        .wpforms-submit:focus-visible,
+        .wpforms-page-button:focus-visible,
+        .choices__inner:focus-visible {
+            outline: 2px solid Highlight;
+            outline-offset: 2px;
+        }
+    }
+
+    .pp-wpforms.pp-custom-radio-checkbox .wpforms-container .wpforms-form {
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            -webkit-appearance: auto;
+            -moz-appearance: auto;
+            appearance: auto;
+            forced-color-adjust: auto;
+
+            &:focus-visible {
+                outline: 2px solid Highlight;
+                outline-offset: 2px;
+            }
+        }
     }
 }

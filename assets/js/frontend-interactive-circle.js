@@ -5,9 +5,9 @@
 				return {
 					selectors: {
 						circleWrap: '.pp-circle-wrapper',
-						activeItem: '.pp-circle-tab.active',
+						tab: '.pp-circle-tab',
+						tabContent: '.pp-circle-tab-content',
 						circleContent: '.pp-circle-content',
-						circleInfo: '.pp-circle-info',
 					},
 				};
 			}
@@ -16,32 +16,27 @@
 				const selectors = this.getSettings( 'selectors' );
 				return {
 					$circleWrap: this.$element.find( selectors.circleWrap ),
-					$activeItem: this.$element.find( selectors.activeItem ),
+					$tabs: this.$element.find( selectors.tab ),
+					$tabContents: this.$element.find( selectors.tabContent ),
 					$circleContent: this.$element.find( selectors.circleContent ),
-					$circleInfo: this.$element.find( selectors.circleInfo ),
-					$autoplayPause: 0,
 				};
 			}
 
+			prefersReducedMotion() {
+				return !! ( window.matchMedia && window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches );
+			}
+
 			bindEvents() {
-				const elementSettings = this.getElementSettings();
-				let self = this,
+				const elementSettings = this.getElementSettings(),
 					$circleWrap       = this.elements.$circleWrap,
-					$activeItem       = this.elements.$activeItem,
 					$circleContent    = this.elements.$circleContent,
-					$animation        = elementSettings.circle_animation,
-					$autoplay         = elementSettings.autoplay_tabs,
-					$openOn           = elementSettings.open_on,
-					$autoplayInterval = parseInt( elementSettings.autoplay_tabs_interval || 2000 ),
-					$autoplayPause    = this.elements.$autoplayPause,
-					$eventType        = 'mouseenter';
+					animation         = elementSettings.circle_animation,
+					reduceMotion      = this.prefersReducedMotion(),
+					eventType         = 'click' === elementSettings.open_on ? 'click' : 'mouseenter';
 
-				if ( $activeItem.length > 1 ) {
-					$activeItem.not( ':last' ).removeClass( 'active' );
-					$activeItem.siblings( '.pp-circle-tab-content' ).removeClass( 'active' );
-				}
+				this.syncActiveItem();
 
-				if ( 'none' !== $animation ) {
+				if ( 'none' !== animation && ! reduceMotion && $circleContent.length ) {
 					let _$activeItem = $circleContent;
 					_$activeItem.siblings( '.pp-circle-tab-content' ).removeClass( 'active' );
 					$( 'body' ).scroll(function () {
@@ -55,7 +50,7 @@
 							if ( event.isInViewport ) {
 								this.intersectionObserver.unobserve( $circleContent[0] );
 
-								let $animationClass = 'pp-circle-animation-' + $animation;
+								let $animationClass = 'pp-circle-animation-' + animation;
 
 								$circleWrap.addClass( $animationClass );
 
@@ -69,97 +64,168 @@
 					this.intersectionObserver.observe( $circleContent[0] );
 				}
 
-				if ( 'click' === $openOn ) {
-					$eventType = 'click';
-				}
-
-				let $tabLinks = $circleWrap.find( '.pp-circle-tab' );
-
-				// Keyboard accessibility
-				this.$element.on( 'keyup', '.pp-circle-tab', function ( e ) {
-					if ( e.which === 9 || e.which === 32 ) {
-						$(this).trigger( $eventType );
-					}
+				this.elements.$tabs.on( eventType + ' ppInteractiveCicle', ( event ) => {
+					this.activateTab( $( event.currentTarget ) );
 				} );
 
-				$tabLinks.each( function ( element ) {
-					$(this).on( $eventType, self.handleEvent( element, self ) );
-					$(this).on( 'ppInteractiveCicle', self.handleEvent( element, self ) );
-				} );
+				this.elements.$tabs.on( 'keydown', ( event ) => this.onTabKeydown( event ) );
 
-				if ( 'yes' === $autoplay ) {
-					setInterval( function () {
-						if ( $autoplayPause ) {
-							setTimeout( function () {
-								self.autoplayInteractiveCircle();
-							}, 5000 );
-						} else {
-							self.autoplayInteractiveCircle();
-						}
-					}, $autoplayInterval );
+				// Autoplay pauses while the pointer or keyboard focus is inside the widget (WCAG 2.2.2).
+				if ( 'yes' === elementSettings.autoplay_tabs && ! reduceMotion ) {
+					this.autoplayInterval = parseInt( elementSettings.autoplay_tabs_interval, 10 ) || 2000;
+
+					this.$element
+						.on( 'mouseenter.ppCircle', () => {
+							this.isHovered = true;
+							this.stopAutoplay();
+						} )
+						.on( 'mouseleave.ppCircle', () => {
+							this.isHovered = false;
+							this.startAutoplay();
+						} )
+						.on( 'focusin.ppCircle', () => {
+							this.hasFocus = true;
+							this.stopAutoplay();
+						} )
+						.on( 'focusout.ppCircle', ( event ) => {
+							if ( ! this.$element[0].contains( event.relatedTarget ) ) {
+								this.hasFocus = false;
+								this.startAutoplay();
+							}
+						} );
+
+					this.startAutoplay();
 				}
 
 				this.stackOn = elementSettings.stack_on;
 
 				if ( this.stackOn !== 'none' ) {
+					this.onResize = this.stackIt.bind( this );
 					this.stackIt();
 
-					elementorFrontend.elements.$window.on('resize', this.stackIt.bind(this));
+					elementorFrontend.elements.$window.on( 'resize', this.onResize );
+				}
+			}
+
+			unbindEvents() {
+				this.stopAutoplay();
+				this.$element.off( '.ppCircle' );
+				this.elements.$tabs.off( 'click mouseenter keydown ppInteractiveCicle' );
+
+				if ( this.onResize ) {
+					elementorFrontend.elements.$window.off( 'resize', this.onResize );
 				}
 			}
 
 			stackIt() {
-				const breakpoints = elementorFrontend.config.responsive.activeBreakpoints;
-				let stackOn = breakpoints[this.stackOn].value;
+				const breakpoint = elementorFrontend.config.responsive.activeBreakpoints[ this.stackOn ];
 
-				if ( window.innerWidth < stackOn ) {
-					this.$element.addClass( 'pp-circle-stacked' );
-				} else {
-					this.$element.removeClass( 'pp-circle-stacked' );
+				if ( ! breakpoint ) {
+					return;
+				}
+
+				this.isStacked = window.innerWidth < breakpoint.value;
+				this.$element.toggleClass( 'pp-circle-stacked', this.isStacked );
+				this.updateExpandedState();
+			}
+
+			startAutoplay() {
+				if ( this.isHovered || this.hasFocus ) {
+					return;
+				}
+
+				this.stopAutoplay();
+				this.autoplayTimer = setInterval( () => this.autoplayInteractiveCircle(), this.autoplayInterval );
+			}
+
+			stopAutoplay() {
+				if ( this.autoplayTimer ) {
+					clearInterval( this.autoplayTimer );
+					this.autoplayTimer = null;
 				}
 			}
 
 			autoplayInteractiveCircle() {
-				let $tabLinks   = this.elements.$circleWrap.find( '.pp-circle-tab' );
-				let activeIndex = 0;
+				const $tabs     = this.elements.$tabs,
+					activeIndex = $tabs.index( $tabs.filter( '.active' ).first() );
 
-				$tabLinks.each(function ( index ) {
-					if ( $(this).hasClass( 'active' ) ) {
-						activeIndex = index + 1;
-						activeIndex = activeIndex >= $tabLinks.length ? 0 : activeIndex;
-					}
-				});
-
-				setTimeout( function () {
-					$( $tabLinks[activeIndex] ).trigger( 'ppInteractiveCicle' );
-				}, 300 );
+				$tabs.eq( ( activeIndex + 1 ) % $tabs.length ).trigger( 'ppInteractiveCicle' );
 			}
 
-			handleEvent( element, self ) {
-				let $tabLinks    = this.elements.$circleWrap.find( '.pp-circle-tab' ),
-					$tabContents = this.elements.$circleWrap.find( '.pp-circle-tab-content' );
+			onTabKeydown( event ) {
+				if ( event.altKey || event.ctrlKey || event.metaKey ) {
+					return;
+				}
 
-				return function ( event ) {
-					let $element   = $(this),
-						$activeTab = $(this).hasClass( 'active' );
+				const $tabs = this.elements.$tabs,
+					index   = $tabs.index( event.currentTarget ),
+					isRtl   = !! elementorFrontend.config.is_rtl;
+				let next;
 
-					if ( $activeTab == false ) {
-						$tabLinks.each(function ( tabLink ) {
-							$(this).removeClass( 'active' );
-						});
+				switch ( event.key ) {
+					case 'Enter':
+					case ' ':
+					case 'Spacebar':
+						event.preventDefault();
+						$( event.currentTarget ).trigger( 'ppInteractiveCicle' );
+						return;
+					case 'ArrowDown':
+						next = index + 1;
+						break;
+					case 'ArrowUp':
+						next = index - 1;
+						break;
+					case 'ArrowRight':
+						next = isRtl ? index - 1 : index + 1;
+						break;
+					case 'ArrowLeft':
+						next = isRtl ? index + 1 : index - 1;
+						break;
+					case 'Home':
+						next = 0;
+						break;
+					case 'End':
+						next = $tabs.length - 1;
+						break;
+					default:
+						return;
+				}
 
-						$element.addClass( 'active' );
+				event.preventDefault();
+				$tabs.eq( ( next + $tabs.length ) % $tabs.length ).trigger( 'focus' );
+			}
 
-						$tabContents.each( function ( tabContent ) {
-							$(this).removeClass( 'active' );
-							if ( $(this).hasClass( $element.attr( 'id' ) ) ) {
-								$(this).addClass( 'active' );
-							}
-						});
-					}
+			// Keeps a single open item when the markup arrives with several.
+			syncActiveItem() {
+				const $active = this.elements.$tabs.filter( '.active' );
 
-					self.elements.$autoplayPause = event.originalEvent ? 1 : 0;
-				};
+				if ( $active.length > 1 ) {
+					this.activateTab( $active.last() );
+				} else {
+					this.updateExpandedState();
+				}
+			}
+
+			activateTab( $tab ) {
+				this.elements.$tabs.not( $tab ).removeClass( 'active' );
+				$tab.addClass( 'active' );
+
+				this.elements.$tabContents
+					.removeClass( 'active' )
+					.filter( '[data-index="' + $tab.attr( 'data-index' ) + '"]' )
+					.addClass( 'active' );
+
+				this.updateExpandedState();
+			}
+
+			// A stacked layout shows every panel, so every tab reports expanded.
+			updateExpandedState() {
+				const isStacked = !! this.isStacked;
+
+				this.elements.$tabs.each( function () {
+					const $tab = $( this );
+					$tab.attr( 'aria-expanded', isStacked || $tab.hasClass( 'active' ) ? 'true' : 'false' );
+				} );
 			}
 		}
 

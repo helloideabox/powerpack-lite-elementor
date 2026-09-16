@@ -288,6 +288,44 @@ class Module extends Module_Base {
 		// Conditions for containers
 		add_filter( 'elementor/frontend/container/should_render', array( $this, 'render_content' ), 10, 2 );
 		add_action( 'elementor/frontend/container/before_render', array( $this, 'before_render' ), 10, 1 );
+
+		// Keep elements with conditions out of Elementor's element cache
+		add_filter( 'elementor/element/is_dynamic_content', array( $this, 'is_dynamic_content' ), 10, 2 );
+	}
+
+	/**
+	 * Flag an element that has display conditions as dynamic content.
+	 *
+	 * Elementor's element cache stores the rendered HTML of every element it
+	 * considers static in the document's '_elementor_element_cache' meta and
+	 * replays it on later requests. Containers, and widgets such as Heading,
+	 * report themselves as static, so the show/hide decision made when the cache
+	 * was primed was frozen into the template and reused for every post that
+	 * template renders - a condition on a container evaluated once and never
+	 * again, while a dynamic widget alongside it kept working.
+	 *
+	 * Marking the element dynamic makes Elementor render it through its
+	 * '[elementor-element]' shortcode instead, which re-evaluates the conditions
+	 * on every request. The filter is only consulted while the cache is being
+	 * built, so this costs nothing when element caching is off.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param bool  $is_dynamic_content Whether the element output is dynamic.
+	 * @param array $raw_data           Raw element data.
+	 *
+	 * @return bool
+	 */
+	public function is_dynamic_content( $is_dynamic_content, $raw_data ) {
+		if ( $is_dynamic_content ) {
+			return true;
+		}
+
+		if ( empty( $raw_data['settings']['pp_display_conditions_enable'] ) ) {
+			return $is_dynamic_content;
+		}
+
+		return 'yes' === $raw_data['settings']['pp_display_conditions_enable'];
 	}
 
 	/**

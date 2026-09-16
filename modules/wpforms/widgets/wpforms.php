@@ -24,6 +24,19 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WPforms extends Powerpack_Widget {
 
+	/**
+	 * ID of the element that labels the form.
+	 *
+	 * Holds the custom title ID while the form is rendered, so the
+	 * wpforms_frontend_form_atts filter can point the form element at it.
+	 *
+	 * @since x.x.x
+	 * @access private
+	 *
+	 * @var string
+	 */
+	private $form_label_id = '';
+
 	public function get_name() {
 		return parent::get_widget_name( 'WP_Forms' );
 	}
@@ -67,6 +80,34 @@ class WPforms extends Powerpack_Widget {
 
 	public function has_widget_inner_wrapper(): bool {
 		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
+	}
+
+	/**
+	 * Retrieve the list of styles the wpforms widget depended on.
+	 *
+	 * Used to set styles dependencies required to run the widget.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Widget styles dependencies.
+	 */
+	public function get_style_depends(): array {
+		return [ 'widget-pp-wp-forms' ];
+	}
+
+	/**
+	 * Retrieve the list of scripts the wpforms widget depended on.
+	 *
+	 * Used to set scripts dependencies required to run the widget.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Widget scripts dependencies.
+	 */
+	public function get_script_depends() {
+		return [ 'pp-wpforms' ];
 	}
 
 	/**
@@ -155,6 +196,31 @@ class WPforms extends Powerpack_Widget {
 			]
 		);
 
+		/**
+		 * Heading level for the custom form title.
+		 *
+		 * @since x.x.x
+		 */
+		$this->add_control(
+			'title_tag',
+			[
+				'label'                 => esc_html__( 'Title HTML Tag', 'powerpack-lite-for-elementor' ),
+				'type'                  => Controls_Manager::SELECT,
+				'options'               => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+				],
+				'default'               => 'h3',
+				'condition'             => [
+					'custom_title_description'   => 'yes',
+				],
+			]
+		);
+
 		$this->add_control(
 			'form_description_custom',
 			[
@@ -177,6 +243,11 @@ class WPforms extends Powerpack_Widget {
 				'label_off'             => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				'return_value'          => 'yes',
 				'prefix_class'          => 'pp-wpforms-labels-',
+				// Elementor skips prefix_class for an empty value, so map "off" to a
+				// class the stylesheet can hook the visually hidden labels onto.
+				'classes_dictionary'    => [
+					'' => 'no',
+				],
 			]
 		);
 
@@ -215,13 +286,8 @@ class WPforms extends Powerpack_Widget {
 					'show'          => esc_html__( 'Show', 'powerpack-lite-for-elementor' ),
 					'hide'          => esc_html__( 'Hide', 'powerpack-lite-for-elementor' ),
 				],
-				'selectors_dictionary'  => [
-					'show'          => 'block',
-					'hide'          => 'none',
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .pp-wpforms label.wpforms-error' => 'display: {{VALUE}} !important;',
-				],
+				'prefix_class'          => 'pp-wpforms-errors-',
+				'description'           => esc_html__( 'Hiding error messages only hides them visually. They stay available to screen readers, because a form that reports an error without saying what it is cannot be completed.', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -1691,8 +1757,31 @@ class WPforms extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Point the WPForms form element at the widget's custom title.
+	 *
+	 * WPForms renders the form element without an accessible name. When the widget
+	 * replaces the form title with its own heading, that heading sits outside the
+	 * form, so without this the form is announced without a name and multiple forms
+	 * on a page cannot be told apart.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @param array $form_atts Form attributes.
+	 *
+	 * @return array Form attributes.
+	 */
+	public function add_form_aria_labelledby( $form_atts ) {
+		if ( ! empty( $this->form_label_id ) ) {
+			$form_atts['atts']['aria-labelledby'] = $this->form_label_id;
+		}
+
+		return $form_atts;
+	}
+
 	protected function render() {
-		$settings = $this->get_settings();
+		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute( 'contact-form', 'class', [
 			'pp-contact-form',
@@ -1711,44 +1800,67 @@ class WPforms extends Powerpack_Widget {
 			$this->add_render_attribute( 'contact-form', 'class', 'pp-custom-radio-checkbox' );
 		}
 
-		if ( function_exists( 'wpforms' ) ) {
-			if ( ! empty( $settings['contact_form_list'] ) ) { ?>
-				<div <?php $this->print_render_attribute_string( 'contact-form' ); ?>>
-					<?php if ( 'yes' === $settings['custom_title_description'] ) { ?>
-						<div class="pp-wpforms-heading">
-							<?php if ( $settings['form_title_custom'] ) { ?>
-								<h3 class="pp-contact-form-title pp-wpforms-title">
-									<?php echo esc_attr( $settings['form_title_custom'] ); ?>
-								</h3>
-							<?php } ?>
-							<?php if ( $settings['form_description_custom'] ) { ?>
-								<div class="pp-contact-form-description pp-wpforms-description">
-									<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> 
-								</div>
-							<?php } ?>
+		if ( ! function_exists( 'wpforms' ) ) {
+			return;
+		}
+
+		if ( empty( $settings['contact_form_list'] ) ) {
+			$placeholder = sprintf(
+				/* translators: %s: Widget title. */
+				esc_html__(
+					'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.',
+					'powerpack-lite-for-elementor'
+				),
+				esc_html( $this->get_title() )
+			);
+
+			$this->render_editor_placeholder( [
+				'title' => esc_html__( 'No Contact Form Selected!', 'powerpack-lite-for-elementor' ),
+				'body'  => $placeholder,
+			] );
+
+			return;
+		}
+
+		$widget_id           = $this->get_id();
+		$custom_heading      = ( 'yes' === $settings['custom_title_description'] );
+		$has_title           = ( $custom_heading && ! empty( $settings['form_title_custom'] ) );
+		$has_description     = ( $custom_heading && ! empty( $settings['form_description_custom'] ) );
+		$title_id            = 'pp-wpforms-title-' . $widget_id;
+		$desc_id             = 'pp-wpforms-desc-' . $widget_id;
+		$title_tag           = PP_Helper::validate_html_tag( ! empty( $settings['title_tag'] ) ? $settings['title_tag'] : 'h3' );
+		$pp_form_title       = $custom_heading ? false : $settings['form_title'];
+		$pp_form_description = $custom_heading ? false : $settings['form_description'];
+
+		if ( $has_title ) {
+			$this->form_label_id = $title_id;
+
+			add_filter( 'wpforms_frontend_form_atts', [ $this, 'add_form_aria_labelledby' ] );
+		}
+		?>
+		<div <?php $this->print_render_attribute_string( 'contact-form' ); ?>>
+			<?php if ( $has_title || $has_description ) { ?>
+				<div class="pp-wpforms-heading">
+					<?php if ( $has_title ) { ?>
+						<<?php PP_Helper::print_validated_html_tag( $title_tag ); ?> id="<?php echo esc_attr( $title_id ); ?>" class="pp-contact-form-title pp-wpforms-title">
+							<?php echo esc_html( $settings['form_title_custom'] ); ?>
+						</<?php PP_Helper::print_validated_html_tag( $title_tag ); ?>>
+					<?php } ?>
+					<?php if ( $has_description ) { ?>
+						<div id="<?php echo esc_attr( $desc_id ); ?>" class="pp-contact-form-description pp-wpforms-description">
+							<?php echo $this->parse_text_editor( $settings['form_description_custom'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</div>
 					<?php } ?>
-					<?php
-						$pp_form_title = $settings['form_title'];
-						$pp_form_description = $settings['form_description'];
-
-					if ( 'yes' === $settings['custom_title_description'] ) {
-						$pp_form_title = false;
-						$pp_form_description = false;
-					}
-
-						echo wpforms_display( $settings['contact_form_list'], $pp_form_title, $pp_form_description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					?>
 				</div>
-				<?php
-			} else {
-				$placeholder = sprintf( 'Click here to edit the "%1$s" settings and choose a contact form from the dropdown list.', esc_attr( $this->get_title() ) );
+			<?php } ?>
+			<?php echo wpforms_display( $settings['contact_form_list'], $pp_form_title, $pp_form_description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<div id="pp-wpforms-status-<?php echo esc_attr( $widget_id ); ?>" class="elementor-screen-only" role="status" aria-live="polite" aria-atomic="true"></div>
+		</div>
+		<?php
+		if ( $has_title ) {
+			remove_filter( 'wpforms_frontend_form_atts', [ $this, 'add_form_aria_labelledby' ] );
 
-				echo esc_attr( $this->render_editor_placeholder( [
-					'title' => esc_html__( 'No Contact Form Selected!', 'powerpack-lite-for-elementor' ),
-					'body' => $placeholder,
-				] ) );
-			}
+			$this->form_label_id = '';
 		}
 	}
 }

@@ -1518,7 +1518,11 @@ class Advanced_Accordion extends Powerpack_Widget {
 	 */
 	protected function render() {
 		$settings   = $this->get_settings_for_display();
-		$id_int     = substr( $this->get_id_int(), 0, 3 );
+		// The full element ID, not a truncated int: only the first three digits of
+		// get_id_int() were used before, which collides between two accordions (or an
+		// accordion and an FAQ) on the same page and makes aria-controls /
+		// aria-labelledby resolve to the other widget's panel.
+		$widget_uid = $this->get_id();
 
 		$migration_allowed = Icons_Manager::is_migration_allowed();
 
@@ -1542,15 +1546,17 @@ class Advanced_Accordion extends Powerpack_Widget {
 			'class'             => [ 'pp-advanced-accordion', 'pp-toggle-icon-align-' . $settings['toggle_icon_align'] ],
 			'id'                => 'pp-advanced-accordion-' . esc_attr( $this->get_id() ),
 			'data-accordion-id' => esc_attr( $this->get_id() ),
-			'role'              => 'tablist',
 		] );
 		?>
 		<div <?php $this->print_render_attribute_string( 'accordion' ); ?>>
 			<?php
+			$use_region_role = count( $settings['tabs'] ) <= 6;
+
 			foreach ( $settings['tabs'] as $index => $tab ) :
 
 				$tab_count = $index + 1;
 				$tab_setting_key = $this->get_repeater_setting_key( 'item', 'tabs', $index );
+				$tab_title_wrap_setting_key = $this->get_repeater_setting_key( 'tab_title_wrap', 'tabs', $index );
 				$tab_title_setting_key = $this->get_repeater_setting_key( 'tab_title', 'tabs', $index );
 				$tab_content_setting_key = $this->get_repeater_setting_key( 'tab-content', 'tabs', $index );
 
@@ -1569,34 +1575,51 @@ class Advanced_Accordion extends Powerpack_Widget {
 				} elseif ( $settings['custom_id_prefix'] ) {
 					$tab_id = sanitize_html_class( $settings['custom_id_prefix'] ) . '-' . $tab_count;
 				} else {
-					$tab_id = '';
+					$tab_id = 'pp-accordion-tab-title-' . $widget_uid . '-' . $tab_count;
 				}
 
-				if ( ! $tab_id ) {
-					$tab_id = 'pp-accordion-tab-title-' . $id_int . '-' . $tab_count;
-				}
+				$tab_content_id = 'pp-accordion-tab-content-' . $widget_uid . '-' . $tab_count;
 
-				$tab_content_id = 'pp-accordion-tab-content-' . $id_int . '-' . $tab_count;
+				$this->add_render_attribute( $tab_setting_key, [
+					'class' => $tab_class,
+				] );
 
-				$this->add_render_attribute( $tab_setting_key, 'class', $tab_class );
+				// The chosen heading tag wraps the trigger rather than being the trigger:
+				// role="button" overrides an element's implicit heading role, so an
+				// <h3 role="button"> is announced as a button only and never reaches the
+				// screen reader's heading list.
+				$this->add_render_attribute( $tab_title_wrap_setting_key, [
+					'class' => 'pp-accordion-tab-title-wrap',
+				] );
 
 				$this->add_render_attribute( $tab_title_setting_key, [
 					'id'            => $tab_id,
 					'class'         => $tab_title_class,
 					'tabindex'      => '0',
 					'data-tab'      => $tab_count,
-					'role'          => 'tab',
+					'role'          => 'button',
 					'aria-controls' => $tab_content_id,
 					'aria-expanded' => ( 'yes' === $tab['accordion_tab_default_active'] ) ? 'true' : 'false',
 				]);
+
+				$content_hidden = ( 'yes' !== $tab['accordion_tab_default_active'] );
 
 				$this->add_render_attribute( $tab_content_setting_key, [
 					'id'              => $tab_content_id,
 					'class'           => $tab_content_class,
 					'data-tab'        => $tab_count,
-					'role'            => 'tabpanel',
-					'aria-labelledby' => $tab_id,
 				] );
+
+				if ( $use_region_role ) {
+					$this->add_render_attribute( $tab_content_setting_key, [
+						'role'            => 'region',
+						'aria-labelledby' => $tab_id,
+					] );
+				}
+
+				if ( $content_hidden ) {
+					$this->add_render_attribute( $tab_content_setting_key, 'hidden', '' );
+				}
 
 				if ( 'content' === $tab['content_type'] ) {
 					$this->add_inline_editing_attributes( $tab_content_setting_key, 'advanced' );
@@ -1611,48 +1634,50 @@ class Advanced_Accordion extends Powerpack_Widget {
 				$is_new_title_icon   = ! isset( $tab['accordion_tab_title_icon'] ) && $migration_allowed;
 				?>
 				<div <?php $this->print_render_attribute_string( $tab_setting_key ); ?>>
-					<<?php PP_Helper::print_validated_html_tag( $settings['title_html_tag'] ); ?> <?php $this->print_render_attribute_string( $tab_title_setting_key ); ?>>
-						<span class="pp-accordion-title-icon">
-							<?php if ( ! empty( $tab['accordion_tab_title_icon'] ) || ( ! empty( $tab['tab_title_icon']['value'] ) && $is_new_title_icon ) ) { ?>
-								<span class="pp-accordion-tab-icon pp-icon">
-									<?php
-									if ( $is_new_title_icon || $migrated_title_icon ) {
-										Icons_Manager::render_icon( $tab['tab_title_icon'], [ 'aria-hidden' => 'true' ] );
-									} else { ?>
-										<i class="<?php echo esc_attr( $tab['accordion_tab_title_icon'] ); ?>" aria-hidden="true"></i>
+					<<?php PP_Helper::print_validated_html_tag( $settings['title_html_tag'] ); ?> <?php $this->print_render_attribute_string( $tab_title_wrap_setting_key ); ?>>
+						<div <?php $this->print_render_attribute_string( $tab_title_setting_key ); ?>>
+							<span class="pp-accordion-title-icon">
+								<?php if ( ! empty( $tab['accordion_tab_title_icon'] ) || ( ! empty( $tab['tab_title_icon']['value'] ) && $is_new_title_icon ) ) { ?>
+									<span class="pp-accordion-tab-icon pp-icon">
+										<?php
+										if ( $is_new_title_icon || $migrated_title_icon ) {
+											Icons_Manager::render_icon( $tab['tab_title_icon'], [ 'aria-hidden' => 'true' ] );
+										} else { ?>
+											<i class="<?php echo esc_attr( $tab['accordion_tab_title_icon'] ); ?>" aria-hidden="true"></i>
+										<?php } ?>
+									</span>
+								<?php } ?>
+								<span class="pp-accordion-title-text">
+									<?php echo wp_kses_post( $tab['tab_title'] ); ?>
+								</span>
+							</span>
+							<?php if ( 'yes' === $settings['toggle_icon_show'] ) { ?>
+								<span class="pp-accordion-toggle-icon" aria-hidden="true">
+									<?php if ( $has_toggle_icon ) { ?>
+										<span class='pp-accordion-toggle-icon-close pp-icon'>
+											<?php
+											if ( $is_new_normal || $migrated_normal ) {
+												Icons_Manager::render_icon( $settings['select_toggle_icon'], [ 'aria-hidden' => 'true' ] );
+											} elseif ( ! empty( $settings['toggle_icon_normal'] ) ) {
+												?><i class="<?php echo esc_attr( $settings['toggle_icon_normal'] ); ?>" aria-hidden="true"></i><?php
+											}
+											?>
+										</span>
+									<?php } ?>
+									<?php if ( $has_toggle_active_icon ) { ?>
+										<span class='pp-accordion-toggle-icon-open pp-icon'>
+											<?php
+											if ( $is_new_active || $migrated_active ) {
+												Icons_Manager::render_icon( $settings['select_toggle_icon_active'], [ 'aria-hidden' => 'true' ] );
+											} elseif ( ! empty( $settings['toggle_icon_active'] ) ) {
+												?><i class="<?php echo esc_attr( $settings['toggle_icon_active'] ); ?>" aria-hidden="true"></i><?php
+											}
+											?>
+										</span>
 									<?php } ?>
 								</span>
 							<?php } ?>
-							<span class="pp-accordion-title-text">
-								<?php echo wp_kses_post( $tab['tab_title'] ); ?>
-							</span>
-						</span>
-						<?php if ( 'yes' === $settings['toggle_icon_show'] ) { ?>
-							<div class="pp-accordion-toggle-icon">
-								<?php if ( $has_toggle_icon ) { ?>
-									<span class='pp-accordion-toggle-icon-close pp-icon'>
-										<?php
-										if ( $is_new_normal || $migrated_normal ) {
-											Icons_Manager::render_icon( $settings['select_toggle_icon'], [ 'aria-hidden' => 'true' ] );
-										} elseif ( ! empty( $settings['toggle_icon_normal'] ) ) {
-											?><i class="<?php echo esc_attr( $settings['toggle_icon_normal'] ); ?>" aria-hidden="true"></i><?php
-										}
-										?>
-									</span>
-								<?php } ?>
-								<?php if ( $has_toggle_active_icon ) { ?>
-									<span class='pp-accordion-toggle-icon-open pp-icon'>
-										<?php
-										if ( $is_new_active || $migrated_active ) {
-											Icons_Manager::render_icon( $settings['select_toggle_icon_active'], [ 'aria-hidden' => 'true' ] );
-										} elseif ( ! empty( $settings['toggle_icon_active'] ) ) {
-											?><i class="<?php echo esc_attr( $settings['toggle_icon_active'] ); ?>" aria-hidden="true"></i><?php
-										}
-										?>
-									</span>
-								<?php } ?>
-							</div>
-						<?php } ?>
+						</div>
 					</<?php PP_Helper::print_validated_html_tag( $settings['title_html_tag'] ); ?>>
 
 					<div <?php $this->print_render_attribute_string( $tab_content_setting_key ); ?>>

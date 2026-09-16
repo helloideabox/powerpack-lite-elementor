@@ -105,7 +105,7 @@ class PP_Config {
 						'name'       => 'pp-content-reveal',
 						'title'      => esc_html__( 'Content Reveal', 'powerpack-lite-for-elementor' ),
 						'categories' => [ 'powerpack-elements' ],
-						'keywords'   => [ 'powerpack' ],
+						'keywords'   => [ 'powerpack', 'unfold', 'read more', 'read less', 'more', 'less' ],
 						'icon'       => 'ppicon-content-reveal power-pack-admin-icon',
 						'demo'       => 'https://powerpackelements.com/elementor-widgets/content-reveal/' . $utm_suffix,
 						'docs'       => 'https://powerpackelements.com/doc-category/content-reveal/' . $utm_suffix,

@@ -8,6 +8,7 @@ use PowerpackElementsLite\Classes\PP_Config;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Utils;
+use Elementor\Control_Media;
 use Elementor\Icons_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Image_Size;
@@ -1730,8 +1731,8 @@ class Team_Member extends Powerpack_Widget {
 				'type'       => Controls_Manager::COLOR,
 				'default'    => '',
 				'selectors'  => [
-					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover, {{WRAPPER}} .pp-tm-social-links .pp-tm-social-link:focus-visible .pp-tm-social-icon-wrap' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover svg, {{WRAPPER}} .pp-tm-social-links .pp-tm-social-link:focus-visible .pp-tm-social-icon-wrap svg' => 'fill: {{VALUE}};',
 				],
 				'conditions' => $this->get_social_links_style_conditions(),
 			]
@@ -1744,7 +1745,7 @@ class Team_Member extends Powerpack_Widget {
 				'type'       => Controls_Manager::COLOR,
 				'default'    => '',
 				'selectors'  => [
-					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover, {{WRAPPER}} .pp-tm-social-links .pp-tm-social-link:focus-visible .pp-tm-social-icon-wrap' => 'background-color: {{VALUE}};',
 				],
 				'conditions' => $this->get_social_links_style_conditions(),
 			]
@@ -1757,7 +1758,7 @@ class Team_Member extends Powerpack_Widget {
 				'type'       => Controls_Manager::COLOR,
 				'default'    => '',
 				'selectors'  => [
-					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-tm-social-links .pp-tm-social-icon-wrap:hover, {{WRAPPER}} .pp-tm-social-links .pp-tm-social-link:focus-visible .pp-tm-social-icon-wrap' => 'border-color: {{VALUE}};',
 				],
 				'conditions' => $this->get_social_links_style_conditions(),
 			]
@@ -1780,6 +1781,13 @@ class Team_Member extends Powerpack_Widget {
 			}
 
 			if ( 'image' === $settings['link_type'] && $settings['link']['url'] ) {
+				// The attachment alt text is often empty, which would leave this link
+				// without an accessible name. Fall back to the member name.
+				$image_alt = Control_Media::get_image_alt( $settings['image'] );
+
+				if ( '' === trim( (string) $image_alt ) && ! empty( $settings['team_member_name'] ) ) {
+					$this->add_render_attribute( $link_key, 'aria-label', $settings['team_member_name'] );
+				}
 				?>
 				<a <?php echo wp_kses_post( $this->get_render_attribute_string( $link_key ) ); ?>><?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings ) ); ?></a>
 				<?php
@@ -1871,6 +1879,45 @@ class Team_Member extends Powerpack_Widget {
 		}
 	}
 
+	/**
+	 * Get the accessible name for a single social link.
+	 *
+	 * Uses the network name derived from the icon, falling back to a generic
+	 * label so the link is never announced without a name.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param string $social Network slug from the icon. Empty for SVG icons.
+	 * @return string
+	 */
+	protected function get_social_link_label( $social ) {
+		if ( $social ) {
+			return ucwords( str_replace( '-', ' ', $social ) );
+		}
+
+		return esc_html__( 'Social link', 'powerpack-lite-for-elementor' );
+	}
+
+	/**
+	 * Render a single social icon, hidden from assistive technology.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param array $item     Repeater item settings.
+	 * @param bool  $is_new   Whether the item uses the icons control.
+	 * @param bool  $migrated Whether the item was migrated from Font Awesome 4.
+	 * @return void
+	 */
+	protected function render_social_icon( $item, $is_new, $migrated ) {
+		if ( $is_new || $migrated ) {
+			Icons_Manager::render_icon( $item['select_social_icon'], [ 'aria-hidden' => 'true' ] );
+		} else {
+			?>
+			<i class="<?php echo esc_attr( $item['social_icon'] ); ?>" aria-hidden="true"></i>
+			<?php
+		}
+	}
+
 	protected function render_social_links() {
 		$settings = $this->get_settings_for_display();
 		$i = 1;
@@ -1882,17 +1929,18 @@ class Team_Member extends Powerpack_Widget {
 		];
 
 		$migration_allowed = Icons_Manager::is_migration_allowed();
+		$list_label        = $settings['team_member_name']
+			/* translators: %s: team member name. */
+			? sprintf( esc_html__( '%s social links', 'powerpack-lite-for-elementor' ), $settings['team_member_name'] )
+			: esc_html__( 'Social links', 'powerpack-lite-for-elementor' );
 
-		// add old default
-		if ( ! isset( $item['icon'] ) && ! $migration_allowed ) {
-			$item['icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-check';
-		}
-
-		$migrated = isset( $item['__fa4_migrated']['select_social_icon'] );
-		$is_new = ! isset( $item['icon'] ) && $migration_allowed;
+		$this->add_render_attribute( 'social-links', [
+			'class'      => 'pp-tm-social-links',
+			'aria-label' => $list_label,
+		] );
 		?>
 		<div class="pp-tm-social-links-wrap">
-			<ul class="pp-tm-social-links">
+			<ul <?php $this->print_render_attribute_string( 'social-links' ); ?>>
 				<?php foreach ( $settings['team_member_social'] as $index => $item ) : ?>
 					<?php
 					$migrated = isset( $item['__fa4_migrated']['select_social_icon'] );
@@ -1920,6 +1968,14 @@ class Team_Member extends Powerpack_Widget {
 						$social = '';
 					}
 
+					$has_icon = ! empty( $item['social_icon'] ) || ! empty( $item['select_social_icon']['value'] );
+					$has_link = ! empty( $item['social_link']['url'] );
+
+					// An item with neither an icon nor a link has nothing to show or do.
+					if ( ! $has_icon && ! $has_link ) {
+						continue;
+					}
+
 					$social_link_key = 'social_link' . $i;
 					$icon_wrap_key   = 'icon_wrap' . $i;
 
@@ -1934,25 +1990,29 @@ class Team_Member extends Powerpack_Widget {
 						] );
 					}
 
-					if ( ! empty( $item['social_link']['url'] ) ) {
+					if ( $has_link ) {
 						$this->add_link_attributes( $social_link_key, $item['social_link'] );
 					}
+
+					$link_label = $this->get_social_link_label( $social );
 					?>
 					<li>
-						<a <?php echo wp_kses_post( $this->get_render_attribute_string( $social_link_key ) ); ?>>
-							<span <?php echo wp_kses_post( $this->get_render_attribute_string( $icon_wrap_key ) ); ?>>
-								<span class="elementor-screen-only"><?php echo esc_html( ucwords( $social ) ); ?></span>
+						<?php if ( $has_link ) : ?>
+							<a <?php $this->print_render_attribute_string( $social_link_key ); ?>>
+								<span <?php $this->print_render_attribute_string( $icon_wrap_key ); ?>>
+									<span class="elementor-screen-only"><?php echo esc_html( $link_label ); ?></span>
+									<span class="pp-tm-social-icon pp-icon">
+										<?php $this->render_social_icon( $item, $is_new, $migrated ); ?>
+									</span>
+								</span>
+							</a>
+						<?php else : ?>
+							<span <?php $this->print_render_attribute_string( $icon_wrap_key ); ?>>
 								<span class="pp-tm-social-icon pp-icon">
-								<?php
-								if ( $is_new || $migrated ) {
-									Icons_Manager::render_icon( $item['select_social_icon'], array( 'aria-hidden' => 'true' ) );
-								} else {
-									?>
-									<i class="<?php echo esc_attr( $item['social_icon'] ); ?>"></i>
-								<?php } ?>
+									<?php $this->render_social_icon( $item, $is_new, $migrated ); ?>
 								</span>
 							</span>
-						</a>
+						<?php endif; ?>
 					</li>
 					<?php $i++;
 				endforeach; ?>
@@ -2061,10 +2121,12 @@ class Team_Member extends Powerpack_Widget {
 
 					var image_url = elementor.imagesManager.getImageUrl( image );
 
-					var imageHtml = '<img src="' + _.escape( image_url ) + '" />';
+					var imageHtml = '<img src="' + _.escape( image_url ) + '" alt="" />';
 
 					if ( settings.link_type == 'image' && settings.link.url != '' ) {
-						imageHtml = '<a href="' + _.escape( settings.link.url ) + '">' + imageHtml + '</a>';
+						var imageLinkLabel = settings.team_member_name ? ' aria-label="' + _.escape( settings.team_member_name ) + '"' : '';
+
+						imageHtml = '<a href="' + _.escape( settings.link.url ) + '"' + imageLinkLabel + '>' + imageHtml + '</a>';
 					}
 
 					print( imageHtml );
@@ -2146,48 +2208,72 @@ class Team_Member extends Powerpack_Widget {
 				}
 			}
 
-			function member_social_links() { #>
+			function member_social_links() {
+				var listLabel = settings.team_member_name
+					? '<?php echo esc_js( /* translators: %s: team member name */ __( '%s social links', 'powerpack-lite-for-elementor' ) ); ?>'.replace( '%s', settings.team_member_name )
+					: '<?php echo esc_js( __( 'Social links', 'powerpack-lite-for-elementor' ) ); ?>';
+				#>
 				<# var iconsHTML = {}; #>
 				<div class="pp-tm-social-links-wrap">
-					<ul class="pp-tm-social-links">
+					<ul class="pp-tm-social-links" aria-label="{{ listLabel }}">
 						<# _.each( settings.team_member_social, function( item, index ) {
-							var link = item.social_link ? item.social_link.url : '',
-								migrated = elementor.helpers.isIconMigrated( item, 'select_social_icon' );
+							var hasIcon = !! ( item.social_icon || ( item.select_social_icon && item.select_social_icon.value ) ),
+								hasLink = !! ( item.social_link && item.social_link.url );
+
+							// An item with neither an icon nor a link has nothing to show or do.
+							if ( ! hasIcon && ! hasLink ) {
+								return;
+							}
+
+							var migrated = elementor.helpers.isIconMigrated( item, 'select_social_icon' ),
 								social = elementor.helpers.getSocialNetworkNameFromIcon( item.select_social_icon, item.social_icon, false, migrated );
 
-								var socialLinkKey = view.getRepeaterSettingKey( 'text', 'social_link', index );
-								var iconWrapKey = view.getRepeaterSettingKey( 'text', 'icon_wrap', index );
+							var socialLinkKey = view.getRepeaterSettingKey( 'text', 'social_link', index );
+							var iconWrapKey = view.getRepeaterSettingKey( 'text', 'icon_wrap', index );
 
-								view.addRenderAttribute( socialLinkKey, 'class', 'pp-tm-social-link' );
-								view.addRenderAttribute( iconWrapKey, 'class', 'pp-tm-social-icon-wrap' );
+							view.addRenderAttribute( socialLinkKey, 'class', 'pp-tm-social-link' );
+							view.addRenderAttribute( iconWrapKey, 'class', 'pp-tm-social-icon-wrap' );
 
-								if ( 'button' == settings.social_links_style ) {
-									view.addRenderAttribute( iconWrapKey, 'class', [
-										'elementor-icon',
-										'elementor-social-icon',
-										'elementor-social-icon-' + social,
-									] );
-								}
+							if ( 'button' == settings.social_links_style ) {
+								view.addRenderAttribute( iconWrapKey, 'class', [
+									'elementor-icon',
+									'elementor-social-icon',
+									'elementor-social-icon-' + social,
+								] );
+							}
 
-								view.addRenderAttribute( socialLinkKey, 'href', link );
-							#>
+							if ( hasLink ) {
+								view.addRenderAttribute( socialLinkKey, 'href', item.social_link.url );
+							}
+
+							var linkLabel = social ? social : '<?php echo esc_js( __( 'Social link', 'powerpack-lite-for-elementor' ) ); ?>';
+
+							iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.select_social_icon, { 'aria-hidden': 'true' }, 'i', 'object' );
+						#>
 							<li>
-								<# if ( item.social_icon || item.select_social_icon ) { #>
+								<# if ( hasLink ) { #>
 									<a {{{ view.getRenderAttributeString( socialLinkKey ) }}}>
 										<span {{{ view.getRenderAttributeString( iconWrapKey ) }}}>
+											<span class="elementor-screen-only">{{ linkLabel }}</span>
 											<span class="pp-tm-social-icon pp-icon">
-												<span class="elementor-screen-only">{{{ social }}}</span>
-												<#
-													iconsHTML[ index ] = elementor.helpers.renderIcon( view, item.select_social_icon, {}, 'i', 'object' );
-													if ( ( ! item.social_icon || migrated ) && iconsHTML[ index ] && iconsHTML[ index ].rendered ) { #>
-														{{{ iconsHTML[ index ].value }}}
-													<# } else { #>
-														<i class="{{ item.social_icon }}"></i>
-													<# }
-												#>
+												<# if ( ( ! item.social_icon || migrated ) && iconsHTML[ index ] && iconsHTML[ index ].rendered ) { #>
+													{{{ iconsHTML[ index ].value }}}
+												<# } else { #>
+													<i class="{{ item.social_icon }}" aria-hidden="true"></i>
+												<# } #>
 											</span>
 										</span>
 									</a>
+								<# } else { #>
+									<span {{{ view.getRenderAttributeString( iconWrapKey ) }}}>
+										<span class="pp-tm-social-icon pp-icon">
+											<# if ( ( ! item.social_icon || migrated ) && iconsHTML[ index ] && iconsHTML[ index ].rendered ) { #>
+												{{{ iconsHTML[ index ].value }}}
+											<# } else { #>
+												<i class="{{ item.social_icon }}" aria-hidden="true"></i>
+											<# } #>
+										</span>
+									</span>
 								<# } #>
 							</li>
 						<# } ); #>

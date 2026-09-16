@@ -118,10 +118,16 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					'8' => '8',
 				),
 				'prefix_class'       => 'elementor-grid%s-',
+				'render_type'        => 'template',
 				'selectors'          => array(
-					// Exposed as a CSS var so the masonry script can read the current-device
-					// column count reliably (grid uses Elementor core's .elementor-grid columns).
+					// Exposed as a CSS var so the masonry script and the masonry grid
+					// fallback can read the current-device column count reliably.
 					'{{WRAPPER}} .pp-posts' => '--pp-gallery-columns: {{VALUE}};',
+					// Elementor generates this per active breakpoint, so the grid column
+					// count follows the site's own breakpoints instead of Elementor core's
+					// .elementor-grid-N rules, whose media queries are hardcoded to the
+					// defaults. Higher specificity than those core rules, so it wins.
+					'{{WRAPPER}} .pp-posts-grid.elementor-grid' => 'grid-template-columns: repeat({{VALUE}}, 1fr);',
 				),
 			)
 		);
@@ -4213,8 +4219,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			<span class="pp-meta-text">
 				<?php
 				if ( 'author' === $item_type ) {
+					if ( ! $item_prefix ) {
+						echo '<span class="elementor-screen-only">' . esc_html__( 'Author:', 'powerpack-lite-for-elementor' ) . ' </span>';
+					}
 					echo wp_kses_post( $this->get_post_author( $item_link ) );
 				} elseif ( 'date' === $item_type ) {
+					if ( ! $item_prefix ) {
+						echo '<span class="elementor-screen-only">' . esc_html__( 'Published on:', 'powerpack-lite-for-elementor' ) . ' </span>';
+					}
 					if ( PP_Helper::is_tribe_events_post( get_the_ID() ) && function_exists( 'tribe_get_start_date' ) ) {
 						$date_format = $this->get_instance_value( 'date_format_select' );
 						$date_custom_format = $this->get_instance_value( 'date_custom_format' );
@@ -4228,12 +4240,17 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 						$post_date = $this->get_post_date();
 					}
 
+					$time_tag = '<time datetime="' . esc_attr( get_the_date( 'c' ) ) . '">' . wp_kses_post( $post_date ) . '</time>';
+
 					if ( 'yes' === $item_link ) {
-						echo '<a href="' . esc_url( get_permalink() ) . '">' . wp_kses_post( $post_date ) . '</a>';
+						echo '<a href="' . esc_url( get_permalink() ) . '">' . $time_tag . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					} else {
-						echo wp_kses_post( $post_date );
+						echo $time_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					}
 				} elseif ( 'comments' === $item_type ) {
+					if ( ! $item_prefix ) {
+						echo '<span class="elementor-screen-only">' . esc_html__( 'Comments:', 'powerpack-lite-for-elementor' ) . ' </span>';
+					}
 					echo wp_kses_post( $this->get_post_comments() );
 				}
 				?>
@@ -4465,6 +4482,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		if ( $post_title ) {
 			?>
 			<?php
+			$title_id = 'pp-post-title-' . get_the_ID() . '-' . $this->parent->get_id();
+
 			PP_Helper::do_deprecated_action(
 				'ppe_before_single_post_title',
 				'powerpack_elements_before_single_post_title',
@@ -4472,7 +4491,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'2.9.10'
 			);
 			?>
-			<<?php PP_Helper::print_validated_html_tag( $title_tag ); ?> class="pp-post-title">
+			<<?php PP_Helper::print_validated_html_tag( $title_tag ); ?> class="pp-post-title" id="<?php echo esc_attr( $title_id ); ?>">
 				<?php
 				if ( 'yes' === $title_link ) {
 					$title_link_atts = [];
@@ -4562,7 +4581,17 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				$image_link_atts['target'] = '_blank';
 			}
 
-			$image_link_atts['title'] = the_title_attribute( 'echo=0' );
+			$title_attr = the_title_attribute( 'echo=0' );
+			$image_link_atts['title'] = $title_attr;
+
+			$show_title = $this->get_instance_value( 'post_title' );
+			$title_link = $this->get_instance_value( 'post_title_link' );
+			if ( 'yes' === $show_title && 'yes' === $title_link ) {
+				$image_link_atts['aria-hidden'] = 'true';
+				$image_link_atts['tabindex']    = '-1';
+			} else {
+				$image_link_atts['aria-label'] = $title_attr;
+			}
 
 			$image_link_atts = PP_Helper::apply_deprecated_filter(
 				'ppe_posts_image_link_atts',
@@ -4713,8 +4742,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 					'after' => '</div>',
 					'link_before' => '<span>',
 					'link_after' => '</span>',
-					'pagelink' => '<span class="screen-reader-text">' . esc_html__( 'Page', 'powerpack-lite-for-elementor' ) . ' </span>%',
-					'separator' => '<span class="screen-reader-text">, </span>',
+					'pagelink' => '<span class="elementor-screen-only">' . esc_html__( 'Page', 'powerpack-lite-for-elementor' ) . ' </span>%',
+					'separator' => '<span class="elementor-screen-only">, </span>',
 				] );
 
 				PP_Helper::elementor()->frontend->add_content_filter();
@@ -5312,6 +5341,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$post_terms         = $this->get_instance_value( 'post_terms' );
 		$post_meta          = $this->get_instance_value( 'post_meta' );
 		$thumbnail_location = $this->get_instance_value( 'thumbnail_location' );
+		$layout             = $this->get_instance_value( 'layout' );
+		$title_id           = 'pp-post-title-' . get_the_ID() . '-' . $this->parent->get_id();
 
 		PP_Helper::do_deprecated_action(
 			'ppe_before_single_post_wrap',
@@ -5320,7 +5351,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			'2.9.10'
 		);
 		?>
-		<div <?php post_class( $this->get_item_wrap_classes() ); ?>>
+		<div <?php post_class( $this->get_item_wrap_classes() ); ?><?php if ( 'carousel' === $layout ) { ?> role="group" aria-roledescription="slide"<?php } ?>>
 			<?php
 			PP_Helper::do_deprecated_action(
 				'ppe_before_single_post',
@@ -5329,7 +5360,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				'2.9.10'
 			);
 			?>
-			<div class="<?php echo esc_attr( $this->get_item_classes() ); ?>">
+			<div class="<?php echo esc_attr( $this->get_item_classes() ); ?>" role="article" aria-labelledby="<?php echo esc_attr( $title_id ); ?>">
 				<?php
 				if ( 'outside' === $thumbnail_location ) {
 					$this->render_post_thumbnail();
@@ -5458,9 +5489,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$space_between = ( isset( $col_spacing['size'] ) && '' !== $col_spacing['size'] ) ? $col_spacing['size'] : 25;
 
 		if ( 'slide' === $effect ) {
-			$slides_to_show          = ( ! empty( $this->get_instance_value( 'columns' ) ) ) ? absint( $this->get_instance_value( 'columns' ) ) : 3;
-			$slides_to_show_tablet   = ( ! empty( $this->get_instance_value( 'columns_tablet' ) ) ) ? absint( $this->get_instance_value( 'columns_tablet' ) ) : 2;
-			$slides_to_show_mobile   = ( ! empty( $this->get_instance_value( 'columns_mobile' ) ) ) ? absint( $this->get_instance_value( 'columns_mobile' ) ) : 2;
+			$control_col      = $this->get_control_id( 'columns' );
+			$control_col_tab  = $this->get_control_id( 'columns_tablet' );
+			$control_col_mob  = $this->get_control_id( 'columns_mobile' );
+			$display_settings = $this->parent->get_settings_for_display();
+
+			$slides_to_show          = ( ! empty( $display_settings[ $control_col ] ) ) ? absint( $display_settings[ $control_col ] ) : ( ( ! empty( $this->get_instance_value( 'columns' ) ) ) ? absint( $this->get_instance_value( 'columns' ) ) : 3 );
+			$slides_to_show_tablet   = ( ! empty( $display_settings[ $control_col_tab ] ) ) ? absint( $display_settings[ $control_col_tab ] ) : ( ( ! empty( $this->get_instance_value( 'columns_tablet' ) ) ) ? absint( $this->get_instance_value( 'columns_tablet' ) ) : 2 );
+			$slides_to_show_mobile   = ( ! empty( $display_settings[ $control_col_mob ] ) ) ? absint( $display_settings[ $control_col_mob ] ) : ( ( ! empty( $this->get_instance_value( 'columns_mobile' ) ) ) ? absint( $this->get_instance_value( 'columns_mobile' ) ) : 1 );
 			$slides_to_scroll        = ( ! empty( $this->get_instance_value( 'slides_to_scroll' ) ) ) ? absint( $this->get_instance_value( 'slides_to_scroll' ) ) : 1;
 			$slides_to_scroll_tablet = ( ! empty( $this->get_instance_value( 'slides_to_scroll_tablet' ) ) ) ? absint( $this->get_instance_value( 'slides_to_scroll_tablet' ) ) : 1;
 			$slides_to_scroll_mobile = ( ! empty( $this->get_instance_value( 'slides_to_scroll_mobile' ) ) ) ? absint( $this->get_instance_value( 'slides_to_scroll_mobile' ) ) : 1;
@@ -5524,7 +5560,10 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 						break;
 				}
 			} else {
-				if ( ( ! empty( $this->get_instance_value( 'columns_'  . $device ) ) ) ) {
+				$device_col = $this->get_control_id( 'columns_' . $device );
+				if ( ! empty( $display_settings[ $device_col ] ) ) {
+					$slider_options['slides_per_view_' . $device] = absint( $display_settings[ $device_col ] );
+				} elseif ( ( ! empty( $this->get_instance_value( 'columns_'  . $device ) ) ) ) {
 					$slider_options['slides_per_view_' . $device] = absint( $this->get_instance_value( 'columns_'  . $device ) );
 				}
 
@@ -5582,69 +5621,17 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 	 * @access protected
 	 */
 	protected function render_arrows() {
-		$settings        = $this->parent->get_settings_for_display();
-		$skin            = $this->get_id();
-		$layout          = $this->get_instance_value( 'layout' );
-		$arrows          = $this->get_instance_value( 'arrows' );
-		$arrow           = $this->get_instance_value( 'arrow' );
-		$select_arrow    = $this->get_instance_value( 'select_arrow' );
-
-		if ( 'carousel' !== $layout ) {
+		if ( 'carousel' !== $this->get_instance_value( 'layout' ) ) {
 			return;
 		}
 
-		$migration_allowed = Icons_Manager::is_migration_allowed();
-
-		if ( ! isset( $settings[ $skin . '_arrow' ] ) && ! Icons_Manager::is_migration_allowed() ) {
-			// add old default.
-			$settings[ $skin . '_arrow' ] = 'fa fa-angle-right';
-		}
-
-		$has_icon = ! empty( $settings[ $skin . '_arrow' ] );
-
-		if ( ! $has_icon && ! empty( $select_arrow['value'] ) ) {
-			$has_icon = true;
-		}
-
-		if ( ! empty( $settings['arrow'] ) ) {
-			$this->parent->add_render_attribute( 'arrow-icon', 'class', $settings[ $skin . '_arrow' ] );
-			$this->parent->add_render_attribute( 'arrow-icon', 'aria-hidden', 'true' );
-		}
-
-		$migrated = isset( $settings['__fa4_migrated'][ $skin . '_select_arrow' ] );
-		$is_new   = ! isset( $settings[ $skin . '_arrow' ] ) && Icons_Manager::is_migration_allowed();
-
-		if ( 'yes' === $arrows ) {
-			if ( $has_icon ) {
-				if ( $is_new || $migrated ) {
-					$next_arrow = $select_arrow;
-					$prev_arrow = str_replace( 'right', 'left', $select_arrow );
-				} else {
-					$next_arrow = $settings['arrow'];
-					$prev_arrow = str_replace( 'right', 'left', $arrow );
-				}
-			} else {
-				$next_arrow = 'fa fa-angle-right';
-				$prev_arrow = 'fa fa-angle-left';
-			}
-
-			if ( ! empty( $arrow ) || ( ! empty( $select_arrow['value'] ) && $is_new ) ) { ?>
-				<div class="pp-slider-arrow elementor-swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->parent->get_id() ); ?>">
-					<?php if ( $is_new || $migrated ) :
-						Icons_Manager::render_icon( $prev_arrow, [ 'aria-hidden' => 'true' ] );
-					else : ?>
-						<i <?php $this->parent->print_render_attribute_string( 'arrow-icon' ); ?>></i>
-					<?php endif; ?>
-				</div>
-				<div class="pp-slider-arrow elementor-swiper-button-next swiper-button-next-<?php echo esc_attr( $this->parent->get_id() ); ?>">
-					<?php if ( $is_new || $migrated ) :
-						Icons_Manager::render_icon( $next_arrow, [ 'aria-hidden' => 'true' ] );
-					else : ?>
-						<i <?php $this->parent->print_render_attribute_string( 'arrow-icon' ); ?>></i>
-					<?php endif; ?>
-				</div>
-			<?php }
-		}
+		PP_Helper::render_arrows(
+			$this->parent,
+			[
+				'prefix'        => $this->get_id() . '_',
+				'aria_controls' => 'pp-post-carousel-status-' . $this->parent->get_id(),
+			]
+		);
 	}
 
 	/**
@@ -5672,6 +5659,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		}
 
 		$this->parent->add_render_attribute( 'posts-container', 'class', $posts_outer_wrap );
+		if ( 'carousel' === $layout ) {
+			$this->parent->add_render_attribute( 'posts-container', 'role', 'region' );
+			$this->parent->add_render_attribute( 'posts-container', 'aria-roledescription', 'carousel' );
+			$this->parent->add_render_attribute( 'posts-container', 'aria-label', esc_attr__( 'Posts Carousel', 'powerpack-lite-for-elementor' ) );
+		} else {
+			$this->parent->add_render_attribute( 'posts-container', 'role', 'region' );
+			$this->parent->add_render_attribute( 'posts-container', 'aria-label', esc_attr__( 'Posts', 'powerpack-lite-for-elementor' ) );
+		}
 
 		$this->parent->add_render_attribute( 'posts-wrap', 'class', $posts_wrap );
 
@@ -5752,10 +5747,15 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				<?php if ( 'carousel' === $layout ) { ?><div class="swiper-wrapper"><?php } ?>
 					<?php
 					$i = 1;
+					$first_post_title = '';
 
 					if ( $query->have_posts() ) :
 						while ( $query->have_posts() ) :
 							$query->the_post();
+
+							if ( 1 === $i ) {
+								$first_post_title = get_the_title();
+							}
 
 							$this->render_post_body();
 
@@ -5771,7 +5771,21 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 				$this->render_dots();
 
 				$this->render_arrows();
+
+				if ( 'carousel' === $layout ) {
+					$initial_status = PP_Helper::get_slide_status_text(
+						1,
+						max( 1, $i - 1 ),
+						! empty( $first_post_title ) ? $first_post_title : ''
+					);
+					printf(
+						'<div class="pp-screen-only elementor-screen-only pp-post-carousel-status" aria-live="polite" aria-atomic="true" id="pp-post-carousel-status-%1$s">%2$s</div>',
+						esc_attr( $this->parent->get_id() ),
+						esc_html( $initial_status )
+					);
+				}
 			?>
+			<div class="pp-screen-only elementor-screen-only pp-posts-status" aria-live="polite" aria-atomic="true"></div>
 
 			<?php
 			PP_Helper::do_deprecated_action(

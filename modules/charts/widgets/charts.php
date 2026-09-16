@@ -106,6 +106,7 @@ class Charts extends Powerpack_Widget {
 		$this->register_content_legend_controls();
 		$this->register_content_tooltip_controls();
 		$this->register_content_chart_title_controls();
+		$this->register_content_accessibility_controls();
 		$this->register_content_options_controls();
 
 		// Style tab
@@ -666,6 +667,61 @@ class Charts extends Powerpack_Widget {
 				'condition' => [
 					'show_chart_title' => 'yes',
 				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register accessibility controls.
+	 *
+	 * @access protected
+	 */
+	protected function register_content_accessibility_controls() {
+		$this->start_controls_section(
+			'section_chart_accessibility',
+			[
+				'label' => esc_html__( 'Accessibility', 'powerpack-lite-for-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'accessible_label',
+			[
+				'label'       => esc_html__( 'Accessible Label', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => '',
+				'placeholder' => esc_html__( 'e.g. Monthly sales revenue chart', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'Announced by screen readers, including VoiceOver, to identify this chart. Falls back to the Chart Title (or widget title) when left empty.', 'powerpack-lite-for-elementor' ),
+				'dynamic'     => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'accessible_description',
+			[
+				'label'       => esc_html__( 'Accessible Description', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::TEXTAREA,
+				'default'     => '',
+				'description' => esc_html__( 'Optional. A longer summary of what the chart shows, announced after the label by screen readers.', 'powerpack-lite-for-elementor' ),
+				'dynamic'     => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'enable_data_table',
+			[
+				'label'       => esc_html__( 'Screen Reader Data Table', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::SWITCHER,
+				'label_on'    => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
+				'label_off'   => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
+				'default'     => 'yes',
+				'description' => esc_html__( 'Adds a visually hidden data table with the exact chart values, so screen reader and VoiceOver users can access the underlying data instead of just an image.', 'powerpack-lite-for-elementor' ),
 			]
 		);
 
@@ -2257,6 +2313,7 @@ class Charts extends Powerpack_Widget {
 
 		$datasets = $this->get_datasets( $settings, $chart_type );
 		$options  = $this->get_chart_options( $settings, $chart_type );
+		$labels   = $this->get_labels();
 
 		$datasets = PP_Helper::apply_deprecated_filter(
 			'pp_chart_datasets',
@@ -2274,22 +2331,152 @@ class Charts extends Powerpack_Widget {
 			'2.9.10'
 		);
 
+		$unique_id = uniqid( 'chart', true );
+		$table_id  = str_replace( '.', '', $unique_id ) . '-data-table';
+
+		$accessible_label = ! empty( $settings['accessible_label'] )
+			? $settings['accessible_label']
+			: ( ! empty( $settings['chart_title'] ) ? $settings['chart_title'] : $this->get_title() );
+
+		$accessible_description = ! empty( $settings['accessible_description'] ) ? $settings['accessible_description'] : '';
+
+		$show_data_table = ( ! isset( $settings['enable_data_table'] ) || 'yes' === $settings['enable_data_table'] ) && ! empty( $datasets );
+
 		$this->add_render_attribute( 'wrapper', 'class', 'pp-chart-wrapper' );
-		$this->add_render_attribute( 'wrapper', 'data-id', esc_attr( uniqid('chart') ) );
+		$this->add_render_attribute( 'wrapper', 'data-id', esc_attr( $unique_id ) );
 		$this->add_render_attribute( 'wrapper', 'style', 'position: relative;' );
+
+		if ( '' !== $accessible_label ) {
+			$this->add_render_attribute( 'wrapper', 'data-aria-label', esc_attr( $accessible_label ) );
+		}
+
+		if ( '' !== $accessible_description ) {
+			$this->add_render_attribute( 'wrapper', 'data-aria-desc', esc_attr( $accessible_description ) );
+		}
+
+		if ( $show_data_table ) {
+			$this->add_render_attribute( 'wrapper', 'data-table-id', esc_attr( $table_id ) );
+		}
+
 		$this->add_render_attribute( 'wrapper', 'data-settings',
 			wp_json_encode( array_filter([
 				'type'    => $chart_type,
 				'data'    => [
-					'labels'   => $this->get_labels(),
+					'labels'   => $labels,
 					'datasets' => $datasets,
 				],
 				'options' => $options,
 			]) )
 		);
 		?>
-		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
+		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>></div>
 		<?php
+		if ( $show_data_table ) {
+			$this->render_accessible_data_table( $table_id, $accessible_label, $labels, $datasets );
+		}
+	}
+
+	/**
+	 * Render a visually hidden (but screen-reader-accessible) table containing the raw chart data.
+	 *
+	 * @access protected
+	 *
+	 * @param string $table_id Unique id for the table, referenced by the canvas's aria-describedby.
+	 * @param string $caption  Accessible label to use as the table caption / aria-label.
+	 * @param array  $labels   Chart category labels (x-axis / slice labels).
+	 * @param array  $datasets Chart.js-ready datasets, each with a 'label' and 'data'.
+	 */
+	protected function render_accessible_data_table( $table_id, $caption, $labels, $datasets ) {
+		if ( empty( $datasets ) ) {
+			return;
+		}
+
+		$table_label = '' !== $caption ? $caption : esc_html__( 'Chart data table', 'powerpack-lite-for-elementor' );
+		?>
+		<style>
+			#<?php echo esc_attr( $table_id ); ?> {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				overflow: hidden;
+				clip: rect( 0, 0, 0, 0 );
+				clip-path: inset( 50% );
+				white-space: nowrap;
+				border: 0;
+			}
+			#<?php echo esc_attr( $table_id ); ?>:focus,
+			#<?php echo esc_attr( $table_id ); ?>:focus-within {
+				position: relative;
+				width: auto;
+				height: auto;
+				margin: 8px 0;
+				padding: 8px;
+				overflow: auto;
+				clip: auto;
+				clip-path: none;
+				white-space: normal;
+				border: 1px solid currentColor;
+				background: #fff;
+				color: #000;
+				z-index: 1;
+			}
+		</style>
+		<table
+			id="<?php echo esc_attr( $table_id ); ?>"
+			class="pp-chart-sr-table"
+			tabindex="0"
+			aria-label="<?php echo esc_attr( $table_label ); ?>"
+		>
+			<caption><?php echo esc_html( $table_label ); ?></caption>
+			<thead>
+				<tr>
+					<th scope="col"><?php esc_html_e( 'Series', 'powerpack-lite-for-elementor' ); ?></th>
+					<?php foreach ( (array) $labels as $label ) : ?>
+						<th scope="col"><?php echo esc_html( $label ); ?></th>
+					<?php endforeach; ?>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach ( $datasets as $dataset ) : ?>
+					<tr>
+						<th scope="row"><?php echo esc_html( $dataset['label'] ?? '' ); ?></th>
+						<?php foreach ( (array) ( $dataset['data'] ?? [] ) as $value ) : ?>
+							<td><?php echo esc_html( $this->format_accessible_table_value( $value ) ); ?></td>
+						<?php endforeach; ?>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+		<?php
+	}
+
+	/**
+	 * Format a single data point for the accessible data table.
+	 *
+	 * Bubble chart points are objects ({x, y, r}) rather than plain numbers,
+	 * so they need to be flattened into a readable string.
+	 *
+	 * @access protected
+	 *
+	 * @param mixed $value A single data point from a dataset.
+	 * @return string
+	 */
+	protected function format_accessible_table_value( $value ) {
+		if ( is_object( $value ) || is_array( $value ) ) {
+			$value = (array) $value;
+
+			return sprintf(
+				/* translators: 1: x value, 2: y value, 3: bubble radius */
+				esc_html__( 'x: %1$s, y: %2$s, r: %3$s', 'powerpack-lite-for-elementor' ),
+				$value['x'] ?? '',
+				$value['y'] ?? '',
+				$value['r'] ?? ''
+			);
+		}
+
+		return (string) $value;
 	}
 
 	protected function get_chart_type() {

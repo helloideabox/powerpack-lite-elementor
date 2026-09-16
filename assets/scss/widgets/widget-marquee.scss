@@ -21,11 +21,38 @@
 	}
 }
 
+@media (scripting: none) {
+
+	.pp-marquee {
+		visibility: visible;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 
 	.pp-marquee .pp-marquee-animation {
 		animation: none !important;
 	}
+}
+
+// Not animating means the track no longer carries the rest of the items past the
+// viewport, so let it scroll instead of clipping them away.
+.pp-marquee.pp-marquee-static {
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.pp-marquee-vertical.pp-marquee-static {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+// Hold the track still while something inside it has keyboard focus, so the focus
+// ring cannot scroll out of the overflow-hidden container (WCAG 2.4.11).
+// Must stay after the :hover rule above - same specificity, later wins.
+.pp-marquee:focus-within .pp-marquee-animation,
+.pp-marquee:focus-within:hover .pp-marquee-animation {
+	animation-play-state: paused !important;
 }
 
 .pp-marquee-vertical {

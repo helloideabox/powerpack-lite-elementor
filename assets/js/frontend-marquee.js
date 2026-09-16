@@ -28,6 +28,28 @@
 					$marquee   = this.elements.$marquee,
 					$animation = this.elements.$animation;
 
+				// Reduced motion: the animation is off in CSS, so the track has to be
+				// scrollable instead - otherwise everything past the first screenful is
+				// clipped away with no way to reach it.
+				this.reducedMotion = window.matchMedia
+					? window.matchMedia( '(prefers-reduced-motion: reduce)' )
+					: null;
+
+				$marquee.toggleClass( 'pp-marquee-static', this.isReducedMotion() );
+
+				if ( this.reducedMotion ) {
+					this.onReducedMotionChange = function () {
+						$marquee.toggleClass( 'pp-marquee-static', self.isReducedMotion() );
+						self.adjustMarquee();
+					};
+
+					if ( this.reducedMotion.addEventListener ) {
+						this.reducedMotion.addEventListener( 'change', this.onReducedMotionChange );
+					} else if ( this.reducedMotion.addListener ) {
+						this.reducedMotion.addListener( this.onReducedMotionChange );
+					}
+				}
+
 				// Initial setup
 				$animation.each( function () {
 					$( this ).data( 'original-content', $( this ).html() );
@@ -80,6 +102,14 @@
 				}, 150 );
 
 				$( window ).on( 'resize', this.onResize );
+			}
+
+			isReducedMotion() {
+				return !! ( this.reducedMotion && this.reducedMotion.matches );
+			}
+
+			isStatic() {
+				return this.elements.$marquee.hasClass( 'pp-marquee-static' );
 			}
 
 			setPlaybackRate( rate ) {
@@ -191,12 +221,20 @@
 			}
 
 			setValues( el, length, direction ) {
-				if ( direction ) {
-					var ratio = Math.ceil( el.parent().height() / length ),
-						total = ratio + 1;
+				// Emptying the track throws away whatever the visitor is focused on.
+				if ( el.children().length && el[0].contains( document.activeElement ) ) {
+					return;
+				}
+
+				var total;
+
+				if ( this.isStatic() ) {
+					// Nothing is moving, so duplicates would only ever be clipped.
+					total = 1;
+				} else if ( direction ) {
+					total = Math.ceil( el.parent().height() / length ) + 1;
 				} else {
-					var ratio = Math.ceil( el.parent().width() / length ),
-						total = ratio + 1;
+					total = Math.ceil( el.parent().width() / length ) + 1;
 				}
 
 				// Store original content
@@ -209,7 +247,7 @@
 					var $clone = $( '<div>' ).html( el.data( 'original-content' ) ).contents();
 					if ( i > 0 ) {
 						$clone.attr( 'aria-hidden', 'true' );
-						$clone.find( 'a, button, input, select, textarea' ).attr( 'tabindex', '-1' );
+						$clone.find( 'a[href], button, input, select, textarea, iframe, area[href], [tabindex], [contenteditable="true"], audio[controls], video[controls], details' ).attr( 'tabindex', '-1' );
 					}
 					el.append( $clone );
 				}
@@ -224,6 +262,11 @@
 			}
 
 			setDirection( el, length, direction ) {
+				if ( this.isStatic() ) {
+					el.css( { 'margin-top': '', 'margin-left': '' } );
+					return;
+				}
+
 				if ( direction ) {
 					if ( el.css( '--direction' ) == -1 ) {
 						el.css( 'margin-top', -1 * length + 'px' );

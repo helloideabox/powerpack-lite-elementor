@@ -54,6 +54,33 @@
     text-align: center;
     cursor: pointer;
     transition: all 0.4s ease-in-out;
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    appearance: none;
+    min-width: 24px;
+    min-height: 24px;
+
+    // Accessibility: a white ring hugging the button inside a black outline. One of the two
+    // always reaches 3:1, whatever the button fill or page background.
+    &:focus-visible {
+        outline: 2px solid #000;
+        outline-offset: 2px;
+        box-shadow: 0 0 0 2px #fff;
+    }
+
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+
+    // Forced colours drop box-shadow, so let the outline carry the system highlight.
+    @media (forced-colors: active) {
+
+        &:focus-visible {
+            outline-color: Highlight;
+        }
+    }
 }
 
 .pp-content-reveal-button {
@@ -95,5 +122,14 @@
 
     .pp-content-reveal-button-closed {
         display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pp-content-reveal-content-wrapper,
+    .pp-content-reveal-button-inner,
+    .pp-button-icon {
+        transition: none !important;
     }
 }

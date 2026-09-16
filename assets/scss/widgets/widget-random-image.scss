@@ -30,3 +30,9 @@
 	bottom: 0;
 	z-index: 1;
 }
+
+// The wrapper clips overflow, so keep the focus ring inside the anchor's own box.
+.pp-random-image-link:focus-visible {
+	outline: 2px solid #4d90fe;
+	outline-offset: -2px;
+}

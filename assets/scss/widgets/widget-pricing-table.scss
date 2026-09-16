@@ -195,7 +195,7 @@
     z-index: 2;
 
     &-inner {
-        background: #61ce70;
+        background: #2e7d32;
     }
 
     &-1 {
@@ -234,7 +234,7 @@
         min-width: 4em;
 
         .pp-pricing-table-ribbon-inner {
-            background: #61ce70;
+            background: #2e7d32;
             border-radius: 50%;
         }
 
@@ -256,7 +256,7 @@
     }
 
     &-3 {
-        background: #61ce70;
+        background: #2e7d32;
         top: 10%;
 
         .pp-pricing-table-ribbon-inner {
@@ -284,7 +284,7 @@
             }
 
             &::before {
-                border-inline-start: 8px solid #61ce70;
+                border-inline-start: 8px solid #2e7d32;
             }
 
             &::after {
@@ -302,7 +302,7 @@
             }
 
             &::before {
-                border-inline-end: 8px solid #61ce70;
+                border-inline-end: 8px solid #2e7d32;
             }
 
             &::after {
@@ -314,4 +314,37 @@
 
 .pp-tooltip-click {
 	cursor: pointer;
+}
+
+// The tooltip trigger is a real <button> now: strip the UA chrome so it keeps
+// looking like a bare icon, and give it a 24x24 hit area (WCAG 2.5.8).
+button.pp-pricing-table-tooltip-icon {
+	-webkit-appearance: none;
+	appearance: none;
+	align-items: center;
+	background: none;
+	border: 0;
+	color: inherit;
+	cursor: pointer;
+	display: inline-flex;
+	font: inherit;
+	justify-content: center;
+	line-height: 1;
+	min-height: 24px;
+	min-width: 24px;
+	padding: 0;
+}
+
+// Both tooltip trigger shapes are keyboard reachable, so they need a visible
+// focus indicator (WCAG 2.4.7 / 1.4.11).
+.pp-pricing-table-feature-content:focus-visible,
+button.pp-pricing-table-tooltip-icon:focus-visible {
+	outline: 2px solid currentcolor;
+	outline-offset: 2px;
+}
+
+// <del> carries the "superseded price" semantics; the strike-through still
+// comes from .pp-pricing-table-price-original.
+.pp-pricing-table-price-original del {
+	text-decoration: inherit;
 }

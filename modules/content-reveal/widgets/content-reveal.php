@@ -1063,20 +1063,47 @@ class Content_Reveal extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
+		$content_id  = 'pp-content-reveal-content-' . $this->get_id();
+		$is_expanded = ( 'reveal' === $settings['default_content_state'] );
+
 		$this->add_render_attribute( [
 			'wrapper' => [
 				'class'           => 'pp-content-reveal-content-wrapper',
+				'id'              => $content_id,
 				'data-speed'      => $settings['speed_unreveal']['size'],
 				'data-visibility' => ( 'content' === $settings['content_type'] ) ? $settings['visible_type'] : 'pixels',
 			],
 			'button'  => [
-				'class'           => [
+				'class'         => [
 					'pp-content-reveal-button-inner',
 					'elementor-button',
 					'elementor-size-' . $settings['button_size'],
 				],
+				'role'          => 'button',
+				'tabindex'      => '0',
+				'aria-expanded' => $is_expanded ? 'true' : 'false',
+				'aria-controls' => $content_id,
 			],
 		] );
+
+		// An icon-only state has no visible text, so it needs its own accessible name. Check each
+		// state separately: one label can be filled while the other is left icon-only.
+		$aria_labels = [
+			'open'   => empty( $settings['button_text_open'] ) ? esc_html__( 'Read less', 'powerpack-lite-for-elementor' ) : '',
+			'closed' => empty( $settings['button_text_closed'] ) ? esc_html__( 'Read more', 'powerpack-lite-for-elementor' ) : '',
+		];
+
+		foreach ( $aria_labels as $state => $aria_label ) {
+			if ( $aria_label ) {
+				$this->add_render_attribute( 'button', 'data-aria-label-' . $state, $aria_label );
+			}
+		}
+
+		$current_aria_label = $aria_labels[ $is_expanded ? 'open' : 'closed' ];
+
+		if ( $current_aria_label ) {
+			$this->add_render_attribute( 'button', 'aria-label', $current_aria_label );
+		}
 
 		if ( 'reveal' === $settings['default_content_state'] ) {
 			$this->add_render_attribute( 'wrapper', 'class', 'pp-content-revealed-wrapper' );
@@ -1110,7 +1137,7 @@ class Content_Reveal extends Powerpack_Widget {
 				<?php echo $this->get_content_type(); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 			<?php if ( 'yes' === $settings['separator'] ) { ?>
-				<div class="pp-content-reveal-saparator"></div>
+				<div class="pp-content-reveal-saparator" aria-hidden="true"></div>
 			<?php } ?>
 		</div>
 		<div class="pp-content-reveal-buttons-wrapper">
@@ -1118,7 +1145,7 @@ class Content_Reveal extends Powerpack_Widget {
 				<span class="pp-content-reveal-button pp-content-reveal-button-open">
 					<span class="pp-content-reveal-button-content">
 						<?php if ( $settings['button_icon_open']['value'] ) { ?>
-							<span class="pp-button-icon pp-icon"><?php Icons_Manager::render_icon( $settings['button_icon_open'] ); ?></span>
+							<span class="pp-button-icon pp-icon" aria-hidden="true"><?php Icons_Manager::render_icon( $settings['button_icon_open'] ); ?></span>
 						<?php } ?>
 						<?php if ( $settings['button_text_open'] ) { ?>
 							<span class="pp-content-reveal-button-text">
@@ -1130,7 +1157,7 @@ class Content_Reveal extends Powerpack_Widget {
 				<span class="pp-content-reveal-button pp-content-reveal-button-closed">
 					<span class="pp-content-reveal-button-content">
 						<?php if ( $settings['button_icon_closed']['value'] ) { ?>
-							<span class="pp-button-icon pp-icon"><?php Icons_Manager::render_icon( $settings['button_icon_closed'] ); ?></span>
+							<span class="pp-button-icon pp-icon" aria-hidden="true"><?php Icons_Manager::render_icon( $settings['button_icon_closed'] ); ?></span>
 						<?php } ?>
 						<?php if ( $settings['button_text_closed'] ) { ?>
 							<span class="pp-content-reveal-button-text">

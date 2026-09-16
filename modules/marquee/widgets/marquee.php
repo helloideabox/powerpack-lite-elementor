@@ -343,11 +343,12 @@ class Marquee extends Powerpack_Widget {
 		);
 
 		$this->register_field_style_controls( $posts_repeater, [
-			'text_selector'       => '{{WRAPPER}} {{CURRENT_ITEM}}.pp-marquee-text',
-			'text_hover_selector' => '{{WRAPPER}} {{CURRENT_ITEM}}.pp-marquee-text:hover',
-			'item_selector'       => '{{WRAPPER}} {{CURRENT_ITEM}}',
-			'image_condition'     => [ 'post_field' => 'featured_image' ],
-			'text_condition'      => [ 'post_field!' => 'featured_image' ],
+			'text_selector'        => '{{WRAPPER}} {{CURRENT_ITEM}}.pp-marquee-text',
+			'text_hover_selector'  => '{{WRAPPER}} {{CURRENT_ITEM}}.pp-marquee-text:hover, {{WRAPPER}} .pp-marquee-url:focus-visible {{CURRENT_ITEM}}.pp-marquee-text',
+			'image_hover_selector' => '{{WRAPPER}} {{CURRENT_ITEM}} .pp-marquee-img:hover, {{WRAPPER}} .pp-marquee-url:focus-visible {{CURRENT_ITEM}} .pp-marquee-img',
+			'item_selector'        => '{{WRAPPER}} {{CURRENT_ITEM}}',
+			'image_condition'      => [ 'post_field' => 'featured_image' ],
+			'text_condition'       => [ 'post_field!' => 'featured_image' ],
 		] );
 
 		$posts_repeater->end_controls_tab();
@@ -397,9 +398,9 @@ class Marquee extends Powerpack_Widget {
 	protected function register_field_style_controls( Repeater $repeater, array $args = [] ) {
 		$args = array_merge( [
 			'image_selector'       => '{{WRAPPER}} {{CURRENT_ITEM}} .pp-marquee-img',
-			'image_hover_selector' => '{{WRAPPER}} {{CURRENT_ITEM}} .pp-marquee-img:hover',
+			'image_hover_selector' => '{{WRAPPER}} {{CURRENT_ITEM}} .pp-marquee-img:hover, {{WRAPPER}} {{CURRENT_ITEM}} .pp-marquee-url:focus-visible .pp-marquee-img',
 			'text_selector'        => '{{WRAPPER}} {{CURRENT_ITEM}} .pp-marquee-text',
-			'text_hover_selector'  => '{{WRAPPER}} {{CURRENT_ITEM}} .pp-marquee-text:hover',
+			'text_hover_selector'  => '{{WRAPPER}} {{CURRENT_ITEM}} .pp-marquee-text:hover, {{WRAPPER}} {{CURRENT_ITEM}} .pp-marquee-url:focus-visible .pp-marquee-text',
 			'item_selector'        => '{{WRAPPER}} {{CURRENT_ITEM}} .pp-marquee-fields',
 			'image_condition'      => [],
 			'text_condition'       => [],
@@ -1219,7 +1220,7 @@ class Marquee extends Powerpack_Widget {
 				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .pp-marquee-text:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .pp-marquee-text:hover, {{WRAPPER}} .pp-marquee-url:focus-visible .pp-marquee-text' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1323,7 +1324,7 @@ class Marquee extends Powerpack_Widget {
 			Group_Control_Css_Filter::get_type(),
 			[
 				'name'     => 'image_css_hover_filters',
-				'selector' => '{{WRAPPER}} .pp-marquee-img:hover',
+				'selector' => '{{WRAPPER}} .pp-marquee-img:hover, {{WRAPPER}} .pp-marquee-url:focus-visible .pp-marquee-img',
 			]
 		);
 
@@ -1592,6 +1593,12 @@ class Marquee extends Powerpack_Widget {
 		if ( $has_link ) {
 			$this->add_link_attributes( $key, $item['item_link'] );
 			$this->add_render_attribute( $key, 'class', 'pp-marquee-url' );
+
+			$link_label = $this->get_item_link_label( $item );
+
+			if ( '' !== $link_label ) {
+				$this->add_render_attribute( $key, 'aria-label', $link_label );
+			}
 		}
 
 		echo '<' . $tag . ' ';
@@ -1607,6 +1614,57 @@ class Marquee extends Powerpack_Widget {
 		}
 
 		echo '</' . $tag . '>';
+	}
+
+	/**
+	 * Accessible name for an item link that cannot name itself.
+	 *
+	 * A link wrapping nothing but an image has no accessible name unless that image
+	 * carries alt text, and wp_get_attachment_image() emits alt="" whenever the
+	 * attachment has no alt meta. Fall back - for the posts source - to the post
+	 * title. Returns an empty string when the link already names itself, so no
+	 * aria-label ever overrides visible content.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @param array $item Marquee item, already carrying its `fields`.
+	 * @return string Label to apply as aria-label, or '' to leave the link alone.
+	 */
+	protected function get_item_link_label( $item ) {
+		foreach ( $item['fields'] as $field ) {
+			if ( 'text' === $field['type'] && '' !== trim( (string) $field['value'] ) ) {
+				return '';
+			}
+
+			if ( 'image' === $field['type'] && empty( $field['decorative'] ) && '' !== $this->get_field_image_alt( $field ) ) {
+				return '';
+			}
+		}
+
+		return ! empty( $item['link_label_fallback'] ) ? $item['link_label_fallback'] : '';
+	}
+
+	/**
+	 * Alt text an image field will actually render with.
+	 *
+	 * Attachments go through wp_get_attachment_image(), which reads the alt meta only
+	 * and has not fallen back to the caption or title since WordPress 5.5.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @param array $field Image field.
+	 * @return string
+	 */
+	protected function get_field_image_alt( $field ) {
+		$image = $field['value'];
+
+		if ( ! empty( $image['id'] ) ) {
+			return trim( (string) get_post_meta( $image['id'], '_wp_attachment_image_alt', true ) );
+		}
+
+		return Control_Media::get_image_alt( $image );
 	}
 
 	protected function render_image_field( $field ) {
@@ -1625,13 +1683,21 @@ class Marquee extends Powerpack_Widget {
 		?>
 		<span class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 			<?php
+			$decorative = ! empty( $field['decorative'] );
+
 			if ( $image_id ) {
-				echo wp_get_attachment_image( $image_id, $size, '', [ 'class' => 'pp-marquee-img' ] );
+				$image_attr = [ 'class' => 'pp-marquee-img' ];
+
+				if ( $decorative ) {
+					$image_attr['alt'] = '';
+				}
+
+				echo wp_get_attachment_image( $image_id, $size, '', $image_attr );
 			} else {
 				printf(
 					'<img class="pp-marquee-img" src="%s" alt="%s" loading="lazy" decoding="async" />',
 					esc_url( $image['url'] ),
-					esc_attr( Control_Media::get_image_alt( $image ) )
+					esc_attr( $decorative ? '' : Control_Media::get_image_alt( $image ) )
 				);
 			}
 			?>
@@ -1802,7 +1868,9 @@ class Marquee extends Powerpack_Widget {
 					$link = $settings['posts_link'];
 				}
 
-				$fields = [];
+				$fields   = [];
+				$has_text = false;
+
 				foreach ( $post_fields as $field_config ) {
 					$name  = ! empty( $field_config['post_field'] ) ? $field_config['post_field'] : 'title';
 					$field = $this->build_post_field( $post_id, $name, $image_size );
@@ -1811,13 +1879,29 @@ class Marquee extends Powerpack_Widget {
 						$field['field_key'] = $field_config['_id'];
 					}
 
+					if ( 'text' === $field['type'] && '' !== trim( (string) $field['value'] ) ) {
+						$has_text = true;
+					}
+
 					$fields[] = $field;
 				}
 
+				// The post's own text names the item, so its image is decorative alongside it.
+				if ( $has_text ) {
+					foreach ( $fields as &$image_field ) {
+						if ( 'image' === $image_field['type'] ) {
+							$image_field['decorative'] = true;
+						}
+					}
+
+					unset( $image_field );
+				}
+
 				$items[] = [
-					'_id'       => 'ppm' . $i,
-					'item_link' => $link,
-					'fields'    => $fields,
+					'_id'                 => 'ppm' . $i,
+					'item_link'           => $link,
+					'fields'              => $fields,
+					'link_label_fallback' => get_the_title( $post_id ),
 				];
 
 				$i++;

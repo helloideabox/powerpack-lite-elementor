@@ -21,6 +21,32 @@
   width: 100%;
 }
 
+.pp-flipbox-container:focus {
+  outline: 2px solid #1abc9c;
+  outline-offset: 2px;
+}
+
+.pp-flipbox-container:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.pp-flipbox-container:focus-visible {
+  outline: 2px solid #1abc9c;
+  outline-offset: 2px;
+}
+
+.pp-flipbox-sr-hint {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .pp-flipbox-icon-image,
 .pp-flipbox-icon-image-back {
   display: inline-block;
@@ -76,6 +102,7 @@
 .pp-flipbox-back {
   background: #444;
   color: #fff;
+  visibility: hidden;
 }
 .pp-flipbox-back .pp-flipbox-box-link {
   position: absolute;
@@ -83,6 +110,12 @@
   inset-inline-start: 0;
   inset-inline-end: 0;
   bottom: 0;
+}
+
+.pp-flipbox-container:hover .pp-flipbox-back,
+.pp-flipbox-container:focus .pp-flipbox-back,
+.pp-flipbox-container:focus-within .pp-flipbox-back {
+  visibility: visible;
 }
 
 .pp-flipbox-content,
@@ -134,24 +167,32 @@
 
 /*--- Flip ---*/
 .pp-animate-flip.pp-direction-up.pp-flipbox-container:hover .pp-flipbox-flip-card,
+.pp-animate-flip.pp-direction-up.pp-flipbox-container:focus .pp-flipbox-flip-card,
+.pp-animate-flip.pp-direction-up.pp-flipbox-container:focus-within .pp-flipbox-flip-card,
 .pp-animate-flip.pp-direction-up .pp-flipbox-back {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
 }
 
 .pp-animate-flip.pp-direction-down.pp-flipbox-container:hover .pp-flipbox-flip-card,
+.pp-animate-flip.pp-direction-down.pp-flipbox-container:focus .pp-flipbox-flip-card,
+.pp-animate-flip.pp-direction-down.pp-flipbox-container:focus-within .pp-flipbox-flip-card,
 .pp-animate-flip.pp-direction-down .pp-flipbox-back {
   -webkit-transform: rotateX(-180deg);
           transform: rotateX(-180deg);
 }
 
 .pp-animate-flip.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-flip-card,
+.pp-animate-flip.pp-direction-left.pp-flipbox-container:focus .pp-flipbox-flip-card,
+.pp-animate-flip.pp-direction-left.pp-flipbox-container:focus-within .pp-flipbox-flip-card,
 .pp-animate-flip.pp-direction-left .pp-flipbox-back {
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
 }
 
 .pp-animate-flip.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-flip-card,
+.pp-animate-flip.pp-direction-right.pp-flipbox-container:focus .pp-flipbox-flip-card,
+.pp-animate-flip.pp-direction-right.pp-flipbox-container:focus-within .pp-flipbox-flip-card,
 .pp-animate-flip.pp-direction-right .pp-flipbox-back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
@@ -174,7 +215,11 @@
 }
 
 .pp-animate-push.pp-direction-up.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-slide.pp-direction-up.pp-flipbox-container:hover .pp-flipbox-back {
+.pp-animate-push.pp-direction-up.pp-flipbox-container:focus .pp-flipbox-back,
+.pp-animate-push.pp-direction-up.pp-flipbox-container:focus-within .pp-flipbox-back,
+.pp-animate-slide.pp-direction-up.pp-flipbox-container:hover .pp-flipbox-back,
+.pp-animate-slide.pp-direction-up.pp-flipbox-container:focus .pp-flipbox-back,
+.pp-animate-slide.pp-direction-up.pp-flipbox-container:focus-within .pp-flipbox-back {
   top: 0;
 }
 
@@ -185,7 +230,11 @@
 }
 
 .pp-animate-push.pp-direction-down.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-slide.pp-direction-down.pp-flipbox-container:hover .pp-flipbox-back {
+.pp-animate-push.pp-direction-down.pp-flipbox-container:focus .pp-flipbox-back,
+.pp-animate-push.pp-direction-down.pp-flipbox-container:focus-within .pp-flipbox-back,
+.pp-animate-slide.pp-direction-down.pp-flipbox-container:hover .pp-flipbox-back,
+.pp-animate-slide.pp-direction-down.pp-flipbox-container:focus .pp-flipbox-back,
+.pp-animate-slide.pp-direction-down.pp-flipbox-container:focus-within .pp-flipbox-back {
   top: auto;
   bottom: 0;
 }
@@ -196,7 +245,11 @@
 }
 
 .pp-animate-push.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-slide.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-back {
+.pp-animate-push.pp-direction-left.pp-flipbox-container:focus .pp-flipbox-back,
+.pp-animate-push.pp-direction-left.pp-flipbox-container:focus-within .pp-flipbox-back,
+.pp-animate-slide.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-back,
+.pp-animate-slide.pp-direction-left.pp-flipbox-container:focus .pp-flipbox-back,
+.pp-animate-slide.pp-direction-left.pp-flipbox-container:focus-within .pp-flipbox-back {
   inset-inline-start: 0;
 }
 
@@ -207,25 +260,37 @@
 }
 
 .pp-animate-push.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-slide.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-back {
+.pp-animate-push.pp-direction-right.pp-flipbox-container:focus .pp-flipbox-back,
+.pp-animate-push.pp-direction-right.pp-flipbox-container:focus-within .pp-flipbox-back,
+.pp-animate-slide.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-back,
+.pp-animate-slide.pp-direction-right.pp-flipbox-container:focus .pp-flipbox-back,
+.pp-animate-slide.pp-direction-right.pp-flipbox-container:focus-within .pp-flipbox-back {
   inset-inline-start: auto;
   inset-inline-end: 0;
 }
 
 /*--- Push + Slide Above ---*/
-.pp-animate-push.pp-direction-up.pp-flipbox-container:hover .pp-flipbox-front {
+.pp-animate-push.pp-direction-up.pp-flipbox-container:hover .pp-flipbox-front,
+.pp-animate-push.pp-direction-up.pp-flipbox-container:focus .pp-flipbox-front,
+.pp-animate-push.pp-direction-up.pp-flipbox-container:focus-within .pp-flipbox-front {
   top: -100%;
 }
 
-.pp-animate-push.pp-direction-down.pp-flipbox-container:hover .pp-flipbox-front {
+.pp-animate-push.pp-direction-down.pp-flipbox-container:hover .pp-flipbox-front,
+.pp-animate-push.pp-direction-down.pp-flipbox-container:focus .pp-flipbox-front,
+.pp-animate-push.pp-direction-down.pp-flipbox-container:focus-within .pp-flipbox-front {
   top: 100%;
 }
 
-.pp-animate-push.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-front {
+.pp-animate-push.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-front,
+.pp-animate-push.pp-direction-left.pp-flipbox-container:focus .pp-flipbox-front,
+.pp-animate-push.pp-direction-left.pp-flipbox-container:focus-within .pp-flipbox-front {
   inset-inline-start: -100%;
 }
 
-.pp-animate-push.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-front {
+.pp-animate-push.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-front,
+.pp-animate-push.pp-direction-right.pp-flipbox-container:focus .pp-flipbox-front,
+.pp-animate-push.pp-direction-right.pp-flipbox-container:focus-within .pp-flipbox-front {
   inset-inline-start: 100%;
 }
 
@@ -236,7 +301,7 @@
           transform: scale(0.75);
   z-index: 3;
 }
-.pp-animate-zoom-in.pp-flipbox-container:hover .pp-flipbox-back {
+.pp-animate-zoom-in.pp-flipbox-container:hover .pp-flipbox-back, .pp-animate-zoom-in.pp-flipbox-container:focus .pp-flipbox-back, .pp-animate-zoom-in.pp-flipbox-container:focus-within .pp-flipbox-back {
   opacity: 1;
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -254,7 +319,7 @@
   transition: transform 0.5s, opacity 0.35s, width 0.1ms;
   transition: transform 0.5s, opacity 0.35s, width 0.1ms, -webkit-transform 0.5s;
 }
-.pp-animate-zoom-out.pp-flipbox-container:hover .pp-flipbox-front {
+.pp-animate-zoom-out.pp-flipbox-container:hover .pp-flipbox-front, .pp-animate-zoom-out.pp-flipbox-container:focus .pp-flipbox-front, .pp-animate-zoom-out.pp-flipbox-container:focus-within .pp-flipbox-front {
   opacity: 0;
   width: 0;
   -webkit-transform: scale(0.75);
@@ -265,7 +330,18 @@
   transition: transform 0.8s, opacity 0.5s 0.1s, width 0.1ms 0.5s, -webkit-transform 0.8s;
 }
 
-.pp-animate-fade.pp-flipbox-container:hover .pp-flipbox-front {
+.pp-animate-fade.pp-flipbox-container:hover .pp-flipbox-front,
+.pp-animate-fade.pp-flipbox-container:focus .pp-flipbox-front,
+.pp-animate-fade.pp-flipbox-container:focus-within .pp-flipbox-front {
   opacity: 0;
   visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-flipbox-flip-card,
+  .pp-flipbox-front,
+  .pp-flipbox-back {
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+  }
 }

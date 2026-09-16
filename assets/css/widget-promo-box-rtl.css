@@ -30,6 +30,10 @@
   height: 1em;
   width: 1em;
 }
+.pp-promo-box .pp-promo-box-button:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: -3px;
+}
 .pp-promo-box .pp-promo-box-overlay,
 .pp-promo-box .pp-promo-box-bg {
   position: absolute;

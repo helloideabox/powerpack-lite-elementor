@@ -19,12 +19,33 @@
      object-position: center center;
 }
 
+@media (scripting: none) {
+  .pp-marquee {
+    visibility: visible;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .pp-marquee .pp-marquee-animation {
     -webkit-animation: none !important;
             animation: none !important;
   }
 }
+.pp-marquee.pp-marquee-static {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.pp-marquee-vertical.pp-marquee-static {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.pp-marquee:focus-within .pp-marquee-animation,
+.pp-marquee:focus-within:hover .pp-marquee-animation {
+  -webkit-animation-play-state: paused !important;
+          animation-play-state: paused !important;
+}
+
 .pp-marquee-vertical .pp-marquee-animation {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;

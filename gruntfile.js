@@ -363,7 +363,14 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-sass' );
 	grunt.loadNpmTasks( 'grunt-rtlcss' );
 	grunt.loadNpmTasks( '@lodder/grunt-postcss' );
-	grunt.loadNpmTasks( 'grunt-stylelint' );
+	const nodeMajor = parseInt( process.versions.node.split( '.' )[0], 10 );
+	if ( nodeMajor >= 18 ) {
+		grunt.loadNpmTasks( 'grunt-stylelint' );
+	} else {
+		grunt.registerTask( 'stylelint', function () {
+			grunt.log.warn( 'Skipping stylelint: Node.js ' + process.version + ' is used, but stylelint requires Node >= 18.' );
+		} );
+	}
 	grunt.loadNpmTasks( 'grunt-checktextdomain' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );

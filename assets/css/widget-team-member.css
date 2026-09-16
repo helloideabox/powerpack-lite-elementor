@@ -37,9 +37,10 @@
 .pp-tm-wrapper .pp-tm-divider {
   display: inline-block;
 }
-.pp-tm-wrapper .pp-tm:hover .pp-tm-overlay-content-wrap {
+.pp-tm-wrapper .pp-tm:hover .pp-tm-overlay-content-wrap,
+.pp-tm-wrapper .pp-tm:focus-within .pp-tm-overlay-content-wrap {
   opacity: 1;
-  visibility: visible;
+  pointer-events: auto;
 }
 .pp-tm-wrapper .pp-tm-image {
   display: inline-block;
@@ -62,7 +63,7 @@
   bottom: 0;
   z-index: 1;
   opacity: 0;
-  visibility: hidden;
+  pointer-events: none;
   -webkit-transition: all 0.25s linear 0s;
   transition: all 0.25s linear 0s;
 }
@@ -87,6 +88,20 @@
   transform: translateY(-50%);
 }
 
+.pp-tm-wrapper .pp-tm-social-links .pp-tm-social-link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+}
+
 .pp-tm-social-icon-wrap {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -101,4 +116,46 @@
 
 .pp-tm-description p:last-child {
   margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-tm-overlay-content-wrap,
+  .pp-tm-social-icon-wrap,
+  .pp-icon {
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+.elementor-widget-pp-team-member-carousel .pp-tm-name a:focus-visible,
+.elementor-widget-pp-team-member-carousel .pp-tm-social-links a:focus-visible,
+.elementor-widget-pp-team-member-carousel .pp-tm-image a:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+.elementor-widget-pp-team-member-carousel .pp-tm-name a:focus:not(:focus-visible),
+.elementor-widget-pp-team-member-carousel .pp-tm-social-links a:focus:not(:focus-visible),
+.elementor-widget-pp-team-member-carousel .pp-tm-image a:focus:not(:focus-visible) {
+  outline: none;
+}
+.elementor-widget-pp-team-member-carousel .swiper-pagination-bullet {
+  position: relative;
+}
+.elementor-widget-pp-team-member-carousel .swiper-pagination-bullet::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  inset-inline-start: 50%;
+  width: 24px;
+  height: 24px;
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .elementor-widget-pp-team-member-carousel .swiper-wrapper {
+    -webkit-transition-duration: 0ms !important;
+            transition-duration: 0ms !important;
+  }
 }

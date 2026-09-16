@@ -637,7 +637,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Background', 'powerpack-lite-for-elementor' ),
 				'types'                 => [ 'classic', 'gradient' ],
 				'exclude'               => [ 'image' ],
-				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover',
+				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover, {{WRAPPER}} .elementor-grid-item:focus-within .pp-logo-wrap',
 			]
 		);
 
@@ -648,7 +648,7 @@ class Logo_Grid extends Powerpack_Widget {
 				'label'                 => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover',
+				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover, {{WRAPPER}} .elementor-grid-item:focus-within .pp-logo-wrap',
 			]
 		);
 
@@ -665,7 +665,7 @@ class Logo_Grid extends Powerpack_Widget {
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .elementor-grid-item:hover' => 'transform:translateY({{SIZE}}{{UNIT}})',
+					'{{WRAPPER}} .elementor-grid-item:hover, {{WRAPPER}} .elementor-grid-item:focus-within' => 'transform:translateY({{SIZE}}{{UNIT}})',
 				],
 			]
 		);
@@ -695,7 +695,7 @@ class Logo_Grid extends Powerpack_Widget {
 					],
 				],
 				'selectors'         => [
-					'{{WRAPPER}} .pp-logo-wrap:hover img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .pp-logo-wrap:hover img, {{WRAPPER}} .elementor-grid-item:focus-within img' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -704,7 +704,7 @@ class Logo_Grid extends Powerpack_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'pp_logo_box_shadow_hover',
-				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover',
+				'selector'              => '{{WRAPPER}} .pp-logo-wrap:hover, {{WRAPPER}} .elementor-grid-item:focus-within .pp-logo-wrap',
 				'separator'             => 'before',
 			]
 		);
@@ -797,7 +797,10 @@ class Logo_Grid extends Powerpack_Widget {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		$this->add_render_attribute( 'logo-grid', 'class', 'pp-logo-grid elementor-grid' );
+		$this->add_render_attribute( 'logo-grid', [
+			'class' => 'pp-logo-grid elementor-grid',
+			'role'  => 'list',
+		] );
 
 		if ( 'yes' === $settings['grayscale_normal'] ) {
 			$this->add_render_attribute( 'logo-grid', 'class', 'grayscale-normal' );
@@ -817,13 +820,17 @@ class Logo_Grid extends Powerpack_Widget {
 
 			foreach ( $logos as $index => $item ) :
 				if ( ! empty( $item['logo_image']['url'] ) ) {
-					$item_wrap_setting_key = $this->get_repeater_setting_key( 'item_wrap', 'logos', $index );
-					$item_setting_key = $this->get_repeater_setting_key( 'item', 'logos', $index );
-					$link_setting_key = $this->get_repeater_setting_key( 'link', 'logos', $index );
+					$item_wrap_setting_key  = $this->get_repeater_setting_key( 'item_wrap', 'logos', $index );
+					$item_setting_key       = $this->get_repeater_setting_key( 'item', 'logos', $index );
+					$link_setting_key       = $this->get_repeater_setting_key( 'link', 'logos', $index );
+					$image_link_setting_key = $link_setting_key . '-image';
 
-					$this->add_render_attribute( $item_wrap_setting_key, 'class', [
-						'elementor-grid-item',
-						'elementor-repeater-item-' . esc_attr( $item['_id'] ),
+					$this->add_render_attribute( $item_wrap_setting_key, [
+						'class' => [
+							'elementor-grid-item',
+							'elementor-repeater-item-' . esc_attr( $item['_id'] ),
+						],
+						'role'  => 'listitem',
 					] );
 
 					$this->add_render_attribute( $item_setting_key, 'class', 'pp-logo-wrap' );
@@ -836,24 +843,43 @@ class Logo_Grid extends Powerpack_Widget {
 						}
 					}
 
-					$has_link = ! empty( $item['link']['url'] );
+					$has_link    = ! empty( $item['link']['url'] );
+					$title_shown = 'yes' === $settings['show_title'] && '' !== trim( $item['title'] );
+					$image_html  = $this->render_image( $item, $settings, $this->get_logo_alt( $item, $title_shown, $has_link ) );
+					$title_html  = esc_html( $item['title'] );
 
 					if ( $has_link ) {
 						$this->add_link_attributes( $link_setting_key, $item['link'] );
+						$this->add_link_attributes( $image_link_setting_key, $item['link'] );
+
+						if ( $title_shown ) {
+							/*
+							 * The title link below goes to the same place and carries the name,
+							 * so keeping both would give every logo two tab stops to one
+							 * destination. The image link stays clickable for a pointer and
+							 * leaves the tab order and the accessibility tree.
+							 */
+							$this->add_render_attribute( $image_link_setting_key, [
+								'tabindex'    => '-1',
+								'aria-hidden' => 'true',
+							] );
+
+							$title_html .= $this->get_new_tab_notice( $item['link'] );
+						} else {
+							$image_html .= $this->get_new_tab_notice( $item['link'] );
+						}
 					}
 					?>
 					<div <?php $this->print_render_attribute_string( $item_wrap_setting_key ); ?>>
 						<div <?php $this->print_render_attribute_string( $item_setting_key ); ?>>
-							<?php echo wp_kses_post( $this->maybe_wrap_in_link( $this->render_image( $item, $settings ), $link_setting_key, $has_link ) ); ?>
+							<?php echo $this->maybe_wrap_in_link( $image_html, $image_link_setting_key, $has_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in render_image(), get_new_tab_notice() and Elementor's attribute string. ?>
 						</div>
 						<?php
-						if ( 'yes' === $settings['show_title'] && '' !== $item['title'] ) {
-							$title_tag  = PP_Helper::validate_html_tag( $settings['title_html_tag'] );
-							$title_html = $this->maybe_wrap_in_link( esc_html( $item['title'] ), $link_setting_key, $has_link );
+						if ( $title_shown ) {
 							printf(
 								'<%1$s class="pp-logo-title">%2$s</%1$s>',
-								esc_html( $title_tag ),
-								wp_kses_post( $title_html )
+								esc_html( PP_Helper::validate_html_tag( $settings['title_html_tag'] ) ),
+								$this->maybe_wrap_in_link( $title_html, $link_setting_key, $has_link ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped with esc_html(), get_new_tab_notice() and Elementor's attribute string.
 							);
 						}
 						?>
@@ -894,20 +920,79 @@ class Logo_Grid extends Powerpack_Widget {
 	}
 
 	/**
+	 * Alt text for a logo image.
+	 *
+	 * A logo stands for the company it belongs to, so an image without alt text falls
+	 * back to the item's title, and a linked one with neither falls back to a generic
+	 * name rather than leaving the link to be announced as its URL. Where the title is
+	 * shown beside the logo it already carries the name, so the image keeps whatever
+	 * alt it has.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @param array $item        Repeater item data.
+	 * @param bool  $title_shown Whether the item's title is printed beside the logo.
+	 * @param bool  $has_link    Whether the logo is linked.
+	 *
+	 * @return string
+	 */
+	protected function get_logo_alt( $item, $title_shown, $has_link ) {
+		$image_alt = Control_Media::get_image_alt( $item['logo_image'] );
+
+		if ( '' !== $image_alt || $title_shown ) {
+			return $image_alt;
+		}
+
+		$image_alt = trim( $item['title'] );
+
+		if ( '' === $image_alt && $has_link ) {
+			$image_alt = __( 'Logo', 'powerpack-lite-for-elementor' );
+		}
+
+		return $image_alt;
+	}
+
+	/**
+	 * Visually hidden warning for a link that opens in a new tab.
+	 *
+	 * Nothing else tells a screen reader user that the tab is about to change, and
+	 * the link text itself is the author's, so the notice rides inside the link.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @param array $link The repeater item's link setting.
+	 *
+	 * @return string The notice markup, or an empty string where the link stays in place.
+	 */
+	protected function get_new_tab_notice( $link ) {
+		if ( empty( $link['is_external'] ) ) {
+			return '';
+		}
+
+		return '<span class="elementor-screen-only">' . esc_html__( '(opens in a new tab)', 'powerpack-lite-for-elementor' ) . '</span>';
+	}
+
+	/**
 	 * Render image HTML for a single logo grid item.
 	 *
 	 * @access protected
 	 *
-	 * @param array $item     Repeater item data.
-	 * @param array $instance Widget settings.
+	 * @param array       $item      Repeater item data.
+	 * @param array       $instance  Widget settings.
+	 * @param string|null $image_alt Alt text; resolved from the attachment when null.
 	 *
 	 * @return string Image HTML.
 	 */
-	protected function render_image( $item, $instance ) {
+	protected function render_image( $item, $instance, $image_alt = null ) {
 
 		$image_id  = apply_filters( 'wpml_object_id', $item['logo_image']['id'], 'attachment', true );
-		$image_alt = Control_Media::get_image_alt( $item['logo_image'] );
 		$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image', $instance );
+
+		if ( null === $image_alt ) {
+			$image_alt = Control_Media::get_image_alt( $item['logo_image'] );
+		}
 
 		if ( ! $image_url ) {
 			$image_url = $item['logo_image']['url'];
@@ -926,10 +1011,12 @@ class Logo_Grid extends Powerpack_Widget {
 	protected function content_template() {
 		?>
 		<#
-			var i = 1;
+			var generic_logo   = '<?php echo esc_js( __( 'Logo', 'powerpack-lite-for-elementor' ) ); ?>',
+				new_tab_notice = '<span class="elementor-screen-only"><?php echo esc_js( __( '(opens in a new tab)', 'powerpack-lite-for-elementor' ) ); ?></span>';
 
 			view.addRenderAttribute( 'logo-grid', {
 				'class': 'pp-logo-grid elementor-grid',
+				'role': 'list',
 			});
 
 			if ( settings.grayscale_normal == 'yes' ) {
@@ -945,13 +1032,39 @@ class Logo_Grid extends Powerpack_Widget {
 			}
 		#>
 		<div {{{ view.getRenderAttributeString( 'logo-grid' ) }}}>
-			<# _.each( settings.pp_logos, function( item ) { #>
-				<# if ( item.logo_image.url != '' ) { #>
-					<#
-						var item_wrap_custom_style_class = '',
-							item_custom_style_class = '',
-							linkAttrs = '';
+			<# _.each( settings.pp_logos, function( item ) {
+				if ( ! item.logo_image || ! item.logo_image.url ) {
+					return;
+				}
 
+				// Resolved before any markup is printed, so a size that isn't ready yet
+				// skips the item instead of leaving its wrappers open.
+				var image_url = item.logo_image.url;
+
+				if ( item.logo_image.id ) {
+					image_url = elementor.imagesManager.getImageUrl( {
+						id: item.logo_image.id,
+						url: item.logo_image.url,
+						size: settings.image_size,
+						dimension: settings.image_custom_dimension,
+						model: view.getEditModel()
+					} );
+
+					if ( ! image_url ) {
+						return;
+					}
+				}
+
+				var item_wrap_custom_style_class = '',
+					item_custom_style_class      = '',
+					linkAttrs                    = '',
+					notice                       = '',
+					title                        = ( item.title || '' ).trim(),
+					has_link                     = !! ( item.link && item.link.url ),
+					title_shown                  = 'yes' === settings.show_title && '' !== title,
+					image_alt                    = item.logo_image.alt || ( title_shown ? '' : ( title || ( has_link ? generic_logo : '' ) ) );
+			#>
+					<#
 						if ( 'yes' === item.custom_style ) {
 							if ( 'logo' === item.custom_style_target ) {
 								item_custom_style_class = 'pp-logo-grid-item-custom';
@@ -960,12 +1073,13 @@ class Logo_Grid extends Powerpack_Widget {
 							}
 						}
 
-						if ( item.link && item.link.url ) {
+						if ( has_link ) {
 							var rel = '';
 							linkAttrs = ' href="' + _.escape( item.link.url ) + '"';
 							if ( item.link.is_external ) {
 								linkAttrs += ' target="_blank"';
 								rel = 'noopener';
+								notice = new_tab_notice;
 							}
 							if ( item.link.nofollow ) {
 								rel = ( rel ? rel + ' ' : '' ) + 'nofollow';
@@ -975,59 +1089,26 @@ class Logo_Grid extends Powerpack_Widget {
 							}
 						}
 					#>
-					<div class="elementor-grid-item elementor-repeater-item-{{ item._id }} {{ item_wrap_custom_style_class }}">
+					<div class="elementor-grid-item elementor-repeater-item-{{ item._id }} {{ item_wrap_custom_style_class }}" role="listitem">
 						<div class="pp-logo-wrap {{ item_custom_style_class }}">
-							<# if ( item.link && item.link.url ) { #>
-								<a{{{ linkAttrs }}}>
-							<# } #>
-							<#
-							if ( item.logo_image && item.logo_image.id ) {
-
-								var image = {
-									id: item.logo_image.id,
-									url: item.logo_image.url,
-									size: settings.image_size,
-									dimension: settings.image_custom_dimension,
-									model: view.getEditModel()
-								};
-
-								var image_url = elementor.imagesManager.getImageUrl( image );
-
-								if ( ! image_url ) {
-									return;
-								}
-							} else {
-
-								var image_url = item.logo_image.url;
-							}
+							<# if ( has_link ) {
+								// The title beside the logo already names it, so the image link
+								// there would be a second tab stop to the same place.
 							#>
-							<img src="{{ _.escape( image_url ) }}" alt="{{ item.logo_image.alt || '' }}" />
-
-							<# if ( item.link && item.link.url ) { #>
-								</a>
+								<a{{{ linkAttrs }}}{{{ title_shown ? ' tabindex="-1" aria-hidden="true"' : '' }}}>
+							<# } #>
+							<img src="{{ image_url }}" alt="{{ image_alt }}" />
+							<# if ( has_link ) { #>
+								{{{ title_shown ? '' : notice }}}</a>
 							<# } #>
 						</div>
-						<#
-							if ( 'yes' === settings.show_title ) {
-								if ( item.title != '' ) {
-									var title = _.escape( item.title );
-
-									view.addRenderAttribute( 'title' + i, 'class', 'pp-logo-title' );
-
-									if ( item.link && item.link.url ) {
-										title = '<a' + linkAttrs + '>' + title + '</a>';
-									}
-
-									var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ),
-										title_html = '<' + titleHTMLTag  + ' ' + view.getRenderAttributeString( 'title' + i ) + '>' + title + '</' + titleHTMLTag + '>';
-
-									print( title_html );
-								}
-							}
+						<# if ( title_shown ) {
+							var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag );
 						#>
+							<{{{ titleHTMLTag }}} class="pp-logo-title"><# if ( has_link ) { #><a{{{ linkAttrs }}}><# } #>{{ item.title }}<# if ( has_link ) { #>{{{ notice }}}</a><# } #></{{{ titleHTMLTag }}}>
+						<# } #>
 					</div>
-				<# } #>
-			<# i++ } ); #>
+			<# } ); #>
 		</div>
 		<?php
 	}

@@ -9,6 +9,7 @@ use PowerpackElementsLite\Classes\PP_Config;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
+use Elementor\Control_Media;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
@@ -464,12 +465,19 @@ class Scroll_Image extends Powerpack_Widget {
 			$settings['image']['id'] = apply_filters( 'wpml_object_id', $settings['image']['id'], 'attachment', true );
 		}
 
-		$link_url = $settings['link']['url'];
+		$link_url  = $settings['link']['url'];
+		$image_alt = Control_Media::get_image_alt( $settings['image'] );
 
-		if ( '' !== $settings['link']['url'] ) {
+		if ( '' !== $link_url ) {
 			$this->add_render_attribute( 'link', 'class', 'pp-image-scroll-link pp-media-content' );
 
 			$this->add_link_attributes( 'link', $settings['link'] );
+
+			// The anchor is rendered empty as a click overlay and is a sibling of the
+			// image, so it can never inherit a name from the alt text. Always give it one.
+			$link_label = ! empty( $image_alt ) ? $image_alt : esc_html__( 'View image', 'powerpack-lite-for-elementor' );
+
+			$this->add_render_attribute( 'link', 'aria-label', $link_label );
 		}
 
 		$this->add_render_attribute( 'icon', 'class', [
@@ -501,6 +509,11 @@ class Scroll_Image extends Powerpack_Widget {
 		$this->add_render_attribute( [
 			'container' => [
 				'class' => 'pp-image-scroll-container',
+				// Both triggers need a tab stop: 'scroll' makes this an overflow
+				// container, 'hover' reveals the image via a transform on focus.
+				'tabindex'   => '0',
+				'role'       => 'group',
+				'aria-label' => esc_html__( 'Scrollable image', 'powerpack-lite-for-elementor' ),
 			],
 			'direction_type' => [
 				'class' => [ 'pp-image-scroll-image', 'pp-image-scroll-' . $settings['direction_type'] ],
@@ -524,15 +537,11 @@ class Scroll_Image extends Powerpack_Widget {
 				<?php } ?>
 				<div <?php $this->print_render_attribute_string( 'direction_type' ); ?>>
 					<?php if ( 'yes' === $settings['overlay'] ) { ?>
-						<div class="pp-image-scroll-overlay pp-media-overlay">
+						<div class="pp-image-scroll-overlay pp-media-overlay"></div>
 					<?php } ?>
 					<?php if ( ! empty( $link_url ) ) { ?>
-							<a <?php $this->print_render_attribute_string( 'link' ); ?>></a>
+						<a <?php $this->print_render_attribute_string( 'link' ); ?>></a>
 					<?php } ?>
-					<?php if ( 'yes' === $settings['overlay'] ) { ?>
-						</div> 
-					<?php } ?>
-
 					<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings ) ); ?>
 				</div>
 			</div>
@@ -569,9 +578,15 @@ class Scroll_Image extends Powerpack_Widget {
 				view.addRenderAttribute( 'link', 'class', 'pp-image-scroll-link pp-media-content' );
 				url = settings.link.url;
 				view.addRenderAttribute( 'link', 'href',  url );
+				view.addRenderAttribute( 'link', 'aria-label', '<?php echo esc_js( __( 'View image', 'powerpack-lite-for-elementor' ) ); ?>' );
 			}
 
-			view.addRenderAttribute( 'container', 'class', 'pp-image-scroll-container' );
+			view.addRenderAttribute( 'container', {
+				'class': 'pp-image-scroll-container',
+				'tabindex': '0',
+				'role': 'group',
+				'aria-label': '<?php echo esc_js( __( 'Scrollable image', 'powerpack-lite-for-elementor' ) ); ?>'
+			} );
 
 			view.addRenderAttribute( 'direction_type', 'class', 'pp-image-scroll-image pp-image-scroll-' + direction );
 		#>
@@ -590,13 +605,10 @@ class Scroll_Image extends Powerpack_Widget {
 				<# } #>
 				<div {{{ view.getRenderAttributeString('direction_type') }}}>
 					<# if( 'yes' == settings.overlay ) { #>
-						<div class="pp-image-scroll-overlay pp-media-overlay">
+						<div class="pp-image-scroll-overlay pp-media-overlay"></div>
 					<# }
 					if ( settings.link.url ) { #>
 						<a {{{ view.getRenderAttributeString('link') }}}></a>
-					<# }
-					if( 'yes' == settings.overlay ) { #>
-						</div> 
 					<# }
 
 					var image = {
@@ -608,7 +620,7 @@ class Scroll_Image extends Powerpack_Widget {
 					};
 					var image_url = elementor.imagesManager.getImageUrl( image );
 					#>
-					<img src="{{ _.escape( image_url ) }}" />
+					<img src="{{ _.escape( image_url ) }}" alt="" />
 				</div>
 			</div>
 		</div>

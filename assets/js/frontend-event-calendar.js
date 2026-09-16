@@ -71,32 +71,112 @@
 					right: buildToolbarSlot(elementSettings.footer_right_groups)
 				} : false;
 
-				// Helper to format times according to provided format string (best-effort)
-				const buildTimeFormatter = function (timeFormatString) {
-					// returns a function(date) => formatted string
-					return function (date) {
-						// date is a Date object
-						if (!date || !(date instanceof Date)) {
-							return '';
-						}
-						const options = {};
+				// Month, weekday and am/pm names in the site language, printed with the popup.
+				let dateI18n = {};
+				try {
+					dateI18n = JSON.parse(popup.attr('data-date-i18n') || '{}');
+				} catch (e) {
+					dateI18n = {};
+				}
 
-						// Determine hour options
-						if (timeFormatString && timeFormatString.indexOf('H') !== -1) {
-							options.hour = '2-digit';
-							options.hour12 = false;
-						} else {
-							options.hour = 'numeric';
-							options.hour12 = true;
-						}
-						options.minute = '2-digit';
+				// Format a date with a PHP date() format string, the syntax WordPress uses for
+				// its own date and time settings. A backslash escapes the next character.
+				const formatPhpDate = function (date, format, utc) {
+					if (!format || isNaN(date.getTime())) {
+						return '';
+					}
 
-						const formatted = new Intl.DateTimeFormat('en-US', options).format(date);
-						if (timeFormatString && (timeFormatString.indexOf('a') !== -1)) {
-							return formatted.toLowerCase();
-						}
-						return formatted;
+					const get = (unit) => date[(utc ? 'getUTC' : 'get') + unit](),
+						pad = (value) => String(value).padStart(2, '0'),
+						year = get('FullYear'),
+						month = get('Month'),
+						day = get('Date'),
+						weekday = get('Day'),
+						hours = get('Hours'),
+						hours12 = hours % 12 || 12,
+						meridiem = hours < 12 ? 'am' : 'pm';
+
+					// Site-language name, falling back to English when none was printed.
+					const name = (list, index, options) => (dateI18n[list] && dateI18n[list][index]) ||
+						new Intl.DateTimeFormat('en-US', Object.assign({ timeZone: utc ? 'UTC' : undefined }, options)).format(date);
+
+					const tokens = {
+						d: () => pad(day),
+						D: () => name('weekdaysShort', weekday, { weekday: 'short' }),
+						j: () => day,
+						l: () => name('weekdays', weekday, { weekday: 'long' }),
+						N: () => weekday || 7,
+						S: () => (day > 3 && day < 21) ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[day % 10] || 'th'),
+						w: () => weekday,
+						F: () => name('months', month, { month: 'long' }),
+						m: () => pad(month + 1),
+						M: () => name('monthsShort', month, { month: 'short' }),
+						n: () => month + 1,
+						Y: () => year,
+						y: () => pad(year % 100),
+						a: () => (dateI18n.meridiem && dateI18n.meridiem[meridiem]) || meridiem,
+						A: () => (dateI18n.meridiem && dateI18n.meridiem[meridiem.toUpperCase()]) || meridiem.toUpperCase(),
+						g: () => hours12,
+						G: () => hours,
+						h: () => pad(hours12),
+						H: () => pad(hours),
+						i: () => pad(get('Minutes')),
+						s: () => pad(get('Seconds'))
 					};
+
+					let output = '';
+
+					for (let i = 0; i < format.length; i++) {
+						const char = format[i];
+
+						if ('\\' === char) {
+							i++;
+							output += format[i] || '';
+						} else {
+							output += Object.prototype.hasOwnProperty.call(tokens, char) ? tokens[char]() : char;
+						}
+					}
+
+					return output;
+				};
+
+				// Text for an Event Date & Time popup field, built from the formats on its element.
+				const getEventTimeText = function (event, $field) {
+					const dateFormat = $field.attr('data-date-format') || '',
+						timeFormat = $field.attr('data-time-format') || '',
+						start = new Date(event.startStr),
+						end = new Date(event.endStr);
+
+					if (event.allDay) {
+						const alldayText = $field.attr('data-allday-text') || elementSettings.allday_text || '';
+
+						// All-day dates carry no time, so read them in UTC to keep the day from shifting.
+						let dayText = formatPhpDate(start, dateFormat, true);
+
+						if (dayText && !isNaN(end.getTime())) {
+							// FullCalendar's all-day end date is exclusive.
+							end.setUTCDate(end.getUTCDate() - 1);
+
+							const endDayText = formatPhpDate(end, dateFormat, true);
+							if (end.getTime() > start.getTime() && endDayText !== dayText) {
+								dayText += ' - ' + endDayText;
+							}
+						}
+
+						return [dayText, alldayText].filter(Boolean).join(' ');
+					}
+
+					const startText = [formatPhpDate(start, dateFormat), formatPhpDate(start, timeFormat)].filter(Boolean).join(' ');
+
+					if (isNaN(end.getTime()) || end.getTime() <= start.getTime()) {
+						return startText;
+					}
+
+					// Repeat the date on the end only when the event runs into another day.
+					const endDate = start.toDateString() === end.toDateString() ? '' : formatPhpDate(end, dateFormat),
+						endText = [endDate, formatPhpDate(end, timeFormat)].filter(Boolean).join(' ');
+
+					return endText ? startText + ' - ' + endText : startText;
 				};
 
 				// Resolve calendar sizing: 'auto' fits content, 'fixed' uses an explicit
@@ -170,16 +250,7 @@
 							if ('popup' === elementSettings.event_click_action) {
 								info.jsEvent.preventDefault();
 
-								const parseToDate = function (timeString) {
-									return new Date(timeString);
-								};
-								const time_format = timesFormat !== undefined ? timesFormat : 'g:i a';
-								const timeFormatter = buildTimeFormatter(time_format);
-
-								const allDay = info.event.allDay,
-									title = info.event.title,
-									startDate = info.event.startStr,
-									endDate = info.event.endStr,
+								const title = info.event.title,
 									guest = info.event.extendedProps ? info.event.extendedProps.guest : '',
 									location = info.event.extendedProps ? info.event.extendedProps.location : '',
 									description = info.event.extendedProps ? info.event.extendedProps.description : '',
@@ -238,21 +309,15 @@
 									descWrap.html(description);
 								}
 
-								// time markup
-								if (allDay !== true) {
-									timeWrap.show();
-									const sDate = parseToDate(startDate);
-									const eDate = parseToDate(endDate);
-									const startTimeText = timeFormatter(sDate);
-									let endTimeText = 'Invalid Data';
-									if (!isNaN(eDate.getTime()) && sDate.getTime() < eDate.getTime()) {
-										endTimeText = timeFormatter(eDate);
-									}
-									timeWrap.find('span.pp-event-calendar-event-time').text(startTimeText + ' - ' + endTimeText);
-								} else {
-									timeWrap.show();
-									timeWrap.find('span.pp-event-calendar-event-time').text(elementSettings.allday_text);
-								}
+								// date & time markup: each field has its own formats
+								timeWrap.each(function () {
+									const $wrap = $(this),
+										$time = $wrap.find('span.pp-event-calendar-event-time'),
+										timeText = getEventTimeText(info.event, $time);
+
+									$time.text(timeText);
+									$wrap.toggle('' !== timeText);
+								});
 
 								// read more markup
 								if (detailsUrl) {

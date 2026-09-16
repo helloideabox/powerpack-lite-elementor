@@ -443,6 +443,23 @@ class Progress_Bar extends Powerpack_Widget {
 			]
 		);
 
+		/**
+		 * @since x.x.x
+		 */
+		$this->add_control(
+			'accessible_label',
+			[
+				'label'       => esc_html__( 'Accessible Label', 'powerpack-lite-for-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [
+					'active' => true,
+				],
+				'default'     => esc_html__( 'Progress', 'powerpack-lite-for-elementor' ),
+				'description' => esc_html__( 'Screen reader name used when no visible label is shown (e.g. multiple labels).', 'powerpack-lite-for-elementor' ),
+				'label_block' => true,
+			]
+		);
+
 		$this->add_control(
 			'title_tag',
 			[
@@ -1300,6 +1317,8 @@ class Progress_Bar extends Powerpack_Widget {
 		$count_pos  = 'after' === $settings['percentage_position'] ? 'after' : 'before';
 
 		$bar_setting_key = 'bar_wrapper';
+		$label_id        = 'pp-progress-label-' . $this->get_id();
+		$has_label       = ! Utils::is_empty( $title ) && 'multiple' !== $settings['labels_type'];
 
 		$this->add_render_attribute(
 			$bar_setting_key,
@@ -1312,6 +1331,13 @@ class Progress_Bar extends Powerpack_Widget {
 				'data-value'    => $percentage,
 			]
 		);
+
+		if ( $has_label ) {
+			$this->add_render_attribute( $bar_setting_key, 'aria-labelledby', $label_id );
+		} else {
+			$accessible_label = ! empty( $settings['accessible_label'] ) ? $settings['accessible_label'] : esc_html__( 'Progress', 'powerpack-lite-for-elementor' );
+			$this->add_render_attribute( $bar_setting_key, 'aria-label', $accessible_label );
+		}
 
 		if ( 'striped' === $style ) {
 			$this->add_render_attribute( $bar_setting_key, 'class', 'pp-progress-bar-striped' );
@@ -1328,7 +1354,7 @@ class Progress_Bar extends Powerpack_Widget {
 		?>
 		<div <?php $this->print_render_attribute_string( $bar_setting_key ); ?>>
 			<?php if ( 'single' === $settings['labels_type'] && ( ( 'line' === $type || 'dots' === $type ) && ! Utils::is_empty( $title ) ) ) : ?>
-				<<?php Utils::print_validated_html_tag( $settings['title_tag'] ); ?> class="pp-progress-label">
+				<<?php Utils::print_validated_html_tag( $settings['title_tag'] ); ?> id="<?php echo esc_attr( $label_id ); ?>" class="pp-progress-label">
 					<?php echo esc_html( $title ); ?>
 				</<?php Utils::print_validated_html_tag( $settings['title_tag'] ); ?>>
 			<?php endif; ?>
@@ -1342,7 +1368,7 @@ class Progress_Bar extends Powerpack_Widget {
 				)
 			) {
 				?>
-				<div class="pp-progress-count">0%</div>
+				<div class="pp-progress-count" aria-hidden="true">0%</div>
 				<?php
 			}
 
@@ -1365,7 +1391,14 @@ class Progress_Bar extends Powerpack_Widget {
 						</div>
 						<div class="pp-bar-circle-inner"></div>
 						<div class="pp-bar-circle-content">
-							<?php $this->render_circle_label_and_count( $settings, $title, $show_count, $count_pos ); ?>
+							<?php if ( 'yes' === $settings['display_percentage'] ) { ?>
+								<div class="pp-progress-count" aria-hidden="true">0%</div>
+							<?php } ?>
+							<?php if ( ! Utils::is_empty( $title ) ) : ?>
+								<<?php Utils::print_validated_html_tag( $settings['title_tag'] ); ?> id="<?php echo esc_attr( $label_id ); ?>" class="pp-progress-label">
+									<?php echo esc_html( $title ); ?>
+								</<?php Utils::print_validated_html_tag( $settings['title_tag'] ); ?>>
+							<?php endif; ?>
 						</div>
 					</div>
 				<?php break;
@@ -1379,7 +1412,14 @@ class Progress_Bar extends Powerpack_Widget {
 							<div class="pp-bar-circle-inner"></div>
 						</div>
 						<div class="pp-bar-circle-content">
-							<?php $this->render_circle_label_and_count( $settings, $title, $show_count, $count_pos ); ?>
+							<?php if ( 'yes' === $settings['display_percentage'] ) { ?>
+								<div class="pp-progress-count" aria-hidden="true">0%</div>
+							<?php } ?>
+							<?php if ( ! Utils::is_empty( $title ) ) : ?>
+								<<?php Utils::print_validated_html_tag( $settings['title_tag'] ); ?> id="<?php echo esc_attr( $label_id ); ?>" class="pp-progress-label">
+									<?php echo esc_html( $title ); ?>
+								</<?php Utils::print_validated_html_tag( $settings['title_tag'] ); ?>>
+							<?php endif; ?>
 						</div>
 					</div>
 					<?php if ( 'show' === $settings['show_suffix'] ) { ?>
@@ -1414,12 +1454,12 @@ class Progress_Bar extends Powerpack_Widget {
 				'after' === $count_pos
 			) {
 				?>
-				<div class="pp-progress-count">0%</div>
+				<div class="pp-progress-count" aria-hidden="true">0%</div>
 				<?php
 			} ?>
 
 			<?php if ( 'single' === $settings['labels_type'] && 'vertical' === $type && ! Utils::is_empty( $title ) ) : ?>
-				<<?php Utils::print_validated_html_tag( $settings['title_tag'] ); ?> class="pp-progress-label">
+				<<?php Utils::print_validated_html_tag( $settings['title_tag'] ); ?> id="<?php echo esc_attr( $label_id ); ?>" class="pp-progress-label">
 					<?php echo esc_html( $title ); ?>
 				</<?php Utils::print_validated_html_tag( $settings['title_tag'] ); ?>>
 			<?php endif; ?>

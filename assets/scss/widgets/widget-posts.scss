@@ -857,3 +857,33 @@
 		float: none !important;
 	}
 }
+
+.pp-posts-container {
+
+	.pp-post-filter:focus-visible,
+	.pp-post-filters-dropdown-button:focus-visible,
+	.pp-posts-button:focus-visible,
+	.pp-post-load-more:focus-visible,
+	.pp-posts-pagination a:focus-visible,
+	.pp-slider-arrow:focus-visible,
+	.swiper-pagination-bullet:focus-visible,
+	.pp-post-title a:focus-visible {
+		outline: 2px solid #1a73e8;
+		outline-offset: 2px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.pp-posts-container {
+
+		&,
+		.swiper-wrapper,
+		.swiper-slide,
+		.pp-post-wrap,
+		.pp-post {
+			transition-duration: 0.001ms !important;
+			animation-duration: 0.001ms !important;
+		}
+	}
+}

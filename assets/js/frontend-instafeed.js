@@ -145,7 +145,34 @@
 					swiperOptions.breakpoints = breakpointsSettings;
 				}
 
-				if ( !this.isEdit && sliderSettings.autoplay ) {
+				/*
+				 * Swiper 8 runs its a11y module whether or not it is asked to, in its own
+				 * hardcoded English. The widget opts in through `a11y` in data-slider-settings
+				 * so the arrows, bullets and slides are named from the translated strings.
+				 */
+				if ( 'yes' === sliderSettings.a11y ) {
+					const i18n = this.getI18n();
+
+					swiperOptions.a11y = {
+						enabled:                    true,
+						prevSlideMessage:           i18n.prevSlide  || 'Previous slide',
+						nextSlideMessage:           i18n.nextSlide  || 'Next slide',
+						firstSlideMessage:          i18n.firstSlide || 'This is the first slide',
+						lastSlideMessage:           i18n.lastSlide  || 'This is the last slide',
+						paginationBulletMessage:    i18n.paginationBullet || 'Go to slide {{index}}',
+						slideLabelMessage:          i18n.slideLabel || 'Slide {{index}} of {{slidesLength}}',
+						slideRole:                  'group',
+						itemRoleDescriptionMessage: i18n.slideRoleDescription || 'slide',
+					};
+
+					swiperOptions.keyboard = {
+						enabled:        true,
+						onlyInViewport: true,
+					};
+				}
+
+				// Autoplay is decorative, so a system-level request for reduced motion always wins.
+				if ( !this.isEdit && sliderSettings.autoplay && ! this.isMotionReduced() ) {
 					swiperOptions.autoplay = {
 						delay: sliderSettings.autoplay_speed,
 						disableOnInteraction: !!sliderSettings.pause_on_interaction
@@ -153,6 +180,16 @@
 				}
 
 				return swiperOptions;
+			}
+
+			getI18n() {
+				return ( 'undefined' !== typeof ppInstafeedScript && ppInstafeedScript.i18n )
+					? ppInstafeedScript.i18n
+					: {};
+			}
+
+			isMotionReduced() {
+				return !! ( window.matchMedia && window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches );
 			}
 
 			bindEvents() {
@@ -200,6 +237,16 @@
 					this.masonry.destroy();
 				}
 
+				if ( this.onNavigationIntent ) {
+					this.$element[0].removeEventListener( 'pointerdown', this.onNavigationIntent, true );
+					this.$element[0].removeEventListener( 'keydown', this.onNavigationIntent, true );
+				}
+
+				if ( this.swiper ) {
+					this.togglePauseOnHover( false );
+					this.togglePauseOnFocus( false );
+				}
+
 				if ( super.onDestroy ) {
 					super.onDestroy();
 				}
@@ -211,9 +258,155 @@
 				const Swiper = elementorFrontend.utils.swiper;
     			this.swiper = await new Swiper(this.elements.$swiperContainer, this.getSwiperOptions());
 
-				if ('yes' === elementSettings.pause_on_hover) {
+				/*
+				 * params.autoplay.enabled, not the widget setting: it is true only where the
+				 * autoplay actually started, so never in the editor and never once reduced
+				 * motion has held it back. autoplay.start() has no such guard, so a resume
+				 * bound on a carousel that is not autoplaying would start one.
+				 */
+				const autoplayStarted = !! ( this.swiper.params.autoplay && this.swiper.params.autoplay.enabled );
+
+				if ( autoplayStarted && 'yes' === elementSettings.pause_on_hover ) {
 					this.togglePauseOnHover(true);
 				}
+
+				if ( autoplayStarted ) {
+					this.togglePauseOnFocus( true );
+				}
+
+				this.syncSlideVisibility();
+
+				// Autoplay must not speak. An announcement answers the user having moved the carousel.
+				this.userNavigated = false;
+
+				/*
+				 * Swiper emits navigationNext/navigationPrev only after the slide has changed,
+				 * so a flag set from those is one press behind. Marking the intent on the way
+				 * down, in the capture phase, gets there before slideChange.
+				 */
+				const controls = '.pp-slider-arrow, .swiper-pagination-bullet';
+
+				this.onNavigationIntent = ( e ) => {
+					const onControl = e.target.closest && e.target.closest( controls );
+
+					if ( 'keydown' === e.type ) {
+						const isArrowKey   = ( 'ArrowLeft' === e.key || 'ArrowRight' === e.key );
+						const isActivation = onControl && ( 'Enter' === e.key || ' ' === e.key );
+
+						if ( ! isArrowKey && ! isActivation ) {
+							return;
+						}
+					} else if ( ! onControl ) {
+						return;
+					}
+
+					this.userNavigated = true;
+				};
+
+				this.$element[0].addEventListener( 'pointerdown', this.onNavigationIntent, true );
+				this.$element[0].addEventListener( 'keydown', this.onNavigationIntent, true );
+
+				// A swipe is deliberate too, and touchEnd lands before the transition.
+				this.swiper.on( 'touchEnd', () => {
+					this.userNavigated = true;
+				} );
+
+				const statusId = this.$element.find( '.pp-screen-only[aria-live]' ).attr( 'id' );
+
+				if ( statusId ) {
+					/*
+					 * Swiper points the arrows' aria-controls at the slides wrapper, which is
+					 * correct and stays; the status region only describes the result. Swiper
+					 * also makes that wrapper a polite live region, which would read the new
+					 * slide a second time on top of the status announcement.
+					 */
+					this.$element.find( '.pp-slider-arrow' ).attr( 'aria-describedby', statusId );
+
+					if ( this.swiper.$wrapperEl ) {
+						this.swiper.$wrapperEl.attr( 'aria-live', 'off' );
+					}
+				}
+
+				this.swiper.on( 'slideChange', () => {
+					this.announceSlidePosition();
+				} );
+
+				this.swiper.on( 'slideChangeTransitionEnd resize breakpoint', () => {
+					this.syncSlideVisibility();
+				} );
+			}
+
+			/**
+			 * Slides that are off screen have to leave the accessibility tree and the tab order
+			 * together, or tabbing walks into links that are scrolled out of view.
+			 * watchSlidesProgress already maintains the class this reads.
+			 */
+			syncSlideVisibility() {
+				const $slides = this.elements.$swiperContainer.find( '.swiper-slide' );
+
+				// Effects that never set the visibility class must not hide every slide.
+				const hasVisibilityClass = $slides.filter( '.swiper-slide-visible' ).length > 0;
+
+				$slides.each( function () {
+					// A slide is never itself a control, so it should hold no tabindex at all.
+					this.removeAttribute( 'tabindex' );
+
+					if ( ! hasVisibilityClass || this.classList.contains( 'swiper-slide-visible' ) ) {
+						this.removeAttribute( 'aria-hidden' );
+						this.removeAttribute( 'inert' );
+					} else {
+						this.setAttribute( 'aria-hidden', 'true' );
+						// inert is what takes the link inside out of the tab order.
+						this.setAttribute( 'inert', '' );
+					}
+				} );
+			}
+
+			/**
+			 * Announces the slide position, but only where the user asked for the move.
+			 */
+			announceSlidePosition() {
+				if ( ! this.userNavigated ) {
+					return;
+				}
+
+				this.userNavigated = false;
+
+				const statusFormat = this.getI18n().slideStatus || 'Showing Slide %1$s of %2$s';
+
+				this.$element.find( '.pp-screen-only[aria-live]' ).text(
+					statusFormat
+						.replace( '%1$s', this.swiper.realIndex + 1 )
+						.replace( '%2$s', this.getSlidesCount() )
+				);
+			}
+
+			/**
+			 * Autoplay stops while focus is anywhere in the widget, arrows and dots included,
+			 * which sit outside the Swiper container.
+			 */
+			togglePauseOnFocus( toggleOn ) {
+				if ( ! toggleOn ) {
+					this.$element.off( 'focusin.ppInstafeed focusout.ppInstafeed' );
+					return;
+				}
+
+				this.$element.on( 'focusin.ppInstafeed', () => {
+					if ( this.swiper && this.swiper.autoplay && this.swiper.autoplay.running ) {
+						this.swiper.autoplay.stop();
+					}
+				} );
+
+				this.$element.on( 'focusout.ppInstafeed', ( e ) => {
+					// Moving between two controls inside the widget is not leaving it.
+					if ( e.relatedTarget && this.$element[0].contains( e.relatedTarget ) ) {
+						return;
+					}
+
+					if ( this.swiper && this.swiper.autoplay && ! this.swiper.autoplay.running ) {
+						this.swiper.autoplay.start();
+					}
+				} );
 			}
 
 			togglePauseOnHover(toggleOn) {
@@ -223,6 +416,11 @@
 							this.swiper.autoplay.stop();
 						},
 						mouseleave: () => {
+							// Focus inside the widget holds the pause the pointer is releasing.
+							if ( this.$element[0].contains( document.activeElement ) ) {
+								return;
+							}
+
 							this.swiper.autoplay.start();
 						}
 					});

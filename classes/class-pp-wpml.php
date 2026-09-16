@@ -1002,6 +1002,11 @@ class PP_Elements_WPML {
 					'type'        => esc_html__( 'Twitter Button - Custom Share URL', 'powerpack-lite-for-elementor' ),
 					'editor_type' => 'LINK',
 				],
+				[
+					'field'       => 'button_label',
+					'type'        => esc_html__( 'Twitter Button - Button Text', 'powerpack-lite-for-elementor' ),
+					'editor_type' => 'LINE',
+				],
 			],
 		];
 		$widgets['pp-twitter-grid']         = [

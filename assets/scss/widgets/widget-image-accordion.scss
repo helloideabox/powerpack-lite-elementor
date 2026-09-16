@@ -41,7 +41,9 @@
     }
 
     .pp-image-accordion-button {
-        transition: all 0.25s linear 0s;
+        // visibility is excluded so the link is tabbable in the same frame its item
+        // opens; eased, it stays hidden for the first frame and Tab skips it.
+        transition: all 0.25s linear 0s, visibility 0s;
     }
 }
 
@@ -85,11 +87,52 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    // Never taller than the item, so content that outgrows it (enlarged text) is
+    // clipped at the bottom rather than the top, where the script can make it scroll.
+    max-height: 100%;
     visibility: hidden;
 
     p:last-child {
         margin-bottom: 0;
     }
+}
+
+// Added by the script only while the open item's content is taller than the item.
+.pp-image-accordion-content-scroll {
+    overflow-y: auto;
+}
+
+// The chosen title tag, holding a screen reader copy of the title and (unless the
+// container is the link) the trigger. Fills the overlay beneath the content, which
+// has z-index: 1, so a click anywhere on a collapsed item still lands on the trigger.
+.pp-image-accordion-heading {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.pp-image-accordion-trigger {
+    position: absolute;
+    inset: 0;
+    display: block;
+    cursor: pointer;
+}
+
+// Behind the overlay: gives VoiceOver a box to land on, never takes a click.
+.pp-image-accordion-image {
+    position: absolute;
+    inset: 0;
+}
+
+// Drawn inside the box: the item's overflow:hidden clips any ring outside it. The white
+// outline over a black inset shadow keeps 3:1 against any image.
+.pp-image-accordion-trigger:focus-visible,
+a.pp-image-accordion-overlay:focus-visible,
+.pp-image-accordion-content-scroll:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+    box-shadow: inset 0 0 0 4px #000;
 }
 
 .pp-image-accordion-content-wrap * {
@@ -120,7 +163,9 @@
     opacity: 1;
     visibility: visible;
     transform: none !important;
-    transition: all .3s .3s;
+    // visibility flips at once so links inside are tabbable straight after Enter;
+    // the fade and slide keep their delay.
+    transition: all .3s .3s, visibility 0s;
 }
 
 .pp-image-accordion-on-hover {
@@ -132,7 +177,7 @@
             opacity: 1;
             visibility: visible;
             transform: none;
-            transition: all .3s .3s;
+            transition: all .3s .3s, visibility 0s;
         }
     }
 }
@@ -173,6 +218,25 @@
         .pp-image-accordion-item {
             margin-inline-end: 0 !important;
         }
+    }
+}
+
+// The resize, slide and fade are decorative, so a system-level request for reduced
+// motion is always honoured; there is no author opt-out.
+@media (prefers-reduced-motion: reduce) {
+
+    .pp-image-accordion-item,
+    .pp-image-accordion-overlay,
+    .pp-image-accordion-content-wrap *,
+    .pp-image-accordion .pp-image-accordion-button {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .pp-image-accordion-title,
+    .pp-image-accordion-description,
+    .pp-image-accordion-button-wrap {
+        transform: none;
     }
 }
 

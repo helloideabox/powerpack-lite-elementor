@@ -35,6 +35,28 @@
                 margin-inline-start: 4px;
             }
         }
+
+        select {
+            border-radius: 0;
+            height: auto;
+            display: inline-block;
+            appearance: none;
+        }
+
+        .pp-gf-select-custom {
+            position: relative;
+
+            &::after {
+                content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNMjAxLjQgMzQyLjZjMTIuNSAxMi41IDMyLjggMTIuNSA0NS4zIDBsMTYwLTE2MGMxMi41LTEyLjUgMTIuNS0zMi44IDAtNDUuM3MtMzIuOC0xMi41LTQ1LjMgMEwyMjQgMjc0LjcgODYuNiAxMzcuNGMtMTIuNS0xMi41LTMyLjgtMTIuNS00NS4zIDBzLTEyLjUgMzIuOCAwIDQ1LjNsMTYwIDE2MHoiLz48L3N2Zz4=);
+                pointer-events: none;
+                position: absolute;
+                inset-inline-end: .8em;
+
+                @include center(vertical);
+                width: 12px;
+                z-index: 2;
+            }
+        }
     }
 
     &.title-description-hide {
@@ -47,9 +69,40 @@
     &.labels-hide {
 
         .gform_wrapper .top_label .gfield_label,
-        .gform_wrapper .field_sublabel_below .ginput_complex.ginput_container label {
-            display: none;
+        .gform_wrapper .gfield_label,
+        .gform_wrapper .field_sublabel_below .ginput_complex.ginput_container label,
+        .gform_wrapper .field_sublabel_above .ginput_complex.ginput_container label {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            margin: -1px !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            clip-path: inset(50%) !important;
+            border: 0 !important;
+            white-space: nowrap !important;
         }
+    }
+
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    button:focus-visible,
+    input[type="submit"]:focus-visible,
+    button[type="submit"]:focus-visible,
+    .gform_previous_button:focus-visible,
+    .gform_next_button:focus-visible {
+        outline: 2px solid Highlight;
+        outline-offset: 2px;
+    }
+
+    .gform_confirmation_wrapper:focus,
+    .gform_confirmation_message:focus,
+    .gform_validation_errors:focus,
+    .validation_error:focus,
+    .gform_submission_error:focus {
+        outline: none;
     }
 
     .gform_footer,
@@ -101,30 +154,22 @@
     }
 }
 
-.pp-gravity-form {
+.pp-screen-only {
+    position: absolute !important;
+    top: -10000em !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+}
 
-	.gform_wrapper {
+.pp-gravity-form-title {
+    margin-bottom: 10px;
+}
 
-		select {
-			border-radius: 0;
-			height: auto;
-			display: inline-block;
-			appearance: none;
-		}
-
-		.pp-gf-select-custom {
-			position: relative;
-
-			&::after {
-				content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNMjAxLjQgMzQyLjZjMTIuNSAxMi41IDMyLjggMTIuNSA0NS4zIDBsMTYwLTE2MGMxMi41LTEyLjUgMTIuNS0zMi44IDAtNDUuM3MtMzIuOC0xMi41LTQ1LjMgMEwyMjQgMjc0LjcgODYuNiAxMzcuNGMtMTIuNS0xMi41LTMyLjgtMTIuNS00NS4zIDBzLTEyLjUgMzIuOCAwIDQ1LjNsMTYwIDE2MHoiLz48L3N2Zz4=);
-				pointer-events: none;
-				position: absolute;
-				inset-inline-end: .8em;
-
-                @include center(vertical);
-                width: 12px;
-				z-index: 2;
-			}
-		}
-	}
+.pp-gravity-form-description {
+    margin-bottom: 20px;
 }
