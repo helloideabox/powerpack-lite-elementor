@@ -1885,7 +1885,7 @@ class Team_Member extends Powerpack_Widget {
 	 * Uses the network name derived from the icon, falling back to a generic
 	 * label so the link is never announced without a name.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @param string $social Network slug from the icon. Empty for SVG icons.
 	 * @return string
@@ -1901,7 +1901,7 @@ class Team_Member extends Powerpack_Widget {
 	/**
 	 * Render a single social icon, hidden from assistive technology.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @param array $item     Repeater item settings.
 	 * @param bool  $is_new   Whether the item uses the icons control.

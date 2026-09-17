@@ -193,7 +193,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 		/**
 		 * Visible fallback text, which doubles as the button's accessible name.
 		 *
-		 * @since x.x.x
+		 * @since 3.1.0
 		 */
 		$this->add_control(
 			'button_label',
@@ -247,7 +247,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 	 * value cannot be concatenated into a URL as-is. A "#hashtag" value is especially
 	 * damaging: the "#" terminates the query string, leaving button_hashtag empty.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access private
 	 *
 	 * @param string $value  Raw control value.
@@ -278,7 +278,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 	 * Twitter's fallback markup is a bare verb ("Follow", "Hashtag"), which conveys no
 	 * link purpose when several buttons share a page.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access private
 	 *
 	 * @param string $type    Selected button type.
@@ -323,7 +323,7 @@ class Twitter_Buttons extends Powerpack_Widget {
 	 * get_locale() returns "fr_FR"; the widget API expects "fr", or "zh-cn"/"zh-tw" for
 	 * the Chinese variants. Unrecognized values silently render the button in English.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access private
 	 *
 	 * @return string Language code.

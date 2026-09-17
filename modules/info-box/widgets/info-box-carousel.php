@@ -3111,7 +3111,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 	/**
 	 * The screen-reader note a link that opens in a new tab carries.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access protected
 	 *
 	 * @param array $link The repeater item's link setting.

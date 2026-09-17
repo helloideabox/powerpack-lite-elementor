@@ -222,7 +222,7 @@ class PP_Helper {
 	 * A link to any other host is returned untouched, so a URL swapped in
 	 * through a filter never picks up PowerPack's tracking.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @param string $url    Link to tag.
 	 * @param string $medium Where the link is shown.
@@ -250,7 +250,7 @@ class PP_Helper {
 		 *
 		 * Return an empty array to leave links untagged.
 		 *
-		 * @since x.x.x
+		 * @since 3.1.0
 		 *
 		 * @param array  $params Query parameter => value.
 		 * @param string $url    Link being tagged.
@@ -714,7 +714,7 @@ class PP_Helper {
 	 * in 'arrow', which is not a registered control, so it only exists on that old data.
 	 * Those come back with an empty 'library'.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @param array  $settings Widget settings.
 	 * @param string $prefix   Control ID prefix. Default empty.
@@ -761,7 +761,7 @@ class PP_Helper {
 	 * The word boundary keeps icons such as 'download' and 'copyright' intact. Uploaded SVG
 	 * icons have no class to flip and are returned unchanged.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @param array $icon Icon control value.
 	 * @return array
@@ -860,7 +860,7 @@ class PP_Helper {
 	 * {{index}} and {{slidesLength}} placeholders are substituted by Swiper
 	 * itself, not by us.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access public
 	 *
 	 * @param array $extra Widget-specific strings, merged over the shared set.
@@ -897,7 +897,7 @@ class PP_Helper {
 	 *
 	 * The return value is not escaped, so escape it at the point of output.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access public
 	 *
 	 * @param int|string $current Slide number now showing, one based.
@@ -922,7 +922,7 @@ class PP_Helper {
 	 * slide change read from here, so the announcement says the same thing before
 	 * and after the first move and translators only see the string once.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access private
 	 *
 	 * @return string

@@ -1274,7 +1274,7 @@ class Price_Menu extends Powerpack_Widget {
 	 * in the accessibility tree; without these labels the two prices are read as
 	 * one undifferentiated string.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access protected
 	 *
 	 * @param array  $item               Repeater item settings.

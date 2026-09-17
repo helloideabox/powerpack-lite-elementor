@@ -1625,7 +1625,7 @@ class Marquee extends Powerpack_Widget {
 	 * title. Returns an empty string when the link already names itself, so no
 	 * aria-label ever overrides visible content.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access protected
 	 *
 	 * @param array $item Marquee item, already carrying its `fields`.
@@ -1651,7 +1651,7 @@ class Marquee extends Powerpack_Widget {
 	 * Attachments go through wp_get_attachment_image(), which reads the alt meta only
 	 * and has not fallen back to the caption or title since WordPress 5.5.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access protected
 	 *
 	 * @param array $field Image field.

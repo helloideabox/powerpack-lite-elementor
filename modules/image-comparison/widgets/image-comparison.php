@@ -937,7 +937,7 @@ class Image_Comparison extends Powerpack_Widget {
 	 * post title, which is normally the file name, so only an alt the author actually
 	 * wrote is used here.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access protected
 	 *
 	 * @param array  $settings Widget settings.

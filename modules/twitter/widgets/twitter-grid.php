@@ -56,7 +56,7 @@ class Twitter_Grid extends Powerpack_Widget {
 	 * Deprecated widgets stay registered so existing elements keep rendering and
 	 * stay editable, but cannot be dragged onto a new page.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @return bool
 	 */

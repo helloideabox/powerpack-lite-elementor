@@ -3115,7 +3115,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 	 * The social links hold nothing but an aria-hidden icon, so without this their
 	 * accessible name is empty and a screen reader falls back to reading the URL.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @param string $network_name Network slug.
 	 * @access private
 	 * @return string

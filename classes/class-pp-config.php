@@ -905,7 +905,7 @@ class PP_Config {
 	 * A group with no entry here, such as one added through the filter, is
 	 * shown under its key after all the groups listed here.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @return array Group key => [ 'title' => string, 'short' => string, 'priority' => int ].
 	 */
@@ -971,7 +971,7 @@ class PP_Config {
 		/**
 		 * Filters how the widget groups are presented on the Elements screen.
 		 *
-		 * @since x.x.x
+		 * @since 3.1.0
 		 *
 		 * @param array $groups Group key => [ 'title' => string, 'short' => string, 'priority' => int ].
 		 */

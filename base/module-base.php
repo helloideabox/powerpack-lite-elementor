@@ -120,7 +120,7 @@ abstract class Module_Base {
 	 * because modules are checked on 'elementor/init', before the plugin's text
 	 * domain loads, and the config would cache its titles untranslated.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @param string $widget Widget class name, as returned by get_widgets().
 	 * @return string Widget name, e.g. 'pp-image-hotspots'.
 	 */

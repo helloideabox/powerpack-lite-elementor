@@ -234,7 +234,7 @@ class Interactive_Circle extends Powerpack_Widget {
 		/**
 		 * HTML tag for the content title, so it can be a real heading.
 		 *
-		 * @since x.x.x
+		 * @since 3.1.0
 		 */
 		$this->add_control(
 			'title_html_tag',
@@ -1417,7 +1417,7 @@ class Interactive_Circle extends Powerpack_Widget {
 	 * ARIA tab because each panel sits beside its tab inside the same item,
 	 * which a tablist does not allow.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @param int  $item_count 1-based item number.
 	 * @param bool $is_active  Whether the item is open by default.

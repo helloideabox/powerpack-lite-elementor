@@ -179,7 +179,7 @@ function powerpack_elements_lite_get_enabled_modules_lookup( $reset = false ) {
  * read as the current name, and the settings save swaps them for it, since it
  * otherwise keeps any stored name it does not recognise.
  *
- * @since x.x.x
+ * @since 3.1.0
  * @return array Map of legacy name => current name.
  */
 function powerpack_elements_lite_get_legacy_module_names() {

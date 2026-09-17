@@ -2744,7 +2744,7 @@ class Event_Calendar extends Powerpack_Widget {
 	/**
 	 * Resolve the date or time format an Event Date & Time popup field uses.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access protected
 	 * @param array  $field Popup header field (repeater item).
 	 * @param string $type  'date' or 'time'.

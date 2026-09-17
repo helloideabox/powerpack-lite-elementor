@@ -90,7 +90,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		/**
 		 * Optional override for the timeline's link text and accessible name.
 		 *
-		 * @since x.x.x
+		 * @since 3.1.0
 		 */
 		$this->add_control(
 			'timeline_label',
@@ -227,7 +227,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 	 * Authors type "@handle" or paste a full profile URL; both produce a 404 link and
 	 * an embed the script cannot parse, leaving the broken fallback link on screen.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @access protected
 	 *
@@ -259,7 +259,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 	 * expects `de`, or `zh-cn`/`zh-tw` for the Chinese variants. Without it the embed
 	 * falls back to English chrome inside a translated page.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @access protected
 	 *
@@ -279,7 +279,7 @@ class Twitter_Timeline extends Powerpack_Widget {
 		/**
 		 * Filters the language tag passed to the X/Twitter embed.
 		 *
-		 * @since x.x.x
+		 * @since 3.1.0
 		 *
 		 * @param string $locale Language tag derived from the site locale.
 		 */

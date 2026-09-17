@@ -30,7 +30,7 @@ class WPforms extends Powerpack_Widget {
 	 * Holds the custom title ID while the form is rendered, so the
 	 * wpforms_frontend_form_atts filter can point the form element at it.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access private
 	 *
 	 * @var string
@@ -87,7 +87,7 @@ class WPforms extends Powerpack_Widget {
 	 *
 	 * Used to set styles dependencies required to run the widget.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access public
 	 *
 	 * @return array Widget styles dependencies.
@@ -101,7 +101,7 @@ class WPforms extends Powerpack_Widget {
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access public
 	 *
 	 * @return array Widget scripts dependencies.
@@ -199,7 +199,7 @@ class WPforms extends Powerpack_Widget {
 		/**
 		 * Heading level for the custom form title.
 		 *
-		 * @since x.x.x
+		 * @since 3.1.0
 		 */
 		$this->add_control(
 			'title_tag',
@@ -1765,7 +1765,7 @@ class WPforms extends Powerpack_Widget {
 	 * form, so without this the form is announced without a name and multiple forms
 	 * on a page cannot be told apart.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access public
 	 *
 	 * @param array $form_atts Form attributes.

@@ -28,7 +28,7 @@ class Content_Ticker extends Powerpack_Widget {
 	/**
 	 * Number of rendered items, used in the initial slide status.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @var int
 	 */
 	public $total_slides = 1;
@@ -36,7 +36,7 @@ class Content_Ticker extends Powerpack_Widget {
 	/**
 	 * Plain-text title of the first item, appended to the initial slide status.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @var string
 	 */
 	public $first_slide_label = '';
@@ -2154,7 +2154,7 @@ class Content_Ticker extends Powerpack_Widget {
 	 * Accessible label for a slide, from the same string Swiper's a11y module is given,
 	 * so the label reads the same before and after the carousel initialises.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access protected
 	 *
 	 * @param int $index Position of the slide, counted from 1.

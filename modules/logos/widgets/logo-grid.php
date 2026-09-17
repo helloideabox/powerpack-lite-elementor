@@ -928,7 +928,7 @@ class Logo_Grid extends Powerpack_Widget {
 	 * shown beside the logo it already carries the name, so the image keeps whatever
 	 * alt it has.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access protected
 	 *
 	 * @param array $item        Repeater item data.
@@ -959,7 +959,7 @@ class Logo_Grid extends Powerpack_Widget {
 	 * Nothing else tells a screen reader user that the tab is about to change, and
 	 * the link text itself is the author's, so the notice rides inside the link.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access protected
 	 *
 	 * @param array $link The repeater item's link setting.

@@ -176,7 +176,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 	 * unrecognised value is dropped and the embed silently falls back to English,
 	 * leaving its UI chrome in the wrong language inside a translated page.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @access protected
 	 *
@@ -196,7 +196,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 		/**
 		 * Filters the language tag passed to the X/Twitter embed.
 		 *
-		 * @since x.x.x
+		 * @since 3.1.0
 		 *
 		 * @param string $locale Language tag derived from the site locale.
 		 */
@@ -213,7 +213,7 @@ class Twitter_Tweet extends Powerpack_Widget {
 	 * twitter.com is what the official oEmbed markup uses, so rewriting the host
 	 * is safe for the fallback link as well.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @access protected
 	 *

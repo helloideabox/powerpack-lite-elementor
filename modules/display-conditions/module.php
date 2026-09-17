@@ -309,7 +309,7 @@ class Module extends Module_Base {
 	 * on every request. The filter is only consulted while the cache is being
 	 * built, so this costs nothing when element caching is off.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 *
 	 * @param bool  $is_dynamic_content Whether the element output is dynamic.
 	 * @param array $raw_data           Raw element data.

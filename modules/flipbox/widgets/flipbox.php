@@ -98,7 +98,7 @@ class Flipbox extends Powerpack_Widget {
 	 *
 	 * Retrieve the list of script dependencies the widget requires.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access public
 	 *
 	 * @return array Widget script dependencies.
@@ -1748,7 +1748,7 @@ class Flipbox extends Powerpack_Widget {
 	 *
 	 * Falls back from the front title to the front description, then to a generic label.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access protected
 	 *
 	 * @return string Plain-text label.
@@ -1774,7 +1774,7 @@ class Flipbox extends Powerpack_Widget {
 	 * The back face is only revealed by hover in CSS, so this is what makes it reachable for
 	 * keyboard, touch and screen reader users. Visually hidden until it receives focus.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @access protected
 	 *
 	 * @param string $side `open` for the front face, `close` for the back face.

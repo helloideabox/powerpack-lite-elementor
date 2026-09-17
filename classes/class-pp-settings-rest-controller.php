@@ -477,7 +477,7 @@ final class PP_Settings_REST_Controller {
 	 * name drops a trailing "Elements" the way the built-in groups' short names
 	 * do, and it has no priority, so it sorts after the described groups.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @param array $widget_info Widget catalogue from PP_Config.
 	 * @return array Group key => [ 'title' => string, 'short' => string, 'priority' => int|null ].
 	 */
@@ -507,7 +507,7 @@ final class PP_Settings_REST_Controller {
 	 * filter, follow in the order they were added. Equal priorities keep
 	 * catalogue order too, whichever PHP version sorts them.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.0
 	 * @param array $widget_info Widget catalogue from PP_Config.
 	 * @param array $groups      Group key => [ 'priority' => int|null, ... ], from category_groups().
 	 * @return array The same catalogue, ordered.
