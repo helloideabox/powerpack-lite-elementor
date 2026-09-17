@@ -443,23 +443,6 @@ class Progress_Bar extends Powerpack_Widget {
 			]
 		);
 
-		/**
-		 * @since x.x.x
-		 */
-		$this->add_control(
-			'accessible_label',
-			[
-				'label'       => esc_html__( 'Accessible Label', 'powerpack-lite-for-elementor' ),
-				'type'        => Controls_Manager::TEXT,
-				'dynamic'     => [
-					'active' => true,
-				],
-				'default'     => esc_html__( 'Progress', 'powerpack-lite-for-elementor' ),
-				'description' => esc_html__( 'Screen reader name used when no visible label is shown (e.g. multiple labels).', 'powerpack-lite-for-elementor' ),
-				'label_block' => true,
-			]
-		);
-
 		$this->add_control(
 			'title_tag',
 			[
@@ -1335,8 +1318,7 @@ class Progress_Bar extends Powerpack_Widget {
 		if ( $has_label ) {
 			$this->add_render_attribute( $bar_setting_key, 'aria-labelledby', $label_id );
 		} else {
-			$accessible_label = ! empty( $settings['accessible_label'] ) ? $settings['accessible_label'] : esc_html__( 'Progress', 'powerpack-lite-for-elementor' );
-			$this->add_render_attribute( $bar_setting_key, 'aria-label', $accessible_label );
+			$this->add_render_attribute( $bar_setting_key, 'aria-label', esc_html__( 'Progress', 'powerpack-lite-for-elementor' ) );
 		}
 
 		if ( 'striped' === $style ) {

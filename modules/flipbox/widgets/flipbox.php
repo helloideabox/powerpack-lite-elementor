@@ -93,6 +93,20 @@ class Flipbox extends Powerpack_Widget {
 		return [ 'widget-pp-flipbox' ];
 	}
 
+	/**
+	 * Get script dependencies.
+	 *
+	 * Retrieve the list of script dependencies the widget requires.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Widget script dependencies.
+	 */
+	public function get_script_depends(): array {
+		return [ 'pp-flipbox' ];
+	}
+
 	public function has_widget_inner_wrapper(): bool {
 		return ! PP_Helper::is_feature_active( 'e_optimized_markup' );
 	}
@@ -1729,6 +1743,72 @@ class Flipbox extends Powerpack_Widget {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Get the accessible name of the card.
+	 *
+	 * Falls back from the front title to the front description, then to a generic label.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @return string Plain-text label.
+	 */
+	protected function get_flipbox_accessible_label() {
+		$settings = $this->get_settings_for_display();
+		$label    = ! empty( $settings['title_front'] ) ? wp_strip_all_tags( $settings['title_front'] ) : '';
+
+		if ( empty( $label ) && ! empty( $settings['description_front'] ) ) {
+			$label = wp_strip_all_tags( $settings['description_front'] );
+		}
+
+		if ( empty( $label ) ) {
+			$label = __( 'Flip box', 'powerpack-lite-for-elementor' );
+		}
+
+		return trim( $label );
+	}
+
+	/**
+	 * Render the control that flips the card open or closed.
+	 *
+	 * The back face is only revealed by hover in CSS, so this is what makes it reachable for
+	 * keyboard, touch and screen reader users. Visually hidden until it receives focus.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @param string $side `open` for the front face, `close` for the back face.
+	 */
+	protected function render_flip_trigger( $side ) {
+		$key   = 'flip-trigger-' . $side;
+		$label = $this->get_flipbox_accessible_label();
+
+		if ( 'close' === $side ) {
+			$text = __( 'Hide details', 'powerpack-lite-for-elementor' );
+			/* translators: %s: flip box title. */
+			$name = sprintf( __( 'Hide details: %s', 'powerpack-lite-for-elementor' ), $label );
+		} else {
+			$text = __( 'Show details', 'powerpack-lite-for-elementor' );
+			/* translators: %s: flip box title. */
+			$name = sprintf( __( 'Show details: %s', 'powerpack-lite-for-elementor' ), $label );
+		}
+
+		$this->add_render_attribute(
+			$key,
+			[
+				'class'         => [ 'pp-flipbox-flip-trigger', 'pp-flipbox-flip-trigger--' . $side ],
+				'role'          => 'button',
+				'tabindex'      => '0',
+				'aria-expanded' => 'false',
+				'aria-controls' => 'pp-flipbox-back-' . $this->get_id(),
+				'aria-label'    => $name,
+			]
+		);
+		?>
+		<div <?php $this->print_render_attribute_string( $key ); ?>><?php echo esc_html( $text ); ?></div>
+		<?php
+	}
+
 	protected function render_front() {
 		$settings = $this->get_settings_for_display();
 
@@ -1795,6 +1875,7 @@ class Flipbox extends Powerpack_Widget {
 					</div>
 				</div>
 			</div>
+			<?php $this->render_flip_trigger( 'open' ); ?>
 		</div>
 		<?php
 	}
@@ -1864,8 +1945,11 @@ class Flipbox extends Powerpack_Widget {
 			}
 		}
 		?>
-		<div class="pp-flipbox-back">
+		<div class="pp-flipbox-back" id="<?php echo esc_attr( 'pp-flipbox-back-' . $this->get_id() ); ?>">
 			<?php
+			// First in the back face so focus lands on it before the box link when the card opens.
+			$this->render_flip_trigger( 'close' );
+
 			if ( 'box' === $settings['link_type'] && $settings['link']['url'] ) {
 				$this->add_render_attribute( 'box-link', 'class', 'pp-flipbox-box-link' );
 
@@ -1881,7 +1965,7 @@ class Flipbox extends Powerpack_Widget {
 					$box_link_label = esc_html__( 'Learn more', 'powerpack-lite-for-elementor' );
 				}
 
-				$this->add_render_attribute( 'box-link', 'aria-label', esc_attr( $box_link_label ) );
+				$this->add_render_attribute( 'box-link', 'aria-label', $box_link_label );
 				?>
 				<a <?php $this->print_render_attribute_string( 'box-link' ); ?>></a>
 			<?php } ?>
@@ -1924,7 +2008,7 @@ class Flipbox extends Powerpack_Widget {
 								$this->render_button_icon();
 							endif;
 
-							echo esc_attr( $settings['flipbox_button_text'] );
+							echo esc_html( $settings['flipbox_button_text'] );
 
 							if ( 'after' === $settings['button_icon_position'] ) :
 								$this->render_button_icon();
@@ -1985,16 +2069,6 @@ class Flipbox extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 		$flipbox_if_html_tag = 'div';
 
-		$accessible_label = ! empty( $settings['title_front'] ) ? wp_strip_all_tags( $settings['title_front'] ) : '';
-
-		if ( empty( $accessible_label ) && ! empty( $settings['description_front'] ) ) {
-			$accessible_label = wp_strip_all_tags( $settings['description_front'] );
-		}
-
-		if ( empty( $accessible_label ) ) {
-			$accessible_label = esc_html__( 'Flip box', 'powerpack-lite-for-elementor' );
-		}
-
 		$this->add_render_attribute(
 			[
 				'flipbox-card' => [
@@ -2008,19 +2082,14 @@ class Flipbox extends Powerpack_Widget {
 						'pp-animate-' . esc_attr( $settings['flip_effect'] ),
 						'pp-direction-' . esc_attr( $settings['flip_direction'] ),
 					],
-					'tabindex'              => '0',
 					'role'                  => 'group',
-					'aria-roledescription'  => esc_attr__( 'flip card', 'powerpack-lite-for-elementor' ),
-					'aria-label'            => esc_attr( $accessible_label ),
-					'aria-describedby'      => $this->get_id() . '-pp-flipbox-hint',
+					'aria-roledescription'  => __( 'flip card', 'powerpack-lite-for-elementor' ),
+					'aria-label'            => $this->get_flipbox_accessible_label(),
 				],
 			]
 		);
 		?>
 		<div <?php $this->print_render_attribute_string( 'flipbox-container' ); ?>>
-			<span id="<?php echo esc_attr( $this->get_id() ); ?>-pp-flipbox-hint" class="pp-flipbox-sr-hint">
-				<?php esc_html_e( 'Use Tab or hover to reveal the back of this card.', 'powerpack-lite-for-elementor' ); ?>
-			</span>
 			<div <?php $this->print_render_attribute_string( 'flipbox-card' ); ?>>
 				<?php
 					// Front
@@ -2067,12 +2136,39 @@ class Flipbox extends Powerpack_Widget {
 					'pp-animate-' + settings.flip_effect,
 					'pp-direction-' + settings.flip_direction
 				],
-				'tabindex': '0',
 				'role': 'group',
 				'aria-roledescription': '<?php echo esc_js( __( 'flip card', 'powerpack-lite-for-elementor' ) ); ?>',
 				'aria-label': flipboxAccessibleLabel,
-				'aria-describedby': view.model.get( 'id' ) + '-pp-flipbox-hint',
 			} );
+
+			var flipTriggerTexts = {
+				open: {
+					text: '<?php echo esc_js( __( 'Show details', 'powerpack-lite-for-elementor' ) ); ?>',
+					name: '<?php /* translators: %s: flip box title. */ echo esc_js( __( 'Show details: %s', 'powerpack-lite-for-elementor' ) ); ?>'
+				},
+				close: {
+					text: '<?php echo esc_js( __( 'Hide details', 'powerpack-lite-for-elementor' ) ); ?>',
+					name: '<?php /* translators: %s: flip box title. */ echo esc_js( __( 'Hide details: %s', 'powerpack-lite-for-elementor' ) ); ?>'
+				}
+			};
+
+			function render_flip_trigger( side ) {
+				var key = 'flip-trigger-' + side;
+
+				view.addRenderAttribute( key, {
+					'class': [ 'pp-flipbox-flip-trigger', 'pp-flipbox-flip-trigger--' + side ],
+					'role': 'button',
+					'tabindex': '0',
+					'aria-expanded': 'false',
+					'aria-controls': 'pp-flipbox-back-' + view.model.get( 'id' ),
+					'aria-label': flipTriggerTexts[ side ].name.replace( '%s', function() {
+						return flipboxAccessibleLabel;
+					} ),
+				}, null, true );
+				#>
+				<div {{{ view.getRenderAttributeString( key ) }}}>{{ flipTriggerTexts[ side ].text }}</div>
+				<#
+			}
 
 			function render_button_icon() {
 				var buttonIconHTML = elementor.helpers.renderIcon( view, settings.select_button_icon, { 'aria-hidden': true }, 'i' , 'object' ),
@@ -2125,7 +2221,7 @@ class Flipbox extends Powerpack_Widget {
 									var flipbox_image_url = elementor.imagesManager.getImageUrl( flipbox_image );
 
 									if ( flipbox_image_url ) { #>
-										<img src="{{ _.escape( flipbox_image_url ) }}" />
+										<img src="{{ _.escape( flipbox_image_url ) }}" alt="" />
 									<# }
 								} else if ( 'text' === settings.icon_type ) { #>
 									<span class="pp-icon-text">
@@ -2145,6 +2241,7 @@ class Flipbox extends Powerpack_Widget {
 							</div>
 						</div>
 					</div>
+					<# render_flip_trigger( 'open' ); #>
 				</div>
 				<#
 			}
@@ -2189,8 +2286,10 @@ class Flipbox extends Powerpack_Widget {
 					}
 				}
 				#>
-				<div class="pp-flipbox-back">
+				<div class="pp-flipbox-back" id="pp-flipbox-back-{{ view.model.get( 'id' ) }}">
 					<#
+					render_flip_trigger( 'close' );
+
 					if ( 'box' === settings.link_type && settings.link.url ) {
 						view.addRenderAttribute( 'box-link', 'class', 'pp-flipbox-box-link' );
 						view.addRenderAttribute( 'box-link', 'href', settings.link.url );
@@ -2207,7 +2306,7 @@ class Flipbox extends Powerpack_Widget {
 
 						view.addRenderAttribute( 'box-link', 'aria-label', boxLinkLabel );
 						#>
-						<a <{{{ view.getRenderAttributeString( 'box-link' ) }}}></a>
+						<a {{{ view.getRenderAttributeString( 'box-link' ) }}}></a>
 					<# } #>
 					<div class="pp-flipbox-overlay">
 						<div class="pp-flipbox-inner">
@@ -2233,7 +2332,7 @@ class Flipbox extends Powerpack_Widget {
 										var flipbox_image_url = elementor.imagesManager.getImageUrl( flipbox_image );
 
 										if ( flipbox_image_url ) { #>
-											<img src="{{ _.escape( flipbox_image_url ) }}" />
+											<img src="{{ _.escape( flipbox_image_url ) }}" alt="" />
 										<# }
 									} else if ( 'text' === settings.icon_type_back ) { #>
 										<span class="pp-icon-text">
@@ -2243,9 +2342,11 @@ class Flipbox extends Powerpack_Widget {
 								</div>
 							<# } #>
 
-							<{{{ titleBackHTMLTag }}} {{{ view.getRenderAttributeString( 'title-container' ) }}}>
-								{{{ settings.title_back }}}
-							</{{{ titleBackHTMLTag }}}>
+							<# if ( settings.title_back ) { #>
+								<{{{ titleBackHTMLTag }}} {{{ view.getRenderAttributeString( 'title-container' ) }}}>
+									{{{ settings.title_back }}}
+								</{{{ titleBackHTMLTag }}}>
+							<# } #>
 
 							<div class="pp-flipbox-content">
 								{{{ settings.description_back }}}
@@ -2275,7 +2376,6 @@ class Flipbox extends Powerpack_Widget {
 			}
 		#>
 		<div {{{ view.getRenderAttributeString( 'flipbox-container' ) }}}>
-			<span id="{{ view.model.get( 'id' ) }}-pp-flipbox-hint" class="pp-flipbox-sr-hint"><?php echo esc_js( __( 'Use Tab or hover to reveal the back of this card.', 'powerpack-lite-for-elementor' ) ); ?></span>
 			<div {{{ view.getRenderAttributeString( 'flipbox-card' ) }}}>
 				<#
 					render_front();

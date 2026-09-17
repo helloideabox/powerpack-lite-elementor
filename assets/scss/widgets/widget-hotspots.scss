@@ -25,6 +25,34 @@
 	top: 30%;
     border-radius: 50%;
     display: block;
+
+    &:focus-visible {
+        outline: 2px solid #000;
+        outline-offset: 2px;
+    }
+
+    // 24x24 minimum hit area without changing the visual size (WCAG 2.5.8).
+    &::after {
+        content: '';
+        position: absolute;
+
+        /*rtl:ignore*/
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 100%;
+        min-width: 24px;
+        min-height: 24px;
+
+        /*rtl:ignore*/
+        transform: translate(-50%, -50%);
+    }
+
+    // Hold the glow still on hover (the hit area above covers the inner span) and on keyboard focus.
+    &:hover .hotspot-animation::before,
+    &:focus-within .hotspot-animation::before {
+        animation: none;
+    }
 }
 
 .pp-hot-spot-image {
@@ -87,6 +115,24 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pp-hot-spot-inner.hotspot-animation::before {
+        animation: none;
+    }
+}
+
+// Always Open: the in-order screen-reader copy must not inherit the tooltip library's display:none.
+.pp-image-hotspots .pp-tooltip-container.elementor-screen-only {
+    display: block;
+}
+
+// Always Open: shows focus on the visible clone while its screen-reader copy is focused.
+.pp-tooltip .pp-hotspot-focus-proxy {
+    outline: 2px solid currentcolor;
+    outline-offset: 2px;
 }
 
 @keyframes pp-glow {

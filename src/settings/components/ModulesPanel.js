@@ -24,19 +24,6 @@ const boot = window.ppSettingsBootstrap || {};
 const KEY = 'pp_elementor_modules';
 
 /**
- * Shorten a category name for the category list.
- *
- * Every category is named "<something> Elements", which is redundant inside a
- * panel already titled Elements. The names are plain array keys in PP_Config
- * rather than translated strings, so matching the English suffix is safe.
- * Anything that does not match, or would be left empty, keeps its full name.
- *
- * @param {string} name Category name.
- * @return {string} Name for the list.
- */
-const shortName = ( name ) => name.replace( /\s*Elements$/, '' ).trim() || name;
-
-/**
  * Whether a widget is missing credentials it cannot work without.
  *
  * Only the credentials a widget genuinely needs count — flagging optional ones
@@ -448,7 +435,7 @@ export default function ModulesPanel( {
 								onClick={ () => scrollTo( category.slug ) }
 							>
 								<span className="pp-category-nav-name">
-									{ shortName( category.name ) }
+									{ category.shortName || category.name }
 								</span>
 								{ /*
 								  * A group of nothing but paid widgets has no
@@ -634,6 +621,27 @@ export default function ModulesPanel( {
 													  * tallest card.
 													  */ }
 													<div className="pp-module-flags">
+														{ /*
+														  * A deprecated widget is listed
+														  * only while the site still has
+														  * it on, and cannot be dropped
+														  * onto a page any more, so this
+														  * card is the only warning the
+														  * user gets before the widget
+														  * goes.
+														  */ }
+														{ widget.isDeprecated && (
+															<span
+																className="pp-module-deprecated"
+																title={ __(
+																	'This widget is no longer maintained and will be removed in a future version.',
+																	'powerpack-lite-for-elementor'
+																) }
+															>
+																{ __( 'Deprecated', 'powerpack-lite-for-elementor' ) }
+															</span>
+														) }
+
 														{ canReachIntegration && widget.integration && (
 															<SetupFlag
 																widget={ widget }

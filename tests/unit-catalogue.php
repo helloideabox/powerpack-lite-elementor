@@ -90,7 +90,7 @@ $names      = [];
 $duplicates = [];
 
 foreach ( $flat as $key => $widget ) {
-	foreach ( [ 'name', 'title', 'icon', 'categories' ] as $required ) {
+	foreach ( [ 'name', 'title', 'icon' ] as $required ) {
 		if ( empty( $widget[ $required ] ) ) {
 			$incomplete[] = "$key.$required";
 		}
@@ -103,7 +103,7 @@ foreach ( $flat as $key => $widget ) {
 	$names[ $widget['name'] ] = $key;
 }
 
-pp_check( 'every entry has a name, title, icon and categories', $incomplete, [] );
+pp_check( 'every entry has a name, title and icon', $incomplete, [] );
 pp_check( 'every widget name is unique across the catalogue', $duplicates, [] );
 
 /* ---------------------------------------------------------------------------

@@ -289,6 +289,16 @@ class PowerpackLitePlugin {
 		);
 
 		wp_register_script(
+			'pp-flipbox',
+			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-flipbox' . $suffix . '.js',
+			array(
+				'jquery',
+			),
+			POWERPACK_ELEMENTS_LITE_VER,
+			true
+		);
+
+		wp_register_script(
 			'pp-image-comparison',
 			POWERPACK_ELEMENTS_LITE_URL . $path . 'frontend-image-comparison' . $suffix . '.js',
 			array(

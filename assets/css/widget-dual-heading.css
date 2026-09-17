@@ -9,6 +9,37 @@
           align-items: baseline;
   gap: 6px;
 }
+.pp-dual-heading:focus, .pp-dual-heading:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  .pp-dual-heading:focus, .pp-dual-heading:focus-visible {
+    outline-color: Highlight;
+  }
+}
+.pp-dual-heading a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  gap: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+.pp-dual-heading a:focus, .pp-dual-heading a:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  .pp-dual-heading a:focus, .pp-dual-heading a:focus-visible {
+    outline-color: Highlight;
+  }
+}
 .pp-dual-heading .pp-first-text {
   white-space: normal;
 }

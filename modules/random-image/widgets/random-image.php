@@ -48,19 +48,6 @@ class Random_Image extends Powerpack_Widget {
 	}
 
 	/**
-	 * Retrieve the list of categories the Random Image widget belongs to.
-	 *
-	 * Used to determine where to display the widget in the editor.
-	 *
-	 * @access public
-	 *
-	 * @return array Widget categories.
-	 */
-	public function get_categories() {
-		return parent::get_widget_categories( 'Random_Image' );
-	}
-
-	/**
 	 * Retrieve Random Image widget icon.
 	 *
 	 * @access public

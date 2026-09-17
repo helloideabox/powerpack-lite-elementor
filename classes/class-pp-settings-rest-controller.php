@@ -304,7 +304,12 @@ final class PP_Settings_REST_Controller {
 				}
 
 				if ( $show_docs ) {
-					$descriptor['docs'] = (array) call_user_func( $field['docs'] );
+					$descriptor['docs'] = array_map(
+						function ( $url ) {
+							return PP_Helper::get_tracked_url( $url, 'settings' );
+						},
+						(array) call_user_func( $field['docs'] )
+					);
 				}
 			}
 
@@ -387,8 +392,9 @@ final class PP_Settings_REST_Controller {
 		$show_demo   = 'on' !== ( $wl['hide_demo_links'] ?? 'off' );
 		$show_docs   = 'on' !== ( $wl['hide_docs_links'] ?? 'off' );
 		$integration = self::integration_state();
+		$groups      = self::category_groups( $widget_info );
 
-		ksort( $widget_info );
+		$widget_info = self::sort_categories( $widget_info, $groups );
 
 		$categories = [];
 
@@ -414,17 +420,34 @@ final class PP_Settings_REST_Controller {
 					continue;
 				}
 
+				/*
+				 * A deprecated widget is listed only while the site still has it
+				 * switched on. It cannot be added to a page any more, so showing
+				 * it to a site that never used it is an invitation to turn on
+				 * something that is on its way out; a site that does use it needs
+				 * somewhere to find it and switch it off. Dropping it from the
+				 * catalogue outright would take that away — the enabled list the
+				 * client submits is seeded from the stored option rather than from
+				 * this response, so an unlisted name stays switched on for good.
+				 */
+				$is_deprecated = ! empty( $widget_data['deprecated'] );
+
+				if ( $is_deprecated && ! isset( $enabled[ $name ] ) ) {
+					continue;
+				}
+
 				$section = isset( $widget_data['integration'] ) ? $widget_data['integration'] : '';
 
 				$items[] = [
-					'name'        => $name,
-					'title'       => self::plain_text( isset( $widget_data['title'] ) ? $widget_data['title'] : ucfirst( $widget_key ) ),
-					'icon'        => isset( $widget_data['icon'] ) ? $widget_data['icon'] : '',
-					'demo'        => $show_demo && ! empty( $widget_data['demo'] ) ? $widget_data['demo'] : '',
-					'docs'        => $show_docs && ! empty( $widget_data['docs'] ) ? $widget_data['docs'] : '',
-					'enabled'     => ! $is_pro && isset( $enabled[ $name ] ),
-					'isPro'       => $is_pro,
-					'integration' => isset( $integration[ $section ] ) ? $integration[ $section ] : null,
+					'name'         => $name,
+					'title'        => self::plain_text( isset( $widget_data['title'] ) ? $widget_data['title'] : ucfirst( $widget_key ) ),
+					'icon'         => isset( $widget_data['icon'] ) ? $widget_data['icon'] : '',
+					'demo'         => $show_demo && ! empty( $widget_data['demo'] ) ? PP_Helper::get_tracked_url( $widget_data['demo'], 'settings' ) : '',
+					'docs'         => $show_docs && ! empty( $widget_data['docs'] ) ? PP_Helper::get_tracked_url( $widget_data['docs'], 'settings' ) : '',
+					'enabled'      => ! $is_pro && isset( $enabled[ $name ] ),
+					'isPro'        => $is_pro,
+					'isDeprecated' => $is_deprecated,
+					'integration'  => isset( $integration[ $section ] ) ? $integration[ $section ] : null,
 				];
 			}
 
@@ -433,9 +456,10 @@ final class PP_Settings_REST_Controller {
 			}
 
 			$categories[] = [
-				'name'    => self::plain_text( $category_name ),
-				'slug'    => sanitize_title( $category_name ),
-				'widgets' => $items,
+				'name'      => self::plain_text( $groups[ $category_name ]['title'] ),
+				'shortName' => self::plain_text( $groups[ $category_name ]['short'] ),
+				'slug'      => sanitize_title( $category_name ),
+				'widgets'   => $items,
 			];
 		}
 
@@ -443,6 +467,65 @@ final class PP_Settings_REST_Controller {
 			'categories' => $categories,
 			'stats'      => powerpack_elements_lite_get_modules_stats(),
 		] );
+	}
+
+	/**
+	 * How each catalogue group is presented, for every group present.
+	 *
+	 * A group PP_Config does not describe, such as one added through the
+	 * powerpack_elements_widget_info filter, is titled with its key, its short
+	 * name drops a trailing "Elements" the way the built-in groups' short names
+	 * do, and it has no priority, so it sorts after the described groups.
+	 *
+	 * @since x.x.x
+	 * @param array $widget_info Widget catalogue from PP_Config.
+	 * @return array Group key => [ 'title' => string, 'short' => string, 'priority' => int|null ].
+	 */
+	private static function category_groups( $widget_info ) {
+		$known  = PP_Config::get_widget_groups();
+		$groups = [];
+
+		foreach ( array_keys( $widget_info ) as $key ) {
+			$title = ! empty( $known[ $key ]['title'] ) ? $known[ $key ]['title'] : $key;
+			$short = ! empty( $known[ $key ]['short'] ) ? $known[ $key ]['short'] : trim( preg_replace( '/\s*Elements$/', '', $key ) );
+
+			$groups[ $key ] = [
+				'title'    => $title,
+				'short'    => '' !== $short ? $short : $title,
+				'priority' => isset( $known[ $key ]['priority'] ) && is_numeric( $known[ $key ]['priority'] ) ? (int) $known[ $key ]['priority'] : null,
+			];
+		}
+
+		return $groups;
+	}
+
+	/**
+	 * Order the catalogue groups for display.
+	 *
+	 * By the priority PP_Config gives each group, lowest first. Groups without
+	 * one, such as those added through the powerpack_elements_widget_info
+	 * filter, follow in the order they were added. Equal priorities keep
+	 * catalogue order too, whichever PHP version sorts them.
+	 *
+	 * @since x.x.x
+	 * @param array $widget_info Widget catalogue from PP_Config.
+	 * @param array $groups      Group key => [ 'priority' => int|null, ... ], from category_groups().
+	 * @return array The same catalogue, ordered.
+	 */
+	private static function sort_categories( $widget_info, $groups ) {
+		$position = array_flip( array_keys( $widget_info ) );
+
+		uksort(
+			$widget_info,
+			function ( $a, $b ) use ( $groups, $position ) {
+				$pa = null === $groups[ $a ]['priority'] ? PHP_INT_MAX : $groups[ $a ]['priority'];
+				$pb = null === $groups[ $b ]['priority'] ? PHP_INT_MAX : $groups[ $b ]['priority'];
+
+				return $pa === $pb ? $position[ $a ] - $position[ $b ] : ( $pa < $pb ? -1 : 1 );
+			}
+		);
+
+		return $widget_info;
 	}
 
 	/**

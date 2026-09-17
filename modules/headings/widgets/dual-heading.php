@@ -190,6 +190,7 @@ class Dual_Heading extends Powerpack_Widget {
 			]
 		);
 
+
 		$this->add_control(
 			'second_part_display',
 			[
@@ -295,7 +296,7 @@ class Dual_Heading extends Powerpack_Widget {
 
 		$this->start_controls_tabs( 'dual_heading_tabs' );
 
-		$this->start_controls_tab( 'dual_heading_tab_first_part', array( 'label' => esc_html__( 'First Part', 'powerpack-lite-for-elementor' ) ) );
+		$this->start_controls_tab( 'dual_heading_tab_first_part', [ 'label' => esc_html__( 'First Part', 'powerpack-lite-for-elementor' ) ] );
 
 		$this->add_control(
 			'first_text_color',
@@ -398,7 +399,7 @@ class Dual_Heading extends Powerpack_Widget {
 
 		$this->end_controls_tab();
 
-		$this->start_controls_tab( 'dual_heading_tab_second_part', array( 'label' => esc_html__( 'Second Part', 'powerpack-lite-for-elementor' ) ) );
+		$this->start_controls_tab( 'dual_heading_tab_second_part', [ 'label' => esc_html__( 'Second Part', 'powerpack-lite-for-elementor' ) ] );
 
 		$this->add_control(
 			'second_text_color',
@@ -517,6 +518,7 @@ class Dual_Heading extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute( 'dual-heading', 'class', 'pp-dual-heading' );
+		$this->add_render_attribute( 'dual-heading', 'tabindex', '0' );
 		$this->add_inline_editing_attributes( 'first_text', 'basic' );
 		$this->add_render_attribute( 'first_text', 'class', 'pp-first-text' );
 		$this->add_inline_editing_attributes( 'second_text', 'basic' );
@@ -529,21 +531,29 @@ class Dual_Heading extends Powerpack_Widget {
 		if ( $settings['first_text'] || $settings['second_text'] ) {
 			$html_tag = PP_Helper::validate_html_tag( $settings['heading_html_tag'] );
 
-			$html = '<' . esc_html( $html_tag ) . ' ' . wp_kses_post( $this->get_render_attribute_string( 'dual-heading' ) ) . '>';
-				if ( ! empty( $settings['link']['url'] ) ) {
-					$html .= '<a ' . wp_kses_post( $this->get_render_attribute_string( 'dual-heading-link' ) ) . '>';
-				}
+			$html = '<' . esc_html( $html_tag ) . ' ' . $this->get_render_attribute_string( 'dual-heading' ) . '>';
+			if ( ! empty( $settings['link']['url'] ) ) {
+				$html .= '<a ' . $this->get_render_attribute_string( 'dual-heading-link' ) . '>';
+			}
 
-				if ( $settings['first_text'] ) {
-					$html .= '<span ' . wp_kses_post( $this->get_render_attribute_string( 'first_text' ) ) . '>' . $this->parse_text_editor( $settings['first_text'] ) . '</span>';
-				}
-				if ( $settings['second_text'] ) {
-					$html .= '<span ' . wp_kses_post( $this->get_render_attribute_string( 'second_text' ) ) . '>' . $this->parse_text_editor( $settings['second_text'] ) . '</span>';
-				}
+			if ( $settings['first_text'] ) {
+				$html .= '<span ' . $this->get_render_attribute_string( 'first_text' ) . '>' . $this->parse_text_editor( $settings['first_text'] ) . '</span>';
+			}
 
-				if ( ! empty( $settings['link']['url'] ) ) {
-					$html .= '</a>';
+			if ( $settings['first_text'] && $settings['second_text'] ) {
+				$html .= '<span class="elementor-screen-only"> </span>';
+			}
+
+			if ( $settings['second_text'] ) {
+				$html .= '<span ' . $this->get_render_attribute_string( 'second_text' ) . '>' . $this->parse_text_editor( $settings['second_text'] ) . '</span>';
+			}
+
+			if ( ! empty( $settings['link']['url'] ) ) {
+				if ( ! empty( $settings['link']['is_external'] ) ) {
+					$html .= '<span class="elementor-screen-only">' . esc_html__( '(opens in a new tab)', 'powerpack-lite-for-elementor' ) . '</span>';
 				}
+				$html .= '</a>';
+			}
 
 			$html .= '</' . esc_html( $html_tag ) . '>';
 
@@ -560,9 +570,16 @@ class Dual_Heading extends Powerpack_Widget {
 	 */
 	protected function content_template() {
 		?>
-		<# var headingHTMLTag = elementor.helpers.validateHTMLTag( settings.heading_html_tag ); #>
-		<{{{ headingHTMLTag }}} class="pp-dual-heading">
-			<# if ( settings.link.url ) { #><a href="{{ _.escape( settings.link.url ) }}"><# } #>
+		<#
+		var headingHTMLTag = elementor.helpers.validateHTMLTag( settings.heading_html_tag );
+		var hasLink        = settings.link && settings.link.url;
+		var newTabNotice   = ( hasLink && settings.link.is_external ) ? '<span class="elementor-screen-only"><?php echo esc_js( __( '(opens in a new tab)', 'powerpack-lite-for-elementor' ) ); ?></span>' : '';
+
+		view.addRenderAttribute( 'dual-heading', 'class', 'pp-dual-heading' );
+		view.addRenderAttribute( 'dual-heading', 'tabindex', '0' );
+		#>
+		<{{{ headingHTMLTag }}} {{{ view.getRenderAttributeString( 'dual-heading' ) }}}>
+			<# if ( hasLink ) { #><a href="{{ _.escape( settings.link.url ) }}"><# } #>
 				<#
 				if ( settings.first_text != '' ) {
 					var first_text = settings.first_text;
@@ -574,6 +591,10 @@ class Dual_Heading extends Powerpack_Widget {
 					var first_text_html = '<span' + ' ' + view.getRenderAttributeString( 'first_text' ) + '>' + first_text + '</span>';
 
 					print( first_text_html );
+				}
+
+				if ( settings.first_text != '' && settings.second_text != '' ) {
+					print( '<span class="elementor-screen-only"> </span>' );
 				}
 
 				if ( settings.second_text != '' ) {
@@ -588,7 +609,7 @@ class Dual_Heading extends Powerpack_Widget {
 					print( second_text_html );
 				}
 				#>
-			<# if ( settings.link.url ) { #></a><# } #>
+			<# if ( hasLink ) { #>{{{ newTabNotice }}}</a><# } #>
 		</{{{ headingHTMLTag }}}>
 		<?php
 	}

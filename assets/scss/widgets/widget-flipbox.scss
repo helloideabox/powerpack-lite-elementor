@@ -1,3 +1,26 @@
+// Open state of the card: pointer hover on devices that can hover (unless Esc dismissed it),
+// or the flipped class that frontend-flipbox.js sets from the trigger, a tap or focus.
+@mixin pp-flipbox-open {
+
+    &.pp-flipbox--flipped {
+        @content;
+    }
+
+    @media (hover: hover) {
+
+        &:hover:not(.pp-flipbox--dismissed) {
+            @content;
+        }
+    }
+}
+
+// Two-tone ring: the dark ring shows on light backgrounds, the white halo on dark ones.
+@mixin pp-flipbox-focus-ring {
+    outline: 2px solid #101010;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px #fff;
+}
+
 .pp-icon {
 	display: inline-block;
 	line-height: 1;
@@ -18,32 +41,39 @@
     position: relative;
     height: 300px;
     width: 100%;
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-back {
+            visibility: visible;
+
+            // Visible from the first frame rather than after the transition starts, so the
+            // script can move focus onto the close trigger the moment the card opens.
+            transition-property: all, visibility;
+            transition-duration: 500ms, 0s;
+        }
+    }
+
+    .pp-flipbox-linked-title:focus-visible,
+    .pp-flipbox-button:focus-visible {
+
+        @include pp-flipbox-focus-ring;
+    }
+
+    // The box link fills a container with overflow: hidden, so its ring is drawn inside.
+    .pp-flipbox-box-link:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: -6px;
+        box-shadow: inset 0 0 0 4px #101010;
+    }
 }
 
-.pp-flipbox-container:focus {
-    outline: 2px solid #1abc9c;
-    outline-offset: 2px;
-}
+// iOS only dispatches click events on non-interactive elements that look clickable.
+@media (hover: none) {
 
-.pp-flipbox-container:focus:not(:focus-visible) {
-    outline: none;
-}
-
-.pp-flipbox-container:focus-visible {
-    outline: 2px solid #1abc9c;
-    outline-offset: 2px;
-}
-
-.pp-flipbox-sr-hint {
-    position: absolute !important;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    .pp-flipbox-container {
+        cursor: pointer;
+    }
 }
 
 .pp-flipbox-icon-image,
@@ -107,10 +137,40 @@
     }
 }
 
-.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-flipbox-container:focus .pp-flipbox-back,
-.pp-flipbox-container:focus-within .pp-flipbox-back {
-    visibility: visible;
+/*--- Flip trigger: visually hidden until it receives focus ---*/
+.pp-flipbox-flip-trigger {
+    position: absolute;
+    z-index: 4;
+    bottom: 12px;
+    inset-inline-start: 12px;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    background: #101010;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.4;
+    cursor: pointer;
+
+    &:focus {
+        width: auto;
+        height: auto;
+        min-width: 24px;
+        min-height: 24px;
+        padding: 4px 12px;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        border: 1px solid #fff;
+        border-radius: 3px;
+
+        @include pp-flipbox-focus-ring;
+    }
 }
 
 .pp-flipbox-content,
@@ -152,32 +212,60 @@
 }
 
 /*--- Flip ---*/
-.pp-animate-flip.pp-direction-up.pp-flipbox-container:hover .pp-flipbox-flip-card,
-.pp-animate-flip.pp-direction-up.pp-flipbox-container:focus .pp-flipbox-flip-card,
-.pp-animate-flip.pp-direction-up.pp-flipbox-container:focus-within .pp-flipbox-flip-card,
 .pp-animate-flip.pp-direction-up .pp-flipbox-back {
     transform: rotateX(180deg);
 }
 
-.pp-animate-flip.pp-direction-down.pp-flipbox-container:hover .pp-flipbox-flip-card,
-.pp-animate-flip.pp-direction-down.pp-flipbox-container:focus .pp-flipbox-flip-card,
-.pp-animate-flip.pp-direction-down.pp-flipbox-container:focus-within .pp-flipbox-flip-card,
+.pp-animate-flip.pp-direction-up.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-flip-card {
+            transform: rotateX(180deg);
+        }
+    }
+}
+
 .pp-animate-flip.pp-direction-down .pp-flipbox-back {
     transform: rotateX(-180deg);
 }
 
-.pp-animate-flip.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-flip-card,
-.pp-animate-flip.pp-direction-left.pp-flipbox-container:focus .pp-flipbox-flip-card,
-.pp-animate-flip.pp-direction-left.pp-flipbox-container:focus-within .pp-flipbox-flip-card,
+.pp-animate-flip.pp-direction-down.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-flip-card {
+            transform: rotateX(-180deg);
+        }
+    }
+}
+
 .pp-animate-flip.pp-direction-left .pp-flipbox-back {
     transform: rotateY(-180deg);
 }
 
-.pp-animate-flip.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-flip-card,
-.pp-animate-flip.pp-direction-right.pp-flipbox-container:focus .pp-flipbox-flip-card,
-.pp-animate-flip.pp-direction-right.pp-flipbox-container:focus-within .pp-flipbox-flip-card,
+.pp-animate-flip.pp-direction-left.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-flip-card {
+            transform: rotateY(-180deg);
+        }
+    }
+}
+
 .pp-animate-flip.pp-direction-right .pp-flipbox-back {
     transform: rotateY(180deg);
+}
+
+.pp-animate-flip.pp-direction-right.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-flip-card {
+            transform: rotateY(180deg);
+        }
+    }
 }
 
 /*--- Slide ---*/
@@ -196,13 +284,15 @@
     top: 100%;
 }
 
-.pp-animate-push.pp-direction-up.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-push.pp-direction-up.pp-flipbox-container:focus .pp-flipbox-back,
-.pp-animate-push.pp-direction-up.pp-flipbox-container:focus-within .pp-flipbox-back,
-.pp-animate-slide.pp-direction-up.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-slide.pp-direction-up.pp-flipbox-container:focus .pp-flipbox-back,
-.pp-animate-slide.pp-direction-up.pp-flipbox-container:focus-within .pp-flipbox-back {
-    top: 0;
+.pp-animate-push.pp-direction-up.pp-flipbox-container,
+.pp-animate-slide.pp-direction-up.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-back {
+            top: 0;
+        }
+    }
 }
 
 .pp-animate-push.pp-direction-down .pp-flipbox-back,
@@ -211,14 +301,16 @@
     bottom: 100%;
 }
 
-.pp-animate-push.pp-direction-down.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-push.pp-direction-down.pp-flipbox-container:focus .pp-flipbox-back,
-.pp-animate-push.pp-direction-down.pp-flipbox-container:focus-within .pp-flipbox-back,
-.pp-animate-slide.pp-direction-down.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-slide.pp-direction-down.pp-flipbox-container:focus .pp-flipbox-back,
-.pp-animate-slide.pp-direction-down.pp-flipbox-container:focus-within .pp-flipbox-back {
-    top: auto;
-    bottom: 0;
+.pp-animate-push.pp-direction-down.pp-flipbox-container,
+.pp-animate-slide.pp-direction-down.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-back {
+            top: auto;
+            bottom: 0;
+        }
+    }
 }
 
 .pp-animate-push.pp-direction-left .pp-flipbox-back,
@@ -226,13 +318,15 @@
     inset-inline-start: 100%;
 }
 
-.pp-animate-push.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-push.pp-direction-left.pp-flipbox-container:focus .pp-flipbox-back,
-.pp-animate-push.pp-direction-left.pp-flipbox-container:focus-within .pp-flipbox-back,
-.pp-animate-slide.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-slide.pp-direction-left.pp-flipbox-container:focus .pp-flipbox-back,
-.pp-animate-slide.pp-direction-left.pp-flipbox-container:focus-within .pp-flipbox-back {
-    inset-inline-start: 0;
+.pp-animate-push.pp-direction-left.pp-flipbox-container,
+.pp-animate-slide.pp-direction-left.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-back {
+            inset-inline-start: 0;
+        }
+    }
 }
 
 .pp-animate-push.pp-direction-right .pp-flipbox-back,
@@ -241,39 +335,57 @@
     inset-inline-end: 100%;
 }
 
-.pp-animate-push.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-push.pp-direction-right.pp-flipbox-container:focus .pp-flipbox-back,
-.pp-animate-push.pp-direction-right.pp-flipbox-container:focus-within .pp-flipbox-back,
-.pp-animate-slide.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-back,
-.pp-animate-slide.pp-direction-right.pp-flipbox-container:focus .pp-flipbox-back,
-.pp-animate-slide.pp-direction-right.pp-flipbox-container:focus-within .pp-flipbox-back {
-    inset-inline-start: auto;
-    inset-inline-end: 0;
+.pp-animate-push.pp-direction-right.pp-flipbox-container,
+.pp-animate-slide.pp-direction-right.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-back {
+            inset-inline-start: auto;
+            inset-inline-end: 0;
+        }
+    }
 }
 
 /*--- Push + Slide Above ---*/
-.pp-animate-push.pp-direction-up.pp-flipbox-container:hover .pp-flipbox-front,
-.pp-animate-push.pp-direction-up.pp-flipbox-container:focus .pp-flipbox-front,
-.pp-animate-push.pp-direction-up.pp-flipbox-container:focus-within .pp-flipbox-front {
-    top: -100%;
+.pp-animate-push.pp-direction-up.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-front {
+            top: -100%;
+        }
+    }
 }
 
-.pp-animate-push.pp-direction-down.pp-flipbox-container:hover .pp-flipbox-front,
-.pp-animate-push.pp-direction-down.pp-flipbox-container:focus .pp-flipbox-front,
-.pp-animate-push.pp-direction-down.pp-flipbox-container:focus-within .pp-flipbox-front {
-    top: 100%;
+.pp-animate-push.pp-direction-down.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-front {
+            top: 100%;
+        }
+    }
 }
 
-.pp-animate-push.pp-direction-left.pp-flipbox-container:hover .pp-flipbox-front,
-.pp-animate-push.pp-direction-left.pp-flipbox-container:focus .pp-flipbox-front,
-.pp-animate-push.pp-direction-left.pp-flipbox-container:focus-within .pp-flipbox-front {
-    inset-inline-start: -100%;
+.pp-animate-push.pp-direction-left.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-front {
+            inset-inline-start: -100%;
+        }
+    }
 }
 
-.pp-animate-push.pp-direction-right.pp-flipbox-container:hover .pp-flipbox-front,
-.pp-animate-push.pp-direction-right.pp-flipbox-container:focus .pp-flipbox-front,
-.pp-animate-push.pp-direction-right.pp-flipbox-container:focus-within .pp-flipbox-front {
-    inset-inline-start: 100%;
+.pp-animate-push.pp-direction-right.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-front {
+            inset-inline-start: 100%;
+        }
+    }
 }
 
 /*--- Zoom In ---*/
@@ -285,11 +397,15 @@
         z-index: 3;
     }
 
-    &.pp-flipbox-container:hover .pp-flipbox-back,
-    &.pp-flipbox-container:focus .pp-flipbox-back,
-    &.pp-flipbox-container:focus-within .pp-flipbox-back {
-        opacity: 1;
-        transform: scale(1);
+    &.pp-flipbox-container {
+
+        @include pp-flipbox-open {
+
+            .pp-flipbox-back {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     }
 }
 
@@ -304,21 +420,29 @@
 		transition: transform .5s, opacity .35s, width .1ms;
 	}
 
-	&.pp-flipbox-container:hover .pp-flipbox-front,
-	&.pp-flipbox-container:focus .pp-flipbox-front,
-	&.pp-flipbox-container:focus-within .pp-flipbox-front {
-		opacity: 0;
-		width: 0;
-		transform: scale(0.75);
-		transition: transform .8s, opacity .5s .1s, width .1ms .5s;
+	&.pp-flipbox-container {
+
+        @include pp-flipbox-open {
+
+            .pp-flipbox-front {
+                opacity: 0;
+                width: 0;
+                transform: scale(0.75);
+                transition: transform .8s, opacity .5s .1s, width .1ms .5s;
+            }
+        }
 	}
 }
 
-.pp-animate-fade.pp-flipbox-container:hover .pp-flipbox-front,
-.pp-animate-fade.pp-flipbox-container:focus .pp-flipbox-front,
-.pp-animate-fade.pp-flipbox-container:focus-within .pp-flipbox-front {
-    opacity: 0;
-	visibility: hidden;
+.pp-animate-fade.pp-flipbox-container {
+
+    @include pp-flipbox-open {
+
+        .pp-flipbox-front {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

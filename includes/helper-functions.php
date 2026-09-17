@@ -153,18 +153,40 @@ function powerpack_elements_lite_get_enabled_modules_lookup( $reset = false ) {
 
 	$enabled_modules = powerpack_elements_lite_get_enabled_modules();
 	$lookup          = [];
+	$legacy_names    = powerpack_elements_lite_get_legacy_module_names();
 
 	if ( is_array( $enabled_modules ) ) {
 		foreach ( $enabled_modules as $key => $value ) {
 			$module_name = is_int( $key ) ? $value : $key;
 
 			if ( is_string( $module_name ) ) {
+				if ( isset( $legacy_names[ $module_name ] ) ) {
+					$module_name = $legacy_names[ $module_name ];
+				}
+
 				$lookup[ $module_name ] = true;
 			}
 		}
 	}
 
 	return $lookup;
+}
+
+/**
+ * Widget names saved before 3.0.0 that no longer match the widget's name.
+ *
+ * A site that last saved its widget list on 2.x still stores these. They are
+ * read as the current name, and the settings save swaps them for it, since it
+ * otherwise keeps any stored name it does not recognise.
+ *
+ * @since x.x.x
+ * @return array Map of legacy name => current name.
+ */
+function powerpack_elements_lite_get_legacy_module_names() {
+	return [
+		'pp-hotspots'     => 'pp-image-hotspots',
+		'pp-link-effects' => 'pa-link-effects',
+	];
 }
 
 /**

@@ -103,15 +103,38 @@ abstract class Module_Base {
 		$namespace       = $this->get_reflection()->getNamespaceName();
 
 		foreach ( $this->get_widgets() as $widget ) {
-			$widget_name     = strtolower( $widget );
-			$widget_filename = 'pp-' . str_replace( '_', '-', $widget_name );
-
-			if ( $this->is_widget_active( $widget_filename ) ) {
+			if ( $this->is_widget_active( self::get_widget_setting_name( $widget ) ) ) {
 				$class_name = $namespace . '\Widgets\\' . $widget;
 
 				$widgets_manager->register( new $class_name() );
 			}
 		}
+	}
+
+	/**
+	 * Name a widget is stored under in the enabled widgets list.
+	 *
+	 * That list holds the 'name' from PP_Config::get_widget_info(), which is
+	 * 'pp-' plus the widget class in kebab case for every widget except the ones
+	 * mapped here. Those are kept as a map rather than read from the config
+	 * because modules are checked on 'elementor/init', before the plugin's text
+	 * domain loads, and the config would cache its titles untranslated.
+	 *
+	 * @since x.x.x
+	 * @param string $widget Widget class name, as returned by get_widgets().
+	 * @return string Widget name, e.g. 'pp-image-hotspots'.
+	 */
+	public static function get_widget_setting_name( $widget ) {
+		$names = [
+			'Hotspots'     => 'pp-image-hotspots',
+			'Link_Effects' => 'pa-link-effects',
+		];
+
+		if ( isset( $names[ $widget ] ) ) {
+			return $names[ $widget ];
+		}
+
+		return 'pp-' . str_replace( '_', '-', strtolower( $widget ) );
 	}
 
 	public static function is_widget_active( $widget = '' ) {

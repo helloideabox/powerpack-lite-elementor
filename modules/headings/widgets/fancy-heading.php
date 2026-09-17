@@ -174,6 +174,7 @@ class Fancy_Heading extends Powerpack_Widget {
 			]
 		);
 
+
 		$this->add_responsive_control(
 			'align',
 			[
@@ -314,10 +315,11 @@ class Fancy_Heading extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute( 'fancy-heading', 'class', 'pp-fancy-heading' );
+		$this->add_render_attribute( 'fancy-heading', 'tabindex', '0' );
 		$this->add_inline_editing_attributes( 'heading_text', 'basic' );
 		$this->add_render_attribute( 'heading_text', 'class', 'pp-heading-text' );
 
-		if ( '' !== $settings['link']['url'] ) {
+		if ( ! empty( $settings['link']['url'] ) ) {
 			$this->add_link_attributes( 'fancy-heading-link', $settings['link'] );
 		}
 
@@ -326,7 +328,7 @@ class Fancy_Heading extends Powerpack_Widget {
 			?>
 			<<?php echo esc_html( $heading_html_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'fancy-heading' ) ); ?>>
 				<?php
-				if ( '' !== $settings['link']['url'] ) { ?>
+				if ( ! empty( $settings['link']['url'] ) ) { ?>
 					<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'fancy-heading-link' ) ); ?>>
 					<?php
 				}
@@ -335,7 +337,13 @@ class Fancy_Heading extends Powerpack_Widget {
 					<?php echo wp_kses_post( $this->parse_text_editor( $settings['heading_text'] ) ); ?>
 				</span>
 				<?php
-				if ( '' !== $settings['link']['url'] ) { ?>
+				if ( ! empty( $settings['link']['url'] ) ) {
+					if ( ! empty( $settings['link']['is_external'] ) ) {
+						?>
+						<span class="elementor-screen-only"><?php esc_html_e( '(opens in a new tab)', 'powerpack-lite-for-elementor' ); ?></span>
+						<?php
+					}
+					?>
 					</a>
 				<?php } ?>
 			</<?php echo esc_html( $heading_html_tag ); ?>>
@@ -352,9 +360,16 @@ class Fancy_Heading extends Powerpack_Widget {
 	 */
 	protected function content_template() {
 		?>
-		<# var headingHTMLTag = elementor.helpers.validateHTMLTag( settings.heading_html_tag ); #>
-		<{{{ headingHTMLTag }}} class="pp-fancy-heading">
-			<# if ( settings.link.url ) { #><a href="{{ _.escape( settings.link.url ) }}"><# } #>
+		<#
+		var headingHTMLTag = elementor.helpers.validateHTMLTag( settings.heading_html_tag );
+		var hasLink        = settings.link && settings.link.url;
+		var newTabNotice   = ( hasLink && settings.link.is_external ) ? '<span class="elementor-screen-only"><?php echo esc_js( __( '(opens in a new tab)', 'powerpack-lite-for-elementor' ) ); ?></span>' : '';
+
+		view.addRenderAttribute( 'fancy-heading', 'class', 'pp-fancy-heading' );
+		view.addRenderAttribute( 'fancy-heading', 'tabindex', '0' );
+		#>
+		<{{{ headingHTMLTag }}} {{{ view.getRenderAttributeString( 'fancy-heading' ) }}}>
+			<# if ( hasLink ) { #><a href="{{ _.escape( settings.link.url ) }}"><# } #>
 				<#
 				if ( settings.heading_text != '' ) {
 					var heading_text = settings.heading_text;
@@ -368,7 +383,7 @@ class Fancy_Heading extends Powerpack_Widget {
 					print( heading_text_html );
 				}
 				#>
-			<# if ( settings.link.url ) { #></a><# } #>
+			<# if ( hasLink ) { #>{{{ newTabNotice }}}</a><# } #>
 		</{{{ headingHTMLTag }}}>
 		<?php
 	}

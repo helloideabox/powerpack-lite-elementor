@@ -1,3 +1,26 @@
+.pp-fancy-heading:focus, .pp-fancy-heading:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  .pp-fancy-heading:focus, .pp-fancy-heading:focus-visible {
+    outline-color: Highlight;
+  }
+}
+.pp-fancy-heading a {
+  text-decoration: none;
+  color: inherit;
+}
+.pp-fancy-heading a:focus, .pp-fancy-heading a:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  .pp-fancy-heading a:focus, .pp-fancy-heading a:focus-visible {
+    outline-color: Highlight;
+  }
+}
+
 .pp-heading-fill-gradient .pp-heading-text {
   display: block;
   background-clip: text;
@@ -6,4 +29,10 @@
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
   z-index: 0;
+}
+@media (forced-colors: active) {
+  .pp-heading-fill-gradient .pp-heading-text {
+    -webkit-text-fill-color: CanvasText;
+    color: CanvasText;
+  }
 }

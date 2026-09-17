@@ -167,32 +167,6 @@ class PP_Helper {
 	 * @return string
 	 * @since 1.4.13.1
 	 */
-	public static function get_widget_categories( $slug = '' ) {
-
-		self::$widgets_list = self::get_widgets_list();
-
-		$widget_categories = '';
-
-		if ( isset( self::$widgets_list[ $slug ] ) ) {
-			$widget_categories = self::$widgets_list[ $slug ]['categories'];
-		}
-
-		return self::apply_deprecated_filter(
-			'pp_elements_lite_widget_categories',
-			'powerpack_elements_widget_categories',
-			$widget_categories,
-			[],
-			'2.9.10'
-		);
-	}
-
-	/**
-	 * Provide Widget Name
-	 *
-	 * @param string $slug Module slug.
-	 * @return string
-	 * @since 1.4.13.1
-	 */
 	public static function get_widget_icon( $slug = '' ) {
 
 		self::$widgets_list = self::get_widgets_list();
@@ -215,6 +189,10 @@ class PP_Helper {
 	/**
 	 * Provide Widget Docs URL
 	 *
+	 * For the editor's "Need Help?" link, so it carries the editor panel's
+	 * campaign parameters. The filter sees the tracked URL, and whatever it
+	 * returns is used as is.
+	 *
 	 * @param string $slug Module slug.
 	 * @return string
 	 * @since 3.0.0
@@ -226,10 +204,65 @@ class PP_Helper {
 		$widget_docs = '';
 
 		if ( isset( self::$widgets_list[ $slug ]['docs'] ) ) {
-			$widget_docs = self::$widgets_list[ $slug ]['docs'];
+			$widget_docs = self::get_tracked_url( self::$widgets_list[ $slug ]['docs'], 'panel' );
 		}
 
 		return apply_filters( 'pp_elements_lite_widget_docs', $widget_docs );
+	}
+
+	/**
+	 * Add PowerPack's campaign parameters to a powerpackelements.com link.
+	 *
+	 * Links are stored plain, in PP_Config and elsewhere, and tagged here as
+	 * they are output, so the parameters live in one place and each placement
+	 * reports under its own medium: 'panel' for the Elementor editor, 'settings'
+	 * for the plugin's settings screen. add_query_arg() keeps a URL that
+	 * already has a query string or an anchor intact.
+	 *
+	 * A link to any other host is returned untouched, so a URL swapped in
+	 * through a filter never picks up PowerPack's tracking.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param string $url    Link to tag.
+	 * @param string $medium Where the link is shown.
+	 * @return string The tagged link, or '' for an empty one.
+	 */
+	public static function get_tracked_url( $url, $medium ) {
+		if ( empty( $url ) ) {
+			return '';
+		}
+
+		$host = wp_parse_url( $url, PHP_URL_HOST );
+
+		if ( ! is_string( $host ) || ! preg_match( '/(^|\.)powerpackelements\.com$/i', $host ) ) {
+			return $url;
+		}
+
+		$params = [
+			'utm_source'   => 'widget',
+			'utm_medium'   => $medium,
+			'utm_campaign' => 'userkb',
+		];
+
+		/**
+		 * Filters the campaign parameters added to powerpackelements.com links.
+		 *
+		 * Return an empty array to leave links untagged.
+		 *
+		 * @since x.x.x
+		 *
+		 * @param array  $params Query parameter => value.
+		 * @param string $url    Link being tagged.
+		 * @param string $medium Where the link is shown: 'panel' or 'settings'.
+		 */
+		$params = apply_filters( 'powerpack_elements_tracked_url_params', $params, $url, $medium );
+
+		if ( empty( $params ) || ! is_array( $params ) ) {
+			return $url;
+		}
+
+		return add_query_arg( urlencode_deep( $params ), $url );
 	}
 
 	/**

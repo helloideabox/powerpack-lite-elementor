@@ -309,7 +309,7 @@ class Hotspots extends Powerpack_Widget {
 					),
 					'placeholder' => 'https://www.your-link.com',
 					'default'     => array(
-						'url' => '#',
+						'url' => '',
 					),
 					'separator'   => 'before',
 				)
@@ -700,7 +700,7 @@ class Hotspots extends Powerpack_Widget {
 		/* $this->add_control(
 			'tooltip_animation_in',
 			array(
-				'label'   => esc_html__( 'Animation In', 'powerpack' ),
+				'label'   => esc_html__( 'Animation In', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT2,
 				'default' => '',
 				'options' => $tooltip_animations,
@@ -711,7 +711,7 @@ class Hotspots extends Powerpack_Widget {
 		$this->add_control(
 			'tooltip_animation_out',
 			array(
-				'label'   => esc_html__( 'Animation Out', 'powerpack' ),
+				'label'   => esc_html__( 'Animation Out', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT2,
 				'default' => '',
 				'options' => $tooltip_animations,
@@ -1100,23 +1100,27 @@ class Hotspots extends Powerpack_Widget {
 				echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings ) );
 
 				foreach ( $settings['hot_spots'] as $index => $item ) :
-					$hotspot_tag         = 'span';
-					$hotspot_key         = $this->get_repeater_setting_key( 'hotspot', 'hot_spots', $index );
-					$tooltip_content_key = $this->get_repeater_setting_key( 'tooltip_content', 'hot_spots', $index );
-					$tooltip_content_id  = $this->get_id() . '-' . $item['_id'];
-					$hotspot_inner_key   = $this->get_repeater_setting_key( 'hotspot-inner', 'hot_spots', $index );
-					$link_key            = $this->get_repeater_setting_key( 'link', 'hot_spots', $index );
+					$hotspot_tag           = 'span';
+					$hotspot_key           = $this->get_repeater_setting_key( 'hotspot', 'hot_spots', $index );
+					$tooltip_content_key   = $this->get_repeater_setting_key( 'tooltip_content', 'hot_spots', $index );
+					$tooltip_container_key = $this->get_repeater_setting_key( 'tooltip_container', 'hot_spots', $index );
+					$tooltip_content_id    = $this->get_id() . '-' . $item['_id'];
+					$hotspot_inner_key     = $this->get_repeater_setting_key( 'hotspot-inner', 'hot_spots', $index );
+					$link_key              = $this->get_repeater_setting_key( 'link', 'hot_spots', $index );
+					$has_tooltip           = ( 'yes' === $item['tooltip'] && ! empty( $item['tooltip_content'] ) );
+					$has_link              = ( ! empty( $item['hotspot_link']['url'] ) && '#' !== trim( $item['hotspot_link']['url'] ) );
+					$always_open           = 'yes' === $settings['tooltip_always_open'];
 
 					$this->add_render_attribute(
 						$hotspot_key,
 						'class',
-						array(
+						[
 							'pp-hot-spot-wrap',
 							'elementor-repeater-item-' . esc_attr( $item['_id'] ),
-						)
+						]
 					);
 
-					if ( 'yes' === $item['tooltip'] && $item['tooltip_content'] ) {
+					if ( $has_tooltip ) {
 						if ( 'global' !== $item['tooltip_position_local'] ) {
 							$tooltip_position = $item['tooltip_position_local'];
 						} else {
@@ -1125,20 +1129,32 @@ class Hotspots extends Powerpack_Widget {
 
 						$this->add_render_attribute(
 							$tooltip_content_key,
-							array(
+							[
 								'class' => [ 'pp-tooltip-content', 'pp-tooltip-content-' . $this->get_id() ],
 								'id'    => 'pp-tooltip-content-' . $tooltip_content_id,
-							)
+							]
 						);
+
+						// A click trigger makes this a toggletip and Always Open is static text, so only hover content is a tooltip.
+						if ( ! $always_open && 'click' !== $settings['tooltip_trigger'] ) {
+							$this->add_render_attribute( $tooltip_content_key, 'role', 'tooltip' );
+						}
+
+						$this->add_render_attribute( $tooltip_container_key, 'class', 'pp-tooltip-container' );
+
+						if ( $always_open ) {
+							// Keep a screen-reader copy in reading order next to its hotspot; the floating clone is hidden from AT in JS.
+							$this->add_render_attribute( $tooltip_container_key, 'class', 'elementor-screen-only' );
+						}
 
 						$this->add_render_attribute(
 							$hotspot_key,
-							array(
+							[
 								'class'                 => 'pp-hot-spot-tooptip',
 								'data-tooltip'          => 'yes',
 								'data-tooltip-position' => $tooltip_position,
 								'data-tooltip-content'  => '#pp-tooltip-content-' . $tooltip_content_id,
-							)
+							]
 						);
 					}
 
@@ -1166,13 +1182,52 @@ class Hotspots extends Powerpack_Widget {
 					$migrated = isset( $item['__fa4_migrated']['selected_icon'] );
 					$is_new   = ! isset( $item['hotspot_icon'] ) && $migration_allowed;
 
-					if ( $item['hotspot_link']['url'] ) {
-						if ( 'yes' !== $item['tooltip'] || ( 'yes' === $item['tooltip'] && 'hover' === $settings['tooltip_trigger'] ) ) {
+					$is_toggle = $has_tooltip && ! $always_open;
 
-							$hotspot_tag = 'a';
+					if ( $has_link && ( ! $has_tooltip || 'hover' === $settings['tooltip_trigger'] ) ) {
+						$hotspot_tag = 'a';
+						$this->add_link_attributes( $hotspot_key, $item['hotspot_link'] );
+					} elseif ( $is_toggle ) {
+						// Only a hotspot that opens a tooltip does something; a plain marker stays out of the Tab order.
+						$this->add_render_attribute(
+							$hotspot_key,
+							[
+								'role'          => 'button',
+								'tabindex'      => '0',
+								'aria-expanded' => 'false',
+							]
+						);
+					}
 
-							$this->add_link_attributes( $hotspot_key, $item['hotspot_link'] );
+					// Name and describe controls only; aria-label is not allowed on a plain span.
+					if ( 'a' === $hotspot_tag || $is_toggle ) {
+						$admin_label        = trim( $item['hotspot_admin_label'] );
+						$visible_text       = 'text' === $item['hotspot_type'] ? trim( $item['hotspot_text'] ) : '';
+						$tooltip_text       = $has_tooltip ? trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( $item['tooltip_content'] ) ) ) : '';
+						$label_from_tooltip = false;
 
+						if ( '' !== $admin_label ) {
+							$accessible_label = $admin_label;
+						} elseif ( '' !== $visible_text ) {
+							$accessible_label = $visible_text;
+						} elseif ( '' !== $tooltip_text ) {
+							$accessible_label   = $tooltip_text;
+							$label_from_tooltip = true;
+						} else {
+							/* translators: %d: Hotspot number */
+							$accessible_label = sprintf( __( 'Hotspot %d', 'powerpack-lite-for-elementor' ), $index + 1 );
+						}
+
+						// Speech-input users say what they see, so the name has to contain the visible text (WCAG 2.5.3).
+						if ( '' !== $visible_text && false === stripos( $accessible_label, $visible_text ) ) {
+							$accessible_label = $visible_text . ': ' . $accessible_label;
+						}
+
+						$this->add_render_attribute( $hotspot_key, 'aria-label', $accessible_label );
+
+						// The tooltip is the description; skip it when it already is the name, so it is not read twice.
+						if ( $has_tooltip && ! $always_open && ! $label_from_tooltip ) {
+							$this->add_render_attribute( $hotspot_key, 'aria-describedby', 'pp-tooltip-content-' . $tooltip_content_id );
 						}
 					}
 					?>
@@ -1186,7 +1241,7 @@ class Hotspots extends Powerpack_Widget {
 									<span class="pp-hotspot-icon pp-icon">
 										<?php
 										if ( $is_new || $migrated ) {
-											Icons_Manager::render_icon( $item['selected_icon'], array( 'aria-hidden' => 'true' ) );
+											Icons_Manager::render_icon( $item['selected_icon'], [ 'aria-hidden' => 'true' ] );
 										} else {
 											?>
 											<i class="<?php echo esc_attr( $item['hotspot_icon'] ); ?>" aria-hidden="true"></i>
@@ -1199,7 +1254,7 @@ class Hotspots extends Powerpack_Widget {
 							} elseif ( 'text' === $item['hotspot_type'] ) { ?>
 								<span class="pp-hotspot-icon-wrap">
 									<span class="pp-hotspot-text">
-										<?php echo esc_attr( $item['hotspot_text'] ); ?>
+										<?php echo esc_html( $item['hotspot_text'] ); ?>
 									</span>
 								</span>
 								<?php
@@ -1208,8 +1263,8 @@ class Hotspots extends Powerpack_Widget {
 							</span>
 						</span>
 					</<?php echo esc_html( $hotspot_tag ); ?>>
-					<?php if ( 'yes' === $item['tooltip'] && $item['tooltip_content'] ) { ?>
-						<div class="pp-tooltip-container">
+					<?php if ( $has_tooltip ) { ?>
+						<div <?php $this->print_render_attribute_string( $tooltip_container_key ); ?>>
 							<div <?php echo wp_kses_post( $this->get_render_attribute_string( $tooltip_content_key ) ); ?>>
 								<?php echo wp_kses_post( $item['tooltip_content'] ); ?>
 							</div>
@@ -1272,11 +1327,16 @@ class Hotspots extends Powerpack_Widget {
 				<# _.each( settings.hot_spots, function( item, index ) {
 				   
 					var hotspotTag 			= 'span',
-						tooltipContentId    = view.$el.data('id') + '-' + item._id;
+						tooltipContentId    = view.$el.data('id') + '-' + item._id,
 						hotspotAnimation	= ( settings.hotspot_pulse == 'yes' ) ? 'hotspot-animation' : '',
 						ttPosition			= '',
 						iconsHTML			= {},
-						migrated			= {};
+						migrated			= {},
+						hasTooltip			= ( 'yes' === item.tooltip && item.tooltip_content ),
+						hasLink				= ( item.hotspot_link && item.hotspot_link.url && '#' !== item.hotspot_link.url.trim() ),
+						alwaysOpen			= ( 'yes' === settings.tooltip_always_open ),
+						isToggle			= ( hasTooltip && ! alwaysOpen ),
+						tooltipContainerClass = 'pp-tooltip-container' + ( alwaysOpen ? ' elementor-screen-only' : '' );
 
 					var hotspotKey 			= view.getRepeaterSettingKey( 'hotspot', 'hot_spots', index ),
 						tooltipContentKey   = view.getRepeaterSettingKey( 'tooltip_content', 'hot_spots', index );
@@ -1299,13 +1359,17 @@ class Hotspots extends Powerpack_Widget {
 						}
 					);
 
+					if ( ! alwaysOpen && 'click' !== settings.tooltip_trigger ) {
+						view.addRenderAttribute( tooltipContentKey, 'role', 'tooltip' );
+					}
+
 					if ( item.tooltip_position_local != 'global' ) {
 						ttPosition = item.tooltip_position_local;
 					} else {
 						ttPosition = settings.tooltip_position;
 					}
 
-					if ( item.tooltip == 'yes' ) {
+					if ( hasTooltip ) {
 						view.addRenderAttribute(
 							hotspotKey,
 							{
@@ -1315,20 +1379,65 @@ class Hotspots extends Powerpack_Widget {
 								'data-tooltip-content': '#pp-tooltip-content-' + tooltipContentId,
 							}
 						);
+
 					}
 					#>
 					<#
-						if ( item.hotspot_link.url ) {
-							if ( item.tooltip != 'yes' || ( item.tooltip == 'yes' && settings.tooltip_trigger == 'hover' ) ) {
-								hotspotTag = 'a';
+						if ( hasLink && ( ! hasTooltip || settings.tooltip_trigger == 'hover' ) ) {
+							hotspotTag = 'a';
 
-								if ( item.hotspot_link.is_external ) {
-									view.addRenderAttribute( hotspotKey, 'target', '_blank' );
-								}
+							view.addRenderAttribute( hotspotKey, 'href', item.hotspot_link.url );
 
-								if ( item.hotspot_link.nofollow ) {
-									view.addRenderAttribute( hotspotKey, 'rel', 'nofollow' );
+							if ( item.hotspot_link.is_external ) {
+								view.addRenderAttribute( hotspotKey, 'target', '_blank' );
+							}
+
+							if ( item.hotspot_link.nofollow ) {
+								view.addRenderAttribute( hotspotKey, 'rel', 'nofollow' );
+							}
+						} else if ( isToggle ) {
+							view.addRenderAttribute(
+								hotspotKey,
+								{
+									'role': 'button',
+									'tabindex': '0',
+									'aria-expanded': 'false',
 								}
+							);
+						}
+
+						if ( 'a' === hotspotTag || isToggle ) {
+							var adminLabel       = item.hotspot_admin_label ? item.hotspot_admin_label.trim() : '',
+								visibleText      = ( 'text' === item.hotspot_type && item.hotspot_text ) ? item.hotspot_text.trim() : '',
+								tooltipText      = '',
+								labelFromTooltip = false,
+								hotspotLabel     = '';
+
+							if ( hasTooltip ) {
+								var tmpDiv = document.createElement( 'div' );
+								tmpDiv.innerHTML = item.tooltip_content;
+								tooltipText = ( tmpDiv.textContent || tmpDiv.innerText || '' ).replace( /\s+/g, ' ' ).trim();
+							}
+
+							if ( adminLabel ) {
+								hotspotLabel = adminLabel;
+							} else if ( visibleText ) {
+								hotspotLabel = visibleText;
+							} else if ( tooltipText ) {
+								hotspotLabel     = tooltipText;
+								labelFromTooltip = true;
+							} else {
+								hotspotLabel = '<?php /* translators: %d: Hotspot number */ echo esc_js( __( 'Hotspot %d', 'powerpack-lite-for-elementor' ) ); ?>'.replace( '%d', index + 1 );
+							}
+
+							if ( visibleText && -1 === hotspotLabel.toLowerCase().indexOf( visibleText.toLowerCase() ) ) {
+								hotspotLabel = visibleText + ': ' + hotspotLabel;
+							}
+
+							view.addRenderAttribute( hotspotKey, 'aria-label', hotspotLabel );
+
+							if ( isToggle && ! labelFromTooltip ) {
+								view.addRenderAttribute( hotspotKey, 'aria-describedby', 'pp-tooltip-content-' + tooltipContentId );
 							}
 						}
 					#>
@@ -1355,8 +1464,8 @@ class Hotspots extends Powerpack_Widget {
 							<# } #>
 						</span>
 					</{{ hotspotTag }}>
-					<# if ( 'yes' === item.tooltip && item.tooltip_content ) { #>
-						<div class="pp-tooltip-container">
+					<# if ( hasTooltip ) { #>
+						<div class="{{ tooltipContainerClass }}">
 							<div {{{ view.getRenderAttributeString( tooltipContentKey ) }}}>{{{ item.tooltip_content }}}</div>
 						</div>
 					<# } #>

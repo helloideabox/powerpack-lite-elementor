@@ -431,21 +431,6 @@ class Divider extends Powerpack_Widget {
 			]
 		);
 
-		$this->add_control(
-			'aria_label',
-			[
-				'label'                 => esc_html__( 'Accessible Label', 'powerpack-lite-for-elementor' ),
-				'type'                  => Controls_Manager::TEXT,
-				'dynamic'               => [
-					'active' => true,
-				],
-				'placeholder'           => esc_html__( 'e.g. Section separator', 'powerpack-lite-for-elementor' ),
-				'description'           => esc_html__( 'Optional. Announced by screen readers (VoiceOver, NVDA, JAWS) for this divider. Leave empty for a generic "separator" announcement.', 'powerpack-lite-for-elementor' ),
-				'label_block'           => true,
-				'separator'             => 'before',
-			]
-		);
-
 		$this->end_controls_section();
 	}
 
@@ -1112,10 +1097,6 @@ class Divider extends Powerpack_Widget {
 			'aria-orientation' => $orientation,
 		] );
 
-		if ( ! empty( $settings['aria_label'] ) ) {
-			$this->add_render_attribute( 'wrapper', 'aria-label', $settings['aria_label'] );
-		}
-
 		$classes = [ 'pp-divider' ];
 
 		if ( $settings['divider_direction'] ) {
@@ -1622,7 +1603,7 @@ class Divider extends Powerpack_Widget {
 			ppWrapperStyle = '--divider-pattern-url: url("data:image/svg+xml,' + ppEncoded + '");';
 		}
 		#>
-		<div class="pp-divider-wrap" role="separator" aria-orientation="{{ ppOrientation }}"<# if ( settings.aria_label ) { #> aria-label="{{ settings.aria_label }}"<# } #><# if ( ppWrapperStyle ) { #> style="{{ ppWrapperStyle }}"<# } #>>
+		<div class="pp-divider-wrap" role="separator" aria-orientation="{{ ppOrientation }}"<# if ( ppWrapperStyle ) { #> style="{{ ppWrapperStyle }}"<# } #>>
 			<# if ( settings.divider_type == 'plain' ) { #>
 				<div class="pp-divider pp-divider-{{ settings.divider_direction }} {{ settings.divider_direction }} pp-divider-{{ settings.divider_style }} {{ settings.divider_style }} "></div>
 			<# } else { #>

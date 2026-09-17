@@ -100,16 +100,6 @@ abstract class Powerpack_Widget extends Widget_Base {
 	 * @param string $slug Module class.
 	 * @since 2.1.0
 	 */
-	public function get_widget_categories( $slug = '' ) {
-		return PP_Helper::get_widget_categories( $slug );
-	}
-
-	/**
-	 * Get widget title
-	 *
-	 * @param string $slug Module class.
-	 * @since 2.1.0
-	 */
 	public function get_widget_icon( $slug = '' ) {
 		return PP_Helper::get_widget_icon( $slug );
 	}

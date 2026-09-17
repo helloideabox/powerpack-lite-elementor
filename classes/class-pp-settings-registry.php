@@ -94,6 +94,8 @@ final class PP_Settings_Registry {
 	 *             empty string on write.
 	 *   choices   Allowed values for 'enum', or a callable returning the allowed
 	 *             members for 'list'.
+	 *   aliases   For 'list', a callable returning a former name => current name
+	 *             map applied to the stored value before a save merges into it.
 	 *   default   Value returned when nothing is stored.
 	 *
 	 * @since 3.0.0
@@ -114,6 +116,7 @@ final class PP_Settings_Registry {
 			'strategy' => self::ON_EMPTY_SENTINEL,
 			'cap'      => 'edit_posts',
 			'choices'  => 'powerpack_elements_lite_get_modules',
+			'aliases'  => 'powerpack_elements_lite_get_legacy_module_names',
 			'default'  => self::NONE_SELECTED,
 		];
 
@@ -444,6 +447,21 @@ final class PP_Settings_Registry {
 
 				if ( ! empty( $field['choices'] ) && is_callable( $field['choices'] ) ) {
 					$allowed = array_keys( (array) call_user_func( $field['choices'] ) );
+
+					/*
+					 * A member stored under a former name is on offer under its
+					 * current one, so the submission decides it. Carried over
+					 * as an unknown name instead, it could never be removed.
+					 */
+					if ( is_array( $stored ) && ! empty( $field['aliases'] ) && is_callable( $field['aliases'] ) ) {
+						$aliases = (array) call_user_func( $field['aliases'] );
+
+						foreach ( $stored as $index => $name ) {
+							if ( is_string( $name ) && isset( $aliases[ $name ] ) ) {
+								$stored[ $index ] = $aliases[ $name ];
+							}
+						}
+					}
 
 					/*
 					 * A choice list can shrink for reasons that have nothing to

@@ -1722,6 +1722,27 @@ input.pp-search-input {
 }
 
 /*
+ * Grey rather than a second signal colour. Gold already means "not in your
+ * edition"; a deprecated widget is neither exciting nor an error, and the card
+ * it sits on is only ever drawn for a site that already has the widget switched
+ * on. The warning that matters is the one Elementor shows in the panel when the
+ * element is selected — this is the label that lets someone find the widget
+ * here and switch it off.
+ */
+.pp-module-deprecated {
+	flex: none;
+	padding: 2px 8px;
+	border: 1px solid $pp-border;
+	border-radius: var(--pp-radius-pill);
+	color: $pp-muted;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	line-height: 1.6;
+	text-transform: uppercase;
+}
+
+/*
  * The header's right-hand side, and a place for anything else about a widget's
  * state to join it.
  */

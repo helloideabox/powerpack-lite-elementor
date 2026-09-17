@@ -600,21 +600,6 @@ class Pricing_Table extends Powerpack_Widget {
 			)
 		);
 
-		/**
-		 * Visually hidden prefix announced before features marked as excluded.
-		 *
-		 * @since x.x.x
-		 */
-		$this->add_control(
-			'feature_excluded_label',
-			[
-				'label'       => esc_html__( 'Excluded Feature Label', 'powerpack-lite-for-elementor' ),
-				'description' => esc_html__( 'Visually hidden text announced by screen readers before features marked as excluded. Leave empty to disable.', 'powerpack-lite-for-elementor' ),
-				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Not included:', 'powerpack-lite-for-elementor' ),
-			]
-		);
-
 		$this->end_controls_section();
 	}
 
@@ -775,26 +760,6 @@ class Pricing_Table extends Powerpack_Widget {
 					'library' => 'fa-solid',
 				],
 				'condition' => [
-					'show_tooltip'       => 'yes',
-					'tooltip_display_on' => 'icon',
-				],
-			]
-		);
-
-
-		/**
-		 * Accessible name for the tooltip trigger button.
-		 *
-		 * @since x.x.x
-		 */
-		$this->add_control(
-			'tooltip_icon_label',
-			[
-				'label'       => esc_html__( 'Icon Accessible Label', 'powerpack-lite-for-elementor' ),
-				'description' => esc_html__( 'Announced by screen readers as the name of the tooltip button.', 'powerpack-lite-for-elementor' ),
-				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'More information', 'powerpack-lite-for-elementor' ),
-				'condition'   => [
 					'show_tooltip'       => 'yes',
 					'tooltip_display_on' => 'icon',
 				],
@@ -3352,13 +3317,9 @@ class Pricing_Table extends Powerpack_Widget {
 							} else {
 								$this->get_tooltip_attributes( $item, $tooltip_icon_key, $tooltip_content_key );
 
-								$tooltip_icon_label = ! empty( $settings['tooltip_icon_label'] )
-									? $settings['tooltip_icon_label']
-									: esc_html__( 'More information', 'powerpack-lite-for-elementor' );
-
 								$this->add_render_attribute( $tooltip_icon_key, [
 									'type'       => 'button',
-									'aria-label' => $tooltip_icon_label,
+									'aria-label' => esc_html__( 'More information', 'powerpack-lite-for-elementor' ),
 								] );
 
 								if ( $is_click_tooltip ) {
@@ -3378,9 +3339,7 @@ class Pricing_Table extends Powerpack_Widget {
 						}
 
 						// The line-through that marks an excluded feature is not exposed to assistive tech.
-						$excluded_label = ( 'yes' === $item['exclude'] && ! empty( $settings['feature_excluded_label'] ) )
-							? $settings['feature_excluded_label']
-							: '';
+						$excluded_label = 'yes' === $item['exclude'] ? __( 'Not included:', 'powerpack-lite-for-elementor' ) : '';
 						?>
 						<li <?php $this->print_render_attribute_string( $feature_list_key ); ?>>
 							<div <?php $this->print_render_attribute_string( $feature_content_key ); ?>>
@@ -3677,9 +3636,7 @@ class Pricing_Table extends Powerpack_Widget {
 							}
 						);
 
-						var excludedLabel = ( 'yes' === item.exclude && settings.feature_excluded_label )
-							? settings.feature_excluded_label
-							: '';
+						var excludedLabel = 'yes' === item.exclude ? '<?php echo esc_js( __( 'Not included:', 'powerpack-lite-for-elementor' ) ); ?>' : '';
 
 						if ( 'yes' === settings.show_tooltip && item.tooltip_content ) {
 							var isClickTooltip = ( 'click' === settings.tooltip_trigger );
@@ -3702,7 +3659,7 @@ class Pricing_Table extends Powerpack_Widget {
 
 								view.addRenderAttribute( tooltipIconKey, {
 									'type': 'button',
-									'aria-label': settings.tooltip_icon_label || '<?php echo esc_js( esc_html__( 'More information', 'powerpack-lite-for-elementor' ) ); ?>',
+									'aria-label': '<?php echo esc_js( esc_html__( 'More information', 'powerpack-lite-for-elementor' ) ); ?>',
 								} );
 
 								if ( isClickTooltip ) {

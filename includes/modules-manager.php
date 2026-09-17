@@ -101,9 +101,7 @@ class Modules_Manager {
 		}
 
 		foreach ( $widgets as $widget ) {
-			$widget_name = 'pp-' . str_replace( '_', '-', strtolower( $widget ) );
-
-			if ( Module_Base::is_widget_active( $widget_name ) ) {
+			if ( Module_Base::is_widget_active( Module_Base::get_widget_setting_name( $widget ) ) ) {
 				return true;
 			}
 		}

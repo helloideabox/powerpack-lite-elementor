@@ -14,6 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Twitter Grid Widget
+ *
+ * Deprecated. Twitter retired the embedded grid display type in 2019 and its
+ * widgets.js has rendered these embeds as a single column timeline ever since,
+ * logging a deprecation notice to the console each time. Nothing on this side
+ * can bring the grid layout back, so the widget is hidden from the panel and
+ * kept only so pages that already use it keep rendering. Use Twitter Timeline.
+ *
+ * @see https://twittercommunity.com/t/update-on-the-embedded-grid-display-type/119564
  */
 class Twitter_Grid extends Powerpack_Widget {
 
@@ -40,6 +48,20 @@ class Twitter_Grid extends Powerpack_Widget {
 	 */
 	public function get_keywords() {
 		return parent::get_widget_keywords( 'Twitter_Grid' );
+	}
+
+	/**
+	 * Hide the widget from the Elementor panel.
+	 *
+	 * Deprecated widgets stay registered so existing elements keep rendering and
+	 * stay editable, but cannot be dragged onto a new page.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return bool
+	 */
+	public function show_in_panel() {
+		return false;
 	}
 
 	protected function is_dynamic_content(): bool {
@@ -73,6 +95,12 @@ class Twitter_Grid extends Powerpack_Widget {
 			array(
 				'label' => esc_html__( 'Grid', 'powerpack-lite-for-elementor' ),
 			)
+		);
+
+		$this->add_deprecation_message(
+			'3.1.0',
+			esc_html__( 'Twitter no longer supports grid embeds and renders them as a timeline. This widget is deprecated and will be removed in a future version — use the Twitter Timeline widget instead.', 'powerpack-lite-for-elementor' ),
+			PP_Helper::get_widget_name( 'Twitter_Timeline' )
 		);
 
 		$this->add_control(
@@ -136,21 +164,45 @@ class Twitter_Grid extends Powerpack_Widget {
 	}
 
 	protected function render() {
-		$settings = $this->get_settings();
+		$settings = $this->get_settings_for_display();
 
+		/*
+		 * Without a collection URL there is nothing for widgets.js to upgrade,
+		 * and the anchor left behind is a link to the current page carrying a
+		 * Twitter referrer parameter. The console notice that made this widget
+		 * worth looking at was reported from an embed in exactly that state.
+		 */
+		if ( empty( $settings['url'] ) ) {
+			return;
+		}
+
+		/*
+		 * 'twitter-timeline' rather than the 'twitter-grid' class this widget is
+		 * named after: widgets.js upgrades both to the same timeline, but only
+		 * the grid class logs a deprecation notice to every visitor's console.
+		 */
 		$this->add_render_attribute(
 			'grid',
-			array(
-				'data-limit'  => ( ! empty( $settings['tweet_limit'] ) ) ? absint( $settings['tweet_limit'] ) : '',
-				'data-chrome' => ( 'yes' !== $settings['footer'] ) ? 'nofooter' : '',
-				'data-width'  => ( ! empty( $settings['width']['size'] ) ) ? intval( $settings['width']['size'] ) : '',
-			)
+			[
+				'class' => 'twitter-timeline',
+				'href'  => esc_url( $settings['url'] ) . '?ref_src=twsrc%5Etfw',
+			]
 		);
 
-		$url = esc_url( $settings['url'] );
+		if ( ! empty( $settings['tweet_limit'] ) ) {
+			$this->add_render_attribute( 'grid', 'data-limit', absint( $settings['tweet_limit'] ) );
+		}
+
+		if ( 'yes' !== $settings['footer'] ) {
+			$this->add_render_attribute( 'grid', 'data-chrome', 'nofooter' );
+		}
+
+		if ( ! empty( $settings['width']['size'] ) ) {
+			$this->add_render_attribute( 'grid', 'data-width', intval( $settings['width']['size'] ) );
+		}
 		?>
-		<div class="pp-twitter-grid" <?php $this->print_render_attribute_string( 'grid' ); ?>>
-			<a class="twitter-grid" href="<?php echo esc_url( $url ); ?>?ref_src=twsrc%5Etfw" <?php $this->print_render_attribute_string( 'grid' ); ?>></a>
+		<div class="pp-twitter-grid">
+			<a <?php $this->print_render_attribute_string( 'grid' ); ?>></a>
 		</div>
 		<?php
 	}
@@ -164,16 +216,19 @@ class Twitter_Grid extends Powerpack_Widget {
 	 */
 	protected function content_template() {
 		?>
-		<#
+		<# if ( settings.url ) {
 			view.addRenderAttribute( 'atts', {
+				'class': 'twitter-timeline',
+				'href': settings.url + '?ref_src=twsrc%5Etfw',
 				'data-limit': ( settings.tweet_limit ) ? settings.tweet_limit : '',
 				'data-chrome': ( 'yes' != settings.footer ) ? 'nofooter' : '',
 				'data-width': settings.width.size,
 			});
 		#>
-		<div class="pp-twitter-grid" {{{ view.getRenderAttributeString( 'atts' ) }}}>
-			<a class="twitter-grid" href="{{ _.escape( settings.url ) }}?ref_src=twsrc%5Etfw" {{{ view.getRenderAttributeString( 'atts' ) }}}></a>
+		<div class="pp-twitter-grid">
+			<a {{{ view.getRenderAttributeString( 'atts' ) }}}></a>
 		</div>
+		<# } #>
 		<?php
 	}
 }

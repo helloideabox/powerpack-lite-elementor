@@ -278,55 +278,28 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 3.1.0 - TBD =
 *	Enhancement: Accessibility - Widgets across the plugin now expose correct ARIA roles, accessible names and states, and their interactive parts can be reached and operated with the keyboard alone
-*	Enhancement: Charts - Added Accessible Label, Accessible Description and Screen Reader Data Table options, so the chart data can be read out as a table by screen readers, and the chart no longer animates when the visitor has asked for reduced motion
-*	Enhancement: Divider - Added Accessible Label option, and the divider is now exposed as a separator with the correct orientation
-*	Enhancement: Progress Bar - Added Accessible Label option, and the bar now announces its value to screen readers
-*	Enhancement: Pricing Table - Added Excluded Feature Label and Icon Accessible Label options, feature tooltips can now be opened with the keyboard, report their expanded state, are linked to the feature they describe and close with Escape, and a button with no link is now rendered as a real button
-*	Enhancement: Price Menu - The menu is now exposed as a list, and the decorative connectors and dividers are hidden from screen readers
-*	Enhancement: Twitter Buttons - Added Button Text option, so the button still says something useful when X's script is blocked, and the button now loads in the site language
-*	Enhancement: Twitter Tweet - The embed now shows a link to the post, read by screen readers until the tweet loads, and the tweet now loads in the site language
-*	Enhancement: Twitter Timeline - Added Link Text option to name the embedded timeline for screen readers, and the timeline now loads in the site language
-*	Enhancement: Contact Form 7 - Added Title HTML Tag option, focus now moves to the first invalid field when a submission fails, and to the response message when the form is sent
-*	Enhancement: Gravity Forms, WPForms, Fluent Forms, Formidable Forms - Added Title HTML Tag option, and the form is now exposed as a region named by its title
-*	Enhancement: Gravity Forms, WPForms - Submission progress and validation errors are now announced to screen readers, and WPForms multi step forms announce the step the visitor is on
-*	Enhancement: Interactive Circle - Added Title HTML Tag option so the content title can be a real heading, each item is now a button that reports whether its content is showing and keeps an accessible name when the title is hidden, the Arrow, Home, End, Enter and Space keys move between and open items, and autoplay pauses while the pointer or keyboard focus is inside the widget and does not run when the visitor has asked for reduced motion
-*	Enhancement: Advanced Accordion - Accordion tabs now report their expanded state, each panel is linked to the tab that opens it, the Up, Down, Home, End, Enter and Space keys move between and toggle tabs, and the panels open without sliding when the visitor has asked for reduced motion
-*	Enhancement: Business Hours - The hours are now exposed as a list and the current day is announced as such
-*	Enhancement: Buttons - Icons are hidden from screen readers, icon only buttons now have an accessible name taken from the tooltip, buttons carry a description when one is set, buttons that are not links can be activated with Enter and Space, tooltips open when a button receives keyboard focus and close on Escape, and hover colours also apply on keyboard focus
-*	Enhancement: Content Reveal - The toggle now reports the expanded state of the content it controls and keeps an accessible name when it shows only an icon, tabbing onto a link or field in the hidden part reveals the content, and the reveal no longer animates when the visitor has asked for reduced motion
-*	Enhancement: Counter - The counter value carries an accessible name, decorative icons are hidden from screen readers, and the count no longer animates when the visitor has asked for reduced motion
-*	Enhancement: Flip Box - The flip box can be reached with the keyboard, and the front and back faces are announced correctly when it flips
-*	Enhancement: Marquee - Links in the marquee carry an accessible name, the duplicated items are taken out of the tab order, and the marquee no longer scrolls when the visitor has asked for reduced motion
-*	Enhancement: Promo Box, Random Image, Instagram Feed, Logo Grid - Hover styles now also apply on keyboard focus, and images carry the right alt text
-*	Enhancement: Random Image - The image link now carries an accessible name
-*	Enhancement: Scroll Image - The scrolling image can now be reached with the keyboard, and scrolls when it receives focus
-*	Enhancement: Team Member - Each social link now carries an accessible name that includes the network, and the social links are exposed as a labelled list
-*	Enhancement: Image Accordion - Each item is now a button that reports whether it is open, items open when they receive keyboard focus, and images carry their alt text
-*	Enhancement: Image Comparison - The divider is now exposed as a slider that reports its position, it can be moved with the Arrow, Home and End keys, a single click or tap on the image places it without dragging, the handle meets the minimum target size, and keyboard focus reveals the labels the same way hover does
-*	Enhancement: Logo Grid - The logos are now exposed as a list, logos without alt text fall back to their title, and links that open in a new tab say so
-*	Enhancement: All carousel widgets - Arrows and pagination can now be operated with the keyboard, slides no longer take stray tab stops, slides that are off screen are hidden from screen readers and taken out of the tab order, the slide now showing is announced, and autoplay no longer runs when the visitor has asked for reduced motion
-*	Enhancement: Content Ticker, Info Box Carousel, Instagram Feed, Logo Carousel, Team Member Carousel - Autoplay now pauses while keyboard focus is inside the carousel, and automatic slide changes are no longer announced, so screen reader users are not interrupted every few seconds
-*	Enhancement: Info Box Carousel, Logo Carousel, Team Member Carousel, Instagram Feed - The carousel is now exposed as a named region with each slide labelled with its position, and links that open in a new tab say so
-*	Enhancement: Content Ticker - The arrows now always render so keyboard users can reach every item when the Arrows setting is off, staying hidden until focused while autoplay runs, and the ticker is named by its heading so two on one page are told apart
-*	Enhancement: Posts, Content Ticker - The post grids and carousels are now exposed as named regions with each post as an article, and the arrows carry accessible names
+*	Enhancement: Accessibility - The carousels and sliders across widgets no longer autoplays when the visitor has asked for reduced motion
 *	Enhancement: Event Calendar - Added Background Color, Padding and Border Radius options for the header and footer toolbars
 *	Enhancement: Event Calendar - Added a Background Color option for events, on both normal and hover
 *	Enhancement: Event Calendar - Added Link Color and Link Hover Color options for the event popup description
 *	Enhancement: Event Calendar - The Event Time popup field is now Event Date & Time, with Date Format and Time Format options that include presets and custom formats
-*	Enhancement: Content Reveal - Added more search keywords, so the widget can be found as unfold, read more or read less
+*	Enhancement: Charts - Added Accessible Label, Accessible Description and Screen Reader Data Table options, so the chart data can be read out as a table by screen readers, and the chart no longer animates when the visitor has asked for reduced motion
+*	Enhancement: Contact Form 7 - Added Title HTML Tag option, focus now moves to the first invalid field when a submission fails, and to the response message when the form is sent
+*	Enhancement: Twitter Buttons - Added Button Text option, used as the button's accessible name and shown when X's script is blocked, and the button now loads in the site language
+*	Enhancement: Twitter Tweet - A View post on X link is now shown in place of the tweet and read by screen readers until the embed loads, and the tweet now loads in the site language
+*	Enhancement: Twitter Timeline - Added Link Text option to name the embedded timeline for screen readers, and the timeline now loads in the site language
+*	Enhancement: Interactive Circle - Added Title HTML Tag option so the content title can be a real heading
+*	Enhancement: Gravity Forms, WPForms, Fluent Forms, Formidable Forms - Added Title HTML Tag option
+*	Enhancement: Info Box Carousel, Logo Carousel, Team Member Carousel - Autoplay now pauses while the pointer or keyboard focus is inside the carousel, and automatic slide changes are no longer announced, so screen reader users are not interrupted every few seconds
 *	Enhancement: WPML - The Twitter Buttons Button Text can now be translated
-*	Fix: Advanced Accordion - With two of these widgets on the same page, a tab could be linked to the other widget's panel, so screen readers announced the wrong content
-*	Fix: Advanced Accordion - Opening a tab from a link in the URL scrolled to it but left keyboard focus at the top of the page, so the next Tab press started from the beginning
-*	Fix: Interactive Circle - With more than one Interactive Circle on the same page, items were linked to the other widget's content, and in one layout they were not linked to their content at all, so screen readers announced the wrong panel or none
+*	Enhancement: PowerPack settings - Widgets on the Elements tab are now grouped into more categories
 *	Fix: Content Reveal - The revealed content kept a fixed height, so zooming in or enlarging the text could cut off the bottom of it
-*	Fix: Image Comparison - With a label set on only one of the two images, a JavaScript error stopped the labels from fading as the divider moved
 *	Fix: Event Calendar - The event Text Color did not apply to events shown as a dot
-*	Fix: Event Calendar - In the editor, and on today's and past dates, the day Text Color options overrode the event Text Color
 *	Fix: Event Calendar - The Color and Typography options for the event popup description had no effect
-*	Fix: Event Calendar - The All Day Text set on a popup field was ignored
-*	Fix: Event Calendar - An event with no end time showed "Invalid Data" in the popup
 *	Fix: Display Conditions - With Elementor's element cache active, a condition set on a container, section, column, or a static widget such as Heading kept the show or hide decision made on the first page load and reused it on every post the template renders
 *	Fix: Charts - With another Elementor addon that includes charts installed, the chart looked different in the editor and on the frontend and ignored many of its settings
+*	Fix: Image Hotspots, Link Effects - On some sites these widgets were not loaded even when switched on, so they were missing from the Elementor panel
+*	Deprecated: Twitter Grid - Twitter retired grid embeds and renders them as a timeline instead, so the widget is no longer offered in the Elementor panel and will be removed in a future version. Widgets already placed on a page keep rendering and no longer log Twitter's deprecation notice to the browser console. Use the Twitter Timeline widget instead
 
 = 3.0.2 - September 4, 2026 =
 *	Enhancement: Content Reveal - Visible Amount can now be set to 0, in pixels or lines, to keep the content fully hidden and show only the toggle button
