@@ -276,7 +276,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-= 3.1.0 - TBD =
+= 3.1.0 - September 18, 2026 =
 *	Enhancement: Accessibility - Widgets across the plugin now expose correct ARIA roles, accessible names and states, and their interactive parts can be reached and operated with the keyboard alone
 *	Enhancement: Accessibility - The carousels and sliders across widgets no longer autoplays when the visitor has asked for reduced motion
 *	Enhancement: Event Calendar - Added Background Color, Padding and Border Radius options for the header and footer toolbars
