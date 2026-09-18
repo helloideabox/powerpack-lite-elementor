@@ -2779,9 +2779,7 @@ class Event_Calendar extends Powerpack_Widget {
 	 * @param array $settings Widget settings.
 	 * @return void
 	 */
-	public function get_popup_markup( $settings ) {
-		ob_start();
-
+	public function print_popup_markup( $settings ) {
 		$event_popup_layout = $settings['event_popup_layout'];
 
 		// Month, weekday and am/pm names for the Event Date & Time field, in the site language.
@@ -2880,7 +2878,6 @@ class Event_Calendar extends Powerpack_Widget {
 			</div>
 		</div>
 		<?php
-		echo ob_get_clean();
 	}
 
 	/**
@@ -2925,7 +2922,7 @@ class Event_Calendar extends Powerpack_Widget {
 
 		<?php
 		if ( 'popup' === $settings['event_click_action'] ) {
-			$this->get_popup_markup( $settings );
+			$this->print_popup_markup( $settings );
 		}
 	}
 }

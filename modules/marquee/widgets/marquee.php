@@ -1601,7 +1601,7 @@ class Marquee extends Powerpack_Widget {
 			}
 		}
 
-		echo '<' . $tag . ' ';
+		echo '<' . esc_html( $tag ) . ' ';
 		$this->print_render_attribute_string( $key );
 		echo '>';
 
@@ -1613,7 +1613,7 @@ class Marquee extends Powerpack_Widget {
 			}
 		}
 
-		echo '</' . $tag . '>';
+		echo '</' . esc_html( $tag ) . '>';
 	}
 
 	/**
@@ -1741,7 +1741,7 @@ class Marquee extends Powerpack_Widget {
 			}
 			?>
 			<span class="pp-marquee-separator pp-marquee-separator-image" aria-hidden="true">
-				<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'separator_image', 'separator_image' ); ?>
+				<?php Group_Control_Image_Size::print_attachment_image_html( $settings, 'separator_image', 'separator_image' ); ?>
 			</span>
 			<?php
 			return;

@@ -2379,12 +2379,12 @@ class Content_Ticker extends Powerpack_Widget {
 									$is_both = ( 'both' === $settings['link_type'] );
 									?>
 									<a href="<?php echo esc_url( get_permalink() ); ?>"<?php if ( $is_both ) { ?> aria-hidden="true" tabindex="-1"<?php } else { ?> aria-label="<?php echo esc_attr( $item_label ); ?>"<?php } ?>>
-										<?php echo Group_Control_Image_Size::get_attachment_image_html( $image_html_settings, 'image_size' ); ?>
+										<?php Group_Control_Image_Size::print_attachment_image_html( $image_html_settings, 'image_size' ); ?>
 									</a>
 									<?php
 								} else {
 									?>
-									<?php echo Group_Control_Image_Size::get_attachment_image_html( $image_html_settings, 'image_size' ); ?>
+									<?php Group_Control_Image_Size::print_attachment_image_html( $image_html_settings, 'image_size' ); ?>
 									<?php
 								}
 								?>

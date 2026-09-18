@@ -1526,7 +1526,6 @@ class Slide_Menu extends Powerpack_Widget {
 		$this->submenu_icon_html = $this->get_icon_html( $settings['submenu_icon'] );
 		$this->max_depth         = ! empty( $settings['max_depth'] ) ? absint( $settings['max_depth'] ) : 0;
 		$this->show_description  = ! empty( $settings['show_description'] );
-		$back_icon               = $this->get_icon_html( $settings['back_icon'] );
 
 		$args = [
 			'echo'          => false,
@@ -1569,17 +1568,14 @@ class Slide_Menu extends Powerpack_Widget {
 		] );
 
 		?>
-		<nav <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-			<span class="pp-slide-menu-back-icon" hidden><?php echo $back_icon; ?></span>
-			<?php echo $menu_html; ?>
+		<nav <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
+			<span class="pp-slide-menu-back-icon" hidden><?php $this->print_icon_html( $settings['back_icon'] ); ?></span>
+			<?php echo $menu_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Menu markup built by wp_nav_menu(), escaped by core and by the widget's own nav menu filters. ?>
 		</nav><?php
 	}
 
 	/**
 	 * Render an icon control's markup.
-	 *
-	 * The icon can be cleared in the panel, in which case there is no library to
-	 * render from and the toggle falls back to its padding for a hit area.
 	 *
 	 * @since  3.0.0
 	 * @access protected
@@ -1588,14 +1584,30 @@ class Slide_Menu extends Powerpack_Widget {
 	 * @return string
 	 */
 	protected function get_icon_html( $icon ) {
-		if ( empty( $icon['value'] ) ) {
-			return '';
-		}
-
 		ob_start();
-		Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ] );
+		$this->print_icon_html( $icon );
 
 		return ob_get_clean();
+	}
+
+	/**
+	 * Print an icon control's markup.
+	 *
+	 * The icon can be cleared in the panel, in which case there is no library to
+	 * render from and the toggle falls back to its padding for a hit area.
+	 *
+	 * @since  3.0.0
+	 * @access protected
+	 *
+	 * @param array $icon Icon control value.
+	 * @return void
+	 */
+	protected function print_icon_html( $icon ) {
+		if ( empty( $icon['value'] ) ) {
+			return;
+		}
+
+		Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ] );
 	}
 
 	/**
