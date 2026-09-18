@@ -108,21 +108,15 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	}
 
 	/**
-	 * Names of the widgets the section has already been added to.
-	 *
-	 * @since 3.0.0
-	 *
-	 * @var array
-	 */
-	private $handled = [];
-
-	/**
 	 * Add Actions
 	 *
 	 * The section used to be hung off the per-widget "Help Docs" section, which
 	 * Elementor's native "Need Help?" link replaced in 3.0.0. Widgets no longer
-	 * share a named section to attach to, so the generic end-of-section action
-	 * is used instead and the notice is added once per widget.
+	 * share a named section to attach to, and Elementor has no core action that
+	 * fires once a widget is done registering controls, so PowerPack's widget
+	 * base fires its own. Registering the section there - after every one of the
+	 * widget's own sections - puts it last in the Content tab, since the editor
+	 * keeps controls in registration order within each tab.
 	 *
 	 * @since 2.4.1
 	 *
@@ -130,32 +124,9 @@ class Extension_Upgrade_Pro extends Extension_Base {
 	 */
 	protected function add_actions() {
 
-		$widgets = powerpack_elements_lite_get_enabled_modules();
-		$names   = [];
-
-		foreach ( $widgets as $widget ) {
-			if ( 'pp-hotspots' === $widget ) {
-				$widget = 'pp-image-hotspots';
-			}
-
-			if ( 'pp-link-effects' === $widget ) {
-				$widget = 'pa-link-effects';
-			}
-
-			$names[ $widget ] = true;
-		}
-
-		add_action( 'elementor/element/after_section_end', function( $element, $section_id, $args ) use ( $names ) {
-			$name = $element->get_name();
-
-			if ( ! isset( $names[ $name ] ) || isset( $this->handled[ $name ] ) ) {
-				return;
-			}
-
-			$this->handled[ $name ] = true;
-
-			$this->add_controls( $element, $args );
-		}, 10, 3 );
+		add_action( 'powerpack_widget_after_register_controls', function( $element ) {
+			$this->add_controls( $element, [] );
+		} );
 
 	}
 }

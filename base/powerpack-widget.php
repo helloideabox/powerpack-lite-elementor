@@ -66,6 +66,29 @@ abstract class Powerpack_Widget extends Widget_Base {
 	}
 
 	/**
+	 * Init controls.
+	 *
+	 * Fires an action once the widget has registered all of its own controls,
+	 * so extensions can append their sections at the end of the panel instead
+	 * of squeezing them in between the widget's own sections.
+	 *
+	 * @since 3.1.0
+	 * @access protected
+	 */
+	protected function init_controls() {
+		parent::init_controls();
+
+		/**
+		 * Fires after a PowerPack widget has registered all of its controls.
+		 *
+		 * @since 3.1.0
+		 *
+		 * @param Powerpack_Widget $widget The widget instance.
+		 */
+		do_action( 'powerpack_widget_after_register_controls', $this );
+	}
+
+	/**
 	 * Get categories
 	 *
 	 * @since 1.0.0
