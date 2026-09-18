@@ -1,3 +1,7 @@
+== 3.1.1 ==
+Release date: TBD
+* Enhancement: Tested compatibility with Elementor 4.3.0
+
 == 3.1.0 ==
 Release date: September 18, 2026
 * Enhancement: Accessibility - Widgets across the plugin now expose correct ARIA roles, accessible names and states, and their interactive parts can be reached and operated with the keyboard alone
