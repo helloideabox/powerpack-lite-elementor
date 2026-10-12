@@ -276,7 +276,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-= 3.1.1 - TBD =
+= 3.1.1 - October 12, 2026 =
 *	Enhancement: Tested compatibility with Elementor 4.3.0
 *	Enhancement: Gravity Forms - Added Dropdown Arrow option to use the default arrow, a custom icon, the Gravity Forms theme arrow or no arrow, with Arrow Size, Arrow Offset and Arrow Color options
 *	Fix: Accessibility - In carousels with Infinite Loop enabled, the slide position read out to screen readers was one slide behind after looping past the first or last slide
