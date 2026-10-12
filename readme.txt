@@ -276,6 +276,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 3.1.1 - TBD =
+*	Security Fix: Animated Gradient Background - Colors are now validated and escaped in the editor preview and on the frontend
+*	Security Fix: PowerPack settings - Only administrators can now change settings, including which widgets and extensions are enabled
+
 = 3.1.0 - September 18, 2026 =
 *	Enhancement: Accessibility - Widgets across the plugin now expose correct ARIA roles, accessible names and states, and their interactive parts can be reached and operated with the keyboard alone
 *	Enhancement: Accessibility - The carousels and sliders across widgets no longer autoplays when the visitor has asked for reduced motion

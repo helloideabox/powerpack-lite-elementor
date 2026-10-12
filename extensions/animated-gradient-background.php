@@ -197,7 +197,7 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 				'label'       => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
-				'title_field' => 'Color {{{pp_animated_gradient_bg_color}}}',
+				'title_field' => 'Color {{ pp_animated_gradient_bg_color }}',
 				'show_label'  => true,
 
 				'default'     => [
@@ -221,6 +221,25 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 
 	protected function render() {
 		$settings = $element->get_settings();
+	}
+
+	/**
+	 * Pattern a gradient colour must match: hex, rgb(a), hsl(a), a CSS
+	 * variable or a named colour. Shared with the editor template.
+	 *
+	 * @since TBD
+	 */
+	const COLOR_PATTERN = '^(#[0-9a-f]{3,8}|(rgb|hsl)a?[(][0-9.,% /+-]+[)]|var[(] *--[a-z0-9_-]+ *[)]|[a-z]+)$';
+
+	/**
+	 * Whether a value is a colour the gradient can safely use.
+	 *
+	 * @since TBD
+	 * @param mixed $color Colour value.
+	 * @return bool
+	 */
+	private function is_valid_color( $color ) {
+		return is_string( $color ) && 1 === preg_match( '~' . self::COLOR_PATTERN . '~i', trim( $color ) );
 	}
 
 	/**
@@ -278,11 +297,14 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		}
 
 		if ( 'yes' === $settings['pp_animated_gradient_bg_enable'] ) {
-			$angle = isset( $settings['pp_animated_gradient_bg_angle'] ) ? $settings['pp_animated_gradient_bg_angle']['size'] : '';
+			$angle = isset( $settings['pp_animated_gradient_bg_angle']['size'] ) ? (float) $settings['pp_animated_gradient_bg_angle']['size'] : '';
 			$element->add_render_attribute( '_wrapper', 'data-angle', $angle . 'deg' );
-			$gradient_color_list = $settings['pp_animated_gradient_bg_color_list'];
+			$gradient_color_list = (array) $settings['pp_animated_gradient_bg_color_list'];
+			$color               = [];
 			foreach ( $gradient_color_list as $gradient_color ) {
-				$color[] = $gradient_color['pp_animated_gradient_bg_color'];
+				if ( isset( $gradient_color['pp_animated_gradient_bg_color'] ) && $this->is_valid_color( $gradient_color['pp_animated_gradient_bg_color'] ) ) {
+					$color[] = trim( $gradient_color['pp_animated_gradient_bg_color'] );
+				}
 			};
 			$colors = implode( ',', $color );
 			$element->add_render_attribute( '_wrapper', 'data-color', $colors );
@@ -308,18 +330,20 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 		?>
 		<# if ( 'yes' === settings.pp_animated_gradient_bg_enable ) {
 
+			var colorPattern = new RegExp( '<?php echo esc_js( self::COLOR_PATTERN ); ?>', 'i' );
 			color_list = settings.pp_animated_gradient_bg_color_list;
-			angle = settings.pp_animated_gradient_bg_angle.size + 'deg';
+			angle = ( parseFloat( settings.pp_animated_gradient_bg_angle.size ) || 0 ) + 'deg';
 			var color = [];
-			var i = 0;
 			_.each(color_list , function(color_list){
-					color[i] = color_list.pp_animated_gradient_bg_color;
-					i = i+1;
+				var value = String( color_list.pp_animated_gradient_bg_color || '' ).trim();
+				if ( colorPattern.test( value ) ) {
+					color.push( value );
+				}
 			});
 			view.addRenderAttribute('_wrapper', 'data-color', color);
 			var gradientColorEditor = 'linear-gradient( ' + angle + ',' + color + ' )';
 			#>
-			<div class="pp-animated-gradient-bg" data-angle="{{{ angle }}}deg" data-color="{{{ color }}}" style="background-image : {{{ gradientColorEditor }}}"></div>
+			<div class="pp-animated-gradient-bg" data-angle="{{ angle }}" data-color="{{ color }}" style="background-image : {{ gradientColorEditor }}"></div>
 		<# } #>
 		<?php
 		$animated_gradient_content = ob_get_contents();

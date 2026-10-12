@@ -114,7 +114,7 @@ final class PP_Settings_Registry {
 			'store'    => 'option',
 			'type'     => 'list',
 			'strategy' => self::ON_EMPTY_SENTINEL,
-			'cap'      => 'edit_posts',
+			'cap'      => 'manage_options',
 			'choices'  => 'powerpack_elements_lite_get_modules',
 			'aliases'  => 'powerpack_elements_lite_get_legacy_module_names',
 			'default'  => self::NONE_SELECTED,
@@ -125,7 +125,7 @@ final class PP_Settings_Registry {
 			'store'    => 'option',
 			'type'     => 'list',
 			'strategy' => self::ON_EMPTY_SENTINEL,
-			'cap'      => 'edit_posts',
+			'cap'      => 'manage_options',
 			'choices'  => 'powerpack_elements_lite_get_extensions',
 
 			// Per-choice documentation links, suppressed by white label like

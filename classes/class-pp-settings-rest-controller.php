@@ -95,7 +95,7 @@ final class PP_Settings_REST_Controller {
 			[
 				'methods'             => \WP_REST_Server::EDITABLE,
 				'callback'            => [ __CLASS__, 'update_settings' ],
-				'permission_callback' => [ __CLASS__, 'can_read' ],
+				'permission_callback' => [ __CLASS__, 'can_update' ],
 				'args'                => array_merge( $network_arg, [
 					'settings' => [
 						'type'        => 'object',
@@ -172,6 +172,23 @@ final class PP_Settings_REST_Controller {
 		}
 
 		return self::forbidden();
+	}
+
+	/**
+	 * Whether the user may write settings.
+	 *
+	 * The settings screen is administrator only, so writes are too.
+	 *
+	 * @since TBD
+	 * @param \WP_REST_Request $request Request.
+	 * @return bool|\WP_Error
+	 */
+	public static function can_update( $request ) {
+		if ( $request->get_param( 'network' ) ) {
+			return current_user_can( 'manage_network_plugins' ) ? true : self::forbidden();
+		}
+
+		return self::can_manage();
 	}
 
 	/**
