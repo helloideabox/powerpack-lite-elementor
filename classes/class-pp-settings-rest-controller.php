@@ -179,7 +179,7 @@ final class PP_Settings_REST_Controller {
 	 *
 	 * The settings screen is administrator only, so writes are too.
 	 *
-	 * @since x.x.x
+	 * @since 3.1.1
 	 * @param \WP_REST_Request $request Request.
 	 * @return bool|\WP_Error
 	 */
