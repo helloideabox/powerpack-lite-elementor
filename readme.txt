@@ -277,6 +277,15 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 == Changelog ==
 
 = 3.1.1 - TBD =
+*	Enhancement: Tested compatibility with Elementor 4.3.0
+*	Enhancement: Gravity Forms - Added Dropdown Arrow option to use the default arrow, a custom icon, the Gravity Forms theme arrow or no arrow, with Arrow Size, Arrow Offset and Arrow Color options
+*	Fix: Accessibility - In carousels with Infinite Loop enabled, the slide position read out to screen readers was one slide behind after looping past the first or last slide
+*	Fix: Advanced Posts - Filters for terms with non-Latin names, such as Greek or Cyrillic, showed every post instead of only the posts in that term, and a link to one of those filters
+*	Fix: Carousels - On some sites the navigation arrows and autoplay did not move the slides, depending on how the spacing between slides had been saved; this affected Advanced Posts, Instagram Feed, Info Box Carousel, Logo Carousel, Team Member Carousel and Content Ticker
+*	Fix: Content Reveal - With Content Visibility By set to Lines, a PHP warning was written to the error log each time the widget was rendered
+*	Fix: Gravity Forms - Dropdown fields showed two arrows when the form used the Gravity Forms Orbital theme
+*	Fix: PowerPack settings - On the Elements tab, Activate All and Deactivate All acted on every widget even while a filter or a search was narrowing the list; they now act only on the widgets shown, and read Activate Shown and Deactivate Shown while the list is narrowed
+*	Fix: WPForms - Since 3.1.0 the form fields were shorter and narrower than the sizes set in WPForms
 *	Security Fix: Animated Gradient Background - Colors are now validated and escaped in the editor preview and on the frontend
 *	Security Fix: PowerPack settings - Only administrators can now change settings, including which widgets and extensions are enabled
 

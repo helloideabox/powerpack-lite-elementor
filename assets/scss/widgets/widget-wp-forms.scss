@@ -1,4 +1,7 @@
-@import "forms";
+// Only the radio/checkbox rules: the shared text input reset in _forms.scss
+// sets width/height to auto, which overrides the WPForms field sizes.
+@import "../mixins/forms-radio-checkbox";
+@include pp-forms-radio-checkbox;
 
 .pp-wpforms {
 

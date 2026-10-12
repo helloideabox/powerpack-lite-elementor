@@ -77,7 +77,9 @@
 				if (device && 'desktop' !== device) {
 					propertyName += '_' + device;
 				}
-				return elementorFrontend.utils.controls.getResponsiveControlValue(this.getSliderSettings(), 'space_between', 'size', device) || 0;
+				// Swiper adds this to slide positions with +, so a size saved as the string "10"
+				// concatenated into a nonsense grid and left the arrows unable to move.
+				return parseFloat( elementorFrontend.utils.controls.getResponsiveControlValue(this.getSliderSettings(), 'space_between', 'size', device) ) || 0;
 			}
 
 			getSwiperOptions() {

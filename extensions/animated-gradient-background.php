@@ -227,14 +227,14 @@ class Extension_Animated_Gradient_Background extends Extension_Base {
 	 * Pattern a gradient colour must match: hex, rgb(a), hsl(a), a CSS
 	 * variable or a named colour. Shared with the editor template.
 	 *
-	 * @since TBD
+	 * @since x.x.x
 	 */
 	const COLOR_PATTERN = '^(#[0-9a-f]{3,8}|(rgb|hsl)a?[(][0-9.,% /+-]+[)]|var[(] *--[a-z0-9_-]+ *[)]|[a-z]+)$';
 
 	/**
 	 * Whether a value is a colour the gradient can safely use.
 	 *
-	 * @since TBD
+	 * @since x.x.x
 	 * @param mixed $color Colour value.
 	 * @return bool
 	 */

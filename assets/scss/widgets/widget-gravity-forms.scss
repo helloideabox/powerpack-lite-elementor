@@ -40,22 +40,67 @@
             border-radius: 0;
             height: auto;
             display: inline-block;
-            appearance: none;
         }
 
         .pp-gf-select-custom {
             position: relative;
 
             &::after {
-                content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNMjAxLjQgMzQyLjZjMTIuNSAxMi41IDMyLjggMTIuNSA0NS4zIDBsMTYwLTE2MGMxMi41LTEyLjUgMTIuNS0zMi44IDAtNDUuM3MtMzIuOC0xMi41LTQ1LjMgMEwyMjQgMjc0LjcgODYuNiAxMzcuNGMtMTIuNS0xMi41LTMyLjgtMTIuNS00NS4zIDBzLTEyLjUgMzIuOCAwIDQ1LjNsMTYwIDE2MHoiLz48L3N2Zz4=);
+                $pp-gf-select-arrow: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNMjAxLjQgMzQyLjZjMTIuNSAxMi41IDMyLjggMTIuNSA0NS4zIDBsMTYwLTE2MGMxMi41LTEyLjUgMTIuNS0zMi44IDAtNDUuM3MtMzIuOC0xMi41LTQ1LjMgMEwyMjQgMjc0LjcgODYuNiAxMzcuNGMtMTIuNS0xMi41LTMyLjgtMTIuNS00NS4zIDBzLTEyLjUgMzIuOCAwIDQ1LjNsMTYwIDE2MHoiLz48L3N2Zz4=);
+                content: "";
                 pointer-events: none;
                 position: absolute;
                 inset-inline-end: .8em;
 
                 @include center(vertical);
                 width: 12px;
+                height: 12px;
+                background-color: #000;
+                -webkit-mask: $pp-gf-select-arrow center / contain no-repeat;
+                mask: $pp-gf-select-arrow center / contain no-repeat;
                 z-index: 2;
             }
+        }
+
+        .pp-gf-select-icon {
+            pointer-events: none;
+            position: absolute;
+            inset-inline-end: .8em;
+
+            @include center(vertical);
+            display: flex;
+            font-size: 12px;
+            line-height: 1;
+            z-index: 2;
+
+            svg {
+                width: 1em;
+                height: 1em;
+                fill: currentcolor;
+            }
+        }
+    }
+
+    // Every mode except "Gravity Forms" draws its own arrow (or none), so the
+    // native arrow and the Orbital theme's background-image arrow are removed.
+    &:not(.pp-gf-select-arrow-form) .gform_wrapper {
+
+        select {
+            appearance: none;
+        }
+
+        .pp-gf-select-custom select,
+        .pp-gf-select-custom .chosen-single {
+            background-image: none;
+        }
+    }
+
+    &.pp-gf-select-arrow-icon,
+    &.pp-gf-select-arrow-form,
+    &.pp-gf-select-arrow-none {
+
+        .gform_wrapper .pp-gf-select-custom::after {
+            display: none;
         }
     }
 

@@ -99,15 +99,21 @@
 			}
 
 			wrapSelectFields() {
+				const iconTemplate = this.$element.find( '.pp-gf-select-icon-template' ).get( 0 );
+
 				this.$element.find( 'select:not([multiple])' ).each( function () {
 					const $select = $( this );
-					if ( $select.parent().hasClass( 'pp-gf-select-custom' ) ) {
+					const $target = $select.next().hasClass( 'chosen-container' ) ? $select.next() : $select;
+
+					if ( $target.parent().hasClass( 'pp-gf-select-custom' ) ) {
 						return;
 					}
-					if ( $select.next().hasClass( 'chosen-container' ) ) {
-						$select.next().wrap( '<span class="pp-gf-select-custom"></span>' );
-					} else {
-						$select.wrap( '<span class="pp-gf-select-custom"></span>' );
+
+					$target.wrap( '<span class="pp-gf-select-custom"></span>' );
+
+					// Custom arrow icon chosen in the widget's Dropdown Arrow control.
+					if ( iconTemplate ) {
+						$target.parent().append( iconTemplate.content.cloneNode( true ) );
 					}
 				} );
 			}

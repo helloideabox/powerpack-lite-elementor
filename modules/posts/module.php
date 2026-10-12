@@ -103,10 +103,9 @@ class Module extends Module_Base {
 		// Category filter
 		$filter = '';
 		if ( isset( $_POST['category'] ) ) {
-			$filter = sanitize_text_field(
-				wp_unslash( $_POST['category'] )
+			$filter = sanitize_title_with_dashes(
+				str_replace( '.', '', wp_unslash( $_POST['category'] ) )
 			);
-			$filter = str_replace( '.', '', $filter );
 		}
 
 		// Taxonomy filter

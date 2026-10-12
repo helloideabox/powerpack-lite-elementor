@@ -121,7 +121,9 @@
 				if (device && 'desktop' !== device) {
 					propertyName += '_' + device;
 				}
-				return elementorFrontend.utils.controls.getResponsiveControlValue(this.getSliderSettings(), 'space_between', 'size', device) || 0;
+				// Swiper adds this to slide positions with +, so a size saved as the string "10"
+				// concatenated into a nonsense grid and left the arrows unable to move.
+				return parseFloat( elementorFrontend.utils.controls.getResponsiveControlValue(this.getSliderSettings(), 'space_between', 'size', device) ) || 0;
 			}
 
 			getSwiperOptions() {
@@ -483,12 +485,15 @@
 
 			initFiltersOnHashChange(self) {
 				if ( '' !== location.hash ) {
-					let filterHash = location.hash.split('#')[1];
+					const filterValue = '.' + location.hash.split('#')[1].toLowerCase(),
+						matchesHash = function() {
+							return $(this).attr( 'data-filter' ) === filterValue;
+						};
 
-					self.elements.$filters.find('li[data-filter=".' + filterHash + '"]').trigger('click');
+					self.elements.$filters.find( 'li[data-filter]' ).filter( matchesHash ).trigger( 'click' );
 
 					if ( self.elements.$filtersDropdown.length > 0 ) {
-						self.elements.$filtersDropdown.find('li[data-filter=".' + filterHash + '"]').trigger('click');
+						self.elements.$filtersDropdown.find( 'li[data-filter]' ).filter( matchesHash ).trigger( 'click' );
 					}
 				}
 			}

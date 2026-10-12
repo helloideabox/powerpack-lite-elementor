@@ -78,7 +78,9 @@
 					propertyName += '_' + device;
 				}
 				// return this.getSliderSettings(propertyName) || '';
-				return elementorFrontend.utils.controls.getResponsiveControlValue(this.getSliderSettings(), 'space_between', 'size', device) || 0;
+				// Swiper adds this to slide positions with +, so a size saved as the string "10"
+				// concatenated into a nonsense grid and left the arrows unable to move.
+				return parseFloat( elementorFrontend.utils.controls.getResponsiveControlValue(this.getSliderSettings(), 'space_between', 'size', device) ) || 0;
 			}
 
 			getSwiperOptions() {
@@ -379,12 +381,28 @@
 					this.swiper.$wrapperEl.attr( 'aria-live', 'off' );
 				}
 
+				/*
+				 * In loop mode Swiper first jumps, unseen, from a duplicate to the matching
+				 * real slide, and that jump fires slideChange as well. Announcing there spent
+				 * the userNavigated flag on the slide being left, so the status lagged one
+				 * slide behind after every wrap.
+				 */
+				this.swiper.on( 'beforeLoopFix', () => {
+					this.isLoopFixing = true;
+				} );
+
+				this.swiper.on( 'loopFix', () => {
+					this.isLoopFixing = false;
+				} );
+
 				this.swiper.on( 'slideChange', function () {
 					if ( 'yes' === elementSettings.equal_height_boxes ) {
 						this.setEqualHeight();
 					}
 
-					this.announceSlidePosition();
+					if ( ! this.isLoopFixing ) {
+						this.announceSlidePosition();
+					}
 				}.bind( this ) );
 
 				// Swiper settles which slides are on screen only once the movement is over.

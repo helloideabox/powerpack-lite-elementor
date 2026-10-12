@@ -7,6 +7,7 @@ use PowerpackElementsLite\Classes\PP_Config;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
+use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
@@ -781,6 +782,95 @@ class Gravity_Forms extends Powerpack_Widget {
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
+
+		$this->add_control(
+			'select_arrow',
+			[
+				'label'     => esc_html__( 'Dropdown Arrow', 'powerpack-lite-for-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'default',
+				'options'   => [
+					'default' => esc_html__( 'Default', 'powerpack-lite-for-elementor' ),
+					'icon'    => esc_html__( 'Custom Icon', 'powerpack-lite-for-elementor' ),
+					'form'    => esc_html__( 'Gravity Forms', 'powerpack-lite-for-elementor' ),
+					'none'    => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'select_arrow_icon',
+			[
+				'label'     => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
+				'type'      => Controls_Manager::ICONS,
+				'default'   => [
+					'value'   => 'fas fa-chevron-down',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'select_arrow' => 'icon',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'select_arrow_size',
+			[
+				'label'      => esc_html__( 'Arrow Size', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
+				'range'      => [
+					'px' => [
+						'min' => 6,
+						'max' => 50,
+					],
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .pp-gf-select-custom::after' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .pp-gf-select-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+				'condition'  => [
+					'select_arrow' => [ 'default', 'icon' ],
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'select_arrow_offset',
+			[
+				'label'      => esc_html__( 'Arrow Offset', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
+				'range'      => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .pp-gf-select-custom::after, {{WRAPPER}} .pp-gravity-form .gform_wrapper .pp-gf-select-icon' => 'inset-inline-end: {{SIZE}}{{UNIT}};',
+				],
+				'condition'  => [
+					'select_arrow' => [ 'default', 'icon' ],
+				],
+			]
+		);
+
+		$this->add_control(
+			'select_arrow_color',
+			[
+				'label'     => esc_html__( 'Arrow Color', 'powerpack-lite-for-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .pp-gf-select-custom::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .pp-gravity-form .gform_wrapper .pp-gf-select-icon' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'select_arrow' => [ 'default', 'icon' ],
+				],
+			]
+		);
 
 		$this->end_controls_section();
 	}
@@ -2464,6 +2554,12 @@ class Gravity_Forms extends Powerpack_Widget {
 			$this->add_render_attribute( 'contact-form', 'class', 'pp-custom-radio-checkbox' );
 		}
 
+		$select_arrow = ! empty( $settings['select_arrow'] ) ? $settings['select_arrow'] : 'default';
+
+		if ( 'default' !== $select_arrow ) {
+			$this->add_render_attribute( 'contact-form', 'class', 'pp-gf-select-arrow-' . $select_arrow );
+		}
+
 		if ( class_exists( 'GFCommon' ) ) {
 			if ( ! empty( $settings['contact_form_list'] ) ) {
 				$widget_id = $this->get_id();
@@ -2504,6 +2600,11 @@ class Gravity_Forms extends Powerpack_Widget {
 					echo do_shortcode( '[gravityform id="' . absint( $form_id ) . '" title="' . $form_title . '" description="' . $form_description . '" ajax="' . $form_ajax . '"' . ' ' . $shortcode_attrs . ']' );
 					?>
 					<div id="pp-gravity-form-status-<?php echo esc_attr( $widget_id ); ?>" class="pp-screen-only elementor-screen-only" role="status" aria-live="polite" aria-atomic="true"></div>
+					<?php if ( 'icon' === $select_arrow && ! empty( $settings['select_arrow_icon']['value'] ) ) { ?>
+						<template class="pp-gf-select-icon-template">
+							<span class="pp-gf-select-icon" aria-hidden="true"><?php Icons_Manager::render_icon( $settings['select_arrow_icon'], [ 'aria-hidden' => 'true' ] ); ?></span>
+						</template>
+					<?php } ?>
 				</div>
 				<?php
 			} else {

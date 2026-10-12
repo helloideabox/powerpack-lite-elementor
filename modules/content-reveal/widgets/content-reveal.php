@@ -1113,11 +1113,11 @@ class Content_Reveal extends Powerpack_Widget {
 			$this->add_render_attribute( 'wrapper', 'data-scroll-top', 'yes' );
 		}
 
-		// A visible amount of 0 is valid - it hides the content entirely - so check for a number, not for truthiness.
-		$has_visible_amount = is_numeric( $settings['visible_amount']['size'] );
-
-		if ( $has_visible_amount && ( 'template' === $settings['content_type'] || ( 'content' === $settings['content_type'] && 'pixels' === $settings['visible_type'] ) ) ) {
-			$this->add_render_attribute( 'wrapper', 'data-content-height', $settings['visible_amount']['size'] );
+		if ( 'template' === $settings['content_type'] || ( 'content' === $settings['content_type'] && 'pixels' === $settings['visible_type'] ) ) {
+			// A visible amount of 0 is valid - it hides the content entirely - so check for a number, not for truthiness.
+			if ( is_numeric( $settings['visible_amount']['size'] ) ) {
+				$this->add_render_attribute( 'wrapper', 'data-content-height', $settings['visible_amount']['size'] );
+			}
 		}
 
 		if ( 'content' === $settings['content_type'] && 'lines' === $settings['visible_type'] ) {

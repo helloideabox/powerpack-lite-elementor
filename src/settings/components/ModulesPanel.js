@@ -269,6 +269,28 @@ export default function ModulesPanel( {
 			.filter( ( category ) => category.widgets.length > 0 );
 	}, [ data, term, filter, usedSet ] );
 
+	/*
+	 * What the bulk buttons act on.
+	 *
+	 * The toolbar's "All" means the list sitting underneath it, not the
+	 * catalogue: these buttons share a row with the filters, so someone who has
+	 * narrowed the library to what is not in use and then presses Deactivate
+	 * All is asking about those. Acting on all of them instead is a surprise
+	 * that can only be undone one switch at a time. The per-category buttons
+	 * further down have always worked this way.
+	 *
+	 * With nothing narrowing the view this is the same set as `switchable`.
+	 */
+	const shownSwitchable = useMemo(
+		() =>
+			categories.flatMap( ( category ) =>
+				category.widgets
+					.filter( ( widget ) => ! widget.isPro )
+					.map( ( widget ) => widget.name )
+			),
+		[ categories ]
+	);
+
 	const slugKey = categories.map( ( category ) => category.slug ).join( '|' );
 
 	/**
@@ -517,12 +539,32 @@ export default function ModulesPanel( {
 							} ) }
 						</div>
 
+						{ /*
+						  * The wording follows the scope. While a filter or a
+						  * search is narrowing the library, "All" would be a
+						  * promise about the whole catalogue that the button no
+						  * longer keeps. The difference is invisible afterwards
+						  * too, because the widgets it did not touch are the
+						  * ones off screen.
+						  */ }
 						<div className="pp-toolbar-actions">
-							<Button variant="tertiary" onClick={ () => toggleMany( switchable, true ) }>
-								{ __( 'Activate All', 'powerpack-lite-for-elementor' ) }
+							<Button
+								variant="tertiary"
+								disabled={ ! shownSwitchable.length }
+								onClick={ () => toggleMany( shownSwitchable, true ) }
+							>
+								{ isFiltered
+									? __( 'Activate Shown', 'powerpack-lite-for-elementor' )
+									: __( 'Activate All', 'powerpack-lite-for-elementor' ) }
 							</Button>
-							<Button variant="tertiary" onClick={ () => toggleMany( switchable, false ) }>
-								{ __( 'Deactivate All', 'powerpack-lite-for-elementor' ) }
+							<Button
+								variant="tertiary"
+								disabled={ ! shownSwitchable.length }
+								onClick={ () => toggleMany( shownSwitchable, false ) }
+							>
+								{ isFiltered
+									? __( 'Deactivate Shown', 'powerpack-lite-for-elementor' )
+									: __( 'Deactivate All', 'powerpack-lite-for-elementor' ) }
 							</Button>
 						</div>
 					</div>
