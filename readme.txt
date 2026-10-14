@@ -276,6 +276,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 3.1.2 - TBD =
+*	Security Fix: Info Box Carousel - The item image URL is now escaped and the icon text is now sanitized in the editor preview
+*	Security Fix: Info Box - The icon text is now sanitized in the editor preview
+
 = 3.1.1 - October 12, 2026 =
 *	Enhancement: Tested compatibility with Elementor 4.3.0
 *	Enhancement: Gravity Forms - Added Dropdown Arrow option to use the default arrow, a custom icon, the Gravity Forms theme arrow or no arrow, with Arrow Size, Arrow Offset and Arrow Color options

@@ -3373,9 +3373,9 @@ class Info_Box_Carousel extends Powerpack_Widget {
 								 */
 								var imageAlt = ( "icon" === item.link_type ) ? stripTags( item.title ) : "";
 								#>
-								<img src="{{{ image_url }}}" alt="{{ imageAlt }}" />
+								<img src="{{ _.escape( image_url ) }}" alt="{{ imageAlt }}" />
 							<# } else if ( item.icon_type == 'text' ) { #>
-								{{{ item.icon_text }}}
+								{{{ elementor.helpers.sanitize( item.icon_text ) }}}
 							<# } #>
 						</span>
 						<# if ( item.link_type == 'icon' ) { #>

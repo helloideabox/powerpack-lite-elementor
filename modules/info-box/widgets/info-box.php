@@ -2330,7 +2330,7 @@ class Info_Box extends Powerpack_Widget {
 								<img src="{{ _.escape( image_url ) }}" />
 							<# } else if ( settings.icon_type == 'text' ) { #>
 								<span class="pp-icon-text elementor-inline-editing" data-elementor-setting-key="icon_text" data-elementor-inline-editing-toolbar="none">
-									{{{ settings.icon_text }}}
+									{{{ elementor.helpers.sanitize( settings.icon_text ) }}}
 								</span>
 							<# } #>
 						</span>
