@@ -276,7 +276,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-= 3.1.2 - TBD =
+= 3.1.2 - October 21, 2026 =
 *	Security Fix: Info Box Carousel - The item image URL is now escaped in the editor preview
 *	Security Fix: Posts, Content Ticker and Marquee - The author and post filter types are now limited to their allowed values, so the query can no longer return private, draft, pending or scheduled posts
 *	Fix: Info Box, Info Box Carousel - Icons with a background and rounded corners stretched to the full width of the icon area, so a circle showed as a pill and the icon sat to one side
