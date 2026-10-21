@@ -260,13 +260,19 @@ function powerpack_elements_add_description_links( $plugin_meta, $plugin_file ) 
 	if ( POWERPACK_ELEMENTS_LITE_BASE === $plugin_file ) {
 
 		$row_meta = [
-			'docs' => sprintf(
+			'docs'    => sprintf(
 				'<a href="%1$s" aria-label="%2$s" target="_blank" rel="noopener noreferrer">%3$s</a>',
 				esc_url( 'https://powerpackelements.com/docs/?utm_source=doclink&utm_medium=widget&utm_campaign=lite' ),
 				esc_attr__( 'View PowerPack Documentation', 'powerpack-lite-for-elementor' ),
 				esc_html__( 'Docs & FAQs', 'powerpack-lite-for-elementor' )
 			),
-			'pro'  => sprintf(
+			'support' => sprintf(
+				'<a href="%1$s" aria-label="%2$s" target="_blank" rel="noopener noreferrer">%3$s</a>',
+				esc_url( 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/' ),
+				esc_attr__( 'Get support on the WordPress.org forum', 'powerpack-lite-for-elementor' ),
+				esc_html__( 'Support', 'powerpack-lite-for-elementor' )
+			),
+			'pro'     => sprintf(
 				'<a href="%1$s" aria-label="%2$s" target="_blank" rel="noopener noreferrer" style="font-weight:bold;">%3$s</a>',
 				esc_url( 'https://powerpackelements.com/?utm_source=plugin&utm_medium=list&utm_campaign=lite' ),
 				esc_attr__( 'Upgrade to PowerPack Pro', 'powerpack-lite-for-elementor' ),

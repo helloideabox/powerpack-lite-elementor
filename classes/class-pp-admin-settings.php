@@ -279,7 +279,7 @@ final class PP_Admin_Settings {
 		);
 
 		$docs_link    = ! empty( $settings['docs_link'] ) ? $settings['docs_link'] : 'https://powerpackelements.com/docs/';
-		$support_link = ! empty( $settings['support_link'] ) ? $settings['support_link'] : 'https://powerpackelements.com/contact/';
+		$support_link = ! empty( $settings['support_link'] ) ? $settings['support_link'] : 'https://wordpress.org/support/plugin/powerpack-lite-for-elementor/';
 
 		/*
 		 * The upgrade prompt names PowerPack Pro, so it is withheld once the
