@@ -2514,7 +2514,9 @@ class Content_Ticker extends Powerpack_Widget {
 
 		// Author Filter
 		if ( ! empty( $settings['authors'] ) ) {
-			$args[ $settings['author_filter_type'] ] = $settings['authors'];
+			$author_filter_type = in_array( $settings['author_filter_type'], array( 'author__in', 'author__not_in' ), true ) ? $settings['author_filter_type'] : 'author__in';
+
+			$args[ $author_filter_type ] = array_map( 'absint', (array) $settings['authors'] );
 		}
 
 		// Posts Filter
@@ -2527,7 +2529,9 @@ class Content_Ticker extends Powerpack_Widget {
 		}
 
 		if ( ! empty( $settings[ $posts_control_key ] ) ) {
-			$args[ $settings[ $post_type . '_filter_type' ] ] = $settings[ $posts_control_key ];
+			$posts_filter_type = ( isset( $settings[ $post_type . '_filter_type' ] ) && 'post__in' === $settings[ $post_type . '_filter_type' ] ) ? 'post__in' : 'post__not_in';
+
+			$args[ $posts_filter_type ] = array_map( 'absint', (array) $settings[ $posts_control_key ] );
 		}
 
 		// Taxonomy Filter

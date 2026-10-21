@@ -278,6 +278,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 3.1.2 - TBD =
 *	Security Fix: Info Box Carousel - The item image URL is now escaped in the editor preview
+*	Security Fix: Posts, Content Ticker and Marquee - The author and post filter types are now limited to their allowed values, so the query can no longer return private, draft, pending or scheduled posts
 
 = 3.1.1 - October 12, 2026 =
 *	Enhancement: Tested compatibility with Elementor 4.3.0

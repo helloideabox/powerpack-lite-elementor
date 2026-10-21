@@ -760,17 +760,21 @@ abstract class Posts_Base extends Powerpack_Widget {
 
 			// Author Filter.
 			if ( ! empty( $settings['authors'] ) ) {
-				$query_args[ $settings['author_filter_type'] ] = $settings['authors'];
+				$author_filter_type = in_array( $settings['author_filter_type'], array( 'author__in', 'author__not_in' ), true ) ? $settings['author_filter_type'] : 'author__in';
+
+				$query_args[ $author_filter_type ] = array_map( 'absint', (array) $settings['authors'] );
 			}
 
 			// Posts Filter.
 			$post_type = $settings['post_type'];
 
 			if ( ! empty( $settings[ $post_type . '_filter' ] ) ) {
-				if ( 'post__not_in' === $settings[ $post_type . '_filter_type' ] ) {
-					$post__not_in = $settings[ $post_type . '_filter' ];
+				$posts_filter = array_map( 'absint', (array) $settings[ $post_type . '_filter' ] );
+
+				if ( 'post__in' === $settings[ $post_type . '_filter_type' ] ) {
+					$query_args['post__in'] = $posts_filter;
 				} else {
-					$query_args[ $settings[ $post_type . '_filter_type' ] ] = $settings[ $post_type . '_filter' ];
+					$post__not_in = $posts_filter;
 				}
 			}
 

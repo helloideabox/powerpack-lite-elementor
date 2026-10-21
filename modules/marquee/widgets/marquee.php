@@ -1779,8 +1779,8 @@ class Marquee extends Powerpack_Widget {
 
 		// Author filter.
 		if ( ! empty( $settings['authors'] ) ) {
-			$author_filter_type = ! empty( $settings['author_filter_type'] ) ? $settings['author_filter_type'] : 'author__in';
-			$args[ $author_filter_type ] = $settings['authors'];
+			$author_filter_type = ( isset( $settings['author_filter_type'] ) && in_array( $settings['author_filter_type'], [ 'author__in', 'author__not_in' ], true ) ) ? $settings['author_filter_type'] : 'author__in';
+			$args[ $author_filter_type ] = array_map( 'absint', (array) $settings['authors'] );
 		}
 
 		// Taxonomy filter.
