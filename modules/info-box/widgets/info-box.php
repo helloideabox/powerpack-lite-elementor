@@ -137,243 +137,246 @@ class Info_Box extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_icon',
-			array(
+			[
 				'label' => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'icon_type',
-			array(
+			[
 				'label'       => esc_html__( 'Type', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
-				'options'     => array(
-					'none'  => array(
+				'options'     => [
+					'none'  => [
 						'title' => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-ban',
-					),
-					'icon'  => array(
+					],
+					'icon'  => [
 						'title' => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-star',
-					),
-					'image' => array(
+					],
+					'image' => [
 						'title' => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-image-bold',
-					),
-					'text'  => array(
+					],
+					'text'  => [
 						'title' => esc_html__( 'Text', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-font',
-					),
-				),
+					],
+				],
 				'default'     => 'icon',
-			)
+			]
 		);
 
 		$this->add_control(
 			'selected_icon',
-			array(
+			[
 				'label'            => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
-				'default'          => array(
+				'default'          => [
 					'value'   => 'fas fa-star',
 					'library' => 'fa-solid',
-				),
-				'condition'        => array(
+				],
+				'condition'        => [
 					'icon_type' => 'icon',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon_text',
-			array(
+			[
 				'label'     => esc_html__( 'Icon Text', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
-				'dynamic'   => array(
+				'dynamic'   => [
 					'active' => true,
-				),
+				],
 				'default'   => '1',
-				'condition' => array(
+				'condition' => [
 					'icon_type' => 'text',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'image',
-			array(
+			[
 				'label'     => esc_html__( 'Image', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::MEDIA,
-				'dynamic'   => array(
+				'dynamic'   => [
 					'active' => true,
-				),
-				'default'   => array(
+				],
+				'default'   => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'icon_type' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
-			array(
+			[
 				'name'      => 'image', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `image_size` and `image_custom_dimension`.
 				'default'   => 'full',
 				'separator' => 'none',
-				'condition' => array(
+				'condition' => [
 					'icon_type' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'icon_size',
-			array(
+			[
 				'label'      => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => 30,
 					'unit' => 'px',
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 5,
 						'max'  => 200,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
-				'condition'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'condition'  => [
 					'icon_type' => 'icon',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-icon' => 'font-size: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'icon_img_width',
-			array(
+			[
 				'label'      => esc_html__( 'Width', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => '',
 					'unit' => 'px',
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 25,
 						'max'  => 600,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%'  => [
 						'min'  => 25,
 						'max'  => 100,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}}' => '--info-box-icon-width: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'icon_type' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'icon_rotation',
-			array(
+			[
 				'label'      => esc_html__( 'Rotate', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+				'default'    => [
+					'unit' => 'deg',
+				],
+				'range'      => [
+					'deg' => [
 						'min'  => 0,
 						'max'  => 360,
 						'step' => 1,
-					),
-				),
-				'size_units' => '',
-				'condition'  => array(
+					],
+				],
+				'size_units' => [ 'deg' ],
+				'condition'  => [
 					'icon_type!' => 'none',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-icon' => 'transform: rotate( {{SIZE}}deg );',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'icon_position',
-			array(
+			[
 				'label'              => esc_html__( 'Icon Position', 'powerpack-lite-for-elementor' ),
 				'type'               => Controls_Manager::CHOOSE,
 				'default'            => 'top',
-				'options'            => array(
-					'left'  => array(
+				'options'            => [
+					'left'  => [
 						'title' => esc_html__( 'Icon on Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-left',
-					),
-					'top'   => array(
+					],
+					'top'   => [
 						'title' => esc_html__( 'Icon on Top', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-v-align-top',
-					),
-					'right' => array(
+					],
+					'right' => [
 						'title' => esc_html__( 'Icon on Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-h-align-right',
-					),
-				),
-				'condition'          => array(
+					],
+				],
+				'condition'          => [
 					'icon_type!' => 'none',
-				),
+				],
 				'prefix_class'       => 'pp-info-box%s-',
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'icon_vertical_position',
-			array(
+			[
 				'label'                => esc_html__( 'Vertical Align', 'powerpack-lite-for-elementor' ),
 				'description'          => esc_html__( 'Works in case of left and right icon position', 'powerpack-lite-for-elementor' ),
 				'type'                 => Controls_Manager::CHOOSE,
 				'default'              => 'top',
-				'options'              => array(
-					'top'    => array(
+				'options'              => [
+					'top'    => [
 						'title' => esc_html__( 'Top', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-v-align-top',
-					),
-					'middle' => array(
+					],
+					'middle' => [
 						'title' => esc_html__( 'Middle', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-v-align-middle',
-					),
-					'bottom' => array(
+					],
+					'bottom' => [
 						'title' => esc_html__( 'Bottom', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-v-align-bottom',
-					),
-				),
-				'selectors'            => array(
+					],
+				],
+				'selectors'            => [
 					'(desktop){{WRAPPER}}.pp-info-box-left .pp-info-box'        => 'align-items: {{VALUE}};',
 					'(desktop){{WRAPPER}}.pp-info-box-right .pp-info-box'       => 'align-items: {{VALUE}};',
 					'(tablet){{WRAPPER}}.pp-info-box-tablet-left .pp-info-box'  => 'align-items: {{VALUE}};',
 					'(tablet){{WRAPPER}}.pp-info-box-tablet-right .pp-info-box' => 'align-items: {{VALUE}};',
 					'(mobile){{WRAPPER}}.pp-info-box-mobile-left .pp-info-box'  => 'align-items: {{VALUE}};',
 					'(mobile){{WRAPPER}}.pp-info-box-mobile-right .pp-info-box' => 'align-items: {{VALUE}};',
-				),
-				'selectors_dictionary' => array(
+				],
+				'selectors_dictionary' => [
 					'top'    => 'flex-start',
 					'middle' => 'center',
 					'bottom' => 'flex-end',
-				),
-				'condition'            => array(
-					'icon_type' => array( 'icon', 'image', 'text' ),
-				),
-			)
+				],
+				'condition'            => [
+					'icon_type' => [ 'icon', 'image', 'text' ],
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -391,66 +394,66 @@ class Info_Box extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_content',
-			array(
+			[
 				'label' => esc_html__( 'Content', 'powerpack-lite-for-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'heading',
-			array(
+			[
 				'label'   => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::TEXT,
-				'dynamic' => array(
+				'dynamic' => [
 					'active' => true,
-				),
+				],
 				'default' => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'sub_heading',
-			array(
+			[
 				'label'   => esc_html__( 'Subtitle', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::TEXT,
-				'dynamic' => array(
+				'dynamic' => [
 					'active' => true,
-				),
+				],
 				'default' => esc_html__( 'Subtitle', 'powerpack-lite-for-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'description',
-			array(
+			[
 				'label'   => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::WYSIWYG,
-				'dynamic' => array(
+				'dynamic' => [
 					'active' => true,
-				),
+				],
 				'default' => esc_html__( 'Enter info box description', 'powerpack-lite-for-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'divider_title_switch',
-			array(
+			[
 				'label'        => esc_html__( 'Title Separator', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
 				'label_on'     => esc_html__( 'On', 'powerpack-lite-for-elementor' ),
 				'label_off'    => esc_html__( 'Off', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
-			)
+			]
 		);
 
 		$this->add_control(
 			'title_html_tag',
-			array(
+			[
 				'label'   => esc_html__( 'Title HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'h4',
-				'options' => array(
+				'options' => [
 					'h1'   => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
 					'h2'   => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
 					'h3'   => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
@@ -460,17 +463,17 @@ class Info_Box extends Powerpack_Widget {
 					'div'  => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
 					'span' => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
 					'p'    => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'sub_title_html_tag',
-			array(
+			[
 				'label'     => esc_html__( 'Subtitle HTML Tag', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'h5',
-				'options'   => array(
+				'options'   => [
 					'h1'   => esc_html__( 'H1', 'powerpack-lite-for-elementor' ),
 					'h2'   => esc_html__( 'H2', 'powerpack-lite-for-elementor' ),
 					'h3'   => esc_html__( 'H3', 'powerpack-lite-for-elementor' ),
@@ -480,14 +483,53 @@ class Info_Box extends Powerpack_Widget {
 					'div'  => esc_html__( 'div', 'powerpack-lite-for-elementor' ),
 					'span' => esc_html__( 'span', 'powerpack-lite-for-elementor' ),
 					'p'    => esc_html__( 'p', 'powerpack-lite-for-elementor' ),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'sub_heading!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
+	}
+
+	/**
+	 * Get the visibility conditions shared by button controls.
+	 *
+	 * Button controls are shown when link type is "button", or when link type
+	 * is "box" and the "Show Button" toggle is enabled.
+	 *
+	 * @since 3.1.2
+	 * @access protected
+	 *
+	 * @return array Elementor control "conditions" array.
+	 */
+	protected function get_button_conditions() {
+		return [
+			'relation' => 'or',
+			'terms'    => [
+				[
+					'name'     => 'link_type',
+					'operator' => '==',
+					'value'    => 'button',
+				],
+				[
+					'relation' => 'and',
+					'terms'    => [
+						[
+							'name'     => 'link_type',
+							'operator' => '==',
+							'value'    => 'box',
+						],
+						[
+							'name'     => 'button_visible',
+							'operator' => '==',
+							'value'    => 'yes',
+						],
+					],
+				],
+			],
+		];
 	}
 
 	/**
@@ -502,185 +544,110 @@ class Info_Box extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_link',
-			array(
+			[
 				'label' => esc_html__( 'Link', 'powerpack-lite-for-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'link_type',
-			array(
+			[
 				'label'   => esc_html__( 'Link Type', 'powerpack-lite-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'none',
-				'options' => array(
+				'options' => [
 					'none'   => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
 					'box'    => esc_html__( 'Box', 'powerpack-lite-for-elementor' ),
 					'icon'   => esc_html__( 'Image/Icon', 'powerpack-lite-for-elementor' ),
 					'title'  => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 					'button' => esc_html__( 'Button', 'powerpack-lite-for-elementor' ),
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'link',
-			array(
+			[
 				'label'       => esc_html__( 'Link', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::URL,
-				'dynamic'     => array(
+				'dynamic'     => [
 					'active'     => true,
-					'categories' => array(
+					'categories' => [
 						TagsModule::POST_META_CATEGORY,
 						TagsModule::URL_CATEGORY,
-					),
-				),
-				'default'     => array(
+					],
+				],
+				'default'     => [
 					'url' => '#',
-				),
-				'condition'   => array(
+				],
+				'condition'   => [
 					'link_type!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'button_visible',
-			array(
+			[
 				'label'        => esc_html__( 'Show Button', 'powerpack-lite-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
 				'label_on'     => esc_html__( 'Yes', 'powerpack-lite-for-elementor' ),
 				'label_off'    => esc_html__( 'No', 'powerpack-lite-for-elementor' ),
 				'return_value' => 'yes',
-				'condition'    => array(
+				'condition'    => [
 					'link_type' => 'box',
-				),
-			)
+				],
+			]
 		);
+
+		$condition = $this->get_button_conditions();
 
 		$this->add_control(
 			'button_text',
-			array(
-				'label'      => esc_html__( 'Button', 'powerpack-lite-for-elementor' ) . ' ' . esc_html__( 'Text', 'powerpack-lite-for-elementor' ),
+			[
+				'label'      => esc_html__( 'Button Text', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::TEXT,
-				'dynamic'    => array(
+				'dynamic'    => [
 					'active' => true,
-				),
+				],
 				'default'    => esc_html__( 'Get Started', 'powerpack-lite-for-elementor' ),
-				'conditions' => array(
-					'relation' => 'or',
-					'terms' => array(
-						array(
-							'name'     => 'link_type',
-							'operator' => '==',
-							'value'    => 'button',
-						),
-						array(
-							'relation' => 'and',
-							'terms' => array(
-								array(
-									'name'     => 'link_type',
-									'operator' => '==',
-									'value'    => 'box',
-								),
-								array(
-									'name'     => 'button_visible',
-									'operator' => '==',
-									'value'    => 'yes',
-								),
-							),
-						),
-					),
-				),
-			)
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_control(
 			'select_button_icon',
-			array(
-				'label'            => esc_html__( 'Button', 'powerpack-lite-for-elementor' ) . ' ' . esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
+			[
+				'label'            => esc_html__( 'Button Icon', 'powerpack-lite-for-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'button_icon',
-				'conditions'       => array(
-					'relation' => 'or',
-					'terms' => array(
-						array(
-							'name'     => 'link_type',
-							'operator' => '==',
-							'value'    => 'button',
-						),
-						array(
-							'relation' => 'and',
-							'terms' => array(
-								array(
-									'name'     => 'link_type',
-									'operator' => '==',
-									'value'    => 'box',
-								),
-								array(
-									'name'     => 'button_visible',
-									'operator' => '==',
-									'value'    => 'yes',
-								),
-							),
-						),
-					),
-				),
-			)
+				'conditions'       => $condition,
+			]
 		);
 
 		$this->add_control(
 			'button_icon_position',
-			array(
+			[
 				'label'     => esc_html__( 'Icon Position', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'after',
-				'options'   => array(
+				'options'   => [
 					'after'  => esc_html__( 'After', 'powerpack-lite-for-elementor' ),
 					'before' => esc_html__( 'Before', 'powerpack-lite-for-elementor' ),
-				),
-				'conditions'       => array(
-					'relation' => 'or',
-					'terms' => array(
-						array(
-							'relation' => 'and',
-							'terms' => array(
-								array(
-									'name'     => 'link_type',
-									'operator' => '==',
-									'value'    => 'button',
-								),
-								array(
-									'name'     => 'select_button_icon[value]',
-									'operator' => '!=',
-									'value'    => '',
-								),
-							),
-						),
-						array(
-							'relation' => 'and',
-							'terms' => array(
-								array(
-									'name'     => 'link_type',
-									'operator' => '==',
-									'value'    => 'box',
-								),
-								array(
-									'name'     => 'button_visible',
-									'operator' => '==',
-									'value'    => 'yes',
-								),
-								array(
-									'name'     => 'select_button_icon[value]',
-									'operator' => '!=',
-									'value'    => '',
-								),
-							),
-						),
-					),
-				),
-			)
+				],
+				'conditions' => [
+					'relation' => 'and',
+					'terms'    => [
+						[
+							'name'     => 'select_button_icon[value]',
+							'operator' => '!=',
+							'value'    => '',
+						],
+						$condition,
+					],
+				],
+			]
 		);
 
 		$this->add_control(
@@ -703,52 +670,22 @@ class Info_Box extends Powerpack_Widget {
 				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box .pp-info-box-button' => 'gap: {{SIZE}}{{UNIT}};',
 				],
-				'conditions' => array(
-					'relation' => 'or',
-					'terms' => array(
-						array(
-							'relation' => 'and',
-							'terms' => array(
-								array(
-									'name'     => 'link_type',
-									'operator' => '==',
-									'value'    => 'button',
-								),
-								array(
-									'name'     => 'select_button_icon[value]',
-									'operator' => '!=',
-									'value'    => '',
-								),
-							),
-						),
-						array(
-							'relation' => 'and',
-							'terms' => array(
-								array(
-									'name'     => 'link_type',
-									'operator' => '==',
-									'value'    => 'box',
-								),
-								array(
-									'name'     => 'button_visible',
-									'operator' => '==',
-									'value'    => 'yes',
-								),
-								array(
-									'name'     => 'select_button_icon[value]',
-									'operator' => '!=',
-									'value'    => '',
-								),
-							),
-						),
-					),
-				),
+				'conditions' => [
+					'relation' => 'and',
+					'terms'    => [
+						[
+							'name'     => 'select_button_icon[value]',
+							'operator' => '!=',
+							'value'    => '',
+						],
+						$condition,
+					],
+				],
 			]
 		);
 
 		$this->end_controls_section();
 	}
-
 
 	/**
 	 * Register Info Box Controls in Style tab
@@ -762,146 +699,146 @@ class Info_Box extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_info_box_style',
-			array(
+			[
 				'label' => esc_html__( 'Box', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'info_box_min_height',
-			array(
+			[
 				'label'      => esc_html__( 'Min Height', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+				'range'      => [
+					'px' => [
 						'min'  => 50,
 						'max'  => 1000,
 						'step' => 1,
-					),
-					'vh' => array(
+					],
+					'vh' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', 'em', 'rem', 'vh', 'custom' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', 'em', 'rem', 'vh', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-container' => 'min-height: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'info_box_padding',
-			array(
+			[
 				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_info_box_style' );
 
 		$this->start_controls_tab(
 			'tab_info_box_normal',
-			array(
+			[
 				'label' => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
-			)
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
-			array(
+			[
 				'name'     => 'info_box_bg',
 				'label'    => esc_html__( 'Background', 'powerpack-lite-for-elementor' ),
-				'types'    => array( 'none', 'classic', 'gradient' ),
+				'types'    => [ 'none', 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .pp-info-box-container',
-			)
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
+			[
 				'name'        => 'info_box_border',
 				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-info-box-container',
-			)
+			]
 		);
 
 		$this->add_control(
 			'info_box_border_radius',
-			array(
+			[
 				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
+			[
 				'name'     => 'info_box_shadow',
 				'selector' => '{{WRAPPER}} .pp-info-box-container',
-			)
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_info_box_hover',
-			array(
+			[
 				'label' => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
-			)
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
-			array(
+			[
 				'name'     => 'info_box_bg_hover',
 				'label'    => esc_html__( 'Background', 'powerpack-lite-for-elementor' ),
-				'types'    => array( 'none', 'classic', 'gradient' ),
+				'types'    => [ 'none', 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .pp-info-box-container:hover',
-			)
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
+			[
 				'name'        => 'info_box_border_hover',
 				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-info-box-container:hover',
-			)
+			]
 		);
 
 		$this->add_control(
 			'info_box_border_radius_hover',
-			array(
+			[
 				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-container:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
+			[
 				'name'     => 'info_box_shadow_hover',
 				'selector' => '{{WRAPPER}} .pp-info-box-container:hover',
-			)
+			]
 		);
 
 		$this->end_controls_tab();
@@ -923,184 +860,184 @@ class Info_Box extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_info_box_icon_style',
-			array(
+			[
 				'label'     => esc_html__( 'Icon', 'powerpack-lite-for-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'icon_type!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'icon_typography',
 				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
-				'condition' => array(
+				'condition' => [
 					'icon_type' => 'text',
-				),
+				],
 				'selector'  => '{{WRAPPER}} .pp-info-box-icon',
-			)
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_icon_style' );
 
 		$this->start_controls_tab(
 			'tab_icon_normal',
-			array(
+			[
 				'label' => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'icon_color_normal',
-			array(
+			[
 				'label'     => esc_html__( 'Icon Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-icon'     => 'color: {{VALUE}}',
 					'{{WRAPPER}} .pp-info-box-icon svg' => 'fill: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'icon_type!' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon_bg_color_normal',
-			array(
+			[
 				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-icon' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
+			[
 				'name'        => 'icon_border',
 				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'condition'   => array(
+				'condition'   => [
 					'icon_type!' => 'none',
-				),
+				],
 				'selector'    => '{{WRAPPER}} .pp-info-box-icon',
-			)
+			]
 		);
 
 		$this->add_control(
 			'icon_border_radius',
-			array(
+			[
 				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
-				'condition'  => array(
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'condition'  => [
 					'icon_type!' => 'none',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-icon, {{WRAPPER}} .pp-info-box-icon img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'icon_margin',
-			array(
+			[
 				'label'       => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::DIMENSIONS,
-				'size_units'  => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
-				'selectors'   => array(
+				'size_units'  => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'   => [
 					'{{WRAPPER}} .pp-info-box-icon-wrap' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'icon_padding',
-			array(
+			[
 				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_icon_hover',
-			array(
+			[
 				'label' => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'icon_color_hover',
-			array(
+			[
 				'label'     => esc_html__( 'Icon Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-icon' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-icon svg' => 'fill: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'icon_type!' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon_bg_color_hover',
-			array(
+			[
 				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'condition' => array(
+				'condition' => [
 					'icon_type!' => 'none',
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-icon' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon_border_color_hover',
-			array(
+			[
 				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'condition' => array(
+				'condition' => [
 					'icon_type!' => 'none',
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-icon' => 'border-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'hover_animation_icon',
-			array(
+			[
 				'label' => esc_html__( 'Icon Animation', 'powerpack-lite-for-elementor' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
-			)
+			]
 		);
 
 		$this->end_controls_tab();
@@ -1122,112 +1059,112 @@ class Info_Box extends Powerpack_Widget {
 		 */
 		$this->start_controls_section(
 			'section_info_box_content_style',
-			array(
+			[
 				'label' => esc_html__( 'Content', 'powerpack-lite-for-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'align',
-			array(
+			[
 				'label'     => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'left'    => array(
+				'options'   => [
+					'left'    => [
 						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
-					),
-					'center'  => array(
+					],
+					'center'  => [
 						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
-					),
-					'right'   => array(
+					],
+					'right'   => [
 						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
-					),
-					'justify' => array(
+					],
+					'justify' => [
 						'title' => esc_html__( 'Justified', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-justify',
-					),
-				),
+					],
+				],
 				'default'   => 'center',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-container' => 'text-align: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'content_padding',
-			array(
+			[
 				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'title_style_heading',
-			array(
+			[
 				'label'     => esc_html__( 'Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array(
+				'condition' => [
 					'heading!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'title_color',
-			array(
+			[
 				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-title' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'heading!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'title_color_hover',
-			array(
+			[
 				'label'     => esc_html__( 'Hover Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-title' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'heading!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'title_typography',
 				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
 				'selector'  => '{{WRAPPER}} .pp-info-box-title',
-				'condition' => array(
+				'condition' => [
 					'heading!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
@@ -1235,112 +1172,112 @@ class Info_Box extends Powerpack_Widget {
 			[
 				'name'      => 'title_text_stroke',
 				'selector'  => '{{WRAPPER}} .pp-info-box-title',
-				'condition' => array(
+				'condition' => [
 					'heading!' => '',
-				),
+				],
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
-			array(
+			[
 				'name'      => 'title_text_shadow',
 				'label'     => esc_html__( 'Text Shadow', 'powerpack-lite-for-elementor' ),
 				'selector'  => '{{WRAPPER}} .pp-info-box-title',
-				'condition' => array(
+				'condition' => [
 					'heading!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'title_margin',
-			array(
+			[
 				'label'      => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => 20,
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%'  => [
 						'min'  => 0,
 						'max'  => 30,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-title' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'heading!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'subtitle_heading',
-			array(
+			[
 				'label'     => esc_html__( 'Sub Title', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array(
+				'condition' => [
 					'sub_heading!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'subtitle_color',
-			array(
+			[
 				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default'   => '',
-				'condition' => array(
+				'condition' => [
 					'sub_heading!' => '',
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-subtitle' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'subtitle_color_hover',
-			array(
+			[
 				'label'     => esc_html__( 'Hover Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-subtitle' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'sub_heading!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'subtitle_typography',
 				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				],
-				'condition' => array(
+				'condition' => [
 					'sub_heading!' => '',
-				),
+				],
 				'selector'  => '{{WRAPPER}} .pp-info-box-subtitle',
-			)
+			]
 		);
 
 		$this->add_group_control(
@@ -1348,325 +1285,325 @@ class Info_Box extends Powerpack_Widget {
 			[
 				'name'      => 'subtitle_text_stroke',
 				'selector'  => '{{WRAPPER}} .pp-info-box-subtitle',
-				'condition' => array(
+				'condition' => [
 					'sub_heading!' => '',
-				),
+				],
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
-			array(
+			[
 				'name'      => 'subtitle_text_shadow',
 				'label'     => esc_html__( 'Text Shadow', 'powerpack-lite-for-elementor' ),
 				'selector'  => '{{WRAPPER}} .pp-info-box-subtitle',
-				'condition' => array(
+				'condition' => [
 					'sub_heading!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'subtitle_margin',
-			array(
+			[
 				'label'      => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => 20,
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%'  => [
 						'min'  => 0,
 						'max'  => 30,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
-				'condition'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'condition'  => [
 					'sub_heading!' => '',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-subtitle' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'divider_title_style_heading',
-			array(
+			[
 				'label'     => esc_html__( 'Title Separator', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array(
+				'condition' => [
 					'divider_title_switch' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'divider_title_border_type',
-			array(
+			[
 				'label'     => esc_html__( 'Border Type', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'solid',
-				'options'   => array(
+				'options'   => [
 					'none'   => esc_html__( 'None', 'powerpack-lite-for-elementor' ),
 					'solid'  => esc_html__( 'Solid', 'powerpack-lite-for-elementor' ),
 					'double' => esc_html__( 'Double', 'powerpack-lite-for-elementor' ),
 					'dotted' => esc_html__( 'Dotted', 'powerpack-lite-for-elementor' ),
 					'dashed' => esc_html__( 'Dashed', 'powerpack-lite-for-elementor' ),
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-divider' => 'border-bottom-style: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'divider_title_switch' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'divider_title_width',
-			array(
+			[
 				'label'      => esc_html__( 'Border Width', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => 30,
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 1,
 						'max'  => 1000,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%'  => [
 						'min'  => 1,
 						'max'  => 100,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-divider' => 'width: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'divider_title_switch' => 'yes',
 					'divider_title_border_type!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'divider_title_border_height',
-			array(
+			[
 				'label'      => esc_html__( 'Border Height', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => 2,
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 1,
 						'max'  => 20,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', 'em', 'rem', 'vw', 'custom' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'divider_title_switch' => 'yes',
 					'divider_title_border_type!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'divider_title_border_color',
-			array(
+			[
 				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-divider' => 'border-bottom-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'divider_title_switch' => 'yes',
 					'divider_title_border_type!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'divider_title_align',
-			array(
+			[
 				'label'     => esc_html__( 'Alignment', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'flex-start' => array(
+				'options'   => [
+					'flex-start' => [
 						'title' => esc_html__( 'Left', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-left',
-					),
-					'center'     => array(
+					],
+					'center'     => [
 						'title' => esc_html__( 'Center', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-center',
-					),
-					'flex-end'   => array(
+					],
+					'flex-end'   => [
 						'title' => esc_html__( 'Right', 'powerpack-lite-for-elementor' ),
 						'icon'  => 'eicon-text-align-right',
-					),
-				),
+					],
+				],
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-divider-wrap'   => 'display: flex; justify-content: {{VALUE}};',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'divider_title_switch' => 'yes',
 					'divider_title_border_type!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'divider_title_margin',
-			array(
+			[
 				'label'      => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => 20,
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%'  => [
 						'min'  => 0,
 						'max'  => 30,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'divider_title_switch' => 'yes',
 					'divider_title_border_type!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'description_style_heading',
-			array(
+			[
 				'label'     => esc_html__( 'Description', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array(
+				'condition' => [
 					'description!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'description_color',
-			array(
+			[
 				'label'     => esc_html__( 'Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-description' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'description!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'description_color_hover',
-			array(
+			[
 				'label'     => esc_html__( 'Hover Color', 'powerpack-lite-for-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .pp-info-box-container:hover .pp-info-box-description' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'description!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'description_typography',
 				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
 				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				],
 				'selector'  => '{{WRAPPER}} .pp-info-box-description',
-				'condition' => array(
+				'condition' => [
 					'description!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
-			array(
+			[
 				'name'      => 'description_text_shadow',
 				'label'     => esc_html__( 'Text Shadow', 'powerpack-lite-for-elementor' ),
 				'selector'  => '{{WRAPPER}} .pp-info-box-description',
-				'condition' => array(
+				'condition' => [
 					'description!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'description_margin',
-			array(
+			[
 				'label'      => esc_html__( 'Spacing', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => 20,
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%'  => [
 						'min'  => 0,
 						'max'  => 30,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-description' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'description!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -1678,38 +1615,36 @@ class Info_Box extends Powerpack_Widget {
 	 * @return void
 	 */
 	protected function register_style_button_controls() {
+		$condition = $this->get_button_conditions();
+
 		/**
 		 * Style Tab: Button
 		 * -------------------------------------------------
 		 */
 		$this->start_controls_section(
 			'section_info_box_button_style',
-			array(
-				'label'     => esc_html__( 'Button', 'powerpack-lite-for-elementor' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+			[
+				'label'      => esc_html__( 'Button', 'powerpack-lite-for-elementor' ),
+				'tab'        => Controls_Manager::TAB_STYLE,
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_control(
 			'button_size',
-			array(
-				'label'     => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'md',
-				'options'   => array(
+			[
+				'label'      => esc_html__( 'Size', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::SELECT,
+				'default'    => 'md',
+				'options'    => [
 					'xs' => esc_html__( 'Extra Small', 'powerpack-lite-for-elementor' ),
 					'sm' => esc_html__( 'Small', 'powerpack-lite-for-elementor' ),
 					'md' => esc_html__( 'Medium', 'powerpack-lite-for-elementor' ),
 					'lg' => esc_html__( 'Large', 'powerpack-lite-for-elementor' ),
 					'xl' => esc_html__( 'Extra Large', 'powerpack-lite-for-elementor' ),
-				),
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+				],
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_responsive_control(
@@ -1728,9 +1663,7 @@ class Info_Box extends Powerpack_Widget {
 				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-button' => 'width: {{SIZE}}{{UNIT}}',
 				],
-				'condition'  => array(
-					'link_type' => 'button',
-				),
+				'conditions' => $condition,
 			]
 		);
 
@@ -1738,254 +1671,233 @@ class Info_Box extends Powerpack_Widget {
 
 		$this->start_controls_tab(
 			'tab_button_normal',
-			array(
-				'label'     => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+			[
+				'label'      => esc_html__( 'Normal', 'powerpack-lite-for-elementor' ),
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_control(
 			'button_text_color_normal',
-			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'      => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::COLOR,
+				'default'    => '',
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-button' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .pp-info-box-button .pp-icon svg' => 'fill: {{VALUE}}',
-				),
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+				],
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_control(
 			'button_bg_color_normal',
-			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'global'    => [
+			[
+				'label'      => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::COLOR,
+				'global'     => [
 					'default' => Global_Colors::COLOR_ACCENT,
 				],
-				'default'   => '',
-				'selectors' => array(
+				'default'    => '',
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-button' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+				],
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
+			[
 				'name'        => 'button_border_normal',
 				'label'       => esc_html__( 'Border', 'powerpack-lite-for-elementor' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .pp-info-box-button',
-				'condition'   => array(
-					'link_type' => 'button',
-				),
-			)
+				'conditions'  => $condition,
+			]
 		);
 
 		$this->add_control(
 			'button_border_radius',
-			array(
+			[
 				'label'      => esc_html__( 'Border Radius', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em', 'rem', 'custom' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
-					'link_type' => 'button',
-				),
-			)
+				],
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'      => 'button_typography',
-				'label'     => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
-				'global'    => [
+			[
+				'name'       => 'button_typography',
+				'label'      => esc_html__( 'Typography', 'powerpack-lite-for-elementor' ),
+				'global'     => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
-				'selector'  => '{{WRAPPER}} .pp-info-box-button',
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+				'selector'   => '{{WRAPPER}} .pp-info-box-button',
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_responsive_control(
 			'button_padding',
-			array(
+			[
 				'label'      => esc_html__( 'Padding', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
-					'link_type' => 'button',
-				),
-			)
+				],
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'      => 'button_box_shadow',
-				'selector'  => '{{WRAPPER}} .pp-info-box-button',
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+			[
+				'name'       => 'button_box_shadow',
+				'selector'   => '{{WRAPPER}} .pp-info-box-button',
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_control(
 			'info_box_button_icon_heading',
-			array(
-				'label'     => esc_html__( 'Button Icon', 'powerpack-lite-for-elementor' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => array(
-					'link_type'                  => 'button',
-					'select_button_icon[value]!' => '',
-				),
-			)
+			[
+				'label'      => esc_html__( 'Button Icon', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::HEADING,
+				'separator'  => 'before',
+				'conditions' => [
+					'relation' => 'and',
+					'terms'    => [
+						[
+							'name'     => 'select_button_icon[value]',
+							'operator' => '!=',
+							'value'    => '',
+						],
+						$condition,
+					],
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'button_icon_size',
-			array(
+			[
 				'label'      => esc_html__( 'Icon Size', 'powerpack-lite-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+				'range'      => [
+					'px' => [
 						'min'  => 5,
 						'max'  => 100,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box .pp-button-icon' => 'font-size: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'link_type'                  => 'button',
 					'select_button_icon[value]!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'button_icon_margin',
-			array(
+			[
 				'label'       => esc_html__( 'Margin', 'powerpack-lite-for-elementor' ),
 				'type'        => Controls_Manager::DIMENSIONS,
-				'size_units'  => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
-				'placeholder' => array(
+				'size_units'  => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'placeholder' => [
 					'top'    => '',
 					'right'  => '',
 					'bottom' => '',
 					'left'   => '',
-				),
-				'selectors'   => array(
+				],
+				'selectors'   => [
 					'{{WRAPPER}} .pp-info-box .pp-button-icon' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
-				),
-				'condition'   => array(
+				],
+				'condition'   => [
 					'link_type'                  => 'button',
 					'select_button_icon[value]!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_button_hover',
-			array(
-				'label'     => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+			[
+				'label'      => esc_html__( 'Hover', 'powerpack-lite-for-elementor' ),
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_control(
 			'button_text_color_hover',
-			array(
-				'label'     => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'      => esc_html__( 'Text Color', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::COLOR,
+				'default'    => '',
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-button:hover' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .pp-info-box-button:hover .pp-icon svg' => 'fill: {{VALUE}}',
-				),
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+				],
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_control(
 			'button_bg_color_hover',
-			array(
-				'label'     => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'      => esc_html__( 'Background Color', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::COLOR,
+				'default'    => '',
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-button:hover' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+				],
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_control(
 			'button_border_color_hover',
-			array(
-				'label'     => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => array(
+			[
+				'label'      => esc_html__( 'Border Color', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::COLOR,
+				'default'    => '',
+				'selectors'  => [
 					'{{WRAPPER}} .pp-info-box-button:hover' => 'border-color: {{VALUE}}',
-				),
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+				],
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_control(
 			'button_animation',
-			array(
-				'label'     => esc_html__( 'Animation', 'powerpack-lite-for-elementor' ),
-				'type'      => Controls_Manager::HOVER_ANIMATION,
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+			[
+				'label'      => esc_html__( 'Animation', 'powerpack-lite-for-elementor' ),
+				'type'       => Controls_Manager::HOVER_ANIMATION,
+				'conditions' => $condition,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'      => 'button_box_shadow_hover',
-				'selector'  => '{{WRAPPER}} .pp-info-box-button:hover',
-				'condition' => array(
-					'link_type' => 'button',
-				),
-			)
+			[
+				'name'       => 'button_box_shadow_hover',
+				'selector'   => '{{WRAPPER}} .pp-info-box-button:hover',
+				'conditions' => $condition,
+			]
 		);
 
 		$this->end_controls_tab();
@@ -2007,7 +1919,11 @@ class Info_Box extends Powerpack_Widget {
 		$this->add_inline_editing_attributes( 'icon_text', 'none' );
 		$this->add_render_attribute( 'icon_text', 'class', 'pp-icon-text' );
 
-		$this->add_render_attribute( 'icon', 'class', array( 'pp-info-box-icon', 'pp-icon' ) );
+		$this->add_render_attribute( 'icon', 'class', [ 'pp-info-box-icon', 'pp-icon' ] );
+
+		if ( 'image' === $settings['icon_type'] ) {
+			$this->add_render_attribute( 'icon', 'class', [ 'pp-info-box-image' ] );
+		}
 
 		if ( $settings['hover_animation_icon'] ) {
 			$this->add_render_attribute( 'icon', 'class', 'elementor-animation-' . $settings['hover_animation_icon'] );
@@ -2035,7 +1951,7 @@ class Info_Box extends Powerpack_Widget {
 			<?php if ( 'icon' === $settings['icon_type'] && $has_icon ) { ?>
 				<?php
 				if ( $is_new || $migrated ) {
-					Icons_Manager::render_icon( $settings['selected_icon'], array( 'aria-hidden' => 'true' ) );
+					Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
 				} elseif ( ! empty( $settings['icon'] ) ) {
 					?>
 					<i <?php $this->print_render_attribute_string( 'i' ); ?>></i>
@@ -2074,18 +1990,14 @@ class Info_Box extends Powerpack_Widget {
 		$this->add_render_attribute(
 			'info-box-button',
 			'class',
-			array(
+			[
 				'pp-info-box-button',
 				'elementor-button',
 				'elementor-size-' . $settings['button_size'],
-			)
+			]
 		);
 
-		if ( 'button' === $settings['link_type'] ) {
-			$button_html_tag = ( 'button' === $settings['link_type'] ) ? 'a' : 'div';
-		} elseif ( 'box' === $settings['link_type'] && 'yes' === $settings['button_visible'] ) {
-			$button_html_tag = ( 'button' === $settings['link_type'] ) ? 'div' : 'div';
-		}
+		$button_html_tag = ( 'button' === $settings['link_type'] ) ? 'a' : 'div';
 
 		if ( $settings['button_animation'] ) {
 			$this->add_render_attribute( 'info-box-button', 'class', 'elementor-animation-' . $settings['button_animation'] );
@@ -2113,12 +2025,12 @@ class Info_Box extends Powerpack_Widget {
 			?>
 			<?php if ( '' !== $settings['button_text'] || $has_icon ) { ?>
 				<div class="pp-info-box-footer">
-					<<?php PP_Helper::print_validated_html_tag( $button_html_tag ); ?> <?php $this->print_render_attribute_string( 'info-box-button' ) ?>>
+					<<?php PP_Helper::print_validated_html_tag( $button_html_tag ); ?> <?php $this->print_render_attribute_string( 'info-box-button' ); ?>>
 						<?php if ( 'before' === $settings['button_icon_position'] && $has_icon ) { ?>
 							<span class='pp-button-icon pp-icon'>
 								<?php
 								if ( $is_new || $migrated ) {
-									Icons_Manager::render_icon( $settings['select_button_icon'], array( 'aria-hidden' => 'true' ) );
+									Icons_Manager::render_icon( $settings['select_button_icon'], [ 'aria-hidden' => 'true' ] );
 								} elseif ( ! empty( $settings['button_icon'] ) ) {
 									?>
 									<i <?php $this->print_render_attribute_string( 'button-icon' ); ?>></i>
@@ -2136,7 +2048,7 @@ class Info_Box extends Powerpack_Widget {
 							<span class='pp-button-icon pp-icon'>
 								<?php
 								if ( $is_new || $migrated ) {
-									Icons_Manager::render_icon( $settings['select_button_icon'], array( 'aria-hidden' => 'true' ) );
+									Icons_Manager::render_icon( $settings['select_button_icon'], [ 'aria-hidden' => 'true' ] );
 								} elseif ( ! empty( $settings['button_icon'] ) ) {
 									?>
 									<i <?php $this->print_render_attribute_string( 'button-icon' ); ?>></i>
@@ -2163,55 +2075,59 @@ class Info_Box extends Powerpack_Widget {
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute(
-			array(
-				'info-box'           => array(
+			[
+				'info-box'           => [
 					'class' => 'pp-info-box',
-				),
-				'info-box-container' => array(
+				],
+				'info-box-container' => [
 					'class' => 'pp-info-box-container',
-				),
-				'title-container'    => array(
+				],
+				'title-container'    => [
 					'class' => 'pp-info-box-title-container',
-				),
-				'heading'            => array(
+				],
+				'heading'            => [
 					'class' => 'pp-info-box-title',
-				),
-				'sub_heading'        => array(
+				],
+				'sub_heading'        => [
 					'class' => 'pp-info-box-subtitle',
-				),
-				'description'        => array(
+				],
+				'description'        => [
 					'class' => 'pp-info-box-description',
-				),
-			)
+				],
+			]
 		);
 
-		$if_html_tag = 'div';
+		$box_html_tag        = 'div';
 		$title_container_tag = 'div';
 
 		$this->add_inline_editing_attributes( 'heading', 'none' );
 		$this->add_inline_editing_attributes( 'sub_heading', 'none' );
 		$this->add_inline_editing_attributes( 'description', 'basic' );
 
-		if ( 'none' !== $settings['link_type'] ) {
-			if ( ! empty( $settings['link']['url'] ) ) {
-				if ( 'box' === $settings['link_type'] ) {
-					$if_html_tag = 'a';
-					$this->add_link_attributes( 'info-box-container', $settings['link'] );
-				} elseif ( 'icon' === $settings['link_type'] ) {
-					$this->add_link_attributes( 'link', $settings['link'] );
-				} elseif ( 'title' === $settings['link_type'] ) {
-					$title_container_tag = 'a';
-					$this->add_link_attributes( 'title-container', $settings['link'] );
-				} elseif ( 'button' === $settings['link_type'] ) {
-					$this->add_link_attributes( 'info-box-button', $settings['link'] );
-				}
+		if ( 'none' !== $settings['link_type'] && ! empty( $settings['link']['url'] ) ) {
+			if ( 'box' === $settings['link_type'] ) {
+				$box_html_tag = 'a';
+				$this->add_link_attributes( 'info-box-container', $settings['link'] );
+			} elseif ( 'icon' === $settings['link_type'] ) {
+				$this->add_link_attributes( 'link', $settings['link'] );
+			} elseif ( 'title' === $settings['link_type'] ) {
+				$title_container_tag = 'a';
+				$this->add_link_attributes( 'title-container', $settings['link'] );
+			} elseif ( 'button' === $settings['link_type'] ) {
+				$this->add_link_attributes( 'info-box-button', $settings['link'] );
 			}
 		}
+
+		$this->add_render_attribute( 'icon-wrap', 'class', [ 'pp-info-box-icon-wrap' ] );
+
+		if ( 'image' === $settings['icon_type'] ) {
+			$this->add_render_attribute( 'icon-wrap', 'class', [ 'pp-info-box-image-wrap' ] );
+		}
 		?>
-		<<?php PP_Helper::print_validated_html_tag( $if_html_tag ); ?> <?php $this->print_render_attribute_string( 'info-box-container' ); ?>>
+		<<?php PP_Helper::print_validated_html_tag( $box_html_tag ); ?> <?php $this->print_render_attribute_string( 'info-box-container' ); ?>>
 			<div <?php $this->print_render_attribute_string( 'info-box' ); ?>>
 				<?php if ( 'none' !== $settings['icon_type'] ) { ?>
-					<div class="pp-info-box-icon-wrap">
+					<div <?php $this->print_render_attribute_string( 'icon-wrap' ); ?>>
 						<?php if ( 'icon' === $settings['link_type'] ) { ?>
 							<a <?php $this->print_render_attribute_string( 'link' ); ?>>
 						<?php } ?>
@@ -2238,7 +2154,7 @@ class Info_Box extends Powerpack_Widget {
 							<?php
 						}
 
-						if ( '' !== $settings['sub_heading'] ) {
+						if ( ! empty( $settings['sub_heading'] ) ) {
 							$subtitle_tag = PP_Helper::validate_html_tag( $settings['sub_title_html_tag'] );
 							?>
 							<<?php PP_Helper::print_validated_html_tag( $subtitle_tag ); ?> <?php $this->print_render_attribute_string( 'sub_heading' ); ?>>
@@ -2266,7 +2182,7 @@ class Info_Box extends Powerpack_Widget {
 					?>
 				</div>
 			</div>
-		</<?php PP_Helper::print_validated_html_tag( $if_html_tag ); ?>>
+		</<?php PP_Helper::print_validated_html_tag( $box_html_tag ); ?>>
 		<?php
 	}
 
@@ -2283,40 +2199,48 @@ class Info_Box extends Powerpack_Widget {
 			var pp_if_html_tag = 'div',
 				pp_title_html_tag = 'div',
 				pp_button_html_tag = 'div',
+				hasLinkUrl = ( settings.link && settings.link.url ),
+				linkUrl = hasLinkUrl ? settings.link.url : '',
 				iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
 				migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' ),
 				buttonIconHTML = elementor.helpers.renderIcon( view, settings.select_button_icon, { 'aria-hidden': true }, 'i' , 'object' ),
 				buttonMigrated = elementor.helpers.isIconMigrated( settings, 'select_button_icon' );
 
-			if ( settings.link.url != '' ) {
-				if ( settings.link_type == 'box' ) {
-					var pp_if_html_tag = 'a';
-				}
-				else if ( settings.link_type == 'title' ) {
-					var pp_title_html_tag = 'a';
-				}
-				else if ( settings.link_type == 'button' ) {
-					var pp_button_html_tag = 'a';
+			if ( hasLinkUrl ) {
+				if ( 'box' === settings.link_type ) {
+					pp_if_html_tag = 'a';
+				} else if ( 'title' === settings.link_type ) {
+					pp_title_html_tag = 'a';
+				} else if ( 'button' === settings.link_type ) {
+					pp_button_html_tag = 'a';
 				}
 			}
+
+			view.addRenderAttribute( 'icon-wrap', 'class', 'pp-info-box-icon-wrap' );
+			view.addRenderAttribute( 'icon', 'class', [ 'pp-info-box-icon', 'pp-icon', 'elementor-animation-' + settings.hover_animation_icon ] );
+
+			if ( 'image' === settings.icon_type ) {
+				view.addRenderAttribute( 'icon-wrap', 'class', 'pp-info-box-image-wrap' );
+				view.addRenderAttribute( 'icon', 'class', 'pp-info-box-image' );
+			}
 		#>
-		<{{{pp_if_html_tag}}} class="pp-info-box-container" href="{{settings.link.url}}">
+		<{{{ pp_if_html_tag }}} class="pp-info-box-container"<# if ( 'a' === pp_if_html_tag ) { #> href="{{ linkUrl }}"<# } #>>
 			<div class="pp-info-box pp-info-box-{{ settings.icon_position }}">
-				<# if ( settings.icon_type != 'none' ) { #>
-					<div class="pp-info-box-icon-wrap">
-						<# if ( settings.link_type == 'icon' ) { #>
-							<a href="{{ _.escape( settings.link.url ) }}">
+				<# if ( 'none' !== settings.icon_type ) { #>
+					<div {{{ view.getRenderAttributeString( 'icon-wrap' ) }}}>
+						<# if ( 'icon' === settings.link_type && hasLinkUrl ) { #>
+							<a href="{{ linkUrl }}">
 						<# } #>
-						<span class="pp-info-box-icon pp-icon elementor-animation-{{ settings.hover_animation_icon }}">
-							<# if ( settings.icon_type == 'icon' ) { #>
+						<span {{{ view.getRenderAttributeString( 'icon' ) }}}>
+							<# if ( 'icon' === settings.icon_type ) { #>
 								<# if ( settings.icon || settings.selected_icon ) { #>
-								<# if ( iconHTML && iconHTML.rendered && ( ! settings.icon || migrated ) ) { #>
-								{{{ iconHTML.value }}}
-								<# } else { #>
-									<i class="{{ settings.icon }}" aria-hidden="true"></i>
+									<# if ( iconHTML && iconHTML.rendered && ( ! settings.icon || migrated ) ) { #>
+										{{{ iconHTML.value }}}
+									<# } else { #>
+										<i class="{{ settings.icon }}" aria-hidden="true"></i>
+									<# } #>
 								<# } #>
-								<# } #>
-							<# } else if ( settings.icon_type == 'image' ) { #>
+							<# } else if ( 'image' === settings.icon_type ) { #>
 								<#
 								var image = {
 									id: settings.image.id,
@@ -2328,13 +2252,13 @@ class Info_Box extends Powerpack_Widget {
 								var image_url = elementor.imagesManager.getImageUrl( image );
 								#>
 								<img src="{{ _.escape( image_url ) }}" />
-							<# } else if ( settings.icon_type == 'text' ) { #>
+							<# } else if ( 'text' === settings.icon_type ) { #>
 								<span class="pp-icon-text elementor-inline-editing" data-elementor-setting-key="icon_text" data-elementor-inline-editing-toolbar="none">
 									{{{ elementor.helpers.sanitize( settings.icon_text ) }}}
 								</span>
 							<# } #>
 						</span>
-						<# if ( settings.link_type == 'icon' ) { #>
+						<# if ( 'icon' === settings.link_type && hasLinkUrl ) { #>
 							</a>
 						<# } #>
 					</div>
@@ -2346,11 +2270,11 @@ class Info_Box extends Powerpack_Widget {
 							subtitleHTMLTag = elementor.helpers.validateHTMLTag( settings.sub_title_html_tag );
 						#>
 						<# if ( settings.heading ) { #>
-							<{{pp_title_html_tag}} class="pp-info-box-title-container" href="{{settings.link.url}}">
+							<{{{ pp_title_html_tag }}} class="pp-info-box-title-container"<# if ( 'a' === pp_title_html_tag ) { #> href="{{ linkUrl }}"<# } #>>
 								<{{{ titleHTMLTag }}} class="pp-info-box-title elementor-inline-editing" data-elementor-setting-key="heading" data-elementor-inline-editing-toolbar="none">
 									{{{ settings.heading }}}
 								</{{{ titleHTMLTag }}}>
-							</{{pp_title_html_tag}}>
+							</{{{ pp_title_html_tag }}}>
 						<# } #>
 						<# if ( settings.sub_heading ) { #>
 							<{{{ subtitleHTMLTag }}} class="pp-info-box-subtitle elementor-inline-editing" data-elementor-setting-key="sub_heading" data-elementor-inline-editing-toolbar="none">
@@ -2359,7 +2283,7 @@ class Info_Box extends Powerpack_Widget {
 						<# } #>
 					</div>
 
-					<# if ( settings.divider_title_switch == 'yes' ) { #>
+					<# if ( 'yes' === settings.divider_title_switch ) { #>
 						<div class="pp-info-box-divider-wrap">
 							<div class="pp-info-box-divider"></div>
 						</div>
@@ -2370,15 +2294,15 @@ class Info_Box extends Powerpack_Widget {
 							{{{ settings.description }}}
 						</div>
 					<# } #>
-					<# if ( settings.link_type == 'button' || ( settings.link_type == 'box' && settings.button_visible == 'yes' ) ) { #>
-						<# if ( settings.button_text != '' || settings.button_icon != '' ) { #>
+					<# if ( 'button' === settings.link_type || ( 'box' === settings.link_type && 'yes' === settings.button_visible ) ) { #>
+						<# if ( '' !== settings.button_text || settings.button_icon || ( settings.select_button_icon && settings.select_button_icon.value ) ) { #>
 							<div class="pp-info-box-footer">
-								<{{pp_button_html_tag}} href="{{ settings.link.url }}" class="pp-info-box-button elementor-button elementor-size-{{ settings.button_size }} elementor-animation-{{ settings.button_animation }}">
-									<# if ( settings.button_icon_position == 'before' ) { #>
+								<{{{ pp_button_html_tag }}}<# if ( 'a' === pp_button_html_tag ) { #> href="{{ linkUrl }}"<# } #> class="pp-info-box-button elementor-button elementor-size-{{ settings.button_size }} elementor-animation-{{ settings.button_animation }}">
+									<# if ( 'before' === settings.button_icon_position ) { #>
 										<# if ( settings.button_icon || settings.select_button_icon.value ) { #>
 											<span class="pp-button-icon pp-icon">
 												<# if ( buttonIconHTML && buttonIconHTML.rendered && ( ! settings.button_icon || buttonMigrated ) ) { #>
-												{{{ buttonIconHTML.value }}}
+													{{{ buttonIconHTML.value }}}
 												<# } else { #>
 													<i class="{{ settings.button_icon }}" aria-hidden="true"></i>
 												<# } #>
@@ -2390,7 +2314,7 @@ class Info_Box extends Powerpack_Widget {
 											{{{ settings.button_text }}}
 										</span>
 									<# } #>
-									<# if ( settings.button_icon_position == 'after' ) { #>
+									<# if ( 'after' === settings.button_icon_position ) { #>
 										<# if ( settings.button_icon || settings.select_button_icon.value ) { #>
 											<span class="pp-button-icon pp-icon">
 												<# if ( buttonIconHTML && buttonIconHTML.rendered && ( ! settings.button_icon || buttonMigrated ) ) { #>
@@ -2401,13 +2325,13 @@ class Info_Box extends Powerpack_Widget {
 											</span>
 										<# } #>
 									<# } #>
-								</{{pp_button_html_tag}}>
+								</{{{ pp_button_html_tag }}}>
 							</div>
 						<# } #>
 					<# } #>
 				</div>
 			</div>
-		</{{{pp_if_html_tag}}}>
+		</{{{ pp_if_html_tag }}}>
 		<?php
 	}
 }

@@ -35,7 +35,6 @@
         display: inline-block;
         line-height: 1;
 		max-width: 100%;
-		width: var(--info-box-icon-width, 100%);
 
         .fa {
 
@@ -47,6 +46,10 @@
         img {
             vertical-align: middle;
         }
+    }
+
+    .pp-info-box-image {
+		width: var(--info-box-icon-width, 100%);
     }
 
     &-divider-wrap {
@@ -87,7 +90,10 @@
             display: flex;
             flex-shrink: 0;
             margin-inline-end: 20px;
-            width: var(--info-box-icon-width);
+        }
+
+        .pp-info-box-image-wrap {
+            width: var(--info-box-icon-width, 100px);
         }
 
         .pp-info-box-icon,
@@ -108,7 +114,10 @@
             display: flex;
             flex-shrink: 0;
             margin-inline-start: 20px;
-            width: var(--info-box-icon-width);
+        }
+
+        .pp-info-box-image-wrap {
+            width: var(--info-box-icon-width, 100px);
         }
 
         .pp-info-box-icon,
@@ -186,7 +195,10 @@
             .pp-info-box-icon-wrap {
                 display: flex;
                 margin-inline-end: 20px;
-                width: var(--info-box-icon-width);
+            }
+
+            .pp-info-box-image-wrap {
+                width: var(--info-box-icon-width, 100px);
             }
 
             .pp-info-box-icon,
@@ -205,7 +217,10 @@
             .pp-info-box-icon-wrap {
                 display: flex;
                 margin-inline-start: 20px;
-                width: var(--info-box-icon-width);
+            }
+
+            .pp-info-box-image-wrap {
+                width: var(--info-box-icon-width, 100px);
             }
 
             .pp-info-box-icon,
@@ -243,7 +258,10 @@
             .pp-info-box-icon-wrap {
                 display: flex;
                 margin-inline-end: 20px;
-                width: var(--info-box-icon-width);
+            }
+
+            .pp-info-box-image-wrap {
+                width: var(--info-box-icon-width, 100px);
             }
 
             .pp-info-box-icon,
@@ -262,7 +280,10 @@
             .pp-info-box-icon-wrap {
                 display: flex;
                 margin-inline-start: 20px;
-                width: var(--info-box-icon-width);
+            }
+
+            .pp-info-box-image-wrap {
+                width: var(--info-box-icon-width, 100px);
             }
 
             .pp-info-box-icon,
@@ -300,7 +321,10 @@
             .pp-info-box-icon-wrap {
                 display: flex;
                 margin-inline-end: 20px;
-                width: var(--info-box-icon-width);
+            }
+
+            .pp-info-box-image-wrap {
+                width: var(--info-box-icon-width, 100px);
             }
 
             .pp-info-box-icon,
@@ -319,7 +343,10 @@
             .pp-info-box-icon-wrap {
                 display: flex;
                 margin-inline-start: 20px;
-                width: var(--info-box-icon-width);
+            }
+
+            .pp-info-box-image-wrap {
+                width: var(--info-box-icon-width, 100px);
             }
 
             .pp-info-box-icon,
@@ -357,7 +384,10 @@
             .pp-info-box-icon-wrap {
                 display: flex;
                 margin-inline-end: 20px;
-                width: var(--info-box-icon-width);
+            }
+
+            .pp-info-box-image-wrap {
+                width: var(--info-box-icon-width, 100px);
             }
 
             .pp-info-box-icon,
@@ -376,7 +406,10 @@
             .pp-info-box-icon-wrap {
                 display: flex;
                 margin-inline-start: 20px;
-                width: var(--info-box-icon-width);
+            }
+
+            .pp-info-box-image-wrap {
+                width: var(--info-box-icon-width, 100px);
             }
 
             .pp-info-box-icon,
@@ -414,7 +447,10 @@
             .pp-info-box-icon-wrap {
                 display: flex;
                 margin-inline-end: 20px;
-                width: var(--info-box-icon-width);
+            }
+
+            .pp-info-box-image-wrap {
+                width: var(--info-box-icon-width, 100px);
             }
 
             .pp-info-box-icon,
@@ -433,7 +469,10 @@
             .pp-info-box-icon-wrap {
                 display: flex;
                 margin-inline-start: 20px;
-                width: var(--info-box-icon-width);
+            }
+
+            .pp-info-box-image-wrap {
+                width: var(--info-box-icon-width, 100px);
             }
 
             .pp-info-box-icon,
