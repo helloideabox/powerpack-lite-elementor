@@ -2856,7 +2856,6 @@ class Instafeed extends Powerpack_Widget {
 	public function get_insta_remote( $url ) {
 		$response       = wp_remote_get( $url, array(
 			'timeout'   => 60,
-			'sslverify' => false,
 		) );
 
 		$response_code  = wp_remote_retrieve_response_code( $response );
