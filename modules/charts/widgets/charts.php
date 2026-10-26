@@ -2605,26 +2605,10 @@ class Charts extends Powerpack_Widget {
 		}
 
 		$csv_source = isset( $settings['csv_source'] ) ? $settings['csv_source'] : 'manual';
-		$csv_url    = ! empty( $settings['csv_file']['url'] ) ? $settings['csv_file']['url'] : '';
 		$body       = '';
 
-		if ( 'file' === $csv_source && '' !== $csv_url ) {
-			if ( '.csv' !== strtolower( substr( $csv_url, -4 ) ) ) {
-				return $empty;
-			}
-
-			$response = wp_remote_get(
-				$csv_url,
-				[
-					'sslverify' => false,
-				]
-			);
-
-			if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
-				return $empty;
-			}
-
-			$body = wp_remote_retrieve_body( $response );
+		if ( 'file' === $csv_source ) {
+			$body = $this->get_csv_file_contents( isset( $settings['csv_file'] ) ? $settings['csv_file'] : [] );
 		} elseif ( 'manual' === $csv_source ) {
 			$body = isset( $settings['csv_data'] ) ? $settings['csv_data'] : '';
 		}
@@ -2660,6 +2644,59 @@ class Charts extends Powerpack_Widget {
 			'labels' => $labels,
 			'data'   => $rows,
 		];
+	}
+
+	/**
+	 * Read the contents of the selected CSV file.
+	 *
+	 * Media library files are read from disk. Any other URL is fetched with
+	 * wp_safe_remote_get(), which rejects loopback, private and reserved hosts.
+	 *
+	 * @access protected
+	 * @param  array $csv_file Media control value (id, url).
+	 * @return string
+	 */
+	protected function get_csv_file_contents( $csv_file ) {
+		$attachment_id = ! empty( $csv_file['id'] ) ? absint( $csv_file['id'] ) : 0;
+
+		if ( $attachment_id && 'attachment' === get_post_type( $attachment_id ) ) {
+			$path     = get_attached_file( $attachment_id );
+			$filetype = $path ? wp_check_filetype( $path ) : [];
+
+			if ( empty( $filetype['ext'] ) || 'csv' !== $filetype['ext'] || ! is_readable( $path ) ) {
+				return '';
+			}
+
+			return (string) file_get_contents( $path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		}
+
+		$csv_url = ! empty( $csv_file['url'] ) ? $csv_file['url'] : '';
+
+		if ( '' === $csv_url || ! wp_http_validate_url( $csv_url ) ) {
+			return '';
+		}
+
+		// Check the extension of the path itself, so a "?x=.csv" query does not pass.
+		$path = (string) wp_parse_url( $csv_url, PHP_URL_PATH );
+
+		if ( 'csv' !== strtolower( pathinfo( $path, PATHINFO_EXTENSION ) ) ) {
+			return '';
+		}
+
+		$response = wp_safe_remote_get(
+			$csv_url,
+			[
+				'timeout'             => 10,
+				'redirection'         => 0,
+				'limit_response_size' => MB_IN_BYTES,
+			]
+		);
+
+		if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
+			return '';
+		}
+
+		return (string) wp_remote_retrieve_body( $response );
 	}
 
 	protected function get_chart_dataset( $settings, $chart_type, $item ) {

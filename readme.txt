@@ -276,6 +276,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 3.1.3 - TBD =
+*	Security Fix: Charts - Fixed a security issue with the CSV file source
+
 = 3.1.2 - October 21, 2026 =
 *	Security Fix: Info Box Carousel - The item image URL is now escaped in the editor preview
 *	Security Fix: Posts, Content Ticker and Marquee - The author and post filter types are now limited to their allowed values, so the query can no longer return private, draft, pending or scheduled posts
