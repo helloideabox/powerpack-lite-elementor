@@ -73,6 +73,32 @@ class PP_Posts_Helper {
 	}
 
 	/**
+	 * Sanitize a post type taken from widget settings.
+	 *
+	 * Elementor does not check a saved select value against its options, so
+	 * the post type is checked here before it reaches a query. Anything other
+	 * than a public post type, or one of the extra values a widget offers,
+	 * falls back to 'post'.
+	 *
+	 * @since 3.1.3
+	 * @access public
+	 * @param mixed $post_type Post type from widget settings.
+	 * @param array $extra     Additional non post type values the control offers, such as 'related'.
+	 * @return string
+	 */
+	public static function sanitize_post_type( $post_type, $extra = array() ) {
+		if ( ! is_string( $post_type ) ) {
+			return 'post';
+		}
+
+		if ( in_array( $post_type, $extra, true ) || array_key_exists( $post_type, self::get_post_types() ) ) {
+			return $post_type;
+		}
+
+		return 'post';
+	}
+
+	/**
 	 * Get All Posts.
 	 *
 	 * @since 1.4.2

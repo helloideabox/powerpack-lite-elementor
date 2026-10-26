@@ -2501,6 +2501,8 @@ class Content_Ticker extends Powerpack_Widget {
 		$settings    = $this->get_settings();
 		$posts_count = absint( $settings['posts_count'] );
 
+		$settings['post_type'] = PP_Posts_Helper::sanitize_post_type( $settings['post_type'] );
+
 		// Query Arguments
 		$args = array(
 			'post_status'         => array( 'publish' ),

@@ -1765,7 +1765,7 @@ class Marquee extends Powerpack_Widget {
 	protected function get_posts_query_arguments() {
 		$settings    = $this->get_settings_for_display();
 		$posts_count = ! empty( $settings['posts_per_page'] ) ? absint( $settings['posts_per_page'] ) : 5;
-		$post_type   = ! empty( $settings['post_type'] ) ? $settings['post_type'] : 'post';
+		$post_type   = PP_Posts_Helper::sanitize_post_type( ! empty( $settings['post_type'] ) ? $settings['post_type'] : 'post' );
 
 		$args = [
 			'post_status'         => [ 'publish' ],
