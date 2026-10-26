@@ -1569,7 +1569,7 @@ class Buttons extends Powerpack_Widget {
 				}
 
 				if ( item.link.url != '' ) {
-					view.addRenderAttribute( button_key, 'href', item.link.url );
+					view.addRenderAttribute( button_key, 'href', elementor.helpers.sanitizeUrl( item.link.url ) );
 
 					if ( item.link.is_external ) {
 						view.addRenderAttribute( button_key, 'target', '_blank' );

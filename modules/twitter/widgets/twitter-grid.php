@@ -219,7 +219,7 @@ class Twitter_Grid extends Powerpack_Widget {
 		<# if ( settings.url ) {
 			view.addRenderAttribute( 'atts', {
 				'class': 'twitter-timeline',
-				'href': settings.url + '?ref_src=twsrc%5Etfw',
+				'href': elementor.helpers.sanitizeUrl( settings.url + '?ref_src=twsrc%5Etfw' ),
 				'data-limit': ( settings.tweet_limit ) ? settings.tweet_limit : '',
 				'data-chrome': ( 'yes' != settings.footer ) ? 'nofooter' : '',
 				'data-width': settings.width.size,

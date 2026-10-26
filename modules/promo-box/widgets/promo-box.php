@@ -1949,7 +1949,7 @@ class Promo_Box extends Powerpack_Widget {
 										view.addInlineEditingAttributes( 'button_text' );
 
 										var button_tag  = settings.link.url ? 'a' : 'span',
-											button_href = settings.link.url ? ' href="' + _.escape( settings.link.url ) + '"' : '',
+											button_href = settings.link.url ? ' href="' + _.escape( elementor.helpers.sanitizeUrl( settings.link.url ) ) + '"' : '',
 											button_html = '<' + button_tag + button_href + ' ' + view.getRenderAttributeString( 'button_text' ) + '>' + button_text + '</' + button_tag + '>';
 
 										print( button_html );

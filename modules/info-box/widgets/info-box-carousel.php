@@ -3470,7 +3470,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 					if ( item.link_type != 'none' ) {
 						if ( item.link.url ) {
 				
-							view.addRenderAttribute( 'link' + i, 'href', item.link.url );
+							view.addRenderAttribute( 'link' + i, 'href', elementor.helpers.sanitizeUrl( item.link.url ) );
 
 							if ( item.link.is_external ) {
 								view.addRenderAttribute( 'link' + i, 'target', '_blank' );
@@ -3482,7 +3482,7 @@ class Info_Box_Carousel extends Powerpack_Widget {
 
 							if ( item.link_type == 'title' ) {
 								$title_container_tag = 'a';
-								view.addRenderAttribute( 'title-container' + i, 'href', item.link.url );
+								view.addRenderAttribute( 'title-container' + i, 'href', elementor.helpers.sanitizeUrl( item.link.url ) );
 							}
 							else if ( item.link_type == 'button' ) {
 								$button_html_tag = 'a';

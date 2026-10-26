@@ -1846,7 +1846,7 @@ class Info_Table extends Powerpack_Widget {
 				if ( settings.link.url != '' ) {
 					if ( settings.link_type == 'box' ) {
 						var if_html_tag = 'a';
-						view.addRenderAttribute( 'info-table-container-a', 'href', settings.link.url );
+						view.addRenderAttribute( 'info-table-container-a', 'href', elementor.helpers.sanitizeUrl( settings.link.url ) );
 
 					if ( settings.link.is_external ) {
 							view.addRenderAttribute( 'info-table-container-a', 'target', '_blank' );
@@ -1857,7 +1857,7 @@ class Info_Table extends Powerpack_Widget {
 					}
 					else if ( settings.link_type == 'title' ) {
 						var pp_title_html_tag = 'a';
-						view.addRenderAttribute( 'title-container', 'href', settings.link.url );
+						view.addRenderAttribute( 'title-container', 'href', elementor.helpers.sanitizeUrl( settings.link.url ) );
 
 						if ( settings.link.is_external ) {
 							view.addRenderAttribute( 'title-container', 'target', '_blank' );
@@ -1868,7 +1868,7 @@ class Info_Table extends Powerpack_Widget {
 					}
 					else if ( settings.link_type == 'button' ) {
 						var button_html_tag = 'a';
-						view.addRenderAttribute( 'info-table-button', 'href', settings.link.url );
+						view.addRenderAttribute( 'info-table-button', 'href', elementor.helpers.sanitizeUrl( settings.link.url ) );
 
 						if ( settings.link.is_external ) {
 							view.addRenderAttribute( 'info-table-button', 'target', '_blank' );

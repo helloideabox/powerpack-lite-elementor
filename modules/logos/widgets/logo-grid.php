@@ -1075,7 +1075,7 @@ class Logo_Grid extends Powerpack_Widget {
 
 						if ( has_link ) {
 							var rel = '';
-							linkAttrs = ' href="' + _.escape( item.link.url ) + '"';
+							linkAttrs = ' href="' + _.escape( elementor.helpers.sanitizeUrl( item.link.url ) ) + '"';
 							if ( item.link.is_external ) {
 								linkAttrs += ' target="_blank"';
 								rel = 'noopener';

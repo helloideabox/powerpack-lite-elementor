@@ -3604,7 +3604,7 @@ class Pricing_Table extends Powerpack_Widget {
 
 						view.addInlineEditingAttributes( 'table_button_text' );
 
-						var button_attrs = hasButtonLink ? ' href="' + _.escape( settings.link.url ) + '"' : ' type="button"';
+						var button_attrs = hasButtonLink ? ' href="' + _.escape( elementor.helpers.sanitizeUrl( settings.link.url ) ) + '"' : ' type="button"';
 
 						var button_text_html = '<' + buttonTag + button_attrs + ' ' + view.getRenderAttributeString( 'table_button_text' ) + '>' + button_text + '</' + buttonTag + '>';
 
@@ -3732,7 +3732,7 @@ class Pricing_Table extends Powerpack_Widget {
 
 						view.addInlineEditingAttributes( 'table_button_text' );
 
-						var button_attrs = hasButtonLink ? ' href="' + _.escape( settings.link.url ) + '"' : ' type="button"';
+						var button_attrs = hasButtonLink ? ' href="' + _.escape( elementor.helpers.sanitizeUrl( settings.link.url ) ) + '"' : ' type="button"';
 
 						var button_text_html = '<' + buttonTag + button_attrs + ' ' + view.getRenderAttributeString( 'table_button_text' ) + '>' + button_text + '</' + buttonTag + '>';
 

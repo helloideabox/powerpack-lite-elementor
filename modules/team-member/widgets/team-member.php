@@ -2126,7 +2126,7 @@ class Team_Member extends Powerpack_Widget {
 					if ( settings.link_type == 'image' && settings.link.url != '' ) {
 						var imageLinkLabel = settings.team_member_name ? ' aria-label="' + _.escape( settings.team_member_name ) + '"' : '';
 
-						imageHtml = '<a href="' + _.escape( settings.link.url ) + '"' + imageLinkLabel + '>' + imageHtml + '</a>';
+						imageHtml = '<a href="' + _.escape( elementor.helpers.sanitizeUrl( settings.link.url ) ) + '"' + imageLinkLabel + '>' + imageHtml + '</a>';
 					}
 
 					print( imageHtml );
@@ -2150,7 +2150,7 @@ class Team_Member extends Powerpack_Widget {
 					var target = settings.link.is_external ? ' target="_blank"' : '';
 					var nofollow = settings.link.nofollow ? ' rel="nofollow"' : '';
 					#>
-					<a href="{{ _.escape( settings.link.url ) }}"{{ target }}{{ nofollow }}>
+					<a href="{{ elementor.helpers.sanitizeUrl( settings.link.url ) }}"{{ target }}{{ nofollow }}>
 						<# print( name_html ); #>
 					</a>
 				<# } else {
@@ -2243,7 +2243,7 @@ class Team_Member extends Powerpack_Widget {
 							}
 
 							if ( hasLink ) {
-								view.addRenderAttribute( socialLinkKey, 'href', item.social_link.url );
+								view.addRenderAttribute( socialLinkKey, 'href', elementor.helpers.sanitizeUrl( item.social_link.url ) );
 							}
 
 							var linkLabel = social ? social : '<?php echo esc_js( __( 'Social link', 'powerpack-lite-for-elementor' ) ); ?>';

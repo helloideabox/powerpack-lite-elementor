@@ -579,7 +579,7 @@ class Dual_Heading extends Powerpack_Widget {
 		view.addRenderAttribute( 'dual-heading', 'tabindex', '0' );
 		#>
 		<{{{ headingHTMLTag }}} {{{ view.getRenderAttributeString( 'dual-heading' ) }}}>
-			<# if ( hasLink ) { #><a href="{{ _.escape( settings.link.url ) }}"><# } #>
+			<# if ( hasLink ) { #><a href="{{ _.escape( elementor.helpers.sanitizeUrl( settings.link.url ) ) }}"><# } #>
 				<#
 				if ( settings.first_text != '' ) {
 					var first_text = settings.first_text;

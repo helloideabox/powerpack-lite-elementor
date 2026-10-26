@@ -471,7 +471,7 @@ class Link_Effects extends Powerpack_Widget {
 		var hasLink = settings.link.url;
 
 		if ( hasLink ) {
-			view.addRenderAttribute( 'link', 'href', _.escape( settings.link.url ) );
+			view.addRenderAttribute( 'link', 'href', elementor.helpers.sanitizeUrl( settings.link.url ) );
 		}
 
 		switch ( settings.effect ) {

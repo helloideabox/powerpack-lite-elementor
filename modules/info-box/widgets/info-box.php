@@ -2200,7 +2200,7 @@ class Info_Box extends Powerpack_Widget {
 				pp_title_html_tag = 'div',
 				pp_button_html_tag = 'div',
 				hasLinkUrl = ( settings.link && settings.link.url ),
-				linkUrl = hasLinkUrl ? settings.link.url : '',
+				linkUrl = hasLinkUrl ? elementor.helpers.sanitizeUrl( settings.link.url ) : '',
 				iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
 				migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' ),
 				buttonIconHTML = elementor.helpers.renderIcon( view, settings.select_button_icon, { 'aria-hidden': true }, 'i' , 'object' ),

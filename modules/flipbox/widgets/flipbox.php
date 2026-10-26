@@ -2267,7 +2267,7 @@ class Flipbox extends Powerpack_Widget {
 							var titleBackHTMLTag = 'a';
 
 							view.addRenderAttribute( 'title-container', 'class', 'pp-flipbox-linked-title' );
-							view.addRenderAttribute( 'title-container', 'href', settings.link.url );
+							view.addRenderAttribute( 'title-container', 'href', elementor.helpers.sanitizeUrl( settings.link.url ) );
 
 						} else if ( 'button' === settings.link_type ) {
 
@@ -2278,7 +2278,7 @@ class Flipbox extends Powerpack_Widget {
 									'elementor-size-' + settings.button_size,
 								],
 								'href': [
-									settings.link.url,
+									elementor.helpers.sanitizeUrl( settings.link.url ),
 								],
 							} );
 
@@ -2292,7 +2292,7 @@ class Flipbox extends Powerpack_Widget {
 
 					if ( 'box' === settings.link_type && settings.link.url ) {
 						view.addRenderAttribute( 'box-link', 'class', 'pp-flipbox-box-link' );
-						view.addRenderAttribute( 'box-link', 'href', settings.link.url );
+						view.addRenderAttribute( 'box-link', 'href', elementor.helpers.sanitizeUrl( settings.link.url ) );
 
 						var boxLinkLabel = settings.title_back ? settings.title_back.replace( /(<([^>]+)>)/gi, '' ) : '';
 

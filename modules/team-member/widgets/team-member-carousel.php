@@ -3391,7 +3391,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 								? '<?php echo esc_js( /* translators: 1: team member name, 2: social network name */ __( '%1$s on %2$s', 'powerpack-lite-for-elementor' ) ); ?>'.replace( '%1$s', item.team_member_name ).replace( '%2$s', networkLabel )
 								: networkLabel;
 						#>
-						<a class="pp-tm-social-link" href="{{ url }}" aria-label="{{ linkLabel }}">
+						<a class="pp-tm-social-link" href="{{ elementor.helpers.sanitizeUrl( url ) }}" aria-label="{{ linkLabel }}">
 							<span {{{ view.getRenderAttributeString( iconWrapKey ) }}}>
 								<#
 								var iconObj = get_social_icon_obj( icon );
@@ -3449,7 +3449,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 						var target = item.link.is_external ? ' target="_blank"' : '',
 							nofollow = item.link.nofollow ? ' rel="nofollow"' : '';
 				   
-						var name = '<a href="' + _.escape( item.link.url ) + '" ' + target + '>' + name + '</a>';
+						var name = '<a href="' + _.escape( elementor.helpers.sanitizeUrl( item.link.url ) ) + '" ' + target + '>' + name + '</a>';
 					}
 
 					var nameHTMLTag = elementor.helpers.validateHTMLTag( settings.name_html_tag ),
@@ -3614,7 +3614,7 @@ class Team_Member_Carousel extends Powerpack_Widget {
 											var imageHtml = '<img src="' + _.escape( image_url ) + '" alt="' + _.escape( image_alt ) + '" />';
 
 											if ( is_linked ) {
-												imageHtml = '<a href="' + _.escape( item.link.url ) + '">' + imageHtml + '</a>';
+												imageHtml = '<a href="' + _.escape( elementor.helpers.sanitizeUrl( item.link.url ) ) + '">' + imageHtml + '</a>';
 											}
 
 											print( imageHtml );

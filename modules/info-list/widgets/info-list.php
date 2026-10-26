@@ -1676,7 +1676,7 @@ class Info_List extends Powerpack_Widget {
 					<# if ( item.text || item.description ) { #>
 						<li class="pp-info-list-item">
 							<# if ( item.link.url != '' && item.link_type == 'box' ) { #>
-								<a href="{{ _.escape( item.link.url ) }}">
+								<a href="{{ elementor.helpers.sanitizeUrl( item.link.url ) }}">
 							<# } #>
 								<div class="pp-info-list-item-inner">
 									<# if ( item.pp_icon_type != 'none' ) { #>
@@ -1721,7 +1721,7 @@ class Info_List extends Powerpack_Widget {
 											<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
 											<{{{ titleHTMLTag }}} class="pp-info-list-title">
 												<# if ( item.link.url != '' && item.link_type == 'title' ) { #>
-													<a href="{{ _.escape( item.link.url ) }}">
+													<a href="{{ elementor.helpers.sanitizeUrl( item.link.url ) }}">
 												<# } #>
 												<span {{{ view.getRenderAttributeString( 'list_items.' + (i - 1) + '.text' ) }}}>
 												{{{ item.text }}}
@@ -1738,7 +1738,7 @@ class Info_List extends Powerpack_Widget {
 										<# } #>
 										<# if ( item.link.url != '' && item.link_type == 'button' ) { #>
 											<div class="pp-info-list-button-wrapper pp-info-list-button-icon-{{ item.button_icon_position }}">
-												<a href="{{ _.escape( item.link.url ) }}">
+												<a href="{{ elementor.helpers.sanitizeUrl( item.link.url ) }}">
 													<div class="pp-info-list-button elementor-button elementor-size-{{ settings.button_size }} elementor-animation-{{ settings.button_animation }}">
 														<#
 															buttonIconHTML[ index ] = elementor.helpers.renderIcon( view, item.selected_icon, { 'aria-hidden': true }, 'i', 'object' );

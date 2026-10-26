@@ -1982,7 +1982,7 @@ class Logo_Carousel extends Powerpack_Widget {
 												image_alt        = ( logo_title ) ? '' : ( item.logo_title || ( has_link ? generic_logo : '' ) );
 											#>
 											<# if ( has_link ) { #>
-												<a href="{{ _.escape( item.link.url ) }}"{{{ image_link_attrs }}}>
+												<a href="{{ elementor.helpers.sanitizeUrl( item.link.url ) }}"{{{ image_link_attrs }}}>
 											<# } #>
 											<#
 											if ( item.logo_carousel_slide && item.logo_carousel_slide.id ) {
@@ -2016,7 +2016,7 @@ class Logo_Carousel extends Powerpack_Widget {
 										<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
 										<{{{ titleHTMLTag }}} class="pp-logo-title">
 											<# if ( has_link ) { #>
-												<a href="{{ _.escape( item.link.url ) }}">
+												<a href="{{ elementor.helpers.sanitizeUrl( item.link.url ) }}">
 											<# } #>
 												{{ item.logo_title }}
 											<# if ( has_link ) { #>

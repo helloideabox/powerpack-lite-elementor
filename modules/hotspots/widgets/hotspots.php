@@ -1391,7 +1391,7 @@ class Hotspots extends Powerpack_Widget {
 						if ( hasLink && ( ! hasTooltip || settings.tooltip_trigger == 'hover' ) ) {
 							hotspotTag = 'a';
 
-							view.addRenderAttribute( hotspotKey, 'href', item.hotspot_link.url );
+							view.addRenderAttribute( hotspotKey, 'href', elementor.helpers.sanitizeUrl( item.hotspot_link.url ) );
 
 							if ( item.hotspot_link.is_external ) {
 								view.addRenderAttribute( hotspotKey, 'target', '_blank' );

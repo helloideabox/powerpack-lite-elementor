@@ -1112,7 +1112,7 @@ class Icon_List extends Powerpack_Widget {
 					<# if ( item.text != '' ) { #>
 						<li {{{ view.getRenderAttributeString( itemKey ) }}}>
 							<# if ( item.link && item.link.url ) { #>
-								<a href="{{ _.escape( item.link.url ) }}">
+								<a href="{{ elementor.helpers.sanitizeUrl( item.link.url ) }}">
 							<# } #>
 							<# if ( item.pp_icon_type != 'none' ) { #>
 								<#

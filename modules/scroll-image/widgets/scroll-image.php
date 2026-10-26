@@ -576,7 +576,7 @@ class Scroll_Image extends Powerpack_Widget {
 
 			if ( settings.link.url ) {
 				view.addRenderAttribute( 'link', 'class', 'pp-image-scroll-link pp-media-content' );
-				url = settings.link.url;
+				url = elementor.helpers.sanitizeUrl( settings.link.url );
 				view.addRenderAttribute( 'link', 'href',  url );
 				view.addRenderAttribute( 'link', 'aria-label', '<?php echo esc_js( __( 'View image', 'powerpack-lite-for-elementor' ) ); ?>' );
 			}

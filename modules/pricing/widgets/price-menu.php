@@ -1383,7 +1383,7 @@ class Price_Menu extends Powerpack_Widget {
 										<# var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag ); #>
 										<{{{ titleHTMLTag }}} class="pp-restaurant-menu-title">
 											<# if ( item.link && item.link.url ) { #>
-												<a href="{{ _.escape( item.link.url ) }}">
+												<a href="{{ elementor.helpers.sanitizeUrl( item.link.url ) }}">
 													<# title_template( item ) #>
 												</a>
 											<# } else { #>
