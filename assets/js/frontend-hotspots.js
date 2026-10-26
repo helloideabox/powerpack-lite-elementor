@@ -52,7 +52,7 @@
 
 				let ppclass = 'pp-tooltip' + ' pp-tooltip-' + $id;
 
-				if ( '' !== tooltipSize && undefined !== tooltipSize ) {
+				if ( [ 'default', 'tiny', 'small', 'large' ].includes( tooltipSize ) ) {
 					ppclass += ' pp-tooltip-size-' + tooltipSize;
 				}
 

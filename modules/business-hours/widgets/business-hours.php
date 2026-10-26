@@ -732,6 +732,26 @@ class Business_Hours extends Powerpack_Widget {
 			]
 		);
 
+		$this->add_responsive_control(
+			'day_hours_spacing',
+			[
+				'label'             => esc_html__( 'Day and Hours Spacing', 'powerpack-lite-for-elementor' ),
+				'type'              => Controls_Manager::SLIDER,
+				'range'             => [
+					'px' => [
+						'min'   => 0,
+						'max'   => 100,
+						'step'  => 1,
+					],
+				],
+				'size_units'        => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'placeholder'       => 10,
+				'selectors'         => [
+					'{{WRAPPER}} .pp-business-hours .pp-business-hours-row' => 'column-gap: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->add_control(
 			'closed_row_heading',
 			[
@@ -1112,7 +1132,6 @@ class Business_Hours extends Powerpack_Widget {
 
 			$this->add_render_attribute( $row_setting_key, 'class', [
 				'pp-business-hours-row',
-				'clearfix',
 				'elementor-repeater-item-' . esc_attr( $item['_id'] ),
 			] );
 
@@ -1185,7 +1204,6 @@ class Business_Hours extends Powerpack_Widget {
 				$row_setting_key = $this->get_repeater_setting_key( 'row', 'business_hours_custom', $index );
 				$this->add_render_attribute( $row_setting_key, 'class', [
 					'pp-business-hours-row',
-					'clearfix',
 					'elementor-repeater-item-' . esc_attr( $item['_id'] ),
 				] );
 
@@ -1275,7 +1293,7 @@ class Business_Hours extends Powerpack_Widget {
 						var todayCls = isToday ? 'pp-today' : '';
 						var ariaCur  = isToday ? 'aria-current="date"' : '';
 					#>
-					<div class="pp-business-hours-row clearfix elementor-repeater-item-{{ item._id }} {{ closed }} {{ todayCls }}" role="listitem" {{{ ariaCur }}}>
+					<div class="pp-business-hours-row elementor-repeater-item-{{ item._id }} {{ closed }} {{ todayCls }}" role="listitem" {{{ ariaCur }}}>
 						<span class="pp-business-day">
 							<# if ( settings.days_format == 'long' ) { #>
 								{{ item.day }}
@@ -1318,7 +1336,7 @@ class Business_Hours extends Powerpack_Widget {
 					<#
 						var closed = ( item.closed != 'no' ) ? 'row-closed' : '';
 					#>
-					<div class="pp-business-hours-row clearfix elementor-repeater-item-{{ item._id }} {{ closed }}" role="listitem">
+					<div class="pp-business-hours-row elementor-repeater-item-{{ item._id }} {{ closed }}" role="listitem">
 						<# if ( item.day != '' ) { #>
 							<span class="pp-business-day">
 								{{ item.day }}

@@ -27,10 +27,22 @@
   text-decoration: underline;
 }
 
+.pp-business-hours .pp-business-hours-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+}
 .pp-business-hours .pp-business-day,
 .pp-business-hours .pp-business-timing {
-  float: left;
-  width: 50%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 .pp-business-hours .pp-business-timing {
   text-align: end;

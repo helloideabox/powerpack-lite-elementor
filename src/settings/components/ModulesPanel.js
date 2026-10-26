@@ -118,6 +118,15 @@ const FILTERS = [
 ];
 
 /**
+ * Filters that need the usage scan before they can answer.
+ *
+ * These stay clickable while the scan runs: a greyed-out button with no
+ * visible reason reads as broken, so picking one early shows what is
+ * happening in place of the list instead.
+ */
+const NEEDS_USAGE = [ 'used', 'notused' ];
+
+/**
  * The filter asked for in the URL, if any.
  *
  * The unused-widgets notice links here with `show=notused`, so it can hand
@@ -147,8 +156,9 @@ export default function ModulesPanel( {
 	const [ data, setData ] = useState( null );
 	const [ error, setError ] = useState( null );
 	const [ search, setSearch ] = useState( '' );
-	const [ filter, setFilter ] = useState( 'all' );
+	const [ filter, setFilter ] = useState( () => requestedFilter() || 'all' );
 	const [ usage, setUsage ] = useState( null );
+	const [ usageAttempt, setUsageAttempt ] = useState( 0 );
 	const [ activeCategory, setActiveCategory ] = useState( null );
 	const sectionRefs = useRef( {} );
 
@@ -173,8 +183,21 @@ export default function ModulesPanel( {
 			.then( ( result ) => ! cancelled && setData( result ) )
 			.catch( ( err ) => ! cancelled && setError( err.message ) );
 
-		// Fired separately and not awaited: classifying usage reads every
-		// Elementor document, so the catalogue must not wait for it.
+		return () => {
+			cancelled = true;
+		};
+	}, [] );
+
+	/*
+	 * Separate from the catalogue and not awaited: classifying usage reads
+	 * every Elementor document, so the catalogue must not wait for it. Keyed
+	 * on the attempt so Try again can run it a second time after a failure.
+	 */
+	useEffect( () => {
+		let cancelled = false;
+
+		setUsage( null );
+
 		fetchModuleUsage()
 			.then( ( result ) => ! cancelled && setUsage( result ) )
 			.catch( () => ! cancelled && setUsage( { available: false, used: [], notUsed: [] } ) );
@@ -182,7 +205,7 @@ export default function ModulesPanel( {
 		return () => {
 			cancelled = true;
 		};
-	}, [] );
+	}, [ usageAttempt ] );
 
 	const isDirty = Object.prototype.hasOwnProperty.call( changes, KEY );
 
@@ -224,27 +247,23 @@ export default function ModulesPanel( {
 	);
 	const usedSet = useMemo( () => new Set( usage?.used || [] ), [ usage ] );
 	const usageReady = !! usage?.available;
+	const usagePending = null === usage;
+
+	// A usage view picked, or asked for in the URL, before the scan can answer
+	// it. Nothing is listed until it can: "Used" would be empty and "Not used"
+	// would be everything.
+	const awaitingUsage = NEEDS_USAGE.includes( filter ) && ! usageReady;
 	const term = search.trim().toLowerCase();
-
-	/*
-	 * A filter asked for in the URL is held back until the usage scan lands.
-	 * Applied any earlier, nothing is known to be used yet, so "Not used" would
-	 * match the entire library and claim every widget is idle.
-	 */
-	const pendingFilter = useRef( requestedFilter() );
-
-	useEffect( () => {
-		if ( usageReady && pendingFilter.current ) {
-			setFilter( pendingFilter.current );
-			pendingFilter.current = null;
-		}
-	}, [ usageReady ] );
 
 	/*
 	 * Derived above the loading and error returns, because the scroll spy
 	 * effect below has to run on every render — hooks cannot be conditional.
 	 */
 	const categories = useMemo( () => {
+		if ( awaitingUsage ) {
+			return [];
+		}
+
 		const matches = ( widget ) => {
 			if ( term && ! widget.title.toLowerCase().includes( term ) ) {
 				return false;
@@ -267,7 +286,7 @@ export default function ModulesPanel( {
 				widgets: category.widgets.filter( matches ),
 			} ) )
 			.filter( ( category ) => category.widgets.length > 0 );
-	}, [ data, term, filter, usedSet ] );
+	}, [ data, term, filter, usedSet, awaitingUsage ] );
 
 	/*
 	 * What the bulk buttons act on.
@@ -516,7 +535,7 @@ export default function ModulesPanel( {
 						>
 							{ FILTERS.map( ( item ) => {
 								const count = filterCount( item.id );
-								const disabled = 'all' !== item.id && ! usageReady;
+								const scanning = NEEDS_USAGE.includes( item.id ) && usagePending;
 
 								return (
 									<button
@@ -524,16 +543,16 @@ export default function ModulesPanel( {
 										key={ item.id }
 										className={ `pp-seg-btn${ filter === item.id ? ' is-active' : '' }` }
 										aria-pressed={ filter === item.id }
-										disabled={ disabled }
 										title={
-											disabled
-												? __( 'Working out which widgets are in use…', 'powerpack-lite-for-elementor' )
+											scanning
+												? __( 'Checking which widgets your pages use…', 'powerpack-lite-for-elementor' )
 												: undefined
 										}
 										onClick={ () => setFilter( item.id ) }
 									>
 										{ item.label() }
 										{ null !== count && <span className="pp-seg-n">{ count }</span> }
+										{ scanning && <span className="pp-seg-pending" aria-hidden="true" /> }
 									</button>
 								);
 							} ) }
@@ -569,7 +588,7 @@ export default function ModulesPanel( {
 						</div>
 					</div>
 
-					{ isFiltered && (
+					{ isFiltered && ! awaitingUsage && (
 						<p className="pp-filter-summary">
 							{ sprintf(
 								/* translators: 1: matching widgets, 2: total widgets. */
@@ -583,7 +602,58 @@ export default function ModulesPanel( {
 						</p>
 					) }
 
-					{ ! categories.length && (
+					{ /*
+					  * A live region, so a screen reader hears the wait and
+					  * then the outcome without having to go looking for it.
+					  */ }
+					{ awaitingUsage && (
+						<div className="pp-empty" role="status">
+							{ usagePending ? (
+								<>
+									<div className="pp-empty-mark" aria-hidden="true">
+										<span className="pp-seg-pending" />
+									</div>
+									<div className="pp-empty-title">
+										{ __( 'Checking which widgets your pages use', 'powerpack-lite-for-elementor' ) }
+									</div>
+									<p className="pp-empty-desc">
+										{ __(
+											'PowerPack is looking through your Elementor pages. The list will appear here as soon as it is ready.',
+											'powerpack-lite-for-elementor'
+										) }
+									</p>
+								</>
+							) : (
+								<>
+									<div className="pp-empty-mark" aria-hidden="true">
+										<span className="dashicons dashicons-warning" />
+									</div>
+									<div className="pp-empty-title">
+										{ __( 'Widget usage could not be checked', 'powerpack-lite-for-elementor' ) }
+									</div>
+									<p className="pp-empty-desc">
+										{ __(
+											'Make sure Elementor is active, then try again. You can still browse and switch widgets from the All view.',
+											'powerpack-lite-for-elementor'
+										) }
+									</p>
+									<div className="pp-empty-actions">
+										<Button
+											variant="secondary"
+											onClick={ () => setUsageAttempt( ( n ) => n + 1 ) }
+										>
+											{ __( 'Try again', 'powerpack-lite-for-elementor' ) }
+										</Button>
+										<Button variant="tertiary" onClick={ clearFilters }>
+											{ __( 'Show all widgets', 'powerpack-lite-for-elementor' ) }
+										</Button>
+									</div>
+								</>
+							) }
+						</div>
+					) }
+
+					{ ! categories.length && ! awaitingUsage && (
 						<div className="pp-empty">
 							<div className="pp-empty-mark" aria-hidden="true">
 								<span className="dashicons dashicons-search" />

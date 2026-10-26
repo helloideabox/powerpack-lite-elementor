@@ -1582,6 +1582,47 @@ input.pp-search-input {
 	color: var(--ppe-text-muted);
 }
 
+/*
+ * Stands in for the count while the usage scan runs, so the wait is visible
+ * on the button itself rather than only in a hover tooltip.
+ */
+.pp-seg-pending {
+	display: inline-block;
+	flex: none;
+	width: 10px;
+	height: 10px;
+	border: 2px solid $pp-border;
+	border-top-color: var(--ppe-primary-color);
+	border-radius: 50%;
+	animation: pp-seg-spin 0.8s linear infinite;
+
+	.pp-empty-mark & {
+		width: 18px;
+		height: 18px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		animation-duration: 2.4s;
+	}
+}
+
+@keyframes pp-seg-spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.pp-empty-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 8px;
+}
+
 /* -- filter summary and empty state --------------------------------------- */
 .pp-filter-summary {
 	margin: 0;

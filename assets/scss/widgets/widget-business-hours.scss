@@ -34,10 +34,15 @@
 
 .pp-business-hours {
 
+    .pp-business-hours-row {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 10px;
+    }
+
     .pp-business-day,
     .pp-business-timing {
-        float: left;
-        width: 50%;
+        flex-grow: 1;
     }
 
     .pp-business-timing {
