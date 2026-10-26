@@ -91,7 +91,13 @@ final class PP_Widgets_Notice {
 		 * @since 3.0.0
 		 * @param int $threshold Percentage, 0-100.
 		 */
-		$threshold = (int) apply_filters( 'pp_widgets_notice_threshold', self::DEFAULT_THRESHOLD );
+		$threshold = (int) PP_Helper::apply_deprecated_filter(
+			'pp_widgets_notice_threshold',
+			'powerpack_elements_widgets_notice_threshold',
+			self::DEFAULT_THRESHOLD,
+			[],
+			'3.1.3'
+		);
 
 		if ( $stats['enabled'] < self::MIN_ENABLED ) {
 			return false;
@@ -154,7 +160,13 @@ final class PP_Widgets_Notice {
 		 * @since 3.0.0
 		 * @param array $allowed_screens Screen IDs.
 		 */
-		$allowed_screens = apply_filters( 'pp_widgets_notice_screens', $allowed_screens );
+		$allowed_screens = PP_Helper::apply_deprecated_filter(
+			'pp_widgets_notice_screens',
+			'powerpack_elements_widgets_notice_screens',
+			$allowed_screens,
+			[],
+			'3.1.3'
+		);
 
 		return in_array( $screen->id, $allowed_screens, true );
 	}

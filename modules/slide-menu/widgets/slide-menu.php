@@ -1643,7 +1643,13 @@ class Slide_Menu extends Powerpack_Widget {
 		 * @param int      $depth       Depth of the menu item.
 		 * @param stdClass $args        wp_nav_menu arguments.
 		 */
-		return apply_filters( 'pp_slide_menu_nav_menu_start_el', $item_output, $item, $depth, $args );
+		return \PowerpackElementsLite\Classes\PP_Helper::apply_deprecated_filter(
+			'pp_slide_menu_nav_menu_start_el',
+			'powerpack_elements_slide_menu_nav_menu_start_el',
+			$item_output,
+			[ $item, $depth, $args ],
+			'3.1.3'
+		);
 	}
 
 	/**

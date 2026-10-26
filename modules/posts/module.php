@@ -105,7 +105,7 @@ class Module extends Module_Base {
 		$filter = '';
 		if ( isset( $_POST['category'] ) ) {
 			$filter = sanitize_title_with_dashes(
-				str_replace( '.', '', wp_unslash( $_POST['category'] ) )
+				wp_unslash( $_POST['category'] )
 			);
 		}
 

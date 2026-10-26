@@ -60,7 +60,8 @@ module.exports = function( grunt ) {
 					cwd: '<%= dirs.js %>/',
 					src: [
 						'*.js',
-						'!*.min.js'
+						'!*.min.js',
+						'!jquery.plugin.js' // Loaded unminified; the default extDot would also name its output jquery.min.js
 					],
 					dest: '<%= dirs.js %>/min/',
 					ext: '.min.js'

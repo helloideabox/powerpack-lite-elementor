@@ -117,7 +117,13 @@ function powerpack_elements_lite_get_enabled_modules() {
 		);
 	}
 
-	return apply_filters( 'pp_elementor_enabled_modules', $enabled_modules );
+	return \PowerpackElementsLite\Classes\PP_Helper::apply_deprecated_filter(
+		'pp_elementor_enabled_modules',
+		'powerpack_elements_enabled_modules',
+		$enabled_modules,
+		[],
+		'3.1.3'
+	);
 }
 
 /**
@@ -386,26 +392,3 @@ function powerpack_elements_lite_get_enabled_extensions() {
 function powerpack_elements_lite_get_elementor() {
 	return \Elementor\Plugin::$instance;
 }
-
-/**
- * Send "upgrade" on the settings screen to the page that sells the paid edition.
- *
- * The settings app, its REST controller and the settings registry are the same
- * code as the paid edition's, which is why the destination arrives through a
- * filter rather than being written into the screen itself.
- *
- * Everything this file declares is prefixed for this plugin alone, and this
- * plugin's copy of the shared code calls these names rather than the paid
- * edition's. That is deliberate, and it is the whole reason both plugins can be
- * active at once: two declarations of one function name is a fatal, and which of
- * the two declares first depends on the order WordPress happens to load them in.
- * With no name in common there is nothing to collide, and the paid edition needs
- * to know nothing about this one.
- *
- * @since 3.0.0
- * @return string
- */
-function powerpack_elements_lite_settings_upgrade_url() {
-	return 'https://powerpackelements.com/upgrade/';
-}
-add_filter( 'pp_settings_upgrade_url', 'powerpack_elements_lite_settings_upgrade_url' );

@@ -207,7 +207,13 @@ class PP_Helper {
 			$widget_docs = self::get_tracked_url( self::$widgets_list[ $slug ]['docs'], 'panel' );
 		}
 
-		return apply_filters( 'pp_elements_lite_widget_docs', $widget_docs );
+		return self::apply_deprecated_filter(
+			'pp_elements_lite_widget_docs',
+			'powerpack_elements_widget_docs',
+			$widget_docs,
+			[],
+			'3.1.3'
+		);
 	}
 
 	/**
@@ -790,11 +796,11 @@ class PP_Helper {
 
 	public static function apply_deprecated_filter( $old_hook, $new_hook, $value, $args = [], $version = '2.9.10' ) {
 
-		$value = apply_filters_ref_array( $new_hook, array_merge( array( $value ), $args ) );
+		$value = apply_filters_ref_array( $new_hook, array_merge( array( $value ), $args ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Hook names come from the caller.
 
 		if ( has_filter( $old_hook ) ) {
 			_deprecated_hook( esc_html( $old_hook ), esc_html( $version ), esc_html( $new_hook ) );
-			$value = apply_filters_ref_array( $old_hook, array_merge( array( $value ), $args ) );
+			$value = apply_filters_ref_array( $old_hook, array_merge( array( $value ), $args ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Hook names come from the caller.
 		}
 
 		return $value;
@@ -802,11 +808,11 @@ class PP_Helper {
 
 	public static function do_deprecated_action( $old_hook, $new_hook, $args = [], $version = '2.9.0' ) {
 
-		do_action_ref_array( $new_hook, $args );
+		do_action_ref_array( $new_hook, $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Hook names come from the caller.
 
 		if ( has_action( $old_hook ) ) {
 			_deprecated_hook( esc_html( $old_hook ), esc_html( $version ), esc_html( $new_hook ) );
-			do_action_ref_array( $old_hook, $args );
+			do_action_ref_array( $old_hook, $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Hook names come from the caller.
 		}
 	}
 

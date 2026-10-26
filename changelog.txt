@@ -14,6 +14,8 @@ Release date: TBD
 * Fix: Buttons, Contact Form 7, Content Reveal, Formidable Forms, Ninja Forms and Posts - The "Get PowerPack Pro" section appeared twice
 * Development: Removed the unused ACF, Pods and Toolset field search code from query control
 * Development: Removed the unused is_pp_elements_active() function
+* Development: Removed the unused assets/js/min/jquery.min.js file
+* Development: Renamed filters to use the powerpack_elements_ prefix: pp_elementor_enabled_modules, pp_load_module_without_active_widgets, pp_settings_upgrade_url, pp_elements_settings_fields, pp_elements_lite_extension_docs, pp_elements_lite_widget_docs, pp_lite_rollback_enabled, pp_lite_rollback_versions, pp_lite_rollback_package_url, pp_widgets_notice_threshold, pp_widgets_notice_screens and pp_slide_menu_nav_menu_start_el. The old names still work but are deprecated
 
 == 3.1.2 ==
 Release date: October 21, 2026

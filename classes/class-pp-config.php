@@ -1060,7 +1060,13 @@ class PP_Config {
 			}
 		}
 
-		return apply_filters( 'pp_elements_lite_extension_docs', self::$extension_docs );
+		return PP_Helper::apply_deprecated_filter(
+			'pp_elements_lite_extension_docs',
+			'powerpack_elements_extension_docs',
+			self::$extension_docs,
+			[],
+			'3.1.3'
+		);
 	}
 
 	/**

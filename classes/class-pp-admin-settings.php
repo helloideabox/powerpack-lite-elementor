@@ -480,7 +480,13 @@ final class PP_Admin_Settings {
 	 * @return string
 	 */
 	public static function get_upgrade_url( $args = [] ) {
-		$url = apply_filters( 'pp_settings_upgrade_url', 'https://powerpackelements.com/upgrade/' );
+		$url = PP_Helper::apply_deprecated_filter(
+			'pp_settings_upgrade_url',
+			'powerpack_elements_settings_upgrade_url',
+			'https://powerpackelements.com/upgrade/',
+			[],
+			'3.1.3'
+		);
 
 		return empty( $args ) ? $url : add_query_arg( $args, $url );
 	}

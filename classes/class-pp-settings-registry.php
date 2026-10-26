@@ -74,7 +74,13 @@ final class PP_Settings_Registry {
 			return self::$fields;
 		}
 
-		self::$fields = apply_filters( 'pp_elements_settings_fields', self::define_fields() );
+		self::$fields = PP_Helper::apply_deprecated_filter(
+			'pp_elements_settings_fields',
+			'powerpack_elements_settings_fields',
+			self::define_fields(),
+			[],
+			'3.1.3'
+		);
 
 		return self::$fields;
 	}

@@ -81,7 +81,13 @@ final class PP_Rollback {
 
 		// A site can switch this off entirely — some hosts manage plugin
 		// versions themselves and do not want it done from inside WordPress.
-		return (bool) apply_filters( 'pp_lite_rollback_enabled', ! defined( 'DISALLOW_FILE_MODS' ) || ! DISALLOW_FILE_MODS );
+		return (bool) PP_Helper::apply_deprecated_filter(
+			'pp_lite_rollback_enabled',
+			'powerpack_elements_rollback_enabled',
+			! defined( 'DISALLOW_FILE_MODS' ) || ! DISALLOW_FILE_MODS,
+			[],
+			'3.1.3'
+		);
 	}
 
 	/**
@@ -113,7 +119,13 @@ final class PP_Rollback {
 		 * that one". Filtering here and at get_package_url() is the whole
 		 * contract between the two.
 		 */
-		$versions = apply_filters( 'pp_lite_rollback_versions', null );
+		$versions = PP_Helper::apply_deprecated_filter(
+			'pp_lite_rollback_versions',
+			'powerpack_elements_rollback_versions',
+			null,
+			[],
+			'3.1.3'
+		);
 
 		if ( null === $versions ) {
 			$versions = self::versions_from_directory();
@@ -169,7 +181,13 @@ final class PP_Rollback {
 	public static function get_package_url( $version ) {
 		$url = sprintf( 'https://downloads.wordpress.org/plugin/%s.%s.zip', self::get_slug(), $version );
 
-		return (string) apply_filters( 'pp_lite_rollback_package_url', $url, $version );
+		return (string) PP_Helper::apply_deprecated_filter(
+			'pp_lite_rollback_package_url',
+			'powerpack_elements_rollback_package_url',
+			$url,
+			[ $version ],
+			'3.1.3'
+		);
 	}
 
 	/**

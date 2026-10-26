@@ -114,7 +114,13 @@ class Modules_Manager {
 		 * @param bool   $load        Default false.
 		 * @param string $module_name Module directory name.
 		 */
-		return (bool) apply_filters( 'pp_load_module_without_active_widgets', false, $module_name );
+		return (bool) Classes\PP_Helper::apply_deprecated_filter(
+			'pp_load_module_without_active_widgets',
+			'powerpack_elements_load_module_without_active_widgets',
+			false,
+			[ $module_name ],
+			'3.1.3'
+		);
 	}
 
 	/**
