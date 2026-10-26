@@ -1,16 +1,7 @@
 == 3.1.3 ==
 Release date: TBD
-* Security Fix: Charts - Fixed a security issue with the CSV file source
-* Security Fix: Hotspots - Fixed a security issue with the tooltip settings
-* Security Fix: Pricing Table - Fixed a security issue with the tooltip settings
-* Security Fix: Posts, Content Ticker and Marquee - Fixed a security issue with the posts query
-* Security Fix: Query control - Fixed a security issue with the search in the editor
-* Security Fix: Instagram Feed - Fixed a security issue with the Instagram API requests
-* Security Fix: Contact Form 7, Fluent Forms and Ninja Forms - Fixed a security issue with the form settings
-* Security Fix: Posts - Fixed a security issue with AJAX filtering and pagination
-* Security Fix: Admin notices - Fixed a security issue with the admin notices
-* Security Fix: Multiple widgets - Fixed a security issue with links in the editor preview
-* Security Fix: PowerPack settings - Fixed a security issue with the widget usage scan
+* Security Fix: Charts, Contact Form 7, Content Ticker, Fluent Forms, Hotspots, Instagram Feed, Marquee, Ninja Forms, Posts and Pricing Table - Fixed security issues
+* Security Fix: Query control, links in the editor preview, admin notices and PowerPack settings - Fixed security issues affecting multiple widgets
 * Fix: Buttons, Contact Form 7, Content Reveal, Formidable Forms, Ninja Forms and Posts - The "Get PowerPack Pro" section appeared twice
 * Development: Removed the unused ACF, Pods and Toolset field search code from query control
 * Development: Removed the unused is_pp_elements_active() function
