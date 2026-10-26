@@ -1563,7 +1563,7 @@ class Ninja_Forms extends Powerpack_Widget {
 						</div>
 					<?php } ?>
 					<?php
-						$form_id = $settings['contact_form_list'];
+						$form_id = absint( $settings['contact_form_list'] );
 
 						echo do_shortcode( '[ninja_form id="' . $form_id . '" ]' );
 					?>

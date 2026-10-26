@@ -1556,7 +1556,7 @@ class Fluent_Forms extends Powerpack_Widget {
 							<?php } ?>
 						</div>
 					<?php } ?>
-					<?php echo do_shortcode( '[fluentform id="' . $settings['contact_form_list'] . '" ]' ); ?>
+					<?php echo do_shortcode( '[fluentform id="' . absint( $settings['contact_form_list'] ) . '" ]' ); ?>
 				</div>
 				<?php
 			} else {

@@ -1516,8 +1516,9 @@ class Contact_Form_7 extends Powerpack_Widget {
 					echo do_shortcode(
 						sprintf(
 							'[contact-form-7 id="%1$s" html_title="%2$s"]',
-							esc_attr( $settings['contact_form_list'] ),
-							esc_attr( $form_accessible_name )
+							absint( $settings['contact_form_list'] ),
+							// esc_attr() leaves square brackets alone, and a "]" would end the shortcode early.
+							esc_attr( str_replace( array( '[', ']' ), '', $form_accessible_name ) )
 						)
 					);
 					?>

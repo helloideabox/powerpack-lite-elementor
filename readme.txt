@@ -283,6 +283,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 *	Security Fix: Posts, Content Ticker and Marquee - Fixed a security issue with the posts query
 *	Security Fix: Query control - Fixed a security issue with the search in the editor
 *	Security Fix: Instagram Feed - Fixed a security issue with the Instagram API requests
+*	Security Fix: Contact Form 7, Fluent Forms and Ninja Forms - Fixed a security issue with the form settings
 
 = 3.1.2 - October 21, 2026 =
 *	Security Fix: Info Box Carousel - The item image URL is now escaped in the editor preview
