@@ -276,7 +276,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-= 3.1.3 - TBD =
+= 3.1.3 - October 27, 2026 =
 *	Enhancement: Business Hours - Added a Day and Hours Spacing control under Rows Style
 *	Enhancement: PowerPack settings - On the Elements tab, the Used on this site and Not used filters can now be picked while PowerPack is still checking which widgets are in use; the list shows that the check is running, and a Try again button if it fails
 *	Fix: Business Hours - A long day name, such as Wednesday, ran into the hours with no space between them
@@ -290,7 +290,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 *	Development: Removed the unused assets/js/min/jquery.min.js file
 *	Development: Renamed filters to use the powerpack_elements_ prefix: pp_elementor_enabled_modules, pp_load_module_without_active_widgets, pp_settings_upgrade_url, pp_elements_settings_fields, pp_elements_lite_extension_docs, pp_elements_lite_widget_docs, pp_lite_rollback_enabled, pp_lite_rollback_versions, pp_lite_rollback_package_url, pp_widgets_notice_threshold, pp_widgets_notice_screens and pp_slide_menu_nav_menu_start_el. The old names still work but are deprecated
 
-= 3.1.2 - October 21, 2026 =
+= 3.1.2 - October 22, 2026 =
 *	Security Fix: Info Box Carousel - The item image URL is now escaped in the editor preview
 *	Security Fix: Posts, Content Ticker and Marquee - The author and post filter types are now limited to their allowed values, so the query can no longer return private, draft, pending or scheduled posts
 *	Fix: Info Box, Info Box Carousel - Icons with a background and rounded corners stretched to the full width of the icon area, so a circle showed as a pill and the icon sat to one side
