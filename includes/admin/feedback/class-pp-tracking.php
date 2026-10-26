@@ -154,6 +154,11 @@ class UsageTracking {
 	 * @access public
 	 */
 	public function hook_notices() {
+		// The notices and the options they change are for administrators only.
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		$action = isset( $_GET['pp_admin_action'] ) ? sanitize_key( wp_unslash( $_GET['pp_admin_action'] ) ) : '';
 		$nonce  = isset( $_GET['_nonce'] ) ? sanitize_text_field( wp_unslash( $_GET['_nonce'] ) ) : '';
 
@@ -593,7 +598,7 @@ class UsageTracking {
 	 * Output JavaScript in admin footer to persist notice dismissals.
 	 */
 	public function dismiss_notice_script() {
-		if ( ! is_admin() ) {
+		if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
