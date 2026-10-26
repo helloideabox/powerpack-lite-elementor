@@ -45,6 +45,7 @@ class Templates extends Type_Base {
 			's' 				=> $data['q'],
 			'post_type' 		=> Source_Local::CPT,
 			'posts_per_page' 	=> -1,
+			'post_status'       => [ 'publish' ],
 			'orderby' 			=> 'meta_value',
 			'order' 			=> 'ASC',
 			'meta_query' => [

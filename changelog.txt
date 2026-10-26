@@ -4,6 +4,7 @@ Release date: TBD
 * Security Fix: Hotspots - Fixed a security issue with the tooltip settings
 * Security Fix: Pricing Table - Fixed a security issue with the tooltip settings
 * Security Fix: Posts, Content Ticker and Marquee - Fixed a security issue with the posts query
+* Security Fix: Query control - Fixed a security issue with the search in the editor
 
 == 3.1.2 ==
 Release date: October 21, 2026

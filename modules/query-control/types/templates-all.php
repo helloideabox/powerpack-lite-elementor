@@ -78,6 +78,7 @@ class Templates_All extends Type_Base {
 			'post_type' 		=> Source_Local::CPT,
 			'post__in' 			=> $ids,
 			'posts_per_page' 	=> -1,
+			'post_status'       => [ 'publish' ],
 		]);
 
 		foreach ( $query->posts as $post ) {

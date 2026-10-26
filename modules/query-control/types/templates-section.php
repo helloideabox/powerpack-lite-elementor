@@ -46,6 +46,7 @@ class Templates_Section extends Type_Base {
 		$query_params = [
 			's'                 => $data['q'],
 			'post_type'         => Source_Local::CPT,
+			'post_status'       => [ 'publish' ],
 			'posts_per_page'    => -1,
 			'tax_query' => [
 				[

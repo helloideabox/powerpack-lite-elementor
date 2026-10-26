@@ -31,6 +31,11 @@ class Users extends Type_Base {
 	 * @return array
 	 */
 	public function get_autocomplete_values( array $data ) {
+		// User names are only listed to those allowed to see the users list.
+		if ( ! current_user_can( 'list_users' ) ) {
+			return [];
+		}
+
 		$results = [];
 
 		$query_params = [
@@ -64,6 +69,11 @@ class Users extends Type_Base {
 	 * @return array
 	 */
 	public function get_value_titles( array $request ) {
+		// User names are only listed to those allowed to see the users list.
+		if ( ! current_user_can( 'list_users' ) ) {
+			return [];
+		}
+
 		$ids = (array) $request['id'];
 		$results = [];
 

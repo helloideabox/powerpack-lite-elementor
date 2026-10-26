@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\QueryControl\Types;
 
 use PowerpackElementsLite\Modules\QueryControl\Types\Type_Base;
+use PowerpackElementsLite\Classes\PP_Posts_Helper;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -33,10 +34,14 @@ class Posts extends Type_Base {
 	public function get_autocomplete_values( array $data ) {
 		$results = [];
 
+		$post_type = PP_Posts_Helper::sanitize_post_type( isset( $data['object_type'] ) ? $data['object_type'] : '' );
+
+		// Only published posts, as admin-ajax would otherwise also return drafts and scheduled posts.
 		$query_params = [
-			'post_type' 		=> $data['object_type'],
+			'post_type' 		=> $post_type,
 			's' 				=> $data['q'],
 			'posts_per_page' 	=> -1,
+			'post_status'       => [ 'publish' ],
 		];
 
 		if ( 'attachment' === $query_params['post_type'] ) {

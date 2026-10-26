@@ -91,7 +91,7 @@ class Module extends Module_Base {
 			throw new \Exception( 'Bad Request' );
 		}
 
-		$results = $this->get_component( $data['query_type'] )->get_autocomplete_values( $data );
+		$results = $this->get_query_component( $data['query_type'] )->get_autocomplete_values( $data );
 
 		return [
 			'results' => $results,
@@ -106,9 +106,37 @@ class Module extends Module_Base {
 	 */
 	public function ajax_call_control_value_titles( array $request ) {
 
-		$results = $this->get_component( $request['query_type'] )->get_value_titles( $request );
+		if ( empty( $request['query_type'] ) ) {
+			throw new \Exception( 'Bad Request' );
+		}
+
+		$results = $this->get_query_component( $request['query_type'] )->get_value_titles( $request );
 
 		return $results;
+	}
+
+	/**
+	 * Get the component for an ajax query type
+	 *
+	 * Elementor's ajax manager only checks its nonce, so the capability is
+	 * checked here before any query runs.
+	 *
+	 * @since  3.1.3
+	 * @param  string $query_type Query type from the request.
+	 * @return object
+	 */
+	private function get_query_component( $query_type ) {
+		if ( ! current_user_can( 'edit_posts' ) ) {
+			throw new \Exception( 'Access Denied' );
+		}
+
+		$component = is_string( $query_type ) ? $this->get_component( $query_type ) : null;
+
+		if ( ! $component ) {
+			throw new \Exception( 'Bad Request' );
+		}
+
+		return $component;
 	}
 
 	/**
