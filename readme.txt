@@ -287,6 +287,8 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 *	Security Fix: Posts - Fixed a security issue with AJAX filtering and pagination
 *	Security Fix: Admin notices - Fixed a security issue with the admin notices
 *	Security Fix: Multiple widgets - Fixed a security issue with links in the editor preview
+*	Security Fix: PowerPack settings - Fixed a security issue with the widget usage scan
+*	Development: Removed the unused ACF, Pods and Toolset field search code from query control
 
 = 3.1.2 - October 21, 2026 =
 *	Security Fix: Info Box Carousel - The item image URL is now escaped in the editor preview

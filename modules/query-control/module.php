@@ -27,21 +27,6 @@ class Module extends Module_Base {
 	public function __construct() {
 		parent::__construct();
 
-		// ACF 5 and up
-		if ( class_exists( '\acf' ) && function_exists( 'acf_get_field_groups' ) ) {
-			$this->add_component( 'acf', new Types\Acf() );
-		}
-
-		// Pods
-		if ( function_exists( 'pods' ) ) {
-			$this->add_component( 'pods', new Types\Pods() );
-		}
-
-		// Toolset
-		if ( function_exists( 'wpcf_admin_fields_get_groups' ) ) {
-			$this->add_component( 'toolset', new Types\Toolset() );
-		}
-
 		$this->add_component( 'posts', new Types\Posts() );
 		$this->add_component( 'terms', new Types\Terms() );
 		$this->add_component( 'authors', new Types\Authors() );

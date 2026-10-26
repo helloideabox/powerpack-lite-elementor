@@ -10,6 +10,8 @@ Release date: TBD
 * Security Fix: Posts - Fixed a security issue with AJAX filtering and pagination
 * Security Fix: Admin notices - Fixed a security issue with the admin notices
 * Security Fix: Multiple widgets - Fixed a security issue with links in the editor preview
+* Security Fix: PowerPack settings - Fixed a security issue with the widget usage scan
+* Development: Removed the unused ACF, Pods and Toolset field search code from query control
 
 == 3.1.2 ==
 Release date: October 21, 2026
