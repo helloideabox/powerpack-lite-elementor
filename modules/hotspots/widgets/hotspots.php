@@ -1075,10 +1075,13 @@ class Hotspots extends Powerpack_Widget {
 			$settings['image']['id'] = apply_filters( 'wpml_object_id', $settings['image']['id'], 'attachment', true );
 		}
 
+		// The size becomes part of the tooltip's class attribute, so only a listed option is allowed through.
+		$tooltip_size = in_array( $settings['tooltip_size'], array( 'default', 'tiny', 'small', 'large' ), true ) ? $settings['tooltip_size'] : 'default';
+
 		$tooltip_settings = array(
 			'always_open' => $settings['tooltip_always_open'],
 			'trigger'     => ( $settings['tooltip_trigger'] ) ? $settings['tooltip_trigger'] : 'hover',
-			'size'        => $settings['tooltip_size'],
+			'size'        => $tooltip_size,
 			'distance'    => ( $settings['distance']['size'] ) ? $settings['distance']['size'] : '',
 			'arrow'       => $settings['tooltip_arrow'],
 			'animation'   => $settings['tooltip_animation'],
@@ -1290,10 +1293,12 @@ class Hotspots extends Powerpack_Widget {
 		<#
 			var i = 1;
 
+			var tooltipSize = _.contains( [ 'default', 'tiny', 'small', 'large' ], settings.tooltip_size ) ? settings.tooltip_size : 'default';
+
 			var tooltipSettings = {
 				'always_open': settings.tooltip_always_open,
 				'trigger':     ( settings.tooltip_trigger !== '' ) ? settings.tooltip_trigger : 'hover',
-				'size':        settings.tooltip_size,
+				'size':        tooltipSize,
 				'distance':    ( settings.distance.size !== '' ) ? settings.distance.size : '',
 				'arrow':       settings.tooltip_arrow,
 				'animation':   settings.tooltip_animation,
