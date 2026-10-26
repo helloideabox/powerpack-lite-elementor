@@ -32,7 +32,7 @@
 					breakpoints       = elementorFrontend.config.responsive.activeBreakpoints;
 
 				let tooltipClass = `pp-tooltip pp-tooltip-${elementID}`;
-				if (tooltipSize) {
+				if (['default', 'tiny', 'small', 'large'].includes(tooltipSize)) {
 					tooltipClass += ` pp-tooltip-size-${tooltipSize}`;
 				}
 

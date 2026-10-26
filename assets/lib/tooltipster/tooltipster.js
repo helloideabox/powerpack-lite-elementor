@@ -3482,8 +3482,10 @@ $.pptooltipster._plugin({
 			
 			// note: we wrap with a .tooltipster-box div to be able to set a margin on it
 			// (.tooltipster-base must not have one)
+			// ppclass is added with addClass() rather than concatenated into the markup,
+			// so a value from widget settings can never be parsed as HTML
 			var $html = $(
-				'<div class="tooltipster-base tooltipster-sidetip ' + this.__options.ppclass + '">' +
+				'<div class="tooltipster-base tooltipster-sidetip">' +
 					'<div class="tooltipster-box">' +
 						'<div class="tooltipster-content"></div>' +
 					'</div>' +
@@ -3494,8 +3496,8 @@ $.pptooltipster._plugin({
 						'</div>' +
 					'</div>' +
 				'</div>'
-			);
-			
+			).addClass( this.__options.ppclass );
+
 			// hide arrow if asked
 			if (!this.__options.arrow) {
 				$html
