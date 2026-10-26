@@ -7,6 +7,7 @@ Release date: TBD
 * Security Fix: Query control - Fixed a security issue with the search in the editor
 * Security Fix: Instagram Feed - Fixed a security issue with the Instagram API requests
 * Security Fix: Contact Form 7, Fluent Forms and Ninja Forms - Fixed a security issue with the form settings
+* Security Fix: Posts - Fixed a security issue with AJAX filtering and pagination
 
 == 3.1.2 ==
 Release date: October 21, 2026

@@ -2,6 +2,7 @@
 namespace PowerpackElementsLite\Modules\Posts;
 
 use PowerpackElementsLite\Base\Module_Base;
+use PowerpackElementsLite\Classes\PP_Helper;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -130,6 +131,15 @@ class Module extends Module_Base {
 			wp_send_json_error( __( 'Invalid request.', 'powerpack-lite-for-elementor' ) );
 		}
 
+		/*
+		 * The request is open to visitors, so only a document they could view
+		 * is rendered: a published one they have not been locked out of by a
+		 * password, or one they can read, such as a draft they are previewing.
+		 */
+		if ( ! $this->can_view_document( $post_id ) ) {
+			wp_send_json_error( __( 'Invalid document.', 'powerpack-lite-for-elementor' ) );
+		}
+
 		$elementor = \Elementor\Plugin::$instance;
 
 		$document = $elementor->documents->get( $post_id );
@@ -161,7 +171,8 @@ class Module extends Module_Base {
 			'pagination' => '',
 		];
 
-		if ( null !== $widget_data ) {
+		// Only a Posts widget can render its posts here; anything else has no skin to ask.
+		if ( ! empty( $widget_data['widgetType'] ) && PP_Helper::get_widget_name( 'Posts' ) === $widget_data['widgetType'] ) {
 
 			$widget     = $elementor->elements_manager->create_element_instance( $widget_data );
 			$skin       = $widget->get_current_skin();
@@ -175,6 +186,28 @@ class Module extends Module_Base {
 		}
 
 		wp_send_json_success( $data );
+	}
+
+	/**
+	 * Whether the current visitor may view a document.
+	 *
+	 * @since 3.1.3
+	 * @access private
+	 * @param int $post_id Document ID.
+	 * @return bool
+	 */
+	private function can_view_document( $post_id ) {
+		$post = get_post( $post_id );
+
+		if ( ! $post ) {
+			return false;
+		}
+
+		if ( 'publish' === $post->post_status && ! post_password_required( $post ) ) {
+			return true;
+		}
+
+		return current_user_can( 'read_post', $post->ID );
 	}
 
 	/**
