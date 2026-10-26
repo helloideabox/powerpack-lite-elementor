@@ -771,10 +771,6 @@ class PowerpackLitePlugin {
 
 	public function get_promotion_widgets( $config ) {
 
-		if ( is_pp_elements_active() ) {
-			return $config;
-		}
-
 		$promotion_widgets = [];
 
 		if ( isset( $config['promotionWidgets'] ) ) {

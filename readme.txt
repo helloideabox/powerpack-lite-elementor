@@ -288,7 +288,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 *	Security Fix: Admin notices - Fixed a security issue with the admin notices
 *	Security Fix: Multiple widgets - Fixed a security issue with links in the editor preview
 *	Security Fix: PowerPack settings - Fixed a security issue with the widget usage scan
+*	Fix: Buttons, Contact Form 7, Content Reveal, Formidable Forms, Ninja Forms and Posts - The "Get PowerPack Pro" section appeared twice
 *	Development: Removed the unused ACF, Pods and Toolset field search code from query control
+*	Development: Removed the unused is_pp_elements_active() function
 
 = 3.1.2 - October 21, 2026 =
 *	Security Fix: Info Box Carousel - The item image URL is now escaped in the editor preview

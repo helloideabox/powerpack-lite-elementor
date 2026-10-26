@@ -59,7 +59,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$this->register_button_controls();
 		$this->register_pagination_controls();
 		$this->register_content_order();
-		$this->register_content_upgrade_pro_controls();
 	}
 
 	public function register_style_controls() {
@@ -1702,50 +1701,6 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		);
 
 		$this->end_controls_section();
-	}
-
-
-	/**
-	 * Content Tab: Upgrade pro section
-	 *
-	 * @since 2.1.0
-	 * @access protected
-	 */
-	protected function register_content_upgrade_pro_controls() {
-		if ( ! is_pp_elements_active() ) {
-			$this->start_controls_section(
-				'section_upgrade_powerpack',
-				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', esc_html__( 'Get PowerPack Pro', 'powerpack-lite-for-elementor' ) ),
-					'tab'   => Controls_Manager::TAB_CONTENT,
-				)
-			);
-
-			$this->add_control(
-				'upgrade_powerpack_notice',
-				array(
-					'label' => '',
-					'type'  => Controls_Manager::RAW_HTML,
-					'raw'   => apply_filters(
-						'upgrade_powerpack_message',
-						wp_kses_post(
-							sprintf(
-								/* translators: 1: Opening anchor tag, 2: Closing anchor tag. */
-								__(
-									'Upgrade to %1$sPro Version%2$s for 90+ widgets, exciting extensions and advanced features.',
-									'powerpack-lite-for-elementor'
-								),
-								'<a href="https://powerpackelements.com/upgrade/?utm_medium=pp-elements-lite&utm_source=pp-widget-upgrade-section&utm_campaign=pp-pro-upgrade" target="_blank" rel="noopener">',
-								'</a>'
-							)
-						)
-					),
-					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				)
-			);
-
-			$this->end_controls_section();
-		}
 	}
 
 	/*-----------------------------------------------------------------------------------*/

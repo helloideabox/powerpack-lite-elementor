@@ -33,22 +33,22 @@ if ( defined( 'POWERPACK_ELEMENTS_VER' ) ) {
 	return;
 }
 
-$pp_lite_active_plugins = (array) get_option( 'active_plugins', array() );
+$powerpack_lite_active_plugins = (array) get_option( 'active_plugins', array() );
 
 if ( is_multisite() ) {
-	$pp_lite_active_plugins = array_merge(
-		$pp_lite_active_plugins,
+	$powerpack_lite_active_plugins = array_merge(
+		$powerpack_lite_active_plugins,
 		array_keys( (array) get_site_option( 'active_sitewide_plugins', array() ) )
 	);
 }
 
-foreach ( $pp_lite_active_plugins as $pp_lite_active_plugin ) {
-	if ( 'powerpack-elements.php' === basename( $pp_lite_active_plugin ) ) {
+foreach ( $powerpack_lite_active_plugins as $powerpack_lite_active_plugin ) {
+	if ( 'powerpack-elements.php' === basename( $powerpack_lite_active_plugin ) ) {
 		return;
 	}
 }
 
-unset( $pp_lite_active_plugins, $pp_lite_active_plugin );
+unset( $powerpack_lite_active_plugins, $powerpack_lite_active_plugin );
 
 define( 'POWERPACK_ELEMENTS_LITE_VER', '3.1.2' );
 define( 'POWERPACK_ELEMENTS_LITE_PATH', plugin_dir_path( __FILE__ ) );
@@ -216,22 +216,6 @@ function powerpack_elements_lite_init() {
 	if ( current_user_can('activate_plugins') && 'yes' !== $is_plugin_activated ) {
 		update_option( 'pp_install_date', current_time( 'mysql' ) );
 		update_option( 'pp_plugin_activated', 'yes' );
-	}
-}
-
-/**
- * Check if PowerPack Elements is active
- *
- * @since 1.2.9.4
- *
- */
-if ( ! function_exists( 'is_pp_elements_active' ) ) {
-	function is_pp_elements_active() {
-		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
-		$plugin = 'powerpack-elements/powerpack-elements.php';
-
-		return is_plugin_active( $plugin ) || function_exists( 'pp_init' );
 	}
 }
 

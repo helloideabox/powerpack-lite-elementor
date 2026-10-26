@@ -571,28 +571,6 @@ class Buttons extends Powerpack_Widget {
 		);
 		$this->end_controls_section();
 
-		if ( ! is_pp_elements_active() ) {
-			$this->start_controls_section(
-				'section_upgrade_powerpack',
-				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack-lite-for-elementor' ) ),
-					'tab'   => Controls_Manager::TAB_CONTENT,
-				)
-			);
-
-			$this->add_control(
-				'upgrade_powerpack_notice',
-				array(
-					'label'           => '',
-					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => PP_Helper::get_upgrade_notice(),
-					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				)
-			);
-
-			$this->end_controls_section();
-		}
-
 		/**
 		 * Style Tab: Layout
 		 */

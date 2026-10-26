@@ -93,7 +93,6 @@ class Formidable_Forms extends Powerpack_Widget {
 		/* Content Tab */
 		$this->register_content_form_controls();
 		$this->register_content_errors_controls();
-		$this->register_content_upgrade_pro_controls();
 
 		/* Style Tab */
 		$this->register_style_title_controls();
@@ -283,38 +282,6 @@ class Formidable_Forms extends Powerpack_Widget {
 		);
 
 		$this->end_controls_section();
-	}
-
-
-	/**
-	 * Content Tab: Upgrade PowerPack
-	 *
-	 * @since 1.2.9.4
-	 * @access protected
-	 */
-	protected function register_content_upgrade_pro_controls() {
-
-		if ( ! is_pp_elements_active() ) {
-			$this->start_controls_section(
-				'section_upgrade_powerpack',
-				array(
-					'label' => apply_filters( 'upgrade_powerpack_title', __( 'Get PowerPack Pro', 'powerpack-lite-for-elementor' ) ),
-					'tab'   => Controls_Manager::TAB_CONTENT,
-				)
-			);
-
-			$this->add_control(
-				'upgrade_powerpack_notice',
-				array(
-					'label'           => '',
-					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => PP_Helper::get_upgrade_notice(),
-					'content_classes' => 'upgrade-powerpack-notice elementor-panel-alert elementor-panel-alert-info',
-				)
-			);
-
-			$this->end_controls_section();
-		}
 	}
 
 	/*-----------------------------------------------------------------------------------*/

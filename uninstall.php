@@ -113,13 +113,13 @@ function powerpack_elements_lite_uninstall_opted_in() {
 }
 
 if ( is_multisite() ) {
-	$pp_lite_site_ids = get_sites( [
+	$powerpack_lite_site_ids = get_sites( [
 		'fields' => 'ids',
 		'number' => 0,
 	] );
 
-	foreach ( $pp_lite_site_ids as $pp_lite_site_id ) {
-		switch_to_blog( $pp_lite_site_id );
+	foreach ( $powerpack_lite_site_ids as $powerpack_lite_site_id ) {
+		switch_to_blog( $powerpack_lite_site_id );
 
 		// Each site keeps its own preference, so one site opting out is
 		// respected even when the plugin is deleted network wide.
@@ -131,8 +131,8 @@ if ( is_multisite() ) {
 	}
 
 	if ( (bool) get_site_option( 'pp_delete_data_on_uninstall' ) ) {
-		foreach ( powerpack_elements_lite_uninstall_option_keys() as $pp_lite_key ) {
-			delete_site_option( $pp_lite_key );
+		foreach ( powerpack_elements_lite_uninstall_option_keys() as $powerpack_lite_key ) {
+			delete_site_option( $powerpack_lite_key );
 		}
 	}
 } elseif ( powerpack_elements_lite_uninstall_opted_in() ) {
